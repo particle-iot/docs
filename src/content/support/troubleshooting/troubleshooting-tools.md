@@ -85,7 +85,7 @@ The IMEI of the cellular modem will also be printed.
 
 To get the Device OS (previously called system firmware) version of your device, type `v`
 
-This will give you an output indicating the [firmware](https://github.com/particle-iot/firmware/blob/develop/CHANGELOG.md) that your device is using.
+This will give you an output indicating the [firmware](https://github.com/particle-iot/device-os/blob/develop/CHANGELOG.md) that your device is using.
 
 Sample output:
 

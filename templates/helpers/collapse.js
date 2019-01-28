@@ -2,8 +2,6 @@ var crypto = require('crypto');
 
 var Handlebars = require('handlebars');
 
-// Default computerOs (when not stored in localstorage) is set in src/assets/js/collapse.js
-
 var collapseConfig = {
 	'computerOs':{
 		'prompt':'Select computer operating system:',
@@ -34,6 +32,18 @@ var collapseConfig = {
 		'options':[
 			{'title':'Electron or E Series', 'tag':'Electron'},
 			{'title':'Boron', 'tag':'Boron'}
+		]				
+	},
+	'simType':{
+		'prompt':'Select the type of cellular device you have:',
+		'defaultValue':'Electron',
+		'cssClass':'collapseSimType',
+		'op':'simType',
+		'multilineSelector':true,
+		'options':[
+			{'title':'Electron 2G (G350), Electron 3G (U260/U270), or E Series 2G/3G (E310)', 'tag':'Electron'},
+			{'title':'E Series LTE (E402) or Boron LTE', 'tag':'LTE'},
+			{'title':'Boron 2G/3G', 'tag':'Boron'}
 		]				
 	}
 };
@@ -90,6 +100,10 @@ module.exports = function(context) {
 			    			html += '<input type="radio" class="' + genericClass + ' ' + specificClass + '" id=" + id + ">'; 
 			    			html += '<label for="' + id + '">' + collapseConfig[key].options[ii].title + '&nbsp;&nbsp;&nbsp;&nbsp;</label>';
 			    			html += '</span>';
+			    			
+			    			if (collapseConfig[key].multilineSelector) {
+			    				html += '<br/>';
+			    			}
 			    		}
 			    		
 			    		html += '<input type="hidden" class="collapseDefault" name="' + genericClass + '" value="' + collapseConfig[key].defaultValue + '"/>';

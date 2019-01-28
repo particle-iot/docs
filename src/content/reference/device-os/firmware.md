@@ -43,6 +43,18 @@ void setup() {
 ```
 {{/if}} {{!-- has-cellular --}}
 
+**Overview of API field limits**
+
+| API Field | Prior to 0.8.0 | Since 0.8.0 | Comment |
+|--:|--:|--:|:--|
+| Variable Key | 12 | 64 | |
+| Variable Data | 622 | 622 | |
+| Function Key | 12 | 64 | |
+| Function Argument | 63 | 622 | |
+| Publish/Subscribe Event Name | 64 | 64 | |
+| Publish/Subscribe Event Data | 255 | 622 |  |
+**Note:** Spark Core limits remain as-is prior to 0.8.0
+
 ### Particle.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
@@ -60,7 +72,6 @@ String aString;
 
 void setup()
 {
-  // variable name max length is 12 characters long
   Particle.variable("analogvalue", analogvalue);
   Particle.variable("temp", tempC);
   if (Particle.variable("mess", message)==false)
@@ -82,7 +93,7 @@ void loop()
 }
 ```
 
-Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters.
+Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).  The Spark Core remains limited to 12 characters.
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
@@ -107,7 +118,6 @@ char *message = "my name is particle";
 
 void setup()
 {
-  // variable name max length is 12 characters long
   Particle.variable("analogvalue", &analogvalue, INT);
   Particle.variable("temp", &tempC, DOUBLE);
   if (Particle.variable("mess", message, STRING)==false)
@@ -156,13 +166,14 @@ int funcName(String extra) {
 }
 ```
 
-Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters.
+Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). The Spark Core remains limited to 12 characters.
 
 **Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+A function callback procedure needs to return as quickly as possible otherwise the cloud call will timeout.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
-A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
+A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The Spark Core remains limited to 63 characters.
 
 When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
 
@@ -207,6 +218,11 @@ You can expose a method on a C++ object to the Cloud.
 class CoffeeMaker {
   public:
     CoffeeMaker() {
+    }
+    
+    void setup() {
+      // You should not call Particle.function from the constructor 
+      // of an object that will be declared as a global variable.
       Particle.function("brew", &CoffeeMaker::brew, this);
     }
 
@@ -217,7 +233,10 @@ class CoffeeMaker {
 };
 
 CoffeeMaker myCoffeeMaker;
-// nothing else needed in setup() or loop()
+
+void setup() {
+	myCoffeeMaker.setup();
+}
 ```
 
 ---
@@ -249,14 +268,14 @@ Mesh devices support Particle.publish as well as Mesh.publish, which allows publ
 
 Cloud events have the following properties:
 
-* name (1–63 ASCII characters)
+* name (1–64 ASCII characters)
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 * public/private (default public)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
-* optional data (up to 255 bytes)
+* optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
 
 Anyone may subscribe to public events; think of them like tweets.
 Only the owner of the device will be able to subscribe to private events.
@@ -522,6 +541,10 @@ Particle.unsubscribe();
 ### Particle.connect()
 
 `Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
+
+{{#if has-mesh}}
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling `Particle.connect()`.
+{{/if}}
 
 ```cpp
 void setup() {}
@@ -862,7 +885,24 @@ void setup() {
 {{#if has-mesh}}
 ## Mesh
 
-At the time of writing (Device OS 0.8.0-rc.25), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time.
+### Antenna selection
+
+At the time of writing (Device OS 0.8.0-rc.26), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
+
+```
+void selectExternalMeshAntenna() {
+
+#if (PLATFORM_ID == PLATFORM_ARGON)
+    digitalWrite(ANTSW1, 1);
+    digitalWrite(ANTSW2, 0);
+#elif (PLATFORM_ID == PLATFORM_BORON)
+    digitalWrite(ANTSW1, 0);
+#else
+    digitalWrite(ANTSW1, 0);
+    digitalWrite(ANTSW2, 1);
+#endif
+}
+```
 
 ### publish()
 
@@ -893,7 +933,7 @@ Mesh.publish("motion-sensor", "living room");
 
 ### subscribe()
 
-Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name.
+Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name. You can have up to 5 mesh subscription handlers.
 
 ```C++
 
@@ -908,6 +948,9 @@ void setup()
   Mesh.subscribe("motion-sensor", myHandler);
 }
 ```
+
+The return value is an int (integer), `SYSTEM_ERROR_NONE` if successful or `SYSTEM_ERROR_NO_MEMORY` if there are no slots left. This is different from Particle.subscribe which returns a bool (boolean).
+
 
 ### on()
 
@@ -1298,6 +1341,9 @@ WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 
 If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
+{{#if has-mesh}}
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+{{/if}}
 
 ### disconnect()
 
@@ -1477,6 +1523,7 @@ Allows the application to set credentials for the Wi-Fi network from within the 
 Your device can remember more than one set of credentials:
 - Core: remembers the 7 most recently set credentials
 - Photon: remembers the 5 most recently set credentials.
+- Argon: remembers the 10 most recently set credentials.
 
 {{#if has-stm32}}
 {{since when="0.7.0"}} Photon can store one set of WPA Enterprise credentials.
@@ -1718,8 +1765,78 @@ void setup() {
 
 ```cpp
 // SYNTAX
-WiFi.RSSI();
+int rssi = WiFi.RSSI();
+WiFiSignal rssi = WiFi.RSSI();
 ```
+
+_Since 0.8.0_
+
+`WiFi.RSSI()` returns an instance of [`WiFiSignal`](#wifisignal-class) class.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+```
+
+### WiFiSignal Class
+
+This class allows to query a number of signal parameters of the currently connected WiFi network.
+
+#### getStrength()
+
+Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how strength values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float strength = sig.getStrength();
+
+// EXAMPLE
+WiFiSignal sig = WiFi.RSSI();
+Log.info("WiFi signal strength: %.02f%%", sig.getStrength());
+```
+
+Returns: `float`
+
+#### getQuality()
+
+Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how quality values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float quality = sig.getQuality();
+
+// EXAMPLE
+WiFiSignal sig = WiFi.RSSI();
+Log.info("WiFi signal quality: %.02f%%", sig.getQuality());
+```
+
+Returns: `float`
+
+#### getStrengthValue()
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float strength = sig.getStrengthValue();
+```
+
+Gets the raw signal strength value in dBm. Range: [-90, 0].
+
+Returns: `float`
+
+#### getQualityValue()
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float quality = sig.getQualityValue();
+```
+
+Gets the raw signal quality value (SNR) in dB. Range: [0, 90].
+
+Returns: `float`
 
 ### ping()
 
@@ -2435,7 +2552,7 @@ if (strcmp(url,"/index")==0) {
 
 ### Complete Example
 
-Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to GitHub user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
+Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to GitHub user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/device-os/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
 
 
 
@@ -2554,6 +2671,10 @@ Attempts to connect to the Cellular network. If there are no credentials entered
 // SYNTAX
 Cellular.connect();
 ```
+
+{{#if has-mesh}}
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+{{/if}}
 
 ### disconnect()
 
@@ -2942,7 +3063,7 @@ Cellular.resetDataUsage();
 
 ### RSSI()
 
-`Cellular.RSSI()` returns a struct of type `CellularSignal` that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
+`Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
 
 `CellularSignal`
 - `rssi`: (`int`) is the signal strength with range -113dBm to -51dBm (in 2dBm steps). This variable also doubles as an error response for the entire struct; positive return values indicate an error with:
@@ -2951,6 +3072,9 @@ Cellular.resetDataUsage();
 - `qual`: (`int`) is a number in UMTS RAT indicating the Energy per Chip/Noise ratio in dB levels of the current cell. This value ranges from 0 to 49, higher numbers indicate higher signal quality.
 
 **Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+
+_Since 0.8.0_
+See additional documentation on [`CellularSignal`](#cellularsignal-class) class.
 
 ```C++
 // SYNTAX
@@ -2989,8 +3113,88 @@ void loop()
 }
 ```
 
+### CellularSignal Class
 
-bool Cellular.getBandSelect(CellularBand &data_get);
+This class allows to query a number of signal parameters of the currently connected Cellular network.
+
+#### getAccessTechnology()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+int rat = sig.getAccessTechnology();
+```
+
+Gets the current radio access technology (RAT) in use.
+
+The following radio technologies are defined:
+- `NET_ACCESS_TECHNOLOGY_GSM`: 2G RAT
+- `NET_ACCESS_TECHNOLOGY_EDGE`: 2G RAT with EDGE
+- `NET_ACCESS_TECHNOLOGY_UMTS`/`NET_ACCESS_TECHNOLOGY_UTRAN`/`NET_ACCESS_TECHNOLOGY_WCDMA`: UMTS RAT
+- `NET_ACCESS_TECHNOLOGY_LTE`: LTE RAT
+
+#### getStrength()
+
+Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how raw RAT-specific strength values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float strength = sig.getStrength();
+
+// EXAMPLE
+CellularSignal sig = Cellular.RSSI();
+Log.info("Cellular signal strength: %.02f%%", sig.getStrength());
+```
+
+Returns: `float`
+
+#### getQuality()
+
+Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how raw RAT-specific quality values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float quality = sig.getQuality();
+
+// EXAMPLE
+CellularSignal sig = Cellular.RSSI();
+Log.info("Cellular signal quality: %.02f%%", sig.getQuality());
+```
+
+Returns: `float`
+
+#### getStrengthValue()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float strength = sig.getStrengthValue();
+```
+
+Gets the raw signal strength value. This value is RAT-specific. See [`getAccessTechnology()`](#getaccesstechnology-) for a list of radio access technologies.
+
+- 2G RAT / 2G RAT with EDGE: RSSI in dBm. Range: [-111, -48] as specified in 3GPP TS 45.008 8.1.4.
+- UMTS RAT: RSCP in dBm. Range: [-121, -25] as specified in 3GPP TS 25.133 9.1.1.3.
+
+Returns: `float`
+
+#### getQualityValue()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float quality = sig.getQualityValue();
+```
+
+Gets the raw signal quality value. This value is RAT-specific. See [`getAccessTechnology()`](#getaccesstechnology-) for a list of radio access technologies.
+
+- 2G RAT: Bit Error Rate (BER) in % as specified in 3GPP TS 45.008 8.2.4. Range: [0.14%, 18.10%]
+- 2G RAT with EDGE: log10 of Mean Bit Error Probability (BEP) as defined in 3GPP TS 45.008. Range: [-0.60, -3.60] as specified in 3GPP TS 45.008 10.2.3.3.
+- UMTS RAT: Ec/Io (dB) [-24.5, 0], as specified in 3GPP TS 25.133 9.1.2.3.
+
+Returns: `float`
 
 ### getBandAvailable()
 
@@ -4305,7 +4509,7 @@ Voltage can be:
 
 The default charge voltage is 4112, which corresponds to 4.112 volts. 
 
-You can also set it 4208, which corresponds to 4.208 volts. This higher voltage should not be used if the battery will be charged in temperatures exceeding 45°F. Using a higher charge voltage will allow the battery to reach a higher state-of-charge (SoC) but could damage the battery at high temperatures.
+You can also set it 4208, which corresponds to 4.208 volts. This higher voltage should not be used if the battery will be charged in temperatures exceeding 45°C. Using a higher charge voltage will allow the battery to reach a higher state-of-charge (SoC) but could damage the battery at high temperatures.
 
 
 ```
@@ -5613,7 +5817,7 @@ This function takes no parameters and does not return anything.
 Keyboard.write(character);
 ```
 
-Momentarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/particle-iot/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
+Momentarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/particle-iot/device-os/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
 
 ```cpp
 // EXAMPLE USAGE
@@ -5644,7 +5848,7 @@ Keyboard.click(key);
 Keyboard.click(key, modifiers);
 ```
 
-Momentarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
+Momentarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
 
 ```cpp
 // EXAMPLE USAGE
@@ -5658,8 +5862,8 @@ void setup() {
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `click()` does not return anything.
 
@@ -5692,8 +5896,8 @@ void setup() {
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `press()` does not return anything.
 
@@ -5723,8 +5927,8 @@ See [`Keyboard.click()`](#click--1) documentation for information about keycodes
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `release()` does not return anything.
 
@@ -5811,8 +6015,10 @@ be used via the `SPI1` object. This second port is mapped as follows:
 {{/if}}
 {{#if has-nrf52}}
 * `SCK` => `D2`
-* `MISO` => `D3`
-* `MOSI` => `D4`
+* `MOSI` => `D3`
+* `MISO` => `D4`
+
+Note: On 3rd-generation devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
 {{/if}}
 {{/if}}
 
@@ -7050,12 +7256,25 @@ Gets a client that is connected to the server and has data available for reading
 
 ### write()
 
-Write data to the last client that connected to a server. This data is sent as a byte or series of bytes.
+Write data to the last client that connected to a server. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
+
+_Since 0.7.0_
+{{#if photon}}
+
+This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
+{{/if}}
+
+The application code may additionally check if an error occured during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
+
 
 ```C++
 // SYNTAX
 server.write(val);
 server.write(buf, len);
+{{#if photon}}
+server.write(val, timeout);
+server.write(buf, len, timeout);
+{{/if}}
 ```
 
 Parameters:
@@ -7063,8 +7282,13 @@ Parameters:
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
+{{#if photon}}
+- `timeout`: timeout in milliseconds (`0` - non-blocking mode)
+{{/if}}
 
-Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this.
+Returns: `size_t`: `write()` returns the number of bytes written.
+
+**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use [`getWriteError()`](#getwriteerror-) to check for write errors.
 
 ### print()
 
@@ -7099,9 +7323,38 @@ Parameters:
 - `data` (optional): the data to print (char, byte, int, long, or string)
 - `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
+### getWriteError()
+
+Get the error code of the most recent [`write()`](#write--3) operation.
+
+Returns: int `0` when everything is ok, a non-zero error code in case of an error.
+
+This value is updated every after every call to [`write()`](#write--3) or can be manually cleared by  [`clearWriteError()`](#clearwriteerror-)
+
+```C++
+// SYNTAX
+int err = server.getWriteError();
+```
+
+```C++
+// EXAMPLE
+TCPServer server;
+// Write in non-blocking mode to the last client that connected to the server
+int bytes = server.write(buf, len, 0);
+int err = server.getWriteError();
+if (err != 0) {
+  Log.trace("TCPServer::write() failed (error = %d), number of bytes written: %d", err, bytes);
+}
+```
+
+### clearWriteError()
+
+Clears the error code of the most recent [`write()`](#write--3) operation setting it to `0`. This function is automatically called by [`write()`](#write--3).
 {{/if}}
 
 {{#if has-tcpclient}}
+
+`clearWriteError()` does not return anything.
 
 ## TCPClient
 
@@ -7212,12 +7465,25 @@ Returns true if the connection succeeds, false if not.
 
 ### write()
 
-Write data to the server the client is connected to. This data is sent as a byte or series of bytes.
+Write data to the server the client is connected to. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
+
+_Since 0.7.0_
+{{#if photon}}
+
+This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
+{{/if}}
+
+The application code may additionally check if an error occured during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
+
 
 ```C++
 // SYNTAX
 client.write(val);
 client.write(buf, len);
+{{#if photon}}
+client.write(val, timeout);
+client.write(buf, len, timeout);
+{{/if}}
 ```
 
 Parameters:
@@ -7225,8 +7491,13 @@ Parameters:
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
+{{#if photon}}
+- `timeout`: timeout in milliseconds (`0` - non-blocking mode)
+{{/if}}
 
-Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this value.
+Returns: `size_t`: `write()` returns the number of bytes written.
+
+**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} to check for write errors.
 
 ### print()
 
@@ -7363,8 +7634,39 @@ Disconnect from the server.
 // SYNTAX
 client.stop();
 ```
-{{/if}}
 
+### getWriteError()
+
+Get the error code of the most recent [`write()`](#write--4) operation.
+
+Returns: int `0` when everything is ok, a non-zero error code in case of an error.
+
+
+This value is updated every after every call to [`write()`](#write--4) or can be manually cleared by {{#if has-tcpserver}}[`clearWriteError()`](#clearwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`clearWriteError()`](#clearwriteerror-){{/if}}
+
+
+```C++
+// SYNTAX
+int err = client.getWriteError();
+```
+
+```C++
+// EXAMPLE
+TCPClient client;
+// Write in non-blocking mode
+int bytes = client.write(buf, len, 0);
+int err = client.getWriteError();
+if (err != 0) {
+  Log.trace("TCPClient::write() failed (error = %d), number of bytes written: %d", err, bytes);
+}
+```
+
+### clearWriteError()
+
+Clears the error code of the most recent [`write()`](#write--4) operation setting it to `0`. This function is automatically called by [`write()`](#write--4).
+
+`clearWriteError()` does not return anything.
+{{/if}}
 
 ## UDP
 
@@ -7772,7 +8074,7 @@ Parameters:
 Returns:
 - `int`: The number of bytes written. Negative value on error.
 
-{{#if photon}}
+{{#if has-udp-multicast}}
 ### joinMulticast()
 
 {{since when="0.4.5"}}
@@ -7813,11 +8115,13 @@ IPAddress multicastAddress(224,0,0,0);
 Udp.leaveMulticast(multicastAddress);
 ```
 
-{{/if}} {{!-- photon --}}
+{{/if}} {{!-- has-udp-multicast --}}
 
 ## Servo
 
 This library allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
+
+This example uses pin D0, but D0 cannot be used for Servo on all devices.
 
 ```cpp
 // EXAMPLE CODE
@@ -7851,6 +8155,10 @@ void loop()
 
 **NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
 
+{{#if has-nrf52}}
+**NOTE:** Servo is only supported on mesh devices in Device OS 0.8.0-rc.26 and later.
+{{/if}}
+
 
 ### attach()
 
@@ -7858,6 +8166,10 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 
 - on the Core, Servo can be connected to A0, A1, A4, A5, A6, A7, D0, and D1.
 - on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
+- on the P1, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, P1S0, P1S1
+- on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
+- on mesh devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for Servo.
+
 
 ```cpp
 // SYNTAX
@@ -10469,7 +10781,7 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 |       | button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
 | 0.6.1 | time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
 | 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
-
+| 0.8.0 | out_of_memory | 1<<18 | event generated when a request for memory could not be satisfied | the amount in bytes of memory that could not be allocated | 
 
 ## System Modes
 
@@ -11095,11 +11407,31 @@ System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
 // Very low power usage.
 System.sleep(wakeUpPin, edgeTriggerMode, seconds);
 
+_Since 0.8.0_
+// Turn off {{network-type}}.
+// Pause microcontroller.
+// Application resumes on pin trigger (any of the provided pins) or after seconds.
+// Very low power usage.
+System.sleep(wakeUpPins, edgeTriggerMode, seconds);
+System.sleep(wakeUpPins, edgeTriggerModes, seconds);
+System.sleep(wakeUpPins, wakeUpPinsCount, edgeTriggerMode, seconds);
+System.sleep(wakeUpPins, wakeUpPinsCount, edgeTriggerModes, edgeTriggerModesCount, seconds);
+
 {{#if has-cellular}}
 // Keep {{network-type}} running.
 // Pause microcontroller.
 // Application resumes on pin trigger or after seconds.
 System.sleep(wakeUpPin, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
+
+_Since 0.8.0_
+// Keep {{network-type}} running.
+// Pause microcontroller.
+// Application resumes on pin trigger (any of the provided pins) or after seconds.
+// Very low power usage.
+System.sleep(wakeUpPins, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
+System.sleep(wakeUpPins, edgeTriggerModes, seconds, SLEEP_NETWORK_STANDBY);
+System.sleep(wakeUpPins, wakeUpPinsCount, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
+System.sleep(wakeUpPins, wakeUpPinsCount, edgeTriggerModes, edgeTriggerModesCount, seconds, SLEEP_NETWORK_STANDBY);
 {{/if}}
 ```
 
@@ -11135,6 +11467,12 @@ System.sleep(SLEEP_MODE_DEEP, long seconds);
 // Put the device into deep sleep for 60 seconds
 System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
+
+// Since 0.8.0
+// Put the device into deep sleep for 60 seconds and disable {{#if core}}A7{{else}}WKP{{/if}} pin
+System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
+// The device LED will shut off during deep sleep
+// The device will not wake up if a rising edge signal is applied to {{#if core}}A7{{else}}WKP{{/if}}
 ```
 
 In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
@@ -11147,6 +11485,9 @@ The device will automatically *wake up* and reestablish the network connection a
 
 **Note:**
 You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
+
+_Since 0.8.0_
+Wake up by {{#if core}}A7{{else}}WKP{{/if}} pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
 
 {{#if has-fuel-gauge}}
 ---
@@ -11189,7 +11530,7 @@ System.sleep(D1,RISING);
 ```
 
 {{#if core}}
-It is mandatory to update the *bootloader* (https://github.com/particle-iot/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
+It is mandatory to update the *bootloader* (https://github.com/particle-iot/device-os/tree/bootloader-patch-update) for proper functioning of this mode.
 {{/if}}
 
 {{#if has-cellular}}
@@ -11206,8 +11547,76 @@ The Electron maintains the cellular connection for the duration of the sleep whe
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
+{{#if electron}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
+
+_Since 0.8.0_
+```C++
+// SYNTAX
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount);
+{{#if has-cellular}}
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins
+// Specify the pins in-place (using std::initializer_list)
+System.sleep({D1, A4}, RISING);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin
+// Specify the pins and edge trigger mode in-place (using std::initializer_list)
+System.sleep({D1, A4}, {RISING, FALLING});
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins
+// Specify the pins in an array
+pin_t wakeUpPins[2] = {D1, A4};
+System.sleep(wakeUpPins, 2, RISING);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin
+// Specify the pins and edge trigger modes in an array
+pin_t wakeUpPins[2] = {D1, A4};
+InterruptMode edgeTriggerModes[2] = {RISING, FALLING};
+System.sleep(wakeUpPins, 2, edgeTriggerModes, 2);
+// The device LED will shut off during sleep
+```
+
+Multiple wakeup pins may be specified for this mode.
+
+*Parameters:*
+
+- `wakeUpPins`: a list of wakeup pins:
+    - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
+    - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
+    - supports external interrupts on the following pins:
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+- `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `edgeTriggerModes`: defines when the interrupt should be triggered on a specific pin from `wakeUpPins` list:
+    - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
+    - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
+- `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
+{{#if electron}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
 
 ```C++
 // SYNTAX
@@ -11223,8 +11632,9 @@ System.sleep(D1,RISING,60);
 // The device LED will shut off during sleep
 ```
 
-{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/particle-iot/firmware/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
 
+{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/particle-iot/device-os/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
 
 *Parameters:*
 
@@ -11240,6 +11650,74 @@ System.sleep(D1,RISING,60);
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
+_Since 0.8.0_
+```C++
+// SYNTAX
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, long seconds);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, long seconds);
+{{#if has-cellular}}
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY, long seconds);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins or wakeup after 60 seconds whichever comes first
+// Specify the pins in-place (using std::initializer_list)
+System.sleep({D1, A4}, RISING, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin or wakeup after 60 seconds whichever comes first
+// Specify the pins and edge trigger mode in-place (using std::initializer_list)
+System.sleep({D1, A4}, {RISING, FALLING}, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins or wakeup after 60 seconds whichever comes first
+// Specify the pins in an array
+pin_t wakeUpPins[2] = {D1, A4};
+System.sleep(wakeUpPins, 2, RISING, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin or wakeup after 60 seconds whichever comes first
+// Specify the pins and edge trigger modes in an array
+pin_t wakeUpPins[2] = {D1, A4};
+InterruptMode edgeTriggerModes[2] = {RISING, FALLING};
+System.sleep(wakeUpPins, 2, edgeTriggerModes, 2, 60);
+// The device LED will shut off during sleep
+```
+
+Multiple wakeup pins may be specified for this mode.
+
+*Parameters:*
+
+- `wakeUpPins`: a list of wakeup pins:
+    - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
+    - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
+    - supports external interrupts on the following pins:
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+- `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `edgeTriggerModes`: defines when the interrupt should be triggered on a specific pin from `wakeUpPins` list:
+    - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
+    - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
+- `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
+{{#if electron}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
+
+
 *Power consumption:*
 
 - Core
@@ -11252,9 +11730,197 @@ System.sleep(D1,RISING,60);
 _Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
-_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
+_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.
+
+_Since 0.8.0_ All `System.sleep()` variants return an instance of [`SleepResult`](#sleepresult-) class that can be queried on the result of `System.sleep()` execution.
+
+_Since 0.8.0_ An application may check the information about the latest sleep by using [`System.sleepResult()`](#sleepresult-) or additional accessor methods:
+- [`System.wakeUpReason()`](#wakeupreason-)
+- [`System.wokenUpByPin()`](#wokenupbypin--1)
+- [`System.wokenUpByRtc()`](#wokenupbyrtc--1)
+- [`System.wakeUpPin()`](#wakeuppin-)
+- [`System.sleepError()`](#sleeperror-)
 
 {{/if}} {{!-- has-sleep --}}
+
+### SleepResult Class
+
+_Since 0.8.0_
+
+This class allows to query the information about the latest `System.sleep()`.
+
+#### reason()
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+int reason = result.reason();
+```
+
+Get the wake up reason.
+
+```C++
+// EXAMPLE
+SleepResult result = System.sleepResult();
+switch (result.reason()) {
+  case WAKEUP_REASON_NONE: {
+    Log.info("{{device}} did not wake up from sleep");
+    break;
+  }
+  case WAKEUP_REASON_PIN: {
+    Log.info("{{device}} was woken up by a pin");
+    break;
+  }
+  case WAKEUP_REASON_RTC: {
+    Log.info("{{device}} was woken up by the RTC (after a specified number of seconds)");
+    break;
+  }
+  case WAKEUP_REASON_PIN_OR_RTC: {
+    Log.info("{{device}} was woken up by either a pin or the RTC (after a specified number of seconds)");
+    break;
+  }
+}
+```
+
+Returns a code describing a reason {{device}} woke up from sleep. The following reasons are defined:
+- `WAKEUP_REASON_NONE`: {{device}} did not wake up from sleep
+- `WAKEUP_REASON_PIN`: {{device}} was woken up by an edge signal to a pin
+- `WAKEUP_REASON_RTC`: {{device}} was woken up by the RTC (after a specified number of seconds)
+- `WAKEUP_REASON_PIN_OR_RTC`: {{device}} was woken up either by an edge signal to a pin or by the RTC (after a specified number of seconds)
+
+
+#### wokenUpByPin()
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+bool r = result.wokenUpByPin();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+if (result.wokenUpByPin()) {
+  Log.info("{{device}} was woken up by a pin");
+}
+```
+
+Returns `true` when {{device}} was woken up by a pin.
+
+#### wokenUpByRtc()
+
+Returns `true` when {{device}} was woken up by the RTC (after a specified number of seconds).
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+bool r = result.wokenUpByRtc();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+if (result.wokenUpByRtc()) {
+  Log.info("{{device}} was woken up by the RTC (after a specified number of seconds)");
+}
+```
+
+#### rtc()
+
+An alias to [`wokenUpByRtc()`](#wokenupbyrtc-).
+
+#### pin()
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+pin_t pin = result.pin();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+pin_t pin = result.pin();
+if (result.wokenUpByPin()) {
+  Log.info("{{device}} was woken up by the pin number %d", pin);
+}
+```
+
+Returns: the number of the pin that woke the device.
+
+#### error()
+
+Get the error code of the latest sleep.
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+int err = result.error();
+```
+
+Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or a non-zero error code.
+
+### sleepResult()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+```
+
+Retrieves the information about the latest sleep.
+
+Returns: an instance of [`SleepResult`](#sleepresult-) class.
+
+### wakeUpReason()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+int reason = System.wakeUpReason();
+```
+
+See [`SleepResult`](#reason-) documentation.
+
+### wokenUpByPin()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+bool result = System.wokenUpByPin();
+```
+
+See [`SleepResult`](#wokenupbypin-) documentation.
+
+### wokenUpByRtc()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+bool result = System.wokeUpByRtc();
+```
+
+See [`SleepResult`](#wokenupbyrtc-) documentation.
+
+### wakeUpPin()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+pin_t pin = System.wakeUpPin();
+```
+
+See [`SleepResult`](#pin-) documentation.
+
+### sleepError()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+int err = System.sleepError();
+```
+
+See [`SleepResult`](#error-) documentation.
 
 ### reset()
 
@@ -11432,6 +12098,18 @@ Disables the system flag.
 
 Returns `true` if the system flag is enabled.
 
+### System Uptime
+
+_Since 0.8.0_
+
+#### System.millis()
+
+Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-) function but returns a 64-bit value.
+
+#### System.uptime()
+
+Returns the number of seconds passed since the device was last reset.
+
 {{#if has-interrupts}}
 
 ## System Interrupts
@@ -11465,7 +12143,7 @@ NB: SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected
 {{/if}} {{!-- has-stm32f2 --}}
 
 See the [full list of interrupts in the firmware
-repository](https://github.com/particle-iot/firmware/blob/develop/hal/inc/interrupts_hal.h).
+repository](https://github.com/particle-iot/device-os/blob/develop/hal/inc/interrupts_hal.h).
 
 > When implementing an interrupt handler, the handler **must** execute quickly, or the system operation may be impaired. Any variables shared between the interrupt handler and the main program should be declared as `volatile` to ensure that changes in the interrupt handler are visible in the main loop and vice versa.
 
@@ -11495,6 +12173,53 @@ detachSystemInterrupt(SysInterrupt_TIM5);
 // remove all handlers for the SysInterrupt_TIM5 interrupt
 ```
 
+### attachInteruptDirect()
+
+_Since 0.8.0_
+
+Registers a function that is called when an interrupt happens. This function installs the interrupt handler function directly into the interrupt vector table and will override system handlers for the specified interrupt.
+
+**NOTE**: Most likely use-cases:
+- if lower latency is required: handlers registered with `attachInterrupt()` or `attachSystemInterrupt()` may be called with some delay due to handler chaining or some additional processing done by the system
+- system interrupt handler needs to be overriden
+- interrupt unsupported by `attachSystemInterrupt()` needs to be handled
+
+```cpp
+// SYNTAX
+attachInterruptDirect(irqn, handler);
+
+// EXAMPLE
+void handle_timer5()
+{
+  // called when timer 5 fires an interrupt
+}
+
+void setup()
+{
+  attachSystemInterrupt(TIM5_IRQn, handle_timer5);
+}
+```
+
+Parameters:
+- `irqn`: platform-specific IRQ number
+- `handler`: interrupt handler function pointer
+
+### detachInterruptDirect()
+
+_Since 0.8.0_
+
+Unregisters application-provided interrupt handlers for the given interrupt and restores the default one.
+
+```cpp
+// SYNTAX
+detachInterruptDirect(irqn);
+
+// EXAMPLE
+detachInterruptDirect(TIM5_IRQn);
+```
+
+Parameters:
+- `irqn`: platform-specific IRQ number
 
 {{/if}} {{!-- has-interrupts --}}
 
@@ -12780,6 +13505,7 @@ Parameters:
 The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler.
 
 - [Papertrail](https://papertrailapp.com/) Log Handler by [barakwei](https://community.particle.io/users/barakwei/activity). [[Particle Build](https://build.particle.io/libs/585c5e64edfd74acf7000e7a/)] [[GitHub Repo](https://github.com/barakwei/ParticlePapertrail)] [[Known Issues](https://github.com/barakwei/ParticlePapertrail/issues/)]
+- Web Log Handler by [geeksville](https://github.com/geeksville). [[Particle Build](https://build.particle.io/libs/ParticleWebLog)] [[GitHub Repo](https://github.com/geeksville/ParticleWebLog)] [[Known Issues](https://github.com/geeksville/ParticleWebLog/issues/)]
 - More to come (feel free to add your own by editing the docs on GitHub)
 
 ### Logger Class
@@ -14281,13 +15007,13 @@ The stack size cannot be changed as it's allocated by the Device OS before the u
 
 ## Firmware Releases
 
-Particle device firmware is open source and stored [here on Github](https://github.com/particle-iot/firmware).
+Particle device firmware is open source and stored [here on Github](https://github.com/particle-iot/device-os).
 
-Firmware releases are published [here on Github](https://github.com/particle-iot/firmware/releases) as they are created, tested and deployed.
+Firmware releases are published [here on Github](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
 
 ### Firmware Release Process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/particle-iot/firmware/wiki/Firmware-Release-Process).
+The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
 
 ### Github Release Notes
 
@@ -14295,13 +15021,16 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/firmware/releases/tag/v0.7.0)|-|-|-|-|-|-|
-|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.7)|
-|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|[v0.6.3](https://github.com/spark/firmware/releases/tag/v0.6.3)|[v0.6.4](https://github.com/spark/firmware/releases/tag/v0.6.4)|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|-|-|
-|-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|-|-|
-|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/firmware/releases/tag/v0.5.4)|[v0.5.5](https://github.com/spark/firmware/releases/tag/v0.5.5)|-|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|-|-|
+|v1.0.x default releases|[v1.0.0](https://github.com/particle-iot/device-os/releases/tag/v1.0.0)|-|-|-|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.10](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.10)|[v0.8.0-rc.11](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.11)|[v0.8.0-rc.12](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.12)|[v0.8.0-rc.14](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.14)|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.1)|[v0.8.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.2)|[v0.8.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.3)|[v0.8.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.4)|[v0.8.0-rc.7](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.7)|[v0.8.0-rc.8](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.8)|[v0.8.0-rc.9](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.9)|
+|v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/device-os/releases/tag/v0.7.0)|-|-|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.7)|
+|v0.6.x default releases|[v0.6.0](https://github.com/particle-iot/device-os/releases/tag/v0.6.0)|[v0.6.1](https://github.com/particle-iot/device-os/releases/tag/v0.6.1)|[v0.6.2](https://github.com/particle-iot/device-os/releases/tag/v0.6.2)|[v0.6.3](https://github.com/particle-iot/device-os/releases/tag/v0.6.3)|[v0.6.4](https://github.com/particle-iot/device-os/releases/tag/v0.6.4)|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.6.2-rc.2)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.6.1-rc.2)|-|-|-|
+|v0.5.x default releases|[v0.5.0](https://github.com/particle-iot/device-os/releases/tag/v0.5.0)|[v0.5.1](https://github.com/particle-iot/device-os/releases/tag/v0.5.1)|[v0.5.2](https://github.com/particle-iot/device-os/releases/tag/v0.5.2)|[v0.5.3](https://github.com/particle-iot/device-os/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/device-os/releases/tag/v0.5.4)|[v0.5.5](https://github.com/particle-iot/device-os/releases/tag/v0.5.5)|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.3)|-|-|-|-|
 
 ### Programming and Debugging Notes
 
@@ -14309,17 +15038,27 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.6.x default releases|[v0.7.0](/reference/device-os/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
-|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.5](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.5&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.6](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.6&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.7](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.7&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|
+|v1.0.x default releases|[v1.0.0](/reference/device-os/firmware/photon/?fw_ver=1.0.0&cli_ver=1.37.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.10](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.10&cli_ver=1.33.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.11](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.11&cli_ver=1.35.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.12](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.12&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.14](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.14&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.1&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.2&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.3&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.4&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.7](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.7&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.8](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.8&cli_ver=1.32.1&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.9](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.9&cli_ver=1.32.4&electron_parts=3#programming-and-debugging-notes)|
+|v0.7.x default releases|[v0.7.0](/reference/device-os/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.5](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.5&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.6](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.6&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.7](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.7&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|
 |v0.6.x default releases|[v0.6.0](/reference/device-os/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](/reference/device-os/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|[v0.6.2](/reference/device-os/firmware/photon/?fw_ver=0.6.2&cli_ver=1.22.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.3](/reference/device-os/firmware/photon/?fw_ver=0.6.3&cli_ver=1.25.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.4](/reference/device-os/firmware/photon/?fw_ver=0.6.4&cli_ver=1.26.2&electron_parts=3#programming-and-debugging-notes)|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
-|-|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|v0.5.x default releases|[v0.5.0](/reference/device-os/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](/reference/device-os/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](/reference/device-os/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](/reference/device-os/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](/reference/device-os/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|[v0.5.5](/reference/device-os/firmware/photon/?fw_ver=0.5.5&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|-|-|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v0.5.x default releases|[v0.5.0](/reference/device-os/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](/reference/device-os/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](/reference/device-os/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](/reference/device-os/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](/reference/device-os/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|[v0.5.5](/reference/device-os/firmware/photon/?fw_ver=0.5.5&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|-|-|
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v1.29.0 = 0.7.0
+v1.37.0 = 1.0.0
+v1.36.3 = 0.8.0-rc.14
+v1.36.3 = 0.8.0-rc.12
+v1.35.0 = 0.8.0-rc.11
+v1.33.0 = 0.8.0-rc.10
+v1.32.4 = 0.8.0-rc.9
+v1.32.1 = 0.8.0-rc.8
+v1.29.0 = 0.7.0, 0.8.0-rc.1, 0.8.0-rc2, 0.8.0-rc.3, 0.8.0-rc.4, 0.8.0-rc.7
 v1.26.2 = 0.6.4
 v1.25.0 = 0.6.3
 v1.23.1 = 0.7.0-rc.1 support for WPA Enterprise setup
@@ -14385,6 +15124,18 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.26.2endif
 ##### @CLI_VER@1.29.0if
 ##### @CLI_VER@1.29.0endif
+##### @CLI_VER@1.32.1if
+##### @CLI_VER@1.32.1endif
+##### @CLI_VER@1.32.4if
+##### @CLI_VER@1.32.4endif
+##### @CLI_VER@1.33.0if
+##### @CLI_VER@1.33.0endif
+##### @CLI_VER@1.35.0if
+##### @CLI_VER@1.35.0endif
+##### @CLI_VER@1.36.3if
+##### @CLI_VER@1.36.3endif
+##### @CLI_VER@1.37.0if
+##### @CLI_VER@1.37.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if

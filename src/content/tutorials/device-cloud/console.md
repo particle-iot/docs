@@ -345,7 +345,7 @@ develop firmware, you are used to the process of writing, compiling, and
 then flashing firmware. You will follow the same high-level process
 here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.
 
-Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/particle-iot/firmware/blob/develop/docs/build.md#product-id).
+Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/particle-iot/device-os/blob/develop/docs/build.md#product-id).
 
 Add these two "macros" near the top of your main application `.ino`
 file, below `#include "Particle.h"` if it includes that line. Remember

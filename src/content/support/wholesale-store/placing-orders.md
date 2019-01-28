@@ -80,7 +80,7 @@ A check list for use cases is next. All use cases are allowed but we will need a
 
 Finally, you will be asked to confirm that you can comply with the due diligence requirements of US export law. Please see the following resources for more information:
 - Embargoed locations - Cuba, Iran, North Korea, Sudan or Syria
-- [Denied persons lists](http://export.gov/ecr/eg_main_023148.asp)
+- [Denied persons lists](https://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/denied-persons-list)
 - [ECCN specific information](https://www.bis.doc.gov/index.php/forms-documents/doc_view/335-supplement-no-1-to-part-774-category-5-part-ii-information-security)
 
 ![Due Dilligence](/assets/images/lastquestioncompliance.png)

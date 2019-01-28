@@ -85,12 +85,14 @@ There are two options for the Mesh antenna on the Xenon. It comes with an on-boa
 
 ### FCC approved antenna
 
-The following antenna is optional, as the Xenon comes with an on-board PCB antenna.
+The following antenna is optional, as the Xenon comes with an on-board PCB antenna. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
 
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Xenon          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
+
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh antenna. For example, you can use duck or even Yagi antennas for longer range. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
 
 
 ### Peripherals and GPIO

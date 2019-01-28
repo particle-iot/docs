@@ -50,7 +50,7 @@ Any host product incorporating the Photon/PØ or P1 modules does not require add
 
 The Photon/PØ and P1 modules were certified with antennas of the following gain:
 - **Photon/PØ Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
-- **P1 Module**: External antenna (2.5dBi)
+- **P1 Module**: On-board antenna (printed trace). Deployment with external antenna leveraging the onboard u.FL requires verification of certification.
 
 ### Customer Responsibilities
 Even though we've certified the Photon and PØ/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:
@@ -86,7 +86,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 #### P1 Module
 - FCC ID: [COFWMNBM11](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=VG3YVqF5xjUgj%2BOio7CoOw%3D%3D&fcc_id=COFWMNBM11)  
-- [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=COFWMNBM11)
+- [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=VG3YVqF5xjUgj%2BOio7CoOw%3D%3D&fcc_id=COFWMNBM11)
 - [Test Firmware and Instructions](/assets/files/P0_P1_FCC_Firmware.zip)
 
 #### Electron U260 - (Updated 4/19/17)
@@ -354,16 +354,11 @@ The GCF is a certification partnership between European network operators, mobil
 
 ## Battery Certifications
 
-The 1,800mAh lithium-polymer (Li-Po) battery included with the Electron and other Particle accessories is compliant with all international safety and transportation standards. Test reports below.
+The 1,800mAh lithium-polymer (Li-Po) battery included with the Electron and other Particle accessories is compliant with all international safety and transportation standards.
 
-**Model Number**: LP103450  
+**Model Number**: ZN-103450  
 **Ratings**: 3.7V DC, 1,800mAh, 7.4Wh  
-**Manufacturer**: PKCELL (Shenzhen, China)  
-**Test Reports**: Updated 3/20/17
-- [IEC62133](/assets/pdfs/electron/battery/IEC62133.pdf)
-- [UN Section 38.3](/assets/pdfs/new-certs/battery/un38.3-updated.pdf)
-- [MSDS Test Report](/assets/pdfs/new-certs/battery/msds-updated.pdf)
-- [1.2m Drop Test](/assets/pdfs/new-certs/battery/drop-report-updated.pdf)
-- [Air Freight Transport](/assets/pdfs/new-certs/battery/air-goods-updated.pdf)
-- [Sea Freight Transport](/assets/pdfs/new-certs/battery/sea-freight-updated.pdf)
+**Manufacturer**: ZHAONENG BATTERY INDUSTRIAL CO., LTD. (Shenzhen, China)  
+**Test Reports**: 
+- [IEC62133](/assets/pdfs/new-certs/battery/zn-103450-iec621331.pdf)
 

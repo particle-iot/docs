@@ -64,14 +64,14 @@ Some carriers may also require a username and password. Note those, if they are 
 
 If you're ready to set up your Boron, follow these steps:
 
-- Go to the [mesh firmware releases page](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.25-mesh).
-- Download the hybrid bin file: [hybrid-0.8.0-rc.25-boron.bin](https://github.com/particle-iot/firmware/releases/download/v0.8.0-rc.25-mesh/hybrid-0.8.0-rc.25-boron.bin)
-- While you're at it also download [tinker-0.8.0-rc.25-boron.bin](https://github.com/particle-iot/firmware/releases/download/v0.8.0-rc.25-mesh/tinker-0.8.0-rc.25-boron.bin)
+- Go to the [mesh firmware releases page](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.27).
+- Download the hybrid bin file: [hybrid-0.8.0-rc.27-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.8.0-rc.27/hybrid-0.8.0-rc.27-boron.bin)
+- While you're at it also download [tinker-0.8.0-rc.27-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.8.0-rc.27/tinker-0.8.0-rc.27-boron.bin)
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the Device OS:
 
 ```html
-particle flash --usb hybrid-0.8.0-rc.25-boron.bin
+particle flash --usb hybrid-0.8.0-rc.27-boron.bin
 ```
 
 - Create a program to set the APN and switch to an external SIM. Here's the code. One way is to save this to a file, I called mine 3rdPartySIM.cpp.
@@ -104,7 +104,7 @@ void loop() {
 - Compile the code and flash it in DFU mode (blinking yellow):
 
 ```html
-particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin --target 0.8.0-rc.25
+particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin --target 0.8.0-rc.27
 particle flash --usb firmware.bin
 ```
 
@@ -113,7 +113,7 @@ particle flash --usb firmware.bin
 - Flash Tinker back to the Boron:
 
 ```
-particle flash --usb tinker-0.8.0-rc.25-boron.bin
+particle flash --usb tinker-0.8.0-rc.27-boron.bin
 ```
 
 - You should now be able to use the device with your 3rd-party SIM card!
@@ -160,6 +160,7 @@ void loop() {
 ```
 
 - This method is intended for using the Boron as a standalone, non-mesh, device, like an Electron. It's difficult to set up a mesh network using a 3rd-party SIM card at this time, because the mobile app will default to trying to activate the Particle SIM card. You can, however, set up the network using the Particle SIM and switch it to a 3rd-party SIM card once set up.
+- Alternatively, there is a technique that allows you to set up a Boron with a mesh network when the Particle SIM card cannot be used, such as the Boron LTE out of the United States. It requires the Particle Ethernet FeatherWing and is [described in this community post](https://community.particle.io/t/instructions-creating-mesh-network-with-boron-lte-and-3rd-party-sim-card/46467).
 
 ## The APN setting is persistent on the Boron
 
@@ -607,7 +608,7 @@ particle call YOUR_DEVICE_NAME digitalWrite "D7=HIGH"
 particle call YOUR_DEVICE_NAME digitalWrite "D7=LOW"
 ```
 
-Find the shortest interval where the calls still work, and that's what you should set as your keep-alive. It's usually between 30 seconds and several minutes.
+Find the longest interval where the calls still work, and that's what you should set as your keep-alive. It's usually between 30 seconds and several minutes.
 
 For the Electron, also note that the keep-alive settings is only in device OS 0.5.0 and later, so if you have the original factory default firmware 0.4.8 you'll need to upgrade the Device OS.
 

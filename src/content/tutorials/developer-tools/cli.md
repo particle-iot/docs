@@ -30,7 +30,7 @@ The installer also works on the Raspberry Pi!
 
 ### Using Windows
 
-Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/faq/particle-tools/installing-dfu-util/).
+Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/faq/particle-tools/installing-dfu-util/). *You may see a Windows Defender SmartScreen warning when running the Windows CLI Installer if you are one of the first people to run the installer after a new release.*
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 
@@ -459,12 +459,12 @@ This will create a `.bin` file which you then flash to your device.
 
 ### Contributing the library
 
-Once you have tested the library and you are ready to upload the library to the cloud, you run the `library contribute`
+Once you have tested the library and you are ready to upload the library to the cloud, you run the `library upload`
 command.  You run this command from the directory containing the library
 
 ```
 cd lib/mylib
-particle library contribute
+particle library upload
 ```
 
 Before the library is contributed, it is first validated. If validation succeeds, the library is contributed

@@ -238,24 +238,23 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 {{/if}}
 
+{{#if has-mesh}}
+When your {{device}} is in Listening Mode, it is waiting for you to configure your mesh network, or is waiting for configuration by USB serial.
+
+{{else}}
+
+{{#if has-cellular}}
+When your {{device}} is in Listening Mode, it either cannot find the SIM card, or is waiting for configuration by USB serial.
+{{/if}}
+
 {{#if has-wifi}}
-When your {{device}} is in Listening Mode, it is waiting for your input to connect to {{#if electron}}a cellular tower{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}}. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
-
-{{#if photon}}
-{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}
+When your {{device}} is in Listening Mode, it is waiting for your input to connect to Wi-Fi. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 {{/if}}
 
-{{#unless core}}
-To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
-{{/unless}}
-
-{{#if core}}
-{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}
+{{/if}} {{!-- has-mesh --}}
 
 To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
-{{/if}}
 
-{{/if}}
 
 
 {{#if has-cellular}}
@@ -298,7 +297,7 @@ Tapping the `{{system-button}}` button twice on your {{device}} enter soft power
   "blink blue 50ms 50ms 20 times"
 }}
 
-To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, the continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
 - For all mesh devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
 - For the Argon it will also clear Wi-Fi settings.
@@ -313,7 +312,7 @@ To erase the stored network settings on your {{device}}, hold the `{{system-butt
 
 {{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}
 
-To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button blinks dark blue, the continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
 {{/if}}
 
@@ -362,7 +361,7 @@ To put your device in Safe Mode:
 3. Wait for the LED to start blinking magenta
 6. Release the `{{system-button}}` button
 
-Before entering safe mode, the {{device}} will proceed through the normal steps of connecting to the cloud; blinking green, blinking cyan, and fast blinking cyan. If you're unable to connect to the cloud, you won't be able to enter safe mode.
+Before entering safe mode, the {{device}} will proceed through the normal steps of connecting to the cloud; blinking green, blinking cyan, and fast blinking cyan. If you're unable to connect to the cloud, you won't actually end up with breathing magenta, but execution of application firmware will still be blocked - so you are in a "sort-of safe mode" (e.g. to enter "Safe Listening Mode").
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
@@ -622,10 +621,10 @@ void setup() {
 
 void loop() {
 
-	// Don't do this: preventing loop from returning will cause breathing green
-	while(true) {
+    // Don't do this: preventing loop from returning will cause breathing green
+    while(true) {
 
-	}
+    }
 }
 ```
 
@@ -639,10 +638,10 @@ One way to solve this is to sprinkle Particle.process() calls in code that block
 
 ```
 void waitForSwitch() {
-	while(digitalRead(D7) == HIGH) {
-		// Without the following line, you'd go into breathing green
-		Particle.process();
-	}
+    while(digitalRead(D7) == HIGH) {
+        // Without the following line, you'd go into breathing green
+        Particle.process();
+    }
 }
 ```
 
@@ -669,7 +668,7 @@ You might also do something like this in loop():
 
 ```
 if (Particle.connected()) {
-	Particle.publish("myEvent", PRIVATE);
+    Particle.publish("myEvent", PRIVATE);
 }
 ```
 {{/unless}}
@@ -702,11 +701,12 @@ Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/
 
 Blinking red indicates various errors.
 
-- 2 red blinks: Could not reach the internet.
-- 3 red blinks: Connected to the internet, but could not reach the
-Particle Device Cloud.
-- Blinking "orange": This sometimes is seen as yellow or red and indicates bad server keys. 
-- Alternating cyan and red blinks can also indicate a keys issue.
+While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
+- 1 orange blink: Decryption error.
+- 2 orange blinks: Could not reach the internet.
+- 3 orange blinks: Connected to the internet, but could not reach the Particle Device Cloud. This sometimes is seen as yellow or red and indicates bad server keys.
+- 1 magenta blink: Authentication error.
+- 1 red blink: Generic handshake error. The device could have the wrong keys or has just encountered a generic error in the handshake process.
 
 {{collapse op="start" label="Repair instructions"}}
 
@@ -778,6 +778,7 @@ There are a number of other red blink codes that may be expressed after the SOS 
 11. Invalid case
 12. Pure virtual call
 13. Stack overflow
+14. Semaphore lock timeout (_Since 0.8.0_ 60 seconds expired while trying to acquire a semaphore lock, likely due to dynamic memory allocation)
 
 The two most common ones are:
 

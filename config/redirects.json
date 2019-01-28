@@ -93,6 +93,8 @@
     "/guide/getting-started/data": "/tutorials/cellular-connectivity/data",
     "/guide/getting-started/electron": "/quickstart/electron",
     "/guide/getting-started/examples": "/tutorials",
+    "/guide/getting-started/examples/photon": "/tutorials/hardware-projects/hardware-examples/photon",
+    "/guide/getting-started/examples/electron": "/tutorials/hardware-projects/hardware-examples/electron",
     "/guide/getting-started/intro": "/",
     "/guide/getting-started/intro/argon": "/quickstart/argon",
     "/guide/getting-started/intro/boron": "/quickstart/boron",

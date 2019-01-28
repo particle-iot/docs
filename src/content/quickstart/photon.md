@@ -16,6 +16,11 @@ If you have an Internet Button, read through this section to get started and con
 
 Let's quickly go over what you see.
 
+<div  align="center">
+<br />
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR PHOTON</a>
+</div>
+
 ### What's on it?
 #### The Wi-Fi module
 

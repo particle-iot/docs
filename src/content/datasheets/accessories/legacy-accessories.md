@@ -475,7 +475,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
-[Datasheet >](http://www.diodes.com/_files/datasheets/ds28002.pdf)
+[Datasheet >](https://www.diodes.com/assets/Datasheets/ds28002.pdf)
 
 ### IR LED (1)
 
@@ -725,7 +725,7 @@ Examples:
  - 22 Tracking/ 66 acquisition channels
  - Update rate: 1Hz (default), 10Hz (max)
  - Position accuracy: 2.5 to 3.0 meters
- - Altitude: 18000 (max)
+ - Altitude: 18000m (max)
  - Velocity: 515m/s (max)
  - Velocity accuracy: 0.05 to 0.1m/s
  - Acceleration: 4G (max)
