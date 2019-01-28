@@ -524,6 +524,17 @@ After you're connected OpenOCD to your hardware device and opened the telnet ses
 
 You'll need to edit the path to the bootloader-photon.bin file. You need to specify a full path to the directory as well as filename.
 
+If you get the error "Device Security Bit Set" you will also need to reset the RDP level.
+
+```
+init
+reset halt
+stm32f2x unlock 0
+reset halt
+```
+
+After resetting the RDP level to 0 you'll need to flash the boot loader, system firmware, user firmware (or Tinker) and also do a `particle keys server` and `particle keys doctor`. This only applies to 2nd generation devices (Photon, P1, Electron, and E series).
+
 ### Programming system and user firmware (2nd generation)
 
 To program Device OS, use a set of commands like this for the Photon:
