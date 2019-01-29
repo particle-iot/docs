@@ -10,7 +10,7 @@ layout: landing.hbs
 
 Particle Workbench provides IoT developers with a cross-platform desktop development environment for Windows, macOS, and Linux. Particle Workbench is easy to install, is preconfigured for easy development, and comes with everything you need to build, compile, and deploy code for your Particle-powered products.
 
-- <b>#1 code editor</b> - Powered by Microsoft’s industry-leading Visual Studio Code.
+- <b>#1 code editor</b> - Powered by Microsoft’s industry-leading [Visual Studio Code](https://code.visualstudio.com/).
 - <b>Managed toolchain</b> - Supports offline and cloud compilation, plus wireless OTA updates.
 - <b>Libraries included</b> - Comes with access to 3,000+ Device OS libraries for faster development.
 - <b>Fully customizable</b> - Customize your workflow with 8,000+ Visual Studio extensions.
@@ -34,17 +34,24 @@ Particle Workbench provides IoT developers with a cross-platform desktop develop
 ## Features:
 {{box op="start"}}
 ### Managed toolchain
+
 Supports offline and cloud compilation, plus wireless OTA updates.
 
 ### Local compilation
 
+Optional local build using gcc-arm for complete control over the build process and working while offline with no Internet connection.
+
 ### Works with Particle libraries
+
 Comes with access to 3,000+ Device OS libraries for faster development.
 
 ### Fully customizable
-Customize your workflow with 8,000+ Visual Studio extensions.
+Customize your workflow with 8,000+ [Visual Studio extensions](https://marketplace.visualstudio.com/VSCode).
 
 ### Autocomplete with IntelliSense
+
+IntelliSense not only provides syntax highlighting and autocomplete, but also provides smart completions based on variable types, function definitions, and imported modules. And it works not only for your code, but for the Device OS API.
+
 
 ### Step-by-step debugging
 
