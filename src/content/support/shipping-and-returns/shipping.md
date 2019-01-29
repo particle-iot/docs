@@ -30,19 +30,19 @@ Your order confirmation and tracking information will be sent to the email addre
 
 For domestic orders (contiguous US only) we have flat-rate shipping options, detailed below:
 
-|         Name         	      |    Time For Shipping   	| Weight in Lbs 	|  Price 	|
-|:--------------------------:	|:----------------------:	|:-------------:	|:------:	|
-|        Economy            	| Approx 7 business days 	|  Less than 1  	|  $4.80 	|
-| Economy+ (For PO Box Only)  | Approx 7 business days 	|    1 - 9.99   	|  $8.68 	|
-|        Standard           	| Approx 5 business days 	|    0 - 9.99    	|  $5.99 	|
-|                           	|                        	|   10 - 19.99  	| $12.53 	|
-|                           	|                        	|   20 - 29.99   	| $18.07 	|
-|       Expedited           	| Approx 3 business days 	|    0 - 9.99   	| $12.13 	|
-|                           	|                        	|   10 - 19.99  	| $21.76 	|
-|                           	|                        	|   20 - 29.99   	| $32.84 	|
-|        Express            	| Approx 2 business days 	|    0 - 9.99   	| $19.22 	|
-|                           	|                        	|   10 - 19.99  	| $28.35 	|
-|                      	      |                        	|   20 - 29.99   	| $34.02 	|
+|         Name         	      |    Time For Shipping   	| Weight in Lbs 	|
+|:--------------------------:	|:----------------------:	|:-------------:	|
+|        Economy            	| Approx 7 business days 	|  Less than 1  	|
+| Economy+ (For PO Box Only)  | Approx 7 business days 	|    1 - 9.99   	|
+|        Standard           	| Approx 5 business days 	|    0 - 9.99    	|
+|                           	|                        	|   10 - 19.99  	|
+|                           	|                        	|   20 - 29.99   	|
+|       Expedited           	| Approx 3 business days 	|    0 - 9.99   	|
+|                           	|                        	|   10 - 19.99  	|
+|                           	|                        	|   20 - 29.99   	|
+|        Express            	| Approx 2 business days 	|    0 - 9.99   	|
+|                           	|                        	|   10 - 19.99  	|
+|                      	      |                        	|   20 - 29.99   	|
 
 Please note these shipping timelines are from **ship date** not **order date**. 
 
