@@ -8,8 +8,48 @@ layout: tutorials.hbs
 
 # Particle Workbench
 
-**TODO: Add some content here!**
+{{!-- Tutorials: See ch25556 --}}
 
-## <a name="faq"></a>FAQ
 
-**TODO: Add some FAQ content here!**
+## Workbench Features
+
+### Particle Commands
+
+
+### Dependency Manager
+
+
+### Integrated CLI
+
+
+### Particle Themes
+
+
+### Working with Particle Projects
+
+
+### Building & Flashing
+
+
+### Workspaces & Project settings
+
+
+### Particle Libraries
+
+
+### IntelliSense
+
+
+### Snippets
+
+### Debugging (in the future)
+
+
+## Migration Guide
+
+{{!-- See ch25559 --}}
+
+### From Particle Web IDE (Build)
+
+### From Particle Dev
+

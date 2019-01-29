@@ -31,3 +31,18 @@ After reload, some more components will be installed and you will be prompted to
 
 That's it!
 
+## Create a project
+
+## Configure workspace
+
+## Compile a project
+
+
+{{!-- to add:
+See ch25555
+(pre-installer) Download and Install Visual Studio Code and Particle Extensions
+Install & confirm required dependencies work - CLI, bundles, etc.
+Create a project (open a folder, contain folder)
+Configure Workspace
+Compile a project
+--}}
