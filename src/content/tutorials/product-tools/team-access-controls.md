@@ -5,14 +5,15 @@ layout: tutorials.hbs
 order: 43
 ---
 
-# Team Access Controls
+# Team Access Controls <small class="beta">alpha</small>
 
 Particle offers functionality to help you manage levels of access for
 your product team members. This is helpful when overseeing a team of
 people who should have varying permissions with respect to Particle
 devices in your fleets.
 
-Team Access Controls is an **Enterprise only** feature. If interested in
+Team Access Controls is an **Enterprise only** feature and is currently
+in a private alpha. If interested in
 this feature, please [consult our team of IoT
 experts](https://particle.io/sales).
 
