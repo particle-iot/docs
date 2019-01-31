@@ -887,7 +887,7 @@ void setup() {
 
 ### Antenna selection
 
-At the time of writing (Device OS 0.8.0-rc.26), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
+At the time of writing (Device OS 0.8.0-rc.27), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
 
 ```
 void selectExternalMeshAntenna() {
@@ -3408,7 +3408,7 @@ void setup() {
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
 {{#if boron}}
-At the time of writing (Device OS 0.8.0-rc.25), Cellular.command has not been implemented on the Boron yet.
+At the time of writing (Device OS 0.8.0-rc.27), Cellular.command has not been implemented on the Boron yet.
 {{/if}}
 
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
@@ -11370,7 +11370,7 @@ Resets the device and restarts in safe mode.
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
 
 {{#if has-nrf52}}
-**The sleep modes described here are for the Photon and Electron. Updated documentation with details for mesh devices will be provided soon. At the time of writing (Device OS 0.8.0-rc.25), sleep modes are not implemented for mesh devices yet.**
+**The sleep modes described here are for the Photon and Electron. Updated documentation with details for mesh devices will be provided soon. At the time of writing (Device OS 0.8.0-rc.27), sleep modes are not implemented for mesh devices yet.**
 {{/if}}
 
 
