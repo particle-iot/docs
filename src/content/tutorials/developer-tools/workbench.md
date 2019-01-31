@@ -346,34 +346,35 @@ The rest of the instructions are the same as for 3rd-generation. Start with the 
 
 ### From Particle Web IDE (Build)
 
-One big change from the Web IDE is the lack of the icon bar on the left.
+One big change from the Web IDE is the lack of the icon bar on the left. Most replacements are available from the Command Palette (`cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows).
 
-![Web IDE](/assets/images/workbench/webide-1.png)
 
-- The **Flash** button operation is replaced by using the Command Palette (`cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows) and using **Particle: Cloud Flash**.
-- The **Verify** button can be approximated by using **Particle: Cloud Compile**.
-
-![Web IDE](/assets/images/workbench/webide-2.png)
-
-In the lower section of icons:
-
-- The **Code** button doesn't have a direct replacement. You create a new app from the Command Palette **Particle: Create New Project**. If you use **Particle: Cloud Compile** the binary will be downloaded to the top level of your project so there isn't a separate download button. Since the files are already on your hard drive there is no project download button. Share this Revision is not supported in Workbench.
-- The **Libraries** button can be approximated by using the Command Palette **Particle: Find Library** and **Particle: Install Library**.
-- The **Help** button doesn't have a direct replacement.
-- The **Docs** button just takes you to [https://docs.particle.io](https://docs.particle.io).
-- The **Devices** button is replaced by the Command Palette **Particle: Configure Workspace for Device**.
+| Button | Label | Replacement |
+| --- | --- | --- |
+| <img src="/assets/images/workbench/webide-flash.png" class="toolbarIcon" /> | Flash | Command Palette **Particle: Cloud Flash** |
+| <img src="/assets/images/workbench/webide-verify.png" class="toolbarIcon" /> | Verify | Command Palette **Particle: Cloud Compile** |
+| <img src="/assets/images/workbench/webide-code.png" class="toolbarIcon" /> | Code | You create a new app from the Command Palette **Particle: Create New Project**. If you use **Particle: Cloud Compile** the binary will be downloaded to the top level of your project so there isn't a separate download button. Since the files are already on your hard drive there is no project download button. Share this Revision is not supported in Workbench. |
+| <img src="/assets/images/workbench/webide-libraries.png" class="toolbarIcon" /> | Libraries | Command Palette **Particle: Find Library** and **Particle: Install Library** |
+| <img src="/assets/images/workbench/webide-docs.png" class="toolbarIcon" /> | Docs | Go to [https://docs.particle.io](https://docs.particle.io) |
+| <img src="/assets/images/workbench/webide-devices.png" class="toolbarIcon" /> | Devices | Command Palette **Particle: Configure Workspace for Device** |
+| <img src="/assets/images/workbench/webide-console.png" class="toolbarIcon" /> | Console | Go to [https://console.particle.io](https://console.particle.io) |
 
 ### From Particle Dev (Atom IDE)
 
-![Particle Dev Icons](/assets/images/workbench/dev-icons.png)
+One big change from Particle Dev is the lack of the icon bar on the left. Most replacements are available from the Command Palette (`cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows).
 
-- The **Compile in cloud and upload cloud using cloud** button is replaced by using the Command Palette (`cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows) and using **Particle: Cloud Flash**.
-- The **Compile in cloud and show errors if any** button is replaced by Command Palette **Particle: Cloud Compile**.
-- **Start a New Project** is replaced by Command Palette **Particle: Create New Project**.
-- **Browse and manage Particle libraries** can be approximated by using the Command Palette **Particle: Find Library** and **Particle: Install Library**.
-- **Manage current library** does not have a replacement at this time.
-- The **Docs** button just takes you to [https://docs.particle.io](https://docs.particle.io).
-- The **Devices** button is replaced by the Command Palette **Particle: Configure Workspace for Device**.
+| Button | Label | Replacement |
+| --- | --- | --- |
+| <img src="/assets/images/workbench/dev-flash.png" class="toolbarIcon" /> | Compile in cloud and upload using cloud | Command Palette **Particle: Cloud Flash** |
+| <img src="/assets/images/workbench/dev-verify.png" class="toolbarIcon" /> | Compile in cloud and show errors if any | Command Palette **Particle: Cloud Compile** |
+| <img src="/assets/images/workbench/dev-new-project.png" class="toolbarIcon" /> | Start a New Project | Command Palette **Particle: Create New Project** |
+| <img src="/assets/images/workbench/dev-libraries.png" class="toolbarIcon" /> | Browse and manage Particle libraries | Command Palette **Particle: Find Library** and **Particle: Install Library** |
+| <img src="/assets/images/workbench/dev-manage-library.png" class="toolbarIcon" /> | Manage current library | No replacement at this time. |
+| <img src="/assets/images/workbench/dev-docs.png" class="toolbarIcon" /> | Docs | Go to [https://docs.particle.io](https://docs.particle.io)  |
+| <img src="/assets/images/workbench/dev-devices.png" class="toolbarIcon" /> | Devices | Command Palette **Particle: Configure Workspace for Device** |
+| <img src="/assets/images/workbench/dev-console.png" class="toolbarIcon" /> | Console | Go to [https://console.particle.io](https://console.particle.io) |
+| <img src="/assets/images/workbench/dev-serial.png" class="toolbarIcon" /> | Show Serial Monitor | Command Palette **Particle: Serial Monitor**. |
+
 
 ![Particle Dev Menu](/assets/images/workbench/dev-menu.png)
 
