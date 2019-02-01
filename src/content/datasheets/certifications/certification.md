@@ -361,4 +361,4 @@ The 1,800mAh lithium-polymer (Li-Po) battery included with the Electron and othe
 **Manufacturer**: ZHAONENG BATTERY INDUSTRIAL CO., LTD. (Shenzhen, China)  
 **Test Reports**: 
 - [IEC62133](/assets/pdfs/new-certs/battery/zn-103450-iec621331.pdf)
-
+- [Material Safety Data Sheet, MSDS](/assets/pdfs/ZN-103450-MSDS.pdf)
