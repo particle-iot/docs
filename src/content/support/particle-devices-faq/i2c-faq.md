@@ -65,7 +65,7 @@ If you buy a bare chip that's a sensor, it typically won't have a built-in pull-
 
 The pull-ups will often connect to 3V3, but sometimes it will be connected to a 5V supply, as described in the next section.
 
-### It can be 5-volt compatible
+### It can be 5-volt compatible (sometimes)
 
 The use of open-collector drivers and external pull-up resistors has one big benefit: The Photon/Electron are completely compatible with 5V I2C devices. 
 
@@ -74,6 +74,8 @@ If you have 5V I2C devices you can connect the external pull-up resistors to 5V 
 This allows I2C devices to not only run at 5V, but will also have 5V levels for logic 1 on SDA and SCL. 
 
 This is different than SPI, which is 5V tolerant, but will only supply 3.3V on MOSI and SCK. Most 5V SPI devices will tolerate the lower 3.3V logic level, but with I2C there will be true 5V logic levels.
+
+3rd-generation devices (Argon, Boron, Xenon) **are not 5V tolerant** and must not be used with pull-ups to 5V!
 
 ### Pins
 
@@ -86,6 +88,12 @@ On the Electron, there is a second I2C interface (Wire1) on C4 and C5 as well:
 
 - C4: SDA
 - C5: SCL
+
+On the Argon and Xenon only (not Boron), there is a second I2C interface (Wire1) on D2 and D3:
+
+- D2: SDA
+- D3: SCL
+
 
 ## About the examples
 

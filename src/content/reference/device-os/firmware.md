@@ -6507,16 +6507,26 @@ Returns: Negative integer in case of an error.
 Wire (I2C)
 ----
 
-{{#if has-embedded}}
-{{#unless electron}}
+{{#if core}}
 ![I2C](/assets/images/core-pin-i2c.jpg)
-{{/unless}}
 {{/if}}
 
-This library allows you to communicate with I2C / TWI(Two Wire Interface) devices.
+This library allows you to communicate with I2C / TWI (Two Wire Interface) devices.
 
 {{#if has-embedded}}
+
+{{#if has-stm32}}
 On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Additionally, there is a second optional I2C interface on D2 and D3 on the Argon and Xenon only.
+
+Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+
+Note that unlike the 2nd-generation devices (Photon/P1/Electron), 3rd-generation devices are not 5V tolerant.
+{{/if}} {{!-- has-nrf52 --}}
+
 
 These pins are used via the `Wire` object.
 
@@ -6552,7 +6562,7 @@ There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and
 **Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
 
 It is not recommended to use the I2C pins for general purpose IO. If you need to, you must disable the I2C peripheral in `raspi-config`, reboot and use the `SCL` and `SDA` pins with `pinMode`, `digitalRead` or `digitalWrite`.
-{{/if}}
+{{/if}} {{!-- raspberry-pi --}}
 
 {{#if has-embedded}}
 
