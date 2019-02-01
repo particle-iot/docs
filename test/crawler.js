@@ -248,7 +248,11 @@ describe('Crawler', function() {
     	  // Github is randomly returning 403 errors for some reason when the link redirects to AWS. Treat as warning, not error.
     	  isWarning = true;
       }
-
+      if (queueItem.stateData.code === 403 && queueItem.url.indexOf('dfu-util.sourceforge.net') >= 0) {
+    	  // dfu-util.sourceforge.net is randomly returning 403 errors as well. Treat as warning, not error.
+    	  isWarning = true;
+      }
+      
       var msg = util.format('%s ON %s CONTENT %s LINKS TO %s', queueItem.stateData.code, queueItem.referrer, queueItem.meta.content, queueItem.url);
       if (isWarning) {
         console.log(chalk.yellow('WARN: ' + msg));
