@@ -272,7 +272,7 @@ Cloud events have the following properties:
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-* public/private (default public)
+* PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
@@ -300,15 +300,15 @@ Publish a public event with the given name, no data, and the default TTL of 60 s
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName);
-Particle.publish(String eventName);
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
 
 RETURNS
 boolean (true or false)
 
 // EXAMPLE USAGE
 bool success;
-success = Particle.publish("motion-detected");
+success = Particle.publish("motion-detected", PUBLIC);
 if (!success) {
   // get here if event publish did not work
 }
@@ -320,11 +320,11 @@ Publish a public event with the given name and data, with the default TTL of 60 
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data);
-Particle.publish(String eventName, String data);
+Particle.publish(const char *eventName, const char *data, PublishFlags flags);
+Particle.publish(String eventName, String data, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("temperature", "19 F");
+Particle.publish("temperature", "19 F", PUBLIC);
 ```
 
 ---
@@ -333,11 +333,11 @@ Publish a public event with the given name, data, and TTL.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl);
-Particle.publish(String eventName, String data, int ttl);
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("lake-depth/1", "28m", 21600);
+Particle.publish("lake-depth/1", "28m", 21600, PUBLIC);
 ```
 
 ---
@@ -347,8 +347,8 @@ In order to publish a private event, you must pass all four parameters.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl, PRIVATE);
-Particle.publish(String eventName, String data, int ttl, PRIVATE);
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 // EXAMPLE USAGE
 Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
@@ -358,8 +358,8 @@ Publish a private event with the given name.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, PRIVATE);
-Particle.publish(String eventName, PRIVATE);
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
 
 // EXAMPLE USAGE
 Particle.publish("front-door-unlocked", PRIVATE);
@@ -462,7 +462,7 @@ void myHandler(const char *event, const char *data)
 
 void setup()
 {
-  Particle.subscribe("temperature", myHandler);
+  Particle.subscribe("temperature", myHandler, ALL_DEVICES);
   Serial.begin(9600);
 }
 ```
@@ -497,7 +497,7 @@ You can register a method in a C++ object as a subscription handler.
 class Subscriber {
   public:
    Subscriber() {
-      Particle.subscribe("some_event", &Subscriber::handler, this);
+      Particle.subscribe("some_event", &Subscriber::handler, this, ALL_DEVICES);
     }
     void handler(const char *eventName, const char *data) {
       Serial.println(data);
