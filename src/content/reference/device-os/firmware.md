@@ -4880,8 +4880,8 @@ Pre-defined Serial configurations available:
 
 - `SERIAL_7O1` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
-- `SERIAL_7E1` - 7 data bits, odd parity, 1 stop bit
-- `SERIAL_7E2` - 7 data bits, odd parity, 1 stop bit
+- `SERIAL_7E1` - 7 data bits, even parity, 1 stop bit
+- `SERIAL_7E2` - 7 data bits, even parity, 1 stop bit
 {{#if has-linbus}}
 - `LIN_MASTER_13B` - 8 data bits, no parity, 1 stop bit, LIN Master mode with 13-bit break generation
 - `LIN_SLAVE_10B` - 8 data bits, no parity, 1 stop bit, LIN Slave mode with 10-bit break detection
