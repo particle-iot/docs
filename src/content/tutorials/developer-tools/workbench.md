@@ -335,10 +335,6 @@ You need to connect:
 
 The rest of the instructions are the same as for 3rd-generation. Start with the putting your device in DFU mode step.
 
-### Developing libraries
-
-**TKTK: Maybe remove this section**
-
 
 ## Migration Guide
 

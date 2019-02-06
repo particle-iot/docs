@@ -17,7 +17,7 @@ Particle Workbench provides IoT developers with a cross-platform desktop develop
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">DEVELOPER PREVIEW SIGN UP</a>
+<a href="/quickstart/workbench/"  target="_blank" class="button">INSTALL NOW</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}
