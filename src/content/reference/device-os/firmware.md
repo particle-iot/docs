@@ -272,7 +272,7 @@ Cloud events have the following properties:
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-* public/private (default public)
+* PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
@@ -300,15 +300,15 @@ Publish a public event with the given name, no data, and the default TTL of 60 s
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName);
-Particle.publish(String eventName);
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
 
 RETURNS
 boolean (true or false)
 
 // EXAMPLE USAGE
 bool success;
-success = Particle.publish("motion-detected");
+success = Particle.publish("motion-detected", PUBLIC);
 if (!success) {
   // get here if event publish did not work
 }
@@ -320,11 +320,11 @@ Publish a public event with the given name and data, with the default TTL of 60 
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data);
-Particle.publish(String eventName, String data);
+Particle.publish(const char *eventName, const char *data, PublishFlags flags);
+Particle.publish(String eventName, String data, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("temperature", "19 F");
+Particle.publish("temperature", "19 F", PUBLIC);
 ```
 
 ---
@@ -333,11 +333,11 @@ Publish a public event with the given name, data, and TTL.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl);
-Particle.publish(String eventName, String data, int ttl);
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("lake-depth/1", "28m", 21600);
+Particle.publish("lake-depth/1", "28m", 21600, PUBLIC);
 ```
 
 ---
@@ -347,8 +347,8 @@ In order to publish a private event, you must pass all four parameters.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl, PRIVATE);
-Particle.publish(String eventName, String data, int ttl, PRIVATE);
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 // EXAMPLE USAGE
 Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
@@ -358,8 +358,8 @@ Publish a private event with the given name.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, PRIVATE);
-Particle.publish(String eventName, PRIVATE);
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
 
 // EXAMPLE USAGE
 Particle.publish("front-door-unlocked", PRIVATE);
@@ -462,7 +462,7 @@ void myHandler(const char *event, const char *data)
 
 void setup()
 {
-  Particle.subscribe("temperature", myHandler);
+  Particle.subscribe("temperature", myHandler, ALL_DEVICES);
   Serial.begin(9600);
 }
 ```
@@ -497,7 +497,7 @@ You can register a method in a C++ object as a subscription handler.
 class Subscriber {
   public:
    Subscriber() {
-      Particle.subscribe("some_event", &Subscriber::handler, this);
+      Particle.subscribe("some_event", &Subscriber::handler, this, ALL_DEVICES);
     }
     void handler(const char *eventName, const char *data) {
       Serial.println(data);
@@ -887,7 +887,7 @@ void setup() {
 
 ### Antenna selection
 
-At the time of writing (Device OS 0.8.0-rc.26), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
+At the time of writing (Device OS 0.8.0-rc.27), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
 
 ```
 void selectExternalMeshAntenna() {
@@ -3408,7 +3408,7 @@ void setup() {
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
 {{#if boron}}
-At the time of writing (Device OS 0.8.0-rc.25), Cellular.command has not been implemented on the Boron yet.
+At the time of writing (Device OS 0.8.0-rc.27), Cellular.command has not been implemented on the Boron yet.
 {{/if}}
 
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
@@ -4880,8 +4880,8 @@ Pre-defined Serial configurations available:
 
 - `SERIAL_7O1` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
-- `SERIAL_7E1` - 7 data bits, odd parity, 1 stop bit
-- `SERIAL_7E2` - 7 data bits, odd parity, 1 stop bit
+- `SERIAL_7E1` - 7 data bits, even parity, 1 stop bit
+- `SERIAL_7E2` - 7 data bits, even parity, 1 stop bit
 {{#if has-linbus}}
 - `LIN_MASTER_13B` - 8 data bits, no parity, 1 stop bit, LIN Master mode with 13-bit break generation
 - `LIN_SLAVE_10B` - 8 data bits, no parity, 1 stop bit, LIN Slave mode with 10-bit break detection
@@ -6507,16 +6507,26 @@ Returns: Negative integer in case of an error.
 Wire (I2C)
 ----
 
-{{#if has-embedded}}
-{{#unless electron}}
+{{#if core}}
 ![I2C](/assets/images/core-pin-i2c.jpg)
-{{/unless}}
 {{/if}}
 
-This library allows you to communicate with I2C / TWI(Two Wire Interface) devices.
+This library allows you to communicate with I2C / TWI (Two Wire Interface) devices.
 
 {{#if has-embedded}}
+
+{{#if has-stm32}}
 On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Additionally, there is a second optional I2C interface on D2 and D3 on the Argon and Xenon only.
+
+Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+
+Note that unlike the 2nd-generation devices (Photon/P1/Electron), 3rd-generation devices are not 5V tolerant.
+{{/if}} {{!-- has-nrf52 --}}
+
 
 These pins are used via the `Wire` object.
 
@@ -6552,7 +6562,7 @@ There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and
 **Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
 
 It is not recommended to use the I2C pins for general purpose IO. If you need to, you must disable the I2C peripheral in `raspi-config`, reboot and use the `SCL` and `SDA` pins with `pinMode`, `digitalRead` or `digitalWrite`.
-{{/if}}
+{{/if}} {{!-- raspberry-pi --}}
 
 {{#if has-embedded}}
 
@@ -11370,7 +11380,7 @@ Resets the device and restarts in safe mode.
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
 
 {{#if has-nrf52}}
-**The sleep modes described here are for the Photon and Electron. Updated documentation with details for mesh devices will be provided soon. At the time of writing (Device OS 0.8.0-rc.25), sleep modes are not implemented for mesh devices yet.**
+**The sleep modes described here are for the Photon and Electron. Updated documentation with details for mesh devices will be provided soon. At the time of writing (Device OS 0.8.0-rc.27), sleep modes are not implemented for mesh devices yet.**
 {{/if}}
 
 

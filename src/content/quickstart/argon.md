@@ -76,7 +76,7 @@ To program your Argon, open a new browser tab and go to the <a target="_blank" h
 
 The Web IDE is one of the ways you can write, compile, and deploy code to your Particle devices.
 
-If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench], a full toolchain integration with Microsoft Visual Studio Code.
+If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench](https://particle.io/workbench), a full toolchain integration with Microsoft Visual Studio Code.
 {{box op="end"}}
 
 ---

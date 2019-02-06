@@ -214,6 +214,8 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 
 **Note:** This product is a one-way adapter. That is, this product does not enable use of Adafruit FeatherWings with the Photon or Electron.
 
+The design is open source and the design files are available [here](https://github.com/particle-iot/classic-adapter).
+
 ### Pin Map
 
 |Legacy Device | Mesh Device|
@@ -224,8 +226,8 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 |A3 |A3 |
 |A4 |A4 |
 |A5 |A5 |
-|D0 |D0 |
-|D1 |D1 |
+|D0 |D0 (SDA) |
+|D1 |D1 (SCL) |
 |D2 |D2 |
 |D3 |D3 |
 |D4 |D4 |
@@ -235,9 +237,9 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 |C5<sup>[1]</sup>  |D8 |
 |TX |TX |
 |RX |RX |
-|B5<sup>[1]</sup>  |D11 |
-|WKP<sup>[1]</sup>  |D12 |
-|DAC<sup>[1]</sup>  |D13 |
+|B5<sup>[1]</sup>  |D11 (MISO) |
+|WKP<sup>[1]</sup>  |D12 (MOSI)|
+|DAC<sup>[1]</sup>  |D13 (SCK) |
 |RST |RST |
 |VIN |VUSB |
 |3V3 |3V3 |
@@ -250,6 +252,23 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 
 <sup>[3]</sup> Pins MD, Li+, and EN on the Particle Mesh device are not connected to anything.
 
+### I2C
+
+I2C (Wire) can be used on D0 and D1. However, pins on the mesh devices are not 5V tolerant, so make sure you do not have pull-ups to 5V.
+
+### SPI
+
+It's not possible to use SPI with the classic adapter. The mesh SPI pins (MISO, MOSI, SCK) are not connected to pins that support SPI on the Electron or Photon (B5, WKP, DAC). The mesh SPI1 pins overlap the Electron/Photon SPI1 pins, however they're different!
+
+| SPI1 | Classic | Mesh | 
+| --- | --- | --- |
+| SCK | D4 | D2 |
+| MOSI | D2 | D3 |
+| MISO | D3 | D4 |
+
+### Other Features
+
+The mesh devices do not support DAC or CAN, so those classic devices using those features won't work with the classic adapter.
 
 ## Debugger
 
@@ -263,7 +282,7 @@ It also provides a USB to TTL serial port. This requires no device drivers on Ma
 
 Comes with one JTAG ribbon cable.
 
-For more information about debugging see the [JTAG FAQ](/support/particle-tools-faq/jtag/). Future version of Particle Workbench will support the Particle Debugger as well.
+For more information about debugging see the [JTAG FAQ](/support/particle-tools-faq/jtag/). Future version of Particle Workbench will support the Particle Debugger as well. The design is open source and the design files are available [here](https://github.com/particle-iot/debugger).
 
 ### Debugging mesh devices
 
