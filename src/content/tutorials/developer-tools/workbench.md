@@ -10,6 +10,11 @@ layout: tutorials.hbs
 
 {{!-- Tutorials: See ch25556 --}}
 
+<div  align="center">
+<br />
+<a href="/quickstart/workbench/" class="button">INSTALL NOW</a>
+</div>
+
 
 ## Workbench Features
 
@@ -38,14 +43,14 @@ A project contains a number of files. Here's what's in a small sample project:
 
 ![Project Directories](/assets/images/workbench/project-directories.png)
 
-- The .vscode directory contains your project-specific settings. The settings.json file allows you to override any setting on a per-project basis. It's also where your build firmware version, target platform, and target device are saved.
-- The src directory contains your source file. If you created a .ino file for your main project file, after building you may see a .cpp file of the same name. This is because the .ino file is transformed into a .cpp before compiling. You can create multiple source files and header files in this directory.
-- Not pictured here is the libs directory, at the same level as src. This contains the source to libraries that you have included. If you are cloud compiling, if you have the library listed in your project.properties file the cloud version of the library is used instead of the downloaded one in libs.
-- The target directory contains local build output. In particular, the .bin file (Test1.bin) is the same binary you get from downloading from the Web IDE or CLI.
-- The electron\_firmware\_1548790892661.bin (your filename will be different) at the top level is the result of a cloud compile for this project.
-- The project.properties file specifies all of the libraries that this project uses.
-- README.md is where you could put documentation for your project.
-- The .code-workspace is the workspace settings file for VS Code. There are no particle-specific settings in it.
+- The **.vscode** directory contains your project-specific settings. The settings.json file allows you to override any setting on a per-project basis. It's also where your build firmware version, target platform, and target device are saved.
+- The **src** directory contains your source file. If you created a .ino file for your main project file, after building you may see a .cpp file of the same name. This is because the .ino file is transformed into a .cpp before compiling. You can create multiple source files and header files in this directory.
+- Not pictured here is the **libs** directory, at the same level as src. This contains the source to libraries that you have included. If you are cloud compiling, if you have the library listed in your project.properties file the cloud version of the library is used instead of the downloaded one in libs.
+- The **target** directory contains local build output. In particular, the .bin file (Test1.bin) is the same binary you get from downloading from the Web IDE or CLI.
+- The electron\_firmware\_1548790892661**.bin** (your filename will be different) at the top level is the result of a cloud compile for this project.
+- The **project.properties** file specifies all of the libraries that this project uses.
+- **README.md** is where you could put documentation for your project.
+- The **.code-workspace** is the workspace settings file for VS Code. There are no particle-specific settings in it.
 
 If you already have an existing Particle project (with a project.properties file), you can import it to create the necessary VS Code files by using the command **Particle: Import Project** from the command palette.
 
@@ -107,7 +112,7 @@ Then select the version you want to install.
 To compile and flash locally, use the Command Palette and select one of the local flash options:
 
 - Particle: Flash application (local)
-- Particle: Flash application for debug(local)
+- Particle: Flash application for debug (local)
 - Particle: Flash application & Device OS (local)
 
 ![Flash Local](/assets/images/workbench/local-3.png)
@@ -231,7 +236,7 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 ### Debugging (3rd-generation)
 
-For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial(/support/particle-tools-faq/eclipse-debug/). As you'll see, this is way easier in Workbench! 
+For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](/support/particle-tools-faq/eclipse-debug/). As you'll see, this is way easier in Workbench! 
 
 - Create a new project using the Command Palette and **Particle: Create New Project**.
 - Rename TinkerBreak.ino to TinkerBreak.cpp. Paste in the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp) into TinkerBreak.cpp.
@@ -391,4 +396,8 @@ In the bottom status bar:
 - The other status bar information is displayed on the VS Code status bar. If the status bar is not visible, you can change that using Command Palette **View: Toggle Status Bar Visibility**.
 
 If you are used to the editing keyboard shortcuts, you can install the Atom keymap. Open the Command Palette and select **Preferences: Keymaps**.
+
+## Learn More
+
+Additional questions and answers are in the [FAQ](/support/particle-tools-faq/workbench).
 

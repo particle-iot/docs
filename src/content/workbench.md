@@ -17,18 +17,18 @@ Particle Workbench provides IoT developers with a cross-platform desktop develop
 
 <div  align="center">
 <br />
-<a href="/quickstart/workbench/"  target="_blank" class="button">INSTALL NOW</a>
+<a href="/quickstart/workbench/" class="button">INSTALL NOW</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}
 **Learn more:**
-- [Quickstart](https://community.particle.io/t/tutorial-installing-the-particle-workbench-developer-preview/44244)
+- [Quickstart](/quickstart/workbench/)
 - [Community](https://community.particle.io/c/particle-workbench)
 - [Support](https://community.particle.io/t/information-how-to-report-bugs-and-provide-feedback/44245)
 {{box op="switch"}}
 **Resources:**
-- [Feature overview](https://community.particle.io/t/feature-overview-of-particle-workbench/44458)
-- [Changelog](https://community.particle.io/t/developer-preview-changelog-october-30-2018/44855)
+- [Tutorial](/tutorials/developer-tools/workbench)
+- [FAQ](/support/particle-tools-faq/workbench)
 {{box op="end"}}
 
 ## Features:
@@ -54,5 +54,7 @@ IntelliSense not only provides syntax highlighting and autocomplete, but also pr
 
 
 ### Step-by-step debugging
+
+Support for source-level step-by-step debugging, breakpoints, viewing call stacks, registers, and memory, for 3rd generation (Argon, Boron, and Xenon) as well as 2nd generation (Photon, P1, Electron, E Series) devices.
 
 {{box op="end"}}

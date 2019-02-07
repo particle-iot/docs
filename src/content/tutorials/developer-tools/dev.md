@@ -13,6 +13,13 @@ layout: tutorials.hbs
 local copies of your firmware files. However, **internet** access is
 required as the files are pushed to the Particle Device Cloud for compilation and returns a binary. i.e. This is not an offline development tool.
 
+{{box op="start"}}
+Particle Dev is being phased out and cannot be used to program 3rd-generation devices (Argon, Boron, and Xenon). 
+
+You should instead use [**Particle Workbench**](/tutorials/developer-tools/workbench) powered by VS Code. Workbench provides an integrated development environment as well as cloud compiling, local compiling, and source-level debugging.
+{{box op="end"}}
+
+
 ## Download
 
 Head over and download latest release:
