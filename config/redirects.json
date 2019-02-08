@@ -205,5 +205,5 @@
     "/tutorials/projects/particle-pi-security-camera": "/tutorials/hardware-projects/particle-pi-security-camera",
     "/tutorials/topics/google-cloud-platform": "/tutorials/integrations/google-cloud-platform",
     "/tutorials/topics/particle-pi-security-camera": "/tutorials/hardware-projects/particle-pi-security-camera",
-    "/webhooks": "/tutorials/device-os/webhooks"
+    "/webhooks": "/tutorials/device-cloud/webhooks"
 }
