@@ -78,23 +78,7 @@ To compile your program and download the binary, open the Command Palette and se
 
 ![Compile or Flash](/assets/images/workbench/compile-flash.png)
 
-It's also possible to compile in the cloud and flash over USB. You might want to do this if you want flash over USB to an Electron or Boron and not use your cellular data.
-
-After you've done **Particle: Cloud Compile** you'll notice a new .bin file created in your workspace. In this example, it's **electron\_firmware\_1548790892661.bin**.
-
-From the Command Palette enter **Particle: Launch CLI**. 
-
-The device must be connected by USB and in DFU mode (blinking yellow). Hold down the MODE (or SETUP) button while tapping RESET. Continue to hold down MODE (or SETUP) while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release.
-
-Then type in a command like:
-
-```
-particle flash --usb electron_firmware_1548790892661.bin
-```
-
-You can just type the first few letters of the filename then hit Tab to auto-complete the rest.
-
-![Local Compiler](/assets/images/workbench/flash-binary-usb.png)
+It's also possible to compile in the cloud and flash over USB, as described in the section [Cloud build and flash locally](#cloud-build-and-flash-locally), below.
 
 
 ### Local build and flash
@@ -143,6 +127,48 @@ If you are getting mysterious errors, sometimes it's helpful to do a clean to re
 
 ![Clean Local](/assets/images/workbench/local-5.png)
 
+### Integrated CLI
+
+Workbench ships with a local copy of the Particle CLI (Command-Line Interface). The CLI powers many of the commands behind the scenes. It can also be accessed via the Integrated Terminal, which can be handy for features not yet exposed natively in Workbench. To open a CLI window, from the Command Palette enter **Particle: Launch CLI**.
+
+In the Integrated Terminal window you can enter any Particle CLI commands, for example:
+
+```
+particle help
+particle --version
+particle libraries list
+```
+
+![Integrated CLI](/assets/images/workbench/cli.png)
+
+### Cloud build and flash locally
+
+Combining the cloud compile and integrated CLI, you can, for example, compile in the cloud and then flash to an Boron or Electron over USB to save on cellular data usage.
+
+
+After you've done **Particle: Cloud Compile** you'll notice a new .bin file created in your workspace. In this example, it's **electron\_firmware\_1548790892661.bin**.
+
+From the Command Palette enter **Particle: Launch CLI**. 
+
+The device must be connected by USB and in DFU mode (blinking yellow). Hold down the MODE (or SETUP) button while tapping RESET. Continue to hold down MODE (or SETUP) while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release.
+
+Then type in a command like:
+
+```
+particle flash --usb electron_firmware_1548790892661.bin
+```
+
+You can just type the first few letters of the filename then hit Tab to auto-complete the rest.
+
+![Local Compiler](/assets/images/workbench/flash-binary-usb.png)
+
+
+### Integrated Serial Monitor
+
+One handy debugging technique is to use the USB debug serial port. Open the Command Palette and select **Particle: Serial Monitor**.
+
+Normally, when the device restarts (such as after flashing new code) the serial port is disconnected, but you are presented with an option to automatically reconnect or not.
+
 
 ### IntelliSense
 
@@ -160,28 +186,6 @@ Or possible arguments.
 IntelliSense for C++ includes a slew of advanced features for you to explore. For example, you can “peek” to the definition of a function.
 
 ![Intellisense Peek](/assets/images/workbench/intellisense2.png)
-
-
-
-### Integrated CLI
-
-Workbench ships with a local copy of the Particle CLI (Command-Line Interface). The CLI powers many of the commands behind the scenes. It can also be accessed via the Integrated Terminal, which can be handy for features not yet exposed natively in Workbench. To open a CLI window, from the Command Palette enter **Particle: Launch CLI**.
-
-In the Integrated Terminal window you can enter any Particle CLI commands, for example:
-
-```
-particle help
-particle --version
-particle libraries list
-```
-
-![Integrated CLI](/assets/images/workbench/cli.png)
-
-### Integrated Serial Monitor
-
-One handy debugging technique is to use the USB debug serial port. Open the Command Palette and select **Particle: Serial Monitor**.
-
-Normally, when the device restarts (such as after flashing new code) the serial port is disconnected, but you are presented with an option to automatically reconnect or not.
 
 
 ### Particle Themes
