@@ -93,15 +93,7 @@ The code is heavily commented to help you understand the general structure of th
 
 ## 4. Target your device
 
-The Web IDE can be used with multiple devices. As such, when you go to compile source code, it's a good idea to verify that the board you
-
-Before you compile the source code and flash your device with its binary output, make sure that the correct Particle device is selected.
-
-{{box op="start"}}
-**NOTE:**
-
-If you don't see your Boron listed, click on the device name. A sidebar will appear on the left with a list of all of your devices. Click on _start_ to the left of the Boron you wish to deploy code to.
-{{box op="end"}}
+The Web IDE can be used with multiple devices. As such, when you go to compile source code, it's a good idea to verify that the device you are intending to program has a gold star to the left of its name in the Devices tab (circle with 4 lines).
 
 ---
 

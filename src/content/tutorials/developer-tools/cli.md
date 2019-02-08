@@ -10,7 +10,7 @@ layout: tutorials.hbs
 # Particle CLI
 
 The Particle CLI is a powerful tool for interacting with your devices
-and the Particle Device Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
+and the Particle Device Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, macOS (OS X), and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
 ## Installing
 

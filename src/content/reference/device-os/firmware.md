@@ -1778,6 +1778,14 @@ _Since 0.8.0_
 WiFiSignal sig = WiFi.RSSI();
 ```
 
+If you are passing the RSSI value as a variable argument, such as with Serial.printlnf, Log.info, snprintf, etc. make sure you add a cast:
+
+```
+Serial.printlnf("RSSI=%d", (int8_t) WiFi.RSSI()).
+```
+
+This is necessary for the compiler to correctly convert the WiFiSignal class into a number.
+
 ### WiFiSignal Class
 
 This class allows to query a number of signal parameters of the currently connected WiFi network.
@@ -2903,7 +2911,7 @@ void loop() {
 
 ### setActiveSim()
 
-The {{device}} can use either the built-in M2FF embedded Particle SIM card or an external nano SIM card in 
+The {{device}} can use either the built-in MFF2 embedded Particle SIM card or an external nano SIM card in 
 the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
 once. The setting will be preserved across reset, power down, and firmware upgrades.
 
@@ -4768,9 +4776,9 @@ For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). 
 - Parity: none
 - Stop Bits: 1
 
-On **OS X and Linux** systems, you can access the serial port through the terminal.
+On **macOS (OS X) and Linux** systems, you can access the serial port through the terminal.
 
-For OS X, open the terminal and type:
+For macOS, open the terminal and type:
 
 ```screen /dev/tty.u```
 

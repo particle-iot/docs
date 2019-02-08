@@ -740,7 +740,7 @@ cd c:\OpenSSL-Win32\bin
 particle keys doctor YOUR_DEVICE_ID
 ```
 
-There are additional tips for a [missing openssl error on this page](https://github.com/rickkas7/particle_notes/tree/master/installing-openssl), including tips for Mac OS X and Linux.
+There are additional tips for a [missing openssl error on this page](https://github.com/rickkas7/particle_notes/tree/master/installing-openssl), including tips for macOS (OS X) and Linux.
 
 {{collapse op="end"}}
 
