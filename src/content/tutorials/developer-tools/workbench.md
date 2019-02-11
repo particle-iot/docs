@@ -18,6 +18,27 @@ layout: tutorials.hbs
 
 ## Workbench Features
 
+### Left Toolbar
+
+Typically, there is a toolbar on the left with frequently used features.
+
+| Button | Purpose |
+| --- | --- |
+| <img src="/assets/images/workbench/left-bar-explorer.png" class="toolbarIcon" /> | File Explorer |
+| <img src="/assets/images/workbench/left-bar-search.png" class="toolbarIcon" /> | Search and Replace |
+| <img src="/assets/images/workbench/left-bar-source-control.png" class="toolbarIcon" /> | Source code control (like Git) |
+| <img src="/assets/images/workbench/left-bar-debugger.png" class="toolbarIcon" /> | Source level debugger |
+| <img src="/assets/images/workbench/left-bar-extensions.png" class="toolbarIcon" /> | Add or modify VS Code Extensions |
+| <img src="/assets/images/workbench/left-bar-particle.png" class="toolbarIcon" /> | Particle Welcome Screen |
+
+
+### Welcome Screen
+
+![Welcome Screen](/assets/images/workbench/welcome.png)
+
+The Welcome Screen has handy tips for using Workbench. If you close it, you can get it back by clicking on the Particle icon in the left toolbar.
+
+
 ### Particle Commands
 
 If you’re new to Visual Studio Code, the Command Palette will become a familiar part of the user interface. As the name implies, the Command Palette provides access to many commands such as open files, search for symbols, and see a quick outline of a file, all using the same interactive window. It can be invoked via `cmd+shift+p` on macOS or `ctrl+shift+p` on Linux and Windows.
@@ -127,6 +148,23 @@ If you are getting mysterious errors, sometimes it's helpful to do a clean to re
 
 ![Clean Local](/assets/images/workbench/local-5.png)
 
+### Compile and Flash Buttons
+
+When you are viewing a .cpp or .ino file, there will be two new icons in the upper right corner:
+
+![Clean Local](/assets/images/workbench/compile-flash-button.png)
+
+| Button | Purpose |
+| --- | --- |
+| <img src="/assets/images/workbench/compile-button.png" class="toolbarIcon" /> | Compile |
+| <img src="/assets/images/workbench/flash-button.png" class="toolbarIcon" /> | Compile and Flash |
+
+By default, the **Compile** button invokes **Particle: Compile application & Device OS (local)**. Flash works similarly.
+
+However you can make these buttons do other things, like cloud flash, by changing settings. From the menus, select **Code > Preferences > Settings** (Mac) or **File > Preferences > Settings** (Windows) and search for **compileButtonAction** and **flashButtonAction** to change the task to run when these buttons are used.
+
+![Compile Button Action](/assets/images/workbench/compileButtonAction.png)
+
 ### Integrated CLI
 
 Workbench ships with a local copy of the Particle CLI (Command-Line Interface). The CLI powers many of the commands behind the scenes. It can also be accessed via the Integrated Terminal, which can be handy for features not yet exposed natively in Workbench. To open a CLI window, from the Command Palette enter **Particle: Launch CLI**.
@@ -161,6 +199,7 @@ particle flash --usb electron_firmware_1548790892661.bin
 You can just type the first few letters of the filename then hit Tab to auto-complete the rest.
 
 ![Local Compiler](/assets/images/workbench/flash-binary-usb.png)
+
 
 
 ### Integrated Serial Monitor
