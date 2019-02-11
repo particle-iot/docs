@@ -88,6 +88,8 @@ To force it to update, run the installer script again or enter this command:
 $ particle update-cli
 ```
 
+If the CLI is outputing unexpected errors after an update, delete the `~/.particle` (macOS and Linux) or `C:\Users\<username>\AppData\Local\particle` directory and run the installer script again to start over.
+
 If you installed manually using `npm install`, you can upgrade by running the same command you used to install the tool.
 
 ### Running from source (advanced)
