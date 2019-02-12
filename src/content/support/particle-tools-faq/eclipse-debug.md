@@ -20,6 +20,10 @@ Some of the things you can do:
 
 ![Features](/assets/images/eclipse-debug-debug-15.png)
 
+{{box op="start"}}
+While you can still use these instructions, a much easier way to install [Particle Workbench](/tutorials/developer-tools/workbench/). It provides an automated way to install local development tools and do source-level debugging without the extreme hassle of the method described below.
+{{box op="end"}}
+
 
 ## Install local gcc-arm toolchain
 
