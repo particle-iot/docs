@@ -11381,25 +11381,8 @@ Resets the device and restarts in safe mode.
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
 {{#if has-nrf52}}
-3rd-generation devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0-rc.1 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS.
+3rd-generation devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0-rc.2 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS.
 {{/if}}
-
----
-
-`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in this mode.
-
-This mode is not recommended; it is better to manually control the network connection in SYSTEM_MODE(MANUAL) instead.
-
-```C++
-// SYNTAX
-System.sleep(long seconds);
-
-// EXAMPLE USAGE
-
-// Put the Wi-Fi module in standby (low power) for 5 seconds
-System.sleep(5);
-// The device LED will breathe white during sleep
-```
 
 ---
 
@@ -11425,24 +11408,22 @@ System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
 {{/if}} {{!-- has-stm32 --}}
 
 {{#if has-nrf52}}
-`System.sleep(SLEEP_MODE_DEEP, 0)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
+`System.sleep(SLEEP_MODE_DEEP)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
 
 
 ```C++
 // SYNTAX
-System.sleep(SLEEP_MODE_DEEP, 0);
+System.sleep(SLEEP_MODE_DEEP);
 
 // EXAMPLE USAGE
 
 // Put the device into deep sleep until wakened by D8.
-System.sleep(SLEEP_MODE_DEEP, 0);
+System.sleep(SLEEP_MODE_DEEP);
 // The device LED will shut off during deep sleep
 ```
 {{/if}} {{!-- has-nrf52 --}}
 
 In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a standby mode. 
-
-Note the zero parameter; on 2nd-generation devices this is the number of seconds to sleep, however on 3rd-generation devices the nRF52 MCU cannot wake from deep sleep based on time and this parameter must be set to 0. If non-zero the device won't sleep at all and will continue to the next line of code.
 
 When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
@@ -11450,10 +11431,7 @@ The standby mode is used to achieve the lowest power consumption.  After enterin
 
 
 {{#if has-stm32}}
-The device will automatically *wake up* and reestablish the cloud connection after the specified number of seconds if the cloud was connected when sleep was entered. If disconnected prior to sleep, it will stay disconnected on wake.
-
-**Note:**
-You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
+The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
 
 {{since when="0.8.0"}}
 Wake up by {{#if core}}A7{{else}}WKP{{/if}} pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
@@ -11484,7 +11462,7 @@ System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
 
 {{#if has-nrf52}}
 
-The 3rd-generation devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by rising D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. You must pass 0 for the number of seconds to sleep!
+The 3rd-generation devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by rising D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
 
 **Note for 0.9.0-rc.1:** In this version only, sleep is exited by falling D8. This was accidental and opposite of the way WKP works on 2nd-generation devices. It will be changed to rising in 0.9.0-rc.2 and later.
 
@@ -11493,7 +11471,7 @@ Also, the real-time-clock (Time class) will not be set when waking up from SLEEP
 {{#if has-fuel-gauge}}
 ---
 
-`System.sleep(SLEEP_MODE_SOFTPOWEROFF, 0)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
 ```C++
 // SYNTAX
 System.sleep(SLEEP_MODE_SOFTPOWEROFF);
@@ -11504,11 +11482,11 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 {{#if has-cellular}}
 ---
 
-`System.sleep(SLEEP_MODE_DEEP, 0, SLEEP_NETWORK_STANDBY)` is just like `SLEEP_MODE_DEEP` but does not turn the {{network-type}} OFF.  This significantly reduces the amount of data required for reconnecting to the carrier when the {{device}} restarts from SLEEP_MODE_DEEP.  Note that this mode is most beneficial with a long KeepAlive time (23 mins on Particle SIM) where the {{device}} maximum deep sleep time can be set to the KeepAlive time.
+`System.sleep(SLEEP_MODE_DEEP, SLEEP_NETWORK_STANDBY)` is just like `SLEEP_MODE_DEEP` but does not turn the {{network-type}} OFF.  This significantly reduces the amount of data required for reconnecting to the carrier when the {{device}} restarts from SLEEP_MODE_DEEP.  Note that this mode is most beneficial with a long KeepAlive time (23 mins on Particle SIM) where the {{device}} maximum deep sleep time can be set to the KeepAlive time.
 
 ```C++
 // SYNTAX
-System.sleep(SLEEP_MODE_DEEP, 0, SLEEP_NETWORK_STANDBY);
+System.sleep(SLEEP_MODE_DEEP, SLEEP_NETWORK_STANDBY);
 ```
 {{/if}}
 
@@ -11772,6 +11750,23 @@ _Since 0.8.0_ An application may check the information about the latest sleep by
 - [`System.wokenUpByRtc()`](#wokenupbyrtc--1)
 - [`System.wakeUpPin()`](#wakeuppin-)
 - [`System.sleepError()`](#sleeperror-)
+
+---
+
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in this mode.
+
+This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(MANUAL) instead.
+
+```C++
+// SYNTAX
+System.sleep(long seconds);
+
+// EXAMPLE USAGE
+
+// Put the Wi-Fi module in standby (low power) for 5 seconds
+System.sleep(5);
+// The device LED will breathe white during sleep
+```
 
 {{/if}} {{!-- has-sleep --}}
 
