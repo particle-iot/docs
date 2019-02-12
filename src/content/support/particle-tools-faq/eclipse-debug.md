@@ -20,6 +20,10 @@ Some of the things you can do:
 
 ![Features](/assets/images/eclipse-debug-debug-15.png)
 
+{{box op="start"}}
+While you can still use these instructions, a much easier way to install [Particle Workbench](/tutorials/developer-tools/workbench/). It provides an automated way to install local development tools and do source-level debugging without the extreme hassle of the method described below.
+{{box op="end"}}
+
 
 ## Install local gcc-arm toolchain
 
@@ -67,7 +71,7 @@ Select **USB <-> Serial Converter (Interface 0)** (USB ID 0403 6010 00). Then se
 
 ### Particle Programmer Shield - Mac
 
-This doesn't seem to be a problem with El Capitan and Sierra versions of Mac OS X, but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield).
+This doesn't seem to be a problem with El Capitan and Sierra versions of macOS (OS X), but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield).
 
 In some cases, you may need to unload and reload the driver to get the Programmer Shield to work. This will need to be done after each reboot. Try it first without running this, as sometimes it works without it. It may be sufficient to only do this and not the more elaborate steps listed above, as well.
 
@@ -271,7 +275,7 @@ For this example, I selected **Eclipse IDE for C/C++ Developers** but you can ch
 
 Eclipse doesn't have an installer or dmg file.
 
-Also, you may be prompted to install the Legacy Java SE 6 for OS X when you first run Eclipse. If this happens, just follow the instructions for doing so.
+Also, you may be prompted to install the Legacy Java SE 6 for macOS when you first run Eclipse. If this happens, just follow the instructions for doing so.
 
 - Upgrade to Java JDK 8 if necessary
 
@@ -283,7 +287,7 @@ It was 8u111 when I wrote this, but select the current version.
 
 I used the 64-bit Mac version, jdk-8u111-macosx-x64.dmg. You should use the latest version of JDK 8 for your operating system, not specifically build 111.
 
-- Swap the default Mac OS X JVM
+- Swap the default macOS JVM
 
 Then you need to swap version 8 for the version 6 of the Mac system JVM. Open a Terminal window:
 
@@ -643,7 +647,7 @@ After making a change in the preferences, it's a good idea to click **Apply** (3
 
 {{collapse op="start" computerOs="Mac"}}
 
-- For Mac OS X: Use the **Add** button (2) to add new environment variables:
+- For macOS: Use the **Add** button (2) to add new environment variables:
 
 | Name | Type | Value |
 | :-:|:-:|:-:|:-: |

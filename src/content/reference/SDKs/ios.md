@@ -68,7 +68,7 @@ Cloud SDK usage involves two basic classes: first is `ParticleCloud` which is a 
 ##### Return values
 
 Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation.
-This is a result of the SDK relying on AFNetworking which is a networking library for iOS and Mac OS X.
+This is a result of the SDK relying on AFNetworking which is a networking library for iOS and macOS (OS X).
 It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa.
 The Particle Device Cloud SDK has been relying on this powerful library since the beginning, but when version 3.0 was released not long ago it contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was deprecated by Apple and `NSURLSessionDataTask` was introduced to replace it.
 You can ignore the return value (previously it was just `void`) coming out of the SDK functions, alternatively you can now make use of the `NSURLSessionDataTask` object as described.

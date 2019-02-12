@@ -30,11 +30,11 @@ Plug your device into your computer over USB. When the {{device}} is in [Listeni
 - Stop Bits: 1
 
 
-#### For OS X or Linux
+#### For macOS or Linux
 
-On OS X and Linux systems, you can access the serial monitor through the terminal.
+On macOS (OS X) and Linux systems, you can access the serial monitor through the terminal.
 
-For OS X, open the terminal and type:
+For macOS, open the terminal and type:
 
 ```screen /dev/tty.u```
 
@@ -124,7 +124,7 @@ We don't recommend using these commands unless you're very comfortable with the 
 
 ### Windows Setup
 
-dfu-util works from the command line with OS X, but to use dfu-util on Windows, you'll need several drivers.
+dfu-util works from the command line with macOS, but to use dfu-util on Windows, you'll need several drivers.
 
 - First, you'll need to download and install the [Particle driver](https://github.com/particle-iot/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
 

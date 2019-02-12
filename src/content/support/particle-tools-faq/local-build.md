@@ -14,6 +14,11 @@ It is possible to build both application firmware and Device OS locally using th
 - To work entirely offline, with no Internet access
 - To use the GDB debugger
 
+{{box op="start"}}
+While you can still use these instructions, a much easier way to use gcc-arm is to install [Particle Workbench](/tutorials/developer-tools/workbench/). It provides an automated way to install local development tools.
+{{box op="end"}}
+
+
 This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/tutorials/developer-tools/dev/), or [Particle CLI](/tutorials/developer-tools/cli/) which are much easier to install and use.
 
 {{collapse op="computerOsSelector"}}
