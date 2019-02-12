@@ -544,6 +544,9 @@ The DS18B20 is an easy to use one wire digital thermometer with up to 12-bit mea
 
 This is the sealed, water proof version of the DS18B20 temperature sensor with wires.
 
+- Red: 3.3V to 5.0V
+- Yellow: Sensor output (1-Wire)
+- Black: Ground
 
 ### Piezo Buzzer (1)
 

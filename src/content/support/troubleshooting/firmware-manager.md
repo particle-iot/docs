@@ -16,7 +16,7 @@ The Firmware Manager is a desktop application that upgrades your {{device}} to t
 
 ## Getting Started
 
-The Firmware Manager is available for Windows and OS X. 
+The Firmware Manager is available for Windows and macOS (OS X). 
 
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-windows-logo.png"> Windows
 
@@ -29,7 +29,7 @@ The first time the utility is run, you will be prompted to enable administrator 
  
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-apple-logo.png"> OS X
 
-Click [Firmware Manager for OS X](https://binaries.particle.io/updater/particle_firmware_manager-v0.6.0-osx.zip) to download the application to your downloads folder.
+Click [Firmware Manager for macOS](https://binaries.particle.io/updater/particle_firmware_manager-v0.6.0-osx.zip) to download the application to your downloads folder.
 
 The application is provided as a Zip file. Once the file has downloaded, double-click the file to start unpacking the application. This will take just a few seconds and you'll then see a folder named "Particle firmware manager" with a Particle icon.  
 
