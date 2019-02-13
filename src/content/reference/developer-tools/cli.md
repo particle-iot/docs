@@ -514,18 +514,17 @@ $ particle monitor all temperature 5000 --time > my_temperatures.csv
 
 ## particle identify
 
-  Retrieves your device id when the device is connected via USB and in listening mode (flashing blue).
+  Retrieves your device id when the device is connected via USB and in listening mode (flashing blue). It also provides the current system firmware version on the device.
 
 ```sh
-# helps get your device id via usb and serial
+# helps get your device id and system firmware version via usb and serial
 # make sure your device is connected and blinking blue
 $ particle identify
 $ particle identify 1
 $ particle identify COM3
 $ particle identify /dev/cu.usbmodem12345
 
-$ particle identify
-0123456789ABCDEFGHI
+$ particle identify 0123456789ABCDEFGHI
 ```
 
 ## particle subscribe
