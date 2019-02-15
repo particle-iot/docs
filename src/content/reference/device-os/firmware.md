@@ -11389,7 +11389,7 @@ Resets the device and restarts in safe mode.
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
 {{#if has-nrf52}}
-3rd-generation devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0-rc.2 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS.
+3rd-generation devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0-rc.3 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
 {{/if}}
 
 ---
@@ -11455,24 +11455,11 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 ```
 {{/if}} {{!-- has-fuel-gauge --}}
 
-{{#if has-cellular}}
----
-
-`System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_NETWORK_STANDBY)` is just like `SLEEP_MODE_DEEP` but does not turn the {{network-type}} OFF.  This significantly reduces the amount of data required for reconnecting to the carrier when the {{device}} restarts from SLEEP_MODE_DEEP.  Note that this mode is most beneficial with a long KeepAlive time (23 mins on Particle SIM) where the {{device}} maximum deep sleep time can be set to the KeepAlive time.
-
-```C++
-// SYNTAX
-System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
-```
-{{/if}}
-
 {{/if}} {{!-- has-stm32 --}}
 
 {{#if has-nrf52}}
 
 The 3rd-generation devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by rising D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
-
-**Note for 0.9.0-rc.1:** In this version only, sleep is exited by falling D8. This was accidental and opposite of the way WKP works on 2nd-generation devices. It will be changed to rising in 0.9.0-rc.2 and later.
 
 Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
 
@@ -11486,17 +11473,6 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 ```
 {{/if}} {{!-- has-fuel-gauge --}}
 
-
-{{#if has-cellular}}
----
-
-`System.sleep(SLEEP_MODE_DEEP, SLEEP_NETWORK_STANDBY)` is just like `SLEEP_MODE_DEEP` but does not turn the {{network-type}} OFF.  This significantly reduces the amount of data required for reconnecting to the carrier when the {{device}} restarts from SLEEP_MODE_DEEP.  Note that this mode is most beneficial with a long KeepAlive time (23 mins on Particle SIM) where the {{device}} maximum deep sleep time can be set to the KeepAlive time.
-
-```C++
-// SYNTAX
-System.sleep(SLEEP_MODE_DEEP, SLEEP_NETWORK_STANDBY);
-```
-{{/if}}
 
 {{/if}} {{!-- has-nrf52 --}}
 
@@ -11524,7 +11500,7 @@ It is mandatory to update the *bootloader* (https://github.com/particle-iot/devi
 {{/if}}
 
 {{#if has-cellular}}
-The Electron maintains the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption.
+The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption.
 {{/if}}
 
 
