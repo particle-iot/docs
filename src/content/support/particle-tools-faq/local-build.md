@@ -424,6 +424,22 @@ git checkout release/v0.7.0
 
 - Then do a build. This will build all of the Device OS firmware, plus Tinker, for the Photon.
 
+#### For Gen3 devices (Argon, Boron, Xenon)
+
+For Gen3 (mesh) devices, you should checkout either:
+
+- A specific release such as release/v0.9.0
+- The branch **mesh-develop**
+
+The develop and stable branches do not support mesh devices at this time.
+
+You must also update the submodules after checkout of the device-os tree:
+
+```
+cd device-os
+git submodule update --init
+```
+
 ### Building
 
 ```bash

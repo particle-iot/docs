@@ -3416,8 +3416,8 @@ void setup() {
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
 {{#if boron}}
-{{since when="0.9.0-rc.1"}}
-On the Boron, Cellular.command requires Device OS 0.9.0-rc.1 or later; it is not supported on 0.8.0-rc versions.
+{{since when="0.9.0"}}
+On the Boron, Cellular.command requires Device OS 0.9.0 or later; it is not supported on 0.8.0-rc versions.
 {{/if}}
 
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
@@ -11389,7 +11389,7 @@ Resets the device and restarts in safe mode.
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
 {{#if has-nrf52}}
-3rd-generation devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0-rc.3 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
+3rd-generation devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
 {{/if}}
 
 ---

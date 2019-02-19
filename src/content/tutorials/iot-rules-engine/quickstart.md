@@ -154,8 +154,8 @@ class="full-width"/>
 <p class="caption">Click and drag the inject node onto the grid
 to add it to your flow</p>
 
-By default, the inject node will initiate a flow with a timstamp. Double
-clock on the inject node to customize its behavior. Let's inject the
+By default, the inject node will initiate a flow with a timestamp. Double
+click on the inject node to customize its behavior. Let's inject the
 current time at an interval of every 5 seconds as shown below:
 
 <img src="/assets/images/rules-engine/inject-node-config.png" />
