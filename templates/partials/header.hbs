@@ -20,11 +20,13 @@
       <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
       <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
       <a class="nav {{#contains path.href 'community'}}active{{/contains}}" href="/community">Community</a>
+      <a class="nav {{#contains path.href 'workshops'}}active{{/contains}}" href="/workshops">Workshops</a>
       <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="/support">Support</a>
     </div>
 
     <div class="dropdown mobile-only">
-      <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+        aria-expanded="false">
         {{top-level-category path.href}}
         <i class="icon ion-chevron-down"></i>
       </a>
@@ -35,6 +37,7 @@
         <li><a href="/reference">Reference</a></li>
         <li><a href="/datasheets">Datasheets</a></li>
         <li><a href="/community">Community</a></li>
+        <li><a href="/workshops">Workshops</a></li>
         <li><a href="/support">Support</a></li>
       </ul>
     </div>
@@ -46,12 +49,12 @@
     <div class="search">
       <div class="search-input-wrapper">
         <i class="ion-search"></i>
-        <input class="search-box" type="text" placeholder='Search' value=''/>
+        <input class="search-box" type="text" placeholder='Search' value='' />
       </div>
       <div class="search-results">
       </div>
     </div>
-    
+
     <a href='{{edit-link branch path.href path.name}}' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
 
   </div>

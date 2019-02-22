@@ -67,28 +67,34 @@ exports.metalsmith = function() {
     if (token.length > 0) {
       return token;
     }
-  };
+  }
   var metalsmith = Metalsmith(__dirname)
     .concurrency(100)
     .source('../src')
     .destination('../build')
     // Convert assets/less/style.less to assets/css/style.css
     // Put new styles in a .less file in assets/less and include it in style.less
-    .use(less({
-      pattern: '**/less/style.less',
-      useDynamicSourceMap: true
-    }))
+    .use(
+      less({
+        pattern: '**/less/style.less',
+        useDynamicSourceMap: true
+      })
+    )
     // Don't copy the styless partials to the build folder
     // Add other patterns of files that should not be copied
-    .use(ignore([
-      '**/less/*.less',
-      'content/languages/**/*',
-      'assets/images/**/*.ai'
-    ]))
+    .use(
+      ignore([
+        '**/less/*.less',
+        'content/languages/**/*',
+        'assets/images/**/*.ai'
+      ])
+    )
     // Minify CSS
-    .use(cleanCSS({
-      files: '**/*.css'
-    }))
+    .use(
+      cleanCSS({
+        files: '**/*.css'
+      })
+    )
     // Auto-generate documentation from the API using comments formatted in the apidoc format
     .use(
       apidoc({
@@ -97,48 +103,68 @@ exports.metalsmith = function() {
           {
             src: '../api-service/',
             config: '../api-service/',
-            includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
+            includeFilters: [
+              '.*[vV]iews[^.]*\\.js$',
+              'lib/AccessTokenController.js'
+            ]
           },
           {
             src: '../api-service-libraries/',
             config: '../api-service/',
             includeFilters: ['.*Controller\\.js$']
-          },
+          }
         ]
       })
     )
     // Auto-generate documentation for the Javascript client library
-    .use(insertFragment({
-      destFile: 'content/reference/SDKs/javascript.md',
-      srcFile: '../particle-api-js/docs/api.md',
-      fragment: 'GENERATED_JAVASCRIPT_DOCS',
-      preprocess: javascriptDocsPreprocess,
-    }))
+    .use(
+      insertFragment({
+        destFile: 'content/reference/SDKs/javascript.md',
+        srcFile: '../particle-api-js/docs/api.md',
+        fragment: 'GENERATED_JAVASCRIPT_DOCS',
+        preprocess: javascriptDocsPreprocess
+      })
+    )
     // Make all files in this directory available to any Handlebar template
     // Use partials like this: {{> arrows}}
-    .use(partials({
-      directory: '../templates/partials'
-    }))
+    .use(
+      partials({
+        directory: '../templates/partials'
+      })
+    )
     // Add properties to files that match the pattern
-    .use(fileMetadata([
-      {pattern: 'content/**/*.md', metadata: {lunr: generateSearch, assets: '/assets', branch: gitBranch}}
-    ]))
-    .use(msIf(
-      environment === 'development',
+    .use(
       fileMetadata([
-        {pattern: 'content/**/*.md', metadata: {development: true}},
-        {pattern: '**/*.hbs', metadata: {development: true}}
+        {
+          pattern: 'content/**/*.md',
+          metadata: {
+            lunr: generateSearch,
+            assets: '/assets',
+            branch: gitBranch
+          }
+        }
       ])
-    ))
+    )
+    .use(
+      msIf(
+        environment === 'development',
+        fileMetadata([
+          { pattern: 'content/**/*.md', metadata: { development: true } },
+          { pattern: '**/*.hbs', metadata: { development: true } }
+        ])
+      )
+    )
     // Handlebar templates for use in the front-end JS code
-    .use(precompile({
-      directory: '../templates/precompile',
-      dest: 'assets/js/precompiled.js',
-      knownHelpers: {
-        'each': true,
-        'if': true
-      }
-    }))
+    .use(
+      precompile({
+        directory: '../templates/precompile',
+        dest: 'assets/js/precompiled.js',
+        knownHelpers: {
+          each: true,
+          if: true
+        }
+      })
+    )
     // Move files like contents/reference/firmware.md to reference/firmware.md
     .use(moveUp(['content/**/*']))
     // Add a path key to each file, with sub-keys base, dir, ext, name
@@ -146,157 +172,182 @@ exports.metalsmith = function() {
     // Handlebar helpers to use in any Handlebar template
     // Use helpers like this: {{ reset-button }}
     // Note that the last parameter to the helper will be a context object with the file metadata in context.data.root
-    .use(helpers({
-      directory: '../templates/helpers'
-    }))
+    .use(
+      helpers({
+        directory: '../templates/helpers'
+      })
+    )
     // Group files into collections and add collection metadata
     // This plugin is complex and buggy.
     // It causes the duplicate nav bar bug during development with livereload
-    .use(collections({
-      quickstart: {
-        pattern: 'quickstart/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      reference: {
-        pattern: 'reference/:section/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'device-os',
-          'developer-tools',
-          'device-cloud',
-          'SDKs',
-          'discontinued'
-        ]
-      },
-      tutorials: {
-        pattern: 'tutorials/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'device-os',
-          'developer-tools',
-          'device-cloud',
-          'cellular-connectivity',
-          'product-tools',
-          'iot-rules-engine',
-          'integrations',
-          'hardware-projects'
-        ]
-      },
-      datasheets: {
-        pattern: 'datasheets/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'wi-fi',
-          'cellular',
-          'mesh',
-          'certifications',
-          'accessories',
-          'discontinued'
-        ]
-      },
-      community: {
-          pattern: 'community/*md',
-          sortBy: 'order',
-          orderDynamicCollections: [
-          ]
-        },
-      support: {
-        pattern: 'support/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'particle-devices-faq',
-          'particle-tools-faq',
-          'pricing',
-          'shipping-and-returns',
-          'wholesale-store',
-          'troubleshooting'
-        ]
-      },
-      supportBase: {
-          pattern: 'support/*.md',
-          sortBy: 'order',
-          orderDynamicCollections: [
-          ]
-        },
-      quickstart: {
+    .use(
+      collections({
+        quickstart: {
           pattern: 'quickstart/*md',
           sortBy: 'order',
-          orderDynamicCollections: [
-          ]
-      },
-      landing: {
-          pattern: '*md',
+          orderDynamicCollections: []
+        },
+        reference: {
+          pattern: 'reference/:section/*md',
           sortBy: 'order',
           orderDynamicCollections: [
+            'device-os',
+            'developer-tools',
+            'device-cloud',
+            'SDKs',
+            'discontinued'
           ]
+        },
+        tutorials: {
+          pattern: 'tutorials/:section/*.md',
+          sortBy: 'order',
+          orderDynamicCollections: [
+            'device-os',
+            'developer-tools',
+            'device-cloud',
+            'cellular-connectivity',
+            'product-tools',
+            'iot-rules-engine',
+            'integrations',
+            'hardware-projects'
+          ]
+        },
+        datasheets: {
+          pattern: 'datasheets/:section/*.md',
+          sortBy: 'order',
+          orderDynamicCollections: [
+            'wi-fi',
+            'cellular',
+            'mesh',
+            'certifications',
+            'accessories',
+            'discontinued'
+          ]
+        },
+        community: {
+          pattern: 'community/*md',
+          sortBy: 'order',
+          orderDynamicCollections: []
+        },
+        workshops: {
+          pattern: 'workshops/*md',
+          sortBy: 'order',
+          orderDynamicCollections: []
+        },
+        support: {
+          pattern: 'support/:section/*.md',
+          sortBy: 'order',
+          orderDynamicCollections: [
+            'particle-devices-faq',
+            'particle-tools-faq',
+            'pricing',
+            'shipping-and-returns',
+            'wholesale-store',
+            'troubleshooting'
+          ]
+        },
+        supportBase: {
+          pattern: 'support/*.md',
+          sortBy: 'order',
+          orderDynamicCollections: []
+        },
+        quickstart: {
+          pattern: 'quickstart/*md',
+          sortBy: 'order',
+          orderDynamicCollections: []
+        },
+        landing: {
+          pattern: '*md',
+          sortBy: 'order',
+          orderDynamicCollections: []
         }
-    }))//end of collections/sections
+      })
+    ) //end of collections/sections
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link
-    .use(fork({
-      key: 'devices',
-      redirectTemplate: '../templates/redirector.html.hbs'
-    }))
-		// Fix previous / next links when a page doesn't exist for a specific device
-    .use(fixLinks({
-      key: 'devices'
-    }))
+    .use(
+      fork({
+        key: 'devices',
+        redirectTemplate: '../templates/redirector.html.hbs'
+      })
+    )
+    // Fix previous / next links when a page doesn't exist for a specific device
+    .use(
+      fixLinks({
+        key: 'devices'
+      })
+    )
     // For files that have the devices key set, add a bunch of properties like has-wifi, has-cellular
     // Use them in Handlebar templates like this:
     // {{#if has-wifi}}Connect to Wi-Fi{{/if}}
-    .use(deviceFeatureFlags({
-      config: '../config/device_features.json'
-    }))
-	// Create HTML pages with meta http-equiv='refresh' redirects
-    .use(redirects({
+    .use(
+      deviceFeatureFlags({
+        config: '../config/device_features.json'
+      })
+    )
+    // Create HTML pages with meta http-equiv='refresh' redirects
+    .use(
+      redirects({
         config: '../config/redirects.json'
-    }))
+      })
+    )
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
-    .use(inPlace({
-      engine: 'handlebars',
-      pattern: ['**/*.md', '**/*.hbs']
-    }))
-	// Remove the .hbs extension from generated files that contained handlebar markers
-    .use(copy({
+    .use(
+      inPlace({
+        engine: 'handlebars',
+        pattern: ['**/*.md', '**/*.hbs']
+      })
+    )
+    // Remove the .hbs extension from generated files that contained handlebar markers
+    .use(
+      copy({
         pattern: '**/*.hbs',
         transform: function removeLastExtension(file) {
-			return path.join(path.dirname(file), path.basename(file, path.extname(file)));
-		},
+          return path.join(
+            path.dirname(file),
+            path.basename(file, path.extname(file))
+          );
+        },
         move: true
-    }))
-	// THIS IS IT!
-	// Render the main docs files into HTML
+      })
+    )
+    // THIS IS IT!
+    // Render the main docs files into HTML
     .use(markdown())
     // Add a toc key for each file based on the HTML header elements in the file
-    .use(autotoc({
-      selector: 'h2, h3',
-      pattern: '**/**/*.md'
-    }))
+    .use(
+      autotoc({
+        selector: 'h2, h3',
+        pattern: '**/**/*.md'
+      })
+    )
     // Generate Lunr search index for all the files that have lunr: true
     // This is slow. Use SEARCH_INDEX=0 in development to avoid creating this file
-    .use(lunr({
-      indexPath: 'search-index.json',
-      fields: {
+    .use(
+      lunr({
+        indexPath: 'search-index.json',
+        fields: {
           contents: 1,
           title: 10
-      },
-      pipelineFunctions: [
-          removeEmptyTokens
-      ]
-    }))
+        },
+        pipelineFunctions: [removeEmptyTokens]
+      })
+    )
     // For files that have a template frontmatter key, look for that template file in the configured directory and
     // render that template using the Metalsmith file with all its keys as context
-    .use(layouts({
-      engine: 'handlebars',
-      directory: '../templates/layouts'
-    }))
+    .use(
+      layouts({
+        engine: 'handlebars',
+        directory: '../templates/layouts'
+      })
+    )
     // Rename files so that about.html is converted into about/index.html
-    .use(permalinks({
-      relative: false
-    }));
+    .use(
+      permalinks({
+        relative: false
+      })
+    );
 
   return metalsmith;
 };
@@ -307,21 +358,26 @@ exports.compress = function(callback) {
     .concurrency(100)
     .source('../build')
     .destination('../build')
-    .use(compress({
-      src: ['search-index.json'],
-      overwrite: true
-    }))
+    .use(
+      compress({
+        src: ['search-index.json'],
+        overwrite: true
+      })
+    )
     .build(callback);
 };
 
 exports.build = function(callback) {
-  git.branch(function (str) {
+  git.branch(function(str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
-    exports.metalsmith()
-      .use(compress({
-        src: ['search-index.json'],
-        overwrite: true
-      }))
+    exports
+      .metalsmith()
+      .use(
+        compress({
+          src: ['search-index.json'],
+          overwrite: true
+        })
+      )
       .build(function(err, files) {
         if (err) {
           throw err;
@@ -335,10 +391,11 @@ exports.build = function(callback) {
 
 exports.test = function(callback) {
   var server = serve({ cache: 300, port: 8081 });
-  git.branch(function (str) {
+  git.branch(function(str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     generateSearch = true;
-    exports.metalsmith()
+    exports
+      .metalsmith()
       .use(server)
       .build(function(err, files) {
         if (err) {
@@ -354,30 +411,35 @@ exports.test = function(callback) {
 
 exports.server = function(callback) {
   environment = 'development';
-  git.branch(function (str) {
+  git.branch(function(str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
-    exports.metalsmith().use(serve({ port: 8080 }))
-      .use(watch({
-        paths: {
-          '${source}/content/**/*.md': true,
-          '${source}/assets/less/*.less': 'assets/less/*.less',
-          '../templates/layouts/reference.hbs': 'content/reference/*.md',
-          '../templates/layouts/datasheet.hbs': 'content/datasheets/**/*.md',
-          '../templates/layouts/support.hbs': 'content/support/**/*.md',
-          '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
-          '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
-          '../templates/layouts/community.hbs': 'content/community/*.md',
-          '../templates/layouts/landing.hbs': 'content/*.md',
-          '../templates/layouts/main.hbs': 'content/index.md',
-          '../templates/partials/**/*.hbs': 'content/**/*.md',
-          '${source}/assets/js/*.js*' : true,
-          '${source}/assets/images/**/*' : true,
-          '../config/device_features.json': 'content/**/*.md',
-          '../api-service/lib/**/*.js': 'content/reference/api.md',
-          '../config/redirects.json': '**/*'
-        },
-        livereload: true
-      }))
+    exports
+      .metalsmith()
+      .use(serve({ port: 8080 }))
+      .use(
+        watch({
+          paths: {
+            '${source}/content/**/*.md': true,
+            '${source}/assets/less/*.less': 'assets/less/*.less',
+            '../templates/layouts/reference.hbs': 'content/reference/*.md',
+            '../templates/layouts/datasheet.hbs': 'content/datasheets/**/*.md',
+            '../templates/layouts/support.hbs': 'content/support/**/*.md',
+            '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
+            '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
+            '../templates/layouts/community.hbs': 'content/community/*.md',
+            '../templates/layouts/workshops.hbs': 'content/workshops/**/*.md',
+            '../templates/layouts/landing.hbs': 'content/*.md',
+            '../templates/layouts/main.hbs': 'content/index.md',
+            '../templates/partials/**/*.hbs': 'content/**/*.md',
+            '${source}/assets/js/*.js*': true,
+            '${source}/assets/images/**/*': true,
+            '../config/device_features.json': 'content/**/*.md',
+            '../api-service/lib/**/*.js': 'content/reference/api.md',
+            '../config/redirects.json': '**/*'
+          },
+          livereload: true
+        })
+      )
       .build(function(err, files) {
         if (err) {
           console.error(err, err.stack);
