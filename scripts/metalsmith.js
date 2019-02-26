@@ -184,6 +184,14 @@ exports.metalsmith = function() {
           'hardware-projects'
         ]
       },
+      workshops: {
+        pattern: 'workshops/:section/*md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'mesh-101-workshop',
+          'photon-maker-kit-workshop'
+        ]
+      },
       datasheets: {
         pattern: 'datasheets/:section/*.md',
         sortBy: 'order',
@@ -202,7 +210,15 @@ exports.metalsmith = function() {
           orderDynamicCollections: [
           ]
         },
-      support: {
+        workshops: {
+        pattern: 'workshops/:section/*md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'mesh-101-workshop',
+          'photon-maker-kit-workshop'
+        ]
+      },
+        support: {
         pattern: 'support/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
@@ -367,6 +383,7 @@ exports.server = function(callback) {
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
           '../templates/layouts/community.hbs': 'content/community/*.md',
+          '../templates/layouts/workshops.hbs': 'content/workshops/**/*.md',
           '../templates/layouts/landing.hbs': 'content/*.md',
           '../templates/layouts/main.hbs': 'content/index.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
