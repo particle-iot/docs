@@ -375,9 +375,6 @@ of the response back to your devices.
 
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
 
-### Special IFTTT Events
-
-
 ## Firmware
 {{> api group=apiGroups.Firmware}}
 ## Product Firmware
