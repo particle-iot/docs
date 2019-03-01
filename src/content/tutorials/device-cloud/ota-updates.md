@@ -116,7 +116,7 @@ Device Cloud are always encrypted, including firmware files. This
 eliminates potential man-in-the-middle attacks that seek to send
 fraudulent firmware to the device.
 
-- **Sender verifiecation**: Every OTA update attempt is first verified to ensure the identity
+- **Sender verification**: Every OTA update attempt is first verified to ensure the identity
 of the sender is an approved device manager.
 
 ### Scalable
