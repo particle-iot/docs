@@ -285,7 +285,7 @@ Particle recommends the Taoglas PC104 penta-band (850/900/1800/1900/2100 MHz) GS
 
 |Antenna Type| Manufacturer | MFG. Part #| Gain|
 |:--|:--|:--|:--|
-|PCB antenna| Taoglas| [PC104.07.0165C](http://www.taoglas.com/wp-content/uploads/2015/06/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
+|PCB antenna| Taoglas| [PC104.07.0165C](/assets/datasheets/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
 
 If you are choosing your own antenna please make sure of the following:
 

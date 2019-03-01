@@ -88,7 +88,7 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 |Antenna Type| Manufacturer | MFG. Part #| Gain|
 |:--|:--|:--|:--|
-|PCB antenna| Taoglas| [PC104.07.0165C](http://www.taoglas.com/wp-content/uploads/2015/06/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
+|PCB antenna| Taoglas| [PC104.07.0165C](/assets/datasheets/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
 
 ---
 
