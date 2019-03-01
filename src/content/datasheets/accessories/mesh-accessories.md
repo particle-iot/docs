@@ -216,6 +216,100 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 
 The design is open source and the design files are available [here](https://github.com/particle-iot/classic-adapter).
 
+{{collapse op="start" label="Additional details and diagrams"}}
+
+#### Pin orientation
+
+The long side (16-pin header on the top) has the pins arranged like this, left to right as in the picture. This only shows how the pins are oriented, not the connections!
+
+| Top (Gen 3) | Bottom (Gen 2) |
+| --- | --- | 
+| RST | VIN |
+| 3V3 | GND |
+| MD | TX | 
+| GND | RX | 
+| A0 | WKP |
+| A1 | DAC |
+| A2 | A5 | 
+| A3 | A4 |
+| A4 | A3 |
+| A5 | A2 |
+| D13 (SCK) | A1 |
+| D12 (MISO) | A0 |
+| D11 (MOSI) | B5 |
+| D10 (RX) | B4 |
+| D9 (TX) | B3 |
+| NC | B2 |
+| | B1 |
+| | B0 |
+
+![Classic Adapter long side](/assets/images/accessories/classic-long.png)
+
+
+The short side (12-pin header on the top) has the pins arranged like this, left to right as in the picture. 
+
+| Top (Gen 3) | Bottom (Gen 2) |
+| --- | --- | 
+| D0 | C0 |
+| D1 | C1 |
+| D2 | C2 |
+| D3 | C3 |
+| D4 | C4 |
+| D5 | C5 |
+| D6 | D0 |
+| D7 | D1 |
+| D8 | D2 |
+| USB | D3 |
+| EN | D4 |
+| LI+ | D5 |
+| | D6 |
+| | D7 |
+| | GND |
+| | VBAT |
+| | RST |
+| | 3V3 |
+
+![Classic Adapter short side](/assets/images/accessories/classic-short.png)
+
+
+#### Substituting for an Electron
+
+Take, for example, the AssetTracker V2 with an Electron:
+
+![AssetTracker with Electron](/assets/images/accessories/assettracker-electron.jpg)
+
+To substitute a Boron, you'd use the classic adapter like this:
+
+![AssetTracker with Electron](/assets/images/accessories/assettracker-classic.jpg)
+
+Note that you will not be able to use the LIS3DH accelerometer because it connects by SPI and the SPI pins are not mapped in a usable way with the classic adapter!
+
+#### Substituting for an Photon
+
+This is a small sensor that typically uses a Photon:
+
+![Photon board](/assets/images/accessories/photon-example.jpg)
+
+When using the classic adapter, some pins will hang off the edge. Makes sure the B and C pins hang over, not the power pins!
+
+![Classic adapter in Photon socket](/assets/images/accessories/photon-classic.jpg)
+
+#### Schematic
+
+![Schematic](/assets/images/accessories/classic-schematic.png)
+
+#### Top
+
+![Top](/assets/images/accessories/classic-top.jpg)
+
+#### Bottom
+
+![Bottom](/assets/images/accessories/classic-bottom.jpg)
+
+
+{{collapse op="end"}}
+
+
 ### Pin Map
 
 |Legacy Device | Mesh Device|
