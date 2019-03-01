@@ -214,6 +214,7 @@ exports.metalsmith = function() {
         pattern: 'workshops/:section/*md',
         sortBy: 'order',
         orderDynamicCollections: [
+          'particle-workshops',
           'mesh-101-workshop',
           'photon-maker-kit-workshop'
         ]

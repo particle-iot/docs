@@ -18,7 +18,7 @@
           {{#each workshops}}
           <li data-level="{{inc @index}}"
             class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
-            <h3 class="guide-section-titles">{{{section}}}</h3>
+            <h3 class="guide-section-titles">{{{titleize section}}}</h3>
             <ul type="1">
               {{#each this}}
               <li
