@@ -13,7 +13,7 @@ How do I upgrade my firmware?
 
 ## The Simple Way (one CLI command)
 
-**Warning:** The particle update command has not been updated to work with the Argon, Boron, and Xenon yet. You also should not use it with the E Series E402 (LTE). Use the manual instructions below, instead.
+**Warning:** The particle update command has not been updated to work with the Argon, Boron, and Xenon yet. Use the manual instructions below, instead.
 
 If you are using the [Particle CLI](/tutorials/developer-tools/cli) and have been able to use it successfully to login to your account, then you should be able to upgrade your device firmware and it will auto-update the CLI for you. Yeah I know, it's great right?!
 
@@ -31,64 +31,50 @@ Install the [Particle CLI](/tutorials/developer-tools/cli) if you have not alrea
 
 ### Argon, Boron, and Xenon
 
-- Go to the [mesh firmware releases page](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.25-mesh).
-- Download the hybrid .bin file for your device. For example: hybrid-0.8.0-rc.25-argon.bin
+- Go to the [mesh firmware releases page](https://github.com/particle-iot/device-os/releases/tag/v0.9.0).
+- Download the hybrid .bin file for your device. For example: hybrid-0.9.0-argon.bin
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the code:
 
 ```html
-particle flash --usb hybrid-0.8.0-rc.25-argon.bin
+particle flash --usb hybrid-0.9.0-argon.bin
 ```
 
 ### Photon
 
-- Go to the [latest firmware releases page](https://github.com/particle-iot/device-os/releases/latest). At the time of writing, this was 0.7.0.
-- Download the system-part1 and system-part2 for your device, for example: system-part1-0.7.0-photon.bin and system-part2-0.7.0-photon.bin.
+- Go to the [latest firmware releases page](https://github.com/particle-iot/device-os/releases/latest). At the time of writing, this was 1.0.0.
+- Download the system-part1 and system-part2 for your device, for example: system-part1-1.0.0-photon.bin and system-part2-1.0.0-photon.bin.
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the code:
 
 ```html
-particle flash --usb system-part1-0.7.0-photon.bin
-particle flash --usb system-part2-0.7.0-photon.bin
+particle flash --usb system-part1-1.0.0-photon.bin
+particle flash --usb system-part2-1.0.0-photon.bin
 ```
 
 ### P1
 
-- Go to the [latest firmware releases page](https://github.com/particle-iot/device-os/releases/latest). At the time of writing, this was 0.7.0.
-- Download the system-part1 and system-part2 for your device, for example: system-part1-0.7.0-p1.bin and system-part2-0.7.0-p1.bin.
+- Go to the [latest firmware releases page](https://github.com/particle-iot/device-os/releases/latest). At the time of writing, this was 1.0.0.
+- Download the system-part1 and system-part2 for your device, for example: system-part1-1.0.0-p1.bin and system-part2-1.0.0-p1.bin.
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the code:
 
 ```html
-particle flash --usb system-part1-0.7.0-p1.bin
-particle flash --usb system-part2-0.7.0-p1.bin
+particle flash --usb system-part1-1.0.0-p1.bin
+particle flash --usb system-part2-1.0.0-p1.bin
 ```
 
+### Electron and E Series
 
-### E Series E402 (LTE)
-
-- Go to the [E402 firmware releases page](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.11).
-- Download the system-part1, part2, and part3. for your device, for example: system-part1-0.8.0-rc.11-electron.bin, system-part2-0.8.0-rc.11-electron.bin, and system-part3-0.8.0-rc.11-electron.bin. (The Electron and E series use the same system firmware.)
+- Go to the [firmware releases page](https://github.com/particle-iot/device-os/releases/latest). At the time of writing, this was 1.0.0.
+- Download the system-part1, part2, and part3. for your device, for example: system-part1-1.0.0-electron.bin, system-part2-1.0.0-electron.bin, and system-part3-1.0.0-electron.bin. (The Electron and E series use the same system firmware.)
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the code:
 
 ```html
-particle flash --usb system-part1-0.8.0-rc.11-electron.bin
-particle flash --usb system-part2-0.8.0-rc.11-elecron.bin
-particle flash --usb system-part3-0.8.0-rc.11-electron.bin
-```
-
-### Electron and E Series (except E402)
-
-- Go to the [firmware releases page](https://github.com/particle-iot/device-os/releases/latest). At the time of writing, this was 0.7.0.
-- Download the system-part1, part2, and part3. for your device, for example: system-part1-0.7.0-electron.bin, system-part2-0.7.0-electron.bin, and system-part3-0.7.0-electron.bin. (The Electron and E series use the same system firmware.)
-- Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
-- Flash the code:
-
-```html
-particle flash --usb system-part1-0.7.0-electron.bin
-particle flash --usb system-part2-0.7.0-electron.bin
-particle flash --usb system-part3-0.7.0-electron.bin
+particle flash --usb system-part1-1.0.0-electron.bin
+particle flash --usb system-part2-1.0.0-electron.bin
+particle flash --usb system-part3-1.0.0-electron.bin
 ```
 
 {{else}}

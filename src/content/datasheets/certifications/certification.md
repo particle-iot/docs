@@ -101,12 +101,12 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Certificate of Conformity - G350](/assets/pdfs/electron/fcc-g350-certificate.pdf)
 - [Test Reports - G350](/assets/pdfs/electron/fcc-g350-test-report.pdf)
 
-#### E-Series E310 (U201)
+#### E Series E310 (U201)
 - FCC ID: [XPY1CGM5NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=3vkdOEQAe%2Fc2YGK%2FBZsiJQ%3D%3D&fcc_id=XPY1CGM5NNN)
 - [Certificate of Conformity](/assets/pdfs/electron/fcc-u201-certificate.pdf)
 - [Test Reports - E310](/assets/pdfs/electron/fcc-u201-test-report.pdf)
 
-#### E-Series E402 LTE (R410M)
+#### E Series E402 LTE (R410M)
 
 - FCC ID: [XPY2AGQN4NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ikrR3FBKrpgwIGJS1sm7Bw%3D%3D&fcc_id=XPY2AGQN4NNN)
 - [Certificate of Conformity](/assets/pdfs/e402-fcc.pdf)
@@ -158,7 +158,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [Certificate of Conformity](/assets/pdfs/electron/ic-u201-certificate.pdf)
 - [Test Report](/assets/pdfs/electron/ic-u201-test-report.pdf)
 
-#### E-Series E402 LTE (R410M)
+#### E Series E402 LTE (R410M)
 - IC ID: **8595A-2AGQN4NNN**.
 - [Certificate of Conformity](/assets/pdfs/e402-ic.pdf)
 
@@ -329,13 +329,18 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 - Product has completed and passed all PTCRB test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 2G cellular solutions.
 
 #### E Series E310 (U201)
+- [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=39636)
 - [Certificate of Conformity](/assets/pdfs/electron/ptcrb-u201-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ptcrb-u201-test-report.pdf)
 
-#### E-Series E402 LTE (R410M)
-
+#### E Series E402 LTE (R410M)
+- [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=41338)
 - [Certificate of Conformity](/assets/pdfs/e402-ptcrb.pdf)
 - [AT&T LTE Certification](/assets/pdfs/e402-ota-att.pdf)
+
+#### Boron LTE (R410M)
+
+- [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=40983)
 
 ## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>
 ### Description
@@ -349,6 +354,12 @@ The GCF is a certification partnership between European network operators, mobil
 
 #### Electron 3G (U270)
 - Product has completed and passed all GCF test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 3G-U270 cellular solutions.
+
+## Carrier Certifications
+
+#### AT&T (LTE Cat M1)
+
+The Boron LTE (BRN402) and E Series LTE (E402) are certified for use on the AT&T LTE Cat M1 network. From the [AT&T Certified Devices page](https://iotdevices.att.com/certified-devices.aspx) search for "Particle".
 
 
 
