@@ -21,10 +21,10 @@ The value of incorporating OTA update capabilities into a connected
 product cannot be understated, and include:
 - The ability to add **new software features** to a product after a device has been
   deployed in the field to improve functionality over time
-- Opportunity to **rapidly respond to bugs and security
+- The opportunity to **rapidly respond to bugs and security
   vulnerabilities** without the need for physical recalls of devices or truck rolls
-- Ensuring **embedded developers can quickly and seamlessly prototype** new versions of
-  device firmware to decrease innovation cycles
+- Ensuring embedded developers can quickly prototype and seamlessly roll out
+  new versions of device firmware, **speeding up innovation cycles**
 
 
 ## OTA Updates with Particle
@@ -69,13 +69,13 @@ based on your needs.
 In fact, **one must have
 visibility and control over all four of these components of an IoT
 system to successfully deliver an OTA update**. Without any one of these
-parts, or the integration of these parts, an OTA is not possible.
+parts, or the integration of these parts, an OTA update is not possible.
 
 Other IoT platforms may market an OTA
 feature, but in reality only provide a small sliver of the functionality required
-perform a complete, reliable, and secure update -- leaving your team to
-piece together a bespoke solution that distracts from time and effort
-spent on what makes your IoT product unique.
+perform a complete, reliable, and secure update — leaving your team to
+piece together a bespoke solution that distracts them from spending valuable time
+on the features that make your IoT product unique.
 
 ### Reliable and Resilient
 
@@ -90,7 +90,8 @@ keeping your fleet functioning healthily:
 
 - **Atomic updates**: A Particle device will only run a new version of
   firmware it has received after empirically verifying that it has
-successfully received the entire file with the cloud.
+successfully received the entire file from the cloud. Additionally,
+your firmware application can be updated independently of the Device OS.
 
 - **Automatic rollbacks**: If for some reason an OTA is interrupted (like a disruption
 in connectivity or a device losing power), the device will fail
@@ -105,6 +106,7 @@ capabilities make it easy to manage _both_ the firmware applications
 your team writes, _and_ the low-level Device OS that Particle manages.
 This lets you send updates to your device logic, but also enables you to
 stay up-to-date with the latest features and improvements in Device OS.
+You are in complete control of your adoption of Device OS versions.
 
 ### Secure
 
@@ -132,17 +134,17 @@ When prototyping, you want to enable your development team with the
 ability to iterate quickly to provide viability and value in as little
 time as possible.
 
-Particle's **single device OTA** functions helps enable your embedded
+Particle's **single device OTA** functions help enable your embedded
 development team to rapidly prototype and innovate. OTA updates can be
 sent with a click of a button in our IDEs (available both in
 [Workbench](https://www.particle.io/workbench/) and our [Web
-IDE](https://build.particle.io)), our via our developer-approved [REST
+IDE](https://build.particle.io)), or via our developer-approved [REST
 API](https://docs.particle.io/reference/device-cloud/api/).
 
 #### Moving to Production
 
 As you begin to deploy large numbers of devices, it is imperative to
-have the ability to safely batch OTA update many devices at a time. This
+have the ability to safely batch OTA updates to many devices at one time. This
 is what allows you to roll out new software features, fix bugs, or patch
 security holes across your fleet.
 
@@ -151,9 +153,9 @@ of tools are available in the Particle Console to apply fleet-wide
 updates without sacrificing fine-grained control.
 - **Firmware releases**: Cut a version of firmware that will be
 automatically sent to your fleet, with sensible safeguards to roll out
-an update responsibly.
+an update responsibly and monitor fleet health for changes.
 - **Release by device groups**: Target a subset of your fleet to receive a new
-version of firmware. Useful when your product has variants
+version of firmware. This is useful when your product has variants
 that require different device behaviors, or when wanting to phase out a
 single release over time to reduce risk.
 - **Immediate firmware releases**: Instead of waiting for devices to
@@ -161,6 +163,7 @@ re-connect to receive an update, push a fleet-wide update out immediately.
 
 ## Single Device OTA
 // TODO
+// include something about locking development devices to a version
 
 ## Fleet-wide OTA
 // TODO
