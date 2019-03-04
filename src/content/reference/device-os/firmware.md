@@ -639,26 +639,29 @@ void loop() {
 }
 ```
 
-{{#if has-cellular}}
+{{#if has-udp-cloud}}
 ### Particle.keepAlive()
 
-Sets the duration between keep alive messages used to maintain the connection to the cloud.
+Sets the duration between keep-alive messages used to maintain the connection to the cloud.
 
 ```C++
 // SYNTAX
 Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
 ```
 
-A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
-Should a device becomes unreachable from the cloud (such as a timed out function call or variable get),
-one possible cause of this is that the keep alives have not been sent often enough.
+A keep-alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device. A temporary port-forwarded back-channel is set up by the network to allow packets to be sent from the cloud to the device. As this is a finite resource, unused back-channels are periodically deleted by the network.
 
-The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
+Should a device becomes unreachable from the cloud (such as a timed out function call or variable get), one possible cause of this is that the keep alives have not been sent often enough.
+
+The keep-alive for cellular devices duration varies by mobile network operator. The default keep-alive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value, typically ranging from 30 seconds to several minutes.
 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
+For the Xenon, you will need to match the keep-alive to the gateway. If your gateway, for example, is a Boron with a 3rd-party SIM card with a short keep-alive, you'll also need to set this short keep-alive on Xenon nodes. The reason is that each Xenon has its own cloud connection that needs to be kept alive.
 
-{{/if}} {{!-- has-cellular --}}
+For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
+
+{{/if}} {{!-- has-udp-cloud --}}
 
 
 ### Particle.process()
@@ -6027,7 +6030,7 @@ be used via the `SPI1` object. This second port is mapped as follows:
 * `MOSI` => `D3`
 * `MISO` => `D4`
 
-Note: On 3rd-generation devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
+Note: On Gen 3 devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
 {{/if}}
 {{/if}}
 
@@ -6533,7 +6536,7 @@ On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial 
 
 Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
 
-Note that unlike the 2nd-generation devices (Photon/P1/Electron), 3rd-generation devices are not 5V tolerant.
+Note that unlike the Gen 1 (Core) and Gen 2 devices (Photon/P1/Electron), Gen 3 devices are not 5V tolerant.
 {{/if}} {{!-- has-nrf52 --}}
 
 
@@ -9573,7 +9576,7 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
 {{#if has-nrf52}}
-All A and D pins (including TX, RX, and SPI) on 3rd generation (mesh) devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
+All A and D pins (including TX, RX, and SPI) on Gen 3 (mesh) devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
 {{/if}}
 
 {{#if has-stm32}}
@@ -10298,8 +10301,8 @@ size_t length = EEPROM.length();
 ```
 
 - The Core has 127 bytes of emulated EEPROM.
-- The 2nd generation Photon, P1, Electron, and E Series have 2047 bytes of emulated EEPROM.
-- The 3rd-generation (mesh) devices have 4096 bytes of emulated EEPROM.
+- The Gen 2 (Photon, P1, Electron, and E Series) have 2047 bytes of emulated EEPROM.
+- The Gen 3 (Argon, Boron, Xenon) devices have 4096 bytes of emulated EEPROM.
 
 ### put()
 This function will write an object to the EEPROM. You can write single values like `int` and
@@ -11389,7 +11392,7 @@ Resets the device and restarts in safe mode.
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
 {{#if has-nrf52}}
-3rd-generation devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
+Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
 {{/if}}
 
 ---
@@ -11413,6 +11416,7 @@ System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
 // The device LED will shut off during deep sleep
 // The device will not wake up if a rising edge signal is applied to {{#if core}}A7{{else}}WKP{{/if}}
 ```
+
 {{/if}} {{!-- has-stm32 --}}
 
 {{#if has-nrf52}}
@@ -11459,7 +11463,7 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 
 {{#if has-nrf52}}
 
-The 3rd-generation devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by rising D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
+The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by rising D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
 
 Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
 
@@ -11640,7 +11644,7 @@ apply
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
 {{#if has-cellular}}
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
@@ -11716,8 +11720,8 @@ Multiple wakeup pins may be specified for this mode.
     - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
     - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
 - `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
-{{#if electron}}
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
+{{#if has-cellular}}
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
