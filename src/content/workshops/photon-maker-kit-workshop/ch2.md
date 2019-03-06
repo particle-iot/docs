@@ -31,9 +31,9 @@ To build this circuit, you'll need the following items:
 
 1. Connect the temperature sensor to three side-by-side rows in the breadboard. You can use column F, rows 28-30, as depicted below, or another three of your choosing.
 
-::: warning
+{{box op="start" cssClass="boxed warningBox"}}
 If you pick your own location, be sure to connect the three wires in separate rows and _NOT_ separate columns on the same row as rows on a breadboard are electrically connected!
-:::
+{{box op="end"}}
 
 ![](/assets/images/workshops/photon-maker-kit/02/01-connectsensor.jpg)
 
@@ -173,9 +173,9 @@ void loop() {
 }
 ```
 
-::: tip
+{{box op="start" cssClass="boxed"}}
 In an embedded application, we light up an LED by calling `digitalWrite` ane setting the pin `HIGH`, meaning we're applying a voltage to the pin, which supplies that voltage to the LED. We then take the temperature reading. Then, we introduce a one second delay so that the status light is on long enough to be human-observable. Once the delay elapses, we turn the LED off by calling `digitalWrite` again and set the pin to `LOW`, which turns off voltage to the pin and thus, the LED.
-:::
+{{box op="end"}}
 
 7. Now, let's flash this firmware to your device. Click the target icon in the left menu to open the Devices tab.
 
@@ -223,9 +223,9 @@ Particle.variable("tempF", temp);
 #define TEMP_CHECK_INTERVAL 10000
 ```
 
-::: tip
+{{box op="start" cssClass="boxed"}}
 `#define` is a text substitution pre-processor directive. It tells the compiler to replace every instance of a text value (on the left) with another value (on the right). In the case above, anywhere we use `TEMP_CHECK_INTERVAL` will be replaced with the number `10000`. It's like using a constant, except we're not using any memory in allocating a variable for the program!
-:::
+{{box op="end"}}
 
 6. Next, let's add a new variable we can use to track the last time we checked the temperature. Add the following line right after our `temp` variable.
 
@@ -284,9 +284,10 @@ int checkHandler(String command) {
 }
 ```
 
-::: tip
+{{box op="start" cssClass="boxed"}}
 For the sake of clarity, we've wrapped the existing `checkTemp` function in our cloud function handler. How could you refactor this so we've only have one helper function for local calls and the device cloud?
-:::
+{{box op="end"}}
+
 
 12. Now, flash the firmware to your device and head back to the console. Refresh your device screen and you should now see your `checkTemp` function.
 

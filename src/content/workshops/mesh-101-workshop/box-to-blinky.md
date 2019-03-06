@@ -10,9 +10,10 @@ layout: workshops.hbs
 
 In this lab, you'll claim your first Particle Mesh device, the Argon, with the help of the Particle mobile app. Once you've claimed it, you'll flash some code that blinks an LED on the Argon.
 
-::: tip Do you come prepared?
+{{box op="start" cssClass="boxed warningBox"}}
+**Did you come prepared?**</br>
 Make sure you have completed **all** the [preparations](prerequisites.md) before advancing beyond this point.
-:::
+{{box op="end"}}
 
 ## Claim your device
 
@@ -133,6 +134,7 @@ The "blinky" code is now complete, and it is time to flash it to your physical d
 
 ...and that's how you get to blinky!
 
-::: tip Got stuck in the code?
+{{box op="start" cssClass="boxed warningBox"}}
+**Got stuck?**</br>
 The final code for this lab is [available here](https://go.particle.io/shared_apps/5bfefd038bf964af88000409).
-:::
+{{box op="end"}}

@@ -10,9 +10,10 @@ layout: workshops.hbs
 
 In this session, we'll leverage a local mesh network to quickly send messages between devices. We'll get a chainable Grove LED to turn on/off when the button on a different device is pushed.
 
-::: tip Did you come prepared?
-It is assumed that you came to this session with an Argon and Xenon that you are able to program.
-:::
+{{box op="start" cssClass="boxed warningBox"}}
+**Did you come prepared?**</br>
+Make sure you have completed **all** the [preparations](prerequisites.md) before advancing beyond this point.
+{{box op="end"}}
 
 ## Setting up the mesh network
 
@@ -183,6 +184,8 @@ leds.setColorHSB(0, 0.0, 0.0, 0.0);
 
 :tada: Congratulations, you are now able to send/receive messages to/from the mesh network. Easy, right? What could you do to improve this demo? Maybe add an LED animation, or trigger events with the button is pressed and released? Why not try out a thing or two?
 
-::: tip Got stuck in the code?
+{{box op="start" cssClass="boxed warningBox"}}
+**Got stuck?**</br>
 The final code for this lab is [available here for the Xenon](https://go.particle.io/shared_apps/5c34d5aee1b63bd1fc00126d) and [here for the Argon portion](https://go.particle.io/shared_apps/5c34d7f3e1b63bbf80000f99).
-:::
+{{box op="end"}}
+

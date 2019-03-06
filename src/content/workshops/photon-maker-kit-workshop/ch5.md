@@ -100,9 +100,9 @@ analogWrite(BLUE_PIN, 255);
 analogWrite(GREEN_PIN, 255);
 ```
 
-::: tip
+{{box op="start" cssClass="boxed"}}
 `analogWrite` is a standard Arduino-style function for setting analog values on a GPIO pin. Unlike `digitalWrite`, which sets a pin either `HIGH` (digital 0 or 0 volts) or `LOW` (digital 1 or 3.3 volts on the Photon), `analogWrite` takes an integer value between 0 and 255 and converts that to a voltage in the operating range of the device (0 to 3.3 volts in the case of the Photon). This allows us to do some pretty cool stuff like turning a servo or motor, or controlling the brightness of an LED!
-:::
+{{box op="end"}}
 
 5. Finally, let's add the `setLEDColor` function for our `subscribe` handler. Like `Particle.function` a subscribe handler needs to have a precise signature. It returns void and takes two char arrays for the event name and any data provided by the event. Copy the following into your program.
 
@@ -139,9 +139,10 @@ Once we have those values extracted, we'll perform an `analogWrite` on each pin 
 
 10. Try changing the color string to other hex values like `00FF00`, `0000FF`, `808080`
 
-::: tip
+{{box op="start" cssClass="boxed"}}
+`analogWrite` is a standard Arduino-style function for setting analog values on a GPIO pin. Unlike `digitalWrite`, which sets a pin either `HIGH` (digital 0 or 0 volts) or `LOW` (digital 1 or 3.3 volts on the Photon), `analogWrite` takes an integer value between 0 and 255 and converts that to a voltage in the operating range of the device (0 to 3.3 volts in the case of the Photon). This allows us to do some pretty cool stuff like turning a servo or motor, or controlling the brightness of an LED!
 To turn the light back off, you can publish an event with `000000` in the Event data field.
-:::
+{{box op="end"}}
 
 Now that we have everything wired up on our device, lets publish events from the cloud!
 

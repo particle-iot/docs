@@ -1,6 +1,6 @@
 ---
 word: Working with Grove Sensors
-title: Lab 2- Working with Grove Sensors
+title: Lab 2 - Working with Grove Sensors
 order: 6
 columns: two
 layout: workshops.hbs
@@ -10,9 +10,10 @@ layout: workshops.hbs
 
 In this session, you'll use your Particle Argon and the Grove starter kit to set up a distance sensor and a digital display to show the measured distance. If you run into any issues while working on this lab, click [here to access the completed source code](https://go.particle.io/shared_apps/5bfdb67ea5185c2b7700072a).
 
-::: tip Do you come prepared?
-It is assumed that you come to this session with an Argon that you are able to program.
-:::
+{{box op="start" cssClass="boxed warningBox"}}
+**Did you come prepared?**</br>
+Make sure you have completed **all** the [preparations](prerequisites.md) before advancing beyond this point.
+{{box op="end"}}
 
 ## Unboxing the Grove Kit
 
@@ -221,9 +222,10 @@ The if statement checks to see if the current reading differs from the last. If 
 
 The rest of the code is dedicated to extracting each digit from the `range` variable and writing that digit to the display. One way to accomplish this is to use modulo division by 10 to get the trailing character from a number (i.e. `43 % 10 = 3`), and then whole number division by ten to remove the trailing character (i.e. `43 / 10 = 4`). Then, we can display the trailing character and repeat the process until there are no characters left.
 
-::: tip
+{{box op="start" cssClass="boxed"}}
 The 4-Digit Display is actually four, discrete seven-segment displays chained together. Each call to `display` expects a character position to write to (0, 1, 2 or 3) and a number between 0 and 15 that represents the digits 0-9 and characters A, b, C, d, E and F.
-:::
+{{box op="end"}}
+
 
 12. Once you've added the code above, you can flash your Argon. After it comes back online, you should see readings on the display!
 

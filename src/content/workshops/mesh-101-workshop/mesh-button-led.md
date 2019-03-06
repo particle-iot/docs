@@ -14,9 +14,10 @@ In this session, it will all come together. One device is measuring a distance a
 
 For this session, it is necessary to cooperate in groups of at least two participants. Group members will have to implement different code depending on the role of their device. One group member should implement the _remote distance sensor_ code, the other(s) should implement the _remote display_ code.
 
-::: tip Did you come prepared?
-It is assumed that you come to this session with an Argon and a Xenon on the same mesh network, and have working code from the previous sessions.
-:::
+{{box op="start" cssClass="boxed warningBox"}}
+**Did you come prepared?**</br>
+Make sure you have completed **all** the [preparations](prerequisites.md) before advancing beyond this point.
+{{box op="end"}}
 
 ## Remote distance sensor
 
@@ -156,10 +157,11 @@ Now, every time a distance measurement is broadcasted by the sensor device, the 
 
 This concludes the workshop :tada:
 
-::: tip Feedback for the workshop
-
+{{box op="start" cssClass="boxed warningBox"}}
+**Feedback for the workshop**</br>
 If you fill out this [5 question survey](https://particleiot.typeform.com/to/JiF8xM), we may improve this workshop to benefit future _workshoppers_, or just pat ourselves on the back for doing great.
-:::
+{{box op="end"}}
+
 
 ## More mesh?
 
