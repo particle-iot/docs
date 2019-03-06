@@ -171,4 +171,4 @@ If you fill out this [5 question survey](https://particleiot.typeform.com/to/JiF
 
 ## More mesh?
 
-Feel you want more mesh? Try adding features to your IoT mesh solution see these [hidden hints](/extra).
+Feel you want more mesh? Try adding features to your IoT mesh solution see these [hidden hints](/workshops/mesh-101-workshop/extra/).
