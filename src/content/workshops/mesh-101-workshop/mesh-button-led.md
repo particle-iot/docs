@@ -8,6 +8,12 @@ layout: workshops.hbs
 
 # Lab 4 - Putting it all together
 
+| **Project Goal**            | Explore messaging between Mesh devices, and other Particle primitives.                                                            |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **What you’ll learn**       | How-to: use the Particle Web IDE to write device firmware; using Particle primitives to communicate between devices and networks. |
+| **Tools you’ll need**       | An Argon, A Xenon, two Grove Shields, an Ultrasonic distance sensor, a 4-Digit Display, A Grove Chainable LED         |
+| **Time needed to complete** | 30 minutes                                                                                                                        |
+
 In this session, it will all come together. One device is measuring a distance and broadcasting the value, while another is listening for updates and displaying them on a digital display.
 
 ### Partner up with your neighbor

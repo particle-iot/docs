@@ -8,6 +8,12 @@ layout: workshops.hbs
 
 # Lab 3 - Working with Mesh
 
+| **Project Goal**            | Create a Mesh network and connect a second Xenon to it                                                              |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **What you’ll learn**       | How-to: add a second device to your Mesh network; communicate through a Mesh gateway to an endpoint device.         |
+| **Tools you’ll need**       | An Argon, Xenon, the Particle Mobile App, A Grove Shield, A Grove Chainable LED |
+| **Time needed to complete** | 20 minutes                                                                                                          |
+
 In this session, we'll leverage a local mesh network to quickly send messages between devices. We'll get a chainable Grove LED to turn on/off when the button on a different device is pushed.
 
 {{box op="start" cssClass="boxed warningBox"}}

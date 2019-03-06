@@ -8,6 +8,12 @@ layout: workshops.hbs
 
 # Lab 2 - Working with Grove Sensors
 
+| **Project Goal**            | Connect and program your first Grove sensor                                                             |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **What you’ll learn**       | How-to: Use the Grove Shield with an Argon, connect and work with Grove sensors.         |
+| **Tools you’ll need**       | An Argon, Grove Shield, Ultrasonic distance sensor , a 4-Digit Display |
+| **Time needed to complete** | 20 minutes                                                                                                          |
+
 In this session, you'll use your Particle Argon and the Grove starter kit to set up a distance sensor and a digital display to show the measured distance. If you run into any issues while working on this lab, click [here to access the completed source code](https://go.particle.io/shared_apps/5bfdb67ea5185c2b7700072a).
 
 {{box op="start" cssClass="boxed warningBox"}}

@@ -8,6 +8,12 @@ layout: workshops.hbs
 
 # Lab 1 - From Box to Blinky
 
+| **Project Goal**            | Get your Particle Argon online and claimed to your account                                                               |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **What you’ll learn**       | How to claim a new Particle Argon using the mobile app; How to use the Build Web IDE to flash a device |
+| **Tools you’ll need**       | An Argon, the Particle Mobile App, The Build ]Web IDE                                    |
+| **Time needed to complete** | 20 minutes                                                                                                               |
+
 In this lab, you'll claim your first Particle Mesh device, the Argon, with the help of the Particle mobile app. Once you've claimed it, you'll flash some code that blinks an LED on the Argon.
 
 {{box op="start" cssClass="boxed warningBox"}}
