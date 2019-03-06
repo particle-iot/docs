@@ -18,7 +18,7 @@ In this session, we're going to explore the Particle ecosystem via a Photon and 
 
 ## Wire up the temperature sensor to your Photon
 
-![](./images/02/temp-circuit.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/temp-circuit.jpg)
 
 To build this circuit, you'll need the following items:
 
@@ -27,7 +27,7 @@ To build this circuit, you'll need the following items:
 - Black, red, and yellow jumper wires.
 - A 4.7 Ohm Resistor. The maker kit includes four different types of resistors (200, 1k, 4.7k and 10k ohm). The one you need is blue, with yellow, violet, brown and brown bands, as depicted below.
 
-![](./images/02/resistors.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/resistors.jpg)
 
 1. Connect the temperature sensor to three side-by-side rows in the breadboard. You can use column F, rows 28-30, as depicted below, or another three of your choosing.
 
@@ -35,23 +35,23 @@ To build this circuit, you'll need the following items:
 If you pick your own location, be sure to connect the three wires in separate rows and _NOT_ separate columns on the same row as rows on a breadboard are electrically connected!
 :::
 
-![](./images/02/01-connectsensor.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/01-connectsensor.jpg)
 
 2. Connect the resistor between the yellow and red wires of the temperature sensor. In the image below, the resistor is plugged into column H, rows 28 and 29.
 
-![](./images/02/02-connectresistor.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/02-connectresistor.jpg)
 
 3. Connect one end of the black jumper wire to the same row as the black sensor wire (for example, row 30) and the other end to the `GND` pin of the Photon.
 
-![](./images/02/03-connectblack.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/03-connectblack.jpg)
 
 4. Connect one end of the yellow jumper wire to the same row as the yellow sensor wire (for example, row 29) and the other end to the `D4` pin of the Photon.
 
-![](./images/02/04-connectyellow.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/04-connectyellow.jpg)
 
 5. Connect one end of the red jumper wire to the same row as the red sensor wire (for example, row 28) and the other end to the `3V3` pin of the Photon. Once done, your circuit should look like the image below.
 
-![](./images/02/05-connectred.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/05-connectred.jpg)
 
 6. Plug the USB cable into your Photon. Now, we're ready to read some sensor data! Let's create a new project in the [Web IDE](https://build.particle.io)
 
@@ -59,23 +59,23 @@ If you pick your own location, be sure to connect the three wires in separate ro
 
 1.  Navigate to [build.particle.io](http://build.particle.io). You may need to log-in, if prompted.
 
-![](./images/02/login.png)
+![](/assets/images/workshops/photon-maker-kit/02/login.png)
 
 2.  Once you log-in, you may be directed to the Particle home page. If so, [click here to navigate](https://build.particle.io) back to Particle Build.
 
-![](./images/02/particle-home.png)
+![](/assets/images/workshops/photon-maker-kit/02/particle-home.png)
 
 3.  When navigating to the Web IDE (Build), the first thing you'll see is an empty editor window for a new project and a prompt to give that project a name.
 
-![](./images/02/newproject.png)
+![](/assets/images/workshops/photon-maker-kit/02/newproject.png)
 
 4.  In the Current App textbox, give your app the name "_MyTempApp_" and hit enter.
 
-![](./images/02/projectname.png)
+![](/assets/images/workshops/photon-maker-kit/02/projectname.png)
 
 5.  Once you've given your project a name, you're ready to code!
 
-![](./images/02/projectnamed.png)
+![](/assets/images/workshops/photon-maker-kit/02/projectnamed.png)
 
 ## The `setup()` and `loop()` functions
 
@@ -95,29 +95,29 @@ The bulk of your program, from state management, handling user input, reading fr
 
 1. Before reading from the temp sensors, we need to install the onewire library. In the Build IDE, you can work with libraries by clicking on the icon that looks like a bookmark.
 
-![](./images/02/06-libraries-tab.png)
+![](/assets/images/workshops/photon-maker-kit/02/06-libraries-tab.png)
 
 2. The libraries shows a list of Particle provided and community libraries, as well as a search box. Type "onewire" in the box.
 
-![](./images/02/07-libraries-search.png)
+![](/assets/images/workshops/photon-maker-kit/02/07-libraries-search.png)
 
-![](./images/02/08-onewire.png)
+![](/assets/images/workshops/photon-maker-kit/02/08-onewire.png)
 
 3. Click on `OneWire` (first result) and the "Include in Project" button.
 
-![](./images/02/09-include.png)
+![](/assets/images/workshops/photon-maker-kit/02/09-include.png)
 
 4. You'll be asked to choose a project in which to include the OneWire library. Select your new "MyTempApp" application.
 
-![](./images/02/10-whichapp.png)
+![](/assets/images/workshops/photon-maker-kit/02/10-whichapp.png)
 
 5. Click "Confirm" on the next screen.
 
-![](./images/02/11-confirm.png)
+![](/assets/images/workshops/photon-maker-kit/02/11-confirm.png)
 
 6. You'll be directed back to your app. Notice that `OneWire` is now listed as an included library and has been `#` included in the code for your app.
 
-![](./images/02/12-included.png)
+![](/assets/images/workshops/photon-maker-kit/02/12-included.png)
 
 ## Read from the temperature sensor
 
@@ -179,17 +179,17 @@ In an embedded application, we light up an LED by calling `digitalWrite` ane set
 
 7. Now, let's flash this firmware to your device. Click the target icon in the left menu to open the Devices tab.
 
-![](./images/02/devicesTab.png)
+![](/assets/images/workshops/photon-maker-kit/02/devicesTab.png)
 
 8. Find your Photon. If you only have a single device, it will be selected by default and you can skip to the next step. If you have mutiple, click the star icon next to the name of your new Photon to select it as your current device.
 
-![](./images/02/activeDevice.png)
+![](/assets/images/workshops/photon-maker-kit/02/activeDevice.png)
 
 9. Click the lightning bolt icon to flash your firmware to the device. You'll see the onboard RGB LED flash magenta and green several times as new Device OS firmware is applied. Once your firmware is applied and the device restarts, the LED will resume breathing cyan and you should see the blue LED light up every five seconds, indicating that a temperature reading has been taken.
 
-![](./images/02/flashCode.png)
+![](/assets/images/workshops/photon-maker-kit/02/flashCode.png)
 
-![](./images/02/d7blink.gif)
+![](/assets/images/workshops/photon-maker-kit/02/d7blink.gif)
 
 ## Add Particle primitives to your app
 
@@ -205,15 +205,15 @@ Particle.variable("tempF", temp);
 
 2. Click the flash icon to load the latest firmware. After your device resets, navigate to [console.particle.io](https://console.particle.io) and select your Photon. This will bring up the dashboard for your device, which shows events, device vitals, and more.
 
-![](./images/02/devicePage.png)
+![](/assets/images/workshops/photon-maker-kit/02/devicePage.png)
 
 3. On the right side of your device dashboard, you'll notice two boxes for Functions and Variables. We haven't added a function yet, but you should see `tempF` listed under variables.
 
-![](./images/02/primitivesList.png)
+![](/assets/images/workshops/photon-maker-kit/02/primitivesList.png)
 
 4. Click on the `Get` button and you should see a value returned. You're reading a sensor value from the Internet!
 
-![](./images/02/tempVar.png)
+![](/assets/images/workshops/photon-maker-kit/02/tempVar.png)
 
 ### Adding a Function
 
@@ -290,11 +290,11 @@ For the sake of clarity, we've wrapped the existing `checkTemp` function in our 
 
 12. Now, flash the firmware to your device and head back to the console. Refresh your device screen and you should now see your `checkTemp` function.
 
-![](./images/02/newFunc.png)
+![](/assets/images/workshops/photon-maker-kit/02/newFunc.png)
 
 13. Click on `Call` to execute the function. Then, click `Get` next to the `tempF` variable to see the result.
 
-![](./images/02/callFunc.png)
+![](/assets/images/workshops/photon-maker-kit/02/callFunc.png)
 
 ### Publishing an event
 
@@ -308,7 +308,7 @@ Particle.publish("temp", String(temp), PRIVATE);
 
 15. And that's all you need to do to publish events! Flash the firmware to your device go back to your device page in the Console. In the event logs, you'll see new temp events come across every ten seconds.
 
-![](./images/02/eventlist.png)
+![](/assets/images/workshops/photon-maker-kit/02/eventlist.png)
 
 ---
 

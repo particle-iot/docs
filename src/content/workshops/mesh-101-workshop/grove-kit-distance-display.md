@@ -26,11 +26,11 @@ For this lab, you'll need the following items from the kit:
 
 1. Open the Grove Starter Kit and remove the three components listed above, as well as the bag of Grove connectors.
 
-![](./images/02/02-grovecomponents.png)
+![](/assets/images/workshops/mesh-101/02/02-grovecomponents.png)
 
 2. Remove the Grove Shield and plug in your Argon. This should be the same device you claimed in the last lab.
 
-![](./images/02/03-argoninshield.png)
+![](/assets/images/workshops/mesh-101/02/03-argoninshield.png)
 
 Now, you're ready to start using your first Grove component!.
 
@@ -40,35 +40,35 @@ First, we'll connect the included Ultrasonic Ranger, collect distance readings f
 
 1. Open the bag containing the Ultrasonic Ranger and take one Grove connector out of the connector bag.
 
-![](./images/02/05-ultrasonicsensor.png)
+![](/assets/images/workshops/mesh-101/02/05-ultrasonicsensor.png)
 
 2. Connect one end of the Grove connector to the bottom of the Ultrasonic Ranger.
 
-![](./images/02/06-sensorswithplug.png)
+![](/assets/images/workshops/mesh-101/02/06-sensorswithplug.png)
 
 3. Plug the other end of the connector into the Shield port labeled `D2`.
 
-![](./images/02/07-d2connector.png)
+![](/assets/images/workshops/mesh-101/02/07-d2connector.png)
 
 4. To program our devices, we're going to use the Particle Web IDE, which you can access at [build.particle.io](https://build.particle.io). Log-in to your account and create a new app with a name of your choosing.
 
-![](./images/02/08-apptitle.png)
+![](/assets/images/workshops/mesh-101/02/08-apptitle.png)
 
 5. To use the Ultrasonic Ranger, we'll need the help of a [library](https://build.particle.io/libs/Grove_Ultrasonic_Ranger/1.0.0/tab/Ultrasonic.cpp), which you can include in your project by clicking on the libraries tab in the lower left side of the screen.
 
-![](./images/02/09-librariestab.png)
+![](/assets/images/workshops/mesh-101/02/09-librariestab.png)
 
 6. Type "Grove" in the search box and click on the `Grove-Ultrasonic-Ranger` library in the results.
 
-![](./images/02/10-librariessearch.png)
+![](/assets/images/workshops/mesh-101/02/10-librariessearch.png)
 
 7. Click on the "Include in Project" button.
 
-![](./images/02/11-librariesinclude.png)
+![](/assets/images/workshops/mesh-101/02/11-librariesinclude.png)
 
 8. Select the project you set-up in Step #4 and click "Confirm".
 
-![](./images/02/12-includeconfirm.png)
+![](/assets/images/workshops/mesh-101/02/12-includeconfirm.png)
 
 9. To start using the library, we'll first need to add an include statement. Add the following to the top of your project file, replacing the `#include` statement that was added when you imported the library.
 
@@ -115,19 +115,19 @@ particle serial monitor --follow
 
 14. Now, you can flash the code to your device. First, click on the target icon to open the Devices tab.
 
-![](./images/02/14-devices.png)
+![](/assets/images/workshops/mesh-101/02/14-devices.png)
 
 15. Select your Argon by clicking the star icon next to the name.
 
-![](./images/02/15-device.png)
+![](/assets/images/workshops/mesh-101/02/15-device.png)
 
 16. Click the lightning bolt icon to flash your device.
 
-![](./images/02/16-flash.png)
+![](/assets/images/workshops/mesh-101/02/16-flash.png)
 
 17. The device will update and flash magenta before restarting and breathing cyan again. Once it does, you should see values pop up in your serial terminal window. Try moving your hand in front of the ranger to see what happens.
 
-![](./images/02/17-serial.gif)
+![](/assets/images/workshops/mesh-101/02/17-serial.gif)
 
 ## Using the 4-Digit Display
 
@@ -135,23 +135,23 @@ Next, let's connect the 4-Digit Display and modify our code to display distance 
 
 1. Open the bag containing the 4-Digit Display and take one Grove connector out of the connector bag.
 
-![](./images/02/18-display.png)
+![](/assets/images/workshops/mesh-101/02/18-display.png)
 
 2. Connect one end of the Grove connector to the display.
 
-![](./images/02/19-connector.png)
+![](/assets/images/workshops/mesh-101/02/19-connector.png)
 
 3. Plug the other end of the connector into the Shield port labeled `D4`.
 
-![](./images/02/20-connected.png)
+![](/assets/images/workshops/mesh-101/02/20-connected.png)
 
 4. As with the Ultrasonic Ranger, the 4-Digit Display uses a library. Open the libraries tab, search for `Grove` and click the `Grove_4Digit_Display` entry.
 
-![](./images/02/21-displaylibrary.png)
+![](/assets/images/workshops/mesh-101/02/21-displaylibrary.png)
 
 5. Click "Include in Project", select your project and click "Confirm".
 
-![](./images/02/22-displayconfirm.png)
+![](/assets/images/workshops/mesh-101/02/22-displayconfirm.png)
 
 6. Remove the auto-included text and add an include for the display library, just after the include for the Ultrasonic Ranger.
 
@@ -227,4 +227,4 @@ The 4-Digit Display is actually four, discrete seven-segment displays chained to
 
 12. Once you've added the code above, you can flash your Argon. After it comes back online, you should see readings on the display!
 
-![](./images/02/23-display.gif)
+![](/assets/images/workshops/mesh-101/02/23-display.gif)

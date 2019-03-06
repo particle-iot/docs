@@ -20,51 +20,51 @@ If you get stuck at any point, [click here](https://go.particle.io/shared_apps/5
 
 ## Wire up the status RGB LED to your Photon
 
-![](./images/05/rgb-circuit.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/rgb-circuit.jpg)
 
 To build this circuit, you'll need the following items:
 
 - Photon in breadboard (this is how it comes in the Maker Kit)
 - 1x Clear cap RGB LED. The RGB LED has four leads: the left lead is for the blue light, second for green and the right lead for the red light. The longest lead is the common anode, which we'll connect to our power source.
 
-![](./images/05/rgbled.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/rgbled.jpg)
 
 - 2x red, green, and blue jumper wires.
 - 3x 330 Ohm Resistors. The maker kit includes four different types of resistors (220, 1k, 4.7k and 10k ohm). The one you need is blue, with red, red, black, black and brown bands, as depicted below.
 
-![](./images/05/resistors.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/resistors.jpg)
 
 1. The RGB LED has four leads. One common anode lead, and one each for the red, green and blue diodes inside the LED. Start by plugging the four legs into the first four rows of column J on your breadboard. Make sure the LED is oriented where the longest leg, the common anode, is the second from the right before you plug it in.
 
-![](./images/05/ledpluggedin.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/ledpluggedin.jpg)
 
 2. For each LED led, we'll need to wire a resistor in series to keep the LED safe. Grab the first resistor and plug one leg into the first row of column G, then plug the other led into the first row of column D.
 
-![](./images/05/redresistor.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/redresistor.jpg)
 
 3. The lead at A1 is the red LED, so take a red jumper wire and place one end into the first row of column A. Place the other end into the `D2` pin on the Photon.
 
-![](./images/05/redwire.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/redwire.jpg)
 
 4. The second lead is the common anode lead, which we'll plug into our power source. Take the red jumper wire and plug it into row two of column H. Plug the other end into the `3V3` pin of the Photon.
 
-![](./images/05/blackwire.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/blackwire.jpg)
 
 5. Take the second resistor and plug one leg into the third row of column G, then plug the other led into the third row of column D.
 
-![](./images/05/greenresistor.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/greenresistor.jpg)
 
 6. The third lead is the green LED, so take a green jumper wire and place one end into the third row of column A. Plug the other end into the `D1` pin on the Photon.
 
-![](./images/05/greenwire.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/greenwire.jpg)
 
 7. Take the third resistor and plug one leg into the fourth row of column G, then plug the other led into the fourth row of column D.
 
-![](./images/05/blueresistor.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/blueresistor.jpg)
 
 8. Finally, The fourth lead is the blue LED, so take a blue jumper wire and place one end into the fourth row of column A. Plug the other end into the `D1` pin on the Photon.
 
-![](./images/05/bluewire.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/bluewire.jpg)
 
 With our RGB LED circuit all wired up, let's write the firmware code for lighting it up when we receive an event from the cloud.
 
@@ -127,15 +127,15 @@ Once we have those values extracted, we'll perform an `analogWrite` on each pin 
 
 7. Navigate to your device page in the Particle Console. Under Event Logs, there's a `Publish Event` button. Click on it to open the event publishing UI.
 
-![](./images/05/publishUI.png)
+![](/assets/images/workshops/photon-maker-kit/05/publishUI.png)
 
 8. In the event name textbox, enter "setLED" and a six character hex string for a color, like `FF0000`, in the Event data textbox.
 
-![](./images/05/setLED.png)
+![](/assets/images/workshops/photon-maker-kit/05/setLED.png)
 
 9. Click the "Publish" button. Your RGB LED should light up with the color you provided.
 
-![](./images/05/redLED.gif)
+![](/assets/images/workshops/photon-maker-kit/05/redLED.gif)
 
 10. Try changing the color string to other hex values like `00FF00`, `0000FF`, `808080`
 
@@ -155,11 +155,11 @@ Each time you add a new endpoint or service which will interact with IoT Hub, it
 
 1. In your IoT Hub, select the "Events"
 
-![](./images/05/event-hub-endpoints-events.png)
+![](/assets/images/workshops/photon-maker-kit/05/event-hub-endpoints-events.png)
 
 2. Create a new Consumer Group called "function". Don't forget to click "save".
 
-![](./images/05/new-consumer-group.png)
+![](/assets/images/workshops/photon-maker-kit/05/new-consumer-group.png)
 
 ### Create a new Azure Function
 
@@ -167,33 +167,33 @@ Azure Functions are the Azure Serverless platform. It allows you to write Node f
 
 1. Create a new resource in Azure and select "Function App".
 
-![](./images/05/new-function-app.png)
+![](/assets/images/workshops/photon-maker-kit/05/new-function-app.png)
 
 2. Name it "ParticleFunctionApp" and select whichever Resource Group you have been using so far. Click the "Create" button at the bottom.
 
 When you create a new resource in Azure, you can find it under the bell icon in the right-hand corner. You will be notified when the resource is created. It's a good idea to click the "Add to dashboard" button at that time.
 
-![](./images/05/pin-to-dashboard.png)
+![](/assets/images/workshops/photon-maker-kit/05/pin-to-dashboard.png)
 
 3. In your new Function App, click the + button next to "Functions" in the sidebar, then change the language to "JavaScript" and select "Custom Function".
 
-![](./images/05/new-function-screen.png)
+![](/assets/images/workshops/photon-maker-kit/05/new-function-screen.png)
 
 4. Scroll down until you see the "IoT Hub (Event Hub)" card. Select "JavaScript" on that card.
 
-![](./images/05/custom-function-types.png)
+![](/assets/images/workshops/photon-maker-kit/05/custom-function-types.png)
 
 5. Name it "particle_event_hub_function" and select "new" under the "Event Hub Connection" option.
 
-![](./images/05/function-iot-hub-config.png)
+![](/assets/images/workshops/photon-maker-kit/05/function-iot-hub-config.png)
 
 6. Select your IoT Hub in the dropdown list and leave the Endpoint at "Events (built-in endpoint)"
 
-![](./images/05/new-event-hub-connection.png)
+![](/assets/images/workshops/photon-maker-kit/05/new-event-hub-connection.png)
 
 7. Set the Consumer Group to "function" and the Event Hub Name to the name of your IoT Hub. Click "Create".
 
-![](./images/05/new-event-hub-connection.png)
+![](/assets/images/workshops/photon-maker-kit/05/new-event-hub-connection.png)
 
 Your new Azure Function will be loaded up.
 
@@ -215,21 +215,21 @@ module.exports = function(context, IoTHubMessages) {
 
 9. Hit the "Run" button to run your function. Every ten seconds you should see your temperature come through as the "data" property in the console.
 
-![](./images/05/run-function-app.png)
+![](/assets/images/workshops/photon-maker-kit/05/run-function-app.png)
 
 This function will be fired every time we receve temperature data. We want to make a call back to our Particle Photon when we receive a temperature update. To do that, we need to make an HTTP call. The `http` package in Node is verbose and tedious, so we're going to install the `particle-api-js` npm package.
 
 10. Select the main Function App in the sidebar and then select the "Platform features" option.
 
-![](./images/05/function-app-settings.png)
+![](/assets/images/workshops/photon-maker-kit/05/function-app-settings.png)
 
 11. Select the "Advanced Tools (Kudu)" option.
 
-![](./images/05/found-kudu.png)
+![](/assets/images/workshops/photon-maker-kit/05/found-kudu.png)
 
 12. Select the "Debug Console" and the "CMD" options.
 
-![](./images/05/kudu-cmd.png)
+![](/assets/images/workshops/photon-maker-kit/05/kudu-cmd.png)
 
 13. In the prompt that comes up, switch to the `site/wwwroot` directory
 
@@ -237,7 +237,7 @@ This function will be fired every time we receve temperature data. We want to ma
 cd site/wwwroot
 ```
 
-![](./images/05/change-to-wwwroot.png)
+![](/assets/images/workshops/photon-maker-kit/05/change-to-wwwroot.png)
 
 14. We want to install the `request` package from npm that will make our HTTP request a lot easier. Type the following in the prompt...
 
@@ -247,7 +247,7 @@ npm install particle-api-js
 
 This will install the `particle-api-js` npm package into your Azure Functions project. It can take a few minutes to finish. It will report an error about there being no `package.json` file, but this is ok. The package is still installed.
 
-![](./images/05/npm-install.png)
+![](/assets/images/workshops/photon-maker-kit/05/npm-install.png)
 
 Close the tab for the Kudu tools to return to the original Functions project.
 
@@ -255,7 +255,7 @@ Now we're ready to make a request to change the color of the LED. To do that, yo
 
 15. Open a browser tab and navigate to the Particle IDE at [build.particle.com](build.particle.com)
 
-![](./images/05/get-access-token.png)
+![](/assets/images/workshops/photon-maker-kit/05/get-access-token.png)
 
 16. Return to the original Functions project and include the `particle-api-js` package at the top of the project.
 

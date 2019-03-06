@@ -128,11 +128,11 @@ First, we'll connect the included chainable LED.
 
 2. Connect one end of the Grove connector to the chainable LED on the side marked IN (the left side if you're looking at the device in a correct orientation.)
 
-![](./images/03/led-connect.jpg)
+![](/assets/images/workshops/mesh-101/03/led-connect.jpg)
 
 3. Plug the other end of the connector into the Shield port labeled `A4`.
 
-![](./images/03/led-shield.jpg)
+![](/assets/images/workshops/mesh-101/03/led-shield.jpg)
 
 4. As with the other two Grove devices, we'll need a library to help us program the chainable LED. Using the same process you followed in [the last module](./grove-kit-distance-display.html#measuring-distance-with-the-ultrasonic-ranger), add the `Grove_ChainableLED` library to your project in the Web IDE.
 
@@ -179,7 +179,7 @@ leds.setColorHSB(0, 0.0, 0.0, 0.0);
 
 4. The last step is to flash this new code to your Argon. Once it's updated, and your Xenon has the code we wrote in this module to send messages, you should be able to press the `SETUP` button on the Xenon (the button on the left side of the device) and see the LED on the Argon light up!
 
-![](./images/03/led.gif)
+![](/assets/images/workshops/mesh-101/03/led.gif)
 
 :tada: Congratulations, you are now able to send/receive messages to/from the mesh network. Easy, right? What could you do to improve this demo? Maybe add an LED animation, or trigger events with the button is pressed and released? Why not try out a thing or two?
 
