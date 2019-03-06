@@ -141,7 +141,7 @@ First, we'll connect the included chainable LED.
 
 ![](/assets/images/workshops/mesh-101/03/led-shield.jpg)
 
-4. As with the other two Grove devices, we'll need a library to help us program the chainable LED. Using the same process you followed in [the last module](./grove-kit-distance-display.html#measuring-distance-with-the-ultrasonic-ranger), add the `Grove_ChainableLED` library to your project in the Web IDE.
+4. As with the other two Grove devices, we'll need a library to help us program the chainable LED. Using the same process you followed in the last module, add the `Grove_ChainableLED` library to your project in the Web IDE.
 
 5. Once the library has been added, you can create an object for the ChainableLED class at the top of your code file. The first two parameters specify which pin the LED is wired to, and the third is the number of LEDs we have chained together, just one in our case.
 
