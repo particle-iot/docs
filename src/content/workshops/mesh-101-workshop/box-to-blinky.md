@@ -1,12 +1,12 @@
 ---
 word: From Box to Blinky
-title: From Box to Blinky
+title: Lab 1- From Box to Blinky
 order: 4
 columns: two
 layout: workshops.hbs
 ---
 
-# Get your device running some code
+# Lab 1 - From Box to Blinky
 
 In this lab, you'll claim your first Particle Mesh device, the Argon, with the help of the Particle mobile app. Once you've claimed it, you'll flash some code that blinks an LED on the Argon.
 

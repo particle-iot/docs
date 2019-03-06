@@ -1,12 +1,12 @@
 ---
 word: Working with Grove Sensors
-title: Working with Grove Sensors
+title: Lab 2- Working with Grove Sensors
 order: 6
 columns: two
 layout: workshops.hbs
 ---
 
-# Working with Grove Sensors
+# Lab 2 - Working with Grove Sensors
 
 In this session, you'll use your Particle Argon and the Grove starter kit to set up a distance sensor and a digital display to show the measured distance. If you run into any issues while working on this lab, click [here to access the completed source code](https://go.particle.io/shared_apps/5bfdb67ea5185c2b7700072a).
 

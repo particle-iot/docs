@@ -1,12 +1,12 @@
 ---
 word: Putting it all together
-title: Putting it all together
+title: Lab 4 - Putting it all together
 order: 9
 columns: two
 layout: workshops.hbs
 ---
 
-# Putting it all together
+# Lab 4 - Putting it all together
 
 In this session, it will all come together. One device is measuring a distance and broadcasting the value, while another is listening for updates and displaying them on a digital display.
 

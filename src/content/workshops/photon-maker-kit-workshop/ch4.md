@@ -1,12 +1,12 @@
 ---
 word: Visualizing sensor data in the cloud
-title: Visualizing sensor data in the cloud
+title: Session 4 - Visualizing sensor data in the cloud
 order: 5
 columns: two
 layout: workshops.hbs
 ---
 
-# Chapter 4: Visualizing sensor data in the cloud
+# Session 4 - Visualizing sensor data in the cloud
 
 | **Project Goal**            |                                 |
 | --------------------------- | ------------------------------- |

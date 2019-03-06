@@ -6,19 +6,13 @@ columns: two
 layout: workshops.hbs
 ---
 
-# About Particle Workshops
+# About This Workshop
 
----
+This workshop is sponsored and produced by [Particle](https:www.particle.io).
 
-Particle workshops are half- and full-day hands on explorations of the Particle ecosystem, including hardware, firmware and software. Each workshop is led by Particle employees or community advocates, and are designed to give developers new to IoT development the hands-on training they need to confidently build their own IoT solutions, at home, work, and beyond!
+The workshop is a combination of a presentations and 4 hands-on sessions described in this guide.
 
-The workshops are broken into presentations intermixed with hands-on labs that reinforce presentation content.
-
-## FAQ
-
-**Do I have to attend a workshop to complete the labs?**
-
-This site contains in-depth lab documents that complement in-person presentations delivered by Particle staff. Attendence of a workshop isn't strictly required to follow along with these labs, but they are written under the assumption that you're attending a workshop and using workshop-provided hardware (a Particle Maker Kit) to complete the exercises.
+This workshop will take you through the basics of connecting a Particle Photon device to the Internet, and have it do amazing stuff. All in just 2 hours.
 
 ## Before you start
 
@@ -40,5 +34,3 @@ This site contains in-depth lab documents that complement in-person presentation
   - Vizualize sensor data in Azure
 - Chapter 5: Controlling your devices from the cloud
   - Process sensor data in the cloud and use that data to control an LED connected to your Photon
-
----

@@ -1,12 +1,12 @@
 ---
 word: Working with Mesh
-title: Working with Mesh
+title: Lab 3 - Working with Mesh
 order: 8
 columns: two
 layout: workshops.hbs
 ---
 
-# How to Mesh
+# Lab 3 - Working with Mesh
 
 In this session, we'll leverage a local mesh network to quickly send messages between devices. We'll get a chainable Grove LED to turn on/off when the button on a different device is pushed.
 

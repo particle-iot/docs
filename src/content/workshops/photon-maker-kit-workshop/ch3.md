@@ -1,12 +1,12 @@
 ---
 word: Connecting the Particle Device Cloud to Azure
-title: Connecting the Particle Device Cloud to Azure
+title: Session 3 - Connecting the Particle Device Cloud to Azure
 order: 4
 columns: two
 layout: workshops.hbs
 ---
 
-# Chapter 3: Connecting the Particle Device Cloud to Azure
+# Session 3 - Connecting the Particle Device Cloud to Azure
 
 | **Project Goal**            | Connect your project to Azure and "backhaul" sensor data to the cloud. |
 | --------------------------- | ---------------------------------------------------------------------- |

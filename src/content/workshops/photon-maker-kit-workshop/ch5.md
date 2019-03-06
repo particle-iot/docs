@@ -1,12 +1,12 @@
 ---
 word: Controlling your devices from the cloud
-title: Controlling your devices from the cloud
+title: Session 5 - Controlling your devices from the cloud
 order: 6
 columns: two
 layout: workshops.hbs
 ---
 
-# Chapter 5: Controlling your devices from the cloud
+# Session 5 - Controlling your devices from the cloud
 
 | **Project Goal**            | Process sensor data in the cloud, and publish events to control an RGB LED on your Photon.                 |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------- |

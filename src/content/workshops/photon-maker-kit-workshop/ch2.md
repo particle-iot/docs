@@ -1,12 +1,12 @@
 ---
 word: Reading from sensors and posting data to the cloud
-title: Reading from sensors and posting data to the cloud
+title: Session 2 - Reading from sensors and posting data to the cloud
 order: 3
 columns: two
 layout: workshops.hbs
 ---
 
-# Chapter 2: Reading from sensors and posting data to the cloud
+# Session 2 - Reading from sensors and posting data to the cloud
 
 | **Project Goal**            | Start programming your Photon, and leverage the device cloud to take and post sensor readings. |
 | --------------------------- | ---------------------------------------------------------------------------------------------- |
