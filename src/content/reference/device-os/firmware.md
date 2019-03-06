@@ -11910,7 +11910,7 @@ _Since 0.8.0_
 
 ```C++
 // SYNTAX
-bool result = System.wokeUpByRtc();
+bool result = System.wokenUpByRtc();
 ```
 
 See [`SleepResult`](#wokenupbyrtc-) documentation.
