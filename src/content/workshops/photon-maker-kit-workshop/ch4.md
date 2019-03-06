@@ -86,7 +86,7 @@ Don't forget to click "Save".
 
 ## Create a Live Streaming Power BI Dashboard
 
-1. Log in to Power BI at [powerbi.microsoft.com](powerbi.microsoft.com)
+1. Log in to Power BI at [powerbi.microsoft.com](https://powerbi.microsoft.com)
 
 2. Click on the "My Workspace" section in the sidebar. Click the + button in the corner to create a new dashboard.
 

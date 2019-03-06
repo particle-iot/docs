@@ -20,19 +20,19 @@ If you get stuck at any point, [click here](https://go.particle.io/shared_apps/5
 
 ## Wire up the status RGB LED to your Photon
 
-![](/assets/images/workshops/photon-maker-kit/05/rgb-circuit.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/rgb-circuit.JPG)
 
 To build this circuit, you'll need the following items:
 
 - Photon in breadboard (this is how it comes in the Maker Kit)
 - 1x Clear cap RGB LED. The RGB LED has four leads: the left lead is for the blue light, second for green and the right lead for the red light. The longest lead is the common anode, which we'll connect to our power source.
 
-![](/assets/images/workshops/photon-maker-kit/05/rgbled.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/rgbled.JPG)
 
 - 2x red, green, and blue jumper wires.
 - 3x 330 Ohm Resistors. The maker kit includes four different types of resistors (220, 1k, 4.7k and 10k ohm). The one you need is blue, with red, red, black, black and brown bands, as depicted below.
 
-![](/assets/images/workshops/photon-maker-kit/05/resistors.jpg)
+![](/assets/images/workshops/photon-maker-kit/05/resistors.JPG)
 
 1. The RGB LED has four leads. One common anode lead, and one each for the red, green and blue diodes inside the LED. Start by plugging the four legs into the first four rows of column J on your breadboard. Make sure the LED is oriented where the longest leg, the common anode, is the second from the right before you plug it in.
 
@@ -254,7 +254,7 @@ Close the tab for the Kudu tools to return to the original Functions project.
 
 Now we're ready to make a request to change the color of the LED. To do that, you are going to need your Particle token.
 
-15. Open a browser tab and navigate to the Particle IDE at [build.particle.com](build.particle.com)
+15. Open a browser tab and navigate to the Particle IDE at [build.particle.com](https://build.particle.com)
 
 ![](/assets/images/workshops/photon-maker-kit/05/get-access-token.png)
 
