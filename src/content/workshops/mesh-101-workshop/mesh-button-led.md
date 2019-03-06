@@ -22,12 +22,12 @@ For this session, it is necessary to cooperate in groups of at least two partici
 
 {{box op="start" cssClass="boxed warningBox"}}
 **Did you come prepared?**</br>
-Make sure you have completed **all** the [preparations](prerequisites.md) before advancing beyond this point.
+Make sure you have completed **all** the prerequisites before advancing beyond this point.
 {{box op="end"}}
 
 ## Remote distance sensor
 
-In a [previous session](grove-kit-distance-display.md) you wrote code that read the distance from the ultrasonic distance sensor in the Grove sensor kit. Now we take those capabilities to the mesh. If you get stuck in the code, the final code for the remote distance measurer is [available here](https://go.particle.io/shared_apps/5c0718d14e3594c0cf00082f).
+In a previous session you wrote code that read the distance from the ultrasonic distance sensor in the Grove sensor kit. Now we take those capabilities to the mesh. If you get stuck in the code, the final code for the remote distance measurer is [available here](https://go.particle.io/shared_apps/5c0718d14e3594c0cf00082f).
 
 1. In the [Particle Web IDE](https://build.particle.io), make a new app and call it "RemoteDistanceSensor" (or come up with a more creative name).
 
@@ -171,4 +171,4 @@ If you fill out this [5 question survey](https://particleiot.typeform.com/to/JiF
 
 ## More mesh?
 
-Feel you want more mesh? Try adding features to your IoT mesh solution see these [hidden hints](extra.md).
+Feel you want more mesh? Try adding features to your IoT mesh solution see these [hidden hints](/extra).

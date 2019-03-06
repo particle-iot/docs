@@ -18,7 +18,7 @@ In this session, you'll use your Particle Argon and the Grove starter kit to set
 
 {{box op="start" cssClass="boxed warningBox"}}
 **Did you come prepared?**</br>
-Make sure you have completed **all** the [preparations](prerequisites.md) before advancing beyond this point.
+Make sure you have completed **all** the prerequisites before advancing beyond this point.
 {{box op="end"}}
 
 ## Unboxing the Grove Kit
