@@ -1,6 +1,6 @@
 ---
 word: Working with Grove Sensors
-title: Lab 2 - Working with Grove Sensors
+title: Using Grove Sensors
 order: 6
 columns: two
 layout: workshops.hbs

@@ -1,6 +1,6 @@
 ---
 word: Reading from sensors and posting data to the cloud
-title: Session 2 - Reading from sensors and posting data to the cloud
+title: Publishing sensor data
 order: 3
 columns: two
 layout: workshops.hbs

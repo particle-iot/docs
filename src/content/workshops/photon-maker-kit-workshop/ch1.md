@@ -1,6 +1,6 @@
 ---
 word: Claiming Your Particle Device
-title: Session 1 - Claiming Your Particle Device
+title: Claiming a device
 order: 2
 columns: two
 layout: workshops.hbs

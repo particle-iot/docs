@@ -1,6 +1,6 @@
 ---
 word: A Lap Around Particle
-title: Session 1 - A Lap Around Particle
+title: Particle Basics
 order: 3
 columns: two
 layout: workshops.hbs

@@ -1,6 +1,6 @@
 ---
 word: Putting it all together
-title: Lab 4 - Putting it all together
+title: Integration
 order: 9
 columns: two
 layout: workshops.hbs

@@ -1,6 +1,6 @@
 ---
 word: Hacking on Mesh
-title: Hacking on Mesh
+title: Mesh networking pt. 3
 order: 10
 columns: two
 layout: workshops.hbs

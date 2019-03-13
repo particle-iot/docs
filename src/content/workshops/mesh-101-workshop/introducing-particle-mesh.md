@@ -1,6 +1,6 @@
 ---
 word: Introducing Particle Mesh
-title: Session 2 - Introducing Particle Mesh
+title: Mesh networking pt. 1
 order: 5
 columns: two
 layout: workshops.hbs

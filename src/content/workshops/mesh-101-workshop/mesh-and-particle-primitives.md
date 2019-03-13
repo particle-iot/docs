@@ -1,6 +1,6 @@
 ---
 word: Mesh Communication and Particle Primitives
-title: Session 3 - Mesh Communication and Particle Primitives
+title: Mesh & Particle Primitives
 order: 7
 columns: two
 layout: workshops.hbs

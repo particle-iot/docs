@@ -1,6 +1,6 @@
 ---
 word: From Box to Blinky
-title: Lab 1- From Box to Blinky
+title: Box to Blinky
 order: 4
 columns: two
 layout: workshops.hbs

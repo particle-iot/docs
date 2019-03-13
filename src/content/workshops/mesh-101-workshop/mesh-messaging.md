@@ -1,6 +1,6 @@
 ---
 word: Working with Mesh
-title: Lab 3 - Working with Mesh
+title: Mesh networking pt. 2
 order: 8
 columns: two
 layout: workshops.hbs
