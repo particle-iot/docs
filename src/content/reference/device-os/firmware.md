@@ -4879,6 +4879,8 @@ When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, 
 
 Pre-defined Serial configurations available:
 
+{{#if has-stm32f2}}
+
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
@@ -4918,6 +4920,17 @@ Parity:
 - `SERIAL_PARITY_EVEN` - even parity
 - `SERIAL_PARITY_ODD` - odd parity
 
+{{/if}} {{!-- has-stm32 --}}
+ 
+{{#if has-nrf52}}
+- `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
+- `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
+
+Other options, including odd parity, and 7 and 9 bit modes, are not available on the {{device}}. 
+
+{{/if}} {{!-- has-nrf52 --}}
+
+
 {{#if core}}
 Hardware flow control, available only on Serial1 (`CTS` - `A0`, `RTS` - `A1`):
 {{/if}}
@@ -4927,7 +4940,7 @@ Hardware flow control, available only on Serial2 (`CTS` - `A7`, `RTS` - `RGBR` )
 {{/if}}
 
 {{#if has-nrf52}}
-On mesh devices, flow control is available on Serial1 D3(CTS) and D2(RTS). 
+On Gen 3 devices (Argon, Boron, Xenon), flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using flow control (the default), then these pins can be used as regular GPIO.
 {{/if}}
 
 {{#if xenon}}
@@ -4996,12 +5009,12 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
-The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is 64 bytes.
+The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is {{#if has-stm32}}64{{/if}}{{#if has-nrf52}}128{{/if}} bytes and cannot be changed. 
 
 {{#if has-usb-serial1}}
 The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{else}}
-The receive buffer size for Serial is 64 bytes.
+The receive buffer size for Serial is 64 bytes. 
 {{/if}}
 
 ```C++
@@ -5129,7 +5142,7 @@ from a serial peripheral.
 The `serialEvent` functions are called in between calls to the application `loop()`. This means that if `loop()` runs for a long time due to `delay()` calls or other blocking calls the serial buffer might become full between subsequent calls to `serialEvent` and serial characters might be lost. Avoid long `delay()` calls in your application if using `serialEvent`.
 
 Since `serialEvent` functions are an
-extension of the application loop, it is ok to call any functions that you would also call from `loop()`.
+extension of the application loop, it is ok to call any functions that you would also call from `loop()`. Because of this, there is little advantage to using serial events over just reading serial from loop(). 
 
 ```cpp
 // EXAMPLE - echo all characters typed over serial

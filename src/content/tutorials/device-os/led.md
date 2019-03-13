@@ -73,6 +73,10 @@ If you are unable to get past blinking green, here are a few known working situa
 
 - If your Wi-Fi network uses 5 GHz only, instead of the more common 2.4 GHz, the {{device}} cannot be used. The Wi-Fi radio is only compatible with 2.4 GHz networks.
 
+{{#if photon}}
+- If your Wi-Fi network uses 802.11n only mode (does not support 802.11b, 802.11g, or a combination of b, g, and n), it's not currently possible to connect a Photon or P1 to the network if the device is running Device OS 0.7.0 or later.
+{{/if}} 
+
 {{#unless core}}
 For home users:
 

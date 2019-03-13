@@ -827,16 +827,18 @@ __PASSWORD_ONLY__ (active)
  Expires at: 2017-06-12T08:44:16.371Z
 ```
 
-### particle token new
+### particle token create
 Create a new access token under your Particle account.
 
 ```sh
-$ particle token new
+$ particle token create
 ? Using account cli@particle.io
 Please enter your password: *******
 New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
 		da39a3ee5e6b4b0d3255bfef95601890afd80709
 ```
+
+There are no additional options for creating a token from the CLI. In order to change the expiration or make a non-expiring token, you should use the Particle Cloud API directly.
 
 ### particle token revoke
 Revoke an access token under your Particle account.
@@ -847,3 +849,5 @@ $ particle token revoke ACCESS_TOKEN
 Please enter your password: *******
 successfully deleted ACCESS_TOKEN
 ```
+
+The only available option is `--force` which is necessary if you want to delete the access token used by the CLI itself.
