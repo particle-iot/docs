@@ -74,22 +74,17 @@ The same code will be used for all devices in the network, so start by creating 
 First, let's send out a message when the `MODE` button on the Xenon is pushed.
 
 1. In the `setup` function, tell the device to call the `button_handler` function, whenever the `button_status` changes (pressed or released). Let's also add a `pinMode` call so we can toggle the `D7` LED on the Xenon when pressed.
-
 ```cpp
 pinMode(D7, OUTPUT);
 System.on(button_status, button_handler);
 ```
-
 2. Now write the `button_handler` function before the `setup` function.
-
 ```cpp
 void button_handler(system_event_t event, int duration, void* ) {
   // Empty
 }
 ```
-
 3. Since this function gets called on both press _and_ release of the `MODE` button, we can use the `duration` to check which it is. Replace the line the the _Empty_ comment with the following.
-
 ```cpp
 if (!duration) {
   // Just pressed.
@@ -97,9 +92,7 @@ if (!duration) {
   // Button released.
 }
 ```
-
 4. Now, since we now that the button has been pressed, we should tell the whole mesh network to toggle their LEDs. We use the `Mesh.publish()` for that, which takes one or two striings as arguments. The first argument is a topic and the second is data. We will only use the topic, and we should choose a topic that will make sense for the purpose. Later other devices will be able to subscribe to this topic and will get notified whenever we publish to this topic. Replace the body of the handler with the lines below to finish the code. We'll also turn on the D7 LED when the button is pressed, and off when the button is released.
-
 ```cpp
 if (!duration) {
   Mesh.publish("toggle-led");
@@ -108,19 +101,14 @@ if (!duration) {
   digitalWrite(D7, LOW);
 }
 ```
-
 5. You have now completed the sending part of the code. To see that everything works, first add the following line to the `setup`.
-
 ```cpp
 Serial.begin(9600);
 ```
-
 6. Then add a print statement like this inside the if-loop, just under the `mesh.publish` line.
-
 ```cpp
 Serial.println("Button push published!");
 ```
-
 7. Flash your device with the code, and see that it behaves as expected.
 
 ### Receiving messages
@@ -134,53 +122,38 @@ First, we'll connect the included chainable LED.
 1. Open the bag containing the chainable LED and take one connector out of the bag.
 
 2. Connect one end of the Grove connector to the chainable LED on the side marked IN (the left side if you're looking at the device in a correct orientation.)
-
 ![](/assets/images/workshops/mesh-101/03/led-connect.jpg)
-
 3. Plug the other end of the connector into the Shield port labeled `A4`.
-
 ![](/assets/images/workshops/mesh-101/03/led-shield.jpg)
-
 4. As with the other two Grove devices, we'll need a library to help us program the chainable LED. Using the same process you followed in the last module, add the `Grove_ChainableLED` library to your project in the Web IDE.
 
 5. Once the library has been added, you can create an object for the ChainableLED class at the top of your code file. The first two parameters specify which pin the LED is wired to, and the third is the number of LEDs we have chained together, just one in our case.
-
 ```cpp
 ChainableLED leds(A4, A5, 1);
 ```
-
 6. Now, initialize the object in your `setup` function. We'll also set the LED color to off after initialization.
-
 ```cpp
 leds.init();
 leds.setColorHSB(0, 0.0, 0.0, 0.0);
 ```
-
 With our new device set-up, we can turn it on in response to Mesh messages!
 
 #### Receiving the Mesh message and turning on the LED
 
 1. `Mesh.subscribe` works just like `Particle.subscribe` from a code standpoint. You subscribe to a topic (string) and pass in the name of a function to handle the message if the device receives it. In the `setup` function, subscribe to the `toggle-led` topic (first argument), and tell the device which function to call (second argument) when another device broadcasts a message to the topic.
-
 ```cpp
 Mesh.subscribe("toggle-led", toggleLed);
 ```
-
 2. Write the function that handles incoming messages to the `toggle-led`topic. Insert the function before the `setup` function.
-
 ```cpp
 void toggleLed(const char *event, const char *data) {
   // Empty line
 }
 ```
-
 3. In the `toggleLED` function, add a few lines turn the LED red, delay for half a second, and then turn it off again.
-
 ```cpp
 leds.setColorHSB(0, 0.0, 1.0, 0.5);
-
 delay(500);
-
 leds.setColorHSB(0, 0.0, 0.0, 0.0);
 ```
 
@@ -188,7 +161,7 @@ leds.setColorHSB(0, 0.0, 0.0, 0.0);
 
 ![](/assets/images/workshops/mesh-101/03/led.gif)
 
-:tada: Congratulations, you are now able to send/receive messages to/from the mesh network. Easy, right? What could you do to improve this demo? Maybe add an LED animation, or trigger events with the button is pressed and released? Why not try out a thing or two?
+Congratulations, you are now able to send/receive messages to/from the mesh network. Easy, right? What could you do to improve this demo? Maybe add an LED animation, or trigger events with the button is pressed and released? Why not try out a thing or two?
 
 {{box op="start" cssClass="boxed warningBox"}}
 **Got stuck?**</br>
