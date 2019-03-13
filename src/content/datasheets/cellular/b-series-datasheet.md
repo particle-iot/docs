@@ -5,13 +5,15 @@ columns: two
 order: 2
 ---
 
-# B402 Datasheet <sup>(draft-001)</sup>
+# B402 Datasheet <sup>(draft-002)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/b-series/b-series-top.png" ></div>
+
+
 
 ## Functional description
 
@@ -80,11 +82,6 @@ There are two radios on the B402 module. A Mesh radio (nRF52840) and a cellular 
 - For the mesh antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
  
 
-
-### FCC approved antennas
-
-
-
 ### Peripherals and GPIO
 
 | Peripheral Type | Qty | Input(I) / Output(O) |
@@ -104,6 +101,8 @@ There are some optional B402 module specific I/O:
 - u-blox USB and VBUS (for u-blox firmware upgrades)
 
 **Note:** All GPIOs are only rated at 3.3VDC max.
+
+---
 
 ### JTAG and SWD 
 
@@ -270,6 +269,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>2</sup> Extended operating temperature range (RF performance may be affected outside normal operating range, though module is fully functional)
 
+---
+
 ### Radio specifications
 
 Boron has two radio modules.
@@ -303,6 +304,8 @@ Boron has two radio modules.
 | | Band 1 (2100 MHz)  |
 | LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
+
+---
 
 ### I/O Characteristics 
 
@@ -355,6 +358,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ![Mechanical Drawing](/assets/images/b-series/b-series-mechanical.jpg)
 
+---
 
 ### Mating connector and land pattern
 
@@ -363,6 +367,8 @@ The mating connector is a an M.2 (NGFF) type 4. Note that there are several diff
 One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product-2199230-4.html). It is widely available including at suppliers such as [Digikey](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230-4/A115904CT-ND/4208916).
 
 ![Connector](/assets/images/b-series/b-series-connector.png)
+
+---
 
 ### Screw Assembly
 
@@ -387,16 +393,6 @@ We strongly recommend against placing components under the SOM board because the
 
 ![Keep-Out Area](/assets/images/b-series/b-series-keep-out
 .png)
-
-
-## Schematic
-
-
-## Ordering information
-
-
-## Qualification and approvals
-
 
 
 ## Product Handling
@@ -424,19 +420,5 @@ The bootloader allows you to easily update the user application via several diff
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | draft-001     | 07 Mar 2019 | RK | Initial draft |
+| draft-002     | 09 Mar 2019 | RK | Removed empty sections |
 
-## Known Errata
-
-## Contact
-
-**Web**
-
-[https://www.particle.io](https://www.particle.io)
-
-**Community Forums**
-
-[https://community.particle.io](https://community.particle.io)
-
-**Email**
-
-[https://support.particle.io](https://support.particle.io)
