@@ -111,6 +111,40 @@ Particle's certifications will help you decrease the time and cost associated wi
 - FCC ID: [XPY2AGQN4NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ikrR3FBKrpgwIGJS1sm7Bw%3D%3D&fcc_id=XPY2AGQN4NNN)
 - [Certificate of Conformity](/assets/pdfs/e402-fcc.pdf)
 
+#### Argon
+
+802.15.4 (mesh) certification:
+
+- FCC ID: [2AEMI-ARGN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=j56OXdnX7qhTRT%2BFJDABXg%3D%3D&fcc_id=2AEMI-ARGN)
+- [Certificate of Conformity](/assets/pdfs/argon-mesh-wifi-fcc.pdf)
+- [Test reports](/assets/pdfs/argon-mesh-fcc-test-report.pdf)
+
+802.11b/g/n (Wi-Fi) certification:
+
+- FCC ID: [2AEMI-ARGN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=j56OXdnX7qhTRT%2BFJDABXg%3D%3D&fcc_id=2AEMI-ARGN)
+- [Certificate of Conformity](/assets/pdfs/argon-mesh-wifi-fcc.pdf)
+- [Test reports](/assets/pdfs/argon-wifi-fcc-test-report.pdf)
+
+NFC certification:
+
+- FCC ID: [2AEMI-ARGN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=BIpTX7WKiovuCzJziwUi8Q%3D%3D&fcc_id=2AEMI-ARGN)
+- [Certificate of Conformity](/assets/pdfs/argon-nfc-fcc.pdf)
+- [Test reports](/assets/pdfs/argon-nfc-fcc-test-report.pdf)
+
+#### Xenon
+
+802.15.4 (mesh) certification:
+
+- FCC ID: [2AEMI-XENN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ugNeG69Gjl0KuJ%2Fo9IiqNg%3D%3D&fcc_id=2AEMI-XENN)
+- [Certificate of Conformity](/assets/pdfs/xenon-mesh-fcc.pdf)
+- [Test reports](/assets/pdfs/xenon-mesh-fcc-test-report.pdf)
+
+NFC certification:
+
+- FCC ID: [2AEMI-XENN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=BsbBaeGLV6xp1u%2BNfGYUDw%3D%3D&fcc_id=2AEMI-XENN)
+- [Certificate of Conformity](/assets/pdfs/xenon-nfc-fcc.pdf)
+- [Test reports](/assets/pdfs/xenon-nfc-fcc-test-report.pdf)
+
 
 ## IC<img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
@@ -212,6 +246,27 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Certificate of Conformity](/assets/pdfs/electron/ce-u201-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ce-u201-test-report.pdf)
 
+#### Argon
+
+- [Summary](/assets/pdfs/argon-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/argon-ce-emc-test-report.pdf)
+- [RED Mesh Test Report](/assets/pdfs/argon-mesh-ce-test-report.pdf)
+- [RED Wi-Fi Test Report](/assets/pdfs/argon-wifi-ce-test-report.pdf)
+- [RED NFC Test Report](/assets/pdfs/argon-nfc-ce-test-report.pdf)
+- [EN-60950 Test Report](/assets/pdfs/argon-EN60950-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/argon-EN62311-test-report.pdf)
+- [EN-62479 Test Report](/assets/pdfs/argon-EN62479-test-report.pdf)
+- [RoHS Test Report](/assets/pdfs/argon-rohs.pdf)
+
+
+#### Xenon
+
+- [EMC Test Report](/assets/pdfs/xenon-ce-emc-test-report.pdf)
+- [RED Mesh Test Report](/assets/pdfs/xenon-mesh-ce-test-report.pdf)
+- [RED NFC Test Report](/assets/pdfs/xenon-nfc-ce-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/xenon-EN62311-test-report.pdf)
+- [EN-62479 Test Report](/assets/pdfs/argon-EN62479-test-report.pdf)
+
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
@@ -263,6 +318,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### E Series E310 (U201)
 
 - [Test Reports](/assets/pdfs/electron/rohs-u201.pdf)
+
+#### Argon
+
+- [Test Reports](/assets/pdfs/argon-rohs.pdf)
 
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
