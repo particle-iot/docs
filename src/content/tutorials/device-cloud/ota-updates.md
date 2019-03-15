@@ -161,14 +161,122 @@ single release over time to reduce risk.
 - **Immediate firmware releases**: Instead of waiting for devices to
 re-connect to receive an update, push a fleet-wide update out immediately.
 
-## Single Device OTA
-// TODO
-// include something about locking development devices to a version
+## The firmware "stack"
+
+### Device OS
+// Talk about Device OS value props, purpose, link to Device OS guide.
+
+### Application firmware
+// Define user application firmware
+
 
 ## Fleet-wide OTA
+// TODO: Give an introduction to fleet-wide OTA.
+This should largely be a refactor of the existing Console guide's docs
+on firmware releases:
+
+/tutorials/device-cloud/console/#rollout-firmware
+
+### Firmware Releases
 // TODO
 
-## Immediate Firmware Releases
+### Recommended development flow
+When releasing firmware your fleet, it's helpful to first understand
+Particle's recommended release flow. This flow has been designed to minimize
+risk when deploying new firmware to devices:
+
+<img src="/assets/images/release-firmware-flow.png" class="full-width" />
+<p class="caption">The recommended flow for releasing firmware</p>
+
+1. The first step of the release flow is using [**development
+devices**](/guide/how-to-build-a-product/development-devices/) to rapidly develop and iterate on product firmware. These are special
+product devices marked specifically for internal testing.
+This gives you the flexibility to experiment with
+new firmwares while still simulating behaviors of deployed devices in
+the production fleet. For information on marking a device as a
+development devices, check out [the
+guide](/guide/how-to-build-a-product/development-devices/#marking-a-development-device).
+
+2. When you have finalized a firmware that you feel confident in releasing
+to your fleet, [**prepare the binary and upload it to your
+product**](#preparing-a-binary).
+
+3. Before releasing, you will need to ensure that the uploaded product
+firmware is running on at least one device in your product fleet.
+Your development device(s) may already be running the firmware,
+but we also recommend [**locking one or more devices**](#locking-firmware)
+to the newly updated firmware and ensure that it re-connects
+successfully to the cloud. This is because locking more closely
+represents a release action, with the specific firmware being delivered
+to a product device.
+
+4. [**Mark the firmware as released**](#releasing-firmware). This will
+target product devices to automatically download and run the firmware.
+The Particle Device Cloud will respect the [precedence
+rules](#firmware-precedence-rules) to determine which firmware is
+delivered to a given device. If you are on the Enterprise plan with
+access to [device groups](/guide/how-to-build-a-product/device-groups/),
+you can more safely roll out the firmware by targeting a subset of the
+fleet for release.
+
+The rest of this section contains details around how to go through this
+process.
+
+### Preparing an application firmware binary
+See /tutorials/device-cloud/console/#preparing-a-binary
+
+### Development devices
+// TODO. Describe and link to development devices guide
+/tutorials/product-tools/development-devices/
+
+### Upload firmware binary
+
+### Locking firmware
+// include something about locking development devices to a version
+See /tutorials/device-cloud/console/#locking-firmware
+
+### Unlocking firmware
+
+// TODO
+See /tutorials/device-cloud/console/#unlocking-firmware
+
+### Choosing release targets
+Release by group, product default
+See /tutorials/product-tools/device-groups/#firmware-release-by-group
+
+### Releases via the REST API
+// TODO
+
+### Firmware precedence rules
+
+Devices in your fleet will be targeted to
+receive a version of product firmware according to these precedence
+rules:
+
+- A **development device** never receives automatic updates of product
+firmware.
+
+- A device that has been **individually locked** to a version of product
+firmware is respected above all else, and will not be overwritten by any
+released firmwares.
+
+- If unlocked, devices **belonging to a group** will receive the
+corresponding group's released firmware (if a firmware has been released
+to the group). When a device belongs to multiple groups that each have
+released firmware, the _highest firmware version_ will be preferred
+
+- If a device is unlocked and **does not belong to any groups** with
+released firmware, it will receive the **Product default** released
+firmware (if a firmware has been released as the Product default)
+
+- If none of the above conditions result in a device being targeted for
+a product firmware, it will not receive an automatic OTA update from the
+Particle cloud
+
+### Immediate firmware releases (alpha)
+
+[ADD IMAGE OF IMMEDIATE UPDATES HERE]
+
 Firmware Releases allow your team to roll out an OTA update to a fleet
 of devices with a single action.
 
@@ -194,7 +302,17 @@ This provides your team with the tools you need to roll out an OTA update
 quickly without putting devices in your fleet at risk being interrupted
 during a critical activity.
 
-[ADD IMAGE OF IMMEDIATE UPDATES HERE]
+
+## Single Device OTA
+// TODO
+
+
+
+### OTA during development in the IDEs
+
+### Flash via the REST API
+
+
 
 ## Controlling OTA availability
 
@@ -203,6 +321,8 @@ during critical activities. Particle's Device OS includes helpful APIs
 to allow a device to coordinate with the Device Cloud to ensure OTAs are
 delivered at the appropriate time.
 
+### OTA availability in the Console
+// TODO
 
 ### Disabling OTA updates
 
@@ -236,6 +356,9 @@ In this case, the OTA update will be prevented by the device. The device
 will emit an internal system event, `firmware_update_pending` and
 `System.updatesPending()` will evaluate to `true`.
 
+### Force Enable OTA updates
+// TODO
+
 ### Putting it all together
 
 Depending on the nature of your IoT application, you may want to:
@@ -250,6 +373,20 @@ architectures.
 
 #### Disabling OTA only when necessary
 
+This architecture is useful when the risk of delivering an OTA during
+normal device operation is low. In this case, you can keep OTA updates
+enabled by default, and only disable them when the device is performing
+a critical action. After the critical action concludes, updates are
+re-enabled.
+
+One could implement something like this in application firmware
+
+// TODO: Rick, implement this firmware example
+```c++
+void setup() {
+}
+```
+
 #### Disabling OTA most of the time
 
 This architecture is likely preferrable if the cost of disrupting a
@@ -260,6 +397,9 @@ default, then temporarily enabling them when a safe "update window" has
 been identified.
 
 One could implement something like this in application firmware:
+
+// TODO: Rick, can you audit this implementation and update it to be
+// accurate?
 
 ```c++
 void setup() {
@@ -292,4 +432,6 @@ When the pending update event fires, we'd like our app to wait until the
 device is able to accept it to avoid interruption. We define a function
 called `isAvailableForOTA()` that checks for all the characteristics
 that would make a device qualify as busy.
+
+
 
