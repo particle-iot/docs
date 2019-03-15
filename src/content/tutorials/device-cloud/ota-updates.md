@@ -305,14 +305,11 @@ during a critical activity.
 
 ## Single Device OTA
 // TODO
-
-
-
-### OTA during development in the IDEs
+### OTA in the IDEs
 
 ### Flash via the REST API
 
-
+### Flash via SDKs
 
 ## Controlling OTA availability
 
