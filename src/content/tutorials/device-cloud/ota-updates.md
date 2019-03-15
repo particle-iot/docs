@@ -167,3 +167,129 @@ re-connect to receive an update, push a fleet-wide update out immediately.
 
 ## Fleet-wide OTA
 // TODO
+
+## Immediate Firmware Releases
+Firmware Releases allow your team to roll out an OTA update to a fleet
+of devices with a single action.
+
+By default, Firmware Releases are sent to devices **gradually**.
+Targeted device will receive the new version of firmware over time, with
+each device updating the next time it starts a new secure session with
+the Device Cloud. This is to ensure devices are not disrupted while in
+use as a result of the reset needed to begin running the new firmware.
+
+However, there are many instances where it is preferrable to release a
+version of firmware **immediately**. This may be because:
+- You desire speedy delivery of an update with new features or
+security patches to impacted devices in your fleet
+- You may have unexpectedly introduced a bug in your previous release,
+and need to quickly rollback
+
+**Immediate Firmware Releases** allow you to trigger a _real-time_ OTA
+update across a fleet of devices. Individual devices can express their
+availability for an OTA to the Device Cloud, preventing an Immediate
+Release from disrupting busy devices.
+
+This provides your team with the tools you need to roll out an OTA update
+quickly without putting devices in your fleet at risk being interrupted
+during a critical activity.
+
+[ADD IMAGE OF IMMEDIATE UPDATES HERE]
+
+## Controlling OTA availability
+
+Sending an OTA update to a device comes with the risk of interrupting it
+during critical activities. Particle's Device OS includes helpful APIs
+to allow a device to coordinate with the Device Cloud to ensure OTAs are
+delivered at the appropriate time.
+
+
+### Disabling OTA updates
+
+`System.disableUpdates()` can be added in application firmware to
+disable OTA updates for an individual device. This is done to prevent
+OTA attempts from the Device Cloud when the device is not available for
+an update.
+
+Calling `System.disableUpdates()` will **prevent all over-the-air
+firmware requests from initiating**, including single device OTA
+attempts (i.e. flashing development firmware in the Web IDE) and
+fleet-wide OTA attempts (i.e. a firmware release).
+
+### Re-enabling OTA updates
+
+`System.enableUpdates()` enables OTA updates for an individual device,
+allowing all over-the-air firmware requests from the Device Cloud.
+By default, OTA updates are enabled for a device. This method would only
+need to be called if updates had been previously disabled using
+`System.disableUpdates()`.
+
+### Notifications of pending OTA updates
+
+`System.updatesPending()` is a boolean flag that will return whether a
+new version of Product firmware is available for the device. This is
+helpful in the case when updates have been disabled for a device (by
+calling `System.disableUpdates()` in firmware), and the device needs
+to be notified that there is a pending update for the device.
+
+In this case, the OTA update will be prevented by the device. The device
+will emit an internal system event, `firmware_update_pending` and
+`System.updatesPending()` will evaluate to `true`.
+
+### Putting it all together
+
+Depending on the nature of your IoT application, you may want to:
+- Only disable OTA updates when critical activities are being carried
+out by the device, keeping OTA enabled for most of the time the device
+is online
+- Disable OTA updates most of the time the device is online, and include
+logic to conditionally enable updates at the appropriate time, *OR*
+
+Let's take a look at some sample firmware apps that implement these 2
+architectures.
+
+#### Disabling OTA only when necessary
+
+#### Disabling OTA most of the time
+
+This architecture is likely preferrable if the cost of disrupting a
+device during normal operation is very high. Imagine a connected medical
+device needed at a moment's notice to save lives -- the risk of an OTA
+would be high enough in this case to warrant disabling updates by
+default, then temporarily enabling them when a safe "update window" has
+been identified.
+
+One could implement something like this in application firmware:
+
+```c++
+void setup() {
+  // Disable OTA updates by default when first booting up
+  System.disableUpdates();
+  // Register a listener to be notified when an OTA update is pending
+  System.on(firmware_update_pending, firmware_pending_handler)
+}
+
+void firmware_pending_handler() {
+  // Have the device wait until it's ready for an OTA, then enable
+  // updates to trigger the update
+  waitUntil(isAvailableForOTA);
+  System.enableUpdates();
+}
+
+bool isAvailableForOTA() {
+ // Add logic here to specify if the device is available for an update
+ return Particle.connected() && ...;
+}
+```
+
+In this example, the application firmware will boot up and disable all
+OTA updates immediately as part of its `setup()` method. When the device
+receives a notification from the Device Cloud that a new version of firmware
+is available, we can use the `firmware_update_pending` event to check to
+see if the device is in a position to accept an update.
+
+When the pending update event fires, we'd like our app to wait until the
+device is able to accept it to avoid interruption. We define a function
+called `isAvailableForOTA()` that checks for all the characteristics
+that would make a device qualify as busy.
+
