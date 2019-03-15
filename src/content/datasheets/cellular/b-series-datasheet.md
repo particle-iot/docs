@@ -5,7 +5,7 @@ columns: two
 order: 2
 ---
 
-# B402 Datasheet <sup>(draft-002)</sup>
+# B402 Datasheet <sup>(draft-003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-datasheet.pdf"}}
@@ -349,14 +349,14 @@ These specifications are based on the nRF52840 datasheet.
 
 | Parameters | Value | Unit |
 | --- | --- | --- |
-| Width | 22 | mm |
+| Width | 30 | mm |
 | Height | 42 | mm | 
 | Thickness | 5.5 | mm | 
 | Weight | 6.2 | grams |
 
 ### Mechanical drawing
 
-![Mechanical Drawing](/assets/images/b-series/b-series-mechanical.jpg)
+![Mechanical Drawing](/assets/images/b-series/b-series-mechanical.png)
 
 ---
 
@@ -421,4 +421,5 @@ The bootloader allows you to easily update the user application via several diff
 |:---------|:-----|:-------|:---------|
 | draft-001     | 07 Mar 2019 | RK | Initial draft |
 | draft-002     | 09 Mar 2019 | RK | Removed empty sections |
+| draft-003     | 15 Mar 2019 | RK | Updated mechanical drawings |
 
