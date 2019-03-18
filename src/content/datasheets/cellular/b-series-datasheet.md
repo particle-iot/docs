@@ -5,7 +5,7 @@ columns: two
 order: 2
 ---
 
-# B402 Datasheet <sup>(draft-003)</sup>
+# B402 Datasheet <sup>(draft-004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-datasheet.pdf"}}
@@ -102,13 +102,9 @@ There are some optional B402 module specific I/O:
 
 **Note:** All GPIOs are only rated at 3.3VDC max.
 
----
-
 ### JTAG and SWD 
 
 The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
-
-![JTAG pogo pins](/assets/images/b-series/b-series-jtag.jpg)
 
 ## Memory map
 
@@ -422,4 +418,5 @@ The bootloader allows you to easily update the user application via several diff
 | draft-001     | 07 Mar 2019 | RK | Initial draft |
 | draft-002     | 09 Mar 2019 | RK | Removed empty sections |
 | draft-003     | 15 Mar 2019 | RK | Updated mechanical drawings |
+| draft-004     | 18 Mar 2019 | RK | Updated top picture |
 
