@@ -16,6 +16,7 @@
 
         <ul class="nav guide-menu">
           {{#each workshops}}
+          {{#if @index}}
           <li data-level="{{inc @index}}"
             class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
             <h3 class="guide-section-titles">{{{titleize section}}}</h3>
@@ -55,6 +56,7 @@
               {{/each}}
             </ul>
           </li>
+          {{/if}}
           {{/each}}
         </ul>
       </div>
