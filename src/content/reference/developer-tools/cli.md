@@ -614,6 +614,122 @@ If you wish to flash from application sources, first use `particle compile` to c
 
 If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
 
+## particle mesh
+
+Mesh network management from the CLI.
+
+_These commands are in beta._
+
+### particle mesh create
+
+Create a new network
+
+```
+particle mesh create <network name> <device> [--channel=N] [--password=...] [--yes]
+```
+
+### particle mesh add
+
+Add a device to the current network of an assisting device
+
+```
+particle mesh add <new device> <assisting device> [--password=...] [--yes]
+```
+
+### particle mesh remove
+
+Remove a device from its current network
+
+```
+particle mesh remove <device> [--yes]
+```
+
+### particle mesh list
+
+List all registered networks and their devices
+
+```
+particle mesh list [network] [--networks-only]
+```
+
+### particle mesh info
+
+Get the current device's network
+
+```
+particle mesh info <device>
+```
+
+### particle mesh scan
+
+Scan for networks
+
+```
+particle mesh scan <device>
+```
+
+## particle usb
+
+Various commands to interact with a device connected through USB.
+
+_These commands are in beta._
+
+### particle usb list
+
+List Particle USB devices attached to the host
+
+```
+particle usb list [--exclude-dfu] [--ids-only]
+```
+
+### particle usb start-listening
+
+Put a device or multiple devices into the listening mode
+
+```
+particle usb start-listening [devices...] [--all]
+```
+
+### particle usb stop-listening
+
+Make a device or multiple devices exit the listening mode
+
+```
+particle usb stop-listening [devices...] [--all]
+```
+
+### particle usb safe-mode
+
+Put a device or multiple devices into the safe mode
+
+```
+particle usb safe-mode [devices...] [--all]
+```
+
+### particle usb dfu
+
+Put a device or multiple devices into the DFU mode
+
+```
+particle usb dfu [devices...] [--all]
+```
+
+### particle usb reset
+
+Reset a device or multiple devices
+
+```
+particle usb reset [devices...] [--all]
+```
+
+### particle usb configure
+
+Install udev rules for Particle USB devices (Linux-only)
+
+```
+particle usb configure
+```
+
 ## particle update
 
 Update your device to the latest Device OS release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
