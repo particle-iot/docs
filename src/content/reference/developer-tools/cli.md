@@ -616,7 +616,9 @@ If you have Device OS firmware with debugging enabled (which is the default on t
 
 ## particle mesh
 
-Mesh network management from the CLI
+Mesh network management from the CLI.
+
+_These commands are in beta._
 
 ### particle mesh create
 
@@ -669,6 +671,8 @@ particle mesh scan <device>
 ## particle usb
 
 Various commands to interact with a device connected through USB.
+
+_These commands are in beta._
 
 ### particle usb list
 
