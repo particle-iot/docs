@@ -151,11 +151,11 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 11 | USB D+	 | USB D+	 |IO | Data+ pin of the NRF52840 USB port. |
 | 12 | 3V3 | 3V3 |POWER | System power in, supply a fixed 3.0-3.6v power. |
 | 13 | USB D- | USB D- | IO  | Data- pin of the NRF52840 USB port. |
-| 14 | RESERVED |  | | |	
+| 14 | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |	
 | 15 | GND | GND | POWER | System ground. |
 | 16 | VUSB | VUSB | POWER | System power in, USB detect pin for nRF52840. 5V on this pin enables the USB interface. |
 | 17 | NFC1 | SOM3<sup>3</sup> | NFC input | 	NFC antenna connection. | 
-| 18 |RESERVED | | | |
+| 18 | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |
 | 19 | NFC2 | SOM4<sup>3</sup> | NFC input	 | NFC antenna connection. |
 | 20 | D1 | SCL | IO | I2C SCL, and digital only GPIO. | 
 | 21 | GND | GND | POWER | System ground. |
@@ -173,23 +173,23 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 41 | A4 | RESERVED<sup>3</sup> |IO | Analog input ADC4<sup>2</sup>, and digital GPIO. |
 | 42 | D2 | RESERVED<sup>3</sup> |IO | UART flow control interface RTS, and digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | Analog input ADC5<sup>2</sup>, and digital GPIO.|
-| 44 | u-blox USB+ | SOM0 | IO | Data+ pin of the R410M USB port.|
+| 44 | u-blox USB D+ | SOM0 | IO | Data+ pin of the R410M USB port.|
 | 45 | A6 | RESERVED<sup>3</sup> | IO | Analog input ADC6<sup>2</sup>, and digital GPIO. |
-| 46 | u-blox USB- | SOM1 | IO | Data- pin of the R410M USB port.|
+| 46 | u-blox USB D- | SOM1 | IO | Data- pin of the R410M USB port.|
 | 47 | A7 | RESERVED<sup>3</sup> | IO | Analog input ADC7<sup>2</sup>, and digital GPIO.|
 | 48 | D8 | CS | IO | SPI interface CS, and digital only GPIO. | 
 | 49 | AGND | AGND | POWER	| System analog ground.|
 | 50 | D11 | MISO | IO | SPI interface MISO, and digital only GPIO.|
-| 51 | RESERVED |  |  | |
+| 51 | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |
 | 52 | D12 | MOSI | IO | SPI interface MOSI, and digital only GPIO.| 
-| 53 | RESERVED |  |  | |
+| 53  | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |
 | 54 | D13 | SCK | IO | SPI interface SCK, and digital only GPIO. |
-| 55 | RESERVED |  |  | |
+| 55 | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |
 | 56 | GND | GND | POWER | System analog ground. |
-| 57 | RESERVED |  |  | |
-| 58 | RESERVED |  |  | |
-| 59 | RESERVED |  |  | |
-| 60 | RESERVED |  |  | |
+| 57 | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |
+| 58 | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |
+| 59 | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |
+| 60 | NC | RESERVED<sup>3</sup> | NC | Leave unconnected. |
 | 61 | RGBR | RED | IO | Red pin of the RGB LED. | 
 | 62 | D22 | GPIO0 | IO | GPIO0, digital only. |
 | 63 | RGBG | GREEN | IO | Green pin of the RGB LED.|
@@ -204,7 +204,7 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 72 | D7 | PWM3 | IO | Digital only GPIO, and PWM3.|
 | 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | Default open, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up, Connect to SIM card Data PINs. |
 | 74 | u-blox VBUS | SOM2<sup>3</sup> | IO | USB detect pin for R410M. 5V on this pin enables the u-blox USB interface.|
-| 75 | NC | SOM9<sup>3</sup> | NC | Not used |
+| 75 | NC | SOM9<sup>3</sup> | NC | Leave unconnected. |
 
 Note 1: By default, these pins are connected to the internal MFF2 SIM and should be left open. If the internal SIM is disabled, then these pins can be used with an external SIM card.
 
