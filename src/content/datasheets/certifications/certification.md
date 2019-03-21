@@ -252,17 +252,17 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 
 - IC ID: **20127-ARGN**.
 - [Certificate of Conformity](/assets/pdfs/argon-ic.pdf)
-- [Test Report Mesh](/assets/pdfs/electron/argon-mesh-ic-test-report.pdf)
-- [Test Report Wi-Fi](/assets/pdfs/electron/argon-wifi-ic-test-report.pdf)
-- [Test Report NFC](/assets/pdfs/electron/argon-nfc-ic-test-report.pdf)
+- [Test Report Mesh](/assets/pdfs/argon-mesh-ic-test-report.pdf)
+- [Test Report Wi-Fi](/assets/pdfs/argon-wifi-ic-test-report.pdf)
+- [Test Report NFC](/assets/pdfs/argon-nfc-ic-test-report.pdf)
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/argon-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/argon-fcc-part15b-test-report.pdf)
 
 #### Xenon
 - IC ID: **20127-XENN**.
 - [Certificate of Conformity](/assets/pdfs/xenon-ic.pdf)
-- [Test Report Mesh](/assets/pdfs/electron/xenon-mesh-ic-test-report.pdf)
-- [Test Report NFC](/assets/pdfs/electron/xenon-nfc-ic-test-report.pdf)
+- [Test Report Mesh](/assets/pdfs/xenon-mesh-ic-test-report.pdf)
+- [Test Report NFC](/assets/pdfs/xenon-nfc-ic-test-report.pdf)
 
 
 #### Boron LTE
