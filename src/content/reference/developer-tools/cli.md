@@ -520,9 +520,9 @@ $ particle monitor all temperature 5000 --time > my_temperatures.csv
 # helps get your device id and system firmware version via usb and serial
 # make sure your device is connected and blinking blue
 $ particle identify
-$ particle identify 1
-$ particle identify COM3
-$ particle identify /dev/cu.usbmodem12345
+$ particle identify --port 1
+$ particle identify --port COM3
+$ particle identify --port /dev/cu.usbmodem12345
 
 $ particle identify 0123456789ABCDEFGHI
 ```
@@ -595,9 +595,9 @@ $ particle serial list
 ```sh
 # opens a read-only serial monitor for a particular device
 $ particle serial monitor
-$ particle serial monitor 1
-$ particle serial monitor COM3
-$ particle serial monitor /dev/cu.usbmodem12345
+$ particle serial monitor --port 1
+$ particle serial monitor --port COM3
+$ particle serial monitor --port /dev/cu.usbmodem12345
 ```
 
 ### particle serial flash
