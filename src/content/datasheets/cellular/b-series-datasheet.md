@@ -5,7 +5,7 @@ columns: two
 order: 2
 ---
 
-# B402 Datasheet <sup>(draft-004)</sup>
+# B402 Datasheet <sup>(draft-005)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-datasheet.pdf"}}
@@ -124,91 +124,93 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ## Pins and button definitions
 
-### Pin markings
-
-
 ### Pinout diagram
 
 ![Pinout](/assets/images/b-series/b-series-pinout.png)
 
+Pins SOM0 to SOM9 will vary across various SoM modules. For example, cellular-specific pins exists in this range. 
+
+Additionally there are reserved pins, whose functions vary depending on the SoM. For example, nRF52 MCU-based modules use some of these pins for additional ADC and GPIO.
+
+For maximum cross-module flexibility, you should try to use only the common pins when possible.
+
 ### Pin description
 
-| # |	Pin	 | Function |	Description |
-| --- | --- | --- | --- |
-| 1 |GND | POWER | System ground. |
-| 2 | VCC	| POWER | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
-| 3 | GND | POWER | System ground. |
-| 4 | VCC | POWER |	System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
-| 5 | GND | POWER | System ground. |
-| 6	 | VCC | POWER | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
-| 7 | GND | POWER | System ground. |
-| 8 | VCC | POWER | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
-| 9 | GND | POWER | System ground. |
-| 10 | 3V3 | POWER | System power in, supply a fixed 3.0-3.6v power.| 
-| 11 | USB D+	 | IO | Data+ pin of the NRF52840 USB port. |
-| 12 | 3V3 | POWER | System power in, supply a fixed 3.0-3.6v power. |
-| 13 | USB D- | IO | Data- pin of the NRF52840 USB port. |
-| 14 | RESERVED |  | |	
-| 15 | GND | POWER | System ground. |
-| 16 | VUSB | POWER | System power in, USB detect pin for nRF52840. 5V on this pin enables the USB interface. |
-| 17 | NFC1 | NFC input | 	NFC antenna connection. | 
-| 18 |RESERVED | | |
-| 19 | NFC2 | NFC input	 | NFC antenna connection. |
-| 20 | D1 | IO | I2C SCL, and digital only GPIO. | 
-| 21 | GND | POWER | System ground. |
-| 22 | D0 | IO | I2C SDA, and digital only GPIO.|
-| 23 | A0 | IO | Analog input ADC0, and digital GPIO. |
-| 32 | MODE | IO | Connected to the MODE button input, and digital only GPIO.|
-| 33 | A1 | IO | Analog input ADC1, and digital GPIO. |
-| 34 | RESET | I | Active-low reset input. |
-| 35 | A2 | IO | Analog input ADC2, and digital GPIO. |
-| 36 | D9 | IO | Primarily used as UART TX, but can also be used as a digital GPIO. |
-| 37 | A3 | IO | Analog input ADC3, and digital GPIO. |
-| 38 | D10 | IO | Primarily used as UART RX, but can also be used as a digital GPIO.	 | 
-| 39 | AGND | POWER | System analog ground. |
-| 40 | D3 | IO | UART flow control interface CTS, and digital only GPIO. |
-| 41 | A4 | IO | Analog input ADC4, and digital GPIO. |
-| 42 | D2 | IO | UART flow control interface RTS, and digital only GPIO. |
-| 43 | A5 | IO | Analog input ADC5, and digital GPIO.|
-| 44 | u-blox USB+ | IO | Data+ pin of the R410M USB port.|
-| 45 | A6 | IO | Analog input ADC6, and digital GPIO. |
-| 46 | u-blox USB- | IO | Data- pin of the R410M USB port.|
-| 47 | A7 | IO | Analog input ADC7, and digital GPIO.|
-| 48 | D8 | IO | SPI interface CS, and digital only GPIO. | 
-| 49 | AGND | POWER	| System analog ground.|
-| 50 | D11 | IO | SPI interface MISO, and digital only GPIO.|
-| 51 | RESERVED |  |  |
-| 52 | D11 | IO | SPI interface MOSI, and digital only GPIO.| 
-| 53 | RESERVED |  |  |
-| 54 | D13 | IO | SPI interface SCK, and digital only GPIO. |
-| 55 | RESERVED |  |  |
-| 56 | GND | POWER | System analog ground. |
-| 57 | RESERVED |  |  |
-| 58 | RESERVED |  |  |
-| 59 | RESERVED |  |  |
-| 60 | RESERVED |  |  |
-| 61 | RGBR | IO | Red pin of the RGB LED. | 
-| 62 | D22 | IO | GPIO0, digital only. |
-| 63 | RGBG | IO | Green pin of the RGB LED.|
-| 64 | D23 | IO | GPIO1, digital only.|	
-| 65 | RGBB | IO | Blue pin of the RGB LED.|
-| 66 | D4 | IO | Digital only GPIO, and PWM0. |
-| 67 | SIM_VCC | POWER | Default open, 1.8V/3V SIM Supply Output from R410M. If you want use these PINs please reference note 1. |
-| 68 | D5 | IO | Digital only GPIO, and PWM1. |
-| 69 | SIM_RST | IO | 1.8V/3V SIM Reset Output from R410M If you want use these PIN please reference note 1.|
-| 70 | D6 | IO | Digital only GPIO, and PWM2.|
-| 71 | SIM_CLK | IO | Default open, 1.8V/3V SIM Clock Output from R410M. If you want use these pins please reference note 1.|
-| 72 | D7 | IO | Digital only GPIO, and PWM3.|
-| 73 | SIM_DATA | IO | Default open, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up, Connect to SIM card Data PINs. If you want use these pins please reference note 1. |
-| 74 | u-blox VBUS | IO | USB detect pin for R410M. 5V on this pin enables the u-blox USB interface.|
-| 75 | NC |  | Not used |
+| # |	Pin	 | Common | Function |	Description |
+| :---: | :---: | :---: | :---: | --- |
+| 1 | GND | GND | POWER | System ground. |
+| 2 | VCC	| VCC	| POWER | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+| 3 | GND | GND | POWER | System ground. |
+| 4 | VCC | VCC	| POWER |	System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+| 5 | GND | GND | POWER | System ground. |
+| 6	 | VCC | VCC	| POWER | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+| 7 | GND | GND | POWER | System ground. |
+| 8 | VCC | VCC	| POWER | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+| 9 | GND | GND | POWER | System ground. |
+| 10 | 3V3 | 3V3 |POWER | System power in, supply a fixed 3.0-3.6v power.| 
+| 11 | USB D+	 | USB D+	 |IO | Data+ pin of the NRF52840 USB port. |
+| 12 | 3V3 | 3V3 |POWER | System power in, supply a fixed 3.0-3.6v power. |
+| 13 | USB D- | USB D- | IO  | Data- pin of the NRF52840 USB port. |
+| 14 | RESERVED |  | | |	
+| 15 | GND | GND | POWER | System ground. |
+| 16 | VUSB | VUSB | POWER | System power in, USB detect pin for nRF52840. 5V on this pin enables the USB interface. |
+| 17 | NFC1 | SOM3<sup>3</sup> | NFC input | 	NFC antenna connection. | 
+| 18 |RESERVED | | | |
+| 19 | NFC2 | SOM4<sup>3</sup> | NFC input	 | NFC antenna connection. |
+| 20 | D1 | SCL | IO | I2C SCL, and digital only GPIO. | 
+| 21 | GND | GND | POWER | System ground. |
+| 22 | D0 | SDA | IO | I2C SDA, and digital only GPIO.|
+| 23 | A0 | ADC0 | IO | Analog input ADC0<sup>2</sup>, and digital GPIO. |
+| 32 | MODE | MODE | IO | Connected to the MODE button input, and digital only GPIO.|
+| 33 | A1 | ADC1 | IO | Analog input ADC1<sup>2</sup>, and digital GPIO. |
+| 34 | RESET | RESET | I | Active-low reset input. |
+| 35 | A2 | ADC2 | IO | Analog input ADC2<sup>2</sup>, and digital GPIO. |
+| 36 | D9 | TX | IO | Primarily used as UART TX, but can also be used as a digital GPIO. |
+| 37 | A3 | ADC3 | IO | Analog input ADC3<sup>2</sup>, and digital GPIO. |
+| 38 | D10 | RX | IO | Primarily used as UART RX, but can also be used as a digital GPIO.	 | 
+| 39 | AGND | AGND | POWER | System analog ground. |
+| 40 | D3 | RESERVED<sup>3</sup> | IO | UART flow control interface CTS, and digital only GPIO. |
+| 41 | A4 | RESERVED<sup>3</sup> |IO | Analog input ADC4<sup>2</sup>, and digital GPIO. |
+| 42 | D2 | RESERVED<sup>3</sup> |IO | UART flow control interface RTS, and digital only GPIO. |
+| 43 | A5 | RESERVED<sup>3</sup> |IO | Analog input ADC5<sup>2</sup>, and digital GPIO.|
+| 44 | u-blox USB+ | SOM0 | IO | Data+ pin of the R410M USB port.|
+| 45 | A6 | RESERVED<sup>3</sup> | IO | Analog input ADC6<sup>2</sup>, and digital GPIO. |
+| 46 | u-blox USB- | SOM1 | IO | Data- pin of the R410M USB port.|
+| 47 | A7 | RESERVED<sup>3</sup> | IO | Analog input ADC7<sup>2</sup>, and digital GPIO.|
+| 48 | D8 | CS | IO | SPI interface CS, and digital only GPIO. | 
+| 49 | AGND | AGND | POWER	| System analog ground.|
+| 50 | D11 | MISO | IO | SPI interface MISO, and digital only GPIO.|
+| 51 | RESERVED |  |  | |
+| 52 | D12 | MOSI | IO | SPI interface MOSI, and digital only GPIO.| 
+| 53 | RESERVED |  |  | |
+| 54 | D13 | SCK | IO | SPI interface SCK, and digital only GPIO. |
+| 55 | RESERVED |  |  | |
+| 56 | GND | GND | POWER | System analog ground. |
+| 57 | RESERVED |  |  | |
+| 58 | RESERVED |  |  | |
+| 59 | RESERVED |  |  | |
+| 60 | RESERVED |  |  | |
+| 61 | RGBR | RED | IO | Red pin of the RGB LED. | 
+| 62 | D22 | GPIO0 | IO | GPIO0, digital only. |
+| 63 | RGBG | GREEN | IO | Green pin of the RGB LED.|
+| 64 | D23 | GPIO1 | IO | GPIO1, digital only.|	
+| 65 | RGBB | BLUE | IO | Blue pin of the RGB LED.|
+| 66 | D4 | PWM0 | IO | Digital only GPIO, and PWM0. |
+| 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | Default open, 1.8V/3V SIM Supply Output from R410M. |
+| 68 | D5 | PWM1 | IO | Digital only GPIO, and PWM1. |
+| 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | 1.8V/3V SIM Reset Output from R410M. |
+| 70 | D6 | PWM2 | IO | Digital only GPIO, and PWM2.|
+| 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | Default open, 1.8V/3V SIM Clock Output from R410M.|
+| 72 | D7 | PWM3 | IO | Digital only GPIO, and PWM3.|
+| 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | Default open, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up, Connect to SIM card Data PINs. |
+| 74 | u-blox VBUS | SOM2<sup>3</sup> | IO | USB detect pin for R410M. 5V on this pin enables the u-blox USB interface.|
+| 75 | NC | SOM9<sup>3</sup> | NC | Not used |
 
 Note 1: By default, these pins are connected to the internal MFF2 SIM and should be left open. If the internal SIM is disabled, then these pins can be used with an external SIM card.
 
 Note 2: A0-A7 are 12-bit Analog-to-Digital (A/D) inputs (0-4095).
 
-
----
+Note 3: SoM-specific and Reserved pins will vary depending on module.
 
 ### LED status
 
@@ -419,4 +421,5 @@ The bootloader allows you to easily update the user application via several diff
 | draft-002     | 09 Mar 2019 | RK | Removed empty sections |
 | draft-003     | 15 Mar 2019 | RK | Updated mechanical drawings |
 | draft-004     | 18 Mar 2019 | RK | Updated top picture |
+| draft-005     | 21 Mar 2019 | RK | Added generic pin column |
 
