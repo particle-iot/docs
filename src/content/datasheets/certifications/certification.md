@@ -250,13 +250,25 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 
 #### Argon
 
+- IC ID: **20127-ARGN**.
+- [Certificate of Conformity](/assets/pdfs/argon-ic.pdf)
+- [Test Report Mesh](/assets/pdfs/argon-mesh-ic-test-report.pdf)
+- [Test Report Wi-Fi](/assets/pdfs/argon-wifi-ic-test-report.pdf)
+- [Test Report NFC](/assets/pdfs/argon-nfc-ic-test-report.pdf)
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/argon-fcc-part15b.pdf)
-- [Test report](/assets/pdfs/argon-fcc-part15b-test-report.pdf)
+- [ICES-003 Test report](/assets/pdfs/argon-fcc-part15b-test-report.pdf)
+
+#### Xenon
+- IC ID: **20127-XENN**.
+- [Certificate of Conformity](/assets/pdfs/xenon-ic.pdf)
+- [Test Report Mesh](/assets/pdfs/xenon-mesh-ic-test-report.pdf)
+- [Test Report NFC](/assets/pdfs/xenon-nfc-ic-test-report.pdf)
+
 
 #### Boron LTE
 
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron402-fcc-part15b.pdf)
-- [Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
+- [ICES-003 Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
 
 
 
@@ -325,11 +337,14 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 #### Xenon
 
+- [Summary](/assets/pdfs/xenon-ce-summary.pdf)
 - [EMC Test Report](/assets/pdfs/xenon-ce-emc-test-report.pdf)
 - [RED Mesh Test Report](/assets/pdfs/xenon-mesh-ce-test-report.pdf)
 - [RED NFC Test Report](/assets/pdfs/xenon-nfc-ce-test-report.pdf)
+- [EN-60950 Test Report](/assets/pdfs/xenon-EN60950-test-report.pdf)
 - [EN-62311 Test Report](/assets/pdfs/xenon-EN62311-test-report.pdf)
-- [EN-62479 Test Report](/assets/pdfs/argon-EN62479-test-report.pdf)
+- [EN-62479 Test Report](/assets/pdfs/xenon-EN62479-test-report.pdf)
+- [RoHS Test Report](/assets/pdfs/xenon-rohs.pdf)
 
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
@@ -390,6 +405,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### Boron LTE
 
 - [Test Reports](/assets/pdfs/boron402-rohs.pdf)
+
+#### Xenon
+
+- [Test Reports](/assets/pdfs/xenon-rohs.pdf)
 
 
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
