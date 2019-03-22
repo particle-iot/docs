@@ -8,7 +8,7 @@ order: 21
 ## Billing Service with Particle
 Welcome to the wonderful world of inexpensive cellular data for your
 devices! Up to 3MB of Cellular data is _included_ with your Device Cloud
-subscription for your cellular Particle devices (Electrons and E-Series
+subscription for your cellular Particle devices (Electrons and E Series
 modules). You will be charged overages for cellular data consumed beyond
 3MB in a given month. 
 

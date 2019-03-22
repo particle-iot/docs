@@ -223,7 +223,7 @@ we'll give you lots of notice and a clear upgrade path.
 
 ## Devices
 
-Note: The connected or online state of devices is not always accurate. When a Wi-Fi device is unplugged, for example, it may still be listed as online when not. For cellular (Electron, E-Series) and mesh (Argon, Boron, Xenon) devices, the connected or online state is set to true on the first connection and never set to false again.
+Note: The connected or online state of devices is not always accurate. When a Wi-Fi device is unplugged, for example, it may still be listed as online when not. For cellular (Electron, E Series) and Gen 3 (Argon, Boron, Xenon) devices, the connected or online state is set to true on the first connection and never set to false again.
 
 {{> api group=apiGroups.Devices}}
 ## Remote Diagnostics
@@ -374,9 +374,6 @@ of the response back to your devices.
 ```
 
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
-
-### Special IFTTT Events
-
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
