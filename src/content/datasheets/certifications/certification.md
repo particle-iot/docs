@@ -153,6 +153,16 @@ NFC certification:
 - FCC ID: [2AEMI-B310](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=QK7%2B3lEbzOBEQeHzO7QnYg%3D%3D&fcc_id=2AEMI-BRN310)
 - [Certificate of Conformity](/assets/pdfs/boron310-nfc-fcc.pdf)
 
+FCC Part 15 Subpart B, Class B (sDoC):
+
+- [Certificate of Conformity](/assets/pdfs/boron310-fcc-part15b.pdf)
+- [Test report](/assets/pdfs/boron310-fcc-part15b-test-report.pdf)
+
+Additional FCC Test Reports:
+
+- [FCC Part 22](/assets/pdfs/boron310-fcc-part22-test-report.pdf)
+- [FCC Part 24](/assets/pdfs/boron310-fcc-part24-test-report.pdf)
+
 
 #### Boron LTE 
 
@@ -180,7 +190,6 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 - [Certificate of Conformity](/assets/pdfs/boron402-fcc-part15b.pdf)
 - [Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
-
 
 
 #### Xenon
@@ -264,6 +273,15 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [Test Report Mesh](/assets/pdfs/xenon-mesh-ic-test-report.pdf)
 - [Test Report NFC](/assets/pdfs/xenon-nfc-ic-test-report.pdf)
 
+#### Boron 2G/3G
+
+- IC ID: **20127-BRN310**.
+- [Certificate of Conformity](/assets/pdfs/boron310-ic.pdf)
+- [Test Report Mesh](/assets/pdfs/boron310-mesh-ic-test-report.pdf)
+- [Test Report NFC](/assets/pdfs/boron310-nfc-ic-test-report.pdf)
+- [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron310-fcc-part15b.pdf)
+- [ICES-003 Test report](/assets/pdfs/boron310-fcc-part15b-test-report.pdf)
+
 
 #### Boron LTE
 
@@ -334,6 +352,18 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-62479 Test Report](/assets/pdfs/argon-EN62479-test-report.pdf)
 - [RoHS Test Report](/assets/pdfs/argon-rohs.pdf)
 
+#### Boron 2G/3G
+
+- [Summary](/assets/pdfs/boron310-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/boron310-ce-emc-test-report.pdf)
+- [RED Mesh Test Report](/assets/pdfs/boron310-mesh-ce-test-report.pdf)
+- [RED NFC Test Report](/assets/pdfs/boron310-nfc-ce-test-report.pdf)
+- [RED Cellular Test Report](/assets/pdfs/boron310-cellular-ce-test-report.pdf)
+- [EN-60950 Test Report](/assets/pdfs/boron310-EN60950-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/boron310-EN62311-test-report.pdf)
+- [EN-62479 Test Report](/assets/pdfs/boron310-EN62479-test-report.pdf)
+- [RoHS Test Report](/assets/pdfs/boron310-rohs.pdf)
+
 
 #### Xenon
 
@@ -401,6 +431,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### Argon
 
 - [Test Reports](/assets/pdfs/argon-rohs.pdf)
+
+#### Boron 2G/3G
+
+- [Test Reports](/assets/pdfs/boron310-rohs.pdf)
 
 #### Boron LTE
 
