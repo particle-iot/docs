@@ -43,29 +43,29 @@ Once you've claimed your Photon, you'll use [Tinker](https://docs.particle.io/gu
 
 2.  Login, or create a new account if you don't already have one.
 
-  ![](/assets/images/workshops/photon-maker-kit/01/03-mobilelogin.png)
+  ![](/assets/images/workshops/photon-maker-kit/01/03-mobilelogin.PNG)
 
 3.  On the "Your Devices" screen, click the "+" in the top-right to add a new device.
 
-  ![](/assets/images/workshops/photon-maker-kit/01/04-mobiledevicelist.png)
+  ![](/assets/images/workshops/photon-maker-kit/01/04-mobiledevicelist.PNG)
 
 4.  Select the "Photon" option.
 
-  ![](/assets/images/workshops/photon-maker-kit/01/05-mobileadd.png)
+  ![](/assets/images/workshops/photon-maker-kit/01/05-mobileadd.PNG)
 
 5.  Plug your device into power using a USB cable. You can connect to a computer, though this is not required when using the mobile app.
 
-  ![](/assets/images/workshops/photon-maker-kit/01/06-instructions.png)
+  ![](/assets/images/workshops/photon-maker-kit/01/06-instructions.PNG)
 
 6.  The next screen will instruct you to go to your phone's Settings and to look for a Wi-Fi access point named "Photon-" and a string of characters unique to the device.
 
-  ![](/assets/images/workshops/photon-maker-kit/01/07-wifi.png)
+  ![](/assets/images/workshops/photon-maker-kit/01/07-wifi.PNG)
 
 7.  **Note**: The app will suggest that this string is 4 characters long. For newer Photons, this string will be six characters long. For instance, the Photon below broadcasts "Photon-UQGKCR." This string corresponds to the last six characters of the UPC code printed on the box for your device.
 
   Once you've selected the Photon access point, you'll see a notification that you can return to the Particle app to continue setup.
 
-  ![](/assets/images/workshops/photon-maker-kit/01/09-Photonconnected.png)
+  ![](/assets/images/workshops/photon-maker-kit/01/09-Photonconnected.PNG)
 
 8.  The app will then connect to the Photon, scan for Wi-Fi networks and prompt you to select a network.
 
