@@ -18,7 +18,7 @@ In this session, we're going to explore the Particle ecosystem via a Photon and 
 
 ## Wire up the temperature sensor to your Photon
 
-![](/assets/images/workshops/photon-maker-kit/02/temp-circuit.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/temp-circuit.JPG)
 
 To build this circuit, you'll need the following items:
 
@@ -27,7 +27,7 @@ To build this circuit, you'll need the following items:
 - Black, red, and yellow jumper wires.
 - A 4.7 Ohm Resistor. The maker kit includes four different types of resistors (200, 1k, 4.7k and 10k ohm). The one you need is blue, with yellow, violet, brown and brown bands, as depicted below.
 
-![](/assets/images/workshops/photon-maker-kit/02/resistors.jpg)
+![](/assets/images/workshops/photon-maker-kit/02/resistors.JPG)
 
 1. Connect the temperature sensor to three side-by-side rows in the breadboard. You can use column F, rows 28-30, as depicted below, or another three of your choosing.
 
@@ -35,23 +35,23 @@ To build this circuit, you'll need the following items:
   If you pick your own location, be sure to connect the three wires in separate rows and _NOT_ separate columns on the same row as rows on a breadboard are electrically connected!
   {{box op="end"}}
 
-  ![](/assets/images/workshops/photon-maker-kit/02/01-connectsensor.jpg)
+  ![](/assets/images/workshops/photon-maker-kit/02/01-connectsensor.JPG)
 
 2. Connect the resistor between the yellow and red wires of the temperature sensor. In the image below, the resistor is plugged into column H, rows 28 and 29.
 
-  ![](/assets/images/workshops/photon-maker-kit/02/02-connectresistor.jpg)
+  ![](/assets/images/workshops/photon-maker-kit/02/02-connectresistor.JPG)
 
 3. Connect one end of the black jumper wire to the same row as the black sensor wire (for example, row 30) and the other end to the `GND` pin of the Photon.
 
-  ![](/assets/images/workshops/photon-maker-kit/02/03-connectblack.jpg)
+  ![](/assets/images/workshops/photon-maker-kit/02/03-connectblack.JPG)
 
 4. Connect one end of the yellow jumper wire to the same row as the yellow sensor wire (for example, row 29) and the other end to the `D4` pin of the Photon.
 
-  ![](/assets/images/workshops/photon-maker-kit/02/04-connectyellow.jpg)
+  ![](/assets/images/workshops/photon-maker-kit/02/04-connectyellow.JPG)
 
 5. Connect one end of the red jumper wire to the same row as the red sensor wire (for example, row 28) and the other end to the `3V3` pin of the Photon. Once done, your circuit should look like the image below.
 
-  ![](/assets/images/workshops/photon-maker-kit/02/05-connectred.jpg)
+  ![](/assets/images/workshops/photon-maker-kit/02/05-connectred.JPG)
 
 6. Plug the USB cable into your Photon. Now, we're ready to read some sensor data! Let's create a new project in the [Web IDE](https://build.particle.io)
 

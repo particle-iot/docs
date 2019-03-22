@@ -30,4 +30,4 @@ Now that you've gotten an overview of Mesh and the Particle Ecosystem, why not t
 - [Particle Community](https://community.particle.io/)
 - [Particle on Hackster.io](https://www.hackster.io/particle)
 
-And If you build something with Particle, we'd love to see it, and share it with the world! Just mention us on Twitter ([particle](https://twitter.com/particle)) or Instagram ([particle_io](https://www.instagram.com/particle_io)). We can't wait to see what you build!
+And If you build something with Particle, we'd love to see it, and share it with the world! Just mention us on Twitter ([particle](https://twitter.com/particle)) or Instagram ([particle_iot](https://www.instagram.com/particle_iot)). We can't wait to see what you build!
