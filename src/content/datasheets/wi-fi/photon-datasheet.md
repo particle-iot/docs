@@ -693,4 +693,4 @@ https://community.particle.io
 
 **Email**
 
-<mailto:hello@particle.io>
+https://support.particle.io
