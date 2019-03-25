@@ -43,6 +43,10 @@ The pins on the [Grove connector](http://wiki.seeedstudio.com/Grove_System/) are
 | 3 | Red | Power | Power | Power | Power|
 | 4 | Black | GND | GND | GND | GND |
 
+For a short (~6 min) example of using the Grove Starter Kit for Particle Mesh, watch the video below.
+
+<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/JYp3gBrcQ18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 #### Button
 
 

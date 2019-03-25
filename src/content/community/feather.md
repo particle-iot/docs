@@ -140,6 +140,24 @@ The ST7735_RK library further depends on:
 
 The examples in the AdafruitColorTFTJoystickFeatherWing show how to read the joystick and buttons, and how to do graphic operations on the color TFT display.
 
+### Adafruit eInk/ePaper display FeatherWing
+
+If you want a small display that remains even with no power, and it doesn't need to be updated very often, the [Adafruit 2.13" tri-color eInk/ePaper display](https://www.adafruit.com/product/4128) is great!
+
+![Feather eInk](/assets/images/feather-e-ink.jpg)
+
+| Particle Pin | Display Pin | Description |
+| :---: | :---: | --- |
+| D2 | SDCS | SD card Chip Select, required for communicating with the onboard SD card holder |
+| D3 | SRCS | SRAM Chip Select, required for communicating with the onboard RAM chip |
+| D4 | ECS | E-Ink Chip Select, required for controlling the display |
+| D5 | D/C | E-Ink Data/Command pin, required for controlling the display |
+| MISO | MISO | SPI master in, slave out | 
+| MOSI | MOSI | SPI master out, slave in |
+| SCK | SCK | SPI clock |
+
+To use it, use the [Adafruit_EPD_RK](https://github.com/rickkas7/Adafruit_EPD_RK) library.
+
 ### Adafruit 4-Digit 7-Segment LED Matrix Display FeatherWing
 
 The [Adafruit 4-Digit 7-Segment LED Matrix Display FeatherWing](https://www.adafruit.com/product/3088) provides a numeric clock-like 0.56" high display and is available in several colors (blue, green red, white, and yellow).

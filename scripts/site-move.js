@@ -35,6 +35,7 @@ var destLayout;
 
 var layouts = {
 	'community':'community.hbs',
+	'workshops': 'workshops.hbs',
 	'datasheets':'datasheet.hbs',
 	'quickstart':'quickstart.hbs',
 	'reference':'reference.hbs',
