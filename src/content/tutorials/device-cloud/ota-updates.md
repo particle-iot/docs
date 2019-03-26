@@ -40,7 +40,7 @@ Lucky for you and your team, this is where Particle's fully integrated IoT platf
 <img src="/assets/images/ota-updates/device-to-cloud.png"
 class="full-width"/>
 
-- **Hardware**: All Particle dev kits and systems-on-a-module (SoMs) support OTA updates right out of the box. Device and cloud-side safeguards are combined to ensure that devices only receive compatibile firmware that can run on its unique hardware platform.
+- **Hardware**: All Particle dev kits and systems-on-a-module (SoMs) support OTA updates right out of the box. Device and cloud-side safeguards are combined to ensure that devices only receive compatible firmware that can run on its unique hardware platform.
 
 - **Device OS**: Our embedded operating system which runs on all Particle devices, Device OS, is architected to reliably and resiliently accept firmware updates from the Device Cloud.
 
@@ -70,6 +70,8 @@ your team writes, _and_ the low-level Device OS that Particle manages.
 This lets you send updates to your device logic, but also enables you to
 stay up-to-date with the latest features and improvements in Device OS.
 You are in complete control of your adoption of Device OS versions.
+
+- **Support for updates for sleeping devices**: Some applications use *sleep modes* to reduce power consumption on battery-powered devices. OTA updates can be released and applied when the device wakes up from sleep mode automatically. 
 
 ### Secure
 
@@ -210,7 +212,7 @@ here, but altered slightly to work with a fleet of devices. The first thing you'
 
 Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/particle-iot/device-os/blob/develop/docs/build.md#product-id).
 
-Add these two "macros" near the top of your main application `.ino`
+Add these two *macros* near the top of your main application `.ino`
 file, below `#include "Particle.h"` if it includes that line. Remember
 that your [product ID](#your-product-id) can be found in the navigation
 of your Console. The firmware version must be an integer that increments
@@ -359,7 +361,7 @@ Particle cloud
 
 ### Immediate firmware releases (alpha)
 
-[ADD IMAGE OF IMMEDIATE UPDATES HERE]
+**TODO:** ADD IMAGE OF IMMEDIATE UPDATES HERE
 
 Firmware Releases allow your team to roll out an OTA update to a fleet
 of devices with a single action.
@@ -394,7 +396,7 @@ When a product device is marked as a [development device](/tutorials/product-too
 
 ### OTA in the IDEs
 
-In order to flash a device OTA from the IDEs, including Particle Web IDE, Particle Workbench, and the Particle CLI, the device must not only be marked as a development device, but also claimed to your Particle account.
+In order to flash a device OTA from the IDEs, including Particle [Web IDE](https://build.particle.io, Particle [Workbench](https://www.particle.io/workbench/), and the [Particle CLI](https://particle.io/cli/), the device must not only be marked as a development device, but also claimed to your Particle account.
 
 For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
 
@@ -422,6 +424,8 @@ The device must still be marked as a development device, otherwise the cloud wil
 
 The Particle Device SDKs for iOS and Android are also able to flash code. Note that when using the SDKs the code is flashed from the Particle cloud. While initiated from the mobile device, the actual transfer is done securely through the Particle cloud, not directly with your mobile device.
 
+This can only be done for devices claimed to your account and marked as a development device.
+
 ## Controlling OTA availability
 
 Sending an OTA update to a device comes with the risk of interrupting it
@@ -431,7 +435,7 @@ delivered at the appropriate time.
 
 Furthermore, OTA updates occur in roughly three phases:
 
-- A user firmware update may either immediately stop your user firmware from running while being downloaded, or may allow your code to continue, but with performance degradation (when using SYSTEM_THREAD(ENABLED)).
+- A user firmware update may either immediately stop your user firmware from running while being downloaded, or may allow your code to continue, but with a performance degradation (when using SYSTEM_THREAD(ENABLED)).
 - After fully downloaded, you can either allow the device to be reset, or halt the reset until a later time. The reset process is typically quick, only a few seconds. 
 - If the new firmware requires a Device OS upgrade, the upgrades are applied after reset. This can take a minute or two if an upgrade is required.
 
@@ -439,14 +443,15 @@ Furthermore, OTA updates occur in roughly three phases:
 
 The default behavior is for updates to occur when a device establishes a session with the cloud. This occurs a few seconds after the cloud connection is established. The rules for OTA availability apply to these updates as well as immediate updates.
 
-Prior to Device OS 1.1.0, for Electron, E Series, and Gen 3 (Argon, Boron, and Xenon) updates occurred only after a full session authentication. This could occur as infrequently as every 10 days, or when manually forced from the cloud or device side. Also, the update check occurred tens of seconds after the connection was established. Starting with Device OS 1.1.0, updates are also checked on session resume, which occurs much more often, including after waking from sleep mode, and occurs much more quickly, making it possible for battery-powered devices to go to sleep much more quickly.
+Prior to Device OS 1.2.0, for Electron, E Series, and Gen 3 (Argon, Boron, and Xenon) updates occurred only after a full session authentication. This could occur as infrequently as every 10 days, or when manually forced from the cloud or device side. Also, the update check occurred tens of seconds after the connection was established. Starting with Device OS 1.2.0, updates are also checked on session resume, which occurs much more often, including after waking from sleep mode, and occurs much more quickly, making it possible for battery-powered devices to go to sleep much more quickly if an update is not required.
 
 ### OTA availability in the Console
-// TODO
+
+**TODO:** Write this section
 
 ### Disabling OTA updates
 
-`System.disableUpdates()` can be added in application firmware to
+[System.disableUpdates()](/reference/device-os/firmware/#system-disableupdates-) can be added in application firmware to
 disable OTA updates for an individual device. This is done to prevent
 OTA attempts from the Device Cloud when the device is not available for
 an update.
@@ -458,7 +463,7 @@ fleet-wide OTA attempts (i.e. a firmware release).
 
 ### Re-enabling OTA updates
 
-`System.enableUpdates()` enables OTA updates for an individual device,
+[System.enableUpdates()](/reference/device-os/firmware/#system-enableupdates-) enables OTA updates for an individual device,
 allowing all over-the-air firmware requests from the Device Cloud.
 By default, OTA updates are enabled for a device. This method would only
 need to be called if updates had been previously disabled using
@@ -466,7 +471,7 @@ need to be called if updates had been previously disabled using
 
 ### Notifications of pending OTA updates
 
-`System.updatesPending()` is a boolean flag that will return whether a
+[System.updatesPending()](/reference/device-os/firmware/#system-updatespending-) is a boolean flag that will return whether a
 new version of Product firmware is available for the device. This is
 helpful in the case when updates have been disabled for a device (by
 calling `System.disableUpdates()` in firmware), and the device needs
@@ -477,8 +482,8 @@ will emit an internal system event, `firmware_update_pending` and
 `System.updatesPending()` will evaluate to `true`.
 
 ### Force Enable OTA updates
-// TODO
 
+**TODO:** Write this section
 
 ### Putting it all together
 
@@ -488,20 +493,21 @@ Depending on the nature of your IoT application, you may want to:
 out by the device, keeping OTA enabled for most of the time the device
 is online
 - Disable OTA updates most of the time the device is online, and include
-logic to conditionally enable updates at the appropriate time, *OR*
-
-Let's take a look at some sample firmware apps that implement these 2
-architectures.
+logic to conditionally enable updates at the appropriate time
+- Allow the OTA update to downloaded at any time, but defer the reset after download.
 
 #### Disabling OTA only when necessary
 
-The calls (`System.enableUpdates()`)[/reference/device-os/firmware/#system-enableupdates-] and (`System.disableUpdates()`)[/reference/device-os/firmware/#system-disableupdates-] can be used to control whether updates are allowed.
+The calls [System.enableUpdates()](/reference/device-os/firmware/#system-enableupdates-) and [System.disableUpdates()](/reference/device-os/firmware/#system-disableupdates-) can be used to control whether updates are allowed.
 
 When not using `SYSTEM_THREAD(ENABLED)`, updates are only checked between your calls to your loop() function.
 
 When using `SYSTEM_THREAD(ENABLED)`, updates can occur at any time.
 
 `System.enableUpdates()` and `System.disableUpdates()` just set an internal flag and do not incur and data usage so it's safe to call them frequently.
+
+**TODO:** code example here
+
 
 #### Disabling OTA most of the time
 
@@ -516,16 +522,25 @@ One common location to call `System.disableUpdates()` is from setup(). Note, how
 
 The reason is that with threading disabled `SYSTEM_MODE(AUTOMATIC)`, the default mode, setup() is only called after the cloud connection has been established and you might not be able to prevent the update from occurring at boot.
 
-If you want to manage firmware updates in this way, you can check (`System.updatesPending()`)[/reference/device-os/firmware/#system-updatespending-] when you are in a situation where updates would be acceptable. If true, you can then enable updated again using `System.enableUpdates()`. 
+If you want to manage firmware updates in this way, you can check [System.updatesPending()](/reference/device-os/firmware/#system-updatespending-) when you are in a situation where updates would be acceptable. If true, you can then enable updated again using `System.enableUpdates()`. 
 
 For example, if you were writing firmware for an electric scooter, you might only want to do update when it's idle and between users. If you were building an asset tracking application, you might only want to do updates when not in motion.
+
+**TODO:** code example here
 
 #### Intercepting the post OTA reset
 
 When using SYSTEM_THREAD(ENABLED) your code will continue to run during the download process for the new user firmware, however performance will be affected. Normally, the device will reset immediately after the download completes, and after reset the device will be running the new firmware.
 
-Using [`System.disableReset()`](/reference/device-os/firmware/#disablereset-) will prevent this reset from occurring. You might do this if you want to do additional cleanup, or delay it until a more appropriate time.
+Using [System.disableReset()](/reference/device-os/firmware/#disablereset-) will prevent this reset from occurring. You might do this if you want to do additional cleanup, or delay it until a more appropriate time.
 
-You can use the [`on_reset_pending`](/reference/device-os/firmware/#system-events) event to be notified when a reset is required. You can also call [`System.resetPending()`](/reference/device-os/firmware/#resetpending-). 
+You can use the [on_reset_pending](/reference/device-os/firmware/#system-events) event to be notified when a reset is required. You can also call [System.resetPending()](/reference/device-os/firmware/#resetpending-) to find out if the system needs a reset to complete an OTA update. 
 
 Once you've performed any additional operations and it's a good time to reset, you can call `System.reset()`.
+
+**TODO:** code example here
+
+
+It is also possible to use the `reset_pending` [System Event](/reference/device-os/firmware/#system-events). This is ideal if you only want to do quick clean-up operations before resetting.
+
+**TODO:** code example here
