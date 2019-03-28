@@ -92,7 +92,7 @@ if (!duration) {
   // Button released.
 }
 ```
-4. Now, since we now that the button has been pressed, we should tell the whole mesh network to toggle their LEDs. We use the `Mesh.publish()` for that, which takes one or two striings as arguments. The first argument is a topic and the second is data. We will only use the topic, and we should choose a topic that will make sense for the purpose. Later other devices will be able to subscribe to this topic and will get notified whenever we publish to this topic. Replace the body of the handler with the lines below to finish the code. We'll also turn on the D7 LED when the button is pressed, and off when the button is released.
+4. Now, since we now that the button has been pressed, we should tell the whole mesh network to toggle their LEDs. We use the `Mesh.publish()` for that, which takes one or two strings as arguments. The first argument is a topic and the second is data. We will only use the topic, and we should choose a topic that will make sense for the purpose. Later other devices will be able to subscribe to this topic and will get notified whenever we publish to this topic. Replace the body of the handler with the lines below to finish the code. We'll also turn on the D7 LED when the button is pressed, and off when the button is released.
 ```cpp
 if (!duration) {
   Mesh.publish("toggle-led");

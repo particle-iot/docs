@@ -31,7 +31,7 @@ microcontroller. The P1 comes preloaded with Particle firmware
 libraries, just like our dev kits, and it's designed to simplify your
 transition from prototype to production. The P1 is the PØ's big brother;
 it's a bit bigger and a tad more expensive, but it includes some extra
-flash and an antenna and u.FL connector on board.  Particle provides
+flash and an antenna and U.FL connector on board.  Particle provides
 free access to Particle Device Cloud for prototyping. Paid tiers of
 Particle Device Cloud start when you create a product with more than 100 devices.
 
@@ -44,7 +44,7 @@ Particle Device Cloud start when you create a product with more than 100 devices
 	- 1MB flash, 128KB RAM
 	- 1MB external SPI flash (MX25L8006E)
 	- Integrated PCB antenna
-	- Integrated u.FL connector for external antenna
+	- Integrated U.FL connector for external antenna
 	- Integrated RF switch
 - 25 Mixed-signal GPIO and advanced peripherals
 - Open source design
@@ -77,7 +77,7 @@ To avoid these voltage spikes, keep input wiring as short as possible.  If long 
 
 ### RF
 
-The RF section of the P1 includes an on-board PCB trace antenna and a u.FL connector which allows the user to connect an external antenna.  These two antenna outputs are selectable via a user API, made possible by an integrated RF switch.
+The RF section of the P1 includes an on-board PCB trace antenna and a U.FL connector which allows the user to connect an external antenna.  These two antenna outputs are selectable via a user API, made possible by an integrated RF switch.
 
 The default selected antenna will be the PCB antenna.
 

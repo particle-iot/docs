@@ -218,7 +218,7 @@ Azure Functions are the Azure Serverless platform. It allows you to write Node f
 
   ![](/assets/images/workshops/photon-maker-kit/05/run-function-app.png)
 
-  This function will be fired every time we receve temperature data. We want to make a call back to our Particle Photon when we receive a temperature update. To do that, we need to make an HTTP call. The `http` package in Node is verbose and tedious, so we're going to install the `particle-api-js` npm package.
+  This function will be fired every time we receive temperature data. We want to make a call back to our Particle Photon when we receive a temperature update. To do that, we need to make an HTTP call. The `http` package in Node is verbose and tedious, so we're going to install the `particle-api-js` npm package.
 
 10. Select the main Function App in the sidebar and then select the "Platform features" option.
 

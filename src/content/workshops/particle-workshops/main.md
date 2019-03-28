@@ -10,7 +10,7 @@ columns: two
 
 Particle workshops are hands on explorations of the Particle ecosystem, from hardware, to the Particle Device OS, Cloud, basics of writing firmware, and more!
 
-Whe conducted in-person, workshops are led by Particle employees or community advocates, and are designed to give developers new to IoT development the hands-on training they need to confidently build their own IoT solutions, at home, work, and beyond!
+When conducted in-person, workshops are led by Particle employees or community advocates, and are designed to give developers new to IoT development the hands-on training they need to confidently build their own IoT solutions, at home, work, and beyond!
 
 Workshops are broken into group presentations intermixed with hands-on labs that reinforce presentation content. Some of the workshops published here include embedded versions of slide content that you are free to review in a self-directed manner.
 

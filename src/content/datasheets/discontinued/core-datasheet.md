@@ -281,7 +281,7 @@ The external flash memory gives us an additional 2MB of storage space. This spac
 
 With the on board chip antenna, the peak return loss (S11) has been measured and verified to be in the excess of 20dB.
 
-The transmission loss for the u.FL connector has been measured to be approximately 0.5 to 0.75dB.
+The transmission loss for the U.FL connector has been measured to be approximately 0.5 to 0.75dB.
 
 ## Types of Cores
 

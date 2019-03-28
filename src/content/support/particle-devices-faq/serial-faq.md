@@ -238,7 +238,7 @@ Typically DTE devices have a male connector. Pin 2 is an input and pin 3 is an o
 
 Likewise, DCE devices typically have a female connector. Pin 2 is an output and pin 3 is an input.
 
-The Sparkfun board has a female DB9 and makes the Photon a DCE. This makes sense because most computer serial ports are DTE.
+The SparkFun board has a female DB9 and makes the Photon a DCE. This makes sense because most computer serial ports are DTE.
 
 ## Baud rate, bits, parity, and stop bits
 
