@@ -90,6 +90,8 @@ $ particle update-cli
 
 If the CLI is outputing unexpected errors after an update, delete the `~/.particle` (macOS and Linux) or `C:\Users\<username>\AppData\Local\particle` directory and run the installer script again to start over.
 
+**To prevent the Particle CLI from automatically updating, set the environment variable `PARTICLE_DISABLE_UPDATE=true` for your system. Use `particle update-cli` to manually update.**
+
 If you installed manually using `npm install`, you can upgrade by running the same command you used to install the tool.
 
 ### Running from source (advanced)
