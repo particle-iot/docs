@@ -200,7 +200,7 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 The Ethernet driver for this wing is baked into the Mesh Device OS. When you set up a new Particle Mesh device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
 
-The hardware design for this wing is completely opensource. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
+The hardware design for this wing is completely open source. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
 
 If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 

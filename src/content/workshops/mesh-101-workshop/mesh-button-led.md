@@ -154,7 +154,7 @@ Let's build a remote distance display. If you get stuck in the code, the final c
     
 10. Upload this code to the device connected to the distance sensor.
 
-Now, every time a distance measurement is broadcasted by the sensor device, the display is updated, hooray!!!
+Now, every time a distance measurement is broadcast by the sensor device, the display is updated, hooray!!!
 
 This concludes the workshop
 

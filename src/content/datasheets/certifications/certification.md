@@ -50,7 +50,7 @@ Any host product incorporating the Photon/PØ or P1 modules does not require add
 
 The Photon/PØ and P1 modules were certified with antennas of the following gain:
 - **Photon/PØ Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
-- **P1 Module**: On-board antenna (printed trace). Deployment with external antenna leveraging the onboard u.FL requires verification of certification.
+- **P1 Module**: On-board antenna (printed trace). Deployment with external antenna leveraging the onboard U.FL requires verification of certification.
 
 ### Customer Responsibilities
 Even though we've certified the Photon and PØ/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:

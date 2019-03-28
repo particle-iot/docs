@@ -7299,7 +7299,7 @@ _Since 0.7.0_
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
 {{/if}}
 
-The application code may additionally check if an error occured during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
+The application code may additionally check if an error occurred during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
 
 
 ```C++
@@ -7508,7 +7508,7 @@ _Since 0.7.0_
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
 {{/if}}
 
-The application code may additionally check if an error occured during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
+The application code may additionally check if an error occurred during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
 
 
 ```C++
@@ -15035,17 +15035,17 @@ The stack size cannot be changed as it's allocated by the Device OS before the u
 
 ## Firmware Releases
 
-Particle device firmware is open source and stored [here on Github](https://github.com/particle-iot/device-os).
+Particle device firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
 
-Firmware releases are published [here on Github](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
+Firmware releases are published [here on GitHub](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
 
 ### Firmware Release Process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
+The process in place for releasing all firmware prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
 
-### Github Release Notes
+### GitHub Release Notes
 
-Please go to Github to read the Changelog for your desired firmware version (Click a version below).
+Please go to GitHub to read the Changelog for your desired firmware version (Click a version below).
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -15063,7 +15063,7 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 ### Programming and Debugging Notes
 
-If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on Github and your version's notes will be found below the table :)
+If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on GitHub and your version's notes will be found below the table :)
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -15256,7 +15256,7 @@ This will consume about 500KB of data as it has to transfer two 0.5.3
 system parts and three >= 0.6.0 system parts. Devices will not
 automatically update Device OS if not added as a Product in Console.
 
-**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [Github Release Notes](#github-release-notes).
+**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [GitHub Release Notes](#github-release-notes).
 
 If your device is online, you can attempt to OTA (Over The Air) update these system parts as well with the Particle CLI.  Run the following commands in order for your device type:
 

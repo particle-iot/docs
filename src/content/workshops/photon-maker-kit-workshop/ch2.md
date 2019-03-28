@@ -139,7 +139,7 @@ The bulk of your program, from state management, handling user input, reading fr
   int temp;
   ```
 
-4. Next, in the loop, add the following to read from the temp sensor in fahrenheit and set it to our temp variable. The `delay` function allows us to pause program execution for a certain number of milliseconds (5000 = 5 seconds) before continuing.
+4. Next, in the loop, add the following to read from the temp sensor in Fahrenheit and set it to our temp variable. The `delay` function allows us to pause program execution for a certain number of milliseconds (5000 = 5 seconds) before continuing.
 
   ```cpp
   void loop() {
@@ -181,7 +181,7 @@ The bulk of your program, from state management, handling user input, reading fr
 
   ![](/assets/images/workshops/photon-maker-kit/02/devicesTab.png)
 
-8. Find your Photon. If you only have a single device, it will be selected by default and you can skip to the next step. If you have mutiple, click the star icon next to the name of your new Photon to select it as your current device.
+8. Find your Photon. If you only have a single device, it will be selected by default and you can skip to the next step. If you have multiple, click the star icon next to the name of your new Photon to select it as your current device.
 
   ![](/assets/images/workshops/photon-maker-kit/02/activeDevice.png)
 

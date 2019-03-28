@@ -55,7 +55,7 @@ Both the processor and the I2C devices only ever pull the bus low. It's either f
 
 Since floating is bad, the I2C bus must have pull-up resistors. One on the SDA line and one on the SCL line. They're typically 4.7K or 10K ohm.
 
-Many of the breakout boards you can buy at Adafruit or Sparkfun already have the pull-up resistors on them. Here's the schematic for the [Adafruit MCP9808](https://learn.adafruit.com/adafruit-mcp9808-precision-i2c-temperature-sensor-guide/) and you can see the resistors (R1 and R2, 10K ohms) pulling up to VDD.
+Many of the breakout boards you can buy at Adafruit or SparkFun already have the pull-up resistors on them. Here's the schematic for the [Adafruit MCP9808](https://learn.adafruit.com/adafruit-mcp9808-precision-i2c-temperature-sensor-guide/) and you can see the resistors (R1 and R2, 10K ohms) pulling up to VDD.
 
 ![Schematic with pull-ups](/assets/images/i2c-faq-pullups.png)
 
@@ -350,7 +350,7 @@ The example code and library are here: [https://github.com/rickkas7/MB85RC256V-F
 
 ## Multiplexer: TCA9548A
 
-Once you have all of these I2C devices, what happens if you have address conflicts, or need to run busses at different voltages? One easy solution is to add a TCA9548A.
+Once you have all of these I2C devices, what happens if you have address conflicts, or need to run buses at different voltages? One easy solution is to add a TCA9548A.
 
 [Adafruit](https://www.adafruit.com/products/2717) has the surface mount chip soldered on a handy breakout board.
 
@@ -418,7 +418,7 @@ temp 22.500000C 72.500000F
 
 ![DS75 Wire1](/assets/images/i2c-faq-ds75wire1.jpg)
 
-Important note: Even though there are two sets of pins, for all practical purposes you can't use both Wire and Wire1 at the same time. It's not like having two separate I2C interfaces, because they're connected to the same I2C block in the STM32F205 processor, I2C1, and if you try to initialize both, weird things happen. If you need to connect to multiple I2C busses, use a TCA9548A instead.
+Important note: Even though there are two sets of pins, for all practical purposes you can't use both Wire and Wire1 at the same time. It's not like having two separate I2C interfaces, because they're connected to the same I2C block in the STM32F205 processor, I2C1, and if you try to initialize both, weird things happen. If you need to connect to multiple I2C buses, use a TCA9548A instead.
 
 ## NCD/Control Everything
 

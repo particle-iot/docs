@@ -104,7 +104,7 @@ In this exercise, we're going to send data from IoT Hub to Power BI. When we do 
 
     ![](/assets/images/workshops/photon-maker-kit/04/photon-dataset.png)
 
-6. Select the "Line chart" visualisation type. For the "Axis", click "Add value" and select "published". Scroll down a little further to the next "Value" field and select "Temperature". Then click "Next".
+6. Select the "Line chart" visualization type. For the "Axis", click "Add value" and select "published". Scroll down a little further to the next "Value" field and select "Temperature". Then click "Next".
 
     ![](/assets/images/workshops/photon-maker-kit/04/custom-streaming-tile.png)
 

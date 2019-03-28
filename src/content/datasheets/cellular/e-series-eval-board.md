@@ -75,7 +75,7 @@ To power the board you can either use the barrel jack connector or the E series 
 
 The dip switches should be flipped individually to the ON position if you want to power the VDDA and VBAT pins via the on board 3V3 supply. If you want to connect a different source, simply flip the switch to the OFF position and connect a suitable supply using the respective header pins.
 
-**SMA Connector:** The evaluation kit comes with a solderable u.Fl to SMA adapter. You can optionally solder it on to the board and connect a different cellular antenna of your choice. 
+**SMA Connector:** The evaluation kit comes with a solderable U.FL to SMA adapter. You can optionally solder it on to the board and connect a different cellular antenna of your choice. 
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-dev-sma.png"></div>
 
