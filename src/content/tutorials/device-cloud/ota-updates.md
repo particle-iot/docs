@@ -172,26 +172,26 @@ This gives you the flexibility to experiment with
 new firmwares while still simulating behaviors of deployed devices in
 the production fleet. For information on marking a device as a
 development devices, check out [the
-guide](/guide/how-to-build-a-product/development-devices/#marking-a-development-device).
+guide](/tutorials/product-tools/development-devices/#marking-a-development-device).
 
 2. When you have finalized a firmware that you feel confident in releasing to your fleet, [**prepare the binary and upload it to your
-product**](#preparing-a-binary).
+product**](/tutorials/device-cloud/console/#preparing-a-binary).
 
 3. Before releasing, you will need to ensure that the uploaded product
 firmware is running on at least one device in your product fleet.
 Your development device(s) may already be running the firmware,
-but we also recommend [**locking one or more devices**](#locking-firmware)
+but we also recommend [**locking one or more devices**](/tutorials/device-cloud/console/#locking-firmware)
 to the newly updated firmware and ensure that it re-connects
 successfully to the cloud. This is because locking more closely
 represents a release action, with the specific firmware being delivered
 to a product device.
 
-4. [**Mark the firmware as released**](#releasing-firmware). This will
+4. [**Mark the firmware as released**](/tutorials/device-cloud/console/#releasing-firmware). This will
 target product devices to automatically download and run the firmware.
 The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
 delivered to a given device. If you are on the Enterprise plan with
-access to [device groups](/guide/how-to-build-a-product/device-groups/),
+access to [device groups](/tutorials/product-tools/device-groups/),
 you can more safely roll out the firmware by targeting a subset of the
 fleet for release.
 
@@ -214,7 +214,7 @@ Unlike compiling a binary for a single device, it is critical that the **product
 
 Add these two *macros* near the top of your main application `.ino`
 file, below `#include "Particle.h"` if it includes that line. Remember
-that your [product ID](#your-product-id) can be found in the navigation
+that your [product ID](/tutorials/device-cloud/console/#your-product-id) can be found in the navigation
 of your Console. The firmware version must be an integer that increments
 each time a new binary is uploaded to the Console. This allows the
 Particle Device Cloud to determine which devices should be running which firmwares.
@@ -396,7 +396,7 @@ When a product device is marked as a [development device](/tutorials/product-too
 
 ### OTA in the IDEs
 
-In order to flash a device OTA from the IDEs, including Particle [Web IDE](https://build.particle.io, Particle [Workbench](https://www.particle.io/workbench/), and the [Particle CLI](https://particle.io/cli/), the device must not only be marked as a development device, but also claimed to your Particle account.
+In order to flash a device OTA from the IDEs, including Particle [Web IDE](https://build.particle.io), Particle [Workbench](https://www.particle.io/workbench/), and the [Particle CLI](https://particle.io/cli/), the device must not only be marked as a development device, but also claimed to your Particle account.
 
 For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
 
