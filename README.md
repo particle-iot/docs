@@ -7,7 +7,7 @@ To view this documentation, visit [our website](https://docs.particle.io), where
 
 ### Installation
 
-To host this documentation locally, you'll need Node.js and npm:
+To host this documentation locally, you'll need Node.js and npm (see the `engines` section of `package.json` for the exact versions):
 
     brew install nodejs
 
