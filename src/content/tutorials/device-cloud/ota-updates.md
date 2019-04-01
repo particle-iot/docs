@@ -359,7 +359,7 @@ firmware (if a firmware has been released as the Product default)
 a product firmware, it will not receive an automatic OTA update from the
 Particle cloud
 
-### Immediate firmware releases (alpha)
+## Immediate firmware releases (alpha)
 
 Firmware Releases allow your team to roll out an OTA update to a fleet
 of devices with a single action.
@@ -389,7 +389,7 @@ during a critical activity.
 
 Immediate firmware releases are only available to enterprise-level products.
 
-#### Marking a firmware release as immediate
+### Marking a firmware release as immediate
 To mark a version of firmware as an immediate release, begin the release
 process as-normal. On the Firmware view of the Console for your product,
 identify the version of firmware you'd like to release, and click the
@@ -420,7 +420,7 @@ returns `true` in application firmware. For more information, see the
 section below on [controlling OTA
 availability](#controlling-ota-availability).
 
-#### Understanding the impact of Immediate Firmware Releases
+### Understanding the impact of Immediate Firmware Releases
 
 After clicking **Next**, you will need to confirm that you understand
 the impact of the action that you are about to take:
