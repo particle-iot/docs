@@ -387,7 +387,9 @@ This provides your team with the tools you need to roll out an OTA update
 quickly without putting devices in your fleet at risk being interrupted
 during a critical activity.
 
-Immediate firmware releases are only available to enterprise-level products.
+Immediate firmware releases is currently in _alpha_, and is only available
+to select Enterprise customers. [Interested in Immediate Firmware
+Releases?](https://www.particle.io/sales)
 
 ### Marking a firmware release as immediate
 To mark a version of firmware as an immediate release, begin the release
@@ -437,6 +439,15 @@ For those fleet managers in which disrupting active devices is
 problematic, we strongly suggest implementing [OTA control
 behaviors](#controlling-ota-availability) in Device OS to properly
 coordinate when Immediate Releases are delivered to target devices.
+
+When you check the checkbox to confirm the Immediate Release, you can
+proceed with completing the release action. This will begin the process
+of rolling out the version of firmware to target devices immediately.
+
+In your firmware list, you should see the firmware version marked as an
+Immediate Release:
+
+<img class="small" src="/assets/images/ota-updates/immediate-fw-list.png" />
 
 ## Single Device OTA
 
