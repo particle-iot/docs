@@ -361,8 +361,6 @@ Particle cloud
 
 ### Immediate firmware releases (alpha)
 
-**TODO:** ADD IMAGE OF IMMEDIATE UPDATES HERE
-
 Firmware Releases allow your team to roll out an OTA update to a fleet
 of devices with a single action.
 
@@ -388,6 +386,8 @@ Release from disrupting busy devices.
 This provides your team with the tools you need to roll out an OTA update
 quickly without putting devices in your fleet at risk being interrupted
 during a critical activity.
+
+Immediate firmware releases are only available to enterprise-level products.
 
 
 ## Single Device OTA
@@ -445,9 +445,7 @@ The default behavior is for updates to occur when a device establishes a session
 
 Prior to Device OS 1.2.0, for Electron, E Series, and Gen 3 (Argon, Boron, and Xenon) updates occurred only after a full session authentication. This could occur as infrequently as every 10 days, or when manually forced from the cloud or device side. Also, the update check occurred tens of seconds after the connection was established. Starting with Device OS 1.2.0, updates are also checked on session resume, which occurs much more often, including after waking from sleep mode, and occurs much more quickly, making it possible for battery-powered devices to go to sleep much more quickly if an update is not required.
 
-### OTA availability in the Console
-
-**TODO:** Write this section
+{{!-- TODO: Add this section back when I can take screenshots ### OTA availability in the Console --}}
 
 ### Disabling OTA updates
 
@@ -483,7 +481,10 @@ will emit an internal system event, `firmware_update_pending` and
 
 ### Force Enable OTA updates
 
-**TODO:** Write this section
+While you can inhibit firmware updates from your device firmware, sometimes you need to override the device. If, for example, you flashed firmware that had a bug in the disable updates code, you might need to force enable updates to replace the bad code.
+
+Fortunately, this can be done remotely by selecting the Force Enable OTA Updates option in the device settings in the console.
+
 
 ### Putting it all together
 
@@ -506,8 +507,16 @@ When using `SYSTEM_THREAD(ENABLED)`, updates can occur at any time.
 
 `System.enableUpdates()` and `System.disableUpdates()` just set an internal flag and do not incur and data usage so it's safe to call them frequently.
 
-**TODO:** code example here
+```
+void setup() {
+}
 
+void loop() {
+	System.disableUpdates();
+	criticalFunction();
+	System.enableUpdates();
+}
+```
 
 #### Disabling OTA most of the time
 
@@ -520,13 +529,82 @@ been identified.
 
 One common location to call `System.disableUpdates()` is from setup(). Note, however, that for this to work as intended, preventing any updates, you should use `SYSTEM_THREAD(ENABLED)` or `SYSTEM_MODE(SEMI_AUTOMATIC)` or `SYSTEM_MODE(MANUAL)`. 
 
+Example using `SYSTEM_MODE(SEMI_AUTOMATIC)`:
+
+```
+#include "Particle.h"
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+	// When disabling updates by default, you must use either system thread
+	// enabled or system mode SEMI_AUTOMATIC or MANUAL
+	System.disableUpdates();
+
+	// After setting the disable updates flag, it's safe to connect to the cloud.
+	Particle.connect();
+}
+
+void loop() {
+}
+```
+
+Example using `SYSTEM_THREAD(ENABLED)`:
+
+```
+#include "Particle.h"
+
+SYSTEM_THREAD(ENABLED);
+
+void setup() {
+	// When disabling updates by default, you must use either system thread
+	// enabled or system mode SEMI_AUTOMATIC or MANUAL
+	System.disableUpdates();
+}
+
+void loop() {
+
+}
+```
+
 The reason is that with threading disabled `SYSTEM_MODE(AUTOMATIC)`, the default mode, setup() is only called after the cloud connection has been established and you might not be able to prevent the update from occurring at boot.
 
 If you want to manage firmware updates in this way, you can check [System.updatesPending()](/reference/device-os/firmware/#system-updatespending-) when you are in a situation where updates would be acceptable. If true, you can then enable updated again using `System.enableUpdates()`. 
 
 For example, if you were writing firmware for an electric scooter, you might only want to do update when it's idle and between users. If you were building an asset tracking application, you might only want to do updates when not in motion.
 
-**TODO:** code example here
+```
+
+bool isSafeToUpdate();
+
+void setup() {
+	// When disabling updates by default, you must use either system
+	// thread enabled or system mode SEMI_AUTOMATIC or MANUAL
+	System.disableUpdates();
+
+	// After setting the disable updates flag, it's safe to connect to
+	// the cloud.
+	Particle.connect();
+}
+
+void loop() {
+	if (isSafeToUpdate() && System.updatesPending()) {
+		System.enableUpdates();
+
+		// Wait 2 minutes for the update to complete and the device
+		// to restart. If the device doesn't automatically reset, manually
+		// reset just in case.
+		unsigned long start = millis();
+		while (millis() - start < (120 * 1000)) {
+			Particle.process();
+		}
+		// You normally won't reach this point as the device will
+		// restart automatically to apply the update.
+		System.reset();
+	}
+}
+
+```
 
 #### Intercepting the post OTA reset
 
@@ -538,9 +616,42 @@ You can use the [on_reset_pending](/reference/device-os/firmware/#system-events)
 
 Once you've performed any additional operations and it's a good time to reset, you can call `System.reset()`.
 
-**TODO:** code example here
+```
+SYSTEM_THREAD(ENABLED);
+
+bool isSafeToReset();
+
+void setup() {
+	// Allow updates to be downloaded, but wait before restarting. 
+	// This only makes sense in system thread enabled mode.
+	System.disableReset();
+}
+
+void loop() {
+	if (isSafeToReset() && System.resetPending()) {
+		System.reset();
+	}
+}
 
 
-It is also possible to use the `reset_pending` [System Event](/reference/device-os/firmware/#system-events). This is ideal if you only want to do quick clean-up operations before resetting.
+bool isSafeToReset() {
+	return false;
+}
+```
 
-**TODO:** code example here
+It is also possible to use the `reset` [System Event](/reference/device-os/firmware/#system-events). This is ideal if you only want to do quick clean-up operations before resetting.
+
+```
+void setup() {
+    System.on(reset, resetHandler);
+}
+
+void loop() {
+}
+
+void resetHandler() {
+	// Put code here to be called right before reset.
+	// Don't put lengthy operations here; this would be a good
+	// place to flush a flash file system, for example.
+}
+```
