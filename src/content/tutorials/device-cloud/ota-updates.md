@@ -112,7 +112,7 @@ updates without sacrificing fine-grained control.
 automatically sent to your fleet, with sensible safeguards to roll out
 an update responsibly and monitor fleet health for changes.
 - **Release by device groups**: Target a subset of your fleet to receive a new version of firmware. This is useful when your product has variants that require different device behaviors, or when wanting to phase out a single release over time to reduce risk.
-- **Immediate firmware releases**: Instead of waiting for devices to re-connect to receive an update, push a fleet-wide update out immediately.
+- **Immediate firmware releases (alpha)**: Instead of waiting for devices to re-connect to receive an update, push a fleet-wide update out immediately.
 
 ## The firmware "stack"
 
@@ -389,6 +389,54 @@ during a critical activity.
 
 Immediate firmware releases are only available to enterprise-level products.
 
+#### Marking a firmware release as immediate
+To mark a version of firmware as an immediate release, begin the release
+process as-normal. On the Firmware view of the Console for your product,
+identify the version of firmware you'd like to release, and click the
+**Release Firmware** link that appears on hover.
+
+When the _Release Firmware_ modal appears, choose the group(s) that you
+would like to release to. Then, top opt-in to an immeidate release,
+check the checkbox signaling that you would like to deliver the firmware
+immediately to target devices:
+
+![](/assets/images/ota-updates/immediate-release.png)
+
+Remember that this is an Enterprise-only feature -- so this action will
+be disabled unless you are an Enterprise customer. Interested in
+Immediate Firmware Releases? [Talk to us!](https://www.particle.io/sales)
+
+Note that the Console describes that target devices that are **online**
+with **OTA updates enabled** would receive the new version of firmware
+immediately.
+- A target device _must be online_ and connected to the Device Cloud to
+receive the OTA update immediately at the time of release. Offline devices targeted
+to receive the new version of firmware will be OTA updated the next time
+they come online.
+- A target device _must also have OTA updates enabled_ at the time of release
+to receive the OTA update immediately. Specifically, this means that
+[`System.updatesEnabled()`](/reference/device-os/firmware/argon/#system-updatesenabled-)
+returns `true` in application firmware. For more information, see the
+section below on [controlling OTA
+availability](#controlling-ota-availability).
+
+#### Understanding the impact of Immediate Firmware Releases
+
+After clicking **Next**, you will need to confirm that you understand
+the impact of the action that you are about to take:
+
+![](/assets/images/ota-updates/immediate-release-confirm.png)
+
+What is most important to recognize is that **Immediate Firmware
+Releases _can be disruptive_ to active devices**. That is, if a targeted
+device is online (connected to the Device Cloud) and [OTA updates have
+not been disabled](#disabling-ota-updates), the Device Cloud will
+trigger the OTA to occur at the time of release.
+
+For those fleet managers in which disrupting active devices is
+problematic, we strongly suggest implementing [OTA control
+behaviors](#controlling-ota-availability) in Device OS to properly
+coordinate when Immediate Releases are delivered to target devices.
 
 ## Single Device OTA
 
