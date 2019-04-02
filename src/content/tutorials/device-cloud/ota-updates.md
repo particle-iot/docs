@@ -97,7 +97,7 @@ development team to rapidly prototype and innovate. OTA updates can be
 sent with a click of a button in our IDEs (available both in
 [Workbench](https://www.particle.io/workbench/) and our [Web
 IDE](https://build.particle.io)), or via our developer-approved [REST
-API](https://docs.particle.io/reference/device-cloud/api/).
+API](/reference/device-cloud/api/).
 
 #### Moving to Production
 
@@ -118,9 +118,9 @@ an update responsibly and monitor fleet health for changes.
 
 ### Device OS
 
-The Particle [Device OS](https://docs.particle.io/reference/device-os/firmware/) provides the foundation for your application. It provides many features including:
+The Particle [Device OS](/tutorials/device-os/device-os/) provides the foundation for your application. It provides many features including:
 
-- Core networking and communication features
+- Core networking and communication [APIs](/reference/device-os/firmware/)
 - Standard C and C++ libraries
 - Hardware abstraction layer, allowing your code to be run on a variety of devices
 - Real-time operating system (RTOS)
@@ -146,6 +146,12 @@ Fleet-wide OTA (over-the-air) firmware updates make it easy to deploy a new firm
 - For initial testing, you might deploy to only one device. This might be the device sitting on your desk, for easy access to the debugging USB serial port, for example.
 - Once you've verified the functionality, you may choose to deploy to a subset of your devices using groups.
 - Finally, you can roll out the release to all of your devices.
+
+### Gradual vs. Immediate Firmware Updates
+
+Once you've decided to release your firmware to your devices, the default is a gradual roll-out. This deploys new releases to devices when they reconnect to the Particle Device Cloud. This offers the least disruption, since the device was already in the process of reconnecting. Historically, this was the only option.
+
+Immediate Firmware Updates makes it possible to roll out your firmware more rapidly, and also provides fine-grained control over finding a safe time to update devices, controlled by the device itself. For example, consider an electric scooter controller. It could defer updates until the device was parked, for example.
 
 
 ### Firmware Releases
@@ -241,7 +247,7 @@ void loop() {
 
 ### Development devices
 
-**Development devices** are special class of product devices marked specifically for internal testing, separate from the production fleet. Development devices are prevented from receiving any automatic product firmware updates from the Particle cloud. These devices will ignore both released product firmware as well as any firmware version it has been locked to run.
+**Development devices** are special class of product devices marked specifically for internal testing, separate from the production fleet. Development devices are prevented from receiving any automatic product firmware updates from the Particle Device Cloud. These devices will ignore both released product firmware as well as any firmware version it has been locked to run.
 
 The [Product Tools Development Devices Guide](/tutorials/product-tools/development-devices/) explains how to set devices as development devices.
 
@@ -291,7 +297,7 @@ firmware the next time it handshakes with the cloud (starts a new secure
 session, most often on reset).
 
 Once the device downloads and runs the locked firmware, it will no
-longer be targeted by the Particle cloud for automatic firmware updates,
+longer be targeted by the Particle Device Cloud for automatic firmware updates,
 until it is unlocked. For more details, please read the [firmware
 precedence rules](#firmware-precedence-rules).
 
@@ -318,14 +324,17 @@ The default is to deliver a release to all devices in your product. However, you
 
 Groups are like tags; each device can be part of zero or more groups. You might use groups for tagging devices by geographical location, features, or for things like beta test users. 
 
-The [Product Tools Device Groups Guide](/tutorials/product-tools/device-groups/) shows how to use groups.
+In this example, I've selected the `beta_test` group of devices to deploy a release to:
 
+![Release To Group](/assets/images/product-release-group.png)
+
+The [Product Tools Device Groups Guide](/tutorials/product-tools/device-groups/) shows how to use groups.
 
 ### Releases via the REST API
 
 All of the operations that can be performed from the console can also be automated using the REST API. You might do this to automate your build and release process, for example.
 
-You can build firmware using the [Particle CLI](/reference/developer-tools/cli/#particle-compile) or directly using the [compile source code API](https://docs.particle.io/reference/device-cloud/api/#compile-source-code).
+You can build firmware using the [Particle CLI](/reference/developer-tools/cli/#particle-compile) or directly using the [compile source code API](/reference/device-cloud/api/#compile-source-code).
 
 Using the [upload product firmware API](/reference/device-cloud/api/#upload-product-firmware) you can upload your firmware binary.
 
@@ -357,9 +366,9 @@ firmware (if a firmware has been released as the Product default)
 
 - If none of the above conditions result in a device being targeted for
 a product firmware, it will not receive an automatic OTA update from the
-Particle cloud
+Particle Device Cloud
 
-## Immediate firmware releases (alpha)
+## Immediate Firmware Releases (alpha)
 
 Firmware Releases allow your team to roll out an OTA update to a fleet
 of devices with a single action.
@@ -387,18 +396,16 @@ This provides your team with the tools you need to roll out an OTA update
 quickly without putting devices in your fleet at risk being interrupted
 during a critical activity.
 
-Immediate firmware releases is currently in _alpha_, and is only available
-to select Enterprise customers. [Interested in Immediate Firmware
-Releases?](https://www.particle.io/sales)
+Immediate Firmware Releases is currently in _alpha_, and is only available to select Enterprise customers. [Interested in Immediate Firmware Releases?](https://www.particle.io/sales)
 
 ### Marking a firmware release as immediate
-To mark a version of firmware as an immediate release, begin the release
+To mark a version of firmware as an Immediate Firmware Release, begin the release
 process as-normal. On the Firmware view of the Console for your product,
 identify the version of firmware you'd like to release, and click the
 **Release Firmware** link that appears on hover.
 
 When the _Release Firmware_ modal appears, choose the group(s) that you
-would like to release to. Then, top opt-in to an immeidate release,
+would like to release to. Then, top opt-in to an immediate release,
 check the checkbox signaling that you would like to deliver the firmware
 immediately to target devices:
 
@@ -451,17 +458,35 @@ Immediate Release:
 
 ## Single Device OTA
 
-When a product device is marked as a [development device](/tutorials/product-tools/development-devices/) in some cases you can flash code to the single device in a manner similar to developer devices.
+Single Device OTA is the how most users initially program their Particle developer devices using the IDEs.
 
 ### OTA in the IDEs
 
-In order to flash a device OTA from the IDEs, including Particle [Web IDE](https://build.particle.io), Particle [Workbench](https://www.particle.io/workbench/), and the [Particle CLI](https://particle.io/cli/), the device must not only be marked as a development device, but also claimed to your Particle account.
+From the Particle [Web IDE](https://build.particle.io), you simply select the device you want to flash from the **Devices** tab (circle with 4 lines) and click the **Flash** icon.
 
-For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
+From Particle [Workbench](https://www.particle.io/workbench/) you select the device using [Particle: Configure Workspace for Device](/tutorials/developer-tools/workbench/#cloud-build-and-flash) and compile and flash using ** Particle: Cloud Flash**.
+
+From the [Particle CLI](https://particle.io/cli/), you use a command like:
+
+```
+particle flash my-device my-app.ino
+```
+
+When used with products, the device must not only be marked as a development device, but also claimed to your Particle account. For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
 
 ### Flash via the REST API
 
-It is also possible to flash devices using the REST API. As a team member you can flash product development devices that are part of the product but not claimed to your account using the API. This allows for shared pools of devices across team members.
+It is also possible to flash devices using the REST API. 
+
+For example, you can use the [flash a device with a pre-compiled binary](/reference/device-cloud/api/#flash-a-device-with-a-pre-compiled-binary) API to program a device.
+
+```
+$ curl -X PUT "https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234" \
+       -F file=@my-firmware-app.bin \
+       -F file_type=binary
+```
+
+With products, as a team member you can flash product development devices that are part of the product but not claimed to your account using the API. This allows for shared pools of devices across team members.
 
 In order to use the product REST API you'll need a product bearer token. To get started, the easiest way to get one is to open the console, your product, click **Events** (1) within your product, **View events from a terminal** (2), then copy and paste the token (highlighted). Note that it spans two lines, and is the part after `access_token=` and not including the equal sign.
 
@@ -481,20 +506,30 @@ The device must still be marked as a development device, otherwise the cloud wil
 
 ### Flash via SDKs
 
-The Particle Device SDKs for iOS and Android are also able to flash code. Note that when using the SDKs the code is flashed from the Particle cloud. While initiated from the mobile device, the actual transfer is done securely through the Particle cloud, not directly with your mobile device.
+In addition to just the cloud REST API directly or using curl, you can also use the [particle-api-js](/reference/SDKs/javascript/) Javascript API from node.js. This can make automating complex tasks much easier.
 
-This can only be done for devices claimed to your account and marked as a development device.
+The [flashDevice](/reference/SDKs/javascript/#flash) method makes it easy to compile and flash or flash a pre-built binary:
+
+```
+particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, auth: token }).then(function(data) {
+  console.log('Device flashing started successfully:', data);
+}, function(err) {
+  console.log('An error occurred while flashing the device:', err);
+});
+```
+ 
+The Particle Device SDKs for iOS and Android are also able to flash code. Note that when using the SDKs the code is flashed from the Particle Device Cloud. While initiated from the mobile device, the actual transfer is done securely through the Particle Device Cloud, not directly with your mobile device. This can only be done for devices claimed to your account, and for products, marked as a development device.
 
 ## Controlling OTA availability
 
 Sending an OTA update to a device comes with the risk of interrupting it
-during critical activities. Particle's Device OS includes helpful APIs
+during critical activities. Particle's Device OS includes [helpful APIs](/reference/device-os/firmware/argon/#system-enableupdates-)
 to allow a device to coordinate with the Device Cloud to ensure OTAs are
 delivered at the appropriate time.
 
 Furthermore, OTA updates occur in roughly three phases:
 
-- A user firmware update may either immediately stop your user firmware from running while being downloaded, or may allow your code to continue, but with a performance degradation (when using SYSTEM_THREAD(ENABLED)).
+- A user firmware update may either immediately stop your user firmware from running while being downloaded, or may allow your code to continue, but with a performance degradation (when using `SYSTEM_THREAD(ENABLED)`).
 - After fully downloaded, you can either allow the device to be reset, or halt the reset until a later time. The reset process is typically quick, only a few seconds. 
 - If the new firmware requires a Device OS upgrade, the upgrades are applied after reset. This can take a minute or two if an upgrade is required.
 
@@ -502,13 +537,13 @@ Furthermore, OTA updates occur in roughly three phases:
 
 The default behavior is for updates to occur when a device establishes a session with the cloud. This occurs a few seconds after the cloud connection is established. The rules for OTA availability apply to these updates as well as immediate updates.
 
-Prior to Device OS 1.2.0, for Electron, E Series, and Gen 3 (Argon, Boron, and Xenon) updates occurred only after a full session authentication. This could occur as infrequently as every 10 days, or when manually forced from the cloud or device side. Also, the update check occurred tens of seconds after the connection was established. Starting with Device OS 1.2.0, updates are also checked on session resume, which occurs much more often, including after waking from sleep mode, and occurs much more quickly, making it possible for battery-powered devices to go to sleep much more quickly if an update is not required.
+Previously, for Electron, E Series, and Gen 3 (Argon, Boron, and Xenon) updates occurred only after a full session authentication. This could occur as infrequently as every 10 days, or when manually forced from the cloud or device side. Also, the update check occurred tens of seconds after the connection was established. Now updates are also checked on session resume, which occurs much more often, including after waking from sleep mode, and occurs much more quickly, making it possible for battery-powered devices to go to sleep much more quickly if an update is not required. 
 
 {{!-- TODO: Add this section back when I can take screenshots ### OTA availability in the Console --}}
 
 ### Disabling OTA updates
 
-[System.disableUpdates()](/reference/device-os/firmware/#system-disableupdates-) can be added in application firmware to
+[`System.disableUpdates()`](/reference/device-os/firmware/#system-disableupdates-) can be added in application firmware to
 disable OTA updates for an individual device. This is done to prevent
 OTA attempts from the Device Cloud when the device is not available for
 an update.
@@ -520,7 +555,7 @@ fleet-wide OTA attempts (i.e. a firmware release).
 
 ### Re-enabling OTA updates
 
-[System.enableUpdates()](/reference/device-os/firmware/#system-enableupdates-) enables OTA updates for an individual device,
+[`System.enableUpdates()`](/reference/device-os/firmware/#system-enableupdates-) enables OTA updates for an individual device,
 allowing all over-the-air firmware requests from the Device Cloud.
 By default, OTA updates are enabled for a device. This method would only
 need to be called if updates had been previously disabled using
@@ -528,7 +563,7 @@ need to be called if updates had been previously disabled using
 
 ### Notifications of pending OTA updates
 
-[System.updatesPending()](/reference/device-os/firmware/#system-updatespending-) is a boolean flag that will return whether a
+[`System.updatesPending()`](/reference/device-os/firmware/#system-updatespending-) is a boolean flag that will return whether a
 new version of Product firmware is available for the device. This is
 helpful in the case when updates have been disabled for a device (by
 calling `System.disableUpdates()` in firmware), and the device needs
@@ -558,7 +593,7 @@ logic to conditionally enable updates at the appropriate time
 
 #### Disabling OTA only when necessary
 
-The calls [System.enableUpdates()](/reference/device-os/firmware/#system-enableupdates-) and [System.disableUpdates()](/reference/device-os/firmware/#system-disableupdates-) can be used to control whether updates are allowed.
+The calls [`System.enableUpdates()`](/reference/device-os/firmware/#system-enableupdates-) and [`System.disableUpdates()`](/reference/device-os/firmware/#system-disableupdates-) can be used to control whether updates are allowed.
 
 When not using `SYSTEM_THREAD(ENABLED)`, updates are only checked between your calls to your loop() function.
 
@@ -628,7 +663,7 @@ void loop() {
 
 The reason is that with threading disabled `SYSTEM_MODE(AUTOMATIC)`, the default mode, setup() is only called after the cloud connection has been established and you might not be able to prevent the update from occurring at boot.
 
-If you want to manage firmware updates in this way, you can check [System.updatesPending()](/reference/device-os/firmware/#system-updatespending-) when you are in a situation where updates would be acceptable. If true, you can then enable updated again using `System.enableUpdates()`. 
+If you want to manage firmware updates in this way, you can check [`System.updatesPending()`](/reference/device-os/firmware/#system-updatespending-) when you are in a situation where updates would be acceptable. If true, you can then enable updated again using `System.enableUpdates()`. 
 
 For example, if you were writing firmware for an electric scooter, you might only want to do update when it's idle and between users. If you were building an asset tracking application, you might only want to do updates when not in motion.
 
@@ -667,11 +702,11 @@ void loop() {
 
 #### Intercepting the post OTA reset
 
-When using SYSTEM_THREAD(ENABLED) your code will continue to run during the download process for the new user firmware, however performance will be affected. Normally, the device will reset immediately after the download completes, and after reset the device will be running the new firmware.
+When using `SYSTEM_THREAD(ENABLED)` your code will continue to run during the download process for the new user firmware, however performance will be affected. Normally, the device will reset immediately after the download completes, and after reset the device will be running the new firmware.
 
-Using [System.disableReset()](/reference/device-os/firmware/#disablereset-) will prevent this reset from occurring. You might do this if you want to do additional cleanup, or delay it until a more appropriate time.
+Using [`System.disableReset()`](/reference/device-os/firmware/#disablereset-) will prevent this reset from occurring. You might do this if you want to do additional cleanup, or delay it until a more appropriate time.
 
-You can use the [on_reset_pending](/reference/device-os/firmware/#system-events) event to be notified when a reset is required. You can also call [System.resetPending()](/reference/device-os/firmware/#resetpending-) to find out if the system needs a reset to complete an OTA update. 
+You can use the [`on_reset_pending`](/reference/device-os/firmware/#system-events) event to be notified when a reset is required. You can also call [`System.resetPending()`](/reference/device-os/firmware/#resetpending-) to find out if the system needs a reset to complete an OTA update. 
 
 Once you've performed any additional operations and it's a good time to reset, you can call `System.reset()`.
 
@@ -698,7 +733,7 @@ bool isSafeToReset() {
 }
 ```
 
-It is also possible to use the `reset` [System Event](/reference/device-os/firmware/#system-events). This is ideal if you only want to do quick clean-up operations before resetting.
+It is also possible to use the [`reset` System Event](/reference/device-os/firmware/#system-events). This is ideal if you only want to do quick clean-up operations before resetting.
 
 ```
 void setup() {
