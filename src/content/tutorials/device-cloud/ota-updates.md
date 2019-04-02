@@ -398,8 +398,8 @@ security patches to impacted devices in your fleet
 and need to quickly rollback
 
 **Immediate Firmware Releases** allow you to trigger a _real-time_ OTA
-update across a fleet of devices. Individual devices can express their
-availability for an OTA to the Device Cloud, preventing an Immediate
+update across a fleet of devices. Individual devices can [express their
+availability](#controlling-ota-availability) for an OTA to the Device Cloud, preventing an Immediate
 Release from disrupting busy devices.
 
 This provides your team with the tools you need to roll out an OTA update
