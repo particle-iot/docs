@@ -101,6 +101,13 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Certificate of Conformity - G350](/assets/pdfs/electron/fcc-g350-certificate.pdf)
 - [Test Reports - G350](/assets/pdfs/electron/fcc-g350-test-report.pdf)
 
+#### Electron E402 LTE (R410M)
+
+FCC Part 15 Subpart B, Class B (sDoC):
+
+- [Certificate of Conformity](/assets/pdfs/electron402-fcc-part15b.pdf)
+- [Test report](/assets/pdfs/electron402-fcc-part15b-test-report.pdf)
+
 #### E Series E310 (U201)
 - FCC ID: [XPY1CGM5NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=3vkdOEQAe%2Fc2YGK%2FBZsiJQ%3D%3D&fcc_id=XPY1CGM5NNN)
 - [Certificate of Conformity](/assets/pdfs/electron/fcc-u201-certificate.pdf)
@@ -247,6 +254,11 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 #### Electron G350
 - IC ID: **8595A-SARAG350**.
 - [Test Report](/assets/pdfs/electron/ic-g350-test-report.pdf)
+
+#### Electron E402 LTE (R410M)
+
+- [ICES-003 Issue 6:2016, Class B](/assets/pdfs/electron402-fcc-part15b.pdf)
+- [ICES-003 Test report](/assets/pdfs/electron402-fcc-part15b-test-report.pdf)
 
 #### E Series E310 (U201)
 - IC ID: **8595A-1CGM5NNN**.
@@ -423,6 +435,11 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### Electron U260/U270/G350
 
 - [Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
+
+#### Electron E402D (LTE)
+
+- [Test Reports](/assets/pdfs/electron402-rohs.pdf)
+
 
 #### E Series E310 (U201)
 
