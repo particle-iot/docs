@@ -174,7 +174,7 @@ The bulk of your program, from state management, handling user input, reading fr
   ```
 
   {{box op="start" cssClass="boxed"}}
-  In an embedded application, we light up an LED by calling `digitalWrite` ane setting the pin `HIGH`, meaning we're applying a voltage to the pin, which supplies that voltage to the LED. We then take the temperature reading. Then, we introduce a one second delay so that the status light is on long enough to be human-observable. Once the delay elapses, we turn the LED off by calling `digitalWrite` again and set the pin to `LOW`, which turns off voltage to the pin and thus, the LED.
+  In an embedded application, we light up an LED by calling `digitalWrite` and setting the pin `HIGH`, meaning we're applying a voltage to the pin, which supplies that voltage to the LED. We then take the temperature reading. Then, we introduce a one second delay so that the status light is on long enough to be human-observable. Once the delay elapses, we turn the LED off by calling `digitalWrite` again and set the pin to `LOW`, which turns off voltage to the pin and thus, the LED.
   {{box op="end"}}
 
 7. Now, let's flash this firmware to your device. Click the target icon in the left menu to open the Devices tab.
