@@ -25,7 +25,7 @@ Make sure you have completed **all** the prerequisites before advancing beyond t
 
 Now you will set up your Argon and claim it to your Particle account.
 
-1. Open your glorious new Argon Kit. Click on the Wi-Fi antenna to the u.fl. connector labeled _WIFI_. Afterwards, use the USB cable to plug the Argon into your computer. This should power up your device.
+1. Open your glorious new Argon Kit. Click on the Wi-Fi antenna to the U.FL connector labeled _WIFI_. Afterwards, use the USB cable to plug the Argon into your computer. This should power up your device.
 ![](/assets/images/workshops/mesh-101/01/Argon-plugged-in.JPG)
 2. Once the Argon powers up for the first time, it will automatically enter "[listening mode](https://docs.particle.io/tutorials/device-os/led/argon/#listening-mode)" (indicated by the RGB LED blinking blue), which means it's ready to be claimed. If you need to actively put your device in to "Listening Mode", hold down the `MODE` button for three seconds, until the RGB LED begins blinking blue.
 
