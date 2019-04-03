@@ -155,6 +155,10 @@ Immediate Firmware Updates makes it possible to roll out your firmware more rapi
 
 <img src="/assets/images/immediate-vs-gradual-comparison.png" class="full-width tall" />
 
+Available devices include the devices that are online and are currently accepting updates. Your device firmware can control whether it wants to receive updates immediately or defer them until a time that you choose. This could be based on clock time, or some condition, like an asset tracking device not being in motion.
+
+Devices that are offline are updated when they come back online again. This includes both devices that are using sleep modes to conserve battery power and devices that are currently out of range of cellular, for example.
+
 <p class="caption"> Immediate vs. Gradual Comparison </p>
 
 ![Immediate vs. Gradual Graph](/assets/images/immediate-vs-gradual-graph.jpg)
