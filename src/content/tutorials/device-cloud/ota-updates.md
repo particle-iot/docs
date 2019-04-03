@@ -153,6 +153,12 @@ Once you've decided to release your firmware to your devices, the default is a g
 
 Immediate Firmware Updates makes it possible to roll out your firmware more rapidly, and also provides fine-grained control over finding a safe time to update devices, controlled by the device itself. For example, consider an electric scooter controller. It could defer updates until the device was parked, for example.
 
+<img src="/assets/images/immediate-vs-gradual-comparison.png" class="full-width tall" />
+
+<p class="caption"> Immediate vs. Gradual Comparison </p>
+
+![Immediate vs. Gradual Graph](/assets/images/immediate-vs-gradual-graph.jpg)
+
 
 ### Firmware Releases
 
