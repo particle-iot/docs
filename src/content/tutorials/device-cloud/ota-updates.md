@@ -147,7 +147,7 @@ Fleet-wide OTA (over-the-air) firmware updates make it easy to deploy a new firm
 - Once you've verified the functionality, you may choose to deploy to a subset of your devices using groups.
 - Finally, you can roll out the release to all of your devices.
 
-### Gradual vs. Immediate Firmware Updates
+### Gradual vs. Immediate Firmware Releases
 
 Once you've decided to release your firmware to your devices, the default is a gradual roll-out. This deploys new releases to devices when they reconnect to the Particle Device Cloud. This offers the least disruption, since the device was already in the process of reconnecting. Historically, this was the only option.
 
