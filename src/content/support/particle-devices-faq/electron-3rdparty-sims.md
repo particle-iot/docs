@@ -7,9 +7,7 @@ order: 1020
 
 # 3rd-party SIM cards
 
-The Particle **Electron** comes with a SIM card that allows easy and often inexpensive 2G or 3G cellular access.
-
-Sometimes, however, you may want to use a different mobile provider. You may need to transfer large amounts of data, which may be cheaper on another provider, or you may need to use the Electron in a country that's not supported by the Particle SIM. Fortunately, the Electron can easily be used with 3rd-party SIM cards.
+The Particle **Electron** comes with a SIM card that allows easy and often inexpensive 2G or 3G cellular access. You can optionally substitute a 3rd-party SIM card.
 
 The **E Series** does not have a SIM card slot and cannot use a 3rd-party SIM card. It uses a MFF2 embedded SIM card, which is basically a regular SIM card in a small SMD form-factor and soldered to the board. 
 
