@@ -509,7 +509,7 @@ The 3G Electrons come in two varieties, the Americas/Australia (U260) and Europe
 
 The lines are not that clearly drawn, however, and may vary by carrier in a given country. For example:
 
-In Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz.
+In Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. As of March 15, 2019, Telstra discontinued the use of the 2100 MHz band for 3G and the Electron U270 with the Particle SIM will no longer work. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz. 
 
 In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the U260 Americas model is the correct one. If you're using an Ancel SIM, however, that uses 2100 MHz you you'll nee the U270 model, instead.
 

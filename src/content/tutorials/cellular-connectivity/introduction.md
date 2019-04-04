@@ -5,68 +5,79 @@ layout: tutorials.hbs
 order: 10
 ---
 
-# Introduction to Cellular
+# Introduction to Cellular Devices
 
-## Devices
-
-Particle has a wide variety of devices to suit many applications!
-
-| Device | Region | 2G | 3G | LTE | Form Factor | 
-| --- | --- | :---: | :---: | :---: | --- |
-| Boron 2G/3G | World<sup>1</sup> | &check; | &check; | &nbsp; | Feather | 
-| Boron LTE | US<sup>2</sup> | &nbsp; | &nbsp; | M1 | Feather | 
-| B402 SoM | US<sup>3</sup> | &nbsp; | &nbsp; | M1 | M.2 SoM | 
-| Electron 2G (G350) | World<sup>4</sup> | &check; | &nbsp; | &nbsp; | Pins | 
-| Electron 3G (U260) | Americas<sup>5</sup> | &check; | &check; | &nbsp; | Pins | 
-| Electron 3G (U270) | Europe, Asia, Africa<sup>6</sup> | &check; | &check; | &nbsp; | Pins | 
-| Electron Global (U201) | World<sup>7</sup> | &check; | &check; | &nbsp; | Pins | 
-| Electron LTE (E402) | US<sup>8</sup> | &nbsp; | &nbsp; | M1  | Pins  | 
-| E Series 2G/3G (E310) | World<sup>9</sup> | &check; | &check; | &nbsp; | SMD Module | 
-| E Series LTE (E402) | World<sup>10</sup> |  &nbsp; | &nbsp; | M1 | SMD Module | 
-
-### I'm building a new product
-
-If you building a new product you should design around the Boron or B Series SoM. This 3rd-generation line of products is based on a newer processor architecture.
+Particle has a wide variety of cellular devices to suit many applications. There's a handy table at the end to help you device what's the best device for your application, but some explanation is in order first as there are a number of decisions to make!
 
 
-While we have no immediately places to cease production of existing Electron and E Series boards, it's still best to concentrate on the newer devices.
+## Form Factor
 
-### What are prototyping devices?
+### Boron
 
-Prototyping devices are available in single quantities and have male pins on the bottom that can be plugged into a solderless breadboard (included with kits). They are ideal for one-of-a-kind designs, tinkering, and prototyping.
+![Boron](/assets/images/boron/boron-top.png)
 
-Additionally, the Boron uses the Adafruit Feather form-factor, allowing it to use a wide variety of Adafruit FeatherWing displays, sensors, and expansion boards.
+The Boron is the 3rd-generation cellular device in a prototyping form factor. It has pins on the bottom that can plug into a solderless breadboard, and is compatible with the Adafruit Feather form-factor to easily add accessories like sensors and displays. You can also plug it into a socket on a custom circuit board.
 
-Prototyping devices include:
+![Boron GPS FeatherWing](/assets/images/gps-display-featherwing.jpg)
 
-| Device | Description | 
-| --- | --- |
-| Boron | Gen 3 prototyping device. Recommended for new designs. |
-| Electron | Gen 2 prototyping device. |
+### B Series SoM
 
-You can still use these devices for small-scale or large-scale production. They can be inserted into a socket on your custom circuit board, and can be purchased in tray quantities.
+![B Series](/assets/images/b-series-top.png)
 
-### What are production devices?
+The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
-Mass-production devices are intended to be used as scale, and only with a custom circuit board for your product.
+One of the benefits is that many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
 
-Prototyping devices include:
+| Feature | Boron | B Series SoM | Base Board |
+| --- | :---: | :---: | :---: |
+| U.FL Antenna Connector | &check; | &check; | Optional |
+| MFF2 SMD Particle SIM | &check; | &check; | &nbsp; |
+| Nano 4FF SIM card connector | &check; | &nbsp; | <sup>1</sup> |
+| USB Connector | &check; | &nbsp; | Optional |
+| Status LED | &check; | &nbsp; | Optional |
+| Reset and Mode Buttons | &check; | &nbsp; | Optional |
+| Battery Connector | &check; | &nbsp; | Optional |
+| PMIC and Fuel Gauge<sup>2</sup> | &check; | &nbsp; | Optional |
 
-| Device | Description | 
-| --- | --- |
-| B Series SoM | Gen 3 module fits into M.2 NGFF connector |
-| E Series | Gen 2 SMD module soldered to your board |
+<sup>1</sup>The B402 SoM includes a MFF2 embedded SIM card on the SoM. It is possible to order it without the MFF2 SIM and put your own SIM or SIM card card holder on your base board. Minimum order quantities apply. With the embedded Particle SIM, it can only be used in the United States at this time.
+
+<sup>2</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
 
 
+### Electron 
 
+![Electron](/assets/images/electron/illustrations/electron-v20.png)
+
+The Electron is the 2nd-generation cellular device in a prototyping form factor. It is designed to easily plug into a solderless breadboard, or can be installed in a socket on your own circuit board.
+
+
+![Electron Breadboard](/assets/images/phototransistor-electron.jpg)
+
+### E Series (SMD)
+
+![E Series](/assets/images/e-series/illustrations/e0-top.png)
+
+The E Series module is a 2nd-generation cellular device that is reflow soldered to your custom base board. As the software is fully compatible between the Electron and E Series, you can easily move from prototyping to mass production with the same software.
+
+
+| Feature | Electron | E Series Module | Base Board |
+| --- | :---: | :---: | :---: |
+| U.FL Antenna Connector | &check; | &check; | &nbsp; |
+| MFF2 SMD Particle SIM | &nbsp; | &check; | &nbsp; |
+| Nano 4FF SIM card connector | &check; | &nbsp; | &nbsp; |
+| USB Connector | &check; | &nbsp; | Optional |
+| Status LED | &check; | &nbsp; | Optional |
+| Reset and Mode Buttons | &check; | &nbsp; | Optional |
+| Battery Connector | &check; | &nbsp; | Optional |
+| PMIC and Fuel Gauge| &check; | &check; | |
 
 ## Cellular Carriers
 
-The Particle SIM supports many carriers around the world. The [list of carriers](/tutorials/cellular-connectivity/cellular-carriers/) is the complete list, however it's important to note that there are three different Particle SIM cards that support a different set of carriers:
+The Particle SIM supports many carriers around the world. The [list of mobile carriers](/tutorials/cellular-connectivity/cellular-carriers/) is the complete list, however it's important to note that there are three different Particle SIM cards that support a different set of carriers:
 
-- Electron and E Series
+- Electron 2G, Electron 3G, and E Series 2G/3G (E310)
 - Boron 2G/3G
-- Boron LTE, B Series LTE, E Series LTE, and Electron LTE 
+- LTE (Boron LTE, B Series LTE, E Series LTE, and Electron LTE)
 
 
 ### SIM cards
@@ -99,38 +110,81 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 
 ### Roaming
 
-Most Particle SIM cards support world-wide roaming. However there may be limitations based on the radio on the device.
+Non-LTE Particle SIM cards support world-wide roaming. However there may be limitations based on the radio on the device.
 
-| Device | Roaming |
-| --- |  --- | 
-| Boron 2G/3G | World | 
-| Boron LTE | US<sup>1</sup> |
-| B402 LTE SoM | US |
-| Electron 2G (G350) | World<sup>2</sup> |
-| Electron 3G (U260) | Americas, Australia |
-| Electron 3G (U270) | Europe, Asia, Africa |
-| Electron Global (U201) | World |
-| Electron LTE (E402) | US |
-| E Series 2G/3G (E310) | World |
-| E Series LTE (E402) | US |
+| Device | Roaming | Bands |
+| --- |  --- | --- |
+| Boron 2G/3G | World | 850, 900, 1800, 1900, 2100 |
+| Boron LTE | US<sup>1</sup> | LTE<sup>7</sup> |
+| B402 LTE SoM | US<sup>5</sup>  | LTE<sup>7</sup> |
+| Electron 2G (G350) | World<sup>2</sup> | 850, 900, 1800, 1900 |
+| Electron 3G (U260) | Americas, Australia<sup>3</sup> | 850, 1900 |
+| Electron 3G (U270) | Europe, Asia, Africa<sup>4</sup> | 900, 1800, 2100 |
+| Electron Global (U201) | World | 850, 900, 1800, 1900, 2100 |
+| Electron LTE (E402) | US<sup>6</sup>  | LTE<sup>7</sup> |
+| E Series 2G/3G (E310) | World | 850, 900, 1800, 1900, 2100 |
+| E Series LTE (E402) | US<sup>6</sup>  | LTE<sup>7</sup> |
 
-<sup>1</sup>The Boron LTE can be used with a 3rd-party SIM card in areas outside of the United States. This is not officially supported, but has been known to work.
+<sup>1</sup>The Boron LTE can be used with a 3rd-party SIM card in areas outside of the United States at this time. This is not officially supported, but has been known to work.
 
-<sup>2</sup>The Electron 2G cannot be used in locations that no longer have 2G service. Some countries include: Australia, Japan, Korea, and Singapore. In the United States, 2G services is only available on T-Mobile, and only through the end of xxx.
+<sup>2</sup>The Electron 2G cannot be used in locations that no longer have 2G service. Some countries include: Australia, Japan, Korea, Singapore, and Taiwan. In the United States, 2G services is only available on T-Mobile, and only through the end of 2020. In some other countries, including Switzerland and New Zealand, the Electron 2G can only be used with a 3rd-party SIM card, not with the included Particle SIM card. 
+
+<sup>3</sup>The U260 model supports 850/1900 MHz for both 3G (UMTS/HSPA) and 2G (GPRS/EDGE). These are the frequencies typically used in the Americas, but there are exceptions. 
+
+For example, in Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz.
+
+In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the U260 Americas model is the correct one. If you're using an Ancel 3rd-party SIM, however, that uses 2100 MHz you you'll nee the U270 model, instead.
+
+<sup>4</sup>The U270 model supports 900/2100 MHz for 3G (UMTS/HSPA) and 900/1800 MHz for 2G (GPRS/EDGE). It is typically used in Europe, Asia, and Africa. It is used by some carriers in South America (with a 3rd-party SIM card).
+
+<sup>5</sup>The B402 SoM includes a MFF2 embedded SIM card on the SoM. It is possible to order it without the SIM and put your own SIM or SIM card card holder on your base board. Minimum order quantities apply. With the embedded Particle SIM, it can only be used in the United States at this time.
+
+<sup>6</sup>The E Series LTE and Electron LTE cannot be used outside of the United States at this time. 
+
+<sup>7</sup>The u-blox SARA-R410M-02-B modem supports the following LTE cellular bands:
+
+
+| Parameter | Value |
+| --- | --- |
+| LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 17 (700 MHz)  |
+| | Band 28 (700 MHz)  |
+| | Band 13 (750 MHz)  |
+| | Band 20 (800 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 18 (850 MHz)  |
+| | Band 5 (850 MHz) |
+| | Band 19 (850 MHz)  |
+| | Band 8 (900 MHz)  |
+| | Band 4 (1700 MHz) |
+| | Band 3 (1800 MHz)  |
+| | Band 2 (1900 MHz) |
+| | Band 25 (1900 MHz)  |
+| | Band 1 (2100 MHz)  |
+| LTE TDD bands | Band 39 (1900 MHz) | 
+
 
 
 ### 3rd-party SIM cards
 
+Some Particle devices support [3rd-party SIM cards](https://docs.particle.io/support/particle-devices-faq/electron-3rdparty-sims/). These can provide service in locations where the Particle SIM is not supported, for example.
 
 | Device | 3rd-party SIM supported |
-| --- | :---: |
+| --- | :---: | 
 | Boron 2G/3G | &check; |
 | Boron LTE | &check; |
+| B402 LTE SoM | <sup>1</sup> |
 | Electron 2G (G350) | &check; |
 | Electron 3G (U260) | &check; |
 | Electron 3G (U270) |  &check; |
 | Electron Global (U201) | &check; |
+| Electron LTE (E402) |&nbsp; |
+| E Series 2G/3G (E310) | &nbsp; |
+| E Series LTE (E402) | &nbsp; |
 
+<sup>1</sup>The B402 SoM includes a MFF2 embedded SIM card on the SoM. It is possible to order it without the SIM and put your own SIM or SIM card card holder on your base board. Minimum order quantities apply.
+
+There are limitations on using 3rd-party SIM cards in large product deployments. If you think you will need to use a 3rd-party SIM you should [contact sales](https://particle.io/sales/) for additional information.
 
 ## 4G LTE
 
@@ -140,12 +194,13 @@ There are three main varieties of LTE service:
 - LTE Cat M1 is a version of LTE that is used for relatively low data rate, low-cost, and low-power applications. The Particle LTE devices support LTE Cat M1. 
 - LTE Cat NB1 is a different low-cost and low-power version of LTE, with even lower data rates. While Particle LTE device hardware can support NB1, it is not officially supported at this time.
 
+At this time, Particle is unable to provide worldwide roaming for LTE devices using the Particle SIM and they can only be used in the United States. 
 
 ### LTE Cat M1
 
 In the United States, Particle devices use LTE Cat M1 on the AT&T network. 
 
-In all locations that AT&T supports LTE on their own network (not roaming), LTE Cat M1 should also be supported. 
+In all locations that AT&T supports LTE on their own network (not roaming), LTE Cat M1 should also be supported. Note that this does not include 4G areas, which on the AT&T network are HSPA+, not actually LTE.
 
 
 ## 2G and 3G Sunset
@@ -154,9 +209,10 @@ Carriers around the world periodically shut down older networks to reallocate th
 
 The list below is not complete; you should check with the carrier in your area to be sure of sunset, decommissioning, or shutdown dates.
 
-### In the United States
 
-AT&T already deactivated their 2G network at the end of 2016. Electron 2G devices can only use T-Mobile at this time.
+### United States
+
+AT&T deactivated their 2G network at the end of 2016. Electron 2G devices can only use T-Mobile at this time.
 
 AT&T's 3G shutdown should occur at the end of 2019. After 2019, the Electron U260 and E Series E310 will only connect to T-Mobile in the United States.
 
@@ -166,20 +222,21 @@ The Boron 2G/3G only connects to T-Mobile in the United States already (it canno
 
 In the United States we strongly recommend using LTE Cat M1. AT&T has committed to supporting the LTE network at least through the end of 2027.
 
-| After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G
-| --- | --- | :--: | :--: | :--: | :--: |
-| End of 2016 | AT&T ended 2G service | T-Mobile | Both | Both | T-Mobile |
-| End of 2019 | AT&T ends 3G service | T-Mobile | T-Mobile | T-Mobile | T-Mobile | 
-| End of 2020 | T-Mobile ends 2G service | &nbsp; | T-Mobile | T-Mobile | T-Mobile | 
+| After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G | LTE |
+| --- | --- | :--: | :--: | :--: | :--: | :---: |
+| End of 2016 | AT&T ended 2G service | T-Mobile | Both | Both | T-Mobile | AT&T |
+| End of 2019 | AT&T ends 3G service | T-Mobile | T-Mobile | T-Mobile | T-Mobile |  AT&T |
+| End of 2020 | T-Mobile ends 2G service | &nbsp; | T-Mobile | T-Mobile | T-Mobile |  AT&T |
 
 
-
-
-### In Europe
+### Europe
 
 In some European countries, they're phasing out 3G and instead keeping 2G, 4G, and LTE networks. All of the Particle 3G cellular devices can also connect to 2G networks, so compatibility will be maintained.
 
-### In Australia
+For example, in Norway, Telenor is shutting down their 3G network at the end of 2020, but keeping their 2G network running until the end of 2025.
+
+
+### Australia
 
 In Australia, there is no longer 2G service on any carrier and the Electron 2G cannot be used.
 
@@ -187,7 +244,18 @@ The Electron and E Series use Telstra in Australia. They intend to shut down the
 
 The Boron 2G/3G uses Vodafone in Australia. They have not announced a 3G shutdown date.
 
-### In Canada
+| After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G
+| --- | --- | :--: | :--: | :--: | :--: |
+| End of 2016 | Telstra ended 2G service | &nbsp;| &check; | &check; | &check; |
+| End of 2020 | Telstra ends 3G service | &nbsp; | <sup>1</sup> | &nbsp; | &check; | 
+
+<sup>1</sup>Can use only with a 3rd-party SIM card.
+
+Telstra 2100 MHz March 25, 2019
+https://etmpacific.com/telstra-3g-sunset-shutdown-2100mhz/
+
+
+### Canada
 
 The Electron and E Series use Rogers in Canada:
 
@@ -199,8 +267,29 @@ The Boron 2G/3G uses Telus in Canada:
 - 2G services on Telus has already ended.
 - 3G service on Telus will end at the end of 2025.
 
+| After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G
+| --- | --- | :--: | :--: | :--: | :--: |
+| End of 2020 | Rogers ends 2G service | &nbsp;| &check; | &check; | &check; |
+| End of 2025 | Rogers and Telus end 3G service | &nbsp; | &nbsp; | &nbsp; | &nbsp; | 
 
-### Countries that no longer have 2G
+### Limited 2G
+
+These countries cannot use 2G (Electron 2G) with the included Particle SIM card. They can only use a 3rd-party SIM card:
+
+- New Zealand
+- Switzerland
+
+These countries have a scheduled end to 2G service when using the Particle SIM card:
+
+| Country | 2G End Date | 
+| --- | :---: |
+| Canada | End of 2020 |
+| United States | End of 2020 |
+
+
+### No 2G
+
+These countries cannot use the Electron 2G at all:
 
 - Australia 
 - Japan
@@ -209,15 +298,18 @@ The Boron 2G/3G uses Telus in Canada:
 - Taiwan
 
 
-| Device |
-| --- |  
-| Boron 2G/3G | 
-| Boron LTE | 
-| B402 LTE SoM | 
-| Electron 2G (G350) | 
-| Electron 3G (U260) | 
-| Electron 3G (U270) |  
-| Electron Global (U201) | 
-| Electron LTE (E402) |
-| E Series 2G/3G (E310) | 
-| E Series LTE (E402) |
+## Summary
+
+
+| Device | Region | 2G | 3G | LTE | Generation | SIM | Form Factor | 
+| --- | --- | :---: | :---: | :---: | :---: | :---: | --- |
+| Boron 2G/3G | World | &check; | &check; | &nbsp; | Gen3 | Both | Feather | 
+| Boron LTE | US | &nbsp; | &nbsp; | M1 | Gen3 |  Both | Feather | 
+| B402 SoM | US | &nbsp; | &nbsp; | M1 | Gen3 | SMD| M.2 SoM | 
+| Electron 2G (G350) | World| &check; | &nbsp; | &nbsp; | Gen2 | Card | Pins | 
+| Electron 3G (U260) | Americas| &check; | &check; | &nbsp; | Gen2 | Card |Pins | 
+| Electron 3G (U270) | Europe, Asia, Africa | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
+| Electron Global (U201) | World | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
+| Electron LTE (E402) | US | &nbsp; | &nbsp; | M1  | Gen2 | SMD | Pins  | 
+| E Series 2G/3G (E310) | World | &check; | &check; | &nbsp; | Gen2 | SMD | SMD Module | 
+| E Series LTE (E402) | World |  &nbsp; | &nbsp; | M1 | Gen2 | SMD| SMD Module | 
