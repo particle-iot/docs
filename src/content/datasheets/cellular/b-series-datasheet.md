@@ -44,7 +44,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * JTAG (SWD) pins
  * RGB status pins for LED
  * Reset and Mode pins for buttons
- * On-module MFF2 SIM 
+ * On-module MFF2 Particle SIM 
  * Two on-module u.FL connectors for external antennas
  * M.2 interface
  * FCC and PTCRB certified
@@ -97,7 +97,6 @@ There are two radios on the B402 module. A Mesh radio (nRF52840) and a cellular 
 
 There are some optional B402 module specific I/O:
 
-- External SIM card connector
 - u-blox USB and VBUS (for u-blox firmware upgrades)
 
 **Note:** All GPIOs are only rated at 3.3VDC max.
@@ -196,21 +195,21 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 64 | D23 | GPIO1 | IO | GPIO1, digital only.|	
 | 65 | RGBB | BLUE | IO | Blue pin of the RGB LED.|
 | 66 | D4 | PWM0 | IO | Digital only GPIO, and PWM0. |
-| 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | Default open, 1.8V/3V SIM Supply Output from R410M. |
+| 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
 | 68 | D5 | PWM1 | IO | Digital only GPIO, and PWM1. |
-| 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | 1.8V/3V SIM Reset Output from R410M. |
+| 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. |
 | 70 | D6 | PWM2 | IO | Digital only GPIO, and PWM2.|
-| 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | Default open, 1.8V/3V SIM Clock Output from R410M.|
+| 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
 | 72 | D7 | PWM3 | IO | Digital only GPIO, and PWM3.|
-| 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | Default open, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up, Connect to SIM card Data PINs. |
+| 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up. |
 | 74 | u-blox VBUS | SOM2<sup>3</sup> | IO | USB detect pin for R410M. 5V on this pin enables the u-blox USB interface.|
 | 75 | NC | SOM9<sup>3</sup> | NC | Leave unconnected. |
 
-Note 1: By default, these pins are connected to the internal MFF2 SIM and should be left open. If the internal SIM is disabled, then these pins can be used with an external SIM card.
+<sup>1</sup>These pins are connected to the internal MFF2 SIM and should be left open. 
 
-Note 2: A0-A7 are 12-bit Analog-to-Digital (A/D) inputs (0-4095).
+<sup>2</sup>A0-A7 are 12-bit Analog-to-Digital (A/D) inputs (0-4095).
 
-Note 3: SoM-specific and Reserved pins will vary depending on module.
+<sup>3</sup>SoM-specific and Reserved pins will vary depending on module.
 
 ### LED status
 
