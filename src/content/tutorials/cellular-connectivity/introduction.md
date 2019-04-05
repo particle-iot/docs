@@ -32,16 +32,14 @@ One of the benefits is that many of the extra features on the Boron have been om
 | --- | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | &check; | Optional |
 | MFF2 SMD Particle SIM | &check; | &check; | &nbsp; |
-| Nano 4FF SIM card connector | &check; | &nbsp; | <sup>1</sup> |
+| Nano 4FF SIM card connector | &check; | &nbsp; | &nbsp; |
 | USB Connector | &check; | &nbsp; | Optional |
 | Status LED | &check; | &nbsp; | Optional |
 | Reset and Mode Buttons | &check; | &nbsp; | Optional |
 | Battery Connector | &check; | &nbsp; | Optional |
-| PMIC and Fuel Gauge<sup>2</sup> | &check; | &nbsp; | Optional |
+| PMIC and Fuel Gauge<sup>1</sup> | &check; | &nbsp; | Optional |
 
-<sup>1</sup>The B402 SoM includes a MFF2 embedded SIM card on the SoM. It is possible to order it without the MFF2 SIM and put your own SIM or SIM card card holder on your base board. Minimum order quantities apply. With the embedded Particle SIM, it can only be used in the United States at this time.
-
-<sup>2</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
+<sup>1</sup>The PMIC (power management IC) and fuel gauge are used with battery-powered applications. They're omitted from the SoM as they are not needed for externally powered solutions (grid or automotive power, for example). Additionally, you may want to use different models if you are making a solar-powered device, or using a different battery technology or multiple battery pack.
 
 
 ### Electron 
@@ -96,7 +94,7 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | --- | :---: | :---: | 
 | Boron 2G/3G | &check; | &check; |
 | Boron LTE | &check; | &check; |
-| B402 LTE SoM | <sup>1</sup> | &check; |
+| B402 LTE SoM | &nbsp; | &check; |
 | Electron 2G (G350) | &check; | &nbsp; |
 | Electron 3G (U260) | &check; | &nbsp; |
 | Electron 3G (U270) |  &check; | &nbsp; |
@@ -104,8 +102,6 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | Electron LTE (E402) | &nbsp; | &check; |
 | E Series 2G/3G (E310) | &nbsp; | &check; |
 | E Series LTE (E402) | &nbsp; | &check; |
-
-<sup>1</sup>The B402 SoM includes a MFF2 embedded SIM card on the SoM. It is possible to order it without the SIM and put your own SIM or SIM card card holder on your base board. Minimum order quantities apply.
 
 
 ### Roaming
@@ -115,15 +111,15 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 | Device | Roaming | Bands |
 | --- |  --- | --- |
 | Boron 2G/3G | World | 850, 900, 1800, 1900, 2100 |
-| Boron LTE | US<sup>1</sup> | LTE<sup>7</sup> |
-| B402 LTE SoM | US<sup>5</sup>  | LTE<sup>7</sup> |
+| Boron LTE | US<sup>1</sup> | LTE<sup>6</sup> |
+| B402 LTE SoM | US<sup>5</sup>  | LTE<sup>6</sup> |
 | Electron 2G (G350) | World<sup>2</sup> | 850, 900, 1800, 1900 |
 | Electron 3G (U260) | Americas, Australia<sup>3</sup> | 850, 1900 |
 | Electron 3G (U270) | Europe, Asia, Africa<sup>4</sup> | 900, 1800, 2100 |
 | Electron Global (U201) | World | 850, 900, 1800, 1900, 2100 |
-| Electron LTE (E402) | US<sup>6</sup>  | LTE<sup>7</sup> |
+| Electron LTE (E402) | US<sup>5</sup>  | LTE<sup>6</sup> |
 | E Series 2G/3G (E310) | World | 850, 900, 1800, 1900, 2100 |
-| E Series LTE (E402) | US<sup>6</sup>  | LTE<sup>7</sup> |
+| E Series LTE (E402) | US<sup>5</sup>  | LTE<sup>6</sup> |
 
 <sup>1</sup>The Boron LTE can be used with a 3rd-party SIM card in areas outside of the United States at this time. This is not officially supported, but has been known to work.
 
@@ -137,11 +133,9 @@ In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the
 
 <sup>4</sup>The U270 model supports 900/2100 MHz for 3G (UMTS/HSPA) and 900/1800 MHz for 2G (GPRS/EDGE). It is typically used in Europe, Asia, and Africa. It is used by some carriers in South America (with a 3rd-party SIM card).
 
-<sup>5</sup>The B402 SoM includes a MFF2 embedded SIM card on the SoM. It is possible to order it without the SIM and put your own SIM or SIM card card holder on your base board. Minimum order quantities apply. With the embedded Particle SIM, it can only be used in the United States at this time.
+<sup>5</sup>The B Series LTE, E Series LTE, and Electron LTE cannot be used outside of the United States at this time. 
 
-<sup>6</sup>The E Series LTE and Electron LTE cannot be used outside of the United States at this time. 
-
-<sup>7</sup>The u-blox SARA-R410M-02-B modem supports the following LTE cellular bands:
+<sup>6</sup>The u-blox SARA-R410M-02-B modem supports the following LTE cellular bands:
 
 
 | Parameter | Value |
@@ -173,7 +167,7 @@ Some Particle devices support [3rd-party SIM cards](https://docs.particle.io/sup
 | --- | :---: | 
 | Boron 2G/3G | &check; |
 | Boron LTE | &check; |
-| B402 LTE SoM | <sup>1</sup> |
+| B402 LTE SoM | &nbsp; |
 | Electron 2G (G350) | &check; |
 | Electron 3G (U260) | &check; |
 | Electron 3G (U270) |  &check; |
@@ -181,8 +175,6 @@ Some Particle devices support [3rd-party SIM cards](https://docs.particle.io/sup
 | Electron LTE (E402) |&nbsp; |
 | E Series 2G/3G (E310) | &nbsp; |
 | E Series LTE (E402) | &nbsp; |
-
-<sup>1</sup>The B402 SoM includes a MFF2 embedded SIM card on the SoM. It is possible to order it without the SIM and put your own SIM or SIM card card holder on your base board. Minimum order quantities apply.
 
 There are limitations on using 3rd-party SIM cards in large product deployments. If you think you will need to use a 3rd-party SIM you should [contact sales](https://particle.io/sales/) for additional information.
 
@@ -305,7 +297,7 @@ These countries cannot use the Electron 2G at all:
 | --- | --- | :---: | :---: | :---: | :---: | :---: | --- |
 | Boron 2G/3G | World | &check; | &check; | &nbsp; | Gen3 | Both | Feather | 
 | Boron LTE | US | &nbsp; | &nbsp; | M1 | Gen3 |  Both | Feather | 
-| B402 SoM | US | &nbsp; | &nbsp; | M1 | Gen3 | SMD| M.2 SoM | 
+| B402 SoM | US | &nbsp; | &nbsp; | M1 | Gen3 | SMD | M.2 SoM | 
 | Electron 2G (G350) | World| &check; | &nbsp; | &nbsp; | Gen2 | Card | Pins | 
 | Electron 3G (U260) | Americas| &check; | &check; | &nbsp; | Gen2 | Card |Pins | 
 | Electron 3G (U270) | Europe, Asia, Africa | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
