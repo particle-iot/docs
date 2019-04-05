@@ -149,9 +149,16 @@ Fleet-wide OTA (over-the-air) firmware updates make it easy to deploy a new firm
 
 ### Gradual vs. Immediate Firmware Releases
 
-Once you've decided to release your firmware to your devices, the default is a gradual roll-out. This deploys new releases to devices when they reconnect to the Particle Device Cloud. This offers the least disruption, since the device was already in the process of reconnecting. Historically, this was the only option.
+Previously, fleet-wide firmware updates were queued using a Gradual Release. In order to avoid interrupting critical behaviors of deployed units, the Device Cloud waited until the next time targeted devices reconnected to deliver the OTA update to the new version of firmware.
+While this does prevent against device disruption from an OTA, Gradual Releases are rolled out slowly, over a period of about one week. The only way to speed the natural rollout time of a Gradual Release was to force a device to reset.
 
-Immediate Firmware Updates makes it possible to roll out your firmware more rapidly, and also provides fine-grained control over finding a safe time to update devices, controlled by the device itself. For example, consider an electric scooter controller. It could defer updates until the device was parked, for example.
+Immediate Firmware Releases allow you to rapidly deploy new versions of firmware to a device fleet — cutting down the time to complete an fleet-wide OTA significantly (~1 hour or less).
+
+<p class="caption"> Immediate vs. Gradual Comparison </p>
+
+![Immediate vs. Gradual Graph](/assets/images/immediate-vs-gradual-graph.jpg)
+
+This significant increase in speed of delivery does not come at the expense of disrupting critical device behaviors. New Device OS capabilities allow “busy” devices targeted for an Immediate Release to delay the delivery of new firmware until the next time it is ready to accept it. For instance, an electric scooter being ridden at the time of a release event could defer its OTA update until the next time it was parked. This device and cloud coordination gives your team fine-grained control to deliver updates at the opportune time for your specific use case.
 
 <img src="/assets/images/immediate-vs-gradual-comparison.png" class="full-width tall" />
 
@@ -159,10 +166,7 @@ Available devices include the devices that are online and are currently acceptin
 
 Devices that are offline are updated when they come back online again. This includes both devices that are using sleep modes to conserve battery power and devices that are currently out of range of cellular, for example.
 
-<p class="caption"> Immediate vs. Gradual Comparison </p>
-
-![Immediate vs. Gradual Graph](/assets/images/immediate-vs-gradual-graph.jpg)
-
+Immediate Firmware Releases are only available to Enterprise customers. [Interested in Immediate Firmware Releases?](https://www.particle.io/sales)
 
 ### Firmware Releases
 
