@@ -11,20 +11,20 @@ order: 10
 
 ### Windows
 
-- Download the Windows installer (.exe file).
+- Download the [Windows installer](https://binaries.particle.io/workbench/ParticleWorkbenchInstaller.exe) (.exe file).
 - Double-click on the .exe file to begin installation.
 - Continue with the instructions for all operating systems, below.
 
 ### Mac
 
-- Download the Mac installer (.zip file)
+- Download the [Mac installer](https://binaries.particle.io/workbench/ParticleWorkbenchInstaller.zip) (.zip file)
 - Double-click on the .zip file to extract it.
 - Double-click on the **Particle Workbench Installer** to begin installation.
 - Continue with the instructions for all operating systems, below.
 
 ### Linux
 
-- Download the Windows installer (.AppImage file)
+- Download the [Linux installer](https://binaries.particle.io/workbench/ParticleWorkbenchInstaller.AppImage) (.AppImage file)
 - Right-click on the .AppImage file and select the **Allow executing file as program** option. Alternatively, use the `chmod a+x` command to enable execution of the .AppImage file.
 
 ![Set Executable](/assets/images/workbench/linux-set-executable.png)
