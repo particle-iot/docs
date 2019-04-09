@@ -47,9 +47,11 @@ When prompted, be sure to click **Install** when asked to **Please install workb
 ![Install dependencies](/assets/images/workbench/install6.png)
 
 
-{{collapse op="start" label="Manual install alternative (optional)"}}
+### Manual installation
 
-The installer-based method described above is recommended, but if you prefer to install manually:
+The installer-based method described above is recommended, but if you prefer to install manually, click to expand the manual installation section.
+
+{{collapse op="start" label="Manual install alternative (optional)"}}
 
 - If you have not already done so, [download Visual Studio Code](https://code.visualstudio.com/) for Mac, Windows, or Linux. We recommend the Stable build. If you already have Visual Studio Code install you can add the Particle Workbench to your existing install.
 
