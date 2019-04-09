@@ -402,7 +402,7 @@ handler = ParticleCloud.sharedInstance().subscribeToAllEvents(withPrefix: "temp"
 *Note:* You can have multiple handlers per event name and/or same handler per multiple events names.
 
 
-Subscribe to all events, public and private, published by devices the user owns (`handler` is a [Obj-C block](http://goshdarnblocksyntax.com/) or [Swift closure](http://fuckingswiftblocksyntax.com/)):
+Subscribe to all events, public and private, published by devices the user owns (`handler` is a Obj-C block or Swift closure:
 
 **Objective-C**
 
