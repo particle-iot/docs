@@ -18,6 +18,12 @@ layout: tutorials.hbs
 
 ## Workbench Features
 
+### Welcome Screen
+
+![Welcome Screen](/assets/images/workbench/welcome.png)
+
+The Welcome Screen has handy tips for using Workbench. If you close it, you can get it back by clicking on the Particle icon in the left toolbar.
+
 ### Left Toolbar
 
 Typically, there is a toolbar on the left with frequently used features.
@@ -30,13 +36,6 @@ Typically, there is a toolbar on the left with frequently used features.
 | <img src="/assets/images/workbench/left-bar-debugger.png" class="toolbarIcon" /> | Source level debugger |
 | <img src="/assets/images/workbench/left-bar-extensions.png" class="toolbarIcon" /> | Add or modify VS Code Extensions |
 | <img src="/assets/images/workbench/left-bar-particle.png" class="toolbarIcon" /> | Particle Welcome Screen |
-
-
-### Welcome Screen
-
-![Welcome Screen](/assets/images/workbench/welcome.png)
-
-The Welcome Screen has handy tips for using Workbench. If you close it, you can get it back by clicking on the Particle icon in the left toolbar.
 
 
 ### Particle Commands
@@ -269,6 +268,8 @@ Navigating into AssetTrackerRK you can see the source and examples, and also the
 
 ![Library Read Me](/assets/images/workbench/library-readme.png)
 
+You can also install a specific version of a library by using a syntax like `dotstar@0.0.4`. You can also change the version by editing the project.properties file at the top of your project.
+
 
 ### Snippets
 
@@ -342,6 +343,14 @@ particle call argon2 div 10
 - When done, **Continue** (4).
 
 ![Debug Breakpoint](/assets/images/workbench/debug-6.png)
+
+- In the TinkerBreak.cpp source file, you'll notice this at the top of the file. This is helpful to add to your source files to turn off compiler optimization, making it easier to debug. Otherwise you can't break on some lines, and some local variables won't be available.
+
+```
+#pragma GCC optimize ("O0")
+```
+
+
 
 That is just a brief introduction to debugging. For more information, see the [VS Code Debugging Documentation](https://code.visualstudio.com/docs/editor/debugging).
 

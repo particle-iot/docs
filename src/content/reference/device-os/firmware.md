@@ -8489,7 +8489,7 @@ This class allows to define a _LED status_ that represents an application-specif
 
 ```cpp
 // EXAMPLE - defining and using a LED status
-LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK);
+LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK, LED_SPEED_NORMAL, LED_PRIORITY_IMPORTANT);
 
 void setup() {
     // Blink red for 3 seconds after connecting to the Cloud
@@ -9642,6 +9642,8 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
 
   - D0, A5 (shared with MODE button)
   - D7 (shared with BATT_INT_PC13)
+  - C1 (shared with RXD_UC)
+  - C2 (shared with RI_UC)
 
 No restrictions on the Electron/E series (all of these can be used at the same time):
 
@@ -12579,6 +12581,70 @@ Determine if OTA updates are presently enabled or disabled.
 Indicates if there are OTA updates pending.
 
 **Note:** Currently this function does not really do what the name might suggests but rather indicates whether an update is currently active or not. It can't be used in connection with `System.disableUpdates()` as that would prevent `System.upatesPending()` from becoming `true`. 
+
+## Checking for Features
+
+User firmware is designed to run transparently regardless of what type of device it is run on. However, sometimes you will need to have code that varies, depending on the device.
+
+It's always best to check for a capability, rather than a specific device. For example, checking for cellular instead of checking for the Electron allows the code to work properly on the Boron without modification.
+
+Some commonly used features include:
+
+- Wiring_Cellular
+- Wiring_Ethernet
+- Wiring_IPv6
+- Wiring_Keyboard
+- Wiring_Mesh
+- Wiring_Mouse
+- Wiring_Serial2
+- Wiring_Serial3
+- Wiring_Serial4
+- Wiring_Serial5
+- Wiring_SPI1
+- Wiring_SPI2
+- Wiring_USBSerial1
+- Wiring_WiFi
+- Wiring_Wire1
+- Wiring_Wire3
+- Wiring_WpaEnterprise
+
+For example, you might have code like this to declare two different methods, depending on your network type:
+
+```
+#if Wiring_WiFi
+	const char *wifiScan();
+#endif
+
+#if Wiring_Cellular
+	const char *cellularScan();
+#endif
+```
+
+The official list can be found [in the source](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_platform.h#L47).
+
+### Checking Device OS Version
+
+The define value `SYSTEM_VERSION` specifies the [system version](https://github.com/particle-iot/device-os/blob/develop/system/inc/system_version.h).
+
+For example, if you had code that you only wanted to include in 0.7.0 and later, you'd check for:
+
+```
+#if SYSTEM_VERSION >= SYSTEM_VERSION_v070
+// Code to include only for 0.7.0 and later
+#endif
+```
+
+### Checking Platform ID
+
+It's always best to check for features, but it is possible to check for a specific platform:
+
+```
+#if PLATFORM_ID == PLATFORM_BORON
+// Boron-specific code goes here
+#endif
+```
+
+You can find a complete list of platforms in [the source](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 
 ## Arduino Compatibility
 
