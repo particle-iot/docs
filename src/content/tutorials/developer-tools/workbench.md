@@ -147,6 +147,9 @@ If you are getting mysterious errors, sometimes it's helpful to do a clean to re
 
 ![Clean Local](/assets/images/workbench/local-5.png)
 
+When switching from a debug build back to a non-debug build, be sure to use the **Particle: Flash application & Device OS (local)** option once. This will put the correct modular Device OS build back onto the device.
+
+
 ### Compile and Flash Buttons
 
 When you are viewing a .cpp or .ino file, there will be two new icons in the upper right corner:
@@ -268,8 +271,22 @@ Navigating into AssetTrackerRK you can see the source and examples, and also the
 
 ![Library Read Me](/assets/images/workbench/library-readme.png)
 
+#### Installing a specific version
+
 You can also install a specific version of a library by using a syntax like `dotstar@0.0.4`. You can also change the version by editing the project.properties file at the top of your project.
 
+#### Removing a library
+
+To remove a library, you should:
+
+- Remove the entry for it in your `project.properties` file in the top level of your project.
+- If there's a folder for it in the `libs` directory at the top level of your project, remove that too.
+
+#### Using a locally modified library
+
+You'll notice a copy of the libraries you've added in the `libs` directory in the top level of your project. This is handy for viewing the source and examples.
+
+If you want to make modifications to the library, be sure to remove the library from the `project.properties` file in the top level of your project. If you leave the library in project.properties the official release will be used to build. If you remove it, then the local version you modified in your libs directory will be used instead.
 
 ### Snippets
 
@@ -344,12 +361,23 @@ particle call argon2 div 10
 
 ![Debug Breakpoint](/assets/images/workbench/debug-6.png)
 
+#### Disabling Optimization
+
 - In the TinkerBreak.cpp source file, you'll notice this at the top of the file. This is helpful to add to your source files to turn off compiler optimization, making it easier to debug. Otherwise you can't break on some lines, and some local variables won't be available.
 
 ```
 #pragma GCC optimize ("O0")
 ```
 
+#### Debugging FreeRTOS
+
+By default, you cannot step into the underlying FreeRTOS (real-time operating system code). You can enable it by adding:
+
+```
+"rtos":"FreeRTOS"
+```
+
+to your launch.json file. This is experimental and may cause the GDB server to crash or malfunction, so it's best to only enable this if necessary.
 
 
 That is just a brief introduction to debugging. For more information, see the [VS Code Debugging Documentation](https://code.visualstudio.com/docs/editor/debugging).
@@ -398,6 +426,122 @@ You need to connect:
 
 The rest of the instructions are the same as for 3rd-generation. Start with the putting your device in DFU mode step.
 
+## Command Palette Reference
+
+
+#### Particle: Audit Environment
+
+Prints information about the VS Code environment and settings to the Output window. This can be useful to send in [technical support requests](https://particle.io/support). 
+
+If you are sharing the information in a public place like the [community forums](https://community.particle.io) be sure there isn't sensitive information you do not want to share in the data.
+
+#### Particle: Call Function
+
+Call a function on a device. The device is selected with **Particle: Configure Workspace For Device** and you are prompted for the name of the function to call and the optional parameter. The device must be online and breathing cyan and have registered that function in order to call it.
+
+#### Particle: Add / Remove `particle` Command in PATH
+
+
+#### Particle: Clean application (local)
+
+The Clean options remove the intermediate object files and built binaries. This option removes only the application intermediate files, leaving the Device OS binaries unchanged. You might want to do this if you are getting unexpected compile errors in your application.
+
+These are kept separate for each DeviceOS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+
+#### Particle: Clean application & DeviceOS (local)
+
+The Clean options remove the intermediate object files and built binaries. This option removes both the application and DeviceOS intermediate files.
+
+These are kept separate for each DeviceOS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+
+#### Particle: Clean application for debug (local)
+
+The Clean options remove the intermediate object files and built binaries. For debug (monolithic) builds this option removes all of the intermediate files for both your application and DeviceOS.
+
+These are kept separate for each DeviceOS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+
+#### Particle: Cloud Compile
+#### Particle: Cloud Flash
+#### Particle: Compile application (local)
+#### Particle: Compile application & DeviceOS (local)
+#### Particle: Compile application for debug (local)
+#### Particle: Configure Workspace For Device
+#### Particle: Create New Project
+#### Particle: Find Libraries
+
+Find a Particle library. You can enter a portion of a name and it will return matching libraries. For example, searching for **DS18** results in:
+
+```
+$ particle library search DS18
+> Found 2 libraries matching DS18
+DS18B20 0.1.12 101761 DSB18XX Lib for Particle devices
+ds18x20 0.0.4 6487 DS18B20/DS18S20 library with support for multiple sensors
+```
+
+You can then use **Particle: Install Library** to install it.
+
+#### Particle: Flash application (local)
+#### Particle: Flash application & DeviceOS (local)
+#### Particle: Flash application for debug (local)
+#### Particle: Get Help
+
+Provides links to various useful resources for Workbench.
+
+#### Particle: Import Project
+
+For an existing Particle project containing a project.properties file, creates the additional directories and files needed to use it with VS Code.
+
+#### Particle: Install Library
+
+Add a library to the current project. You can search for library using **Particle: Find Libraries** if you are not sure of the exact name. You can specify a specific version, for example `DS18B20@0.1.11`.
+
+This adds the library to the `project.properties` file at the top level of your project and downloads the source to the `libs` directory.
+
+#### Particle: Install Local Compiler
+
+Install a local compiler toolchain and DeviceOS source. You need to do this for any specific version of DeviceOS that you want to target. You can remove unneeded compilers by using **Particle: Uninstall Local Compiler**.
+
+#### Particle: Launch CLI
+#### Particle: Launch Compiler Shell
+#### Particle: Login
+
+Log in to a Particle account. This is necessary to cloud compile and flash. The **Particle: Who Am I?** command can be used to determine who you are logged in as.
+
+#### Particle: Logout
+
+Log out from a Particle account so a different user can log in.
+
+#### Particle: Read Variable
+
+Read a Particle variable from a device. The device is selected with **Particle: Configure Workspace For Device** and you are prompted for the name of the variable to read. The device must be online and breathing cyan and have registered that variable to read it.
+
+#### Particle: Reset Environment
+
+This will uninstall and reinstall your local compilers. This takes a while to execute, but can clear up problems caused by a corrupted install.
+
+#### Particle: Serial Monitor
+
+Opens a Serial Port window to a device connected by USB. You can optionally have the connection reopened when the device restarts (such as when flashing new code), or just disconnect. If there are multiple devices connected by USB, you may be prompted to choose which one.
+
+The serial monitor is often used for debugging to view the output from commands like `Log.info` and `Serial.print` in your firmware.
+
+#### Particle: Show Welcome Screen
+
+Shows the Welcome Screen. The Particle icon in the left toolbar also does this.
+
+#### Particle: Uninstall Local Compiler
+
+Uninstall a version of the local compiler. Use this to remove versions you no longer need to save disk space. You'll be prompted to select what version you want to remove.
+
+#### Particle: Update CLI
+
+Update the included Particle CLI (command line interface) to the latest version.
+
+#### Particle: Who Am I?
+
+Shows who you are logged in as. A small popup window will display in the lower right with the account email address.
+
+#### Particle: Workbench: Focus on Welcome View
 
 ## Migration Guide
 

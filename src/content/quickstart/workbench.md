@@ -9,6 +9,48 @@ order: 10
 
 ## Installation
 
+### Windows
+
+- Download the Windows installer (.exe file).
+- Double-click on the .exe file to begin installation.
+- Continue with the instructions for all operating systems, below.
+
+### Mac
+
+- Download the Mac installer (.zip file)
+- Double-click on the .zip file to extract it.
+- Double-click on the **Particle Workbench Installer** to begin installation.
+- Continue with the instructions for all operating systems, below.
+
+### Linux
+
+- Download the Windows installer (.AppImage file)
+- Right-click on the .AppImage file and select the **Allow executing file as program** option. Alternatively, use the `chmod a+x` command to enable execution of the .AppImage file.
+
+![Set Executable](/assets/images/workbench/linux-set-executable.png)
+
+- Double-click on the .AppImage to begin installation.
+- Continue with the instructions for all operating systems, below.
+
+### All Operating Systems
+
+After clicking through the first two screens, you'll reach the first option. It is not necessary to install the Azure IoT toolkit.
+
+![Install Options](/assets/images/workbench/install4.png)
+
+Finally, when you reach the end of the install, both progress bars will reach 100% and the **Next** button will be enabled. You do need to click Next, otherwise you'll stay in that screen forever.
+
+![Install complete](/assets/images/workbench/install5.png)
+
+When prompted, be sure to click **Install** when asked to **Please install workbench dependencies**.
+
+![Install dependencies](/assets/images/workbench/install6.png)
+
+
+{{collapse op="start" label="Manual install alternative (optional)"}}
+
+The installer-based method described above is recommended, but if you prefer to install manually:
+
 - If you have not already done so, [download Visual Studio Code](https://code.visualstudio.com/) for Mac, Windows, or Linux. We recommend the Stable build. If you already have Visual Studio Code install you can add the Particle Workbench to your existing install.
 
 - Open the [VisualStudio Marketplace](https://marketplace.visualstudio.com/items?itemName=particle.particle-vscode-pack) in your web browser.
@@ -33,7 +75,9 @@ After reload, some more components will be installed and you will be prompted to
 
 ![Local Compiler](/assets/images/workbench/install-local.png)
 
-That's it!
+{{collapse op="end"}}
+
+
 
 ## Create a project
 
