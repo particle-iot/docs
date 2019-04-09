@@ -20,7 +20,7 @@ It is possible to put your {{device}} in [Listening Mode](/tutorials/device-os/l
 
 #### For Windows
 
-For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://github.com/particle-iot/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
+For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). 
 
 Plug your device into your computer over USB. When the {{device}} is in [Listening Mode](/tutorials/device-os/led/#listening-mode), open a serial port over USB using the standard settings, which should be:
 
@@ -118,30 +118,7 @@ The configuration process will be almost identical to the process laid out in th
 
 ## DFU Commands
 
-If you can't get the CLI working, you may have to put your device in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and use [dfu-util](http://dfu-util.sourceforge.net/) to get some basic commands done. A list of DFU commands is below. To use these, you can download dfu-util via the above link, then go to the command line and run dfu-util with one of the following commands.
-
-We don't recommend using these commands unless you're very comfortable with the platform or unless you've been instructed to do so by Particle Support or an Elite community member.
-
-### Windows Setup
-
-dfu-util works from the command line with macOS, but to use dfu-util on Windows, you'll need several drivers.
-
-- First, you'll need to download and install the [Particle driver](https://github.com/particle-iot/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
-
-- Once that is done, put your {{device}} in DFU mode.
-
-- Then download the tar files for dfu-util [here](http://dfu-util.sourceforge.net/releases/dfu-util-0.8-binaries.tar.xz).
-
-- You can unzip these files using a utility like [7-zip](http://www.7-zip.org/).
-
-- After this, you should install [Zadig](http://zadig.akeo.ie/).
-
-- Open Zadig and install WinUSB to your Particle device.
-
-{{!-- Is this tutorial still relevant? --}}
-For a better illustrated version of these instructions, check out steps 1-5 of [Jon Gallant's tutorial](http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html).
-
-Now you are ready for DFU commands!
+There are a number of low-level commands that can be used in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) 
 
 {{#if core}}
 ### Core DFU commands:
