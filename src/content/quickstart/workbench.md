@@ -31,6 +31,10 @@ order: 10
 
 - Double-click on the .AppImage to begin installation.
 - Continue with the instructions for all operating systems, below.
+- You will be prompted to authenticate as the super user up to 4 times during installation, for /usr/bin/apt and /bin/readlink:
+
+![Authenticate](/assets/images/workbench/install7.png)
+
 
 ### All Operating Systems
 
