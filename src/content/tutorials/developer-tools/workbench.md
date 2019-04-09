@@ -46,6 +46,8 @@ Workbench adds custom Particle commands to the palette. Start typing `Particle` 
 
 ![Command Palette](/assets/images/workbench/command-palette.png)
 
+There is also a [command palette reference](#command-palette-reference) below.
+
 ### Dependency Manager
 
 Downloading and maintaining a local toolchain can be a full-time job so Workbench introduces a new dependency manager. It downloads the Device OS, build system, compiler, and anything else needed to develop and debug Device OS apps, and places them in a local, private location in user space as to not mess with your current configuration.
@@ -428,50 +430,91 @@ The rest of the instructions are the same as for 3rd-generation. Start with the 
 
 ## Command Palette Reference
 
-
-#### Particle: Audit Environment
+	
+### Particle: Audit Environment
 
 Prints information about the VS Code environment and settings to the Output window. This can be useful to send in [technical support requests](https://particle.io/support). 
 
 If you are sharing the information in a public place like the [community forums](https://community.particle.io) be sure there isn't sensitive information you do not want to share in the data.
 
-#### Particle: Call Function
+### Particle: Call Function
 
 Call a function on a device. The device is selected with **Particle: Configure Workspace For Device** and you are prompted for the name of the function to call and the optional parameter. The device must be online and breathing cyan and have registered that function in order to call it.
 
-#### Particle: Add / Remove `particle` Command in PATH
+### Particle: Add / Remove `particle` Command in PATH
 
+The Particle CLI (command line interface) is used for many operations within Particle Workbench. This option can be used to add or remove it from the command line tool search path.
 
-#### Particle: Clean application (local)
+### Particle: Clean application (local)
 
 The Clean options remove the intermediate object files and built binaries. This option removes only the application intermediate files, leaving the Device OS binaries unchanged. You might want to do this if you are getting unexpected compile errors in your application.
 
-These are kept separate for each DeviceOS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+These are kept separate for each Device OS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
 
-#### Particle: Clean application & DeviceOS (local)
+### Particle: Clean application & DeviceOS (local)
 
-The Clean options remove the intermediate object files and built binaries. This option removes both the application and DeviceOS intermediate files.
+The Clean options remove the intermediate object files and built binaries. This option removes both the application and Device OS intermediate files.
 
-These are kept separate for each DeviceOS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+These are kept separate for each Device OS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
 
-#### Particle: Clean application for debug (local)
+### Particle: Clean application for debug (local)
 
-The Clean options remove the intermediate object files and built binaries. For debug (monolithic) builds this option removes all of the intermediate files for both your application and DeviceOS.
+The Clean options remove the intermediate object files and built binaries. For debug (monolithic) builds this option removes all of the intermediate files for both your application and Device OS.
 
-These are kept separate for each DeviceOS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
+These are kept separate for each Device OS version, platform (Photon, P1, Electron/E Series, Argon, Boron, Xenon, etc.), as well as debug (monolithic) and non-debug (modular).
 
-#### Particle: Cloud Compile
-#### Particle: Cloud Flash
-#### Particle: Compile application (local)
-#### Particle: Compile application & DeviceOS (local)
-#### Particle: Compile application for debug (local)
-#### Particle: Configure Workspace For Device
-#### Particle: Create New Project
-#### Particle: Find Libraries
+### Particle: Cloud Compile
+
+This option compiles in the cloud and downloads the binary to the top level of your project.
+
+This is handy for quickly checking the syntax of your program, and also if you want to compile in the cloud and flash by USB to save on data for cellular devices like the Electron and Boron.
+
+The device type and Device OS version are selected with **Particle: Configure Workspace For Device**. 
+
+### Particle: Cloud Flash
+
+This option compiles in the cloud and flashes the code to the device OTA.
+
+The device type, Device OS version, and device name are selected with **Particle: Configure Workspace For Device**. 
+
+### Particle: Compile application (local)
+
+This option compiles your user firmware using the local compiler toolchain. It will create a firmware binary, but does not flash to the device.
+
+When you first install a new compiler version, you should use the **Particle: Flash application & DeviceOS (local)** option at least once to make sure your device has the correct Device OS version installed.
+
+The device type and Device OS version are selected using **Particle: Install Local Compiler**.
+
+
+### Particle: Compile application & DeviceOS (local)
+
+This option compiles both Device OS and your user firmware using the local compiler toolchain. It will create a set of binaries, but does not flash to the device. The **Particle: Flash application & DeviceOS (local)** can be used to both compile and flash.
+
+The device type and Device OS version are selected using **Particle: Install Local Compiler**.
+
+### Particle: Compile application for debug (local)
+
+This option compiles both Device OS and your user firmware using the local compiler toolchain as a monolithic debug build. It will create a single monolithic binary containing both Device OS and user firmware, but does not flash to the device. The **Particle: Flash application for debug (local)** can be used to both compile and flash.
+
+The device type and Device OS version are selected using **Particle: Install Local Compiler**.
+
+### Particle: Configure Workspace For Device
+
+Selects the version of Device OS, device type (Photon, P1, Electron, Argon, Boron, Xenon, etc.) and optionally a specific device name to work with. 
+
+This is used by the **Particle: Cloud Compile**. When using **Particle: Cloud Flash**, **Particle: Call Function** or **Particle: Read Variable** you must include the device name to work with.
+
+### Particle: Create New Project
+
+Create a new project. Typically each firmware binary or user application is a single project, and you only open one project at a time. 
+
+It is possible to have a multi-root workspace, where there are multiple projects visible at once. The downside is that for many operations like **Particle: Flash application (local)** you then need to select which of the available projects you want to build.
+
+### Particle: Find Libraries
 
 Find a Particle library. You can enter a portion of a name and it will return matching libraries. For example, searching for **DS18** results in:
 
-```
+```html
 $ particle library search DS18
 > Found 2 libraries matching DS18
 DS18B20 0.1.12 101761 DSB18XX Lib for Particle devices
@@ -480,68 +523,98 @@ ds18x20 0.0.4 6487 DS18B20/DS18S20 library with support for multiple sensors
 
 You can then use **Particle: Install Library** to install it.
 
-#### Particle: Flash application (local)
-#### Particle: Flash application & DeviceOS (local)
-#### Particle: Flash application for debug (local)
-#### Particle: Get Help
+### Particle: Flash application (local)
+
+This option compiles your user firmware using the local compiler toolchain. It will create a firmware binary and also flash it to the device over USB. The device must be in DFU mode (blinking yellow).
+
+When you first install a new compiler version, you should use the **Particle: Flash application & DeviceOS (local)** option at least once to make sure your device has the correct Device OS version installed.
+
+The device type and Device OS version are selected using **Particle: Install Local Compiler**.
+
+### Particle: Flash application & DeviceOS (local)
+
+This option compiles both Device OS and your user firmware using the local compiler toolchain. It will create a set of binaries also flash them to the device over USB. The device must be in DFU mode (blinking yellow).
+
+The device type and Device OS version are selected using **Particle: Install Local Compiler**.
+
+### Particle: Flash application for debug (local)
+
+This option compiles both Device OS and your user firmware using the local compiler toolchain as a monolithic debug build. It will create a single monolithic binary containing both Device OS and user firmware and also flash it to the device over USB. The device must be in DFU mode (blinking yellow).
+
+The device type and Device OS version are selected using **Particle: Install Local Compiler**.
+
+### Particle: Get Help
 
 Provides links to various useful resources for Workbench.
 
-#### Particle: Import Project
+### Particle: Import Project
 
 For an existing Particle project containing a project.properties file, creates the additional directories and files needed to use it with VS Code.
 
-#### Particle: Install Library
+### Particle: Install Library
 
 Add a library to the current project. You can search for library using **Particle: Find Libraries** if you are not sure of the exact name. You can specify a specific version, for example `DS18B20@0.1.11`.
 
 This adds the library to the `project.properties` file at the top level of your project and downloads the source to the `libs` directory.
 
-#### Particle: Install Local Compiler
+### Particle: Install Local Compiler
 
-Install a local compiler toolchain and DeviceOS source. You need to do this for any specific version of DeviceOS that you want to target. You can remove unneeded compilers by using **Particle: Uninstall Local Compiler**.
+Install a local compiler toolchain and Device OS source. You need to do this for any specific version of Device OS that you want to target. You can remove unneeded compilers by using **Particle: Uninstall Local Compiler**.
 
-#### Particle: Launch CLI
-#### Particle: Launch Compiler Shell
-#### Particle: Login
+### Particle: Launch CLI
+
+Opens a Terminal window pane to use Particle CLI commands directly. Note that you still need to enter the particle command, as in:
+
+```
+particle help
+```
+
+### Particle: Launch Compiler Shell
+
+Opens a Terminal window pane to issue make commands directly with more options. A help screen is displayed when you open the compiler shell with the available options.
+
+Normally you'll just use options like **Particle: Flash application (local)** instead of using the compiler shell.
+
+### Particle: Login
 
 Log in to a Particle account. This is necessary to cloud compile and flash. The **Particle: Who Am I?** command can be used to determine who you are logged in as.
 
-#### Particle: Logout
+### Particle: Logout
 
-Log out from a Particle account so a different user can log in.
+Log out from a Particle account so a different user can log in. 
 
-#### Particle: Read Variable
+If you are on a shared computer you should always logout before exiting Workbench as you'll be automatically logged in when restarting if you don't log out first.
+
+### Particle: Read Variable
 
 Read a Particle variable from a device. The device is selected with **Particle: Configure Workspace For Device** and you are prompted for the name of the variable to read. The device must be online and breathing cyan and have registered that variable to read it.
 
-#### Particle: Reset Environment
+### Particle: Reset Environment
 
 This will uninstall and reinstall your local compilers. This takes a while to execute, but can clear up problems caused by a corrupted install.
 
-#### Particle: Serial Monitor
+### Particle: Serial Monitor
 
 Opens a Serial Port window to a device connected by USB. You can optionally have the connection reopened when the device restarts (such as when flashing new code), or just disconnect. If there are multiple devices connected by USB, you may be prompted to choose which one.
 
 The serial monitor is often used for debugging to view the output from commands like `Log.info` and `Serial.print` in your firmware.
 
-#### Particle: Show Welcome Screen
+### Particle: Show Welcome Screen
 
 Shows the Welcome Screen. The Particle icon in the left toolbar also does this.
 
-#### Particle: Uninstall Local Compiler
+### Particle: Uninstall Local Compiler
 
 Uninstall a version of the local compiler. Use this to remove versions you no longer need to save disk space. You'll be prompted to select what version you want to remove.
 
-#### Particle: Update CLI
+### Particle: Update CLI
 
 Update the included Particle CLI (command line interface) to the latest version.
 
-#### Particle: Who Am I?
+### Particle: Who Am I?
 
 Shows who you are logged in as. A small popup window will display in the lower right with the account email address.
 
-#### Particle: Workbench: Focus on Welcome View
 
 ## Migration Guide
 
