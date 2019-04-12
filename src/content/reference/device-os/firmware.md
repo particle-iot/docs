@@ -11478,7 +11478,7 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 
 {{#if has-nrf52}}
 
-The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by rising D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
+The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
 
 Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
 
