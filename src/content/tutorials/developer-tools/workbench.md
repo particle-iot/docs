@@ -428,6 +428,14 @@ You need to connect:
 
 The rest of the instructions are the same as for 3rd-generation. Start with the putting your device in DFU mode step.
 
+## Source Code Management
+
+Visual Studio Code provides a support for a number of source code management providers. Source code management makes it easy for team members to share code, track changes over time, and provide a cloud-based repository for storing a copy of your code.
+
+[The VS Code Instructions](https://code.visualstudio.com/docs/editor/versioncontrol) are a great place to start.
+
+Particle open source projects and many community libraries are stored in Github, and there is good support for Git in VS Code, so that's often a good choice. You can get started at the [Git SCM](https://git-scm.com/) website.
+
 ## Command Palette Reference
 
 	
