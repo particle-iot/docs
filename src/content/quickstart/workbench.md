@@ -52,8 +52,6 @@ Finally, when you reach the end of the install, both progress bars will reach 10
 
 When prompted, be sure to click **Install** when asked to **Please install workbench dependencies**.
 
-![Install dependencies](/assets/images/workbench/install6.png)
-
 
 ### VS Code already installed
 
