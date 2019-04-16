@@ -152,7 +152,7 @@ Fleet-wide OTA (over-the-air) firmware updates make it easy to deploy a new firm
 Previously, fleet-wide firmware updates were queued using a Gradual Release. In order to avoid interrupting critical behaviors of deployed units, the Device Cloud waited until the next time targeted devices reconnected to deliver the OTA update to the new version of firmware.
 While this does prevent against device disruption from an OTA, Gradual Releases are rolled out slowly, over a period of about one week. The only way to speed the natural rollout time of a Gradual Release was to force a device to reset.
 
-Immediate Firmware Releases allow you to rapidly deploy new versions of firmware to a device fleet — cutting down the time to complete an fleet-wide OTA significantly (~1 hour or less).
+[**Immediate Firmware Releases**](#immediate-firmware-releases-alpha-)  allow you to rapidly deploy new versions of firmware to a device fleet — cutting down the time to complete an fleet-wide OTA significantly (~1 hour or less).
 
 <p class="caption"> Immediate vs. Gradual Comparison </p>
 
@@ -553,7 +553,16 @@ The default behavior is for updates to occur when a device establishes a session
 
 Previously, for Electron, E Series, and Gen 3 (Argon, Boron, and Xenon) updates occurred only after a full session authentication. This could occur as infrequently as every 10 days, or when manually forced from the cloud or device side. Also, the update check occurred tens of seconds after the connection was established. Now updates are also checked on session resume, which occurs much more often, including after waking from sleep mode, and occurs much more quickly, making it possible for battery-powered devices to go to sleep much more quickly if an update is not required. 
 
-{{!-- TODO: Add this section back when I can take screenshots ### OTA availability in the Console --}}
+### OTA availability in the Console
+ 
+Normally, a device is enabled for OTA updates. When you use **View Device** in the console, this will be shown in **Firmware**:
+
+![OTA Updates Enabled](/assets/images/ota-updates/updates-enabled.png)
+
+This feature requires a firmware binary built for Device OS 1.2.0 or later. If an earlier version is used, the firmware options will not be available.
+
+![Device OS 1.2.0 required](/assets/images/ota-updates/update-device-os.png)
+
 
 ### Disabling OTA updates
 
@@ -566,6 +575,8 @@ Calling `System.disableUpdates()` will **prevent all over-the-air
 firmware requests from initiating**, including single device OTA
 attempts (i.e. flashing development firmware in the Web IDE) and
 fleet-wide OTA attempts (i.e. a firmware release).
+
+![OTA Updates Enabled](/assets/images/ota-updates/updates-disabled.png)
 
 ### Re-enabling OTA updates
 
@@ -591,7 +602,9 @@ will emit an internal system event, `firmware_update_pending` and
 
 While you can inhibit firmware updates from your device firmware, sometimes you need to override the device. If, for example, you flashed firmware that had a bug in the disable updates code, you might need to force enable updates to replace the bad code.
 
-Fortunately, this can be done remotely by selecting the Force Enable OTA Updates option in the device settings in the console.
+Fortunately, this can be done remotely by selecting the Force Enable OTA Updates option when viewing a device in the console.
+
+![Force Enable Updates](/assets/images/ota-updates/force-enable.png)
 
 
 ### Putting it all together
