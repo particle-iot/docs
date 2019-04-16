@@ -61,7 +61,15 @@ DEVICE_OS_PATH=/path/to/device-os/ make -f $PARTICLE_MAKEFILE compile-all
 - Open a terminal
 - Run `sudo apt-get purge code`. This currently only works with Ubuntu and other Debian-style distributions.
 
+## Linux Tips
 
+- On 64-bit Linux you may need to install 32-bit libraries:
+
+```
+sudo apt-get install gcc-multilib libncurses5:i386
+```
+
+- If you get a permission error when debugging, you may need to add udev rule. Download [99-openocd.rules](/assets/files/99-openocd.rules) and copy it to `/etc/udev/rules.d/`.
 
 
 

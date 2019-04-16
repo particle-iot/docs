@@ -38,6 +38,7 @@ order: 10
 ![Authenticate](/assets/images/workbench/install7.png)
 
 - Ubuntu Linux (or other Debian-style distribution) is required to use the installer.
+- If you are having difficulties, there are [additional tips in the FAQ](/support/particle-tools-faq/workbench/#linux-tips).
 
 ### All Operating Systems
 
