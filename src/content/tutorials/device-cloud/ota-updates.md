@@ -125,7 +125,7 @@ The Particle [Device OS](/tutorials/device-os/device-os/) provides the foundatio
 - Hardware abstraction layer, allowing your code to be run on a variety of devices
 - Real-time operating system (RTOS)
 
-The device OS can be updated over-the-air as needed, however you are always in control over updates. You can choose whether you want to upgrade or not for any release.
+The Device OS can be updated over-the-air as needed, however you are always in control over updates. You can choose whether you want to upgrade or not for any release.
 
 ### Application firmware
 
@@ -149,7 +149,7 @@ Fleet-wide OTA (over-the-air) firmware updates make it easy to deploy a new firm
 
 ### Gradual vs. Immediate Firmware Releases
 
-Previously, fleet-wide firmware updates were queued using a Gradual Release. In order to avoid interrupting critical behaviors of deployed units, the Device Cloud waited until the next time targeted devices reconnected to deliver the OTA update to the new version of firmware.
+Previously, fleet-wide firmware updates were queued using a Gradual Release. In order to avoid interrupting critical behaviors of deployed units, the Device Cloud waited until the next time targeted devices reconnected to deliver the OTA update to the new version of firmware. This occurs a few seconds after the cloud connection is established.
 While this does prevent against device disruption from an OTA, Gradual Releases are rolled out slowly, over a period of about one week. The only way to speed the natural rollout time of a Gradual Release was to force a device to reset.
 
 [**Immediate Firmware Releases**](#immediate-firmware-releases-alpha-)  allow you to rapidly deploy new versions of firmware to a device fleet — cutting down the time to complete an fleet-wide OTA significantly (~1 hour or less).
@@ -470,70 +470,6 @@ Immediate Release:
 
 <img class="small" src="/assets/images/ota-updates/immediate-fw-list.png" />
 
-## Single Device OTA
-
-Single Device OTA is the how most users initially program their Particle developer devices using the IDEs.
-
-### OTA in the IDEs
-
-From the Particle [Web IDE](https://build.particle.io), you simply select the device you want to flash from the **Devices** tab (circle with 4 lines) and click the **Flash** icon.
-
-From Particle [Workbench](https://www.particle.io/workbench/) you select the device using [Particle: Configure Workspace for Device](/tutorials/developer-tools/workbench/#cloud-build-and-flash) and compile and flash using ** Particle: Cloud Flash**.
-
-From the [Particle CLI](https://particle.io/cli/), you use a command like:
-
-```
-particle flash my-device my-app.ino
-```
-
-When used with products, the device must not only be marked as a development device, but also claimed to your Particle account. For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
-
-### Flash via the REST API
-
-It is also possible to flash devices using the REST API. 
-
-For example, you can use the [flash a device with a pre-compiled binary](/reference/device-cloud/api/#flash-a-device-with-a-pre-compiled-binary) API to program a device.
-
-```
-$ curl -X PUT "https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234" \
-       -F file=@my-firmware-app.bin \
-       -F file_type=binary
-```
-
-With products, as a team member you can flash product development devices that are part of the product but not claimed to your account using the API. This allows for shared pools of devices across team members.
-
-In order to use the product REST API you'll need a product bearer token. To get started, the easiest way to get one is to open the console, your product, click **Events** (1) within your product, **View events from a terminal** (2), then copy and paste the token (highlighted). Note that it spans two lines, and is the part after `access_token=` and not including the equal sign.
-
-![Product token from console](/assets/images/product-token.png)
-
-Note that this token is short-lived and will be invalided when you log out of the console, so for permanent use you may want to create one using the API directly but this is useful for testing.
-
-You'll use the product variation of the [flash a device with a pre-compiled binary](/reference/device-cloud/api/#flash-a-device-with-a-pre-compiled-binary) API.
-
-```
-$ curl -X PUT "https://api.particle.io/v1/products/:productIdOrSlug/devices/0123456789abcdef01234567?access_token=1234" \
-       -F file=@my-firmware-app.bin \
-       -F file_type=binary
-```
-
-The device must still be marked as a development device, otherwise the cloud will update to the currently released firmware for that device immediately after you manually flash code.
-
-### Flash via SDKs
-
-In addition to just the cloud REST API directly or using curl, you can also use the [particle-api-js](/reference/SDKs/javascript/) Javascript API from node.js. This can make automating complex tasks much easier.
-
-The [flashDevice](/reference/SDKs/javascript/#flash) method makes it easy to compile and flash or flash a pre-built binary:
-
-```
-particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, auth: token }).then(function(data) {
-  console.log('Device flashing started successfully:', data);
-}, function(err) {
-  console.log('An error occurred while flashing the device:', err);
-});
-```
- 
-The Particle Device SDKs for iOS and Android are also able to flash code. Note that when using the SDKs the code is flashed from the Particle Device Cloud. While initiated from the mobile device, the actual transfer is done securely through the Particle Device Cloud, not directly with your mobile device. This can only be done for devices claimed to your account, and for products, marked as a development device.
-
 ## Controlling OTA availability
 
 Sending an OTA update to a device comes with the risk of interrupting it
@@ -547,21 +483,8 @@ Furthermore, OTA updates occur in roughly three phases:
 - After fully downloaded, you can either allow the device to be reset, or halt the reset until a later time. The reset process is typically quick, only a few seconds. 
 - If the new firmware requires a Device OS upgrade, the upgrades are applied after reset. This can take a minute or two if an upgrade is required.
 
-### Non-immediate updates
-
-The default behavior is for updates to occur when a device establishes a session with the cloud. This occurs a few seconds after the cloud connection is established. The rules for OTA availability apply to these updates as well as immediate updates.
-
-Previously, for Electron, E Series, and Gen 3 (Argon, Boron, and Xenon) updates occurred only after a full session authentication. This could occur as infrequently as every 10 days, or when manually forced from the cloud or device side. Also, the update check occurred tens of seconds after the connection was established. Now updates are also checked on session resume, which occurs much more often, including after waking from sleep mode, and occurs much more quickly, making it possible for battery-powered devices to go to sleep much more quickly if an update is not required. 
-
-### OTA availability in the Console
- 
-Normally, a device is enabled for OTA updates. When you use **View Device** in the console, this will be shown in **Firmware**:
-
-![OTA Updates Enabled](/assets/images/ota-updates/updates-enabled.png)
-
-This feature requires a firmware binary built for Device OS 1.2.0 or later. If an earlier version is used, the firmware options will not be available.
-
-![Device OS 1.2.0 required](/assets/images/ota-updates/update-device-os.png)
+The sections below discuss methods to control when and how an OTA is
+delivered to a device in your fleet.
 
 
 ### Disabling OTA updates
@@ -578,34 +501,68 @@ fleet-wide OTA attempts (i.e. a firmware release).
 
 ![OTA Updates Enabled](/assets/images/ota-updates/updates-disabled.png)
 
+If your device is running Device OS version 1.2.0 or later, you will see
+an event `particle/device/updates/enabled` with a body of `false` appear
+in the event stream when `System.disableUpdates()` is called by the
+device.
+
 ### Re-enabling OTA updates
 
 [`System.enableUpdates()`](/reference/device-os/firmware/#system-enableupdates-) enables OTA updates for an individual device,
-allowing all over-the-air firmware requests from the Device Cloud.
+**allowing all over-the-air firmware requests from the Device Cloud**.
 By default, OTA updates are enabled for a device. This method would only
 need to be called if updates had been previously disabled using
 `System.disableUpdates()`.
 
+If your device is running Device OS version 1.2.0 or later, you will see
+an event `particle/device/updates/enabled` with a body of `false` appear
+in the event stream when `System.disableUpdates()` is called by the
+device.
+
 ### Notifications of pending OTA updates
+
+_Since Device OS 1.2.0, Enterprise only_.
 
 [`System.updatesPending()`](/reference/device-os/firmware/#system-updatespending-) is a boolean flag that will return whether a
 new version of Product firmware is available for the device. This is
 helpful in the case when updates have been disabled for a device (by
 calling `System.disableUpdates()` in firmware), and the device needs
-to be notified that there is a pending update for the device.
+to be notified that there is a pending update for the device. You will
+also see an event published to the event stream in this case,
+`particle/device/updates/pending`.
+
+`System.updatesPending()` will only be set for devices belonging to a
+Product on an Enterprise plan.
 
 In this case, the OTA update will be prevented by the device. The device
 will emit an internal system event, `firmware_update_pending` and
 `System.updatesPending()` will evaluate to `true`.
 
+### OTA availability in the Console
+
+Normally, a device is enabled for OTA updates. When you use **View
+Device** in the Console, this will be shown in the right-hand column in
+the **Firmware** section:
+
+![OTA Updates Enabled](/assets/images/ota-updates/updates-enabled.png)
+
+This feature requires a firmware binary built for Device OS 1.2.0 or later. If an earlier version is used, the firmware options will not be available.
+
+![Device OS 1.2.0 required](/assets/images/ota-updates/update-device-os.png)
+
 ### Force Enable OTA updates
 
-While you can inhibit firmware updates from your device firmware, sometimes you need to override the device. If, for example, you flashed firmware that had a bug in the disable updates code, you might need to force enable updates to replace the bad code.
+While you can inhibit firmware updates from your device firmware,
+sometimes you need to override the device's local setting. If, for example, you flashed firmware that had a bug in the disable updates code, you might need to force enable updates to replace the bad code.
 
-Fortunately, this can be done remotely by selecting the Force Enable OTA Updates option when viewing a device in the console.
+Fortunately, this can be done remotely by selecting the Force Enable OTA
+Updates option when viewing a device in the Console.
 
 ![Force Enable Updates](/assets/images/ota-updates/force-enable.png)
 
+This can also be done programmatically via the Particle REST API. You
+can call `PUT /v1/products/:productId/devices/:deviceId` and pass
+`firmware_updates_forced: true` in the body of the request.
 
 ### Putting it all together
 
@@ -776,3 +733,68 @@ void resetHandler() {
 	// place to flush a flash file system, for example.
 }
 ```
+
+## Single Device OTA
+
+Single Device OTA is the how most users initially program their Particle developer devices using the IDEs.
+
+### OTA in the IDEs
+
+From the Particle [Web IDE](https://build.particle.io), you simply select the device you want to flash from the **Devices** tab (circle with 4 lines) and click the **Flash** icon.
+
+From Particle [Workbench](https://www.particle.io/workbench/) you select the device using [Particle: Configure Workspace for Device](/tutorials/developer-tools/workbench/#cloud-build-and-flash) and compile and flash using ** Particle: Cloud Flash**.
+
+From the [Particle CLI](https://particle.io/cli/), you use a command like:
+
+```
+particle flash my-device my-app.ino
+```
+
+When used with products, the device must not only be marked as a development device, but also claimed to your Particle account. For this reason, we recommend each developer have their own device, claimed to their own account, and often on their desk with each access to buttons and the USB debug serial port, for ease of development.
+
+### Flash via the REST API
+
+It is also possible to flash devices using the REST API. 
+
+For example, you can use the [flash a device with a pre-compiled binary](/reference/device-cloud/api/#flash-a-device-with-a-pre-compiled-binary) API to program a device.
+
+```
+$ curl -X PUT "https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234" \
+       -F file=@my-firmware-app.bin \
+       -F file_type=binary
+```
+
+With products, as a team member you can flash product development devices that are part of the product but not claimed to your account using the API. This allows for shared pools of devices across team members.
+
+In order to use the product REST API you'll need a product bearer token. To get started, the easiest way to get one is to open the console, your product, click **Events** (1) within your product, **View events from a terminal** (2), then copy and paste the token (highlighted). Note that it spans two lines, and is the part after `access_token=` and not including the equal sign.
+
+![Product token from console](/assets/images/product-token.png)
+
+Note that this token is short-lived and will be invalided when you log out of the console, so for permanent use you may want to create one using the API directly but this is useful for testing.
+
+You'll use the product variation of the [flash a device with a pre-compiled binary](/reference/device-cloud/api/#flash-a-device-with-a-pre-compiled-binary) API.
+
+```
+$ curl -X PUT "https://api.particle.io/v1/products/:productIdOrSlug/devices/0123456789abcdef01234567?access_token=1234" \
+       -F file=@my-firmware-app.bin \
+       -F file_type=binary
+```
+
+The device must still be marked as a development device, otherwise the cloud will update to the currently released firmware for that device immediately after you manually flash code.
+
+### Flash via SDKs
+
+In addition to just the cloud REST API directly or using curl, you can also use the [particle-api-js](/reference/SDKs/javascript/) Javascript API from node.js. This can make automating complex tasks much easier.
+
+The [flashDevice](/reference/SDKs/javascript/#flash) method makes it easy to compile and flash or flash a pre-built binary:
+
+```
+particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, auth: token }).then(function(data) {
+  console.log('Device flashing started successfully:', data);
+}, function(err) {
+  console.log('An error occurred while flashing the device:', err);
+});
+```
+ 
+The Particle Device SDKs for iOS and Android are also able to flash code. Note that when using the SDKs the code is flashed from the Particle Device Cloud. While initiated from the mobile device, the actual transfer is done securely through the Particle Device Cloud, not directly with your mobile device. This can only be done for devices claimed to your account, and for products, marked as a development device.
+
