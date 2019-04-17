@@ -152,7 +152,7 @@ Fleet-wide OTA (over-the-air) firmware updates make it easy to deploy a new firm
 Previously, fleet-wide firmware updates were queued using a Gradual Release. In order to avoid interrupting critical behaviors of deployed units, the Device Cloud waited until the next time targeted devices reconnected to deliver the OTA update to the new version of firmware. This occurs a few seconds after the cloud connection is established.
 While this does prevent against device disruption from an OTA, Gradual Releases are rolled out slowly, over a period of about one week. The only way to speed the natural rollout time of a Gradual Release was to force a device to reset.
 
-[**Immediate Firmware Releases**](#immediate-firmware-releases-alpha-)  allow you to rapidly deploy new versions of firmware to a device fleet — cutting down the time to complete an fleet-wide OTA significantly (~1 hour or less).
+[**Immediate Firmware Releases**](#immediate-firmware-releases)  allow you to rapidly deploy new versions of firmware to a device fleet — cutting down the time to complete an fleet-wide OTA significantly (~1 hour or less).
 
 <p class="caption"> Immediate vs. Gradual Comparison </p>
 
@@ -382,7 +382,7 @@ firmware (if a firmware has been released as the Product default)
 a product firmware, it will not receive an automatic OTA update from the
 Particle Device Cloud
 
-## Immediate Firmware Releases (alpha)
+## Immediate Firmware Releases
 
 Firmware Releases allow your team to roll out an OTA update to a fleet
 of devices with a single action.
@@ -401,7 +401,7 @@ security patches to impacted devices in your fleet
 - You may have unexpectedly introduced a bug in your previous release,
 and need to quickly rollback
 
-**Immediate Firmware Releases** allow you to trigger a _real-time_ OTA
+**Immediate Firmware Releases** (alpha) allow you to trigger a _real-time_ OTA
 update across a fleet of devices. Individual devices can [express their
 availability](#controlling-ota-availability) for an OTA to the Device Cloud, preventing an Immediate
 Release from disrupting busy devices.
