@@ -2,7 +2,7 @@
 title: E Series System Integration Manual
 layout: datasheet.hbs
 columns: two
-order: 6
+order: 9
 ---
 # System Integration Manual
 
