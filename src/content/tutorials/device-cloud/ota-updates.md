@@ -112,7 +112,7 @@ updates without sacrificing fine-grained control.
 automatically sent to your fleet, with sensible safeguards to roll out
 an update responsibly and monitor fleet health for changes.
 - **Release by device groups**: Target a subset of your fleet to receive a new version of firmware. This is useful when your product has variants that require different device behaviors, or when wanting to phase out a single release over time to reduce risk.
-- **Immediate firmware releases (alpha)**: Instead of waiting for devices to re-connect to receive an update, push a fleet-wide update out immediately.
+- **Intelligent firmware releases (alpha)**: Instead of waiting for devices to re-connect to receive an update, push a fleet-wide update as quickly as possible while still allowing the device control over the appropriate time to update.
 
 ## The firmware "stack"
 
@@ -147,26 +147,26 @@ Fleet-wide OTA (over-the-air) firmware updates make it easy to deploy a new firm
 - Once you've verified the functionality, you may choose to deploy to a subset of your devices using groups.
 - Finally, you can roll out the release to all of your devices.
 
-### Gradual vs. Immediate Firmware Releases
+### Standard vs. Intelligent Firmware Releases
 
-Previously, fleet-wide firmware updates were queued using a Gradual Release. In order to avoid interrupting critical behaviors of deployed units, the Device Cloud waited until the next time targeted devices reconnected to deliver the OTA update to the new version of firmware. This occurs a few seconds after the cloud connection is established.
-While this does prevent against device disruption from an OTA, Gradual Releases are rolled out slowly, over a period of about one week. The only way to speed the natural rollout time of a Gradual Release was to force a device to reset.
+Standard fleet-wide firmware updates are queued using a gradual release mechanism. In order to avoid interrupting critical behaviors of deployed units, the Device Cloud waits until the next time targeted devices reconnect to deliver the OTA update to the new version of firmware. This occurs a few seconds after the cloud connection is established.
+While this does protect against device disruption from an OTA, is causes updated to be done over a period of about one week. The only way to speed the natural rollout time in the past was to force a device to reset.
 
-[**Immediate Firmware Releases**](#immediate-firmware-releases)  allow you to rapidly deploy new versions of firmware to a device fleet — cutting down the time to complete an fleet-wide OTA significantly (~1 hour or less).
+[**Intelligent Firmware Releases**](#intelligent-firmware-releases)  allow you to rapidly deploy new versions of firmware to a device fleet — cutting down the time to complete an fleet-wide OTA significantly (~1 hour or less).
 
-<p class="caption"> Immediate vs. Gradual Comparison </p>
+<p class="caption">Standard vs. Intelligent Updates Comparison </p>
 
-![Immediate vs. Gradual Graph](/assets/images/immediate-vs-gradual-graph.jpg)
+![Standard vs. Intelligent Graph](/assets/images/standard-vs-intelligent-graph.jpg)
 
-This significant increase in speed of delivery does not come at the expense of disrupting critical device behaviors. New Device OS capabilities allow “busy” devices targeted for an Immediate Release to delay the delivery of new firmware until the next time it is ready to accept it. For instance, an electric scooter being ridden at the time of a release event could defer its OTA update until the next time it was parked. This device and cloud coordination gives your team fine-grained control to deliver updates at the opportune time for your specific use case.
+This significant increase in speed of delivery does not come at the expense of disrupting critical device behaviors. New Device OS capabilities allow “busy” devices targeted for an immediate release to delay the delivery of new firmware until the next time it is ready to accept it. For instance, an electric scooter being ridden at the time of a release event could defer its OTA update until the next time it was parked. This device and cloud coordination gives your team fine-grained control to deliver updates at the opportune time for your specific use case.
 
-<img src="/assets/images/immediate-vs-gradual-comparison.png" class="full-width tall" />
+<img src="/assets/images/standard-vs-intelligent.jpg" class="full-width tall" />
 
 Available devices include the devices that are online and are currently accepting updates. Your device firmware can control whether it wants to receive updates immediately or defer them until a time that you choose. This could be based on clock time, or some condition, like an asset tracking device not being in motion.
 
 Devices that are offline are updated when they come back online again. This includes both devices that are using sleep modes to conserve battery power and devices that are currently out of range of cellular, for example.
 
-Immediate Firmware Releases are only available to Enterprise customers. [Interested in Immediate Firmware Releases?](https://www.particle.io/sales)
+Intelligent Firmware Releases are only available to Enterprise customers. [Interested in Intelligent Firmware Releases?](https://www.particle.io/sales)
 
 ### Firmware Releases
 
@@ -382,56 +382,53 @@ firmware (if a firmware has been released as the Product default)
 a product firmware, it will not receive an automatic OTA update from the
 Particle Device Cloud
 
-## Immediate Firmware Releases
+## Intelligent Firmware Releases
 
 Firmware Releases allow your team to roll out an OTA update to a fleet
 of devices with a single action.
 
-By default, Firmware Releases are sent to devices **gradually**.
+By default, Firmware Releases are sent to devices gradually.
 Targeted device will receive the new version of firmware over time, with
 each device updating the next time it starts a new secure session with
 the Device Cloud. This is to ensure devices are not disrupted while in
 use as a result of the reset needed to begin running the new firmware.
 
-However, there are many instances where it is preferrable to release a
-version of firmware **immediately**. This may be because:
+However, there are many instances where it is preferable to release a
+version of firmware more quickly. This may be because:
 
 - You desire speedy delivery of an update with new features or
 security patches to impacted devices in your fleet
 - You may have unexpectedly introduced a bug in your previous release,
 and need to quickly rollback
 
-**Immediate Firmware Releases** (alpha) allow you to trigger a _real-time_ OTA
+** Intelligent Firmware Releases** (alpha) allow you to trigger a _real-time_ OTA
 update across a fleet of devices. Individual devices can [express their
-availability](#controlling-ota-availability) for an OTA to the Device Cloud, preventing an Immediate
-Release from disrupting busy devices.
+availability](#controlling-ota-availability) for an OTA to the Device Cloud, preventing an Intelligent Firmware Release from disrupting busy devices.
 
 This provides your team with the tools you need to roll out an OTA update
 quickly without putting devices in your fleet at risk being interrupted
 during a critical activity.
 
-Immediate Firmware Releases is currently in _alpha_, and is only available to select Enterprise customers. [Interested in Immediate Firmware Releases?](https://www.particle.io/sales)
+Intelligent Firmware Releases is currently in _alpha_, and is only available to select Enterprise customers. [Interested in Intelligent Firmware Releases?](https://www.particle.io/sales)
 
-### Marking a firmware release as immediate
-To mark a version of firmware as an Immediate Firmware Release, begin the release
+### Marking a firmware release as intelligent
+To mark a version of firmware as an Intelligent Firmware Release, begin the release
 process as-normal. On the Firmware view of the Console for your product,
 identify the version of firmware you'd like to release, and click the
 **Release Firmware** link that appears on hover.
 
 When the _Release Firmware_ modal appears, choose the group(s) that you
-would like to release to. Then, top opt-in to an immediate release,
-check the checkbox signaling that you would like to deliver the firmware
-immediately to target devices:
+would like to release to. Then, top opt-in to an Intelligent Firmware Release, check the checkbox signaling that you would like to deliver the firmware immediately to target devices:
 
-![](/assets/images/ota-updates/immediate-release.png)
+![](/assets/images/ota-updates/intelligent-release.png)
 
 Remember that this is an Enterprise-only feature -- so this action will
 be disabled unless you are an Enterprise customer. Interested in
-Immediate Firmware Releases? [Talk to us!](https://www.particle.io/sales)
+Intelligent Firmware Releases? [Talk to us!](https://www.particle.io/sales)
 
 Note that the Console describes that target devices that are **online**
 with **OTA updates enabled** would receive the new version of firmware
-immediately.
+as quickly as possible.
 - A target device _must be online_ and connected to the Device Cloud to
 receive the OTA update immediately at the time of release. Offline devices targeted
 to receive the new version of firmware will be OTA updated the next time
@@ -443,14 +440,14 @@ returns `true` in application firmware. For more information, see the
 section below on [controlling OTA
 availability](#controlling-ota-availability).
 
-### Understanding the impact of Immediate Firmware Releases
+### Understanding the impact of Intelligent Firmware Releases
 
 After clicking **Next**, you will need to confirm that you understand
 the impact of the action that you are about to take:
 
 ![](/assets/images/ota-updates/immediate-release-confirm.png)
 
-What is most important to recognize is that **Immediate Firmware
+What is most important to recognize is that **Intelligent Firmware
 Releases _can be disruptive_ to active devices**. That is, if a targeted
 device is online (connected to the Device Cloud) and [OTA updates have
 not been disabled](#disabling-ota-updates), the Device Cloud will
@@ -459,14 +456,14 @@ trigger the OTA to occur at the time of release.
 For those fleet managers in which disrupting active devices is
 problematic, we strongly suggest implementing [OTA control
 behaviors](#controlling-ota-availability) in Device OS to properly
-coordinate when Immediate Releases are delivered to target devices.
+coordinate when Intelligent Releases are delivered to target devices.
 
-When you check the checkbox to confirm the Immediate Release, you can
+When you check the checkbox to confirm the Intelligent Release, you can
 proceed with completing the release action. This will begin the process
 of rolling out the version of firmware to target devices immediately.
 
 In your firmware list, you should see the firmware version marked as an
-Immediate Release:
+Intelligent Release:
 
 <img class="small" src="/assets/images/ota-updates/immediate-fw-list.png" />
 
