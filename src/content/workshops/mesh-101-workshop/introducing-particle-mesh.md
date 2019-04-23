@@ -10,4 +10,8 @@ layout: workshops.hbs
 
 The slides below provide an overview of 3rd Generation Particle hardware, including built-in mesh networking capabilities.
 
-<iframe src="https://www.icloud.com/keynote/0biQ6LxXcQQkof7gpL6zjXj5A?embed=true" width="640" height="500" class="video" frameborder="0" allowfullscreen="1" referrer="no-referrer"></iframe>
+<iframe src="/assets/files/Session2-IntroducingParticleMesh.pdf" width="640" height="420" class="video" frameborder="0" allowfullscreen="1" referrer="no-referrer">
+
+This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/files/Session2-IntroducingParticleMesh.pdf">Download PDF</a>
+
+</iframe>
