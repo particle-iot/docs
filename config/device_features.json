@@ -1,7 +1,7 @@
 {
   "Core": [
-	"stm32",
-	"stm32f1",
+    "stm32",
+    "stm32f1",
     "wifi",
     "embedded",
     "listening",
@@ -24,7 +24,7 @@
     "tcpclient"
   ],
   "Photon": [
-	"stm32",
+    "stm32",
     "stm32f2",
     "wifi",
     "embedded",
@@ -65,7 +65,7 @@
     "udp-multicast"
   ],
   "Electron": [
-	"stm32",
+    "stm32",
     "stm32f2",
     "cellular",
     "embedded",
@@ -116,8 +116,8 @@
     "tcpclient"
   ],
   "Argon": [
-	"nrf52",
-	"nrf52840",
+    "nrf52",
+    "nrf52840",
     "mesh",
     "wifi",
     "embedded",
@@ -151,8 +151,8 @@
     "udp-multicast"
   ],
   "Boron": [
-	"nrf52",
-	"nrf52840",
+    "nrf52",
+    "nrf52840",
     "mesh",
     "cellular",
     "embedded",
@@ -188,8 +188,8 @@
     "udp-multicast"
   ],
   "Xenon": [
-	"nrf52",
-	"nrf52840",
+    "nrf52",
+    "nrf52840",
     "mesh",
     "embedded",
     "listening",
