@@ -151,6 +151,7 @@ If you are getting mysterious errors, sometimes it's helpful to do a clean to re
 
 When switching from a debug build back to a non-debug build, be sure to use the **Particle: Flash application & Device OS (local)** option once. This will put the correct modular Device OS build back onto the device.
 
+To increase the verbosity of the local compiler, set **Enable Verbose Local Compiler Logging** in the [Settings](#settings).
 
 ### Compile and Flash Buttons
 
@@ -163,11 +164,7 @@ When you are viewing a .cpp or .ino file, there will be two new icons in the upp
 | <img src="/assets/images/workbench/compile-button.png" class="toolbarIcon" /> | Compile |
 | <img src="/assets/images/workbench/flash-button.png" class="toolbarIcon" /> | Compile and Flash |
 
-By default, the **Compile** button invokes **Particle: Compile application & Device OS (local)**. Flash works similarly.
-
-However you can make these buttons do other things, like cloud flash, by changing settings. From the menus, select **Code > Preferences > Settings** (Mac) or **File > Preferences > Settings** (Windows) and search for **compileButtonAction** and **flashButtonAction** to change the task to run when these buttons are used.
-
-![Compile Button Action](/assets/images/workbench/compileButtonAction.png)
+By default, the **Compile** button invokes **Particle: Compile application & Device OS (local)**. Flash works similarly. To change to cloud compile and flash, see the [Settings](#settings) section.
 
 ### Integrated CLI
 
@@ -427,6 +424,21 @@ You need to connect:
 ![Debug Workspace](/assets/images/workbench/debug-10.png)
 
 The rest of the instructions are the same as for 3rd-generation. Start with the putting your device in DFU mode step.
+
+### Settings
+
+There are a number of settings available to customize the experience of using Workbench. The Settings window are available through the menus **Code > Preferences > Settings** (Mac) or **File > Preferences > Settings**. Expand **Extensions** and select **Particle**.
+
+![Preferences Settings](/assets/images/workbench/preferences-settings.png)
+
+Some of the available settings are:
+- **Compile Button Action** and **Flash Button Action**: toggles the [Compile and Flash buttons](#compile-and-flash-buttons) between local compile/flash and cloud compile/flash.
+
+![Compile Button Action](/assets/images/workbench/compileButtonAction.png)
+
+- **Disable Local Compiler Dirty Check**: don't recommend running the clean task when the target Device OS version has been previously built.
+
+- **Enable Verbose Local Compiler Logging**: print log messages for each Device OS file being compiled. The default is to print only warnings, errors and completion messages.
 
 ## Source Code Management
 
