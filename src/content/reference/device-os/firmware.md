@@ -4879,6 +4879,8 @@ When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, 
 
 Pre-defined Serial configurations available:
 
+{{#if has-stm32f2}}
+
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
@@ -4918,6 +4920,17 @@ Parity:
 - `SERIAL_PARITY_EVEN` - even parity
 - `SERIAL_PARITY_ODD` - odd parity
 
+{{/if}} {{!-- has-stm32 --}}
+ 
+{{#if has-nrf52}}
+- `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
+- `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
+
+Other options, including odd parity, and 7 and 9 bit modes, are not available on the {{device}}. 
+
+{{/if}} {{!-- has-nrf52 --}}
+
+
 {{#if core}}
 Hardware flow control, available only on Serial1 (`CTS` - `A0`, `RTS` - `A1`):
 {{/if}}
@@ -4927,7 +4940,7 @@ Hardware flow control, available only on Serial2 (`CTS` - `A7`, `RTS` - `RGBR` )
 {{/if}}
 
 {{#if has-nrf52}}
-On mesh devices, flow control is available on Serial1 D3(CTS) and D2(RTS). 
+On Gen 3 devices (Argon, Boron, Xenon), flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using flow control (the default), then these pins can be used as regular GPIO.
 {{/if}}
 
 {{#if xenon}}
@@ -4996,12 +5009,12 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
-The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is 64 bytes.
+The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is {{#if has-stm32}}64{{/if}}{{#if has-nrf52}}128{{/if}} bytes and cannot be changed. 
 
 {{#if has-usb-serial1}}
 The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{else}}
-The receive buffer size for Serial is 64 bytes.
+The receive buffer size for Serial is 64 bytes. 
 {{/if}}
 
 ```C++
@@ -5129,7 +5142,7 @@ from a serial peripheral.
 The `serialEvent` functions are called in between calls to the application `loop()`. This means that if `loop()` runs for a long time due to `delay()` calls or other blocking calls the serial buffer might become full between subsequent calls to `serialEvent` and serial characters might be lost. Avoid long `delay()` calls in your application if using `serialEvent`.
 
 Since `serialEvent` functions are an
-extension of the application loop, it is ok to call any functions that you would also call from `loop()`.
+extension of the application loop, it is ok to call any functions that you would also call from `loop()`. Because of this, there is little advantage to using serial events over just reading serial from loop(). 
 
 ```cpp
 // EXAMPLE - echo all characters typed over serial
@@ -7286,7 +7299,7 @@ _Since 0.7.0_
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
 {{/if}}
 
-The application code may additionally check if an error occured during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
+The application code may additionally check if an error occurred during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
 
 
 ```C++
@@ -7495,7 +7508,7 @@ _Since 0.7.0_
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
 {{/if}}
 
-The application code may additionally check if an error occured during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
+The application code may additionally check if an error occurred during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
 
 
 ```C++
@@ -8476,7 +8489,7 @@ This class allows to define a _LED status_ that represents an application-specif
 
 ```cpp
 // EXAMPLE - defining and using a LED status
-LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK);
+LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK, LED_SPEED_NORMAL, LED_PRIORITY_IMPORTANT);
 
 void setup() {
     // Blink red for 3 seconds after connecting to the Cloud
@@ -9629,6 +9642,8 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
 
   - D0, A5 (shared with MODE button)
   - D7 (shared with BATT_INT_PC13)
+  - C1 (shared with RXD_UC)
+  - C2 (shared with RI_UC)
 
 No restrictions on the Electron/E series (all of these can be used at the same time):
 
@@ -11463,7 +11478,7 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 
 {{#if has-nrf52}}
 
-The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by rising D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
+The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
 
 Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
 
@@ -11910,7 +11925,7 @@ _Since 0.8.0_
 
 ```C++
 // SYNTAX
-bool result = System.wokeUpByRtc();
+bool result = System.wokenUpByRtc();
 ```
 
 See [`SleepResult`](#wokenupbyrtc-) documentation.
@@ -12566,6 +12581,70 @@ Determine if OTA updates are presently enabled or disabled.
 Indicates if there are OTA updates pending.
 
 **Note:** Currently this function does not really do what the name might suggests but rather indicates whether an update is currently active or not. It can't be used in connection with `System.disableUpdates()` as that would prevent `System.upatesPending()` from becoming `true`. 
+
+## Checking for Features
+
+User firmware is designed to run transparently regardless of what type of device it is run on. However, sometimes you will need to have code that varies, depending on the device.
+
+It's always best to check for a capability, rather than a specific device. For example, checking for cellular instead of checking for the Electron allows the code to work properly on the Boron without modification.
+
+Some commonly used features include:
+
+- Wiring_Cellular
+- Wiring_Ethernet
+- Wiring_IPv6
+- Wiring_Keyboard
+- Wiring_Mesh
+- Wiring_Mouse
+- Wiring_Serial2
+- Wiring_Serial3
+- Wiring_Serial4
+- Wiring_Serial5
+- Wiring_SPI1
+- Wiring_SPI2
+- Wiring_USBSerial1
+- Wiring_WiFi
+- Wiring_Wire1
+- Wiring_Wire3
+- Wiring_WpaEnterprise
+
+For example, you might have code like this to declare two different methods, depending on your network type:
+
+```
+#if Wiring_WiFi
+	const char *wifiScan();
+#endif
+
+#if Wiring_Cellular
+	const char *cellularScan();
+#endif
+```
+
+The official list can be found [in the source](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_platform.h#L47).
+
+### Checking Device OS Version
+
+The define value `SYSTEM_VERSION` specifies the [system version](https://github.com/particle-iot/device-os/blob/develop/system/inc/system_version.h).
+
+For example, if you had code that you only wanted to include in 0.7.0 and later, you'd check for:
+
+```
+#if SYSTEM_VERSION >= SYSTEM_VERSION_v070
+// Code to include only for 0.7.0 and later
+#endif
+```
+
+### Checking Platform ID
+
+It's always best to check for features, but it is possible to check for a specific platform:
+
+```
+#if PLATFORM_ID == PLATFORM_BORON
+// Boron-specific code goes here
+#endif
+```
+
+You can find a complete list of platforms in [the source](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 
 ## Arduino Compatibility
 
@@ -15022,17 +15101,17 @@ The stack size cannot be changed as it's allocated by the Device OS before the u
 
 ## Firmware Releases
 
-Particle device firmware is open source and stored [here on Github](https://github.com/particle-iot/device-os).
+Particle device firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
 
-Firmware releases are published [here on Github](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
+Firmware releases are published [here on GitHub](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
 
 ### Firmware Release Process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
+The process in place for releasing all firmware prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
 
-### Github Release Notes
+### GitHub Release Notes
 
-Please go to Github to read the Changelog for your desired firmware version (Click a version below).
+Please go to GitHub to read the Changelog for your desired firmware version (Click a version below).
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -15050,7 +15129,7 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 ### Programming and Debugging Notes
 
-If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on Github and your version's notes will be found below the table :)
+If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on GitHub and your version's notes will be found below the table :)
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -15243,7 +15322,7 @@ This will consume about 500KB of data as it has to transfer two 0.5.3
 system parts and three >= 0.6.0 system parts. Devices will not
 automatically update Device OS if not added as a Product in Console.
 
-**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [Github Release Notes](#github-release-notes).
+**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [GitHub Release Notes](#github-release-notes).
 
 If your device is online, you can attempt to OTA (Over The Air) update these system parts as well with the Particle CLI.  Run the following commands in order for your device type:
 

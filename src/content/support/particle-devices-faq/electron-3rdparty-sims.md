@@ -7,9 +7,7 @@ order: 1020
 
 # 3rd-party SIM cards
 
-The Particle **Electron** comes with a SIM card that allows easy and often inexpensive 2G or 3G cellular access.
-
-Sometimes, however, you may want to use a different mobile provider. You may need to transfer large amounts of data, which may be cheaper on another provider, or you may need to use the Electron in a country that's not supported by the Particle SIM. Fortunately, the Electron can easily be used with 3rd-party SIM cards.
+The Particle **Electron** comes with a SIM card that allows easy and often inexpensive 2G or 3G cellular access. You can optionally substitute a 3rd-party SIM card.
 
 The **E Series** does not have a SIM card slot and cannot use a 3rd-party SIM card. It uses a MFF2 embedded SIM card, which is basically a regular SIM card in a small SMD form-factor and soldered to the board. 
 
@@ -159,7 +157,7 @@ void loop() {
 }
 ```
 
-- Note: You must both call `Cellular.setActiveSim(INTERNAL_SIM)` and remove the external SIM card on the Boron LTE. Just deactiving the SIM in software won't completely disable the external SIM and will cause connection failures.
+- Note: You must both call `Cellular.setActiveSim(INTERNAL_SIM)` and remove the external SIM card on the Boron LTE. Just deactivating the SIM in software won't completely disable the external SIM and will cause connection failures.
 
 - This method is intended for using the Boron as a standalone, non-mesh, device, like an Electron. It's difficult to set up a mesh network using a 3rd-party SIM card at this time, because the mobile app will default to trying to activate the Particle SIM card. You can, however, set up the network using the Particle SIM and switch it to a 3rd-party SIM card once set up.
 - Alternatively, there is a technique that allows you to set up a Boron with a mesh network when the Particle SIM card cannot be used, such as the Boron LTE out of the United States. It requires the Particle Ethernet FeatherWing and is [described in this community post](https://community.particle.io/t/instructions-creating-mesh-network-with-boron-lte-and-3rd-party-sim-card/46467).

@@ -520,9 +520,9 @@ $ particle monitor all temperature 5000 --time > my_temperatures.csv
 # helps get your device id and system firmware version via usb and serial
 # make sure your device is connected and blinking blue
 $ particle identify
-$ particle identify 1
-$ particle identify COM3
-$ particle identify /dev/cu.usbmodem12345
+$ particle identify --port 1
+$ particle identify --port COM3
+$ particle identify --port /dev/cu.usbmodem12345
 
 $ particle identify 0123456789ABCDEFGHI
 ```
@@ -595,9 +595,9 @@ $ particle serial list
 ```sh
 # opens a read-only serial monitor for a particular device
 $ particle serial monitor
-$ particle serial monitor 1
-$ particle serial monitor COM3
-$ particle serial monitor /dev/cu.usbmodem12345
+$ particle serial monitor --port 1
+$ particle serial monitor --port COM3
+$ particle serial monitor --port /dev/cu.usbmodem12345
 ```
 
 ### particle serial flash
@@ -613,6 +613,124 @@ Note that at present only binaries can be flashed using this command.
 If you wish to flash from application sources, first use `particle compile` to compile a binary from sources.
 
 If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
+
+## particle mesh
+
+Mesh network management from the CLI.
+
+_These commands require Device OS 0.9.0 or later._
+
+_On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
+
+### particle mesh create
+
+Create a new network
+
+```
+particle mesh create <network name> <device> [--channel=N] [--password=...] [--yes]
+```
+
+### particle mesh add
+
+Add a device to the current network of an assisting device
+
+```
+particle mesh add <new device> <assisting device> [--password=...] [--yes]
+```
+
+### particle mesh remove
+
+Remove a device from its current network
+
+```
+particle mesh remove <device> [--yes]
+```
+
+### particle mesh list
+
+List all registered networks and their devices
+
+```
+particle mesh list [network] [--networks-only]
+```
+
+### particle mesh info
+
+Get the current device's network
+
+```
+particle mesh info <device>
+```
+
+### particle mesh scan
+
+Scan for networks
+
+```
+particle mesh scan <device>
+```
+
+## particle usb
+
+Various commands to interact with a device connected through USB.
+
+_On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
+
+### particle usb list
+
+List Particle USB devices attached to the host
+
+```
+particle usb list [--exclude-dfu] [--ids-only]
+```
+
+### particle usb start-listening
+
+Put a device or multiple devices into the listening mode
+
+```
+particle usb start-listening [devices...] [--all]
+```
+
+### particle usb stop-listening
+
+Make a device or multiple devices exit the listening mode
+
+```
+particle usb stop-listening [devices...] [--all]
+```
+
+### particle usb safe-mode
+
+Put a device or multiple devices into the safe mode
+
+```
+particle usb safe-mode [devices...] [--all]
+```
+
+### particle usb dfu
+
+Put a device or multiple devices into the DFU mode
+
+```
+particle usb dfu [devices...] [--all]
+```
+
+### particle usb reset
+
+Reset a device or multiple devices
+
+```
+particle usb reset [devices...] [--all]
+```
+
+### particle usb configure
+
+Install udev rules for Particle USB devices (Linux-only)
+
+```
+particle usb configure
+```
 
 ## particle update
 
@@ -827,16 +945,18 @@ __PASSWORD_ONLY__ (active)
  Expires at: 2017-06-12T08:44:16.371Z
 ```
 
-### particle token new
+### particle token create
 Create a new access token under your Particle account.
 
 ```sh
-$ particle token new
+$ particle token create
 ? Using account cli@particle.io
 Please enter your password: *******
 New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
 		da39a3ee5e6b4b0d3255bfef95601890afd80709
 ```
+
+There are no additional options for creating a token from the CLI. In order to change the expiration or make a non-expiring token, you should use the Particle Cloud API directly.
 
 ### particle token revoke
 Revoke an access token under your Particle account.
@@ -847,3 +967,5 @@ $ particle token revoke ACCESS_TOKEN
 Please enter your password: *******
 successfully deleted ACCESS_TOKEN
 ```
+
+The only available option is `--force` which is necessary if you want to delete the access token used by the CLI itself.

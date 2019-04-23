@@ -81,7 +81,7 @@ src="/assets/images/development-devices/unmark-development-device.png"
 alt="Unmark development device" class="small"/>
 
 You should see the development device icon disappear from the "Firmware"
-coulumn for this device once it has been successfully unmarked as a
+column for this device once it has been successfully unmarked as a
 development device. Note that **unmarking a device as a development device may trigger an
 immediate over-the-air update**. This happens to return the
 device to its targeted version of product firmware.

@@ -50,7 +50,7 @@ Any host product incorporating the Photon/PØ or P1 modules does not require add
 
 The Photon/PØ and P1 modules were certified with antennas of the following gain:
 - **Photon/PØ Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
-- **P1 Module**: On-board antenna (printed trace). Deployment with external antenna leveraging the onboard u.FL requires verification of certification.
+- **P1 Module**: On-board antenna (printed trace). Deployment with external antenna leveraging the onboard U.FL requires verification of certification.
 
 ### Customer Responsibilities
 Even though we've certified the Photon and PØ/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:
@@ -101,6 +101,13 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Certificate of Conformity - G350](/assets/pdfs/electron/fcc-g350-certificate.pdf)
 - [Test Reports - G350](/assets/pdfs/electron/fcc-g350-test-report.pdf)
 
+#### Electron E402 LTE (R410M)
+
+FCC Part 15 Subpart B, Class B (sDoC):
+
+- [Certificate of Conformity](/assets/pdfs/electron402-fcc-part15b.pdf)
+- [Test report](/assets/pdfs/electron402-fcc-part15b-test-report.pdf)
+
 #### E Series E310 (U201)
 - FCC ID: [XPY1CGM5NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=3vkdOEQAe%2Fc2YGK%2FBZsiJQ%3D%3D&fcc_id=XPY1CGM5NNN)
 - [Certificate of Conformity](/assets/pdfs/electron/fcc-u201-certificate.pdf)
@@ -110,6 +117,101 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 - FCC ID: [XPY2AGQN4NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ikrR3FBKrpgwIGJS1sm7Bw%3D%3D&fcc_id=XPY2AGQN4NNN)
 - [Certificate of Conformity](/assets/pdfs/e402-fcc.pdf)
+
+#### Argon
+
+802.15.4 (mesh) certification:
+
+- FCC ID: [2AEMI-ARGN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=j56OXdnX7qhTRT%2BFJDABXg%3D%3D&fcc_id=2AEMI-ARGN)
+- [Certificate of Conformity](/assets/pdfs/argon-mesh-wifi-fcc.pdf)
+- [Test reports](/assets/pdfs/argon-mesh-fcc-test-report.pdf)
+
+802.11b/g/n (Wi-Fi) certification:
+
+- FCC ID: [2AEMI-ARGN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=j56OXdnX7qhTRT%2BFJDABXg%3D%3D&fcc_id=2AEMI-ARGN)
+- [Certificate of Conformity](/assets/pdfs/argon-mesh-wifi-fcc.pdf)
+- [Test reports](/assets/pdfs/argon-wifi-fcc-test-report.pdf)
+
+NFC certification:
+
+- FCC ID: [2AEMI-ARGN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=BIpTX7WKiovuCzJziwUi8Q%3D%3D&fcc_id=2AEMI-ARGN)
+- [Certificate of Conformity](/assets/pdfs/argon-nfc-fcc.pdf)
+- [Test reports](/assets/pdfs/argon-nfc-fcc-test-report.pdf)
+
+FCC Part 15 Subpart B, Class B (sDoC):
+
+- [Certificate of Conformity](/assets/pdfs/argon-fcc-part15b.pdf)
+- [Test report](/assets/pdfs/argon-fcc-part15b-test-report.pdf)
+
+#### Boron 2G/3G
+
+802.15.4 (mesh) certification:
+
+- FCC ID: [2AEMI-B310](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ga4Ga888rpYrKWc2fmsMbQ%3D%3D&fcc_id=2AEMI-BRN310)
+- [Certificate of Conformity](/assets/pdfs/boron310-mesh-fcc.pdf)
+
+Cellular certification:
+
+- FCC ID: [2AEMI-B310](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=jUA%2B92M3x8s6Anv9YourlA%3D%3D&fcc_id=2AEMI-BRN310)
+- [Certificate of Conformity](/assets/pdfs/boron310-cellular-fcc.pdf)
+
+NFC certification:
+
+- FCC ID: [2AEMI-B310](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=QK7%2B3lEbzOBEQeHzO7QnYg%3D%3D&fcc_id=2AEMI-BRN310)
+- [Certificate of Conformity](/assets/pdfs/boron310-nfc-fcc.pdf)
+
+FCC Part 15 Subpart B, Class B (sDoC):
+
+- [Certificate of Conformity](/assets/pdfs/boron310-fcc-part15b.pdf)
+- [Test report](/assets/pdfs/boron310-fcc-part15b-test-report.pdf)
+
+Additional FCC Test Reports:
+
+- [FCC Part 22](/assets/pdfs/boron310-fcc-part22-test-report.pdf)
+- [FCC Part 24](/assets/pdfs/boron310-fcc-part24-test-report.pdf)
+
+
+#### Boron LTE 
+
+802.15.4 (mesh) certification:
+
+- FCC ID: [2AEMI-BRN410](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=86FVMi%2FyRce7yQ4d9ekA2g%3D%3D&fcc_id=2AEMI-BRN402)
+- [Certificate of Conformity](/assets/pdfs/boron402-mesh-fcc.pdf)
+- [Test reports](/assets/pdfs/boron402-mesh-fcc-test-report.pdf)
+
+Cellular certification:
+
+- FCC ID: [2AEMI-BRN410](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=86FVMi%2FyRce7yQ4d9ekA2g%3D%3D&fcc_id=2AEMI-BRN402)
+- [Certificate of Conformity](/assets/pdfs/boron402-cellular-fcc.pdf)
+- [Test report FCC part 22](/assets/pdfs/boron402-fcc-part22.pdf)
+- [Test report FCC part 24](/assets/pdfs/boron402-fcc-part24.pdf)
+- [Test report FCC part 27](/assets/pdfs/boron402-fcc-part27.pdf)
+
+NFC certification:
+
+- FCC ID: [2AEMI-BR4310](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=p5QojqJWtSkeBRjIcM9gyA%3D%3D&fcc_id=2AEMI-BRN402)
+- [Certificate of Conformity](/assets/pdfs/boron402-nfc-fcc.pdf)
+- [Test reports](/assets/pdfs/boron402-nfc-fcc-test-report.pdf)
+
+FCC Part 15 Subpart B, Class B (sDoC):
+
+- [Certificate of Conformity](/assets/pdfs/boron402-fcc-part15b.pdf)
+- [Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
+
+
+#### Xenon
+
+802.15.4 (mesh) certification:
+
+- FCC ID: [2AEMI-XENN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ugNeG69Gjl0KuJ%2Fo9IiqNg%3D%3D&fcc_id=2AEMI-XENN)
+- [Certificate of Conformity](/assets/pdfs/xenon-mesh-fcc.pdf)
+- [Test reports](/assets/pdfs/xenon-mesh-fcc-test-report.pdf)
+
+NFC certification:
+
+- FCC ID: [2AEMI-XENN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=BsbBaeGLV6xp1u%2BNfGYUDw%3D%3D&fcc_id=2AEMI-XENN)
+- [Certificate of Conformity](/assets/pdfs/xenon-nfc-fcc.pdf)
+- [Test reports](/assets/pdfs/xenon-nfc-fcc-test-report.pdf)
 
 
 ## IC<img class="inline-header-image" src="/assets/images/logo-ic.png"/>
@@ -153,6 +255,11 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - IC ID: **8595A-SARAG350**.
 - [Test Report](/assets/pdfs/electron/ic-g350-test-report.pdf)
 
+#### Electron E402 LTE (R410M)
+
+- [ICES-003 Issue 6:2016, Class B](/assets/pdfs/electron402-fcc-part15b.pdf)
+- [ICES-003 Test report](/assets/pdfs/electron402-fcc-part15b-test-report.pdf)
+
 #### E Series E310 (U201)
 - IC ID: **8595A-1CGM5NNN**.
 - [Certificate of Conformity](/assets/pdfs/electron/ic-u201-certificate.pdf)
@@ -161,6 +268,39 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 #### E Series E402 LTE (R410M)
 - IC ID: **8595A-2AGQN4NNN**.
 - [Certificate of Conformity](/assets/pdfs/e402-ic.pdf)
+
+#### Argon
+
+- IC ID: **20127-ARGN**.
+- [Certificate of Conformity](/assets/pdfs/argon-ic.pdf)
+- [Test Report Mesh](/assets/pdfs/argon-mesh-ic-test-report.pdf)
+- [Test Report Wi-Fi](/assets/pdfs/argon-wifi-ic-test-report.pdf)
+- [Test Report NFC](/assets/pdfs/argon-nfc-ic-test-report.pdf)
+- [ICES-003 Issue 6:2016, Class B](/assets/pdfs/argon-fcc-part15b.pdf)
+- [ICES-003 Test report](/assets/pdfs/argon-fcc-part15b-test-report.pdf)
+
+#### Xenon
+- IC ID: **20127-XENN**.
+- [Certificate of Conformity](/assets/pdfs/xenon-ic.pdf)
+- [Test Report Mesh](/assets/pdfs/xenon-mesh-ic-test-report.pdf)
+- [Test Report NFC](/assets/pdfs/xenon-nfc-ic-test-report.pdf)
+
+#### Boron 2G/3G
+
+- IC ID: **20127-BRN310**.
+- [Certificate of Conformity](/assets/pdfs/boron310-ic.pdf)
+- [Test Report Mesh](/assets/pdfs/boron310-mesh-ic-test-report.pdf)
+- [Test Report NFC](/assets/pdfs/boron310-nfc-ic-test-report.pdf)
+- [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron310-fcc-part15b.pdf)
+- [ICES-003 Test report](/assets/pdfs/boron310-fcc-part15b-test-report.pdf)
+
+
+#### Boron LTE
+
+- [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron402-fcc-part15b.pdf)
+- [ICES-003 Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
+
+
 
 ## CE<img class="inline-header-image" src="/assets/images/logo-ce.png"/>
 
@@ -212,6 +352,42 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Certificate of Conformity](/assets/pdfs/electron/ce-u201-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ce-u201-test-report.pdf)
 
+#### Argon
+
+- [Summary](/assets/pdfs/argon-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/argon-ce-emc-test-report.pdf)
+- [RED Mesh Test Report](/assets/pdfs/argon-mesh-ce-test-report.pdf)
+- [RED Wi-Fi Test Report](/assets/pdfs/argon-wifi-ce-test-report.pdf)
+- [RED NFC Test Report](/assets/pdfs/argon-nfc-ce-test-report.pdf)
+- [EN-60950 Test Report](/assets/pdfs/argon-EN60950-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/argon-EN62311-test-report.pdf)
+- [EN-62479 Test Report](/assets/pdfs/argon-EN62479-test-report.pdf)
+- [RoHS Test Report](/assets/pdfs/argon-rohs.pdf)
+
+#### Boron 2G/3G
+
+- [Summary](/assets/pdfs/boron310-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/boron310-ce-emc-test-report.pdf)
+- [RED Mesh Test Report](/assets/pdfs/boron310-mesh-ce-test-report.pdf)
+- [RED NFC Test Report](/assets/pdfs/boron310-nfc-ce-test-report.pdf)
+- [RED Cellular Test Report](/assets/pdfs/boron310-cellular-ce-test-report.pdf)
+- [EN-60950 Test Report](/assets/pdfs/boron310-EN60950-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/boron310-EN62311-test-report.pdf)
+- [EN-62479 Test Report](/assets/pdfs/boron310-EN62479-test-report.pdf)
+- [RoHS Test Report](/assets/pdfs/boron310-rohs.pdf)
+
+
+#### Xenon
+
+- [Summary](/assets/pdfs/xenon-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/xenon-ce-emc-test-report.pdf)
+- [RED Mesh Test Report](/assets/pdfs/xenon-mesh-ce-test-report.pdf)
+- [RED NFC Test Report](/assets/pdfs/xenon-nfc-ce-test-report.pdf)
+- [EN-60950 Test Report](/assets/pdfs/xenon-EN60950-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/xenon-EN62311-test-report.pdf)
+- [EN-62479 Test Report](/assets/pdfs/xenon-EN62479-test-report.pdf)
+- [RoHS Test Report](/assets/pdfs/xenon-rohs.pdf)
+
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
@@ -260,9 +436,31 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
 
+#### Electron E402D (LTE)
+
+- [Test Reports](/assets/pdfs/electron402-rohs.pdf)
+
+
 #### E Series E310 (U201)
 
 - [Test Reports](/assets/pdfs/electron/rohs-u201.pdf)
+
+#### Argon
+
+- [Test Reports](/assets/pdfs/argon-rohs.pdf)
+
+#### Boron 2G/3G
+
+- [Test Reports](/assets/pdfs/boron310-rohs.pdf)
+
+#### Boron LTE
+
+- [Test Reports](/assets/pdfs/boron402-rohs.pdf)
+
+#### Xenon
+
+- [Test Reports](/assets/pdfs/xenon-rohs.pdf)
+
 
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
