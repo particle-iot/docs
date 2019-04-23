@@ -1108,6 +1108,20 @@ STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION));
 
 If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
+| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+|:------:|:------------:|:--------------------------|
+|MISO    | MISO         | SPI MISO                  |
+|MOSI    | MOSI         | SPI MOSI                  |
+|SCK     | SCK          | SPI SCK                   |
+|D3      | A7           | nRESET                    |
+|D4      | D22          | nINTERRUPT                |
+|D5      | D8           | nCHIP SELECT              |
+
+When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
+
+When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
+
+
 ### on()
 
 `Ethernet.on()` turns on the Ethernet module. Useful when you've turned it off, and you changed your mind.
@@ -3653,10 +3667,19 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 {{#if has-nrf52}}
 If you are using the Particle Ethernet FeatherWing you cannot use the pins for GPIO as they are used for the Ethernet interface:
-- D3 (RESET)
-- D4 (INTN)
-- D5 (SCSN) 
-- SPI (SCK, MOSI, MISO) is also used, however you can still share the SPI bus in many cases.
+
+| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+|:------:|:------------:|:--------------------------|
+|MISO    | MISO         | SPI MISO                  |
+|MOSI    | MOSI         | SPI MOSI                  |
+|SCK     | SCK          | SPI SCK                   |
+|D3      | A7           | nRESET                    |
+|D4      | D22          | nINTERRUPT                |
+|D5      | D8           | nCHIP SELECT              |
+
+When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
+
+When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
 {{/if}}
 
 {{#if xenon}}
@@ -3719,7 +3742,10 @@ void loop()
 **Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 {{/if}}
 {{#if has-nrf52}}
-**Note:** All GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
 {{/if}}
 
 
@@ -3761,7 +3787,10 @@ void loop()
 {{/if}}
 
 {{#if has-nrf52}}
-**Note:** All GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
 {{/if}}
 
 {{#if has-pwm}}
@@ -3823,7 +3852,7 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 {{/if}}
 {{#if has-nrf52}}
-On mesh devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 3: Pins D2, D3, A4, and A5.
@@ -3832,6 +3861,13 @@ frequency and resolution, but individual pins in the group can have a different 
 
 - Group 1: Pins D4, D5, D6, and D8.
 
+- Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
+On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 2: Pins A0, A1, A6, and A7.
+- Group 1: Pins D4, D5, and D6.
 - Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
 
 {{/if}}
@@ -3927,9 +3963,11 @@ _Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). 
 {{/if}}
 
 {{#if has-nrf52}}
-The device has 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+The Gen 3 Feather devices (Argon, Boron, Xenon) have 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
 The sample time to read one analog value is 10 microseconds.
+
+The Boron SoM has 8 channels, A0 to A7.
 {{/if}}
 
 ```C++
@@ -4147,10 +4185,28 @@ Generates a square wave of the specified frequency and duration (and 50% duty cy
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
 {{/if}}
 
+{{#if has-stm32}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
 
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 - Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
+{{/if}}
+
+{{#if has-nrf52}}
+On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for tone(). Pins are assigned a PWM group. Each group must share the same frequency. Thus you can only output 3 different frequencies at the same time.
+
+- Group 3: Pins D2, D3, A4, and A5.
+
+- Group 2: Pins A0, A1, A2, and A3.
+
+- Group 1: Pins D4, D5, D6, and D8.
+
+On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Pins are assigned a PWM group. Each group must share the same frequency.
+
+- Group 2: Pins A0, A1, A6, and A7.
+- Group 1: Pins D4, D5, and D6.
+
+{{/if}}
 
 ```C++
 // SYNTAX
@@ -4163,6 +4219,7 @@ The frequency range is from 20Hz to 20kHz. Frequencies outside this range will n
 
 `tone()` does not return anything.
 
+{{#if has-stm32}}
 **NOTE:** the Photon's PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
 
 Pin  | TMR3 | TMR4 | TMR5
@@ -4174,6 +4231,7 @@ D3   |  x   |      |
 A4   |  x   |      |  
 A5   |  x   |      |  
 WKP  |      |      |  x
+{{/if}}
 
 
 ```C++

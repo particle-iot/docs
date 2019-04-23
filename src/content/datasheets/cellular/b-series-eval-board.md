@@ -65,10 +65,10 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | | TF_DET | PWM2 | D6 |
 | SIM | SIM_DATA | SOM5 |  |
 | | SIM_CLK | SOM4 |  |
-| | SIM_RST | SOM3 | ??  |
+| | SIM_RST | SOM3 |  |
 | | SIM_VCC | SOM2 |  |
 | D7 LED | USER | PWM3 | D7 |
-| | SOM6 | SOM6 | ?? |
+| | SOM6 | SOM6 |  |
 | | GND | GND | GND |
 
 **TODO:** The evaluation board lists SOM3 as SIM\_RST but the B series data sheet has SOM6 as SIM\_RST and SOM3 is NFC1, figure out which is right
@@ -94,7 +94,7 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | D22 | GPIO0 | W5500_INT | |
 | A6 | ADC6 | FUEL\_INT | Fuel Gauge |
 | D0 | SDA | BQ24195\_SDA | PMIC |
-| D1 | SCL | BQ24195\_SDA | PMIC |
+| D1 | SCL | BQ24195\_SCL | PMIC |
  
 
 ### Power Jumpers
@@ -104,15 +104,15 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | J5 | SOM_VCC | 
 | J31 | SOM\_3V3 | 
 
-## 60-pin Connector
+### Expansion Connector
 
 | B Series Pin | SoM Pin | | SoM Pin | B Series Pin |
 | :---: | :---: | --- | :---: | :---: |
-| D31 | SOM6 | | NC |  |
-| D30 | SOM5 | | PWM3 | D7 |
-| NFC2 | SOM4 | | PWM2 | D6 |
-| NFC1 | SOM3 | | PWM1 | D5 |
-| u-blox VBUS | SOM2 | | PWM0 | D4 |
+|  | SOM6 | | NC |  |
+| SIM_DATA | SOM5 | | PWM3 | D7 |
+| SIM_CLK | SOM4 | | PWM2 | D6 |
+| SIM_RST | SOM3 | | PWM1 | D5 |
+| SIM_VCC | SOM2 | | PWM0 | D4 |
 | | BLUE | | GPIO1 | GPIO1 | D23 |
 | | GREEN | | GPIO0 | D22 |
 | | RED | | NC | | 
@@ -138,63 +138,39 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | | GND | | VCC | | 
 | | GND | | VCC | | 
 
+### PWM Differences
 
+On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
 
+- Group 2: Pins A0, A1, A6, and A7.
+- Group 1: Pins D4, D5, and D6.
+- Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
 
+On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
 
-| PINS | FUNCTION | DESCRIPTION|
-|:-----|:--------:|:-----------|
-| VIN  | POWER    | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series Schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1Amp.	|
-| VUSB | POWER    | This is connected to the VUSB power pin of the USB port. |
-| LiPo | POWER    | This is connected to the +LiPo connector.				|
-| PMID | POWER    | This is connected to the PMID pin of the PMIC.			|
-| 3V3  | POWER    | This is the output of the 3V3 regulator on the E series		|
-| GND  | POWER    | Common GND pin. 											|
-| VDDA | POWER    | This is the input to the analog block of the STM32.		|
-| VBAT | POWER    | Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC).	|
-| RED  | IO       | Red pin of the RGB LED. (PA1)
-| GRN  | IO       | Green pin of the RGB LED. (PA2)
-| BLU  | IO       | Blue pin of the RGB LED. (PA3)
-| RST  | I        | Active-low reset input.
-| MODE | IO       | Connected to the MODE button input.
-| STAT | O        | Connected to the charge status pin of the PMIC.
-| TX   | IO       | Primarily used as UART TX, but can also be used as a digital GPIO or PWM.|
-| RX   | IO       | Primarily used as UART RX, but can also be used as a digital GPIO or PWM.|
-| WKP  | IO       | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM. Can be referred to as A7 when used as an ADC.|
-| DAC  | IO       | 12-bit Digital-to-Analog (D/A) output (0-4095), referred to as DAC or DAC1 in software. Can also be used as a digital GPIO or ADC. Can be referred to as A6 when used as an ADC.|
-| A0-A5| IO       | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like analogRead(A7). A6 maps to the DAC pin and A7 maps to the WKP pin. A3 is also a second DAC output used as DAC2 or A3 in software. A4 and A5 can also be used as PWM outputs.|
-| B0-B5| IO       | B0 and B1 are digital only while B2, B3, B4, B5 are 12-bit A/D inputs as well as digital GPIOs. B0, B1, B2, B3 can also be used as PWM outputs.|
-| C0-C5| IO       | Digital only GPIO. C4 and C5 can also be used as PWM outputs.
-| D0-D7| IO       | Digital only GPIO. D0, D1, D2, D3 can also be used as PWM outputs.|
+- Group 3: Pins D2, D3, A4, and A5.
+
+- Group 2: Pins A0, A1, A2, and A3.
+
+- Group 1: Pins D4, D5, D6, and D8.
+
+- Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
+These rules also apply to tone() (square wave with 50% duty cycle), however since each group must share the same frequency you can only generate two different simultaneous tones of different frequencies on the B Series SoM. You cannot generate tone on group 0.
 
 ## Basic Setup
 
 The basic setup for the B series to be operational is shown below:
 
-<div align=center><img src="/assets/images/e-series/illustrations/e0-dev-setup.png"></div>
+<div align=center><img src="/assets/images/b-series/b-series-eval-setup.png"></div>
 
-Plug the antenna into the uFL connector. Remember never to power up the Electron or this board without the antenna being connected. There is potential to damage the transmitter of the u-blox module if no antenna is connected.
+- Plug the antenna into the uFL connector (1). Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the u-blox module if no antenna is connected.
+- Make sure jumpers J5 and J31 are installed (2).
+- Connect power the USB (3) or a LiPo battery (4).
+- Turn on the power switches (5).
 
-To power the board you can either use the barrel jack connector or the E series USB port. If you are planning to power the board without the LiPo battery, remember that the power supply should be able to source **at least 2A @5VDC.**
-
-**VDDA/VBAT selector switch:** 
-
-The dip switches should be flipped individually to the ON position if you want to power the VDDA and VBAT pins via the on board 3V3 supply. If you want to connect a different source, simply flip the switch to the OFF position and connect a suitable supply using the respective header pins.
-
-**SMA Connector:** The evaluation kit comes with a solderable u.Fl to SMA adapter. You can optionally solder it on to the board and connect a different cellular antenna of your choice. 
-
-<div align=center><img src="/assets/images/e-series/illustrations/e0-dev-sma.png"></div>
-
-
-**Sensor Ports:** 
-
-There are two 4-pin connectors available for you to plug in Grove compatible sensors. CONN1 exposes two analog pins (A0 and A1) while CONN2 exposes the I2C pins (D0 and D1).
-
-**JTAG/SWD connector:** 
-
-We have included a standard 20 pin JTAG/SWD connector footprint. You can use this port to gain direct access to the onboard microcontroller. 
-
-<div align=center><img src="/assets/images/e-series/illustrations/e0-dev-jtag.png"></div>
 
 ## Evaluation Board Schematics
 
