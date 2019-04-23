@@ -4771,6 +4771,11 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
 
 {{#unless raspberry-pi}}
+
+{{#if has-usb-serial1}}
+**NOTE:** On Windows 10, using `USBSerial1` on the Electron and P1 may not be reliable due to limitations of the USB peripheral used for those 2 platforms. Characters may be dropped between the computer and device. `USBSerial1` is reliable for other Particle platforms and other operating systems. `Serial` is reliable for all platforms and operating systems.
+{{/if}} {{!-- has-usb-serial1 --}}
+
 #### Connect to Serial with a computer
 
 For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). Plug your {{device}} into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
@@ -4965,7 +4970,7 @@ LIN configuration:
 {{/if}} {{!-- has-linbus --}}
 
 {{#if has-usb-serial1}}
-***NOTE*** {{since when="0.6.0"}}: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
+**NOTE** {{since when="0.6.0"}} When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
 
 ```C++
 // EXAMPLE USAGE
