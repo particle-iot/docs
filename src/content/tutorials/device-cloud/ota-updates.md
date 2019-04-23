@@ -445,7 +445,7 @@ availability](#controlling-ota-availability).
 After clicking **Next**, you will need to confirm that you understand
 the impact of the action that you are about to take:
 
-![](/assets/images/ota-updates/immediate-release-confirm.png)
+![](/assets/images/ota-updates/intelligent-release-confirm.png)
 
 What is most important to recognize is that **Intelligent Firmware
 Releases _can be disruptive_ to active devices**. That is, if a targeted
@@ -465,7 +465,7 @@ of rolling out the version of firmware to target devices immediately.
 In your firmware list, you should see the firmware version marked as an
 Intelligent Release:
 
-<img class="small" src="/assets/images/ota-updates/immediate-fw-list.png" />
+<img class="small" src="/assets/images/ota-updates/intelligent-release-list.png" />
 
 ## Controlling OTA availability
 
