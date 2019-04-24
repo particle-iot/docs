@@ -597,7 +597,11 @@ Normally you'll just use options like **Particle: Flash application (local)** in
 
 ### Particle: Login
 
-Log in to a Particle account. This is necessary to cloud compile and flash. The **Particle: Who Am I?** command can be used to determine who you are logged in as.
+Log in to a Particle account. This is necessary to cloud compile and flash. The **Particle: Who Am I?** command can be used to determine who you are logged in as. 
+
+You'll be prompted to enter your email, password, and optionally a 6-digit login code (aka `otp`) if two-step authentication (aka `2FA`) is enabled for the account.
+
+Upon signing-in if you see an error notification, click the "view log" button and review the error details. If you see `Could not validate OTP`, that means 2FA _is enabled_ and the login code is _required_. If instead you see `User credentials are invalid`, that means you entered the wrong email or password.
 
 ### Particle: Logout
 
