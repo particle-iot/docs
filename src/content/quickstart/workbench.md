@@ -16,6 +16,8 @@ order: 10
 - Continue with the instructions for all operating systems, below.
 - Windows 7, 8, or 10 is required.
 
+_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces cannot be supported at this time_
+
 ### Mac
 
 - Download the [Mac installer](https://binaries.particle.io/workbench/ParticleWorkbenchInstaller.zip) (.zip file)
