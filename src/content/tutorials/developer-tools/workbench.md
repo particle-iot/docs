@@ -153,6 +153,8 @@ When switching from a debug build back to a non-debug build, be sure to use the 
 
 To increase the verbosity of the local compiler, set **Enable Verbose Local Compiler Logging** in the [Settings](#settings).
 
+_NOTE: due to limitations with the local compiler's build system, usernames (or paths) with spaces cannot be supported at this time_
+
 ### Compile and Flash Buttons
 
 When you are viewing a .cpp or .ino file, there will be two new icons in the upper right corner:
