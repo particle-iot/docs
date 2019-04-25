@@ -63,15 +63,13 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | | TF_MO | MOSI | MOSI |
 | | TF_CS | GPIO1 | D23 |
 | | TF_DET | PWM2 | D6 |
-| SIM | SIM_DATA | SOM5 |  |
-| | SIM_CLK | SOM4 |  |
-| | SIM_RST | SOM3 |  |
-| | SIM_VCC | SOM2 |  |
+| SIM | SIM_DATA | SOM8 |  |
+| | SIM_CLK | SOM7 |  |
+| | SIM_RST | SOM6 |  |
+| | SIM_VCC | SOM5 |  |
 | D7 LED | USER | PWM3 | D7 |
-| | SOM6 | SOM6 |  |
+| | SOM9 | SOM9 |  |
 | | GND | GND | GND |
-
-**TODO:** The evaluation board lists SOM3 as SIM\_RST but the B series data sheet has SOM6 as SIM\_RST and SOM3 is NFC1, figure out which is right
 
 By default, the external SIM card cannot be used. There are four jumpers on the B Series SoM that need to be changed in order to disable the onboard MFF2 SMD SIM.
 
@@ -108,12 +106,12 @@ These pins are intended to be connected across using removable two-pin jumpers t
 
 | B Series Pin | SoM Pin | | SoM Pin | B Series Pin |
 | :---: | :---: | --- | :---: | :---: |
-|  | SOM6 | | NC |  |
-| SIM_DATA | SOM5 | | PWM3 | D7 |
-| SIM_CLK | SOM4 | | PWM2 | D6 |
-| SIM_RST | SOM3 | | PWM1 | D5 |
-| SIM_VCC | SOM2 | | PWM0 | D4 |
-| | BLUE | | GPIO1 | GPIO1 | D23 |
+|  | SOM9 | | NC |  |
+| SIM_DATA | SOM8 | | PWM3 | D7 |
+| SIM_CLK | SOM7 | | PWM2 | D6 |
+| SIM_RST | SOM6 | | PWM1 | D5 |
+| SIM_VCC | SOM5 | | PWM0 | D4 |
+| | BLUE | | GPIO1 | D23 |
 | | GREEN | | GPIO0 | D22 |
 | | RED | | NC | | 
 | | NC | | NC | | 
@@ -170,6 +168,43 @@ The basic setup for the B series to be operational is shown below:
 - Make sure jumpers J5 and J31 are installed (2).
 - Connect power the USB (3) or a LiPo battery (4).
 - Turn on the power switches (5).
+
+### Using the PMIC and Fuel Gauge (recommended)
+
+To use the bq24195 PMIC and MAX17043 fuel gauge you must add the jumpers:
+
+- ADC6 to FUEL_INT
+- SDA to BQ24195_SDA
+- SCL to BQ24195_SCL
+
+There is support for it in Device OS so you don't need to add any additional configuration.
+
+
+### Using the MicroSD Card
+
+To use the MicroSD card, you must add the jumpers:
+
+- TF_MI to MISO
+- TF_CK to SCK
+- TF_MO to MOSI
+- TF_CS to GPIO1
+- TF_DET to PWM2 (optional)
+
+You will normally use this with the [SdFat](https://build.particle.io/libs/SdFat/1.0.16/tab/SdFat.h) library.
+
+With the jumpers installed, it will use the primary SPI and pin D23 as the chip select.
+
+### Using Ethernet
+
+To use Ethernet, you must add the jumpers:
+
+- CS to W5500_CS
+- SCK to W5500_CLK
+- MISO to W5500_MISO
+- MOSI to W5500_MOSI
+- GPIO0 to W5500_INT
+
+With the jumpers installed, it will use the primary SPI and pins D8 as the chip select and D22 as the interrupt pin.
 
 
 ## Evaluation Board Schematics
