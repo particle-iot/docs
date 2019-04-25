@@ -92,7 +92,7 @@ When prototyping, you want to enable your development team with the
 ability to iterate quickly to provide viability and value in as little
 time as possible.
 
-Particle's **single device OTA** functions help enable your embedded
+Particle's [**single device OTA**](#single-device-ota) functions help enable your embedded
 development team to rapidly prototype and innovate. OTA updates can be
 sent with a click of a button in our IDEs (available both in
 [Workbench](https://www.particle.io/workbench/) and our [Web
@@ -104,7 +104,7 @@ API](/reference/device-cloud/api/).
 As you begin to deploy large numbers of devices, it is imperative to
 have the ability to safely batch OTA updates to many devices at one time. This is what allows you to roll out new software features, fix bugs, or patch security holes across your fleet.
 
-For this purpose, Particle offers **fleet-wide OTA updates**. A variety
+For this purpose, Particle offers [**fleet-wide OTA updates**](#fleet-wide-ota). A variety
 of tools are available in the Particle Console to apply fleet-wide
 updates without sacrificing fine-grained control.
 
@@ -139,7 +139,7 @@ Application firmware is designed to make it easy to compile your firmware with l
 
 Splitting the firmware between application part (up to 128 Kbytes) and system parts (384K to 656K bytes, depending on the device) allows for faster updates of application firmware, with reduced data usage when only updating application firmware.
 
-## Single Device OTA
+## Single device OTA
 
 During development, there are a variety of ways to OTA flash individual
 Particle devices to rapidly send firmware to test devices for rapid
