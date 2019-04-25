@@ -12567,7 +12567,7 @@ void loop() {
 
 Application firmware can use these functions to turn on or off OTA updates.
 
-TODO: document system events when an update is received but not yet applied
+{{!-- TODO: document system events when an update is received but not yet applied --}}
 
 ### System.enableUpdates()
 
