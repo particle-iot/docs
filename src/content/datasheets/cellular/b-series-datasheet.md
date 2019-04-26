@@ -5,7 +5,7 @@ columns: two
 order: 2
 ---
 
-# B402 Datasheet <sup>(draft-005)</sup>
+# B402 Datasheet <sup>(001)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-datasheet.pdf"}}
@@ -168,9 +168,9 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 37 | A3 | ADC3 | IO | Analog input ADC3<sup>2</sup>, and digital GPIO. |
 | 38 | D10 | RX | IO | Primarily used as UART RX, but can also be used as a digital GPIO.	 | 
 | 39 | AGND | AGND | POWER | System analog ground. |
-| 40 | D3 | RESERVED<sup>3</sup> | IO | UART flow control interface CTS, and digital only GPIO. |
+| 40 | D3 | RESERVED<sup>3</sup> | IO | UART flow control interface CTS, SCL1 (Wire1), SPI1 MOSI, and digital only GPIO. |
 | 41 | A4 | RESERVED<sup>3</sup> |IO | Analog input ADC4<sup>2</sup>, and digital GPIO. |
-| 42 | D2 | RESERVED<sup>3</sup> |IO | UART flow control interface RTS, and digital only GPIO. |
+| 42 | D2 | RESERVED<sup>3</sup> |IO | UART flow control interface RTS, SDA1 (Wire1), SPI1 SCK, and digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | Analog input ADC5<sup>2</sup>, and digital GPIO.|
 | 44 | u-blox USB D+ | SOM0 | IO | Data+ pin of the R410M USB port.|
 | 45 | A6 | RESERVED<sup>3</sup> | IO | Analog input ADC6<sup>2</sup>, and digital GPIO. |
@@ -194,7 +194,7 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 63 | RGBG | GREEN | IO | Green pin of the RGB LED.|
 | 64 | D23 | GPIO1 | IO | GPIO1, digital only.|	
 | 65 | RGBB | BLUE | IO | Blue pin of the RGB LED.|
-| 66 | D4 | PWM0 | IO | Digital only GPIO, and PWM0. |
+| 66 | D4 | PWM0 | IO | SPI1 MISO, Digital only GPIO, and PWM0. |
 | 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
 | 68 | D5 | PWM1 | IO | Digital only GPIO, and PWM1. |
 | 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. |
@@ -403,6 +403,25 @@ The u.FL antenna connectors are a very fragile piece of hardware (and is fancy t
 
 The M.2 edge connector is static sensitive and should be handled carefully. The M.2 connector is not designed for repeated removal and insertion of the module.
 
+## Schematics
+
+### Microcontroller
+
+![Microcontroller](/assets/images/b-series/schematic-nrf.png)
+
+
+### u-blox cellular modem
+
+![u-blox cellular modem](/assets/images/b-series/schematic-ublox.png)
+
+### M.2 connector
+
+![Connector](/assets/images/b-series/schematic-conn.png)
+
+
+### SIM and Flash
+
+![SIM and Flash](/assets/images/b-series/schematic-sim.png)
 
 ## Default settings
 
@@ -416,9 +435,5 @@ The bootloader allows you to easily update the user application via several diff
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| draft-001     | 07 Mar 2019 | RK | Initial draft |
-| draft-002     | 09 Mar 2019 | RK | Removed empty sections |
-| draft-003     | 15 Mar 2019 | RK | Updated mechanical drawings |
-| draft-004     | 18 Mar 2019 | RK | Updated top picture |
-| draft-005     | 21 Mar 2019 | RK | Added generic pin column |
+| 001      | 26 Apr 2019 | RK | Initial Release |
 
