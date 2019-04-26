@@ -3782,7 +3782,13 @@ analogWrite(pin, value, frequency);
 
 - `pin`: the number of the pin whose value you wish to set
 - `value`: the duty cycle: between 0 (always off) and 255 (always on). _Since 0.6.0:_ between 0 and 255 (default 8-bit resolution) or `2^(analogWriteResolution(pin)) - 1` in general.
-- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
+{{#if has-stm32}}
+- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz) on Gen 2 devices (Photon, P1, Electron). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
+{{/if}}
+{{#if has-nrf52}}
+- `frequency`: the PWM frequency: between 4 Hz and `analogWriteMaxFrequency(pin)`, currently 500 kHz on Gen 3 devices (Argon, Boron, Xenon). The default value is 500 Hz.
+{{/if}}
+
 
 **NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
@@ -3856,7 +3862,7 @@ Sets or retrieves the resolution of `analogWrite()` function of a particular pin
 `analogWriteResolution()` takes one or two arguments:
 
 - `pin`: the number of the pin whose resolution you wish to set or retrieve
-- `resolution`: (optional) resolution in bits. The value can range from 2 to 31 bits. If the resolution is not supported, it will not be applied.
+- `resolution`: (optional) resolution in bits. The value can range from 2 to 31 bits. If the resolution is not supported, it will not be applied. The default is 8.
 
 `analogWriteResolution()` returns currently set resolution.
 
