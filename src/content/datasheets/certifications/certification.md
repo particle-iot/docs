@@ -404,6 +404,18 @@ Particle has completed TELEC certification to achieve compliance with Japanese R
 - [Certificate of Conformity](/assets/pdfs/p0-telec-certificate.pdf)
 - [Test Report](/assets/pdfs/p0-telec-test-report.pdf)
 
+#### Argon
+
+- [JRL 38.24.1 Certificate of Conformity](/assets/pdfs/argon-jrl.pdf)
+- [Test Report BLE](/assets/pdfs/argon-jrl-ble-test-report.pdf)
+- [Test Report Wi-Fi](/assets/pdfs/argon-jrl-wifi-test-report.pdf)
+
+#### Xenon
+
+- [JRL 38.24.1 Certificate of Conformity](/assets/pdfs/xenon-jrl.pdf)
+- [Test Report](/assets/pdfs/xenon-jrl-ble-test-report.pdf)
+
+
 ## RoHS<img class="inline-header-image" src="/assets/images/logo-rohs.png"/>
 
 ### Description
