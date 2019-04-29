@@ -12631,36 +12631,17 @@ void loop() {
 This section describes the Device OS APIs that control Over the Air Updates. 
 
 ### Controlling OTA Availability
-*Since 1.2.0*
+*Updated in Device OS 1.2.0*
 
 This feature allows the application developer to control when the device is available for firmware updates. This affects both over-the-air (OTA) and over-the-wire (OTW) updates. 
 
-Firmware updates are enabled when the device starts up after a deep sleep or system reset. Applications may choose to disable firmware updates during critical periods by calling the `System.disableUpdates()` function and then enabling them again with `System.enableUpdates()`. 
+Firmware updates are enabled by default when the device starts up after a deep sleep or system reset. Applications may choose to disable firmware updates during critical periods by calling the `System.disableUpdates()` function and then enabling them again with `System.enableUpdates()`. 
 
-When the firmware update is the result of a Intelligent Product Firmware Release,
-the update is delivered immediately after `System.enableUpdates()` is called. Standard product firmware releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
+When the firmware update is the result of a [Intelligent Product
+Firmware Release](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases),
+the update is delivered immediately after `System.enableUpdates()` is called.
 
-### Pending Updates
-*Enterprise Only*
-
-When new product firmware is released with the `intelligent` option enabled, the firmware is delivered shortly after release when firmware updates are enabled for the device. 
-
-When updates are disabled, firmware updates are not delivered to the device. Instead, the update is marked as pending. The system event `firmware_update_pending` is emmitted and the `System.updatesPending()` function returns `true`.  The update is delivered when the application later re-enables updates by calling `System.enableUpdates()`, or when updates are forced, or when the device is restarted.
-
-### Forced Updates
-
-When the device is not available for updates, the pending firmware update is not normally delivered to the device. Updates can be forced so that they are delivered even when `System.disableUpdates()` has been called by the application.
-
-When updates are forced in the cloud, the `System.updatesForced()` function returns `true`. 
-
-
-### System.enableUpdates()
-
-Enables firmware updates on this device. Updates are enabled by default when the device starts.
-
-Calling this function marks the device as available for updates. When updates are enabled, updates triggered from the cloud are delivered to the device. When updates are disabled, firmware updates are not delivered to the device unless forced. 
-
-
+Standard product firmware releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
 
 ### System.disableUpdates()
 
@@ -12669,7 +12650,14 @@ Disables OTA updates on this device. An attempt to begin an OTA update from the 
 *Enterprise Only*
 
 When updates are disabled, an attempt to send a firmware update to the device will result in the
+
 `System.updatesPending()` function returning `true`
+
+### System.enableUpdates()
+
+Enables firmware updates on this device. Updates are enabled by default when the device starts.
+
+Calling this function marks the device as available for updates. When updates are enabled, updates triggered from the cloud are delivered to the device. When updates are disabled, firmware updates are not delivered to the device unless forced. 
 
 ### System.updatesEnabled()
 
@@ -12682,6 +12670,13 @@ Version | Self service customers | Standard Product | Enterprise Product
 Device OS &lt; 1.2.0 | Supported | Supported | Supported
 Device OS &gt;= 1.2.0 | Supported | Supported | Supported
 
+### Pending Updates
+*Enterprise Only*
+
+When new product firmware is released with the `intelligent` option enabled, the firmware is delivered shortly after release when firmware updates are enabled for the device. 
+
+When updates are disabled, firmware updates are not delivered to the device. Instead, the update is marked as pending. The system event `firmware_update_pending` is emmitted and the `System.updatesPending()` function returns `true`.  The update is delivered when the application later re-enables updates by calling `System.enableUpdates()`, or when updates are forced, or when the device is restarted.
+
 ### System.updatesPending()
 *Enterprise Only*
 
@@ -12693,6 +12688,12 @@ Indicates if there is a firmware update pending that was not delivered to the de
 --------
 | Device OS < 1.2.0 | N/A | N/A | N/A |
 | Device OS >= 1.2.0 | N/A | N/A | Supported |
+
+### Forced Updates
+
+When the device is not available for updates, the pending firmware update is not normally delivered to the device. Updates can be forced so that they are delivered even when `System.disableUpdates()` has been called by the application.
+
+When updates are forced in the cloud, the `System.updatesForced()` function returns `true`. 
 
 ### System.updatesForced()
 *Since 1.2.0*
