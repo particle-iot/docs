@@ -12668,6 +12668,9 @@ API](/reference/device-cloud/api/#get-device-information). The cloud
 will use this information to deliver [Intelligent Firmware
 Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
 
+In addition, a cloud-side system event will be emitted when updates are disabled,
+`particle/device/updates/enabled` with a data value of `false`.
+
 | Version | Self service customers | Standard Product | Enterprise Product |
 | ------- | ---------------------- | ---------------- |------------------- |
 | Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
@@ -12686,6 +12689,10 @@ Enables firmware updates on this device. Updates are enabled by default when the
 Calling this function marks the device as available for updates. When
 updates are enabled, updates triggered from the cloud are delivered to
 the device.
+
+In addition, a cloud-side system event will be emitted when updates are
+enabled,
+`particle/device/updates/enabled` with a data value of `true`.
 
 **Since 1.2.0**
 
@@ -12718,6 +12725,8 @@ Returns `true` on startup, and after `System.enableUpdates()` has been called. R
 ### System.updatesPending()
 **Enterprise Feature, Since 1.2.0**
 
+`System.updatesPending()` indicates if there is a firmware update pending that was not delivered to the device while updates were disabled. When an update is pending, the `firmware_update_pending` system event is emitted and the `System.updatesPending()` function returns `true`.
+
 When new product firmware is released with the `intelligent` option
 enabled, the firmware is delivered immediately after release for devices
 in which  firmware updates are enabled.
@@ -12730,7 +12739,9 @@ function is set to `true`.  The update is delivered when the application
 later re-enables updates by calling `System.enableUpdates()`, or when
 updates are force enabled from the cloud, or when the device is restarted.
 
-`System.updatesPending()`Indicates if there is a firmware update pending that was not delivered to the device while updates were disabled. When an update is pending, the `firmware_update_pending` system event is emitted and the `System.updatesPending()` function returns `true`. 
+In addition, a cloud-side system event will be emitted when a pending
+OTA update is queued,
+`particle/device/updates/pending` with a data value of `true`.
 
 | Version | Self service customers | Standard Product | Enterprise Product |
 | ------- | ---------------------- | ---------------- |------------------- |
@@ -12748,6 +12759,10 @@ setting on the device. This means that firmware updates are delivered
 even when `System.disableUpdates()` has been called by the device application.
 
 When updates are forced in the cloud, the `System.updatesForced()` function returns `true`. 
+
+In addition, a cloud-side system event will be emitted when OTA updates
+are force enabled from the cloud, `particle/device/updates/forced` with
+a data value of `true`.
 
 
 Updates may be forced for a particular device. When this happens, updates are delivered even when `System.disableUpdates()` has been called.

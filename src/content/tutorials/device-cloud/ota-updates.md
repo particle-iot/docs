@@ -711,7 +711,10 @@ When not using `SYSTEM_THREAD(ENABLED)`, updates are only checked between your c
 
 When using `SYSTEM_THREAD(ENABLED)`, updates can occur at any time.
 
-`System.enableUpdates()` and `System.disableUpdates()` just set an internal flag and do not incur and data usage so it's safe to call them frequently.
+`System.enableUpdates()` and `System.disableUpdates()` do send a message
+to the cloud to keep these values synchronized with the
+Device Cloud. Be mindful of the fact that some data is used when these methods are
+called.
 
 ```
 void setup() {
@@ -729,7 +732,7 @@ void loop() {
 This architecture is likely preferable if the cost of disrupting a
 device during normal operation is very high. Imagine a connected medical
 device needed at a moment's notice to save lives -- the risk of an OTA
-would be high enough in this case to warrant disabling updates by
+update would be high enough in this case to warrant disabling updates by
 default, then temporarily enabling them when a safe "update window" has
 been identified.
 
@@ -773,9 +776,14 @@ void loop() {
 }
 ```
 
-The reason is that with threading disabled `SYSTEM_MODE(AUTOMATIC)`, the default mode, setup() is only called after the cloud connection has been established and you might not be able to prevent the update from occurring at boot.
+The reason is that with threading disabled `SYSTEM_MODE(AUTOMATIC)`, the
+default mode, `setup()` is only called after the cloud connection has been established and you might not be able to prevent the update from occurring at boot.
 
-If you want to manage firmware updates in this way, you can check [`System.updatesPending()`](/reference/device-os/firmware/#system-updatespending-) when you are in a situation where updates would be acceptable. If true, you can then enable updated again using `System.enableUpdates()`. 
+If you want to manage firmware updates in this way, you can check
+[`System.updatesPending()`](/reference/device-os/firmware/#system-updatespending-)
+when you are in a situation where updates would be acceptable. If true,
+you can then enable updates again using `System.enableUpdates()`. This
+method would result in a minimal amount of cellular data consumption.
 
 For example, if you were writing firmware for an electric scooter, you might only want to do update when it's idle and between users. If you were building an asset tracking application, you might only want to do updates when not in motion.
 
@@ -812,7 +820,7 @@ void loop() {
 
 ```
 
-#### Intercepting the post OTA reset
+#### Intercepting the reset after an OTA update
 
 When using `SYSTEM_THREAD(ENABLED)` your code will continue to run during the download process for the new user firmware, however performance will be affected. Normally, the device will reset immediately after the download completes, and after reset the device will be running the new firmware.
 
