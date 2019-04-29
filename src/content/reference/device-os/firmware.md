@@ -15238,15 +15238,15 @@ The stack size cannot be changed as it's allocated by the Device OS before the u
 
 {{/if}}
 
-## Firmware Releases
+## Device OS Versions
 
-Particle device firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
+Particle Device OS firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
 
-Firmware releases are published [here on GitHub](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
+New versions are published [here on GitHub](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
 
-### Firmware Release Process
+### New version release process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
+The process in place for releasing all Device OS versions as prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
 
 ### GitHub Release Notes
 
