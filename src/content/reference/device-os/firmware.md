@@ -12636,7 +12636,11 @@ Device OS version 1.2.0 or higher_.
 
 ### Controlling OTA Availability
 
-This feature allows the application developer to control when the device is available for firmware updates. This affects both over-the-air (OTA) and over-the-wire (OTW) updates.
+This feature allows the application developer to control when the device
+is available for firmware updates. This affects both over-the-air (OTA)
+and over-the-wire (OTW) updates. OTA availability also affects both
+_single device OTA_ (flashing a single device) and _fleet-wide OTA_
+(deploying a firmware update to many devices in a Product).
 
 Firmware updates are enabled by default when the device starts up after a deep sleep or system reset. Applications may choose to disable firmware updates during critical periods by calling the `System.disableUpdates()` function and then enabling them again with `System.enableUpdates()`.
 
@@ -12649,18 +12653,56 @@ Standard Firmware Releases are delivered the next time the device connects to th
 ### System.disableUpdates()
 
 Disables OTA updates on this device. An attempt to begin an OTA update
-from the cloud will be prevented by the device.
+from the cloud will be prevented by the device. When updates are disabled, firmware updates are not
+delivered to the device [unless forced](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates).
+
+**Since 1.2.0**
+
+Device OS version 1.2.0 introduced enhanced support of
+`System.disableUpdates()` and `System.enableUpdates()`. If running 1.2.0
+or higher, the device will notify the Device Cloud of its OTA
+availability, which is [visible in the
+Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+as well as [queryable via the REST
+API](/reference/device-cloud/api/#get-device-information). The cloud
+will use this information to deliver [Intelligent Firmware
+Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
 
 **Enterprise Feature**
 
 When updates are disabled, an attempt to send a firmware update to a
-device that has called `System.disableUpdates()` will result in the `System.updatesPending()` function returning `true`.
+device that has called `System.disableUpdates()` will result in the
+[`System.updatesPending()`](#system-updatespending-) function returning `true`.
 
 ### System.enableUpdates()
 
 Enables firmware updates on this device. Updates are enabled by default when the device starts.
 
-Calling this function marks the device as available for updates. When updates are enabled, updates triggered from the cloud are delivered to the device. When updates are disabled, firmware updates are not delivered to the device unless forced.
+Calling this function marks the device as available for updates. When
+updates are enabled, updates triggered from the cloud are delivered to
+the device.
+
+**Since 1.2.0**
+
+Device OS version 1.2.0 introduced enhanced support of
+`System.disableUpdates()` and `System.enableUpdates()`. If running 1.2.0
+or higher, the device will notify the Device Cloud of its OTA
+availability, which is [visible in the
+Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+as well as [queryable via the REST
+API](/reference/device-cloud/api/#get-device-information). The cloud
+will use this information to deliver [Intelligent Firmware
+Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
 
 ### System.updatesEnabled()
 
@@ -12674,8 +12716,7 @@ Returns `true` on startup, and after `System.enableUpdates()` has been called. R
 | Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
 
 ### System.updatesPending()
-**Enterprise Feature**
-*Since 1.2.0*
+**Enterprise Feature, Since 1.2.0**
 
 When new product firmware is released with the `intelligent` option
 enabled, the firmware is delivered immediately after release for devices
@@ -12702,7 +12743,7 @@ updates are force enabled from the cloud, or when the device is restarted.
 
 When the device is not available for updates, the pending firmware
 update is not normally delivered to the device. Updates can be forced in
-the cloud either via the Console or the REST API to override the local
+the cloud [either via the Console or the REST API](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates) to override the local
 setting on the device. This means that firmware updates are delivered
 even when `System.disableUpdates()` has been called by the device application.
 
@@ -12713,7 +12754,8 @@ Updates may be forced for a particular device. When this happens, updates are de
 
 When updates are forced in the cloud, this function returns `true`.
 
-Forced updates may be used with Product firmware releases or ad-hoc firmware updates.
+Forced updates may be used with Product firmware releases or single
+device OTA updates.
 
 | Version | Self service customers | Standard Product | Enterprise Product |
 --------- | ---------------------- | ---------------- | ------------------ |
