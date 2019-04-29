@@ -614,6 +614,9 @@ Furthermore, OTA updates occur in roughly three phases:
 The sections below discuss methods to control when and how an OTA is
 delivered to a device in your fleet.
 
+Reference documentation is also availble for [controlling OTA
+availability](/reference/device-os/firmware/#ota-updates).
+
 
 ### Disabling OTA updates
 
@@ -643,8 +646,8 @@ need to be called if updates had been previously disabled using
 `System.disableUpdates()`.
 
 If your device is running Device OS version 1.2.0 or later, you will see
-an event `particle/device/updates/enabled` with a body of `false` appear
-in the event stream when `System.disableUpdates()` is called by the
+an event `particle/device/updates/enabled` with a body of `true` appear
+in the event stream when `System.enableUpdates()` is called by the
 device.
 
 ### Notifications of pending OTA updates
@@ -711,17 +714,36 @@ When not using `SYSTEM_THREAD(ENABLED)`, updates are only checked between your c
 
 When using `SYSTEM_THREAD(ENABLED)`, updates can occur at any time.
 
-`System.enableUpdates()` and `System.disableUpdates()` just set an internal flag and do not incur and data usage so it's safe to call them frequently.
+`System.enableUpdates()` and `System.disableUpdates()` do send a message
+to the cloud to keep these values synchronized with the
+Device Cloud. Be mindful of the fact that some data is used when these methods are
+called.
 
-```
+```cpp
+// System.disableUpdates() example where updates are disabled
+// when the device is busy.
+
+int unlockScooter(String arg) {
+  // scooter is busy, so disable updates
+  System.disableUpdates();
+  // ... do the unlock step
+  // ...
+  return 0;
+}
+
+int parkScooter(String arg) {
+  // scooter is no longer busy, so enable updates
+  System.enableUpdates();
+  // ... do the park step
+  // ...
+  return 0;
+}
+
 void setup() {
+  Particle.function("unlockScooter", unlockScooter);
+  Particle.function("parkScooter", parkScooter);
 }
 
-void loop() {
-	System.disableUpdates();
-	criticalFunction();
-	System.enableUpdates();
-}
 ```
 
 #### Disabling OTA most of the time
@@ -729,7 +751,7 @@ void loop() {
 This architecture is likely preferable if the cost of disrupting a
 device during normal operation is very high. Imagine a connected medical
 device needed at a moment's notice to save lives -- the risk of an OTA
-would be high enough in this case to warrant disabling updates by
+update would be high enough in this case to warrant disabling updates by
 default, then temporarily enabling them when a safe "update window" has
 been identified.
 
@@ -737,7 +759,7 @@ One common location to call `System.disableUpdates()` is from setup(). Note, how
 
 Example using `SYSTEM_MODE(SEMI_AUTOMATIC)`:
 
-```
+```cpp
 #include "Particle.h"
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
@@ -757,7 +779,7 @@ void loop() {
 
 Example using `SYSTEM_THREAD(ENABLED)`:
 
-```
+```cpp
 #include "Particle.h"
 
 SYSTEM_THREAD(ENABLED);
@@ -773,13 +795,18 @@ void loop() {
 }
 ```
 
-The reason is that with threading disabled `SYSTEM_MODE(AUTOMATIC)`, the default mode, setup() is only called after the cloud connection has been established and you might not be able to prevent the update from occurring at boot.
+The reason is that with threading disabled `SYSTEM_MODE(AUTOMATIC)`, the
+default mode, `setup()` is only called after the cloud connection has been established and you might not be able to prevent the update from occurring at boot.
 
-If you want to manage firmware updates in this way, you can check [`System.updatesPending()`](/reference/device-os/firmware/#system-updatespending-) when you are in a situation where updates would be acceptable. If true, you can then enable updated again using `System.enableUpdates()`. 
+If you want to manage firmware updates in this way, you can check
+[`System.updatesPending()`](/reference/device-os/firmware/#system-updatespending-)
+when you are in a situation where updates would be acceptable. If true,
+you can then enable updates again using `System.enableUpdates()`. This
+method would result in a minimal amount of cellular data consumption.
 
 For example, if you were writing firmware for an electric scooter, you might only want to do update when it's idle and between users. If you were building an asset tracking application, you might only want to do updates when not in motion.
 
-```
+```cpp
 
 bool isSafeToUpdate();
 
@@ -794,6 +821,7 @@ void setup() {
 }
 
 void loop() {
+	// NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
 	if (isSafeToUpdate() && System.updatesPending()) {
 		System.enableUpdates();
 
@@ -808,11 +836,14 @@ void loop() {
 		// restart automatically to apply the update.
 		System.reset();
 	}
+	else {
+		// do critical activities
+	}
 }
 
 ```
 
-#### Intercepting the post OTA reset
+#### Intercepting the reset after an OTA update
 
 When using `SYSTEM_THREAD(ENABLED)` your code will continue to run during the download process for the new user firmware, however performance will be affected. Normally, the device will reset immediately after the download completes, and after reset the device will be running the new firmware.
 

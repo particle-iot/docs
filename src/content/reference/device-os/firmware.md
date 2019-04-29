@@ -12628,32 +12628,284 @@ void loop() {
 
 
 ## OTA Updates
+This section describes the Device OS APIs that control firmware updates
+for Particle devices.
 
-Application firmware can use these functions to turn on or off OTA updates.
+_Many of the behaviors described below require
+Device OS version 1.2.0 or higher_.
 
-{{!-- TODO: document system events when an update is received but not yet applied --}}
+### Controlling OTA Availability
 
-### System.enableUpdates()
+This feature allows the application developer to control when the device
+is available for firmware updates. This affects both over-the-air (OTA)
+and over-the-wire (OTW) updates. OTA availability also affects both
+_single device OTA updates_ (flashing a single device) and _fleet-wide OTA updates_
+(deploying a firmware update to many devices in a Product).
 
-Enables OTA updates. Updates are enabled by default.
+Firmware updates are enabled by default when the device starts up after a deep sleep or system reset. Applications may choose to disable firmware updates during critical periods by calling the `System.disableUpdates()` function and then enabling them again with `System.enableUpdates()`.
+
+When the firmware update is the result of an [Intelligent
+Firmware Release](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases),
+the update is delivered immediately after `System.enableUpdates()` is called.
+
+Standard Firmware Releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
 
 ### System.disableUpdates()
+```cpp
+// System.disableUpdates() example where updates are disabled
+// when the device is busy.
 
-Disables OTA updates. An attempt to start an OTA update will fail.
+int unlockScooter(String arg) {
+  // scooter is busy, so disable updates
+  System.disableUpdates();
+  // ... do the unlock step
+  // ...
+  return 0;
+}
+
+int parkScooter(String arg) {
+  // scooter is no longer busy, so enable updates
+  System.enableUpdates();
+  // ... do the park step
+  // ...
+  return 0;
+}
+
+void setup() {
+  Particle.function("unlockScooter", unlockScooter);
+  Particle.function("parkScooter", parkScooter);
+}
+
+```
+Disables OTA updates on this device. An attempt to begin an OTA update
+from the cloud will be prevented by the device. When updates are disabled, firmware updates are not
+delivered to the device [unless forced](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates).
+
+**Since 1.2.0**
+
+Device OS version 1.2.0 introduced enhanced support of
+`System.disableUpdates()` and `System.enableUpdates()`. When running Device OS version 1.2.0
+or higher, the device will notify the Device Cloud of its OTA
+availability, which is [visible in the
+Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+as well as [queryable via the REST
+API](/reference/device-cloud/api/#get-device-information). The cloud
+will use this information to deliver [Intelligent Firmware
+Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+
+In addition, a cloud-side system event will be emitted when updates are disabled,
+`particle/device/updates/enabled` with a data value of `false`. This event is sent
+only if updates were not already disabled.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
+
+**Enterprise Feature**
+
+When updates are disabled, an attempt to send a firmware update to a
+device that has called `System.disableUpdates()` will result in the
+[`System.updatesPending()`](#system-updatespending-) function returning `true`.
+
+### System.enableUpdates()
+```cpp
+// System.enableUpdates() example where updates are disabled on startup
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+  System.disableUpdates();  // updates are disabled most of the time
+
+  Particle.connect();       // now connect to the cloud 
+}
+
+bool isSafeToUpdate() {
+  // determine if the device is in a good state to receive updates. 
+  // In a real application, this function would inspect the device state
+  // to determine if it is busy or not. 
+  return true;
+}
+
+void loop() {
+  if (isSafeToUpdate()) {
+    // Calling System.enableUpdates() when updates are already enabled
+    // is safe, and doesn't use any data. 
+    System.enableUpdates();
+  }
+  else {
+    // Calling System.disableUpdates() when updates are already disabled
+    // is safe, and doesn't use any data. 
+    System.disableUpdates();
+  }
+}
+```
+Enables firmware updates on this device. Updates are enabled by default when the device starts.
+
+Calling this function marks the device as available for updates. When
+updates are enabled, updates triggered from the Device Cloud are delivered to
+the device.
+
+In addition, a cloud-side system event will be emitted when updates are
+enabled,
+`particle/device/updates/enabled` with a data value of `true`. This event is sent
+only if updates were not already enabled.
+
+**Since 1.2.0**
+
+Device OS version 1.2.0 introduced enhanced support of
+`System.disableUpdates()` and `System.enableUpdates()`. If running 1.2.0
+or higher, the device will notify the Device Cloud of its OTA update
+availability, which is [visible in the
+Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+as well as [queryable via the REST
+API](/reference/device-cloud/api/#get-device-information). The cloud
+will use this information to deliver [Intelligent Firmware
+Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
 
 ### System.updatesEnabled()
+```cpp
+// System.updatesEnabled() example
+bool isSafeToUpdate() {
+  return true;
+}
 
-Determine if OTA updates are presently enabled or disabled.
+void loop() {
+  if (!isSafeToUpdate() && System.updatesEnabled()) {
+      Particle.publish("error", "Updates are enabled but the device is not safe to update.");
+  }
+}
+```
+
+Determine if firmware updates are presently enabled or disabled for this device.
+
+Returns `true` on startup, and after `System.enableUpdates()` has been called. Returns `false` after `System.disableUpdates()` has been called.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Supported | Supported | Supported |
+| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
 
 ### System.updatesPending()
+```cpp
+// System.updatesPending() example
 
-Indicates if there are OTA updates pending.
+SYSETM_MODE(SEMI_AUTOMATIC);
 
-**Note:** Currently this function does not really do what the name might suggests but rather indicates whether an update is currently active or not. It can't be used in connection with `System.disableUpdates()` as that would prevent `System.upatesPending()` from becoming `true`. 
+void setup() {
+  // When disabling updates by default, you must use either system
+  // thread enabled or system mode SEMI_AUTOMATIC or MANUAL
+  System.disableUpdates();
+
+  // After setting the disable updates flag, it's safe to connect to
+  // the cloud.
+  Particle.connect();
+}
+
+bool isSafeToUpdate() {
+  // ...
+  return true;
+}
+
+void loop() {
+  // NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
+  if (isSafeToUpdate() && System.updatesPending()) {
+        System.enableUpdates();
+
+        // Wait 2 minutes for the update to complete and the device
+        // to restart. If the device doesn't automatically reset, manually
+        // reset just in case.
+        unsigned long start = millis();
+        while (millis() - start < (120 * 1000)) {
+            Particle.process();
+        }
+        // You normally won't reach this point as the device will
+        // restart automatically to apply the update.
+        System.reset();
+    }
+    else {
+      // ... do some critical activity that shouldn't be interrupted
+    }
+}
+
+```
+
+**Enterprise Feature, Since 1.2.0**
+
+`System.updatesPending()` indicates if there is a firmware update pending that was not delivered to the device while updates were disabled. When an update is pending, the `firmware_update_pending` system event is emitted and the `System.updatesPending()` function returns `true`.
+
+When new product firmware is released with the `intelligent` option
+enabled, the firmware is delivered immediately after release for devices
+that have firmware updates are enabled.
+
+For devices with [updates disabled](#system-disableupdates-), firmware
+updates are deferred by the device. The device is notified of the
+pending update at the time of deferral. The system event
+`firmware_update_pending` is emmitted and the `System.updatesPending()`
+function returns `true`.  The update is delivered when the application
+later re-enables updates by calling `System.enableUpdates()`, or when
+updates are force enabled from the cloud, or when the device is restarted.
+
+In addition, a cloud-side system event will be emitted when a pending
+OTA update is queued,
+`particle/device/updates/pending` with a data value of `true`.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS < 1.2.0 | N/A | N/A | N/A |
+| Device OS >= 1.2.0 | N/A | N/A | Supported |
+
+### System.updatesForced()
+
+```cpp
+// System.updatesForced() example
+void loop() {
+  if (System.updatesForced()) {
+    // don't perform critical functions while updates are forced
+  }
+  else {
+    // perform critical functions
+  }
+}
+```
+
+*Since 1.2.0*
+
+When the device is not available for updates, the pending firmware
+update is not normally delivered to the device. Updates can be forced in
+the cloud [either via the Console or the REST API](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates) to override the local
+setting on the device. This means that firmware updates are delivered
+even when `System.disableUpdates()` has been called by the device application.
+
+When updates are forced in the cloud, the `System.updatesForced()` function returns `true`. 
+
+In addition, a cloud-side system event will be emitted when OTA updates
+are force enabled from the cloud, `particle/device/updates/forced` with
+a data value of `true`.
+
+
+Updates may be forced for a particular device. When this happens, updates are delivered even when `System.disableUpdates()` has been called.
+
+When updates are forced in the cloud, this function returns `true`.
+
+Forced updates may be used with Product firmware releases or single
+device OTA updates.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+--------- | ---------------------- | ---------------- | ------------------ |
+| Device OS &lt; 1.2.0 | N/A | N/A | N/A |
+| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
+
+
 
 ## Checking for Features
 
-User firmware is designed to run transparently regardless of what type of device it is run on. However, sometimes you will need to have code that varies, depending on the device.
+User firmware is designed to run transparently regardless of what type of device it is run on. However, sometimes you will need to have code that varies depending on the capabilities of the device.
 
 It's always best to check for a capability, rather than a specific device. For example, checking for cellular instead of checking for the Electron allows the code to work properly on the Boron without modification.
 
@@ -15168,15 +15420,15 @@ The stack size cannot be changed as it's allocated by the Device OS before the u
 
 {{/if}}
 
-## Firmware Releases
+## Device OS Versions
 
-Particle device firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
+Particle Device OS firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
 
-Firmware releases are published [here on GitHub](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
+New versions are published [here on GitHub](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
 
-### Firmware Release Process
+### New version release process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
+The process in place for releasing all Device OS versions as prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
 
 ### GitHub Release Notes
 
