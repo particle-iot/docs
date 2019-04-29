@@ -8,7 +8,7 @@ order: 3
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-eval-board.pdf"}}
-{{/unless}}
+{{/unless}} {{!-- pdf-generation --}}
 
 This is a simple breakout board for Particle's B series of cellular IoT modules. It breaks out all of its pins via easy to use headers. The board features a redundant USB port, connector for the LiPo battery, a barrel jack power connector, buttons, RGB LED, and charge status LED.
 
@@ -75,6 +75,7 @@ By default, the external SIM card cannot be used. There are four jumpers on the 
 
 ![SIM](/assets/images/b-series/b-series-sim.png)
 
+---
 
 ### Jumpers J13
 
@@ -179,6 +180,7 @@ To use the bq24195 PMIC and MAX17043 fuel gauge you must add the jumpers:
 
 There is support for it in Device OS so you don't need to add any additional configuration.
 
+---
 
 ### Using the MicroSD Card
 
@@ -217,8 +219,9 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-fuel.png" class="small"></div>
 
-### 3.3V Regulator
+---
 
+### 3.3V Regulator
 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-3v3-reg.png" class="small"></div>
 
@@ -232,9 +235,16 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-sdcard.png" class="small"></div>
 
+---
 
 ### SIM
 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-sim.png" class="small"></div>
 
+
+## Revision history
+
+| Revision | Date | Author | Comments |
+|:---------|:-----|:-------|:---------|
+| 001      | 29 Apr 2019 | RK | Initial Release |
 

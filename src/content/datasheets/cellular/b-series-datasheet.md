@@ -388,8 +388,7 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 We strongly recommend against placing components under the SOM board because there is not enough height.
 
-![Keep-Out Area](/assets/images/b-series/b-series-keep-out
-.png)
+![Keep-Out Area](/assets/images/b-series/b-series-keep-out.png)
 
 
 ## Product Handling
@@ -435,5 +434,5 @@ The bootloader allows you to easily update the user application via several diff
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| 001      | 26 Apr 2019 | RK | Initial Release |
+| 001      | 29 Apr 2019 | RK | Initial Release |
 
