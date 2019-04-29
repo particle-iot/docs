@@ -643,8 +643,8 @@ need to be called if updates had been previously disabled using
 `System.disableUpdates()`.
 
 If your device is running Device OS version 1.2.0 or later, you will see
-an event `particle/device/updates/enabled` with a body of `false` appear
-in the event stream when `System.disableUpdates()` is called by the
+an event `particle/device/updates/enabled` with a body of `true` appear
+in the event stream when `System.enableUpdates()` is called by the
 device.
 
 ### Notifications of pending OTA updates
