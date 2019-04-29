@@ -294,13 +294,13 @@ These countries cannot use the Electron 2G at all:
 | --- | --- | :---: | :---: | :---: | :---: | :---: | --- |
 | Boron 2G/3G | World | &check; | &check; | &nbsp; | Gen3 | Both | Feather | 
 | Boron LTE | US | &nbsp; | &nbsp; | M1 | Gen3 |  Both | Feather | 
-| B402 SoM | US | &nbsp; | &nbsp; | M1 | Gen3 | M2FF<sup>1</sup> | M.2 SoM | 
+| B402 SoM | US | &nbsp; | &nbsp; | M1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
 | Electron 2G (G350) | World| &check; | &nbsp; | &nbsp; | Gen2 | Card | Pins | 
 | Electron 3G (U260) | Americas| &check; | &check; | &nbsp; | Gen2 | Card |Pins | 
 | Electron 3G (U270) | Europe, Asia, Africa | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
 | Electron Global (U201) | World | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
-| Electron LTE (E402) | US | &nbsp; | &nbsp; | M1  | Gen2 | M2FF<sup>1</sup> | Pins  | 
-| E Series 2G/3G (E310) | World | &check; | &check; | &nbsp; | Gen2 | M2FF<sup>1</sup> | SMD Module | 
-| E Series LTE (E402) | World |  &nbsp; | &nbsp; | M1 | Gen2 | M2FF<sup>1</sup> | SMD Module | 
+| Electron LTE (E402) | US | &nbsp; | &nbsp; | M1  | Gen2 | MFF2<sup>1</sup> | Pins  | 
+| E Series 2G/3G (E310) | World | &check; | &check; | &nbsp; | Gen2 | MFF2<sup>1</sup> | SMD Module | 
+| E Series LTE (E402) | World |  &nbsp; | &nbsp; | M1 | Gen2 | MFF2<sup>1</sup> | SMD Module | 
 
-<sup>1</sup> M2FF SMD Particle SIM card. It's soldered to the board and is not reprogrammable.
+<sup>1</sup> MFF2 SMD Particle SIM card. It's soldered to the board and is not reprogrammable.
