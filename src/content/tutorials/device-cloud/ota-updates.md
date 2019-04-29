@@ -719,15 +719,31 @@ to the cloud to keep these values synchronized with the
 Device Cloud. Be mindful of the fact that some data is used when these methods are
 called.
 
-```
-void setup() {
+```cpp
+// System.disableUpdates() example where updates are disabled
+// when the device is busy.
+
+int unlockScooter(String arg) {
+  // scooter is busy, so disable updates
+  System.disableUpdates();
+  // ... do the unlock step
+  // ...
+  return 0;
 }
 
-void loop() {
-	System.disableUpdates();
-	criticalFunction();
-	System.enableUpdates();
+int parkScooter(String arg) {
+  // scooter is no longer busy, so enable updates
+  System.enableUpdates();
+  // ... do the park step
+  // ...
+  return 0;
 }
+
+void setup() {
+  Particle.function("unlockScooter", unlockScooter);
+  Particle.function("parkScooter", parkScooter);
+}
+
 ```
 
 #### Disabling OTA most of the time
@@ -743,7 +759,7 @@ One common location to call `System.disableUpdates()` is from setup(). Note, how
 
 Example using `SYSTEM_MODE(SEMI_AUTOMATIC)`:
 
-```
+```cpp
 #include "Particle.h"
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
@@ -763,7 +779,7 @@ void loop() {
 
 Example using `SYSTEM_THREAD(ENABLED)`:
 
-```
+```cpp
 #include "Particle.h"
 
 SYSTEM_THREAD(ENABLED);
@@ -790,7 +806,7 @@ method would result in a minimal amount of cellular data consumption.
 
 For example, if you were writing firmware for an electric scooter, you might only want to do update when it's idle and between users. If you were building an asset tracking application, you might only want to do updates when not in motion.
 
-```
+```cpp
 
 bool isSafeToUpdate();
 
@@ -805,6 +821,7 @@ void setup() {
 }
 
 void loop() {
+	// NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
 	if (isSafeToUpdate() && System.updatesPending()) {
 		System.enableUpdates();
 
@@ -818,6 +835,9 @@ void loop() {
 		// You normally won't reach this point as the device will
 		// restart automatically to apply the update.
 		System.reset();
+	}
+	else {
+		// do critical activities
 	}
 }
 
