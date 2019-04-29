@@ -614,6 +614,9 @@ Furthermore, OTA updates occur in roughly three phases:
 The sections below discuss methods to control when and how an OTA is
 delivered to a device in your fleet.
 
+Reference documentation is also availble for [controlling OTA
+availability](/reference/device-os/firmware/#ota-updates).
+
 
 ### Disabling OTA updates
 
