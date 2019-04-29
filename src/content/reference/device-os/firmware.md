@@ -12665,10 +12665,10 @@ Determine if firmware updates are presently enabled or disabled for this device.
 
 Returns `true` on startup, and after `System.enableUpdates()` has been called. Returns `false` after `System.disableUpdates()` has been called.
 
-Version | Self service customers | Standard Product | Enterprise Product
-------- | --- | --- | ---
-Device OS &lt; 1.2.0 | Supported | Supported | Supported
-Device OS &gt;= 1.2.0 | Supported | Supported | Supported
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Supported | Supported | Supported |
+| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
 
 ### Pending Updates
 *Enterprise Only*
@@ -12685,7 +12685,7 @@ When updates are disabled, firmware updates are not delivered to the device. Ins
 Indicates if there is a firmware update pending that was not delivered to the device while updates were disabled. When an update is pending, the `firmware_update_pending` system event is emitted and the `System.updatesPending()` function returns `true`. 
 
 | Version | Self service customers | Standard Product | Enterprise Product |
---------
+| ------- | ---------------------- | ---------------- |------------------- |
 | Device OS < 1.2.0 | N/A | N/A | N/A |
 | Device OS >= 1.2.0 | N/A | N/A | Supported |
 
