@@ -22,13 +22,13 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 
 ### B Series SoM
 
-![B Series](/assets/images/b-series-top.png)
+![B Series](/assets/images/b-series/b-series-top.png)
 
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
 One of the benefits is that many of the extra features on the Boron have been omitted from the SoM, so you can implement a custom solution as necessary. For example, rather than duplicating the buttons and status LED on the SoM, you can put them on an external control panel for your product, or omit them entirely.
 
-| Feature | Boron | B Series SoM | Base Board |
+| Feature | Boron | B Series SoM | SoM Base Board |
 | --- | :---: | :---: | :---: |
 | U.FL Antenna Connector | &check; | &check; | Optional |
 | MFF2 SMD Particle SIM | &check; | &check; | &nbsp; |
@@ -223,7 +223,7 @@ In the United States we strongly recommend using LTE Cat M1. AT&T has committed 
 
 ### Europe
 
-In some European countries, they're phasing out 3G and instead keeping 2G, 4G, and LTE networks. All of the Particle 3G cellular devices can also connect to 2G networks, so compatibility will be maintained.
+In some European countries, they're phasing out 3G and instead keeping 2G and LTE networks. All of the Particle 3G cellular devices can also connect to 2G networks, so compatibility will be maintained.
 
 For example, in Norway, Telenor is shutting down their 3G network at the end of 2020, but keeping their 2G network running until the end of 2025.
 
@@ -242,9 +242,6 @@ The Boron 2G/3G uses Vodafone in Australia. They have not announced a 3G shutdow
 | End of 2020 | Telstra ends 3G service | &nbsp; | <sup>1</sup> | &nbsp; | &check; | 
 
 <sup>1</sup>Can use only with a 3rd-party SIM card.
-
-Telstra 2100 MHz March 25, 2019
-https://etmpacific.com/telstra-3g-sunset-shutdown-2100mhz/
 
 
 ### Canada
@@ -297,11 +294,13 @@ These countries cannot use the Electron 2G at all:
 | --- | --- | :---: | :---: | :---: | :---: | :---: | --- |
 | Boron 2G/3G | World | &check; | &check; | &nbsp; | Gen3 | Both | Feather | 
 | Boron LTE | US | &nbsp; | &nbsp; | M1 | Gen3 |  Both | Feather | 
-| B402 SoM | US | &nbsp; | &nbsp; | M1 | Gen3 | SMD | M.2 SoM | 
+| B402 SoM | US | &nbsp; | &nbsp; | M1 | Gen3 | M2FF<sup>1</sup> | M.2 SoM | 
 | Electron 2G (G350) | World| &check; | &nbsp; | &nbsp; | Gen2 | Card | Pins | 
 | Electron 3G (U260) | Americas| &check; | &check; | &nbsp; | Gen2 | Card |Pins | 
 | Electron 3G (U270) | Europe, Asia, Africa | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
 | Electron Global (U201) | World | &check; | &check; | &nbsp; | Gen2 | Card | Pins | 
-| Electron LTE (E402) | US | &nbsp; | &nbsp; | M1  | Gen2 | SMD | Pins  | 
-| E Series 2G/3G (E310) | World | &check; | &check; | &nbsp; | Gen2 | SMD | SMD Module | 
-| E Series LTE (E402) | World |  &nbsp; | &nbsp; | M1 | Gen2 | SMD| SMD Module | 
+| Electron LTE (E402) | US | &nbsp; | &nbsp; | M1  | Gen2 | M2FF<sup>1</sup> | Pins  | 
+| E Series 2G/3G (E310) | World | &check; | &check; | &nbsp; | Gen2 | M2FF<sup>1</sup> | SMD Module | 
+| E Series LTE (E402) | World |  &nbsp; | &nbsp; | M1 | Gen2 | M2FF<sup>1</sup> | SMD Module | 
+
+<sup>1</sup> M2FF SMD Particle SIM card. It's soldered to the board and is not reprogrammable.
