@@ -618,7 +618,9 @@ If you have Device OS firmware with debugging enabled (which is the default on t
 
 Mesh network management from the CLI.
 
-_These commands are in beta._
+_These commands require Device OS 0.9.0 or later._
+
+_On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
 
 ### particle mesh create
 
@@ -672,7 +674,7 @@ particle mesh scan <device>
 
 Various commands to interact with a device connected through USB.
 
-_These commands are in beta._
+_On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
 
 ### particle usb list
 

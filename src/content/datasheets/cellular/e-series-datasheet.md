@@ -2,7 +2,7 @@
 title: E Series datasheet
 layout: datasheet.hbs
 columns: two
-order: 3
+order: 7
 ---
 
 # E Series Module Datasheet <sup>(v001)</sup>

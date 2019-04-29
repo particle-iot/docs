@@ -10,4 +10,8 @@ layout: workshops.hbs
 
 The slides below provide an overview of using publish and subscribe between mesh devices, and other essential Particle primitives like functions, variables and Device Cloud pub/sub.
 
-<iframe src="https://www.icloud.com/keynote/0uX6MYmheR5fKUEdtgugWK4MA?embed=true" width="640" height="500" class="video" frameborder="0" allowfullscreen="1" referrer="no-referrer"></iframe>
+<iframe src="/assets/files/Session3-MeshCommunicationAndParticlePrimitives.pdf" width="640" height="420" class="video" frameborder="0" allowfullscreen="1" referrer="no-referrer">
+
+This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/files/Session3-MeshCommunicationAndParticlePrimitives.pdf">Download PDF</a>
+
+</iframe>
