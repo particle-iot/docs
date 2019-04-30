@@ -71,9 +71,7 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | | SOM9 | SOM9 |  |
 | | GND | GND | GND |
 
-By default, the external SIM card cannot be used. There are four jumpers on the B Series SoM that need to be changed in order to disable the onboard MFF2 SMD SIM.
-
-![SIM](/assets/images/b-series/b-series-sim.png)
+While there is an external SIM card connector and jumpers on the evaluation board, the B Series B402 SoM does not support using a 3rd-party SIM card.
 
 ---
 
