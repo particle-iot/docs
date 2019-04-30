@@ -637,6 +637,8 @@ an event `particle/device/updates/enabled` with a body of `false` appear
 in the event stream when `System.disableUpdates()` is called by the
 device.
 
+You can upgrade the Device OS in several ways, including both by USB and OTA following the [instructions here](/tutorials/device-os/device-os/#managing-device-os).
+
 ### Re-enabling OTA updates
 
 [`System.enableUpdates()`](/reference/device-os/firmware/#system-enableupdates-) enables OTA updates for an individual device,
@@ -680,6 +682,8 @@ the **Firmware** section:
 This feature requires a firmware binary built for Device OS 1.2.0 or later. If an earlier version is used, the firmware options will not be available.
 
 ![Device OS 1.2.0 required](/assets/images/ota-updates/update-device-os.png)
+
+You can upgrade the Device OS in several ways, including both by USB and OTA following the [instructions here](/tutorials/device-os/device-os/#managing-device-os).
 
 ### Force Enable OTA updates
 

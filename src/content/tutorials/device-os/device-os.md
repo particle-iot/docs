@@ -114,11 +114,11 @@ The easiest place to find the version of Device OS running on your device is in 
 ![Find Device OS in the Web IDE](/assets/images/system-fw-ide.png)
 <p class="caption">This device is running Device OS version <strong>0.6.2</strong></p>
 
-You can also find this information in the Desktop IDE, in the bottom rail:
+You can also find this information in the [console](https://console.particle.io) by opening the details for a device:
 
-![Find Device OS in the Desktop IDE](/assets/images/system-fw-desktop-ide.png)
+![Find Device OS in the console](/assets/images/console-device-details-version.png)
 
-Note that you will need to be the owner of the device to have visibility into Device OS in the IDE. Now that we know the version of Device OS on the device, how can we update it to a different version?
+Now that we know the version of Device OS on the device, how can we update it to a different version?
 
 ### Updating remotely
 For devices in which you do not have physical access, you have the ability to update Device OS over-the-air.
@@ -132,11 +132,6 @@ In the Web IDE, this can be done by using the _Device OS target_ dropdown, and c
 ![Select newer version of Device OS in the IDE](/assets/images/system-fw-newer-ide.png)
 <p class="caption">In this case, the app  will be compiled against <strong>0.7.0-rc.3</strong>, a prereleased Device OS version</p>
 
-This can be just as easily accomplished using the Desktop IDE:
-
-![Desktop IDE newer version of Device OS](/assets/images/system-fw-newer-desktop-ide.png)
-
-
 Now, compile and flash the firmware by clicking on the flash (<i class="ion-flash"></i>) icon. Your device will receive the new application firmware and reboot. Then, it will automatically enter safe mode and trigger the cloud to resolve the incompatibility by sending it Device OS version 0.7.0-rc.3.
 
 Sweet! You just updated the Device OS on your device.
@@ -145,6 +140,16 @@ There's a couple of things to note:
 
 - This approach will also work for _product firmware_. When a product firmware binary is [released to a fleet](/tutorials/device-cloud/console/#releasing-firmware), any device that receives it will enter into safe mode and heal itself by downloading the required Device OS
 - This approach will trigger Device OS _upgrades_, but not _downgrades_. As mentioned earlier, Device OS is backwards compatible meaning that devices can successfully run application firmware compiled against an older version of Device OS than it currently is running
+
+#### Workbench (Remote)
+
+You can also upgrade a device remotely using [Particle Workbench](/quickstart/workbench). 
+
+The **Particle: Configure Workspace for Device** command allows you to select the version you wish to target.
+
+![Workbench configure version](/assets/images/workbench/config-device-2.png)
+
+There are additional instructions in the [Workbench tutorial](/tutorials/developer-tools/workbench/#cloud-build-and-flash).
 
 #### CLI (Remote)
 You can also use the Particle CLI to remotely update a device's Device
@@ -172,6 +177,18 @@ particle flash YOUR_DEVICE_NAME_ID path/to/system-part3.bin
 
 ### Updating locally
 For devices in which you have physical access, there are also methods to update Device OS over-the-wire.
+
+#### Workbench (Local)
+
+You can also upgrade a device locally over USB using [Particle Workbench](/quickstart/workbench). 
+
+Using the **Particle: Install Local Compiler** you can select the version you want to install by USB.
+
+![Select local version](/assets/images/workbench/local-2.png)
+
+Then use the **Particle: Flash application & Device OS (local)** command to flash your application and Device OS. This option can be used to both upgrade and downgrade Device OS.
+
+There are additional instructions in the [Workbench tutorial](/tutorials/developer-tools/workbench/#local-build-and-flash).
 
 #### CLI (Local)
 The Particle CLI offers two different methods of updating Device OS locally. Both require that the device is connected to your computer over USB.  If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli) and ensure you are running version **1.24.1** or later. You can check with `particle --version`.
