@@ -2,7 +2,7 @@
 title: E Series Evaluation Board
 layout: datasheet.hbs
 columns: two
-order: 4
+order: 8
 ---
 # E Series Evaluation Board
 

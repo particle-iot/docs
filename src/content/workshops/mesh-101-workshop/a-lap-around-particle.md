@@ -10,4 +10,8 @@ layout: workshops.hbs
 
 The slides below provide an overview of the Particle ecosystem, including hardware, firmware and cloud services.
 
-<iframe src="https://www.icloud.com/keynote/0VPBgSkGu3fqSCMW0PjySwDVw?embed=true" width="640" height="500" class="video" frameborder="0" allowfullscreen="1" referrer="no-referrer"></iframe>
+<iframe src="/assets/files/Session1-ALapAroundParticle.pdf" width="640" height="420" class="video" frameborder="0" allowfullscreen="1" referrer="no-referrer">
+
+This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/files/Session1-ALapAroundParticle.pdf">Download PDF</a>
+
+</iframe>

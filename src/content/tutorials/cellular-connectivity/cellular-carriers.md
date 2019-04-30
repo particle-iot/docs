@@ -10,12 +10,10 @@ order: 24
 {{collapse op="simType"}}
 
 {{!-- paste data from carrier tool below --}}
-
-
 {{collapse op="start" simType="Electron"}}
 
 | Country | Carriers | 2G | 3G |
-| ------- | -------- | --- | --- |
+| ------- | -------- | :---: | :---: |
 | United States | AT&T,T-Mobile USA |<sup>1</sup> | U260 |
 | Canada | Rogers AT&T Wireless |&#x2714; | U260 |
 | United Kingdom | Telefonica O2 UK |&#x2714; | U270 |
@@ -80,7 +78,7 @@ order: 24
 | Montenegro | Telenor Montenegro |&#x2714; | U270 |
 | Montserrat | Cable and Wireless, Montserrat |&#x2714; | U260 |
 | Netherlands | KPN B.V. |&#x2714; | U270 |
-| New Zealand | Two Degrees Mobile |&#x2714; | U270 |
+| New Zealand | Two Degrees Mobile |<sup>2</sup> | U270 |
 | Nicaragua | Telefonia Celular de Nicaragua |&#x2714; | U260 |
 | Niger | Celtel Niger S.A. |&#x2714; | U270 |
 | Nigeria | Celtel Nigeria |&#x2714; | U270 |
@@ -109,7 +107,7 @@ order: 24
 | Sri Lanka | Dialog Telekom Ltd |&#x2714; | U270 |
 | Swaziland | MTN Swaziland |&#x2714; | U270 |
 | Sweden | Telenor Sverige AB |&#x2714; | U270 |
-| Switzerland | sunrise |&#x2714; | U270 |
+| Switzerland | sunrise |<sup>2</sup> | U270 |
 | Taiwan | Taiwan Mobile Co., Ltd. |&#x2714; | U270 |
 | Tanzania | Celtel Tanzania Ltd. |&#x2714; | U270 |
 | Thailand | Total Access Communic. Thailand |&#x2714; | U270 |
@@ -319,6 +317,7 @@ order: 24
 {{collapse op="start" simType="Electron"}}
 
 - <sup>1</sup>2G is only available on T-Mobile, not on AT&T.
+- <sup>2</sup>2G is only available with a 3rd-party SIM card on the Electron.
 
 {{collapse op="end"}}
 

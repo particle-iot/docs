@@ -13,7 +13,9 @@ JTAG ("Joint Test Action Group") is a standard for testing and verifying electro
 
 JTAG can also be used with a source-level debugger ([gdb](https://www.gnu.org/software/gdb/) and [OpenOCD](http://openocd.org)), but that's a big topic and will get its own tutorial.
 
-There is also a variation known as Serial Wire Debug (SWD), used with ARM devices, of which the Photon/P1/Electron are. It's also used with the mesh devices (nRF52840). This is helpful because it only requires two pins (D6 and D7).
+There is also a variation known as Serial Wire Debug (SWD), used with ARM devices, of which the Photon/P1/Electron are. This is helpful because it only requires two pins (D6 and D7).
+
+SWD is also used with the Gen 3 devices (Argon, Boron, and Xenon; nRF52840) via the 10-pin debugging connector. 
 
 Occasionally you'll see SWIM was well, but that's generally for STM8 processors. It won't hurt if your programmer supports SWD and SWIM, but a SWIM-only programmer can't program STM32 Particle devices.
 
@@ -22,7 +24,7 @@ Occasionally you'll see SWIM was well, but that's generally for STM8 processors.
 
 ### Particle Debugger 
 
-The Particle Debugger is the easiest way to use SWD on mesh devices. It connects easily with the included ribbon cable.
+The Particle Debugger is the easiest way to use SWD on Gen 3 devices (Argon, Boron, and Xenon). It connects easily with the included ribbon cable.
 
 ![Debugger](/assets/images/debugger2.jpg)
 
@@ -35,7 +37,7 @@ Another common programmer is the [ST-LINK/V2](http://www.st.com/en/development-t
 
 ![ST-LINK/V2](/assets/images/jtag-01stlink.jpg)
 
-It can only be used with 1st and 2nd generation devices (Photon, P1, Electron, E Series, and Core), not with mesh devices.
+It can only be used with Gen 1 (Core) and Gen 2 (Photon, P1, Electron, and E Series) devices, not with Gen 3 devices (Argon, Boron, Xenon).
 
 ### ST-LINK/V2 Mini SWD
 
@@ -43,7 +45,7 @@ There are also "ST-LINK/V2 Mini" devices. These also connect by USB but only use
 
 ![ST-LINK/V2 Mini](/assets/images/jtag-07mini.jpg)
 
-It can only be used with 1st and 2nd generation devices (Photon, P1, Electron, E Series, and Core), not with mesh devices.
+It can only be used with 1st and 2nd generation devices (Photon, P1, Electron, E Series, and Core), not with Gen 3 (mesh) devices.
 
 ### Particle Photon Programmer Shield
 
@@ -51,7 +53,7 @@ Finally, there's the [Particle Programmer Shield](https://github.com/particle-io
 
 ![Particle Programmer Shield](/assets/images/jtag-08shield.jpg)
 
-It can only be used with 1st and 2nd generation devices (Photon, Elecron, and Core), not with mesh devices.
+It can only be used with 1st and 2nd generation devices (Photon, Electron, and Core), not with mesh devices.
 
 
 ## Connecting to the Photon/Electron/P1
@@ -106,11 +108,11 @@ You can optionally connect the serial TX and RX pins for Serial1 serial debuggin
 
 Since you plug the Photon into the programmer shield, there's nothing to connect.
 
-{{collapse op="computerOsSelector"}}
-
-{{collapse op="start" computerOs="Windows"}}
-
 ## Using ST/LINK for Windows
+
+If you are want to program a Gen 2 device (Photon, P1, Electron, or E Series) using the ST/LINK under Windows, you can use the ST/LINK software. 
+
+{{collapse op="start" label="Additional Details"}}
 
 By far the easiest way to program the flash is to use the ST/LINK application for Windows. It's a free download from [ST](http://www.st.com/en/development-tools/st-link-v2.html), and works with both the real ST/LINK device and many clone devices. 
 
@@ -231,16 +233,18 @@ Select **Sector 1** (0x08004000) and **Sector 2** (0x080008000).
 
 Note that when you erase the configuration flash your device ID is preserved but your device private key will be lost. This means you won't be able to connect to the cloud until you upload your keys using the CLI command [particle keys doctor](/reference/cli/#particle-keys-doctor).
 
-{{collapse op="end"}}
+{{collapse op="end"}} {{!-- Additional Details --}}
 
-## Installing OpenOCD - Standalone Installation
+
+## Installing OpenOCD Manually
+
+By far the easiest way to install openocd for Windows, Mac, and Linux is to install [Particle Workbench.](/quickstart/workbench). If you really want to install it manually, expand the section below.
+
+{{collapse op="start" label="Additional Details"}}
 
 If you've already set up [Particle Debugging with Eclipse](/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that and skip to the next section.
 
 [OpenOCD](http://openocd.org) is more complicated to install, but works on Mac and Linux as well as Windows, and also is a command-line interface which may be helpful if you're automating the setup of devices on an assembly line.
-
-{{collapse op="start" computerOs="Mac"}}
-
 
 ### Installation - Mac
 
@@ -260,22 +264,14 @@ If you are using the Particle Programmer shield you will also need to install th
 
 There are special concerns with the USB driver that may affect the programmer shield. You should check out the [official documentation](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield) for more information about configuring the USB device.
 
-{{collapse op="end"}}
-
-{{collapse op="start" computerOs="Windows"}}
-
-
 ### Installation - Windows
 
 It's theoretically possible to install OpenOCD under Cygwin under Windows. I haven't successfully gotten this to work when enabling USB (--enable-ftdi); I'll update this document when I get it to work.
-
-{{collapse op="end"}}
 
 ## Installing OpenOCD - Using Eclipse OpenOCD Installation
 
 If you've already set up [Particle Debugging with Eclipse](/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that. The only difference is the path to the scripts and executable.
 
-{{collapse op="start" computerOs="Mac"}}
 
 ### Installing OpenOCD - Using Eclipse OpenOCD Installation - Mac
 
@@ -288,10 +284,6 @@ cd "/Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts"
 
 This is the directory you use in place of /usr/local/share/openocd/scripts in the examples below.
  
-{{collapse op="end"}}
-
-{{collapse op="start" computerOs="Windows"}}
-
 ### Installing OpenOCD - Using Eclipse OpenOCD Installation - Windows
 
 The installation directory will vary depending on the version you have installed, but usually it's something like:
@@ -305,11 +297,6 @@ This is the directory you use in place of /usr/local/share/openocd/scripts in th
 
 Windows Vista and later do not include telnet, which you'll probably need for programming the flash. If you are using Cygwin, you can install the **inetutils** package to get telnet.
 
-{{collapse op="end"}}
-
-{{collapse op="start" computerOs="Linux"}}
-
-
 ### Installing OpenOCD - Using Eclipse OpenOCD Installation - Linux
 
 The installation directory will vary depending on the version you have installed, but usually it's something like:
@@ -321,157 +308,142 @@ cd "/opt/gnuarmeclipse/openocd/0.10.0-201610281609-dev/scripts"
 
 This is the directory you use in place of /usr/local/share/openocd/scripts in the examples below.
 
-{{collapse op="end"}}
+{{collapse op="end"}} {{!-- Additional Details --}}
 
 
 ## Using OpenOCD
 
 ### General Instructions
 
-You generally run OpenOCD in one of three ways:
+This assumes you've installed OpenOCD using [Particle Workbench](/quickstart/workbench). If you've installed it a different way, your path to the installation will be different.
 
-- To execute a preset list of commands
-- To start up an interactive session via telnet
-- To start up a debugging session via gdb
+| Installation | Path |
+| --- | --- |
+| Windows | C:\\Users\\*username*\\.particle\\toolchains\\openocd | 
+| Mac | /Users/*username*/.particle/toolchains/openocd |
+| Linux | /home/*username*/.particle/toolchains/openocd | 
 
-The first option makes something you can copy and paste into a terminal window, but because there are so many options and the lines are so long it gets a little unwieldy, especially when something goes wrong. The examples here will use the second option.
+Open a Command Prompt or Terminal window and **cd** into the openocd directory, then **cd** into the version-specific directory. At the time of writing it was **0.10.0-particle.1** but could change.
 
-For example, using the ST-LINK/V2 Mini on the Mac, you might use a command like this to start OpenOCD:
+Mac or Linux Terminal:
 
-```
-$ cd /usr/local/share/openocd/scripts
-$ openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
-```
-
-{{collapse op="start" computerOs="Windows"}}
-
-If you are using Eclipse OpenOCD under Windows:
-
-```
-cd "C:\Program Files\GNU ARM Eclipse\OpenOCD\0.10.0-201610281609-dev\scripts"
-..\bin\openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
+```html
+$ cd ~/.particle/toolchains/openocd/
+$ ls
+0.10.0-particle.1
+$ cd 0.10.0-particle.1 
 ```
 
-If you are using Eclipse OpenOCD under Windows with Cygwin:
+Windows Command Prompt:
 
-```
-cd "/cygdrive/c/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201610281609-dev/scripts"
-../bin/openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
-```
-
-{{collapse op="end"}}
-
-{{collapse op="start" computerOs="Mac"}}
-
-If you are using Eclipse OpenOCD on the Mac:
-
-```
-$ cd "/Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts"
-$ ../bin/openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
-```
-
-{{collapse op="end"}}
-
-Then in a separate terminal window, you'd issue commands. The command prompt is the greater than symbol ">" so the commands you type are after that.
-
-In many cases, telnet is not installed by default. You may want to use nc (netcat) instead of telnet.
-
-```
-$ telnet localhost 4444
-Connected to localhost.
-Escape character is '^]'.
-Open On-Chip Debugger
-> reset halt
-target state: halted
-target halted due to debug-request, current mode: Thread 
-xPSR: 0x01000000 pc: 0x08002f1c msp: 0x20020000
-> flash list
-{name stm32f2x base 0 size 0 bus_width 0 chip_width 0}
-> flash info 0
-device id = 0x20036411
-flash size = 1024kbytes
- #0 : stm32f2x at 0x08000000, size 0x00100000, buswidth 0, chipwidth 0
-	#  0: 0x00000000 (0x4000 16kB) protected
-	#  1: 0x00004000 (0x4000 16kB) not protected
-	#  2: 0x00008000 (0x4000 16kB) not protected
-	#  3: 0x0000c000 (0x4000 16kB) not protected
-	#  4: 0x00010000 (0x10000 64kB) not protected
-	#  5: 0x00020000 (0x20000 128kB) protected
-	#  6: 0x00040000 (0x20000 128kB) protected
-	#  7: 0x00060000 (0x20000 128kB) protected
-	#  8: 0x00080000 (0x20000 128kB) protected
-	#  9: 0x000a0000 (0x20000 128kB) not protected
-	# 10: 0x000c0000 (0x20000 128kB) not protected
-	# 11: 0x000e0000 (0x20000 128kB) not protected
-STM32F2xx - Rev: X
+```html
+C:\Users\rick>cd .particle\toolchains\openocdC:\Users\rick\.particle\toolchains\openocd>dir Volume in drive C is Windows 10 Volume Serial Number is 98E3-995C Directory of C:\Users\IEUser\.particle\toolchains\openocd04/09/2019  09:08 AM    <DIR>          .04/09/2019  09:08 AM    <DIR>          ..04/09/2019  09:08 AM    <DIR>          0.10.0-particle.1               0 File(s)              0 bytes               3 Dir(s)  22,179,033,088 bytes free
+C:\Users\rick\.particle\toolchains\openocd>cd 0.10.0-particle.1
 ```
 
 ### With the Particle Debugger (3rd generation)
 
-Using the Particle debugger and mesh devices (Argon, Boron, Xenon):
+Using the Particle debugger and Gen 3 devices (Argon, Boron, Xenon):
 
-You'll need the nrf52 board file. Download the file [nrf52-var.cfg](/assets/files/nrf52-var.cfg) and put it in your install location, typically one of:
-
-- /usr/local/share/openocd/scripts/target (Mac using HomeBrew)
-- /Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts/target (Mac using GNU ARM Eclipse)
-- C:\Program Files\GNU ARM Eclipse\OpenOCD\0.10.0-201610281609-dev\scripts\target (Windows using GNU ARM Eclipse)
-- /cygdrive/c/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201610281609-dev/scripts/target (Windows using using GNU ARM Eclipse and Cygwin)
-- /opt/gnuarmeclipse/openocd/0.10.0-201610281609-dev/scripts/target (Linux using using GNU ARM Eclipse)
+- Connect the Particle Debugger ribbon cable between the debugger and device.
+- Connect the device by USB to your computer
+- Connect the Particle Debugger by USB to your computer
+- Put the device in DFU mode (blinking yellow) by holding down MODE. Tap RESET and continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release MODE.
 
 Then use the command:
 
+```html
+bin/openocd -f interface/cmsis-dap.cfg -f target/nrf52-particle.cfg \
+-c "adapter_khz 1000" \
+-c "transport select swd" \
+-c "init" \
+-c "flash list" \
+-c "exit"
+Open On-Chip Debugger 0.10.0 (2019-01-29-17:30)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : Interface already configured, ignoring
+Info : auto-selecting first available session transport "swd". To override use 'transport select <transport>'.
+adapter speed: 10000 kHz
+cortex_m reset_config sysresetreq
+adapter speed: 1000 kHz
+Warn : Transport "swd" was already selected
+swd
+Info : CMSIS-DAP: SWD  Supported
+Info : CMSIS-DAP: Interface Initialised (SWD)
+Info : CMSIS-DAP: FW Version = 1.10
+Info : SWCLK/TCK = 1 SWDIO/TMS = 1 TDI = 0 TDO = 0 nTRST = 0 nRESET = 1
+Info : CMSIS-DAP: Interface ready
+Info : clock speed 1000 kHz
+Info : SWD DPIDR 0x2ba01477
+Info : nrf52.cpu: hardware has 6 breakpoints, 4 watchpoints
+{name nrf51 base 0 size 0 bus_width 1 chip_width 1} {name nrf51 base 268439552 size 0 bus_width 1 chip_width 1}
 ```
-$ cd /usr/local/share/openocd/scripts
-$ openocd -f interface/cmsis-dap.cfg -f target/nrf52-var.cfg -c "telnet_port 4444"
-```
+
+Note that the command line is very long and uses continuation lines (lines ending with a backslash \\) to make it easier to read. 
+
+| Command | Purpose |
+| --- | --- |
+| bin/openocd | Executable to run | 
+| -f interface/cmsis-dap.cfg | Select the type of debugger | 
+| -f target/nrf52-particle.cfg | Select the type of device | 
+| -c "adapter_khz 1000" | Configure adapter speed |
+| -c "transport select swd" | Select SWD mode |
+| -c "init" | Initialize the adapter |
+| -c "flash list" | Run a command (in this case, list flash modules) | 
+| -c "exit" | Exit openocd when done|
+
+The `flash list` command is done here for illustration purposes and to make sure the debugger can connect to the device. More useful commands are listed below.
 
 ### With the Particle Debugger (2nd generation)
 
 Using the Particle debugger and a Photon, P1, or Electron:
 
-```
-$ cd /usr/local/share/openocd/scripts
-$ openocd -f interface/cmsis-dap.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
+- Connect the Particle Debugger to pin D6, D7, and GND as shown above.
+- Connect the device by USB to your computer
+- Connect the Particle Debugger by USB to your computer
+- Put the device in DFU mode (blinking yellow) by holding down MODE. Tap RESET and continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release MODE.
+
+Then use the command:
+
+```html
+bin/openocd -f interface/cmsis-dap.cfg -f target/stm32f2x.cfg \
+-c "adapter_khz 1000" \
+-c "transport select swd" \
+-c "init" \
+-c "flash list" \
+-c "exit"
 ```
 
-The difference is that you use the cmsis-dap.cfg interface instead of stlink-v2.cfg or particle-ftdi.cfg.
-
+Note the use of **target/stm32f2x.cfg** for Gen 2 devices.
 
 ### With the Particle Programmer Shield
 
-On the Mac, I use this command to connect OpenOCD to the Particle Programmer Shield.
+```html
+bin/openocd -f interface/particle-ftdi.cfg -f target/stm32f2x.cfg \
+-c "init" \
+-c "flash list" \
+-c "exit"
+```
 
-```
-$ cd /usr/local/share/openocd/scripts
-$ openocd -f interface/ftdi/particle-ftdi.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
-```
+For the Particle Programmer Shield (Gen 2), use **interface/particle-ftdi.cfg**.
 
 ### With ST-LINK/V2 Mini
 
-It's possible to use the ST-LINK/V2 Mini with OpenOCD as well as ST-LINK. You need to use the stlink-v2.cfg interface file.
+With the ST-LINK/V2 or Mini USB stick:
 
-```
-$ cd /usr/local/share/openocd/scripts
-$ openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
-Open On-Chip Debugger 0.9.0 (2016-10-13-17:05)
-Licensed under GNU GPL v2
-For bug reports, read
-	http://openocd.org/doc/doxygen/bugs.html
-Info : auto-selecting first available session transport "hla_swd". To override use 'transport select <transport>'.
-adapter speed: 1000 kHz
-adapter_nsrst_delay: 100
-Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
-none separate
-Info : Unable to match requested speed 1000 kHz, using 950 kHz
-Info : Unable to match requested speed 1000 kHz, using 950 kHz
-Info : clock speed 950 kHz
-Info : STLINK v2 JTAG v23 API v2 SWIM v4 VID 0x0483 PID 0x3748
-Info : using stlink api v2
-Info : Target voltage: 3.258847
-Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
+```html
+bin/openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg \
+-c "init" \
+-c "flash list" \
+-c "exit"
 ```
 
-## OpenOCD telnet commands (3rd generation)
+For the ST-LINK/V2 use **interface/stlink-v2**. The ST-LINK/V2 can only be used with Gen 2 devices.
+
+
+## OpenOCD commands (3rd generation)
 
 These commands are for 3rd-generation (mesh) devices including the Argon, Boron, and Xenon.
 
@@ -479,14 +451,60 @@ These commands are for 3rd-generation (mesh) devices including the Argon, Boron,
 
 Download the appropriate bootloader bin file from the [release site](https://github.com/particle-iot/device-os/releases). 
 
-Then connect to the server with telnet or nc:
-
+```html
+bin/openocd -f interface/cmsis-dap.cfg -f target/nrf52-particle.cfg \
+-c  "adapter_khz 1000" \
+-c "transport select swd" \
+-c "init" \
+-c "program /Users/rickk/Downloads/bootloader-0.9.0-argon.bin 0xf4000 verify reset" \
+-c "exit"
 ```
-nc localhost 4444
-> adapter_khz 1000
-> transport select swd
-> init
-> program /Users/rickk/Downloads/bootloader-0.8.0-rc.25-xenon.bin 0xf4000 verify reset exit
+
+Note the addition of the command:
+
+```html
+-c "program /Users/rickk/Downloads/bootloader-0.9.0-argon.bin 0xf4000 verify reset"
+```
+
+in place of the `-c "flash list"` in the example above. 
+
+Here's an example of a successful execution of the command:
+
+```html
+$ bin/openocd -f interface/cmsis-dap.cfg -f target/nrf52-particle.cfg -c  "adapter_khz 1000" -c "transport select swd" -c "init" -c "program /Users/rickk/Downloads/bootloader-0.9.0-argon.bin 0xf4000 verify reset" -c "exit"
+Open On-Chip Debugger 0.10.0 (2019-01-29-17:30)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : Interface already configured, ignoring
+Info : auto-selecting first available session transport "swd". To override use 'transport select <transport>'.
+adapter speed: 10000 kHz
+cortex_m reset_config sysresetreq
+adapter speed: 1000 kHz
+Warn : Transport "swd" was already selected
+swd
+Info : CMSIS-DAP: SWD  Supported
+Info : CMSIS-DAP: Interface Initialised (SWD)
+Info : CMSIS-DAP: FW Version = 1.10
+Info : SWCLK/TCK = 1 SWDIO/TMS = 1 TDI = 0 TDO = 0 nTRST = 0 nRESET = 1
+Info : CMSIS-DAP: Interface ready
+Info : clock speed 1000 kHz
+Info : SWD DPIDR 0x2ba01477
+Info : nrf52.cpu: hardware has 6 breakpoints, 4 watchpoints
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x00000998 msp: 0x20000400
+** Programming Started **
+auto erase enabled
+Warn : Unknown device (HWID 0x00000150)
+Warn : using fast async flash loader. This is currently supported
+Warn : only with ST-Link and CMSIS-DAP. If you have issues, add
+Warn : "set WORKAREASIZE 0" before sourcing nrf51.cfg to disable it
+wrote 36864 bytes from file /Users/rickk/Downloads/bootloader-0.9.0-argon.bin in 2.690096s (13.382 KiB/s)
+** Programming Finished **
+** Verify Started **
+verified 33632 bytes in 0.286077s (114.807 KiB/s)
+** Verified OK **
+** Resetting Target **
 ```
 
 If you flash the bootloader and get no status LED on, you may need to flash the soft device as well. You will definitely need to do this if:
@@ -494,43 +512,42 @@ If you flash the bootloader and get no status LED on, you may need to flash the 
 - You erased the whole flash
 - You accidentally flashed the bootloader to 0 instead of 0xf4000
 
-Download [s140_nrf52_6.0.0_softdevice.hex](/assets/files/s140_nrf52_6.0.0_softdevice.hex), then:
+Download [s140\_nrf52\_6.0.0\_softdevice.hex](/assets/files/s140_nrf52_6.0.0_softdevice.hex), then use a -c option like:
 
-```
-nc localhost 4444
-> adapter_khz 1000
-> transport select swd
-> init
-> program /Users/rickk/Downloads/s140_nrf52_6.0.0_softdevice.hex verify reset exit
+```html
+-c program /Users/rickk/Downloads/s140_nrf52_6.0.0_softdevice.hex verify reset
 ```
 
 This is not necessary in most cases.
 
 
-## OpenOCD telnet commands (2nd generation)
+## OpenOCD commands (2nd generation)
 
 These are only for the Photon, P1, Electron and E Series.
 
 ### Programming the boot loader (2nd generation)
 
-After you're connected OpenOCD to your hardware device and opened the telnet session, you can program the boot loader via telnet as follows:
+Download the appropriate bootloader from the [release site](https://github.com/particle-iot/device-os/releases/tag/v1.0.1).
 
-```
-> reset halt
-> flash protect 0 0 0 off
-> program /Users/rickk/Downloads/bootloader-photon.bin verify 0x08000000
-> flash protect 0 0 0 on
+In place of the `-c flash list` command in the examples above, substitute the following commands:
+
+```html
+-c "reset halt" \
+-c "flash protect 0 0 0 off" \
+-c "program /Users/rickk/Downloads/bootloader-1.0.1-photon.bin
+ verify 0x08000000" \
+-c "flash protect 0 0 0 on" \
 ```
 
-You'll need to edit the path to the bootloader-photon.bin file. You need to specify a full path to the directory as well as filename.
+You'll need to edit the path to the bootloader-1.0.1-photon.bin file. You need to specify a full path to the directory as well as filename.
 
 If you get the error "Device Security Bit Set" you will also need to reset the RDP level.
 
-```
-init
-reset halt
-stm32f2x unlock 0
-reset halt
+```html
+-c "init" \
+-c "reset halt" \
+-c "stm32f2x unlock 0" \
+-c "reset halt" \
 ```
 
 After resetting the RDP level to 0 you'll need to flash the boot loader, system firmware, user firmware (or Tinker) and also do a `particle keys server` and `particle keys doctor`. This only applies to 2nd generation devices (Photon, P1, Electron, and E series).
@@ -539,82 +556,71 @@ After resetting the RDP level to 0 you'll need to flash the boot loader, system 
 
 To program Device OS, use a set of commands like this for the Photon:
 
-```
-> reset halt
-> flash protect 0 5 8 off
-> program /Users/rickk/Downloads/system-part1-0.4.9-photon.bin verify 0x08020000
-> program /Users/rickk/Downloads/system-part2-0.4.9-photon.bin verify 0x08060000
-> flash protect 0 5 8 on
+```html
+-c "reset halt" \
+-c "flash protect 0 5 8 off" \
+-c "program /Users/rickk/Downloads/system-part1-1.0.1-photon.bin verify 0x08020000" \
+-c "program /Users/rickk/Downloads/system-part2-1.0.1-photon.bin verify 0x08060000" \
+-c "flash protect 0 5 8 on" \
 ```
 
 For the P1, the addresses are the same:
 
-```
-> reset halt
-> flash protect 0 5 8 off
-> program /Users/rickk/Downloads/system-part1-0.4.9-p1.bin verify 0x08020000
-> program /Users/rickk/Downloads/system-part2-0.4.9-p1.bin verify 0x08060000
-> flash protect 0 5 8 on
+```html
+-c "reset halt" \
+-c "flash protect 0 5 8 off" \
+-c "program /Users/rickk/Downloads/system-part1-1.0.1-p1.bin verify 0x08020000" \
+-c "program /Users/rickk/Downloads/system-part2-1.0.1-p1.bin verify 0x08060000" \
+-c "flash protect 0 5 8 on" \
 ```
 
 For user firmware on the Photon and P1:
 
-```
-> reset halt
-> program /Users/rickk/Downloads/firmware.bin verify 0x80A0000
-```
-
-
-For the Electron running 0.5.x or earlier:
-
-```
-> reset halt
-> flash protect 0 5 8 off
-> program /Users/rickk/Downloads/system-part1-0.5.3-electron.bin verify 0x08020000
-> program /Users/rickk/Downloads/system-part2-0.5.3-electron.bin verify 0x08040000
-> flash protect 0 5 8 on
+```html
+-c "reset halt" \
+-c "program /Users/rickk/Downloads/firmware.bin verify 0x80A0000" \
 ```
 
 For the Electron running 0.6.0 or later, there are three system parts, and note that the address are not sequential with the part numbers:
 
-```
-> reset halt
-> flash protect 0 5 8 off
-> program /Users/rickk/Downloads/system-part1-0.6.0-electron.bin verify 0x08060000
-> program /Users/rickk/Downloads/system-part2-0.6.0-electron.bin verify 0x08020000
-> program /Users/rickk/Downloads/system-part3-0.6.0-electron.bin verify 0x08040000
-> flash protect 0 5 8 on
+```html
+-c "reset halt" \
+-c "flash protect 0 5 8 off" \
+-c "program /Users/rickk/Downloads/system-part1-1.0.1-electron.bin verify 0x08060000" \
+-c "program /Users/rickk/Downloads/system-part2-1.0.1-electron.bin verify 0x08020000" \
+-c "program /Users/rickk/Downloads/system-part3-1.0.1-electron.bin verify 0x08040000" \
+-c "flash protect 0 5 8 on" \
 ```
 
 For user firmware on the Electron:
 
-```
-> reset halt
-> program /Users/rickk/Downloads/firmware.bin verify 0x8080000
+```html
+-c "reset halt" \
+-c "program /Users/rickk/Downloads/firmware.bin verify 0x8080000" \
 ```
 
 ### Saving and erasing configuration (2nd generation)
 
 To save a copy of your configuration using OpenOCD:
 
-```
-> reset halt
-> dump_image /Users/rickk/Documents/config.bin 0x08004000 0x8000
+```html
+-c "reset halt" \
+-c "dump_image /Users/rickk/Documents/config.bin 0x08004000 0x8000" \
 ```
 
 To restore the configuration image:
 
-```
-> reset halt
-> program /Users/rickk/Documents/config.bin verify 0x08004000
+```html
+-c "reset halt" \
+-c "program /Users/rickk/Documents/config.bin verify 0x08004000" \
 ```
 
 
-To erase all of your configuration and start from scratch:
+To erase all of your configuration and start from scratch on Gen 2:
 
-```
-> reset halt
-> flash erase_sector 0 1 2
+```html
+-c "reset halt" \
+-c "flash erase_sector 0 1 2 " \
 ```
 
 That's bank 0, sectors 1 and 2 (starting at 0x08004000 and 0x080008000).

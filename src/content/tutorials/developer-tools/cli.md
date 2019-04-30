@@ -30,7 +30,7 @@ The installer also works on the Raspberry Pi!
 
 ### Using Windows
 
-Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/faq/particle-tools/installing-dfu-util/). *You may see a Windows Defender SmartScreen warning when running the Windows CLI Installer if you are one of the first people to run the installer after a new release.*
+Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/faq/particle-tools/installing-dfu-util/).
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 
@@ -41,14 +41,12 @@ You can manually install the `particle-cli` Node.js package if you need the CLI 
 Make sure you have a recent [LTS version of Node.js](http://nodejs.org/) installed.
 
 ```sh
-# check that you have node.js 6 or above. Check http://nodejs.org on how to update node.js
+# check that you have node.js 10 or above. Check http://nodejs.org on how to update node.js
 $ node -v
-v6.11.4
-# check that you have npm 5 or above
+v10.15.1
+# check that you have npm 6 or above
 $ npm -v
-5.5.1
-# update npm if your version is older than 5
-$ npm install -g npm
+6.4.1
 ```
 
 Next, open a command prompt or terminal, and install by typing:
@@ -63,6 +61,7 @@ If you experience permission errors, we recommend you change the directory where
 
 For more OS-specific install instructions, see below.
 
+On Windows, make sure to download and install the [Windows Drivers](https://binaries.particle.io/drivers/windows/particle_drivers.exe) if you installed the CLI through `npm` and did not use the [Windows CLI Installer](#using-windows).
 
 To use the local flash and key features you'll also need to install [dfu-util](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
 

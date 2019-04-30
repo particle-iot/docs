@@ -20,6 +20,7 @@ var ignoreHosts = [
   // Broken webserver that returns 404 not found for regular pages
   'www.emaxmodel.com',
   'mingw.org', // seems to be a temporary server problem, will check back later
+  'www.st.com', // randomly returns 403 errors
   '192.168.0.1',
 ];
 var devices = ['photon', 'electron', 'core', 'raspberry-pi', 'argon', 'boron', 'xenon'];

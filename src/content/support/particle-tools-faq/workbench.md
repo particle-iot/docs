@@ -12,6 +12,28 @@ order: 900
 - [Installation Instructions](/quickstart/workbench/)
 - [Tutorial](/tutorials/developer-tools/workbench)
 
+## Working with a custom Device OS build
+
+It's possible to work with a non-released branch, fork, or manually merged PRs of Device OS.
+
+- Get the latest Device OS source from Github. You'll need to have the command line version of git available in order to retrieve the submodules.
+
+```
+git clone git@github.com:particle-iot/device-os.git
+cd ./device-os
+git submodule update --init --recursive
+git checkout -b develop
+```
+
+- Run the `Particle: Launch Compiler Shell` command.
+- In the terminal that launches, execute the following:
+
+```
+DEVICE_OS_PATH=/path/to/device-os/ make -f $PARTICLE_MAKEFILE compile-all
+```
+
+- You'll need to do your builds from this window in order for the change to take effect.
+
 
 ## Uninstalling Workbench
 
@@ -39,7 +61,15 @@ order: 900
 - Open a terminal
 - Run `sudo apt-get purge code`. This currently only works with Ubuntu and other Debian-style distributions.
 
+## Linux Tips
 
+- On 64-bit Linux you may need to install 32-bit libraries:
+
+```
+sudo apt-get install gcc-multilib libncurses5:i386
+```
+
+- If you get a permission error when debugging, you may need to add udev rule. Download [99-openocd.rules](/assets/files/99-openocd.rules) and copy it to `/etc/udev/rules.d/`.
 
 
 
