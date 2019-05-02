@@ -428,7 +428,7 @@ The [Product Tools Device Groups Guide](/tutorials/product-tools/device-groups/)
 
 #### Releases via the REST API
 
-All of the operations that can be performed from theCConsole can also be automated using the REST API. You might do this to automate your build and release process, for example.
+All of the operations that can be performed from the Console can also be automated using the REST API. You might do this to automate your build and release process, for example.
 
 You can build firmware using the [Particle CLI](/reference/developer-tools/cli/#particle-compile) or directly using the [compile source code API](/reference/device-cloud/api/#compile-source-code).
 
@@ -436,7 +436,7 @@ Using the [upload product firmware API](/reference/device-cloud/api/#upload-prod
 
 Finally, the [release product firmware API](/reference/device-cloud/api/#release-product-firmware) can be used to release the firmware to devices.
 
-By using the APIs, you can script solutions that leverage other techniques like source code control (such as Github) and continuous integration tests.
+By using the APIs, you can script solutions that leverage other techniques like source code control (such as GitHub) and continuous integration tests.
 
 #### Firmware precedence rules
 
@@ -614,7 +614,7 @@ Furthermore, OTA updates occur in roughly three phases:
 The sections below discuss methods to control when and how an OTA is
 delivered to a device in your fleet.
 
-Reference documentation is also availble for [controlling OTA
+Reference documentation is also available for [controlling OTA
 availability](/reference/device-os/firmware/#ota-updates).
 
 

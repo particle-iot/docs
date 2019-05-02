@@ -45,7 +45,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * RGB status pins for LED
  * Reset and Mode pins for buttons
  * On-module MFF2 Particle SIM 
- * Two on-module u.FL connectors for external antennas
+ * Two on-module U.FL connectors for external antennas
  * M.2 interface
  * FCC and PTCRB certified
  * RoHS compliant (lead-free)
@@ -361,7 +361,7 @@ These specifications are based on the nRF52840 datasheet.
 
 The mating connector is a an M.2 (NGFF) type 4. Note that there are several different key configurations for the M.2, and type 4 is different than is commonly used on SSDs.
 
-One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product-2199230-4.html). It is widely available including at suppliers such as [Digikey](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230-4/A115904CT-ND/4208916).
+One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product-2199230-4.html). It is widely available including at suppliers such as [DigiKey](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230-4/A115904CT-ND/4208916).
 
 ![Connector](/assets/images/b-series/b-series-connector.png)
 
@@ -398,7 +398,7 @@ The B series contains highly sensitive electronic circuitry and is an Electrosta
 
 ### Connectors
 
-The u.FL antenna connectors are a very fragile piece of hardware (and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the B series by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
+The U.FL antenna connectors are a very fragile piece of hardware (and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the B series by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
 The M.2 edge connector is static sensitive and should be handled carefully. The M.2 connector is not designed for repeated removal and insertion of the module.
 

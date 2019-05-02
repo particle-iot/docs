@@ -448,7 +448,7 @@ Visual Studio Code provides a support for a number of source code management pro
 
 [The VS Code Instructions](https://code.visualstudio.com/docs/editor/versioncontrol) are a great place to start.
 
-Particle open source projects and many community libraries are stored in Github, and there is good support for Git in VS Code, so that's often a good choice. You can get started at the [Git SCM](https://git-scm.com/) website.
+Particle open source projects and many community libraries are stored in GitHub, and there is good support for Git in VS Code, so that's often a good choice. You can get started at the [Git SCM](https://git-scm.com/) website.
 
 ## Command Palette Reference
 
