@@ -12989,7 +12989,7 @@ This is done by adding  `#include "Arduino.h"` to each source file that requires
 
 ### Arduino APIs added by Firmware Version
 
-Once `Arduino.h` has been added to a source file, additional arduino APIs are made available.
+Once `Arduino.h` has been added to a source file, additional Arduino APIs are made available.
 The APIs added are determined by the targeted firmware version. In addition to defining the new APIs,
 the `ARDUINO` symbol is set to a value that describes the supported SDK version. (e.g. 10800 for 1.8.0)
 
@@ -13033,7 +13033,7 @@ bool engageHyperdrive() {
 ```
  
 In your source code, you use the function normally. When compiling against a version of firmware that supports
-an older arduino SDK, then your own version of the API will be used.  Later, when `engageHyperdrive()` is added to
+an older Arduino SDK, then your own version of the API will be used.  Later, when `engageHyperdrive()` is added to
 Particle firmware,  our version will be used. This happens when the `ARDUINO` version is the same or greater than
 the the corresponding version of the Arduino SDK, which indicates the API is provided by Particle firmware.
 
@@ -13339,7 +13339,7 @@ Parameters:
 
   * string: the string which will be modified - a variable of type String
   * substring1: searched for - another variable of type String (single or multi-character), char or const char (single character only)
-  * substring2: replaced with - another variable of type String (signle or multi-character), char or const char (single character only)
+  * substring2: replaced with - another variable of type String (single or multi-character), char or const char (single character only)
 
 Returns: None
 
@@ -14034,7 +14034,7 @@ Parameters:
 
 ## Language Syntax
 
-Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specically gcc C++11.
+Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specifically gcc C++11.
 
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
@@ -14578,7 +14578,7 @@ The variable on the left side of the assignment operator ( = sign ) needs to be 
 
 Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal.
 
-#### + - * / (additon subtraction multiplication division)
+#### + - * / (addition subtraction multiplication division)
 
 These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 2,147,483,647 gives -2,147,483,648). If the operands are of different types, the "larger" type is used for the calculation.
 
@@ -14621,7 +14621,7 @@ Calculates the remainder when one integer is divided by another. It is useful fo
 
 `result` is the remainder
 
-The remainder function can have unexpected behavoir when some of the opperands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
+The remainder function can have unexpected behavior when some of the operands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
 
 ```C++
 // EXAMPLE USAGES
