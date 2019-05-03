@@ -12650,6 +12650,11 @@ the update is delivered immediately after `System.enableUpdates()` is called.
 
 Standard Firmware Releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
 
+**Note**: Calling `System.disableUpdates()` and `System.enableUpdates()`
+for devices running Device OS version 1.2.0 or later will result in a
+message sent to the Device Cloud. This will result in a small amount of
+additional data usage each time they are called.
+
 ### System.disableUpdates()
 ```cpp
 // System.disableUpdates() example where updates are disabled
