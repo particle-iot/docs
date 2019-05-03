@@ -548,9 +548,9 @@ would like to release to. Then, top opt-in to an Intelligent Firmware Release, c
 
 ![](/assets/images/ota-updates/intelligent-release.png)
 
-Remember that this is an Enterprise-only feature -- so this action will
-be disabled unless you are an Enterprise customer. Interested in
-Intelligent Firmware Releases? [Talk to us!](https://www.particle.io/sales)
+The "Intelligent" option will be enaled for scaling customers on
+Particle's Enterprise plan. If you are interested in enabling this
+feature for your fleet, please [reach out to us!](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
 
 Note that the Console describes that target devices that are **online**
 with **OTA updates enabled** would receive the new version of firmware
