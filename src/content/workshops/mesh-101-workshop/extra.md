@@ -20,7 +20,7 @@ Now that you've gotten an overview of Mesh and the Particle Ecosystem, why not t
 
 4.  Create an Azure IoT Hub Integration and [build dashboards with Electric IO](https://blog.particle.io/2018/09/28/create-the-dashboard-of-your-dreams-with-particle-electric-io/)
 
-5.  [Apply to get a sneak peek at the new Particle Workbench](https://www.particle.io/workbench/apply/)
+5.  [Get started with Particle Workbench](/quickstart/workbench)
 
 6.  [Request Access to the Particle Rules Engine Beta](https://www.particle.io/iot-rules-engine)
 

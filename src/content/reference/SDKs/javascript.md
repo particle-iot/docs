@@ -182,7 +182,7 @@ particle.getVariable({ deviceId: 'DEVICE_ID', name: 'temp', auth: token }).then(
 
 The variable needs to be defined in your device's code.
 
-If getting the variable succeeds, `data.result` is the value of the variable on the Particle device.
+If getting the variable succeeds, `data.body.result` is the value of the variable on the Particle device.
 
 
 ### removeDevice
