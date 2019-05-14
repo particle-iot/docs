@@ -17,7 +17,7 @@ For an in-depth information on the E series evaluation board please take a look 
 
 To power up the E series evaluation kit:
 
- - Plug in the antenna to the u.FL connector (Please do this before powering up the board)
+ - Plug in the antenna to the U.FL connector (Please do this before powering up the board)
  - Plug in the micro USB cable into the USB connector labeled as E0 USB.
  - Plug in the LiPo battery provided with the kit
 

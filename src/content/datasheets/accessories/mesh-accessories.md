@@ -43,6 +43,10 @@ The pins on the [Grove connector](http://wiki.seeedstudio.com/Grove_System/) are
 | 3 | Red | Power | Power | Power | Power|
 | 4 | Black | GND | GND | GND | GND |
 
+For a short (~6 min) example of using the Grove Starter Kit for Particle Mesh, watch the video below.
+
+<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/JYp3gBrcQ18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 #### Button
 
 
@@ -199,7 +203,7 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 The Ethernet driver for this wing is baked into the Mesh Device OS. When you set up a new Particle Mesh device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
 
-The hardware design for this wing is completely opensource. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
+The hardware design for this wing is completely open source. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
 
 If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
@@ -239,6 +243,102 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 
 **Note:** This product is a one-way adapter. That is, this product does not enable use of Adafruit FeatherWings with the Photon or Electron.
 
+The design is open source and the design files are available [here](https://github.com/particle-iot/classic-adapter).
+
+{{collapse op="start" label="Additional details and diagrams"}}
+
+#### Pin orientation
+
+The long side (16-pin header on the top) has the pins arranged like this, left to right as in the picture. This only shows how the pins are oriented, not the connections!
+
+| Top (Gen 3) | Bottom (Gen 2) |
+| --- | --- | 
+| RST | VIN |
+| 3V3 | GND |
+| MD | TX | 
+| GND | RX | 
+| A0 | WKP |
+| A1 | DAC |
+| A2 | A5 | 
+| A3 | A4 |
+| A4 | A3 |
+| A5 | A2 |
+| D13 (SCK) | A1 |
+| D12 (MISO) | A0 |
+| D11 (MOSI) | B5 |
+| D10 (RX) | B4 |
+| D9 (TX) | B3 |
+| NC | B2 |
+| | B1 |
+| | B0 |
+
+![Classic Adapter long side](/assets/images/accessories/classic-long.png)
+
+
+The short side (12-pin header on the top) has the pins arranged like this, left to right as in the picture. 
+
+| Top (Gen 3) | Bottom (Gen 2) |
+| --- | --- | 
+| D0 | C0 |
+| D1 | C1 |
+| D2 | C2 |
+| D3 | C3 |
+| D4 | C4 |
+| D5 | C5 |
+| D6 | D0 |
+| D7 | D1 |
+| D8 | D2 |
+| USB | D3 |
+| EN | D4 |
+| LI+ | D5 |
+| | D6 |
+| | D7 |
+| | GND |
+| | VBAT |
+| | RST |
+| | 3V3 |
+
+![Classic Adapter short side](/assets/images/accessories/classic-short.png)
+
+
+#### Substituting for an Electron
+
+Take, for example, the AssetTracker V2 with an Electron:
+
+![AssetTracker with Electron](/assets/images/accessories/assettracker-electron.jpg)
+
+To substitute a Boron, you'd use the classic adapter like this:
+
+![AssetTracker with Electron](/assets/images/accessories/assettracker-classic.jpg)
+
+Note that you will not be able to use the LIS3DH accelerometer because it connects by SPI and the SPI pins are not mapped in a usable way with the classic adapter!
+
+#### Substituting for an Photon
+
+This is a small sensor that typically uses a Photon:
+
+![Photon board](/assets/images/accessories/photon-example.jpg)
+
+When using the classic adapter, some pins will hang off the edge. Makes sure the B and C pins hang over, not the power pins!
+
+![Classic adapter in Photon socket](/assets/images/accessories/photon-classic.jpg)
+
+#### Schematic
+
+![Schematic](/assets/images/accessories/classic-schematic.png)
+
+#### Top
+
+![Top](/assets/images/accessories/classic-top.jpg)
+
+#### Bottom
+
+![Bottom](/assets/images/accessories/classic-bottom.jpg)
+
+
+{{collapse op="end"}}
+
+
 ### Pin Map
 
 |Legacy Device | Mesh Device|
@@ -249,8 +349,8 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 |A3 |A3 |
 |A4 |A4 |
 |A5 |A5 |
-|D0 |D0 |
-|D1 |D1 |
+|D0 |D0 (SDA) |
+|D1 |D1 (SCL) |
 |D2 |D2 |
 |D3 |D3 |
 |D4 |D4 |
@@ -260,9 +360,9 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 |C5<sup>[1]</sup>  |D8 |
 |TX |TX |
 |RX |RX |
-|B5<sup>[1]</sup>  |D11 |
-|WKP<sup>[1]</sup>  |D12 |
-|DAC<sup>[1]</sup>  |D13 |
+|B5<sup>[1]</sup>  |D11 (MISO) |
+|WKP<sup>[1]</sup>  |D12 (MOSI)|
+|DAC<sup>[1]</sup>  |D13 (SCK) |
 |RST |RST |
 |VIN |VUSB |
 |3V3 |3V3 |
@@ -275,6 +375,23 @@ You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUS
 
 <sup>[3]</sup> Pins MD, Li+, and EN on the Particle Mesh device are not connected to anything.
 
+### I2C
+
+I2C (Wire) can be used on D0 and D1. However, pins on the mesh devices are not 5V tolerant, so make sure you do not have pull-ups to 5V.
+
+### SPI
+
+It's not possible to use SPI with the classic adapter. The mesh SPI pins (MISO, MOSI, SCK) are not connected to pins that support SPI on the Electron or Photon (B5, WKP, DAC). The mesh SPI1 pins overlap the Electron/Photon SPI1 pins, however they're different!
+
+| SPI1 | Classic | Mesh | 
+| --- | --- | --- |
+| SCK | D4 | D2 |
+| MOSI | D2 | D3 |
+| MISO | D3 | D4 |
+
+### Other Features
+
+The mesh devices do not support DAC or CAN, so those classic devices using those features won't work with the classic adapter.
 
 ## Debugger
 
@@ -288,7 +405,7 @@ It also provides a USB to TTL serial port. This requires no device drivers on Ma
 
 Comes with one JTAG ribbon cable.
 
-For more information about debugging see the [JTAG FAQ](/support/particle-tools-faq/jtag/). Future version of Particle Workbench will support the Particle Debugger as well.
+For more information about debugging see the [JTAG FAQ](/support/particle-tools-faq/jtag/). Future version of Particle Workbench will support the Particle Debugger as well. The design is open source and the design files are available [here](https://github.com/particle-iot/debugger).
 
 ### Debugging mesh devices
 

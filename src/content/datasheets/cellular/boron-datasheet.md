@@ -49,7 +49,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * Reset and Mode buttons
  * Dual SIM support: Nano 4FF and MFF2
  * On-board PCB antenna
- * u.FL connector for external antenna
+ * U.FL connector for external antenna
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
  * FCC and PTCRB certified
  * RoHS compliant (lead-free)
@@ -83,7 +83,7 @@ Please pay attention to the polarity of the LiPo connector. Not all LiPo batteri
 #### Li+ PIN
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Boron. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
-For the Boron 2G/3G version, make sure that the external DC supply is able to support 2A peak current reauirments.
+For the Boron 2G/3G version, make sure that the external DC supply is able to support 2A peak current requirements.
 
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Xenon or the Argon, this pin _CANNOT_ be used to power the Boron.
@@ -385,7 +385,7 @@ The micro B USB connector on the Boron is soldered on the PCB with large surface
 
 <div align=center><img src="/assets/images/proper-usb-connection.png" ></div>
 
-The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Boron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
+The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time. The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
 
 The 10 pin SWD connector provides an easy in-system debugging access to the device. The pins on the connector can easily be damaged if the mating connector cable is inserted improperly. If you are trying to debug the device, you probably are not in a good mood to begin with. The last thing you want is to render the connector useless. Be nice, and be gentle on the connector. Good luck with the debugging!

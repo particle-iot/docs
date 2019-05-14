@@ -50,7 +50,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 
 ### Argon Wi-Fi network coprocessor:
 
-**Espressif ESP32-D0WD 2.4Ghz Wi-Fi coprocessor**
+**Espressif ESP32-D0WD 2.4 GHz Wi-Fi coprocessor**
 
 - On-board 4MB flash for the ESP32
 - 802.11 b/g/n support

@@ -57,8 +57,6 @@ To begin setting up your Xenon, click the button below and follow the onscreen i
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Xenon, skip to Step #2.<br /><br />
-2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
-
 {{box op="end"}}
 
 ---
@@ -95,15 +93,7 @@ The code is heavily commented to help you understand the general structure of th
 
 ## 4. Target your device
 
-The Web IDE can be used with multiple devices. As such, when you go to compile source code, it's a good idea to verify that the board you
-
-Before you compile the source code and flash your device with its binary output, make sure that the correct Particle device is selected.
-
-{{box op="start"}}
-**NOTE:**
-
-If you don't see your Xenon listed, click on the device name. A sidebar will appear on the left with a list of all of your devices. Click on _start_ to the left of the Xenon you wish to deploy code to.
-{{box op="end"}}
+The Web IDE can be used with multiple devices. As such, when you go to compile source code, it's a good idea to verify that the device you are intending to program has a gold star to the left of its name in the Devices tab (circle with 4 lines).
 
 ---
 

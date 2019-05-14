@@ -539,7 +539,8 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 h1 small.beta {
   color: @NC_PURPLE_GRAY;
   font-size: 0.6em;
-  vertical-align: text-top;
+  position: relative;
+  top: -15px;
 }
 
 @media screen {
@@ -909,6 +910,14 @@ hr {
       @media (max-width: @small-size) {
         max-width: 80%;
       }
+    }
+    &.tall {
+      max-height: 900px;
+    }
+    &.toolbarIcon {
+      width: 40px;
+      height: 32px;
+      margin: 0px;
     }
   }
   .content h4:after,

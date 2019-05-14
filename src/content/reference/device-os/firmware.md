@@ -272,7 +272,7 @@ Cloud events have the following properties:
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-* public/private (default public)
+* PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
@@ -300,15 +300,15 @@ Publish a public event with the given name, no data, and the default TTL of 60 s
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName);
-Particle.publish(String eventName);
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
 
 RETURNS
 boolean (true or false)
 
 // EXAMPLE USAGE
 bool success;
-success = Particle.publish("motion-detected");
+success = Particle.publish("motion-detected", PUBLIC);
 if (!success) {
   // get here if event publish did not work
 }
@@ -320,11 +320,11 @@ Publish a public event with the given name and data, with the default TTL of 60 
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data);
-Particle.publish(String eventName, String data);
+Particle.publish(const char *eventName, const char *data, PublishFlags flags);
+Particle.publish(String eventName, String data, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("temperature", "19 F");
+Particle.publish("temperature", "19 F", PUBLIC);
 ```
 
 ---
@@ -333,11 +333,11 @@ Publish a public event with the given name, data, and TTL.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl);
-Particle.publish(String eventName, String data, int ttl);
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("lake-depth/1", "28m", 21600);
+Particle.publish("lake-depth/1", "28m", 21600, PUBLIC);
 ```
 
 ---
@@ -347,8 +347,8 @@ In order to publish a private event, you must pass all four parameters.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl, PRIVATE);
-Particle.publish(String eventName, String data, int ttl, PRIVATE);
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 // EXAMPLE USAGE
 Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
@@ -358,8 +358,8 @@ Publish a private event with the given name.
 
 ```C++
 // SYNTAX
-Particle.publish(const char *eventName, PRIVATE);
-Particle.publish(String eventName, PRIVATE);
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
 
 // EXAMPLE USAGE
 Particle.publish("front-door-unlocked", PRIVATE);
@@ -462,7 +462,7 @@ void myHandler(const char *event, const char *data)
 
 void setup()
 {
-  Particle.subscribe("temperature", myHandler);
+  Particle.subscribe("temperature", myHandler, ALL_DEVICES);
   Serial.begin(9600);
 }
 ```
@@ -497,7 +497,7 @@ You can register a method in a C++ object as a subscription handler.
 class Subscriber {
   public:
    Subscriber() {
-      Particle.subscribe("some_event", &Subscriber::handler, this);
+      Particle.subscribe("some_event", &Subscriber::handler, this, ALL_DEVICES);
     }
     void handler(const char *eventName, const char *data) {
       Serial.println(data);
@@ -639,26 +639,29 @@ void loop() {
 }
 ```
 
-{{#if has-cellular}}
+{{#if has-udp-cloud}}
 ### Particle.keepAlive()
 
-Sets the duration between keep alive messages used to maintain the connection to the cloud.
+Sets the duration between keep-alive messages used to maintain the connection to the cloud.
 
 ```C++
 // SYNTAX
 Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
 ```
 
-A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
-Should a device becomes unreachable from the cloud (such as a timed out function call or variable get),
-one possible cause of this is that the keep alives have not been sent often enough.
+A keep-alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device. A temporary port-forwarded back-channel is set up by the network to allow packets to be sent from the cloud to the device. As this is a finite resource, unused back-channels are periodically deleted by the network.
 
-The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
+Should a device becomes unreachable from the cloud (such as a timed out function call or variable get), one possible cause of this is that the keep alives have not been sent often enough.
+
+The keep-alive for cellular devices duration varies by mobile network operator. The default keep-alive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value, typically ranging from 30 seconds to several minutes.
 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
+For the Xenon, you will need to match the keep-alive to the gateway. If your gateway, for example, is a Boron with a 3rd-party SIM card with a short keep-alive, you'll also need to set this short keep-alive on Xenon nodes. The reason is that each Xenon has its own cloud connection that needs to be kept alive.
 
-{{/if}} {{!-- has-cellular --}}
+For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
+
+{{/if}} {{!-- has-udp-cloud --}}
 
 
 ### Particle.process()
@@ -887,7 +890,7 @@ void setup() {
 
 ### Antenna selection
 
-At the time of writing (Device OS 0.8.0-rc.26), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
+At the time of writing (Device OS 0.8.0-rc.27), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
 
 ```
 void selectExternalMeshAntenna() {
@@ -1104,6 +1107,20 @@ STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION));
 ```
 
 If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
+
+| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+|:------:|:------------:|:--------------------------|
+|MISO    | MISO         | SPI MISO                  |
+|MOSI    | MOSI         | SPI MOSI                  |
+|SCK     | SCK          | SPI SCK                   |
+|D3      | A7           | nRESET                    |
+|D4      | D22          | nINTERRUPT                |
+|D5      | D8           | nCHIP SELECT              |
+
+When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
+
+When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
+
 
 ### on()
 
@@ -1777,6 +1794,14 @@ _Since 0.8.0_
 // SYNTAX
 WiFiSignal sig = WiFi.RSSI();
 ```
+
+If you are passing the RSSI value as a variable argument, such as with Serial.printlnf, Log.info, snprintf, etc. make sure you add a cast:
+
+```
+Serial.printlnf("RSSI=%d", (int8_t) WiFi.RSSI()).
+```
+
+This is necessary for the compiler to correctly convert the WiFiSignal class into a number.
 
 ### WiFiSignal Class
 
@@ -2903,7 +2928,7 @@ void loop() {
 
 ### setActiveSim()
 
-The {{device}} can use either the built-in M2FF embedded Particle SIM card or an external nano SIM card in 
+The {{device}} can use either the built-in MFF2 embedded Particle SIM card or an external nano SIM card in 
 the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
 once. The setting will be preserved across reset, power down, and firmware upgrades.
 
@@ -3408,7 +3433,8 @@ void setup() {
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
 {{#if boron}}
-At the time of writing (Device OS 0.8.0-rc.25), Cellular.command has not been implemented on the Boron yet.
+{{since when="0.9.0"}}
+On the Boron, Cellular.command requires Device OS 0.9.0 or later; it is not supported on 0.8.0-rc versions.
 {{/if}}
 
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
@@ -3641,10 +3667,19 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 {{#if has-nrf52}}
 If you are using the Particle Ethernet FeatherWing you cannot use the pins for GPIO as they are used for the Ethernet interface:
-- D3 (RESET)
-- D4 (INTN)
-- D5 (SCSN) 
-- SPI (SCK, MOSI, MISO) is also used, however you can still share the SPI bus in many cases.
+
+| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+|:------:|:------------:|:--------------------------|
+|MISO    | MISO         | SPI MISO                  |
+|MOSI    | MOSI         | SPI MOSI                  |
+|SCK     | SCK          | SPI SCK                   |
+|D3      | A7           | nRESET                    |
+|D4      | D22          | nINTERRUPT                |
+|D5      | D8           | nCHIP SELECT              |
+
+When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
+
+When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
 {{/if}}
 
 {{#if xenon}}
@@ -3707,7 +3742,10 @@ void loop()
 **Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 {{/if}}
 {{#if has-nrf52}}
-**Note:** All GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
 {{/if}}
 
 
@@ -3749,7 +3787,10 @@ void loop()
 {{/if}}
 
 {{#if has-nrf52}}
-**Note:** All GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
 {{/if}}
 
 {{#if has-pwm}}
@@ -3770,7 +3811,13 @@ analogWrite(pin, value, frequency);
 
 - `pin`: the number of the pin whose value you wish to set
 - `value`: the duty cycle: between 0 (always off) and 255 (always on). _Since 0.6.0:_ between 0 and 255 (default 8-bit resolution) or `2^(analogWriteResolution(pin)) - 1` in general.
-- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
+{{#if has-stm32}}
+- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz) on Gen 2 devices (Photon, P1, Electron). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
+{{/if}}
+{{#if has-nrf52}}
+- `frequency`: the PWM frequency:from 5 Hz to `analogWriteMaxFrequency(pin)`, currently 500 kHz on Gen 3 devices (Argon, Boron, Xenon). The default value is 500 Hz.
+{{/if}}
+
 
 **NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
@@ -3811,7 +3858,7 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 {{/if}}
 {{#if has-nrf52}}
-On mesh devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 3: Pins D2, D3, A4, and A5.
@@ -3820,6 +3867,13 @@ frequency and resolution, but individual pins in the group can have a different 
 
 - Group 1: Pins D4, D5, D6, and D8.
 
+- Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
+On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 2: Pins A0, A1, A6, and A7.
+- Group 1: Pins D4, D5, and D6.
 - Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
 
 {{/if}}
@@ -3844,7 +3898,7 @@ Sets or retrieves the resolution of `analogWrite()` function of a particular pin
 `analogWriteResolution()` takes one or two arguments:
 
 - `pin`: the number of the pin whose resolution you wish to set or retrieve
-- `resolution`: (optional) resolution in bits. The value can range from 2 to 31 bits. If the resolution is not supported, it will not be applied.
+- `resolution`: (optional) resolution in bits. The value can range from 2 to 31 bits. If the resolution is not supported, it will not be applied. The default is 8.
 
 `analogWriteResolution()` returns currently set resolution.
 
@@ -3915,9 +3969,11 @@ _Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). 
 {{/if}}
 
 {{#if has-nrf52}}
-The device has 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+The Gen 3 Feather devices (Argon, Boron, Xenon) have 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
 The sample time to read one analog value is 10 microseconds.
+
+The Boron SoM has 8 channels, A0 to A7.
 {{/if}}
 
 ```C++
@@ -4135,10 +4191,28 @@ Generates a square wave of the specified frequency and duration (and 50% duty cy
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
 {{/if}}
 
+{{#if has-stm32}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
 
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 - Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
+{{/if}}
+
+{{#if has-nrf52}}
+On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for tone(). Pins are assigned a PWM group. Each group must share the same frequency. Thus you can only output 3 different frequencies at the same time.
+
+- Group 3: Pins D2, D3, A4, and A5.
+
+- Group 2: Pins A0, A1, A2, and A3.
+
+- Group 1: Pins D4, D5, D6, and D8.
+
+On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Pins are assigned a PWM group. Each group must share the same frequency.
+
+- Group 2: Pins A0, A1, A6, and A7.
+- Group 1: Pins D4, D5, and D6.
+
+{{/if}}
 
 ```C++
 // SYNTAX
@@ -4151,6 +4225,7 @@ The frequency range is from 20Hz to 20kHz. Frequencies outside this range will n
 
 `tone()` does not return anything.
 
+{{#if has-stm32}}
 **NOTE:** the Photon's PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
 
 Pin  | TMR3 | TMR4 | TMR5
@@ -4162,6 +4237,7 @@ D3   |  x   |      |
 A4   |  x   |      |  
 A5   |  x   |      |  
 WKP  |      |      |  x
+{{/if}}
 
 
 ```C++
@@ -4759,6 +4835,11 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
 
 {{#unless raspberry-pi}}
+
+{{#if has-usb-serial1}}
+**NOTE:** On Windows 10, using `USBSerial1` on the Electron and P1 may not be reliable due to limitations of the USB peripheral used for those 2 platforms. Characters may be dropped between the computer and device. `USBSerial1` is reliable for other Particle platforms and other operating systems. `Serial` is reliable for all platforms and operating systems.
+{{/if}} {{!-- has-usb-serial1 --}}
+
 #### Connect to Serial with a computer
 
 For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). Plug your {{device}} into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
@@ -4768,9 +4849,9 @@ For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). 
 - Parity: none
 - Stop Bits: 1
 
-On **OS X and Linux** systems, you can access the serial port through the terminal.
+On **macOS (OS X) and Linux** systems, you can access the serial port through the terminal.
 
-For OS X, open the terminal and type:
+For macOS, open the terminal and type:
 
 ```screen /dev/tty.u```
 
@@ -4867,6 +4948,8 @@ When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, 
 
 Pre-defined Serial configurations available:
 
+{{#if has-stm32f2}}
+
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
@@ -4880,8 +4963,8 @@ Pre-defined Serial configurations available:
 
 - `SERIAL_7O1` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
-- `SERIAL_7E1` - 7 data bits, odd parity, 1 stop bit
-- `SERIAL_7E2` - 7 data bits, odd parity, 1 stop bit
+- `SERIAL_7E1` - 7 data bits, even parity, 1 stop bit
+- `SERIAL_7E2` - 7 data bits, even parity, 1 stop bit
 {{#if has-linbus}}
 - `LIN_MASTER_13B` - 8 data bits, no parity, 1 stop bit, LIN Master mode with 13-bit break generation
 - `LIN_SLAVE_10B` - 8 data bits, no parity, 1 stop bit, LIN Slave mode with 10-bit break detection
@@ -4906,6 +4989,17 @@ Parity:
 - `SERIAL_PARITY_EVEN` - even parity
 - `SERIAL_PARITY_ODD` - odd parity
 
+{{/if}} {{!-- has-stm32 --}}
+ 
+{{#if has-nrf52}}
+- `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
+- `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
+
+Other options, including odd parity, and 7 and 9 bit modes, are not available on the {{device}}. 
+
+{{/if}} {{!-- has-nrf52 --}}
+
+
 {{#if core}}
 Hardware flow control, available only on Serial1 (`CTS` - `A0`, `RTS` - `A1`):
 {{/if}}
@@ -4915,7 +5009,7 @@ Hardware flow control, available only on Serial2 (`CTS` - `A7`, `RTS` - `RGBR` )
 {{/if}}
 
 {{#if has-nrf52}}
-On mesh devices, flow control is available on Serial1 D3(CTS) and D2(RTS). 
+On Gen 3 devices (Argon, Boron, Xenon), flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using flow control (the default), then these pins can be used as regular GPIO.
 {{/if}}
 
 {{#if xenon}}
@@ -4940,7 +5034,7 @@ LIN configuration:
 {{/if}} {{!-- has-linbus --}}
 
 {{#if has-usb-serial1}}
-***NOTE*** {{since when="0.6.0"}}: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
+**NOTE** {{since when="0.6.0"}} When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
 
 ```C++
 // EXAMPLE USAGE
@@ -4984,12 +5078,12 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
-The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is 64 bytes.
+The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is {{#if has-stm32}}64{{/if}}{{#if has-nrf52}}128{{/if}} bytes and cannot be changed. 
 
 {{#if has-usb-serial1}}
 The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{else}}
-The receive buffer size for Serial is 64 bytes.
+The receive buffer size for Serial is 64 bytes. 
 {{/if}}
 
 ```C++
@@ -5117,7 +5211,7 @@ from a serial peripheral.
 The `serialEvent` functions are called in between calls to the application `loop()`. This means that if `loop()` runs for a long time due to `delay()` calls or other blocking calls the serial buffer might become full between subsequent calls to `serialEvent` and serial characters might be lost. Avoid long `delay()` calls in your application if using `serialEvent`.
 
 Since `serialEvent` functions are an
-extension of the application loop, it is ok to call any functions that you would also call from `loop()`.
+extension of the application loop, it is ok to call any functions that you would also call from `loop()`. Because of this, there is little advantage to using serial events over just reading serial from loop(). 
 
 ```cpp
 // EXAMPLE - echo all characters typed over serial
@@ -6018,7 +6112,7 @@ be used via the `SPI1` object. This second port is mapped as follows:
 * `MOSI` => `D3`
 * `MISO` => `D4`
 
-Note: On 3rd-generation devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
+Note: On Gen 3 devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
 {{/if}}
 {{/if}}
 
@@ -6507,16 +6601,26 @@ Returns: Negative integer in case of an error.
 Wire (I2C)
 ----
 
-{{#if has-embedded}}
-{{#unless electron}}
+{{#if core}}
 ![I2C](/assets/images/core-pin-i2c.jpg)
-{{/unless}}
 {{/if}}
 
-This library allows you to communicate with I2C / TWI(Two Wire Interface) devices.
+This library allows you to communicate with I2C / TWI (Two Wire Interface) devices.
 
 {{#if has-embedded}}
+
+{{#if has-stm32}}
 On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Additionally, there is a second optional I2C interface on D2 and D3 on the Argon and Xenon only.
+
+Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+
+Note that unlike the Gen 1 (Core) and Gen 2 devices (Photon/P1/Electron), Gen 3 devices are not 5V tolerant.
+{{/if}} {{!-- has-nrf52 --}}
+
 
 These pins are used via the `Wire` object.
 
@@ -6552,7 +6656,7 @@ There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and
 **Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
 
 It is not recommended to use the I2C pins for general purpose IO. If you need to, you must disable the I2C peripheral in `raspi-config`, reboot and use the `SCL` and `SDA` pins with `pinMode`, `digitalRead` or `digitalWrite`.
-{{/if}}
+{{/if}} {{!-- raspberry-pi --}}
 
 {{#if has-embedded}}
 
@@ -7264,7 +7368,7 @@ _Since 0.7.0_
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
 {{/if}}
 
-The application code may additionally check if an error occured during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
+The application code may additionally check if an error occurred during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
 
 
 ```C++
@@ -7473,7 +7577,7 @@ _Since 0.7.0_
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
 {{/if}}
 
-The application code may additionally check if an error occured during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
+The application code may additionally check if an error occurred during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
 
 
 ```C++
@@ -8168,8 +8272,8 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 - on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
 - on the P1, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, P1S0, P1S1
 - on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
-- on mesh devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for Servo.
-
+- on Gen 3 Argon, Boron, and Xenon devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for Servo.
+- On Gen 3 B Series SoM devices, pins A0, A1, A6, A7, D4, D5, and D6 can be used for Servo.
 
 ```cpp
 // SYNTAX
@@ -8421,8 +8525,8 @@ STARTUP(RGB.mirrorTo(A4, A5, A7));
 
 Parameters:
   - `pinr`: PWM-enabled pin number connected to red LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
-  - `ping`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
-  - `pinb`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `ping`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `pinb`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `invert` (optional): `true` if the connected RGB LED is common-anode, `false` if common-cathode (default).
   - `bootloader` (optional): if `true`, the RGB mirroring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirroring only works while the firmware is running (default).
 
@@ -8454,7 +8558,7 @@ This class allows to define a _LED status_ that represents an application-specif
 
 ```cpp
 // EXAMPLE - defining and using a LED status
-LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK);
+LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK, LED_SPEED_NORMAL, LED_PRIORITY_IMPORTANT);
 
 void setup() {
     // Blink red for 3 seconds after connecting to the Cloud
@@ -9554,7 +9658,7 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
 {{#if has-nrf52}}
-All A and D pins (including TX, RX, and SPI) on 3rd generation (mesh) devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
+All A and D pins (including TX, RX, and SPI) on Gen 3 (mesh) devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
 {{/if}}
 
 {{#if has-stm32}}
@@ -9607,6 +9711,8 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
 
   - D0, A5 (shared with MODE button)
   - D7 (shared with BATT_INT_PC13)
+  - C1 (shared with RXD_UC)
+  - C2 (shared with RI_UC)
 
 No restrictions on the Electron/E series (all of these can be used at the same time):
 
@@ -10279,8 +10385,8 @@ size_t length = EEPROM.length();
 ```
 
 - The Core has 127 bytes of emulated EEPROM.
-- The 2nd generation Photon, P1, Electron, and E Series have 2047 bytes of emulated EEPROM.
-- The 3rd-generation (mesh) devices have 4096 bytes of emulated EEPROM.
+- The Gen 2 (Photon, P1, Electron, and E Series) have 2047 bytes of emulated EEPROM.
+- The Gen 3 (Argon, Boron, Xenon) devices have 4096 bytes of emulated EEPROM.
 
 ### put()
 This function will write an object to the EEPROM. You can write single values like `int` and
@@ -11367,96 +11473,16 @@ Resets the device and restarts in safe mode.
 
 ### sleep() [ Sleep ]
 
-`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
 {{#if has-nrf52}}
-**The sleep modes described here are for the Photon and Electron. Updated documentation with details for mesh devices will be provided soon. At the time of writing (Device OS 0.8.0-rc.25), sleep modes are not implemented for mesh devices yet.**
+Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
 {{/if}}
-
-
-```
-// Variants of System.sleep()
-
-// Turn off {{network-type}} for seconds.
-// Keep application running.
-// Low power usage.
-System.sleep(seconds);
-
-// Turn off microcontroller and {{network-type}}.
-// Reset after seconds.
-// Ultra low power usage.
-System.sleep(SLEEP_MODE_DEEP, seconds);
-
-{{#if has-fuel-gauge}}
-// Turn off microcontroller, {{network-type}} and fuel gauge.
-// Reset after seconds.
-// Lowest power usage.
-System.sleep(SLEEP_MODE_SOFTPOWEROFF, seconds);
-{{/if}}
-
-{{#if has-cellular}}
-// Keep {{network-type}} running.
-// Turn off microcontroller.
-// Reset after seconds.
-System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
-{{/if}}
-
-// Turn off {{network-type}}.
-// Pause microcontroller.
-// Application resumes on pin trigger or after seconds.
-// Very low power usage.
-System.sleep(wakeUpPin, edgeTriggerMode, seconds);
-
-_Since 0.8.0_
-// Turn off {{network-type}}.
-// Pause microcontroller.
-// Application resumes on pin trigger (any of the provided pins) or after seconds.
-// Very low power usage.
-System.sleep(wakeUpPins, edgeTriggerMode, seconds);
-System.sleep(wakeUpPins, edgeTriggerModes, seconds);
-System.sleep(wakeUpPins, wakeUpPinsCount, edgeTriggerMode, seconds);
-System.sleep(wakeUpPins, wakeUpPinsCount, edgeTriggerModes, edgeTriggerModesCount, seconds);
-
-{{#if has-cellular}}
-// Keep {{network-type}} running.
-// Pause microcontroller.
-// Application resumes on pin trigger or after seconds.
-System.sleep(wakeUpPin, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
-
-_Since 0.8.0_
-// Keep {{network-type}} running.
-// Pause microcontroller.
-// Application resumes on pin trigger (any of the provided pins) or after seconds.
-// Very low power usage.
-System.sleep(wakeUpPins, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
-System.sleep(wakeUpPins, edgeTriggerModes, seconds, SLEEP_NETWORK_STANDBY);
-System.sleep(wakeUpPins, wakeUpPinsCount, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
-System.sleep(wakeUpPins, wakeUpPinsCount, edgeTriggerModes, edgeTriggerModesCount, seconds, SLEEP_NETWORK_STANDBY);
-{{/if}}
-```
-
-There are several variations of `System.sleep()` based on which arguments are passed. See below for details.
-
-In all cases, if the wake up time `seconds` is omitted or 0, the application will keep sleeping until the `wakeUpPin` triggers (if specified) or the user hits the {{reset-button}} button.
 
 ---
 
-`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in standby mode.
-
-```C++
-// SYNTAX
-System.sleep(long seconds);
-
-// EXAMPLE USAGE
-
-// Put the Wi-Fi module in standby (low power) for 5 seconds
-System.sleep(5);
-// The device LED will breathe white during sleep
-```
-
----
-
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode.
+{{#if has-stm32}}
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
 
 ```C++
 // SYNTAX
@@ -11475,18 +11501,35 @@ System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
 // The device will not wake up if a rising edge signal is applied to {{#if core}}A7{{else}}WKP{{/if}}
 ```
 
-In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+`System.sleep(SLEEP_MODE_DEEP)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
+
+
+```C++
+// SYNTAX
+System.sleep(SLEEP_MODE_DEEP);
+
+// EXAMPLE USAGE
+
+// Put the device into deep sleep until wakened by D8.
+System.sleep(SLEEP_MODE_DEEP);
+// The device LED will shut off during deep sleep
+```
+{{/if}} {{!-- has-nrf52 --}}
+
+In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a standby mode. 
+
 When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
-As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
+The standby mode is used to achieve the lowest power consumption.  After entering standby mode, the RAM and register contents are lost{{#if has-backup-ram}} except for retained memory{{/if}}.
 
 
-The device will automatically *wake up* and reestablish the network connection after the specified number of seconds.
+{{#if has-stm32}}
+The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
 
-**Note:**
-You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
-
-_Since 0.8.0_
+{{since when="0.8.0"}}
 Wake up by {{#if core}}A7{{else}}WKP{{/if}} pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
 
 {{#if has-fuel-gauge}}
@@ -11500,20 +11543,31 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 ```
 {{/if}} {{!-- has-fuel-gauge --}}
 
-{{#if has-cellular}}
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+
+The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
+
+Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
+
+{{#if has-fuel-gauge}}
 ---
 
-`System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_NETWORK_STANDBY)` is just like `SLEEP_MODE_DEEP` but does not turn the {{network-type}} OFF.  This significantly reduces the amount of data required for reconnecting to the carrier when the {{device}} restarts from SLEEP_MODE_DEEP.  Note that this mode is most beneficial with a long KeepAlive time (23 mins on Particle SIM) where the {{device}} maximum deep sleep time can be set to the KeepAlive time.
-
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
 ```C++
 // SYNTAX
-System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
+System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 ```
-{{/if}}
+{{/if}} {{!-- has-fuel-gauge --}}
+
+
+{{/if}} {{!-- has-nrf52 --}}
+
 
 ---
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.{{/if}}
 
 ```C++
 // SYNTAX
@@ -11534,15 +11588,24 @@ It is mandatory to update the *bootloader* (https://github.com/particle-iot/devi
 {{/if}}
 
 {{#if has-cellular}}
-The Electron maintains the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption.
+The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption.
 {{/if}}
 
 
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-    - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
-    - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+{{#unless core}}
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
@@ -11551,8 +11614,9 @@ The Electron maintains the cellular connection for the duration of the sleep whe
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
+The device will automatically reconnect to the cloud if the cloud was connected when sleep was entered. If disconnected prior to sleep, it will stay disconnected on wake.
 
-_Since 0.8.0_
+{{since when="0.8.0"}}
 ```C++
 // SYNTAX
 System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode);
@@ -11602,9 +11666,18 @@ Multiple wakeup pins may be specified for this mode.
 - `wakeUpPins`: a list of wakeup pins:
     - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
     - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
+{{#if has-stm32}}
     - supports external interrupts on the following pins:
+{{#unless core}}
       - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+
 - `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
@@ -11632,25 +11705,35 @@ System.sleep(D1,RISING,60);
 // The device LED will shut off during sleep
 ```
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.{{/if}}
 
 {{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/particle-iot/device-os/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
 
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-    - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
-    - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+{{#unless core}}
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+apply
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
 {{#if has-cellular}}
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
-_Since 0.8.0_
+{{since when="0.8.0"}}
 ```C++
 // SYNTAX
 System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, long seconds);
@@ -11700,9 +11783,18 @@ Multiple wakeup pins may be specified for this mode.
 - `wakeUpPins`: a list of wakeup pins:
     - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
     - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
+{{#if has-stm32}}
     - supports external interrupts on the following pins:
+{{#unless core}}
       - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+(#attachinterrupt-) apply
 - `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
@@ -11712,20 +11804,10 @@ Multiple wakeup pins may be specified for this mode.
     - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
     - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
 - `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
-{{#if electron}}
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
+{{#if has-cellular}}
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
-
-
-*Power consumption:*
-
-- Core
- - In *standard sleep mode*, the device current consumption is in the range of: **30mA to 38mA**
- - In *deep sleep mode*, the current consumption is around: **3.2 μA**
-- Photon
- - Please see the [Photon datasheet](/datasheets/photon-datasheet#recommended-operating-conditions)
-
 
 _Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
@@ -11741,11 +11823,28 @@ _Since 0.8.0_ An application may check the information about the latest sleep by
 - [`System.wakeUpPin()`](#wakeuppin-)
 - [`System.sleepError()`](#sleeperror-)
 
+---
+
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in this mode.
+
+This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(MANUAL) instead.
+
+```C++
+// SYNTAX
+System.sleep(long seconds);
+
+// EXAMPLE USAGE
+
+// Put the Wi-Fi module in standby (low power) for 5 seconds
+System.sleep(5);
+// The device LED will breathe white during sleep
+```
+
 {{/if}} {{!-- has-sleep --}}
 
 ### SleepResult Class
 
-_Since 0.8.0_
+{{since when="0.8.0"}}
 
 This class allows to query the information about the latest `System.sleep()`.
 
@@ -11856,7 +11955,7 @@ Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or 
 
 ### sleepResult()
 
-_Since 0.8.0_
+{{since when="0.8.0"}}
 
 ```C++
 // SYNTAX
@@ -11869,7 +11968,7 @@ Returns: an instance of [`SleepResult`](#sleepresult-) class.
 
 ### wakeUpReason()
 
-_Since 0.8.0_
+{{since when="0.8.0"}}
 
 ```C++
 // SYNTAX
@@ -11880,7 +11979,7 @@ See [`SleepResult`](#reason-) documentation.
 
 ### wokenUpByPin()
 
-_Since 0.8.0_
+{{since when="0.8.0"}}
 
 ```C++
 // SYNTAX
@@ -11895,14 +11994,14 @@ _Since 0.8.0_
 
 ```C++
 // SYNTAX
-bool result = System.wokeUpByRtc();
+bool result = System.wokenUpByRtc();
 ```
 
 See [`SleepResult`](#wokenupbyrtc-) documentation.
 
 ### wakeUpPin()
 
-_Since 0.8.0_
+{{since when="0.8.0"}}
 
 ```C++
 // SYNTAX
@@ -11913,7 +12012,7 @@ See [`SleepResult`](#pin-) documentation.
 
 ### sleepError()
 
-_Since 0.8.0_
+{{since when="0.8.0"}}
 
 ```C++
 // SYNTAX
@@ -12529,28 +12628,349 @@ void loop() {
 
 
 ## OTA Updates
+This section describes the Device OS APIs that control firmware updates
+for Particle devices.
 
-Application firmware can use these functions to turn on or off OTA updates.
+_Many of the behaviors described below require
+Device OS version 1.2.0 or higher_.
 
-TODO: document system events when an update is received but not yet applied
+### Controlling OTA Availability
 
-### System.enableUpdates()
+This feature allows the application developer to control when the device
+is available for firmware updates. This affects both over-the-air (OTA)
+and over-the-wire (OTW) updates. OTA availability also affects both
+_single device OTA updates_ (flashing a single device) and _fleet-wide OTA updates_
+(deploying a firmware update to many devices in a Product).
 
-Enables OTA updates. Updates are enabled by default.
+Firmware updates are enabled by default when the device starts up after a deep sleep or system reset. Applications may choose to disable firmware updates during critical periods by calling the `System.disableUpdates()` function and then enabling them again with `System.enableUpdates()`.
+
+When the firmware update is the result of an [Intelligent
+Firmware Release](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases),
+the update is delivered immediately after `System.enableUpdates()` is called.
+
+Standard Firmware Releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
+
+**Note**: Calling `System.disableUpdates()` and `System.enableUpdates()`
+for devices running Device OS version 1.2.0 or later will result in a
+message sent to the Device Cloud. This will result in a small amount of
+additional data usage each time they are called.
 
 ### System.disableUpdates()
+```cpp
+// System.disableUpdates() example where updates are disabled
+// when the device is busy.
 
-Disables OTA updates. An attempt to start an OTA update will fail.
+int unlockScooter(String arg) {
+  // scooter is busy, so disable updates
+  System.disableUpdates();
+  // ... do the unlock step
+  // ...
+  return 0;
+}
+
+int parkScooter(String arg) {
+  // scooter is no longer busy, so enable updates
+  System.enableUpdates();
+  // ... do the park step
+  // ...
+  return 0;
+}
+
+void setup() {
+  Particle.function("unlockScooter", unlockScooter);
+  Particle.function("parkScooter", parkScooter);
+}
+
+```
+Disables OTA updates on this device. An attempt to begin an OTA update
+from the cloud will be prevented by the device. When updates are disabled, firmware updates are not
+delivered to the device [unless forced](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates).
+
+**Since 1.2.0**
+
+Device OS version 1.2.0 introduced enhanced support of
+`System.disableUpdates()` and `System.enableUpdates()`. When running Device OS version 1.2.0
+or higher, the device will notify the Device Cloud of its OTA
+availability, which is [visible in the
+Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+as well as [queryable via the REST
+API](/reference/device-cloud/api/#get-device-information). The cloud
+will use this information to deliver [Intelligent Firmware
+Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+
+In addition, a cloud-side system event will be emitted when updates are disabled,
+`particle/device/updates/enabled` with a data value of `false`. This event is sent
+only if updates were not already disabled.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
+
+**Enterprise Feature**
+
+When updates are disabled, an attempt to send a firmware update to a
+device that has called `System.disableUpdates()` will result in the
+[`System.updatesPending()`](#system-updatespending-) function returning `true`.
+
+### System.enableUpdates()
+```cpp
+// System.enableUpdates() example where updates are disabled on startup
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+  System.disableUpdates();  // updates are disabled most of the time
+
+  Particle.connect();       // now connect to the cloud 
+}
+
+bool isSafeToUpdate() {
+  // determine if the device is in a good state to receive updates. 
+  // In a real application, this function would inspect the device state
+  // to determine if it is busy or not. 
+  return true;
+}
+
+void loop() {
+  if (isSafeToUpdate()) {
+    // Calling System.enableUpdates() when updates are already enabled
+    // is safe, and doesn't use any data. 
+    System.enableUpdates();
+  }
+  else {
+    // Calling System.disableUpdates() when updates are already disabled
+    // is safe, and doesn't use any data. 
+    System.disableUpdates();
+  }
+}
+```
+Enables firmware updates on this device. Updates are enabled by default when the device starts.
+
+Calling this function marks the device as available for updates. When
+updates are enabled, updates triggered from the Device Cloud are delivered to
+the device.
+
+In addition, a cloud-side system event will be emitted when updates are
+enabled,
+`particle/device/updates/enabled` with a data value of `true`. This event is sent
+only if updates were not already enabled.
+
+**Since 1.2.0**
+
+Device OS version 1.2.0 introduced enhanced support of
+`System.disableUpdates()` and `System.enableUpdates()`. If running 1.2.0
+or higher, the device will notify the Device Cloud of its OTA update
+availability, which is [visible in the
+Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+as well as [queryable via the REST
+API](/reference/device-cloud/api/#get-device-information). The cloud
+will use this information to deliver [Intelligent Firmware
+Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
 
 ### System.updatesEnabled()
+```cpp
+// System.updatesEnabled() example
+bool isSafeToUpdate() {
+  return true;
+}
 
-Determine if OTA updates are presently enabled or disabled.
+void loop() {
+  if (!isSafeToUpdate() && System.updatesEnabled()) {
+      Particle.publish("error", "Updates are enabled but the device is not safe to update.");
+  }
+}
+```
+
+Determine if firmware updates are presently enabled or disabled for this device.
+
+Returns `true` on startup, and after `System.enableUpdates()` has been called. Returns `false` after `System.disableUpdates()` has been called.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Supported | Supported | Supported |
+| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
 
 ### System.updatesPending()
+```cpp
+// System.updatesPending() example
 
-Indicates if there are OTA updates pending.
+SYSETM_MODE(SEMI_AUTOMATIC);
 
-**Note:** Currently this function does not really do what the name might suggests but rather indicates whether an update is currently active or not. It can't be used in connection with `System.disableUpdates()` as that would prevent `System.upatesPending()` from becoming `true`. 
+void setup() {
+  // When disabling updates by default, you must use either system
+  // thread enabled or system mode SEMI_AUTOMATIC or MANUAL
+  System.disableUpdates();
+
+  // After setting the disable updates flag, it's safe to connect to
+  // the cloud.
+  Particle.connect();
+}
+
+bool isSafeToUpdate() {
+  // ...
+  return true;
+}
+
+void loop() {
+  // NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
+  if (isSafeToUpdate() && System.updatesPending()) {
+        System.enableUpdates();
+
+        // Wait 2 minutes for the update to complete and the device
+        // to restart. If the device doesn't automatically reset, manually
+        // reset just in case.
+        unsigned long start = millis();
+        while (millis() - start < (120 * 1000)) {
+            Particle.process();
+        }
+        // You normally won't reach this point as the device will
+        // restart automatically to apply the update.
+        System.reset();
+    }
+    else {
+      // ... do some critical activity that shouldn't be interrupted
+    }
+}
+
+```
+
+**Enterprise Feature, Since 1.2.0**
+
+`System.updatesPending()` indicates if there is a firmware update pending that was not delivered to the device while updates were disabled. When an update is pending, the `firmware_update_pending` system event is emitted and the `System.updatesPending()` function returns `true`.
+
+When new product firmware is released with the `intelligent` option
+enabled, the firmware is delivered immediately after release for devices
+that have firmware updates are enabled.
+
+For devices with [updates disabled](#system-disableupdates-), firmware
+updates are deferred by the device. The device is notified of the
+pending update at the time of deferral. The system event
+`firmware_update_pending` is emmitted and the `System.updatesPending()`
+function returns `true`.  The update is delivered when the application
+later re-enables updates by calling `System.enableUpdates()`, or when
+updates are force enabled from the cloud, or when the device is restarted.
+
+In addition, a cloud-side system event will be emitted when a pending
+OTA update is queued,
+`particle/device/updates/pending` with a data value of `true`.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS < 1.2.0 | N/A | N/A | N/A |
+| Device OS >= 1.2.0 | N/A | N/A | Supported |
+
+### System.updatesForced()
+
+```cpp
+// System.updatesForced() example
+void loop() {
+  if (System.updatesForced()) {
+    // don't perform critical functions while updates are forced
+  }
+  else {
+    // perform critical functions
+  }
+}
+```
+
+*Since 1.2.0*
+
+When the device is not available for updates, the pending firmware
+update is not normally delivered to the device. Updates can be forced in
+the cloud [either via the Console or the REST API](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates) to override the local
+setting on the device. This means that firmware updates are delivered
+even when `System.disableUpdates()` has been called by the device application.
+
+When updates are forced in the cloud, the `System.updatesForced()` function returns `true`. 
+
+In addition, a cloud-side system event will be emitted when OTA updates
+are force enabled from the cloud, `particle/device/updates/forced` with
+a data value of `true`.
+
+
+Updates may be forced for a particular device. When this happens, updates are delivered even when `System.disableUpdates()` has been called.
+
+When updates are forced in the cloud, this function returns `true`.
+
+Forced updates may be used with Product firmware releases or single
+device OTA updates.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+--------- | ---------------------- | ---------------- | ------------------ |
+| Device OS &lt; 1.2.0 | N/A | N/A | N/A |
+| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
+
+
+
+## Checking for Features
+
+User firmware is designed to run transparently regardless of what type of device it is run on. However, sometimes you will need to have code that varies depending on the capabilities of the device.
+
+It's always best to check for a capability, rather than a specific device. For example, checking for cellular instead of checking for the Electron allows the code to work properly on the Boron without modification.
+
+Some commonly used features include:
+
+- Wiring_Cellular
+- Wiring_Ethernet
+- Wiring_IPv6
+- Wiring_Keyboard
+- Wiring_Mesh
+- Wiring_Mouse
+- Wiring_Serial2
+- Wiring_Serial3
+- Wiring_Serial4
+- Wiring_Serial5
+- Wiring_SPI1
+- Wiring_SPI2
+- Wiring_USBSerial1
+- Wiring_WiFi
+- Wiring_Wire1
+- Wiring_Wire3
+- Wiring_WpaEnterprise
+
+For example, you might have code like this to declare two different methods, depending on your network type:
+
+```
+#if Wiring_WiFi
+	const char *wifiScan();
+#endif
+
+#if Wiring_Cellular
+	const char *cellularScan();
+#endif
+```
+
+The official list can be found [in the source](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_platform.h#L47).
+
+### Checking Device OS Version
+
+The define value `SYSTEM_VERSION` specifies the [system version](https://github.com/particle-iot/device-os/blob/develop/system/inc/system_version.h).
+
+For example, if you had code that you only wanted to include in 0.7.0 and later, you'd check for:
+
+```
+#if SYSTEM_VERSION >= SYSTEM_VERSION_v070
+// Code to include only for 0.7.0 and later
+#endif
+```
+
+### Checking Platform ID
+
+It's always best to check for features, but it is possible to check for a specific platform:
+
+```
+#if PLATFORM_ID == PLATFORM_BORON
+// Boron-specific code goes here
+#endif
+```
+
+You can find a complete list of platforms in [the source](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 
 ## Arduino Compatibility
 
@@ -12574,7 +12994,7 @@ This is done by adding  `#include "Arduino.h"` to each source file that requires
 
 ### Arduino APIs added by Firmware Version
 
-Once `Arduino.h` has been added to a source file, additional arduino APIs are made available.
+Once `Arduino.h` has been added to a source file, additional Arduino APIs are made available.
 The APIs added are determined by the targeted firmware version. In addition to defining the new APIs,
 the `ARDUINO` symbol is set to a value that describes the supported SDK version. (e.g. 10800 for 1.8.0)
 
@@ -12618,7 +13038,7 @@ bool engageHyperdrive() {
 ```
  
 In your source code, you use the function normally. When compiling against a version of firmware that supports
-an older arduino SDK, then your own version of the API will be used.  Later, when `engageHyperdrive()` is added to
+an older Arduino SDK, then your own version of the API will be used.  Later, when `engageHyperdrive()` is added to
 Particle firmware,  our version will be used. This happens when the `ARDUINO` version is the same or greater than
 the the corresponding version of the Arduino SDK, which indicates the API is provided by Particle firmware.
 
@@ -12924,7 +13344,7 @@ Parameters:
 
   * string: the string which will be modified - a variable of type String
   * substring1: searched for - another variable of type String (single or multi-character), char or const char (single character only)
-  * substring2: replaced with - another variable of type String (signle or multi-character), char or const char (single character only)
+  * substring2: replaced with - another variable of type String (single or multi-character), char or const char (single character only)
 
 Returns: None
 
@@ -13619,7 +14039,7 @@ Parameters:
 
 ## Language Syntax
 
-Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specically gcc C++11.
+Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specifically gcc C++11.
 
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
@@ -14163,7 +14583,7 @@ The variable on the left side of the assignment operator ( = sign ) needs to be 
 
 Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal.
 
-#### + - * / (additon subtraction multiplication division)
+#### + - * / (addition subtraction multiplication division)
 
 These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 2,147,483,647 gives -2,147,483,648). If the operands are of different types, the "larger" type is used for the calculation.
 
@@ -14206,7 +14626,7 @@ Calculates the remainder when one integer is divided by another. It is useful fo
 
 `result` is the remainder
 
-The remainder function can have unexpected behavoir when some of the opperands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
+The remainder function can have unexpected behavior when some of the operands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
 
 ```C++
 // EXAMPLE USAGES
@@ -15005,23 +15425,24 @@ The stack size cannot be changed as it's allocated by the Device OS before the u
 
 {{/if}}
 
-## Firmware Releases
+## Device OS Versions
 
-Particle device firmware is open source and stored [here on Github](https://github.com/particle-iot/device-os).
+Particle Device OS firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
 
-Firmware releases are published [here on Github](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
+New versions are published [here on GitHub](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
 
-### Firmware Release Process
+### New version release process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
+The process in place for releasing all Device OS versions as prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
 
-### Github Release Notes
+### GitHub Release Notes
 
-Please go to Github to read the Changelog for your desired firmware version (Click a version below).
+Please go to GitHub to read the Changelog for your desired firmware version (Click a version below).
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v1.0.x default releases|[v1.0.0](https://github.com/particle-iot/device-os/releases/tag/v1.0.0)|-|-|-|-|-|-|
+|v1.0.x default releases|[v1.0.0](https://github.com/particle-iot/device-os/releases/tag/v1.0.0)|[v1.0.1](https://github.com/particle-iot/device-os/releases/tag/v1.0.1)|-|-|-|-|-|
+|v1.0.x prereleases|[v1.0.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.0.1-rc.1)|-|-|-|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.10](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.10)|[v0.8.0-rc.11](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.11)|[v0.8.0-rc.12](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.12)|[v0.8.0-rc.14](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.14)|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.1)|[v0.8.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.2)|[v0.8.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.3)|[v0.8.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.4)|[v0.8.0-rc.7](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.7)|[v0.8.0-rc.8](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.8)|[v0.8.0-rc.9](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.9)|
 |v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/device-os/releases/tag/v0.7.0)|-|-|-|-|-|-|
@@ -15034,11 +15455,12 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 ### Programming and Debugging Notes
 
-If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on Github and your version's notes will be found below the table :)
+If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on GitHub and your version's notes will be found below the table :)
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v1.0.x default releases|[v1.0.0](/reference/device-os/firmware/photon/?fw_ver=1.0.0&cli_ver=1.37.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v1.0.x default releases|[v1.0.0](/reference/device-os/firmware/photon/?fw_ver=1.0.0&cli_ver=1.37.0&electron_parts=3#programming-and-debugging-notes)|[v1.0.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1&cli_ver=1.39.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v1.0.x prereleases|[v1.0.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1-rc.1&cli_ver=1.38.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.10](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.10&cli_ver=1.33.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.11](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.11&cli_ver=1.35.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.12](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.12&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.14](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.14&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.1&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.2&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.3&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.4&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.7](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.7&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.8](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.8&cli_ver=1.32.1&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.9](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.9&cli_ver=1.32.4&electron_parts=3#programming-and-debugging-notes)|
 |v0.7.x default releases|[v0.7.0](/reference/device-os/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
@@ -15051,6 +15473,8 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v1.39.0 = 1.0.1
+v1.38.0 = 1.0.1-rc.1
 v1.37.0 = 1.0.0
 v1.36.3 = 0.8.0-rc.14
 v1.36.3 = 0.8.0-rc.12
@@ -15136,6 +15560,10 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.36.3endif
 ##### @CLI_VER@1.37.0if
 ##### @CLI_VER@1.37.0endif
+##### @CLI_VER@1.38.0if
+##### @CLI_VER@1.38.0endif
+##### @CLI_VER@1.39.0if
+##### @CLI_VER@1.39.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -15220,7 +15648,7 @@ This will consume about 500KB of data as it has to transfer two 0.5.3
 system parts and three >= 0.6.0 system parts. Devices will not
 automatically update Device OS if not added as a Product in Console.
 
-**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [Github Release Notes](#github-release-notes).
+**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [GitHub Release Notes](#github-release-notes).
 
 If your device is online, you can attempt to OTA (Over The Air) update these system parts as well with the Particle CLI.  Run the following commands in order for your device type:
 

@@ -2,7 +2,7 @@
 title: Electron datasheet
 layout: datasheet.hbs
 columns: two
-order: 2
+order: 6
 ---
 
 {{#unless pdf-generation}}
@@ -88,7 +88,7 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 |Antenna Type| Manufacturer | MFG. Part #| Gain|
 |:--|:--|:--|:--|
-|PCB antenna| Taoglas| [PC104.07.0165C](http://www.taoglas.com/wp-content/uploads/2015/06/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
+|PCB antenna| Taoglas| [PC104.07.0165C](/assets/datasheets/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
 
 ---
 
@@ -571,7 +571,7 @@ The micro B USB connector on the electron is soldered on the PCB with large surf
 
 ![Unplugging USB connector](/assets/images/electron/illustrations/usb-conn-unplug.jpg)
 
-The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
+The U.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
 <add pic here>
 

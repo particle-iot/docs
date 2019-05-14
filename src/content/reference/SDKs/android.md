@@ -317,7 +317,7 @@ ParticleCloudSDK.getCloud().publishEventWithName("event_from_app", "some_event_p
 ### API Reference
 For a complete interface reference, simply check out the JavaDoc and source code in [the Git repo](https://github.com/particle-iot/spark-sdk-android/).
 
-Also, if you're working from Android Studio, you can get the JavaDoc for each method or class by putting the cursor over it and hitting `F1`.  (This is on OS X; shortcuts on other platforms may vary.)
+Also, if you're working from Android Studio, you can get the JavaDoc for each method or class by putting the cursor over it and hitting `F1`.  (This is on macOS; shortcuts on other platforms may vary.)
 
 
 ### OAuth client configuration

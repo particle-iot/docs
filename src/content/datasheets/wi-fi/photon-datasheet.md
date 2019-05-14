@@ -78,7 +78,7 @@ To avoid these voltage spikes, keep input wiring as short as possible.  If long 
 
 The RF section of the Photon is a finely tuned impedance controlled network of components that optimize the efficiency and sensitivity of the Wi-Fi communications.
 
-An RF feed line runs from the PØ module into a SPDT RF-switch.  Logic level control lines on the PØ module select which of the two ports of the RF-switch is connected to the RF feed line. A 100pF decoupling capacitor is located on each control line. One port is connected to a PCB ceramic chip antenna, and the other is connected to a u.FL connector for external antenna adaptation.  The default port will be set to the chip antenna.
+An RF feed line runs from the PØ module into a SPDT RF-switch.  Logic level control lines on the PØ module select which of the two ports of the RF-switch is connected to the RF feed line. A 100pF decoupling capacitor is located on each control line. One port is connected to a PCB ceramic chip antenna, and the other is connected to a U.FL connector for external antenna adaptation.  The default port will be set to the chip antenna.
 
 Additionally, a user API is available to switch between internal, external and even an automatic mode which continuously switches between each antenna and selects the best signal.  All three RF ports on the RF-switch have a 10pF RF quality DC-blocking capacitor in series with them.  These effectively pass 2.4GHz frequencies freely while blocking unwanted DC voltages from damaging the RF-switch.  All RF traces are considered as tiny transmission lines that have a controlled 50 ohm impedance.
 
@@ -693,4 +693,4 @@ https://community.particle.io
 
 **Email**
 
-<mailto:hello@particle.io>
+https://support.particle.io

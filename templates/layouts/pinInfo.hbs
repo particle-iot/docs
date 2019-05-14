@@ -1,0 +1,136 @@
+<!doctype html>
+<html class="{{columns}}-columns">
+<head>
+  {{> head sectionTitle='Reference Documentation'}}
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+     <script type="text/javascript" src="/assets/js/pinInfo.js"></script>  
+     <script type="text/javascript" src="/assets/js/htmlbuilder.js"></script>  
+     <script type="text/javascript" src="/assets/js/diff.js"></script>  <!-- https://github.com/jhchen/fast-diff -->
+</head>
+<body>
+  <div id="docs" data-level>
+    {{> header}}
+
+    <div class='content-root'>
+      <div class='menubar'>
+
+      <ul class="nav guide-menu">
+        {{#each reference}}
+        <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
+          <h3 class="guide-section-titles" >{{{titleize section}}}</h3>
+            <ul type="1">
+              {{#each this}}
+                <li class="top-level {{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
+                  {{#page-equal ../../path.href ../../path.name path.href path.name}}
+                    <span>{{{title}}}</span>
+                    {{#if ../../../toc}}
+                      <i id="toggle-in-page-nav" class="ion-minus"></i>
+                    {{/if}}
+                  {{else}}
+                    <a href="{{path.href}}{{path.name}}">{{title}}</a>
+                  {{/page-equal}}
+                </li>
+                {{#page-equal ../../path.href ../../path.name path.href path.name}}
+                  {{#if ../../../toc}}
+                    <div class="in-page-toc-container">
+                      <ul class="nav in-page-toc show">
+                        {{#each ../../../../toc}}
+                        <li class="middle-level" data-nav="">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
+                          {{#if children}}
+                            <ul class="nav secondary-in-page-toc">
+                              {{#each children}}
+                                <li data-secondary-nav=""><a href="#{{id}}">{{{text}}}</a></li>
+                              {{/each}}
+                            </ul>
+                          {{/if}}
+                        {{/each}}
+                      </ul>
+                    </div>
+                  {{/if}}
+                {{/page-equal}}
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+
+      </div>
+      <div class="page-body">
+        <div class='content-inner'>
+          <div class="content api-docs">
+            {{{contents}}}
+
+<div id="mainDiv">
+
+<form id="configForm">
+<table>
+<tbody>
+<tr id="modeTR">
+	<td class="pinInfoOptions">Activity:</td>
+	<td colspan="2">
+		<select id="modeSelect" name="mode">
+			<option value="table" selected="selected">Pin Table</option>
+			<option value="details">Details for a Device</option>
+			<option value="compare">Compare Devices</option>
+		</select>
+	</td>
+</tr>
+<tr id="deviceSelectTR">
+	<td class="pinInfoOptions"><span id="deviceSpan">Device:</span><span id="compareDevicesSpan">Compare Devices:</span></td>
+	<td>
+		<select id="deviceSelect" name="device">
+		</select>
+	</td>
+	<td>
+		<select id="device2Select" name="device2">
+		</select>
+	</td>
+</tr>
+<tr id="showTR">
+	<td class="pinInfoOptions">Show:</td>
+	<td colspan="2">
+		<select id="showSelect" name="show">
+			<option value="all">All</option>
+		</select>
+	</td>
+</tr>
+<tr id="sortByTR">
+	<td class="pinInfoOptions">Sort By:</td>
+	<td colspan="2">
+		<select id="sortBySelect" name="sortBy">
+		</select>
+	</td>
+</tr>
+<tr id="tableSortByTR">
+	<td class="pinInfoOptions">Sort By:</td>
+	<td colspan="2">
+		<select id="tableSortBySelect" name="tableSortBy">
+			<option value="num" selected="selected">Pin Number</option>
+			<option value="name">Pin Name</option>
+			<option value="hardwarePin">Hardware Pin</option>
+		</select>
+	</td>
+</tr>
+</tbody>
+</table>
+</form>
+
+
+
+<div id="pinDetailDiv">
+</div>
+
+<div id="pinTableDiv">
+</div>
+
+
+</div> <!-- mainDiv -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> scripts}}
+</body>
+</html>

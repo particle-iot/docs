@@ -14,6 +14,11 @@ It is possible to build both application firmware and Device OS locally using th
 - To work entirely offline, with no Internet access
 - To use the GDB debugger
 
+{{box op="start"}}
+While you can still use these instructions, a much easier way to use gcc-arm is to install [Particle Workbench](/tutorials/developer-tools/workbench/). It provides an automated way to install local development tools.
+{{box op="end"}}
+
+
 This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/tutorials/developer-tools/dev/), or [Particle CLI](/tutorials/developer-tools/cli/) which are much easier to install and use.
 
 {{collapse op="computerOsSelector"}}
@@ -418,6 +423,22 @@ git checkout release/v0.7.0
 ```
 
 - Then do a build. This will build all of the Device OS firmware, plus Tinker, for the Photon.
+
+#### For Gen3 devices (Argon, Boron, Xenon)
+
+For Gen3 (mesh) devices, you should checkout either:
+
+- A specific release such as release/v0.9.0
+- The branch **mesh-develop**
+
+The develop and stable branches do not support mesh devices at this time.
+
+You must also update the submodules after checkout of the device-os tree:
+
+```
+cd device-os
+git submodule update --init
+```
 
 ### Building
 

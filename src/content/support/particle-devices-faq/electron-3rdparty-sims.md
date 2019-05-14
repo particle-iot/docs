@@ -7,13 +7,11 @@ order: 1020
 
 # 3rd-party SIM cards
 
-The Particle **Electron** comes with a SIM card that allows easy and often inexpensive 2G or 3G cellular access.
+The Particle **Electron** comes with a SIM card that allows easy and often inexpensive 2G or 3G cellular access. You can optionally substitute a 3rd-party SIM card.
 
-Sometimes, however, you may want to use a different mobile provider. You may need to transfer large amounts of data, which may be cheaper on another provider, or you may need to use the Electron in a country that's not supported by the Particle SIM. Fortunately, the Electron can easily be used with 3rd-party SIM cards.
+The **E Series** does not have a SIM card slot and cannot use a 3rd-party SIM card. It uses a MFF2 embedded SIM card, which is basically a regular SIM card in a small SMD form-factor and soldered to the board. 
 
-The **E Series** does not have a SIM card slot and cannot use a 3rd-party SIM card. It uses a M2FF embedded SIM card, which is basically a regular SIM card in a small SMD form-factor and soldered to the board. 
-
-The **Boron** has both a M2FF embedded SIM card (the default) and a nano SIM card slot for a 3rd-party SIM card. You need to tell the device which one you want to use, however.
+The **Boron** has both a MFF2 embedded SIM card (the default) and a nano SIM card slot for a 3rd-party SIM card. You need to tell the device which one you want to use, however.
 
 {{collapse op="cellularDevice"}}
 
@@ -64,14 +62,14 @@ Some carriers may also require a username and password. Note those, if they are 
 
 If you're ready to set up your Boron, follow these steps:
 
-- Go to the [mesh firmware releases page](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.27).
-- Download the hybrid bin file: [hybrid-0.8.0-rc.27-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.8.0-rc.27/hybrid-0.8.0-rc.27-boron.bin)
-- While you're at it also download [tinker-0.8.0-rc.27-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.8.0-rc.27/tinker-0.8.0-rc.27-boron.bin)
+- Go to the [mesh firmware releases page](https://github.com/particle-iot/device-os/releases/tag/v0.9.0).
+- Download the hybrid bin file: [hybrid-0.9.0-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/hybrid-0.9.0-boron.bin)
+- While you're at it also download [tinker-0.9.0-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/tinker-0.9.0-boron.bin)
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the Device OS:
 
 ```html
-particle flash --usb hybrid-0.8.0-rc.27-boron.bin
+particle flash --usb hybrid-0.9.0-boron.bin
 ```
 
 - Create a program to set the APN and switch to an external SIM. Here's the code. One way is to save this to a file, I called mine 3rdPartySIM.cpp.
@@ -104,7 +102,7 @@ void loop() {
 - Compile the code and flash it in DFU mode (blinking yellow):
 
 ```html
-particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin --target 0.8.0-rc.27
+particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin --target 0.9.0
 particle flash --usb firmware.bin
 ```
 
@@ -113,7 +111,7 @@ particle flash --usb firmware.bin
 - Flash Tinker back to the Boron:
 
 ```
-particle flash --usb tinker-0.8.0-rc.27-boron.bin
+particle flash --usb tinker-0.9.0-boron.bin
 ```
 
 - You should now be able to use the device with your 3rd-party SIM card!
@@ -139,7 +137,7 @@ particle flash --usb tinker-0.8.0-rc.27-boron.bin
   particle device rename YOUR_DEVICE_ID "New Name"
   ```
 
-- To restore the use of the embedded M2FF Particle SIM card use this program instead:
+- To restore the use of the embedded MFF2 Particle SIM card use this program instead:
 
 ```cpp
 #include "Particle.h"
@@ -159,6 +157,8 @@ void loop() {
 }
 ```
 
+- Note: You must both call `Cellular.setActiveSim(INTERNAL_SIM)` and remove the external SIM card on the Boron LTE. Just deactivating the SIM in software won't completely disable the external SIM and will cause connection failures.
+
 - This method is intended for using the Boron as a standalone, non-mesh, device, like an Electron. It's difficult to set up a mesh network using a 3rd-party SIM card at this time, because the mobile app will default to trying to activate the Particle SIM card. You can, however, set up the network using the Particle SIM and switch it to a 3rd-party SIM card once set up.
 - Alternatively, there is a technique that allows you to set up a Boron with a mesh network when the Particle SIM card cannot be used, such as the Boron LTE out of the United States. It requires the Particle Ethernet FeatherWing and is [described in this community post](https://community.particle.io/t/instructions-creating-mesh-network-with-boron-lte-and-3rd-party-sim-card/46467).
 
@@ -171,7 +171,7 @@ You only need to set the APN and SIM selection once, however the keep-alive valu
 
 ## Switching back to the Particle SIM - Boron
 
-To switch back to the internal M2FF embedded Particle SIM card on the Boron, you need to flash code to change the SIM card setting:
+To switch back to the internal MFF2 embedded Particle SIM card on the Boron, you need to flash code to change the SIM card setting:
 
 ```cpp
 #include "Particle.h"
@@ -208,7 +208,7 @@ The Boron 2G/3G uses the 5-band u-blox SARA-U201 cellular modem and can be used 
 
 Note that the Boron LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
 
-The embedded M2FF Particle SIM card on the Boron LTE only supports AT&T, and only in the United States. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
+The embedded MFF2 Particle SIM card on the Boron LTE only supports AT&T, and only in the United States. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
 
 {{collapse op="end"}}
 
@@ -507,7 +507,7 @@ The 3G Electrons come in two varieties, the Americas/Australia (U260) and Europe
 
 The lines are not that clearly drawn, however, and may vary by carrier in a given country. For example:
 
-In Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz.
+In Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. As of March 15, 2019, Telstra discontinued the use of the 2100 MHz band for 3G and the Electron U270 with the Particle SIM will no longer work. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz. 
 
 In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the U260 Americas model is the correct one. If you're using an Ancel SIM, however, that uses 2100 MHz you you'll nee the U270 model, instead.
 
@@ -530,7 +530,7 @@ The E Series E310 uses the 5-band u-blox SARA-U201 cellular modem and can be use
 
 Note that the E Series LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
 
-The embedded M2FF Particle SIM card on the E Series E402 only supports AT&T, and only in the United States.
+The embedded MFF2 Particle SIM card on the E Series E402 only supports AT&T, and only in the United States.
 
 
 {{collapse op="end"}}

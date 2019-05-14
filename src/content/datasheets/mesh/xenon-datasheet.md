@@ -42,7 +42,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
  * RGB status LED
  * Reset and Mode buttons
  * On-board PCB antenna
- * u.FL connector for external antenna
+ * U.FL connector for external antenna
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
  * FCC, CE and IC certified
  * RoHS compliant (lead-free)
