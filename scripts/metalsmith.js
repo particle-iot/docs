@@ -167,6 +167,7 @@ exports.metalsmith = function () {
           'developer-tools',
           'device-cloud',
           'SDKs',
+          'hardware',
           'discontinued'
         ]
       },
