@@ -3614,6 +3614,8 @@ In some cases you can [increase the charge voltage](#setchargevoltage-) to get a
 
 ## Input/Output
 
+Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
+
 ### pinMode()
 
 `pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
@@ -3880,6 +3882,8 @@ frequency and resolution, but individual pins in the group can have a different 
 
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
+
+Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/hardware/pin-info).
 
 {{/if}} {{!-- has-pwm --}}
 
@@ -4226,18 +4230,94 @@ The frequency range is from 20Hz to 20kHz. Frequencies outside this range will n
 `tone()` does not return anything.
 
 {{#if has-stm32}}
-**NOTE:** the Photon's PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
+**NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
 
-Pin  | TMR3 | TMR4 | TMR5
-:--- | :--: | :--: | :--:
-D0   |      |  x   |  
-D1   |      |  x   |  
-D2   |  x   |      |  
-D3   |  x   |      |  
-A4   |  x   |      |  
-A5   |  x   |      |  
-WKP  |      |      |  x
+Pin  | TMR1 | TMR3 | TMR4 | TMR5
+:--- | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |  
+D1   |      |      |  x   |  
+D2   |      |  x   |      |  
+D3   |      |  x   |      |  
+A4   |      |  x   |      |  
+A5   |      |  x   |      |  
+WKP  |      |      |      |  x
+RX   | x    |      |      |
+TX   | x    |      |      |
+
+On the P1:
+
+Pin  | TMR1 | TMR3 | TMR4 | TMR5
+:--- | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |  
+D1   |      |      |  x   |  
+D2   |      |  x   |      |  
+D3   |      |  x   |      |  
+A4   |      |  x   |      |  
+A5   |      |  x   |      |  
+WKP  |      |      |      |  x
+RX   | x    |      |      |
+TX   | x    |      |      |
+P1S0 |      |  x   |      |
+P1S1 |      |  x   |      | 
+P1S6 |  x   |      |      |
+
+On the Electron and E Series:
+
+Pin  | TMR1 | TMR3 | TMR4 | TMR5 | TMR8
+:--- | :--: | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |      |      |
+D1   |      |      |  x   |      |      |  
+D2   |      |  x   |      |      |      |  
+D3   |      |  x   |      |      |      |  
+A4   |      |  x   |      |      |      |  
+A5   |      |  x   |      |      |      |  
+WKP  |      |      |      |      |  x   |
+RX   | x    |      |      |      |      |
+TX   | x    |      |      |      |      |
+B0   |      |      |      |      |  x   |
+B1   |      |      |      |      |  x   |
+B2   |      |  x   |      |      |      |  
+B3   |      |  x   |      |      |      |  
+C4   |      |      |  x   |      |      |  
+C5   |      |      |  x   |      |      |  
 {{/if}}
+
+{{#if has-nrf52}}
+**NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), different timer numbers must be used to for each frequency:
+
+ On the Argon, Boron, and Xenon:
+
+| Pin  | Timer |
+| :--: | :---: |
+| A0   | PWM2  |  
+| A1   | PWM2  |
+| A2   | PWM2  |
+| A3   | PWM2  | 
+| A4   | PWM3  |
+| A5   | PWM3  | 
+| D2   | PWM3  | 
+| D3   | PWM3  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+| D8   | PWM1  |
+
+On the B Series SoM:
+
+| Pin  | Timer |
+| :--: | :---: |
+| A0   | PWM2  |  
+| A1   | PWM2  |
+| A6   | PWM2  |
+| A7   | PWM2  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+
+{{/if}}
+
+
+Additional information on which pins can be used for tone() is available on the [pin information page](/reference/hardware/pin-info).
 
 
 ```C++
@@ -9672,7 +9752,7 @@ Not supported on the Photon (you can't use attachInterrupt on these pins):
 
 No restrictions on the Photon (all of these can be used at the same time):
 
-  - D5, D6, D7, A2, A6, WKP, TX, RX
+  - D5, D6, D7, A2, WKP, TX, RX
 
 Shared on the Photon (only one pin for each bullet item can be used at the same time):
 
@@ -9693,7 +9773,7 @@ Not supported on the P1 (you can't use attachInterrupt on these pins):
 
 No restrictions on the P1 (all of these can be used at the same time):
 
-  - D5, D6, A2, A6, TX, RX
+  - D5, D6, A2, TX, RX
 
 Shared on the P1 (only one pin for each bullet item can be used at the same time):
 
@@ -9716,7 +9796,7 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
 
 No restrictions on the Electron/E series (all of these can be used at the same time):
 
-  - D5, D6, A6
+  - D5, D6
 
 Shared on the Electron/E series (only one pin for each bullet item can be used at the same time):
 
@@ -9737,6 +9817,8 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
 Interrupts supported on D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7 only.
 {{/if}}
 {{/if}} {{!-- has-stm32 --}}
+
+Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/hardware/pin-info).
 
 ```
 // SYNTAX
