@@ -7,7 +7,11 @@ order: 1
 
 # Product Lifecycle Policy
 
-Our primary focus at Particle is to enable you and your team to create high-impact connected products — from your first prototype to millions of deployed units in the field. As new features and products are rolled out, it’s important for us to provide clarity around when and how to incorporate these capabilities into your IoT deployment. We apply consistent, industry-standard release phases to our growing portfolio of offerings as they move through their lifecycle. These phases apply both to Particle’s hardware and software products.
+Our primary focus at Particle is to enable you and your team to create
+high-impact connected products — from your first prototype to millions
+of deployed units in the field. As new features and products are rolled
+out, it’s important for us to provide clarity around when and how to
+incorporate these capabilities into your IoT deployment and when platform Service Level Agreements (SLAs) you may have agreed with Particle apply. We apply consistent, industry-standard release phases to our growing portfolio of offerings as they move through their lifecycle. These phases apply both to Particle’s hardware and software products.
 
 Two pre-release lifecycle phases — [**Alpha**](#alpha) and [**Beta**](#beta) — are designed to allow customers to begin safely testing the latest Particle technology and providing us with early feedback. Products then move to [**General Availability**](#general-availability), which signals production readiness. Some products and features will eventually become [**Deprecated**](#deprecated), then ultimately reach [**End of Support**](#end-of-support) (hardware only) and/or [**End of Life**](#end-of-life).
 
@@ -47,9 +51,9 @@ Beta hardware is sold in individual units only, and is not made available for pu
 
 ## General Availability
 
-**Generally Availabile products are considered to be fully supported and production ready.**
+**Generally Available products are considered to be fully supported and production ready.**
 
-A product will become Generally Availabile when Particle has full confidence in its readiness for use in production contexts. While General Availability products and features can still be improved over time, GA products are considered feature complete and perform stably and reliably.
+A product will become Generally Available when Particle has full confidence in its readiness for use in production contexts. While General Availability products and features can still be improved over time, GA products are considered feature complete and perform stably and reliably.
 
 #### For software
 
@@ -63,7 +67,7 @@ We will begin selling SKUs in mass production quantities and packaging formats o
 
 **Deprecated products are scheduled to be removed from the platform.**
 
-Particle may choose to deprecate certain products if it has been superceded by another product, or if it no longer aligns with Particle's strategic product roadmap. Customers should begin migrating away from deprecated products before the End of Support, or End of Life timeframe for that product.
+Particle may choose to deprecate certain products if it has been superseded by another product, or if it no longer aligns with Particle's strategic product roadmap. Customers should begin migrating away from deprecated products before the End of Support, or End of Life timeframe for that product.
 
 #### For software
 
