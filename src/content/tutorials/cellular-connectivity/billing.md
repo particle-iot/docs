@@ -21,7 +21,7 @@ For more information about Device Cloud pricing, check out <a
 href="https://particle.io/pricing" target="_blank">our pricing page</a>.
 
 There are also FAQs for cellular Device Cloud pricing
-[here](/support/pricing/general-questions).
+[here](/support/general/pricing).
 
 ## Data Limits
 Limits act as a safety cutoff for your data usage to avoid paying
