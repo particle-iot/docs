@@ -42,8 +42,6 @@ Some of the most relevant Google Cloud Platform products to use with Particle ar
 - <a href="https://cloud.google.com/dataflow/" target="_blank">Cloud Dataflow</a>: A fully-managed cloud service and programming model for batch and streaming big data processing
 - <a href="https://cloud.google.com/prediction/" target="_blank">Prediction API</a>: Machine learning to analyze your data and make predictions
 
-Many of these products relate to data storage. For more information on finding the right data storage option for your particular use case, check out
-the docs on <a href="https://cloud.google.com/storage-options/" target="_blank">choosing a storage option</a>.
 This tutorial will focus on the first example use case: storing data from
 Particle devices into Google Cloud Platform Datastore.
 
