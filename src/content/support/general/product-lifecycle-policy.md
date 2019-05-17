@@ -15,6 +15,11 @@ incorporate these capabilities into your IoT deployment and when platform Servic
 
 Two pre-release lifecycle phases — [**Alpha**](#alpha) and [**Beta**](#beta) — are designed to allow customers to begin safely testing the latest Particle technology and providing us with early feedback. Products then move to [**General Availability**](#general-availability), which signals production readiness. Some products and features will eventually become [**Deprecated**](#deprecated), then ultimately reach [**End of Support**](#end-of-support) (hardware only) and/or [**End of Life**](#end-of-life).
 
+Products in the pre-release phases (Alpha or Beta) or those on the path
+to being retired will be clearly marked as such in documentation and in the context of the product
+itself. Products without a qualifier can be considered to be Generally
+Available.
+
 ## Alpha
 
 **Alpha products are for early testing and validation by a private group of customers.**
@@ -53,7 +58,7 @@ Beta hardware is sold in individual units only, and is not made available for pu
 
 **Generally Available products are considered to be fully supported and production ready.**
 
-A product will become Generally Available when Particle has full confidence in its readiness for use in production contexts. While General Availability products and features can still be improved over time, GA products are considered feature complete and perform stably and reliably.
+A product will become Generally Available (GA) when Particle has full confidence in its readiness for use in production contexts. While General Availability products and features can still be improved over time, GA products are considered feature complete and perform stably and reliably.
 
 #### For software
 
