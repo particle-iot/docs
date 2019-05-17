@@ -75,7 +75,8 @@ Particle will continue to carry deprecated SKUs in our stores until the End of S
 
 ## End of Support
 
-**End of Support is a hardware-specific phase in which active, ongoing support of a hardware platform by Particle's product and team has ended.**
+**End of Support is a hardware-specific phase in which active, ongoing
+support of a hardware product by Particle's platform and team has ended.**
 
 Hardware in the End of Support phase has can no longer be purchased in any quantity from Particle and is not guaranteed to be supported by Particle’s official developer tools including our IDEs, SDKs, and mobile applications.
 
