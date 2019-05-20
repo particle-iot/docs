@@ -10,7 +10,7 @@ layout: tutorials.hbs
 
 In addition to Wi-Fi (Argon, Photon) and cellular (Boron, Electron), you can use Ethernet to connect devices to the Internet. Most commonly this is done using the Xenon, the least expensive of the 3rd-generation models, however the Ethernet FeatherWing can be used with the Argon and Boron, as well.
 
-**TKTK: Picture**
+![PoE](/assets/images/ethernet-featherwing-2.jpg)
 
 Some common situations where Ethernet is useful include:
 
@@ -20,8 +20,13 @@ Some common situations where Ethernet is useful include:
 
 - Using a Particle device on an Ethernet network with PoE (Power over Ethernet) to both provide networking and powering the device, eliminating the need for many small power adapters.
 
-The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Mesh device along with a Feather accessory. Ethernet uses the WIZnet W5500 chip.
+The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Mesh device along with an additional FeatherWing accessory. Ethernet uses the WIZnet W5500 chip.
 
+For example, you might include:
+
+- A display, like a large LED clock display or small LCD
+- A sensor, such as a temperature or current sensor
+- A relay, to control an external device
 
 ## PoE (Power over Ethernet)
 
@@ -33,13 +38,21 @@ It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1
 
 Note that because the Ethernet FeatherWing with PoE supplies 5V to the device by the VUSB pin, you should not power it by both PoE and the USB serial port at the same time. 
 
+The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100 meters (328 feet).
 
+![PoE](/assets/images/poe-2.jpg)
 
-**TKTK: Picture**
+If you attach a LiPo battery to the Argon or Boron, it can be charged by PoE. The devices do not automatically switch between Ethernet and their native network connection (Wi-Fi or Cellular, respectively) at this time, however, if the Ethernet is disconnected.
+
+The PoE adapter supplies 1500 mA so it can power most FeatherWing accessories.
 
 ### Assembling
 
-**TKTK: Pictures**
+- Unplug both the Ethernet and any other power source (battery or USB) before installation.
+- Align the pins on the bottom of the PoE adapter with the headers on the Ethernet FeatherWing.
+- Gently press down until the board is fully seated.
+
+![PoE](/assets/images/poe-install.jpg)
 
 ### Powering by PoE
 
@@ -51,7 +64,7 @@ There are many compatible Ethernet switches with PoE capabilities, ranging from 
 
 For example, for home use you might use something like the [Netgear GS305P](https://www.amazon.com/dp/B01MRO4M73/) 5-port PoE switch.
 
-**TKTK: Picture**
+![PoE](/assets/images/poe-switch.jpg)
 
 In some cases, you may prefer to centralize the power like this, eliminating the need for small USB power supplies distributed to many locations. It also makes it easier to use one central uninterruptible power supply instead of distributing batteries to many small devices.
 
@@ -59,12 +72,11 @@ In some cases, you may prefer to centralize the power like this, eliminating the
 
 If you are only powering a single device, you may want to use an inexpensive PoE power injector. 
 
-Make sure you use an IEEE 802.3af compliant version, however. Some inexpensive devices that include both a power injector and power splitter don't support PoE and instead use an incompatible proprietary system. These proprietary devices are not compatible with the PoE for the Ethernet FeatherWing.
-
 For example, you could use the [TP-LINK TL-PoE150S](https://www.amazon.com/TP-LINK-TL-PoE150S-Injector-Adapter-compliant/dp/B001PS9E5I). It provides power to devices up to 100 meters (328 feet) away over Cat 5 or Cat 6 twisted pair Ethernet cable.
 
-**TKTK: Picture**
+![PoE](/assets/images/poe-injector.jpg)
 
+Make sure you use an IEEE 802.3af compliant injector, however. Some inexpensive devices that include both a power injector and power splitter don't support PoE and instead use an incompatible proprietary scheme. These proprietary devices are not compatible with the PoE for the Ethernet FeatherWing.
 
 
 

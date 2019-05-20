@@ -199,7 +199,7 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 **Notes:**
 
-<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises. However the Device OS does not allow use of other pins (as of 0.8.0-rc.27).
+<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises. However the Device OS does not allow use of other pins (at least through 1.1.0).
 
 The Ethernet driver for this wing is baked into the Mesh Device OS. When you set up a new Particle Mesh device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
 
@@ -210,7 +210,7 @@ If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRES
 
 ## PoE (Power over Ethernet)
 
-**TKTK: Picture**
+![PoE Board](/assets/images/poe-main.jpg)
 
 The PoE (Power over Ethernet) adapter for the Ethernet FeatherWing plugs into the Ethernet side of the FeatherWing. 
 
@@ -228,6 +228,8 @@ It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1
 Note that because the Ethernet FeatherWing with PoE supplies 5V to the device by the VUSB pin, you should not power it by both PoE and the USB serial port at the same time. 
 
 ![PoE Schematic](/assets/images/poe-schematic.png)
+
+The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100 meters (328 feet).
 
 ## Classic Adapter
 

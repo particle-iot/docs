@@ -548,7 +548,7 @@ would like to release to. Then, top opt-in to an Intelligent Firmware Release, c
 
 ![](/assets/images/ota-updates/intelligent-release.png)
 
-The "Intelligent" option will be enaled for scaling customers on
+The "Intelligent" option will be enabled for scaling customers on
 Particle's Enterprise plan. If you are interested in enabling this
 feature for your fleet, please [reach out to us!](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
 

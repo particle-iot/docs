@@ -3381,3 +3381,14 @@ NB1
 5G
 Gen2
 1w
+10BaseT
+100BaseTX
+Silvertel
+Ag9905M
+802.3af
+unmanaged
+uninterruptible
+ - src/content/tutorials/learn-more/ethernet-featherwing.md
+GS305P
+TP-LINK
+TL-PoE150S
