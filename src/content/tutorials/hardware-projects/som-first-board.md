@@ -147,11 +147,11 @@ This is the board from [OshPark](https://oshpark.com). I've only ground off the 
 
 When using the M.2 connector you will almost certainly need a stencil. I ordered mine from [Osh Stencils](https://oshstencils.com). OshStencils also takes the .brd files from Eagle. 
 
-Since there are no components in or beyond the M.2 connector on this board, I create a special stencil .brd file that changes the board outline to eliminate the unused area. That makes the stencil much cheaper.
+Since there are no components beyond the M.2 connector on this board, I created a special stencil .brd file that changes the board outline to eliminate the unused area. That makes the stencil much cheaper.
 
 ![Stencil](/assets/images/som-first-board/board-2.jpg)
 
-Since I use a 5 mil stainless steel stencil I frequently end up with too much solder paste on some of the tight pins. For example, here on the MP2122. It's a good idea to clean this up; I use a small dental-style scraper tool.
+Since I used a 5 mil stainless steel stencil I frequently end up with too much solder paste on some of the tight pins. For example, here on the MP2122. It's a good idea to clean this up; I use a small dental-style scraper tool for this.
 
 ![Solder paste](/assets/images/som-first-board/board-3.jpg)
 
@@ -199,7 +199,7 @@ If you are using 3 mil polyimide film stencils you may not have enough cream, in
 
 Note there are a bunch of power pins that are connected together. It's OK if there are solder bridges there.
 
-![Power Pins](/assets/images/som-first-board/test-3.png)
+![Power pins](/assets/images/som-first-board/test-3.png)
 
 Of course you should do a visual check all of the other components as well; the microscope is handy for that.
 
@@ -212,7 +212,7 @@ When you're starting out, it doesn't hurt to check the resistors to make sure th
 
 You could jump right in any plug in the USB, but I prefer to use a bench supply since it shows the current and has good over-current protection in case the board has a short.
 
-The 5V header can be used to power the board from a bench supply. I use male-to-female jumper wires, and alligator clips on the bench supply. Note the polarity, there's no reverse polarity protection on this board!
+The 5V header can be used to power the board from a bench supply. I used male-to-female jumper wires, and alligator clips on the bench supply. Note the polarity, there's no reverse polarity protection on this board!
 
 ![Ready for power](/assets/images/som-first-board/board-5.jpg)
 
@@ -222,17 +222,17 @@ Assuming the board is not drawing more than 10 mA and does not seem to be catchi
 
 Check the voltage on the two indicated pins. The left should be 3.3V and the right should be approximately 3.7V.
 
-![Test Regulator](/assets/images/som-first-board/test-1.png)
+![Test regulator](/assets/images/som-first-board/test-1.png)
 
 If that checks out, remove the power. Then add two jumpers on 3V3 and 3V7. 
 
-![Test Regulator](/assets/images/som-first-board/test-2.jpg)
+![Add jumpers](/assets/images/som-first-board/test-2.jpg)
 
 Be sure you don't add a jumper on the 5V! That's the power input and should never have a jumper. Also don't apply 5V and use the USB connector at the same time.
 
 With the two jumpers installed you can now test the power near the M.2 connector.
 
-![Test Power on M.2](/assets/images/som-first-board/test-3.png)
+![Test power on M.2](/assets/images/som-first-board/test-3.png)
 
 You can test the LED by connecting the R, G, and B pins to GND.
 
