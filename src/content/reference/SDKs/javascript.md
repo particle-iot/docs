@@ -65,7 +65,7 @@ Here are some common use cases of using the functions in the Javascript library.
 
 ## Logging in
 
-### With username/password
+### login
 
 You can create an account [here](https://build.particle.io/signup). Use the token from [`login`](#login) as the `auth` parameter in other calls.
 
@@ -86,7 +86,7 @@ particle.login({username: 'user@email.com', password: 'pass'}).then(
 
 ## Device management
 
-### List devices
+### listDevices
 
 List devices for a user with [`listDevices`](#listdevices).
 
@@ -139,7 +139,7 @@ particle.claimDevice({ deviceId: 'DEVICE_ID', auth: token }).then(function(data)
 });
 ```
 
-### flash
+### flashDevice
 
 Flash firmware to device with [`flashDevice`](#flashdevice)
 
@@ -151,7 +151,7 @@ particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, 
 });
 ```
 
-### getAttributes
+### getDevice
 
 Gets all attributes for the device with [`getDevice`](#getdevice)
 
@@ -243,7 +243,7 @@ particle.sendPublicKey({ deviceId: 'DEVICE_ID', key: 'key', auth: token }).then(
 });
 ```
 
-### Get event stream
+### getEventStream
 
 Get event listener to an stream in the Particle cloud with [`getEventStream`](#geteventstream)
 
@@ -282,7 +282,7 @@ particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: token }).th
 }
 ```
 
-### Publishing event
+### publishEvent
 
 Register an event stream in the Particle cloud with [`publishEvent`](#publishevent)
 
@@ -301,7 +301,7 @@ publishEventPr.then(
 
 ## Working with code
 
-### Compiling
+### compileCode
 
 Compiles files in the Particle cloud with [`compileCode`](#compilecode)
 
@@ -320,22 +320,9 @@ ccPr.then(
 
 Flash firmware to a device with [`flashDevice`](#flashdevice)
 
-```javascript
-var flashPr = particle.flashDevice({ deviceId: 'DEVICE_ID',
-  files: { file1: './path/to/your/file1' },
-  auth: token });
-  
-flashPr.then(
-  function(data) {
-    console.log('Device flashing started successfully:', data);
-  }, function(err) {
-    console.log('An error occurred while flashing the device:', err);
-  });
-```
-
 ## User management
 
-### Create user
+### createUser
 
 Creates a user in the Particle cloud with [`createUser`](#createuser)
 
@@ -364,7 +351,7 @@ We'll use promises to check the result of the login process
 });
 ```
 
-### List access tokens
+### listAccessTokens
 
 Lists access tokens from the Particle cloud for the specified user with [`listAccessTokens`](#listaccesstokens)
 
@@ -376,7 +363,7 @@ particle.listAccessTokens({ username: 'u@m.com', password: 'pass' }).then(functi
 });
 ```
 
-### Delete access token
+### deleteAccessToken
 
 Removes an access token from the Particle cloud for the specified user with [`deleteAccessToken`](#deleteaccesstoken)
 
