@@ -3381,6 +3381,15 @@ NB1
 5G
 Gen2
 1w
+lifecycle
+slas
+roadmap
+timeframe
+SD_MI
+SD_CK
+SD_MO
+SD_CS
+SD_DET
  - src/content/datasheets/cellular/b-series-eval-board.md
 P1.14
 P1.15
@@ -3403,3 +3412,14 @@ J10
 TMR1
 TMR8
 PWM1
+ - src/content/tutorials/developer-tools/workbench.md
+ - src/content/tutorials/device-cloud/ota-updates.md
+ - src/content/reference/SDKs/javascript.md
+listDevices
+getDevice
+getEventStream
+publishEvent
+compileCode
+createUser
+listAccessTokens
+deleteAccessToken
