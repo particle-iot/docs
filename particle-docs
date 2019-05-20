@@ -1,0 +1,140 @@
+#!/bin/bash
+set -o errexit -o pipefail -o noclobber -o nounset
+
+function display_help ()
+{
+    echo "\
+usage: particle-docs [--build] [--deploy] [--run-tests] [--spell-check]
+
+Build, test and deploy a local documentation server.
+
+  -b, --build           Build and install documentation packages.
+  -d, --deploy          Launch documentation server at https://localhost:8080.
+  -h, --help            Display this help and exit.
+  -s, --spell-check     Run the spell-checker to verify spelling and update dictionary file.
+  -t, --run-tests       Run CI tests.
+
+NOTE: If no options are specified, then ALL options will be selected.
+"
+}
+
+# Utilized Enhanced `getopt`
+! getopt --test > /dev/null
+if [ ${PIPESTATUS[0]} -ne 4 ]; then
+    echo '\
+`getopt --test` failed in this environment.
+Please confirm "GNU getopt" is installed on this device.
+'
+    exit 1
+fi
+
+OPTIONS=bdhst
+LONGOPTS=build,deploy,help,spell-check,run-tests
+
+# -use ! and PIPESTATUS to get exit code with errexit set
+# -temporarily store output to be able to check for errors
+# -activate quoting/enhanced mode (e.g. by writing out “--options”)
+# -pass arguments only via   -- "$@"   to separate them correctly
+! PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@")
+if [ ${PIPESTATUS[0]} -ne 0 ]; then
+    # e.g. return value is 1
+    #  then getopt has complained about wrong arguments to stdout
+    exit 2
+fi
+
+# Read getopt’s output this way to handle the quoting right:
+eval set -- "$PARSED"
+
+# Set default(s)
+BUILD=false
+DEPLOY=false
+RUN_TESTS=false
+SPELL_CHECK=false
+
+# Parse parameter(s)
+while true; do
+    case "$1" in
+        -b|--build)
+            BUILD=true
+            shift 1
+            ;;
+        -d|--deploy)
+            DEPLOY=true
+            shift 1
+            ;;
+        -h|--help)
+            shift
+            display_help
+            exit 0
+            ;;
+        -s|--spell-check)
+            SPELL_CHECK=true
+            shift 1
+            ;;
+        -t|--run-tests)
+            RUN_TESTS=true
+            shift 1
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            echo "Encountered error while parsing arguments!"
+            exit 3
+            ;;
+    esac
+done
+
+# Handle invalid arguments
+if [ $# -ne 0 ]; then
+    echo "$0: Unknown argument \"$1\" supplied!"
+    exit 4
+fi
+
+# If no options were selected, then all options are selected
+if [ $BUILD = false ] && [ $DEPLOY = false ] && [ $RUN_TESTS = false ] && [ $SPELL_CHECK = false ]; then
+    BUILD=true
+    DEPLOY=true
+    RUN_TESTS=true
+    SPELL_CHECK=true
+fi
+
+# Construct the Launch command
+LAUNCH_COMMAND=""
+CONCATENATION_REQUIRED=false
+
+if [ $BUILD = true ]; then
+    if [ $CONCATENATION_REQUIRED = true ]; then
+        LAUNCH_COMMAND+=" && "
+    fi
+    LAUNCH_COMMAND+="npm install"
+    CONCATENATION_REQUIRED=true
+fi
+
+if [ $SPELL_CHECK = true ]; then
+    if [ $CONCATENATION_REQUIRED = true ]; then
+        LAUNCH_COMMAND+=" && "
+    fi
+    LAUNCH_COMMAND+="npm run spell"
+    CONCATENATION_REQUIRED=true
+fi
+
+if [ $RUN_TESTS = true ]; then
+    if [ $CONCATENATION_REQUIRED = true ]; then
+        LAUNCH_COMMAND+=" && "
+    fi
+    LAUNCH_COMMAND+="npm test"
+    CONCATENATION_REQUIRED=true
+fi
+
+if [ $DEPLOY = true ]; then
+    if [ $CONCATENATION_REQUIRED = true ]; then
+        LAUNCH_COMMAND+=" && "
+    fi
+    LAUNCH_COMMAND+="npm start"
+    CONCATENATION_REQUIRED=true
+fi
+
+echo $LAUNCH_COMMAND
+eval $LAUNCH_COMMAND
