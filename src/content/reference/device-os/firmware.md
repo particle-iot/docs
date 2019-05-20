@@ -439,6 +439,108 @@ PUBLIC and PRIVATE are mutually exclusive.
 
 Unlike functions and variables, you typically call Particle.publish from loop() (or a function called from loop). 
 
+### Particle.publishVitals()
+
+{{since when="1.2.0"}}
+
+{{#if core}}
+```cpp
+// SYNTAX
+
+system_error_t Particle.publishVitals(system_tick_t period_s = particle::NOW)
+
+Particle.publishVitals();  // Publish vitals immmediately
+Particle.publishVitals(<any value>);  // Publish vitals immediately
+```
+{{/if}}{{#unless core}}
+```cpp
+// SYNTAX
+
+system_error_t Particle.publishVitals(system_tick_t period_s = particle::NOW)
+
+Particle.publishVitals();  // Publish vitals immmediately
+Particle.publishVitals(particle::NOW);  // Publish vitals immediately
+Particle.publishVitals(5);  // Publish vitals every 5 seconds, indefinitely
+Particle.publishVitals(0);  // Publish immediately and cancel periodic publishing
+```
+{{/unless}} {{!-- unless core --}}
+
+Publish vitals information
+
+Provides a mechanism to control the interval at which system diagnostic messages are sent to the cloud. Subsequently, this controls the granularity of detail on the fleet health metrics.
+
+**Argument(s):**
+
+{{#if core}}
+_none._
+{{/if}}{{#unless core}}
+* `period_s` The period _(in seconds)_ at which vitals messages are to be sent to the cloud (default value: `particle::NOW`)
+
+  * `particle::NOW` - A special value used to send vitals immediately
+  * `0` - Publish a final message and disable periodic publishing
+  * `s` - Publish an initial message and subsequent messages every `s` seconds thereafter
+{{/unless}} {{!-- unless core --}}
+
+**Returns:**
+
+A `system_error_t` result code
+
+* `system_error_t::SYSTEM_ERROR_NONE`
+* `system_error_t::SYSTEM_ERROR_IO`
+
+**Examples:**
+
+```cpp
+// EXAMPLE - Publish vitals intermittently
+
+bool condition;
+
+setup () {
+}
+
+loop () {
+  ...  // Some logic that either will or will not set "condition"
+
+  if ( condition ) {
+    Particle.publishVitals();  // Publish vitals immmediately
+  }
+}
+```
+
+{{#unless core}}
+```cpp
+// EXAMPLE - Publish vitals periodically, indefinitely
+
+setup () {
+  Particle.publishVitals(3600);  // Publish vitals each hour
+}
+
+loop () {
+}
+```
+
+```cpp
+// EXAMPLE - Publish vitals each minute and cancel vitals after one hour
+
+size_t start = millis();
+
+setup () {
+  Particle.publishVitals(60);  // Publish vitals each minute
+}
+
+loop () {
+  // Cancel vitals after one hour
+  if (3600000 < (millis() - start)) {
+    Particle.publishVitals(0);  // Publish immediately and cancel periodic publishing
+  }
+}
+```
+{{/unless}} {{!-- unless core --}}
+
+>_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
+
+<div style="margin-left:35px;"><img src="/assets/images/diagnostic-events.png"/></div>
+
 ### Particle.subscribe()
 
 Subscribe to events published by devices.
