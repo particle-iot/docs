@@ -20,4 +20,4 @@ RUN ["dash", "-c", "\
 WORKDIR /particle-iot/docs
 
 # Execution Environment
-ENTRYPOINT ["./particle-docs"]
+ENTRYPOINT ["./scripts/particle-docs"]

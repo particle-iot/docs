@@ -20,7 +20,7 @@ To set up a server running at `http://localhost:8080`, follow the installation i
 If you have Docker installed, then you can simply run the following commands to get started...
 
 ```none
-$ alias particle-docs="docker run --interactive --mount type=bind,source=<local particle-iot/docs>,target=/particle-iot/docs --net host --rm --tty particle/docs"
+$ source <particle-iot/docs>/scripts/gen-docker-alias.sh --repo-path <particle-iot/docs>"
 $ particle-docs --help
 usage: particle-docs [--build] [--deploy] [--run-tests] [--spell-check]
 
@@ -186,7 +186,7 @@ When the firmware is available on a new device, add that device to the docs in t
 
 ### Redirects
 
-When moving pages around or defining the default page for a section, add redirect links to [`redirects.json`](config/redirects.json). 
+When moving pages around or defining the default page for a section, add redirect links to [`redirects.json`](config/redirects.json).
 
 Attributions
 ------------
