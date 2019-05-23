@@ -141,8 +141,7 @@ Some of the things to use the billing view for include:
 - Updating the credit card used to pay for Particle platform features
 - Viewing SIM card data usage, and managing the connectivity state of
 the SIM card
-- View product billing and usage information, including outbound event
-count, device fleet size, and current plan
+- View product billing and usage information, device fleet size, and current plan
 
 <img src="{{assets}}/images/console/billing-view.png"
 class="full-width"/>
@@ -567,20 +566,6 @@ Devices are any physical device that uses the Particle Device Cloud- Photons, El
 
 Your personal account’s devices (as well as new, unclaimed devices) are added to a Product when you want to use them as a group for data reporting, firmware updates, and collaboration with coworkers or friends. Only when they’ve been intentionally added to a Product will they count towards that total. 
 
-#### Events
-
-An event is any single outbound message from your fleet that exits the
-Particle Device Cloud. For example, this could include a Particle.publish() call on a device that triggers a webhook, an integration such as IFTTT, or a server-sent event (SSE).
-
-If you have multiple JS applications subscribed to an event then each will consume one of your outbound messages with each published event- watch out for running many copies of your app!
-
-When you hit the outbound event limit you can choose to upgrade to the new tier or stay at the current tier. If you do choose to stay with the current tier then any future events that month won’t be sent. You’ll get a fresh batch of events at the beginning of the next month, and normal behavior will resume then. Don’t worry, we’ll send you a warning before and an alert when you reach the event limit. 
-
-#### Team Members
-
-Team members are people that you’ve added to a Product to give them administrative access to the data, controlling firmware on devices, adding integrations, and more. The product owner can add and remove team members as necessary, but they’ll need to have a Particle account before they can be invited to join your team.
-
-
 #### Billing periods 
 Products in the Console are billed separately, so if you have more than one they can be on different pricing tiers and have different billing dates. The billing date for a Product is the anniversary of when it was first created, either day of the month if you’re on a monthly plan or the day of the year (month+day) in the case of an annually paid plan.
 
@@ -590,11 +575,8 @@ All Console plans are billed at the beginning of the plan period; in other words
 It’s easy to find out the status of your Product’s metrics. Visit [console.particle.io/billing](https://console.particle.io/billing) and you’ll see an up-to-date list of each Product you own, how many outbound events they’ve used that billing cycle, number of devices in each, and how many team members they have. The renewal date for each Product plan is also shown, so you know when the next bill is coming up.
 
 ### Changing Plans 
-You can upgrade to a higher tier at any time from the Billing view in order to add more team members or devices, or increase your monthly outbound event limit. We’ll send you notifications before you encounter the outbound event limit, but it’s wise to upgrade early because no events will be sent after you hit it. If you’ve hit the event limit, tried to add more devices than are supported by the current tier, or attempted to add a 6th team member while on the free Prototype tier, you’ll be prompted to upgrade to a higher tier.
 
-When you upgrade we’ll prorate the new price for the rest of the month (or year, depending on your billing period) so you’ll never be double-billed.
-
-Contact us if you need to downgrade or remove a Product; both have potentially complex impacts and ambiguities, so we’ll make sure that exactly the right thing happens.
+The self-service plan covers up to 250 devices in your product. For larger numbers of devices, service-level agreements (SLAs), and priority support you should [contact sales](https://particle.io/sales/).
 
 ### Updating your credit card
 

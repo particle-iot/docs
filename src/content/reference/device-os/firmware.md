@@ -6274,10 +6274,18 @@ be used via the `SPI` object, are mapped as follows:
 * `MOSI` => `A5`
 {{/if}}
 {{#if has-nrf52}}
-* `SS` => `D14` (but can use any available GPIO)
+On the Argon, Boron, and Xenon:
+* `SS` => `A5 (D14)` (but can use any available GPIO)
 * `SCK` => `SCK (D13)`
 * `MISO` => `MISO (D11)`
 * `MOSI` => `MOSI (D12)`
+
+On the B Series SoM:
+* `SS` => `D8` (but can use any available GPIO)
+* `SCK` => `SCK (D13)`
+* `MISO` => `MISO (D11)`
+* `MOSI` => `MOSI (D12)`
+
 {{/if}}
 
 {{#if has-multiple-spi}}
@@ -6343,12 +6351,19 @@ SPI2.begin(ss);
 {{/if}}
 ```
 
-Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is:
+- Argon, Boron, Xenon: `A5 (D14)`
+- B Series SoM: `D8`
+- Photon, P1, Electron, and E Series: `A2`
+{{#if core}}
+- Gen 1 (Core): `A2`
+{{/if}} {{!-- core --}}
 {{#if has-multiple-spi}}
-For `SPI1`, the default `ss` pin is `SS (D5)`.
+For `SPI1`, the default `ss` pin is `D5`.
 {{#if electron}}
-For `SPI2`, the default `ss` pin is also `SS (D5)`.
-{{/if}}
+For `SPI2`, the default `ss` pin is also `D5`.
+{{/if}} {{!-- electron --}}
+{{/if}} {{!-- has-multiple-spi --}}
 
 ```C++
 // Example using SPI1, with D5 as the SS pin:
@@ -6377,10 +6392,21 @@ Initializes the {{device}} SPI peripheral in master or slave mode.
 Parameters:
 
 - `mode`: `SPI_MODE_MASTER` or `SPI_MODE_SLAVE`
-- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is `SS (A2)`. For `SPI1`, the default pin is `SS (D5)`. {{#if electron}}For `SPI2`, the default pin is also `SS (D5)`.{{/if}}
+- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is:
+- Argon, Boron, Xenon: `A5 (D14)`
+- B Series SoM: `D8`
+- Photon, P1, Electron, and E Series: `A2`
+{{#if core}}
+- Gen 1 (Core): `A2`
+{{/if}}
+{{#if has-multiple-spi}}
+For `SPI1`, the default `ss` pin is `D5`.
+{{#if electron}}
+For `SPI2`, the default `ss` pin is also `D5`.
+{{/if}}
 
 ```C++
-// Example using SPI in master mode, with A2 (default) as the SS pin:
+// Example using SPI in master mode, with the default SS pin:
 SPI.begin(SPI_MODE_MASTER);
 {{#if has-multiple-spi}}
 // Example using SPI1 in slave mode, with D5 as the SS pin
@@ -6391,6 +6417,10 @@ SPI2.begin(SPI_MODE_SLAVE, C0);
 {{/if}}
 {{/if}}
 ```
+
+{{#if has-nrf52}}
+Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. It is not supported on SPI. The maximum speed is 8 MHz on SPI1.
+{{/if}}
 
 {{/if}} {{!-- has-spi-slave --}}
 
@@ -6465,6 +6495,11 @@ the clock speed using dividers is typically not portable since is dependent upon
 On the Raspberry Pi, the default SPI clock is 4 MHz.
 {{/if}}
 
+{{#if has-nrf52}}
+Gen 3 devices (Argon, Boron, and Xenon) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
+{{/if}}
+
+
 ### setClockDividerReference
 
 This function aims to ease porting code from other platforms by setting the clock speed that
@@ -6496,11 +6531,17 @@ On the Core, this is 72 MHz.
 {{#if raspberry-pi}}
 On the Raspberry Pi, this is 64 MHz.
 {{else}}
+{{#if has-stm32}}
 On the Photon and Electron, the system clock speeds are:
 - SPI - 60 MHz
 - SPI1 - 30 MHz
 {{/if}}
-{{/if}}
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, Xenon), system clock speed is 64 MHz.
+{{/if}} {{!-- has-nrf52 --}}
+{{/if}} {{!-- else raspberry-pi --}}
+{{/if}} {{!-- else core --}}
+
 
 
 ### setClockDivider()
@@ -6527,6 +6568,25 @@ Where the parameter, `divider` can be:
  - `SPI_CLOCK_DIV64`
  - `SPI_CLOCK_DIV128`
  - `SPI_CLOCK_DIV256`
+
+The clock reference varies depending on the device.
+
+{{#if core}}
+On the Core, the clock reference is 72 MHz.
+{{else}}
+{{#if raspberry-pi}}
+On the Raspberry Pi, the clock reference is 64 MHz.
+{{else}}
+{{#if has-stm32}}
+On the Photon and Electron, the clock reference is 120 MHz.
+{{/if}}
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, Xenon), the clock reference is 64 MHz.
+{{/if}} {{!-- has-nrf52 --}}
+{{/if}} {{!-- else raspberry-pi --}}
+{{/if}} {{!-- else core --}}
+
+
 
 ### setDataMode()
 
@@ -6608,6 +6668,10 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 
 Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
 
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
+{{/if}} {{!-- has-nrf52 --}}
+
 ```C++
 // SYNTAX
 SPI.onSelect(myFunction);
@@ -6625,6 +6689,7 @@ void myFunction(uint8_t state) {
 
 Parameters: `handler`: the function to be called when the slave is selected or deselected; this should take a single uint8_t parameter (the current state: `1` - selected, `0` - deselected) and return nothing, e.g.: `void myHandler(uint8_t state)`
 
+{{#if has-stm32}}
 ```C++
 // SPI slave example
 static uint8_t rx_buffer[64];
@@ -6670,6 +6735,55 @@ void loop() {
     }
 }
 ```
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+```C++
+// SPI slave example
+static uint8_t rx_buffer[64];
+static uint8_t tx_buffer[64];
+static uint32_t select_state = 0x00;
+static uint32_t transfer_state = 0x00;
+
+void onTransferFinished() {
+    transfer_state = 1;
+}
+
+void onSelect(uint8_t state) {
+    if (state)
+        select_state = state;
+}
+
+/* executes once at startup */
+void setup() {
+    Serial.begin(9600);
+    for (int i = 0; i < sizeof(tx_buffer); i++)
+      tx_buffer[i] = (uint8_t)i;
+    SPI1.onSelect(onSelect);
+    SPI1.begin(SPI_MODE_SLAVE, A5);
+}
+
+/* executes continuously after setup() runs */
+void loop() {
+    while (1) {
+        while(select_state == 0);
+        select_state = 0;
+
+        transfer_state = 0;
+        SPI1.transfer(tx_buffer, rx_buffer, sizeof(rx_buffer), onTransferFinished);
+        while(transfer_state == 0);
+        if (SPI1.available() > 0) {
+            Serial.printf("Received %d bytes", SPI.available());
+            Serial.println();
+            for (int i = 0; i < SPI.available(); i++) {
+                Serial.printf("%02x ", rx_buffer[i]);
+            }
+            Serial.println();
+        }
+    }
+}
+```
+{{/if}} {{!-- has-nrf52 --}}
 
 ### available()
 
