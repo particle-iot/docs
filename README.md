@@ -20,8 +20,9 @@ To set up a server running at `http://localhost:8080`, follow the installation i
 If you have Docker installed, then you can simply run the following commands to get started...
 
 ```none
-$ source <particle-iot/docs>/scripts/gen-docker-alias.sh --repo-path <particle-iot/docs>"
-$ particle-docs --help
+$ cd <particle-iot/docs>/
+$ scripts/docker-server.sh --help
+
 usage: particle-docs [--build] [--deploy] [--run-tests] [--spell-check]
 
 Build, test and deploy a local documentation server.
@@ -34,8 +35,6 @@ Build, test and deploy a local documentation server.
 
 NOTE: If no options are specified, then ALL options will be selected.
 ```
-
-_**NOTE:** Before running the `alias` command, be sure to replace `<local particle-iot/docs>` with the absolute path of your local documentation repository._
 
 ### Bare-metal Hosting
 
