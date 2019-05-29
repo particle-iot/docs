@@ -36,6 +36,8 @@ Build, test and deploy a local documentation server.
 NOTE: If no options are specified, then ALL options will be selected.
 ```
 
+> _**NOTE:** Containerized hosting is currently only available on Linux devices. Mac is has an [open issue](https://github.com/docker/for-mac/issues/2965) involving `localhost`, and Windows has not been tested at this time._
+
 ### Bare-metal Hosting
 
 #### Device Setup
