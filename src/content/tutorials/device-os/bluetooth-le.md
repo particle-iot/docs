@@ -1,0 +1,531 @@
+---
+title: Bluetooth LE
+order: 4
+columns: two
+layout: tutorials.hbs
+---
+
+# Bluetooth LE (BLE)
+
+## Introduction
+
+Gen 3 devices (Argon, Boron, Xenon) have an nRF52840 MCU that supports Bluetooth 5. It's used to configure your device from the Particle mobile apps for iOS and Android, and Bluetooth LE (BLE) can be used in your firmware to communicate with other devices that support BLE.
+
+Particle devices support both the peripheral and central roles:
+
+- **Peripheral devices** are typically low-power devices like heart rate sensors, body weight scales, thermometers, proximity tags, etc.. When your Particle device is configured as a peripheral, it might be attached to a sensor and provide that information to a mobile app. It can also be programmed to be an iBeacon, to allow iOS apps know they are near a specific beacon.
+- **Central devices** are things like mobile phones and tablets that communicate with peripheral devices. Computers with BLE support can also be central devices. When your Particle device is configured as a central device, it might gather data from a sensor like a heart rate sensor and upload it to the cloud over Wi-Fi or cellular, taking the place of a mobile phone app.
+
+BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices.
+
+The mesh networking in Gen 3 devices is Thread Mesh (6LoWPAN over 802.15.4). While it uses the same 2.4 GHz radio spectrum as Bluetooth 5 mesh, they are different and not compatible. Particle devices do not support Bluetooth 5 mesh.
+
+The BLE protocol shares the same antenna as the mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one.
+
+A good introduction to BLE can be found in the [Adafruit tutorial](https://learn.adafruit.com/introduction-to-bluetooth-low-energy/introduction).
+
+
+## Major concepts
+
+### Services
+
+Services are collections of characteristics (roughly, values). There are defined services [listed here](https://www.bluetooth.com/specifications/gatt/services/). For example, the Heart Rate service includes the Heart Rate Measurement characteristic, below.
+
+The Heart Rate service only has one characteristic (set of values), but some services include multiple characteristics.
+
+A device may support multiple services. For example, most heart rate monitors include both the Heart Rate Measurement Service and Battery Service.
+
+BLE central devices like mobile phones can find known services and characteristics and display the data, without having manufacturer-specific knowledge since the data is standardized.
+
+It's also possible to create custom services for your own proprietary app.
+
+### Characteristics
+
+Characteristics store a value or set of values in a service. In some cases, a service supports multiple characteristics. 
+
+In other cases, like the Heart Rate Measurement Characteristic, the characteristic contains flags, a value, and in some cases additional values. The difference is because a heart rate sensor will always want to send out beats per minute, but if it also calculates energy expended, it will want to publish all of the values at the same time in one transaction.
+
+For assigned characteristics, the data will be in a defined format as defined by the Bluetooth SIG. They are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). You can also make custom characteristics, which you self-assign a long UUID.
+
+A characteristic is also assigned a short name. This can also be used to retrieve it, however the names are not standardized so it's usually better to retrieve a characteristic by UUID.
+
+The maximum size of the characteristic will depend on both devices. For example, different phones may have different limits.
+
+When sending between two Particle Gen 3 devices, the maximum characteristic that can be sent is 244 bytes. If you attempt to send a larger characteristic, only the first 244 bytes will be sent.
+
+| Characteristic Size | Maximum Data Transfer Rate |
+| --- | --- |
+| 20 bytes | 222 bytes/sec. |
+| 100 bytes | 1100 bytes/sec. |
+| 200 bytes | 2210 bytes/sec. |
+| 236 bytes | 2186 bytes/sec. |
+| 237 bytes | 1753 bytes/sec. |
+| 244 bytes | 1793 bytes/sec. |
+
+Note, however, the most efficient size is a maximum 236 bytes. Above that size, fragmentation occurs which lowers the transfer rate. The size could vary slightly based on other factors.
+
+
+#### Peripheral Characteristics
+
+In a BLE peripheral role, each service has one or more characteristics. Each characteristic may have one of more values.
+
+For example, implementing a Health Thermometer peripheral you could use these services and characteristics:
+
+```C++
+// The "Health Thermometer" service is 0x1809.
+// See https://www.bluetooth.com/specifications/gatt/services/
+BleUuid healthThermometerService(0x1809);
+
+// We're using a well-known characteristics UUID. They're defined here:
+// https://www.bluetooth.com/specifications/gatt/characteristics/
+// The temperature-measurement is 16-bit UUID 0x2A1C
+BleCharacteristic temperatureMeasurementCharacteristic("temp", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A1C), healthThermometerService);
+
+// The battery level service allows the battery level to be monitored
+BleUuid batteryLevelService(0x180f);
+
+// The battery_level characteristic shows the battery level of
+BleCharacteristic batteryLevelCharacteristic("bat", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A19), batteryLevelService);
+```
+
+In this case, there are two services, health thermometer (0x1809) and battery level (0x180f). Each service has one characteristic.
+
+For the health thermometer service, only one characteristic is defined, the temperature measurement characteristic (0x2a1c). A few things about this characteristic:
+
+- Its short name is "temp" (temperature)
+- It is a NOTIFY characteristic - the peripheral periodically sends out the value
+- It has the UUID 0x2A1C
+- It is part of the health thermometer service.
+
+Another use case is like the UART peripheral example:
+
+```C++
+const char* serviceUuid = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E";
+const char* rxUuid = "6E400002-B5A3-F393-E0A9-E50E24DCCA9E";
+const char* txUuid = "6E400003-B5A3-F393-E0A9-E50E24DCCA9E";
+
+BleCharacteristic txCharacteristic("tx", BleCharacteristicProperty::NOTIFY, txUuid, serviceUuid);
+BleCharacteristic rxCharacteristic("rx", BleCharacteristicProperty::WRITE_WO_RSP, rxUuid, serviceUuid, onDataReceived, NULL);
+```
+
+In this case, all of the UUIDs are proprietary. However these were generated by the Nordic Semiconductor team for the UART example, and now they're widely used for UART-like services. The Adafruit Bluefruit hardware and mobile apps support this, for example.
+
+The txCharacteristic looks much like the health monitor example, except the UUIDs are just const char * variables, not BleUuid values. This is an option, however you need to pick one style as both the characteristic and service UUIDs must be the same type.
+
+The rxCharacteristic has some more parameters. This is because data is received by the peripheral with this characteristic.
+
+- `BleCharacteristicProperty::WRITE_WO_RSP` means the peripheral value is written to, without acknowledgement.
+- `onDataReceived` The function that is called when data is received.
+- `NULL` Context pointer. If your data received handler is part of a C++ class, this is a good place to put the class instance pointer (`this`).
+
+```C++
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context)
+```
+
+The data received handler his this prototype. 
+
+
+#### Central Characteristics
+
+In a BLE central role (behaving like a phone), you typically have a receive handler to be notified when the peripheral updates each characteristic value that you care about.
+
+Declaring variables for central characteristics is usually just assigning a global variable to hold the value:
+
+```C++
+BleCharacteristic heartRateMeasurementCharacteristic;
+```
+
+In setup, you hook up a data received handler to your characteristic to be notified when that characteristic is received from the BLE peer:
+
+```C++
+	// In setup()
+	heartRateMeasurementCharacteristic.onDataReceived(onDataReceived, NULL);
+```
+
+The NULL parameter here is the context, an optional pointer value. If you implement your onDataReceive handler in a C++ class, the context is a good place to put the "this" (class instance pointer).
+
+Finally, the onDataReceived handler looks like this:
+
+```
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
+    uint8_t flags = data[0];
+
+    uint16_t rate;
+    if (flags & 0x01) {
+    	// Rate is 16 bits
+    	memcpy(&rate, &data[1], sizeof(uint16_t));
+    }
+    else {
+    	// Rate is 8 bits (normal case)
+    	rate = data[1];
+    }
+    if (rate != lastRate) {
+    	lastRate = rate;
+    	updateDisplay = true;
+    }
+
+    Log.info("heart rate=%u", rate);
+}
+```
+
+In the heart rate measurement characteristic:
+
+- The first byte is a flag byte. The only bit we care about is bit 0, LSB, mask 0x01. If that bit is 1, then the BPM value is 16-bits wide. If it's 0, then the BPM value is 8-bits wide.
+- Right after the flag is the BPM value. It's either 8-bit or 16-bit depending on the flag
+- The onDataReceived handler updates the global variables lastRate and updateDisplay as necessary.
+
+For more information about characteristics, the [Nordic Semiconductor BLE characteristics tutorial](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial) is good.
+
+#### Characteristic Definitions
+
+In the [characteristics table](https://www.bluetooth.com/specifications/gatt/characteristics/), clicking on a name brings up the definition for the characteristic. It's a little hard to read (it's XML), but from this example you can find some useful facts about the Heart Rate Measurement Characteristic:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="org.bluetooth.characteristic.heart_rate_measurement" uuid="2A37" name="Heart Rate Measurement">
+    <InformativeText>
+    </InformativeText>
+    <Value>
+        <Field name="Flags">
+            <Requirement>Mandatory</Requirement>
+            <Format>8bit</Format>
+            
+            <BitField>
+                <Bit index="0" size="1" name="Heart Rate Value Format bit">
+                    <Enumerations>
+                        <Enumeration key="0" value="Heart Rate Value Format is set to UINT8. Units: beats per minute (bpm)" requires="C1" />
+                        <Enumeration key="1" value="Heart Rate Value Format is set to UINT16. Units: beats per minute (bpm)" requires="C2" />
+                    </Enumerations>
+                </Bit>
+                <Bit index="1" size="2" name="Sensor Contact Status bits">
+                    <Enumerations>
+                        <Enumeration key="0" value="Sensor Contact feature is not supported in the current connection" />
+                        <Enumeration key="1" value="Sensor Contact feature is not supported in the current connection" />
+                        <Enumeration key="2" value="Sensor Contact feature is supported, but contact is not detected" />
+                        <Enumeration key="3" value="Sensor Contact feature is supported and contact is detected" />
+                    </Enumerations>
+                </Bit>
+                
+                <Bit index="3" size="1" name="Energy Expended Status bit">
+                    <Enumerations>
+                        <Enumeration key="0" value="Energy Expended field is not present" />
+                        <Enumeration key="1" value="Energy Expended field is present. Units: kilo Joules" requires="C3"/>
+                    </Enumerations>
+                </Bit>
+                <Bit index="4" size="1" name="RR-Interval bit">
+                    <Enumerations>
+                        <Enumeration key="0" value="RR-Interval values are not present." />
+                        <Enumeration key="1" value="One or more RR-Interval values are present." requires="C4"/>
+                        </Enumerations>
+                </Bit>
+                <ReservedForFutureUse index="5" size="3"></ReservedForFutureUse>
+                </BitField>
+        </Field>
+        <Field name="Heart Rate Measurement Value (uint8)">
+              <InformativeText>
+                Note: The format of the Heart Rate Measurement Value field is dependent upon bit 0 of the Flags field.
+              </InformativeText>
+            <Requirement>C1</Requirement>
+            <Format>uint8</Format>
+            <Unit>org.bluetooth.unit.period.beats_per_minute</Unit>
+           
+        </Field>    
+        
+         <Field name="Heart Rate Measurement Value (uint16)">
+              <InformativeText>
+                Note: The format of the Heart Rate Measurement Value field is dependent upon bit 0 of the Flags field.
+              </InformativeText>
+            <Requirement>C2</Requirement>
+            <Format>uint16</Format>
+            <Unit>org.bluetooth.unit.period.beats_per_minute</Unit>
+           
+        </Field>       
+        
+        <Field name="Energy Expended">
+            <InformativeText>The presence of the Energy Expended field is dependent upon bit 3 of the Flags field.</InformativeText>
+            <Requirement>C3</Requirement>
+            <Format>uint16</Format>
+            <Unit>org.bluetooth.unit.energy.joule</Unit>
+           
+        </Field>
+        <Field name="RR-Interval">
+            <InformativeText>
+               <!-- The presence of the RR-Interval field is dependent upon bit 4 of the Flags field. 
+                <p>The RR-Interval value represents the time between two R-Wave detections.</p> 
+                
+                <p>Because several RR-Intervals may be measured between transmissions of the HEART RATE MEASUREMENT characteristic, 
+                multiple RR-Interval sub-fields may be present in the characteristic. The number of RR-Interval sub-fields present 
+                is determined by a combination of the overall length of the characteristic and whether or not the characteristic contains 
+                the Energy Expended field.</p>
+                
+                <p>Where there are multiple RR-Interval values transmitted in the HEART RATE MEASUREMENT characteristic, the field uses the following format:</p>
+                <p>RR-Interval Value 0 (LSO...MSO), RR-Interval Value 1 (LSO...MSO), RR-Interval Value 2 (LSO...MSO), RR-Interval Value n (LSO...MSO).</p>
+                <p>Where the RR-Interval Value 0 is older than the RR-Interval Value 1.</p>
+                <p>RR-Interval Value 0 is transmitted first followed by the newer measurements.</p>-->
+
+			</InformativeText>
+            <Requirement>C4</Requirement>
+            <Format>uint16</Format>
+            <Unit>org.bluetooth.unit.time.second</Unit>
+            <Description>Resolution of 1/1024 second</Description>
+		
+            
+            
+        </Field>
+    </Value>
+   <Note> <p>The fields in the above table are in the order of LSO to MSO. Where LSO = Least Significant Octet and MSO = Most Significant Octet.</p>
+   </Note>
+</Characteristic>
+```
+
+- The UUID is `uuid="2A37"`. That's hexadecimal, so you'd usually use `BleUuid(0x2A37)` as the characteristics UUID.
+
+```
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="org.bluetooth.characteristic.heart_rate_measurement" uuid="2A37" name="Heart Rate Measurement">
+```
+
+- The first field is the flags, which is an 8-bit value (uint8_t) and is required.
+
+```
+        <Field name="Flags">
+            <Requirement>Mandatory</Requirement>
+            <Format>8bit</Format>
+```
+
+- The first flag bit is bit index="0" which corresponds to the LSB, a mask value of 0x01 or 0b00000001. In this case, if the bit is 0, the BPM is 8-bits wide. If the bit is 1, the BPM is 16-bits wide.
+
+```
+                <Bit index="0" size="1" name="Heart Rate Value Format bit">
+                    <Enumerations>
+                        <Enumeration key="0" value="Heart Rate Value Format is set to UINT8. Units: beats per minute (bpm)" requires="C1" />
+                        <Enumeration key="1" value="Heart Rate Value Format is set to UINT16. Units: beats per minute (bpm)" requires="C2" />
+                    </Enumerations>
+                </Bit>
+
+```
+
+- There are some other flag bits that we won't worry about right now.
+
+- After the flag bits, is the 8-bit BPM value, if using an 8-bit BPM value. This is a uint8_t value (0-255) for the number of beats per minute.
+
+```
+        <Field name="Heart Rate Measurement Value (uint8)">
+              <InformativeText>
+                Note: The format of the Heart Rate Measurement Value field is dependent upon bit 0 of the Flags field.
+              </InformativeText>
+            <Requirement>C1</Requirement>
+            <Format>uint8</Format>
+```
+
+- Putting this into code, receiving the heart rate data from a BLE heart rate sensor:
+
+```c++
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
+    uint8_t flags = data[0];
+
+    uint16_t rate;
+    if (flags & 0x01) {
+    	// Rate is 16 bits
+    	memcpy(&rate, &data[1], sizeof(uint16_t));
+    }
+    else {
+    	// Rate is 8 bits (normal case)
+    	rate = data[1];
+    }
+
+    Log.info("heart rate=%u", rate);
+}
+```
+
+### Advertising
+
+Advertising is the process by which a BLE peripheral device broadcasts periodically. This serves two purposes:
+
+- It allows a BLE central device (like a mobile app) to be able to discover the peripheral device.
+- A peripheral device can broadcast continuously as a beacon.
+
+A BLE beacon doesn't require any authentication between the peripheral device and the mobile app - the beacon just continuously outputs data over a short range. A mobile app can look for this data and respond to it. For example, a beacon embedded in a store display might allow a store app to provide additional information about the item, provide a coupon, or customize a store map.
+
+The interval for advertising ranges from 20 milliseconds to 10.24 seconds, though there is a random 0 to 10 millisecond additional delay added. This prevents two devices with the same advertising interval from being stuck transmitting at exactly the same time forever.
+
+The normal fast advertising interval is 100 to 500 milliseconds. For devices where latency is not important and want to reduce power consumption, it could be 1 to 2 seconds. Because of radio congestion and random packet loss, it might take more than one advertising broadcast before the message is received.
+
+The advertising data is small (31 bytes), there is an adversing data type byte. There are some standard types, or you can use a vendor defined type (0xff) to send any arbitrary data in your advertising payload.
+
+Standard advertising payload data options include:
+
+- Type: Basic features supported by the peripheral device
+- Local Name: a descriptive name for your peripheral device
+- Service UUIDs: a list of UUIDs supported by your peripheral device
+- Custom data: such as beacon data for iBeacon
+
+While central devices do not advertise, they may scan for devices in range and use their advertising data to determine what to connect to. For example, the heart rate central finds the first heart rate sensor in range and connects to it automatically.
+
+### Scan Response
+
+In addition to the 31 bytes of advertising data, the device doing the scanning can request the scan response data. This does not require authentication, and does not require making a connection. The scan response data is an additional 31 bytes of data the peripheral can return to the scanning device, though it takes an extra set of packets to and from the peripheral.
+
+## Peripheral Role
+
+Using your Particle device in a peripheral role allows you to do things like:
+
+- Be a beacon that can be located by mobile app
+- Be a sensor whose value can be read by a mobile app
+- Communicate with a mobile app
+
+There's also a special case of the peripheral role: A **broadcaster** only advertises, and does not accept any connections. 
+
+### Advertising (Peripheral)
+
+Advertising is the process by which a BLE peripheral device broadcasts periodically. This serves two purposes:
+
+The minimum you typically need to include is the service UUIDs so your device can be discoverable. For example, in the UART peripheral example, this code is used:
+
+```C++
+const BleUuid serviceUuid("6E400001-B5A3-F393-E0A9-E50E24DCCA9E");
+
+BleAdvertisingData data;
+data.appendServiceUUID(serviceUuid);
+BLE.advertise(&data);
+```
+
+When not connected to a central device, the peripheral device will continuously advertise that it supports the UART service.
+
+Another more complicated example is the Health Thermometer peripheral example:
+
+```
+BleUuid healthThermometerService(0x1809);
+
+BleCharacteristic temperatureMeasurementCharacteristic("temp", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A1C), healthThermometerService);
+
+BleUuid batteryLevelService(0x180f);
+
+BleCharacteristic batteryLevelCharacteristic("bat", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A19), batteryLevelService);
+
+void setup() {
+	BLE.addCharacteristic(temperatureMeasurementCharacteristic);
+	BLE.addCharacteristic(batteryLevelCharacteristic);
+
+	BleAdvertisingData advData;
+
+	// First AD record is the AD Type
+	uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+    advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, 1);
+
+    // Add all of the services that we support
+    advData.appendServiceUUID(healthThermometerService);
+    advData.appendServiceUUID(batteryLevelService);
+
+	// Continuously advertise when not connected
+	BLE.advertise(&advData);
+}
+```
+
+While you don't generate advertising data when in central mode, you often use it during scanning, as described in the section below
+
+For more information about Advertising and beacons, the [Argenox BLE advertising primer](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is good.
+
+### iBeacon
+
+One special type of beacon is the [Apple iOS iBeacon](https://developer.apple.com/ibeacon/). 
+
+There are three parameters of interest:
+
+| Field | Size  | Description |
+| :---: | :---: | --- |
+| UUID | 16 bytes | Application developers should define a UUID specific to their
+app and deployment use case. | 
+| Major | 2 bytes | Further specifies a specific iBeacon and use case. For example,
+this could define a sub-region within a larger region defined by
+the UUID. |
+| Minor | 2 bytes | Allows further subdivision of region or use case, specified by the
+application developer. |
+
+(From the [Getting Started with iBeacon](https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf) guide.)
+
+In other words, you'll assign a single UUID to all of the beacons in your fleet of beacons and figure out which one you're at using the major and minor values. When searching for an iBeacon, you need to know the UUID of the beacon you're looking for, so you don't want to assign too many. 
+
+Enabling iBeacon mode is easy:
+
+```
+void setup() {
+    iBeacon beacon(1, 2, "9c1b8bdc-5548-4e32-8a78-b9f524131206", -55);
+    BLE.advertise(beacon);
+}
+```
+
+The parameters for the beacon are:
+
+- Major version (1)
+- Minor version (2)
+- Application UUID ("9c1b8bdc-5548-4e32-8a78-b9f524131206")
+- Power measurement in dBm (-55)
+
+Each beacon should have a different UUID, so you should generate that for each device.
+
+### Body temperature thermometer
+
+For this tutorial I'm using the **nRF Toolbox** mobile app from Nordic Semiconductor. It's free and available for iOS and Android. It has the ability to work with a number of standard BLE sensors which makes it perfect for this tutorial.
+
+### BLE log handler
+
+The BLE log handler provides a way to see the [Log Handler](/reference/device-os/firmware/#logging) output over BLE, similar to the way you can get it over USB. You may not want to do this on a production device because there is no authentication - anyone can connect to over BLE. 
+
+You configure a buffer size, which makes it possible to see some amount of logging information in the past when you first connect. Also, BLE UART is kind of slow, so you need a buffer.
+
+To see the logs, you use a BLE UART compatible app. Two are:
+
+- Adafruit Bluefruit app 
+- Nordic BLE UART app
+
+### UART peripheral
+
+
+## Central Role
+
+Using your Particle device in a central role allows you to do things like:
+
+- Detect when BLE beacons are nearby
+- Read data from BLE sensors
+
+There's also a special case of the central role: An **observer** only advertises, and does not accept any connections. 
+
+
+### Profiles
+
+### Services
+
+### Characteristics
+
+
+### Heart rate central
+
+### BLE grill thermometer
+
+BLE devices are relatively standardized, which makes it easy to add support for a new device. I bought this [BLE Grill thermometer](https://www.amazon.com/gp/product/B01LWX9JLI/ref=ppx_yo_dt_b_asin_title_o00_s00) and this section shows how to figure out how to interface with the device. 
+
+I'm using the **BLE Scanner** mobile app from Bluepixel Technologies here. It's free and is available for both iOS and Android and worked well for me.
+
+
+### UART central
+
+
+
+## More Examples
+
+### Device Nearby
+
+#### Device Nearby Central
+
+#### Device Nearby Beacon
+
+
+### Multiple Peripherals
+
+This example uses a BLE central device along with two BLE peripheral devices. Each peripheral makes a connection to the central device. When the button is pressed on the peripheral, it sets the status LED of the central to the color of the peripheral.
+
+It also shows how you can deal with multiple peripherals from the central device.
+
+
+
