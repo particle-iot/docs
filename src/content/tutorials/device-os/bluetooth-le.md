@@ -27,6 +27,37 @@ A good introduction to BLE can be found in the [Adafruit tutorial](https://learn
 
 ## Major concepts
 
+
+### Advertising
+
+Advertising is the process by which a BLE peripheral device broadcasts periodically. This serves two purposes:
+
+- It allows a BLE central device (like a mobile app) to be able to discover the peripheral device.
+- A peripheral device can broadcast continuously as a beacon.
+
+A BLE advertiser doesn't require any authentication between the peripheral device and the mobile app - the advertiser just continuously outputs data over a short range, typically around 10 meters. A mobile app can look for this data and respond to it. 
+
+For example, a beacon embedded in a store display might allow a store app to provide additional information about the item, provide a coupon, or customize a store map.
+
+The interval for advertising ranges from 20 milliseconds to 10.24 seconds, though there is a random 0 to 10 millisecond additional delay added. This prevents two devices with the same advertising interval from being stuck transmitting at exactly the same time forever and possibly interfering with each other.
+
+The normal fast advertising interval is 100 to 500 milliseconds. For devices where latency is not important and want to reduce power consumption, it could be 1 to 2 seconds. Because of radio congestion and random packet loss, it might take more than one advertising broadcast before the message is received.
+
+The advertising data is small (31 bytes, `BLE_MAX_ADV_DATA_LEN`). There are some standard types, or you can use a vendor defined type (0xff) to send any arbitrary data in your advertising payload. 
+
+Standard advertising payload data options include:
+
+- Type: Basic features supported by the peripheral device
+- Local Name: a descriptive name for your peripheral device
+- Service UUIDs: a list of UUIDs supported by your peripheral device
+- Custom data: such as beacon data for iBeacon
+
+While central devices do not advertise, they may scan for devices in range and use their advertising data to determine what to connect to. For example, the heart rate central finds the first heart rate sensor in range and connects to it automatically.
+
+### Scan Response
+
+In addition to the 31 bytes of advertising data, the device doing the scanning can request the scan response data. This does not require authentication, and does not require making a connection. The scan response data is an additional 31 bytes of data the peripheral can return to the scanning device, though it takes an extra set of packets to and from the peripheral.
+
 ### Services
 
 Services are collections of characteristics (roughly, values). There are defined services [listed here](https://www.bluetooth.com/specifications/gatt/services/). For example, the Heart Rate service includes the Heart Rate Measurement characteristic, below.
@@ -45,7 +76,7 @@ Characteristics store a value or set of values in a service. In some cases, a se
 
 In other cases, like the Heart Rate Measurement Characteristic, the characteristic contains flags, a value, and in some cases additional values. The difference is because a heart rate sensor will always want to send out beats per minute, but if it also calculates energy expended, it will want to publish all of the values at the same time in one transaction.
 
-For assigned characteristics, the data will be in a defined format as defined by the Bluetooth SIG. They are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). You can also make custom characteristics, which you self-assign a long UUID.
+For assigned characteristics, the data will be in a defined format as defined by the Bluetooth SIG. They are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). You can also make custom characteristics, which you self-assign an identifier (long UUID).
 
 A characteristic is also assigned a short name. This can also be used to retrieve it, however the names are not standardized so it's usually better to retrieve a characteristic by UUID.
 
@@ -62,7 +93,7 @@ When sending between two Particle Gen 3 devices, the maximum characteristic that
 | 237 bytes | 1753 bytes/sec. |
 | 244 bytes | 1793 bytes/sec. |
 
-Note, however, the most efficient size is a maximum 236 bytes. Above that size, fragmentation occurs which lowers the transfer rate. The size could vary slightly based on other factors.
+Note, however, the most efficient size is a maximum 236 bytes. Above that size, fragmentation occurs which lowers the transfer rate. The maximum efficient size could vary slightly based on other factors.
 
 
 #### Peripheral Characteristics
@@ -118,18 +149,22 @@ The rxCharacteristic has some more parameters. This is because data is received 
 - `onDataReceived` The function that is called when data is received.
 - `NULL` Context pointer. If your data received handler is part of a C++ class, this is a good place to put the class instance pointer (`this`).
 
+The data received handler has this prototype:
+
 ```C++
 void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context)
 ```
 
-The data received handler his this prototype. 
+The 128-bit UUIDs are used for your own custom services and characteristics. These are not assigned by any group. You can use any UUID generator, such as the [online UUID generator](https://www.uuidgenerator.net/) or tools that you run on your computer. There is no central registry; they are statistically unlikely to ever conflict.
+
+A 128-bit (16 byte) UUID is often written like this: `240d5183-819a-4627-9ca9-1aa24df29f18`. It's a series of 32 hexadecimal digits (0-9, a-f) written in a 8-4-4-4-12 pattern. The A-F can be uppercase or lowercase, it is not case-sensitive.
 
 
 #### Central Characteristics
 
 In a BLE central role (behaving like a phone), you typically have a receive handler to be notified when the peripheral updates each characteristic value that you care about.
 
-Declaring variables for central characteristics is usually just assigning a global variable to hold the value:
+Declaring variables for central characteristics is usually just assigning a global variable to hold the value.
 
 ```C++
 BleCharacteristic heartRateMeasurementCharacteristic;
@@ -174,9 +209,29 @@ In the heart rate measurement characteristic:
 - Right after the flag is the BPM value. It's either 8-bit or 16-bit depending on the flag
 - The onDataReceived handler updates the global variables lastRate and updateDisplay as necessary.
 
+The other scenario is where you're sending data from the central node to the peripheral. In this example, the central can connect to multiple peripherals, so it needs to store a separate characteristic for each peripheral device:
+
+```C++
+BlePeerDevice peer = BLE.connect(scanResults[ii].address);
+if (peer.connected()) {
+	Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
+			scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+			scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+
+	// Get the button characteristic
+	buttonCharacteristic[availableButtonIndex] = peer.getCharacteristicByUUID(buttonCharacteristicUuid);
+	peers[availableButtonIndex] = peer;
+}
+else {
+	Log.info("connection failed");
+}
+```
+
 For more information about characteristics, the [Nordic Semiconductor BLE characteristics tutorial](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial) is good.
 
 #### Characteristic Definitions
+
+If you're not interested in decoding arbitrary characteristics, you can skip this section.
 
 In the [characteristics table](https://www.bluetooth.com/specifications/gatt/characteristics/), clicking on a name brings up the definition for the characteristic. It's a little hard to read (it's XML), but from this example you can find some useful facts about the Heart Rate Measurement Characteristic:
 
@@ -316,6 +371,21 @@ In the [characteristics table](https://www.bluetooth.com/specifications/gatt/cha
               </InformativeText>
             <Requirement>C1</Requirement>
             <Format>uint8</Format>
+            <Unit>org.bluetooth.unit.period.beats_per_minute</Unit>           
+        </Field>    
+```
+
+- If the BPM is 16-bits, then this is used instead:
+
+```
+         <Field name="Heart Rate Measurement Value (uint16)">
+              <InformativeText>
+                Note: The format of the Heart Rate Measurement Value field is dependent upon bit 0 of the Flags field.
+              </InformativeText>
+            <Requirement>C2</Requirement>
+            <Format>uint16</Format>
+            <Unit>org.bluetooth.unit.period.beats_per_minute</Unit>           
+        </Field>  
 ```
 
 - Putting this into code, receiving the heart rate data from a BLE heart rate sensor:
@@ -338,35 +408,7 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 }
 ```
 
-### Advertising
-
-Advertising is the process by which a BLE peripheral device broadcasts periodically. This serves two purposes:
-
-- It allows a BLE central device (like a mobile app) to be able to discover the peripheral device.
-- A peripheral device can broadcast continuously as a beacon.
-
-A BLE beacon doesn't require any authentication between the peripheral device and the mobile app - the beacon just continuously outputs data over a short range. A mobile app can look for this data and respond to it. For example, a beacon embedded in a store display might allow a store app to provide additional information about the item, provide a coupon, or customize a store map.
-
-The interval for advertising ranges from 20 milliseconds to 10.24 seconds, though there is a random 0 to 10 millisecond additional delay added. This prevents two devices with the same advertising interval from being stuck transmitting at exactly the same time forever.
-
-The normal fast advertising interval is 100 to 500 milliseconds. For devices where latency is not important and want to reduce power consumption, it could be 1 to 2 seconds. Because of radio congestion and random packet loss, it might take more than one advertising broadcast before the message is received.
-
-The advertising data is small (31 bytes), there is an adversing data type byte. There are some standard types, or you can use a vendor defined type (0xff) to send any arbitrary data in your advertising payload.
-
-Standard advertising payload data options include:
-
-- Type: Basic features supported by the peripheral device
-- Local Name: a descriptive name for your peripheral device
-- Service UUIDs: a list of UUIDs supported by your peripheral device
-- Custom data: such as beacon data for iBeacon
-
-While central devices do not advertise, they may scan for devices in range and use their advertising data to determine what to connect to. For example, the heart rate central finds the first heart rate sensor in range and connects to it automatically.
-
-### Scan Response
-
-In addition to the 31 bytes of advertising data, the device doing the scanning can request the scan response data. This does not require authentication, and does not require making a connection. The scan response data is an additional 31 bytes of data the peripheral can return to the scanning device, though it takes an extra set of packets to and from the peripheral.
-
-## Peripheral Role
+### Peripheral Role
 
 Using your Particle device in a peripheral role allows you to do things like:
 
@@ -375,6 +417,8 @@ Using your Particle device in a peripheral role allows you to do things like:
 - Communicate with a mobile app
 
 There's also a special case of the peripheral role: A **broadcaster** only advertises, and does not accept any connections. 
+
+When in peripheral role the peripheral can advertise to any number of devices, but can only accept a connection from one at a time.
 
 ### Advertising (Peripheral)
 
@@ -411,11 +455,12 @@ void setup() {
 
 	// First AD record is the AD Type
 	uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
-    advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, 1);
+	advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, 1);
 
-    // Add all of the services that we support
+    // While we support both the health thermometer service and the battery service, we
+    // only advertise the health thermometer. The battery service will be found after
+    // connecting.
     advData.appendServiceUUID(healthThermometerService);
-    advData.appendServiceUUID(batteryLevelService);
 
 	// Continuously advertise when not connected
 	BLE.advertise(&advData);
@@ -462,11 +507,46 @@ The parameters for the beacon are:
 - Application UUID ("9c1b8bdc-5548-4e32-8a78-b9f524131206")
 - Power measurement in dBm (-55)
 
-Each beacon should have a different UUID, so you should generate that for each device.
+
+### Central Role
+
+Using your Particle device in a central role allows you to do things like:
+
+- Detect when BLE beacons are nearby
+- Read data from BLE sensors
+
+There's also a special case of the central role: An **observer** only advertises, and does not accept any connections. 
+
+You can connect up to 5 peripheral devices at the same time from the central device.
+
+
+## Examples
 
 ### Body temperature thermometer
 
 For this tutorial I'm using the **nRF Toolbox** mobile app from Nordic Semiconductor. It's free and available for iOS and Android. It has the ability to work with a number of standard BLE sensors which makes it perfect for this tutorial.
+
+
+### Heart rate central
+
+
+### Device Nearby
+
+#### Device Nearby Central
+
+#### Device Nearby Beacon
+
+
+
+### Game show buzzer
+
+This example uses a BLE central device along with two BLE peripheral devices. Each peripheral makes a connection to the central device. When the button is pressed on the peripheral, it sets the status LED of the central to the color of the peripheral.
+
+It also shows how you can deal with multiple peripherals from the central device.
+
+### UART central
+
+### UART peripheral
 
 ### BLE log handler
 
@@ -479,53 +559,22 @@ To see the logs, you use a BLE UART compatible app. Two are:
 - Adafruit Bluefruit app 
 - Nordic BLE UART app
 
-### UART peripheral
 
 
-## Central Role
+### Chrome Web BLE
 
-Using your Particle device in a central role allows you to do things like:
+The Google Chrome browser supports BLE from web pages! There is a very good [Google web BLE tutorial](https://developers.google.com/web/updates/2015/07/interact-with-ble-devices-on-the-web) that explains the details and provides a number of code samples. 
 
-- Detect when BLE beacons are nearby
-- Read data from BLE sensors
+It only works in the Chrome browser; it does not work on Firefox, Safari, Edge, or Internet Explorer. Support for Web BLE is planned for Opera, however. 
 
-There's also a special case of the central role: An **observer** only advertises, and does not accept any connections. 
+You can use it:
 
-
-### Profiles
-
-### Services
-
-### Characteristics
+- In the Android web browser (with Android 7.0 or newer)
+- On Chromebooks
+- In the Chrome web browser on Mac OS X (sometimes)
+- In the Chrome web browser on Windows (sometimes)
 
 
-### Heart rate central
-
-### BLE grill thermometer
-
-BLE devices are relatively standardized, which makes it easy to add support for a new device. I bought this [BLE Grill thermometer](https://www.amazon.com/gp/product/B01LWX9JLI/ref=ppx_yo_dt_b_asin_title_o00_s00) and this section shows how to figure out how to interface with the device. 
-
-I'm using the **BLE Scanner** mobile app from Bluepixel Technologies here. It's free and is available for both iOS and Android and worked well for me.
-
-
-### UART central
-
-
-
-## More Examples
-
-### Device Nearby
-
-#### Device Nearby Central
-
-#### Device Nearby Beacon
-
-
-### Multiple Peripherals
-
-This example uses a BLE central device along with two BLE peripheral devices. Each peripheral makes a connection to the central device. When the button is pressed on the peripheral, it sets the status LED of the central to the color of the peripheral.
-
-It also shows how you can deal with multiple peripherals from the central device.
 
 
 
