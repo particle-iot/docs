@@ -16,7 +16,7 @@ Some common situations where Ethernet is useful include:
 
 - Using a Xenon plus Ethernet FeatherWing as a gateway to the Internet for your Particle mesh network of additional Xenons.
 
-- Using a Particle device an an environment that does not have Wi-Fi, but does have wired Ethernet. This might be the case in industrial situations and factories, for example.
+- Using a Particle device in an environment that does not have Wi-Fi, but does have wired Ethernet. This might be the case in industrial situations and factories, for example.
 
 - Using a Particle device on an Ethernet network with PoE (Power over Ethernet) to both provide networking and powering the device, eliminating the need for many small power adapters.
 
@@ -42,9 +42,9 @@ The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100
 
 ![PoE](/assets/images/poe-2.jpg)
 
-If you attach a LiPo battery to the Argon or Boron, it can be charged by PoE. The devices do not automatically switch between Ethernet and their native network connection (Wi-Fi or Cellular, respectively) at this time, however, if the Ethernet is disconnected.
+If you attach a LiPo battery to the Argon, Boron, or Xenon, it can be charged by PoE. The devices do not automatically switch between Ethernet and their native network connection (Wi-Fi or Cellular, respectively) at this time, however, if the Ethernet is disconnected.
 
-The PoE adapter supplies 1500 mA so it can power most FeatherWing accessories.
+The PoE adapter supplies 1500 mA. This is enough to power any Particle Gen 3 device with some power available to power FeatherWings in the extra FeatherWing socket.
 
 ### Assembling
 
