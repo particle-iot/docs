@@ -378,7 +378,7 @@ By default, you cannot step into the underlying FreeRTOS (real-time operating sy
 "rtos":"FreeRTOS"
 ```
 
-to your launch.json file. This is experimental and may cause the GDB server to crash or malfunction, so it's best to only enable this if necessary.
+to your `launch.json` file. This is experimental and may cause the GDB server to crash or malfunction, so it's best to only enable this if necessary.
 
 
 That is just a brief introduction to debugging. For more information, see the [VS Code Debugging Documentation](https://code.visualstudio.com/docs/editor/debugging).

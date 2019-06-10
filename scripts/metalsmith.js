@@ -217,9 +217,9 @@ exports.metalsmith = function () {
         pattern: 'support/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
+          'general',
           'particle-devices-faq',
           'particle-tools-faq',
-          'pricing',
           'shipping-and-returns',
           'wholesale-store',
           'troubleshooting'

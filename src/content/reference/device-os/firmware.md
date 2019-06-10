@@ -439,6 +439,108 @@ PUBLIC and PRIVATE are mutually exclusive.
 
 Unlike functions and variables, you typically call Particle.publish from loop() (or a function called from loop). 
 
+### Particle.publishVitals()
+
+{{since when="1.2.0"}}
+
+{{#if core}}
+```cpp
+// SYNTAX
+
+system_error_t Particle.publishVitals(system_tick_t period_s = particle::NOW)
+
+Particle.publishVitals();  // Publish vitals immmediately
+Particle.publishVitals(<any value>);  // Publish vitals immediately
+```
+{{/if}}{{#unless core}}
+```cpp
+// SYNTAX
+
+system_error_t Particle.publishVitals(system_tick_t period_s = particle::NOW)
+
+Particle.publishVitals();  // Publish vitals immmediately
+Particle.publishVitals(particle::NOW);  // Publish vitals immediately
+Particle.publishVitals(5);  // Publish vitals every 5 seconds, indefinitely
+Particle.publishVitals(0);  // Publish immediately and cancel periodic publishing
+```
+{{/unless}} {{!-- unless core --}}
+
+Publish vitals information
+
+Provides a mechanism to control the interval at which system diagnostic messages are sent to the cloud. Subsequently, this controls the granularity of detail on the fleet health metrics.
+
+**Argument(s):**
+
+{{#if core}}
+_none._
+{{/if}}{{#unless core}}
+* `period_s` The period _(in seconds)_ at which vitals messages are to be sent to the cloud (default value: `particle::NOW`)
+
+  * `particle::NOW` - A special value used to send vitals immediately
+  * `0` - Publish a final message and disable periodic publishing
+  * `s` - Publish an initial message and subsequent messages every `s` seconds thereafter
+{{/unless}} {{!-- unless core --}}
+
+**Returns:**
+
+A `system_error_t` result code
+
+* `system_error_t::SYSTEM_ERROR_NONE`
+* `system_error_t::SYSTEM_ERROR_IO`
+
+**Examples:**
+
+```cpp
+// EXAMPLE - Publish vitals intermittently
+
+bool condition;
+
+setup () {
+}
+
+loop () {
+  ...  // Some logic that either will or will not set "condition"
+
+  if ( condition ) {
+    Particle.publishVitals();  // Publish vitals immmediately
+  }
+}
+```
+
+{{#unless core}}
+```cpp
+// EXAMPLE - Publish vitals periodically, indefinitely
+
+setup () {
+  Particle.publishVitals(3600);  // Publish vitals each hour
+}
+
+loop () {
+}
+```
+
+```cpp
+// EXAMPLE - Publish vitals each minute and cancel vitals after one hour
+
+size_t start = millis();
+
+setup () {
+  Particle.publishVitals(60);  // Publish vitals each minute
+}
+
+loop () {
+  // Cancel vitals after one hour
+  if (3600000 < (millis() - start)) {
+    Particle.publishVitals(0);  // Publish immediately and cancel periodic publishing
+  }
+}
+```
+{{/unless}} {{!-- unless core --}}
+
+>_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
+
+<div style="margin-left:35px;"><img src="/assets/images/diagnostic-events.png"/></div>
+
 ### Particle.subscribe()
 
 Subscribe to events published by devices.
@@ -3614,6 +3716,8 @@ In some cases you can [increase the charge voltage](#setchargevoltage-) to get a
 
 ## Input/Output
 
+Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
+
 ### pinMode()
 
 `pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
@@ -3880,6 +3984,8 @@ frequency and resolution, but individual pins in the group can have a different 
 
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
+
+Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/hardware/pin-info).
 
 {{/if}} {{!-- has-pwm --}}
 
@@ -4226,18 +4332,94 @@ The frequency range is from 20Hz to 20kHz. Frequencies outside this range will n
 `tone()` does not return anything.
 
 {{#if has-stm32}}
-**NOTE:** the Photon's PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
+**NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
 
-Pin  | TMR3 | TMR4 | TMR5
-:--- | :--: | :--: | :--:
-D0   |      |  x   |  
-D1   |      |  x   |  
-D2   |  x   |      |  
-D3   |  x   |      |  
-A4   |  x   |      |  
-A5   |  x   |      |  
-WKP  |      |      |  x
+Pin  | TMR1 | TMR3 | TMR4 | TMR5
+:--- | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |  
+D1   |      |      |  x   |  
+D2   |      |  x   |      |  
+D3   |      |  x   |      |  
+A4   |      |  x   |      |  
+A5   |      |  x   |      |  
+WKP  |      |      |      |  x
+RX   | x    |      |      |
+TX   | x    |      |      |
+
+On the P1:
+
+Pin  | TMR1 | TMR3 | TMR4 | TMR5
+:--- | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |  
+D1   |      |      |  x   |  
+D2   |      |  x   |      |  
+D3   |      |  x   |      |  
+A4   |      |  x   |      |  
+A5   |      |  x   |      |  
+WKP  |      |      |      |  x
+RX   | x    |      |      |
+TX   | x    |      |      |
+P1S0 |      |  x   |      |
+P1S1 |      |  x   |      | 
+P1S6 |  x   |      |      |
+
+On the Electron and E Series:
+
+Pin  | TMR1 | TMR3 | TMR4 | TMR5 | TMR8
+:--- | :--: | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |      |      |
+D1   |      |      |  x   |      |      |  
+D2   |      |  x   |      |      |      |  
+D3   |      |  x   |      |      |      |  
+A4   |      |  x   |      |      |      |  
+A5   |      |  x   |      |      |      |  
+WKP  |      |      |      |      |  x   |
+RX   | x    |      |      |      |      |
+TX   | x    |      |      |      |      |
+B0   |      |      |      |      |  x   |
+B1   |      |      |      |      |  x   |
+B2   |      |  x   |      |      |      |  
+B3   |      |  x   |      |      |      |  
+C4   |      |      |  x   |      |      |  
+C5   |      |      |  x   |      |      |  
 {{/if}}
+
+{{#if has-nrf52}}
+**NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), different timer numbers must be used to for each frequency:
+
+ On the Argon, Boron, and Xenon:
+
+| Pin  | Timer |
+| :--: | :---: |
+| A0   | PWM2  |  
+| A1   | PWM2  |
+| A2   | PWM2  |
+| A3   | PWM2  | 
+| A4   | PWM3  |
+| A5   | PWM3  | 
+| D2   | PWM3  | 
+| D3   | PWM3  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+| D8   | PWM1  |
+
+On the B Series SoM:
+
+| Pin  | Timer |
+| :--: | :---: |
+| A0   | PWM2  |  
+| A1   | PWM2  |
+| A6   | PWM2  |
+| A7   | PWM2  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+
+{{/if}}
+
+
+Additional information on which pins can be used for tone() is available on the [pin information page](/reference/hardware/pin-info).
 
 
 ```C++
@@ -6092,10 +6274,18 @@ be used via the `SPI` object, are mapped as follows:
 * `MOSI` => `A5`
 {{/if}}
 {{#if has-nrf52}}
-* `SS` => `D14` (but can use any available GPIO)
+On the Argon, Boron, and Xenon:
+* `SS` => `A5 (D14)` (but can use any available GPIO)
 * `SCK` => `SCK (D13)`
 * `MISO` => `MISO (D11)`
 * `MOSI` => `MOSI (D12)`
+
+On the B Series SoM:
+* `SS` => `D8` (but can use any available GPIO)
+* `SCK` => `SCK (D13)`
+* `MISO` => `MISO (D11)`
+* `MOSI` => `MOSI (D12)`
+
 {{/if}}
 
 {{#if has-multiple-spi}}
@@ -6161,12 +6351,19 @@ SPI2.begin(ss);
 {{/if}}
 ```
 
-Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is:
+- Argon, Boron, Xenon: `A5 (D14)`
+- B Series SoM: `D8`
+- Photon, P1, Electron, and E Series: `A2`
+{{#if core}}
+- Gen 1 (Core): `A2`
+{{/if}} {{!-- core --}}
 {{#if has-multiple-spi}}
-For `SPI1`, the default `ss` pin is `SS (D5)`.
+For `SPI1`, the default `ss` pin is `D5`.
 {{#if electron}}
-For `SPI2`, the default `ss` pin is also `SS (D5)`.
-{{/if}}
+For `SPI2`, the default `ss` pin is also `D5`.
+{{/if}} {{!-- electron --}}
+{{/if}} {{!-- has-multiple-spi --}}
 
 ```C++
 // Example using SPI1, with D5 as the SS pin:
@@ -6195,10 +6392,21 @@ Initializes the {{device}} SPI peripheral in master or slave mode.
 Parameters:
 
 - `mode`: `SPI_MODE_MASTER` or `SPI_MODE_SLAVE`
-- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is `SS (A2)`. For `SPI1`, the default pin is `SS (D5)`. {{#if electron}}For `SPI2`, the default pin is also `SS (D5)`.{{/if}}
+- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is:
+- Argon, Boron, Xenon: `A5 (D14)`
+- B Series SoM: `D8`
+- Photon, P1, Electron, and E Series: `A2`
+{{#if core}}
+- Gen 1 (Core): `A2`
+{{/if}}
+{{#if has-multiple-spi}}
+For `SPI1`, the default `ss` pin is `D5`.
+{{#if electron}}
+For `SPI2`, the default `ss` pin is also `D5`.
+{{/if}}
 
 ```C++
-// Example using SPI in master mode, with A2 (default) as the SS pin:
+// Example using SPI in master mode, with the default SS pin:
 SPI.begin(SPI_MODE_MASTER);
 {{#if has-multiple-spi}}
 // Example using SPI1 in slave mode, with D5 as the SS pin
@@ -6209,6 +6417,10 @@ SPI2.begin(SPI_MODE_SLAVE, C0);
 {{/if}}
 {{/if}}
 ```
+
+{{#if has-nrf52}}
+Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. It is not supported on SPI. The maximum speed is 8 MHz on SPI1.
+{{/if}}
 
 {{/if}} {{!-- has-spi-slave --}}
 
@@ -6283,6 +6495,11 @@ the clock speed using dividers is typically not portable since is dependent upon
 On the Raspberry Pi, the default SPI clock is 4 MHz.
 {{/if}}
 
+{{#if has-nrf52}}
+Gen 3 devices (Argon, Boron, and Xenon) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
+{{/if}}
+
+
 ### setClockDividerReference
 
 This function aims to ease porting code from other platforms by setting the clock speed that
@@ -6314,11 +6531,17 @@ On the Core, this is 72 MHz.
 {{#if raspberry-pi}}
 On the Raspberry Pi, this is 64 MHz.
 {{else}}
+{{#if has-stm32}}
 On the Photon and Electron, the system clock speeds are:
 - SPI - 60 MHz
 - SPI1 - 30 MHz
 {{/if}}
-{{/if}}
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, Xenon), system clock speed is 64 MHz.
+{{/if}} {{!-- has-nrf52 --}}
+{{/if}} {{!-- else raspberry-pi --}}
+{{/if}} {{!-- else core --}}
+
 
 
 ### setClockDivider()
@@ -6345,6 +6568,25 @@ Where the parameter, `divider` can be:
  - `SPI_CLOCK_DIV64`
  - `SPI_CLOCK_DIV128`
  - `SPI_CLOCK_DIV256`
+
+The clock reference varies depending on the device.
+
+{{#if core}}
+On the Core, the clock reference is 72 MHz.
+{{else}}
+{{#if raspberry-pi}}
+On the Raspberry Pi, the clock reference is 64 MHz.
+{{else}}
+{{#if has-stm32}}
+On the Photon and Electron, the clock reference is 120 MHz.
+{{/if}}
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, Xenon), the clock reference is 64 MHz.
+{{/if}} {{!-- has-nrf52 --}}
+{{/if}} {{!-- else raspberry-pi --}}
+{{/if}} {{!-- else core --}}
+
+
 
 ### setDataMode()
 
@@ -6426,6 +6668,10 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 
 Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
 
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
+{{/if}} {{!-- has-nrf52 --}}
+
 ```C++
 // SYNTAX
 SPI.onSelect(myFunction);
@@ -6443,6 +6689,7 @@ void myFunction(uint8_t state) {
 
 Parameters: `handler`: the function to be called when the slave is selected or deselected; this should take a single uint8_t parameter (the current state: `1` - selected, `0` - deselected) and return nothing, e.g.: `void myHandler(uint8_t state)`
 
+{{#if has-stm32}}
 ```C++
 // SPI slave example
 static uint8_t rx_buffer[64];
@@ -6488,6 +6735,55 @@ void loop() {
     }
 }
 ```
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+```C++
+// SPI slave example
+static uint8_t rx_buffer[64];
+static uint8_t tx_buffer[64];
+static uint32_t select_state = 0x00;
+static uint32_t transfer_state = 0x00;
+
+void onTransferFinished() {
+    transfer_state = 1;
+}
+
+void onSelect(uint8_t state) {
+    if (state)
+        select_state = state;
+}
+
+/* executes once at startup */
+void setup() {
+    Serial.begin(9600);
+    for (int i = 0; i < sizeof(tx_buffer); i++)
+      tx_buffer[i] = (uint8_t)i;
+    SPI1.onSelect(onSelect);
+    SPI1.begin(SPI_MODE_SLAVE, A5);
+}
+
+/* executes continuously after setup() runs */
+void loop() {
+    while (1) {
+        while(select_state == 0);
+        select_state = 0;
+
+        transfer_state = 0;
+        SPI1.transfer(tx_buffer, rx_buffer, sizeof(rx_buffer), onTransferFinished);
+        while(transfer_state == 0);
+        if (SPI1.available() > 0) {
+            Serial.printf("Received %d bytes", SPI.available());
+            Serial.println();
+            for (int i = 0; i < SPI.available(); i++) {
+                Serial.printf("%02x ", rx_buffer[i]);
+            }
+            Serial.println();
+        }
+    }
+}
+```
+{{/if}} {{!-- has-nrf52 --}}
 
 ### available()
 
@@ -9672,7 +9968,7 @@ Not supported on the Photon (you can't use attachInterrupt on these pins):
 
 No restrictions on the Photon (all of these can be used at the same time):
 
-  - D5, D6, D7, A2, A6, WKP, TX, RX
+  - D5, D6, D7, A2, WKP, TX, RX
 
 Shared on the Photon (only one pin for each bullet item can be used at the same time):
 
@@ -9693,7 +9989,7 @@ Not supported on the P1 (you can't use attachInterrupt on these pins):
 
 No restrictions on the P1 (all of these can be used at the same time):
 
-  - D5, D6, A2, A6, TX, RX
+  - D5, D6, A2, TX, RX
 
 Shared on the P1 (only one pin for each bullet item can be used at the same time):
 
@@ -9716,7 +10012,7 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
 
 No restrictions on the Electron/E series (all of these can be used at the same time):
 
-  - D5, D6, A6
+  - D5, D6
 
 Shared on the Electron/E series (only one pin for each bullet item can be used at the same time):
 
@@ -9737,6 +10033,8 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
 Interrupts supported on D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7 only.
 {{/if}}
 {{/if}} {{!-- has-stm32 --}}
+
+Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/hardware/pin-info).
 
 ```
 // SYNTAX
@@ -15441,6 +15739,9 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v1.2.x prereleases|[v1.2.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.0-beta.1)|-|-|-|-|-|-|
+|v1.1.x default releases|[v1.1.0](https://github.com/particle-iot/device-os/releases/tag/v1.1.0)|-|-|-|-|-|-|
+|v1.1.x prereleases|[v1.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.1.0-rc.1)|[v1.1.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.1.0-rc.2)|-|-|-|-|-|
 |v1.0.x default releases|[v1.0.0](https://github.com/particle-iot/device-os/releases/tag/v1.0.0)|[v1.0.1](https://github.com/particle-iot/device-os/releases/tag/v1.0.1)|-|-|-|-|-|
 |v1.0.x prereleases|[v1.0.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.0.1-rc.1)|-|-|-|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.10](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.10)|[v0.8.0-rc.11](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.11)|[v0.8.0-rc.12](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.12)|[v0.8.0-rc.14](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.14)|-|-|-|
@@ -15459,6 +15760,10 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v1.2.x prereleases|[v1.2.0-beta.1](/reference/device-os/firmware/photon/?fw_ver=1.2.0-beta.1&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v1.1.x default releases|[v1.1.0](/reference/device-os/firmware/photon/?fw_ver=1.1.0&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v1.0.x prereleases|[v1.0.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1-rc.1&cli_ver=1.38.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v1.1.x prereleases|[v1.1.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.1.0-rc.1&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|[v1.1.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.1.0-rc.2&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)-|-|-|-|
 |v1.0.x default releases|[v1.0.0](/reference/device-os/firmware/photon/?fw_ver=1.0.0&cli_ver=1.37.0&electron_parts=3#programming-and-debugging-notes)|[v1.0.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1&cli_ver=1.39.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v1.0.x prereleases|[v1.0.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1-rc.1&cli_ver=1.38.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.10](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.10&cli_ver=1.33.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.11](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.11&cli_ver=1.35.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.12](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.12&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.14](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.14&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|
@@ -15473,6 +15778,8 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v1.41.0 = 1.1.0
+v1.40.0 = 1.1.0-rc.1, 1.1.0-rc.2, 1.2.0-beta.1
 v1.39.0 = 1.0.1
 v1.38.0 = 1.0.1-rc.1
 v1.37.0 = 1.0.0
@@ -15564,6 +15871,10 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.38.0endif
 ##### @CLI_VER@1.39.0if
 ##### @CLI_VER@1.39.0endif
+##### @CLI_VER@1.40.0if
+##### @CLI_VER@1.40.0endif
+##### @CLI_VER@1.41.0if
+##### @CLI_VER@1.41.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if

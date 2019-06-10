@@ -58,17 +58,17 @@ These pins are intended to be connected across using removable two-pin jumpers t
 
 | Feature | Feature Pin | SoM Pin | B Series Pin |
 | :---: | :---: | :---: | :---: |
-| MicroSD | TF_MI | MISO | MISO |
-| | TF_CK | SCK | SCK |
-| | TF_MO | MOSI | MOSI |
-| | TF_CS | GPIO1 | D23 |
-| | TF_DET | PWM2 | D6 |
+| MicroSD | SD_MI | MISO | MISO |
+| | SD_CK | SCK | SCK |
+| | SD_MO | MOSI | MOSI |
+| | SD_CS | GPIO1 | D23 |
+| | SD_DET | PWM2 | D6 |
 | SIM | SIM_DATA | SOM8 |  |
 | | SIM_CLK | SOM7 |  |
 | | SIM_RST | SOM6 |  |
 | | SIM_VCC | SOM5 |  |
-| D7 LED | USER | PWM3 | D7 |
 | | SOM9 | SOM9 |  |
+| D7 LED | USER | PWM3 | D7 |
 | | GND | GND | GND |
 
 While there is an external SIM card connector and jumpers on the evaluation board, the B Series B402 SoM does not support using a 3rd-party SIM card.
@@ -84,14 +84,14 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | | UB\_USB\_N | UB\_USB\_N | u-blox USB | 
 | | UB\_USB\_P | UB\_USB\_N | | 
 | | USB\_DET | UB\_VBUS |  |  | 
-| D8 | CS | W5500_CS | Ethernet |
-| SCK | SCK | W5500_CLK | |
-| MISO | MISO | W5500_MISO | |
-| MOSI | MOSI | W5500_MOSI | |
-| D22 | GPIO0 | W5500_INT | |
-| A6 | ADC6 | FUEL\_INT | Fuel Gauge |
-| D0 | SDA | BQ24195\_SDA | PMIC |
-| D1 | SCL | BQ24195\_SCL | PMIC |
+| D8 | CS | ETH\_CS | Ethernet |
+| SCK | SCK | ETH\_CLK | |
+| MISO | MISO | ETH\_MISO | |
+| MOSI | MOSI | ETH\_MOSI | |
+| D22 | GPIO0 | ETH\_INT | |
+| A6 | ADC6 | PM\_INT | Fuel Gauge & PMIC |
+| D0 | SDA | PM\_SDA | PMIC |
+| D1 | SCL | PM\_SCL | PMIC |
  
 
 ### Power Jumpers
@@ -172,11 +172,17 @@ The basic setup for the B series to be operational is shown below:
 
 To use the bq24195 PMIC and MAX17043 fuel gauge you must add the jumpers:
 
-- ADC6 to FUEL_INT
-- SDA to BQ24195_SDA
-- SCL to BQ24195_SCL
+- ADC6 to PM\_INT
+- SDA to PM\_SDA
+- SCL to PM\_SCL
 
 There is support for it in Device OS so you don't need to add any additional configuration.
+
+| PMIC | nRF52 Pin | SoM Pin | SoM Pin Number |
+| :---: | :---: |  :---: |  :---: | 
+| PM\_INT | P0.05 | A6 | 45 |
+| PM\_SDA | P1.13 | D0 | 22 |
+| PM\_SCL | P1.15 | D1 | 20 |
 
 ---
 
@@ -194,17 +200,52 @@ You will normally use this with the [SdFat](https://build.particle.io/libs/SdFat
 
 With the jumpers installed, it will use the primary SPI and pin D23 as the chip select.
 
+| Micro SD | nRF52 Pin | SoM Pin | SoM Pin Number |
+| :---: | :---: |  :---: |  :---: | 
+| SD\_MISO | P1.14 | D11 | 11 |
+| SD\_SCK | P1.15 | D13 | 13 |
+| SD\_MOSI | P1.13 | D12 | 12 |
+| SD\_CS | P1.03 | D8 | 48 |
+| SD\_DET | P1.1 | D6 | 70 |
+
+
 ### Using Ethernet
 
 To use Ethernet, you must add the jumpers:
 
-- CS to W5500_CS
-- SCK to W5500_CLK
-- MISO to W5500_MISO
-- MOSI to W5500_MOSI
-- GPIO0 to W5500_INT
+- CS to ETH\_CS
+- SCK to ETH\_SCK
+- MISO to ETH\_MISO
+- MOSI to ETH\_MOSI
+- GPIO0 to ETH\_INT
 
 With the jumpers installed, it will use the primary SPI and pins D8 as the chip select and D22 as the interrupt pin.
+
+| W5500 | nRF52 Pin | SoM Pin | SoM Pin Number |
+| :---: | :---: |  :---: |  :---: | 
+| CS | P1.03 | D8 | 48 |
+| SCK | P1.15 | D13 | 13
+| MISO | P1.14 | D11 | 11 |
+| MOSI | P1.13 | D12 | 12
+| RST_N | P0.02 | A7 (D20) | 47 |
+| INT_N | P0.24 | D22 | 62 |
+
+### Using the Grove Connectors
+
+| J11 | nRF52 Pin | SoM Pin | SoM Pin Number |
+| :---: | :---: |  :---: |  :---: | 
+| GND | | | |
+| 3V3 | | | |
+| ADC2 | P0.28 | A2 | 35 |
+| ADC1 | P0.04 | A1 | 33 |
+
+| J10 | nRF52 Pin | SoM Pin | SoM Pin Number |
+| :---: | :---: |  :---: |  :---: | 
+| GND | | | |
+| 3V3 | | | |
+| SDA | P1.13 | D0 | 22 |
+| SCL | P1.15 | D1 | 20 |
+
 
 
 ## Evaluation Board Schematics

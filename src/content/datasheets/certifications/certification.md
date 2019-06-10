@@ -410,6 +410,11 @@ Particle has completed TELEC certification to achieve compliance with Japanese R
 - [Test Report BLE](/assets/pdfs/argon-jrl-ble-test-report.pdf)
 - [Test Report Wi-Fi](/assets/pdfs/argon-jrl-wifi-test-report.pdf)
 
+#### Boron 2G/3G
+
+- [JRL 38.24.1 Certificate of Conformity](/assets/pdfs/boron310-jrl.pdf)
+- [Test Report](/assets/pdfs/boron310-jrl-ble-test-report.pdf)
+
 #### Xenon
 
 - [JRL 38.24.1 Certificate of Conformity](/assets/pdfs/xenon-jrl.pdf)

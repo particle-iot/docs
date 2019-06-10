@@ -4315,14 +4315,14 @@
 			"label":"Hardware timer",
 			"searchable":true,
 			"sortable":true,
-			"showInSearch":["all","analogWritePWM","tone"]
+			"showInSearch":["all","analogWritePWM","tone","hardwareTimer"]
 		},
 		{
 			"tag":"hardwareADC",
 			"label":"Hardware ADC",
 			"searchable":true,
 			"sortable":true,
-			"showInSearch":["all","analogRead"]
+			"showInSearch":["all","analogRead","hardwareADC"]
 		},
 		{
 			"tag":"modulePinNumber",

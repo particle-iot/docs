@@ -453,9 +453,11 @@ The holes marked "A5" and "A0" are misaligned with the headers of the Electron, 
 
 This example uses the same setup as the LED control example to make a `Particle.function`. This time, though, we're going to add a sensor.
 
+{{#if has-mesh}}
 For a short (~4 min) overview of this project, watch the video below.
 
 <iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/iE5ALWSZCis" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{/if}}
 
 {{#if has-mesh}}
 We will get a value from a photo transistor and store it in the cloud. The photo transistor and a clear LED look similar, but the LED has rounded top and the photo transistor has a flat top.
