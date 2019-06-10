@@ -9,7 +9,7 @@ layout: tutorials.hbs
 
 ## Introduction
 
-Gen 3 devices (Argon, Boron, Xenon) have an nRF52840 MCU that supports Bluetooth 5. It's used to configure your device from the Particle mobile apps for iOS and Android, and Bluetooth LE (BLE) can be used in your firmware to communicate with other devices that support BLE.
+Gen 3 devices (Argon, Boron, Xenon) have an nRF52840 MCU that supports Bluetooth 5. It's used to configure your device from the Particle mobile apps for iOS and Android, and Bluetooth LE (BLE) can be used in your firmware to communicate with other devices that support BLE. 
 
 Particle devices support both the peripheral and central roles:
 
@@ -20,7 +20,9 @@ BLE is intended for low data rate sensor applications. Particle devices do not s
 
 The mesh networking in Gen 3 devices is Thread Mesh (6LoWPAN over 802.15.4). While it uses the same 2.4 GHz radio spectrum as Bluetooth 5 mesh, they are different and not compatible. Particle devices do not support Bluetooth 5 mesh.
 
-The BLE protocol shares the same antenna as the mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one.
+The BLE protocol shares the same antenna as the mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
+
+The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
 
 A good introduction to BLE can be found in the [Adafruit tutorial](https://learn.adafruit.com/introduction-to-bluetooth-low-energy/introduction).
 
@@ -49,14 +51,14 @@ Standard advertising payload data options include:
 
 - Type: Basic features supported by the peripheral device
 - Local Name: a descriptive name for your peripheral device
-- Service UUIDs: a list of UUIDs supported by your peripheral device
+- Service UUID: UUIDs supported by your peripheral device
 - Custom data: such as beacon data for iBeacon
 
 While central devices do not advertise, they may scan for devices in range and use their advertising data to determine what to connect to. For example, the heart rate central finds the first heart rate sensor in range and connects to it automatically.
 
 ### Scan Response
 
-In addition to the 31 bytes of advertising data, the device doing the scanning can request the scan response data. This does not require authentication, and does not require making a connection. The scan response data is an additional 31 bytes of data the peripheral can return to the scanning device, though it takes an extra set of packets to and from the peripheral.
+In addition to the 31 bytes of advertising data, the device doing the scanning can request the scan response data. This does not require authentication, and does not require making a connection. The scan response data is an additional 31 bytes of data the peripheral can return to the scanning device, though it takes an extra set of packets to and from the peripheral to request and receive it.
 
 ### Services
 
@@ -121,7 +123,7 @@ BleCharacteristic batteryLevelCharacteristic("bat", BleCharacteristicProperty::N
 
 In this case, there are two services, health thermometer (0x1809) and battery level (0x180f). Each service has one characteristic.
 
-For the health thermometer service, only one characteristic is defined, the temperature measurement characteristic (0x2a1c). A few things about this characteristic:
+For the health thermometer service, only one characteristic is advertised, the temperature measurement characteristic (0x2a1c). A few things about this characteristic:
 
 - Its short name is "temp" (temperature)
 - It is a NOTIFY characteristic - the peripheral periodically sends out the value
@@ -418,7 +420,7 @@ Using your Particle device in a peripheral role allows you to do things like:
 
 There's also a special case of the peripheral role: A **broadcaster** only advertises, and does not accept any connections. 
 
-When in peripheral role the peripheral can advertise to any number of devices, but can only accept a connection from one at a time.
+When in peripheral role the peripheral can advertise to any number of devices, but can only accept a connection from one at a time. A device can also only be a peripheral or central, not both at the same time.
 
 ### Advertising (Peripheral)
 
@@ -526,16 +528,422 @@ You can connect up to 5 peripheral devices at the same time from the central dev
 
 For this tutorial I'm using the **nRF Toolbox** mobile app from Nordic Semiconductor. It's free and available for iOS and Android. It has the ability to work with a number of standard BLE sensors which makes it perfect for this tutorial.
 
+Flash this code to a Gen 3 device:
+
+```C++
+#include "Particle.h"
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+const unsigned long UPDATE_INTERVAL_MS = 2000;
+unsigned long lastUpdate = 0;
+
+float getTempC();
+uint32_t ieee11073_from_float(float temperature);
+
+// The "Health Thermometer" service is 0x1809.
+// See https://www.bluetooth.com/specifications/gatt/services/
+BleUuid healthThermometerService(BLE_SIG_UUID_HEALTH_THERMONETER_SVC);
+
+// We're using a well-known characteristics UUID. They're defined here:
+// https://www.bluetooth.com/specifications/gatt/characteristics/
+// The temperature-measurement is 16-bit UUID 0x2A1C
+BleCharacteristic temperatureMeasurementCharacteristic("temp", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A1C), healthThermometerService);
+
+// The battery level service allows the battery level to be monitored
+BleUuid batteryLevelService(BLE_SIG_UUID_BATTERY_SVC);
+
+// The battery_level characteristic shows the battery level of
+BleCharacteristic batteryLevelCharacteristic("bat", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A19), batteryLevelService);
+
+
+// We don't actually have a thermometer here, we just randomly adjust this value
+float lastValue = 37.0; // 98.6 deg F;
+
+uint8_t lastBattery = 100;
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
+
+	BLE.addCharacteristic(temperatureMeasurementCharacteristic);
+
+	BLE.addCharacteristic(batteryLevelCharacteristic);
+    batteryLevelCharacteristic.setValue(&lastBattery, 1);
+
+	BleAdvertisingData advData;
+
+	// First AD record is the flags
+	uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+    advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, sizeof(flagsValue));
+
+    // While we support both the health thermometer service and the battery service, we
+    // only advertise the health thermometer. The battery service will be found after
+    // connecting.
+    advData.appendServiceUUID(healthThermometerService);
+
+	// Continuously advertise when not connected
+	BLE.advertise(&advData);
+}
+
+void loop() {
+	if (millis() - lastUpdate >= UPDATE_INTERVAL_MS) {
+		lastUpdate = millis();
+
+	    if (BLE.connected()) {
+	    	uint8_t buf[6];
+
+	    	// The Temperature Measurement characteristic data is defined here:
+	    	// https://www.bluetooth.com/wp-content/uploads/Sitecore-Media-Library/Gatt/Xml/Characteristics/org.bluetooth.characteristic.temperature_measurement.xml
+
+	    	// First byte is flags. We're using Celsius (bit 0b001 == 0), no timestamp (bit 0b010 == 0), with temperature type (bit 0b100), so the flags are 0x04.
+	    	buf[0] = 0x04;
+
+	    	// Value is a ieee11073 floating point number
+	    	uint32_t value = ieee11073_from_float(getTempC());
+	    	memcpy(&buf[1], &value, 4);
+
+	    	// TempType is a constant for where the sensor is sensing:
+	    	// <Enumeration key="1" value="Armpit" />
+	    	// <Enumeration key="2" value="Body (general)" />
+	    	// <Enumeration key="3" value="Ear (usually ear lobe)" />
+	    	// <Enumeration key="4" value="Finger" />
+	    	// <Enumeration key="5" value="Gastro-intestinal Tract" />
+	    	// <Enumeration key="6" value="Mouth" />
+	    	// <Enumeration key="7" value="Rectum" />
+	    	// <Enumeration key="8" value="Toe" />
+	    	// <Enumeration key="9" value="Tympanum (ear drum)" />
+	    	buf[5] = 6; // Mouth
+
+            temperatureMeasurementCharacteristic.setValue(buf, sizeof(buf));
+
+            // The battery starts at 100% and drops to 10% then will jump back up again
+            batteryLevelCharacteristic.setValue(&lastBattery, 1);
+            if (--lastBattery < 10) {
+            	lastBattery = 100;
+            }
+	    }
+	}
+}
+
+float getTempC() {
+	// Adjust this by a little bit each check so we can see it change
+	if (rand() > (RAND_MAX / 2)) {
+		lastValue += 0.1;
+	}
+	else {
+		lastValue -= 0.1;
+	}
+
+	return lastValue;
+}
+
+uint32_t ieee11073_from_float(float temperature) {
+	// This code is from the ARM mbed temperature demo:
+	// https://github.com/ARMmbed/ble/blob/master/ble/services/HealthThermometerService.h
+	// I'm pretty sure this only works for positive values of temperature, but that's OK for the health thermometer.
+	uint8_t  exponent = 0xFE; // Exponent is -2
+	uint32_t mantissa = (uint32_t)(temperature * 100);
+
+	return (((uint32_t)exponent) << 24) | mantissa;
+}
+```
+
+- Run the **NRF Toolbox** app on your mobile phone. 
+- Tap **HTM** (Health Thermometer)
+- Tap **CONNECT**.
+- Select your Particle device. For example, mine is **Argon-WVY6DG**.
+
+![BLE Thermometer](/assets/images/ble-thermometer.jpg)
 
 ### Heart rate central
+
+This example reads a BLE heart rate sensor (chest band). There are many of these, but I tested with [this one from Amazon](https://www.amazon.com/gp/product/B074CVB4W3/ref=ppx_yo_dt_b_asin_title_o07_s00), which cost around US$44.
+
+I also used and Adafruit FeatherWing OLED Display 128x32. You can purchase one from the [Particle Store](https://store.particle.io/collections/accessories) or from [Adafruit](https://www.adafruit.com/product/2900). You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).
+
+Both the Argon (in my case, though it works with all Particle Gen 3 devices) and the display are plugged into an Adafruit FeatherWing Doubler. The Doubler is available from [Adafruit](https://www.adafruit.com/product/2890).
+
+![Heart Rate Display](/assets/images/ble-heart-display.jpg);
+
+The code requires the oled-wing-adafruit library:
+
+```
+dependencies.oled-wing-adafruit=0.0.5
+```
+
+And the following code:
+
+```C++
+#include "Particle.h"
+
+#include "oled-wing-adafruit.h"
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+const size_t SCAN_RESULT_MAX = 30;
+
+BleCharacteristic heartRateMeasurementCharacteristic;
+
+
+BleScanResult scanResults[SCAN_RESULT_MAX];
+BlePeerDevice peer;
+OledWingAdafruit display;
+uint16_t lastRate = 0;
+bool updateDisplay = false;
+
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
+
+	display.setup();
+	display.clearDisplay();
+	display.display();
+
+	heartRateMeasurementCharacteristic.onDataReceived(onDataReceived, NULL);
+}
+
+void loop() {
+	display.loop();
+
+	if (updateDisplay) {
+		updateDisplay = false;
+
+		char buf[32];
+		display.clearDisplay();
+		display.setTextSize(4);
+		display.setTextColor(WHITE);
+		display.setCursor(0,0);
+		snprintf(buf, sizeof(buf), "%d", lastRate);
+		display.println(buf);
+		display.display();
+	}
+
+	if (BLE.connected()) {
+		// We're currently connected to a sensor
+	}
+	else {
+		// We are not connected to a sensor, scan for one
+		display.clearDisplay();
+		display.display();
+
+		int count = BLE.scan(scanResults, SCAN_RESULT_MAX);
+
+	    for (int ii = 0; ii < count; ii++) {
+			uint8_t buf[BLE_MAX_ADV_DATA_LEN];
+			size_t len;
+
+			// We're looking for devices that have a heart rate service (0x180D)
+			len = scanResults[ii].advertisingData.get(BleAdvertisingDataType::SERVICE_UUID_16BIT_COMPLETE, buf, BLE_MAX_ADV_DATA_LEN);
+			if (len > 0) {
+				//
+				for(size_t jj = 0; jj < len; jj += 2) {
+					if (*(uint16_t *)&buf[jj] == BLE_SIG_UUID_HEART_RATE_SVC) { // 0x180D
+						// Found a device with a heart rate service
+
+						Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
+								scanResults[ii].rssi,
+								scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+								scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+
+						peer = BLE.connect(scanResults[ii].address);
+						if (peer.connected()) {
+							Log.info("successfully connected!");
+
+							// Get the heart rate measurement characteristic
+							heartRateMeasurementCharacteristic = peer.getCharacteristicByUUID(BleUuid(0x2a37));
+						}
+						else {
+							Log.info("connection failed");
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
+    uint8_t flags = data[0];
+
+    uint16_t rate;
+    if (flags & 0x01) {
+    	// Rate is 16 bits
+    	memcpy(&rate, &data[1], sizeof(uint16_t));
+    }
+    else {
+    	// Rate is 8 bits (normal case)
+    	rate = data[1];
+    }
+    if (rate != lastRate) {
+    	lastRate = rate;
+    	updateDisplay = true;
+    }
+
+    Log.info("heart rate=%u", rate);
+}
+```
+
+- Put on your heart rate monitor.
+- Flash the code to your Particle device.
+- It should automatically detect the heart rate monitor and display your BPM on the display.
+
+There is additional debugging information provided by USB serial debugging, for example using `particle serial monitor`.
 
 
 ### Device Nearby
 
+In this demo you have an central device and two or more peripheral devices. Each peripheral is assigned a color (red, green, blue, yellow, or magenta). As you wander closer and farther away from the central device, the peripheral with the strongest signal will show that color on the central status LED.
+
 #### Device Nearby Central
+
+```C++
+#include "Particle.h"
+
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+const size_t SCAN_RESULT_MAX = 30;
+
+BleScanResult scanResults[SCAN_RESULT_MAX];
+LEDStatus ledOverride(RGB_COLOR_WHITE, LED_PATTERN_SOLID, LED_SPEED_NORMAL, LED_PRIORITY_IMPORTANT);
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
+}
+
+void loop() {
+	// Only scan for 500 milliseconds
+	BLE.setScanTimeout(50);
+    int count = BLE.scan(scanResults, SCAN_RESULT_MAX);
+
+    uint32_t curColorCode;
+    int curRssi = -999;
+
+    for (int ii = 0; ii < count; ii++) {
+		uint8_t buf[BLE_MAX_ADV_DATA_LEN];
+		size_t len;
+
+		// When getting a specific AD Type, the length returned does not include the length or AD Type so len will be one less
+		// than what we put in the beacon code, because that includes the AD Type.
+		len = scanResults[ii].advertisingData.get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
+		if (len == 7) {
+			// We have manufacturer-specific advertising data (0xff) and it's 7 bytes (without the AD type)
+
+			// Byte: BLE_SIG_AD_TYPE_MANUFACTURER_SPECIFIC_DATA (0xff)
+			// 16-bit: Company ID (0xffff)
+			// Byte: Internal packet identifier (0x55)
+			// 32-bit: Color code
+
+			if (buf[0] == 0xff && buf[1] == 0xff && buf[2] == 0x55) {
+				// Company ID and internal packet identifier match
+
+				uint32_t colorCode;
+				memcpy(&colorCode, &buf[3], 4);
+
+				Log.info("colorCode: 0x%lx rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
+						colorCode, scanResults[ii].rssi,
+						scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+						scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+
+				if (scanResults[ii].rssi > curRssi) {
+					// Show whatever device has the strongest signal
+					curRssi = scanResults[ii].rssi;
+					curColorCode = colorCode;
+				}
+			}
+		}
+	}
+    if (curRssi != -999) {
+    	ledOverride.setColor(curColorCode);
+    	ledOverride.setActive(true);
+    }
+    else {
+    	ledOverride.setActive(false);
+    }
+}
+```
 
 #### Device Nearby Beacon
 
+```C++
+#include "Particle.h"
+
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+const uint32_t myColor = 0xff0000;
+// 0xff0000 = red
+// 0x00ff00 = green
+// 0x0000ff = blue
+
+void setAdvertisingData();
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
+
+	setAdvertisingData();
+}
+
+void loop() {
+
+}
+
+void setAdvertisingData() {
+	uint8_t buf[BLE_MAX_ADV_DATA_LEN];
+
+	// Advertising data consists of records:
+	// Byte: Length (including the AD Type)
+	// Byte: AD Type
+	// Data (variable length)
+	size_t offset = 0;
+
+	// First AD record is the AD Type
+    buf[offset++] = 0x02; // Length
+    buf[offset++] = BLE_SIG_AD_TYPE_FLAGS;
+    buf[offset++] = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+
+	// In our specific case, we use manufacturer specific data (0xff)
+
+    // Byte: Length
+    // Byte: BLE_SIG_AD_TYPE_MANUFACTURER_SPECIFIC_DATA (0xff)
+    // 16-bit: Company ID (0xffff)
+    // Byte: Internal packet identifier (0x55)
+    // 32-bit: Color code
+	buf[offset++] = 8; // Length
+	buf[offset++] = BLE_SIG_AD_TYPE_MANUFACTURER_SPECIFIC_DATA;
+
+	// Company ID (0xffff internal use/testing)
+	buf[offset++] = 0xff;
+	buf[offset++] = 0xff;
+
+	// Internal packet type
+	buf[offset++] = 0x55;
+
+	// Our specific data, color code
+	memcpy(&buf[offset], &myColor, 4);
+	offset += 4;
+
+	BleAdvertisingData advData;
+	advData.set(buf, offset);
+
+	// Advertise every 100 milliseconds. Unit is 0.625 millisecond intervals.
+	BLE.setAdvertisingInterval(130);
+
+	// Continuously advertise
+	BLE.advertise(&advData);
+}
+
+```
 
 
 ### Game show buzzer
@@ -544,9 +952,311 @@ This example uses a BLE central device along with two BLE peripheral devices. Ea
 
 It also shows how you can deal with multiple peripherals from the central device.
 
-### UART central
+<video width="640" height="360" controls>
+  <source src="/assets/images/ble-buzzer.mp4" type="video/mp4">
+</video>
+
+In the video:
+
+- The green button is connected.
+- The red button starts out unconnected (small LED is red) then connects (turns green).
+- The white button shows the buzzer status in the small LED under the white button.
+- Pressing the green button turns the LED on the white button green.
+- Pressing the red button turns the LED on the white button red.
+- Pressing the green button turns the LED on the white button green again. And again.
+
+#### Buzzer hardware
+
+This is the schematic for the button:
+
+![BLE buzzer schematic](/assets/images/ble-buzzer-schematic.png)
+
+#### Buzzer central
+
+```C++
+#include "Particle.h"
+
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler;
+
+const uint16_t STATUS_RED = A0;
+const uint16_t STATUS_GREEN = A1;
+const uint16_t STATUS_BLUE = A2;
+const uint16_t SWITCH_PIN = D6;
+const uint16_t SWITCH_LED_PIN = D5;
+
+BleUuid serviceUuid("09b17c16-3498-4c02-beb6-3d5792528181");
+BleUuid buttonCharacteristicUuid("fe0a8cd7-9f69-45c7-b7a1-3ecb0c9e97c7");
+
+const size_t MAX_BUTTONS = 2;
+BlePeerDevice peers[MAX_BUTTONS];
+BleCharacteristic buttonCharacteristic[MAX_BUTTONS];
+
+const size_t SCAN_RESULT_MAX = 20;
+BleScanResult scanResults[SCAN_RESULT_MAX];
+
+const unsigned long COLOR_DISPLAY_TIME_MS = 1000;
+uint32_t lastColor = 0;
+unsigned long lastTime = 0;
+bool updatedLed = false;
+
+const unsigned long SCAN_PERIOD_MS = 1000;
+unsigned long lastScan = 0;
+
+void setStatusLed(uint32_t color);
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
+
+void setup() {
+	pinMode(STATUS_RED, OUTPUT);
+	pinMode(STATUS_GREEN, OUTPUT);
+	pinMode(STATUS_BLUE, OUTPUT);
+	setStatusLed(0x000000);
+
+	pinMode(SWITCH_LED_PIN, OUTPUT);
+	pinMode(SWITCH_PIN, INPUT_PULLUP);
+
+	for(size_t ii = 0; ii < MAX_BUTTONS; ii++) {
+		buttonCharacteristic[ii].onDataReceived(onDataReceived, NULL);
+	}
+}
+
+void loop() {
+	//
+
+	if (lastTime != 0) {
+		if (!updatedLed) {
+			updatedLed = true;
+			setStatusLed(lastColor);
+			Log.info("updated status LED %06lx", lastColor);
+		}
+		if (millis() - lastTime >= COLOR_DISPLAY_TIME_MS) {
+			// The color has been up for appropriate time, revert back to off
+			lastTime = 0;
+			setStatusLed(0x000000);
+
+			Log.info("cleared status LED");
+		}
+	}
+
+	if (millis() - lastScan >= SCAN_PERIOD_MS) {
+		lastScan = millis();
+
+		// Find an available peers slot
+		int availableButtonIndex = -1;
+		for(size_t ii = 0; ii < MAX_BUTTONS; ii++) {
+			if (!peers[ii].connected()) {
+				availableButtonIndex = (int) ii;
+				break;
+			}
+		}
+		if (availableButtonIndex < 0) {
+			// No available slots so there's nothing to do here. When data arrives
+			// the onDataReceived handler will automatically be called
+			return;
+		}
+
+		// Scan for more sensors for 1/2 second (500 milliseconds)
+		BLE.setScanTimeout(50);
+		int count = BLE.scan(scanResults, SCAN_RESULT_MAX);
+
+		for (int ii = 0; ii < count; ii++) {
+			// Since the buzzer peripheral only supports one service we only need to check for the one service ID
+			// But often you'd want to get all of the service IDs and check all of them as a device could support
+			// more than one service.
+			BleUuid foundServiceUUID;
+			size_t svcCount = scanResults[ii].advertisingData.serviceUUID(&foundServiceUUID, 1);
+			if (svcCount > 0 && foundServiceUUID == serviceUuid) {
+				// This device supports the private buzzer service
+
+				BlePeerDevice peer = BLE.connect(scanResults[ii].address);
+				if (peer.connected()) {
+					Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
+							scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+							scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+
+					// Get the button characteristic
+					buttonCharacteristic[availableButtonIndex] = peer.getCharacteristicByUUID(buttonCharacteristicUuid);
+					peers[availableButtonIndex] = peer;
+				}
+				else {
+					Log.info("connection failed");
+				}
+			}
+		}
+	}
+}
+
+void setStatusLed(uint32_t color) {
+	// The SwitchDemo board uses a common anode LED, so values are 0 = on full, 255 = off
+	analogWrite(STATUS_RED, 255 - ((color >> 16) & 0xff));
+	analogWrite(STATUS_GREEN, 255 - ((color >> 8) & 0xff));
+	analogWrite(STATUS_BLUE, 255 - (color & 0xff));
+}
+
+
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
+	if (lastTime == 0) {
+		lastTime = millis();
+		updatedLed = false;
+		memcpy(&lastColor, data, sizeof(uint32_t));
+
+		Log.info("got %06lx from %02X:%02X:%02X:%02X:%02X:%02X",
+				lastColor,
+				peer.address()[0], peer.address()[1], peer.address()[2],
+				peer.address()[3], peer.address()[4], peer.address()[5]);
+	}
+}
+
+```
+
+#### Buzzer peripheral
+
+```C++
+#include "Particle.h"
+
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler;
+
+uint32_t myColor = 0xff0000;
+
+const uint16_t STATUS_RED = A0;
+const uint16_t STATUS_GREEN = A1;
+const uint16_t STATUS_BLUE = A2;
+const uint16_t SWITCH_PIN = D6;
+const uint16_t SWITCH_LED_PIN = D5;
+
+BleUuid serviceUuid("09b17c16-3498-4c02-beb6-3d5792528181");
+BleUuid buttonCharacteristicUuid("fe0a8cd7-9f69-45c7-b7a1-3ecb0c9e97c7");
+
+BleCharacteristic buttonCharacteristic("b", BleCharacteristicProperty::NOTIFY, buttonCharacteristicUuid, serviceUuid);
+
+volatile bool buttonPressed = false;
+
+void setStatusLed(uint32_t color);
+void interruptHandler();
+
+void setup() {
+	pinMode(STATUS_RED, OUTPUT);
+	pinMode(STATUS_GREEN, OUTPUT);
+	pinMode(STATUS_BLUE, OUTPUT);
+	setStatusLed(0x000000);
+
+	pinMode(SWITCH_LED_PIN, OUTPUT);
+
+	pinMode(SWITCH_PIN, INPUT_PULLUP);
+	attachInterrupt(SWITCH_PIN, interruptHandler, FALLING);
+
+    BLE.addCharacteristic(buttonCharacteristic);
+
+    BleAdvertisingData data;
+    data.appendServiceUUID(serviceUuid);
+    BLE.advertise(&data);
+}
+
+void loop() {
+    if (BLE.connected()) {
+		if (buttonPressed) {
+			// Button was pressed, turn on LED button
+			digitalWrite(SWITCH_LED_PIN, 1);
+
+			buttonPressed = false;
+
+			// Transmit color to central to indicate button pressed
+			buttonCharacteristic.setValue((uint8_t *)&myColor, sizeof(myColor));
+		}
+
+		// Lock out delay/debounce
+		delay(1000);
+		digitalWrite(SWITCH_LED_PIN, 0);
+
+		// Set status to light green
+    	setStatusLed(0x004000);
+    }
+    else {
+    	// Not connected to central - set status to light red
+    	setStatusLed(0x400000);
+    }
+}
+
+void setStatusLed(uint32_t color) {
+	// The SwitchDemo board uses a common anode LED, so values are 0 = on full, 255 = off
+	analogWrite(STATUS_RED, 255 - ((color >> 16) & 0xff));
+	analogWrite(STATUS_GREEN, 255 - ((color >> 8) & 0xff));
+	analogWrite(STATUS_BLUE, 255 - (color & 0xff));
+}
+
+void interruptHandler() {
+	buttonPressed = true;
+}
+```
 
 ### UART peripheral
+
+
+The UART peripheral example shows how your Particle device can appear to be a BLE serial data stream. You can view this using apps such as:
+
+- Adafruit Bluefruit app 
+- Nordic BLE UART app
+
+These are available for both iOS and Android.
+
+```C++
+#include "Particle.h"
+
+SYSTEM_MODE(MANUAL);
+
+const size_t UART_TX_BUF_SIZE = 20;
+
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
+
+// These UUIDs were defined by Nordic Semiconductor and are now the defacto standard for
+// UART-like services over BLE. Many apps support the UUIDs now, like the Adafruit Bluefruit app.
+const BleUuid serviceUuid("6E400001-B5A3-F393-E0A9-E50E24DCCA9E");
+const BleUuid rxUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
+const BleUuid txUuid("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
+
+BleCharacteristic txCharacteristic("tx", BleCharacteristicProperty::NOTIFY, txUuid, serviceUuid);
+BleCharacteristic rxCharacteristic("rx", BleCharacteristicProperty::WRITE_WO_RSP, rxUuid, serviceUuid, onDataReceived, NULL);
+
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
+    // Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X:", peer.address()[0], peer.address()[1], peer.address()[2], peer.address()[3], peer.address()[4], peer.address()[5]);
+
+    for (size_t ii = 0; ii < len; ii++) {
+        Serial.write(data[ii]);
+    }
+}
+
+void setup() {
+    Serial.begin();
+
+    BLE.addCharacteristic(txCharacteristic);
+    BLE.addCharacteristic(rxCharacteristic);
+
+    BleAdvertisingData data;
+    data.appendServiceUUID(serviceUuid);
+    BLE.advertise(&data);
+}
+
+void loop() {
+    if (BLE.connected()) {
+    	uint8_t txBuf[UART_TX_BUF_SIZE];
+    	size_t txLen = 0;
+
+    	while(Serial.available() && txLen < UART_TX_BUF_SIZE) {
+            txBuf[txLen++] = Serial.read();
+            Serial.write(txBuf[txLen - 1]);
+        }
+        if (txLen > 0) {
+            txCharacteristic.setValue(txBuf, txLen);
+        }
+    }
+}
+
+```
 
 ### BLE log handler
 
@@ -559,7 +1269,275 @@ To see the logs, you use a BLE UART compatible app. Two are:
 - Adafruit Bluefruit app 
 - Nordic BLE UART app
 
+This code consists of the main application program and what is essentially a library to implement BLE log handling.
 
+To try it:
+
+- Flash the code below to your Particle Argon, Boron, or Xenon.
+- Run the Adafruit Bluefruit app for iOS or Android.
+- Select your Particle device in the **Central Mode** tab.
+- Tap **UART**.
+
+![BLE Logging](/assets/images/ble-logging.jpg)
+
+#### Main source file
+
+```C++
+#include "BleLogging.h"
+
+
+// This demo works better with system thread enabled, otherwise the BLE log handler is not
+// initialized until you've already connected to the cloud, which is not as useful.
+SYSTEM_THREAD(ENABLED);
+
+// This sets up the BLE log handler. The <4096> template parameter sets the size of the buffer to hold log data
+// The other parameters are like SerialLogHandler. You can set the log level (optional) to things like
+// LOG_LEVEL_ALL, LOG_LEVEL_TRACE, LOG_LEVEL_DEBUG, LOG_LEVEL_INFO, etc.. You can also pass a log filter here.
+BleLogging<4096> bleLogHandler(LOG_LEVEL_TRACE);
+
+// Optionally you can also enable USB serial log handling (or other log handlers, as desired).
+SerialLogHandler serialLogHandler(LOG_LEVEL_TRACE);
+
+// This is just so the demo prints a message every second so the log updates frequently
+const unsigned long LOG_INTERVAL = 1000; // milliseconds
+unsigned long lastLog = 0;
+size_t counter = 0;
+
+
+void setup() {
+	// You must add this to your setup() to initialize the library
+	bleLogHandler.setup();
+}
+
+void loop() {
+	// You must add this to your loop to process BLE requests and data
+	bleLogHandler.loop();
+
+
+	if (millis() - lastLog >= LOG_INTERVAL) {
+		lastLog = millis();
+
+		// This is just so the demo prints a message every second so the log updates frequently
+		Log.info("counter=%u", counter++);
+	}
+}
+```
+
+#### BleLogging.cpp
+
+```C++
+#include "BleLogging.h"
+
+static const size_t MAX_TO_SEND = 20;
+
+static const char* serviceUuid = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E";
+static const char* rxUuid = "6E400002-B5A3-F393-E0A9-E50E24DCCA9E";
+static const char* txUuid = "6E400003-B5A3-F393-E0A9-E50E24DCCA9E";
+
+
+BleLoggingBase::BleLoggingBase(uint8_t *buf, size_t bufSize, LogLevel level, LogCategoryFilters filters) :
+	StreamLogHandler(*this, level, filters),
+	buf(buf), bufSize(bufSize),
+	txCharacteristic("tx", BleCharacteristicProperty::NOTIFY, txUuid, serviceUuid),
+	rxCharacteristic("rx", BleCharacteristicProperty::WRITE_WO_RSP, rxUuid, serviceUuid, onDataReceivedStatic, this) {
+
+	// Add this handler into the system log manager
+	LogManager::instance()->addHandler(this);
+}
+
+BleLoggingBase::~BleLoggingBase() {
+
+}
+
+void BleLoggingBase::setup() {
+    BLE.addCharacteristic(txCharacteristic);
+    BLE.addCharacteristic(rxCharacteristic);
+
+    BleAdvertisingData data;
+    data.appendServiceUUID(serviceUuid);
+    BLE.advertise(&data);
+}
+
+void BleLoggingBase::loop() {
+    if (BLE.connected()) {
+    	// Make sure you don't Log.info, etc. anywhere in this block, otherwise you'll recursively log
+    	size_t numToSend = writeIndex - readIndex;
+    	if (numToSend > 0) {
+    		if (numToSend > MAX_TO_SEND) {
+    			numToSend = MAX_TO_SEND;
+    		}
+            txCharacteristic.setValue(&buf[readIndex % bufSize], numToSend);
+            readIndex += numToSend;
+    	}
+    }
+
+}
+
+
+size_t BleLoggingBase::write(uint8_t c) {
+	// Make sure you don't Log.info, etc. anywhere in this function, otherwise you'll recursively log
+
+	if ((writeIndex - readIndex) >= bufSize) {
+		// Buffer is full, discard oldest byte
+		readIndex++;
+	}
+
+	buf[writeIndex++ % bufSize] = c;
+
+	return 1;
+}
+
+
+void BleLoggingBase::onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer) {
+	// Discard all data sent from the UART app
+}
+
+// [static]
+void BleLoggingBase::onDataReceivedStatic(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
+	BleLoggingBase *This = (BleLoggingBase *) context;
+
+	This->onDataReceived(data, len, peer);
+}
+```
+
+#### BleLogging.h
+
+```C++
+#ifndef __BLELOGGING_H
+#define __BLELOGGING_H
+
+#include "Particle.h"
+
+class BleLoggingBase : public StreamLogHandler, Print {
+public:
+	BleLoggingBase(uint8_t *buf, size_t bufSize, LogLevel level = LOG_LEVEL_INFO, LogCategoryFilters filters = {});
+	virtual ~BleLoggingBase();
+
+	void setup();
+
+	void loop();
+
+	/**
+	 * @brief Virtual override for the StreamLogHandler to write data to the log
+	 */
+    virtual size_t write(uint8_t);
+
+protected:
+    void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer);
+    static void onDataReceivedStatic(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
+
+    uint8_t *buf;
+    size_t bufSize;
+    size_t readIndex = 0;
+    size_t writeIndex = 0;
+
+    BleCharacteristic txCharacteristic;
+    BleCharacteristic rxCharacteristic;
+};
+
+template <size_t BUFFER_SIZE>
+class BleLogging : public BleLoggingBase {
+public:
+	explicit BleLogging(LogLevel level = LOG_LEVEL_INFO, LogCategoryFilters filters = {}) : BleLoggingBase(staticBuf, BUFFER_SIZE, level, filters) {};
+
+protected:
+	uint8_t staticBuf[BUFFER_SIZE];
+};
+
+
+#endif // __BLELOGGING_H
+
+```
+
+
+
+### UART central
+
+It's less common, however the Particle device can also be the central device. You might want to use this as a data stream between two Particle devices, one central and one peripheral, for example.
+
+```C++
+#include "Particle.h"
+
+SYSTEM_MODE(MANUAL);
+
+
+// These UUIDs were defined by Nordic Semiconductor and are now the defacto standard for
+// UART-like services over BLE. Many apps support the UUIDs now, like the Adafruit Bluefruit app.
+const BleUuid serviceUuid("6E400001-B5A3-F393-E0A9-E50E24DCCA9E");
+const BleUuid rxUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
+const BleUuid txUuid("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
+
+const size_t UART_TX_BUF_SIZE = 20;
+const size_t SCAN_RESULT_COUNT = 20;
+
+BleScanResult scanResults[SCAN_RESULT_COUNT];
+
+BleCharacteristic peerTxCharacteristic;
+BleCharacteristic peerRxCharacteristic;
+BlePeerDevice peer;
+
+
+uint8_t txBuf[UART_TX_BUF_SIZE];
+size_t txLen = 0;
+
+const unsigned long SCAN_PERIOD_MS = 2000;
+unsigned long lastScan = 0;
+
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
+    for (size_t ii = 0; ii < len; ii++) {
+        Serial.write(data[ii]);
+    }
+}
+
+void setup() {
+    Serial.begin();
+    peerTxCharacteristic.onDataReceived(onDataReceived, &peerTxCharacteristic);
+}
+
+void loop() {
+    if (BLE.connected()) {
+        while (Serial.available() && txLen < UART_TX_BUF_SIZE) {
+            txBuf[txLen++] = Serial.read();
+            Serial.write(txBuf[txLen - 1]);
+        }
+        if (txLen > 0) {
+        	// Transmit the data to the BLE peripheral
+            peerRxCharacteristic.setValue(txBuf, txLen);
+            txLen = 0;
+        }
+    }
+    else {
+    	if (millis() - lastScan >= SCAN_PERIOD_MS) {
+    		// Time to scan
+    		lastScan = millis();
+
+    		size_t count = BLE.scan(scanResults, SCAN_RESULT_COUNT);
+			if (count > 0) {
+				for (uint8_t ii = 0; ii < count; ii++) {
+					// Our serial peripheral only supports one service, so we only look for one here.
+					// In some cases, you may want to get all of the service UUIDs and scan the list
+					// looking to see if the serviceUuid is anywhere in the list.
+					BleUuid foundServiceUuid;
+					size_t svcCount = scanResults[ii].advertisingData.serviceUUID(&foundServiceUuid, 1);
+					if (svcCount > 0 && foundServiceUuid == serviceUuid) {
+						peer = BLE.connect(scanResults[ii].address);
+						if (peer.connected()) {
+							peerTxCharacteristic = peer.getCharacteristicByUUID(txUuid);
+							peerRxCharacteristic = peer.getCharacteristicByUUID(rxUuid);
+
+							// Could do this instead, but since the names are not as standardized, UUIDs are better
+							// peerTxCharacteristic = peer.getCharacteristicByDescription("tx");
+						}
+						break;
+					}
+				}
+			}
+    	}
+
+    }
+}
+
+```
 
 ### Chrome Web BLE
 
