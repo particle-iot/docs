@@ -373,7 +373,7 @@ One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product
 
 We recommend this screw assembly to securely affix the B series SoM to your circuit board. From top to bottom:
 
-- M3 screw, 3*3mm
+- M3 screw, 3mm long
 - M3 washer
 - M3 standoff, 2.45mm
 
@@ -383,6 +383,7 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 ![Bottom](/assets/images/b-series/b-series-screw-bottom.jpg)
 
+- As these parts may be difficult to source, for prototyping you can use a M3 screw, 6.5mm long, and a M3 nut. Use a 3mm non-plated hole in the base board. Note that a screw is required, as the M.2 connector does not self-lock.
 
 ### Design Considerations
 
