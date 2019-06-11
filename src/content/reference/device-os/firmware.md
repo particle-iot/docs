@@ -7605,7 +7605,7 @@ BLE requires Device OS 1.3.0 or later.
 
 A BLE peripheral can periodically publish data to all nearby devices using advertising. Once you've set up the [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata) object, call `BLE.advertise()` to continuously advertise the data to all BLE devices scanning for it.
 
-Optionally, you can provide a scanResponse data object. If provided, the central device can ask for it during the scan process. Both the advertising data and scan data are public - any device can see and request the data without authentication.
+Optionally, you can provide a `scanResponse` data object. If provided, the central device can ask for it during the scan process. Both the advertising data and scan data are public - any device can see and request the data without authentication.
 
 ```C++
 // PROTOTYPE
@@ -7751,17 +7751,17 @@ int setAdvertisingTimeout(uint16_t timeout) const;
 
 The advertising type can be set with this method. This is not typically necessary.
 
-| Type | Value | Description |
-| --- | --- | --- |
-| `CONNECTABLE_SCANNABLE_UNDIRECTED` | 0 | |
-| `CONNECTABLE_UNDIRECTED` | 1 | |
-| `CONNECTABLE_DIRECTED` | 2 | |
-| `NON_CONNECTABLE_NON_SCANNABLE_UNDIRECTED` | 3 | |
-| `NON_CONNECTABLE_NON_SCANNABBLE_DIRECTED` | 4 | |
-| `SCANNABLE_UNDIRECTED` | 5 | |
-| `SCANNABLE_DIRECTED` | 6 | |
+| Type | Value |
+| --- | --- |
+| `CONNECTABLE_SCANNABLE_UNDIRECTED` | 0 |
+| `CONNECTABLE_UNDIRECTED` | 1 |
+| `CONNECTABLE_DIRECTED` | 2 |
+| `NON_CONNECTABLE_NON_SCANNABLE_UNDIRECTED` | 3 |
+| `NON_CONNECTABLE_NON_SCANNABBLE_DIRECTED` | 4 |
+| `SCANNABLE_UNDIRECTED` | 5 |
+| `SCANNABLE_DIRECTED` | 6 |
 
-The default is CONNECTABLE_SCANNABLE_UNDIRECTED (0).
+The default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
 
 ```C++
 // PROTOTYPE
@@ -7884,7 +7884,7 @@ See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharact
 
 Scan for BLE devices. This is typically used by a central device to find nearby BLE devices that can be connected to. It can also be used by an observer to find nearby beacons that continuously transmit data.
 
-There are three overloads of scan(), however all of them are synchronous. The calls do not return until the scan is complete. The `setScanTimeout()` function determines how long the scan will run for. 
+There are three overloads of `BLE.scan()`, however all of them are synchronous. The calls do not return until the scan is complete. The `BLE.setScanTimeout()` method determines how long the scan will run for. 
 
 The default is 5 seconds, however you can change it using `setScanTimeout()`.
 
@@ -7902,7 +7902,7 @@ The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described
 
 #### BLE.scan(Vector)
 
-The Vector version of scan does not require guessing the number of scan items ahead of time. However, it does dynamically allocate memory to hold all of the scan results.
+The `Vector` version of scan does not require guessing the number of scan items ahead of time. However, it does dynamically allocate memory to hold all of the scan results.
 
 This call does not return until the scan is complete. The `setScanTimeout()` function determines how long the scan will run for. 
 
@@ -8122,8 +8122,7 @@ The default connection timeout is 5 seconds but it can be customized by using th
 
 It is possible to save the address and avoid scanning, however the address could change on some BLE devices, so you should be prepared to scan again if necessary.
 
-You can connect up to 5 peripheral devices at the same time from the central device.
-
+In Device OS 1.3.0 you can only connect to 1 peripheral device at a time. This will be expanded to 3 simultaneous peripheral device connections in the future.
 
 #### BLE.connect(options)
 
@@ -8208,10 +8207,12 @@ The prototype for the callback function is:
 void callback(const BlePeerDevice& peer, void* context);
 ```
 
+The callback parameters are:
+
 - `peer` The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object that has connected.
 - `context` The value you passed to `onConnected` when you registered the connected callback.
 
-The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print` as Serial is not thread-safe.
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
 
 #### BLE.onDisconnected()
 
@@ -8226,14 +8227,12 @@ void onDisconnected(BleOnDisconnectedCallback callback, void* context);
 
 The prototype for the callback function is:
 
-```C++
+```
 void callback(const BlePeerDevice& peer, void* context);
 ```
 
-- `peer` The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) for the other device.
-- `context` The value you passed to `onConnected` when you registered the connected callback.
+The callback parameters are the same as for onConnected().
 
-The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print` as Serial is not thread-safe.
 
 #### BLE.setTxPower()
 
@@ -8316,7 +8315,7 @@ For more information about characteristics, see [the BLE tutorial](/tutorials/de
 
 #### BleCharacteristic()
 
-You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the heart rate central tutorial to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
+You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the [heart rate central tutorial](/tutorials/device-os/bluetooth-le/#heart-rate-central) to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
 
 ```C++
 // PROTOTYPE
@@ -8334,7 +8333,7 @@ Once you've created your characteristic in `setup()` you typically hook in its o
 myCharacteristic.onDataReceived(onDataReceived, NULL);
 ```
 
-The onDataReceived function has this prototype:
+The `onDataReceived` function has this prototype:
 
 ```C++
 void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) 
@@ -8418,7 +8417,7 @@ You typically register your characteristic in `setup()` in peripheral devices:
 BLE.addCharacteristic(rxCharacteristic);
 ```
 
-The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print` as Serial is not thread-safe.
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
 
 #### UUID()
 
@@ -8452,7 +8451,7 @@ See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharact
 
 #### getValue(buf, len)
 
-This overload of getValue is typically used when you have a complex characteristic with a packed data structure that you need to manually extract. 
+This overload of `getValue()` is typically used when you have a complex characteristic with a packed data structure that you need to manually extract. 
 
 For example, the heart measurement characteristic has a flags byte followed by either a 8-bit or 16-bit value. You typically extract that to a uint8_t buffer using this method and manually extract the data.
 
@@ -8535,7 +8534,7 @@ void onDataReceived(BleOnDataReceivedCallback callback, void* context);
 void myCallback(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
 ```
 
-The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print` as Serial is not thread-safe.
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
 
 ### BleCharacteristicProperty
 
@@ -8660,7 +8659,7 @@ For more information about advertising, see [the BLE tutorial](/tutorials/device
 
 #### BleAdvertisingData()
 
-Construct a BleAdvertisingData object. You typically do this in a peripheral role before adding new data. 
+Construct a `BleAdvertisingData` object. You typically do this in a peripheral role before adding new data. 
 
 In the central role, you get a filled in object in the [`BleScanResult`](/reference/device-os/firmware/#blescanresult) object.
 
@@ -8689,7 +8688,7 @@ advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, sizeof(flagsValue));
 - `len` The length of the data in bytes
 - `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
 
-Note that advertising data is limited to 31 bytes, and each block includes a type and a length byte, so you are quite limited in what you can add.
+Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
 
 #### appendCustomData
 
@@ -8704,7 +8703,7 @@ size_t appendCustomData(const uint8_t* buf, size_t len, bool force = false);
 - `len` The length of the data in bytes
 - `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
 
-Note that advertising data is limited to 31 bytes, and each block includes a type and a length byte, so you are quite limited in what you can add.
+Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
 
 The first two bytes of the company data are typically the [company ID](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
 
@@ -8717,7 +8716,7 @@ If you are using private custom data it's recommended to begin it with two 0xff 
 
 An optional field in the advertising data is the local name. This can be useful if the user needs to select from multiple devices.
 
-The name takes up the length of the name plus two bytes (type and length). The total advertising data is limited to 31 bytes, and if you include service identifiers there isn't much left space for the name.
+The name takes up the length of the name plus two bytes (type and length). The total advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and if you include service identifiers there isn't much left space for the name.
 
 ```C++
 // PROTOTYPE
@@ -9109,7 +9108,7 @@ You can test two BleAddress objects for equality (same address).
 bool operator==(const BleAddress& addr) const 
 ```
 
-#### addr_type
+#### addr_type (BleAddress)
 
 The addr_type field indicates the type of BLE address:
 
@@ -9240,7 +9239,7 @@ NFC (Near-Field Communication) is typically used to communicate small amounts of
 
 Particle Gen 3 devices only support emulating an NFC tag. They cannot locate or communicate with tags themselves, or support protocols such as for NFC payments.
 
-A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, on the opposite site of the USB connector.
+A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, directly underneath the USB connector.
 
 ### Example app
 

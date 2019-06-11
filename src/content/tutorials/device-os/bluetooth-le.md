@@ -9,7 +9,7 @@ layout: tutorials.hbs
 
 ## Introduction
 
-Gen 3 devices (Argon, Boron, Xenon) have an nRF52840 MCU that supports Bluetooth 5. It's used to configure your device from the Particle mobile apps for iOS and Android, and Bluetooth LE (BLE) can be used in your firmware to communicate with other devices that support BLE. 
+Gen 3 devices (Argon, Boron, Xenon) support Bluetooth. Bluetooth is used to configure your device from the Particle mobile apps for iOS and Android, and Bluetooth LE (BLE) can be used in your firmware to communicate with other devices that support BLE. 
 
 Particle devices support both the peripheral and central roles:
 
@@ -20,7 +20,7 @@ BLE is intended for low data rate sensor applications. Particle devices do not s
 
 The mesh networking in Gen 3 devices is Thread Mesh (6LoWPAN over 802.15.4). While it uses the same 2.4 GHz radio spectrum as Bluetooth 5 mesh, they are different and not compatible. Particle devices do not support Bluetooth 5 mesh.
 
-The BLE protocol shares the same antenna as the mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
+The BLE protocol shares the same antenna as the Thread Mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
 
 The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
 
@@ -52,9 +52,9 @@ Standard advertising payload data options include:
 - Type: Basic features supported by the peripheral device
 - Local Name: a descriptive name for your peripheral device
 - Service UUID: UUIDs supported by your peripheral device
-- Custom data: such as beacon data for iBeacon
+- Custom data: beacon data for iBeacon, for example
 
-While central devices do not advertise, they may scan for devices in range and use their advertising data to determine what to connect to. For example, the heart rate central finds the first heart rate sensor in range and connects to it automatically.
+While central devices do not advertise, they may scan for devices in range and use their advertising data to determine what to connect to. For example, the [heart rate central example](#heart-rate-central) finds the first heart rate sensor in range and connects to it automatically.
 
 ### Scan Response
 
@@ -159,7 +159,7 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 
 The 128-bit UUIDs are used for your own custom services and characteristics. These are not assigned by any group. You can use any UUID generator, such as the [online UUID generator](https://www.uuidgenerator.net/) or tools that you run on your computer. There is no central registry; they are statistically unlikely to ever conflict.
 
-A 128-bit (16 byte) UUID is often written like this: `240d5183-819a-4627-9ca9-1aa24df29f18`. It's a series of 32 hexadecimal digits (0-9, a-f) written in a 8-4-4-4-12 pattern. The A-F can be uppercase or lowercase, it is not case-sensitive.
+A 128-bit (16 byte) UUID is often written like this: `240d5183-819a-4627-9ca9-1aa24df29f18`. It's a series of 32 hexadecimal digits (0-9, a-f) written in a 8-4-4-4-12 pattern. The A-F can be uppercase or lowercase, they are not case-sensitive.
 
 
 #### Central Characteristics
@@ -481,13 +481,9 @@ There are three parameters of interest:
 
 | Field | Size  | Description |
 | :---: | :---: | --- |
-| UUID | 16 bytes | Application developers should define a UUID specific to their
-app and deployment use case. | 
-| Major | 2 bytes | Further specifies a specific iBeacon and use case. For example,
-this could define a sub-region within a larger region defined by
-the UUID. |
-| Minor | 2 bytes | Allows further subdivision of region or use case, specified by the
-application developer. |
+| UUID | 16 bytes | Application developers should define a UUID specific to their app and deployment use case. |
+| Major | 2 bytes | Further specifies a specific iBeacon and use case. For example, this could define a sub-region within a larger region defined by the UUID. |
+| Minor | 2 bytes | Allows further subdivision of region or use case, specified by the application developer. |
 
 (From the [Getting Started with iBeacon](https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf) guide.)
 
@@ -519,7 +515,7 @@ Using your Particle device in a central role allows you to do things like:
 
 There's also a special case of the central role: An **observer** only advertises, and does not accept any connections. 
 
-You can connect up to 5 peripheral devices at the same time from the central device.
+In Device OS 1.3.0, you can only connect to a single peripheral device at a time. This will be expanded to 3 devices in a later version.
 
 
 ## Examples
@@ -665,7 +661,7 @@ I also used and Adafruit FeatherWing OLED Display 128x32. You can purchase one f
 
 Both the Argon (in my case, though it works with all Particle Gen 3 devices) and the display are plugged into an Adafruit FeatherWing Doubler. The Doubler is available from [Adafruit](https://www.adafruit.com/product/2890).
 
-![Heart Rate Display](/assets/images/ble-heart-display.jpg);
+![Heart Rate Display](/assets/images/ble-heart-display.jpg)
 
 The code requires the oled-wing-adafruit library:
 
@@ -945,6 +941,9 @@ void setAdvertisingData() {
 
 ```
 
+{{!-- this is disabled for now because of the limit of one peripheral device connection at a time in 1.3.0 --}}
+
+{{#if has-ble-multiple-peripherals}}
 
 ### Game show buzzer
 
@@ -1193,6 +1192,8 @@ void interruptHandler() {
 	buttonPressed = true;
 }
 ```
+
+{{/if}} {{!-- has-ble-multiple-peripheral --}}
 
 ### UART peripheral
 
