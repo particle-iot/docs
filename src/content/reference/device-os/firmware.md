@@ -9848,7 +9848,7 @@ Time.format();                // current time with preset format
 time_t time = Time.now();
 Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
 
-Time.zone(-5.25);  // setup a time zone, which is part of the ISO6801 format
+Time.zone(-5.25);  // setup a time zone, which is part of the ISO8601 format
 Time.format(time, TIME_FORMAT_ISO8601_FULL); // 2004-01-10T08:22:04-05:15
 
 ```
