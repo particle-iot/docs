@@ -45,6 +45,10 @@ top-down visibility provided by Fleet Health can be used in tandem with
 the detailed device-level diagnostics Device Vitals offers.
 
 ## Available Metrics
+Fleet Health collects the metrics that matter most when keeping device
+deployments online and operating normally. The available metrics
+instrument various critical components of the IoT infrastructure supporting your
+application that all need to function properly for a healthy fleet.
 
 ### Online Devices
 One of the most common questions you as a fleet manager likely have is:
