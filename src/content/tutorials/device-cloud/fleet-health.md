@@ -172,6 +172,60 @@ of your fleet are running which versions of Device OS.
 
 ## Manipulating the data
 
-### Time range selection
+By default, Fleet Health displays metrics for an entire Product fleet,
+and in the last 30 minutes. When doing deeper analysis, there are tools
+available to slice the data accross different characteristics.
+
+### Date range selection
+
+<img src="/assets/images/fleet-health/date-range.png"
+alt="Fleet Health Date Range Selection" />
+
+It can be helpful to examine Fleet Health metrics collected at different
+time intervals. For instance, if doing a post-mortem on a disruption,
+you would want to go back to look at the time period in question.
+
+You can use the Date Range selector to change the time window for all
+recorded time-series metrics. You can either choose from a few _Preset
+Ranges_, or pick a custom date range.
+
+Note that when you change the date range, there will also be a
+corresponding change in the _bucketing_ of metrics. That is, each
+tickmark on the x-axis representing a window of time will be updated.
+The longer the range, the wider window of time each data point will
+include.
 
 ### Metric filtering
+
+When performing analysis on potential disruptions, it may be the case
+that only a subset of the fleet is actually impacted. Fleet Health
+equips you with powerful filtering tools to isolate a problem to subsets
+of devices.
+
+<img src="/assets/images/fleet-health/fh-filters.png"
+alt="Fleet Health Fitlers" />
+<p class="caption">Use filters to examine subsets of devices for
+connectivity health insights</p>
+
+#### By Device Group
+Each metric can be filtered to display data from devices belonging to a
+specific [group](/tutorials/product-tools/device-groups/). This can help you, for instance, understand that a
+decrease in online devices is because of a localized cellular outage for
+units deployed in a certain geographic area, grouped by location in the
+Console.
+
+#### By Firmware Version
+Similarly, Fleet Health metrics can be focused on a specific version of
+Product application firmware. It may be the case that a new version of
+firmware you have released to the fleet has caused unintended
+consequences on the ability for devices to successfully communicate with
+the cloud. For instance, perhaps a bug was introduced between `v2` and
+`v3` of application firmware causing calls to a `Particle.function()` to
+fail.
+
+#### By Device OS Version
+Lastly, it may be that devices running different versions of [Device
+OS](/tutorials/device-os/device-os/) are exhibiting different behaviors.
+Filtering by Device OS version can help you identify patterns in
+connectivity health across Device OS versions running on devices in the
+fleet.
