@@ -9,12 +9,16 @@ layout: tutorials.hbs
 
 # {{title}}
 
-{{!-- TODO: Replace Contact Sales links with UTM links --}}
 
 {{box op="start"}}
-Fleet Health is a feature available to customers on the Enterprise plan.
-Interested in this feature? [Talk to an
-expert](https://particle.io/sales).
+<p style="text-align:center;">Fleet Health is a feature available to
+customers on Particle's Enterprise plan. Interested in using this feature?</p>
+
+{{!-- TODO: Replace Contact Sales links with UTM links --}}
+<a class="btn"
+href="https://particle.io/sales"
+target="_blank" style="display:block;margin:0
+auto;width:200px;text-align:center">Talk to an expert</a>
 {{box op="end"}}
 
 As you begin deploying more connected devices in the field powered by
@@ -229,3 +233,14 @@ OS](/tutorials/device-os/device-os/) are exhibiting different behaviors.
 Filtering by Device OS version can help you identify patterns in
 connectivity health across Device OS versions running on devices in the
 fleet.
+
+{{box op="start"}}
+<p style="text-align:center;">Fleet Health is a feature available to
+customers on Particle's Enterprise plan. Interested in using this feature?</p>
+
+{{!-- TODO: Replace Contact Sales links with UTM links --}}
+<a class="btn"
+href="https://particle.io/sales"
+target="_blank" style="display:block;margin:0
+auto;width:200px;text-align:center">Talk to an expert</a>
+{{box op="end"}}
