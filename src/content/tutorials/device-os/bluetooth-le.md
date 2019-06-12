@@ -455,10 +455,6 @@ void setup() {
 
 	BleAdvertisingData advData;
 
-	// First AD record is the AD Type
-	uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
-	advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, 1);
-
     // While we support both the health thermometer service and the battery service, we
     // only advertise the health thermometer. The battery service will be found after
     // connecting.
@@ -566,18 +562,14 @@ void setup() {
 	BLE.addCharacteristic(temperatureMeasurementCharacteristic);
 
 	BLE.addCharacteristic(batteryLevelCharacteristic);
-    batteryLevelCharacteristic.setValue(&lastBattery, 1);
+	batteryLevelCharacteristic.setValue(&lastBattery, 1);
 
 	BleAdvertisingData advData;
 
-	// First AD record is the flags
-	uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
-    advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, sizeof(flagsValue));
-
-    // While we support both the health thermometer service and the battery service, we
-    // only advertise the health thermometer. The battery service will be found after
-    // connecting.
-    advData.appendServiceUUID(healthThermometerService);
+	// While we support both the health thermometer service and the battery service, we
+	// only advertise the health thermometer. The battery service will be found after
+	// connecting.
+	advData.appendServiceUUID(healthThermometerService);
 
 	// Continuously advertise when not connected
 	BLE.advertise(&advData);
@@ -587,39 +579,39 @@ void loop() {
 	if (millis() - lastUpdate >= UPDATE_INTERVAL_MS) {
 		lastUpdate = millis();
 
-	    if (BLE.connected()) {
-	    	uint8_t buf[6];
+		if (BLE.connected()) {
+			uint8_t buf[6];
 
-	    	// The Temperature Measurement characteristic data is defined here:
-	    	// https://www.bluetooth.com/wp-content/uploads/Sitecore-Media-Library/Gatt/Xml/Characteristics/org.bluetooth.characteristic.temperature_measurement.xml
+			// The Temperature Measurement characteristic data is defined here:
+			// https://www.bluetooth.com/wp-content/uploads/Sitecore-Media-Library/Gatt/Xml/Characteristics/org.bluetooth.characteristic.temperature_measurement.xml
 
-	    	// First byte is flags. We're using Celsius (bit 0b001 == 0), no timestamp (bit 0b010 == 0), with temperature type (bit 0b100), so the flags are 0x04.
-	    	buf[0] = 0x04;
+			// First byte is flags. We're using Celsius (bit 0b001 == 0), no timestamp (bit 0b010 == 0), with temperature type (bit 0b100), so the flags are 0x04.
+			buf[0] = 0x04;
 
-	    	// Value is a ieee11073 floating point number
-	    	uint32_t value = ieee11073_from_float(getTempC());
-	    	memcpy(&buf[1], &value, 4);
+			// Value is a ieee11073 floating point number
+			uint32_t value = ieee11073_from_float(getTempC());
+			memcpy(&buf[1], &value, 4);
 
-	    	// TempType is a constant for where the sensor is sensing:
-	    	// <Enumeration key="1" value="Armpit" />
-	    	// <Enumeration key="2" value="Body (general)" />
-	    	// <Enumeration key="3" value="Ear (usually ear lobe)" />
-	    	// <Enumeration key="4" value="Finger" />
-	    	// <Enumeration key="5" value="Gastro-intestinal Tract" />
-	    	// <Enumeration key="6" value="Mouth" />
-	    	// <Enumeration key="7" value="Rectum" />
-	    	// <Enumeration key="8" value="Toe" />
-	    	// <Enumeration key="9" value="Tympanum (ear drum)" />
-	    	buf[5] = 6; // Mouth
+			// TempType is a constant for where the sensor is sensing:
+			// <Enumeration key="1" value="Armpit" />
+			// <Enumeration key="2" value="Body (general)" />
+			// <Enumeration key="3" value="Ear (usually ear lobe)" />
+			// <Enumeration key="4" value="Finger" />
+			// <Enumeration key="5" value="Gastro-intestinal Tract" />
+			// <Enumeration key="6" value="Mouth" />
+			// <Enumeration key="7" value="Rectum" />
+			// <Enumeration key="8" value="Toe" />
+			// <Enumeration key="9" value="Tympanum (ear drum)" />
+			buf[5] = 6; // Mouth
 
-            temperatureMeasurementCharacteristic.setValue(buf, sizeof(buf));
+			temperatureMeasurementCharacteristic.setValue(buf, sizeof(buf));
 
-            // The battery starts at 100% and drops to 10% then will jump back up again
-            batteryLevelCharacteristic.setValue(&lastBattery, 1);
-            if (--lastBattery < 10) {
-            	lastBattery = 100;
-            }
-	    }
+			// The battery starts at 100% and drops to 10% then will jump back up again
+			batteryLevelCharacteristic.setValue(&lastBattery, 1);
+			if (--lastBattery < 10) {
+				lastBattery = 100;
+			}
+		}
 	}
 }
 
@@ -818,12 +810,12 @@ void setup() {
 void loop() {
 	// Only scan for 500 milliseconds
 	BLE.setScanTimeout(50);
-    int count = BLE.scan(scanResults, SCAN_RESULT_MAX);
+	int count = BLE.scan(scanResults, SCAN_RESULT_MAX);
 
-    uint32_t curColorCode;
-    int curRssi = -999;
+	uint32_t curColorCode;
+	int curRssi = -999;
 
-    for (int ii = 0; ii < count; ii++) {
+	for (int ii = 0; ii < count; ii++) {
 		uint8_t buf[BLE_MAX_ADV_DATA_LEN];
 		size_t len;
 
@@ -857,14 +849,15 @@ void loop() {
 			}
 		}
 	}
-    if (curRssi != -999) {
-    	ledOverride.setColor(curColorCode);
-    	ledOverride.setActive(true);
-    }
-    else {
-    	ledOverride.setActive(false);
-    }
+	if (curRssi != -999) {
+		ledOverride.setColor(curColorCode);
+		ledOverride.setActive(true);
+	}
+	else {
+		ledOverride.setActive(false);
+	}
 }
+
 ```
 
 #### Device Nearby Beacon
@@ -904,17 +897,17 @@ void setAdvertisingData() {
 	size_t offset = 0;
 
 	// First AD record is the AD Type
-    buf[offset++] = 0x02; // Length
-    buf[offset++] = BLE_SIG_AD_TYPE_FLAGS;
-    buf[offset++] = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+	buf[offset++] = 0x02; // Length
+	buf[offset++] = BLE_SIG_AD_TYPE_FLAGS;
+	buf[offset++] = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
 
 	// In our specific case, we use manufacturer specific data (0xff)
 
-    // Byte: Length
-    // Byte: BLE_SIG_AD_TYPE_MANUFACTURER_SPECIFIC_DATA (0xff)
-    // 16-bit: Company ID (0xffff)
-    // Byte: Internal packet identifier (0x55)
-    // 32-bit: Color code
+	// Byte: Length
+	// Byte: BLE_SIG_AD_TYPE_MANUFACTURER_SPECIFIC_DATA (0xff)
+	// 16-bit: Company ID (0xffff)
+	// Byte: Internal packet identifier (0x55)
+	// 32-bit: Color code
 	buf[offset++] = 8; // Length
 	buf[offset++] = BLE_SIG_AD_TYPE_MANUFACTURER_SPECIFIC_DATA;
 
@@ -938,7 +931,6 @@ void setAdvertisingData() {
 	// Continuously advertise
 	BLE.advertise(&advData);
 }
-
 ```
 
 {{!-- this is disabled for now because of the limit of one peripheral device connection at a time in 1.3.0 --}}

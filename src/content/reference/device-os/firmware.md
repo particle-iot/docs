@@ -7614,10 +7614,6 @@ int advertise(BleAdvertisingData* advertisingData, BleAdvertisingData* scanRespo
 // EXAMPLE
 BleAdvertisingData advData;
 
-// First AD record is the AD Type
-uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
-advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, 1);
-
 // While we support both the health thermometer service and the battery service, we
 // only advertise the health thermometer. The battery service will be found after
 // connecting.
@@ -8690,6 +8686,8 @@ advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, sizeof(flagsValue));
 
 Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
 
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically.
+
 #### appendCustomData
 
 Appends custom advertising data to the advertising data object.
@@ -8895,7 +8893,11 @@ bool contains(BleAdvertisingDataType type) const;
 
 The following are the valid values for `BleAdvertisingDataType`. In many cases you won't need to use the directly as you can use methods like `serviceUUID` in the `BleAdvertisingData` to set both the type and data automatically.
 
-You would typically use these constants like this: `BleAdvertisingDataType::FLAGS`.
+You would typically use these constants like this: `BleAdvertisingDataType::FLAGS`. 
+
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically. 
+
+Similarly, you typically use [`appendCustomData()`](/reference/device-os/firmware/#appendcustomdata) instead of directly using `MANUFACTURER_SPECIFIC_DATA`. The [`appendLocalName`()](/reference/device-os/firmware/#appendlocalname-) and [`appendServiceUUID()`](/reference/device-os/firmware/#appendserviceuuid-) functions of the [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata) also set the appropriate advertising data type.
 
 - `FLAGS`
 - `SERVICE_UUID_16BIT_MORE_AVAILABLE`
@@ -8950,7 +8952,10 @@ The valid values for advertising data type flags are:
 - `BLE_SIG_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE` (0x05)
 - `BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE` (0x06)
 
-The most commonly used is `BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE`: supports Bluetooth LE only in general discovery mode. Any nearby device can discover it by scanning. Bluetooth Basic Rate/Enhanced Data Rate (BR/EDT) is not supported.
+The most commonly used is `BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE`: supports Bluetooth LE only in general discovery mode. Any nearby device can discover it by scanning. Bluetooth Basic Rate/Enhanced Data Rate (BR/EDT) is not supported. 
+
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically. 
+
 
 ```C++
 // EXAMPLE
