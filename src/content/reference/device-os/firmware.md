@@ -274,7 +274,7 @@ Cloud events have the following properties:
 
 * PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
-  !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
+  !! NOTE: The ttl value is not yet implemented and will be ignored, so changing this property will not currently have any impact.
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
 
 Anyone may subscribe to public events; think of them like tweets.
