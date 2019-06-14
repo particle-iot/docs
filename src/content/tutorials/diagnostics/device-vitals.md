@@ -5,6 +5,7 @@ order: 2
 shared: true
 columns: two
 layout: tutorials.hbs
+devices: [photon,electron,core,xenon,argon,boron]
 ---
 
 # {{title}}
@@ -32,7 +33,7 @@ Device Vitals can be used in-tandem with [Fleet
 Health](/tutorials/diagnostics/fleet-health/) metrics for a bird's eye
 view of your IoT system's health.
 
-## Vitals collected
+## Available Vitals
 
 Starting with Device OS version `0.8.0`, each device will automatically
 collect health vitals. Device OS version `1.2.1` also includes
@@ -178,22 +179,24 @@ depending on what values are returned by the device. Learn more about
 diagnostic analysis in the section on [test results](#test-results).
 
 
-### Run health test
+## Health Check
 
-If device vitals are the appetizer, the full Remote Diagnostics test
-suite is the main course. It combines diagnostic data sent from the
-device with other relevant connectivity layers needed for healthy device
-communication.
-
-Note that the relevant connectivity layers vary based on the type of device (i.e.
+In addition to device vitals, there is also the option to run a health
+check. Think of this as a way to run a real-time diagnostics test of the
+device. Note that the relevant connectivity layers vary based on the type of device (i.e.
 Wi-Fi vs. Cellular).
 
 For your device, these connectivity layers are:
 
-<img class="full-width" alt="Device Vitals, SIM Card, Cellular Network, and
-Particle Device Cloud"
-src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
-
+{{#if has-cellular}}
+  <img class="full-width" alt="Device Vitals, SIM Card, Cellular Network, and
+  Particle Device Cloud"
+  src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
+{{else}}
+  <img alt="Device Vitals and
+  Device Particle Device Cloud"
+  src="/assets/images/remote-diagnostics/connectivity-layers-wifi.png"/>
+{{/if}}
 
 ### Device Vitals
 
@@ -271,10 +274,10 @@ apps and services. Webhooks also allows devices to ingest
 information *from* these Internet services.
 
 
-## Running the test suite
+### Running a Health Check
 
 To run the full test suite, you can click on the **Run diagnostics**
-link from the Device Vitals UI, or click on the **Diagnostics tab** when viewing a
+link from the Device Vitals UI, or click on the **Health Check** when viewing a
 device on the Console:
 
 <img src="/assets/images/remote-diagnostics/device-vitals-run-fullsuite.jpg"/>
@@ -294,14 +297,14 @@ Running the tests will kick off diagnostics for each layer of the
 connectivity stack. Tests will be run in parallel, and the test results
 will be shown once all tests are completed.
 
-## Test Results
+### Test Results
 
 Once all of the diagnostic tests have completed, the Console will
 provide test results. Each connectivity layer will marked as
 _healthy_, _unhealthy_, or _warning_  depending on the result of the
 test.
 
-### Healthy
+#### Healthy
 
 A _healthy_ test result means that all tests have passed
 successfully. The device is operating normally. This state looks like
@@ -324,7 +327,7 @@ with a green check mark. You will also notice a top-level summary
 that confirms that all tests have passed and diagnostic vitals are in healthy
 ranges.
 
-### Warning
+#### Warning
 
 The diagnostic tests also can be marked in the _warning_ state. In
 this case, one or more of the diagnostic vitals has fallen outside of
@@ -358,7 +361,7 @@ rework the application firmware by reducing the frequency of event
 publishes to 1 per second or less.
 {{/if}}
 
-### Unhealthy
+#### Unhealthy
 
 The test run will be marked as _unhealthy_ if one or more of the Remote
 Diagnostic tests fail. Note that failure is defined as a state in which
