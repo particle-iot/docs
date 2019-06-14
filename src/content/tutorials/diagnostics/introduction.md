@@ -9,29 +9,41 @@ devices: [photon, electron, argon, boron, xenon]
 
 # Particle Diagnostics
 
-As you deploy your IoT fleet into the field, it becomes increasingly
-important to ensure that devices stay in a healthy state. In addition,
-when problems do arise, the ability to quickly identify and implement a
-solution are paramount to the reliability of your production deployment.
-This level of visibility can often be difficult to achieve without
-physical access to these devices in the field.
+When IoT devices are deployed in the field, fleet managers
+are immediately faced with this challenging question: **How do I ensure my devices are always online, and
+happily communicating with the cloud?** After all, inherent in the
+delivery on the promises of a connected product is the assumption that devices
+are connected to the Internet and can share data successfully.
 
-Remote Diagnostics gives your team the power to actively monitor the health of
-deployed units from the Console, without the need for custom development
-or costly dispatching of technicians. Furthermore, in the event of a
-device falling into an unhealthy state, your team will be empowered with
-rich context and suggested courses of action to quickly diagnose and
-rapidly resolve the issue.
+<img class="small" src="/assets/images/fleet-health/diagnostics-logo.png"/>
+<p class="caption">Particle Diagnostics is a suite of tools to maximize
+reliability of your IoT solution</p>
 
-{{#if has-cellular}}
-<img
-src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
-class="full-width"/>
-{{else}}
-<img
-src="/assets/images/remote-diagnostics/successful-diagnostics-test-wifi.png"
-class="full-width"/>
-{{/if}}
-<p class="caption">Remote Diagnostics allow you to test the connectivity
-health of your devices, and quickly resolve problems when they arise.</p>
+There are many obstacles that make achieving 100% uptime of an IoT
+deployment very difficult,including:
+- _Lack of physical access_: You can't rely on
+in-person interactions with devices once they are deployed. Managing the
+health of the device must be done entirely remotely.
+- _Varying connectivity environments_: Devices can be deployed in
+drastically different environments where access to connectivity (i.e.
+cellular networks) can be poor or non-existant, depending on the conditions.
+- _Interactions of complex systems_: The stack of IoT is quite wide,
+and blends hardware &amp; software. For your system to be "up", each
+layer in this stack must be behaving properly, while successfully
+integrating with the broader IoT system.
 
+Particle's all-in-one IoT platform is uniquely positioned to provide a
+suite of diagnostics tools to help your team address these challenges.
+These tools provide the visibility needed to actively monitor the health
+of a device fleet, as well as equipping you with context needed to
+quickly root cause and resolve issues when they arise.
+
+**Particle Diagnostics** is comprised of two complimentary products:
+1. [**Device Vitals**](/tutorials/diagnostics/device-vitals): Deep
+device-level visibility into a variety of connectivity vitals
+that determine whether an individual device can communicate successfully.
+2. [**Fleet Health**](/tutorials/diagnostics/fleet-health): System-wide
+visibility into the state of an IoT fleet to monitor the overall health
+of your deployment.
+
+To learn more, click on one of the linked tutorials above.
