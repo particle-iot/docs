@@ -1,7 +1,7 @@
 ---
 word: Fleet Health
 title: Fleet Health
-order: 35
+order: 3
 shared: true
 columns: two
 layout: tutorials.hbs
