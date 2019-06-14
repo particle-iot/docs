@@ -9,51 +9,118 @@ layout: tutorials.hbs
 
 # {{title}}
 
-Device vitals are indicators that impact connectivity health for
-that device. Starting with Device OS version `0.8.0`, each device will automatically
-collect and send its vitals to the Device Cloud upon starting a new secure session. For
-information on upgrading Device OS versions for your devices, check out the [Device OS
-guide](/guide/tools-and-features/device-os/#managing-device-os).
+Device Vitals are indicators that impact the overall health of a
+device. This is useful when troubleshooting connectivity isues for
+specific devices deployed in the field.
 
-You can see a device's vitals in the <a
-href="https://console.particle.io" target="_blank">Console</a>. From the
-devices view, click on a device from your device list.
+<img class="full-width" src="/assets/images/fleet-health/device-vitals-short.png"
+alt="Particle Diagnostics -- Device Vitals"/>
 
-When viewing a device details page,  will see a section for _Device Vitals_ in the
-right column. This will show you the last recorded vitals information
-for your device:
+Device vitals are:
+- **Collected by every Particle device**: The device records information
+relevant to its ability to successfully connect and communicate with the
+Device Cloud. Cellular networking vitals<sup class="new">NEW</sup> are now
+available.
+- **Sent to the Device Cloud**: Vitals are automatically shared with the
+Device Cloud when starting a new secure session, and can be sent on a
+cadence using `Particle.publishVitals()`<sup class="new">NEW</sup>.
+- **Accessible via the Console or API**: The Console exposes Vitals
+history graphs <sup class="new">NEW</sup> as well as the last recorded
+vitals. This information can also be queried via Particle's Device Cloud API.
 
-<img src="/assets/images/remote-diagnostics/device-vitals-cellular.png"
-class="small"/>
+Device Vitals can be used in-tandem with [Fleet
+Health](/tutorials/diagnostics/fleet-health/) metrics for a bird's eye
+view of your IoT system's health.
 
-The device collects the following diagnostic vitals, and sends them to
-the Device Cloud:
-{{#if has-cellular}}
-- *Battery state of charge*: The state of charge of the device’s connected battery, represented as a percentage.
-{{/if}}
-- *Signal strength*: The strength of the device’s connection to the
-{{#if has-cellular}}Cellular{{else}}Wi-Fi{{/if}} network, measured in decibels of received signal power.
-- *Disconnect events*: The number of times the device disconnected
-unexpectedly from the Particle Device Cloud since its last reset.
-- *Round-trip time*: The amount of time it takes for the device to
+## Vitals collected
+
+Starting with Device OS version `0.8.0`, each device will automatically
+collect health vitals. Device OS version `1.2.1` also includes
+additional cellular networking vitals.
+
+The device collects a variety of metrics that probe different areas that
+could impact successfull device communications. Here are some of the
+most noteable vitals:
+
+
+- **Signal strength**: The strength of the device’s connection to the
+network (Cellular or Wi-Fi), measured in decibels of received signal power.
+- **Signal quality**: The quality of the device’s connection to the (Cellular or Wi-Fi) network is a measure of the relative noise, or likelihood of interference of the signal.
+- **Cellular network**<sup class="new">NEW</sup>: Information about the
+cellular connection, including:
+  - *Operator*: The cellular carrier that the device is currently using to get
+  a connection to the Internet.
+  - *Radio Access Technology (RAT)*: The cellular connection method
+  being used by the device (i.e. "LTE", or "3G").
+  - *Cell Global Identity*: The unique identifier for the specific
+  cell tower the device is currently connected to, which combines MCC,
+  MNC, LAC, and CI.
+- **Round-trip time**: The amount of time it takes for the device to
 successfully respond to a CoAP message sent by the Particle Device Cloud in milliseconds.
-- *Rate-limited publishes*: Particle devices are allowed to publish an
-average of 1 event per second in application firmware. Publishing at a
-rate higher than this will result in rate limiting of events.
-- *Used Memory*: The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
+- **Battery state of charge**: The state of charge of the device’s connected battery, represented as a percentage.
+- **Used Memory**: The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
 
-The device delivers the diagnostics data to the Particle Device Cloud
-via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
-system event. The device vitals event will include a data payload of the
-most recent readings the device collected.
+For a comprehensive list of which vitals are collected, check out the
+Device Vitals [reference
+docs](/reference/device-cloud/api/#device-vitals-event).
 
-Each vital will be analyzed and marked as either _healthy_ or _warning_
-depending on what values are returned by the device. Learn more about
-diagnostic analysis in the section on [test results](#test-results).
+For information on upgrading Device OS versions for your devices to get
+the most out of Device Vitals, check out the [Device OS guide](/guide/tools-and-features/device-os/#managing-device-os).
 
-You can also refresh a device vitals on-demand. Read on to learn how.
+## Sending Vitals to Device Cloud
+There are a few different ways that a device can be instructed to send
+its vitals to the Device Cloud.
+1. **Starting a secure session**: When a device _handshakes_ with the
+Device Cloud, it will automatically collect and send its vitals recorded
+at startup.
+2. **Particle.publishVitals()**<sup class="new">NEW</sup>: An API in
+Device OS allows you to instruct a device to send its vitals in
+application firmware.
+3. **Refreshing from the Device Cloud**: Remotely trigger a device to
+send its vitals ad-hoc via the Console or the Device Cloud API.
 
-### Refresh in the Console
+### Particle.publishVitals()
+`Particle.publishVitals()` is a method exposed by Device OS as of
+version 1.2.1. It allows you to collect and send device vitals on a
+regular cadence as part of application firmware.
+
+This is especially
+useful if you use the Device Vitals historical graphs in the Console,
+and want regular intervals of data for analysis.For instance, to publish
+vitals every hour, add the following to your `setup()` function:
+
+```cpp
+setup () {
+  Particle.publishVitals(3600);
+}
+
+loop () {
+  // Your loop logic goes here
+}
+```
+
+`publishVitals()` accepts one optional argument, which is the period (in
+seconds) at which vitals are to be sent to the cloud. If you don't pass
+an argument, vitals will be published once, immediately.
+
+For the full reference docs on `Particle.publishVitals()`, [click
+here](/reference/device-os/firmware/#particle-publishvitals-).
+
+*Note: You should take care when determining how often devices should
+send their vitals to the Device Cloud. There's a tradeoff to be made:
+The more frequent you send the vitals, the higher fidelity of data
+available to you when troubleshooting. But, this comes with an increase
+in cellular data usage (Each vitals message is ~150 bytes). You can find
+the proper balance for your specific needs.*
+
+
+### Refreshing from Device Cloud
+
+You can instruct a device to re-send its vitals remotely via the Device
+Cloud.
+
+#### Refresh from the Console
+
 You can use the Console to update vitals for your device at any time:
 
 <img src="/assets/images/remote-diagnostics/device-vitals-refresh.png"
@@ -68,7 +135,7 @@ responsive, device vitals will be refreshed.
 diagnostics test suite](#full-diagnostics-test-suite), which includes
 refreshing device vitals.
 
-### Refresh using the API
+#### Refresh using the API
 
 If you'd like to programmatically instruct the device to re-send its
 device vitals, you can use the Device Cloud REST API. **This is especially
@@ -83,7 +150,35 @@ stream](/reference/api/#product-event-streamh) or by
 triggers off of the `spark/device/diagnostics/update` event.
 
 
-## Full Diagnostics Test Suite
+## Accessing Vitals
+
+You can see a device's vitals in the <a
+href="https://console.particle.io" target="_blank">Console</a>. From the
+devices view, click on a device from your device list.
+
+### Vitals history
+
+### Last recorded vitals
+
+When viewing a device details page,  will see a section for _Device Vitals_ in the
+right column. This will show you the last recorded vitals information
+for your device:
+
+<img src="/assets/images/remote-diagnostics/device-vitals-cellular.png"
+class="small"/>
+
+
+The device delivers the diagnostics data to the Particle Device Cloud
+via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
+system event. The device vitals event will include a data payload of the
+most recent readings the device collected.
+
+Each vital will be analyzed and marked as either _healthy_ or _warning_
+depending on what values are returned by the device. Learn more about
+diagnostic analysis in the section on [test results](#test-results).
+
+
+### Run health test
 
 If device vitals are the appetizer, the full Remote Diagnostics test
 suite is the main course. It combines diagnostic data sent from the
@@ -95,15 +190,9 @@ Wi-Fi vs. Cellular).
 
 For your device, these connectivity layers are:
 
-{{#if has-cellular}}
-  <img class="full-width" alt="Device Vitals, SIM Card, Cellular Network, and
-  Particle Device Cloud"
-  src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
-{{else}}
-  <img alt="Device Vitals and
-  Device Particle Device Cloud"
-  src="/assets/images/remote-diagnostics/connectivity-layers-wifi.png"/>
-{{/if}}
+<img class="full-width" alt="Device Vitals, SIM Card, Cellular Network, and
+Particle Device Cloud"
+src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
 
 
 ### Device Vitals
@@ -120,7 +209,6 @@ See the section on [device vitals](#device-vitals) for detailed
 information on what data gets sent from the device.
 
 
-{{#if has-cellular}}
 ### SIM Card
 
 Cellular devices rely on a SIM card to facilitate a connection to the
@@ -151,8 +239,6 @@ card in the device has a healthy data session with a cell tower.
 Similar to what was said in the above section, you must have proper
 access to the Particle SIM Card being used in the device for the
 Cellular Network layer to be displayed in the Console.
-
-{{/if}}
 
 ### Particle Device Cloud
 

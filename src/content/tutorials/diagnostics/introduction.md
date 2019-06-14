@@ -38,7 +38,8 @@ These tools provide the visibility needed to actively monitor the health
 of a device fleet, as well as equipping you with context needed to
 quickly root cause and resolve issues when they arise.
 
-**Particle Diagnostics** is comprised of two complimentary products:
+**Particle Diagnostics** is comprised of two complimentary products to
+maximize reliability of your IoT solution:
 1. [**Device Vitals**](/tutorials/diagnostics/device-vitals): Deep
 device-level visibility into a variety of connectivity vitals
 that determine whether an individual device can communicate successfully.
