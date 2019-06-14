@@ -171,8 +171,7 @@ last recorded vitals reading will instruct the device to re-send its
 device vitals to the Device Cloud. If your device is online and
 responsive, device vitals will be refreshed.
 
-**Clicking on the _Run diagnostics_ link** will trigger running the [full
-diagnostics test suite](#full-diagnostics-test-suite), which includes
+**Clicking on the _Run diagnostics_ link** will trigger running the [health check](#health-check), which includes
 refreshing device vitals.
 
 #### Refresh using the API
