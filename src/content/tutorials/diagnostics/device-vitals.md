@@ -25,8 +25,8 @@ available.
 - **Sent to the Device Cloud**: Vitals are automatically shared with the
 Device Cloud when starting a new secure session, and can be sent on a
 cadence using `Particle.publishVitals()`<sup class="new">NEW</sup>.
-- **Accessible via the Console or API**: The Console exposes Vitals
-history graphs <sup class="new">NEW</sup> as well as the last recorded
+- **Accessible via the Console or API**: The Console exposes a Vitals
+dashboard <sup class="new">NEW</sup> as well as the last recorded
 vitals. This information can also be queried via Particle's Device Cloud API.
 
 Device Vitals can be used in-tandem with [Fleet
@@ -74,7 +74,17 @@ You can see a device's vitals in the <a
 href="https://console.particle.io" target="_blank">Console</a>. From the
 devices view, click on a device from your device list.
 
-### Vitals History <sup class="new">NEW</sup>
+### Vitals Dashboard <sup class="new">NEW</sup>
+When viewing a device in the Console, click on the **Vitals tab** to expose the Dashboard.
+The Vitals Dashboard visualizes 5 critical Device Vitals:
+
+- **Signal Strength**
+- **Signal Quality**
+- **Round-trip Time**
+- **Memory Usage**
+- **Battery Charge**
+
+<img class="full-width" src="/assets/images/fleet-health/vitals-signal-strenth.png"/>
 
 ### Last recorded vitals
 
