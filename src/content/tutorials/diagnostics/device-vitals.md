@@ -68,6 +68,35 @@ docs](/reference/device-cloud/api/#device-vitals-event).
 For information on upgrading Device OS versions for your devices to get
 the most out of Device Vitals, check out the [Device OS guide](/guide/tools-and-features/device-os/#managing-device-os).
 
+## Viewing Device Vitals
+
+You can see a device's vitals in the <a
+href="https://console.particle.io" target="_blank">Console</a>. From the
+devices view, click on a device from your device list.
+
+### Vitals History <sup class="new">NEW</sup>
+
+### Last recorded vitals
+
+When viewing a device details page,  will see a section for _Device Vitals_ in the
+right column. This will show you the last recorded vitals information
+for your device:
+
+<img src="/assets/images/remote-diagnostics/device-vitals-cellular.png"
+class="small"/>
+
+
+The device delivers the diagnostics data to the Particle Device Cloud
+via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
+system event. The device vitals event will include a data payload of the
+most recent readings the device collected.
+
+Each vital will be analyzed and marked as either _healthy_ or _warning_
+depending on what values are returned by the device. Learn more about
+diagnostic analysis in the section on [test results](#test-results).
+
+
+
 ## Sending Vitals to Device Cloud
 There are a few different ways that a device can be instructed to send
 its vitals to the Device Cloud.
@@ -80,7 +109,7 @@ application firmware.
 3. **Refreshing from the Device Cloud**: Remotely trigger a device to
 send its vitals ad-hoc via the Console or the Device Cloud API.
 
-### Particle.publishVitals()
+### Particle.publishVitals()<sup class="new">NEW</sup>
 `Particle.publishVitals()` is a method exposed by Device OS as of
 version 1.2.1. It allows you to collect and send device vitals on a
 regular cadence as part of application firmware.
@@ -149,34 +178,6 @@ published event from the device either using the [server-sent event
 stream](/reference/api/#product-event-streamh) or by
 [setting up a webhook](/guide/tools-and-features/webhooks/) that
 triggers off of the `spark/device/diagnostics/update` event.
-
-
-## Accessing Vitals
-
-You can see a device's vitals in the <a
-href="https://console.particle.io" target="_blank">Console</a>. From the
-devices view, click on a device from your device list.
-
-### Vitals history
-
-### Last recorded vitals
-
-When viewing a device details page,  will see a section for _Device Vitals_ in the
-right column. This will show you the last recorded vitals information
-for your device:
-
-<img src="/assets/images/remote-diagnostics/device-vitals-cellular.png"
-class="small"/>
-
-
-The device delivers the diagnostics data to the Particle Device Cloud
-via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
-system event. The device vitals event will include a data payload of the
-most recent readings the device collected.
-
-Each vital will be analyzed and marked as either _healthy_ or _warning_
-depending on what values are returned by the device. Learn more about
-diagnostic analysis in the section on [test results](#test-results).
 
 
 ## Health Check
