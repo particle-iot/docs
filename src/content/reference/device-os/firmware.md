@@ -274,7 +274,7 @@ Cloud events have the following properties:
 
 * PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
-  !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
+  !! NOTE: The ttl value is not yet implemented and will be ignored, so changing this property will not currently have any impact.
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
 
 Anyone may subscribe to public events; think of them like tweets.
@@ -9848,7 +9848,7 @@ Time.format();                // current time with preset format
 time_t time = Time.now();
 Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
 
-Time.zone(-5.25);  // setup a time zone, which is part of the ISO6801 format
+Time.zone(-5.25);  // setup a time zone, which is part of the ISO8601 format
 Time.format(time, TIME_FORMAT_ISO8601_FULL); // 2004-01-10T08:22:04-05:15
 
 ```
