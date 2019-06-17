@@ -215,7 +215,7 @@ communicate with the cloud. A variety of factors influence its state,
 such as battery state of charge, signal strength, available memory, and
 application firmware that does not exceed enforced rate limits.
 
-As part of the full Remote Diagnostics test suite, the device will be
+As part of the full health check, the device will be
 asked to re-send its vitals to the Device Cloud. Each vital will be
 inspected and analyzed to ensure that it falls within a healthy range.
 See the section on [device vitals](#device-vitals) for detailed
@@ -232,7 +232,7 @@ is currently active or not.
 
 Note that the SIM layer will only be displayed if your Particle account
 has the proper access to the Particle SIM Card inside the device. For instance, if
-you are viewing Remote Diagnostics for a device claimed to your
+you are viewing vitals for a device claimed to your
 developer account, but that device is using a SIM associated with a product
 (not owned by your individual Particle account), the SIM Card layer will
 not be displayed.
@@ -394,7 +394,7 @@ icon. In this case, we are not able to successfully communicate with the
 Particle device. The device layer is marked as unhealthy, and we see
 that the device is unresponsive.
 
-Anytime the Remote Diagnostic tests fail, there will be a course of
+Anytime the Health Check tests fail, there will be a course of
 action suggested in the test results summary. These calls-to-action are
 designed to help your team quickly identify a solution to the
 connectivity issue that has arisen. In this scenario, the call to action
