@@ -35,21 +35,19 @@ This is a simple breakout board for Particle's B series of cellular IoT modules.
 | 10 | **Cellular antenna** | Connector for an external SMA connected cellular antenna. |
 | 11 | **Bluetooth/mesh antenna** | Connector for an external SMA connected antenna for Bluetooth and mesh networking. |
 | 12 | **TF/SD Card** | MicroSD card slot. |
-| 13 | **Nano SIM** | Nano 4FF SIM card slot. |
-| 14 | **User LED** | Blue LED connected to pin D7. | 
-| 15 | **Reset Button** |This is same as the RESET button on the Boron. |
-| 16 | **RGB LED** | System status indicator RGB LED. |
-| 17 | **Mode Button** | This is the same as the MODE button on the Boron. |
-| 18 | **Expansion Connector** | Allows easy access to SoM IO pins. |
-| 19 | **Grove Analog Port** | Connects to Seeed Studio Grove analog and digital boards.|
-| 20 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
-| 21 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
-| 22 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 23 | **SoM connector** | M.2 connector for the Boron SoM. |
-| 24 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
-| 25 | **Power Jumpers** | Enable or disable power from the evaluation board. |
-| 26 | **PMIC** | Power management IC (bq24195) and charge controller. |
-| 27 | **Charge LED** | Indicate LiPo is charging. | 
+| 13 | **User LED** | Blue LED connected to pin D7. | 
+| 14 | **Reset Button** |This is same as the RESET button on the Boron. |
+| 15 | **RGB LED** | System status indicator RGB LED. |
+| 16 | **Mode Button** | This is the same as the MODE button on the Boron. |
+| 17 | **Expansion Connector** | Allows easy access to SoM IO pins. |
+| 18 | **Grove Analog Port** | Connects to Seeed Studio Grove analog and digital boards.|
+| 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
+| 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
+| 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
+| 22 | **SoM connector** | M.2 connector for the Boron SoM. |
+| 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
+| 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
+| 25 | **Charge LED** | Indicate LiPo is charging. | 
 
 
 ### Jumpers J12
