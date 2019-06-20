@@ -35,21 +35,19 @@ This is a simple breakout board for Particle's B series of cellular IoT modules.
 | 10 | **Cellular antenna** | Connector for an external SMA connected cellular antenna. |
 | 11 | **Bluetooth/mesh antenna** | Connector for an external SMA connected antenna for Bluetooth and mesh networking. |
 | 12 | **TF/SD Card** | MicroSD card slot. |
-| 13 | **Nano SIM** | Nano 4FF SIM card slot. |
-| 14 | **User LED** | Blue LED connected to pin D7. | 
-| 15 | **Reset Button** |This is same as the RESET button on the Boron. |
-| 16 | **RGB LED** | System status indicator RGB LED. |
-| 17 | **Mode Button** | This is the same as the MODE button on the Boron. |
-| 18 | **Expansion Connector** | Allows easy access to SoM IO pins. |
-| 19 | **Grove Analog Port** | Connects to Seeed Studio Grove analog and digital boards.|
-| 20 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
-| 21 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
-| 22 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
-| 23 | **SoM connector** | M.2 connector for the Boron SoM. |
-| 24 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
-| 25 | **Power Jumpers** | Enable or disable power from the evaluation board. |
-| 26 | **PMIC** | Power management IC (bq24195) and charge controller. |
-| 27 | **Charge LED** | Indicate LiPo is charging. | 
+| 13 | **User LED** | Blue LED connected to pin D7. | 
+| 14 | **Reset Button** |This is same as the RESET button on the Boron. |
+| 15 | **RGB LED** | System status indicator RGB LED. |
+| 16 | **Mode Button** | This is the same as the MODE button on the Boron. |
+| 17 | **Expansion Connector** | Allows easy access to SoM IO pins. |
+| 18 | **Grove Analog Port** | Connects to Seeed Studio Grove analog and digital boards.|
+| 19 | **Grove I2C Port** | Connects to Seeed Studio Grove I2C boards.|
+| 20 | **NFC Antenna** | U.FL connector for an NFC antenna (optional). |
+| 21 | **Jumpers J12** | Enable or disable various features on the evaluation board. |
+| 22 | **SoM connector** | M.2 connector for the Boron SoM. |
+| 23 | **Jumpers J13** | Enable or disable various features on the evaluation board. |
+| 24 | **Power Jumpers** | Enable or disable power from the evaluation board. |
+| 25 | **Charge LED** | Indicate LiPo is charging. | 
 
 
 ### Jumpers J12
@@ -63,17 +61,10 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | | SD_MO | MOSI | MOSI |
 | | SD_CS | GPIO1 | D23 |
 | | SD_DET | PWM2 | D6 |
-| SIM | SIM_DATA | SOM8 |  |
-| | SIM_CLK | SOM7 |  |
-| | SIM_RST | SOM6 |  |
-| | SIM_VCC | SOM5 |  |
-| | SOM9 | SOM9 |  |
 | D7 LED | USER | PWM3 | D7 |
 | | GND | GND | GND |
 
 While there is an external SIM card connector and jumpers on the evaluation board, the B Series B402 SoM does not support using a 3rd-party SIM card.
-
----
 
 ### Jumpers J13
 
@@ -93,6 +84,7 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | D0 | SDA | PM\_SDA | PMIC |
 | D1 | SCL | PM\_SCL | PMIC |
  
+---
 
 ### Power Jumpers
 
@@ -135,6 +127,8 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | | GND | | VCC | | 
 | | GND | | VCC | | 
 
+---
+
 ### PWM Differences
 
 On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
@@ -161,22 +155,14 @@ These rules also apply to tone() (square wave with 50% duty cycle), however sinc
 
 The basic setup for the B series to be operational is shown below:
 
-<div align=center><img src="/assets/images/b-series/b-series-eval-setup.png"></div>
-
-- Plug the antenna into the uFL connector (1). Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the u-blox module if no antenna is connected.
-- Make sure jumpers J5 and J31 are installed (2).
+- Plug the cellular antenna into the U.FL connector labeled **CELL** on the SoM. Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the u-blox module if no antenna is connected.
+- If you are going to use mobile app setup, mesh networking, or BLE, connect the 2.4 GHz antenna (the smaller one) to the **BT** U.FL connector on the SoM.
 - Connect power the USB (3) or a LiPo battery (4).
-- Turn on the power switches (5).
+- Turn on the appropriate power switches (5).
 
 ### Using the PMIC and Fuel Gauge (recommended)
 
-To use the bq24195 PMIC and MAX17043 fuel gauge you must add the jumpers:
-
-- ADC6 to PM\_INT
-- SDA to PM\_SDA
-- SCL to PM\_SCL
-
-There is support for it in Device OS so you don't need to add any additional configuration.
+There is support for bq24195 PMIC and MAX17043 fuel gauge in Device OS so you don't need to add any additional configuration.
 
 | PMIC | nRF52 Pin | SoM Pin | SoM Pin Number |
 | :---: | :---: |  :---: |  :---: | 
@@ -184,7 +170,12 @@ There is support for it in Device OS so you don't need to add any additional con
 | PM\_SDA | P1.13 | D0 | 22 |
 | PM\_SCL | P1.15 | D1 | 20 |
 
----
+It requires these jumpers, which should be installed at the factory:
+
+- ADC6 to PM\_INT
+- SDA to PM\_SDA
+- SCL to PM\_SCL
+
 
 ### Using the MicroSD Card
 
@@ -208,6 +199,7 @@ With the jumpers installed, it will use the primary SPI and pin D23 as the chip 
 | SD\_CS | P1.03 | D8 | 48 |
 | SD\_DET | P1.1 | D6 | 70 |
 
+---
 
 ### Using Ethernet
 
@@ -254,6 +246,7 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-pmic.png"></div>
 
+
 ### Fuel Gauge
 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-fuel.png" class="small"></div>
@@ -275,11 +268,6 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-sdcard.png" class="small"></div>
 
 ---
-
-### SIM
-
-<div align=center><img src="/assets/images/b-series/b-series-eval-schematic-sim.png" class="small"></div>
-
 
 ## Revision history
 
