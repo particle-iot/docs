@@ -44,7 +44,7 @@ The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100
 
 If you attach a LiPo battery to the Argon, Boron, or Xenon, it can be charged by PoE. The devices do not automatically switch between Ethernet and their native network connection (Wi-Fi or Cellular, respectively) at this time, however, if the Ethernet is disconnected.
 
-The PoE adapter supplies 1500 mA. This is enough to power any Particle Gen 3 device with some power available to power FeatherWings in the extra FeatherWing socket.
+The PoE adapter supplies 1800 mA. This is enough to power any Particle Gen 3 device with some power available to power FeatherWings in the extra FeatherWing socket.
 
 ### Assembling
 

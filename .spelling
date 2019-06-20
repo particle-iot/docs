@@ -3419,6 +3419,14 @@ P0.28
 ADC1
 P0.04
 J10
+SD_MI
+SD_CK
+SD_MO
+SD_CS
+SD_DET
+UB
+ADC6
+P0.05
  - src/content/reference/device-os/firmware.md
 TMR1
 TMR8
@@ -3434,3 +3442,14 @@ compileCode
 createUser
 listAccessTokens
 deleteAccessToken
+ - src/content/datasheets/accessories/legacy-accessories.md
+AN2689
+OpenXC
+ - src/content/datasheets/cellular/b-series-datasheet.md
+6.5mm
+ - src/content/support/general/product-lifecycle-policy.md
+Lifecycle
+SLAs
+lifecycle
+roadmap
+timeframe
