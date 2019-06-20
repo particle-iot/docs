@@ -214,7 +214,7 @@ If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRES
 
 The PoE (Power over Ethernet) adapter for the Ethernet FeatherWing plugs into the Ethernet side of the FeatherWing. 
 
-It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1800 mA to your device and any Feather accessories. It is a Class 0 IEEE 802.3af device.
+It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1800 mA to your device and any Feather accessories. It is a Class 0 IEEE 802.3af device. It supports Alternative A (power on data pair) and Alternative B (power on spare pair).
 
 | Parameter | Minimum | Typical | Maximum | Units |
 | --- | --- | --- | --- | --- |
