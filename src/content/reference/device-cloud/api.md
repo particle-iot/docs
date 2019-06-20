@@ -54,7 +54,7 @@ curl "https://api.particle.io/v1/devices/mydevice/wakeup?access_token=1234" \
 
 In these docs, you'll see example calls written using a terminal program called [curl](https://curl.haxx.se/) which may already be available on your machine.
 
-The example use form encoded data to make them easier to read and type but unless specified otherwise any endpoint can also accept a JSON object with the parameters as properties.
+The examples use form encoded data to make them easier to read and type but unless specified otherwise any endpoint can also accept a JSON object with the parameters as properties.
 
 
 ## Authentication

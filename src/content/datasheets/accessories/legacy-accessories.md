@@ -686,7 +686,9 @@ The Asset Tracker is a cellular solution for tracking the location of just about
 
 There are a couple of different ways that you can power this shield. You can power it via the screw terminal from a 5V to 12V DC supply (make sure it can support at least 2 Amp current peaks) or you can simply power it via the LiPo battery that came with the Electron. You can also use the two sources together. We do not recommend powering it from a USB source, as the USB cable will block the GPS module leading to a poor or no satellite reception. If you HAVE to use the USB power, then make sure to use an external GPS antenna.
 
-Say if you want to put the asset tracker inside a car, you can use the car's battery as the main power source and use the LiPo battery as a backup when the car is turned off. Remember that in order for the battery to last a long time, it's ideal that you put the Electron in deep sleep mode and turn off the GPS when not needed. This is described in greater detail under the library section.
+Remember that in order for the battery to last a long time, it's ideal that you put the Electron in deep sleep mode and turn off the GPS when not needed. This is described in greater detail under the library section.
+
+While the screw terminal input allows up to 12 VDC we don't recommend connecting it directly to an automobile electrical system without additional protective circuits. There are often voltage spikes that can damage the Electron power supply. Two good references are the [ST Microelectronics AN2689](https://www.st.com/content/ccc/resource/technical/document/application_note/1f/d7/fc/6d/2e/27/48/98/CD00181783.pdf/files/CD00181783.pdf/jcr:content/translations/en.CD00181783.pdf) "Protection of automotive electronics from electrical hazards, guidelines for design and component selection" and the [OpenXC](http://openxcplatform.com/) power supply design.
 
 ![Asset Tracker Emotions](/assets/images/shields/asset-tracker-shield/asset-emotions.gif)
 
@@ -782,9 +784,11 @@ This new revision of the Electron Asset Tracker uses a u-blox M8 engine GNSS rec
 
 There are a couple of different ways that you can power this shield. You can power it via the screw terminal from a 5V to 12V DC supply (make sure it can support at least 2 Amp current peaks) or you can simply power it via the LiPo battery that came with the Electron. You can also use the two sources together. We do not recommend powering it from a USB source, as the USB cable will block the GPS antenna leading to a poor or no satellite reception. If you HAVE to use the USB power, then make sure to use an external GPS antenna.
 
-Say if you want to put the asset tracker inside a car, you can use the car's battery as the main power source and use the LiPo battery as a backup when the car is turned off. Remember that in order for the battery to last a long time, it's ideal that you put the Electron in deep sleep mode and turn off the GPS when not needed. This is described in greater detail under the library section.
+Remember that in order for the battery to last a long time, it's ideal that you put the Electron in deep sleep mode and turn off the GPS when not needed. This is described in greater detail under the library section.
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-power.png)
+
+While the screw terminal input allows up to 12 VDC we don't recommend connecting it directly to an automobile electrical system without additional protective circuits. There are often voltage spikes that can damage the Electron power supply. Two good references are the [ST Microelectronics AN2689](https://www.st.com/content/ccc/resource/technical/document/application_note/1f/d7/fc/6d/2e/27/48/98/CD00181783.pdf/files/CD00181783.pdf/jcr:content/translations/en.CD00181783.pdf) "Protection of automotive electronics from electrical hazards, guidelines for design and component selection" and the [OpenXC](http://openxcplatform.com/) power supply design.
 
 **GPS**
 

@@ -274,7 +274,7 @@ Cloud events have the following properties:
 
 * PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
-  !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
+  !! **NOTE:** TTL is not implemented, hence the ttl value has no effect. Events must be caught immediatley; once sent they will be gone *immediately*.
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
 
 Anyone may subscribe to public events; think of them like tweets.
@@ -9848,7 +9848,7 @@ Time.format();                // current time with preset format
 time_t time = Time.now();
 Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
 
-Time.zone(-5.25);  // setup a time zone, which is part of the ISO6801 format
+Time.zone(-5.25);  // setup a time zone, which is part of the ISO8601 format
 Time.format(time, TIME_FORMAT_ISO8601_FULL); // 2004-01-10T08:22:04-05:15
 
 ```
@@ -11181,7 +11181,7 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 |       | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
 |       | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
 |       | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
-|       | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
+|       | button_click | 4096 | event sent each time SETUP/MODE button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
 |       | button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
 | 0.6.1 | time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
 | 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
