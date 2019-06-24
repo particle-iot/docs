@@ -37,7 +37,7 @@ You can see a device's vitals in the <a
 href="https://console.particle.io" target="_blank">Console</a>. From the
 devices view, click on a device from your device list.
 
-## Vitals Dashboard <sup class="new">NEW</sup>
+## Vitals Dashboard
 Starting with Device OS version `0.8.0`, each device will automatically
 collect health vitals and send them to the Device Cloud. Device OS version `1.2.1` also includes
 additional [cellular networking vitals](#cellular-vitals-new).
@@ -257,12 +257,19 @@ an argument, vitals will be published once, immediately.
 For the full reference docs on `Particle.publishVitals()`, [click
 here](/reference/device-os/firmware/#particle-publishvitals-).
 
-*Note: You should take care when determining how often devices should
+TODO: Fill this in with real numbers!!
+
+**Note**: Particle caps the number of stored vitals samples for each
+device at XXXX per month. This is the equivalent of publishing vitals in
+application firmware once per second. This cap is enforced for
+performance reasons.
+
+**Note**: You should take care when determining how often devices should
 send their vitals to the Device Cloud. There's a trade off to be made:
 The more frequent you send the vitals, the higher fidelity of data
 available to you when troubleshooting. But, this comes with an increase
 in cellular data usage (Each vitals message is ~150 bytes). You can find
-the proper balance for your specific needs.*
+the proper balance for your specific needs.
 
 
 ### Refreshing from Device Cloud
