@@ -26,27 +26,149 @@ available.
 Device Cloud when starting a new secure session, and can be sent on a
 cadence using `Particle.publishVitals()`<sup class="new">NEW</sup>.
 - **Accessible via the Console or API**: The Console exposes a Vitals
-dashboard <sup class="new">NEW</sup> as well as the last recorded
+Dashboard <sup class="new">NEW</sup> as well as the last recorded
 vitals. This information can also be queried via Particle's Device Cloud API.
 
 Device Vitals can be used in-tandem with [Fleet
 Health](/tutorials/diagnostics/fleet-health/) metrics for a bird's eye
 view of your IoT system's health.
 
-## Available Vitals
+You can see a device's vitals in the <a
+href="https://console.particle.io" target="_blank">Console</a>. From the
+devices view, click on a device from your device list.
 
+## Vitals Dashboard <sup class="new">NEW</sup>
 Starting with Device OS version `0.8.0`, each device will automatically
-collect health vitals. Device OS version `1.2.1` also includes
-additional cellular networking vitals.
+collect health vitals and send them to the Device Cloud. Device OS version `1.2.1` also includes
+additional [cellular networking vitals](#cellular-vitals-new).
 
 The device collects a variety of metrics that probe different areas that
-could impact successfull device communications. Here are some of the
-most noteable vitals:
+could impact successfull device communications. The Vitals Dashboard takes some of the most important
+health metrics relayed by the device and graphs them for quick diagnosis
+capabilities. The Vitals Dashboard visualizes the following metrics:
 
+- **Signal Strength**
+- **Signal Quality**
+- **Round-trip Time**
+- **Memory Usage**
+- **Battery Charge**
 
-- **Signal strength**: The strength of the device’s connection to the
+When viewing a device in the Console, click on the **Vitals tab** to expose the Dashboard.
+
+There are many other vitals collected by the device and sent to the
+Device Cloud. For a comprehensive list of which vitals are collected, check out the
+Device Vitals [reference
+docs](/reference/device-cloud/api/#device-vitals-event). To access
+to the full collection of vitals, see [this
+section](#last-recorded-vitals).
+
+For information on upgrading Device OS versions for your devices to get
+the most out of Device Vitals, check out the [Device OS guide](/guide/tools-and-features/device-os/#managing-device-os).
+
+### Signal Strength
+The strength of the device’s connection to the
 network (Cellular or Wi-Fi), measured in decibels of received signal power.
-- **Signal quality**: The quality of the device’s connection to the (Cellular or Wi-Fi) network is a measure of the relative noise, or likelihood of interference of the signal.
+
+<img class="full-width" src="/assets/images/fleet-health/signal-strength.png"/>
+
+The strength of the signal is normalized as a percentage from 0-100 —
+the closer to 100, the stronger the signal. As a rule of thumb, the closer the
+device is to a tower or router, the better signal strength will be. The raw signal
+strength (RSSI) is visible by hovering over each vitals data point.
+
+### Signal Quality
+The quality of the device’s connection to the (Cellular or Wi-Fi) network is a measure of the relative noise, or likelihood of interference of the signal.
+
+<img class="full-width" src="/assets/images/fleet-health/signal-quality.png"/>
+
+Like signal strength, quality is also normalized as a percentage from
+0-100 — the closer to 100, the higher the quality. As a rule of thumb, the
+fewer devices in close proximity communicating using similar radio frequencies, the better signal quality will be.
+Raw signal quality is available on the tooltip displayed when hovering over a vitals data point.
+
+### Round-trip Time
+The amount of time it takes for the device to
+successfully respond to a CoAP message sent by the Particle Device Cloud.
+
+<img class="full-width" src="/assets/images/fleet-health/round-trip-time.png"/>
+
+A longer the round-trip time often correlates with poor signal strength or quality. Round trip time is displayed in seconds — the lower the reported time, the better the performance.
+
+### Memory Usage
+The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
+
+<img class="full-width" src="/assets/images/fleet-health/memory-usage.png"/>
+
+If a device consumes too much of its available memory, certain unexpected failures in its firmware application can occur. Memory usage is displayed as a percentage from 0-100% — the closer to 0, the less available memory is being consumed.
+
+### Battery State of Charge
+The state of charge of the device’s connected battery, represented as a percentage.
+
+<img class="full-width" src="/assets/images/fleet-health/battery-charge.png"/>
+
+If the battery charge falls too low,  the device is at risk of losing power and going offline. Battery charge is displayed as a percentage from 0-100% — the closer to 100, the more charge is available to the battery.
+
+### Data resolution
+Device Vitals are bucketed into varying time intervals depending on which time range is selected in the Console:
+
+- Last hour — 1 minute intervals
+- Last day — 15 minute intervals
+- Last 2 days — 30 minute intervals
+- Last week — 2 hour intervals
+- Last 2 weeks — 4 hour intervals
+- Last 30 days — 8 hour intervals
+
+To change time range, use the selector visible on the top-right section of the Vitals tab.
+
+<img src="/assets/images/fleet-health/time-range-change.png" class="full-width" />
+
+### Warning ranges
+
+Particle can help you understand whether the vitals sent by the device
+are healthy or unhealthy. Each vital displayed on the
+dashboard (i.e. signal strength) has pre-defined thresholds to
+determine if the sample falls into a _warning range_.
+
+A vital sample in the warning range is suggestive of a potentially unhealthy
+device that may experience difficulties when attemting to communicate
+with the Device Cloud. These ranges have been determined and fine-tuned based on other
+Particle devices' connectivity behaviors at various recorded values.
+
+<img src="/assets/images/fleet-health/vitals-warning-range.png" />
+<p class="caption">Samples in the warning range are marked in
+yellow on the Vitals Dashboard</p>
+
+If there is a data point that includes at least one vitals sample in
+the warning range, it will be marked with a yellow indicator on the
+graph. If consecutive data points contain readings in the warning range,
+the area underneath the graph will be colored yellow to signify a time
+period in which the device may have been unhealthy.
+
+The tooltip provides additional information, including the recorded data
+and how many samples in that time bucket fell into the warning range.
+
+### Last recorded vitals
+
+When viewing a device details page,  will see a section for _Last Vitals_ in the
+right column. This will show you the last recorded vitals information
+for your device:
+
+<img src="/assets/images/remote-diagnostics/device-vitals-cellular.png"
+class="small"/>
+
+Each vital will be analyzed and marked as either _healthy_ or _warning_
+depending on what values are returned by the device. Learn more about
+diagnostic analysis in the section on [test results](#test-results).
+
+You can click on the **Download History** link to download a CSV file
+containing the full list of vitals collected by the device over the last
+30 days. This CSV will contain additional advanced vitals that are not rendered
+in the Console UI. For a comprehensive list of available vitals, check
+ot the [reference
+docs](/reference/device-cloud/api/#device-vitals-event).
+
+#### Cellular Vitals <sup class="new">NEW</sup>
+
 - **Cellular network**<sup class="new">NEW</sup>: Information about the
 cellular connection, including:
   - *Operator*: The cellular carrier that the device is currently using to get
@@ -56,55 +178,6 @@ cellular connection, including:
   - *Cell Global Identity*: The unique identifier for the specific
   cell tower the device is currently connected to, which combines MCC,
   MNC, LAC, and CI.
-- **Round-trip time**: The amount of time it takes for the device to
-successfully respond to a CoAP message sent by the Particle Device Cloud in milliseconds.
-- **Battery state of charge**: The state of charge of the device’s connected battery, represented as a percentage.
-- **Used Memory**: The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
-
-For a comprehensive list of which vitals are collected, check out the
-Device Vitals [reference
-docs](/reference/device-cloud/api/#device-vitals-event).
-
-For information on upgrading Device OS versions for your devices to get
-the most out of Device Vitals, check out the [Device OS guide](/guide/tools-and-features/device-os/#managing-device-os).
-
-## Viewing Device Vitals
-
-You can see a device's vitals in the <a
-href="https://console.particle.io" target="_blank">Console</a>. From the
-devices view, click on a device from your device list.
-
-### Vitals Dashboard <sup class="new">NEW</sup>
-When viewing a device in the Console, click on the **Vitals tab** to expose the Dashboard.
-The Vitals Dashboard visualizes 5 critical Device Vitals:
-
-- **Signal Strength**
-- **Signal Quality**
-- **Round-trip Time**
-- **Memory Usage**
-- **Battery Charge**
-
-<img class="full-width" src="/assets/images/fleet-health/vitals-signal-strenth.png"/>
-
-### Last recorded vitals
-
-When viewing a device details page,  will see a section for _Device Vitals_ in the
-right column. This will show you the last recorded vitals information
-for your device:
-
-<img src="/assets/images/remote-diagnostics/device-vitals-cellular.png"
-class="small"/>
-
-
-The device delivers the diagnostics data to the Particle Device Cloud
-via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
-system event. The device vitals event will include a data payload of the
-most recent readings the device collected.
-
-Each vital will be analyzed and marked as either _healthy_ or _warning_
-depending on what values are returned by the device. Learn more about
-diagnostic analysis in the section on [test results](#test-results).
-
 
 
 ## Sending Vitals to Device Cloud
@@ -118,6 +191,11 @@ Device OS allows you to instruct a device to send its vitals in
 application firmware.
 3. **Refreshing from the Device Cloud**: Remotely trigger a device to
 send its vitals ad-hoc via the Console or the Device Cloud API.
+
+The device delivers the diagnostics data to the Particle Device Cloud
+via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
+system event. The device vitals event will include a data payload of the
+most recent readings the device collected.
 
 ### Particle.publishVitals()<sup class="new">NEW</sup>
 `Particle.publishVitals()` is a method exposed by Device OS as of
