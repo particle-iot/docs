@@ -53,7 +53,9 @@ capabilities. The Vitals Dashboard visualizes the following metrics:
 - **Memory Usage**
 - **Battery Charge**
 
-When viewing a device in the Console, click on the **Vitals tab** to expose the Dashboard.
+<img src="/assets/images/fleet-health/vitals-tab.png" />
+<p class="caption">When viewing a device in the Console, click on the
+**Vitals tab** to expose the Dashboard.</p>
 
 There are many other vitals collected by the device and sent to the
 Device Cloud. For a comprehensive list of which vitals are collected, check out the
@@ -167,18 +169,49 @@ in the Console UI. For a comprehensive list of available vitals, check
 ot the [reference
 docs](/reference/device-cloud/api/#device-vitals-event).
 
+You can also click on the **Health Check** link to execute a real-time diagnostics
+test for the device. For more info on this, check out the [Health
+Check](#health-check) section.
+
 #### Cellular Vitals <sup class="new">NEW</sup>
 
-- **Cellular network**<sup class="new">NEW</sup>: Information about the
-cellular connection, including:
-  - *Operator*: The cellular carrier that the device is currently using to get
-  a connection to the Internet.
-  - *Radio Access Technology (RAT)*: The cellular connection method
-  being used by the device (i.e. "LTE", or "3G").
-  - *Cell Global Identity*: The unique identifier for the specific
-  cell tower the device is currently connected to, which combines MCC,
-  MNC, LAC, and CI.
+As of Device OS version 1.2.1, cellular devices (i.e. Boron, B SoM,
+Electron, etc.) will begin to collect and send new vitals specific to
+the status and health of the cellular connection.
 
+
+These vitals will appear in the Console in the _Last Vitals_ section of
+the device details view:
+
+<img src="/assets/images/fleet-health/cellular-vitals.png"/>
+
+The cellular vitals collected by the device are as follows:
+
+- **Carrier**: The cellular network operator that the device is currently using to get
+a connection to the Internet.
+- **Radio Access Technology (RAT)**: The cellular connection method
+being used by the device (i.e. "LTE", or "3G").
+- **Cell Global Identity (CGI)**: The unique identifier for the specific
+cell tower the device is currently connected to, which combines MCC,
+MNC, LAC, and CI.
+
+In this case, the device is connected to an AT&T cell tower with CGI
+310-410-26507-21617 using LTE. Breaking down the CGI:
+- 310 is the _mobile country code_, or **MCC** associated with the
+United States of America.
+- 410 is the _mobile network code_, or **MNC**, associated with AT&T in
+the US. The combination of MCC and MNC tell you which carrier the device
+is using.
+- 26508 is the _location area code_ or **LAC**, which references a group of
+cellular towers in a geographic area.
+- 21617 is the _cellular identity_, or **CI**, which is the specific identifier of a
+single cellular tower.
+
+This data is useful to get an understanding of how a device is
+attempting to connect and communicate over a cellular network. For
+instance, perhaps cellular devices deployed in a particular geographic
+area have different connectivity behaviors depending on which specific
+cellular tower or network operator is being used.
 
 ## Sending Vitals to Device Cloud
 There are a few different ways that a device can be instructed to send
