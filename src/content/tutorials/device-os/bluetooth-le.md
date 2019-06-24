@@ -525,7 +525,9 @@ Flash this code to a Gen 3 device:
 ```C++
 #include "Particle.h"
 
-SYSTEM_MODE(MANUAL);
+// This example does not require the cloud so you can run it in manual mode or
+// normal cloud-connected mode
+// SYSTEM_MODE(MANUAL);
 
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
@@ -668,7 +670,9 @@ And the following code:
 
 #include "oled-wing-adafruit.h"
 
-SYSTEM_MODE(MANUAL);
+// This example does not require the cloud so you can run it in manual mode or
+// normal cloud-connected mode
+// SYSTEM_MODE(MANUAL);
 
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
@@ -793,8 +797,9 @@ In this demo you have an central device and two or more peripheral devices. Each
 ```C++
 #include "Particle.h"
 
-
-SYSTEM_MODE(MANUAL);
+// This example does not require the cloud so you can run it in manual mode or
+// normal cloud-connected mode
+// SYSTEM_MODE(MANUAL);
 
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
@@ -865,8 +870,9 @@ void loop() {
 ```C++
 #include "Particle.h"
 
-
-SYSTEM_MODE(MANUAL);
+// This example does not require the cloud so you can run it in manual mode or
+// normal cloud-connected mode
+// SYSTEM_MODE(MANUAL);
 
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
@@ -890,32 +896,20 @@ void loop() {
 void setAdvertisingData() {
 	uint8_t buf[BLE_MAX_ADV_DATA_LEN];
 
-	// Advertising data consists of records:
-	// Byte: Length (including the AD Type)
-	// Byte: AD Type
-	// Data (variable length)
 	size_t offset = 0;
 
-	// First AD record is the AD Type
-	buf[offset++] = 0x02; // Length
-	buf[offset++] = BLE_SIG_AD_TYPE_FLAGS;
-	buf[offset++] = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
-
-	// In our specific case, we use manufacturer specific data (0xff)
-
-	// Byte: Length
-	// Byte: BLE_SIG_AD_TYPE_MANUFACTURER_SPECIFIC_DATA (0xff)
+	// Manufacturer-specific data
 	// 16-bit: Company ID (0xffff)
 	// Byte: Internal packet identifier (0x55)
 	// 32-bit: Color code
-	buf[offset++] = 8; // Length
-	buf[offset++] = BLE_SIG_AD_TYPE_MANUFACTURER_SPECIFIC_DATA;
 
 	// Company ID (0xffff internal use/testing)
 	buf[offset++] = 0xff;
 	buf[offset++] = 0xff;
 
-	// Internal packet type
+	// Internal packet type. This is arbitrary, but provides an extra
+	// check to make sure the data is my data, since we use the 0xffff company
+	// code.
 	buf[offset++] = 0x55;
 
 	// Our specific data, color code
@@ -923,7 +917,7 @@ void setAdvertisingData() {
 	offset += 4;
 
 	BleAdvertisingData advData;
-	advData.set(buf, offset);
+	advData.appendCustomData(buf, offset);
 
 	// Advertise every 100 milliseconds. Unit is 0.625 millisecond intervals.
 	BLE.setAdvertisingInterval(130);
@@ -931,6 +925,7 @@ void setAdvertisingData() {
 	// Continuously advertise
 	BLE.advertise(&advData);
 }
+
 ```
 
 {{!-- this is disabled for now because of the limit of one peripheral device connection at a time in 1.3.0 --}}
@@ -968,7 +963,10 @@ This is the schematic for the button:
 #include "Particle.h"
 
 SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(MANUAL);
+
+// This example does not require the cloud so you can run it in manual mode or
+// normal cloud-connected mode
+// SYSTEM_MODE(MANUAL);
 
 SerialLogHandler logHandler;
 
@@ -1108,7 +1106,10 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 #include "Particle.h"
 
 SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(MANUAL);
+
+// This example does not require the cloud so you can run it in manual mode or
+// normal cloud-connected mode
+// SYSTEM_MODE(MANUAL);
 
 SerialLogHandler logHandler;
 
@@ -1200,7 +1201,9 @@ These are available for both iOS and Android.
 ```C++
 #include "Particle.h"
 
-SYSTEM_MODE(MANUAL);
+// This example does not require the cloud so you can run it in manual mode or
+// normal cloud-connected mode
+// SYSTEM_MODE(MANUAL);
 
 const size_t UART_TX_BUF_SIZE = 20;
 
@@ -1451,8 +1454,9 @@ It's less common, however the Particle device can also be the central device. Yo
 ```C++
 #include "Particle.h"
 
-SYSTEM_MODE(MANUAL);
-
+// This example does not require the cloud so you can run it in manual mode or
+// normal cloud-connected mode
+// SYSTEM_MODE(MANUAL);
 
 // These UUIDs were defined by Nordic Semiconductor and are now the defacto standard for
 // UART-like services over BLE. Many apps support the UUIDs now, like the Adafruit Bluefruit app.
@@ -1544,6 +1548,16 @@ You can use it:
 - On Chromebooks
 - In the Chrome web browser on Mac OS X (sometimes)
 - In the Chrome web browser on Windows (sometimes)
+
+Here are some Web BLE examples:
+
+- [BLE level meter](https://rickkas7.github.io/ble-potentiometer/)
+- [BLE live graph](https://rickkas7.github.io/ble-livegraph)
+
+<video width="640" height="360" controls>
+  <source src="/assets/images/ble-livegraph.mp4" type="video/mp4">
+</video>
+
 
 
 

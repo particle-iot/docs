@@ -7728,6 +7728,8 @@ int setAdvertisingInterval(uint16_t interval) const;
 BLE.setAdvertisingInterval(800);
 ```
 
+BLE and Thread Mesh use the same radio, and time-slice the use of the radio. BLE has priority over Thread Mesh, so using very short advertising intervals may affect the performance of mesh. It's best to stay at 100 milliseconds or higher when using BLE and Thread Mesh at the same time.
+
 #### BLE.setAdvertisingTimeout()
 
 Normally, advertising continues until `stopAdvertising()` is called or a connection is made from a central device. 
@@ -7895,6 +7897,8 @@ The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described
 - `advertisingData` The advertising data sent by the device
 - `scanData` The scan data (optional)
 - `rssi` The signal strength of the advertising message.
+
+BLE and Thread Mesh use the same radio, and time-slice the use of the radio. BLE has priority over Thread Mesh. Scanning takes many radio time slices and may affect Thread Mesh performance due to the reduced availability of radio time for Thread Mesh.
 
 #### BLE.scan(Vector)
 
