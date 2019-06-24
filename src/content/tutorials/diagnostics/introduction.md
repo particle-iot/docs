@@ -26,7 +26,7 @@ in-person interactions with devices once they are deployed. Managing the
 health of the device must be done entirely remotely.
 - _Varying connectivity environments_: Devices can be deployed in
 drastically different environments where access to connectivity (i.e.
-cellular networks) can be poor or non-existant, depending on the conditions.
+cellular networks) can be poor or non-existent, depending on the conditions.
 - _Interactions of complex systems_: The stack of IoT is quite wide,
 and blends hardware &amp; software. For your system to be "up", each
 layer in this stack must be behaving properly, while successfully

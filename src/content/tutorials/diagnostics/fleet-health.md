@@ -161,7 +161,7 @@ firmware are running on your devices.
   Particle. Fleet Health also collects data on which versions of Device
 OS are running on your devices.
 
-The Firmware Version Distribution metric measues _Which version of
+The Firmware Version Distribution metric measures _Which version of
 firmware are my devices running? How is this changing over time?_
 
 <img src="/assets/images/fleet-health/fw-distribution.png"
@@ -182,7 +182,7 @@ of your fleet are running which versions of Device OS.
 
 By default, Fleet Health displays metrics for an entire Product fleet,
 and in the last 30 minutes. When doing deeper analysis, there are tools
-available to slice the data accross different characteristics.
+available to slice the data across different characteristics.
 
 ### Date range selection
 
@@ -190,7 +190,7 @@ available to slice the data accross different characteristics.
 alt="Fleet Health Date Range Selection" />
 
 It can be helpful to examine Fleet Health metrics collected at different
-time intervals. For instance, if doing a post-mortem on a disruption,
+time intervals. For instance, if doing a post mortem on a disruption,
 you would want to go back to look at the time period in question.
 
 You can use the Date Range selector to change the time window for all

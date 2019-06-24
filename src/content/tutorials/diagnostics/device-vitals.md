@@ -11,7 +11,7 @@ devices: [photon,electron,core,xenon,argon,boron]
 # {{title}}
 
 Device Vitals are indicators that impact the overall health of a
-device. This is useful when troubleshooting connectivity isues for
+device. This is useful when troubleshooting connectivity issues for
 specific devices deployed in the field.
 
 <img class="full-width" src="/assets/images/fleet-health/device-vitals-short.png"
@@ -43,7 +43,7 @@ collect health vitals and send them to the Device Cloud. Device OS version `1.2.
 additional [cellular networking vitals](#cellular-vitals-new).
 
 The device collects a variety of metrics that probe different areas that
-could impact successfull device communications. The Vitals Dashboard takes some of the most important
+could impact successful device communications. The Vitals Dashboard takes some of the most important
 health metrics relayed by the device and graphs them for quick diagnosis
 capabilities. The Vitals Dashboard visualizes the following metrics:
 
@@ -132,7 +132,7 @@ dashboard (i.e. signal strength) has pre-defined thresholds to
 determine if the sample falls into a _warning range_.
 
 A vital sample in the warning range is suggestive of a potentially unhealthy
-device that may experience difficulties when attemting to communicate
+device that may experience difficulties when attempting to communicate
 with the Device Cloud. These ranges have been determined and fine-tuned based on other
 Particle devices' connectivity behaviors at various recorded values.
 
@@ -166,7 +166,7 @@ You can click on the **Download History** link to download a CSV file
 containing the full list of vitals collected by the device over the last
 30 days. This CSV will contain additional advanced vitals that are not rendered
 in the Console UI. For a comprehensive list of available vitals, check
-ot the [reference
+out the [reference
 docs](/reference/device-cloud/api/#device-vitals-event).
 
 You can also click on the **Health Check** link to execute a real-time diagnostics
@@ -237,7 +237,7 @@ regular cadence as part of application firmware.
 
 This is especially
 useful if you use the Device Vitals historical graphs in the Console,
-and want regular intervals of data for analysis.For instance, to publish
+and want regular intervals of data for analysis. For instance, to publish
 vitals every hour, add the following to your `setup()` function:
 
 ```cpp
@@ -258,7 +258,7 @@ For the full reference docs on `Particle.publishVitals()`, [click
 here](/reference/device-os/firmware/#particle-publishvitals-).
 
 *Note: You should take care when determining how often devices should
-send their vitals to the Device Cloud. There's a tradeoff to be made:
+send their vitals to the Device Cloud. There's a trade off to be made:
 The more frequent you send the vitals, the higher fidelity of data
 available to you when troubleshooting. But, this comes with an increase
 in cellular data usage (Each vitals message is ~150 bytes). You can find

@@ -3443,6 +3443,17 @@ setTnf
 UUID
 BleUuid
 LSB
+tooltip
+csv
+mcc
+mnc
+ad-hoc
+relatedly
+crms
+erps
+tickmark
+uptime
+>>>>>>> Run spell check
  - src/content/datasheets/cellular/b-series-eval-board.md
 P1.14
 P1.15
@@ -3550,4 +3561,5 @@ SLAs
 lifecycle
 roadmap
 timeframe
-
+ - src/content/tutorials/diagnostics/device-vitals.md
+Particle.publishVitals
