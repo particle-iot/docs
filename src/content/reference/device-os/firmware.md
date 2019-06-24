@@ -1030,11 +1030,13 @@ The publish function takes two parameters:
 Mesh.publish(const char *name, const char *data);
 
 RETURNS
-boolean (true or false)
+int (0 = success, non-zero = system error code)
 
 // EXAMPLE USAGE
 Mesh.publish("motion-sensor", "living room");
 ```
+
+Note that the return value for Mesh.publish is 0 (`SYSTEM_ERROR_NONE`) for success, where the return value for Particle.publish is true (1) for success.
 
 ### subscribe()
 
@@ -11411,6 +11413,16 @@ void so_timing_sensitive()
 }
 ```
 
+You must avoid within a SINGLE_THREADED_BLOCK:
+
+- Lengthy operations
+- Calls to delay()
+- Any call that can block (Particle.publish, Cellular.RSSI, and others)
+- Any function that uses a mutex to guard a resource (Log.info, SPI transactions, etc.)
+
+The problem with mutex guarded resources is a bit tricky. For example: Log.info uses a mutex to prevent multiple threads from trying to log at the same time, causing the messages to be mixed together. However the code runs with interrupts and thread swapping enabled. Say the system thread is logging and your user thread code swaps in. The system thread still holds the logging mutex. Your code enters a SINGLE_THREADED_BLOCK, then does Log.info. The system will deadlock at this point. Your Log.info in the user thread blocks on the logging mutex. However it will never become available because thread swapping has been disabled, so the system thread can never release it. All threads will stop running at this point.
+
+Because it's hard to know exactly what resources will be guarded by a mutex its best to minimize the use of SINGLE_THREADED_BLOCK.
 
 ### ATOMIC_BLOCK()
 

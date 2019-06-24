@@ -151,10 +151,8 @@ If you are using the Boron, you should follow [the Boron 3rd-party SIM instructi
 ### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
-- Go to https://www.particle.io/pricing#cellular-data and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
-- Navigate to <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> in your browser
-- If you have an Electron G350, select "2G" and unselect "3G" and "4G" options. If you have an Electron U260 or U270, select both "2G" and "3G" and unselect the "4G" option. Limit the coverage map to the carrier providing service to your Particle SIM in your country (`T-Mobile and AT&T` in the US, for example). Note that AT&T no longer provides 2G coverage.
-- Check the coverage map to ensure that you have coverage in your area.
+- Find the carrier from the [carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
+- Use a tool such as <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> to find coverage. The OpenSignal apps for iOS and Android can provide coverage information world-wide.
 - If you are using an E Series E402 (LTE) or Boron LTE, the built-in Particle SIM card can only be used in the United States, on AT&T. It will only work in areas with LTE coverage; it cannot fall back to 3G.
 
 If you are outside of the coverage map, it's possible that the Particle SIM does not have coverage in your area, and your device will be unable to connect. We are always looking to expand our coverage network, and hope to provide coverage in your area soon!
@@ -244,6 +242,10 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 {{#if has-mesh}}
 When your {{device}} is in Listening Mode, it is waiting for you to configure your mesh network, or is waiting for configuration by USB serial.
+
+Normally, when you've successfully configured your Gen 3 device using the mobile apps for iOS or Android, the setup complete flag is set and you will exit Listening Mode.
+
+If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](/support/particle-devices-faq/mesh-setup-over-usb/#marking-setup-done) to exit listening mode.
 
 {{else}}
 
@@ -782,7 +784,7 @@ There are a number of other red blink codes that may be expressed after the SOS 
 11. Invalid case
 12. Pure virtual call
 13. Stack overflow
-14. Semaphore lock timeout (_Since 0.8.0_ 60 seconds expired while trying to acquire a semaphore lock, likely due to dynamic memory allocation)
+14. Heap error
 
 The two most common ones are:
 
@@ -818,12 +820,36 @@ Some tips for reducing the memory used by your firmware [can be found here](/faq
 
 **Stack overflow (13 blinks between 2 SOS patterns)**
 
-{{device-animation device "sos" 13 }}
-
 Stack overflow occurs when you try to store too much data on the stack. The size is quite limited, and storing large temporary objects on the stack can cause problems.
 
 - Main loop thread: 6144 bytes
 - Software timer callbacks: 1024 bytes
+
+**Heap error (14 blinks between 2 SOS patterns)**
+
+SOS+14 signifies:
+
+- Semaphore lock timeout 
+- _Since 0.8.0_ 60 seconds expired while trying to acquire a semaphore lock, likely due to dynamic memory allocation
+- _Since 1.2.0_ Other heap-related error, such as allocating memory from an ISR
+
+Prior to 1.2.0, attempting to allocate memory from an interrupt service routine would sometimes work, and sometimes corrupt the heap causing the software to crash sometime later, while doing something completely different. Since this is very difficult to debug, now a SOS+14 is thrown immediately.
+
+Some locations that are interrupt service routines:
+
+- ISRs attached using attachInterrupt
+- System event button handlers (just button_status, button_click, and button_final_click handlers, not all system events)
+- SPI transaction callbacks
+- SparkIntervalTimer library timer callbacks
+
+Things you should not do from an ISR:
+
+- Any memory allocation or free: new, delete, malloc, free, strdup, etc.
+- Any Particle class function like Particle.publish, Particle.subscribe, etc.
+- Most API functions, with the exception of pinSetFast, pinResetFast, and analogRead.
+- delay or other functions that block
+- Log.info, Log.error, etc.
+- sprintf, Serial.printlnf, etc. with a `%f` (float) value.
 
 ### Solid colors
 
