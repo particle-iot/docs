@@ -215,12 +215,12 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 
 | W5500 | nRF52 Pin | SoM Pin | SoM Pin Number |
 | :---: | :---: |  :---: |  :---: | 
-| CS | P1.03 | D8 | 48 |
-| SCK | P1.15 | D13 | 13
-| MISO | P1.14 | D11 | 11 |
-| MOSI | P1.13 | D12 | 12
+| ETH\_CS | P1.03 | D8 | 48 |
+| ETH\_SCK | P1.15 | D13 | 13
+| ETH\_MISO | P1.14 | D11 | 11 |
+| ETH\_MOSI | P1.13 | D12 | 12
 | RST_N | P0.02 | A7 (D20) | 47 |
-| INT_N | P0.24 | D22 | 62 |
+| ETH\_INT | P0.24 | D22 | 62 |
 
 ### Using the Grove Connectors
 
@@ -268,6 +268,18 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 <div align=center><img src="/assets/images/b-series/b-series-eval-schematic-sdcard.png" class="small"></div>
 
 ---
+
+## Mechanical specifications
+
+### Dimensions and weight
+
+| Parameter | Value |
+| --- | --- |
+| Width | 91 mm |
+| Length | 1425 mm |
+| Thickness | 15.5 mm | 
+| Weight | 71.8 grams (including PoE module) |
+
 
 ## Revision history
 
