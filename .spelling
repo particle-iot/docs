@@ -3381,6 +3381,17 @@ NB1
 5G
 Gen2
 1w
+10BaseT
+100BaseTX
+Silvertel
+Ag9905M
+802.3af
+unmanaged
+uninterruptible
+ - src/content/tutorials/learn-more/ethernet-featherwing.md
+GS305P
+TP-LINK
+TL-PoE150S
 lifecycle
 slas
 roadmap
@@ -3450,6 +3461,14 @@ P0.28
 ADC1
 P0.04
 J10
+SD_MI
+SD_CK
+SD_MO
+SD_CS
+SD_DET
+UB
+ADC6
+P0.05
  - src/content/reference/device-os/firmware.md
 TMR1
 TMR8
@@ -3520,3 +3539,15 @@ Argon-WVY6DG
 BleLogging.cpp
 BleLogging.h
 Chromebooks
+ - src/content/datasheets/accessories/legacy-accessories.md
+AN2689
+OpenXC
+ - src/content/datasheets/cellular/b-series-datasheet.md
+6.5mm
+ - src/content/support/general/product-lifecycle-policy.md
+Lifecycle
+SLAs
+lifecycle
+roadmap
+timeframe
+
