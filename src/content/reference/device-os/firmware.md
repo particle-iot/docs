@@ -7597,7 +7597,7 @@ The BLE protocol shares the same antenna as the mesh radio, and can use the buil
 
 The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
 
-BLE requires Device OS 1.3.0 or later.
+BLE support is in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions.
 
 ### BLE Class
 
@@ -9249,6 +9249,8 @@ NFC (Near-Field Communication) is typically used to communicate small amounts of
 Particle Gen 3 devices only support emulating an NFC tag. They cannot locate or communicate with tags themselves, or support protocols such as for NFC payments.
 
 A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, directly underneath the USB connector.
+
+NFC support is in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions.
 
 ### Example app
 

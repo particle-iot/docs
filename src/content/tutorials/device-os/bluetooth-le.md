@@ -26,6 +26,7 @@ The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna co
 
 A good introduction to BLE can be found in the [Adafruit tutorial](https://learn.adafruit.com/introduction-to-bluetooth-low-energy/introduction).
 
+BLE support is in beta test in Device OS 1.3.0.
 
 ## Major concepts
 
