@@ -7586,6 +7586,1930 @@ IPAddress myIP = WiFi.localIP();
 Serial.println(myIP);    // prints the device's IP address
 ```
 
+{{#if has-ble}}
+## Bluetooth LE (BLE)
+
+Gen 3 devices (Argon, Boron, and Xenon) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
+
+BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices.
+
+The mesh networking in Gen 3 devices is Thread Mesh (6LoWPAN over 802.15.4). While it uses the same 2.4 GHz radio spectrum as Bluetooth 5 mesh, they are different and not compatible. Particle devices do not support Bluetooth 5 mesh.
+
+The BLE protocol shares the same antenna as the mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
+
+The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
+
+BLE support is in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions.
+
+### BLE Class
+
+#### BLE.advertise()
+
+A BLE peripheral can periodically publish data to all nearby devices using advertising. Once you've set up the [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata) object, call `BLE.advertise()` to continuously advertise the data to all BLE devices scanning for it.
+
+Optionally, you can provide a `scanResponse` data object. If provided, the central device can ask for it during the scan process. Both the advertising data and scan data are public - any device can see and request the data without authentication.
+
+```C++
+// PROTOTYPE
+int advertise(BleAdvertisingData* advertisingData, BleAdvertisingData* scanResponse = nullptr) const;
+
+// EXAMPLE
+BleAdvertisingData advData;
+
+// While we support both the health thermometer service and the battery service, we
+// only advertise the health thermometer. The battery service will be found after
+// connecting.
+advData.appendServiceUUID(healthThermometerService);
+
+
+// Continuously advertise when not connected
+BLE.advertise(&advData);
+```
+
+Returns 0 on success or a non-zero error code.
+
+You cannot use BLE advertising while in listening mode (blinking dark blue). The device will be advertising its configuration capabilities to the Particle app when in listening mode.
+
+#### BLE.advertise(iBeacon)
+
+You can advertise as an Apple iBeacon. See the [`iBeacon`](/reference/device-os/firmware/#ibeacon) section for more information.
+
+```C++
+// PROTOTYPE
+int advertise(const iBeacon& beacon) const;
+```
+
+Returns 0 on success or a non-zero error code.
+
+You cannot use BLE advertising including iBeacon while in listening mode (blinking dark blue). The device will be advertising its configuration capabilities to the Particle app when in listening mode.
+
+#### BLE.advertise()
+
+The advertising data set using the previous two calls is saved. You can using `BLE.stopAdvertising()` to stop and `BLE.advertise()` to resume advertising.
+
+```
+// PROTOTYPE
+int advertise() const;
+
+// EXAMPLE
+BLE.advertise();
+```
+
+Returns 0 on success or a non-zero error code.
+
+#### BLE.stopAdvertising()
+
+Stops advertising. You can resume advertising using `BLE.advertise()`. Advertising automatically stops while connected to a central device and resumes when disconnected.
+
+```
+// PROTOTYPE
+int stopAdvertising() const;
+
+// EXAMPLE
+BLE.stopAdvertising();
+```
+
+#### BLE.advertising()
+
+Returns `true` (1) if advertising is currently on or `false` (0) if not.
+
+```C++
+// PROTOTYPE
+bool advertising() const;
+```
+
+#### BLE.getAdvertisingData()
+
+You can get the advertising data that you previously set using `getAdvertisingData()`. Initially the data will be empty.
+
+```C++
+// PROTOTYPE
+ssize_t getAdvertisingData(BleAdvertisingData* advertisingData) const;
+```
+
+See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
+
+
+#### BLE.setAdvertisingData()
+
+You can set the advertising data using `setAdvertisingData`. You might want to do this if you want to change the data while continuously advertising.
+
+```C++
+// PROTOTYPE
+int setAdvertisingData(BleAdvertisingData* advertisingData) const;
+```    
+
+See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
+
+
+#### BLE.setAdvertisingInterval()
+
+Sets the advertising interval. The unit is 0.625 millisecond (625 microsecond) intervals. The default value is 160, or 100 milliseconds.
+
+The range is from 20 milliseconds (32) to 10.24 seconds (16383).
+
+| Interval Value | Milliseconds | Description | 
+| ---: | --- | --- |
+| 32 | 20 ms | Minimum value |
+| 160 | 100 ms | Default value |
+| 400 | 250 ms | |
+| 800 | 500 ms | |
+| 1600 | 1 sec | |
+| 3200 | 2 sec | Upper end of recommended range |
+| 16383 | 10.24 sec | Maximum value |
+
+Returns 0 on success or a non-zero error code.
+
+```
+// PROTOTYPE
+int setAdvertisingInterval(uint16_t interval) const;
+
+// EXAMPLE
+
+// Set advertising interval to 500 milliseconds
+BLE.setAdvertisingInterval(800);
+```
+
+BLE and Thread Mesh use the same radio, and time-slice the use of the radio. BLE has priority over Thread Mesh, so using very short advertising intervals may affect the performance of mesh. It's best to stay at 100 milliseconds or higher when using BLE and Thread Mesh at the same time.
+
+#### BLE.setAdvertisingTimeout()
+
+Normally, advertising continues until `stopAdvertising()` is called or a connection is made from a central device. 
+
+You can also have advertising automatically stop after a period of time. The parameter is in units of 10 milliseconds, so if you want to advertise for 10 seconds you'd set the parameter to 1000.
+
+Pass 0 to advertise until stopped. This is the default.
+
+Returns 0 on success or a non-zero error code.
+
+```
+// PROTOTYPE
+int setAdvertisingTimeout(uint16_t timeout) const;
+```
+
+#### BLE.setAdvertisingType()
+
+The advertising type can be set with this method. This is not typically necessary.
+
+| Type | Value |
+| --- | --- |
+| `CONNECTABLE_SCANNABLE_UNDIRECTED` | 0 |
+| `CONNECTABLE_UNDIRECTED` | 1 |
+| `CONNECTABLE_DIRECTED` | 2 |
+| `NON_CONNECTABLE_NON_SCANNABLE_UNDIRECTED` | 3 |
+| `NON_CONNECTABLE_NON_SCANNABBLE_DIRECTED` | 4 |
+| `SCANNABLE_UNDIRECTED` | 5 |
+| `SCANNABLE_DIRECTED` | 6 |
+
+The default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
+
+```C++
+// PROTOTYPE
+int setAdvertisingType(BleAdvertisingEventType type) const;
+```
+
+See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype) for more information.
+
+#### BLE.getAdvertisingParameters()
+
+Gets the advertising parameters.
+
+```C++
+// PROTOTYPE
+int getAdvertisingParameters(BleAdvertisingParams* params) const;
+
+// EXAMPLE
+BleAdvertisingParams param;
+param.version = BLE_API_VERSION;
+param.size = sizeof(BleAdvertisingParams);
+
+int res = BLE.getAdvertisingParameters(&param);
+```
+
+See [`BleAdvertisingParameters`](/reference/device-os/firmware/#bleadvertisingparams) for more information.
+
+#### BLE.setAdvertisingParameters()
+
+Sets the advertising parameters using individual values for interval, timeout, and type.
+
+```C++
+// PROTOTYPE
+int setAdvertisingParameters(uint16_t interval, uint16_t timeout, BleAdvertisingEventType type) const;
+```
+
+- `interval` Advertising interval in 0.625 ms units. Default is 160.
+- `timeout` Advertising timeout in 10 ms units. Default is 0.
+- `type` [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECRED` (0).
+
+#### BLE.setAdvertisingParameters(BleAdvertisingParams)
+
+Sets the advertising parameters from the BleAdvertisingParams struct.
+
+```C++
+// PROTOTYPE
+int setAdvertisingParameters(const BleAdvertisingParams* params) const;
+```
+
+See [`BleAdvertisingParameters`](/reference/device-os/firmware/#bleadvertisingparams) for more information.
+
+
+#### BLE.getScanResponseData()
+
+In addition to the advertising data, there is an additional 31 bytes of data referred to as the scan response data. This data can be requested during the scan process. It does not require connection or authentication. This is only used from scannable peripheral devices.
+
+```C++
+// PROTOTYPE
+ssize_t getScanResponseData(BleAdvertisingData* scanResponse) const;
+```
+
+See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
+
+#### BLE.setScanResponseData()
+
+In addition to the advertising data, there is an additional 31 bytes of data referred to as the scan response data. This data can be requested during the scan process. It does not require connection or authentication. This is only used from scannable peripheral devices.
+
+```C++
+// PROTOTYPE
+int setScanResponseData(BleAdvertisingData* scanResponse) const;
+```
+
+See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
+
+
+#### BLE.addCharacteristic(characteristic)
+
+Adds a characteristic to this peripheral device from a [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object. 
+
+```C++
+// PROTOTYPE
+int addCharacteristic(BleCharacteristic& characteristic) const;
+
+// EXAMPLE
+
+// Global variables:
+BleUuid serviceUuid("09b17c16-3498-4c02-beb6-3d5792528181");
+BleUuid buttonCharacteristicUuid("fe0a8cd7-9f69-45c7-b7a1-3ecb0c9e97c7");
+BleCharacteristic buttonCharacteristic("b", BleCharacteristicProperty::NOTIFY, buttonCharacteristicUuid, serviceUuid);
+
+// In setup():
+BLE.addCharacteristic(buttonCharacteristic);
+
+BleAdvertisingData data;
+data.appendServiceUUID(serviceUuid);
+BLE.advertise(&data);
+```
+
+#### BLE.addCharacteristic(parameters)
+
+Instead of setting the parameters in a BleCharacteristic object you can pass them directly to addCharacteristic.
+
+The parameters are the same as the BleCharacteristic constructors and are described in more detail in the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) documentation.
+
+```C++
+// PROTOTYPE
+int addCharacteristic(const char* desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+
+int addCharacteristic(const String& desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+
+template<typename T>
+int addCharacteristic(const char* desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+
+template<typename T>
+int addCharacteristic(const String& desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+```
+
+See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+
+#### BLE.scan(array)
+
+Scan for BLE devices. This is typically used by a central device to find nearby BLE devices that can be connected to. It can also be used by an observer to find nearby beacons that continuously transmit data.
+
+There are three overloads of `BLE.scan()`, however all of them are synchronous. The calls do not return until the scan is complete. The `BLE.setScanTimeout()` method determines how long the scan will run for. 
+
+The default is 5 seconds, however you can change it using `setScanTimeout()`.
+
+```C++
+// PROTOTYPE
+int scan(BleScanResult* results, size_t resultCount) const;
+```
+
+The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described below. It contains:
+
+- `address` The BLE address of the device
+- `advertisingData` The advertising data sent by the device
+- `scanData` The scan data (optional)
+- `rssi` The signal strength of the advertising message.
+
+BLE and Thread Mesh use the same radio, and time-slice the use of the radio. BLE has priority over Thread Mesh. Scanning takes many radio time slices and may affect Thread Mesh performance due to the reduced availability of radio time for Thread Mesh.
+
+#### BLE.scan(Vector)
+
+The `Vector` version of scan does not require guessing the number of scan items ahead of time. However, it does dynamically allocate memory to hold all of the scan results.
+
+This call does not return until the scan is complete. The `setScanTimeout()` function determines how long the scan will run for. 
+
+The default is 5 seconds, however you can change it using `setScanTimeout()`.
+
+```C++
+// PROTOTYPE
+Vector<BleScanResult> scan() const;
+
+// EXAMPLE
+#include "Particle.h"
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate warning for unused variable
+}
+
+void loop() {
+	Vector<BleScanResult> scanResults = BLE.scan();
+
+    if (scanResults.size()) {
+        Log.info("%d devices found", scanResults.size());
+
+        for (int ii = 0; ii < scanResults.size(); ii++) {
+            Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
+                    scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+                    scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5], scanResults[ii].rssi);
+
+            String name = scanResults[ii].advertisingData.deviceName();
+            if (name.length() > 0) {
+                Log.info("Advertising name: %s", name.c_str());
+            }
+        }
+    }
+
+    delay(3000);
+}
+```
+
+The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described below. It contains:
+
+- `address` The BLE address of the device
+- `advertisingData` The advertising data sent by the device
+- `scanData` The scan data (optional)
+- `rssi` The signal strength of the advertising message.
+
+#### BLE.scan(callback)
+
+The callback version of scan does not return until the scan has reached the end of the scan timeout. There are still advantages of using this, however:
+
+- You do not need to guess how many scan results there will be ahead of time.
+- If you expect to have a lot of BLE devices in the area but only care about a few, this version can save on memory usage.
+- The callback is called as the devices are discovered - you can start to display before the timeout occurs.
+- You can stop scanning when the desired device is found instead of waiting until the timeout.
+
+The default is 5 seconds, however you can change it using `setScanTimeout()`.
+
+```C++
+// PROTOTYPE
+int scan(BleOnScanResultCallback callback, void* context) const;
+
+// EXAMPLE
+#include "Particle.h"
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+void scanResultCallback(const BleScanResult *scanResult, void *context);
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate warning for unused variable
+}
+
+void loop() {
+	Log.info("starting scan");
+
+	int count = BLE.scan(scanResultCallback, NULL);
+	if (count > 0) {
+		Log.info("%d devices found", count);
+	}
+
+	delay(3000);
+}
+
+void scanResultCallback(const BleScanResult *scanResult, void *context) {
+	Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
+			scanResult->address[0], scanResult->address[1], scanResult->address[2],
+			scanResult->address[3], scanResult->address[4], scanResult->address[5], scanResult->rssi);
+
+	String name = scanResult->advertisingData.deviceName();
+	if (name.length() > 0) {
+		Log.info("deviceName: %s", name.c_str());
+	}
+}
+```
+
+The callback has this prototype:
+
+```C++
+void scanResultCallback(const BleScanResult *scanResult, void *context)
+```
+
+The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described below. It contains:
+
+- `address` The BLE address of the device
+- `advertisingData` The advertising data sent by the device
+- `scanData` The scan data (optional)
+- `rssi` The signal strength of the advertising message.
+
+The `context` parameter is often used if you implement your scanResultCallback in a C++ object. You can store the object instance pointer (`this`) in the context.
+
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+#### BLE.stopScanning()
+
+The `stopScanning()` method interrupts a `BLE.scan()` in progress before the end of the timeout. It's typically called from the scan callback function.
+
+You might want to do this if you're looking for a specific device - you can stop scanning after you find it instead of waiting until the end of the scan timeout.
+
+```C++
+// PROTOTYPE
+int stopScanning() const;
+
+// EXAMPLE
+void scanResultCallback(const BleScanResult *scanResult, void *context) {
+	// Stop scanning if we encounter any BLE device in range
+	BLE.stopScanning();
+}
+```
+
+#### BLE.setScanTimeout()
+
+Sets the length of time `scan()` will run for. The default is 5 seconds.
+
+```C++
+// PROTOTYPE
+int setScanTimeout(uint16_t timeout) const;
+
+// EXAMPLE
+
+// Scan for 1 second
+setScanTimeout(100);
+```
+
+The unit is 10 millisecond units, so the default timeout parameter is 500.
+
+Returns 0 on success or a non-zero error code.
+
+#### BLE.getScanParameters()
+
+Gets the parameters used for scanning.
+
+```C++
+// PROTOTYPE
+int getScanParameters(BleScanParams* params) const;
+
+// EXAMPLE
+BleScanParams scanParams;
+scanParams.version = BLE_API_VERSION;
+scanParams.size = sizeof(BleScanParams);
+int res = BLE.getScanParameters(&scanParams);
+```
+
+See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more information.
+
+#### BLE.setScanParameters()
+
+Sets the parameters used for scanning. Typically you will only ever need to change the scan timeout, but if you need finer control you can use this function.
+
+```C++
+// PROTOTYPE
+int setScanParameters(const BleScanParams* params) const;
+```
+
+See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more information.
+
+#### BLE.connect()
+
+In a central device the logic typically involves:
+
+- Scanning for a device
+- Selecting one, either manually from a user selection, or automatically by its capabilities.
+- Connecting to it to exchange more data (optional)
+
+Scanning for devices provides its address as well as additional data (advertising data). With the address you can connect:
+
+```C++
+// PROTOTYPE
+BlePeerDevice connect(const BleAddress& addr) const;
+```
+
+- `addr` The [`BleAddress`](/reference/device-os/firmware/#bleaddress) to connect to.
+
+This call is synchronous and will block until a connection is completed or the operation times out.
+
+Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object. You typically use a construct like this:
+
+```
+BlePeerDevice peer = BLE.connect(scanResults[ii].address);
+if (peer.connected()) {
+	Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
+							scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+							scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+	// ...
+}
+else {
+	Log.info("connection failed");
+	// ...
+}
+```
+
+The default connection timeout is 5 seconds but it can be customized by using the version of connect with options, below, or by using [`BLE.setPPCP()`](/reference/device-os/firmware/#ble-setppcp-).
+
+It is possible to save the address and avoid scanning, however the address could change on some BLE devices, so you should be prepared to scan again if necessary.
+
+In Device OS 1.3.0 you can only connect to 1 peripheral device at a time. This will be expanded to 3 simultaneous peripheral device connections in the future.
+
+#### BLE.connect(options)
+
+This version of connect allows parameters for the connection to be set.
+
+```C++
+// PROTOTYPE
+BlePeerDevice connect(const BleAddress& addr, uint16_t interval, uint16_t latency, uint16_t timeout) const;
+```
+- `addr` The [`BleAddress`](/reference/device-os/firmware/#bleaddress) to connect to.
+- `interval` The minimum connection interval in units of 1.25 milliseconds. The default is 24 (30 milliseconds).
+- `latency` Use default value 0.
+- `timeout` Connection timeout in units of 10 milliseconds. Default is 500 (5 seconds). Minimum value is 100 (1 second).
+
+Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object. 
+
+#### BLE.setPPCP()
+
+Sets the connection parameter defaults so future calls to connect() without options will use these values.
+
+```C++
+// PROTOTYPE
+int setPPCP(uint16_t minInterval, uint16_t maxInterval, uint16_t latency, uint16_t timeout) const;
+```
+
+- `minInterval` the minimum connection interval in units of 1.25 milliseconds. The default is 24 (30 milliseconds).
+- `maxInterval` the minimum connection interval in units of 1.25 milliseconds. The default is 24 (30 milliseconds). The connect(options) call sets both minInterval and maxInterval to the interval parameter.
+- `latency` Use default value 0.
+- `timeout` Connection timeout in units of 10 milliseconds. Default is 500 (5 seconds). Minimum value is 100 (1 second).
+
+#### BLE.connected()
+
+Returns `true` (1) if a connected to a device or `false` (0) if not.
+
+```C++
+// PROTOTYPE
+bool connected() const;
+```
+
+Can be used in central or peripheral mode, however if central mode if you are supporting more than one peripheral you may want to use the `connected()` method of the [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object to find out the status of individual connections.
+
+
+#### BLE.disconnect()
+
+Disconnects all peers.
+
+```C++
+// PROTOTYPE
+int disconnect() const;
+```
+
+Returns 0 on success or a non-zero error code.
+
+
+#### BLE.disconnect(peripheral)
+
+Typically used in central mode when making connections to multiple peripherals to disconnect a single peripheral.
+
+```C++
+// PROTOTYPE
+int disconnect(const BlePeerDevice& peripheral) const;
+```
+
+The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) is described below. You typically get it from `BLE.connect()`.
+
+Returns 0 on success or a non-zero error code.
+
+#### BLE.onConnected()
+
+Registers a callback function that is called when a connection is established.
+
+You can use this method, or you can simply monitor `BLE.connected()` (for peripheral devices) or `peer.connected()` for central devices.
+
+```C++
+// PROTOTYPE
+void onConnected(BleOnConnectedCallback callback, void* context);
+```
+
+The prototype for the callback function is:
+
+```
+void callback(const BlePeerDevice& peer, void* context);
+```
+
+The callback parameters are:
+
+- `peer` The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object that has connected.
+- `context` The value you passed to `onConnected` when you registered the connected callback.
+
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+#### BLE.onDisconnected()
+
+Registers a callback function that is called when a connection is disconnected on a peripheral device.
+
+You can use this method, or you can simply monitor `BLE.connected()` (for peripheral devices) or `peer.connected()` for central devices.
+
+```C++
+// PROTOTYPE
+void onDisconnected(BleOnDisconnectedCallback callback, void* context);
+````
+
+The prototype for the callback function is:
+
+```
+void callback(const BlePeerDevice& peer, void* context);
+```
+
+The callback parameters are the same as for onConnected().
+
+
+#### BLE.setTxPower()
+
+Sets the BLE transmit power. The default is 0 dBm.
+
+Valid values are: -20, -16, -12, -8, -4, 0, 4, 8. 
+
+-20 is the lowest power, and 8 is the highest power. 
+
+Returns 0 on success or a non-zero error code.
+
+```C++
+// PROTOTYPE
+int setTxPower(int8_t txPower) const;
+
+// EXAMPLE
+BLE.setTxPower(-12); // Use lower power
+```
+
+Returns 0 on success or a non-zero error code.
+
+#### BLE.txPower()
+
+Gets the current txPower. The default is 0. 
+
+Returns 0 on success or a non-zero error code.
+
+```C++
+// PROTOTYPE
+int txPower(int8_t* txPower) const;
+
+// EXAMPLE
+int8_t txPower;
+txPower = BLE.tx(&txPower);
+Log.info("txPower=%d", txPower);
+```
+
+#### BLE.address()
+
+Get the BLE address of this device.
+
+```C++
+// PROTOTYPE
+const BleAddress address() const;
+```
+
+See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more information.
+
+### BLE Services
+
+There isn't a separate class for configuring BLE Services. A service is identified by its UUID, and this UUID passed in when creating the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object(s) for the service. For example:
+
+```C++
+// The "Health Thermometer" service is 0x1809.
+// See https://www.bluetooth.com/specifications/gatt/services/
+BleUuid healthThermometerService(0x1809);
+
+// We're using a well-known characteristics UUID. They're defined here:
+// https://www.bluetooth.com/specifications/gatt/characteristics/
+// The temperature-measurement is 16-bit UUID 0x2A1C
+BleCharacteristic temperatureMeasurementCharacteristic("temp", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A1C), healthThermometerService);
+``` 
+
+The health thermometer only has a single characteristic, however if your service has multiple characteristics you can add them all this way.
+
+You can also create custom services by using a long UUID. You define what characteristic data to include for a custom service. [UUIDs](/reference/device-os/firmware/#bleuuid) are described below.
+
+For more information about characteristics, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#services) and  [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+
+
+### BleCharacteristic
+
+In a BLE peripheral role, each service has one or more characteristics. Each characteristic may have one of more values. 
+
+In a BLE central role, you typically have a receive handler to be notified when the peripheral updates each characteristic value that you care about.
+
+For assigned characteristics, the data will be in a defined format as defined by the Bluetooth SIG. They are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). 
+
+For more information about characteristics, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#characteristics).
+
+#### BleCharacteristic()
+
+You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the [heart rate central tutorial](/tutorials/device-os/bluetooth-le/#heart-rate-central) to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
+
+```C++
+// PROTOTYPE
+BleCharacteristic();
+
+// EXAMPLE
+// Global variable
+BleCharacteristic myCharacteristic;
+```
+
+Once you've created your characteristic in `setup()` you typically hook in its onDataReceived handler.
+
+```C++
+// In setup():
+myCharacteristic.onDataReceived(onDataReceived, NULL);
+```
+
+The `onDataReceived` function has this prototype:
+
+```C++
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) 
+```
+
+The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object is described below.
+
+The `context` parameter can be used to pass extra data to the callback. It's typically used when you implement the callback in a C++ class to pass the object instance pointer (`this`).
+
+
+#### BleCharacteristic (peripheral)
+
+In a peripheral role, you typically define a value that you send out using this constructor. The parameters are:
+
+```C++
+// PROTOTYPE
+BleCharacteristic(const char* desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr);
+
+BleCharacteristic(const String& desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr);
+
+// EXAMPLE
+// Global variable
+BleCharacteristic batteryLevelCharacteristic("bat", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A19), batteryLevelService);
+```
+
+- `"bat"` a short string to identify the characteristic
+- `BleCharacteristicProperty::NOTIFY` The BLE characteristic property. This is typically NOTIFY for values you send out. See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+- `BleUuid(0x2A19)` The UUID of this characteristic. In this example it's an assigned (short) UUID. See [`BleUuid`](/reference/device-os/firmware/#bleuuid).
+- `batteryLevelService` The UUID of the service this characteristic is part of.
+
+The UUIDs for the characteristic and service can be a number of formats but are typically either:
+
+- Explicit BleUuid, like `BleUuid(0x2A19)`
+- String literal or `const char *`, like `"6E400001-B5A3-F393-E0A9-E50E24DCCA9E"`
+
+Both must be the same, so if you use a string literal service UUID, you must also use a string literal for the characteristic UUID as well.
+
+You typically register your characteristic in `setup()`:
+
+```
+// In setup():
+BLE.addCharacteristic(batteryLevelCharacteristic);
+```
+
+
+#### BleCharacteristic (peripheral with data received)
+
+In a peripheral role if you are receiving data from the central device, you typically assign your characteristic like this.
+
+```C++
+// PROTOTYPE
+// Type T is any type that can be passed to BleUuid, such as const char * or a string-literal.
+template<typename T>
+BleCharacteristic(const char* desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr)
+
+template<typename T>
+BleCharacteristic(const String& desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr)
+
+
+// EXAMPLE
+BleCharacteristic rxCharacteristic("rx", BleCharacteristicProperty::WRITE_WO_RSP, rxUuid, serviceUuid, onDataReceived, NULL);
+```
+
+- `"rx"` a short string to identify the characteristic
+- `BleCharacteristicProperty::WRITE_WO_RSP` The BLE characteristic property. This is typically WRITE_WO_RSP for values you receive. See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+- `rxUuid` The UUID of this characteristic. 
+- `serviceUuid ` The UUID of the service this characteristic is part of.
+- `onDataReceived` The function that is called when data is received.
+- `NULL` Context pointer. If your data received handler is part of a C++ class, this is a good place to put the class instance pointer (`this`).
+
+The data received handler has this prototype. 
+
+```C++
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context)
+```
+
+You typically register your characteristic in `setup()` in peripheral devices:
+
+```
+// In setup():
+BLE.addCharacteristic(rxCharacteristic);
+```
+
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+#### UUID()
+
+Get the UUID of this characteristic.
+
+```C++
+// PROTOTYPE
+BleUuid UUID() const;
+
+
+// EXAMPLE
+BleUuid uuid = batteryLevelCharacteristic.UUID();
+```
+
+See also [`BleUuid`](/reference/device-os/firmware/#bleuuid).
+
+#### properties()
+
+Get the BLE characteristic properties for this characteristic. This indicates whether it can be read, written, etc..
+
+
+```C++
+// PROTOTYPE
+BleCharacteristicProperty properties() const;
+
+// EXAMPLE
+BleCharacteristicProperty prop = batteryLevelCharacteristic.properties();
+```
+
+See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+
+#### getValue(buf, len)
+
+This overload of `getValue()` is typically used when you have a complex characteristic with a packed data structure that you need to manually extract. 
+
+For example, the heart measurement characteristic has a flags byte followed by either a 8-bit or 16-bit value. You typically extract that to a uint8_t buffer using this method and manually extract the data.
+
+```C++
+// PROTOTYPE
+ssize_t getValue(uint8_t* buf, size_t len) const;
+```
+
+#### getValue(String)
+
+If your characteristic has a string value, you can read it out using this method.
+
+```C++
+// PROTOTYPE
+ssize_t getValue(String& str) const;
+
+// EXAMPLE
+String value;
+characteristic.getValue(value);
+```
+
+#### getValue(pointer)
+
+You can read out arbitrary data types (int8_t, uint8_t, uint16_t, uint32_t, struct, etc.) by passing a pointer to the object.
+
+```C++
+// PROTOTYPE
+template<typename T>
+ssize_t getValue(T* val) const;
+
+// EXAMPLE
+uint16_t value;
+characteristic.getValue(&value);
+```
+
+#### setValue(buf, len)
+
+To set the value of a characteristic to arbitrary data, you can use this function.
+
+```C++
+// PROTOTYPE
+ssize_t setValue(const uint8_t* buf, size_t len);
+```
+
+#### setValue(string)
+
+To set the value of the characteristic to a string value, use this method. The terminating null is not included in the characteristic; the length is set to the actual string length.
+
+```C++
+// PROTOTYPE
+ssize_t setValue(const String& str);
+ssize_t setValue(const char* str);
+```
+
+#### setValue(pointer)
+
+You can write out arbitrary data types (int8_t, uint8_t, uint16_t, uint32_t, struct, etc.) by passing the value to setValue.
+
+```C++
+// PROTOTYPE
+template<typename T>
+ssize_t setValue(T val) const;
+
+// EXAMPLE
+uint16_t value = 0x1234;
+characteristic.setValue(value);
+```
+
+#### onDataReceived()
+
+To be notified when a value is received to add a data received callback.
+
+The context is used when you've implemented the data received handler in a C++ class. You can pass the object instance (`this`) in context. If you have a global function, you probably don't need the context and can pass NULL.
+
+```C++
+// PROTOTYPE
+void onDataReceived(BleOnDataReceivedCallback callback, void* context);
+
+// BleOnDataReceivedCallback
+void myCallback(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
+```
+
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+### BleCharacteristicProperty
+
+This bitfield defines what access is available to the property. It's assigned by the peripheral, and provides information to the central device about how the characteristic can be read or written.
+
+- `BleCharacteristicProperty::BROADCAST` (0x01) The value can be broadcast.
+- `BleCharacteristicProperty::READ` (0x02) The value can be read.
+- `BleCharacteristicProperty::WRITE_WO_RSP` (0x04) The value can be written without acknowledgement. For example, the UART peripheral example uses this characteristic properly to receive UART data from the central device.
+- `BleCharacteristicProperty::WRITE` (0x08) The value can be written to the peripheral from the central device.
+- `BleCharacteristicProperty::NOTIFY` (0x10) The value is published by the peripheral without acknowledgement. This is the standard way peripherals periodically publish data.
+- `BleCharacteristicProperty::INDICATE` (0x20) The value can be indicated, basically publish with acknowledgement.
+- `BleCharacteristicProperty::AUTH_SIGN_WRITES` (0x40) The value supports signed writes. This is operation not supported.
+- `BleCharacteristicProperty::EXTENDED_PROP` (0x80) The value supports extended properties. This operation is not supported.
+
+You only assign these values as a peripheral device, and will typically use one of two values:
+
+- `BleCharacteristicProperty::NOTIFY` when your peripheral periodically publishes data
+- `BleCharacteristicProperty::WRITE_WO_RSP` when your peripheral receives data from the central device.
+
+For bidirectional data transfer you typically assign two different characteristics, one for receive and one for transmit, as shown in the UART examples.
+
+### BleUuid
+
+Services and characteristics are typically identified by their UUID. There are two types:
+
+- 16-bit (short) UUIDs for well-known BLE services 
+- 128-bit (long) UUIDs for everything else
+
+The 16-bit service IDs are assigned by the Bluetooth SIG and are [listed here](https://www.bluetooth.com/specifications/gatt/services/).
+
+The 16-bit characteristic IDs are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). 
+
+You can create a 16-bit UUID like this:
+
+```C++
+// PROTOTYPE
+BleUuid(uint16_t uuid16);
+
+// EXAMPLE
+BleUuid healthThermometerService(0x1809);
+```
+
+The value 0x1809 is from the assigned list of service IDs.
+
+The 128-bit UUIDs are used for your own custom services and characteristics. These are not assigned by any group. You can use any UUID generator, such as the [online UUID generator](https://www.uuidgenerator.net/) or tools that you run on your computer. There is no central registry; they are statistically unlikely to ever conflict.
+
+A 128-bit (16 byte) UUID is often written like this: `240d5183-819a-4627-9ca9-1aa24df29f18`. It's a series of 32 hexadecimal digits (0-9, a-f) written in a 8-4-4-4-12 pattern. 
+
+```C++
+// PROTOTYPE
+BleUuid(const String& uuid);
+BleUuid(const char* uuid);
+
+// EXAMPLE
+BleUuid myCustomService("240d5183-819a-4627-9ca9-1aa24df29f18");
+```
+
+You can also construct a UUID from an array of bytes (uint8_t):
+
+```C++
+// PROTOTYPE
+BleUuid(const uint8_t* uuid128, BleUuidOrder order = BleUuidOrder::LSB);
+
+// EXAMPLE
+BleUuid myCustomService({0x24, 0x0d, 0x51, 0x83, 0x81, 0x9a, 0x46, 0x27, 0x9c, 0xa9, 0x1a, 0xa2, 0x4d, 0xf2, 0x9f, 0x18});
+```
+
+#### type()
+
+```C++
+// PROTOTYPE
+BleUuidType type() const;
+
+// EXAMPLE
+BleUuidType uuidType = uuid.type();
+```
+
+Returns a constant:
+
+- `BleUuidType::SHORT` for 16-bit UUIDs
+- `BleUuidType::LONG` for 128-bit UUIDs
+
+
+#### isValid()
+
+```C++
+// PROTOTYPE
+bool isValid() const;
+
+// EXAMPLE
+bool isValid = uuid.isValid();
+```
+
+Return `true` if the UUID is valid or `false` if not.
+
+#### equality
+
+You can test two UUIDs for equality.
+
+```
+// PROTOTYPE
+bool operator==(const BleUuid& uuid) const;
+
+// EXAMPLE
+BleUuid rxUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
+BleUuid txUuid("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
+
+if (rxUuid == txUuid) {
+	// This code won't be executed since they're not equal
+}
+```
+
+### BleAdvertisingData
+
+The BleAdvertisingData is used in two ways:
+
+- In the peripheral role, to define what you want to send when central devices do a scan.
+- In the central role, as a container to hold what the other side has sent during a scan.
+
+
+For more information about advertising, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#advertising).
+
+#### BleAdvertisingData()
+
+Construct a `BleAdvertisingData` object. You typically do this in a peripheral role before adding new data. 
+
+In the central role, you get a filled in object in the [`BleScanResult`](/reference/device-os/firmware/#blescanresult) object.
+
+```C++
+// PROTOTYPE
+BleAdvertisingData();
+```
+
+#### append()
+
+Appends advertising data of a specific type to the advertising data object.
+
+```C++
+// PROTOTYPE
+size_t append(BleAdvertisingDataType type, const uint8_t* buf, size_t len, bool force = false);
+
+// EXAMPLE
+BleAdvertisingData advData;
+
+uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, sizeof(flagsValue));
+```
+
+- `type` The type of data to append. The valid types are listed in the [`BleAdvertisingDataType`](/reference/device-os/firmware/#bleadvertisingdatatype) section, below.
+- `buf` Pointer to the buffer containing the data
+- `len` The length of the data in bytes
+- `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
+
+Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
+
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically.
+
+#### appendCustomData
+
+Appends custom advertising data to the advertising data object.
+
+```C++
+// PROTOTYPE
+size_t appendCustomData(const uint8_t* buf, size_t len, bool force = false);
+```
+
+- `buf` Pointer to the buffer containing the data
+- `len` The length of the data in bytes
+- `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
+
+Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
+
+The first two bytes of the company data are typically the [company ID](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
+
+The special value of 0xffff is reserved for internal use and testing. 
+
+If you are using private custom data it's recommended to begin it with two 0xff bytes, that way your data won't confuse apps that are scanning for company-specific custom data.
+
+
+#### appendLocalName()
+
+An optional field in the advertising data is the local name. This can be useful if the user needs to select from multiple devices.
+
+The name takes up the length of the name plus two bytes (type and length). The total advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and if you include service identifiers there isn't much left space for the name.
+
+```C++
+// PROTOTYPE
+size_t appendLocalName(const char* name);
+size_t appendLocalName(const String& name);
+```
+
+#### appendServiceUUID()
+
+Appends a service UUID to the advertisement (short or long). You typically only advertise the primary service. 
+
+For example, the health thermometer advertises the health thermometer service. Upon connecting, the central device can discover that it also supports the battery service. Put another way, a user or app would most likely only want to discover a nearby thermometer, not any battery powered device nearby. 
+
+```C++
+// PROTOTYPE
+// Type T is any type that can be passed to the BleUuid constructor
+template<typename T>
+size_t appendServiceUUID(T uuid, bool force = false) 
+
+// EXAMPLE
+advData.appendServiceUUID(healthThermometerService);
+```
+
+- `uuid` The UUID to add. This can be a [`BleUuid`](/reference/device-os/firmware/#bleuuid) object, a uint16_t (short UUID), or a const char * or string literal specifying a long UUID.
+- `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
+
+Since long UUIDs are long (16 bytes plus 2 bytes of overhead) they will use a lot of the 31 byte payload, leaving little room for other things like short name.
+
+#### clear()
+
+Remove all existing data from the BleAdvertisingData object.
+
+```C++
+// PROTOTYPE
+void clear();
+```
+
+#### remove()
+
+Remove a specific data type from the BleAdvertisingData object.
+
+```C++
+// PROTOTYPE
+void remove(BleAdvertisingDataType type);
+```
+
+- `type` The [`BleAdvertisingDataType`](/reference/device-os/firmware/#bleadvertisingdatatype) to remove.
+
+
+#### set()
+
+In a peripheral role, you sometimes will want to build your advertising data complete by hand. You can then copy your pre-build structure into the BleAdvertisingData object using `set()`.
+
+```C++
+// PROTOTYPE
+size_t set(const uint8_t* buf, size_t len);
+```
+
+#### get(type, buffer)
+
+In the central role, if you want to get a specific block of advertising data by type, you can use this method.
+
+```C++
+// PROTOTYPE
+size_t get(BleAdvertisingDataType type, uint8_t* buf, size_t len) const;
+```
+
+- `type` The [`BleAdvertisingDataType`](/reference/device-os/firmware/#bleadvertisingdatatype) to get.
+- `buf` A pointer to the buffer to hold the data.
+- `len` The length of the buffer in bytes.
+
+Returns the number of bytes copied, which will be <= `len`. Returns 0 if the type does not exist in the advertising data.
+
+
+#### get(buffer)
+
+In the central role, if you want to get the advertising data as a complete block of data, you can use the get method with a buffer and length.
+
+Advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`) and you should make your buffer at least that large to be able to receive the largest possible data.
+
+
+```C++
+// PROTOTYPE
+size_t get(uint8_t* buf, size_t len) const;
+```
+
+- `buf` A pointer to the buffer to hold the data.
+- `len` The length of the buffer in bytes.
+
+Returns the number of bytes copied, which will be <= `len`.
+
+#### length()
+
+Return the length of the data in bytes.
+
+```C++
+// PROTOTYPE
+size_t length() const;
+```
+
+#### deviceName()
+
+Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). Returns a String object or an empty string if the advertising data does not contain a name.
+
+```C++
+// PROTOTYPE
+String deviceName() const;
+```
+
+#### deviceName(buf)
+
+Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). 
+
+```C++
+// PROTOTYPE
+size_t deviceName(char* buf, size_t len) const;
+```
+
+- `buf` Buffer to hold the name. A buffer that is `BLE_MAX_ADV_DATA_LEN` bytes long will always be large enough.
+- `len` Length of the buffer in bytes.
+
+Returns the size of the name in bytes. Returns 0 if there is no name.
+
+Note that the buf will not be null-terminated (not a c-string).  
+
+#### serviceUUID()
+
+Returns an array of service UUIDs in the advertising data.
+
+```C++
+// PROTOTYPE
+size_t serviceUUID(BleUuid* uuids, size_t count) const;
+```
+
+- `uuids` Pointer to an array of [`BleUuid`](/reference/device-os/firmware/#bleuuid) objects to fill in
+- `len` The number of array entries (not bytes)
+
+Returns the number of UUIDs in the advertisement.
+
+This includes all UUIDs in the following advertising data types:
+- `SERVICE_UUID_16BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_16BIT_COMPLETE`
+- `SERVICE_UUID_128BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_128BIT_COMPLETE `
+
+There is often a single UUID advertised, even for devices that have multiple services. For example, a heart rate monitor might only advertise that it's a heart rate monitor even though it also supports the battery service. The additional services can be discovered after connecting.
+
+Since the advertisement data is limited to 31 bytes, the maximum number of services that could be advertised is 14 16-bit UUIDs. 
+
+#### customData()
+
+Returns the `MANUFACTURER_SPECIFIC_DATA` data in an advertisement.
+
+```C++
+// PROTOTYPE
+size_t customData(uint8_t* buf, size_t len) const;
+```
+- `buf` Buffer to hold the data. A buffer that is `BLE_MAX_ADV_DATA_LEN` bytes long will always be large enough.
+- `len` Length of the buffer in bytes.
+
+Returns the size of the data in bytes. Returns 0 if there is no `MANUFACTURER_SPECIFIC_DATA`.
+
+#### contains()
+
+Return true if the advertising data contains the specified type.
+
+```C++
+// PROTOTYPE
+bool contains(BleAdvertisingDataType type) const;
+```
+
+- `type` The data type to look for. For example: `BleAdvertisingDataType::SHORT_LOCAL_NAME`. See [`BleAdvertisingDataType`](/reference/device-os/firmware/#bleadvertisingdatatype).
+
+
+### BleAdvertisingDataType
+
+The following are the valid values for `BleAdvertisingDataType`. In many cases you won't need to use the directly as you can use methods like `serviceUUID` in the `BleAdvertisingData` to set both the type and data automatically.
+
+You would typically use these constants like this: `BleAdvertisingDataType::FLAGS`. 
+
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically. 
+
+Similarly, you typically use [`appendCustomData()`](/reference/device-os/firmware/#appendcustomdata) instead of directly using `MANUFACTURER_SPECIFIC_DATA`. The [`appendLocalName`()](/reference/device-os/firmware/#appendlocalname-) and [`appendServiceUUID()`](/reference/device-os/firmware/#appendserviceuuid-) functions of the [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata) also set the appropriate advertising data type.
+
+- `FLAGS`
+- `SERVICE_UUID_16BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_16BIT_COMPLETE`
+- `SERVICE_UUID_32BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_32BIT_COMPLETE`
+- `SERVICE_UUID_128BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_128BIT_COMPLETE`
+- `SHORT_LOCAL_NAME`
+- `COMPLETE_LOCAL_NAME`
+- `TX_POWER_LEVEL`
+- `CLASS_OF_DEVICE`
+- `SIMPLE_PAIRING_HASH_C`
+- `SIMPLE_PAIRING_RANDOMIZER_R`
+- `SECURITY_MANAGER_TK_VALUE`
+- `SECURITY_MANAGER_OOB_FLAGS`
+- `SLAVE_CONNECTION_INTERVAL_RANGE`
+- `SOLICITED_SERVICE_UUIDS_16BIT`
+- `SOLICITED_SERVICE_UUIDS_128BIT`
+- `SERVICE_DATA`
+- `PUBLIC_TARGET_ADDRESS`
+- `RANDOM_TARGET_ADDRESS`
+- `APPEARANCE`
+- `ADVERTISING_INTERVAL`
+- `LE_BLUETOOTH_DEVICE_ADDRESS`
+- `SIMPLE_PAIRING_HASH_C256`
+- `SIMPLE_PAIRING_RANDOMIZER_R256`
+- `SERVICE_SOLICITATION_32BIT_UUID`
+- `SERVICE_DATA_32BIT_UUID`
+- `SERVICE_DATA_128BIT_UUID`
+- `LESC_CONFIRMATION_VALUE`
+- `LESC_RANDOM_VALUE`
+- `INDOOR_POSITIONING`
+- `TRANSPORT_DISCOVERY_DATA`
+- `LE_SUPPORTED_FEATURES`
+- `CHANNEL_MAP_UPDATE_INDICATION`
+- `PB_ADV`
+- `MESH_MESSAGE`
+- `MESH_BEACON`
+- `THREE_D_INFORMATION_DATA`
+- `MANUFACTURER_SPECIFIC_DATA`
+
+### BleAdvertisingDataType::FLAGS
+
+The valid values for advertising data type flags are:
+
+- `BLE_SIG_ADV_FLAG_LE_LIMITED_DISC_MODE` (0x01)
+- `BLE_SIG_ADV_FLAG_LE_GENERAL_DISC_MODE` (0x02)
+- `BLE_SIG_ADV_FLAG_BR_EDR_NOT_SUPPORTED` (0x04)
+- `BLE_SIG_ADV_FLAG_LE_BR_EDR_CONTROLLER` (0x08)
+- `BLE_SIG_ADV_FLAG_LE_BR_EDR_HOST` (0x10)
+- `BLE_SIG_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE` (0x05)
+- `BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE` (0x06)
+
+The most commonly used is `BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE`: supports Bluetooth LE only in general discovery mode. Any nearby device can discover it by scanning. Bluetooth Basic Rate/Enhanced Data Rate (BR/EDT) is not supported. 
+
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically. 
+
+
+```C++
+// EXAMPLE
+
+// In setup():
+BleAdvertisingData advData;
+
+uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, sizeof(flagsValue));
+
+advData.appendServiceUUID(healthThermometerService);
+
+BLE.advertise(&advData);
+```
+
+
+### BlePeerDevice
+
+When using a Particle device in BLE central mode, connecting a peripheral returns a `BlePeerDevice` object. This object can be used to see if the connection is still open and get [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) objects for the peripheral device.
+
+Typically you'd get the `BlePeerDevice` from calling [`BLE.connect()`](/reference/device-os/firmware/#ble-connect-).
+
+```C++
+BlePeerDevice peer = BLE.connect(scanResults[ii].address);
+if (peer.connected()) {
+	peerTxCharacteristic = peer.getCharacteristicByUUID(txUuid);
+	peerRxCharacteristic = peer.getCharacteristicByUUID(rxUuid);
+	// ...
+}
+```
+
+Once you have the `BlePeerDevice` object you can use the following methods:
+
+
+#### connected()
+
+Returns true if the peer device is currently connected.
+
+```C++
+// PROTOTYPE
+bool connected();
+
+// EXAMPLE
+if (peer.connected()) {
+	// Peripheral is connected
+}
+else {
+	// Peripheral has disconnected
+}
+```
+
+#### address()
+
+Get the BLE address of the peripheral device.
+
+```C++
+// PROTOTYPE
+const BleAddress& address() const;
+
+// EXAMPLE
+Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X", peer.address()[0], peer.address()[1], peer.address()[2], peer.address()[3], peer.address()[4], peer.address()[5]);
+```
+
+See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more information.
+
+#### getCharacteristicByUUID()
+
+Get a characteristic by its UUID, either short or long UUID. See also [`BleUuid`](/reference/device-os/firmware/#bleuuid).
+
+You often do this from the central device after making a connection. 
+
+```C++
+// PROTOTYPE
+BleCharacteristic getCharacteristicByUUID(const BleUuid& uuid);
+
+// EXAMPLE
+BleCharacteristic characteristic = peer. getCharacteristicByUUID(BleUuid(0x180d));
+
+// EXAMPLE
+BleCharacteristic characteristic = peer. getCharacteristicByUUID(BleUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E"));
+```
+
+#### getCharacteristicByDescription()
+
+Get the characteristic by its description. As these strings are not standardized like UUIDs, it's best to use UUIDs instead.
+
+```C++
+// PROTOTYPE
+BleCharacteristic getCharacteristicByDescription(const char* desc);
+
+// EXAMPLE
+BleCharacteristic characteristic = peer. getCharacteristicByDescription("rx");
+```
+
+#### BleScanResult
+
+When scanning, you get back one of:
+
+- An array of `BleScanResult` records
+- A Vector of `BleScanResult` records
+- A callback that is called once for each device found, passed a `BleScanResult`.
+
+The following fields are provided:
+
+```
+// DEFINITION
+class BleScanResult {
+public:
+    BleAddress address;
+    BleAdvertisingData advertisingData;
+    BleAdvertisingData scanResponse;
+    int8_t rssi;
+};
+```
+
+- `address` The BLE address of the peripheral. You use this if you want to connect to it. See [`BleAddress`](/reference/device-os/firmware/#bleaddress).
+- `advertisingData` The advertising data provided by the peripheral. It's small (up to 31 bytes).
+- `scanResponse` The scan response data. This is an optional extra 31 bytes of data that can be provided by the peripheral. It requires an additional request to the peripheral, but is less overhead than connecting.
+- `rssi` The signal strength, which is a negative number of dBm. Numbers closer to 0 are a stronger signal.
+
+### BleAddress
+
+Each Bluetooth device has an address, which is encapsulated in the BleAddress object. The address is 6 octets, and the BleAddress object has two additional bytes of overhead. The BleAddress object can be trivially copied.
+
+#### copy (BleAddress)
+
+You can copy and existing BleAddress.
+
+```
+// PROTOTYPE
+BleAddress& operator=(hal_ble_addr_t addr)
+```
+
+#### address byte (BleAddress)
+
+The BleAddress is 6 octets long (constant: `BLE_SIG_ADDR_LEN`). You can access individual bytes using array syntax:
+
+```
+// PROTOTYPE
+uint8_t operator[](uint8_t i) const;
+
+// EXAMPLE
+Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
+		scanResults[ii].rssi,
+		scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+		scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+```
+
+#### equality (BleAddress)
+
+You can test two BleAddress objects for equality (same address).
+
+```
+// PROTOTYPE
+bool operator==(const BleAddress& addr) const 
+```
+
+#### addr_type (BleAddress)
+
+The addr_type field indicates the type of BLE address:
+
+
+- `BLE_SIG_ADDR_TYPE_PUBLIC` Public (identity address).
+- `BLE_SIG_ADDR_TYPE_RANDOM_STATIC` Random static (identity) address.
+- `BLE_SIG_ADDR_TYPE_RANDOM_PRIVATE_RESOLVABLE` Random private resolvable address.
+- `BLE_SIG_ADDR_TYPE_RANDOM_PRIVATE_NON_RESOLVABLE` Random private non-resolvable address.
+- `BLE_SIG_ADDR_TYPE_ANONYMOUS` An advertiser may advertise without its address. This type of advertising is called anonymous.
+
+### BleAdvertisingEventType
+
+You will not typically need to change this. The default is `CONNECTABLE_SCANNABLE_UNDIRECRED` (0).
+
+Valid values include:
+
+- `CONNECTABLE_SCANNABLE_UNDIRECRED`
+- `CONNECTABLE_UNDIRECTED`
+- `CONNECTABLE_DIRECTED`
+- `NON_CONNECTABLE_NON_SCANABLE_UNDIRECTED`
+- `NON_CONNECTABLE_NON_SCANABLE_DIRECTED`
+- `SCANABLE_UNDIRECTED`
+- `SCANABLE_DIRECTED `
+
+### BleAdvertisingParams
+
+To set the parameters for advertising, you can use the BleAdvertisingParams structure:
+
+```C++
+// PROTOTYPE
+uint16_t version;
+uint16_t size;
+uint16_t interval;
+uint16_t timeout;
+hal_ble_adv_evt_type_t type; 
+uint8_t filter_policy;
+uint8_t inc_tx_power;
+uint8_t reserved;
+
+// EXAMPLE
+BleAdvertisingParams param;
+param.version = BLE_API_VERSION;
+param.size = sizeof(BleAdvertisingParams);
+int res = BLE.getAdvertisingParameters(&param);
+```
+
+- `version` Always set to `BLE_API_VERSION`.
+- `size` Always set to `sizeof(BleAdvertisingParams)`.
+- `interval` Advertising interval in 0.625 ms units. Default is 160.
+- `timeout` Advertising timeout in 10 ms units. Default is 0.
+- `type` See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECRED` (0).
+- `filter_policy` Default is 0.
+- `inc_tx_power` Default is 0.
+
+### BleScanParams
+
+The BleScanParams structure specifies the settings for scanning on a central device.
+
+```C++
+// PROTOTYPE
+uint16_t version;
+uint16_t size;
+uint16_t interval;
+uint16_t window;
+uint16_t timeout; uint8_t active;
+uint8_t filter_policy;
+
+// EXAMPLE
+BleScanParams scanParams;
+scanParams.version = BLE_API_VERSION;
+scanParams.size = sizeof(BleScanParams);
+int res = BLE.getScanParameters(&scanParams);
+```
+
+- `version` Always set to `BLE_API_VERSION`.
+- `size` Always set to `sizeof(BleScanParams)`.
+- `interval` Advertising interval in 0.625 ms units. Default is 160.
+- `window` Scanning window in 0.625 ms units. Default is 80.
+- `timeout` Scan timeout in 10 ms units. Default value is 500.
+- `active` Boolean value, typically 1.
+- `filter_policy` Default is 0.
+
+### iBeacon
+
+[Apple iOS iBeacon](https://developer.apple.com/ibeacon/) can be used to customize mobile app content based on nearby beacons.
+
+There are three parameters of interest:
+
+| Field | Size  | Description |
+| :---: | :---: | --- |
+| UUID | 16 bytes | Application developers should define a UUID specific to their app and deployment use case. | 
+| Major | 2 bytes | Further specifies a specific iBeacon and use case. For example, this could define a sub-region within a larger region defined by the UUID. |
+| Minor | 2 bytes | Allows further subdivision of region or use case, specified by the application developer. |
+
+(From the [Getting Started with iBeacon](https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf) guide.)
+
+In other words, you'll assign a single UUID to all of the beacons in your fleet of beacons and figure out which one you're at using the major and minor values. When searching for an iBeacon, you need to know the UUID of the beacon you're looking for, so you don't want to assign too many. 
+
+```
+// PROTOTYPE
+// Type T is any type that can be passed to the BleUuid constructor, such as a BleUuid object, const char *, or Uint16_t.
+template<typename T>
+iBeacon(uint16_t major, uint16_t minor, T uuid, int8_t measurePower)
+    
+
+// EXAMPLE
+void setup() {
+    iBeacon beacon(1, 2, "9c1b8bdc-5548-4e32-8a78-b9f524131206", -55);
+    BLE.advertise(beacon);
+}
+```
+
+The parameters to the iBeacon constructor in the example are:
+
+- Major version (1)
+- Minor version (2)
+- Application UUID ("9c1b8bdc-5548-4e32-8a78-b9f524131206")
+- Power measurement in dBm (-55)
+
+
+{{/if}} {{!-- has-ble --}}
+
+
+{{#if has-nfc-tag}}
+## NFC
+
+NFC (Near-Field Communication) is typically used to communicate small amounts of data to a mobile app in very close range, within a few inches.
+
+Particle Gen 3 devices only support emulating an NFC tag. They cannot locate or communicate with tags themselves, or support protocols such as for NFC payments.
+
+A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, directly underneath the USB connector.
+
+NFC support is in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions.
+
+### Example app
+
+You can run this device firmware and use a mobile app like **NFC Reader** to read the NFC data. The blue D7 LED will flash briefly when reading. Each time you read, the counter will increment.
+
+```C++
+#include "Particle.h"
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+SYSTEM_MODE(MANUAL);
+
+static void nfcCallback(nfc_event_type_t type, nfc_event_t* event, void* context);
+
+int counter = 0;
+volatile bool updateCounter = true;
+
+void setup (void) {
+	pinMode(D7, OUTPUT);
+	digitalWrite(D7, 0);
+}
+
+void loop(){
+	if (updateCounter) {
+		updateCounter = false;
+
+		char buf[64];
+		snprintf(buf, sizeof(buf), "testing counter=%d", ++counter);
+
+		NFC.setText(buf, "en");
+		NFC.on(nfcCallback);
+
+		Log.info("next read should show: %s", buf);
+	}
+}
+
+static void nfcCallback(nfc_event_type_t type, nfc_event_t* event, void* context) {
+	switch (type) {
+	case NFC_EVENT_FIELD_ON: {
+		digitalWrite(D7, 1);
+		break;
+	}
+	case NFC_EVENT_FIELD_OFF: {
+		digitalWrite(D7, 0);
+		break;
+	}
+	case NFC_EVENT_READ: {
+		updateCounter = true;
+		break;
+	}
+	default:
+		break;
+	}
+}
+```
+
+### NFC.on()
+
+Turn NFC on, optionally with a callback function.
+
+```
+// PROTOTYPE
+int on(nfc_event_callback_t cb=nullptr);
+```
+
+The callback function has this prototype:
+
+```
+void nfcCallback(nfc_event_type_t type, nfc_event_t* event, void* context);
+```
+
+- `type` The type of event (described below)
+- `event` The internal event structure (not currently used)
+- `context` An optional context pointer set when the callback is registered (not currently used).
+
+The event types are:
+
+- `NFC_EVENT_FIELD_ON` NFC tag has detected external NFC field and was selected by an NFC polling device.
+- `NFC_EVENT_FIELD_OFF` External NFC field has been removed.
+- `NFC_EVENT_READ` NFC polling device has read all tag data.
+
+NFC events may occur at interrupt service time. You should not, for example:
+
+- Allocate or free memory (`malloc`, `free`, `new`, `delete`, `strdup`, etc.).
+- Call Particle functions like `Particle.publish()`
+- Call `delay()`
+- Call `Serial.print()`, `Log.info()`, etc.
+
+### NFC.off()
+
+Turns NFC off.
+
+```
+// PROTOTYPE
+int off();
+```
+
+### NFC.update()
+
+Updates the NFC device, usually after changing the data using `NFC.setCustomData()`, `NFC.setText()`, etc..
+
+```
+// PROTOTYPE
+int update();
+```
+
+### NFC.setText()
+
+Sets text to be passed to the NFC reader.
+
+```
+// PROTOTYPE
+int setText(const char* text, const char* encoding)
+```
+
+- `text` A c-string (null-terminated) containing the text to send
+- `encoding` The [IANA language code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry). For example, "en" for English.
+
+Note that all of the set options are mutually exclusive. Calling `NFC.setText()` will clear any `NFC.setUri()`, `NFC.setLaunchApp()`, etc..
+
+
+### NFC.setUri()
+
+Sets a URI as the NFC data. 
+
+```
+// PROTOTYPE
+int setUri(const char* uri, NfcUriType uriType)
+
+// EXAMPLE
+
+// Open the web site https://www.particle.io:
+NFC.setUri("particle.io", NfcUriType::NFC_URI_HTTPS_WWW);
+```
+
+The following NfcUriTypes are defined:
+
+| NfcUriType | Prefix |
+| --- | --- |
+| `NFC_URI_NONE` | (no prefix) |
+| `NFC_URI_HTTP_WWW` | "http://www." |
+| `NFC_URI_HTTPS_WWW` |  "https://www." |
+| `NFC_URI_HTTP` | "http:" |
+| `NFC_URI_HTTPS` | "https:" |
+| `NFC_URI_TEL` |  "tel:" |
+| `NFC_URI_MAILTO` |  "mailto:" |
+| `NFC_URI_FTP_ANONYMOUS` |  "ftp://anonymous:anonymous@" |
+| `NFC_URI_FTP_FTP` | "ftp://ftp." |
+| `NFC_URI_FTPS` |  "ftps://" |
+| `NFC_URI_SFTP` |  "sftp://" |
+| `NFC_URI_SMB` |  "smb://" |
+| `NFC_URI_NFS` |  "nfs://" |
+| `NFC_URI_FTP` |  "ftp://" |
+| `NFC_URI_DAV` |  "dav://" |
+| `NFC_URI_NEWS` | "news:" |
+| `NFC_URI_TELNET` |  "telnet://" |
+| `NFC_URI_IMAP` |  "imap:" |
+| `NFC_URI_RTSP` | "rtsp://" |
+| `NFC_URI_URN` |  "urn:" |
+| `NFC_URI_POP` |  "pop:" |
+| `NFC_URI_SIP` |  "sip:" |
+| `NFC_URI_SIPS` |  "sips:" |
+| `NFC_URI_TFTP` |  "tftp:" |
+| `NFC_URI_BTSPP` |  "btspp://" |
+| `NFC_URI_BTL2CAP` |  "btl2cap://" |
+| `NFC_URI_BTGOEP` |  "btgoep://" |
+| `NFC_URI_TCPOBEX` |  "tcpobex://" |
+| `NFC_URI_IRDAOBEX` |  "irdaobex://" |
+| `NFC_URI_FILE` |  "file://" |
+| `NFC_URI_URN_EPC_ID` |  "urn:epc:id:" |
+| `NFC_URI_URN_EPC_TAG` |  "urn:epc:tag:" |
+| `NFC_URI_URN_EPC_PAT` |  "urn:epc:pat:" |
+| `NFC_URI_URN_EPC_RAW` |  "urn:epc:raw:" |
+| `NFC_URI_URN_EPC` |  "urn:epc:" |
+| `NFC_URI_URN_NFC` |  "urn:nfc:" |
+
+Note that all of the set options are mutually exclusive. Calling `NFC.setUri()` will clear any setText, setLaunchApp, etc..
+
+
+### NFC.setLaunchApp()
+
+On Android devices, it's possible to set an app (by its android package name) to launch when the tag is read.
+
+```
+// PROTOTYPE
+int setLaunchApp(const char* androidPackageName);
+```
+
+Note that all of the set options are mutually exclusive. Calling `NFC.setLaunchApp()` will clear any `NFC.setText()`, `NFC.setUri()`, etc..
+
+This does not do anything on iOS. An NFC-aware iOS app can read the package name, but in general won't be able to do much with it.
+
+### NFC.setCustomData()
+
+It's possible to send any NFC-compliant data instead of one of the pre-defined types above. 
+
+```
+// PROTOTYPE
+int setCustomData(Record& record)
+```
+
+Note that all of the set options are mutually exclusive. Calling `NFC.setCustomData()` will clear any `NFC.setText()`, `NFC.setUri()`, etc..
+
+### Record (NFC)
+
+The NFC `Record` class specifies the custom data to be sent via NFC. This section describes the methods you may need to use `BLE.setCustomData()`.
+
+#### setTnf();
+
+```
+// PROTOTYPE
+void setTnf(Tnf tnf)
+```
+
+The valid values for Record::Tnf are:
+
+- `TNF_EMPTY` (0x00)
+- `TNF_WELL_KNOWN` (0x01)
+- `TNF_MIME_MEDIA` (0x02)
+- `TNF_ABSOLUTE_URI` (0x03)
+- `TNF_EXTERNAL_TYPE` (0x04)
+- `TNF_UNKNOWN` (0x05)
+- `TNF_UNCHANGED` (0x06)
+- `TNF_RESERVED` (0x07)
+
+#### setType()
+
+Set the type field in the NFC record.
+
+```
+// PROTOTYPE
+size_t setType(const void* type, uint8_t numBytes);
+```
+
+#### setId()
+
+The ID field is optional in NFC. If you are using the ID, call this method to set the value. It will automatically set the IL field in the header.
+
+```
+// PROTOTYPE
+size_t setId(const void* id, uint8_t numBytes);
+```
+
+#### setPayload()
+
+Appends to the NFC record payload.
+
+```
+// PROTOTYPE
+size_t setPayload(const void* payload, size_t numBytes);
+```
+
+Returns the number of bytes added (`numBytes`).
+
+{{/if}} {{!-- has-nfc-tag --}}
+
+
 {{#if has-tcpserver}}
 ## TCPServer
 
@@ -7752,11 +9676,12 @@ if (err != 0) {
 ### clearWriteError()
 
 Clears the error code of the most recent [`write()`](#write--3) operation setting it to `0`. This function is automatically called by [`write()`](#write--3).
+
+`clearWriteError()` does not return anything.
+
 {{/if}}
 
 {{#if has-tcpclient}}
-
-`clearWriteError()` does not return anything.
 
 ## TCPClient
 

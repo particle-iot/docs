@@ -11,6 +11,7 @@ module.exports = function(string) {
 	txt = txt.replace('Os', 'OS');
 	txt = txt.replace('Sdks', 'SDKs');
 	txt = txt.replace('And', 'and');
+	txt = txt.replace('Le', 'LE'); // as in, Bluetooth LE
 	return txt;
   });
   return stringToTitleCase;
