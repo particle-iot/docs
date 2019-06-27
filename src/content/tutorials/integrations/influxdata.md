@@ -78,9 +78,22 @@ you can try spinning up an Amazon EC2 pre-configured image. InfluxData has provi
 can simply launch in your own account. This instance has InfluxDB, Telegraf, Chronograf and Kapacitor already
 installed -- and the Telegraf config file already edited to enable the Particle Plugin -- to make it easy to start
 testing your application. Just sign in to your AWS account, Click on "AMIs", then search the Public AMIs for 
-"Influx-IoT-Server". There are restrictions in AWS about how AMIs can be shared, and currently this AMI is
+"InfluxDB-IOT." There are restrictions in AWS about how AMIs can be shared, and currently this AMI is
 *only* available in the "US-East N. Virginia" region, so you may have to change your region in order to 
 find it.
+
+Once you've set-up an instance of this AMI in your local account, follow the provided instructions for logging into your instance via `ssh` and run the following commands to make sure the image is up-to-date:
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get upgrade
+```
+
+#### Configure AWS Security Settings
+
+Add the necessary networking settings as a new Security Profile that you can then apply your InfluxDB AMI.
+
+<img src="/assets/images/influx-aws-security.png" class="full-width" />
 
 
 ### Configuring Telegraf
@@ -94,9 +107,35 @@ is enabled.
 $ sudo nano /etc/telegraf/telegraf.conf
 ```
 
-Then simply remove the comments before the 2 lines containing 'Particle'
+Then simply remove the comments hash (#) before the 2 lines containing 'Particle', the `[[inputs.webhooks]]` line, as well as the `service_address = ":1619"` line.
 
 <img src="/assets/images/Telegraf.conf.gif" class="full-width" alt="Edit Telegraf.conf"/>
+
+```
+## A Webhooks Event collector
+[[inputs.webhooks]]
+#   
+## Address and port to host Webhook listener on
+service_address = ":1619"
+#
+#   [inputs.webhooks.filestack]
+#     path = "/filestack"
+#
+#   [inputs.webhooks.github]
+#     path = "/github"
+#     # secret = ""
+#
+#   [inputs.webhooks.mandrill]
+#     path = "/mandrill"
+#
+#   [inputs.webhooks.rollbar]
+#     path = "/rollbar"
+#
+#   [inputs.webhooks.papertrail]
+#     path = "/papertrail"
+[inputs.webhooks.particle]
+  path = "/particle”
+```
 
 Then restart Telegraf
 
@@ -104,6 +143,27 @@ Then restart Telegraf
 $ sudo systemctl restart telegraf
 ```
 
+To check to make sure that the service is listening on port `1619`, run the following command:
+
+```bash
+$ netstat -nlp
+```
+
+You should see an output similar to the following:
+
+```bash
+Active Internet connections (only servers)
+Proto	Recv-Q	Send-Q	Local Address	 Foreign Address	State	 PID/Program name
+tcp	  0		    0       0.0.0.0:22	    0.0.0.0:*	      LISTEN -
+tcp	  0		    0       127.0.0.1:8088	0.0.0.0:*	      LISTEN -
+tcp6	0      	0       :::1619	        :::* 	          LISTEN -
+tcp6	0     	0       :::22  	        :::*	          LISTEN -
+tcp6	0      	0       :::8086 	      :::* 	          LISTEN -
+tcp6	0      	0       ::::8888 	      :::*  	        LISTEN -
+tcp6	0      	0       ::::9092 	      :::* 	          LISTEN -
+```
+
+You’ll notice that the system is listening on port 1619 — so Particle Webhooks can communicate with it, on 8888 which enables Chronograf, as well as 9092 (for Kapacitor) and 8086 and 8088 for InfluxDB.
 
 
 ## Enabling the Integration
@@ -125,7 +185,7 @@ Once in the integrations hub, click on the "New Integration" button. From the li
 
 The next step is configuring the Webhook. Fill out the following fields:
 - **Event Name**: The name of the event that will trigger publishing an event InfluxDB. This is the name of your event when you call `Particle.publish()` in your firmware.
-- **URL**: The url or IP address of your Telegraf server. Don't forget the `/particle` portion of the URL!
+- **URL**: The url or IP address of your Telegraf server in AWS. Don't forget the `:1619/particle` portion of the URL!
 - **Request Type**: The Telegraf server is expecting a `POST` so make sure that's selected.
 - **Request Format**: The Default is `Web Form` but we will be sending a JSON, so make sure that you change this to `JSON`.
 
@@ -147,6 +207,10 @@ You'll need to click the `Advanced Settings` area to fill out the custom `JSON` 
 ```
 
 <img src="/assets/images/influx-webhook3.png"/>
+
+Note the entry for “data” is flagged as an error by the Particle Webhook edit screen as it is missing quotation marks around {{{PARTICLE_EVENT_VALUE}}}.  However, the current setup of Telegraf only works this way and the Particle Cloud integration will still accept the advanced settings.
+
+<img src="/assets/images/influx-aws-webhook.png"/>
 
 Click "Create Webhook." You have now successfully told the Particle cloud to stream data to InfluxDB via Telegraf!
 
