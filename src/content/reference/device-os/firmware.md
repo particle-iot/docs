@@ -17678,7 +17678,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |v1.3.x prereleases|[v1.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.3.0-rc.1)|-|-|-|-|-|-|
 |v1.2.x prereleases|[v1.2.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.0-beta.1)|[v1.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.0-rc.1)|[v1.2.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.1)|[v1.2.1-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.2)|[v1.2.1-rc.3](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.3)|-|-|
-|v1.1.x default releases|[v1.1.0](https://github.com/particle-iot/device-os/releases/tag/v1.1.0)|-|-|-|-|-|-|
+|v1.1.x default releases|[v1.1.0](https://github.com/particle-iot/device-os/releases/tag/v1.1.0)|[v1.1.1](https://github.com/particle-iot/device-os/releases/tag/v1.1.1)|-|-|-|-|-|
 |v1.1.x prereleases|[v1.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.1.0-rc.1)|[v1.1.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.1.0-rc.2)|[v1.1.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.1.1-rc.1)|-|-|-|-|
 |v1.0.x default releases|[v1.0.0](https://github.com/particle-iot/device-os/releases/tag/v1.0.0)|[v1.0.1](https://github.com/particle-iot/device-os/releases/tag/v1.0.1)|-|-|-|-|-|
 |v1.0.x prereleases|[v1.0.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.0.1-rc.1)|-|-|-|-|-|-|
@@ -17700,7 +17700,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |v1.3.x prereleases|[v1.3.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.3.0-rc.1&cli_ver=1.41.2&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v1.2.x prereleases|[v1.2.0-beta.1](/reference/device-os/firmware/photon/?fw_ver=1.2.0-beta.1&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.2.0-rc.1&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.1&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.2&cli_ver=1.41.1&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.3](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.3&cli_ver=1.41.2&electron_parts=3#programming-and-debugging-notes)|-|
-|v1.1.x default releases|[v1.1.0](/reference/device-os/firmware/photon/?fw_ver=1.1.0&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v1.1.x default releases|[v1.1.0](/reference/device-os/firmware/photon/?fw_ver=1.1.0&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|[v1.1.1](/reference/device-os/firmware/photon/?fw_ver=1.1.1&cli_ver=1.42.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v1.0.x prereleases|[v1.0.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1-rc.1&cli_ver=1.38.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v1.1.x prereleases|[v1.1.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.1.0-rc.1&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|[v1.1.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.1.0-rc.2&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|[v1.1.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.1.1-rc.1&cli_ver=1.41.2&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v1.0.x default releases|[v1.0.0](/reference/device-os/firmware/photon/?fw_ver=1.0.0&cli_ver=1.37.0&electron_parts=3#programming-and-debugging-notes)|[v1.0.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1&cli_ver=1.39.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
@@ -17717,6 +17717,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v1.42.0 = 1.1.1
 v1.41.2 = 1.1.1-rc.1, 1.2.1-rc.3, 1.3.0-rc.1
 v1.41.1 = 1.2.1-rc.2
 v1.41.0 = 1.1.0, 1.2.0-rc.1, 1.2.1-rc.1
@@ -17820,6 +17821,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.41.1endif
 ##### @CLI_VER@1.41.2if
 ##### @CLI_VER@1.41.2endif
+##### @CLI_VER@1.42.0if
+##### @CLI_VER@1.42.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
