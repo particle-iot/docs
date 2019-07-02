@@ -1549,14 +1549,37 @@ You can use it:
 - On Chromebooks
 - In the Chrome web browser on Mac OS X (sometimes)
 - In the Chrome web browser on Windows (sometimes)
+- On iOS devices with the **Web BLE** app ($1.99). Does not work on iOS with Chrome or Safari.
 
-Here are some Web BLE examples:
+Here are some Web BLE examples. The project links include the device source, as well as the HTML and Javascript. Just View Source on the page to view the Javascript code.
 
-- [BLE level meter](https://rickkas7.github.io/ble-potentiometer/)
-- [BLE live graph](https://rickkas7.github.io/ble-livegraph)
+#### Level Meter
+
+[BLE level meter](https://rickkas7.github.io/ble-potentiometer/) is an example that uses potentiometer connected to a Gen 3 devices to send the data directly to a compatible web browser, which displays the data on a web-based level meter.
+
+#### Live Graph
+
+[BLE live graph](https://rickkas7.github.io/ble-livegraph) is an example that uses potentiometer connected to a Gen 3 devices to send the data directly to a compatible web browser, which displays the data on a live scrolling graph.
 
 <video width="640" height="360" controls>
   <source src="/assets/images/ble-livegraph.mp4" type="video/mp4">
+</video>
+
+#### IMU (Accelerometer)
+
+[BLE IMU](https://rickkas7.github.io/ble-imu) connects the Adafruit BNO055 9-DOF IMU to a Gen 3 device and sends the data over BLE to WebBLE. A compatible browser connects directly to the Gen 3 device and streams the orientation information, then uses WebGL to do a 3D animation of the orientation. No server or browser plug-ins required! 
+
+<video width="640" height="360" controls>
+  <source src="/assets/images/ble-imu.mp4" type="video/mp4">
+</video>
+
+
+#### Power Source Display
+
+[BLE power source](https://rickkas7.github.io/ble-powersource) uses Device Diagnostics on the device to get the battery level, charging status, and power status (USB, VIN, etc.) and sends it over BLE. Using Web BLE, you can display this data on a compatible web browser. The display updates in real time!
+
+<video width="640" height="360" controls>
+  <source src="/assets/images/ble-powersource.mp4" type="video/mp4">
 </video>
 
 
