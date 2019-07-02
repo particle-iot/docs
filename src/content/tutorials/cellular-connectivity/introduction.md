@@ -114,7 +114,7 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 | Boron LTE | US<sup>1</sup> | LTE<sup>6</sup> |
 | B402 LTE SoM | US<sup>5</sup>  | LTE<sup>6</sup> |
 | Electron 2G (G350) | World<sup>2</sup> | 850, 900, 1800, 1900 |
-| Electron 3G (U260) | Americas, Australia<sup>3</sup> | 850, 1900 |
+| Electron 3G (U260) | Americas, Australia, New Zealand<sup>3</sup> | 850, 1900 |
 | Electron 3G (U270) | Europe, Asia, Africa<sup>4</sup> | 900, 1800, 2100 |
 | Electron Global (U201) | World | 850, 900, 1800, 1900, 2100 |
 | Electron LTE (E402) | US<sup>5</sup>  | LTE<sup>6</sup> |
@@ -128,6 +128,8 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 <sup>3</sup>The U260 model supports 850/1900 MHz for both 3G (UMTS/HSPA) and 2G (GPRS/EDGE). These are the frequencies typically used in the Americas, but there are exceptions. 
 
 For example, in Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz.
+
+In New Zealand, we previously recommended the U270 as Two Degrees was the carrier. We've switched to Spark, however, which uses 850 MHz and thus the U260 is now recommended for New Zealand, like Australia. If you've purchased a U270 for use in New Zealand and are stuck at blinking green (connecting to cellular), technical support can switch your SIM back to Two Degrees so you can use the U270.
 
 In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the U260 Americas model is the correct one. If you're using an Ancel 3rd-party SIM, however, that uses 2100 MHz you you'll nee the U270 model, instead.
 

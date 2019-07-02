@@ -14,7 +14,7 @@ order: 24
 
 | Country | Carriers | 2G | 3G |
 | ------- | -------- | :---: | :---: |
-| United States | AT&T,T-Mobile USA |<sup>1</sup> | U260 |
+| United States | AT&T, T-Mobile USA |<sup>1</sup> | U260 |
 | Canada | Rogers AT&T Wireless |&#x2714; | U260 |
 | United Kingdom | Telefonica O2 UK |&#x2714; | U270 |
 | Argentina | Telefonica Moviles Argentina |&#x2714; | U260 |
@@ -78,7 +78,7 @@ order: 24
 | Montenegro | Telenor Montenegro |&#x2714; | U270 |
 | Montserrat | Cable and Wireless, Montserrat |&#x2714; | U260 |
 | Netherlands | KPN B.V. |&#x2714; | U270 |
-| New Zealand | Two Degrees Mobile |<sup>2</sup> | U270 |
+| New Zealand | Spark |<sup>2</sup> | U260 |
 | Nicaragua | Telefonia Celular de Nicaragua |&#x2714; | U260 |
 | Niger | Celtel Niger S.A. |&#x2714; | U270 |
 | Nigeria | Celtel Nigeria |&#x2714; | U270 |
@@ -117,7 +117,7 @@ order: 24
 | Ukraine | Kyivstar Ukraine |&#x2714; | U270 |
 | United Arab Emirates | du - Emirates I.T.C. |&#x2714; | U270 |
 | United Kingdom | Telefonica O2 UK |&#x2714; | U270 |
-| United States | AT&T,T-Mobile USA |<sup>1</sup> | U260 |
+| United States | AT&T, T-Mobile USA |<sup>1</sup> | U260 |
 | Uruguay | Abiatar S.A. |&#x2714; | U260 |
 | Venezuela | Telefonica Moviles Venezuela |&#x2714; | U260 |
 | Yemen | MTN Yemen |&#x2714; | U270 |
@@ -130,6 +130,8 @@ order: 24
 | Country | Carriers |
 | ------- | -------- |
 | United States | AT&T |
+| Canada | Telus, Rogers, Bell<sup>3</sup> |
+| Mexico | AT&T<sup>3</sup> |
 
 {{collapse op="end"}}
 
@@ -283,13 +285,11 @@ order: 24
 | St.Martin | Digicel |
 | Suriname | Digicel |
 | Svalbard and Jan Mayen | Telenor |
-| Sweden | Telenor |
-|   | Telenor (Net4Mobility) |
+| Sweden | Telenor (Net4Mobility) |
 | Switzerland | Swisscom |
 | Taiwan | Taiwan Mobile |
 | Tanzania | Vodacom |
-| Thailand | Real Future |
-|   | True Move |
+| Thailand | True Move |
 | Togo | Moov |
 | Tonga | Digicel |
 | Trinidad and Tobago | Digicel |
@@ -312,12 +312,14 @@ order: 24
 {{collapse op="end"}}
 
 
+
 {{!-- Paste data from carrier tool above. Make sure you don't delete the block below. --}}
 
 {{collapse op="start" simType="Electron"}}
 
 - <sup>1</sup>2G is only available on T-Mobile, not on AT&T.
 - <sup>2</sup>2G is only available with a 3rd-party SIM card on the Electron.
+- <sup>3</sup>LTE in Canada and Mexico is in the beta testing phase.
 
 {{collapse op="end"}}
 
