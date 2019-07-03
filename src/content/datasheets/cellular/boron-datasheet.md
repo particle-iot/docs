@@ -130,7 +130,7 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh 
 
 ### SWD 
 
-The Boron has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Mesh Debugger.
+The Boron has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Mesh Debugger.
 
 <div align=center><img src="/assets/images/boron/swd-connector-pinout.png" ></div>
 
