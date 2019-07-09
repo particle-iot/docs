@@ -623,6 +623,6 @@ To erase all of your configuration and start from scratch on Gen 2:
 -c "flash erase_sector 0 1 2 " \
 ```
 
-That's bank 0, sectors 1 and 2 (starting at 0x08004000 and 0x080008000).
+That's bank 0, sectors 1 and 2 (starting at 0x08004000 and 0x08008000).
 
 Note that when you erase the configuration flash your device ID is preserved but your device private key will be lost. This means you won't be able to connect to the cloud until you upload your keys using the CLI command [particle keys doctor](/reference/cli/#particle-keys-doctor).

@@ -201,14 +201,15 @@ The Boron 2G/3G uses the 5-band u-blox SARA-U201 cellular modem and can be used 
 
 - In the Americas, it can use 2G and 3G on 850 MHz and 1900 MHz
 - In Europe, Asia, and Africa it can use 900/1800 MHz for 2G and 900/2100 MHz for 3G.
-- In places with a mix, like Australia, it can use combinations like 850/2100.
+- In places with a mix, like Australia and New Zealand, it can use combinations like 850/2100.
 - In places that no longer have 2G service, like Australia, Korea, Japan, and Singapore, it will of course only use 3G.
 
 ### Boron LTE
 
 Note that the Boron LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
 
-The embedded MFF2 Particle SIM card on the Boron LTE only supports AT&T, and only in the United States. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
+The embedded MFF2 Particle SIM card on the Boron LTE only supports AT&T, and only in the United States. Support is in beta testing in Canada and Mexico at this time. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
+
 
 {{collapse op="end"}}
 
@@ -503,11 +504,13 @@ You don't need to do anything with the cloud settings or claiming when swapping 
 
 ### Electron
 
-The 3G Electrons come in two varieties, the Americas/Australia (U260) and Europe/Asia/Africa (U270). 
+The 3G Electrons come in two varieties, the Americas/Australia/New Zealand (U260) and Europe/Asia/Africa (U270). 
 
 The lines are not that clearly drawn, however, and may vary by carrier in a given country. For example:
 
 In Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. As of March 15, 2019, Telstra discontinued the use of the 2100 MHz band for 3G and the Electron U270 with the Particle SIM will no longer work. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz. 
+
+In New Zealand, we previously recommended the U270 as Two Degrees was the carrier. We've switched to Spark, however, which uses 850 MHz and thus the U260 is now recommended for New Zealand, like Australia. If you've purchased a U270 for use in New Zealand and are stuck at blinking green (connecting to cellular), technical support can switch your SIM back to Two Degrees so you can use the U270.
 
 In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the U260 Americas model is the correct one. If you're using an Ancel SIM, however, that uses 2100 MHz you you'll nee the U270 model, instead.
 

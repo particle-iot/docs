@@ -65,16 +65,16 @@ A project contains a number of files. Here's what's in a small sample project:
 
 ![Project Directories](/assets/images/workbench/project-directories.png)
 
-- The **.vscode** directory contains your project-specific settings. The settings.json file allows you to override any setting on a per-project basis. It's also where your build firmware version, target platform, and target device are saved.
-- The **src** directory contains your source file. If you created a .ino file for your main project file, after building you may see a .cpp file of the same name. This is because the .ino file is transformed into a .cpp before compiling. You can create multiple source files and header files in this directory.
-- Not pictured here is the **libs** directory, at the same level as src. This contains the source to libraries that you have included. If you are cloud compiling, if you have the library listed in your project.properties file the cloud version of the library is used instead of the downloaded one in libs.
-- The **target** directory contains local build output. In particular, the .bin file (Test1.bin) is the same binary you get from downloading from the Web IDE or CLI.
-- The electron\_firmware\_1548790892661**.bin** (your filename will be different) at the top level is the result of a cloud compile for this project.
-- The **project.properties** file specifies all of the libraries that this project uses.
-- **README.md** is where you could put documentation for your project.
-- The **.code-workspace** is the workspace settings file for VS Code. There are no particle-specific settings in it.
+- The **`.vscode`** directory contains your project-specific settings. The `settings.json` file allows you to override any setting on a per-project basis. It's also where your build firmware version, target platform, and target device are saved.
+- The **`src`** directory contains your source file. If you created a `.ino` file for your main project file, after building you may see a `.cpp` file of the same name. This is because the `.ino` file is transformed into a `.cpp` before compiling. You can create multiple source files and header files in this directory.
+- Not pictured here is the **`lib`** directory, at the same level as `src`. This contains the source to libraries that you have included. If you are cloud compiling, _and_ if you have the library listed in your `project.properties` file, the cloud version of the library is used instead of the downloaded one in **`lib`**.
+- The **`target`** directory contains local build output. In particular, the `.bin` file (`Test1.bin`) is the same binary you get from downloading from the Web IDE or CLI.
+- The **`*.bin`** file (your filename will be different) at the top level is the result of a cloud compile for this project.
+- The **`project.properties`** file specifies all of the libraries that this project uses.
+- **`README.md`** is where you could put documentation for your project.
+- The **`.code-workspace`** is the workspace settings file for VS Code. There are no Particle-specific settings in it.
 
-If you already have an existing Particle project (with a project.properties file), you can import it to create the necessary VS Code files by using the command **Particle: Import Project** from the command palette.
+If you already have an existing Particle project (with a `project.properties` file), you can import it to create the necessary VS Code files by using the command **Particle: Import Project** from the command palette.
 
 ### Cloud build and flash
 
@@ -281,13 +281,13 @@ You can also install a specific version of a library by using a syntax like `dot
 To remove a library, you should:
 
 - Remove the entry for it in your `project.properties` file in the top level of your project.
-- If there's a folder for it in the `libs` directory at the top level of your project, remove that too.
+- If there's a folder for it in the `lib` directory at the top level of your project, remove that too.
 
 #### Using a locally modified library
 
-You'll notice a copy of the libraries you've added in the `libs` directory in the top level of your project. This is handy for viewing the source and examples.
+You'll notice a copy of the libraries you've added in the `lib` directory in the top level of your project. This is handy for viewing the source and examples.
 
-If you want to make modifications to the library, be sure to remove the library from the `project.properties` file in the top level of your project. If you leave the library in project.properties the official release will be used to build. If you remove it, then the local version you modified in your libs directory will be used instead.
+If you want to make modifications to the library, be sure to remove the library from the `project.properties` file in the top level of your project. If you leave the library in project.properties the official release will be used to build. If you remove it, then the local version you modified in your `lib` directory will be used instead.
 
 ### Snippets
 
@@ -378,7 +378,7 @@ By default, you cannot step into the underlying FreeRTOS (real-time operating sy
 "rtos":"FreeRTOS"
 ```
 
-to your launch.json file. This is experimental and may cause the GDB server to crash or malfunction, so it's best to only enable this if necessary.
+to your `launch.json` file. This is experimental and may cause the GDB server to crash or malfunction, so it's best to only enable this if necessary.
 
 
 That is just a brief introduction to debugging. For more information, see the [VS Code Debugging Documentation](https://code.visualstudio.com/docs/editor/debugging).
@@ -577,7 +577,7 @@ For an existing Particle project containing a project.properties file, creates t
 
 Add a library to the current project. You can search for library using **Particle: Find Libraries** if you are not sure of the exact name. You can specify a specific version, for example `DS18B20@0.1.11`.
 
-This adds the library to the `project.properties` file at the top level of your project and downloads the source to the `libs` directory.
+This adds the library to the `project.properties` file at the top level of your project and downloads the source to the `lib` directory.
 
 ### Particle: Install Local Compiler
 

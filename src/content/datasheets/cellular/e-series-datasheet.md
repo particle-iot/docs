@@ -9,7 +9,7 @@ order: 7
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
-{{/unless}}
+{{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/e-series/illustrations/e0-top.png" ></div>
 
@@ -477,7 +477,7 @@ The E series uses ST Microelectronics's [STM32F205RGT6](http://www2.st.com/conte
 
 <div align=center><img src="/assets/images/e-series/schematics/e0-ublox-sch.png"></div>
 
-The u-blox cellular module talks to the microcontroller over a full-duplex USART interface using a standard set of AT commands. The eSIM chip is directly connected to the u-blox. The power to the eSIM chip is also provided by the cellular module.
+The u-blox cellular module talks to the microcontroller over a full-duplex USART interface using a standard set of AT commands. The MFF2 embedded SIM chip is directly connected to the u-blox module. 
 
 
 ### Buffers

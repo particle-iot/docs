@@ -1,8 +1,8 @@
 ---
-title: General Questions
+title: Pricing
 layout: support.hbs
 columns: two
-order: 1
+order: 2
 ---
 
 # Pricing FAQ

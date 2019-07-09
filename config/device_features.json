@@ -148,7 +148,9 @@
     "ethernet",
     "battery-voltage",
     "eeprom-file",
-    "udp-multicast"
+    "udp-multicast",
+    "ble",
+    "nfc-tag"
   ],
   "Boron": [
     "nrf52",
@@ -185,7 +187,9 @@
     "udp-cloud",
     "ethernet",
     "eeprom-file",
-    "udp-multicast"
+    "udp-multicast",
+    "ble",
+    "nfc-tag"
   ],
   "Xenon": [
     "nrf52",
@@ -220,6 +224,8 @@
     "ethernet",
     "battery-voltage",
     "eeprom-file",
-    "udp-multicast"
+    "udp-multicast",
+    "ble",
+    "nfc-tag"
   ]
 }

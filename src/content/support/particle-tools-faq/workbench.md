@@ -69,7 +69,10 @@ DEVICE_OS_PATH=/path/to/device-os/ make -f $PARTICLE_MAKEFILE compile-all
 sudo apt-get install gcc-multilib libncurses5:i386
 ```
 
-- If you get a permission error when debugging, you may need to add udev rule. Download [99-openocd.rules](/assets/files/99-openocd.rules) and copy it to `/etc/udev/rules.d/`.
+- If you get a permission error when debugging, you may need to add udev rules.
+  * If you have the [Particle Workbench](https://docs.particle.io/workbench/), run the `Particle: Launch CLI` command and then run `particle usb configure` in the terminal that launches
+  * if you just have the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/), open a terminal and run `particle usb configure`
+  * Otherwise, you can download [50-particle.rules](https://github.com/particle-iot/particle-cli/blob/master/assets/50-particle.rules) and copy it to `/etc/udev/rules.d/`
 
 
 

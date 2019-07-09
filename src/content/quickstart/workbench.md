@@ -110,7 +110,7 @@ Your first project workspace should look something like this:
 
 Before you can build in the cloud (the way Particle Web IDE, Particle Dev, and Particle CLI normally build), you need to select the device you wish to build for.
 
-From the Command Palette select **Particle: Configure Workspace for Device**.
+From the Command Palette select **Particle: Configure Project for Device**.
 
 ![Configure Device](/assets/images/workbench/config-device-1.png)
 
