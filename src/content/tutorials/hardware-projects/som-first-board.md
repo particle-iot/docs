@@ -9,7 +9,7 @@ order: 120
 
 This tutorial will guide you through some things that may help in making your first SoM base board design. 
 
-![Board Image](/assets/images/som-first-board/main.jpg)
+![Board Image](/assets/images/som-first-board/main.png)
 
 There are a number of features that are different between the Boron and B Series SoM:
 
@@ -33,7 +33,7 @@ In particular, you'll need to handle:
 
 Unlike the E Series module, the B Series SoM does not include the PMIC (Power Management IC, bq24195) and fuel gauge (MAX17043). There are several reasons for this:
 
-- The PMIC is not necessary for devices that are externally powered, such as by power mains, or automotive.
+- The PMIC is not necessary for devices that are externally powered, such as by power mains, or a vehicle power supply.
 - For specific applications like solar, there are different PMICs with better performance.
 - The MAX17043 can only be used for 3.6V LiPo batteries. For other technologies, like LiSOCL2 disposable batteries or lead-acid batteries, different fuel gauge chips are required.
 
@@ -58,6 +58,10 @@ This is the Eagle board design for the USB SoM base board:
 ![Board Design](/assets/images/som-first-board/board-design.png)
 
 It's a two-layer board so it easy and inexpensive to manufacture, and you can work with it on the free version of Eagle CAD.
+
+The Eagle CAD design files can be downloaded from: 
+
+[https://github.com/particle-iot/docs-tutorials](https://github.com/particle-iot/docs-tutorials)
 
 ### RGB Status LED
 
@@ -141,13 +145,11 @@ In Eagle, you can position the screw hole on your board as follows:
 
 ## Assembly
 
-This is the board from [OshPark](https://oshpark.com). I've only ground off the little nubs from where the panels were separated and dusted it. One advantage of using OshPark is that you only have to submit the .brd file from Eagle. You don't need to do the step of generating Gerber files.
+This is the board that I received from [JLCPCB](https://jlcpcb.com). I've also ordered many boards from [OshPark](https://oshpark.com); some of the pictures below have purple boards and those are from OshPark.
 
 ![Board](/assets/images/som-first-board/board-1.jpg)
 
-When using the M.2 connector you will almost certainly need a stencil. I ordered mine from [Osh Stencils](https://oshstencils.com). OshStencils also takes the .brd files from Eagle. 
-
-Since there are no components beyond the M.2 connector on this board, I created a special stencil .brd file that changes the board outline to eliminate the unused area. That makes the stencil much cheaper.
+When using the M.2 connector you will almost certainly need a stencil. I ordered mine with my board from JLCPCB, but if you order a board from OshPark you can get the stencil separately from [Osh Stencils](https://oshstencils.com). 
 
 ![Stencil](/assets/images/som-first-board/board-2.jpg)
 
@@ -226,7 +228,9 @@ Check the voltage on the two indicated pins. The left should be 3.3V and the rig
 
 If that checks out, remove the power. Then add two jumpers on 3V3 and 3V7. 
 
-![Add jumpers](/assets/images/som-first-board/test-2.jpg)
+![Add jumpers](/assets/images/som-first-board/test-2.png)
+
+The reason for the jumpers on this particular test board is so you can isolate the power supply if there are issues, also do things like insert an ammeter to measure current. You normally won't add the jumpers on your own boards.
 
 Be sure you don't add a jumper on the 5V! That's the power input and should never have a jumper. Also don't apply 5V and use the USB connector at the same time.
 
@@ -243,7 +247,11 @@ Test USB power. Remove the bench supply and connect the USB to a USB power suppl
 
 ### Test with the SoM
 
-Now you can test with a SoM! Be sure to use some sort of screw assembly to hold it securely in place.
+Now you can test with a SoM! Be sure to use some sort of screw assembly to hold it securely in place. I use a M3 x 5mm screw and nut.
+
+![Board Image](/assets/images/som-first-board/main.png)
+
+![Back](/assets/images/som-first-board/back.jpg)
 
 See if the device boots normally and the LED goes through the normal sequence (white, blinking green, blinking cyan, fast blinking cyan, breathing cyan).
 
@@ -254,4 +262,3 @@ dfu-util -l
 ```
 
 Celebrate making your first working SoM base board!
-
