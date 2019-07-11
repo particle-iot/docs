@@ -108,7 +108,7 @@ Make sure you don't place any components on the top side of your base board unde
 
 The hold-down screw really is required! The M.2 connector does not have integrated locks, so if you don't have the hold-down screw, the module will pop right up again. This also means you cannot make a board that stops at the M.2 connector; it needs to be at least 42mm longer for the hold-down.
 
-This design just includes a 3mm hole for a M3 x 5mm screw. It's not as secure as the assembly in the datasheet, but is easier to procure and assemble and is fine for testing. 
+This design just includes a 3mm hole for a M3 x 6mm screw and M3 nut. It's not as secure as the assembly in the datasheet, but is easier to procure and assemble and is fine for testing. (A slightly longer M3 x 6.5mm screw would be even better, if you can find one.)
 
 For the X Series SoM you will need to include some washers or the proper assembly as the X Series does not have an RF shield on the bottom and you'd end up flexing the module down too far. The A Series and B Series RF shield on the bottom prevents this.
 
@@ -247,7 +247,7 @@ Test USB power. Remove the bench supply and connect the USB to a USB power suppl
 
 ### Test with the SoM
 
-Now you can test with a SoM! Be sure to use some sort of screw assembly to hold it securely in place. I use a M3 x 5mm screw and nut.
+Now you can test with a SoM! Be sure to use some sort of screw assembly to hold it securely in place. I use a M3 x 6mm screw and nut.
 
 ![Board Image](/assets/images/som-first-board/main.png)
 
