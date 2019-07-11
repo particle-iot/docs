@@ -120,6 +120,8 @@ server said  { ok: true }
 Okay!
 ```
 
+Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing. If you plan on selling or giving away your device, you should both unclaim the device and release ownership of the SIM. That will allow it to be set up as if a new device later.
+
 ### particle device doctor
 
 Brings back a device with bad firmware, bad network settings or bad keys

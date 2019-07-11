@@ -10,6 +10,8 @@ order: 90
 
 {{#if raspberry-pi }}
 
+**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions, however there will be no future updates and support is no longer available for this product.**
+
 Here you will find a bunch of examples to get you started using your Raspberry Pi with Particle!
 
 {{else}}

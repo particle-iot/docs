@@ -104,7 +104,7 @@ If your {{device}} is blinking green, it is trying to connect to cellular.
 
 Electrons that are blinking green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of blinking green:
 
-### 1) Is your Electron compatible with your local cellular network?
+#### 1) Is your Electron compatible with your local cellular network?
 There are three different variants of the Electron, and they each work in different parts of the world:
 
 
@@ -124,12 +124,12 @@ Make sure that your device is compatible with the cellular infrastructure in you
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
-### 2) Is your antenna connected?
+#### 2) Is your antenna connected?
 Your Electron cannot connect without the included external cellular antenna. Please make sure it is connected as depicted below:
 
 ![Attach the antenna](/assets/images/antenna_attach.jpg)
 
-### 3) Is your battery connected?
+#### 3) Is your battery connected?
 Your Electron, E Series E310, or Boron 2G/3G *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
 
 ![Connect the battery](/assets/images/attach_batt.jpg)
@@ -138,17 +138,17 @@ While the Electron does not *require* that you attach the USB cable, this will e
 
 The E Series E402 (LTE) and Boron LTE can be used only powered by USB.
 
-### 4) Is your SIM activated?
+#### 4) Is your SIM activated?
 In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io) or the mobile apps. Follow the on-screen prompts to complete device setup and SIM activation.
 
-### 5) Are you using a 3rd party (non-Particle) SIM?
+#### 5) Are you using a 3rd party (non-Particle) SIM?
 If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  To connect the Electron with a 3rd party SIM, visit our [setup page](http://setup.particle.io), choose  "Setup an Electron with SIM card" and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
 If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](/support/particle-devices-faq/electron-3rdparty-sims/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
 
-### 6) Check the cellular coverage in your area
+#### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
 - Find the carrier from the [carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
@@ -158,7 +158,7 @@ The Electron leverages a number of cellular carriers to provide excellent covera
 If you are outside of the coverage map, it's possible that the Particle SIM does not have coverage in your area, and your device will be unable to connect. We are always looking to expand our coverage network, and hope to provide coverage in your area soon!
 
 
-### 7) Check the cellular reception in your location
+#### 7) Check the cellular reception in your location
 Cellular *coverage* and cellular *reception* are slightly different.  Coverage is determined by the location and availability of cellular towers in your neighborhood. Even if there is coverage, your device might not have *reception*. Things like RF interference, being in a basement, or a damaged antenna might affect your device's ability to get a good signal from the cell tower nearby.
 
 There are a bunch of things that you can do to improve your cellular reception:
@@ -167,18 +167,18 @@ There are a bunch of things that you can do to improve your cellular reception:
 - Try going outside, or by a window, to confirm that your device can connect
 
 
-### 8) Check your data limit
+#### 8) Check your data limit
 If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM console at the following link:
 
 [https://console.particle.io/billing](https://console.particle.io/billing)
 
-### 9) Cold boot your device
+#### 9) Cold boot your device
 If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
 
-### 10) Are Particle's mobile carriers experiencing issues?
+#### 10) Are Particle's mobile carriers experiencing issues?
 Check out [our status page](http://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
 
-### 11) Contact Particle
+#### 11) Contact Particle
 Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
@@ -207,18 +207,18 @@ The most common cause of blinking dark blue on a {{device}} is a loose SIM card.
 
 Electrons that are blinking blue are in listening mode. When an Electron boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
 
-### 1\. Is your SIM card inserted?
+#### 1\. Is your SIM card inserted?
 Your device cannot exit listening mode and connect to a cellular tower if your SIM is not inserted. Please make sure your SIM is inserted as demonstrated below:
 
 ![Insert your SIM](/assets/images/insert_sim.jpg)
 
-### 2\. Is your SIM card *fully* inserted?
+#### 2\. Is your SIM card *fully* inserted?
 Give your SIM an extra little push to make sure it's fully in the SIM card holder. No need to press too hard--just make sure there's no empty space between the card and the end of the holder.
 
-### 3\. Try a cold boot
+#### 3\. Try a cold boot
 Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
 
-### 4\. Check the integrity of your SIM card holder
+#### 4\. Check the integrity of your SIM card holder
 Visually inspect the SIM card holder. Are all of the contacts soldered down? Does the holder lie flush against the Electron PCB (printed circuit board)? Are any of the pins bent or depressed downwards?
 
 The easiest way to identify a bad contact in the holder is by removing the SIM card and looking at the marks on the contacts. If there are any contacts without marks, then one of the spring pins in the holder may be bent down. You can try to fix this yourself by gently bending the pin upward until it lines up with the others using a pair of fine tweezers or an exacto knife.
@@ -228,10 +228,10 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 
 Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
-### 5\. Is your SIM card damaged or defective?
+#### 5\. Is your SIM card damaged or defective?
 Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
-### 6\. Contact Particle
+#### 6\. Contact Particle
 Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)

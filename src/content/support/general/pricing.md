@@ -93,6 +93,8 @@ The device cloud charge occurs even if you have no data usage in a month, as the
 For more information on cellular billing, check out [the
 guide](/tutorials/cellular-connectivity/billing).
 
+**Unclaiming** a device removes it from your account, but does not stop billing. As the device claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing.
+
 ### What about 3rd Party SIMs?
 While we encourage you to use Particle SIM cards with your cellular
 devices, there may be cases when you want to use a different SIM.

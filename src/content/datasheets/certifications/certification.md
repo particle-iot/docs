@@ -362,7 +362,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-60950 Test Report](/assets/pdfs/argon-EN60950-test-report.pdf)
 - [EN-62311 Test Report](/assets/pdfs/argon-EN62311-test-report.pdf)
 - [EN-62479 Test Report](/assets/pdfs/argon-EN62479-test-report.pdf)
-- [RoHS Test Report](/assets/pdfs/argon-rohs.pdf)
+- [RoHS 3.0 Test Report](/assets/pdfs/argon-rohs.pdf)
 
 #### Boron 2G/3G
 
@@ -374,7 +374,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-60950 Test Report](/assets/pdfs/boron310-EN60950-test-report.pdf)
 - [EN-62311 Test Report](/assets/pdfs/boron310-EN62311-test-report.pdf)
 - [EN-62479 Test Report](/assets/pdfs/boron310-EN62479-test-report.pdf)
-- [RoHS Test Report](/assets/pdfs/boron310-rohs.pdf)
+- [RoHS 3.0 Test Report](/assets/pdfs/boron310-rohs.pdf)
 
 
 #### Xenon
@@ -386,7 +386,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-60950 Test Report](/assets/pdfs/xenon-EN60950-test-report.pdf)
 - [EN-62311 Test Report](/assets/pdfs/xenon-EN62311-test-report.pdf)
 - [EN-62479 Test Report](/assets/pdfs/xenon-EN62479-test-report.pdf)
-- [RoHS Test Report](/assets/pdfs/xenon-rohs.pdf)
+- [RoHS 3.0 Test Report](/assets/pdfs/xenon-rohs.pdf)
 
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
@@ -457,26 +457,29 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [Test Reports](/assets/pdfs/electron402-rohs.pdf)
 
-
 #### E Series E310 (U201)
 
 - [Test Reports](/assets/pdfs/electron/rohs-u201.pdf)
 
+#### E Series E402 (SARA-R410M-02B)
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/e402-rohs.pdf)
+
 #### Argon
 
-- [Test Reports](/assets/pdfs/argon-rohs.pdf)
+- [RoHS 3.0 Test Reports](/assets/pdfs/argon-rohs.pdf)
 
 #### Boron 2G/3G
 
-- [Test Reports](/assets/pdfs/boron310-rohs.pdf)
+- [RoHS 3.0 Test Reports](/assets/pdfs/boron310-rohs.pdf)
 
 #### Boron LTE
 
-- [Test Reports](/assets/pdfs/boron402-rohs.pdf)
+- [RoHS 3.0 Test Reports](/assets/pdfs/boron402-rohs.pdf)
 
 #### Xenon
 
-- [Test Reports](/assets/pdfs/xenon-rohs.pdf)
+- [RoHS 3.0 Test Reports](/assets/pdfs/xenon-rohs.pdf)
 
 
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
