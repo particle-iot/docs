@@ -9,6 +9,10 @@ order: 20
 Particle Device Firmware
 ==========
 
+{{#if raspberry-pi}}
+**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions, however there will be no future updates and support is no longer available for this product.**
+{{/if}}
+
 ## Cloud Functions
 
 {{#if has-cellular}}
@@ -8715,6 +8719,7 @@ The special value of 0xffff is reserved for internal use and testing.
 
 If you are using private custom data it's recommended to begin it with two 0xff bytes, that way your data won't confuse apps that are scanning for company-specific custom data.
 
+The maximum custom data size is 26 bytes, including the company ID. Adding data that is too large will cause it to be omitted (not truncated).
 
 #### appendLocalName()
 
@@ -13841,7 +13846,7 @@ The Electron and Boron maintain the cellular connection for the duration of the 
 {{else}}
     - all pins are allowed, but a maximum of 8 can be used at a time
 {{/if}}
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
@@ -13914,7 +13919,7 @@ Multiple wakeup pins may be specified for this mode.
 {{/if}}
 
 - `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
@@ -13959,7 +13964,7 @@ System.sleep(D1,RISING,60);
     - all pins are allowed, but a maximum of 8 can be used at a time
 {{/if}}
 apply
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
@@ -14031,7 +14036,7 @@ Multiple wakeup pins may be specified for this mode.
 {{/if}}
 (#attachinterrupt-) apply
 - `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.

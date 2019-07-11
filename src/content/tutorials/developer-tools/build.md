@@ -185,6 +185,8 @@ There are a couple of other neat bells and whistles in Particle Build.  The Part
 
 - **Unclaim**: You can "Unclaim" a device by pressing the "Remove Device" button that is revealed by clicking the dropdown arrow.  Once a device has been unclaimed, it is available to be associated with any Particle users' account.
 
+Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM from the [console](https://console.particle.io) to stop billing.
+
 ![Particle Build](/assets/images/ide-settings.png)
 
 - **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Particle-powered projects!

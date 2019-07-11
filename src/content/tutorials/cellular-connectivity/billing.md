@@ -52,6 +52,8 @@ Pausing is related to temporary behaviors of individual SIMs, and the activation
 
 **Unpausing** occurs when a SIM reaches its data cap during a billing period, and the next billing period begins. Particle will automatically unpause your SIM at this time, allowing cellular data transfer to resume. You are also able to manually unpause a SIM card during the billing period in which it was paused by raising the data limit. If you raise the data limit one month, it will stay at that selection in subsequent months until it is changed again.
 
+**Unclaiming** a device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing.
+
 ## Overages (Zones)
 
 Billing occurs in 1 MB increments, so once you exceed 3 MB, you'll incur a 1 MB overage until you cross the 4 MB level.
@@ -101,7 +103,7 @@ an estimated cost of any overages to be applied at the end of the month.
 
 <Add a screenshot of the data usage sparkline>
 
-It's important to note that the estimated cost represents data used *up to that point in time*, as opposed to a projection until the end of the billing period. In addition, reported data usage may be up to 1 hour behind, so don't expect to see the data used by an over-the-air flash right away.
+It's important to note that the estimated cost represents data used *up to that point in time*, as opposed to a projection until the end of the billing period. In addition, reported data usage between 1 hour and 36 hours behind, so don't expect to see the data used by an over-the-air flash right away.
 
 ## How to Reduce Your Bill
 You can reduce your monthly cost in two main ways. One is by setting your data limit lower. This will make sure that your bill will never be much higher than you expect (allowing for taxes and fees). It's also a bit abrupt. Your device will lose connection and the behavior will change unless you've written in offline behavior.
