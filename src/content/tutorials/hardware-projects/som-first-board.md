@@ -157,9 +157,9 @@ Since I used a 5 mil stainless steel stencil I frequently end up with too much s
 
 ![Solder paste](/assets/images/som-first-board/board-3.jpg)
 
-I prefer to use low-temperature lead-free solder paste, in this case Sn42/Bi57/Ag1 with a melting point 137°C (278°F).
+These inexpensive digital microscopes are ideal for assembling boards. I prefer this style with the integrated display vs. the ones that connect to a laptop. There's generally less lag with these, which makes it possible to do assembly and adjustment under the microscope while looking at the screen.
 
-Also, these inexpensive digital microscopes are ideal for assembling boards. I prefer this style with the integrated display vs. the ones that connect to a laptop. There's generally less lag with these, which makes it possible to do assembly and adjustment under the microscope while looking at the screen.
+I prefer to use low-temperature lead-free solder paste, in this case Sn42/Bi57/Ag1 with a melting point 137°C (278°F).
 
 Here's the board cleaned up and ready for parts.
 
