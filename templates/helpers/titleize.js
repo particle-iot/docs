@@ -10,6 +10,7 @@ module.exports = function(string) {
 	txt = txt.replace('Iot', 'IoT');
 	txt = txt.replace('Os', 'OS');
 	txt = txt.replace('Sdks', 'SDKs');
+	txt = txt.replace('Som', 'SoM');
 	txt = txt.replace('And', 'and');
 	txt = txt.replace('Le', 'LE'); // as in, Bluetooth LE
 	return txt;
