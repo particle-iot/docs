@@ -7803,7 +7803,7 @@ int setAdvertisingParameters(uint16_t interval, uint16_t timeout, BleAdvertising
 
 - `interval` Advertising interval in 0.625 ms units. Default is 160.
 - `timeout` Advertising timeout in 10 ms units. Default is 0.
-- `type` [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECRED` (0).
+- `type` [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
 
 #### BLE.setAdvertisingParameters(BleAdvertisingParams)
 
@@ -9137,11 +9137,11 @@ The addr_type field indicates the type of BLE address:
 
 ### BleAdvertisingEventType
 
-You will not typically need to change this. The default is `CONNECTABLE_SCANNABLE_UNDIRECRED` (0).
+You will not typically need to change this. The default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
 
 Valid values include:
 
-- `CONNECTABLE_SCANNABLE_UNDIRECRED`
+- `CONNECTABLE_SCANNABLE_UNDIRECTED`
 - `CONNECTABLE_UNDIRECTED`
 - `CONNECTABLE_DIRECTED`
 - `NON_CONNECTABLE_NON_SCANABLE_UNDIRECTED`
@@ -9175,7 +9175,7 @@ int res = BLE.getAdvertisingParameters(&param);
 - `size` Always set to `sizeof(BleAdvertisingParams)`.
 - `interval` Advertising interval in 0.625 ms units. Default is 160.
 - `timeout` Advertising timeout in 10 ms units. Default is 0.
-- `type` See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECRED` (0).
+- `type` See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
 - `filter_policy` Default is 0.
 - `inc_tx_power` Default is 0.
 
