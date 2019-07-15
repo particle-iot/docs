@@ -4899,6 +4899,7 @@ Returns the charge voltage register. This is the direct register value from the 
 
 ## Serial
 
+(inherits from [`Stream`](#stream-class))
 {{#unless raspberry-pi}}
 
 {{#if electron}}
