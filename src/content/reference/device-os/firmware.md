@@ -4900,6 +4900,7 @@ Returns the charge voltage register. This is the direct register value from the 
 ## Serial
 
 (inherits from [`Stream`](#stream-class))
+
 {{#unless raspberry-pi}}
 
 {{#if electron}}
@@ -6903,6 +6904,9 @@ Returns: Negative integer in case of an error.
 
 Wire (I2C)
 ----
+
+(inherits from [`Stream`](#stream-class))
+
 
 {{#if core}}
 ![I2C](/assets/images/core-pin-i2c.jpg)
@@ -9691,6 +9695,8 @@ Clears the error code of the most recent [`write()`](#write--3) operation settin
 
 ## TCPClient
 
+(inherits from [`Stream`](#stream-class) via `Client`)
+
 Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
 
 {{#if has-mesh}}
@@ -10002,6 +10008,8 @@ Clears the error code of the most recent [`write()`](#write--4) operation settin
 {{/if}}
 
 ## UDP
+
+(inherits from [`Stream`](#stream-class) and `Printable`)
 
 This class enables UDP messages to be sent and received.
 
