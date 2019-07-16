@@ -190,7 +190,7 @@ Organization with the same role (Administrator).
 At the Organization level, being an Administrator means you can take all
 actions like inviting new members to the org team. At the Product level,
 you can take all fleet management actions like releasing a version of
-firmware to devices.
+firmware to devices as well as the ability to manage the Product team.
 
 ### Inviting Team Members
 
