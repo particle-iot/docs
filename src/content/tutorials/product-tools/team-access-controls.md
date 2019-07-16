@@ -16,6 +16,11 @@ Team Access Controls is an **Enterprise only** feature. If interested in
 this feature, please [consult our team of IoT
 experts](https://particle.io/sales).
 
+This guide breaks down into two parts:
+- A [summary of the available roles](#roles) and a description of each
+- A [permissions matrix](#permissions-matrix) for an in-depth look at what each role as
+access to
+
 ## Roles
 
 Roles represent a set of permissions that can be applied to a member of
@@ -110,3 +115,67 @@ acting as the account owner. This will appear as **Administrator
 The Owner's role cannot be changed. The Owner also cannot be removed
 from the product team.
 
+## Permissions Matrix
+
+### Product permissions
+
+| Action                     | Administrator (Owner) | Administrator | Developer | Support | View-only |
+|----------------------------|-----------------------|---------------|-----------|---------|-----------|
+|          **Team**          |                       |               |           |         |           |
+|      View Product team     | X                     | X             | X         | X       | X         |
+| Manage Product team        | X                     | X             |           |         |           |
+|         **Devices**        |                       |               |           |         |           |
+| View device                | X                     | X             | X         | X       | X         |
+| Subscribe to device events | X                     | X             | X         | X       | X         |
+| View Device Vitals         | X                     | X             | X         | X       | X         |
+| Refresh Device Vitals      | X                     | X             | X         | X       |           |
+| Check device variables     | X                     | X             | X         | X       |           |
+| Call device functions      | X                     | X             | X         | X       |           |
+| Ping device                | X                     | X             | X         | X       |           |
+| Add devices to Product     | X                     | X             | X         |         |           |
+| Edit device info           | X                     | X             | X         |         |           |
+| Flash firmware to devices  | X                     | X             | X         |         |           |
+| Remove/unclaim devices     | X                     | X             | X         |         |           |
+| Create device group        | X                     | X             | X         |         |           |
+| Edit/delete device group   | X                     | X             | X         |         |           |
+| Publish event              | X                     | X             | X         |         |           |
+|        **SIM cards**       |                       |               |           |         |           |
+| View SIM card              | X                     | X             | X         | X       | X         |
+| Update SIM lifecycle state | X                     | X             | X         | X       |           |
+| Change SIM data limit      | X                     | X             | X         | X       |           |
+| Add new SIMs to Product    | X                     | X             | X         |         |           |
+| Remove SIMs from Product   | X                     | X             | X         |         |           |
+|        **Firmware**        |                       |               |           |         |           |
+| View Product firmware      | X                     | X             | X         | X       | X         |
+| Upload firmware version    | X                     | X             | X         |         |           |
+| Release firmware           | X                     | X             | X         |         |           |
+| Edit firmware info         | X                     | X             | X         |         |           |
+|      **Integrations**      |                       |               |           |         |           |
+| View Integrations          | X                     | X             | X         | X       | X         |
+| Create new Integration     | X                     | X             | X         |         |           |
+| Edit/delete Integration    | X                     | X             | X         |         |           |
+|      **OAuth clients**     |                       |               |           |         |           |
+| View OAuth clients         | X                     | X             | X         | X       | X         |
+| Create OAuth client        | X                     | X             | X         |         |           |
+| Edit/delete OAuth client   | X                     | X             | X         |         |           |
+|        **Customers**       |                       |               |           |         |           |
+| View Customers             | X                     | X             | X         | X       | X         |
+| Create Customers           | X                     | X             | X         |         |           |
+| Edit/delete Customers      | X                     | X             | X         |         |           |
+|        **Settings**        |                       |               |           |         |           |
+| View Product settings      | X                     | X             | X         | X       | X         |
+| Edit Product settings      | X                     | X             |           |         |           |
+
+### Organization permissions
+
+| Action                                     | Administrator (Owner) | Administrator | Developer | Support | View-only |
+|--------------------------------------------|-----------------------|---------------|-----------|---------|-----------|
+|                **Team**                    |                       |               |           |         |           |
+| View org team                              | X                     | X             | X         | X       | X         |
+| Manage org team                            | X                     | X             |           |         |           |
+|           **Owned Products**               |                       |               |           |         |           |
+| Create new Product                         | X                     | X             | X         |         |           |
+| Administrator role for all Products in org | X                     | X             |           |         |           |
+| Developer role for all Products in org     |                       |               | X         |         |           |
+| Support role for all Products in org       |                       |               |           | X       |           |
+| View-only role for all Products in org     |                       |               |           |         | X         |
