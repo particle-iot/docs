@@ -250,7 +250,7 @@ Intelligent Releases function:
 
 ### Release process
 
-When releasing firmware your fleet, it's helpful to first understand
+When releasing firmware to your fleet, it's helpful to first understand
 Particle's recommended release flow. This flow has been designed to minimize risk when deploying new firmware to devices:
 
 - For initial testing, you might deploy to only one device. This might be the device sitting on your desk, for easy access to the debugging USB serial port, for example.
