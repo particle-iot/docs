@@ -11487,7 +11487,7 @@ Serial.print(Time.hourFormat12());
 
 // Print the hour in 12-hour format for a given time, in this case: 3
 Serial.print(Time.hourFormat12(1400684400));
-`
+```
 
 Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
