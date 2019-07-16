@@ -8,7 +8,7 @@ order: 43
 # Team Access Controls
 
 Particle offers functionality to help you manage levels of access for
-your product team members. This is helpful when overseeing a team of
+your team members. This is helpful when overseeing a team of
 people who should have varying permissions with respect to Particle
 devices in your fleets.
 
@@ -24,6 +24,7 @@ your product team.
 You can view and set team-member-specific roles for each product on the
 **Team** page for the product in the Console:
 
+<!-- TODO: REPLACE THIS IMAGE WHEN THE UPDATED ROLES ARE SEEDED -->
 <img class="full-width"
 src="/assets/images/team-access-controls/teams-view.png"/>
 
@@ -32,51 +33,79 @@ team.
 
 The set of roles available to you are:
 
-- **Read-only**: View only permissions within the product.
-- **Member**: Full read and write permissions within the product.
-- **Owner**: Full read and write permissions + billing administration
-privileges for the product.
+- **View-only**: Read-only access to all information in the account, but
+cannot take any action.
+- **Support**: View access plus the ability to perform basic
+diagnostic and troubleshooting tasks.
+- **Developer**: Most create, view, update, and deletion abilities, without the
+ability to take major administrative actions.
+- **Administrator**: Full administrative access, including team
+management and irreversible destructive actions.
 
-### Read-only
-Read-only is the most strict of the three product team member roles. It
+### View-only
+View-only is the most strict of the three product team member roles. It
 is designed specifically for people on your team that you'd only like to
-_view_ information about your product. Team members given the Read-only
-role will not be able to take any action within the product.
+_see_ information about your device fleet — but don't need to make
+updates.
 
-Someone with the Read-only role can:
+Someone with the View-only role can:
 - List and inspect information about devices in the product
 - Observe a stream of events from devices in the product
 - View product configuration and settings
 
-For team members who receive the Read-only role, the actions they are
+For team members who receive the View-only role, the actions they are
 not allowed to take will be disabled in the Console interface:
 
 ![Disabled Access Controls
 UI](/assets/images/team-access-controls/disabled-ui.png)
 
-### Member
-Member is a role that provides a team member with full access to the
-product, its devices, and its configuration. The Member role is ideal
-for folks on your team that you trust and will be working regularly with your Particle
-deployment.
+### Support
 
-Someone with the Member role can:
+The Support role is best for the members of your team who specialize in
+providing customer service and "front line" support to deployed Particle
+devices in the field. The permissions associated with this role give
+these members of your team tools to interact with single devices, but
+limit access to fleet-wide management tools.
+
+Someone with the Support role can:
 - Do everything a Read-only teammate can do **+**
-- Take action on one or more devices in the product fleet
-- Add/remove devices and SIM cards to and from the product
-- Upload and release product firmware to the fleet
-- Manage the product team and teammates' roles
-- Change product configuration and settings
+- Ping, call functions on, and read variables from individual devices
+- Use Diagnostics tools, like Device Vitals
+- Manage the lifecycle state and data limit of SIM cards
 
-### Owner
+### Developer
+Developer is a role that is meant for the engineers on your team that
+are actively building and managing IoT projects with Particle. With this role, a
+person is granted both read & write access to Console and APIs, without the ability to take administrative
+actions. This includes team management and irreversable destructive
+actions.
+
+Someone with the Developer role can:
+- Do everything a Support teammate can do **+**
+- Take fleet management actions — like
+adding a devices to groups or provision new devices into a Product
+- Create and manage OAuth clients on behalf of products
+- Create and manage Integrations
+- Upload and release product firmware to the fleet
+- Add/remove devices and SIM cards to and from the product
+
+### Administrator
 
 The Owner of the product represents the highest level of access. There is one single
 owner for each product. The Owner role is automatically given to the
 creator of the product.
 
-Someone with the Owner role can:
-- Do everything a Member teammate can do **+**
-- View and manage billing information related to the product
+Someone with the Administrator role can:
+- Do everything a Developer teammate can do **+**
+- Manage the product team and teammates' roles
+- Edit product configuration and settings
+
+There is also a special type of Administrator, reserved for the person
+acting as the account owner. This will appear as **Administrator
+(Owner)** in the Console. There will only be a single Owner assigned
+(multiple team members cannot have this role simultaneously).
+
+- Manage billing information related to the product
 
 The Owner's role cannot be changed. The Owner also cannot be removed
 from the product team.
