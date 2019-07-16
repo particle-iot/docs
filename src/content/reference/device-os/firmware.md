@@ -17728,7 +17728,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v1.43.0 = 1.2.1
+v1.43.1 = 1.2.1
 v1.42.0 = 1.1.1
 v1.41.2 = 1.1.1-rc.1, 1.2.1-rc.3, 1.3.0-rc.1
 v1.41.1 = 1.2.1-rc.2
@@ -17837,6 +17837,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.42.0endif
 ##### @CLI_VER@1.43.0if
 ##### @CLI_VER@1.43.0endif
+##### @CLI_VER@1.43.1if
+##### @CLI_VER@1.43.1endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
