@@ -123,7 +123,7 @@ To compile and flash locally, use the Command Palette and select one of the loca
 
 ![Flash Local](/assets/images/workbench/local-3.png)
 
-In order to use the Flash options, the device must be connected by USB and in DFU mode (blinking yellow). Hold down the MODE (or SETUP) button while tapping RESET. Continue to hold down MODE (or SETUP) while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release.
+In order to use the Flash options, the device must be connected by USB. The device will be placed into DFU mode (blinking yellow) automatically. If for some reason you need to enter DFU manually, you can do so by holding down the MODE (or SETUP) button while tapping RESET. Continue to hold down MODE (or SETUP) while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release.
 
 There are also compile options, which compile the code and download a binary:
 
@@ -316,7 +316,6 @@ For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-deb
 
 ![Debug View](/assets/images/workbench/debug-2.png)
 
-- Hold down the MODE (or SETUP) button while tapping RESET. Continue to hold down MODE (or SETUP) while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release.
 - Click the green arrow next to DEBUG in the upper left to build, flash, and begin debugging.
 - After flashing the device will typically halt. You can tell because the device status LED will go off.
 
@@ -425,7 +424,7 @@ You need to connect:
 
 ![Debug Workspace](/assets/images/workbench/debug-10.png)
 
-The rest of the instructions are the same as for 3rd-generation. Start with the putting your device in DFU mode step.
+The rest of the instructions are the same as for 3rd-generation.
 
 ### Settings
 
@@ -547,7 +546,7 @@ You can then use **Particle: Install Library** to install it.
 
 ### Particle: Flash application (local)
 
-This option compiles your user firmware using the local compiler toolchain. It will create a firmware binary and also flash it to the device over USB. The device must be in DFU mode (blinking yellow).
+This option compiles your user firmware using the local compiler toolchain. It will create a firmware binary and also flash it to the device over USB. The device will be placed into DFU mode (blinking yellow) automatically.
 
 When you first install a new compiler version, you should use the **Particle: Flash application & DeviceOS (local)** option at least once to make sure your device has the correct Device OS version installed.
 
@@ -555,13 +554,13 @@ The device type and Device OS version are selected using **Particle: Install Loc
 
 ### Particle: Flash application & DeviceOS (local)
 
-This option compiles both Device OS and your user firmware using the local compiler toolchain. It will create a set of binaries also flash them to the device over USB. The device must be in DFU mode (blinking yellow).
+This option compiles both Device OS and your user firmware using the local compiler toolchain. It will create a set of binaries also flash them to the device over USB. The device will be placed into DFU mode (blinking yellow) automatically.
 
 The device type and Device OS version are selected using **Particle: Install Local Compiler**.
 
 ### Particle: Flash application for debug (local)
 
-This option compiles both Device OS and your user firmware using the local compiler toolchain as a monolithic debug build. It will create a single monolithic binary containing both Device OS and user firmware and also flash it to the device over USB. The device must be in DFU mode (blinking yellow).
+This option compiles both Device OS and your user firmware using the local compiler toolchain as a monolithic debug build. It will create a single monolithic binary containing both Device OS and user firmware and also flash it to the device over USB. The device will be placed into DFU mode (blinking yellow) automatically.
 
 The device type and Device OS version are selected using **Particle: Install Local Compiler**.
 
