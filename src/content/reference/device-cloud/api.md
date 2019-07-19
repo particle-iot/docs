@@ -226,7 +226,7 @@ we'll give you lots of notice and a clear upgrade path.
 Note: The connected or online state of devices is not always accurate. When a Wi-Fi device is unplugged, for example, it may still be listed as online when not. For cellular (Electron, E Series) and Gen 3 (Argon, Boron, Xenon) devices, the connected or online state is set to true on the first connection and never set to false again.
 
 {{> api group=apiGroups.Devices}}
-## Remote Diagnostics
+## Diagnostics
 {{> api group=apiGroups.Diagnostics}}
 ## User
 {{> api group=apiGroups.User}}

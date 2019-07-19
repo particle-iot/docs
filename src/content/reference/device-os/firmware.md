@@ -13293,6 +13293,7 @@ Synchronous system functions always block the caller until the system has perfor
 - `Particle.variable()`
 - `Particle.subscribe()`
 - `Particle.publish()`
+- `Particle.publishVitals()` _(only on invocation - all subsequent, timer-based calls are non-blocking)_
 
 For example, when the system is busy connecting to Wi-Fi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call.
 
