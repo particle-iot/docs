@@ -102,8 +102,10 @@ To grab the CLI source and play with it locally
 $ git clone https://github.com/particle-iot/particle-cli.git
 $ cd particle-cli
 $ npm install
-$ node bin/particle.js help
+$ npm start -- help
 ```
+
+View [README#Development](https://github.com/particle-iot/particle-cli#development) for more
 
 
 ## Getting Started
