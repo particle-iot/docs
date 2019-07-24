@@ -100,7 +100,7 @@ There are two options for the Mesh antenna on the Boron. It comes with an on-boa
 
 **Mesh**
 
-The following antenna is optional, as the Boron comes with an on-board chip antenna for mesh. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+The following antenna is optional, as the Boron comes with an on-board chip antenna for mesh. It can be purchased in the [Particle online store](https://store.particle.io/collections/accessories/products/antenna?variant=5054692739).
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|

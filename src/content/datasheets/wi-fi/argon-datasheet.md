@@ -91,7 +91,7 @@ There are two options for the Mesh antenna on the Argon. It comes with an on-boa
 
 **Mesh and WiFi**
 
-The Argon includes one of these antennas, but a second for use with mesh can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+The Argon includes one of these antennas, but a second for use with mesh can be purchased in the [Particle online store](https://store.particle.io/collections/accessories/products/antenna?variant=5054692739).
 
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
