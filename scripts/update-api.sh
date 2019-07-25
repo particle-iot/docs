@@ -9,7 +9,7 @@ fi
 if [ "${TRAVIS_BRANCH}" == "staging" ]; then
     BRANCH="staging"
 else
-    BRANCH="production"
+    BRANCH="master"
 fi
 
 # Do a shallow clone
