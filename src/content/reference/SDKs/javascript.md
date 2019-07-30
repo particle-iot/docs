@@ -38,7 +38,7 @@ $ bower install particle-api-js
 Alternately, you can pull in Particle API JS from the JSDelivr and simply include the script in your HTML.
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particle-api-js@7/dist/particle.min.js">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js">
 </script>
 ```
 
@@ -248,8 +248,8 @@ particle.sendPublicKey({ deviceId: 'DEVICE_ID', key: 'key', auth: token }).then(
 Get event listener to an stream in the Particle cloud with [`getEventStream`](#geteventstream)
 
 ```javascript
-//Get all events
-particle.getEventStream({ auth: token}).then(function(stream) {
+//Get events filtered by name
+particle.getEventStream({ name: 'x', auth: token}).then(function(stream) {
   stream.on('event', function(data) {
     console.log("Event: ", data);
   });
@@ -270,6 +270,8 @@ particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: token }).th
 });
 ```
 
+---
+
 `data` is an object with the following properties
 
 ```
@@ -280,6 +282,50 @@ particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: token }).th
   "published_at":"2014-MM-DDTHH:mm:ss.000Z",
   "coreid":"012345678901234567890123"
 }
+```
+
+---
+
+When a network error occurs or the event stream has not received a heartbeat from the Particle API in 13 seconds, the event stream will disconnect and attempt to reconnect after 2 seconds. To customize the reconnection behavior, close the stream in the disconnect handler.
+
+```
+// This is not a functional reconnection implementation, only an illustration of the various events
+let attempts = 10;
+particle.getEventStream(options).then(function(stream) {
+  stream.on('disconnect', function() {
+    console.log('Disconnected from Particle event stream');
+    attempts--;
+    if (attempts <= 0) {
+      console.log('Giving up reconnecting');
+      stream.abort();
+    }
+  });
+  stream.on('reconnect', function() {
+    console.log('Attempting to reconnect to Particle event stream');
+  });
+  stream.on('reconnect-success', function() {
+    console.log('Reconnected to Particle event stream');
+    attempts = 10;
+  });
+  stream.on('reconnect-error', function(error) {
+    console.log('Failed to reconnect to Particle event stream', error);
+  });
+});
+```
+
+---
+
+In case your event handler throws an exception, the `error` event will be emitted.
+
+```
+particle.getEventStream(options).then(function(stream) {
+  stream.on('event', function(data) {
+    throw new Error('oops');
+  });
+  stream.on('error', function(error) {
+    console.log('Error in handler', error);
+  });
+});
 ```
 
 ### publishEvent
