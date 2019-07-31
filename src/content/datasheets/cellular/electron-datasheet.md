@@ -5,27 +5,27 @@ columns: two
 order: 6
 ---
 
+
+# Electron Datasheet <sup>(v006)</sup>
+
 {{#unless pdf-generation}}
-
-# Electron Datasheet <sup>(v005)</sup>
-
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
-{{/unless}} {{!-- pdf-generation --}}
 
 ## Functional description
 
 ### Overview
 
-The Electron is a tiny development kit for creating cellular-connected electronics projects and products. It comes with a SIM card (Nano 4FF) and an affordable data plan for low-bandwidth things. Plus it's available for more than 100 countries worldwide!
+The Electron is a tiny development kit for creating cellular-connected electronics projects and products. It comes with a SIM card (Nano 4FF)<sup>[1]</sup> and an affordable data plan for low-bandwidth things. Plus it's available for more than 100 countries worldwide!
 
 It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
 
 ### Features
 
- * U-blox SARA-U260/U270 (3G) and G350 (2G) cellular module
+ * U-blox SARA-U260/U270 (3G), G350 (2G), or R410M (LTE) cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
@@ -36,6 +36,7 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Real-time operation system (RTOS)
  * FCC, CE and IC certified
 
+<sup>[1]</sup>The LTE model uses a MFF2 SMD Particle SIM instead of a physical SIM card. The Electron LTE is only available to existing enterprise customers who have deployed an Electron 2G/3G solution and would like to upgrade to LTE. It is only available in tray quantities. New designs should use the Boron LTE or B Series B402 SoM.
 
 ## Interfaces
 
@@ -47,10 +48,12 @@ It also comes with Particle's development tools and cloud platform for managing 
 The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or a LiPo battery.
 
 #### USB
-Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
+Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the Electron alone can consume a peak of 800mA to 1800mA (2G/3G) or 490 mA (LTE) of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port for 2G/3G. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
 #### VIN
 The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
+
+The Electron LTE (E402) can be powered with as little as 550 mA at 5V.
 
 #### LiPo Battery
 When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 1,800mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.
@@ -88,7 +91,9 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 |Antenna Type| Manufacturer | MFG. Part #| Gain|
 |:--|:--|:--|:--|
-|PCB antenna| Taoglas| [PC104.07.0165C](/assets/datasheets/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
+|2G/3G PCB antenna| Taoglas| [PC104.07.0165C](/assets/datasheets/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
+|LTE flex antenna| Taoglas| [FXUB63.07.0150C](/assets/datasheets/FXUB63.07.0150C.pdf)| 5.00dBi peak|
+
 
 ---
 
@@ -189,9 +194,9 @@ _DCD layout in `release/stable`_ <a href="https://github.com/particle-iot/device
 
 ```
 // Regenerate Alternate Keys (Default)
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
+echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 // Regenerate TCP Keys (Unsupported)
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
+echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 ```
 
 ### Memory Map (Common)
@@ -330,7 +335,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
 | Operating Current (uC on, Cellular ON) | I<sub>VIN avg</sub> |  | 180 | 250 | mA |
-| Peak Current (uC on, Cellular ON) | I<sub>VIN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| 2G/3G Peak Current (uC on, Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| LTE Peak Current (uC on, Cellular ON) | I<sub>IN pk</sub> | | 550| | mA |
 | Operating Current (uC on, Cellular OFF) | I<sub>VIN avg</sub> |  | 47 | 50 | mA |
 | Sleep Current (4.2V LiPo, Cellular OFF)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
 | Deep Sleep Current (4.2V LiPo, Cellular OFF) | I<sub>Qds</sub> |  | 110 | 130 | uA |
@@ -349,12 +355,20 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-The Electron is available in three different versions: A 2G version based on u-blox G350 cellular module, and two 3G versions based on U260 and U270 modules. The difference between the 3G versions is their operating frequency band which differs based on the country. All of these cellular modules are GSM only and do not support CDMA networks.
+The Electron is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE model (R410M-02B).
+
+Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
+
+The difference between the 3G versions is their operating frequency band which differs based on the country. All of these cellular modules are GSM only and do not support CDMA networks. Both 3G models can fall back to using 2G in areas that support 2G and not 3G.
+
+Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobile phone. It is a low-power and low-data-rate variation of LTE for use with IoT devices.
 
 | Electron 3G Module  | Compatible Countries |
 | :------------------ |:---|
-| U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, Nicaragua, Panama, Paraguay, Peru, Venezuela |
-| U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, New Zealand, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
+| U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, New Zealand, Nicaragua, Panama, Paraguay, Peru, Venezuela |
+| U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
+| R410M | United States. Canada and Mexico in beta testing. |
+
 
 Please be sure to order a board that works in the country where you want to deploy your project.
 
@@ -373,6 +387,30 @@ Please be sure to order a board that works in the country where you want to depl
 |UE Class| Class A | Class A|
 |Bands | Band V (850 MHz) Band II (1900 MHz)| Band VIII (900 MHz) Band I (2100 MHz) |
 |Power Class | Class 3 (24 dBm) for all bands| Class 3 (24 dBm) for all bands |
+
+#### LTE cellular characteristics for the SARA-R410M-02-B module
+
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat M1 Half-Duplex |
+| LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 17 (700 MHz)  |
+| | Band 28 (700 MHz)  |
+| | Band 13 (750 MHz)  |
+| | Band 20 (800 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 18 (850 MHz)  |
+| | Band 5 (850 MHz) |
+| | Band 19 (850 MHz)  |
+| | Band 8 (900 MHz)  |
+| | Band 4 (1700 MHz) |
+| | Band 3 (1800 MHz)  |
+| | Band 2 (1900 MHz) |
+| | Band 25 (1900 MHz)  |
+| | Band 1 (2100 MHz)  |
+| LTE TDD bands | Band 39 (1900 MHz) | 
+| Power class | Class 3 (23 dBm) |
 
 ---
 
@@ -637,7 +675,8 @@ The final end product must be labeled in a visible area with the following:
  * XPYSARAG350 (For 2G Electron using the G350 module)
  * XPYSARAU260 (For 3G Electron using the U260 module)
  * XPYSARAU270 (For 3G Electron using the U270 module)
-
+ * XPY2AGQN4NNN (For LTE Electron module using the R410 module)
+ 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
 
@@ -667,6 +706,7 @@ The Industry Canada certification label of a module shall be clearly visible at 
  * 8595A-SARAG350 (For 2G Electron using the G350 module)
  * 8595A-SARAU260 (For 3G Electron using the U260 module)
  * 8595A-SARAU270 (For 3G Electron using the U270 module)
+ * 8595A-2AGQN4NNN (For LTE Electron module using the R410 module)
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -684,6 +724,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off. Updated the Pin Description section. Updated Mating connectors section. |
 | v004 | 27-Oct-2016 | BW | Replaced one STM32F205RGY6 with STM32F205RGT6, and replaced all STM32 mentions with full part number STM32F205RGT6 |
 | v005 | 14-Aug-2017 | BW | Updated DCD layout and Memory Map, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI, SPI1 and SPI2), updated the Pin Description section and added high resolution pinout PDF, updated LED Status section, VBAT info, added Power the Electron without a battery section |
+| v006     | 31-Jul-2019   | RK     |  Added LTE information |
 
 ## Known Errata
 

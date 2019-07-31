@@ -5,7 +5,7 @@ columns: two
 order: 7
 ---
 
-# E Series Module Datasheet <sup>(v001)</sup>
+# E Series Module Datasheet <sup>(v002)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
@@ -23,13 +23,13 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Features
 
- * U-blox SARA-U260/U270/U201/G350 cellular module
+ * U-blox SARA-U260/U270/U201/G350/R410M cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
  * MAX17043 fuel gauge
  * 30 mixed-signal GPIO and advanced peripherals
- * Open source design
+ * Open source software design
  * Real-time operation system (RTOS)
  * FCC, CE and IC certified
 
@@ -46,6 +46,8 @@ The E series can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo b
 #### VIN
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
+The E Series LTE (E402) can be powered with as little as 550 mA at 5V.
+
 #### LiPo
 This pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the E series since the PMIC by-passes the regulator and supplies power to the E series module via an internal FET leading to lower quiescent current.
 
@@ -56,13 +58,13 @@ Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. I
 #### VBUS
 This pin is internally connected to USB supply rail and will output 5V when the E series module is plugged into an USB port. It is intentionally left unpopulated. This pin will _NOT_ output any voltage when the E series module is powered via VIN and/or the LiPo battery.
 
-Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the E series alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The E series will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
+Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the E series alone can consume a peak of 800mA to 1800mA (2G/3G) or 550 mA (LTE) of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port for 2G/3G. The E series will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
 #### 3V3 Pin
 This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source with a max load of 800mA. Unlike the Photon or the Core, this pin _CANNOT_ be used as an input to power the E series module.
 
 #### VDDA
-Unlike the Electron, the E series module exposes the VDDA pin of the STM32 microcontroller separately. This pin powers the ADC block of the microcontroller. A maximum difference of 300 mV between VDD (in this case, 3V3) and VDDA can be tolerated during power-up and power-down operation. Under normal operations, connect the VDDA to 3V3 pin of the E0.
+Unlike the Electron, the E series module exposes the VDDA pin of the STM32 microcontroller separately. This pin powers the ADC block of the microcontroller. A maximum difference of 300 mV between VDD (in this case, 3V3) and VDDA can be tolerated during power-up and power-down operation. Under normal operations, connect the VDDA to 3V3 pin of the E0. Be sure to connect VDDA even if you are not using any analog circuitry; the device will fail to boot if not powered.
 
 #### VBAT
 This is the supply to the internal RTC, backup registers and SRAM. You can connect a backup battery to it (1.65 to 3.6VDC), if you wish to retain RTC/RAM when 3V3 is absent or simply tie it up to 3V3.
@@ -76,8 +78,8 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 |Antenna Type| Manufacturer | MFG. Part #| Gain|
 |:--|:--|:--|:--|
-|PCB antenna| Taoglas| [PC104.07.0165C](/assets/datasheets/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
-
+|2G/3G PCB antenna| Taoglas| [PC104.07.0165C](/assets/datasheets/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
+|LTE flex antenna| Taoglas| [FXUB63.07.0150C](/assets/datasheets/FXUB63.07.0150C.pdf)| 5.00dBi peak|
 
 
 ### Peripherals and GPIO
@@ -169,9 +171,9 @@ _DCD layout as of v0.4.9_ [found here in firmware](https://github.com/particle-i
 
 ```
 // Regenerate Alternate Keys (Default)
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
+echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 // Regenerate TCP Keys (Unsupported)
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
+echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 ```
 
 ### Memory Map (Common)
@@ -354,7 +356,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
 | Operating Current (uC on, Cellular ON) | I<sub>IN avg</sub> |  | 180 | 250 | mA |
-| Peak Current (uC on, Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| 2G/3G Peak Current (uC on, Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| LTE Peak Current (uC on, Cellular ON) | I<sub>IN pk</sub> | | 550| | mA |
 | Operating Current (uC on, Cellular OFF) | I<sub>IN avg</sub> |  | 47 | 50 | mA |
 | Sleep Current (4.2V LiPo, Cellular OFF)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
 | Deep Sleep Current (4.2V LiPo, Cellular OFF) | I<sub>Qds</sub> |  | 110 | 130 | uA |
@@ -373,14 +376,23 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-The E series is available in three different versions: A 2G version based on u-blox G350 cellular module, and two 3G versions based on U260 and U270 modules. The difference between the 3G versions is their operating frequency band which differs based on the country. All of these cellular modules are GSM only and do not support CDMA networks.
+The E series is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE model (R410M-02B).
 
-| E series 3G Module  | Compatible Countries |
+Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
+
+The difference between the 3G versions is their operating frequency band which differs based on the country. All of these cellular modules are GSM only and do not support CDMA networks. Both 3G models can fall back to using 2G in areas that support 2G and not 3G.
+
+Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobile phone. It is a low-power and low-data-rate variation of LTE for use with IoT devices.
+
+| E series Module  | Compatible Countries |
 | :------------------ |:---|
-| U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, Nicaragua, Panama, Paraguay, Peru, Venezuela |
-| U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, New Zealand, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
+| U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, New Zealand, Nicaragua, Panama, Paraguay, Peru, Venezuela |
+| U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
+| R410M | United States. Canada and Mexico in beta testing. |
 
 Please be sure to order a board that works in the country where you want to deploy your project.
+
+For a complete list of carriers, see the [carrier guide](/tutorials/cellular-connectivity/cellular-carriers/).
 
 #### 2G cellular characteristics for G350, U260, and U270 modules:
 |Parameter | SARA-U260 | SARA-U270 | SARA-G350 |
@@ -397,6 +409,30 @@ Please be sure to order a board that works in the country where you want to depl
 |UE Class| Class A | Class A|
 |Bands | Band V (850 MHz) Band II (1900 MHz)| Band VIII (900 MHz) Band I (2100 MHz) |
 |Power Class | Class 3 (24 dBm) for all bands| Class 3 (24 dBm) for all bands |
+
+#### LTE cellular characteristics for the SARA-R410M-02-B module
+
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat M1 Half-Duplex |
+| LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 17 (700 MHz)  |
+| | Band 28 (700 MHz)  |
+| | Band 13 (750 MHz)  |
+| | Band 20 (800 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 18 (850 MHz)  |
+| | Band 5 (850 MHz) |
+| | Band 19 (850 MHz)  |
+| | Band 8 (900 MHz)  |
+| | Band 4 (1700 MHz) |
+| | Band 3 (1800 MHz)  |
+| | Band 2 (1900 MHz) |
+| | Band 25 (1900 MHz)  |
+| | Band 1 (2100 MHz)  |
+| LTE TDD bands | Band 39 (1900 MHz) | 
+| Power class | Class 3 (23 dBm) |
 
 
 ### I/O Characteristics
@@ -479,6 +515,7 @@ The E series uses ST Microelectronics's [STM32F205RGT6](http://www2.st.com/conte
 
 The u-blox cellular module talks to the microcontroller over a full-duplex USART interface using a standard set of AT commands. The MFF2 embedded SIM chip is directly connected to the u-blox module. 
 
+The MFF2 SMD SIM is not an e-sim and is not reprogrammable to other carriers. It's set to the Particle MVNO and cannot be changed.
 
 ### Buffers
 
@@ -578,6 +615,7 @@ The final end product must be labeled in a visible area with the following:
  * XPYSARAU260 (For 3G E series module using the U260 module)
  * XPYSARAU270 (For 3G E series module using the U270 module)
  * XPYSARAU201 (For 3G E series module using the U201 module)
+ * XPY2AGQN4NNN (For LTE E series module using the R410 module)
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -609,6 +647,7 @@ The Industry Canada certification label of a module shall be clearly visible at 
  * 8595A-SARAU260 (For 3G E series using the U260 module)
  * 8595A-SARAU270 (For 3G E series using the U270 module)
  * 8595A-SARAU201 (For 3G E series using the U201 module)
+ * 8595A-2AGQN4NNN (For LTE E series module using the R410 module)
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -622,6 +661,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Revision | Date          | Author | Comments        |
 |:--------:|:-------------:|:------:|:----------------|
 | v001     | 07-Nov-2017   | MB     |  Initial release |
+| v002     | 31-Jul-2019   | RK     |  Added LTE information |
 
 ## Known Errata
 
