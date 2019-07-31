@@ -23,7 +23,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Features
 
- * U-blox SARA-U260/U270/U201/G350/R410M cellular module
+ * U-blox SARA-U201 or SARA-R410M cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
@@ -376,41 +376,36 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-The E series is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE model (R410M-02B).
+The E series is available in two different versions: A 2G/3G global model (SARA-U201) and a LTE model (SARA-R410M-02B).
 
-Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
+Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobile phone. It is a low-power and low-data-rate variation of LTE for use with IoT devices. It can only be used in the United States at this time, with beta testing in Canada and Mexico.
 
-The difference between the 3G versions is their operating frequency band which differs based on the country. All of these cellular modules are GSM only and do not support CDMA networks. Both 3G models can fall back to using 2G in areas that support 2G and not 3G.
+For a complete list of carriers and supported countries, see the [carrier guide](/tutorials/cellular-connectivity/cellular-carriers/).
 
-Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobile phone. It is a low-power and low-data-rate variation of LTE for use with IoT devices.
+#### 2G cellular characteristics E310:
+|Parameter | SARA-U201 | 
+|:---|:---|
+|Protocol stack| 3GPP Release 7 | 
+|MS Class | Class B | 
+|Bands | GSM 850 MHz |
+| | E-GSM 900 MHz|
+| | DCS 1800 MHz |
+| | PCS 1900 MHz | 
+|Power Class | Class 4 (33 dBm) for 850/900 bands |
+| | Class 1 (30 dBm) for 1800/1900 bands|
 
-| E series Module  | Compatible Countries |
-| :------------------ |:---|
-| U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, New Zealand, Nicaragua, Panama, Paraguay, Peru, Venezuela |
-| U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
-| R410M | United States. Canada and Mexico in beta testing. |
+#### 3G cellular characteristics E310:
+|Parameter | SARA-U201
+|:---|:---|
+|Protocol stack| 3GPP Release 7 | 
+|UE Class| Class A | 
+|Bands | Band V (850 MHz)|
+| | Band VIII (900 MHz) |
+| | Band II (1900 MHz) |
+| |  Band I (2100 MHz) |
+|Power Class | Class 3 (24 dBm) for all bands| 
 
-Please be sure to order a board that works in the country where you want to deploy your project.
-
-For a complete list of carriers, see the [carrier guide](/tutorials/cellular-connectivity/cellular-carriers/).
-
-#### 2G cellular characteristics for G350, U260, and U270 modules:
-|Parameter | SARA-U260 | SARA-U270 | SARA-G350 |
-|:---|:---|:---|:---|
-|Protocol stack| 3GPP Release 7 | 3GPP Release 7 | 3GPP Release 99 |
-|MS Class | Class B | Class B | Class B |
-|Bands | GSM 850 MHz PCS 1900 MHz | E-GSM 900 MHz DCS 1800 MHz| GSM 850 MHz E-GSM 900 MHz DCS 1800 MHz PCS 1900 MHz|
-|Power Class | Class 4 (33 dBm) for 850 band Class 1 (30 dBm) for 1900 band|Class 4 (33 dBm) for 900 band Class 1 (30 dBm) for 1800 band|Class 4 (33 dBm) for 850/900 bands Class 1 (30 dBm) for 1800/1900 bands|
-
-#### 3G cellular characteristics for U260, and U270 modules:
-|Parameter | SARA-U260 | SARA-U270 |
-|:---|:---|:---|
-|Protocol stack| 3GPP Release 7 | 3GPP Release 7 |
-|UE Class| Class A | Class A|
-|Bands | Band V (850 MHz) Band II (1900 MHz)| Band VIII (900 MHz) Band I (2100 MHz) |
-|Power Class | Class 3 (24 dBm) for all bands| Class 3 (24 dBm) for all bands |
-
-#### LTE cellular characteristics for the SARA-R410M-02-B module
+#### LTE cellular characteristics E402
 
 | Parameter | Value |
 | --- | --- |
@@ -578,9 +573,6 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 
 |Name|Connectivity       |Geography             |u-blox variant|Band Support|
 |:---|:------------------|:---------------------|:-------------|:-----------|
-|E210|2G only			 |Global	            |SARA-G350     |850/900/1800/1900 MHz|
-|E301|3G with 2G fallback|Regional(Americas/Aus)|SARA-U260     |850/1900 MHz|
-|E302|3G with 2G fallback|Regional(Eur/Asia/Aus)|SARA-U270     |900/1800/2100 MHz|
 |E310|3G with 2G fallback|Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
 |E402|LTE M1 only        |North America         |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
 
@@ -611,9 +603,6 @@ In the event that these conditions can not be met (for example certain laptop co
 The final end product must be labeled in a visible area with the following:
 > Contains FCC ID:
 
- * XPYSARAG350 (For 2G E series module using the G350 module)
- * XPYSARAU260 (For 3G E series module using the U260 module)
- * XPYSARAU270 (For 3G E series module using the U270 module)
  * XPYSARAU201 (For 3G E series module using the U201 module)
  * XPY2AGQN4NNN (For LTE E series module using the R410 module)
 
@@ -643,9 +632,6 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 > Contains transmitter module IC:
 
- * 8595A-SARAG350 (For 2G E series using the G350 module)
- * 8595A-SARAU260 (For 3G E series using the U260 module)
- * 8595A-SARAU270 (For 3G E series using the U270 module)
  * 8595A-SARAU201 (For 3G E series using the U201 module)
  * 8595A-2AGQN4NNN (For LTE E series module using the R410 module)
 
@@ -660,8 +646,9 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 | Revision | Date          | Author | Comments        |
 |:--------:|:-------------:|:------:|:----------------|
-| v001     | 07-Nov-2017   | MB     |  Initial release |
-| v002     | 31-Jul-2019   | RK     |  Added LTE information |
+| v001     | 07-Nov-2017   | MB     | Initial release |
+| v002     | 31-Jul-2019   | RK     | Added LTE information |
+|          |               |        | Removed E201, E302, E303 models |
 
 ## Known Errata
 
