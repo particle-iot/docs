@@ -29,7 +29,6 @@ your product team.
 You can view and set team-member-specific roles for each product on the
 **Team** page for the product in the Console:
 
-<!-- TODO: REPLACE THIS IMAGE WHEN THE UPDATED ROLES ARE SEEDED -->
 <img class="full-width"
 src="/assets/images/team-access-controls/teams-view.png"/>
 
