@@ -9,7 +9,7 @@ order: 1
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
-{{/unless}}
+{{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/argon/argon-top.png" ></div>
 

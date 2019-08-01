@@ -9,7 +9,7 @@ order: 2
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/xenon-datasheet.pdf"}}
-{{/unless}}
+{{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/xenon/xenon-top.png" ></div>
 

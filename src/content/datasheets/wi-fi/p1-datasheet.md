@@ -223,9 +223,9 @@ _DCT layout in `release/stable`_ <a href="https://github.com/particle-iot/device
 
 ```
 // Regenerate Default Keys
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
+echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 // Regenerate Alternate Keys
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
+echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 ```
 
 ### Memory Map (Common)
