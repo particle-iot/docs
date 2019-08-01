@@ -74,6 +74,8 @@ This pin is the output of the internal boost regulator of the PMIC that can sour
 
 The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
 
+---
+
 ### FCC approved antennas
 
 |Antenna Type| Manufacturer | MFG. Part #| Gain|
@@ -374,6 +376,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>[4]</sup> When powering the E series module with a LiPo battery (or other battery chemistries), please note that the operating temperatures will be affected accordingly.
 
+---
+
 ### Radio specifications
 
 The E series is available in two different versions: A 2G/3G global model (SARA-U201) and a LTE model (SARA-R410M-02B).
@@ -405,6 +409,8 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 | |  Band I (2100 MHz) |
 |Power Class | Class 3 (24 dBm) for all bands| 
 
+---
+
 #### LTE cellular characteristics E402
 
 | Parameter | Value |
@@ -429,6 +435,7 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 | LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
+---
 
 ### I/O Characteristics
 
@@ -503,6 +510,8 @@ The microcontroller communicates with the PMIC via an I2C interface (pins PC9 an
 <div align=center><img src="/assets/images/e-series/schematics/e0-micro-sch.png"></div>
 
 The E series uses ST Microelectronics's [STM32F205RGT6](http://www2.st.com/content/ccc/resource/technical/document/datasheet/bc/21/42/43/b0/f3/4d/d3/CD00237391.pdf/files/CD00237391.pdf/jcr:content/translations/en.CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
+
+---
 
 ### U-blox cellular module
 

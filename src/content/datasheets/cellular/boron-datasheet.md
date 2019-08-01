@@ -9,7 +9,7 @@ order: 1
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
-{{/unless}}
+{{/unless}} {{!-- pdf-generation --}}
 
 <div align=center><img src="/assets/images/boron/boron-top.png" ></div>
 
