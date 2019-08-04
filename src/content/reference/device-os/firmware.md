@@ -357,7 +357,7 @@ Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
 ```
 
-Publish a private event with the given name.
+Publish a public event with the given name.
 
 ```C++
 // SYNTAX
