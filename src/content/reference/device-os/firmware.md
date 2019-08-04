@@ -300,7 +300,7 @@ For the time being there exists no way to access a previously published but TTL-
 
 ---
 
-Publish a public event with the given name, no data, and the default TTL of 60 seconds.
+Publish a private event with the given name, no data, and the default TTL of 60 seconds.
 
 ```C++
 // SYNTAX
@@ -312,7 +312,7 @@ boolean (true or false)
 
 // EXAMPLE USAGE
 bool success;
-success = Particle.publish("motion-detected", PUBLIC);
+success = Particle.publish("motion-detected", PRIVATE);
 if (!success) {
   // get here if event publish did not work
 }
@@ -320,7 +320,7 @@ if (!success) {
 
 ---
 
-Publish a public event with the given name and data, with the default TTL of 60 seconds.
+Publish a private event with the given name and data, with the default TTL of 60 seconds.
 
 ```C++
 // SYNTAX
@@ -328,12 +328,12 @@ Particle.publish(const char *eventName, const char *data, PublishFlags flags);
 Particle.publish(String eventName, String data, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("temperature", "19 F", PUBLIC);
+Particle.publish("temperature", "19 F", PRIVATE);
 ```
 
 ---
 
-Publish a public event with the given name, data, and TTL.
+Publish a private event with the given name, data, and TTL.
 
 ```C++
 // SYNTAX
@@ -341,13 +341,12 @@ Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags 
 Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("lake-depth/1", "28m", 21600, PUBLIC);
+Particle.publish("lake-depth/1", "28m", 21600, PRIVATE);
 ```
 
 ---
 
 Publish a private event with the given name, data, and TTL.
-In order to publish a private event, you must pass all four parameters.
 
 ```C++
 // SYNTAX
