@@ -21,7 +21,7 @@ This site contains in-depth lab documents that complement in-person presentation
 ## Self-Guided Workshops
 
 - [Mesh 101 Workshop with Particle 3rd Generation Hardware](/workshops/mesh-101-workshop/introduction) - Requires a [Particle Argon](https://store.particle.io/products/argon-kit), [Xenon](https://store.particle.io/products/xenon-kit) and [Grove Starter Kit for Particle Mesh](https://store.particle.io/products/grove-starter-kit).
-- [Particle Photon and Maker Kit Workshop](/workshops/photon-maker-kit-workshop/introduction) - Requires a Particle Photon and [Particle Maker Kit](https://store.particle.io/products/particle-maker-kit).
+- [Particle Photon and Maker Kit Workshop](/workshops/photon-maker-kit-workshop/introduction) - Requires a Particle Photon and [Particle Maker Kit](https://store.particle.io/collections/shields-and-kits).
 
 Interested in holding a Particle Workshop for your conference, company, or makerspace? [Send us an email](mailto://community@particle.io)!
 
