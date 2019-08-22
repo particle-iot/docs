@@ -62,14 +62,25 @@ Some carriers may also require a username and password. Note those, if they are 
 
 If you're ready to set up your Boron, follow these steps:
 
-- Go to the [mesh firmware releases page](https://github.com/particle-iot/device-os/releases/tag/v0.9.0).
-- Download the hybrid bin file: [hybrid-0.9.0-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/hybrid-0.9.0-boron.bin)
-- While you're at it also download [tinker-0.9.0-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/tinker-0.9.0-boron.bin)
+- Go to the [firmware release site](https://github.com/particle-iot/device-os/releases/tag/v1.2.1) and:
+  - Download system-part1. For example: [boron-system-part1@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/boron-system-part1@1.2.1.bin)
+  - Download Tinker. For example: [boron-tinker@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/boron-tinker@1.2.1.bin)
+  - Download the bootloader. For example: [boron-bootloader@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/boron-bootloader@1.2.1.bin) 
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the Device OS:
 
 ```html
-particle flash --usb hybrid-0.9.0-boron.bin
+cd Downloads
+particle flash --usb boron-system-part1@1.2.1.bin
+particle flash --usb boron-tinker@1.2.1.bin
+```
+
+- When the command reports **Flash success!**, reset the Boron. It should go back into listening mode (blinking dark blue).
+
+- Update the bootloader:
+
+```
+particle flash --serial boron-bootloader@1.2.1.bin
 ```
 
 - Create a program to set the APN and switch to an external SIM. Here's the code. One way is to save this to a file, I called mine 3rdPartySIM.cpp.
@@ -102,7 +113,7 @@ void loop() {
 - Compile the code and flash it in DFU mode (blinking yellow):
 
 ```html
-particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin --target 0.9.0
+particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin --target 1.2.1
 particle flash --usb firmware.bin
 ```
 
@@ -111,7 +122,7 @@ particle flash --usb firmware.bin
 - Flash Tinker back to the Boron:
 
 ```
-particle flash --usb tinker-0.9.0-boron.bin
+particle flash --usb boron-tinker@1.2.1.bin
 ```
 
 - You should now be able to use the device with your 3rd-party SIM card!
