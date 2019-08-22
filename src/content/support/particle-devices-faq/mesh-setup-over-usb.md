@@ -23,30 +23,40 @@ Your gateway can be:
 
 ### Argon Gateway Setup
 
-- You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 0.40.0 or newer) installed.
+- You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 1.43.3 or newer) installed. Use `particle update-cli` to upgrade if necessary.
 - Attach the Wi-Fi antenna to your Argon. Make sure you connect it to the correct connector, there are three U.FL connectors: WiFi, BT, and NFC.
 - Remove the Argon from the anti-static foam before powering the device.
 - Plug the Argon into a USB port on your computer. It should begin blinking blue.
-- Go to the [0.9.0 release site](https://github.com/particle-iot/device-os/releases/tag/v0.9.0) and download:
-  - [hybrid-0.9.0-argon.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/hybrid-0.9.0-argon.bin)
+- Go to the [firmware release site](https://github.com/particle-iot/device-os/releases/tag/v1.2.1) and:
+  - Download system-part1. For example: [argon-system-part1@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/argon-system-part1@1.2.1.bin)
+  - Download Tinker. For example: [argon-tinker@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/argon-tinker@1.2.1.bin)
+  - Download the bootloader. For example: [argon-bootloader@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/argon-bootloader@1.2.1.bin) 
 - Also download from the [Argon NCP release site](https://github.com/particle-iot/argon-ncp-firmware/releases/tag/v0.0.5):
   - [argon-ncp-firmware-0.0.5-ota.bin](https://github.com/particle-iot/argon-ncp-firmware/releases/download/v0.0.5/argon-ncp-firmware-0.0.5-ota.bin)
 - Put the Argon in DFU mode (blinking yellow) by holding down MODE. Tap RESET and continue to hold down MODE. The status LED will blink magenta (red and blue at the same time), then yellow. Release when it is blinking yellow.
-- Flash the hybrid-0.9.0-argon.bin file to the device:
+- Flash the binaries file to the device:
 
 ```html
 cd Downloads
-particle flash --usb hybrid-0.9.0-argon.bin
+particle flash --usb argon-system-part1@1.2.1.bin
+particle flash --usb argon-tinker@1.2.1.bin
 ```
 
 - When the command reports **Flash success!**, reset the Argon. It should go back into listening mode (blinking dark blue).
+
+- Update the bootloader:
+
+```
+particle flash --serial argon-bootloader@1.2.1.bin
+```
+
 - Verify that the update worked:
 
 ```html
 particle serial identify
 
 Your device id is e00fce681ffffffffc08949b
-Your system firmware version is 0.9.0
+Your system firmware version is 1.2.1
 ```
 
 - Save the device ID, you'll need it later.
@@ -97,21 +107,31 @@ Done! The device will be registered in the network once it is connected to the c
 
 ### Boron Gateway Setup
 
-- You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 0.40.0 or newer) installed.
+- You must have the [Particle CLI](/tutorials/developer-tools/cli/) (version 1.43.3 or newer) installed. Use `particle update-cli` to upgrade if necessary.
 - Attach the cellular antenna to your Boron. Make sure you connect it to the correct connector, there are three U.FL connectors: cellular (on the top), BT and NFC (on the bottom).
 - Remove the Boron from the anti-static foam before powering the device.
 - Plug the Boron into a USB port on your computer. It should begin blinking blue. For a Boron LTE, you can power only by USB, but for a Boron 2G/3G you should also attach the LiPo battery.
-- Go to the [0.9.0 release site](https://github.com/particle-iot/device-os/releases/tag/v0.9.0) and download:
-  - [hybrid-0.9.0-boron.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/hybrid-0.9.0-boron.bin)
+- Go to the [firmware release site](https://github.com/particle-iot/device-os/releases/tag/v1.2.1) and:
+  - Download system-part1. For example: [boron-system-part1@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/boron-system-part1@1.2.1.bin)
+  - Download Tinker. For example: [boron-tinker@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/boron-tinker@1.2.1.bin)
+  - Download the bootloader. For example: [boron-bootloader@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/boron-bootloader@1.2.1.bin) 
 - Put the Boron in DFU mode (blinking yellow) by holding down MODE. Tap RESET and continue to hold down MODE. The status LED will blink magenta (red and blue at the same time), then yellow. Release when it is blinking yellow.
-- Flash the hybrid-0.9.0-boron.bin file to the device:
+- Flash the files to the device:
 
 ```html
 cd Downloads
-particle flash --usb hybrid-0.9.0-boron.bin
+particle flash --usb boron-system-part1@1.2.1.bin
+particle flash --usb boron-tinker@1.2.1.bin
 ```
 
 - When the command reports **Flash success!**, reset the Boron. It should go back into listening mode (blinking dark blue).
+
+- Update the bootloader:
+
+```
+particle flash --serial boron-bootloader@1.2.1.bin
+```
+
 - Verify that the update worked:
 
 ```html
@@ -120,7 +140,7 @@ particle serial identify
 Your device id is e00fce68fffffffb22d4e61b
 Your IMEI is 352999999084606
 Your ICCID is 89014103111111117667
-Your system firmware version is 0.9.0
+Your system firmware version is 1.2.1
 ```
 
 - Save the device ID and ICCID, you'll need them later. If you get a serial timed out error, just try the command again.
@@ -166,25 +186,34 @@ Done! The device will be registered in the network once it is connected to the c
 
 - Remove the Xenon from the anti-static foam before powering the device.
 - Plug the Xenon into a USB port on your computer. It should begin blinking blue.
-- Go to the [0.9.0 release site](https://github.com/particle-iot/device-os/releases/tag/v0.9.0) and download:
-  - [hybrid-0.9.0-xenon.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/hybrid-0.9.0-xenon.bin)
-  - [tinker-0.9.0-xenon.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/tinker-0.9.0-xenon.bin)
+- Go to the [firmware release site](https://github.com/particle-iot/device-os/releases/tag/v1.2.1) and:
+  - Download system-part1. For example: [xenon-system-part1@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/xenon-system-part1@1.2.1.bin)
+  - Download Tinker. For example: [xenon-tinker@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/xenon-tinker@1.2.1.bin)
+  - Download the bootloader. For example: [xenon-bootloader@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/xenon-bootloader@1.2.1.bin) 
 
 - Put the Xenon in DFU mode (blinking yellow) by holding down MODE. Tap RESET and continue to hold down MODE. The status LED will blink magenta (red and blue at the same time), then yellow. Release when it is blinking yellow.
-- Flash the hybrid-0.9.0-xenon.bin file to the device:
+- Flash the files to the device:
 
 ```html
 cd Downloads
-particle flash --usb hybrid-0.9.0-xenon.bin
+particle flash --usb xenon-system-part1@1.2.1.bin
+particle flash --usb xenon-tinker@1.2.1.bin
 ```
 
 - When the command reports **Flash success!**, reset the Xenon. It should go back into listening mode (blinking dark blue).
+
+- Update the bootloader:
+
+```
+particle flash --serial xenon-bootloader@1.2.1.bin
+```
+
 - Verify that the update worked:
 
 ```html
 particle serial identify
 Your device id is e00fce6ffffffff401c00f23
-Your system firmware version is 0.9.0
+Your system firmware version is 1.2.1
 ```
 
 - Save the device ID, you'll need it later.
@@ -214,7 +243,7 @@ void loop() {
 - Compile it:
 
 ```html
-particle compile xenon EthernetEnable.cpp --saveTo EthernetEnable.bin --target 0.9.0
+particle compile xenon EthernetEnable.cpp --saveTo EthernetEnable.bin --target 1.2.1
 ```
 
 - Put the Xenon in DFU mode (blinking yellow) by holding down MODE. Tap RESET and continue to hold down MODE. The status LED will blink magenta (red and blue at the same time), then yellow. Release when it is blinking yellow.
@@ -230,7 +259,7 @@ particle flash --usb EthernetEnable.bin
 - Flash the Tinker to the Xenon:
 
 ```html
-particle flash --usb tinker-0.9.0-xenon.bin
+particle flash --usb xenon-tinker@1.2.1.bin
 ```
   
 - Continue from here if you already have enabled Ethernet.
@@ -270,14 +299,26 @@ Done! The device will be registered in the network once it is connected to the c
 
 - Remove the Xenon from the anti-static foam before powering the device.
 - Plug the Xenon into a USB port on your computer. It should begin blinking blue.
-- Go to the [0.9.0 release site](https://github.com/particle-iot/device-os/releases/tag/v0.9.0) and download:
-  - [hybrid-0.9.0-xenon.bin](https://github.com/particle-iot/device-os/releases/download/v0.9.0/hybrid-0.9.0-xenon.bin)
+- Go to the [firmware release site](https://github.com/particle-iot/device-os/releases/tag/v1.2.1) and:
+  - Download system-part1. For example: [xenon-system-part1@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/xenon-system-part1@1.2.1.bin)
+  - Download Tinker. For example: [xenon-tinker@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/xenon-tinker@1.2.1.bin)
+  - Download the bootloader. For example: [xenon-bootloader@1.2.1.bin](https://github.com/particle-iot/device-os/releases/download/v1.2.1/xenon-bootloader@1.2.1.bin) 
+
 - Put the Xenon in DFU mode (blinking yellow) by holding down MODE. Tap RESET and continue to hold down MODE. The status LED will blink magenta (red and blue at the same time), then yellow. Release when it is blinking yellow.
-- Flash the hybrid-0.9.0-xenon.bin file to the device:
+- Flash the files to the device:
 
 ```html
 cd Downloads
-particle flash --usb hybrid-0.9.0-xenon.bin
+particle flash --usb xenon-system-part1@1.2.1.bin
+particle flash --usb xenon-tinker@1.2.1.bin
+```
+
+- When the command reports **Flash success!**, reset the Xenon. It should go back into listening mode (blinking dark blue).
+
+- Update the bootloader:
+
+```
+particle flash --serial xenon-bootloader@1.2.1.bin
 ```
 
 - When the command reports **Flash success!**, reset the Xenon. It should go back into listening mode (blinking dark blue).
@@ -286,7 +327,7 @@ particle flash --usb hybrid-0.9.0-xenon.bin
 ```html
 particle serial identify
 Your device id is e00fce68ffffffc03c6db46a
-Your system firmware version is 0.9.0
+Your system firmware version is 0.2.1
 ```
 
 - Save the device ID, you'll need it later.
@@ -323,6 +364,8 @@ meshtest3
 ### Marking setup done
 
 Normally when you complete the mobile phone-based setup, the setup is marked as done. In the absence of this, every time you boot your Argon or Boron gateway, it will go back into listening mode (blinking dark blue).
+
+For standalone Xenon device (using BLE, for example), you do not need to mark setup done, but make sure you've update the bootloader and use SYSTEM_MODE(MANUAL) to prevent connecting to the cloud. Without a cloud connection you won't be able to get software updates OTA, so you must manually upgrade your Device OS and bootloader over USB for standalone Xenon devices.
 
 #### Marking setup done from code
 
@@ -361,17 +404,18 @@ Argon:
 
 ```html
 echo -n -e \\x01 > dummy.bin
-dfu-util -d 2b04:d00c -a 1 -s 0x1fc6:leave -D dummy.bin
+dfu-util -d 2b04:d00c -a 1 -s 8134:leave -D dummy.bin
 ```
 
 Boron:
 
 ```html
 echo -n -e \\x01 > dummy.bin
-dfu-util -d 2b04:d00d -a 1 -s 0x1fc6:leave -D dummy.bin
+dfu-util -d 2b04:d00d -a 1 -s 8134:leave -D dummy.bin
 ```
 
-You only need to do this once, as the setting is stored in configuration flash. 
+You only need to do this once, as the setting is stored in configuration flash, unless you clear credentials (fast blinking dark blue), then you need to do it again.
+
 
 
 
