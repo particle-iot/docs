@@ -9422,7 +9422,7 @@ Particle Gen 3 devices only support emulating an NFC tag. They cannot locate or 
 
 A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, directly underneath the USB connector.
 
-NFC support is in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions.
+NFC is supported in Device OS 1.3.1 and later. NFC support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. 
 
 ### Example app
 
