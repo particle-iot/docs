@@ -26,7 +26,7 @@ The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna co
 
 A good introduction to BLE can be found in the [Adafruit tutorial](https://learn.adafruit.com/introduction-to-bluetooth-low-energy/introduction).
 
-BLE support is in beta test in Device OS 1.3.0.
+BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. 
 
 ## Major concepts
 
@@ -222,7 +222,7 @@ if (peer.connected()) {
 			scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
 
 	// Get the button characteristic
-	buttonCharacteristic[availableButtonIndex] = peer.getCharacteristicByUUID(buttonCharacteristicUuid);
+	peer.getCharacteristicByUUID(buttonCharacteristic[availableButtonIndex], buttonCharacteristicUuid);
 	peers[availableButtonIndex] = peer;
 }
 else {
@@ -748,7 +748,7 @@ void loop() {
 							Log.info("successfully connected!");
 
 							// Get the heart rate measurement characteristic
-							heartRateMeasurementCharacteristic = peer.getCharacteristicByUUID(BleUuid(0x2a37));
+							peer.getCharacteristicByUUID(heartRateMeasurementCharacteristic, BleUuid(0x2a37));
 						}
 						else {
 							Log.info("connection failed");
@@ -1067,7 +1067,7 @@ void loop() {
 							scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
 
 					// Get the button characteristic
-					buttonCharacteristic[availableButtonIndex] = peer.getCharacteristicByUUID(buttonCharacteristicUuid);
+					peer.getCharacteristicByUUID(buttonCharacteristic[availableButtonIndex], buttonCharacteristicUuid);
 					peers[availableButtonIndex] = peer;
 				}
 				else {
@@ -1520,11 +1520,11 @@ void loop() {
 					if (svcCount > 0 && foundServiceUuid == serviceUuid) {
 						peer = BLE.connect(scanResults[ii].address);
 						if (peer.connected()) {
-							peerTxCharacteristic = peer.getCharacteristicByUUID(txUuid);
-							peerRxCharacteristic = peer.getCharacteristicByUUID(rxUuid);
+							peer.getCharacteristicByUUID(peerTxCharacteristic, txUuid);
+							peer.getCharacteristicByUUID(peerRxCharacteristic, rxUuid);
 
 							// Could do this instead, but since the names are not as standardized, UUIDs are better
-							// peerTxCharacteristic = peer.getCharacteristicByDescription("tx");
+							// peer.getCharacteristicByDescription(peerTxCharacteristic, "tx");
 						}
 						break;
 					}

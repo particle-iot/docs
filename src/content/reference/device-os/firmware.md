@@ -7604,7 +7604,11 @@ The BLE protocol shares the same antenna as the mesh radio, and can use the buil
 
 The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
 
-BLE support is in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions.
+BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. Some differences between 1.3.0 and 1.3.1 include:
+
+- The number of connections from a central devices to peripherals is 3. It was 1 in 1.3.0.
+- The calls to get a characteristic now return a boolean value (true = success) and take the characteristic object as a parameter rather than returning the characteristic as in 1.3.0.
+- Limits for the number user characteristics is 20. In 1.3.0 it was 7.
 
 ### BLE Class
 
@@ -7847,7 +7851,7 @@ Adds a characteristic to this peripheral device from a [`BleCharacteristic`](/re
 
 ```C++
 // PROTOTYPE
-int addCharacteristic(BleCharacteristic& characteristic) const;
+BleCharacteristic addCharacteristic(BleCharacteristic& characteristic) const;
 
 // EXAMPLE
 
@@ -7864,6 +7868,10 @@ data.appendServiceUUID(serviceUuid);
 BLE.advertise(&data);
 ```
 
+There is a limit of 20 user characteristics, with a maximum description of 20 characters. 
+
+You can have up to 20 user services, however you typically cannot advertise that many services as the advertising payload is too small. You normally only advertise your primary service that you device will searched by. Other, less commonly used services can be found after connecting to the device.
+
 #### BLE.addCharacteristic(parameters)
 
 Instead of setting the parameters in a BleCharacteristic object you can pass them directly to addCharacteristic.
@@ -7872,16 +7880,20 @@ The parameters are the same as the BleCharacteristic constructors and are descri
 
 ```C++
 // PROTOTYPE
-int addCharacteristic(const char* desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+BleCharacteristic addCharacteristic(const char* desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
 
-int addCharacteristic(const String& desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
-
-template<typename T>
-int addCharacteristic(const char* desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+BleCharacteristic addCharacteristic(const String& desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
 
 template<typename T>
-int addCharacteristic(const String& desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+BleCharacteristic addCharacteristic(const char* desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+
+template<typename T>
+BleCharacteristic addCharacteristic(const String& desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
 ```
+
+There is a limit of 20 user characteristics, with a maximum description of 20 characters.
+
+You can have up to 20 user services, however you typically cannot advertise that many services as the advertising payload is too small. You normally only advertise your primary service that you device will searched by. Other, less commonly used services can be found after connecting to the device.
 
 See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
 
@@ -8102,7 +8114,9 @@ Scanning for devices provides its address as well as additional data (advertisin
 
 ```C++
 // PROTOTYPE
-BlePeerDevice connect(const BleAddress& addr) const;
+BlePeerDevice connect(const BleAddress& addr, bool automatic = true) const;
+BlePeerDevice connect(const BleAddress& addr, const BleConnectionParams* params, bool automatic = true) const;
+BlePeerDevice connect(const BleAddress& addr, uint16_t interval, uint16_t latency, uint16_t timeout, bool automatic = true) const;
 ```
 
 - `addr` The [`BleAddress`](/reference/device-os/firmware/#bleaddress) to connect to.
@@ -8112,6 +8126,7 @@ This call is synchronous and will block until a connection is completed or the o
 Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object. You typically use a construct like this:
 
 ```
+// EXAMPLE:
 BlePeerDevice peer = BLE.connect(scanResults[ii].address);
 if (peer.connected()) {
 	Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
@@ -8125,11 +8140,11 @@ else {
 }
 ```
 
-The default connection timeout is 5 seconds but it can be customized by using the version of connect with options, below, or by using [`BLE.setPPCP()`](/reference/device-os/firmware/#ble-setppcp-).
-
 It is possible to save the address and avoid scanning, however the address could change on some BLE devices, so you should be prepared to scan again if necessary.
 
-In Device OS 1.3.0 you can only connect to 1 peripheral device at a time. This will be expanded to 3 simultaneous peripheral device connections in the future.
+A central device can connect to up to 3 peripheral devices at a time. (It's limited to 1 in Device OS 1.3.0.)
+
+See the next section for the use of `BleConnectionParams` as well as interval, latency, and timeout.
 
 #### BLE.connect(options)
 
@@ -8143,6 +8158,8 @@ BlePeerDevice connect(const BleAddress& addr, uint16_t interval, uint16_t latenc
 - `interval` The minimum connection interval in units of 1.25 milliseconds. The default is 24 (30 milliseconds).
 - `latency` Use default value 0.
 - `timeout` Connection timeout in units of 10 milliseconds. Default is 500 (5 seconds). Minimum value is 100 (1 second).
+
+Note that the timeout is the timeout after the connection is established, to determine that the other side is no longer available. It does not affect the initial connection timeout.
 
 Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object. 
 
@@ -8159,6 +8176,8 @@ int setPPCP(uint16_t minInterval, uint16_t maxInterval, uint16_t latency, uint16
 - `maxInterval` the minimum connection interval in units of 1.25 milliseconds. The default is 24 (30 milliseconds). The connect(options) call sets both minInterval and maxInterval to the interval parameter.
 - `latency` Use default value 0.
 - `timeout` Connection timeout in units of 10 milliseconds. Default is 500 (5 seconds). Minimum value is 100 (1 second).
+
+Note that the timeout is the timeout after the connection is established, to determine that the other side is no longer available. It does not affect the initial connection timeout.
 
 #### BLE.connected()
 
@@ -8196,6 +8215,51 @@ int disconnect(const BlePeerDevice& peripheral) const;
 The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) is described below. You typically get it from `BLE.connect()`.
 
 Returns 0 on success or a non-zero error code.
+
+#### BLE.on()
+
+Turns the BLE radio on. It defaults to on, so you normally do not need to call this unless you have turned it off.
+
+```C++
+// PROTOTYPE
+int on();
+```
+
+Returns 0 on success, or a non-zero error code.
+
+#### BLE.off()
+
+Turns the BLE radio off. You normally do not need to do this.
+
+```C++
+// PROTOTYPE
+int off();
+```
+
+Returns 0 on success, or a non-zero error code.
+
+#### BLE.begin()
+
+Starts the BLE service. It defaults to started, so you normally do not need to call this unless you have stopped it.
+
+```C++
+// PROTOTYPE
+int begin();
+```
+
+Returns 0 on success, or a non-zero error code.
+
+#### BLE.end()
+
+Stops the BLE service. You normally do not need to do this.
+
+```C++
+// PROTOTYPE
+int end();
+```
+
+Returns 0 on success, or a non-zero error code.
+
 
 #### BLE.onConnected()
 
@@ -8644,15 +8708,66 @@ You can test two UUIDs for equality.
 ```
 // PROTOTYPE
 bool operator==(const BleUuid& uuid) const;
+bool operator==(const char* uuid) const;
+bool operator==(const String& uuid) const;
+bool operator==(uint16_t uuid) const;
+bool operator==(const uint8_t* uuid128) const;
 
-// EXAMPLE
+// EXAMPLE 1
 BleUuid rxUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
 BleUuid txUuid("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
 
 if (rxUuid == txUuid) {
 	// This code won't be executed since they're not equal
 }
+
+// EXAMPLE 2
+BleUuid foundServiceUUID;
+size_t svcCount = scanResult->advertisingData.serviceUUID(&foundServiceUUID, 1);
+if (svcCount > 0 && foundServiceUUID == serviceUuid) {
+	// Device advertises our custom service "serviceUuid" so try to connect to it
+}
 ```
+#### rawBytes
+
+Get the underlying bytes of the UUID.
+
+```
+// PROTOTYPE
+void rawBytes(uint8_t uuid128[BLE_SIG_UUID_128BIT_LEN]) const;
+    const uint8_t* rawBytes() const;
+const uint8_t* rawBytes() const;    
+```
+
+#### Constructors
+
+Other, less commonly used constructors include:
+
+```
+// PROTOTYPE
+BleUuid(const hal_ble_uuid_t& uuid);
+BleUuid(const BleUuid& uuid);
+BleUuid(const uint8_t* uuid128, BleUuidOrder order = BleUuidOrder::LSB);
+BleUuid(const uint8_t* uuid128, uint16_t uuid16, BleUuidOrder order = BleUuidOrder::LSB);
+BleUuid(uint16_t uuid16);
+BleUuid(const String& uuid);
+BleUuid(const char* uuid);
+```
+
+#### Setters
+
+You normally don't need to set the value of a BleUuid after construction, but the following methods are available:
+
+```
+// PROTOTYPE
+BleUuid& operator=(const BleUuid& uuid);
+BleUuid& operator=(const uint8_t* uuid128);
+BleUuid& operator=(uint16_t uuid16);
+BleUuid& operator=(const String& uuid);
+BleUuid& operator=(const char* uuid);
+BleUuid& operator=(const hal_ble_uuid_t& uuid);
+```
+
 
 ### BleAdvertisingData
 
@@ -9035,31 +9150,35 @@ See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more informati
 
 #### getCharacteristicByUUID()
 
-Get a characteristic by its UUID, either short or long UUID. See also [`BleUuid`](/reference/device-os/firmware/#bleuuid).
+Get a characteristic by its UUID, either short or long UUID. See also [`BleUuid`](/reference/device-os/firmware/#bleuuid). Returns true if the characteristic was found.
 
 You often do this from the central device after making a connection. 
 
 ```C++
 // PROTOTYPE
-BleCharacteristic getCharacteristicByUUID(const BleUuid& uuid);
+bool getCharacteristicByUUID(BleCharacteristic& characteristic, const BleUuid& uuid) const;
 
 // EXAMPLE
-BleCharacteristic characteristic = peer. getCharacteristicByUUID(BleUuid(0x180d));
+BleCharacteristic characteristic;
+bool bResult = peer.getCharacteristicByUUID(characteristic, BleUuid(0x180d));
 
 // EXAMPLE
-BleCharacteristic characteristic = peer. getCharacteristicByUUID(BleUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E"));
+BleCharacteristic characteristic;
+bool bResult = peer.getCharacteristicByUUID(characteristic, BleUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E"));
 ```
 
 #### getCharacteristicByDescription()
 
-Get the characteristic by its description. As these strings are not standardized like UUIDs, it's best to use UUIDs instead.
+Get the characteristic by its description. As these strings are not standardized like UUIDs, it's best to use UUIDs instead. Returns true if the characteristic was found.
 
 ```C++
 // PROTOTYPE
-BleCharacteristic getCharacteristicByDescription(const char* desc);
+bool getCharacteristicByDescription(BleCharacteristic& characteristic, const char* desc) const;
+bool getCharacteristicByDescription(BleCharacteristic& characteristic, const String& desc) const;
 
 // EXAMPLE
-BleCharacteristic characteristic = peer. getCharacteristicByDescription("rx");
+BleCharacteristic characteristic;
+bool bResult = peer.getCharacteristicByDescription(characteristic, "rx");
 ```
 
 #### BleScanResult
@@ -9099,6 +9218,7 @@ You can copy and existing BleAddress.
 ```
 // PROTOTYPE
 BleAddress& operator=(hal_ble_addr_t addr)
+BleAddress& operator=(const uint8_t addr[BLE_SIG_ADDR_LEN])
 ```
 
 #### address byte (BleAddress)
@@ -9125,16 +9245,60 @@ You can test two BleAddress objects for equality (same address).
 bool operator==(const BleAddress& addr) const 
 ```
 
-#### addr_type (BleAddress)
+#### Getters
 
-The addr_type field indicates the type of BLE address:
+Often you will get the value of a BleAddress for debugging purposes.
 
+```
+// PROTOTYPE
+BleAddressType type() const;
+void octets(uint8_t addr[BLE_SIG_ADDR_LEN]) const;
+String toString(bool stripped = false) const;
+size_t toString(char* buf, size_t len, bool stripped = false) const;
+hal_ble_addr_t halAddress() const;
+uint8_t operator[](uint8_t i) const;
 
-- `BLE_SIG_ADDR_TYPE_PUBLIC` Public (identity address).
-- `BLE_SIG_ADDR_TYPE_RANDOM_STATIC` Random static (identity) address.
-- `BLE_SIG_ADDR_TYPE_RANDOM_PRIVATE_RESOLVABLE` Random private resolvable address.
-- `BLE_SIG_ADDR_TYPE_RANDOM_PRIVATE_NON_RESOLVABLE` Random private non-resolvable address.
-- `BLE_SIG_ADDR_TYPE_ANONYMOUS` An advertiser may advertise without its address. This type of advertising is called anonymous.
+// EXAMPLE 1
+Log.info("found device %s", scanResult->address.toString().c_str());
+
+// EXAMPLE 2
+Log.info("found device %02X:%02X:%02X:%02X:%02X:%02X",
+			scanResult->address[0], scanResult->address[1], scanResult->address[2],
+			scanResult->address[3], scanResult->address[4], scanResult->address[5]);
+```
+
+#### Constructor
+
+Normally you won't construct a BleAddress as you get one back from scanning using `BLE.scan()`. However there are numerous options:
+
+```
+// PROTOTYPE
+BleAddress(const hal_ble_addr_t& addr);
+BleAddress(const uint8_t addr[BLE_SIG_ADDR_LEN], BleAddressType type = BleAddressType::PUBLIC);
+BleAddress(const char* address, BleAddressType type = BleAddressType::PUBLIC);
+BleAddress(const String& address, BleAddressType type = BleAddressType::PUBLIC);
+```
+
+#### Setters
+
+You will not normally need to set the value of a BleAddress, but there are methods to do so:
+
+```
+// PROTOTYPE
+int type(BleAddressType type);
+int set(const uint8_t addr[BLE_SIG_ADDR_LEN], BleAddressType type = BleAddressType::PUBLIC);
+int set(const char* address, BleAddressType type = BleAddressType::PUBLIC);
+int set(const String& address, BleAddressType type = BleAddressType::PUBLIC);
+```
+
+### BleAddressType
+
+This enumeration specifies the type of BLE address. The default is PUBLIC. The type is part of the BleAddress class.
+
+- `BleAddressType::PUBLIC` Public (identity address).
+- `BleAddressType::RANDOM_STATIC` Random static (identity) address.
+- `BleAddressType::RANDOM_PRIVATE_RESOLVABLE` Random private resolvable address.
+- `BleAddressType::RANDOM_PRIVATE_NON_RESOLVABLE` Random private non-resolvable address.
 
 ### BleAdvertisingEventType
 
