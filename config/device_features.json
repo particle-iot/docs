@@ -62,7 +62,8 @@
     "wpa-enterprise",
     "tcpserver",
     "tcpclient",
-    "udp-multicast"
+    "udp-multicast",
+    "device-doctor"
   ],
   "Electron": [
     "stm32",
@@ -104,7 +105,8 @@
     "spi-settings",
     "no-tcpserver",
     "tcpclient",
-    "udp-cloud"
+    "udp-cloud",
+    "device-doctor"
   ],
   "Raspberry Pi": [
     "linux",

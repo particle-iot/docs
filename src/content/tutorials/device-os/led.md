@@ -537,11 +537,15 @@ Factory reset is not available on the {{device}}, but not to worry! If you are e
 You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
+{{#if has-device-doctor}}
 The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also reset the firmware using:
 
 ```
 particle device doctor
 ```
+{{/if}} {{!-- has-device-doctor --}}
+
+
 {{/if}} {{!-- has-mesh --}}
 
 {{/unless}} {{!-- core --}}
@@ -808,13 +812,13 @@ If your {{device}} crashes repeatedly with an SOS code, first try recovering wit
 particle flash <mydevice> tinker
 ```
 
-{{#unless core}}
+{{#if has-device-doctor}}
 If it's not possible to enter Safe Mode, your Device OS may be corrupted.  Use the Device Doctor feature of the CLI to put your {{device}} into a healthy state.
  
 ```
 particle device doctor
 ```
-{{/unless}}
+{{/if}}
 
 Some tips for reducing the memory used by your firmware [can be found here](/faq/particle-devices/code-size-tips).
 
