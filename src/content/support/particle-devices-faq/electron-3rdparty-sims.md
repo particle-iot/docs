@@ -219,7 +219,7 @@ The Boron 2G/3G uses the 5-band u-blox SARA-U201 cellular modem and can be used 
 
 Note that the Boron LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
 
-The embedded MFF2 Particle SIM card on the Boron LTE only supports AT&T, and only in the United States. Support is in beta testing in Canada and Mexico at this time. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
+The embedded MFF2 Particle SIM card on the Boron LTE is only supported in the United States, Canada, and Mexico at this time. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
 
 
 {{collapse op="end"}}

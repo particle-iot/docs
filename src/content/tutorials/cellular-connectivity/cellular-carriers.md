@@ -130,8 +130,8 @@ order: 24
 | Country | Carriers |
 | ------- | -------- |
 | United States | AT&T |
-| Canada | Telus, Rogers, Bell<sup>3</sup> |
-| Mexico | AT&T<sup>3</sup> |
+| Canada | Telus, Rogers, Bell |
+| Mexico | AT&T |
 
 {{collapse op="end"}}
 
@@ -319,7 +319,6 @@ order: 24
 
 - <sup>1</sup>2G is only available on T-Mobile, not on AT&T.
 - <sup>2</sup>2G is only available with a 3rd-party SIM card on the Electron.
-- <sup>3</sup>LTE in Canada and Mexico is in the beta testing phase.
 
 {{collapse op="end"}}
 
