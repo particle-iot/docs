@@ -26,8 +26,8 @@ EXAMPLE WEBHOOK
     "password": "API_KEY"
   },
   "json": {
-    "field1": "\{{{indoorTemp}}}", 
-    "field2": "\{{{outdoorTemp}}}", 
+    "field1": "\{{{indoorTemp}}}",
+    "field2": "\{{{outdoorTemp}}}",
     "created_at": "\{{SPARK_PUBLISHED_AT}}"
   }
 }
@@ -837,6 +837,8 @@ Below are a few community-written webhook examples. They have been sorted by wha
 ### Push Notifications
 
 - [Pushbullet - Sending a push notification using Pushbullet](https://www.hackster.io/gusgonnet/add-push-notifications-to-your-hardware-41fa5e) by [gusgonnet](https://community.particle.io/users/gusgonnet/activity)
+
+- [Pushover - Sending push notifications to the devices of your choosing](https://community.particle.io/t/webhooks-tutorial-push-notifications-with-pushover/52070) by [jaredwolff](https://community.particle.io/users/jaredwolff/activity)
 
 ### Sending Emails
 
