@@ -367,7 +367,7 @@ Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobil
 | :------------------ |:---|
 | U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, New Zealand, Nicaragua, Panama, Paraguay, Peru, Venezuela |
 | U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
-| R410M | United States. Canada and Mexico in beta testing. |
+| R410M | United States, Canada, Mexico |
 
 
 Please be sure to order a board that works in the country where you want to deploy your project.

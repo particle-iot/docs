@@ -382,7 +382,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 The E series is available in two different versions: A 2G/3G global model (SARA-U201) and a LTE model (SARA-R410M-02B).
 
-Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobile phone. It is a low-power and low-data-rate variation of LTE for use with IoT devices. It can only be used in the United States at this time, with beta testing in Canada and Mexico.
+Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobile phone. It is a low-power and low-data-rate variation of LTE for use with IoT devices. It can only be used in the United States, Canada. and Mexico at this time.
 
 For a complete list of carriers and supported countries, see the [carrier guide](/tutorials/cellular-connectivity/cellular-carriers/).
 
