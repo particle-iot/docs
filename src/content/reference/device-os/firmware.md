@@ -17848,6 +17848,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v1.4.x prereleases|[v1.4.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.0-rc.1)|-|-|-|-|-|-|
 |v1.3.x prereleases|[v1.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.3.0-rc.1)|[v1.3.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.3.1-rc.1)|-|-|-|-|-|
 |v1.2.x default releases|[v1.2.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.1)|-|-|-|-|-|-|
 |v1.2.x prereleases|[v1.2.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.0-beta.1)|[v1.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.0-rc.1)|[v1.2.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.1)|[v1.2.1-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.2)|[v1.2.1-rc.3](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.3)|-|-|
@@ -17871,6 +17872,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v1.4.x prereleases|[v1.4.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.4.0-rc.1&cli_ver=1.43.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v1.3.x prereleases|[v1.3.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.3.0-rc.1&cli_ver=1.41.2&electron_parts=3#programming-and-debugging-notes)|[v1.3.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.3.1-rc.1&cli_ver=1.43.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v1.2.x default releases|[v1.2.1](/reference/device-os/firmware/photon/?fw_ver=1.2.1&cli_ver=1.43.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v1.2.x prereleases|[v1.2.0-beta.1](/reference/device-os/firmware/photon/?fw_ver=1.2.0-beta.1&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.2.0-rc.1&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.1&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.2&cli_ver=1.41.1&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.3](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.3&cli_ver=1.41.2&electron_parts=3#programming-and-debugging-notes)|-|
@@ -17891,7 +17893,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v1.43.3 = 1.3.1-rc.1
+v1.43.3 = 1.3.1-rc.1, 1.4.0-rc.1
 v1.43.1 = 1.2.1
 v1.42.0 = 1.1.1
 v1.41.2 = 1.1.1-rc.1, 1.2.1-rc.3, 1.3.0-rc.1
@@ -17957,6 +17959,8 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@1.2.1endif
 ##### @FW_VER@1.3.1if
 ##### @FW_VER@1.3.1endif
+##### @FW_VER@1.4.0if
+##### @FW_VER@1.4.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -18119,6 +18123,17 @@ particle flash --usb tinker
 - Then update to 1.3.1
 
 ##### @FW_VER@1.3.1endif
+
+##### @FW_VER@1.4.0if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.2.1
+- Then update to 1.4.0
+
+##### @FW_VER@1.4.0endif
 
 **Note:** As a Product in the Console, when flashing a >= 0.6.0 user
 app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware.

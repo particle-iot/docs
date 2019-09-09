@@ -208,7 +208,7 @@ The list below is not complete; you should check with the carrier in your area t
 
 AT&T deactivated their 2G network at the end of 2016. Electron 2G devices can only use T-Mobile at this time.
 
-AT&T's 3G shutdown should occur at the end of 2019. After 2019, the Electron U260 and E Series E310 will only connect to T-Mobile in the United States.
+AT&T's 3G shutdown should occur in [early 2022](https://www.att.com/esupport/article.html#!/wireless/KM1324171?gsi=0pwb92). After this occurs, the Electron U260 and E Series E310 will only connect to T-Mobile in the United States.
 
 T-Mobile will begin to reallocate 3G spectrum in March 2020 so there could be reduced coverage. T-Mobile will deactivate their 2G network at the end of 2020.
 
@@ -219,8 +219,8 @@ In the United States we strongly recommend using LTE Cat M1. AT&T has committed 
 | After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G | LTE |
 | --- | --- | :--: | :--: | :--: | :--: | :---: |
 | End of 2016 | AT&T ended 2G service | T-Mobile | Both | Both | T-Mobile | AT&T |
-| End of 2019 | AT&T ends 3G service | T-Mobile | T-Mobile | T-Mobile | T-Mobile |  AT&T |
 | End of 2020 | T-Mobile ends 2G service | &nbsp; | T-Mobile | T-Mobile | T-Mobile |  AT&T |
+| Early 2022 | AT&T ends 3G service | T-Mobile | T-Mobile | T-Mobile | T-Mobile |  AT&T |
 
 
 ### Europe
