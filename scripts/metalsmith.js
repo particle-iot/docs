@@ -195,6 +195,7 @@ exports.metalsmith = function () {
           'mesh',
           'certifications',
           'accessories',
+          'app-notes',
           'discontinued'
         ]
       },
