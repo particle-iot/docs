@@ -306,10 +306,12 @@ Publish a private event with the given name, no data, and the default TTL of 60 
 // SYNTAX
 Particle.publish(const char *eventName, PublishFlags flags);
 Particle.publish(String eventName, PublishFlags flags);
+```
 
-RETURNS
-boolean (true or false)
+**Returns:**
+A `bool` indicating success: (true or false)
 
+```C++
 // EXAMPLE USAGE
 bool success;
 success = Particle.publish("motion-detected", PRIVATE);
