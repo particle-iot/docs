@@ -66,7 +66,7 @@ Returns a success value - `true` when the variable was registered.
 
 Particle.variable registers a variable, so its value can be retrieved from the cloud in the future. You only call Particle.variable once per variable, typically passing in a global variable. You can change the value of the underlying global variable as often as you want; the value is only retrieved when requested, so simply changing the global variable does not use any data. You do not call Particle.variable when you change the value.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int analogvalue = 0;
@@ -216,7 +216,7 @@ int brewCoffee(String command)
 
 You can expose a method on a C++ object to the Cloud.
 
-```C++
+```cpp
 // EXAMPLE USAGE WITH C++ OBJECT
 
 class CoffeeMaker {
@@ -302,7 +302,7 @@ For the time being there exists no way to access a previously published but TTL-
 
 Publish a private event with the given name, no data, and the default TTL of 60 seconds.
 
-```C++
+```cpp
 // SYNTAX
 Particle.publish(const char *eventName, PublishFlags flags);
 Particle.publish(String eventName, PublishFlags flags);
@@ -311,7 +311,7 @@ Particle.publish(String eventName, PublishFlags flags);
 **Returns:**
 A `bool` indicating success: (true or false)
 
-```C++
+```cpp
 // EXAMPLE USAGE
 bool success;
 success = Particle.publish("motion-detected", PRIVATE);
@@ -324,7 +324,7 @@ if (!success) {
 
 Publish a private event with the given name and data, with the default TTL of 60 seconds.
 
-```C++
+```cpp
 // SYNTAX
 Particle.publish(const char *eventName, const char *data, PublishFlags flags);
 Particle.publish(String eventName, String data, PublishFlags flags);
@@ -337,7 +337,7 @@ Particle.publish("temperature", "19 F", PRIVATE);
 
 Publish a private event with the given name, data, and TTL.
 
-```C++
+```cpp
 // SYNTAX
 Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
 Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
@@ -350,7 +350,7 @@ Particle.publish("lake-depth/1", "28m", 21600, PRIVATE);
 
 Publish a private event with the given name, data, and TTL.
 
-```C++
+```cpp
 // SYNTAX
 Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
 Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
@@ -361,7 +361,7 @@ Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
 
 Publish a public event with the given name.
 
-```C++
+```cpp
 // SYNTAX
 Particle.publish(const char *eventName, PublishFlags flags);
 Particle.publish(String eventName, PublishFlags flags);
@@ -396,7 +396,7 @@ The `NO_ACK` flag disables this acknowledge/retry behavior and sends the event o
 
 For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occasional lost event can be tolerated.
 
-```C++
+```cpp
 // SYNTAX
 
 float temperature = sensor.readTemperature();  // by way of example, not part of the API
@@ -414,7 +414,7 @@ Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 
 This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
 
-```C++
+```cpp
 // SYNTAX
 
 Particle.publish("motion-detected", NULL, WITH_ACK);
@@ -672,7 +672,7 @@ In most cases, you do not need to call `Particle.connect()`; it is called automa
 
 `Particle.disconnect()` disconnects the device from the Cloud.
 
-```C++
+```cpp
 int counter = 10000;
 
 void doConnectedWork() {
@@ -726,7 +726,7 @@ While this function will disconnect from the Cloud, it will keep the connection 
 
 Returns `true` when connected to the Cloud, and `false` when disconnected from the Cloud.
 
-```C++
+```cpp
 // SYNTAX
 Particle.connected();
 
@@ -749,7 +749,7 @@ void loop() {
 
 Sets the duration between keep-alive messages used to maintain the connection to the cloud.
 
-```C++
+```cpp
 // SYNTAX
 Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
 ```
@@ -808,7 +808,7 @@ This happens automatically when the device connects to the Cloud.
 However, if your device runs continuously for a long time,
 you may want to synchronize once per day or so.
 
-```C++
+```cpp
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
 unsigned long lastSync = millis();
 
@@ -832,7 +832,7 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Device Cloud. Returns `false` when there is a pending `syncTime()` request.
 
-```C++
+```cpp
 // SYNTAX
 Particle.syncTimeDone();
 
@@ -858,7 +858,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Device Cloud.
 
-```C++
+```cpp
 // SYNTAX
 Particle.syncTimePending();
 
@@ -891,7 +891,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 Used to check when time was last synchronized with Particle Device Cloud.
 
-```C++
+```cpp
 // SYNTAX
 Particle.timeSyncedLast();
 Particle.timeSyncedLast(timestamp);
@@ -902,7 +902,7 @@ Returns the number of milliseconds since the device began running the current pr
 This function takes one optional argument:
 - `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
 
-```C++
+```cpp
 // EXAMPLE
 
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
@@ -1021,7 +1021,7 @@ The publish function takes two parameters:
 * optional data (up to 255 bytes)
 
 
-```C++
+```cpp
 // SYNTAX
 Mesh.publish(const char *name, const char *data);
 ```
@@ -1040,7 +1040,7 @@ Note that the return value for Mesh.publish is 0 (`SYSTEM_ERROR_NONE`) for succe
 
 Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name. You can have up to 5 mesh subscription handlers.
 
-```C++
+```cpp
 
 void myHandler(const char *event, const char *data)
 {
@@ -1676,7 +1676,7 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES);
 
 {{/if}} {{!-- photon --}}
 
-```c++
+```cpp
 // Connects to a network with an authentication procedure specified by WiFiCredentials object
 WiFi.setCredentials(credentials);
 WiFiCredentials credentials;
@@ -2266,7 +2266,7 @@ By default the {{device}} uses its [device ID](#deviceid-) as hostname. See [WiF
 ### WiFiCredentials class
 This class allows to define WiFi credentials that can be passed to [WiFi.setCredentials()](#setcredentials-) function.
 
-```c++
+```cpp
 // EXAMPLE - defining and using WiFiCredentials class
 
 void setup() {
@@ -2292,13 +2292,13 @@ void loop() {
 #### WiFiCredentials()
 Constructs an instance of the WiFiCredentials class. By default security type is initialized to unsecured (`UNSEC`).
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials credentials(SecurityType security = UNSEC); // 1
 WiFiCredentials credentials(const char* ssid, SecurityType security = UNSEC); // 2
 ```
 
-```c++
+```cpp
 // EXAMPLE - constructing WiFiCredentials instance
 // Empty instance, security is set to UNSEC
 WiFiCredentials credentials;
@@ -2317,12 +2317,12 @@ Parameters:
 #### setSsid()
 Sets access point SSID.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setSsid(const char* ssid);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting ssid
 WiFiCredentials credentials;
 credentials.setSsid("My AP");
@@ -2334,12 +2334,12 @@ Parameters:
 #### setSecurity()
 Sets access point security type.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setSecurity(SecurityType security);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting security type
 WiFiCredentials credentials;
 credentials.setSecurity(WPA2);
@@ -2351,12 +2351,12 @@ Parameters:
 #### setCipher()
 Sets access point cipher.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setCipher(WLanSecurityCipher cipher);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting cipher
 WiFiCredentials credentials;
 credentials.setCipher(WLAN_CIPHER_AES);
@@ -2372,12 +2372,12 @@ Sets access point password.
 When configuring credentials for WPA/WPA2 Enterprise access point with PEAP/MSCHAPv2 authentication, this function sets password for username set by [setIdentity()](#setidentity-).
 {{/if}} {{!-- has-wpa-enterprise --}}
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setPassword(const char* password);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting password
 WiFiCredentials credentials("My AP", WPA2);
 credentials.setPassword("mypassword");
@@ -2393,12 +2393,12 @@ Parameters:
 #### setChannel()
 Sets access point channel.
 
-```c++
+```cpp
 // SYNYAX
 WiFiCredentials& WiFiCredentials::setChannel(int channel);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting channel
 WiFiCredentials credentials("My AP");
 credentials.setChannel(10);
@@ -2411,12 +2411,12 @@ Parameters:
 #### setEapType()
 Sets EAP type.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setEapType(WLanEapType type);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting EAP type
 WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
 credentials.setEapType(WLAN_EAP_TYPE_PEAP);
@@ -2428,12 +2428,12 @@ Parameters:
 #### setIdentity()
 Sets EAP inner identity (username in case of PEAP/MSCHAPv2).
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setIdentity(const char* identity);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting PEAP identity (username)
 WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
 credentials.setEapType(WLAN_EAP_TYPE_PEAP);
@@ -2446,12 +2446,12 @@ Parameters:
 #### setOuterIdentity()
 Sets EAP outer identity. Defaults to "anonymous".
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setOuterIdentity(const char* identity);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting outer identity
 WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
 credentials.setOuterIdentity("notanonymous");
@@ -2463,12 +2463,12 @@ Parameters:
 #### setClientCertificate()
 Sets client certificate used for EAP-TLS authentication.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setClientCertificate(const char* cert);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting client certificate
 WiFiCredentials credentials;
 credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
@@ -2483,12 +2483,12 @@ Parameters:
 #### setPrivateKey()
 Sets private key used for EAP-TLS authentication.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setPrivateKey(const char* key);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting private key
 WiFiCredentials credentials;
 credentials.setPrivateKey("-----BEGIN RSA PRIVATE KEY-----\r\n" \
@@ -2503,12 +2503,12 @@ Parameters:
 #### setRootCertificate()
 Sets one more root (CA) certificates.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setRootCertificate(const char* cert);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting one root certificate
 WiFiCredentials credentials;
 credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
@@ -2996,7 +2996,7 @@ Particle SIM, using `cellular_credentials_set()` is not necessary as the
 default APN of "spark.telefonica.com" with no username or password will
 be used by Device OS. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the {{device}} to remove the settings from the modem’s volatile memory.
 
-```C++
+```cpp
 // SYNTAX
 // Connects to a cellular network by APN only
 STARTUP(cellular_credentials_set(APN, "", "", NULL));
@@ -3009,7 +3009,7 @@ STARTUP(cellular_credentials_set("", USERNAME, PASSWORD, NULL));
 STARTUP(cellular_credentials_set(APN, USERNAME, PASSWORD, NULL));
 ```
 
-```C++
+```cpp
 // EXAMPLE - an AT&T APN with no username or password in AUTOMATIC mode
 
 #include "cellular_hal.h"
@@ -3095,14 +3095,14 @@ cid,tx_session,rx_session,tx_total,rx_total
 31,1000,300,1000,300
 ```
 
-```c++
+```cpp
 // SYNTAX
 // Read Data Usage
 CellularData data;
 Cellular.getDataUsage(data);
 ```
 
-```c++
+```cpp
 // EXAMPLE
 
 void setup()
@@ -3169,7 +3169,7 @@ Sets the Data Usage counters to the values indicated in the supplied CellularDat
 
 Returns `bool` - `true` indicating this operation was successful and the CellularData object was updated.
 
-```c++
+```cpp
 // SYNTAX
 // Set Data Usage
 CellularData data;
@@ -3183,7 +3183,7 @@ Resets the Data Usage counters to all zero.  No CellularData object is required.
 Returns: `bool`
 - `true` indicates this operation was successful and the internally stored software offset has been reset to zero. If getDataUsage() was called immediately after without any data being used, the CellularData object would indicate zero data used.
 
-```c++
+```cpp
 // SYNTAX
 // Reset Data Usage
 Cellular.resetDataUsage();
@@ -3204,7 +3204,7 @@ Cellular.resetDataUsage();
 _Since 0.8.0_
 See additional documentation on [`CellularSignal`](#cellularsignal-class) class.
 
-```C++
+```cpp
 // SYNTAX
 
 CellularSignal sig = Cellular.RSSI();
@@ -3521,7 +3521,7 @@ void setup() {
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
 
-```C++
+```cpp
 // EXAMPLE
 void setup() {
   Serial.begin(9600);
@@ -3552,7 +3552,7 @@ The prototype definition is as follows:
 
 `Cellular.command()` takes one or more arguments in 4 basic types of signatures.
 
-```C++
+```cpp
 // SYNTAX (4 basic signatures with/without printf style formatting)
 int ret = Cellular.command(cb, param, timeout, format, ...);
 int ret = Cellular.command(cb, param, timeout, format);
@@ -3579,7 +3579,7 @@ int ret = Cellular.command(format);
 - `RESP_PROMPT`  = -4
 - `RESP_ABORTED` = -5
 
-```C++
+```cpp
 // EXAMPLE - Get the ICCID number of the inserted SIM card
 int callbackICCID(int type, const char* buf, int len, char* iccid)
 {
@@ -3645,7 +3645,7 @@ There are 13 different enumerated AT command responses passed by the system into
 
 The {{device}} does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
 
-```C++
+```cpp
 float voltage = analogRead(BATT) * 0.0011224;
 ```
 
@@ -3657,7 +3657,7 @@ The constant 0.0011224 is based on the voltage divider circuit (R1 = 806K, R2 = 
 ## FuelGauge
 The on-board Fuel Gauge allows you to monitor the battery voltage, state of charge and set low voltage battery thresholds. Use an instance of the `FuelGauge` library to call the various fuel gauge functions.
 
-```C++
+```cpp
 // EXAMPLE
 FuelGauge fuel;
 ```
@@ -3665,7 +3665,7 @@ FuelGauge fuel;
 ### getVCell()
 Returns the battery voltage as a `float`.
 
-```C++
+```cpp
 // EXAMPLE
 FuelGauge fuel;
 Serial.println( fuel.getVCell() );
@@ -3674,7 +3674,7 @@ Serial.println( fuel.getVCell() );
 ### getSoC()
 Returns the State of Charge in percentage from 0-100% as a `float`.
 
-```C++
+```cpp
 // EXAMPLE
 FuelGauge fuel;
 Serial.println( fuel.getSoC() );
@@ -3723,7 +3723,7 @@ Additional information on which pins can be used for which functions is availabl
 
 `pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
 
-```C++
+```cpp
 // SYNTAX
 pinMode(pin,mode);
 ```
@@ -3732,7 +3732,7 @@ pinMode(pin,mode);
 
 `pinMode()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int button = D0;                      // button is connected to D0
 int LED = D1;                         // LED is connected to D1
@@ -3814,7 +3814,7 @@ if (getPinMode(D0)==INPUT) {
 
 Write a `HIGH` or a `LOW` value to a GPIO pin.
 
-```C++
+```cpp
 // SYNTAX
 digitalWrite(pin, value);
 ```
@@ -3825,7 +3825,7 @@ If the pin has been configured as an `OUTPUT` with `pinMode()` or if previously 
 
 `digitalWrite()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int LED = D1;              // LED connected to D1
 
@@ -3858,7 +3858,7 @@ void loop()
 
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
 
-```C++
+```cpp
 // SYNTAX
 digitalRead(pin);
 ```
@@ -3867,7 +3867,7 @@ digitalRead(pin);
 
 `digitalRead()` returns `HIGH` or `LOW`.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int button = D0;                   // button is connected to D0
 int LED = D1;                      // LED is connected to D1
@@ -3906,7 +3906,7 @@ Writes an analog value to a pin as a digital PWM (pulse-width modulated) signal.
 
 Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to `analogWrite()` (or a call to `digitalRead()` or `digitalWrite()` on the same pin).
 
-```C++
+```cpp
 // SYNTAX
 analogWrite(pin, value);
 analogWrite(pin, value, frequency);
@@ -3928,7 +3928,7 @@ analogWrite(pin, value, frequency);
 
 `analogWrite()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int ledPin = D1;               // LED connected to digital pin D1
@@ -4009,7 +4009,7 @@ Sets or retrieves the resolution of `analogWrite()` function of a particular pin
 
 `analogWriteResolution()` returns currently set resolution.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 pinMode(D1, OUTPUT);     // sets the pin as output
 analogWriteResolution(D1, 12); // sets analogWrite resolution to 12 bits
@@ -4032,7 +4032,7 @@ Returns maximum frequency that can be used with `analogWrite()` on this pin.
 
 - `pin`: the number of the pin
 
-```C++
+```cpp
 // EXAMPLE USAGE
 pinMode(D1, OUTPUT);     // sets the pin as output
 analogWriteResolution(D1, 12); // sets analogWrite resolution to 12 bits
@@ -4053,7 +4053,7 @@ from 0-4095.
 
 **NOTE:** Device OS version 0.4.6 and 0.4.7 only - not applicable to versions from 0.4.9 onwards: While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time you want to perform an `analogWrite()`.
 
-```C++
+```cpp
 // SYNTAX
 pinMode(DAC1, OUTPUT);
 analogWrite(DAC1, 1024);
@@ -4083,7 +4083,7 @@ The sample time to read one analog value is 10 microseconds.
 The Boron SoM has 8 channels, A0 to A7.
 {{/if}}
 
-```C++
+```cpp
 // SYNTAX
 analogRead(pin);
 ```
@@ -4092,7 +4092,7 @@ analogRead(pin);
 
 `analogRead()` returns an integer value ranging from 0 to 4095.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int ledPin = D1;                // LED connected to digital pin D1
 int analogPin = A0;             // potentiometer connected to analog pin A0
@@ -4166,7 +4166,7 @@ Prior to using the following low-level functions, `pinMode()` must be used to co
 
 Write a `HIGH` value to a digital pin.
 
-```C++
+```cpp
 // SYNTAX
 pinSetFast(pin);
 ```
@@ -4175,7 +4175,7 @@ pinSetFast(pin);
 
 `pinSetFast()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int LED = D7;              // LED connected to D7
 
@@ -4197,7 +4197,7 @@ void loop()
 
 Write a `LOW` value to a digital pin.
 
-```C++
+```cpp
 // SYNTAX
 pinResetFast(pin);
 ```
@@ -4206,7 +4206,7 @@ pinResetFast(pin);
 
 `pinResetFast()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int LED = D7;              // LED connected to D7
 
@@ -4228,7 +4228,7 @@ void loop()
 
 Write a `HIGH` or `LOW` value to a digital pin.  This function will call pinSetFast() or pinResetFast() based on `value` and is useful when `value` is calculated. As such, this imposes a slight time overhead.
 
-```C++
+```cpp
 // SYNTAX
 digitalWriteFast(pin, value);
 ```
@@ -4237,7 +4237,7 @@ digitalWriteFast(pin, value);
 
 `digitalWriteFast()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int LED = D7;              // LED connected to D7
 
@@ -4259,7 +4259,7 @@ void loop()
 
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
 
-```C++
+```cpp
 // SYNTAX
 pinReadFast(pin);
 ```
@@ -4268,7 +4268,7 @@ pinReadFast(pin);
 
 `pinReadFast()` returns `HIGH` or `LOW`.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int button = D0;                   // button is connected to D0
 int LED = D1;                      // LED is connected to D1
@@ -4321,7 +4321,7 @@ On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins 
 
 {{/if}}
 
-```C++
+```cpp
 // SYNTAX
 tone(pin, frequency, duration)
 ```
@@ -4423,7 +4423,7 @@ On the B Series SoM:
 Additional information on which pins can be used for tone() is available on the [pin information page](/reference/hardware/pin-info).
 
 
-```C++
+```cpp
 #include "application.h"
 // The Photon has 9 PWM pins: D0, D1, D2, D3, A4, A5, A7, RX and TX.
 //
@@ -4479,7 +4479,7 @@ Stops the generation of a square wave triggered by tone() on a specified pin. Ha
 The available pins are the same as for tone().
 
 
-```C++
+```cpp
 // SYNTAX
 noTone(pin)
 ```
@@ -4488,7 +4488,7 @@ noTone(pin)
 
 `noTone()` does not return anything.
 
-```C++
+```cpp
 //See the tone() example
 ```
 
@@ -4501,11 +4501,11 @@ Shifts out a byte of data one bit at a time on a specified pin. Starts from eith
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
 
-```C++
+```cpp
 // SYNTAX
 shiftOut(dataPin, clockPin, bitOrder, value)
 ```
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Use digital pins D0 for data and D1 for clock
@@ -4546,11 +4546,11 @@ Shifts in a byte of data one bit at a time. Starts from either the most (i.e. th
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
 
-```C++
+```cpp
 // SYNTAX
 shiftIn(dataPin, clockPin, bitOrder)
 ```
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Use digital pins D0 for data and D1 for clock
@@ -4590,7 +4590,7 @@ Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, puls
 
 The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally measure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The `pulseIn()` routine will time out and return 0 after 3 seconds.
 
-```C++
+```cpp
 // SYNTAX
 pulseIn(pin, value)
 ```
@@ -4599,7 +4599,7 @@ pulseIn(pin, value)
 
 `pulseIn()` returns the length of the pulse (in microseconds) or 0 if no pulse is completed before the 3 second timeout (unsigned long)
 
-```C++
+```cpp
 // EXAMPLE
 unsigned long duration;
 
@@ -4923,7 +4923,7 @@ It also has {{#if has-usb-serial1}}two{{else}}one{{/if}} USB serial channel{{#if
 `Serial:` This channel communicates between the terminal and the firmware running. It uses standard input and standard output.
 {{/unless}}
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void setup()
 {
@@ -4980,7 +4980,7 @@ To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's ma
 
 To use the Serial1{{#if has-serial2}} or Serial2{{/if}} pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 {{#if has-serial2}}
 // IMPORTANT: Include the header file for Serial2
@@ -5056,7 +5056,7 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Enables serial channel with specified configuration.
 
-```C++
+```cpp
 // SYNTAX
 Serial.begin();          // via USB port
 
@@ -5107,7 +5107,7 @@ Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400
 {{/if}}
 
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void setup()
 {
@@ -5220,7 +5220,7 @@ LIN configuration:
 {{#if has-usb-serial1}}
 **NOTE** {{since when="0.6.0"}} When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 STARTUP(USBSerial1.begin());
 void setup()
@@ -5251,7 +5251,7 @@ When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Seria
 When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
 {{/unless}}{{/unless}}
 
-```C++
+```cpp
 // SYNTAX
 Serial1.end();
 ```
@@ -5270,7 +5270,7 @@ The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 b
 The receive buffer size for Serial is 64 bytes. 
 {{/if}}
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void setup()
 {
@@ -5315,7 +5315,7 @@ Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{#if has-usb-serial1}}
 ### acquireSerialBuffer()
 
-```C++
+```cpp
 // SYNTAX
 HAL_USB_USART_Config acquireSerialBuffer()
 {
@@ -5419,7 +5419,7 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
-```C++
+```cpp
 // SYNTAX
 Serial.peek();
 Serial1.peek();
@@ -5432,14 +5432,14 @@ _Available on Serial, Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial
 
 Writes binary data to the serial port. This data is sent as a byte or series of bytes; to send the characters representing the digits of a number use the `print()` function instead.
 
-```C++
+```cpp
 // SYNTAX
 Serial.write(val);
 Serial.write(str);
 Serial.write(buf, len);
 ```
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 void setup()
@@ -5471,14 +5471,14 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Reads incoming serial data.
 
-```C++
+```cpp
 // SYNTAX
 Serial.read();
 Serial1.read();
 ```
 `read()` returns the first byte of incoming serial data available (or -1 if no data is available) - `int`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int incomingByte = 0; // for incoming serial data
 
@@ -5526,7 +5526,7 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as `Serial.print()`.
 
-```C++
+```cpp
 // SYNTAX
 Serial.println(val);
 Serial.println(val, format);
@@ -5539,7 +5539,7 @@ Serial.println(val, format);
 
 `println()` returns the number of bytes written, though reading that number is optional - `size_t (long)`
 
-```C++
+```cpp
 // EXAMPLE
 //reads an analog input on analog in A0, prints the value out.
 
@@ -5579,7 +5579,7 @@ Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style forma
 
 `printf` allows strings to be built by combining a number of values with text.
 
-```C++
+```cpp
 Serial.printf("Reading temperature sensor at %s...", Time.timeStr().c_str());
 float temp = readTemp();
 Serial.printf("the temperature today is %f Kelvin", temp);
@@ -5611,7 +5611,7 @@ so to that subsequent output appears on the next line.
 
 Waits for the transmission of outgoing serial data to complete.
 
-```C++
+```cpp
 // SYNTAX
 Serial.flush();
 Serial1.flush();
@@ -5630,13 +5630,13 @@ Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
 are on the TX pin.  This mode can be used for a single wire bus communications
 scheme between microcontrollers.
 
-```C++
+```cpp
 // SYNTAX
 Serial1.halfduplex(true);  // Enable half-duplex mode
 Serial1.halfduplex(false); // Disable half-duplex mode
 ```
 
-```C++
+```cpp
 // EXAMPLE
 // Initializes Serial1 at 9600 baud and enables half duplex mode
 
@@ -5652,7 +5652,7 @@ Serial1.halfduplex(true);
 
 ### isConnected()
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void setup()
 {
@@ -6342,7 +6342,7 @@ Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select 
 
 **Note:**  The SPI firmware ONLY initializes the user-specified slave-select pin as an `OUTPUT`. The user's code must control the slave-select pin with `digitalWrite()` before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
-```C++
+```cpp
 // SYNTAX
 SPI.begin(ss);
 {{#if has-multiple-spi}}
@@ -6367,14 +6367,14 @@ For `SPI2`, the default `ss` pin is also `D5`.
 {{/if}} {{!-- electron --}}
 {{/if}} {{!-- has-multiple-spi --}}
 
-```C++
+```cpp
 // Example using SPI1, with D5 as the SS pin:
 SPI1.begin();
 // or
 SPI1.begin(D5);
 ```
 {{#if electron}}
-```C++
+```cpp
 // Example using SPI2, with C0 as the SS pin:
 SPI2.begin(C0);
 ```
@@ -6407,7 +6407,7 @@ For `SPI1`, the default `ss` pin is `D5`.
 For `SPI2`, the default `ss` pin is also `D5`.
 {{/if}}
 
-```C++
+```cpp
 // Example using SPI in master mode, with the default SS pin:
 SPI.begin(SPI_MODE_MASTER);
 {{#if has-multiple-spi}}
@@ -6430,7 +6430,7 @@ Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. It 
 
 Disables the SPI bus (leaving pin modes unchanged).
 
-```C++
+```cpp
 // SYNTAX
 SPI.end();
 {{#if has-multiple-spi}}
@@ -6445,7 +6445,7 @@ SPI2.end();
 
 Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST (least-significant bit first) or MSBFIRST (most-significant bit first).
 
-```C++
+```cpp
 // SYNTAX
 SPI.setBitOrder(order);
 {{#if has-multiple-spi}}
@@ -6464,7 +6464,7 @@ Sets the SPI clock speed. The value can be specified as a direct value, or as
 as a value plus a multiplier.
 
 
-```C++
+```cpp
 // SYNTAX
 SPI.setClockSpeed(value, scale);
 SPI.setClockSpeed(frequency);
@@ -6550,7 +6550,7 @@ On Gen 3 devices (Argon, Boron, Xenon), system clock speed is 64 MHz.
 
 Sets the SPI clock divider relative to the selected clock reference. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
 
-```C++
+```cpp
 // SYNTAX
 SPI.setClockDivider(divider);
 {{#if has-multiple-spi}}
@@ -6594,7 +6594,7 @@ On Gen 3 devices (Argon, Boron, Xenon), the clock reference is 64 MHz.
 
 Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia article on SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) for details.
 
-```C++
+```cpp
 // SYNTAX
 SPI.setDataMode(mode);
 {{#if has-multiple-spi}}
@@ -6615,7 +6615,7 @@ Where the parameter, `mode` can be:
 
 Transfers one byte over the SPI bus, both sending and receiving.
 
-```C++
+```cpp
 // SYNTAX
 SPI.transfer(val);
 {{#if has-multiple-spi}}
@@ -6634,7 +6634,7 @@ For transferring a large number of bytes, this form of transfer() uses DMA to sp
 
 **Note**: The SPI protocol is based on a one byte OUT / one byte IN interface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
 
-```C++
+```cpp
 // SYNTAX
 SPI.transfer(tx_buffer, rx_buffer, length, myFunction);
 {{#if has-multiple-spi}}
@@ -6674,7 +6674,7 @@ Registers a function to be called when the SPI master selects or deselects this 
 On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
 {{/if}} {{!-- has-nrf52 --}}
 
-```C++
+```cpp
 // SYNTAX
 SPI.onSelect(myFunction);
 {{#if has-multiple-spi}}
@@ -6692,7 +6692,7 @@ void myFunction(uint8_t state) {
 Parameters: `handler`: the function to be called when the slave is selected or deselected; this should take a single uint8_t parameter (the current state: `1` - selected, `0` - deselected) and return nothing, e.g.: `void myHandler(uint8_t state)`
 
 {{#if has-stm32}}
-```C++
+```cpp
 // SPI slave example
 static uint8_t rx_buffer[64];
 static uint8_t tx_buffer[64];
@@ -6740,7 +6740,7 @@ void loop() {
 {{/if}} {{!-- has-stm32 --}}
 
 {{#if has-nrf52}}
-```C++
+```cpp
 // SPI slave example
 static uint8_t rx_buffer[64];
 static uint8_t tx_buffer[64];
@@ -6793,7 +6793,7 @@ void loop() {
 
 Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, it returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
 
-```C++
+```cpp
 // SYNTAX
 SPI.available();
 ```
@@ -6812,7 +6812,7 @@ The `__SPISettings` object specifies the SPI peripheral settings. This object ca
 **Note:** Either `SPISettings()` (_Since 0.6.1_) or `__SPISettings()` (_Since 0.6.2_) may be used **with** `#include "Arduino.h"`
 `__SPISettings()` should be used **without** `#include "Arduino.h"`
 
-```C++
+```cpp
 // SYNTAX
 SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
 // Pre-declared __SPISettings object
@@ -6843,7 +6843,7 @@ In addition to reconfiguring the SPI peripheral, `beginTransaction()` also acqui
 
 {{/if}} {{!-- has-threading --}}
 
-```C++
+```cpp
 // SYNTAX
 SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
 // Pre-declared __SPISettings object
@@ -6877,7 +6877,7 @@ This function releases the SPI peripheral lock, allowing other threads to use it
 
 {{/if}} {{!-- has-threading --}}
 
-```C++
+```cpp
 // SYNTAX
 SPI.endTransaction();
 {{#if has-multiple-spi}}
@@ -6963,7 +6963,7 @@ It is not recommended to use the I2C pins for general purpose IO. If you need to
 
 Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz and the maximum clock speed is 400KHz.
 
-```C++
+```cpp
 // SYNTAX
 Wire.setSpeed(clockSpeed);
 Wire.begin();
@@ -6977,7 +6977,7 @@ Parameters:
 
 Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). I2C clock stretching is only used with I2C Slave mode. The default I2C clock stretching mode is enabled.
 
-```C++
+```cpp
 // SYNTAX
 Wire.stretchClock(stretch);
 Wire.begin(4); // I2C Slave mode, address #4
@@ -6993,7 +6993,7 @@ Parameters:
 
 Initiate the Wire library and join the I2C bus as a master{{#if has-i2c-slave}} or slave{{/if}}. This should normally be called only once.
 
-```C++
+```cpp
 // SYNTAX
 Wire.begin();
 {{#if has-i2c-slave}}
@@ -7016,14 +7016,14 @@ Releases the I2C bus so that the pins used by the I2C bus are available for gene
 
 Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
 
-```C++
+```cpp
 // SYNTAX
 Wire.isEnabled();
 ```
 
 Returns: boolean `true` if I2C enabled, `false` if I2C disabled.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Initialize the I2C bus if not already enabled
@@ -7036,7 +7036,7 @@ if (!Wire.isEnabled()) {
 
 Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions.
 
-```C++
+```cpp
 // SYNTAX
 Wire.requestFrom(address, quantity);
 Wire.requestFrom(address, quantity, stop);
@@ -7066,7 +7066,7 @@ we hope this function isn't required, and it's provided for completeness.
 
 Begin a transmission to the I2C slave device with the given address. Subsequently, queue bytes for transmission with the `write()` function and transmit them by calling `endTransmission()`.
 
-```C++
+```cpp
 // SYNTAX
 Wire.beginTransmission(address);
 ```
@@ -7078,7 +7078,7 @@ Parameters: `address`: the 7-bit address of the device to transmit to.
 Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`.
 
 
-```C++
+```cpp
 // SYNTAX
 Wire.endTransmission();
 Wire.endTransmission(stop);
@@ -7100,7 +7100,7 @@ Returns: `byte`, which indicates the status of the transmission:
 
 Queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`){{#if has-i2c-slave}}, or writes data from a slave device in response to a request from a master{{/if}}. Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
 
-```C++
+```cpp
 // SYNTAX
 Wire.write(value);
 Wire.write(string);
@@ -7117,7 +7117,7 @@ Returns: `byte`
 
 `write()` will return the number of bytes written, though reading that number is optional.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Master Writer running on Device No.1 (Use with corresponding Slave Reader running on Device No.2)
@@ -7143,7 +7143,7 @@ void loop() {
 
 Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()`{{#if has-i2c-slave}} or on a slave inside the `onReceive()` handler{{/if}}.
 
-```C++
+```cpp
 Wire.available();
 ```
 
@@ -7153,14 +7153,14 @@ Returns: The number of bytes available for reading.
 
 Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class.
 
-```C++
+```cpp
 // SYNTAX
 Wire.read() ;
 ```
 
 Returns: The next byte received
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Master Reader running on Device No.1 (Use with corresponding Slave Writer running on Device No.2)
@@ -7186,7 +7186,7 @@ void loop() {
 
 Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
 
-```C++
+```cpp
 // SYNTAX
 Wire.peek();
 ```
@@ -7203,7 +7203,7 @@ Parameters: `handler`: the function to be called when the slave receives data; t
 
 **Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to receive I2C data.  Post process outside of this handler.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Slave Reader running on Device No.2 (Use with corresponding Master Writer running on Device No.1)
@@ -7238,7 +7238,7 @@ Parameters: `handler`: the function to be called, takes no parameters and return
 
 **Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to send I2C data.  Post process outside of this handler.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Slave Writer running on Device No.2 (Use with corresponding Master Reader running on Device No.1)
@@ -7326,7 +7326,7 @@ struct CANMessage
 
 Create a `CANChannel` global object to connect to a CAN bus on the specified pins.
 
-```C++
+```cpp
 // SYNTAX
 CANChannel can(pins, rxQueueSize, txQueueSize);
 ```
@@ -7337,7 +7337,7 @@ Parameters:
 - `rxQueueSize` (optional): the receive queue size (default 32 message)
 - `txQueueSize` (optional): the transmit queue size (default 32 message)
 
-```C++
+```cpp
 // EXAMPLE
 CANChannel can(CAN_D1_D2);
 // Buffer 10 received messages and 5 transmitted messages
@@ -7348,7 +7348,7 @@ CANChannel can(CAN_D1_D2, 10, 5);
 
 Joins the bus at the given `baud` rate.
 
-```C++
+```cpp
 // SYNTAX
 can.begin(baud, flags);
 ```
@@ -7358,7 +7358,7 @@ Parameters:
 - `baud`: common baud rates are 50000, 100000, 125000, 250000, 500000, 1000000
 - `flags` (optional): `CAN_TEST_MODE` to run the CAN bus in test mode where every transmitted message will be received back
 
-```C++
+```cpp
 // EXAMPLE
 CANChannel can(CAN_D1_D2);
 can.begin(500000);
@@ -7533,7 +7533,7 @@ Errors heal automatically when properly communicating with other microcontroller
 
 Creates an IP address that can be used with TCPServer, TCPClient, and UDP objects.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 IPAddress localIP;
@@ -7545,7 +7545,7 @@ IPAddress IPfromBytes( server );
 
 The IPAddress also allows for comparisons.
 
-```C++
+```cpp
 if (IPfromInt == IPfromBytes)
 {
   Serial.println("Same IP addresses");
@@ -7554,7 +7554,7 @@ if (IPfromInt == IPfromBytes)
 
 You can also use indexing the get or change individual bytes in the IP address.
 
-```C++
+```cpp
 // PING ALL HOSTS ON YOUR SUBNET EXCEPT YOURSELF
 IPAddress localIP = WiFi.localIP();
 uint8_t myLastAddrByte = localIP[3];
@@ -7570,7 +7570,7 @@ for(uint8_t ipRange=1; ipRange<255; ipRange++)
 
 You can also assign to an IPAddress from an array of uint8's or a 32-bit unsigned integer.
 
-```C++
+```cpp
 IPAddress IPfromInt;  // 10.0.0.2 as 10*256^3+0*256^2+0*256+2
 IPfromInt = 167772162UL;
 uint8_t server[] = { 10, 0, 0, 2};
@@ -7580,7 +7580,7 @@ IPfromBytes = server;
 
 Finally IPAddress can be used directly with print.
 
-```C++
+```cpp
 // PRINT THE DEVICE'S IP ADDRESS IN
 // THE FORMAT 192.168.0.10
 IPAddress myIP = WiFi.localIP();
@@ -7614,7 +7614,7 @@ A BLE peripheral can periodically publish data to all nearby devices using adver
 
 Optionally, you can provide a `scanResponse` data object. If provided, the central device can ask for it during the scan process. Both the advertising data and scan data are public - any device can see and request the data without authentication.
 
-```C++
+```cpp
 // PROTOTYPE
 int advertise(BleAdvertisingData* advertisingData, BleAdvertisingData* scanResponse = nullptr) const;
 
@@ -7639,7 +7639,7 @@ You cannot use BLE advertising while in listening mode (blinking dark blue). The
 
 You can advertise as an Apple iBeacon. See the [`iBeacon`](/reference/device-os/firmware/#ibeacon) section for more information.
 
-```C++
+```cpp
 // PROTOTYPE
 int advertise(const iBeacon& beacon) const;
 ```
@@ -7678,7 +7678,7 @@ BLE.stopAdvertising();
 
 Returns `true` (1) if advertising is currently on or `false` (0) if not.
 
-```C++
+```cpp
 // PROTOTYPE
 bool advertising() const;
 ```
@@ -7687,7 +7687,7 @@ bool advertising() const;
 
 You can get the advertising data that you previously set using `getAdvertisingData()`. Initially the data will be empty.
 
-```C++
+```cpp
 // PROTOTYPE
 ssize_t getAdvertisingData(BleAdvertisingData* advertisingData) const;
 ```
@@ -7699,7 +7699,7 @@ See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdat
 
 You can set the advertising data using `setAdvertisingData`. You might want to do this if you want to change the data while continuously advertising.
 
-```C++
+```cpp
 // PROTOTYPE
 int setAdvertisingData(BleAdvertisingData* advertisingData) const;
 ```    
@@ -7768,7 +7768,7 @@ The advertising type can be set with this method. This is not typically necessar
 
 The default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
 
-```C++
+```cpp
 // PROTOTYPE
 int setAdvertisingType(BleAdvertisingEventType type) const;
 ```
@@ -7779,7 +7779,7 @@ See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeve
 
 Gets the advertising parameters.
 
-```C++
+```cpp
 // PROTOTYPE
 int getAdvertisingParameters(BleAdvertisingParams* params) const;
 
@@ -7797,7 +7797,7 @@ See [`BleAdvertisingParameters`](/reference/device-os/firmware/#bleadvertisingpa
 
 Sets the advertising parameters using individual values for interval, timeout, and type.
 
-```C++
+```cpp
 // PROTOTYPE
 int setAdvertisingParameters(uint16_t interval, uint16_t timeout, BleAdvertisingEventType type) const;
 ```
@@ -7810,7 +7810,7 @@ int setAdvertisingParameters(uint16_t interval, uint16_t timeout, BleAdvertising
 
 Sets the advertising parameters from the BleAdvertisingParams struct.
 
-```C++
+```cpp
 // PROTOTYPE
 int setAdvertisingParameters(const BleAdvertisingParams* params) const;
 ```
@@ -7822,7 +7822,7 @@ See [`BleAdvertisingParameters`](/reference/device-os/firmware/#bleadvertisingpa
 
 In addition to the advertising data, there is an additional 31 bytes of data referred to as the scan response data. This data can be requested during the scan process. It does not require connection or authentication. This is only used from scannable peripheral devices.
 
-```C++
+```cpp
 // PROTOTYPE
 ssize_t getScanResponseData(BleAdvertisingData* scanResponse) const;
 ```
@@ -7833,7 +7833,7 @@ See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdat
 
 In addition to the advertising data, there is an additional 31 bytes of data referred to as the scan response data. This data can be requested during the scan process. It does not require connection or authentication. This is only used from scannable peripheral devices.
 
-```C++
+```cpp
 // PROTOTYPE
 int setScanResponseData(BleAdvertisingData* scanResponse) const;
 ```
@@ -7845,7 +7845,7 @@ See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdat
 
 Adds a characteristic to this peripheral device from a [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object. 
 
-```C++
+```cpp
 // PROTOTYPE
 BleCharacteristic addCharacteristic(BleCharacteristic& characteristic) const;
 
@@ -7874,7 +7874,7 @@ Instead of setting the parameters in a BleCharacteristic object you can pass the
 
 The parameters are the same as the BleCharacteristic constructors and are described in more detail in the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) documentation.
 
-```C++
+```cpp
 // PROTOTYPE
 BleCharacteristic addCharacteristic(const char* desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
 
@@ -7901,7 +7901,7 @@ There are three overloads of `BLE.scan()`, however all of them are synchronous. 
 
 The default is 5 seconds, however you can change it using `setScanTimeout()`.
 
-```C++
+```cpp
 // PROTOTYPE
 int scan(BleScanResult* results, size_t resultCount) const;
 ```
@@ -7923,7 +7923,7 @@ This call does not return until the scan is complete. The `setScanTimeout()` fun
 
 The default is 5 seconds, however you can change it using `setScanTimeout()`.
 
-```C++
+```cpp
 // PROTOTYPE
 Vector<BleScanResult> scan() const;
 
@@ -7978,7 +7978,7 @@ The callback version of scan does not return until the scan has reached the end 
 
 The default is 5 seconds, however you can change it using `setScanTimeout()`.
 
-```C++
+```cpp
 // PROTOTYPE
 int scan(BleOnScanResultCallback callback, void* context) const;
 
@@ -8020,7 +8020,7 @@ void scanResultCallback(const BleScanResult *scanResult, void *context) {
 
 The callback has this prototype:
 
-```C++
+```cpp
 void scanResultCallback(const BleScanResult *scanResult, void *context)
 ```
 
@@ -8041,7 +8041,7 @@ The `stopScanning()` method interrupts a `BLE.scan()` in progress before the end
 
 You might want to do this if you're looking for a specific device - you can stop scanning after you find it instead of waiting until the end of the scan timeout.
 
-```C++
+```cpp
 // PROTOTYPE
 int stopScanning() const;
 
@@ -8056,7 +8056,7 @@ void scanResultCallback(const BleScanResult *scanResult, void *context) {
 
 Sets the length of time `scan()` will run for. The default is 5 seconds.
 
-```C++
+```cpp
 // PROTOTYPE
 int setScanTimeout(uint16_t timeout) const;
 
@@ -8074,7 +8074,7 @@ Returns 0 on success or a non-zero error code.
 
 Gets the parameters used for scanning.
 
-```C++
+```cpp
 // PROTOTYPE
 int getScanParameters(BleScanParams* params) const;
 
@@ -8091,7 +8091,7 @@ See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more inf
 
 Sets the parameters used for scanning. Typically you will only ever need to change the scan timeout, but if you need finer control you can use this function.
 
-```C++
+```cpp
 // PROTOTYPE
 int setScanParameters(const BleScanParams* params) const;
 ```
@@ -8108,7 +8108,7 @@ In a central device the logic typically involves:
 
 Scanning for devices provides its address as well as additional data (advertising data). With the address you can connect:
 
-```C++
+```cpp
 // PROTOTYPE
 BlePeerDevice connect(const BleAddress& addr, bool automatic = true) const;
 BlePeerDevice connect(const BleAddress& addr, const BleConnectionParams* params, bool automatic = true) const;
@@ -8146,7 +8146,7 @@ See the next section for the use of `BleConnectionParams` as well as interval, l
 
 This version of connect allows parameters for the connection to be set.
 
-```C++
+```cpp
 // PROTOTYPE
 BlePeerDevice connect(const BleAddress& addr, uint16_t interval, uint16_t latency, uint16_t timeout) const;
 ```
@@ -8163,7 +8163,7 @@ Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object
 
 Sets the connection parameter defaults so future calls to connect() without options will use these values.
 
-```C++
+```cpp
 // PROTOTYPE
 int setPPCP(uint16_t minInterval, uint16_t maxInterval, uint16_t latency, uint16_t timeout) const;
 ```
@@ -8179,7 +8179,7 @@ Note that the timeout is the timeout after the connection is established, to det
 
 Returns `true` (1) if a connected to a device or `false` (0) if not.
 
-```C++
+```cpp
 // PROTOTYPE
 bool connected() const;
 ```
@@ -8191,7 +8191,7 @@ Can be used in central or peripheral mode, however if central mode if you are su
 
 Disconnects all peers.
 
-```C++
+```cpp
 // PROTOTYPE
 int disconnect() const;
 ```
@@ -8203,7 +8203,7 @@ Returns 0 on success or a non-zero error code.
 
 Typically used in central mode when making connections to multiple peripherals to disconnect a single peripheral.
 
-```C++
+```cpp
 // PROTOTYPE
 int disconnect(const BlePeerDevice& peripheral) const;
 ```
@@ -8216,7 +8216,7 @@ Returns 0 on success or a non-zero error code.
 
 Turns the BLE radio on. It defaults to on, so you normally do not need to call this unless you have turned it off.
 
-```C++
+```cpp
 // PROTOTYPE
 int on();
 ```
@@ -8227,7 +8227,7 @@ Returns 0 on success, or a non-zero error code.
 
 Turns the BLE radio off. You normally do not need to do this.
 
-```C++
+```cpp
 // PROTOTYPE
 int off();
 ```
@@ -8238,7 +8238,7 @@ Returns 0 on success, or a non-zero error code.
 
 Starts the BLE service. It defaults to started, so you normally do not need to call this unless you have stopped it.
 
-```C++
+```cpp
 // PROTOTYPE
 int begin();
 ```
@@ -8249,7 +8249,7 @@ Returns 0 on success, or a non-zero error code.
 
 Stops the BLE service. You normally do not need to do this.
 
-```C++
+```cpp
 // PROTOTYPE
 int end();
 ```
@@ -8263,7 +8263,7 @@ Registers a callback function that is called when a connection is established.
 
 You can use this method, or you can simply monitor `BLE.connected()` (for peripheral devices) or `peer.connected()` for central devices.
 
-```C++
+```cpp
 // PROTOTYPE
 void onConnected(BleOnConnectedCallback callback, void* context);
 ```
@@ -8287,7 +8287,7 @@ Registers a callback function that is called when a connection is disconnected o
 
 You can use this method, or you can simply monitor `BLE.connected()` (for peripheral devices) or `peer.connected()` for central devices.
 
-```C++
+```cpp
 // PROTOTYPE
 void onDisconnected(BleOnDisconnectedCallback callback, void* context);
 ````
@@ -8311,7 +8311,7 @@ Valid values are: -20, -16, -12, -8, -4, 0, 4, 8.
 
 Returns 0 on success or a non-zero error code.
 
-```C++
+```cpp
 // PROTOTYPE
 int setTxPower(int8_t txPower) const;
 
@@ -8327,7 +8327,7 @@ Gets the current txPower. The default is 0.
 
 Returns 0 on success or a non-zero error code.
 
-```C++
+```cpp
 // PROTOTYPE
 int txPower(int8_t* txPower) const;
 
@@ -8341,7 +8341,7 @@ Log.info("txPower=%d", txPower);
 
 Get the BLE address of this device.
 
-```C++
+```cpp
 // PROTOTYPE
 const BleAddress address() const;
 ```
@@ -8352,7 +8352,7 @@ See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more informati
 
 There isn't a separate class for configuring BLE Services. A service is identified by its UUID, and this UUID passed in when creating the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object(s) for the service. For example:
 
-```C++
+```cpp
 // The "Health Thermometer" service is 0x1809.
 // See https://www.bluetooth.com/specifications/gatt/services/
 BleUuid healthThermometerService(0x1809);
@@ -8384,7 +8384,7 @@ For more information about characteristics, see [the BLE tutorial](/tutorials/de
 
 You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the [heart rate central tutorial](/tutorials/device-os/bluetooth-le/#heart-rate-central) to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
 
-```C++
+```cpp
 // PROTOTYPE
 BleCharacteristic();
 
@@ -8395,14 +8395,14 @@ BleCharacteristic myCharacteristic;
 
 Once you've created your characteristic in `setup()` you typically hook in its onDataReceived handler.
 
-```C++
+```cpp
 // In setup():
 myCharacteristic.onDataReceived(onDataReceived, NULL);
 ```
 
 The `onDataReceived` function has this prototype:
 
-```C++
+```cpp
 void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) 
 ```
 
@@ -8415,7 +8415,7 @@ The `context` parameter can be used to pass extra data to the callback. It's typ
 
 In a peripheral role, you typically define a value that you send out using this constructor. The parameters are:
 
-```C++
+```cpp
 // PROTOTYPE
 BleCharacteristic(const char* desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr);
 
@@ -8450,7 +8450,7 @@ BLE.addCharacteristic(batteryLevelCharacteristic);
 
 In a peripheral role if you are receiving data from the central device, you typically assign your characteristic like this.
 
-```C++
+```cpp
 // PROTOTYPE
 // Type T is any type that can be passed to BleUuid, such as const char * or a string-literal.
 template<typename T>
@@ -8473,7 +8473,7 @@ BleCharacteristic rxCharacteristic("rx", BleCharacteristicProperty::WRITE_WO_RSP
 
 The data received handler has this prototype. 
 
-```C++
+```cpp
 void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context)
 ```
 
@@ -8490,7 +8490,7 @@ The callback is called from the BLE thread. It has a smaller stack than the norm
 
 Get the UUID of this characteristic.
 
-```C++
+```cpp
 // PROTOTYPE
 BleUuid UUID() const;
 
@@ -8506,7 +8506,7 @@ See also [`BleUuid`](/reference/device-os/firmware/#bleuuid).
 Get the BLE characteristic properties for this characteristic. This indicates whether it can be read, written, etc..
 
 
-```C++
+```cpp
 // PROTOTYPE
 BleCharacteristicProperty properties() const;
 
@@ -8522,7 +8522,7 @@ This overload of `getValue()` is typically used when you have a complex characte
 
 For example, the heart measurement characteristic has a flags byte followed by either a 8-bit or 16-bit value. You typically extract that to a uint8_t buffer using this method and manually extract the data.
 
-```C++
+```cpp
 // PROTOTYPE
 ssize_t getValue(uint8_t* buf, size_t len) const;
 ```
@@ -8531,7 +8531,7 @@ ssize_t getValue(uint8_t* buf, size_t len) const;
 
 If your characteristic has a string value, you can read it out using this method.
 
-```C++
+```cpp
 // PROTOTYPE
 ssize_t getValue(String& str) const;
 
@@ -8544,7 +8544,7 @@ characteristic.getValue(value);
 
 You can read out arbitrary data types (int8_t, uint8_t, uint16_t, uint32_t, struct, etc.) by passing a pointer to the object.
 
-```C++
+```cpp
 // PROTOTYPE
 template<typename T>
 ssize_t getValue(T* val) const;
@@ -8558,7 +8558,7 @@ characteristic.getValue(&value);
 
 To set the value of a characteristic to arbitrary data, you can use this function.
 
-```C++
+```cpp
 // PROTOTYPE
 ssize_t setValue(const uint8_t* buf, size_t len);
 ```
@@ -8567,7 +8567,7 @@ ssize_t setValue(const uint8_t* buf, size_t len);
 
 To set the value of the characteristic to a string value, use this method. The terminating null is not included in the characteristic; the length is set to the actual string length.
 
-```C++
+```cpp
 // PROTOTYPE
 ssize_t setValue(const String& str);
 ssize_t setValue(const char* str);
@@ -8577,7 +8577,7 @@ ssize_t setValue(const char* str);
 
 You can write out arbitrary data types (int8_t, uint8_t, uint16_t, uint32_t, struct, etc.) by passing the value to setValue.
 
-```C++
+```cpp
 // PROTOTYPE
 template<typename T>
 ssize_t setValue(T val) const;
@@ -8593,7 +8593,7 @@ To be notified when a value is received to add a data received callback.
 
 The context is used when you've implemented the data received handler in a C++ class. You can pass the object instance (`this`) in context. If you have a global function, you probably don't need the context and can pass NULL.
 
-```C++
+```cpp
 // PROTOTYPE
 void onDataReceived(BleOnDataReceivedCallback callback, void* context);
 
@@ -8636,7 +8636,7 @@ The 16-bit characteristic IDs are [listed here](https://www.bluetooth.com/specif
 
 You can create a 16-bit UUID like this:
 
-```C++
+```cpp
 // PROTOTYPE
 BleUuid(uint16_t uuid16);
 
@@ -8650,7 +8650,7 @@ The 128-bit UUIDs are used for your own custom services and characteristics. The
 
 A 128-bit (16 byte) UUID is often written like this: `240d5183-819a-4627-9ca9-1aa24df29f18`. It's a series of 32 hexadecimal digits (0-9, a-f) written in a 8-4-4-4-12 pattern. 
 
-```C++
+```cpp
 // PROTOTYPE
 BleUuid(const String& uuid);
 BleUuid(const char* uuid);
@@ -8661,7 +8661,7 @@ BleUuid myCustomService("240d5183-819a-4627-9ca9-1aa24df29f18");
 
 You can also construct a UUID from an array of bytes (uint8_t):
 
-```C++
+```cpp
 // PROTOTYPE
 BleUuid(const uint8_t* uuid128, BleUuidOrder order = BleUuidOrder::LSB);
 
@@ -8671,7 +8671,7 @@ BleUuid myCustomService({0x24, 0x0d, 0x51, 0x83, 0x81, 0x9a, 0x46, 0x27, 0x9c, 0
 
 #### type()
 
-```C++
+```cpp
 // PROTOTYPE
 BleUuidType type() const;
 
@@ -8687,7 +8687,7 @@ Returns a constant:
 
 #### isValid()
 
-```C++
+```cpp
 // PROTOTYPE
 bool isValid() const;
 
@@ -8781,7 +8781,7 @@ Construct a `BleAdvertisingData` object. You typically do this in a peripheral r
 
 In the central role, you get a filled in object in the [`BleScanResult`](/reference/device-os/firmware/#blescanresult) object.
 
-```C++
+```cpp
 // PROTOTYPE
 BleAdvertisingData();
 ```
@@ -8790,7 +8790,7 @@ BleAdvertisingData();
 
 Appends advertising data of a specific type to the advertising data object.
 
-```C++
+```cpp
 // PROTOTYPE
 size_t append(BleAdvertisingDataType type, const uint8_t* buf, size_t len, bool force = false);
 
@@ -8814,7 +8814,7 @@ You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If 
 
 Appends custom advertising data to the advertising data object.
 
-```C++
+```cpp
 // PROTOTYPE
 size_t appendCustomData(const uint8_t* buf, size_t len, bool force = false);
 ```
@@ -8839,7 +8839,7 @@ An optional field in the advertising data is the local name. This can be useful 
 
 The name takes up the length of the name plus two bytes (type and length). The total advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and if you include service identifiers there isn't much left space for the name.
 
-```C++
+```cpp
 // PROTOTYPE
 size_t appendLocalName(const char* name);
 size_t appendLocalName(const String& name);
@@ -8851,7 +8851,7 @@ Appends a service UUID to the advertisement (short or long). You typically only 
 
 For example, the health thermometer advertises the health thermometer service. Upon connecting, the central device can discover that it also supports the battery service. Put another way, a user or app would most likely only want to discover a nearby thermometer, not any battery powered device nearby. 
 
-```C++
+```cpp
 // PROTOTYPE
 // Type T is any type that can be passed to the BleUuid constructor
 template<typename T>
@@ -8870,7 +8870,7 @@ Since long UUIDs are long (16 bytes plus 2 bytes of overhead) they will use a lo
 
 Remove all existing data from the BleAdvertisingData object.
 
-```C++
+```cpp
 // PROTOTYPE
 void clear();
 ```
@@ -8879,7 +8879,7 @@ void clear();
 
 Remove a specific data type from the BleAdvertisingData object.
 
-```C++
+```cpp
 // PROTOTYPE
 void remove(BleAdvertisingDataType type);
 ```
@@ -8891,7 +8891,7 @@ void remove(BleAdvertisingDataType type);
 
 In a peripheral role, you sometimes will want to build your advertising data complete by hand. You can then copy your pre-build structure into the BleAdvertisingData object using `set()`.
 
-```C++
+```cpp
 // PROTOTYPE
 size_t set(const uint8_t* buf, size_t len);
 ```
@@ -8900,7 +8900,7 @@ size_t set(const uint8_t* buf, size_t len);
 
 In the central role, if you want to get a specific block of advertising data by type, you can use this method.
 
-```C++
+```cpp
 // PROTOTYPE
 size_t get(BleAdvertisingDataType type, uint8_t* buf, size_t len) const;
 ```
@@ -8919,7 +8919,7 @@ In the central role, if you want to get the advertising data as a complete block
 Advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`) and you should make your buffer at least that large to be able to receive the largest possible data.
 
 
-```C++
+```cpp
 // PROTOTYPE
 size_t get(uint8_t* buf, size_t len) const;
 ```
@@ -8933,7 +8933,7 @@ Returns the number of bytes copied, which will be <= `len`.
 
 Return the length of the data in bytes.
 
-```C++
+```cpp
 // PROTOTYPE
 size_t length() const;
 ```
@@ -8942,7 +8942,7 @@ size_t length() const;
 
 Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). Returns a String object or an empty string if the advertising data does not contain a name.
 
-```C++
+```cpp
 // PROTOTYPE
 String deviceName() const;
 ```
@@ -8951,7 +8951,7 @@ String deviceName() const;
 
 Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). 
 
-```C++
+```cpp
 // PROTOTYPE
 size_t deviceName(char* buf, size_t len) const;
 ```
@@ -8967,7 +8967,7 @@ Note that the buf will not be null-terminated (not a c-string).
 
 Returns an array of service UUIDs in the advertising data.
 
-```C++
+```cpp
 // PROTOTYPE
 size_t serviceUUID(BleUuid* uuids, size_t count) const;
 ```
@@ -8991,7 +8991,7 @@ Since the advertisement data is limited to 31 bytes, the maximum number of servi
 
 Returns the `MANUFACTURER_SPECIFIC_DATA` data in an advertisement.
 
-```C++
+```cpp
 // PROTOTYPE
 size_t customData(uint8_t* buf, size_t len) const;
 ```
@@ -9004,7 +9004,7 @@ Returns the size of the data in bytes. Returns 0 if there is no `MANUFACTURER_SP
 
 Return true if the advertising data contains the specified type.
 
-```C++
+```cpp
 // PROTOTYPE
 bool contains(BleAdvertisingDataType type) const;
 ```
@@ -9080,7 +9080,7 @@ The most commonly used is `BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE`: support
 You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically. 
 
 
-```C++
+```cpp
 // EXAMPLE
 
 // In setup():
@@ -9101,7 +9101,7 @@ When using a Particle device in BLE central mode, connecting a peripheral return
 
 Typically you'd get the `BlePeerDevice` from calling [`BLE.connect()`](/reference/device-os/firmware/#ble-connect-).
 
-```C++
+```cpp
 BlePeerDevice peer = BLE.connect(scanResults[ii].address);
 if (peer.connected()) {
 	peerTxCharacteristic = peer.getCharacteristicByUUID(txUuid);
@@ -9117,7 +9117,7 @@ Once you have the `BlePeerDevice` object you can use the following methods:
 
 Returns true if the peer device is currently connected.
 
-```C++
+```cpp
 // PROTOTYPE
 bool connected();
 
@@ -9134,7 +9134,7 @@ else {
 
 Get the BLE address of the peripheral device.
 
-```C++
+```cpp
 // PROTOTYPE
 const BleAddress& address() const;
 
@@ -9150,7 +9150,7 @@ Get a characteristic by its UUID, either short or long UUID. See also [`BleUuid`
 
 You often do this from the central device after making a connection. 
 
-```C++
+```cpp
 // PROTOTYPE
 bool getCharacteristicByUUID(BleCharacteristic& characteristic, const BleUuid& uuid) const;
 
@@ -9167,7 +9167,7 @@ bool bResult = peer.getCharacteristicByUUID(characteristic, BleUuid("6E400002-B5
 
 Get the characteristic by its description. As these strings are not standardized like UUIDs, it's best to use UUIDs instead. Returns true if the characteristic was found.
 
-```C++
+```cpp
 // PROTOTYPE
 bool getCharacteristicByDescription(BleCharacteristic& characteristic, const char* desc) const;
 bool getCharacteristicByDescription(BleCharacteristic& characteristic, const String& desc) const;
@@ -9314,7 +9314,7 @@ Valid values include:
 
 To set the parameters for advertising, you can use the BleAdvertisingParams structure:
 
-```C++
+```cpp
 // PROTOTYPE
 uint16_t version;
 uint16_t size;
@@ -9344,7 +9344,7 @@ int res = BLE.getAdvertisingParameters(&param);
 
 The BleScanParams structure specifies the settings for scanning on a central device.
 
-```C++
+```cpp
 // PROTOTYPE
 uint16_t version;
 uint16_t size;
@@ -9424,7 +9424,7 @@ NFC is supported in Device OS 1.3.1 and later. NFC support was in beta test in D
 
 You can run this device firmware and use a mobile app like **NFC Reader** to read the NFC data. The blue D7 LED will flash briefly when reading. Each time you read, the counter will increment.
 
-```C++
+```cpp
 #include "Particle.h"
 
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
@@ -9686,14 +9686,14 @@ The TCPServer can only be used on a Wi-Fi or Ethernet mesh gateway, including th
 The Thread mesh network does not support TCP across the mesh network; it only supports UDP from nodes that are only on mesh. 
 {{/if}}
 
-```C++
+```cpp
 // SYNTAX
 TCPServer server = TCPServer(port);
 ```
 
 Parameters: `port`: the port to listen on (`int`)
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // telnet defaults to port 23
@@ -9735,7 +9735,7 @@ void loop()
 
 Tells the server to begin listening for incoming connections.
 
-```C++
+```cpp
 // SYNTAX
 server.begin();
 ```
@@ -9759,7 +9759,7 @@ This function also takes an optional argument `timeout`, which allows the caller
 The application code may additionally check if an error occurred during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
 
 
-```C++
+```cpp
 // SYNTAX
 server.write(val);
 server.write(buf, len);
@@ -9786,7 +9786,7 @@ Returns: `size_t`: the number of bytes written
 
 Print data to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
-```C++
+```cpp
 // SYNTAX
 server.print(data);
 server.print(data, BASE);
@@ -9803,7 +9803,7 @@ Returns: `size_t`: the number of bytes written
 
 Print data, followed by a newline, to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
-```C++
+```cpp
 // SYNTAX
 server.println();
 server.println(data);
@@ -9823,12 +9823,12 @@ Returns: int `0` when everything is ok, a non-zero error code in case of an erro
 
 This value is updated every after every call to [`write()`](#write--3) or can be manually cleared by  [`clearWriteError()`](#clearwriteerror-)
 
-```C++
+```cpp
 // SYNTAX
 int err = server.getWriteError();
 ```
 
-```C++
+```cpp
 // EXAMPLE
 TCPServer server;
 // Write in non-blocking mode to the last client that connected to the server
@@ -9859,12 +9859,12 @@ The TCPClient can only be used on mesh gateway, including the Argon, Boron, and 
 The Thread mesh network does not support TCP across the mesh network; it only supports UDP from nodes that are only on mesh. 
 {{/if}}
 
-```C++
+```cpp
 // SYNTAX
 TCPClient client;
 ```
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 TCPClient client;
@@ -9920,7 +9920,7 @@ When using a Particle SIM with the {{device}}, be careful interacting with web h
 
 Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data.
 
-```C++
+```cpp
 // SYNTAX
 client.connected();
 ```
@@ -9931,7 +9931,7 @@ Returns true if the client is connected, false if not.
 
 Returns true if the network socket is open and the underlying network is ready. 
 
-```C++
+```cpp
 // SYNTAX
 client.status();
 ```
@@ -9942,7 +9942,7 @@ This is different than connected() which returns true if the socket is closed bu
 
 Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name.
 
-```C++
+```cpp
 // SYNTAX
 client.connect();
 client.connect(ip, port);
@@ -9970,7 +9970,7 @@ This function also takes an optional argument `timeout`, which allows the caller
 The application code may additionally check if an error occurred during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
 
 
-```C++
+```cpp
 // SYNTAX
 client.write(val);
 client.write(buf, len);
@@ -9997,7 +9997,7 @@ Returns: `size_t`: `write()` returns the number of bytes written.
 
 Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
-```C++
+```cpp
 // SYNTAX
 client.print(data);
 client.print(data, BASE) ;
@@ -10014,7 +10014,7 @@ Returns:  `byte`:  `print()` will return the number of bytes written, though rea
 
 Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
-```C++
+```cpp
 // SYNTAX
 client.println();
 client.println(data);
@@ -10030,7 +10030,7 @@ Parameters:
 
 Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to).
 
-```C++
+```cpp
 // SYNTAX
 client.available();
 ```
@@ -10040,7 +10040,7 @@ Returns the number of bytes available.
 ### read()
 Read the next byte received from the server the client is connected to (after the last call to `read()`).
 
-```C++
+```cpp
 // SYNTAX
 client.read();
 ```
@@ -10049,7 +10049,7 @@ Returns the next byte (or character), or -1 if none is available.
 
 or `int read(uint8_t *buffer, size_t size)` reads all readily available bytes up to `size` from the server the client is connected to into the provided `buffer`.
 
-```C++
+```cpp
 // SYNTAX
 bytesRead = client.read(buffer, length);
 ```
@@ -10062,7 +10062,7 @@ Waits until all outgoing data in buffer has been sent.
 
 **NOTE:** That this function does nothing at present.
 
-```C++
+```cpp
 // SYNTAX
 client.flush();
 ```
@@ -10078,7 +10078,7 @@ from `TCPServer.available()` (where the client is a remote client connecting to 
 When `TCPClient` was created directly via `TCPClient.connect()`, then `remoteIP`
 returns the remote server the client is connected to.
 
-```C++
+```cpp
 
 // EXAMPLE - TCPClient from TCPServer
 
@@ -10106,7 +10106,7 @@ void loop()
 }
 ```
 
-```C++
+```cpp
 // EXAMPLE - TCPClient.connect()
 
 TCPClient client;
@@ -10124,7 +10124,7 @@ if (client.connected())
 
 Disconnect from the server.
 
-```C++
+```cpp
 // SYNTAX
 client.stop();
 ```
@@ -10139,12 +10139,12 @@ Returns: int `0` when everything is ok, a non-zero error code in case of an erro
 This value is updated every after every call to [`write()`](#write--4) or can be manually cleared by {{#if has-tcpserver}}[`clearWriteError()`](#clearwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`clearWriteError()`](#clearwriteerror-){{/if}}
 
 
-```C++
+```cpp
 // SYNTAX
 int err = client.getWriteError();
 ```
 
-```C++
+```cpp
 // EXAMPLE
 TCPClient client;
 // Write in non-blocking mode
@@ -10426,7 +10426,7 @@ Waits until all outgoing data in buffer has been sent.
 
 **NOTE:** That this function does nothing at present.
 
-```C++
+```cpp
 // SYNTAX
 Udp.flush();
 ```
@@ -10901,7 +10901,7 @@ The onChange handler is called 1000 times per second so you should be careful to
 
 Allows a set of PWM pins to mirror the functionality of the on-board RGB LED.
 
-```C++
+```cpp
 // SYNTAX
 // Common-cathode RGB LED connected to A4 (R), A5 (G), A7 (B)
 RGB.mirrorTo(A4, A5, A7);
@@ -11505,7 +11505,7 @@ Returns the number of milliseconds since the device began running the current pr
 
 `unsigned long time = millis();`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 unsigned long time;
@@ -11533,7 +11533,7 @@ Returns the number of microseconds since the device booted.
 
 `unsigned long time = micros();`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 unsigned long time;
@@ -11559,14 +11559,14 @@ In Device OS v0.4.3 and earlier this number will overflow (go back to zero), aft
 
 Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
 
-```C++
+```cpp
 // SYNTAX
 delay(ms);
 ```
 
 `ms` is the number of milliseconds to pause *(unsigned long)*
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int ledPin = D1;              // LED connected to digital pin D1
@@ -11591,13 +11591,13 @@ the parameter for millis is an unsigned long, errors may be generated if a progr
 
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
 
-```C++
+```cpp
 // SYNTAX
 delayMicroseconds(us);
 ```
 `us` is the number of microseconds to pause *(unsigned int)*
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int outPin = D1;              // digital pin D1
@@ -12151,7 +12151,7 @@ attachInterrupt(pin, function, mode, priority, subpriority);
 
 The function returns a boolean whether the ISR was successfully attached (true) or not (false).
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 void blink(void);
@@ -12223,7 +12223,7 @@ detachInterrupt(pin);
 
 Re-enables interrupts (after they've been disabled by `noInterrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 void setup() {}
@@ -12247,7 +12247,7 @@ void loop()
 
 Disables interrupts (you can re-enable them with `interrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
-```C++
+```cpp
 // SYNTAX
 noInterrupts();
 ```
@@ -12335,7 +12335,7 @@ Starts a stopped timer (a newly created timer is stopped). If `start()` is calle
 
 `start()`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.start(); // starts timer if stopped or resets it if started.
 
@@ -12347,7 +12347,7 @@ Stops a running timer.
 
 `stop()`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.stop(); // stops a running timer.
 
@@ -12361,7 +12361,7 @@ Changes the period of a previously created timer. It can be called to change the
 
 `newPeriod` is the new timer period (unsigned int)
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.changePeriod(1000); // Reset period of timer to 1000ms.
 
@@ -12374,7 +12374,7 @@ Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is 
 
 `reset()`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.reset(); // reset timer if running, or start timer if stopped.
 
@@ -12392,7 +12392,7 @@ timer.reset(); // reset timer if running, or start timer if stopped.
 
 Start, stop and reset a timer or change a timer's period (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if started.
 
@@ -12409,7 +12409,7 @@ timer.changePeriodFromISR(newPeriod);  // WITHIN an ISR, change the timer period
 
 Stop and remove a timer from the (max. 10) timer list, freeing a timer "slot" in the list.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.dispose(); // stop and delete timer from timer list.
 
@@ -12423,7 +12423,7 @@ timer.dispose(); // stop and delete timer from timer list.
 
 Returns `true` if the timer is in active state (pending), or `false` otherwise.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 if (timer.isActive()) {
     // ...
@@ -12484,7 +12484,7 @@ Calculates the minimum of two numbers.
 
 The functions returns the smaller of the two numbers.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 sensVal = min(sensVal, 100); // assigns sensVal to the smaller of sensVal or 100
                              // ensuring that it never gets above 100.
@@ -12496,7 +12496,7 @@ Perhaps counter-intuitively, max() is often used to constrain the lower end of a
 **WARNING:**
 Because of the way the min() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results
 
-```C++
+```cpp
 min(a++, 100);   // avoid this - yields incorrect results
 
 a++;
@@ -12514,7 +12514,7 @@ Calculates the maximum of two numbers.
 
 The functions returns the larger of the two numbers.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 sensVal = max(senVal, 20); // assigns sensVal to the larger of sensVal or 20
                            // (effectively ensuring that it is at least 20)
@@ -12526,7 +12526,7 @@ Perhaps counter-intuitively, max() is often used to constrain the lower end of a
 **WARNING:**
 Because of the way the max() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results
 
-```C++
+```cpp
 max(a--, 0);   // avoid this - yields incorrect results
 
 a--;           // use this instead -
@@ -12547,7 +12547,7 @@ and returns `-x` if `x` is less than `0`.
 **WARNING:**
 Because of the way the abs() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results.
 
-```C++
+```cpp
 abs(a++);   // avoid this - yields incorrect results
 
 a++;          // use this instead -
@@ -12569,7 +12569,7 @@ The function will return:
 `a`: if `x` is less than `a`
 `b`: if `x` is greater than `b`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 sensVal = constrain(sensVal, 10, 150);
 // limits range of sensor values to between 10 and 150
@@ -12577,7 +12577,7 @@ sensVal = constrain(sensVal, 10, 150);
 
 ### map()
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Map an analog value to 8 bits (0 to 255)
@@ -12624,7 +12624,7 @@ The function returns the mapped value, as integer or floating point depending on
 *Appendix:*
 For the mathematically inclined, here's the whole function
 
-```C++
+```cpp
 int map(int value, int fromStart, int fromEnd, int toStart, int toEnd)
 {
     if (fromEnd == fromStart) {
@@ -12673,7 +12673,7 @@ Parameters
 
 Returns: a random value between 0 and up to, but not including `max`.
 
-```c++
+```cpp
 int r = random(10);
 // r is >= 0 and < 10
 // The smallest value returned is 0
@@ -12694,7 +12694,7 @@ Parameters:
 Returns: a random value from `min` and up to, but not including `max`.
 
 
-```c++
+```cpp
 int r = random(10, 100);
 // r is >= 10 and < 100
 // The smallest value returned is 10
@@ -12772,7 +12772,7 @@ will persist even after the device resets after a deep sleep or is powered off.
 ### length()
 Returns the total number of bytes available in the emulated EEPROM.
 
-```c++
+```cpp
 // SYNTAX
 size_t length = EEPROM.length();
 ```
@@ -12797,7 +12797,7 @@ and `EEPROM.length()-1`
 `object` is the object data to write. The number of bytes to write is automatically determined from
 the type of object.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 // Write a value (2 bytes in this case) to the EEPROM address
 int addr = 10;
@@ -12840,7 +12840,7 @@ and `EEPROM.length()-1`
 `object` is the object data that would be read. The number of bytes read is automatically determined
 from the type of object.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 // Read a value (2 bytes in this case) from EEPROM addres
 int addr = 10;
@@ -12882,7 +12882,7 @@ uint8_t value = EEPROM.read(int address);
 
 `address` is the address (int) of the EEPROM location to read
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Read the value of the second byte of EEPROM
@@ -12903,7 +12903,7 @@ write(int address, uint8_t value);
 `address` is the address (int) of the EEPROM location to write to
 `value` is the byte data (uint8_t) to write
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Write a byte value to the second byte of EEPROM
@@ -12921,7 +12921,7 @@ haven't changed.
 ### clear()
 Erase all the EEPROM so that all reads will return 255 (hexadecimal 0xFF).
 
-```C++
+```cpp
 // EXAMPLE USAGE
 // Reset all EEPROM locations to 0xFF
 EEPROM.clear();
@@ -13006,7 +13006,7 @@ Power Conditions and how they relate to Backup RAM initialization and data reten
 
 With regular RAM, data is stored in RAM by declaring variables.
 
-```C++
+```cpp
 // regular variables stored in RAM
 float lastTemperature;
 int numberOfPresses;
@@ -13019,7 +13019,7 @@ they will have the initial value 0 if an initial value isn't specified.
 
 Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
 
-```C++
+```cpp
 // retained variables stored in backup RAM
 retained float lastTemperature;
 retained int numberOfPresses;
@@ -13047,7 +13047,7 @@ Here's some typical use cases for `retained` variables:
 Finally, if you don't need the persistence of `retained` variables, you
 can consider them simply as extra RAM to use.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
 
@@ -13694,7 +13694,7 @@ Can be used to determine how long the System button (MODE on Core/Electron, SETU
 
 Returns `uint16_t` as duration button has been held down in milliseconds.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void button_handler(system_event_t event, int duration, void* )
 {
@@ -13864,7 +13864,7 @@ void loop() {}
 
 {{since when="0.4.6"}}
 
-```C++
+```cpp
 // SYNTAX
 System.enterSafeMode();
 ```
@@ -13887,7 +13887,7 @@ Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later.
 {{#if has-stm32}}
 `System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
 
-```C++
+```cpp
 // SYNTAX
 System.sleep(SLEEP_MODE_DEEP, long seconds);
 
@@ -13910,7 +13910,7 @@ System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
 `System.sleep(SLEEP_MODE_DEEP)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
 
 
-```C++
+```cpp
 // SYNTAX
 System.sleep(SLEEP_MODE_DEEP);
 
@@ -13940,7 +13940,7 @@ Wake up by {{#if core}}A7{{else}}WKP{{/if}} pin may be disabled by passing `SLEE
 
 `System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`. This is also the same net result as used in the user-activated Soft Power Down feature when you double-tap the Mode button and the Electron powers down.
 
-```C++
+```cpp
 // SYNTAX
 System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 ```
@@ -13958,7 +13958,7 @@ Also, the real-time-clock (Time class) will not be set when waking up from SLEEP
 ---
 
 `System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
-```C++
+```cpp
 // SYNTAX
 System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 ```
@@ -13972,7 +13972,7 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 
 `System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.{{/if}}
 
-```C++
+```cpp
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
 {{#if has-cellular}}
@@ -14020,7 +14020,7 @@ The Electron and Boron maintain the cellular connection for the duration of the 
 The device will automatically reconnect to the cloud if the cloud was connected when sleep was entered. If disconnected prior to sleep, it will stay disconnected on wake.
 
 {{since when="0.8.0"}}
-```C++
+```cpp
 // SYNTAX
 System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode);
 System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode);
@@ -14094,7 +14094,7 @@ Multiple wakeup pins may be specified for this mode.
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
-```C++
+```cpp
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
 {{#if has-cellular}}
@@ -14137,7 +14137,7 @@ apply
 {{/if}}
 
 {{since when="0.8.0"}}
-```C++
+```cpp
 // SYNTAX
 System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, long seconds);
 System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, long seconds);
@@ -14232,7 +14232,7 @@ _Since 0.8.0_ An application may check the information about the latest sleep by
 
 This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(MANUAL) instead.
 
-```C++
+```cpp
 // SYNTAX
 System.sleep(long seconds);
 
@@ -14253,7 +14253,7 @@ This class allows to query the information about the latest `System.sleep()`.
 
 #### reason()
 
-```C++
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 int reason = result.reason();
@@ -14261,7 +14261,7 @@ int reason = result.reason();
 
 Get the wake up reason.
 
-```C++
+```cpp
 // EXAMPLE
 SleepResult result = System.sleepResult();
 switch (result.reason()) {
@@ -14293,7 +14293,7 @@ Returns a code describing a reason {{device}} woke up from sleep. The following 
 
 #### wokenUpByPin()
 
-```C++
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 bool r = result.wokenUpByPin();
@@ -14311,7 +14311,7 @@ Returns `true` when {{device}} was woken up by a pin.
 
 Returns `true` when {{device}} was woken up by the RTC (after a specified number of seconds).
 
-```C++
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 bool r = result.wokenUpByRtc();
@@ -14329,7 +14329,7 @@ An alias to [`wokenUpByRtc()`](#wokenupbyrtc-).
 
 #### pin()
 
-```C++
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 pin_t pin = result.pin();
@@ -14348,7 +14348,7 @@ Returns: the number of the pin that woke the device.
 
 Get the error code of the latest sleep.
 
-```C++
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 int err = result.error();
@@ -14360,7 +14360,7 @@ Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or 
 
 {{since when="0.8.0"}}
 
-```C++
+```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
 ```
@@ -14373,7 +14373,7 @@ Returns: an instance of [`SleepResult`](#sleepresult-) class.
 
 {{since when="0.8.0"}}
 
-```C++
+```cpp
 // SYNTAX
 int reason = System.wakeUpReason();
 ```
@@ -14384,7 +14384,7 @@ See [`SleepResult`](#reason-) documentation.
 
 {{since when="0.8.0"}}
 
-```C++
+```cpp
 // SYNTAX
 bool result = System.wokenUpByPin();
 ```
@@ -14395,7 +14395,7 @@ See [`SleepResult`](#wokenupbypin-) documentation.
 
 _Since 0.8.0_
 
-```C++
+```cpp
 // SYNTAX
 bool result = System.wokenUpByRtc();
 ```
@@ -14406,7 +14406,7 @@ See [`SleepResult`](#wokenupbyrtc-) documentation.
 
 {{since when="0.8.0"}}
 
-```C++
+```cpp
 // SYNTAX
 pin_t pin = System.wakeUpPin();
 ```
@@ -14417,7 +14417,7 @@ See [`SleepResult`](#pin-) documentation.
 
 {{since when="0.8.0"}}
 
-```C++
+```cpp
 // SYNTAX
 int err = System.sleepError();
 ```
@@ -14428,7 +14428,7 @@ See [`SleepResult`](#error-) documentation.
 
 Resets the device, just like hitting the reset button or powering down and back up.
 
-```C++
+```cpp
 uint32_t lastReset = 0;
 
 void setup() {
@@ -14927,7 +14927,7 @@ system("my_command");
 
 Allows a pin to mirror the functionality of the SETUP/MODE button.
 
-```C++
+```cpp
 // SYNTAX
 System.buttonMirror(D1, RISING);
 System.buttonMirror(D1, FALLING, true);
@@ -14961,7 +14961,7 @@ STARTUP(System.buttonMirror(D1, RISING, true));
 
 Disables SETUP button mirroring on a pin.
 
-```C++
+```cpp
 // SYNTAX
 System.disableButtonMirror();
 System.disableButtonMirror(false);
@@ -15428,7 +15428,7 @@ You read the description and determine this is perfect for your application or l
 
 In your application sources, or library headers you would add the definition like this:
 
-```c++
+```cpp
 // Example of adding an Arduino SDK API in a later Arduino SDK than presently supported
 #include "Arduino.h" // this declares that our app/library wants the extended Arduino support
 
@@ -15472,7 +15472,7 @@ Constructs an instance of the String class. There are multiple versions that con
   * an integer or long integer variable, using a specified base
   * a float variable, showing a specific number of decimal places
 
-```C++
+```cpp
 // SYNTAX
 String(val)
 String(val, base)
@@ -15516,7 +15516,7 @@ Returns: an instance of the String class
 
 Access a particular character of the String.
 
-```C++
+```cpp
 // SYNTAX
 string.charAt(n)
 ```
@@ -15533,7 +15533,7 @@ Returns: the n'th character of the String
 Compares two Strings, testing whether one comes before or after the other, or whether they're equal. The strings are compared character by character, using the ASCII values of the characters. That means, for example, that 'a' comes before 'b' but after 'A'. Numbers come before letters.
 
 
-```C++
+```cpp
 // SYNTAX
 string.compareTo(string2)
 ```
@@ -15553,7 +15553,7 @@ Returns:
 
 Combines, or *concatenates* two strings into one string. The second string is appended to the first, and the result is placed in the original string.
 
-```C++
+```cpp
 // SYNTAX
 string.concat(string2)
 ```
@@ -15568,7 +15568,7 @@ Returns: None
 
 Tests whether or not a String ends with the characters of another String.
 
-```C++
+```cpp
 // SYNTAX
 string.endsWith(string2)
 ```
@@ -15588,7 +15588,7 @@ Returns:
 
 Compares two strings for equality. The comparison is case-sensitive, meaning the String "hello" is not equal to the String "HELLO".
 
-```C++
+```cpp
 // SYNTAX
 string.equals(string2)
 ```
@@ -15605,7 +15605,7 @@ Returns:
 
 Compares two strings for equality. The comparison is not case-sensitive, meaning the String("hello") is equal to the String("HELLO").
 
-```C++
+```cpp
 // SYNTAX
 string.equalsIgnoreCase(string2)
 ```
@@ -15624,7 +15624,7 @@ Returns:
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
 
-```C++
+```cpp
 
 Particle.publish("startup", String::format("frobnicator started at %s", Time.timeStr().c_str()));
 
@@ -15635,7 +15635,7 @@ Particle.publish("startup", String::format("frobnicator started at %s", Time.tim
 
 Copies the string's characters to the supplied buffer.
 
-```C++
+```cpp
 // SYNTAX
 string.getBytes(buf, len)
 ```
@@ -15655,13 +15655,13 @@ The object also supports `operator const char *` so for things that specifically
 
 You would normally use c_str() if you need to pass the string to something like Serial.printlnf or Log.info where the conversion is ambiguous:
 
-```C++
+```cpp
 Serial.printlnf("the string is: %s", string.c_str());
 ```
 
 This is also helpful if you want to print out an IP address:
 
-```C++
+```cpp
 Serial.printlnf("ip addr: %s", WiFi.localIP().toString().c_str());
 ```
 
@@ -15669,7 +15669,7 @@ Serial.printlnf("ip addr: %s", WiFi.localIP().toString().c_str());
 
 Locates a character or String within another String. By default, searches from the beginning of the String, but can also start from a given index, allowing for the locating of all instances of the character or String.
 
-```C++
+```cpp
 // SYNTAX
 string.indexOf(val)
 string.indexOf(val, from)
@@ -15687,7 +15687,7 @@ Returns: The index of val within the String, or -1 if not found.
 
 Locates a character or String within another String. By default, searches from the end of the String, but can also work backwards from a given index, allowing for the locating of all instances of the character or String.
 
-```C++
+```cpp
 // SYNTAX
 string.lastIndexOf(val)
 string.lastIndexOf(val, from)
@@ -15705,7 +15705,7 @@ Returns: The index of val within the String, or -1 if not found.
 
 Returns the length of the String, in characters. (Note that this doesn't include a trailing null character.)
 
-```C++
+```cpp
 // SYNTAX
 string.length()
 ```
@@ -15720,7 +15720,7 @@ Returns: The length of the String in characters.
 
 The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
 
-```C++
+```cpp
 // SYNTAX
 string.remove(index)
 string.remove(index,count)
@@ -15738,7 +15738,7 @@ Returns: None
 
 The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring.
 
-```C++
+```cpp
 // SYNTAX
 string.replace(substring1, substring2)
 ```
@@ -15755,7 +15755,7 @@ Returns: None
 
 The String reserve() function allows you to allocate a buffer in memory for manipulating strings.
 
-```C++
+```cpp
 // SYNTAX
 string.reserve(size)
 ```
@@ -15795,7 +15795,7 @@ void loop() {
 
 Sets a character of the String. Has no effect on indices outside the existing length of the String.
 
-```C++
+```cpp
 // SYNTAX
 string.setCharAt(index, c)
 ```
@@ -15811,7 +15811,7 @@ Returns: None
 
 Tests whether or not a String starts with the characters of another String.
 
-```C++
+```cpp
 // SYNTAX
 string.startsWith(string2)
 ```
@@ -15830,7 +15830,7 @@ Returns:
 
 Get a substring of a String. The starting index is inclusive (the corresponding character is included in the substring), but the optional ending index is exclusive (the corresponding character is not included in the substring). If the ending index is omitted, the substring continues to the end of the String.
 
-```C++
+```cpp
 // SYNTAX
 string.substring(from)
 string.substring(from, to)
@@ -15848,7 +15848,7 @@ Returns: the substring
 
 Copies the string's characters to the supplied buffer.
 
-```C++
+```cpp
 // SYNTAX
 string.toCharArray(buf, len)
 ```
@@ -15864,7 +15864,7 @@ Returns: None
 
 Converts a valid String to a float. The input string should start with a digit. If the string contains non-digit characters, the function will stop performing the conversion. For example, the strings "123.45", "123", and "123fish" are converted to 123.45, 123.00, and 123.00 respectively. Note that "123.456" is approximated with 123.46. Note too that floats have only 6-7 decimal digits of precision and that longer strings might be truncated.
 
-```C++
+```cpp
 // SYNTAX
 string.toFloat()
 ```
@@ -15879,7 +15879,7 @@ Returns: float (If no valid conversion could be performed because the string doe
 
 Converts a valid String to an integer. The input string should start with an integral number. If the string contains non-integral numbers, the function will stop performing the conversion.
 
-```C++
+```cpp
 // SYNTAX
 string.toInt()
 ```
@@ -15894,7 +15894,7 @@ Returns: long (If no valid conversion could be performed because the string does
 
 Get a lower-case version of a String. `toLowerCase()` modifies the string in place.
 
-```C++
+```cpp
 // SYNTAX
 string.toLowerCase()
 ```
@@ -15909,7 +15909,7 @@ Returns: None
 
 Get an upper-case version of a String. `toUpperCase()` modifies the string in place.
 
-```C++
+```cpp
 // SYNTAX
 string.toUpperCase()
 ```
@@ -15924,7 +15924,7 @@ Returns: None
 
 Get a version of the String with any leading and trailing whitespace removed.
 
-```C++
+```cpp
 // SYNTAX
 string.trim()
 ```
@@ -15950,7 +15950,7 @@ Some of the Particle classes that rely on Stream include :
 ### setTimeout()
 `setTimeout()` sets the maximum milliseconds to wait for stream data, it defaults to 1000 milliseconds.
 
-```C++
+```cpp
 // SYNTAX
 stream.setTimeout(time);
 ```
@@ -15965,7 +15965,7 @@ Returns: None
 ### find()
 `find()` reads data from the stream until the target string of given length is found.
 
-```C++
+```cpp
 // SYNTAX
 stream.find(target);		// reads data from the stream until the target string is found
 stream.find(target, length);	// reads data from the stream until the target string of given length is found
@@ -15982,7 +15982,7 @@ Returns: returns true if target string is found, false if timed out
 ### findUntil()
 `findUntil()` reads data from the stream until the target string or terminator string is found.
 
-```C++
+```cpp
 // SYNTAX
 stream.findUntil(target, terminal);		// reads data from the stream until the target string or terminator is found
 stream.findUntil(target, terminal, length);	// reads data from the stream until the target string of given length or terminator is found
@@ -16000,7 +16000,7 @@ Returns: returns true if target string or terminator string is found, false if t
 ### readBytes()
 `readBytes()` read characters from a stream into a buffer. The function terminates if the determined length has been read, or it times out.
 
-```C++
+```cpp
 // SYNTAX
 stream.readBytes(buffer, length);
 ```
@@ -16016,7 +16016,7 @@ Returns: returns the number of characters placed in the buffer (0 means no valid
 ### readBytesUntil()
 `readBytesUntil()` reads characters from a stream into a buffer. The function terminates if the terminator character is detected, the determined length has been read, or it times out.
 
-```C++
+```cpp
 // SYNTAX
 stream.readBytesUntil(terminator, buffer, length);
 ```
@@ -16033,7 +16033,7 @@ Returns: returns the number of characters placed in the buffer (0 means no valid
 ### readString()
 `readString()` reads characters from a stream into a string. The function terminates if it times out.
 
-```C++
+```cpp
 // SYNTAX
 stream.readString();
 ```
@@ -16047,7 +16047,7 @@ Returns: the entire string read from stream (String)
 ### readStringUntil()
 `readStringUntil()` reads characters from a stream into a string until a terminator character is detected. The function terminates if it times out.
 
-```C++
+```cpp
 // SYNTAX
 stream.readStringUntil(terminator);
 ```
@@ -16065,7 +16065,7 @@ Returns: the entire string read from stream, until the terminator character is d
  - Initial characters that are not digits or a minus sign, are skipped;
  - Parsing stops when no characters have been read for a configurable time-out value, or a non-digit is read;
 
-```C++
+```cpp
 // SYNTAX
 stream.parseInt();
 stream.parseInt(skipChar);	// allows format characters (typically commas) in values to be ignored
@@ -16081,7 +16081,7 @@ Returns: parsed int value (long). If no valid digits were read when the time-out
 ### parseFloat()
 `parseFloat()` as `parseInt()` but returns the first valid floating point value from the current position.
 
-```C++
+```cpp
 // SYNTAX
 stream.parsetFloat();
 stream.parsetFloat(skipChar);	// allows format characters (typically commas) in values to be ignored
@@ -16472,7 +16472,7 @@ void loop()
 #### loop()
 After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.  A return may be used to exit the loop() before it completely finishes.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int button = D0;
@@ -16502,7 +16502,7 @@ void loop()
 
 `if`, which is used in conjunction with a comparison operator, tests whether a certain condition has been reached, such as an input being above a certain number.
 
-```C++
+```cpp
 // SYNTAX
 if (someVariable > 50)
 {
@@ -16513,7 +16513,7 @@ The program tests to see if someVariable is greater than 50. If it is, the progr
 
 The brackets may be omitted after an *if* statement. If this is done, the next line (defined by the semicolon) becomes the only conditional statement.
 
-```C++
+```cpp
 if (x > 120) digitalWrite(LEDpin, HIGH);
 
 if (x > 120)
@@ -16531,7 +16531,7 @@ The statements being evaluated inside the parentheses require the use of one or 
 
 #### Comparison Operators
 
-```C++
+```cpp
 x == y (x is equal to y)
 x != y (x is not equal to y)
 x <  y (x is less than y)
@@ -16551,7 +16551,7 @@ This is because C evaluates the statement `if (x=10)` as follows: 10 is assigned
 
 *if/else* allows greater control over the flow of code than the basic *if* statement, by allowing multiple tests to be grouped together. For example, an analog input could be tested and one action taken if the input was less than 500, and another action taken if the input was 500 or greater. The code would look like this:
 
-```C++
+```cpp
 // SYNTAX
 if (pinFiveInput < 500)
 {
@@ -16568,7 +16568,7 @@ Each test will proceed to the next one until a true test is encountered. When a 
 
 Note that an *else if* block may be used with or without a terminating *else* block and vice versa. An unlimited number of such else if branches is allowed.
 
-```C++
+```cpp
 if (pinFiveInput < 500)
 {
   // do Thing A
@@ -16591,7 +16591,7 @@ The `for` statement is used to repeat a block of statements enclosed in curly br
 
 There are three parts to the for loop header:
 
-```C++
+```cpp
 // SYNTAX
 for (initialization; condition; increment)
 {
@@ -16600,7 +16600,7 @@ for (initialization; condition; increment)
 ```
 The *initialization* happens first and exactly once. Each time through the loop, the *condition* is tested; if it's true, the statement block, and the *increment* is executed, then the condition is tested again. When the *condition* becomes false, the loop ends.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // slowy make the LED glow brighter
@@ -16624,7 +16624,7 @@ The C `for` loop is much more flexible than for loops found in some other comput
 
 For example, using a multiplication in the increment line will generate a logarithmic progression:
 
-```C++
+```cpp
 for(int x = 2; x < 100; x = x * 1.5)
 {
   Serial.print(x);
@@ -16633,7 +16633,7 @@ for(int x = 2; x < 100; x = x * 1.5)
 ```
 Another example, fade an LED up and down with one for loop:
 
-```C++
+```cpp
 // slowy make the LED glow brighter
 int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
 
@@ -16661,7 +16661,7 @@ Like `if` statements, `switch`...`case` controls the flow of programs by allowin
 
 The `break` keyword exits the switch statement, and is typically used at the end of each case. Without a break statement, the switch statement will continue executing the following expressions ("falling-through") until a break, or the end of the switch statement is reached.
 
-```C++
+```cpp
 // SYNTAX
 switch (var)
 {
@@ -16678,7 +16678,7 @@ switch (var)
 `var` is the variable whose value to compare to the various cases
 `label` is a value to compare the variable to
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 switch (var)
@@ -16699,7 +16699,7 @@ switch (var)
 
 `while` loops will loop continuously, and infinitely, until the expression inside the parenthesis, () becomes false. Something must change the tested variable, or the `while` loop will never exit. This could be in your code, such as an incremented variable, or an external condition, such as testing a sensor.
 
-```C++
+```cpp
 // SYNTAX
 while(expression)
 {
@@ -16708,7 +16708,7 @@ while(expression)
 ```
 `expression` is a (boolean) C statement that evaluates to true or false.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 var = 0;
@@ -16723,7 +16723,7 @@ while(var < 200)
 
 The `do` loop works in the same manner as the `while` loop, with the exception that the condition is tested at the end of the loop, so the do loop will *always* run at least once.
 
-```C++
+```cpp
 // SYNTAX
 do
 {
@@ -16731,7 +16731,7 @@ do
 } while (test condition);
 ```
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 do
@@ -16746,7 +16746,7 @@ do
 
 `break` is used to exit from a `do`, `for`, or `while` loop, bypassing the normal loop condition. It is also used to exit from a `switch` statement.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 for (int x = 0; x < 255; x++)
@@ -16766,7 +16766,7 @@ for (int x = 0; x < 255; x++)
 
 The continue statement skips the rest of the current iteration of a loop (`do`, `for`, or `while`). It continues by checking the conditional expression of the loop, and proceeding with any subsequent iterations.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 for (x = 0; x < 255; x++)
@@ -16782,7 +16782,7 @@ for (x = 0; x < 255; x++)
 
 Terminate a function and return a value from a function to the calling function, if desired.
 
-```C++
+```cpp
 //EXAMPLE USAGE
 
 // A function to compare a sensor input to a threshold
@@ -16794,7 +16794,7 @@ Terminate a function and return a value from a function to the calling function,
 ```
 The return keyword is handy to test a section of code without having to "comment out" large sections of possibly buggy code.
 
-```C++
+```cpp
 void loop()
 {
   // brilliant code idea to test here
@@ -16810,7 +16810,7 @@ void loop()
 
 Transfers program flow to a labeled point in the program
 
-```C++
+```cpp
 // SYNTAX
 
 label:
@@ -16824,7 +16824,7 @@ The use of `goto` is discouraged in C programming, and some authors of C program
 
 With that said, there are instances where a `goto` statement can come in handy, and simplify coding. One of these situations is to break out of deeply nested `for` loops, or `if` logic blocks, on a certain condition.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 for(byte r = 0; r < 255; r++) {
@@ -16857,7 +16857,7 @@ Forgetting to end a line in a semicolon will result in a compiler error. The err
 
 Curly braces (also referred to as just "braces" or as "curly brackets") are a major part of the C programming language. They are used in several different constructs, outlined below, and this can sometimes be confusing for beginners.
 
-```C++
+```cpp
 //The main uses of curly braces
 
 //Functions
@@ -16914,7 +16914,7 @@ Comments are lines in the program that are used to inform yourself or others abo
 
 Comments only purpose are to help you understand (or remember) how your program works or to inform others how your program works. There are two different ways of marking a line as a comment:
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 x = 5;  // This is a single line comment. Anything after the slashes is a comment
@@ -16943,7 +16943,7 @@ Note that the # is necessary.
 
 This can have some unwanted side effects if the constant name in a `#define` is used in some other constant or variable name. In that case the text would be replaced by the `#define` value.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 #define ledPin 3
@@ -16975,7 +16975,7 @@ Stores the value to the right of the equal sign in the variable to the left of t
 
 The single equal sign in the C programming language is called the assignment operator. It has a different meaning than in algebra class where it indicated an equation or equality. The assignment operator tells the microcontroller to evaluate whatever value or expression is on the right side of the equal sign, and store it in the variable to the left of the equal sign.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int sensVal;                // declare an integer variable named sensVal
@@ -16992,7 +16992,7 @@ These operators return the sum, difference, product, or quotient (respectively) 
 
 If one of the numbers (operands) are of the type float or of type double, floating point math will be used for the calculation.
 
-```C++
+```cpp
 // EXAMPLE USAGES
 
 y = y + 3;
@@ -17001,7 +17001,7 @@ i = j * 6;
 r = r / 5;
 ```
 
-```C++
+```cpp
 // SYNTAX
 result = value1 + value2;
 result = value1 - value2;
@@ -17031,7 +17031,7 @@ Calculates the remainder when one integer is divided by another. It is useful fo
 
 The remainder function can have unexpected behavior when some of the operands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
 
-```C++
+```cpp
 // EXAMPLE USAGES
 
 x = 9 % 5;   // x now contains 4
@@ -17043,7 +17043,7 @@ x = 7 % -5;  // x now contains 2
 x = -7 % -5; // x now contains -2
 ```
 
-```C++
+```cpp
 EXAMPLE CODE
 //update one value in an array each time through a loop
 
@@ -17070,7 +17070,7 @@ These can be used inside the condition of an if statement.
 
 True only if both operands are true, e.g.
 
-```C++
+```cpp
 if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH)
 {
   // read two switches
@@ -17083,7 +17083,7 @@ if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH)
 
 True if either operand is true, e.g.
 
-```C++
+```cpp
 if (x > 0 || y > 0)
 {
   // ...
@@ -17095,7 +17095,7 @@ if (x > 0 || y > 0)
 
 True if the operand is false, e.g.
 
-```C++
+```cpp
 if (!x)
 {
   // ...
@@ -17125,7 +17125,7 @@ The bitwise AND operator in C++ is a single ampersand, &, used between two other
     0  0  0  1    (operand1 & operand2) - returned result
 ```
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int a =  92;    // in binary: 0000000001011100
@@ -17144,7 +17144,7 @@ The bitwise OR operator in C++ is the vertical bar symbol, |. Like the & operato
     ----------
     0  1  1  1    (operand1 | operand2) - returned result
 ```
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int a =  92;    // in binary: 0000000001011100
@@ -17164,7 +17164,7 @@ There is a somewhat unusual operator in C++ called bitwise EXCLUSIVE OR, also kn
 ```
 Another way to look at bitwise XOR is that each bit in the result is a 1 if the input bits are different, or 0 if they are the same.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int x = 12;     // binary: 1100
@@ -17207,7 +17207,7 @@ variable >> number_of_bits
 `variable` can be `byte`, `int`, `long`
 `number_of_bits` and integer <= 32
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int a = 5;        // binary: 0000000000000101
@@ -17216,7 +17216,7 @@ int c = b >> 3;   // binary: 0000000000000101, or back to 5 like we started with
 ```
 When you shift a value x by y bits (x << y), the leftmost y bits in x are lost, literally shifted out of existence:
 
-```C++
+```cpp
 int a = 5;        // binary: 0000000000000101
 int b = a << 14;  // binary: 0100000000000000 - the first 1 in 101 was discarded
 ```
@@ -17235,20 +17235,20 @@ If you are certain that none of the ones in a value are being shifted into obliv
 ```
 When you shift x right by y bits (x >> y), and the highest bit in x is a 1, the behavior depends on the exact data type of x. If x is of type int, the highest bit is the sign bit, determining whether x is negative or not, as we have discussed above. In that case, the sign bit is copied into lower bits, for esoteric historical reasons:
 
-```C++
+```cpp
 int x = -16;     // binary: 1111111111110000
 int y = x >> 3;  // binary: 1111111111111110
 ```
 This behavior, called sign extension, is often not the behavior you want. Instead, you may wish zeros to be shifted in from the left. It turns out that the right shift rules are different for unsigned int expressions, so you can use a typecast to suppress ones being copied from the left:
 
-```C++
+```cpp
 int x = -16;                   // binary: 1111111111110000
 int y = (unsigned int)x >> 3;  // binary: 0001111111111110
 ```
 
 If you are careful to avoid sign extension, you can use the right-shift operator >> as a way to divide by powers of 2. For example:
 
-```C++
+```cpp
 int x = 1000;
 int y = x >> 3;   // integer division of 1000 by 8, causing y = 125
 ```
@@ -17258,7 +17258,7 @@ int y = x >> 3;   // integer division of 1000 by 8, causing y = 125
 
 Increment or decrement a variable
 
-```C++
+```cpp
 // SYNTAX
 x++;  // increment x by one and returns the old value of x
 ++x;  // increment x by one and returns the new value of x
@@ -17269,7 +17269,7 @@ x-- ;   // decrement x by one and returns the old value of x
 
 where `x` is an integer or long (possibly unsigned)
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 x = 2;
@@ -17286,7 +17286,7 @@ y = x--;      // x contains 2 again, y still contains 3
 
 Perform a mathematical operation on a variable with another constant or variable. The += (et al) operators are just a convenient shorthand for the expanded syntax.
 
-```C++
+```cpp
 // SYNTAX
 x += y;   // equivalent to the expression x = x + y;
 x -= y;   // equivalent to the expression x = x - y;
@@ -17297,7 +17297,7 @@ x /= y;   // equivalent to the expression x = x / y;
 `x` can be any variable type
 `y` can be any variable type or constant
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 x = 2;
@@ -17362,7 +17362,7 @@ So if:
 
 The compound bitwise OR operator (|=) is often used with a variable and a constant to "set" (set to 1) particular bits in a variable.
 
-```C++
+```cpp
 // SYNTAX
 x |= y;   // equivalent to x = x | y;
 ```
