@@ -542,23 +542,21 @@ under `devicesetup -> src -> main -> res -> values`.
 ---
 
 ### Organization mode:
-Setting the boolean resource `organization` to `true`[1] in one of your resource files) will enable organization mode, which uses different API endpoints and requires special permissions (See Particle Console).
-If you enable organization mode, be sure to also provide string resources for `organization_slug` and `product_slug`, using the values you created on the [Particle Console](/guide/tools-and-features/console/).
-To provide the `ParticleCloud` class with correct OAuth credentials for creating customers (so app users could create an account), [read the instructions here](/reference/android/#oauth-client-configuration).
+Setting the boolean resource `organization` and `productMode` to `true` in one of your resource files) will enable organization mode, which uses different API endpoints and requires special permissions (See Particle Console).
+If you enable organization/product mode, be sure to also provide string resources for `product_ID` and `product_slug`, using the values you created on the [Particle Console](/guide/tools-and-features/console/).
+To provide the `ParticleCloud` class with correct OAuth credentials for creating customers (so app users could create an account), [read the instructions here](/reference/android/#oauth-client-configuration) add `oauth_client_id` and `oauth_client_secret`.
 To learn how to create these credentials for your organization [read here](/tutorials/device-cloud/authentication).
-
-[1] i.e.: adding `<bool name="organization">false</bool>`
 
 
 ```xml
-<!-- enable organization mode -->
-<bool name="organization">true</bool>
-<!-- organization display name -->
-<string name="organization_name">Acme Wireless-Enabled Widget Company</string>
-<!-- organizational name for API endpoint URL - must specify for orgMode *new* -->
-<string name="organization_slug">acme_wireless_enabled_widgets</string>
-<!-- enable product string for API endpoint URL - must specify for orgMode *new* -->
-<string name="product_slug">acme-widget-model-123</string>
+<!-- enable organization/product mode -->
+    <bool name="organization">true</bool>
+    <string name="organization_slug">DEPRECATED</string>
+    <bool name="productMode">true</bool>
+    <integer name="product_id">1234</integer>
+    <string name="product_slug">acme-widget-model-123</string>
+    <string name="oauth_client_id">(client ID string goes here)</string>
+    <string name="oauth_client_secret">(client secret 40-char hex string goes here)</string>
 ```
 ---
 
