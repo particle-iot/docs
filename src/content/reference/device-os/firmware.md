@@ -730,8 +730,6 @@ Returns `true` when connected to the Cloud, and `false` when disconnected from t
 // SYNTAX
 Particle.connected();
 
-RETURNS
-boolean (true or false)
 
 // EXAMPLE USAGE
 void setup() {
@@ -838,11 +836,7 @@ Returns `true` if there is no `syncTime()` request currently pending or there is
 // SYNTAX
 Particle.syncTimeDone();
 
-// RETURNS
-// boolean (true or false)
-```
 
-```C++
 // EXAMPLE
 
 void loop()
@@ -868,11 +862,7 @@ Returns `true` if there a `syncTime()` request currently pending. Returns `false
 // SYNTAX
 Particle.syncTimePending();
 
-// RETURNS
-// boolean (true or false)
-```
 
-```C++
 // EXAMPLE
 
 void loop()
@@ -914,6 +904,7 @@ This function takes one optional argument:
 
 ```C++
 // EXAMPLE
+
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
 
 void loop() {
@@ -1033,10 +1024,12 @@ The publish function takes two parameters:
 ```C++
 // SYNTAX
 Mesh.publish(const char *name, const char *data);
+```
 
-RETURNS
-int (0 = success, non-zero = system error code)
+**Returns:**
+An `int` indicating the result. (0 = success, non-zero = system error code)
 
+```cpp
 // EXAMPLE USAGE
 Mesh.publish("motion-sensor", "living room");
 ```
@@ -3187,7 +3180,8 @@ Cellular.setDataUsage(data);
 
 Resets the Data Usage counters to all zero.  No CellularData object is required.  This is handy to call just before an operation where you'd like to measure data usage.
 
-Returns `bool` - `true` indicating this operation was successful and the internally stored software offset has been reset to zero. If getDataUsage() was called immediately after without any data being used, the CellularData object would indicate zero data used.
+Returns: `bool`
+- `true` indicates this operation was successful and the internally stored software offset has been reset to zero. If getDataUsage() was called immediately after without any data being used, the CellularData object would indicate zero data used.
 
 ```c++
 // SYNTAX
@@ -5482,7 +5476,7 @@ Reads incoming serial data.
 Serial.read();
 Serial1.read();
 ```
-`read()` returns the first byte of incoming serial data available (or -1 if no data is available) - *int*
+`read()` returns the first byte of incoming serial data available (or -1 if no data is available) - `int`
 
 ```C++
 // EXAMPLE USAGE
@@ -6797,7 +6791,7 @@ void loop() {
 
 {{since when="0.5.0"}}
 
-Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
+Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, it returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
 
 ```C++
 // SYNTAX
@@ -7119,7 +7113,7 @@ Parameters:
 - `data`: an array of data to send as bytes
 - `length`: the number of bytes to transmit (Max. 32)
 
-Returns:  `byte`
+Returns: `byte`
 
 `write()` will return the number of bytes written, though reading that number is optional.
 
@@ -9784,7 +9778,7 @@ Parameters:
 - `timeout`: timeout in milliseconds (`0` - non-blocking mode)
 {{/if}}
 
-Returns: `size_t`: `write()` returns the number of bytes written.
+Returns: `size_t`: the number of bytes written
 
 **NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use [`getWriteError()`](#getwriteerror-) to check for write errors.
 
@@ -9795,7 +9789,7 @@ Print data to the last client connected to a server. Prints numbers as a sequenc
 ```C++
 // SYNTAX
 server.print(data);
-server.print(data, BASE) ;
+server.print(data, BASE);
 ```
 
 Parameters:
@@ -9803,7 +9797,7 @@ Parameters:
 - `data`: the data to print (char, byte, int, long, or string)
 - `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
-Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
+Returns: `size_t`: the number of bytes written
 
 ### println()
 
