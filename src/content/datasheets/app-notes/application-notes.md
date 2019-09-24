@@ -27,9 +27,12 @@ USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 have an Electron, E Series, or Boron gracefully power down under battery power when the power supply is disconnected 
 then automatically power up when restored. This can be useful in automotive applications or devices powered by a switch 
 in mains power applications.
+- [AN003 Interpreting Cloud Debug](https://github.com/particle-iot/app-notes/tree/master/AN003-Interpreting-Cloud-Debug) shows how to 
+interpret cloud debugging logs to troubleshoot various common issues.
 
 ## Numerical List
 
 - [AN001 Basic SoM Design](https://github.com/particle-iot/app-notes/tree/master/AN001-Basic-SoM-Design)
 - [AN002 Device Powerdown](https://github.com/particle-iot/app-notes/tree/master/AN002-Device-Powerdown)
+- [AN003 Interpreting Cloud Debug](https://github.com/particle-iot/app-notes/tree/master/AN003-Interpreting-Cloud-Debug) 
 
