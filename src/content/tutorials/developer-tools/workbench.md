@@ -59,7 +59,7 @@ You can install and uninstall different versions of Device OS (and dependencies)
 
 ### Working with Particle Projects
 
-You can initialize a new project with the command, `Particle: Create New Project`. Doing so will open a new a Visual Studio Code _Workspace_, an abstract concept of a collection of files and folders. The Workspace will include a scaffold of what is needed to begin developing your Particle project, like Tasks, C++ IntelliSense, Commands, files and folders. Note that these are designed to only work when editing Particle projects as to not muddy up the rest of your editing experience. 
+You can initialize a new project with the command, `Particle: Create New Project`. Doing so will open a new a Visual Studio Code folder preconfigured with everything needed to begin developing your Particle project, like Tasks, C++ IntelliSense, Commands, files and folders. Note that these are designed to only work when editing Particle projects as to not muddy up the rest of your editing experience.
 
 A project contains a number of files. Here's what's in a small sample project:
 
@@ -68,11 +68,10 @@ A project contains a number of files. Here's what's in a small sample project:
 - The **`.vscode`** directory contains your project-specific settings. The `settings.json` file allows you to override any setting on a per-project basis. It's also where your build firmware version, target platform, and target device are saved.
 - The **`src`** directory contains your source file. If you created a `.ino` file for your main project file, after building you may see a `.cpp` file of the same name. This is because the `.ino` file is transformed into a `.cpp` before compiling. You can create multiple source files and header files in this directory.
 - Not pictured here is the **`lib`** directory, at the same level as `src`. This contains the source to libraries that you have included. If you are cloud compiling, _and_ if you have the library listed in your `project.properties` file, the cloud version of the library is used instead of the downloaded one in **`lib`**.
-- The **`target`** directory contains local build output. In particular, the `.bin` file (`Test1.bin`) is the same binary you get from downloading from the Web IDE or CLI.
+- The **`target`** directory contains local build output organized into subfolders based on the Device OS version and Particle platform your project uses. In particular, the `.bin` file (`Test1.bin`) is the same binary you get from downloading from the Web IDE or CLI.
 - The **`*.bin`** file (your filename will be different) at the top level is the result of a cloud compile for this project.
 - The **`project.properties`** file specifies all of the libraries that this project uses.
 - **`README.md`** is where you could put documentation for your project.
-- The **`.code-workspace`** is the workspace settings file for VS Code. There are no Particle-specific settings in it.
 
 If you already have an existing Particle project (with a `project.properties` file), you can import it to create the necessary VS Code files by using the command **Particle: Import Project** from the command palette.
 
