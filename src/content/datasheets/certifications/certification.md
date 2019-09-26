@@ -213,6 +213,15 @@ NFC certification:
 - [Certificate of Conformity](/assets/pdfs/xenon-nfc-fcc.pdf)
 - [Test reports](/assets/pdfs/xenon-nfc-fcc-test-report.pdf)
 
+#### B Series SoM B402
+
+- FCC ID: [2AEMI-B402](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=Cfg6zUbOVvvGZYt7%2F%2FryRA%3D%3D&fcc_id=2AEMI-B402)
+- [Grant of equipment authorization (DTS)](/assets/pdfs/b402-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/b402-fcc-pcb.pdf)
+- [Test report FCC Part 22](/assets/pdfs/b402-fcc-part22.pdf)
+- [Test report FCC Part 24](/assets/pdfs/b402-fcc-part24.pdf)
+- [Test report FCC Part 27](/assets/pdfs/b402-fcc-part27.pdf)
+
 
 ## IC<img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
