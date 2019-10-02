@@ -360,9 +360,23 @@ particle call argon2 div 10
 
 ![Debug Breakpoint](/assets/images/workbench/debug-6.png)
 
+#### Disabling Mesh Networking
+
+In some cases you may need to disable mesh networking on your device in order to safely pause at break-points and step. If your device signals SOS ([example](https://docs.particle.io/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
+
+```
+void setup()
+{
+    // Disable mesh networking - note: Gen3 Hardware (argon, boron, xenon, bsom, etc) only!
+    Mesh.off();
+
+    //...rest of setup fn calls
+}
+```
+
 #### Disabling Optimization
 
-- In the TinkerBreak.cpp source file, you'll notice this at the top of the file. This is helpful to add to your source files to turn off compiler optimization, making it easier to debug. Otherwise you can't break on some lines, and some local variables won't be available.
+In the TinkerBreak.cpp source file, you'll notice this at the top of the file. This is helpful to add to your source files to turn off compiler optimization, making it easier to debug. Otherwise you can't break on some lines, and some local variables won't be available.
 
 ```
 #pragma GCC optimize ("O0")
