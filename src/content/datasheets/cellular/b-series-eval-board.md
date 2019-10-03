@@ -12,6 +12,8 @@ order: 3
 
 This is a simple breakout board for Particle's B series of cellular IoT modules. It breaks out all of its pins via easy to use headers. The board features a redundant USB port, connector for the LiPo battery, a barrel jack power connector, buttons, RGB LED, and charge status LED.
 
+The Eagle CAD design files, Gerber files, and bill of materials can be found in the [SoM eval board Github repository](https://github.com/particle-iot/som-eval-board).
+
 ## Block Diagram
 
 ![Block Diagram](/assets/images/b-series/b-series-eval-block.png)
