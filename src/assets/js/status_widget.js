@@ -34,13 +34,10 @@ $('.current-status-indicator').ready(function ($) {
           description = 'Scheduled maintenance';
         }
       }
-      $('.current-status-description').text(description);
+      $('.current-status-description').text(description + ' ›');
       $('.current-status-indicator').removeClass('empty').addClass(color);
-      if (color !== 'green') {
-        $(".current-status-incidents")
-          .removeClass('empty')
-          .addClass(color);
-      }
+      $('.current-status-incidents').removeClass('empty').addClass(color);
+      
     }
   });
 });
