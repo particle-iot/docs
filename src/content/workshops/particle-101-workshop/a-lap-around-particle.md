@@ -1,6 +1,6 @@
 ---
-word: A Lap Around Particle
-title: Particle Basics
+word: Introducing Particle
+title: Introducing Particle
 order: 3
 columns: two
 layout: workshops.hbs
