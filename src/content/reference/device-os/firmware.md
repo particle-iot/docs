@@ -101,12 +101,11 @@ Up to 20 cloud variables may be registered and each variable name is limited to 
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-It is fine to call this function when the cloud is disconnected - the variable
-will be registered next time the cloud is connected.
-
 When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
 
 You will almost never call Particle.variable from loop() (or a function called from loop()).
+
+String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
 Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
 to specify the data type of the variable. From 0.4.7 onward, the system can
@@ -136,9 +135,6 @@ There are three supported data types:
  * `DOUBLE`
  * `STRING`   (maximum string length is 622 bytes)
 
-
-
-
 ```json
 # EXAMPLE REQUEST IN TERMINAL
 # Device ID is 0123456789abcdef
@@ -153,6 +149,7 @@ curl "https://api.particle.io/v1/devices/0123456789abcdef/mess?access_token=1234
 my name is particle
 
 ```
+
 
 ### Particle.function()
 
@@ -177,7 +174,7 @@ A function callback procedure needs to return as quickly as possible otherwise t
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
-A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The Spark Core remains limited to 63 characters.
+A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The Spark Core remains limited to 63 characters. The String is UTF-8 encoded.
 
 When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
 
@@ -293,6 +290,8 @@ of `false`.
 If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, Particle.publish may block for 20 seconds to 5 minutes. Checking `Particle.connected()` can prevent this.
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
+
+String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
 **NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
 
@@ -944,8 +943,8 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    Particle.subscribe("particle/device/ip", handler);
-    Particle.publish("particle/device/ip");
+    Particle.subscribe("particle/device/ip", handler, MY_DEVICES);
+    Particle.publish("particle/device/ip", PRIVATE);
 }
 ```
 
@@ -3079,6 +3078,8 @@ A software implementation of Data Usage that pulls sent and received session and
 
 **Note**: The internal modem counters are typically reset when the modem is power cycled (complete power removal, soft power down or Cellular.off()) or if the PDP context is deactivated and reactivated which can happen asynchronously during runtime. If the Cellular.getDataUsage() API has been read, reset or set, and then the modem's counters are reset for any reason, the next call to Cellular.getDataUsage() for a read will detect that the new reading would be less than the previous reading.  When this is detected, the current reading will remain the same, and the now lower modem count will be used as the new baseline.  Because of this mechanism, it is generally more accurate to read the getDataUsage() count often. This catches the instances when the modem count is reset, before the count starts to increase again.
 
+**Note**: LTE devices (SARA-R410M-02-B) do not support data usage APIs.
+
 To use the data usage API, an instance of the `CellularData` type needs to be created to read or set counters.  All data usage API functions and the CellularData object itself return `bool` - `true` indicating the last operation was successful and the CellularData object was updated. For set and get functions, `CellularData` is passed by reference `Cellular.dataUsage(CellularData&);` and updated by the function.  There are 5 integers and 1 boolean within the CellularData object:
 
 - **ok**: (bool) a boolean value `false` when the CellularData object is initially created, and `true` after the object has been successfully updated by the API. If the last reading failed and the counters were not changed from their previous value, this value is set to `false`.
@@ -3545,6 +3546,9 @@ On the Boron, Cellular.command requires Device OS 0.9.0 or later; it is not supp
 You can download the latest <a href="https://www.u-blox.com/en/product-resources/2432?f[0]=field_file_category%3A210" target="_blank">u-blox AT Commands Manual</a>.
 
 Another good resource is the <a href="https://www.u-blox.com/sites/default/files/AT-CommandsExamples_AppNote_%28UBX-13001820%29.pdf" target="_blank">u-blox AT Command Examples Application Note</a>.
+
+LTE devices (SARA-R410M-02B) have a slightly different AT command set in the <a href="https://www.u-blox.com/sites/default/files/SARA-R4_ATCommands_%28UBX-17003787%29.pdf" target="_blank">u-blox SARA-R4 AT Commands Manual</a>.
+
 
 The prototype definition is as follows:
 
@@ -5353,6 +5357,8 @@ HAL_USB_USART_Config acquireUSBSerial1Buffer()
 {{since when="0.6.0"}}
 
 It is possible for the application to allocate its own buffers for `Serial` (USB serial) and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
+
+This is not available for hardware UART ports like `Serial1`, `Serial2`, etc.. If you are getting hardware serial buffer overruns, the [Serial Buffer Library](https://github.com/rickkas7/SerialBufferRK) may be helpful.
 
 {{/if}} {{!-- has-usb-serial1 --}}
 
@@ -12285,9 +12291,15 @@ void setup()
 }
 ```
 
+(That is for illustration only. You should not call Serial.println from a software timer because Serial is not thread-safe. It's possible that text being written from the main loop thread would be inter-mixed with text from the timer.)
+
 Timers may be started, stopped, reset within a user program or an ISR.  They may also be "disposed", removing them from the (max. 10) active timer list.
 
 The timer callback is similar to an interrupt - it shouldn't block. However, it is less restrictive than an interrupt. If the code does block, the system will not crash - the only consequence is that other software timers that should have triggered will be delayed until the blocking timer callback function returns.
+
+You should not use functions like `Particle.publish` from a timer callback. 
+
+Software timers run with a smaller stack (1024 bytes vs. 6144 bytes). This can limit the functions you use from the callback function.
 
 // SYNTAX
 
@@ -13928,6 +13940,7 @@ When the device awakens from deep sleep, it will reset and run all user code fro
 
 The standby mode is used to achieve the lowest power consumption.  After entering standby mode, the RAM and register contents are lost{{#if has-backup-ram}} except for retained memory{{/if}}.
 
+For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods of 5 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up, and supports sleeping for shorter intervals.
 
 {{#if has-stm32}}
 The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
@@ -13991,7 +14004,9 @@ It is mandatory to update the *bootloader* (https://github.com/particle-iot/devi
 {{/if}}
 
 {{#if has-cellular}}
-The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption.
+The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption during sleep. Roughly speaking, for sleep periods of less than 15 minutes, `SLEEP_NETWORK_STANDBY` uses less power.
+
+For sleep periods of less than 5 minutes you must use `SLEEP_NETWORK_STANDBY`. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up and prevents your SIM from being blocked.
 {{/if}}
 
 
