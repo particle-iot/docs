@@ -355,6 +355,8 @@ These specifications are based on the nRF52840 datasheet.
 
 ![Mechanical Drawing](/assets/images/b-series/b-series-mechanical.png)
 
+Dimensions are in millimeters.
+
 ---
 
 ### Mating connector and land pattern

@@ -29,10 +29,11 @@ then automatically power up when restored. This can be useful in automotive appl
 in mains power applications.
 - [AN003 Interpreting Cloud Debug](https://github.com/particle-iot/app-notes/tree/master/AN003-Interpreting-Cloud-Debug) shows how to 
 interpret cloud debugging logs to troubleshoot various common issues.
+- [AN004 Interpreting Cloud Debug-2](https://github.com/particle-iot/app-notes/tree/master/AN004-Interpreting-Cloud-Debug-2) is a deep dive into interpreting cloud debug logs and cross-referencing the AT command guide for the u-blox modem.
 
 ## Numerical List
 
 - [AN001 Basic SoM Design](https://github.com/particle-iot/app-notes/tree/master/AN001-Basic-SoM-Design)
 - [AN002 Device Powerdown](https://github.com/particle-iot/app-notes/tree/master/AN002-Device-Powerdown)
 - [AN003 Interpreting Cloud Debug](https://github.com/particle-iot/app-notes/tree/master/AN003-Interpreting-Cloud-Debug) 
-
+- [AN004 Interpreting Cloud Debug-2](https://github.com/particle-iot/app-notes/tree/master/AN004-Interpreting-Cloud-Debug-2) is a deep dive into interpreting cloud debug logs and cross-referencing the AT command guide for the u-blox modem.
