@@ -18,7 +18,6 @@ The Particle Android SDK consists of two parts:
 
 Both the Cloud SDK and Device Setup libraries have the following requirements:
 - a `minSdkVersion` of 15 (Android 4.0.3) or higher
-- Gradle 2.x (Other build systems, e.g.: Maven, may also work, but are not officially supported.)
 - `compileOptions` set to Java 8
 
 
