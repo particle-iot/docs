@@ -85,7 +85,7 @@ There are two options for the Mesh antenna on the Xenon. It comes with an on-boa
 
 ### FCC approved antenna
 
-The following antenna is optional, as the Xenon comes with an on-board PCB antenna. It can be purchased in the [Particle online store](https://store.particle.io/collections/accessories/products/antenna?variant=5054692739).
+The following antenna is optional, as the Xenon comes with an on-board PCB antenna. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
 
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
