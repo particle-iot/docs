@@ -12,7 +12,7 @@ asyncclasslink: https://github.com/particle-iot/particle-android/blob/master/clo
 
 The Particle Android SDK consists of two parts:
 1. [the Cloud SDK](#android-cloud-sdk): a REST API wrapper which enables your mobile app to interact with Particle-powered hardware through the Particle Device Cloud
-2. [the Device Setup library](#android-device-setup-library): a library which provides an easy setup wizard for your app users to set up their Particle-powered devices
+2. [the Device Setup library](#android-device-setup-library): a library which provides an easy setup wizard for your app's users to set up their Photon/P1-powered devices
 
 ## Requirements
 
