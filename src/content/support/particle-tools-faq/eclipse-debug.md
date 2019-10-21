@@ -40,7 +40,7 @@ Some debuggers support SWD (Single Wire Debug) mode, JTAG mode or both to talk t
 
 ### Particle Programmer Shield
 
-The [Particle Programmer Shield](https://store.particle.io/products/prog-shield) is designed to fit the Photon. You can also use it with an Electron, with the extra pins hanging over the edge. [It is available on the Particle store](https://store.particle.io/products/prog-shield).
+The Particle Programmer Shield is designed to fit the Photon. You can also use it with an Electron, with the extra pins hanging over the edge.
 
 If you need your device to be in a breadboard while you debug you can look at  using one of the other interfaces.
 
