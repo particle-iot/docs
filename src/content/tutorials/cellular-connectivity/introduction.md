@@ -127,7 +127,7 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 
 <sup>3</sup>The U260 model supports 850/1900 MHz for both 3G (UMTS/HSPA) and 2G (GPRS/EDGE). These are the frequencies typically used in the Americas, but there are exceptions. 
 
-For example, in Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz.
+For example, in Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra uses 850 MHz. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz.
 
 In New Zealand, we previously recommended the U270 as Two Degrees was the carrier. We've switched to Spark, however, which uses 850 MHz and thus the U260 is now recommended for New Zealand, like Australia. If you've purchased a U270 for use in New Zealand and are stuck at blinking green (connecting to cellular), technical support can switch your SIM back to Two Degrees so you can use the U270.
 
@@ -234,14 +234,15 @@ For example, in Norway, Telenor is shutting down their 3G network at the end of 
 
 In Australia, there is no longer 2G service on any carrier and the Electron 2G cannot be used.
 
-The Electron and E Series use Telstra in Australia. They intend to shut down their 3G network at [the end of 2020](https://www.arnnet.com.au/article/610472/telstra-flags-3g-network-shutdown-early-2020/). At that point, the Electron can only be used with a 3rd-party SIM card and the E Series will no longer work.
+The Electron and E Series use Telstra in Australia. They intend to shut down their 3G network at [mid 2024](https://www.digitalmatter.com/About-Us/News/Telstra-Announces-3G-Shutdown). At that point, the Electron can only be used with a 3rd-party SIM card and the E Series will no longer work.
 
 The Boron 2G/3G uses Vodafone in Australia. They have not announced a 3G shutdown date.
 
 | After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G
 | --- | --- | :--: | :--: | :--: | :--: |
 | End of 2016 | Telstra ended 2G service | &nbsp;| &check; | &check; | &check; |
-| End of 2020 | Telstra ends 3G service | &nbsp; | <sup>1</sup> | &nbsp; | &check; | 
+| April 2019 | Telstra sends 2100 MHz 3G service | &nbsp;| &check; | &check; | &check; |
+| Mid 2024 | Telstra ends 850 MHz 3G service | &nbsp; | <sup>1</sup> | &nbsp; | &check; | 
 
 <sup>1</sup>Can use only with a 3rd-party SIM card.
 
