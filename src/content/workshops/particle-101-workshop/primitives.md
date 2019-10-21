@@ -11,40 +11,56 @@ layout: workshops.hbs
 | **Project Goal**            | Start programming your Argon, read sensor data, and leverage the device cloud.                         |
 | --------------------------- | --------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to interact with sensors, using Particle variables, cloud functions and publish/subscribe.                               |
-| **Tools you’ll need**       | Access to the internet for build.particle.io and console.particle.io. Plus the Particle CLI, Particle Workbench, a Particle Argon, and Grove Starter Kit for Particle Mesh |
+| **Tools you’ll need**       | Access to the internet for build.particle.io and console.particle.io. Plus the Particle CLI, Particle Workbench, a [Particle Argon](https://store.particle.io/products/argon-kit), and [Grove Starter Kit for Particle Mesh](https://store.particle.io/collections/shields-and-kits/products/grove-starter-kit) |
 | **Time needed to complete** | 60 minutes                                                                                                |
+In this session, you'll explore the Particle ecosystem via an Argon-powered [Grove Starter Kit for Particle Mesh](https://store.particle.io/collections/shields-and-kits/products/grove-starter-kit) with several sensors!
 
-In this session, you'll explore the Particle ecosystem via an Argon-powered Grove Starter Kit for Particle Mesh with several sensors! If you get stuck at any point during this session, [click here for the completed, working source](https://go.particle.io/shared_apps/5d7bb4fe1abb3a0016bd4127). If you pull this sample code into Workbench, don't forget to install the relevant libraries using the instructions below!
+{{box op="start" cssClass="boxed warningBox"}}
+**Tip:** Go back to the source<br />
+If you get stuck at any point during this session, [click here](https://go.particle.io/shared_apps/5d7bb4fe1abb3a0016bd4127) for the completed, working source.{{box op="end"}}
+
+If you pull this sample code into Workbench, don't forget to install the relevant libraries using the instructions below!
 
 ## Create a new project in Particle Workbench
 
-1. Open Particle Workbench (VS Code) and click "Create new project."
+1. Open Particle Workbench (VS Code) and click *Create new project*.
 ![](/assets/images/workshops/particle-101/02/wb-create-project.png)
-2. Select the parent folder for your new project and click the "Choose project's parent folder" button.
+<br /><br />
+2. Select the parent folder for your new project and click the *Choose project's parent folder* button.
 ![](/assets/images/workshops/particle-101/02/wb-select-folder.png)
-3. Give the project a name and hit "Enter."
+<br/><br />
+3. Give the project a name and hit *Enter*.
 ![](/assets/images/workshops/particle-101/02/wb-name-project.png)
-4. Click "ok" when the create project confirmation dialog pops up.
+<br /><br />
+4. Click *ok* when the create project confirmation dialog pops up.
 ![](/assets/images/workshops/particle-101/02/wb-confirm.png)
+<br /><br />
 5. Once the project is created, the main `.ino` file will be opened in the main editor. Before you continue, let's take a look at the Workbench interface.
 
 ### Using the command palette and quick buttons
 
-1. To open the command palette, type CMD (on Mac) or CTRL (on Windows) + SHIFT + P and type "Particle." To see a list of available Particle Workbench commands. Everything you can do with Workbench is in this list.
+1. To open the command palette, type CMD (on Mac) or CTRL (on Windows) + SHIFT + P and type *Particle*. To see a list of available Particle Workbench commands. Everything you can do with Workbench is in this list.
 ![](/assets/images/workshops/particle-101/02/wb-command-p.png)
+<br /><br />
 2. The top nav of Particle Workbench also includes a number of handy buttons. From left to right, they are Compile (local), Flash (local), call function, and get variable.
 ![](/assets/images/workshops/particle-101/02/wb-quick-buttons.png)
-3. If this is your first time using Particle Workbench, you'll need to log in to your account. Open the command palette (CMD/CTRL + SHIFT + P) type/select the "Particle: Login" command, and follow the prompts to enter your username, password, and two-factor auth token (if you have two-factor authentication set-up).
+<br /><br />
+3. If this is your first time using Particle Workbench, you'll need to log in to your account. Open the command palette (CMD/CTRL + SHIFT + P) type/select the *Particle: Login* command, and follow the prompts to enter your username, password, and two-factor auth token (if you have two-factor authentication setup).
 
 ### Configuring the workspace for your device
 
-1. Before you can flash code to your device, you need to configure the project with a device type, Device OS firmware version, and device name. Open the command palette and select the "Configure Project for Device" option.
+1. Before you can flash code to your device, you need to configure the project with a device type, Device OS firmware version, and device name.
+<br /><br />
+Open the command palette and select the *Configure Project for Device* option.
 ![](/assets/images/workshops/particle-101/02/wb-cp-configure.png)
+<br /><br />
 2. Choose a Device OS version. For this lab, you should use 1.4.0 or newer.
 ![](/assets/images/workshops/particle-101/02/wb-cp-deviceos.png)
-3. Select the "Argon" as your target platform.
+<br /><br />
+3. Select the *Argon* as your target platform.
 ![](/assets/images/workshops/particle-101/02/wb-cp-boron.png)
-4. Enter the name you assigned to your device when you claimed it and hit "Enter."
+<br /><br />
+4. Enter the name you assigned to your device when you claimed it and hit *Enter*.
 ![](/assets/images/workshops/particle-101/02/wb-cp-name.png)
 You're now ready to program your Argon with Particle Workbench. Let's get the device plugged into your Grove kit and start working with sensors.
 
@@ -54,13 +70,21 @@ The Grove Starter Kit for Particle Mesh comes with seven different components th
 
 For this lab, you'll need the following items from the kit:
 
-- Temperature and Humidity Sensor
-- Chainable LED
-- Light Sensor
+- [Argon](https://store.particle.io/products/argon-kit)
+- [Grove Starter Kit for Particle Mesh](https://store.particle.io/collections/shields-and-kits/products/grove-starter-kit)
+  - Grove FeatherWing
+  - Temperature and Humidity Sensor
+  - Chainable LED
+  - Light Sensor
+  - Grove wires
 
+{{box op="start" cssClass="boxed warningBox"}}
+**Note:** Sourcing components<br />
+You won't need every sensor that comes with the Particle Starter Kit for Mesh for this project; however, the sensors that aren't used for this build, are used in other Particle Workshops and tutorials.{{box op="end"}}
 
 1. Open the Grove Starter Kit and remove the three components listed above, as well as the bag of Grove connectors.
 ![](/assets/images/workshops/particle-101/02/02-grovecomponents.png)
+<br />
 2. Remove the Grove Shield and plug in your Argon. This should be the same device you claimed in the last lab.
 ![](/assets/images/workshops/particle-101/02/03-argoninshield.png)
 
@@ -81,11 +105,13 @@ To connect the sensor, connect a Grove cable to the port on the sensor. Then, co
 To read from the temperature sensor, you'll use a firmware library, which abstracts away many of the complexities of dealing with this device. That means you don't have to reading from the sensor directly or dealing with conversions, and can instead call functions like `getHumidity` and `getTempFarenheit`.
 
 1. Open your Particle Workbench project and activate the command palette (CMD/CTRL+SHIFT+P).
-
-2. Type "Particle" and select the "Install Library" option
+<br /><br />
+2. Type *Particle* and select the *Install Library* option
 ![](/assets/images/workshops/particle-101/02/wb-install-lib.png)
-3. In the input, type "Grove_Temperature_And_Humidity_Sensor" and click enter.
+<br /><br />
+3. In the input, type *Grove_Temperature_And_Humidity_Sensor* and click enter.
 ![](/assets/images/workshops/particle-101/02/wb-temp-lib.png)
+<br /><br />
 You'll be notified once the library is installed, and a `lib` directory will be added to your project with the library source.
 ![](/assets/images/workshops/particle-101/02/wb-lib-dir.png)
 
@@ -96,15 +122,18 @@ You'll be notified once the library is installed, and a `lib` directory will be 
 #include "Grove_Temperature_And_Humidity_Sensor.h"
 ```
 {{box op="start" cssClass="boxed warningBox"}}
+**Tip:** Get any error message from Workbench?<br />
 From time-to-time, the intellisense engine in VS Code that Workbench depends on may report that it cannot find a library path and draw a red squiggly under your `#include` statement above. As long as your code compiles, (which you can verify by opening the command palette [CMD/CTRL+SHIFT+P] and choosing the `Particle: compile application (local)`) you can ignore this error.
 <br/><br/>
 You can also resolve the issue by trying one of the steps detailed in this community forum post, [here](https://community.particle.io/t/intellisense-report-issues-here/48734).
 {{box op="end"}}
+<br /><br />
 2. Next, initialize the sensor, just after the `#include` statement.
 ```cpp
 DHT dht(D2);
 ```
-3. In the `setup` function, you'll initialize the sensor and a serial monitor:
+<br /><br />
+3. In the `setup` function, you'll initialize the sensor and a serial monitor.
 ```cpp
 void setup()
 {
@@ -113,6 +142,7 @@ void setup()
   dht.begin();
 }
 ```
+<br /><br />
 4. Finally, take the readings in the `loop` function and write them to the serial monitor.
 ```cpp
 void loop()
@@ -128,8 +158,10 @@ void loop()
   delay(10000);
 }
 ```
-6. Now let's flash this code to your device. Open the command palette (CMD/CTRL+SHIFT+P) and select the "Particle: Cloud Flash" option
+<br /><br />
+6. Now, flash this code to your device. Open the command palette (CMD/CTRL+SHIFT+P) and select the *Particle: Cloud Flash* option.
 ![](/assets/images/workshops/particle-101/02/wb-cloud-flash.png)
+<br /><br />
 7. Finally, open a terminal window and run the `particle serial monitor` command. Once your Argon comes back online, it will start logging environment readings to the serial console.
 ![](/assets/images/workshops/particle-101/02/wb-serial.png)
 
@@ -137,7 +169,11 @@ Now that you've connected the sensor, let's sprinkle in some Particle goodness.
 
 ### Storing sensor data in Particle variables
 
-1. To use the Particle variable primitive, you need global variables to access. Start by moving the first line of your `loop` which declares the two environment variables (`temp` and `humidity`) to the top of your project, outside of the `setup` and `loop` functions. Then, add two more variables of type `double`. We'll need these because the Particle Cloud expects numeric variables to be of type `int` or `double`.
+1. To use the Particle variable primitive, you need global variables to access.
+<br /><br />
+Start by moving the first line of your `loop` which declares the two environment variables (`temp` and `humidity`) to the top of your project, outside of the `setup` and `loop` functions.
+<br /><br />
+Then, add two more variables of type `double`. We'll need these because the Particle Cloud expects numeric variables to be of type `int` or `double`.
   ```cpp
   #include "Grove_Temperature_And_Humidity_Sensor.h"
 
@@ -154,6 +190,7 @@ Now that you've connected the sensor, let's sprinkle in some Particle goodness.
     // Existing loop code here
   }
   ```
+<br /><br />
 2. With global variables in hand, you can add Particle variables using the `Particle.variable()` method, which takes two parameters: the first is a string representing the name of the variable, and the second is the firmware variable to track. 
 
   Add the following lines to the end of your `setup` function:
@@ -161,20 +198,24 @@ Now that you've connected the sensor, let's sprinkle in some Particle goodness.
 Particle.variable("temp", temp_dbl);
 Particle.variable("humidity", humidity_dbl);
 ```
+<br /><br />
 3. Next, in the `loop` function, just after you read the temp and humidity values from the sensor, add the following two lines, which will implicitly cast the raw `float` values into `double` for the Device Cloud.
 ```cpp
 temp_dbl = temp;
 humidity_dbl = humidity;
 ```
+<br /><br />
 4. Flash this code to your device and, when the Argon comes back online, move on to the next step.
 
 ### Accessing Particle variables from the Console
 
 1. To view the variables you just created, open the Particle Console by navigating to [console.particle.io](https://console.particle.io) and clicking on your device.
 ![](/assets/images/workshops/particle-101/02/console-list.png)
-2. On the device detail page, your variables will be listed on the right side, under Device Vitals and Functions.
+<br /><br />
+2. On the device detail page, your variables will be listed on the right side, under *Device Vitals and Functions*.
 ![](/assets/images/workshops/particle-101/02/console-details.png)
-3. Click the "Get" button next to each variable to see its value.
+<br /><br />
+3. Click the *Get* button next to each variable to see its value.
 ![](/assets/images/workshops/particle-101/02/console-vars.png)
 
 Now that you've mastered Particle variables for reading sensor data, let's look at how you can use the function primitive to trigger an action on the device. 
@@ -188,24 +229,27 @@ In this section, you'll use the Grove Chainable LED and the `Particle.function` 
 ### Connect the Chainable LED
 
 1. Open the bag containing the chainable LED and take one connector out of the bag.
-
+<br /><br />
 2. Connect one end of the Grove connector to the chainable LED on the side marked IN (the left side if you're looking at the device in a correct orientation).
 ![](/assets/images/workshops/particle-101/02/led-connect.jpg)
+<br /><br />
 3. Plug the other end of the connector into the Shield port labeled `A4`.
 ![](/assets/images/workshops/particle-101/02/led-shield.jpg)
+<br /><br />
 4. As with the Temp and Humidity sensor, you'll need a library to help us program the chainable LED. Using the same process you followed in the last module, add the `Grove_ChainableLED` library to your project in Particle Workbench.
-
-5. Once the library has been added, add an include and  create an object for the ChainableLED class at the top of your code file. The first two parameters specify which pin the LED is wired to, and the third is the number of LEDs you have chained together, just one in our case.
+<br /><br />
+5. Once the library has been added, add an include and  create an object for the ChainableLED class at the top of your code file. The first two parameters specify which pin the LED is wired to, and the third is the number of LEDs you have chained together, just one in your case.
 ```cpp
 #include "Grove_ChainableLED.h"
 ChainableLED leds(A4, A5, 1);
 ```
+<br /><br />
 6. Now, initialize the object in your `setup` function. You'll also set the LED color to off after initialization.
 ```cpp
 leds.init();
 leds.setColorHSB(0, 0.0, 0.0, 0.0);
 ```
-
+<br />
 With our new device set-up, you can turn it on in response to Particle function calls!
 
 ### Turning on the Chainable LED
@@ -215,6 +259,7 @@ With our new device set-up, you can turn it on in response to Particle function 
 int toggleLed(String args) {
 }
 ```
+<br /><br />
 2. In the `toggleLED` function, add a few lines turn the LED red, delay for half a second, and then turn it off again.
 ```cpp
 int toggleLed(String args) {
@@ -229,10 +274,12 @@ int toggleLed(String args) {
   return 1;
 }
 ```
+<br /><br />
 3. Now, let's call this from the loop to test things out. Add the following line before the delay.
 ```cpp
 toggleLed("");
 ```
+<br /><br />
 4. The last step is to flash this new code to your Argon. Once it's updated, the LED will blink red.
 
 ### Setting-up Particle Functions for remote execution
@@ -244,14 +291,15 @@ Now, let's modify our firmware to make the LED function a Particle Cloud functio
 Particle.function("toggleLed", toggleLed);
 ```
 `Particle.function` takes two parameters, the name of the function for display in the console and remote execution, and a reference to the firmware function to call.
-
+<br /><br />
 2. Remove the call to `toggleLed` from the `loop`.
 
 ### Calling Particle functions from the console
 
 1. Flash the latest firmware and navigate to the device dashboard for your Argon at [console.particle.io](https://console.particle.io). On the right side, you should now see your new function.
 ![](/assets/images/workshops/particle-101/02/console-func.png)
-2. Click the "Call" button and watch the chainable LED light up at your command!
+<br /><br />
+2. Click the *Call* button and watch the chainable LED light up at your command!
 ![](/assets/images/workshops/particle-101/02/console-func.gif)
 
 ## Working with Particle Publish & Subscribe plus a light sensor
@@ -272,21 +320,25 @@ Let's set-up the sensor on the firmware side so that you can use it in our proje
 ```cpp
 pinMode(A0, INPUT);
 ```
+<br /><br />
 2. Let's also add a global variable to hold the current light level detected by the sensor. Add the following before the `setup` and `loop` functions:
 ```cpp
 double currentLightLevel;
 ```
+<br /><br />
 3. Now, in the `loop` function, let's read from the sensor and use the `map` function to translate the analog reading to a value between 0 and 100 that you can work with.
 ```cpp
 double lightAnalogVal = analogRead(A0);
 currentLightLevel = map(lightAnalogVal, 0.0, 4095.0, 0.0, 100.0);
 ```
+<br /><br />
 4. Now, let's add a conditional to check the level and to publish an event using `Particle.publish` if the value goes over a certain threshold.
 ```cpp
 if (currentLightLevel > 50) {
   Particle.publish("light-meter/level", String(currentLightLevel), PRIVATE);
 }
 ```
+<br /><br />
 5. Flash the device and open the Particle Console dashboard for your device. Shine a light on the sensor and you'll start seeing values show up in the event log.
 
 ![](/assets/images/workshops/particle-101/02/light-publish.png)
@@ -295,10 +347,9 @@ if (currentLightLevel > 50) {
 
 In addition to viewing published messages from the console, you can subscribe to them using `Particle.subscribe` on another device, or use the Device Cloud API to subscribe to messages in an app. Let's use the Particle CLI to view messages as they come across.
 
-1. Open a new terminal window and type `particle subscribe light-meter mine`
-
+1. Open a new terminal window and type `particle subscribe light-meter mine`.
+<br /><br />
 2. Shine a light on the light sensor and wait for readings. You should see events stream across your terminal. Notice that the `light-meter` string is all you need to specify to get the `light-meter/latest` events. By using the forward slash in events, can subscribe via greedy prefix filters. 
-
 ![](/assets/images/workshops/particle-101/02/light-cli.gif)
 
 ## Bonus: Working with Mesh Publish and Subscribe
