@@ -152,32 +152,6 @@ represent attempts to reach devices from the cloud are failing. Be sure
 to also cross-reference this metric
 with the [Online Devices](#online-devices) data.
 
-### Firmware Version Distribution
-There are two main types of firmware that runs on Particle devices:
-- **Application Firmware**: The application-specific logic that you
-  manage. Fleet Health collects data on which versions of Product
-firmware are running on your devices.
-- **Device OS**: The underlying embedded operating system managed by
-  Particle. Fleet Health also collects data on which versions of Device
-OS are running on your devices.
-
-The Firmware Version Distribution metric measures _Which version of
-firmware are my devices running? How is this changing over time?_
-
-<img src="/assets/images/fleet-health/fw-distribution.png"
-class="full-width"
-alt="Fleet Health Firmware Version Metric" />
-
-This metric is especially useful when you have recently [released a
-version of
-firmware](/tutorials/device-cloud/ota-updates/#fleet-wide-ota) to your
-fleet. You can observe the rate at which targeted devices receive the
-new version of application firmware.
-
-You can toggle this metric between Application and Device OS firmware.
-Switching to Device OS distribution can help you understand which percentages
-of your fleet are running which versions of Device OS.
-
 ## Manipulating the data
 
 By default, Fleet Health displays metrics for an entire Product fleet,
@@ -194,8 +168,8 @@ time intervals. For instance, if doing a post mortem on a disruption,
 you would want to go back to look at the time period in question.
 
 You can use the Date Range selector to change the time window for all
-recorded time-series metrics. You can either choose from a few _Preset
-Ranges_, or pick a custom date range.
+recorded time-series metrics. You can choose from a few _Preset
+Ranges_.
 
 Note that when you change the date range, there will also be a
 corresponding change in the _bucketing_ of metrics. That is, each

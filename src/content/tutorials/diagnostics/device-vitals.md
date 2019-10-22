@@ -124,31 +124,6 @@ To change time range, use the selector visible on the top-right section of the V
 
 <img src="/assets/images/fleet-health/time-range-change.png" class="full-width" />
 
-### Warning ranges
-
-Particle can help you understand whether the vitals sent by the device
-are healthy or unhealthy. Each vital displayed on the
-dashboard (i.e. signal strength) has pre-defined thresholds to
-determine if the sample falls into a _warning range_.
-
-A vital sample in the warning range is suggestive of a potentially unhealthy
-device that may experience difficulties when attempting to communicate
-with the Device Cloud. These ranges have been determined and fine-tuned based on other
-Particle devices' connectivity behaviors at various recorded values.
-
-<img src="/assets/images/fleet-health/vitals-warning-range.png" />
-<p class="caption">Samples in the warning range are marked in
-yellow on the Vitals Dashboard</p>
-
-If there is a data point that includes at least one vitals sample in
-the warning range, it will be marked with a yellow indicator on the
-graph. If consecutive data points contain readings in the warning range,
-the area underneath the graph will be colored yellow to signify a time
-period in which the device may have been unhealthy.
-
-The tooltip provides additional information, including the recorded data
-and how many samples in that time bucket fell into the warning range.
-
 ### Last recorded vitals
 
 When viewing a device details page,  will see a section for _Last Vitals_ in the
@@ -185,33 +160,7 @@ the device details view:
 
 <img src="/assets/images/fleet-health/cellular-vitals.png"/>
 
-The cellular vitals collected by the device are as follows:
-
-- **Carrier**: The cellular network operator that the device is currently using to get
-a connection to the Internet.
-- **Radio Access Technology (RAT)**: The cellular connection method
-being used by the device (i.e. "LTE", or "3G").
-- **Cell Global Identity (CGI)**: The unique identifier for the specific
-cell tower the device is currently connected to, which combines MCC,
-MNC, LAC, and CI.
-
-In this case, the device is connected to an AT&T cell tower with CGI
-310-410-26507-21617 using LTE. Breaking down the CGI:
-- 310 is the _mobile country code_, or **MCC** associated with the
-United States of America.
-- 410 is the _mobile network code_, or **MNC**, associated with AT&T in
-the US. The combination of MCC and MNC tell you which carrier the device
-is using.
-- 26508 is the _location area code_ or **LAC**, which references a group of
-cellular towers in a geographic area.
-- 21617 is the _cellular identity_, or **CI**, which is the specific identifier of a
-single cellular tower.
-
-This data is useful to get an understanding of how a device is
-attempting to connect and communicate over a cellular network. For
-instance, perhaps cellular devices deployed in a particular geographic
-area have different connectivity behaviors depending on which specific
-cellular tower or network operator is being used.
+The new cellular vitals collected by the device show the **Radio Access Technology (RAT)**: The cellular connection method being used by the device (i.e. "LTE", or "3G").
 
 ## Sending Vitals to Device Cloud
 There are a few different ways that a device can be instructed to send
