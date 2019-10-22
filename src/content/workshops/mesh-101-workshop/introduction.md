@@ -10,7 +10,7 @@ layout: workshops.hbs
 
 This workshop is sponsored and produced by [Particle](https:www.particle.io).
 
-The workshop is a combination of a presentations and 4 hands-on sessions described in this guide.
+The workshop is a combination of presentations and 4 hands-on sessions described in this guide.
 
 This workshop will take you through the basics of connecting a Particle Argon mesh device to the Internet, and have it do amazing stuff. All in just 2 hours.
 
