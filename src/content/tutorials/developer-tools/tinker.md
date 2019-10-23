@@ -215,7 +215,7 @@ To get started, you'll need the following things:
 
 You've already connected your device, either with [smartphone or USB](/quickstart/photon). This means that when you open the Particle App, you'll see a screen like this:
 
-![](/assets/images/tinker-device-screen.png)
+![](/assets/images/gen3-tinker-device-screen.png)
 
 This person has a lot of devices, so the list is pretty crowded. As you can see, you can give your devices unique names to help you remember which is which.
 
@@ -223,22 +223,22 @@ Select the device you would like to Tinker around with by tapping on it.
 
 <p class = "boxedHead">Troubleshooting Note: I have a device online, but it doesn't have Tinker firmware on it.</p>
 <p class = "boxed">
-If there is a little yellow circle next to the device you want to use, it is online but does not have Tinker firmware running on it. (You probably replaced it with your user firmware for a different project or example.)
+If your device does not have the Tinker firmware installed, you'll see a message similar to the one in the image below when you click on the Tinker tab on your device details screen.
 
-![](/assets/images/tinker-device-screen-non-tinker.png)
+![](/assets/images/gen3-tinker-device-screen-non-tinker.png)
 
-When you tap on one of these devices, it will give you the option to reflash the Tinker firmware.
+If you tap the "Flash Tinker" button, you'll see a confirmation screen letting you know that flashing tinker will overwrite the existing firmware on your device.
 
-![](/assets/images/tinker-device-screen-reflash.png)
+![](/assets/images/gen3-tinker-device-screen-reflash.png)
 
-To do the following examples, you'll want to reflash the Tinker firmware. Go ahead and do this.
+To walk through the following examples yourself, you'll want to reflash the Tinker firmware. Click the "Flash" option and continue once your device comes back online.
 </p>
 
 ## Step Two: Explore the Tinker App
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on your device.
 
-![](/assets/images/tinker.png)
+![](/assets/images/photon-tinker.png)
 
 To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/guide/getting-started/examples)."}}}:
 
@@ -258,15 +258,15 @@ The simplest thing we can do with Tinker is to turn the D7 LED on and off.
 
 To turn on the LED, tap the D7 pin on the mobile app.
 
-![](/assets/images/tinker-d7.png)
+![](/assets/images/gen2-tinker-d7.png)
 
 Then tap `digitalWrite` to let it know that you want to send high or low voltage to that pin.
 
-![](/assets/images/tinker-d7-low.png)
+![](/assets/images/gen2-tinker-d7-low.png)
 
 You'll see a screen like the one above. Try tapping the D7 pin on the screen again.
 
-![](/assets/images/tinker-d7-high.png)
+![](/assets/images/gen2-tinker-d7-high.png)
 
 It will change its status to `HIGH` and your device's D7 LED will turn on. Tapping it again will change the status to `LOW` and the LED will turn off.
 
@@ -284,17 +284,17 @@ Wire up your LED with one of your resistors as shown below. Connect the longer (
 
 Then, pull up your mobile app and select D0 this time. Instead of `digitalWrite`, select `analogWrite`.
 
-![](/assets/images/tinker-d0.png)
+![](/assets/images/gen2-tinker-d0.png)
 
 You should now be able to set the D0 pin to any number between 0 and 255.
 
-![](/assets/images/tinker-d0-slider.png)
+![](/assets/images/gen2-tinker-d0-slider.png)
 
 It basically divides the maximum voltage by 255 and allows us to set the slider to any fraction of the voltage between minimum and maximum. Pretty cool, right?
 
 By sliding and releasing the slider, you should be able to see the LED dim and glow at different levels.
 
-![](/assets/images/tinker-d0-slider-med.png)
+![](/assets/images/gen2-tinker-d0-slider-med.png)
 
 If we wanted to, we could also switch modes and `digitalWrite` this LED to turn it on or off. To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up.
 
@@ -313,12 +313,12 @@ As you can see, one side of the wire is plugged into `3V3` and the other is plug
 
 Let's read that. Go into your mobile app. Press and hold `D0` to reset it. After it goes blank, tap it again and select `digitalRead`.
 
-![](/assets/images/tinker-d0.png)
+![](/assets/images/gen3-tinker-d0.png)
 
 If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now unplug the wire and tap the `D0` pin on the mobile app once more. {{popup 'Now the pin will say `LOW`.' 'note' "If you don't get `LOW` right away, give it a moment. There is still some residual voltage hanging out in the pin, but in a second that will disperse and it should read as `LOW`."}}
 
-![](/assets/images/tinker-d0-high.png)
-![](/assets/images/tinker-d0-low.png)
+![](/assets/images/gen3-tinker-d0-high.png)
+![](/assets/images/gen3-tinker-d0-low.png)
 
 ## Step Six: analogRead
 
@@ -333,19 +333,18 @@ Wire it up as pictured below. You can use any resistor for this; a larger resist
 
 Tap the A5 pin and set it to `digitalWrite` and `HIGH`.
 
-![](/assets/images/tinker-a5.png)
-![](/assets/images/tinker-a5-high.png)
+![](/assets/images/gen3-tinker-a5.png)
+![](/assets/images/gen3-tinker-a5-high.png)
 
 This essentially gives us a consistent power source from A5 that will go to our photoresistor. (We are doing this because sometimes an on-board power source like 3V3 has small fluctuations in power that could affect our photoresistor readings.)
 
 Now tap A0 and set it to `analogRead`.
 
-![](/assets/images/tinker-a0.png)
+![](/assets/images/gen3-tinker-a1.png)
 
 Hold your breadboard with the photoresistor on it up to a light source and tap A0 again to get the reading of the photoresistor. Now cover the photoresistor and tap A0 again. See the difference?
 
-![](/assets/images/tinker-a0-photo-read-low.png)
-![](/assets/images/tinker-a0-photo-read-high.png)
+![](/assets/images/gen3-tinker-a1-photo-read-high.png)
 
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
