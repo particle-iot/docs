@@ -108,22 +108,44 @@ Make sure you don't place any components on the top side of your base board unde
 
 The hold-down screw really is required! The M.2 connector does not have integrated locks, so if you don't have the hold-down screw, the module will pop right up again. This also means you cannot make a board that stops at the M.2 connector; it needs to be at least 42mm longer for the hold-down.
 
-This design just includes a 3mm hole for a M3 x 6mm screw and M3 nut. It's not as secure as the assembly in the datasheet, but is easier to procure and assemble and is fine for testing. (A slightly longer M3 x 6.5mm screw would be even better, if you can find one.)
-
-For the X Series SoM you will need to include some washers or the proper assembly as the X Series does not have an RF shield on the bottom and you'd end up flexing the module down too far. The A Series and B Series RF shield on the bottom prevents this.
+This design uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM.
 
 In Eagle, you can position the screw hole on your board as follows:
 
-- Set the grid to **mm**.
+- Place the **M2 Standoff** component on your schematic.
+- Set the grid to **mm** on the board layout.
 - Right click on the + in the middle of the M.2 connector and select **Properties**. Note the position (X=12.7mm, Y=27.94mm).
 
 ![Eagle Position](/assets/images/som-first-board/eagle-1.png)
 
-- Select the **Hole** tool and set the size to 3.0 (mm).
-- Place a hole on your board. Right click and select **Properties**.
-- Set the X position to be the same as the M.2 connector (12.7 in this case), and the Y position to be 42mm higher. In this example: 27.94 + 42.0 = 69.94
+- Set the X position of the standoff to be the same as the M.2 connector (12.7 in this case), and the Y position to be 42mm higher. In this example: 27.94 + 42.0 = 69.94
 - Add a dimension line if desired.
 - Switch the grid back to inches or mils (if desired).
+
+![Eagle Standoff](/assets/images/som-first-board/eagle-2.png)
+
+This is what the standoff looks like soldered to the top side of the base board:
+
+![Standoff Top](/assets/images/som-first-board/standoff-1.jpg)
+
+And the bottom:
+
+![Standoff Bottom](/assets/images/som-first-board/standoff-2.jpg)
+
+The best option for the screw is to use a M2*3 (M2 2mm screw, 3mm long) with a 4mm head. This is a larger head screw, commonly used with computer SSD drives.
+
+![Screw 1](/assets/images/som-first-board/standoff-3.jpg)
+
+You can use a standard M2*3 screw, but you'll probably want to use a M2 washer as well because the screw head isn't quite large enough to fit securely.
+
+![Screw 2](/assets/images/som-first-board/standoff-4.jpg)
+
+With the proper standoff and screw the SoM will be level with the board and the RF shield on the bottom will not touch the base board.
+
+![Standoff Level](/assets/images/som-first-board/standoff-5.jpg)
+
+Some of the pictures are taken using a 3mm hole for a M3 x 6mm screw and M3 nut. That will work in a pinch, but the standoff above is much more secure.
+
 
 ## BoM (Bill of Materials)
 
@@ -141,6 +163,8 @@ In Eagle, you can position the screw hole on your board as follows:
 | 1 | RGB LED 4PLCC | [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/9094273 CLMVC-FKA-CL1D1L71BB7C3C3) | $0.19 |
 | 1 | MP2122 Regulator | [Monolithic Power Systems MP2122GJ-Z](https://www.digikey.com/product-detail/en/monolithic-power-systems-inc/MP2122GJ-Z/1589-1872-1-ND/5291939) | $2.51 |
 | 1 | M.2 connector | [TE Connectivity 2199230-4](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230-4/A115904CT-ND/4208916) | $1.42 |
+| 1 | M.2 standoff | [JAE 	SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) | $1.25 |
+| 1 | M2*3 screw w/4mm head | [example](https://www.amazon.com/gp/product/B07NZ32TRB/ref=ppx_yo_dt_b_asin_title_o00_s00) | |
 | | Male header pins 0.1" | [Sullins PRPC040SAAN-RC](https://www.digikey.com/product-detail/en/PRPC040SAAN-RC/S1011EC-40-ND/2775214) | | 
 
 ## Assembly
@@ -172,6 +196,8 @@ This board uses 0603-sized components that are easily placed by hand. I use thes
 This is my placement guide for the components:
 
 ![Assembly](/assets/images/som-first-board/assembly-1.png)
+
+Don't forget to place the M.2 standoff. The rings are not the same size and if you place it upside-down it won't fit flush with the board.
 
 ### Reflow
 
@@ -261,4 +287,4 @@ Try entering other modes like DFU mode (blinking yellow). With a computer, try l
 dfu-util -l
 ```
 
-Celebrate making your first working SoM base board!
+Celebrate making your first working SoM base board!g
