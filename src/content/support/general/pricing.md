@@ -68,14 +68,12 @@ fleet.
 
 The price and what's included with the Device Cloud differs for Wi-Fi
 and cellular devices:
-- **Wi-Fi**: your first 100 devices are always free. Starting at the 101st
-device, you will be charged $0.39 per device/mo.
+- **Wi-Fi**: your first 100 devices are always free. When you’re ready to scale higher, talk to our team for more volume details.
 - **Cellular**: The first 3 months for each device is free. After 3 months, you will be
 charged $2.99 per device/mo., which includes 3MB of cellular data
 
 You can reduce your Device Cloud cost-per-device by growing the
-size of your fleet. Check out our <a href="https://particle.io/pricing" target="_blank">pricing page</a>
-for details on specific device volume break-points.
+size of your fleet. Talk to our team to learn how.
 
 ### How is cellular data billed?
 Cellular data is _included_ as part of access to the Device Cloud. Each
