@@ -14,9 +14,8 @@ layout: tutorials.hbs
 <p style="text-align:center;">Fleet Health is a feature available to
 customers on Particle's Enterprise plan. Interested in using this feature?</p>
 
-{{!-- TODO: Replace Contact Sales links with UTM links --}}
 <a class="btn"
-href="https://particle.io/sales"
+href="https://particle.io/sales?utm_campaign=fleet-health-enterprise-contact&utm_source=docs&utm_medium=link"
 target="_blank" style="display:block;margin:0
 auto;width:200px;text-align:center">Talk to an expert</a>
 {{box op="end"}}
@@ -216,9 +215,8 @@ fleet.
 <p style="text-align:center;">Fleet Health is a feature available to
 customers on Particle's Enterprise plan. Interested in using this feature?</p>
 
-{{!-- TODO: Replace Contact Sales links with UTM links --}}
 <a class="btn"
-href="https://particle.io/sales"
+href="https://particle.io/sales?utm_campaign=fleet-health-enterprise-contact&utm_source=docs&utm_medium=link"
 target="_blank" style="display:block;margin:0
 auto;width:200px;text-align:center">Talk to an expert</a>
 {{box op="end"}}
