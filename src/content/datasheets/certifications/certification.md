@@ -361,6 +361,10 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 #### E Series E310 (U201)
 - [Certificate of Conformity](/assets/pdfs/electron/ce-u201-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ce-u201-test-report.pdf)
+- [EN 301 511/301 908-2 Test Report](/assets/pdfs/e310-en-301-511.pdf)
+- [EN 301 908-1 Test Report](/assets/pdfs/e310-en-301-908-1.pdf)
+- [EN-60950 Test Report](/assets/pdfs/e310-EN60950-test-report.pdf)
+
 
 #### Argon
 
