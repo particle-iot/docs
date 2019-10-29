@@ -31,7 +31,6 @@ Stop by and join on of the best places online meet other people using Particle t
   - [Official Resources](#official-resources)
   - [Tools and SDKs](#tools-and-sdks)
   - [External Resources](#external-resources)
-  - [Conferences](#conferences)
   - [Podcasts](#podcasts)
   - [Useful Tools, Docs & FAQs](#useful-tools-docs-amp-faqs)
   - [Tutorials](#tutorials)
