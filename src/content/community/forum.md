@@ -74,11 +74,6 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Getting Started with the Photon by Simon Monk](https://www.amazon.com/Getting-Started-Photon-Affordable-Hackable/dp/1457187019)
 - [Community Supported Particle Clients](/community/community)
 
-## Conferences
-
-- [August 5-8 - That Conference](https://www.thatconference.com/sessions/session/12893)
-- [September 27 - Open Source Hardware Summit](https://2018.oshwa.org/)
-- [October 21-23 - All Things Open](https://allthingsopen.org/)
 
 ## Podcasts
 
