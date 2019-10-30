@@ -330,18 +330,18 @@ the Particle cloud to send a device-to-cloud message to IoT Hub.
 ### Confirming the data reaches Azure IoT Hub
 
 To ensure that the data is successfully being published to Azure IoT
-Hub, you can use the <a href="https://github.com/Azure/iothub-explorer" target="_blank">IoT Hub Explorer</a>, an Node-based command line
+Hub, you can use the <a href="https://github.com/Azure/azure-iot-cli-extension#microsoft-azure-iot-extension-for-azure-cli" target="_blank">Azure CLI IoT Extension</a>, an Node-based command line
 interface (CLI).
 
 Install the IoT Hub explorer and run the following command:
 
 ```bash
-iothub-explorer monitor-events [particle-device-id] --login [IoT-Hub-connection-string]
+az iot hub monitor-events [particle-device-id] --login [IoT-Hub-connection-string]
 ```
 
 Example:
 ```bash
-iothub-explorer monitor-events 2a003123456789012345678 --login "HostName=iothubfreeblahblah.azure-devices.net;SharedAccessKeyName=particle-iot-hub;SharedAccessKey=CNZ6PARTICLEwerISfasdfTHElkhaeBESTg/ked="
+az iot hub monitor-events 2a003123456789012345678 --login "HostName=iothubfreeblahblah.azure-devices.net;SharedAccessKeyName=particle-iot-hub;SharedAccessKey=CNZ6PARTICLEwerISfasdfTHElkhaeBESTg/ked="
 ```
 
 You can find your Hub's connection string in the Azure portal by
