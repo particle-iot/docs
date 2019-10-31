@@ -51,16 +51,11 @@ For usage info, check out [the examples](#common-tasks) below, or play with the 
 
 ### Installation
 
-#### Short version
-Just add `compile 'io.particle:cloudsdk:{{sdkversion}}'` to your app's `build.gradle`, and then follow [these instructions](#oauth-client-configuration) if you'll be distributing an app based on the SDK.
-
-#### Additional Details
-The Android Cloud SDK is available through [JCenter](https://bintray.com/particle/android/cloud-sdk/).  To add it to your project, just add `compile 'io.particle:cloudsdk:{{sdkversion}}'` to the `dependencies` element in your app module's `build.gradle` file, so it looks something like this:
+Just add `implementation 'io.particle:cloudsdk:{{sdkversion}}'` to your app's `build.gradle` dependencies, and then follow [these instructions](#oauth-client-configuration) if you'll be distributing an app based on the SDK.
 
 ```gradle
 dependencies {
-    // (...other dependencies...)
-    compile 'io.particle:cloudsdk:{{sdkversion}}'
+    implementation 'io.particle:cloudsdk:{{sdkversion}}'
 }
 ```
 
@@ -378,20 +373,13 @@ The wireless setup process for the Photon uses very different underlying technol
 
 ## Installation
 
-#### Short version
-Just add `compile 'io.particle:devicesetup:{{devicesetupversion}}'` to your app's `build.gradle`, and then follow [these instructions](#oauth-client-configuration) if you'll be distributing an app based on the SDK.
-
-#### Additional Details
-The Android Cloud SDK is available through [JCenter](https://bintray.com/particle/android/devicesetup/).  To add it to your project, just add `compile 'io.particle:devicesetup:{{devicesetupversion}}'` to the `dependencies` element in your app module's `build.gradle` file, so it looks something like this:
+Just add `implementation 'io.particle:devicesetup:{{devicesetupversion}}'` to your app's `build.gradle` dependencies, and then follow [these instructions](#oauth-client-configuration) if you'll be distributing an app based on the SDK.
 
 ```gradle
 dependencies {
-    // (...other dependencies...)
-    compile 'io.particle:devicesetup:{{devicesetupversion}}'
+    implementation 'io.particle:devicesetup:{{devicesetupversion}}'`
 }
 ```
-
-If you're unfamiliar with adding dependencies to your project, or are unfamiliar with Gradle in general, [this guide](http://developer.android.com/tools/building/configuring-gradle.html#buildFileBasics) provides a solid overview of the basics.
 
 
 ### Basic Usage
