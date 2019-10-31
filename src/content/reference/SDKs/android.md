@@ -427,7 +427,7 @@ device setup wizard, and call `.unregister()` once it's done.
 DeviceSetupCompleteReceiver receiver = new DeviceSetupCompleteReceiver() {
 
     @Override
-    public void onSetupSuccess(long configuredDeviceId) {
+    public void onSetupSuccess(String configuredDeviceId) {
         Toaster.s(someContext, "Hooray, you set up device " + configuredDeviceId);
     }
 
@@ -447,7 +447,7 @@ receiver.unregister(someContext);
 ```
 ---
 
-(Short version: listen for the `ACTION_DEVICE_SETUP_COMPLETE` intent broadcast; the device ID will be available as a `long` with key `EXTRA_CONFIGURED_DEVICE_ID`)
+(Short version: listen for the `ACTION_DEVICE_SETUP_COMPLETE` intent broadcast; the device ID will be available as a `String` with key `EXTRA_CONFIGURED_DEVICE_ID`)
 
 
 ### Customization
