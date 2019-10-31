@@ -498,10 +498,6 @@ under `devicesetup -> src -> main -> res -> values`.
 <string name="privacy_policy_uri">https://www.particle.io/privacy</string>
 <string name="forgot_password_uri">https://www.particle.io/forgot-password</string>
 <string name="troubleshooting_uri">https://community.particle.io/t/spark-core-troubleshooting-guide-spark-team/696</string>
-<string name="terms_of_service_html_file">NOT_DEFINED</string>
-<string name="privacy_policy_html_file">NOT_DEFINED</string>
-<string name="forgot_password_html_file">NOT_DEFINED</string>
-<string name="troubleshooting_html_file">NOT_DEFINED</string>
 <bool name="show_sign_up_page_fine_print">true</bool>
 ```
 ---
