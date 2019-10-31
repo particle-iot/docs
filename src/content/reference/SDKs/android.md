@@ -313,13 +313,19 @@ someDevice.unsubscribeFromEvents(subscriptionId);
 ```
 ---
 
-### Publishing an event
+#### Publishing an event
 
 You can also publish an event from your app to the Particle Device Cloud:
 
 ```java
-ParticleCloudSDK.getCloud().publishEventWithName("event_from_app", "some_event_payload",
-        ParticleEventVisibility.PRIVATE, 60);
+ParticleCloudSDK.getCloud().publishEventWithName(
+    "event_from_app",                 // the event name
+    "some_event_payload",             // the event payload data
+    ParticleEventVisibility.PRIVATE   // event visibility, either PRIVATE (the default), or PUBLIC
+    // the TTL (time to live), in seconds for this event.  After this time, the event is 
+    // considered stale/outdated
+    60
+);
 ```
 ---
 
