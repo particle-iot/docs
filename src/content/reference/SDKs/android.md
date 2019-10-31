@@ -77,15 +77,13 @@ Cloud SDK usage mostly revolves around two main classes:
 
 #### Blocking APIs FTW
 
-**preemptive tl;dr:** _many of the SDK methods make blocking network calls, meaning they can't be called from the main thread.  See the first example in the [API usage section](#common-tasks) for one way to handle this requirement._
+**preemptive tl;dr:** _many of the SDK's methods make **blocking network calls**, meaning they can't be called from the app's main thread.  The **strongly** recommended way of handling this requirement is to write your app in [Kotlin](https://developer.android.com/kotlin/learn) and use [coroutines](https://developer.android.com/kotlin/coroutines) to make call these SDK methods off the main thread._  _If you are unable to use Kotlin, the first example in the [API usage section](#common-tasks) shows another way to handle this requirement._
 
-All the SDK's methods have been very intentionally implemented as synchronous, blocking calls, _including calls which hit the network_.  Using blocking APIs avoids the tangled, nested logic of callbacks and other complexity, making it easy to make a synchronous call, get its return value, and use it as input to further calls, all in the same simple block of code.
+All the SDK's methods have been very intentionally implemented as synchronous, blocking calls, _including calls which use the internet_, meaning they cannot be called directly on the main thread.  This is because there are many easy ways to make a blocking API non-blocking (Kotlin coroutines, RxJava, Executors, AsyncTasks, etc), but going the other way around is awkward and bug-prone.  The Cloud SDK's use of blocking calls makes it easy to pair it with the asynchronous programming approach of your choice.
 
-As with all network programming, making async calls and returning their results to the UI thread can be clumsy and verbose, especially when using plain `AsyncTask`s. To spare you some of this awkwardness, the SDK includes the [`Async`]({{asyncclasslink}}) and `ApiWork` convenience classes.  These form a simple, purpose-built wrapper around `AsyncTask`, with the boilerplate kept to a minimum.  There's [an example](#sdk-calls-from-the-ui-thread) of using this class further below.
+As mentioned above, if Kotlin coroutines are not an option for you, the SDK includes an alternative in the form of the [`Async`]({{asyncclasslink}}) and `ApiWork` convenience classes.  These form a simple, purpose-built wrapper around Android's `AsyncTask`, with the boilerplate kept to a minimum.  There's [an example](#sdk-calls-from-the-ui-thread) of using this class further below.
 
-**Note:** the `Async` class itself is an *entirely optional* convenience. The SDK is perfectly useable from an `IntentService`, `Executor`, plain vanilla `AsyncTask`, or whatever other async mechanism you like.
-
-Finally, to make it clear which calls can be made from the UI thread, and which must be called from a background thread, the SDK APIs have been carefully annotated with [`@WorkerThread`](http://goo.gl/pRgWWm) where applicable.  Besides offering a hint to developers, this annotation also causes Android Studio to warn you if you try to make a blocking network call in the SDK from your UI thread.
+Finally, to make it clear which calls can be made from the UI thread, and which must be called from a background thread, the SDK APIs have been carefully annotated with [`@WorkerThread` and `@MainThread`](http://goo.gl/pRgWWm) where applicable.  Besides offering a hint to developers, this annotation also causes Android Studio to warn you if you try to make a blocking network call in the SDK from the main thread.
 
 ### Common tasks
 
@@ -93,7 +91,7 @@ Here are some example usages for common API tasks:
 
 ### SDK calls from the UI thread
 
-Most of the methods on the `ParticleCloud` and `ParticleDevice` classes make blocking calls to the network.  Since Android (rightly) doesn't allow making network calls on the UI thread, you'll need to make these calls from a background/worker thread.  [As mentioned previously](#blocking-apis-ftw), you can use whatever method you like for this, but the Cloud SDK provides the `Async` class to make this as easy as possible.
+Most of the methods on the `ParticleCloud` and `ParticleDevice` classes make blocking network calls.  Since Android doesn't allow making network calls on the main/UI thread, you'll need to make these calls from a background/worker thread.  [As mentioned previously](#blocking-apis-ftw), Kotlin's coroutines are the best way to handle this, but the Cloud SDK provides the `Async` class if Kotlin is not an option.
 
 Here's an example of reading a variable from a device using the `ParticleDevice` API with the `Async` class:
 
