@@ -24,7 +24,7 @@ Both the Cloud SDK and Device Setup libraries have the following requirements:
 ## Support and Contributions
 - If you **need help**, visit the [Mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the Android Cloud SDK and Device Setup library.
 - If you have **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+android&unscoped_q=android), and apply the `bug` label.
-- If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+android&unscoped_q=android) in the appropriate repo, and apply the `enhancement` label.
+- If you **have a feature request**, open an issue [on GitHub](https://github.com/particle-iot/particle-android), and apply the `enhancement` label.
 - If you **want to contribute**, submit a pull request! Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 
@@ -42,9 +42,9 @@ SDK features include:
 - Claiming & unclaiming devices for a user
 - Managing access tokens for the Particle Device Cloud
 
-The complete SDK sources are available to [browse on GitHub](https://github.com/particle-iot/spark-sdk-android/tree/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud), and can be [downloaded as a zip file](https://github.com/particle-iot/spark-sdk-android/archive/master.zip).
+The complete SDK sources are available to [browse on GitHub](https://github.com/particle-iot/particle-android/tree/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud).
 
-For usage info, check out [the examples](#common-tasks) below, or play with the `example_app` module included in the git repository.
+For usage info, check out [the examples](#common-tasks) below, or play with the [`sdk_example_app`](https://github.com/particle-iot/particle-android/tree/master/sdk_example_app) module included in the git repository.
 
 #### Beta notice
 
@@ -73,8 +73,8 @@ If you're unfamiliar with adding dependencies to your project, or are unfamiliar
 
 Cloud SDK usage mostly revolves around two main classes:
 
-1. [`ParticleCloud`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleCloud.java), which is the interface for all cloud operations not specific to a claimed device, such as user authentication, retrieving a user's device list, claiming devices, and more
-2. [`ParticleDevice`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleDevice.java), which represents a claimed device.  Each instance enables operations specific to that device, e.g.: invoking functions, reading variables, and accessing basic info like the device's name and version info.
+1. [`ParticleCloud`](https://github.com/particle-iot/particle-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleCloud.kt), which is the interface for all cloud operations not specific to a claimed device, such as user authentication, retrieving a user's device list, claiming devices, and more
+2. [`ParticleDevice`](https://github.com/particle-iot/particle-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleDevice.kt), which represents a claimed device.  Each instance enables operations specific to that device, e.g.: invoking functions, reading variables, and accessing basic info like the device's name and version info.
 
 #### Blocking APIs FTW
 
@@ -314,7 +314,7 @@ ParticleCloudSDK.getCloud().publishEventWithName("event_from_app", "some_event_p
 
 
 ### API Reference
-For a complete interface reference, simply check out the JavaDoc and source code in [the Git repo](https://github.com/particle-iot/spark-sdk-android/).
+For a complete interface reference, check out the JavaDoc and source code in [the `cloudsdk` module in the Git repo](https://github.com/particle-iot/particle-android/blob/master/cloudsdk/).
 
 Also, if you're working from Android Studio, you can get the JavaDoc for each method or class by putting the cursor over it and hitting `F1`.  (This is on macOS; shortcuts on other platforms may vary.)
 
@@ -564,4 +564,4 @@ To learn how to create these credentials for your organization [read here](/tuto
 
 ## License
 
-Just like the Android support libraries, the Particle Android Cloud SDK and Device Setup library are available under the Apache License 2.0.  See [the LICENSE file](https://github.com/particle-iot/spark-sdk-android/blob/master/LICENSE) for the complete text of the license.
+As with most Android libraries and AOSP itself, the Particle Android Cloud SDK and Device Setup library are available under the Apache License 2.0.  See [the LICENSE file](https://github.com/particle-iot/spark-sdk-android/blob/master/LICENSE) for the complete text of the license.
