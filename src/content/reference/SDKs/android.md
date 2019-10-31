@@ -59,7 +59,23 @@ dependencies {
 }
 ```
 
-If you're unfamiliar with adding dependencies to your project, or are unfamiliar with Gradle in general, [this guide](http://developer.android.com/tools/building/configuring-gradle.html#buildFileBasics) provides a solid overview of the basics.
+Then, from your Application class, add `ParticleCloudSDK.init()` in `onCreate()`:
+
+```java
+public class MyApp extends Application {
+
+    ...
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        ParticleCloudSDK.init(this);
+    }
+
+    ...
+
+}
+```
 
 ---
 
