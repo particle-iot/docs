@@ -129,7 +129,7 @@ Async.executeAsync(someDevice, new Async.ApiWork<ParticleDevice, Integer>() {
 });
 ```
 
-### Cloud Login
+#### Cloud Login
 Log in to the Particle Device Cloud:
 
 ```java
@@ -148,7 +148,7 @@ ParticleCloudSDK.getCloud().setAccessToken("9bb912533940e7c808b191c28cd6aaaf8d12
 ---
 
 
-### List Devices
+#### List Devices
 List the devices that belong to the currently logged-in user, and find a specific device by name:
 
 ```java
@@ -162,7 +162,7 @@ for (ParticleDevice device : devices) {
 ```
 ---
 
-### Get Device Instance
+#### Get Device Instance
 Get a device instance by its ID:
 
 ```java
@@ -170,7 +170,7 @@ ParticleDevice myDevice = ParticleCloudSDK.getCloud().getDevice("53fa73265066544
 ```
 ---
 
-### Read Device Information
+#### Read Device Information
 Accessing information about a device.
 
 ```java
@@ -201,7 +201,7 @@ boolean aBoolean = myDevice.getBooleanVariable("someBooleanValue");
 ```
 ---
 
-### Call a Function
+#### Call a Function
 Invoke a function on the device with a list of parameters.  The return value from `callFunction()` is result code returned from the function on the device.
 
 ```java
@@ -210,7 +210,7 @@ Toaster.s(someActivity, "Result of calling digitalwrite: " + resultCode);
 ```
 ---
 
-### List Variables and Functions
+#### List Variables and Functions
 `ParticleDevice.getFunctions()` returns a list of function names.  `ParticleDevice.getVariables()` returns a map of variable names to types.
 
 ```java
@@ -225,7 +225,7 @@ for (String name : variables.keySet()) {
 ```
 ---
 
-### Rename a device
+#### Rename a device
 Set a new name for a claimed device:
 
 ```java
@@ -234,7 +234,7 @@ particleDevice.setName("rocket_bubble");
 ---
 
 
-### Log out
+#### Log out
 Log out the user, clearing their session and access token:
 
 ```java
@@ -247,7 +247,7 @@ Using the SDK, you open a stream for receiving [Server-Sent Events (SSEs)](http:
 
 Events can be filtered by name using the optional `eventNamePrefix` param.  When this prefix is specified, your event handler will only receive events with names that begin with the specified prefix. For example, specifying an event name filter of 'temp' will return events with names 'temp', 'tempo', and 'temperature'.
 
-### Subscribe to events
+#### Subscribe to events
 
 Subscribe to the firehose of public events, plus the private events published by devices one owns:
 
@@ -296,7 +296,7 @@ subscriptionId = someDevice.subscribeToEvents(null, someHandler);
 ```
 ---
 
-### Unsubscribing from events
+#### Unsubscribing from events
 
 When subscribing to events, keep a reference to the subscription ID returned, and pass this as the parameter to the unsubscribe method:
 
@@ -440,7 +440,7 @@ ParticleDeviceSetupLibrary.startDeviceSetup(someContext);
 
 You can get the device ID of the successfully set-up device after setup
 completes by listening for the intent broadcast defined by
-ParticleDeviceSetupLibrary.DeviceSetupCompleteContract.
+`ParticleDeviceSetupLibrary.DeviceSetupCompleteContract`.
 
 A convenience wrapper for this broadcast has been created as well,
 `ParticleDeviceSetupLibrary.DeviceSetupCompleteReceiver`.  Just override
