@@ -35,15 +35,15 @@ Both the Cloud SDK and Device Setup libraries have the following requirements:
 
 ### Introduction
 
-The Particle Android Cloud SDK is an easy-to-use wrapper for the Particle REST API, providing a clear, type-safe way for your Android app to interact with Particle-powered connected products, all via the Particle Device Cloud.
+The Particle Android Cloud SDK enables Android apps to interact with Particle-powered connected products via the Particle Cloud. As an easy-to-use wrapper for the Particle REST API, the Cloud SDK can:
 
-SDK features include:
-
-- Getting a list of a user's Particle devices
-- Reading variables and invoking functions on devices
-- Publishing events from mobile devices, and subscribing to events published by devices & apps
-- Claiming & unclaiming devices for a user
-- Managing access tokens for the Particle Device Cloud
+- Get a list of Particle devices claimed by a user account
+- Read variables from devices
+- Invoke functions on devices
+- Publish events from your mobile app and subscribe to events coming from devices
+- Get data usage information for cellular devices
+- Claim/unclaim devices for a user account
+- Manage & inject user sessions for the Particle Cloud (access tokens, encrypted session management)
 
 The complete SDK sources are available to [browse on GitHub](https://github.com/particle-iot/particle-android/tree/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud).
 
