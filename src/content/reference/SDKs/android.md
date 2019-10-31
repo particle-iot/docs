@@ -48,9 +48,6 @@ The complete SDK sources are available to [browse on GitHub](https://github.com/
 
 For usage info, check out [the examples](#common-tasks) below, or play with the [`sdk_example_app`](https://github.com/particle-iot/particle-android/tree/master/sdk_example_app) module included in the git repository.
 
-#### Beta notice
-
-While this SDK is ready for production use, as seen in [the Particle Android app](https://github.com/particle-iot/photon-tinker-android), it is still under development and is currently in beta.  The API is mostly stable, but may be subject to further changes prior to leaving beta.  Once the SDK leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
 
 ### Installation
 
@@ -389,11 +386,6 @@ The wireless setup process for the Photon uses very different underlying technol
 [![License](https://img.shields.io/cocoapods/l/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
 [![Platform](https://img.shields.io/cocoapods/p/Spark-Setup.svg?style=flat)](http://cocoapods.org/pods/SparkSetup)
 -->
-
-
-#### Beta notice
-
-While this library is ready for production use, as seen in [the Particle Android app](https://github.com/particle-iot/photon-tinker-android), it is still under development and is currently in beta.  The API is mostly stable, but may be subject to further changes prior to leaving beta.  Once it leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
 
 
 ## Installation
