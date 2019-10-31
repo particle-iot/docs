@@ -189,14 +189,15 @@ String defaultBuildString = myDevice.getDefaultBuild();
 ```
 ---
 
-### Read Variables
-Accessing variables of [all the standard Particle Device Cloud types](/reference/device-os/firmware/#particle-variable-) (integers, strings, and doubles):
+#### Read Variables
+Accessing variables of [all the standard Particle Device Cloud types](/reference/device-os/firmware/#particle-variable-) (integers, strings, doubles, and booleans):
 
 ```java
 // 'myDevice' here is a ParticleDevice instance
 int anInteger = myDevice.getIntVariable("someIntValue");
 String aString = myDevice.getStringVariable("someOtherStringValue");
 double aDouble = myDevice.getDoubleVariable("someDoubleValue");
+boolean aBoolean = myDevice.getBooleanVariable("someBooleanValue");
 ```
 ---
 
