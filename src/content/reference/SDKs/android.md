@@ -250,11 +250,11 @@ Events can be filtered by name using the optional `eventNamePrefix` param.  When
 
 #### Subscribe to events
 
-Subscribe to the firehose of public events, plus the private events published by devices one owns:
+Subscribe to all events, public and private, published by all the devices the user owns:
 
 ```java
 long subscriptionId;  // save this for later, for unsubscribing
-subscriptionId = ParticleCloudSDK.getCloud().subscribeToAllEvents(
+subscriptionId = ParticleCloudSDK.getCloud().subscribeToMyDevicesEvents(
     null,  // the first argument, "eventNamePrefix", is optional
     new ParticleEventHandler() {
         public void onEvent(String eventName, ParticleEvent event) {
@@ -268,19 +268,7 @@ subscriptionId = ParticleCloudSDK.getCloud().subscribeToAllEvents(
 ```
 ---
 
-*Note 1:* Passing in `null` or `""` for the `eventNamePrefix` parameter will subscribe the handler to **all** events. (We weren't joking when we called it a firehose before: this will produce a **lot** of data!)
-
-*Note 2:* You can have multiple handlers per event name and/or same handler per multiple events names.
-
-Subscribe to all events, public and private, published by devices the user owns:
-
-```java
-long subscriptionId;  // save this for later, for unsubscribing
-subscriptionId = ParticleCloudSDK.getCloud().subscribeToMyDevicesEvents(null, someHandler);
-```
----
-
-Subscribe to events from one specific device.  If the API user owns the device, she'll receive all events, public and private, published by that device.  Otherwise, only the public events will be received.
+Subscribe to events from one specific device.  If the API user owns the device, they'll receive all events published by that device, both public and private.  If the user does not own the device, only public events will be received.
 
 ```java
 long subscriptionId;  // save this for later, for unsubscribing
