@@ -11,7 +11,8 @@ asyncclasslink: https://github.com/particle-iot/particle-android/blob/master/clo
 # {{title}}
 
 The Particle Android SDK consists of two parts:
-1. [the Cloud SDK](#android-cloud-sdk): a REST API wrapper which enables your mobile app to interact with Particle-powered hardware through the Particle Device Cloud
+
+1. [the Cloud SDK](#android-cloud-sdk): a wrapper for our REST API which enables your mobile app to interact with Particle-powered hardware through the Particle Device Cloud
 2. [the Device Setup library](#android-device-setup-library): a library which provides an easy setup wizard for your app's users to set up their Photon/P1-powered devices
 
 ## Requirements
@@ -107,8 +108,8 @@ Most of the methods on the `ParticleCloud` and `ParticleDevice` classes make blo
 Here's an example of reading a variable from a device using the `ParticleDevice` API with the `Async` class:
 
 ```java
-// "aDevice" is a ParticleDevice instance we've previously retrieved
-Async.executeAsync(aDevice, new Async.ApiWork<ParticleDevice, Integer>() {
+// "someDevice" is a ParticleDevice instance
+Async.executeAsync(someDevice, new Async.ApiWork<ParticleDevice, Integer>() {
 
     public Integer callApi(ParticleDevice particleDevice)
             throws ParticleCloudException, IOException {
@@ -135,9 +136,10 @@ Log in to the Particle Device Cloud:
 ParticleCloudSDK.getCloud().logIn("ido@particle.io", "myl33tp4ssw0rd");
 Toaster.s(someActivity, "Logged in!");
 ```
-#### Injecting Session Access Token (Two Legged Authentication)
 
-If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new setAccessToken methods exposed from ParticleCloud class. Additionally the SDK will now automatically renew an expired session if a refresh token exists.
+##### Injecting Session Access Token (Two Legged Authentication)
+
+If you use your own backend to authenticate users in your app, you can now easily inject the access token your backend gets from the Particle cloud using one of the new `setAccessToken()` methods on `ParticleCloud`. Additionally, the SDK will now automatically renew an expired session if a refresh token exists.
 
 ```java
 ParticleCloudSDK.getCloud().setAccessToken("9bb912533940e7c808b191c28cd6aaaf8d12986c");
@@ -147,7 +149,7 @@ ParticleCloudSDK.getCloud().setAccessToken("9bb912533940e7c808b191c28cd6aaaf8d12
 
 
 ### List Devices
-List the devices that belong to currently logged-in user, and find a specific device by name:
+List the devices that belong to the currently logged-in user, and find a specific device by name:
 
 ```java
 List<ParticleDevice> devices = ParticleCloudSDK.getCloud().getDevices();
@@ -240,8 +242,9 @@ ParticleCloudSDK.getCloud().logOut()
 ---
 
 ### Events sub-system
-<!-- FIXME: improve this description -->
-Using the SDK, you can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Device Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
+Using the SDK, you open a stream for receiving [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/) from devices.  Calling one of the `subscribe...()` methods opens a connection to the Particle Device Cloud.  Unlike regular HTTP calls which end as soon as the request is handled, this connection will stay open until explicitly closed.  Then, when your Particle device publishes an event, your event handler will receive the event
+
+Events can be filtered by name using the optional `eventNamePrefix` param.  When this prefix is specified, your event handler will only receive events with names that begin with the specified prefix. For example, specifying an event name filter of 'temp' will return events with names 'temp', 'tempo', and 'temperature'.
 
 ### Subscribe to events
 
@@ -324,22 +327,23 @@ ParticleCloudSDK.getCloud().publishEventWithName("event_from_app", "some_event_p
 ### API Reference
 For a complete interface reference, check out the JavaDoc and source code in [the `cloudsdk` module in the Git repo](https://github.com/particle-iot/particle-android/blob/master/cloudsdk/).
 
-Also, if you're working from Android Studio, you can get the JavaDoc for each method or class by putting the cursor over it and hitting `F1`.  (This is on macOS; shortcuts on other platforms may vary.)
+If you're working in Android Studio, you can get the JavaDoc for each method or class by putting the cursor over it and hitting `F1`.  (This shortcut is for macOS; shortcuts on other platforms may vary.)
 
 
 ### OAuth client configuration
 
-If you're distributing your own app, you're required to provide the cloud SDK with an OAuth client ID and secret. These are used to identify users coming from your specific app to the Particle Device Cloud.  You need only create one pair of these credentials for each app that you plan to release.  i.e. If you plan to release two different apps, then you'll need one set of credentials for each app.  They will persist forever and do not need to be refreshed.  
+If you're distributing your own app, you are **required** to provide the cloud SDK with an OAuth client ID and secret. These are used to identify users coming from your specific app to the Particle Device Cloud.  You'll need to create a new pair of these credentials for each app that you plan to release.  i.e. If you plan to release two different apps, then you'll need two sets of credentials, one for each app.
 
-Once you've created your OAuth credentials, you can supply them to the SDK in one of two ways.
+These credentials will persist forever and do not need to be refreshed.
 
-The first way is to provide them as string resources, using the names `oauth_client_id` and `oauth_client_secret`, respectively, as in the example, and they'll be picked up by the SDK automatically:
+#### Supplying credentials to the SDK
+The first way is to provide them as string resources, using the names `oauth_client_id` and `oauth_client_secret`, respectively, as shown here and in the example app:
 ```xml
 <string name="oauth_client_id">(client ID string goes here)</string>
 <string name="oauth_client_secret">(client secret 40-char hex string goes here)</string>
 ```
 
-The second way, if you would prefer not to ship these OAuth strings as Android string resources, is to use an alternate SDK init method, `ParticleCloudSDK.initWithOauthCredentialsProvider()`.  For this option, you'll need to create a custom `OauthBasicAuthCredentialsProvider` implementation, and pass it to the init method, as seen here:
+If you would prefer not to ship these OAuth strings as Android string resources, an alternative approach is provided via a separate SDK init method, `ParticleCloudSDK.initWithOauthCredentialsProvider()`.  For this option, you'll need to create a custom `OauthBasicAuthCredentialsProvider` implementation, and pass it to the init method, as seen here:
 ```java
 ParticleCloudSDK.initWithOauthCredentialsProvider(someContext,
     new OauthBasicAuthCredentialsProvider() {
@@ -357,7 +361,7 @@ ParticleCloudSDK.initWithOauthCredentialsProvider(someContext,
 
 ### Logging
 
-HTTP logging can be configured by setting the `http_log_level` string resource.  Valid values follow Retrofit's (1.x) `LogLevel` enum : `NONE`, `BASIC`, `HEADERS`, `HEADERS_AND_ARGS`, or `FULL`.  The default for release builds is `NONE`.
+HTTP logging can be configured by setting the `http_log_level` string resource.  Valid values follow the `LogLevel` enum from Retrofit (1.x): `NONE`, `BASIC`, `HEADERS`, `HEADERS_AND_ARGS`, or `FULL`.  The default for release builds is `NONE`.
 
 For example, to set logging to `BASIC`, you would add the following to your `strings.xml`:
 ```xml
@@ -370,14 +374,13 @@ For example, to set logging to `BASIC`, you would add the following to your `str
 ## Android Device Setup Library
 
 ### Introduction
-<!-- FIXME: tighten this up, copy it back into the setup lib README -->
-The Particle Device Setup library provides everything you need to offer your users a simple initial setup process for Particle-powered devices.  This includes all the necessary device communication code, an easily customizable UI, and a simple developer API.
+The Particle Device Setup library provides everything you need to offer your users a simple initial setup process for Photon/P1-powered devices.  This includes all the necessary device communication code, an easily customizable UI, and a simple developer API.
 
-The setup UI can be easily customized by a modifying Android XML resource files. Available customizations include: look & feel, colors, fonts, custom brand logos and more.  Customization isn't required for a nice looking setup process, though: good defaults are used throughout, with styling generally following Google's Material Design guidelines.
+The setup UI can be customized by a modifying Android XML resource files. Available customizations include: look & feel, colors, fonts, custom brand logos and more.  Customization isn't required for a nice looking setup process, though: good defaults are used throughout, with styling rooted in Google's Material Design.
 
-With the Device Setup library, you only need to make one simple call from your app, and the Particle setup process UI launches to guide the user through the device setup process.  When that process finishes, the user is returned to the Activity where they were left off, and a broadcast intent is sent out with the ID of the device she just set up and claimed.
+With the Device Setup library, you only need to make a single call from your app, and the Particle setup process UI launches to guide the user through the device setup process.  When that process finishes, the user is returned to the Activity where they were left off, and a broadcast intent is sent out with the ID of the device she just set up and claimed.
 
-The wireless setup process for the Photon uses very different underlying technology from the Core.  The Core used _SmartConfig_, while the Photon uses what we call a “soft AP” mode: during setup, the Photon advertises itself as a Wi-Fi network.  The mobile app configures the Android device to connect to this soft AP network, and using this connection, it can provide the Particle device with the credentials it needs for the Wi-Fi network you want the to Photon to use.
+Configuration for the Photon uses what we call a “soft AP” mode: during setup, the Photon advertises itself as a Wi-Fi access point ("AP").  The mobile app configures the Android device to connect to this soft AP network, and using this connection, it can provide the Particle device with the credentials it needs for the Wi-Fi network you want the to Photon to use.
 
 <!---
 [![CI Status](http://img.shields.io/travis/spark/SparkSetup.svg?style=flat)](https://travis-ci.org/spark/SparkSetup)
@@ -409,9 +412,7 @@ onCreate() of your first Activity, e.g.:
 ParticleDeviceSetupLibrary.init(this.getApplicationContext(), MyMainActivity.class);
 ```
 ---
-The class passed in as the second argument to `init()` is used to return you to the
-"main activity" of your app once setup has completed (or whatever other activity you
-wish to start once setup is complete).
+The class passed in as the second argument to `init()` is used to return you to a specified activity of your app once setup has completed.
 
 #### Configure device Wi-Fi credentials without claiming it
 
@@ -468,7 +469,7 @@ receiver.unregister(someContext);
 
 ### Customization
 
-Customize setup look and feel by overriding values from the `customization.xml` file
+The look and feel of the setup UI can be customized by overriding values from the `customization.xml` file
 under `devicesetup -> src -> main -> res -> values`.
 
 #### Product/brand info:
