@@ -205,6 +205,7 @@ boolean aBoolean = myDevice.getBooleanVariable("someBooleanValue");
 Invoke a function on the device with a list of parameters.  The return value from `callFunction()` is result code returned from the function on the device.
 
 ```java
+// Call function "digitalwrite" with params ("D7", "1"), which will tell digitalWrite to set the value of D7 to "1"
 int resultCode = someDevice.callFunction("digitalwrite", list("D7", "1"));
 Toaster.s(someActivity, "Result of calling digitalwrite: " + resultCode);
 ```
