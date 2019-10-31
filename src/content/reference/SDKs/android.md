@@ -515,27 +515,25 @@ under `devicesetup -> src -> main -> res -> values`.
 <color name="element_background_color_dark">#0083A6</color>
 <color name="element_text_color">@android:color/white</color>
 <color name="element_text_disabled_color">#E0E0E0</color>
- ```
+```
 ---
 
-### Organization mode:
-Setting the boolean resource `organization` to `true`[1] in one of your resource files) will enable organization mode, which uses different API endpoints and requires special permissions (See Particle Console).
-If you enable organization mode, be sure to also provide string resources for `organization_slug` and `product_slug`, using the values you created on the [Particle Console](/guide/tools-and-features/console/).
-To provide the `ParticleCloud` class with correct OAuth credentials for creating customers (so app users could create an account), [read the instructions here](/reference/android/#oauth-client-configuration).
-To learn how to create these credentials for your organization [read here](/tutorials/device-cloud/authentication).
+### Product creators
 
-[1] i.e.: adding `<bool name="organization">false</bool>`
+If you're developing an app for your product / you're a product creator you should create a boolean resource as follows: `<bool name="productMode">true</bool>`.  This will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
+
+If you set `productMode ` to `true` be sure to also provide the `product_id` and `product_name` - please [read here](/guide/tools-and-features/console/#your-product-id) for how to find your productId number.
+
+Lastly, make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](/tutorials/device-cloud/authentication), so app users could create an account. [Read here](/reference/android/#oauth-client-configuration) on how to do this.
 
 
 ```xml
-<!-- enable organization mode -->
+<!-- enable product mode -->
 <bool name="organization">true</bool>
-<!-- organization display name -->
-<string name="organization_name">Acme Wireless-Enabled Widget Company</string>
-<!-- organizational name for API endpoint URL - must specify for orgMode *new* -->
-<string name="organization_slug">acme_wireless_enabled_widgets</string>
-<!-- enable product string for API endpoint URL - must specify for orgMode *new* -->
-<string name="product_slug">acme-widget-model-123</string>
+<!-- product display name -->
+<string name="product_name">Your Product Name Here!</string>
+<!-- Product ID from Particle console -->
+<integer name="product_id">12345</integer>
 ```
 ---
 
