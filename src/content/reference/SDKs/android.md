@@ -355,16 +355,6 @@ For example, to set logging to `BASIC`, you would add the following to your `str
 ---
 
 
-### Extras
-
-The SDK also ships with a handful of utility classes, mostly focused on eliminating boilerplate while maintaining a clear API:
-
-- [`Async`]({{asyncclasslink}}): [as mentioned previously](#blocking-apis-ftw), this is an optional convenience wrapper around AsyncTask for calling Cloud SDK methods.  Usage information for this class can be found in [the API examples](#common-tasks).
-- [`Toaster`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Toaster.java): another boilerplate eliminator.  `Toast.makeToast(blah blah blah).show()` is absurd when all you really wanted was an ultra-lightweight way to say _"hey Android, put this string on the screen for a sec, pls."_.  `Toaster` makes this dream come true.
-- [`EZ`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/EZ.java): miscellaneous shortcuts which have no simple taxonomic classification.
-- [`Py`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Py.java): There's nothing Particle or Android-specific about this class, but it's worth calling out.  This class brings a little Pythonic joy to your Java, like easy collection constructors (e.g.: `list()` and `set()`), a _truthiness_ check named `truthy()`, and other simple, sane goodies.  See the javadoc on source for this class for additional information.
----
-
 
 ## Android Device Setup Library
 
