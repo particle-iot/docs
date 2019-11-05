@@ -25,14 +25,29 @@ git submodule update --init --recursive
 git checkout -b develop
 ```
 
-- Run the `Particle: Launch Compiler Shell` command.
-- In the terminal that launches, execute the following:
+- Launch Visual Studio Code
+- Navigate to your Particle settings ([docs](https://code.visualstudio.com/docs/getstarted/settings)) and set the `Custom Device OS Location`
+
+![Particle Global Settings](/assets/images/workbench/settings-custom-deviceos-location.png)
+
+- Enter the absolute path to your Device OS source code and reload when prompted
+- Open a Particle project and open a source file
+- Click on the Device OS entry in the status bar to display a list of available toolchains
+
+![Particle Project Settings](/assets/images/workbench/statusbar-project-settings.png)
+
+- Select the `deviceOS@source` entry - it should be first in the list
+- Wait for the toolchain to install and activate
+- Run commands ([docs](https://docs.particle.io/tutorials/developer-tools/workbench/#particle-commands)) and local compilation tasks as normal ([docs](/tutorials/developer-tools/workbench/#local-build-and-flash))
+
+
+## Error: Unable to load manifest
 
 ```
-DEVICE_OS_PATH=/path/to/device-os/ make -f $PARTICLE_MAKEFILE compile-all
+Unable to load manifest for: ~/path/to/device-os - attempted to load: ~/path/to/device-os/.workbench/manifest.json
 ```
 
-- You'll need to do your builds from this window in order for the change to take effect.
+Workbench attempts to load a manifest located within the Device OS source repository. If that file isn't available or if you've somehow incorrectly set the `Custom Device OS Location` setting, you'll see this error.
 
 
 ## Uninstalling Workbench
@@ -43,6 +58,7 @@ DEVICE_OS_PATH=/path/to/device-os/ make -f $PARTICLE_MAKEFILE compile-all
 - Repeat for the **C/C++** and **Cortex-Debug** extensions
 - Close and re-open VSCode, then close it again.
 - Delete the `~/.particle/toolchains` directory.
+
 
 ## Uninstalling VSCode
 
