@@ -14,114 +14,119 @@ order: 24
 
 | Country | Carriers | 2G | 3G |
 | ------- | -------- | :---: | :---: |
-| United States | AT&T, T-Mobile USA |<sup>1</sup> | U260 |
+| United States | AT&T,T-Mobile (USA) |<sup>1</sup> | U260 |
 | Canada | Rogers AT&T Wireless |&#x2714; | U260 |
 | United Kingdom | Telefonica O2 UK |&#x2714; | U270 |
-| Argentina | Telefonica Moviles Argentina |&#x2714; | U260 |
-| Australia | Telstra Australia |  | U260 |
+| Algeria | Mobilis |&#x2714; | U270 |
+| Argentina | Movistar Argentina |&#x2714; | U260 |
+| Aruba | Setar |&#x2714; | U260 |
+| Australia | Telstra MobileNet |  | U260 |
 | Austria | T-Mobile Austria |&#x2714; | U270 |
-| Bahrain | Batelco Bahrain |&#x2714; | U270 |
+| Azerbaijan | Azercell |&#x2714; | U270 |
+| Bangladesh | GrameenPhone |&#x2714; | U270 |
 | Belarus | Velcom (Mobilkom) |&#x2714; | U270 |
-| Belgium | BASE NV/SA Belgium |&#x2714; | U270 |
-| Botswana | MASCOM, Botswana |&#x2714; | U270 |
-| Brazil | VIVO |&#x2714; | U260 |
+| Belgium | Base (KPN) |&#x2714; | U270 |
+| Bolivia | NuevaTel (Viva) |&#x2714; | U260 |
+| Bosnia and Herzegovina | BH Telecom |&#x2714; | U270 |
+| Botswana | Mascom Wireless |&#x2714; | U270 |
 | Bulgaria | Vivacom (Vivatel) |&#x2714; | U270 |
-| Burkina Faso | Celtel Burkina Faso S.A. |&#x2714; | U270 |
+| Cabo Verde | T+ Telecomunicações |&#x2714; | U270 |
+| Cameroon | MTN Cameroon |&#x2714; | U270 |
 | Canada | Rogers AT&T Wireless |&#x2714; | U260 |
-| Chile | Telefonica Moviles Chile |&#x2714; | U260 |
+| Chile | Movistar Chile |&#x2714; | U260 |
 | China | China Mobile |&#x2714; | U270 |
-| Colombia | Telefonica Moviles Colombia |&#x2714; | U260 |
-| Congo | MTN Congo |&#x2714; | U270 |
+| Colombia | Colombia Telefonica |&#x2714; | U260 |
+| Congo (Brazzaville) | MTN Congo |&#x2714; | U270 |
 | Costa Rica | Telefonica Costa Rica |&#x2714; | U260 |
-| Croatia | VIPnet d.o.o., Croatia |&#x2714; | U270 |
-| Cyprus | CYTA Cyprus |&#x2714; | U270 |
-| Czech Republic | Telefonica O2 Czech Rep.,a.s. |&#x2714; | U270 |
+| Côte d'Ivoire | MTN Cote d'Ivoire |&#x2714; | U270 |
+| Croatia | VipNet (Mobilkom) |&#x2714; | U270 |
+| Cyprus | Cytamobile-Vodafone |&#x2714; | U270 |
+| Czechia | Telefonica (O2) Czech Republic |&#x2714; | U270 |
 | Denmark | Telenor AS |&#x2714; | U270 |
-| Dominican Republic | Compania Dominicana de Tel. |&#x2714; | U260 |
-| Ecuador | Otecel S.A. Ecuador |&#x2714; | U270 |
+| Ecuador | Otecel S.A. Ecuador |&#x2714; | U260 |
 | Egypt | MobiNil |&#x2714; | U270 |
 | El Salvador | Telefonica Moviles El Salvador |&#x2714; | U260 |
-| Estonia | Tele2 Eesti AS |&#x2714; | U270 |
+| Estonia | TeleTwo Estonia |&#x2714; | U270 |
+| eSwatini | MTN Swaziland |&#x2714; | U270 |
 | Finland | TeliaSonera Finland |&#x2714; | U270 |
-| France | Bouygues Telecom  France |&#x2714; | U270 |
-| Gabon | Celtel Gabon S.A. |&#x2714; | U270 |
-| Germany | Telefonica O2 Germany |&#x2714; | U270 |
+| France | Bouygues Telecom France |&#x2714; | U270 |
+| Gabon | Airtel (Zain) Gabon |&#x2714; | U270 |
+| Georgia | Geocell Georgia |&#x2714; | U270 |
+| Germany | Telefonica O2 Germany,Telekom Deutschland GmbH |&#x2714; | U270 |
 | Ghana | Vodafone Ghana (ONEtouch) |&#x2714; | U270 |
-| Gibraltar | Gibtelecom |&#x2714; | U270 |
 | Greece | Wind Hellas |&#x2714; | U270 |
 | Guatemala | Telefonica Moviles Guatemala |&#x2714; | U260 |
-| Guinea-Bissau | MTN Guinea Bissau |&#x2714; | U270 |
-| Honduras | SERCOM Honduras - Claro |&#x2714; | U260 |
-| Hong Kong | CSL Ltd |&#x2714; | U270 |
+| Guinea | GNBSB-Spacetel MTN Guinea Bissau |&#x2714; | U270 |
+| Guyana | Digicel Guyana |&#x2714; | U260 |
+| Hong Kong | CSL Ltd,HKT |&#x2714; | U270 |
 | Hungary | Telenor Hungary |&#x2714; | U270 |
-| Iceland | Siminn hf. |&#x2714; | U270 |
-| India | Barthi |&#x2714; | U270 |
+| Iceland | Siminn (On-Waves) |&#x2714; | U270 |
 | Indonesia | Telkomsel Indonesia |&#x2714; | U270 |
-| Ireland | Telefonica O2 Communications Ireland |&#x2714; | U270 |
+| Ireland | H3G Ireland,O2 Ireland |&#x2714; | U270 |
 | Israel | Partner Communication Israel |&#x2714; | U270 |
-| Italy | Wind Telecomunicazioni  Italy |&#x2714; | U270 |
+| Italy | Wind Italy,Hutchison 3G Italy |&#x2714; | U270 |
+| Jamaica | Digicel Caribbean |&#x2714; | U260 |
 | Japan | NTT DoCoMo |  | U270 |
 | Jersey | Jersey Telecoms UK |&#x2714; | U270 |
-| Kenya | Celtel Kenya Ltd |&#x2714; | U270 |
-| Korea | SK Telecom |  | U270 |
+| Kazakhstan | K-Cell Kazakhstan |&#x2714; | U270 |
+| Kenya | Celtel Kenia Ltd |&#x2714; | U270 |
+| Kuwait | Watanya Telecom Kuwait |&#x2714; | U270 |
 | Latvia | TELE2 Latvia |&#x2714; | U270 |
 | Liechtenstein | Mobilkom Liechtenstein |&#x2714; | U270 |
 | Lithuania | TELE2, Lithuania |&#x2714; | U270 |
 | Luxembourg | TANGO Mobile SA |&#x2714; | U270 |
-| Macedonia | T-Mobile Macedonia |&#x2714; | U270 |
-| Madagascar | Celtel Madagascar |&#x2714; | U270 |
-| Malawi | Celtel Malawi |&#x2714; | U270 |
+| Macao | CTM Macau |&#x2714; | U270 |
 | Malaysia | Digi Telecom Malaysia |&#x2714; | U270 |
 | Malta | Go Mobile Malta |&#x2714; | U270 |
 | Mexico | Telefonica Moviles Mexico |&#x2714; | U260 |
-| Moldova | Orange Moldova |&#x2714; | U270 |
+| Moldova, Republic of | Orange Moldova |&#x2714; | U270 |
 | Montenegro | Telenor Montenegro |&#x2714; | U270 |
-| Montserrat | Cable and Wireless, Montserrat |&#x2714; | U260 |
+| Montserrat | Cable & Wireless Montserrat |&#x2714; | U260 |
+| Morocco | Medi Telecom |&#x2714; | U270 |
 | Netherlands | KPN B.V. |&#x2714; | U270 |
-| New Zealand | Spark |<sup>2</sup> | U260 |
+| Netherlands Antilles | Digicel Curacao |&#x2714; | U260 |
+| New Zealand | Spark New Zealand |<sup>2</sup> | U260 |
 | Nicaragua | Telefonia Celular de Nicaragua |&#x2714; | U260 |
-| Niger | Celtel Niger S.A. |&#x2714; | U270 |
 | Nigeria | Celtel Nigeria |&#x2714; | U270 |
-| Norway | Telenor Mobil Norway |&#x2714; | U270 |
+| Norway | Telia Sonera Norge |&#x2714; | U270 |
 | Pakistan | Mobilink Pakistan |&#x2714; | U270 |
 | Panama | Telefonica Moviles Panama S.A. |&#x2714; | U260 |
 | Peru | Telefonica Moviles Peru |&#x2714; | U260 |
 | Philippines | Globe Telecom Philippines |&#x2714; | U270 |
 | Poland | Polkomtel Poland |&#x2714; | U270 |
 | Portugal | TMN Portugal |&#x2714; | U270 |
-| Puerto Rico | AT&T (Puerto Rico) |&#x2714; | U260 |
 | Qatar | Q-TEL Qartar |&#x2714; | U270 |
-| Reunion | Societe Reunionnaise du Radio. |&#x2714; | U270 |
+| Réunion | Reunión-Mayotte-SRR-MTM-Societe Reunionnaise du Radio |&#x2714; | U270 |
 | Romania | Orange Romania SA |&#x2714; | U270 |
-| Russian Federation | VimpelCom |&#x2714; | U270 |
+| Russia | Vimpelcom (Beeline) |&#x2714; | U270 |
 | Rwanda | MTN RwandaCell |&#x2714; | U270 |
+| Saint Kitts and Nevis | Cable & Wireless St Kitts & Nevis |&#x2714; | U260 |
 | Saudi Arabia | Al Jawal |&#x2714; | U270 |
-| Serbia | Telenor d.o.o. Serbia |&#x2714; | U270 |
-| Seychelles | Airtel Telecom Seychelles |&#x2714; | U270 |
-| Sierra Leone | Africell Sierra Leone |&#x2714; | U270 |
+| Serbia | Telenor Serbia |&#x2714; | U270 |
+| Seychelles | Airtel (Seychelles) |&#x2714; | U270 |
 | Singapore | StarHub Mobile Pte Ltd. |  | U270 |
 | Slovakia | Telefonica O2 Slovakia |&#x2714; | U270 |
 | Slovenia | Si.Mobil Slovenja |&#x2714; | U270 |
 | South Africa | Cell C (PTY) Ltd. |&#x2714; | U270 |
-| Spain | Telefonica Moviles Spain |&#x2714; | U270 |
+| South Korea | SK Telecom |&#x2714; | U270 |
+| Spain | Telefonica Moviles España |&#x2714; | U270 |
 | Sri Lanka | Dialog Telekom Ltd |&#x2714; | U270 |
-| Swaziland | MTN Swaziland |&#x2714; | U270 |
+| Suriname | Digicel Suriname |&#x2714; | U260 |
 | Sweden | Telenor Sverige AB |&#x2714; | U270 |
-| Switzerland | sunrise |<sup>2</sup> | U270 |
+| Switzerland | Sunrise |<sup>2</sup> | U270 |
 | Taiwan | Taiwan Mobile Co., Ltd. |&#x2714; | U270 |
-| Tanzania | Celtel Tanzania Ltd. |&#x2714; | U270 |
-| Thailand | Total Access Communic. Thailand |&#x2714; | U270 |
+| Thailand | Total Access Communic.Thailand |&#x2714; | U270 |
 | Trinidad and Tobago | Telecom.Trinidad and Tobago Lim. |&#x2714; | U260 |
+| Tunisia | Orange Tunisie |&#x2714; | U270 |
 | Turkey | AVEA Iletisim Hizmetleri A.S. |&#x2714; | U270 |
 | Uganda | MTN Uganda |&#x2714; | U270 |
 | Ukraine | Kyivstar Ukraine |&#x2714; | U270 |
 | United Arab Emirates | du - Emirates I.T.C. |&#x2714; | U270 |
 | United Kingdom | Telefonica O2 UK |&#x2714; | U270 |
-| United States | AT&T, T-Mobile USA |<sup>1</sup> | U260 |
-| Uruguay | Abiatar S.A. |&#x2714; | U260 |
+| United States | AT&T,T-Mobile (USA) |<sup>1</sup> | U260 |
+| Uruguay | Movistar Uruguay |&#x2714; | U260 |
 | Venezuela | Telefonica Moviles Venezuela |&#x2714; | U260 |
 | Yemen | MTN Yemen |&#x2714; | U270 |
-| Zambia | Celtel Zambia Limited |&#x2714; | U270 |
 
 {{collapse op="end"}}
 
@@ -130,7 +135,7 @@ order: 24
 | Country | Carriers |
 | ------- | -------- |
 | United States | AT&T |
-| Canada | Telus, Rogers, Bell |
+| Canada | Roaming on Rogers, Telus & Bell |
 | Mexico | AT&T |
 
 {{collapse op="end"}}
@@ -146,7 +151,7 @@ order: 24
 | Albania | Vodafone |
 | Anguilla | Digicel |
 | Antarctica | Claro |
-| Antigua & Barbuda | Digicel |
+| Antigua and Barbuda | Digicel |
 | Argentina | Claro |
 | Armenia | VivaCell |
 | Aruba | Digicel |
@@ -169,12 +174,12 @@ order: 24
 | Chile | Entel |
 | China | China Unicom |
 | Colombia | Claro |
-| Congo | CelTel |
+| Congo (Brazzaville) | CelTel |
 | Costa Rica | Claro |
 | Croatia | VIPnet |
-| Curacao | Digicel |
+| Curaçao | Digicel |
 | Cyprus | Cytamobile-Vodafone |
-| Czech Republic | Vodafone |
+| Czechia | Vodafone |
 | Denmark | Telenor |
 | Dominica | Digicel |
 | Dominican Republic | Claro |
@@ -201,10 +206,11 @@ order: 24
 |   | Jersey Telecom |
 | Guyana | Cellink Plus |
 | Haiti | Digicel |
-| Honduras | Claro |
-|   | Digicel |
-| Hong Kong | 3 |
-|   | Hutchison |
+| Holy See | Vodafone |
+| Honduras | Digicel |
+|   | Claro |
+| Hong Kong | Hutchison |
+|   | 3 |
 | Hungary | Vodafone |
 | Iceland | Vodafone |
 | India | Vodafone |
@@ -216,8 +222,8 @@ order: 24
 | Italy | Vodafone |
 | Jamaica | Digicel |
 | Japan | NTT DoCoMo |
-| Jersey | Airtel-Vodafone |
-|   | Jersey Telecom |
+| Jersey | Jersey Telecom |
+|   | Airtel-Vodafone |
 | Jordan | Umniah |
 | Kenya | Safaricom |
 | Korea | KT |
@@ -250,7 +256,7 @@ order: 24
 | Nigeria | Airtel |
 | Norway | Telenor |
 | Pakistan | Mobilink |
-| Palestinian Authority | Jawwal |
+| Palestine, State of | Jawwal |
 | Panama | Claro |
 | Papua New Guinea | Digicel |
 | Paraguay | Claro |
@@ -260,10 +266,15 @@ order: 24
 | Portugal | Vodafone |
 | Puerto Rico | AT&T |
 | Qatar | Vodafone |
-| Reunion | SRR |
+| Réunion | SRR |
 | Romania | Vodafone |
-| Russian Federation | MTS |
+| Russia | MTS |
 | Rwanda | Airtel |
+| Saint Barthélemy | Digicel |
+| Saint Kitts and Nevis | Digicel |
+| Saint Lucia | Digicel |
+| Saint Martin (French part) | Digicel |
+| Saint Vincent and the Grenadines | Digicel |
 | Samoa | Digicel |
 | San Marino | Vodafone |
 | Saudi Arabia | STC Al Jawal |
@@ -278,35 +289,31 @@ order: 24
 | South Sudan | Zain |
 | Spain | Vodafone |
 | Sri Lanka | Mobitel |
-| St. Barth | Digicel |
-| St. Kitts and Nevis | Digicel |
-| St. Lucia | Digicel |
-| St. Vincent & Grenadines | Digicel |
-| St.Martin | Digicel |
 | Suriname | Digicel |
 | Svalbard and Jan Mayen | Telenor |
-| Sweden | Telenor (Net4Mobility) |
+| Sweden | Telenor |
+|   | Telenor (Net4Mobility) |
 | Switzerland | Swisscom |
 | Taiwan | Taiwan Mobile |
 | Tanzania | Vodacom |
 | Thailand | True Move |
+|   | Real Future |
 | Togo | Moov |
 | Tonga | Digicel |
 | Trinidad and Tobago | Digicel |
 | Turkey | Vodafone |
-| Turks & Caicos | Digicel |
-| Uganda | Airtel |
-|   | Warid |
+| Turks and Caicos Islands | Digicel |
+| Uganda | Warid |
+|   | Airtel |
 | Ukraine | MTS |
 | United Kingdom | Vodafone |
 | United States | T-Mobile |
 | Uruguay | Ancel |
 | Uzbekistan | UMS |
 | Vanuatu | Digicel |
-| Vatican City | Vodafone |
 | Venezuela | Movistar |
 | Virgin Islands (British) | Digicel |
-| Virgin Islands (US) | AT&T |
+| Virgin Islands (U.S.) | AT&T |
 | Zambia | Airtel |
 
 {{collapse op="end"}}
