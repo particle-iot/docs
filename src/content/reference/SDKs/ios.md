@@ -22,10 +22,6 @@ Cloud SDK supports iOS 8.0 and up, Device Setup Library supports iOS 9.0 and up.
 - If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `enhancement` label.
 - If you **want to contribute**, submit a pull request. Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
-## Beta notice
-
-While iOS Cloud SDK and Device Setup Library are ready for production use, as seen in [the Particle iOS app](https://github.com/particle-iot/photon-tinker-ios), it is still under development and is currently in beta. The API is mostly stable, but may be subject to further changes prior to leaving beta. Once the SDK leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
-
 ## iOS Cloud SDK
 
 ### Introduction
