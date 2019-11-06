@@ -232,13 +232,6 @@ an argument, vitals will be published once, immediately.
 For the full reference docs on `Particle.publishVitals()`, [click
 here](/reference/device-os/firmware/#particle-publishvitals-).
 
-TODO: Fill this in with real numbers!!
-
-**Note**: Particle caps the number of stored vitals samples for each
-device at XXXX per month. This is the equivalent of publishing vitals in
-application firmware once per second. This cap is enforced for
-performance reasons.
-
 **Note**: You should take care when determining how often devices should
 send their vitals to the Device Cloud. There's a trade off to be made:
 The more frequent you send the vitals, the higher fidelity of data
