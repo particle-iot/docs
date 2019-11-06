@@ -616,6 +616,8 @@ If you wish to flash from application sources, first use `particle compile` to c
 
 If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
 
+In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable way to flash your device over USB.
+
 ## particle mesh
 
 Mesh network management from the CLI.

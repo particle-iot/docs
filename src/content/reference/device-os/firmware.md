@@ -600,19 +600,47 @@ Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 You can register a method in a C++ object as a subscription handler.
 
 ```cpp
-class Subscriber {
-  public:
-   Subscriber() {
-      Particle.subscribe("some_event", &Subscriber::handler, this, ALL_DEVICES);
-    }
-    void handler(const char *eventName, const char *data) {
-      Serial.println(data);
-    }
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void setup();
+
+	void subscriptionHandler(const char *eventName, const char *data);
 };
 
-Subscriber mySubscriber;
-// now nothing else is needed in setup() or loop()
+MyClass::MyClass() {
+}
+
+MyClass::~MyClass() {
+}
+
+void MyClass::setup() {
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is a globally constructed object.
+MyClass myClass;
+
+void setup() {
+	myClass.setup();
+}
+
+void loop() {
+
+}
 ```
+
+You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
 
 ---
 
@@ -787,6 +815,7 @@ void setup() {
 }
 
 void loop() {
+  // Do not do this in real code. You should return from loop() instead!
   while (1) {
     Particle.process();
     redundantLoop();
@@ -5116,11 +5145,10 @@ Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400
 void setup()
 {
   Serial.begin(9600);   // open serial over USB
-  // On Windows it will be necessary to implement the following line:
-  // Make sure your Serial Terminal app is closed before powering your device
-  // Now open your Serial Terminal!
-  while(!Serial.isConnected()) Particle.process();
 
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+  
   Serial1.begin(9600);  // open serial over TX and RX pins
 
   Serial.println("Hello Computer");
@@ -5665,6 +5693,21 @@ void setup()
   Serial.begin();   // open serial over USB
   while(!Serial.isConnected()) // wait for Host to open serial port
     Particle.process();
+
+  Serial.println("Hello there!");
+}
+```
+
+Another technique is to use `waitFor` which makes it easy to time-limit the waiting period.
+
+```cpp
+// EXAMPLE USAGE
+void setup()
+{
+  Serial.begin();   // open serial over USB
+  
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   Serial.println("Hello there!");
 }
@@ -11635,7 +11678,7 @@ Serial.print(Time.hour());
 Serial.print(Time.hour(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 0-23
 
@@ -11654,7 +11697,7 @@ Serial.print(Time.hourFormat12());
 Serial.print(Time.hourFormat12(1400684400));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 1-12
 
@@ -11672,7 +11715,7 @@ Serial.print(Time.isAM());
 Serial.print(Time.isAM(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
@@ -11690,7 +11733,7 @@ Serial.print(Time.isPM());
 Serial.print(Time.isPM(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
@@ -11709,7 +11752,7 @@ Serial.print(Time.minute());
 Serial.print(Time.minute(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 0-59
 
@@ -11728,7 +11771,7 @@ Serial.print(Time.second());
 Serial.print(Time.second(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 0-59
 
@@ -11746,7 +11789,7 @@ Serial.print(Time.day());
 Serial.print(Time.day(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 1-31
 
@@ -11772,7 +11815,7 @@ Serial.print(Time.weekday());
 Serial.print(Time.weekday(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 1-7
 
@@ -11791,7 +11834,7 @@ Serial.print(Time.month());
 Serial.print(Time.month(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 1-12
 
@@ -11809,7 +11852,7 @@ Serial.print(Time.year());
 Serial.print(Time.year(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer
 
@@ -11823,7 +11866,7 @@ Retrieve the current time as seconds since January 1, 1970 (commonly known as "U
 Serial.print(Time.now()); // 1400647897
 ```
 
-Returns: system_tick_t (uint32_t), 32-bit unsigned integer
+Returns: time_t (Unix timestamp), coordinated universal time (UTC), long integer (32-bit)
 
 ### local()
 
@@ -11921,7 +11964,7 @@ Also see: [`Particle.syncTime()`](#particle-synctime-)
 Time.setTime(1413034662);
 ```
 
-Parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 ### timeStr()
 
@@ -11960,7 +12003,7 @@ The formats available are:
 - `TIME_FORMAT_ISO8601_FULL`
 - custom format based on [strftime()](http://www.cplusplus.com/reference/ctime/strftime/)
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 If you have set the time zone using Time.zone(), beginDST(), etc. the formatted time will be formatted in local time.
 
@@ -16453,11 +16496,158 @@ Parameters:
 
   * level : logging level
 
+## Global Object Constructors
+
+It can be convenient to use C++ objects as global variables. You must be careful about what you do in the constructor, however.
+
+The first code example is the bad example, don't do this.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void subscriptionHandler(const char *eventName, const char *data);
+};
+
+MyClass::MyClass() {
+	// This is generally a bad idea. You should avoid doing this from a constructor.
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+}
+
+MyClass::~MyClass() {
+
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is a globally constructed object.
+MyClass myClass;
+
+void setup() {
+
+}
+void loop() {
+
+}
+
+```
+
+Making `MyClass myClass` a global variable is fine, and is a useful technique. However, it contains a `Particle.subscribe` call in the constructor. This may fail, or crash the device. You should avoid in a global constructor:
+
+- All functions in the Particle class (Particle.subscribe, Particle.variable, etc.)
+- Creation of threads
+- Hardware initialization including I2C and SPI
+- Calls to `delay()`
+- Any class that depends on another globally initialized class instance
+
+The reason is that the order that the compiler initializes global objects varies, and is not predictable. Thus sometimes it may work, but then later it may decide to reorder initialization  and may fail.
+
+---
+
+One solution is to use two-phase setup. Instead of putting the setup code in the constructor, you put it in a setup() method of your class and call the setup() method from the actual setup(). This is the recommended method.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void setup();
+
+	void subscriptionHandler(const char *eventName, const char *data);
+};
+
+MyClass::MyClass() {
+}
+
+MyClass::~MyClass() {
+}
+
+void MyClass::setup() {
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is a globally constructed object.
+MyClass myClass;
+
+void setup() {
+	myClass.setup();
+}
+
+void loop() {
+
+}
+```
+
+---
+
+Another option is to allocate the class member using `new` instead.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void subscriptionHandler(const char *eventName, const char *data);
+};
+
+MyClass::MyClass() {
+	// This is OK as long as MyClass is allocated with new from setup
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+}
+
+MyClass::~MyClass() {
+
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is allocated in setup() using new, and is safe because
+// the constructor is called during setup() time.
+MyClass *myClass;
+
+void setup() {
+	myClass = new MyClass();
+}
+
+void loop() {
+
+}
+
+```
 
 
 ## Language Syntax
 
-Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specifically gcc C++11.
+Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specifically:
+
+| Device OS Version | C++ (.cpp and .ino) | C (.c) |
+| --- | :--: | :---: |
+| 1.2.1 and later | gcc C++14 | gcc C11 |
+| earlier versions | gcc C++11 | gcc C11 |
 
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 

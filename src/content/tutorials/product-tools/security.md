@@ -149,6 +149,8 @@ Denied devices will be visible in your product's device hub, but will appear
 collapsed. You can re-approve a denied device at any time, in case you do in
 fact want to add the device to your product.
 
+If you remove a Device ID from your product and it subsequently tries to reconnect using product firmware, it will reappear in the Denied devices list, not the quarantine list.
+
 ## Auto Approving Devices
 
 The other option for handing unrecognized devices is to automatically approve

@@ -522,7 +522,7 @@ If you look in the **target** directory in the blinkled directory you'll find a 
 particle flash YOUR_DEVICE_NAME target/blinkled.bin
 ```
 
-Or, with the device in DFU mode (blinking yellow)
+Or, with the device in DFU mode (blinking yellow). DFU mode is the recommended method of flashing over USB.
 
 ```bash
 particle flash --usb target/blinkled.bin

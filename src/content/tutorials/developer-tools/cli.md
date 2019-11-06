@@ -137,33 +137,28 @@ $ particle help keys
 ## Flashing over Serial for the Electron
 
 If you're wanting to save data on your Electron you should definitely consider flashing your Electron over
-serial instead of OTA (over-the-air).
+USB instead of OTA (over-the-air).
 
 Assuming you've compiled and downloaded the firmware binary from [Build IDE](https://build.particle.io) by clicking the cloud button next to the file name, you should
 be able to use the Particle CLI, mentioned above, to flash your application firmware to your Electron *without using data.*
 
 Steps:
-- **1:** Put the Electron in to [listening mode](/tutorials/device-os/led/electron/#listening-mode)
+- **1:** Put the Electron in to [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-) (blinking yellow).
 - **2:** Open a command prompt or terminal window.
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
-- **4:** From the CLI issue `particle flash --serial firmware.bin`
+- **4:** From the CLI issue `particle flash --usb firmware.bin`
 
 ```sh
-# How to flash an Electron over serial
-$ particle flash --serial firmware.bin
-
-! PROTIP: Hold the SETUP button on your device until it blinks blue!
-? Press ENTER when your device is blinking BLUE
-sending file: firmware.bin
-
-Flash success!
+# How to flash an Electron over USB
+$ particle flash --usb firmware.bin
 ```
 
 *Note*: If your Electron goes into [safe
-mode](/tutorials/device-os/led/electron/#safe-mode), this is okay,
-just make sure that the Device OS version you have on the device matches
-the dependency of the Device OS version used to compile the application
-firmware.
+mode](/tutorials/device-os/led/electron/#safe-mode) blinking magenta you should put the Electron back into DFU mode (blinking yellow) and do:
+
+```
+$ particle update
+```
 
 ## Blink an LED with Tinker
 
