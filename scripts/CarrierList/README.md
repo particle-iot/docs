@@ -18,11 +18,7 @@ npm install
 npm start
 ```
 
-The output is the carriers.md file in this directory.
+Output is generated directly into the carrier-list.md file:
 
-This must be copied and pasted into:
+../../src/content/tutorials/cellular-connectivity/cellular-carriers.md
 
-src/content/tutorials/cellular-connectivity/cellular-carriers.md
-
-Note that there's material before and after it that needs to remain, so make sure you follow the instructions 
-for what to replace within cellular-carriers.md. There are comments surrounding the block to replace.
