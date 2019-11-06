@@ -24,7 +24,7 @@ Device Cloud. Cellular networking vitals<sup class="new">NEW</sup> are now
 available.
 - **Sent to the Device Cloud**: Vitals are automatically shared with the
 Device Cloud when starting a new secure session, and can be sent on a
-cadence using `Particle.publishVitals()`<sup class="new">NEW</sup>.
+cadence using [`Particle.publishVitals()`](#particle-publishvitals-new)<sup class="new">NEW</sup>.
 - **Accessible via the Console or API**: The Console exposes a Vitals
 Dashboard <sup class="new">NEW</sup> as well as the last recorded
 vitals. This information can also be queried via Particle's Device Cloud API.
