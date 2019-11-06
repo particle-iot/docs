@@ -24,7 +24,7 @@ Device Cloud. Cellular networking vitals<sup class="new">NEW</sup> are now
 available.
 - **Sent to the Device Cloud**: Vitals are automatically shared with the
 Device Cloud when starting a new secure session, and can be sent on a
-cadence using `Particle.publishVitals()`<sup class="new">NEW</sup>.
+cadence using [`Particle.publishVitals()`](#particle-publishvitals-new)<sup class="new">NEW</sup>.
 - **Accessible via the Console or API**: The Console exposes a Vitals
 Dashboard <sup class="new">NEW</sup> as well as the last recorded
 vitals. This information can also be queried via Particle's Device Cloud API.
@@ -231,13 +231,6 @@ an argument, vitals will be published once, immediately.
 
 For the full reference docs on `Particle.publishVitals()`, [click
 here](/reference/device-os/firmware/#particle-publishvitals-).
-
-TODO: Fill this in with real numbers!!
-
-**Note**: Particle caps the number of stored vitals samples for each
-device at XXXX per month. This is the equivalent of publishing vitals in
-application firmware once per second. This cap is enforced for
-performance reasons.
 
 **Note**: You should take care when determining how often devices should
 send their vitals to the Device Cloud. There's a trade off to be made:
