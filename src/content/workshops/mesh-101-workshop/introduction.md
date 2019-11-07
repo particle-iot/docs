@@ -8,7 +8,7 @@ layout: workshops.hbs
 
 # About This Workshop
 
-This workshop is sponsored and produced by [Particle](https:www.particle.io).
+This workshop is sponsored and produced by [Particle](https:www.particle.io) in collaboration with [Reflektor](https://www.reflektor.dk/).
 
 The workshop is a combination of presentations and 4 hands-on sessions described in this guide.
 
