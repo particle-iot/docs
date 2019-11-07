@@ -966,7 +966,7 @@ New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
 		da39a3ee5e6b4b0d3255bfef95601890afd80709
 ```
 
-In order to change the time a token is valid, use `--expires-in <seconds>` option.
+In order to change the duration a token is valid, use `--expires-in <seconds>` option.
 
 ```sh
 $ particle token create --expires-in 600
