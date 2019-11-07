@@ -23,7 +23,7 @@ The content for this workshop includes both embedded slide presentations and **h
 - ** Session 2: *The Particle Device OS, Cloud, Primitives, and BLE***
   - Lab 2: Particle Workbench & Primitives
   - Lab 3: Particle CLI and Device Cloud API
-  - Lab 4: BLE on Particle Devices
+  - Lab 4: Mesh & BLE on Particle Devices
 - ** Session 3: *Particle Webhooks and Integrations***
   - Lab 5: Particle Webhooks and IFTTT
   - Lab 6: On-Device Debugging

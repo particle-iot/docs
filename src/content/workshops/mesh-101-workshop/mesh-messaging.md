@@ -65,7 +65,7 @@ You now have a functioning mesh network of two devices. Let's add some local net
 
 ## Sending & Receiving messages
 
-Let us take a look at two of the newest functions provided by Particle: `Mesh.publish()` and `Mesh.subscribe()`. These primitives allow you to send and receive messages within a Particle Mesh network. These messages will not reach the cloud. Each device can publish messages to the rest of the mesh, and each device can subscribe to messages from other devices – this is called a [pub/sub architecture](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
+Let us take a look at two of the newest functions provided by Particle: `Mesh.publish()` and `Mesh.subscribe()`. These primitives allow you to send and receive messages within a Particle Mesh network. These messages will not reach the cloud. Each device can publish messages to the rest of the mesh, and each device can subscribe to messages from other devices – this is called a [pub/sub architecture](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
 
 The same code will be used for all devices in the network, so start by creating a new app in the [Particle Web IDE](https://build.particle.io/build/new), name it _MeshPubSubTest.ino_ or come up with a more creative name.
 
@@ -73,18 +73,24 @@ The same code will be used for all devices in the network, so start by creating 
 
 First, let's send out a message when the `MODE` button on the Xenon is pushed.
 
-1. In the `setup` function, tell the device to call the `button_handler` function, whenever the `button_status` changes (pressed or released). Let's also add a `pinMode` call so we can toggle the `D7` LED on the Xenon when pressed.
+1. Before your setup function, add a few global variables to store whether the `MODE` button has been pressed, as well as whether we've sent the mesh message.
+```cpp
+bool buttonPressed = false;
+bool messageSent = false;
+```
+
+2. In the `setup` function, tell the device to call the `button_handler` function, whenever the `button_status` changes (pressed or released). Let's also add a `pinMode` call so we can toggle the `D7` LED on the Xenon when pressed.
 ```cpp
 pinMode(D7, OUTPUT);
 System.on(button_status, button_handler);
 ```
-2. Now write the `button_handler` function before the `setup` function.
+3. Now write the `button_handler` function before the `setup` function.
 ```cpp
 void button_handler(system_event_t event, int duration, void* ) {
   // Empty
 }
 ```
-3. Since this function gets called on both press _and_ release of the `MODE` button, we can use the `duration` to check which it is. Replace the line the the _Empty_ comment with the following.
+4. Since this function gets called on both press _and_ release of the `MODE` button, we can use the `duration` to check which it is. Replace the line the the _Empty_ comment with the following.
 ```cpp
 if (!duration) {
   // Just pressed.
@@ -92,24 +98,35 @@ if (!duration) {
   // Button released.
 }
 ```
-4. Now, since we now that the button has been pressed, we should tell the whole mesh network to toggle their LEDs. We use the `Mesh.publish()` for that, which takes one or two strings as arguments. The first argument is a topic and the second is data. We will only use the topic, and we should choose a topic that will make sense for the purpose. Later other devices will be able to subscribe to this topic and will get notified whenever we publish to this topic. Replace the body of the handler with the lines below to finish the code. We'll also turn on the D7 LED when the button is pressed, and off when the button is released.
+5. Now, since we now that the button has been pressed, we should tell the whole mesh network to toggle their LEDs. We'll do this by setting the `buttonPressed` variable to `true` when the button is pressed, and false when it is released. Replace the body of the handler with the lines below to finish the code. We'll also turn on the D7 LED when the button is pressed, and off when the button is released.
 ```cpp
 if (!duration) {
-  Mesh.publish("toggle-led");
+  buttonPressed = true;
   digitalWrite(D7, HIGH);
 } else {
+  buttonPressed = false;
+  messageSent = false;
   digitalWrite(D7, LOW);
 }
 ```
-5. You have now completed the sending part of the code. To see that everything works, first add the following line to the `setup`.
+
+6. Finally, in the `loop`, add the following code to check the boolean and send a message to the mesh if true and if the message hasn't been set yet. We use the `Mesh.publish()` for that, which takes one or two strings as arguments. The first argument is a topic and the second is data. We will only use the topic, and we should choose a topic that will make sense for the purpose. Later other devices will be able to subscribe to this topic and will get notified whenever we publish to this topic.
+```cpp
+if (buttonPressed && !messageSent) {
+  Mesh.publish("toggle-led");
+  messageSent = true;
+}
+```
+
+7. You have now completed the sending part of the code. To see that everything works, first add the following line to the `setup`.
 ```cpp
 Serial.begin(9600);
 ```
-6. Then add a print statement like this inside the if-loop, just under the `mesh.publish` line.
+8. Then add a print statement like this inside the if-loop, just under the `mesh.publish` line.
 ```cpp
 Serial.println("Button push published!");
 ```
-7. Flash your device with the code, and see that it behaves as expected.
+9. Flash your device with the code, and see that it behaves as expected.
 
 ### Receiving messages
 
@@ -167,4 +184,3 @@ Congratulations, you are now able to send/receive messages to/from the mesh netw
 **Got stuck?**</br>
 The final code for this lab is [available here for the Xenon](https://go.particle.io/shared_apps/5c34d5aee1b63bd1fc00126d) and [here for the Argon portion](https://go.particle.io/shared_apps/5c34d7f3e1b63bbf80000f99).
 {{box op="end"}}
-
