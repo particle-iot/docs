@@ -696,6 +696,12 @@ Put a device or multiple devices into the listening mode
 particle usb start-listening [devices...] [--all]
 ```
 
+Also aliases to `usb listen`.
+
+```
+particle usb listen [devices...] [--all]
+```
+
 ### particle usb stop-listening
 
 Make a device or multiple devices exit the listening mode
@@ -960,7 +966,18 @@ New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
 		da39a3ee5e6b4b0d3255bfef95601890afd80709
 ```
 
-There are no additional options for creating a token from the CLI. In order to change the expiration or make a non-expiring token, you should use the Particle Cloud API directly.
+In order to change the duration a token is valid, use `--expires-in <seconds>` option.
+
+```sh
+$ particle token create --expires-in 600
+```
+
+To make a non-expiring token, use the `--never-expires` option. Short lived token are better for security. Reserve non-expiring tokens for hosted web application that need to access the Particle API reliability over an indefinite period of time.
+
+
+```sh
+$ particle token create --never-expires
+```
 
 ### particle token revoke
 Revoke an access token under your Particle account.
