@@ -399,3 +399,21 @@ please see [the guide](/tutorials/product-tools/device-groups/).
 
 ## Customers
 {{> api group=apiGroups.Customers}}
+
+### Reset Password (Simple Auth)
+
+In most cases, we recommend using **Two-Legged Auth** where you have complete control over your customers and accounts. **Simple Auth** can be used as a simpler alternative, however you will need to provide an additional service if you want to allow your customers to be able to reset their password by email. The process works like this:
+
+1. Customer loses access, clicks "forgot password" on your mobile or front-end app.
+2. App hits an endpoint on your back-end. The back-end app should know your Particle access token, the one you used to create that product, and, optionally, list of valid customer emails.
+3. This triggers an email to the customer sent from your back-end. This email can have your brand, logo, colors, etc. The email contains link to reset his or her password. Behind the scenes, a short-lived reset password token is created and stored in your back-end database.
+4. The email links to your hosted, brand-themed webpage that shows the a "set new password" field and verifies the reset password token. The customer types in new password, and the front-end hits an endpoint on your back-end with the new password.
+5. The back-end hits the update customer password API.
+6. Customer password is reset.
+
+```
+PUT /v1/products/:productIdOrSlug/customers/:customerEmail 
+{password: <new_password>, access_token: <your_token>}
+```
+
+We've provided a [sample app using Heroku and PostgreSQL](https://github.com/particle-iot/password-reset-example). This can be used as-is, or you can use it as an example of how to add support into your existing server infrastructure. 
