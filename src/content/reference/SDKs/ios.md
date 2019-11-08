@@ -645,7 +645,7 @@ Build your project - you now have the Particle SDK embedded in your project.
 
 ##### Carthage example
 
-A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/particle-iot/ios-app-example-carthage).
+A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/particle-iot/example-app-carthage-ios).
 This app is meant to serve as basic example for using the Particle Device Cloud SDK and Device Setup Library in the Carthage dependencies form.
 To get this example app running, clone it, open the project in XCode and:
 
