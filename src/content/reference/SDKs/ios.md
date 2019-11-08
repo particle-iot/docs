@@ -643,20 +643,6 @@ A new folder will be created in your project root folder - navigate to the `./Ca
 Go to your XCode target settings->General->Embedded binaries and make sure the `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
 Build your project - you now have the Particle SDK embedded in your project.
 
-##### Carthage example
-
-A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/particle-iot/example-app-carthage-ios).
-This app is meant to serve as basic example for using the Particle Device Cloud SDK and Device Setup Library in the Carthage dependencies form.
-To get this example app running, clone it, open the project in XCode and:
-
-1. Flash the `firmware.c` (included in the repo project) firmware to an online photon available under your account, use Build or Dev or CLI.
-1. Set Photon's name to the constant deviceName in the testCloudSDK() function
-1. Set your username/password to the appropriate constants, same place
-1. Go the project root folder in your shell, run the setup shell script (under the /bin folder) which will build the latest Particle SDK 1. Carthage dependencies
-1. Drag the 3 created .framework files under /Carthage/Build/iOS to your project
-1. Go to XCode's target general settings and also add those frameworks to "embedded binaries"
-1. Run and experiment!
-
 ### Reference
 
 #### ParticleCloud class
