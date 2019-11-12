@@ -66,8 +66,6 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | D7 LED | USER | PWM3 | D7 |
 | | GND | GND | GND |
 
-While there is an external SIM card connector and jumpers on the evaluation board, the B Series B402 SoM does not support using a 3rd-party SIM card.
-
 ### Jumpers J13
 
 These pins are intended to be connected across using removable two-pin jumpers to connect features on the board to standard ports.
