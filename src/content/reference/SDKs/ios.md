@@ -1092,9 +1092,9 @@ In v0.9 `brandImageBackgroundImage` has been introduced in order to improve supp
 
 #### Product creators
 
-If you're developing an app for your product / you're a product creator you should set `productMode` to YES (or true for Swift) - this will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
+If you're developing an app for your product / you're a product creator you should set `productMode` to `YES` (or `true` for Swift) - this will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
 
-If you set `productMode ` to `YES / true` be sure to also provide the `productId` (and `productName`) - please [read here](/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
+If you set `productMode ` to `YES` / `true` be sure to also provide the `productId` (and `productName`) - please [read here](/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
 
 Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](/tutorials/device-cloud/authentication), so app users could create an account. [Read here](/reference/ios/#oauth-client-configuration) on how to do it correctly.
 
