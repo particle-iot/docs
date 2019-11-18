@@ -609,7 +609,7 @@ For a detailed step-by-step help on integrating the Cloud SDK within a Swift pro
 
 The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
 
-There's also an [example app](https://github.com/particle-iot/ios-app-example-pod), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
+There's also an [example app](https://github.com/particle-iot/example-app-ios), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
 #### Carthage
 
