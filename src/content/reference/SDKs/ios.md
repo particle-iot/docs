@@ -621,7 +621,7 @@ Be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-ca
 Then to build the iOS Cloud SDK, simply create a `Cartfile` on your project root folder, containing the following line:
 
 ```
-github "particle-iot/particle-sdk-ios" "master"
+github "particle-iot/particle-cloud-sdk-ios" "master"
 ```
 
 and then run the following command:
@@ -1187,7 +1187,7 @@ Be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-ca
 Then to build the Particle iOS Photon Setup Library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
-github "particle-iot/particle-setup-ios" ~> 0.6.0
+github "particle-iot/particle-photon-setup-ios" ~> 1.0.0
 ```
 
 and then run the following command:
