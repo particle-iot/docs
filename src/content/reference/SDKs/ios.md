@@ -160,7 +160,7 @@ ParticleCloud.sharedInstance().getDevices { (devices:[ParticleDevice]?, error:Er
 ```
 ---
 
-#### Read a variable from a Particle device (Core/Photon/Electron)
+#### Read a variable from a Particle device
 Assuming here that `myPhoton` is an active instance of `ParticleDevice` class which represents a device claimed to current user:
 
 **Objective-C**
@@ -191,7 +191,7 @@ myPhoton!.getVariable("temperature", completion: { (result:Any?, error:Error?) -
 })
 ```
 ---
-#### Call a function on a Particle device (Core/Photon/Electron)
+#### Call a function on a Particle device
 Invoke a function on the device and pass a list of parameters to it, `resultCode` on the completion block will represent the returned result code of the function on the device.
 This example also demonstrates usage of the new `NSURLSessionDataTask` object returned from every SDK function call.
 
