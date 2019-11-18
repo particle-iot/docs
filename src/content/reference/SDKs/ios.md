@@ -850,11 +850,11 @@ Is device connected to the cloud? Best effort - May not accurate reflect true st
 
   `@property (strong, nonatomic, nonnull, readonly) NSArray<NSString *> *functions`
 
-List of function names exposed by device
+List of function names exposed by device. Functions are only available after `refresh` is called on the device instance returned by `getDevices` call.
 
   `@property (strong, nonatomic, nonnull, readonly) NSDictionary<NSString *, NSString *> *variables`
 
-Dictionary of exposed variables on device with their respective types.
+Dictionary of exposed variables on device with their respective types. Variables are only available after `refresh` is called on the device instance returned by `getDevices` call.
 
   `@property (strong, nonatomic, readonly) NSString *version`
 
