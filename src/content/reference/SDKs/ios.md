@@ -1110,6 +1110,13 @@ Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials fo
  NSString *productName;         // product display name
  NSUInteger productId;			  // Product Id number from Particle console
 ```
+
+---
+
+#### iOS 13 Permission Notice
+
+Starting iOS 13, to access Wi-Fi SSID app has to be granted location permission. Photon setup relies on this information to advance past "Discover Device" screen, therefore on iOS devices running iOS 13+, additional screen requesting to grant location permission will be shown. 
+
 ---
 
 #### Skipping authentication:
