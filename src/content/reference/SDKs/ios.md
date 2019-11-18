@@ -947,9 +947,6 @@ The Particle Photon Setup library is meant for integrating the initial setup pro
 
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
-**Rebranding notice**
-
-Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [SparkSetup](https://cocoapods.org/pods/SparkSetup) has been deprecated in favor of [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) library. Github repository [particle-iot/spark-setup-ios](https://github.com/particle-iot/spark-setup-ios/) has been deprecated in favor of [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) too.
 With the Photon Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed. iOS Photon Setup Library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy.
 
 ### Usage
