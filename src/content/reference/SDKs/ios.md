@@ -7,17 +7,17 @@ order: 20
 
 # {{title}}
 
-The iOS SDK consists of two parts:
+Particle provides two iOS libraries:
 1. [Cloud SDK](#ios-cloud-sdk) - an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud.
-2. [Device Setup Library](#device-setup-library) - a library which provides an easy setup wizard for your app users to set up their Particle-powered devices.
+2. [Photon Setup Library](#photon-setup-library) - a library which provides an easy setup wizard for your app users to set up their Particle-powered devices.
 
 ## Requirements
 
-Cloud SDK supports iOS 8.0 and up, Device Setup Library supports iOS 9.0 and up.
+Cloud SDK supports iOS 8.0 and up, Photon Setup Library supports iOS 9.0 and up.
 
 ## Support and Contributions
 
-- If you **need help**, visit the [mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the iOS Cloud SDK and Device Setup library.
+- If you **need help**, visit the [mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the iOS Cloud SDK and Photon Setup Library.
 - If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `bug` label.
 - If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `enhancement` label.
 - If you **want to contribute**, submit a pull request. Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
@@ -50,7 +50,7 @@ All SDK callbacks return real optionals (`ParticleDevice?`) instead of implicitl
 ### Getting Started
 
 - Perform the installation step described under the **Installation** section below for integrating in your own project
-- You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/particle-sdk-ios/archive/master.zip) and try out the included iOS example app
+- You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/particle-cloud-sdk-ios/archive/master.zip) and try out the included iOS example app
 - Be sure to check [Usage](#usage) before you begin for some code examples
 
 ### Usage
@@ -944,23 +944,18 @@ Unsubscribe from event/events.
 
  * **Parameters:** `eventListenerID` — The eventListener registration unique ID returned by the subscribe method which you want to cancel
 
-## Device Setup library
+## Photon Setup Library
 
 ### Introduction
 
-The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
-This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products
-powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class,
-that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
+The Particle Photon Setup library is meant for integrating the initial setup process of Particle devices (Photon, P0, P1) in your app. This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class, that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
 
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
-
-With the Device Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
-iOS Device setup library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy.
 
 **Rebranding notice**
 
 Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [SparkSetup](https://cocoapods.org/pods/SparkSetup) has been deprecated in favor of [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) library. Github repository [particle-iot/spark-setup-ios](https://github.com/particle-iot/spark-setup-ios/) has been deprecated in favor of [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) too.
+With the Photon Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed. iOS Photon Setup Library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy.
 
 ### Usage
 
@@ -1181,9 +1176,9 @@ If the Device Setup library installation completed successfully in your XCode pr
 
 #### Cocoapods
 
-Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
+Particle Photon Setup Library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
 You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
-To install the iOS Device Setup library, create a text file named `Podfile` on main project folder, it should contain:
+To install the iOS Photon Setup Library, create a text file named `Podfile` on main project folder, it should contain:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -1199,14 +1194,14 @@ then run `pod update` in your shell. A new `.xcworkspace` file will be created f
 
 ##### Support for Swift projects
 
-To use Particle Device Setup library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
+To use Particle Photon Setup Library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
 as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
 
 #### Carthage
 
-Starting version 0.4.0 Particle iOS device setup library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
+Starting version 0.4.0 Particle iOS Photon Setup Library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
 Be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
-Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
+Then to build the Particle iOS Photon Setup Library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
 github "particle-iot/particle-setup-ios" ~> 0.6.0
@@ -1215,15 +1210,12 @@ github "particle-iot/particle-setup-ios" ~> 0.6.0
 and then run the following command:
 `carthage update --platform iOS --use-submodules --no-use-binaries`.
 
-*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/particle-iot/particle-setup-ios/blob/master/bin/setup)*
+*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/particle-iot/particle-photon-setup-ios/blob/master/bin/setup)*
 
-A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode.
-Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
-Build your project - you now have the Particle SDK embedded in your project.
-Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `ParticleSetupMainController` (see usage example).
+A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode. Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there. Build your project - you now have the Particle SDK embedded in your project. Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `ParticleSetupMainController` (see usage example).
 
-No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects.
+No need for any special process or operation integrating the Photon Setup Library with Swift-based or Swift-dependant projects.
 
 ## License
 
-Particle Cloud SDK and Particle Device Setup library are available under the Apache License 2.0.
+Particle Cloud SDK and Particle Photon Setup Library are available under the Apache License 2.0.
