@@ -1087,6 +1087,16 @@ In v0.9 `brandImageBackgroundImage` has been introduced in order to improve supp
 ```
 ---
 
+#### Further customization and localization:
+
+In v1.0.0 two more customization options were introduced:
+```objc
+ BOOL useAppResources;                  // use storyboard and assets (images and strings) from app instead of from this SDK
+ NSString *appResourcesStoryboardName;  // name of the storyboard file. default: 'setup'
+```
+
+By default all assets are loaded from library bundle. Setting `useAppResources` to true, will load ALL assets from the main bundle. This includes strings file, image assets and storyboard. You can also provide a custom name for storyboard by using `appResourcesStoryboardName` property. 
+
 #### Product creators
 
 If you're developing an app for your product / you're a product creator you should set `productMode` to `YES` (or `true` for Swift) - this will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
