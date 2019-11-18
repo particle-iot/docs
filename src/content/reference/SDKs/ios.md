@@ -59,11 +59,7 @@ Cloud SDK usage involves two basic classes: first is `ParticleCloud` which is a 
 
 ##### Return values
 
-Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation.
-This is a result of the SDK relying on AFNetworking which is a networking library for iOS and macOS (OS X).
-It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa.
-The Particle Device Cloud SDK has been relying on this powerful library since the beginning, but when version 3.0 was released not long ago it contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was deprecated by Apple and `NSURLSessionDataTask` was introduced to replace it.
-You can ignore the return value (previously it was just `void`) coming out of the SDK functions, alternatively you can now make use of the `NSURLSessionDataTask` object as described.
+Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation. This is a result of the SDK relying on AFNetworking which is a networking library for iOS and macOS (OS X). It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa. The Particle Device Cloud SDK has been relying on this powerful library since the beginning, but when version 3.0 was released not long ago it contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was deprecated by Apple and `NSURLSessionDataTask` was introduced to replace it. You can ignore the return value (previously it was just `void`) coming out of the SDK functions, alternatively you can now make use of the `NSURLSessionDataTask` object as described.
 
 ##### Error handling
 _Starting SDK version 0.8.0_
@@ -104,8 +100,7 @@ ParticleCloud.sharedInstance().login(withUser: "username@email.com", password: "
 ---
 #### Injecting a session access token (app utilizes two legged authentication)
 
-If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `ParticleCloud` singleton class.
-In turn the `.isLoggedIn` property has been deprecated in favor of `.isAuthenticated` - which checks for the existence of an active access token instead of a username. Additionally the SDK will now automatically renew an expired session if a refresh token exists. As increased security measure the Cloud SDK will no longer save user's password in the Keychain.
+If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `ParticleCloud` singleton class. In turn the `.isLoggedIn` property has been deprecated in favor of `.isAuthenticated` - which checks for the existence of an active access token instead of a username. Additionally the SDK will now automatically renew an expired session if a refresh token exists. As increased security measure the Cloud SDK will no longer save user's password in the Keychain.
 
 **Objective-C**
 ```objc
@@ -1008,17 +1003,11 @@ if let setupController = ParticleSetupMainController(authenticationOnly: true)
 ```
 ---
 
-This will invoke Particle Device Cloud authentication (login/signup/password recovery screens) only
-after user has successfully logged in or signed up, control will be returned to the calling app.
-If an active user session already exists control will be returned immediately.
+This will invoke Particle Device Cloud authentication (login/signup/password recovery screens) only after user has successfully logged in or signed up, control will be returned to the calling app. If an active user session already exists control will be returned immediately.
 
 #### Configure device Wi-Fi credentials without claiming it
 
-If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via `initWithSetupOnly`,
-and by allowing your users to skip authentication (see `allowSkipAuthentication` flag in customization section) if you present the authentication stage.
-If an active user session exists - it'll be used and device will be claimed, otherwise it won't.
-So invoking setup without an active user session will go thru the setup steps required for configuring device Wi-Fi credentials but not for claiming it.
-However, calling `-initWithSetupOnly:` method with an active user session is essentially the same as calling `-init:`.
+If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via `initWithSetupOnly`, and by allowing your users to skip authentication (see `allowSkipAuthentication` flag in customization section) if you present the authentication stage. If an active user session exists - it'll be used and device will be claimed, otherwise it won't. So invoking setup without an active user session will go thru the setup steps required for configuring device Wi-Fi credentials but not for claiming it. However, calling `-initWithSetupOnly:` method with an active user session is essentially the same as calling `-init:`.
 Usage:
 
 **Objective-C**
@@ -1142,9 +1131,8 @@ func particleSetupViewController(controller: ParticleSetupMainController!, didFi
 ```
 ---
 
-method will be called, if `(result == ParticleSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `ParticleDevice` instance you can interact with
-using the [iOS Cloud SDK](https://cocoapods.org/pods/Particle-SDK).
-In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `ParticleSetupMainControllerResult`. See [here](https://github.com/particle-iot/particle-setup-ios/blob/master/ParticleSetup/User/ParticleSetupMainController.h#L18-31) for additional details.
+method will be called, if `(result == ParticleSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `ParticleDevice` instance you can interact with using the [iOS Cloud SDK](https://cocoapods.org/pods/Particle-SDK).
+In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `ParticleSetupMainControllerResult`. See [here](https://github.com/particle-iot/particle-photon-setup-ios/blob/master/ParticleSetup/User/ParticleSetupMainController.h#L18-31) for additional details.
 
 If setup failed and you can still determine the device ID of the last device that was tried to be setup and failed by conforming to the @optional delegate function: (new since 0.5.0)
 
@@ -1164,13 +1152,11 @@ func particleSetupViewController(controller: ParticleSetupMainController!, didNo
 
 ### Example
 
-Cocoapods usage example app (in Swift) can be found [here](https://github.com/particle-iot/ios-app-example-pod). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned ParticleDevice instance once
-setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
+Example app (in Swift) can be found [here](https://github.com/particle-iot/example-app-ios). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned ParticleDevice instance once setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference
 
-Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/ParticleSetup/) or consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property.
-If the Device Setup library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
+Consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property. If the Photon Setup Library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ### Installation
 
