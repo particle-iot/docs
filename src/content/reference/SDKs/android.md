@@ -3,7 +3,7 @@ title: Android SDK
 layout: reference.hbs
 columns: three
 order: 30
-sdkversion: 0.5.1
+sdkversion: 1.0.0
 devicesetupversion: 0.6.3
 asyncclasslink: https://github.com/particle-iot/particle-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Async.java
 ---
