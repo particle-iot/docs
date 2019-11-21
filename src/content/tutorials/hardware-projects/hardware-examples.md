@@ -93,7 +93,7 @@ It's good practice to connect the red (+) bus bar on the top to 3V3 and the blue
 {{/if}}
 {{/if}}
 
-Position the LED in the breadboard. The long lead (anode) goes to + (left) and the short lead (cathode) goes to - (right). When using an LED, you must always add a current liming resistor. Normally you'd use a 220 ohm resistor (red-red-brown-gold) for 3.3 volt circuits.
+Position the LED in the breadboard. The long lead (anode) goes to + (left) and the short lead (cathode) goes to - (right). When using an LED, you must always add a current limiting resistor. Normally you'd use a 220 ohm resistor (red-red-brown-gold) for 3.3 volt circuits.
 
 In the picture, the long lead of the LED connects to pin D6 using the blue wire. The short lead of the LED connects to a 220 ohm resistor that connects it to ground. That completes the circuit.
  
