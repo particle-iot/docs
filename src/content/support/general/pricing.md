@@ -106,6 +106,24 @@ our cellular carrier network to include coverage where you need it.
 <a href="https://particle.io/sales">Contact sales</a> for details.
 
 ### How does Device Cloud invoicing work?
+
+When you first activated a cellular device or created your product, you were put on a _billing period_. That is, you were assigned a day that starts your billing period each month and closes the billing period for the previous month. 
+
+Once a billing period closes, we will process your usage and bill you approximately one week later. This charge will contain a line item for access to the Device Cloud in the _current month_. There are also 2 potential types of line items that are added to invoices representing costs incurred in the _previous month_:
+
+- Cellular data overages accrued will be charged at the appropriate rate given where the data was consumed ($0.40 for most countries).
+- Devices added in the middle of the month can receive a prorated charge representing Device Cloud access for the remainder of the month.
+
+Example: For a product created on January 1:
+
+- Billing period: January 1 - January 31
+- Charge date February 7
+- Invoice Line items:
+  - Device Cloud for period of February 1 - February 28
+  - Cellular data overages from January 1 - January 31
+
+---
+
 When you first activated a cellular device or created your product,
 you were put on a _billing period_. That is, you were assigned a day on which you will be
 invoiced each month.
@@ -149,6 +167,8 @@ only billed once.
   the User will pay for the device
 - If your device is in a Product and the SIM is owned by a different
   product, the product owning the SIM will pay for the device
+
+One situation where you might want to have the SIM owned by a different account is in educational settings, or in corporations where the billing is handled by a separate departments or specific users with procurement cards. In this case, the SIMs can be owned by a Particle account that handles all billing, and individual students or developers can claim the devices to their own accounts so they can be easily programmed.
 
 ### I'm cost-conscious. What can I do to keep my bill low?
 Particle supports makers, hobbyists and tinkerers alike with low-cost

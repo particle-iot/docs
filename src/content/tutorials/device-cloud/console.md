@@ -569,9 +569,10 @@ Devices are any physical device that uses the Particle Device Cloud- Photons, El
 Your personal account’s devices (as well as new, unclaimed devices) are added to a Product when you want to use them as a group for data reporting, firmware updates, and collaboration with coworkers or friends. Only when they’ve been intentionally added to a Product will they count towards that total. 
 
 #### Billing periods 
-Products in the Console are billed separately, so if you have more than one they can be on different pricing tiers and have different billing dates. The billing date for a Product is the anniversary of when it was first created, either day of the month if you’re on a monthly plan or the day of the year (month+day) in the case of an annually paid plan.
 
-All Console plans are billed at the beginning of the plan period; in other words, it’s prepaid. You’ll pay for the following month or year, and can later cancel for a prorated remainder. 
+Products in the Console are billed separately, so if you have more than one they can be on different pricing tiers and have different billing dates. Each Product will have its own billing period that is anchored to when it was created. 
+
+Your payment method will be charged 1 week after the billing period closes at which point you’ll receive an invoice with the details of your bill. You’ll pay for the following month or year and can later cancel for a prorated remainder.
 
 ### Status
 It’s easy to find out the status of your Product’s metrics. Visit [console.particle.io/billing](https://console.particle.io/billing) and you’ll see an up-to-date list of each Product you own, how many outbound events they’ve used that billing cycle, number of devices in each, and how many team members they have. The renewal date for each Product plan is also shown, so you know when the next bill is coming up.
