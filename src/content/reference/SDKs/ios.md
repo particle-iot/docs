@@ -858,9 +858,81 @@ List of function names exposed by device. Functions are only available after `re
 
 Dictionary of exposed variables on device with their respective types. Variables are only available after `refresh` is called on the device instance returned by `getDevices` call.
 
-  `@property (strong, nonatomic, readonly) NSString *version`
+  `@property (strong, nonatomic, readonly) NSString *systemFirmwareVersion`
 
 Device firmware version string
+
+  `@property (strong, nonatomic, nullable, readonly) NSDate *lastHeard`
+
+Date when the device was last heard.
+
+  `@property (strong, nonatomic, nullable, readonly) NSString *appHash`
+
+App hash received from system event after flashing a new different user application. Please note that if you flashe same app, the app hash event won't trigger.
+
+  `@property (strong, nonatomic, nullable, readonly) NSString *networkId`
+
+Mesh network ID if device belongs to a mesh network.
+
+  `@property (nonatomic, readonly) ParticleDeviceNetworkRole networkRole`
+
+Mesh network role if device belongs to a mesh network (gateway or a node).
+
+  `@property (nonatomic, readonly) ParticleDeviceNetworkRoleState networkRoleState`
+
+Mesh network state if device belongs to a mesh network. State can be pending if device is waiting for the role change confirmation.
+
+  `@property (nonatomic, readonly) BOOL isFlashing`
+
+Is device currently being flashed? Best effort - May not accurate reflect true state.
+
+  `@property (strong, nonatomic, nullable, readonly) NSString *lastIPAdress`
+
+Last know IP address of the device.
+
+  `@property (strong, nonatomic, nullable, readonly) NSString *lastIccid`
+
+Last known ICCID (for cellular devices only)
+
+  `@property (strong, nonatomic, nullable, readonly) NSString *imei`
+
+Last know IMEI (for cellular devices only)
+
+  `@property (nonatomic, readonly) NSUInteger platformId`
+
+Device platfomr ID (device type).
+
+  `@property (nonatomic, readonly) NSUInteger productId`
+
+ID of the product device belongs to.
+
+  `@property (strong, nonatomic, nullable, readonly) NSString *serialNumber`
+
+Unique serial number of the device
+
+  `@property (strong, nonatomic, nullable, readonly) NSString *mobileSecret`
+
+Mobile secret of the device. Only available for 3rd gen devices.
+
+  `@property (strong, nonatomic, nullable) NSString *notes`
+
+Additional device notes.
+
+  `@property (nonatomic, readonly) BOOL cellular`
+
+Is this device a cellular device?
+
+  `@property (nonatomic, readonly) BOOL requiresUpdate`
+
+Does this device require software update?
+
+  `@property (nonatomic, readonly) ParticleDeviceType type`
+
+Particle device type. A easier to use version of `platformId`.
+
+  `@property (nonatomic, readonly) NSString *typeString`
+
+`type` casted into a human readable String.
 
   `-(NSURLSessionDataTask *)getVariable:(NSString *)variableName completion:(nullable void(^)(id _Nullable result, NSError* _Nullable error))completion`
 
@@ -1069,6 +1141,7 @@ In v0.9 `brandImageBackgroundImage` has been introduced in order to improve supp
 ```objc
  NSURL *termsOfServiceLinkURL;      // URL for terms of service of the app/device usage
  NSURL *privacyPolicyLinkURL;       // URL for privacy policy of the app/device usage
+ NSURL *troubleshootingLinkURL;     // URL for troubleshooting text of the app/device usage
 ```
 ---
 
