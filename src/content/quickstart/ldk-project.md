@@ -1,8 +1,8 @@
 ---
-title: Air Quality Monitoring Kit
+title: Leak Detection Kit
 layout: quickstart.hbs
 columns: two
-order: 4
+order: 21
 ---
 ## Getting started with leak detection
 Water might be the source of all life, but it can also be the source of a lot of discomfort if it gets to places it shouldn’t. A flooded basement, mold growth, damaged floors and ceilings, are all expensive problems that can result from leaks.

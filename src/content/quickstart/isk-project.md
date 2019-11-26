@@ -1,8 +1,8 @@
 ---
-title: Air Quality Monitoring Kit
+title: IoT Starter Kit
 layout: quickstart.hbs
 columns: two
-order: 4
+order: 20
 ---
 # Welcome to the Particle IoT Starter Kit project
 ![](/assets/images/IoT-Starter-Kit-box.jpg)
