@@ -7,7 +7,6 @@ order: 4
 
 # The Particle Leak Detection Kit 
 
-![Image of the Argon in a breadboard](/assets/images/FPO-1-crop.png)
 
 ## Getting started with leak detection
 Water might be the source of all life, but it can also be the source of a lot of discomfort if it gets to places it shouldn’t. A flooded basement, mold growth, damaged floors and ceilings, are all expensive problems that can result from leaks.
