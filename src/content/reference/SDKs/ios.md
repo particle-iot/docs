@@ -654,11 +654,13 @@ oAuthClientId unique for your app, use 'particle' for development or generate yo
 
 oAuthClientSecret unique for your app, use 'particle' for development or generate your OAuth creds for production apps (/reference/api/#create-an-oauth-client)
 
+  `@property (nonatomic, nullable, strong) NSString *customAPIBaseURL`
+
+Base URL for the Particle Cloud API. This can be used to proxy all API calls though your server or to point at staging server.
+
   `+ (instancetype)sharedInstance`
 
 Singleton instance of ParticleCloud class
-
- * **Returns:** initialized ParticleCloud singleton
 
   `-(NSURLSessionDataTask *)loginWithUser:(NSString *)user password:(NSString *)password completion:(nullable ParticleCompletionBlock)completion`
 
