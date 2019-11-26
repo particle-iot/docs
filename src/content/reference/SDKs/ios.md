@@ -549,38 +549,7 @@ then in your `AppDelegate` class you can supply those credentials by setting the
 ```
 
 **Important**
-Those credentials should be kept as secret. We recommend the use of [Cocoapods-keys plugin](https://github.com/orta/cocoapods-keys) for cocoapods
-(which you have to use anyways to install the SDK). It is essentially a key value store for environment and application keys.
-It is a good security practice to keep production keys out of developer hands. CocoaPods-keys makes it easy to have per-user config settings stored securely in the developer's keychain, and not in the application source. It is a plugin that once installed will run on every pod install or pod update.
-
-After adding the following additional lines your project `Podfile`:
-```ruby
-plugin 'cocoapods-keys', {
-    :project => "YourAppName",
-    :keys => [
-        "OAuthClientId",
-        "OAuthSecret"
-    ]}
-```
----
-go to your project folder in shell and run `pod install` - it will now ask you for "OAuthClientId", "OAuthSecret" - you can copy/paste the generated keys there
-and from that point on you can feed those keys into `ParticleCloud` by adding this code to your AppDelegate `didFinishLaunchingWithOptions` function which gets called
-when your app starts:
-
-*Swift example code*
-
-```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-    var keys = YourappnameKeys()
-    ParticleCloud.sharedInstance().OAuthClientId = keys.oAuthClientId()
-    ParticleCloud.sharedInstance().OAuthClientSecret = keys.oAuthSecret()
-
-    return true
-}
-```
-
-Be sure to replace `YourAppName` with your project name.
+Those credentials should be kept as secret. 
 
 ### Installation
 
