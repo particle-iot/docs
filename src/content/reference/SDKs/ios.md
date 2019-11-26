@@ -691,18 +691,15 @@ Inject session access token received from a custom backend service in case Two-l
    * `refreshToken` — Refresh token will be used automatically to hit Particle cloud to create a new active session access token.
  * **Returns:** YES if session injected successfully
 
-  `-(NSURLSessionDataTask *)requestPasswordResetForCustomer:(NSString *)email productId:(NSUInteger)productId completion:(nullable ParticleCompletionBlock)completion`
-
-Request password reset for customer (in product mode) command generates confirmation token and sends email to customer using org SMTP settings
-
- * **Parameters:**
-   * `email` — user email
-   * `productId` — Product ID number
-   * `completion` — Completion block with NSError object if failure, nil if success
-
   `-(NSURLSessionDataTask *)requestPasswordResetForUser:(NSString *)email completion:(nullable ParticleCompletionBlock)completion`
 
 Request password reset for user command generates confirmation token and sends email to customer using org SMTP settings
+
+ * **Parameters:**
+   * `email` — user email
+   * `completion` — Completion block with NSError object if failure, nil if success
+
+
 
  * **Parameters:**
    * `email` — user email
