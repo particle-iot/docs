@@ -957,6 +957,10 @@ Signal device Will make the onboard LED "shout rainbows" for easy physical ident
 
  * **Parameters:** `enable` — - YES to start or NO to stop LED signal.
 
+  `- (NSURLSessionDataTask *)ping:(nullable void (^)(BOOL result, NSError *_Nullable error))completion`
+
+Request device refresh from cloud update online status/functions/variables/device name, etc
+
   `-(NSURLSessionDataTask *)refresh:(nullable ParticleCompletionBlock)completion`
 
 Request device refresh from cloud update online status/functions/variables/device name, etc
@@ -972,6 +976,14 @@ Remove device from current logged in user account
   `-(NSURLSessionDataTask *)rename:(NSString *)newName completion:(nullable ParticleCompletionBlock)completion`
 
 Rename device
+
+ * **Parameters:**
+   * `notes` — New device notes
+   * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
+
+  `-(NSURLSessionDataTask *)setNotes:(NSString *)notes completion:(nullable ParticleCompletionBlock)completion`
+
+Edit device notes.
 
  * **Parameters:**
    * `newName` — New device name
