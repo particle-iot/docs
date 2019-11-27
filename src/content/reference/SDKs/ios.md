@@ -582,7 +582,7 @@ There's also an [example app](https://github.com/particle-iot/example-app-ios), 
 
 #### Carthage
 
-The SDK is now also available as a [Carthage](https://github.com/Carthage/Carthage) dependency since version 0.4.0.
+The SDK is also available as a [Carthage](https://github.com/Carthage/Carthage) dependency.
 
 Before CocoaPods v1.5.0 `use_frameworks!` flag was mandatory for dependencies written in Swift. This has caused a lot of problems while compiling projects that had dependencies written in both languages. To counter this problem, we added Carthage support and marked it as recommended way for quite a while. This is no longer the case as both dependency managers work well now.
 
