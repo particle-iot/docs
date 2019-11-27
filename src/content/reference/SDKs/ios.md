@@ -49,7 +49,7 @@ All SDK callbacks return real optionals (`ParticleDevice?`) instead of implicitl
 
 ### Getting Started
 
-- Perform the installation step described under the **Installation** section below for integrating in your own project
+- Perform the installation step described under the [Installation](#installation) section below for integrating in your own project
 - You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/particle-cloud-sdk-ios/archive/master.zip) and try out the included iOS example app
 - Be sure to check [Usage](#usage) before you begin for some code examples
 
