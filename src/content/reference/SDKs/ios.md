@@ -70,6 +70,8 @@ If there's an error while executing API request, completion block will have non-
 
 `NSError.code` contains HTTP status code. `NSError.localizedDescription` contains best attempt trying to explain what happened in human readable language based on `ParticleSDKErrorLocalizedStringKey` and `NSError.code`.
 
+### Common use cases
+
 Here are few examples for the most common use cases to get your started:
 
 #### Logging in to Particle cloud
@@ -553,6 +555,16 @@ Those credentials should be kept as secret.
 
 ### Installation
 
+#### Support for Swift projects
+
+To use iOS Cloud SDK from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
+For a detailed step-by-step help on integrating the Cloud SDK within a Swift project check out this [Particle community posting](https://community.particle.io/t/mobile-sdk-building-the-bridge-from-swift-to-objective-c/12020/1).
+
+The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
+
+There's also an [example app](https://github.com/particle-iot/example-app-ios), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
+
+
 #### CocoaPods
 
 Particle iOS Cloud SDK is available through [CocoaPods](http://cocoapods.org). CocoaPods is an easy to use dependency manager for iOS.
@@ -571,14 +583,6 @@ Replace `YourAppName` with your app target name - usually shown as the root item
 In your shell - run `pod update` in the project folder. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that file workspace file in Xcode and you can start interacting with Particle cloud and devices by
 adding `#import "Particle-SDK.h"`. (that is not required for swift projects)
 
-##### Support for Swift projects
-
-To use iOS Cloud SDK from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
-For a detailed step-by-step help on integrating the Cloud SDK within a Swift project check out this [Particle community posting](https://community.particle.io/t/mobile-sdk-building-the-bridge-from-swift-to-objective-c/12020/1).
-
-The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
-
-There's also an [example app](https://github.com/particle-iot/example-app-ios), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
 #### Carthage
 
@@ -778,19 +782,17 @@ Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials fo
 
 ---
 
-#### iOS 13 Permission Notice
-
-Starting iOS 13, to access Wi-Fi SSID app has to be granted location permission. Photon setup relies on this information to advance past "Discover Device" screen, therefore on iOS devices running iOS 13+, additional screen requesting to grant location permission will be shown. 
-
----
-
 #### Skipping authentication:
 
 ```objc
  BOOL allowSkipAuthentication;          // Allow user to skip authentication (skip button will appear on signup and login screens)
  NSString *skipAuthenticationMessage;   // Message to display to user when she's requesting to skip authentication (Yes/No question)
 ```
----
+
+### iOS 13 Permission Notice
+
+Starting iOS 13, to access Wi-Fi SSID app has to be granted location permission. Photon setup relies on this information to advance past "Discover Device" screen, therefore on iOS devices running iOS 13+, additional screen requesting to grant location permission will be shown. 
+
 
 ### Advanced
 
@@ -839,6 +841,11 @@ Consult the javadoc style comments in `ParticleSetupCustomization.h` and `Partic
 
 ### Installation
 
+#### Support for Swift projects
+
+To use Particle Photon Setup Library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
+as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
+
 #### Cocoapods
 
 Particle Photon Setup Library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
@@ -856,11 +863,6 @@ end
 
 Replace `YourAppName` with your app target name - usually shown as the root item name in the XCode project,
 then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "ParticleSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
-
-##### Support for Swift projects
-
-To use Particle Photon Setup Library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
-as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
 
 #### Carthage
 
@@ -880,6 +882,8 @@ and then run the following command:
 A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode. Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there. Build your project - you now have the Particle SDK embedded in your project. Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `ParticleSetupMainController` (see usage example).
 
 No need for any special process or operation integrating the Photon Setup Library with Swift-based or Swift-dependant projects.
+
+
 
 ## License
 
