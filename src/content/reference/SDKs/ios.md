@@ -34,7 +34,7 @@ Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connec
 - Read variables from devices
 - Invoke functions on devices
 - Publish events from the mobile app and subscribe to events coming from devices
-- Get data usage information for Electron devices
+- Get data usage information for Electron and 3G Boron devices
 
 All cloud operations take place asynchronously and use the well-known completion blocks (closures for swift) design pattern for reporting results allowing you to build beautiful responsive apps for your Particle products and projects.
 iOS Cloud SDK is implemented as an open-source CocoaPods static library and also as Carthage dynamic framework dependency. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
@@ -221,7 +221,7 @@ var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
 ```
 ---
 
-#### Retrieve current data usage (Electron only)
+#### Retrieve current data usage (Electron & 3G Boron only)
 _Starting SDK version 0.5.0_
 
 Assuming here that `myElectron` is an active instance of `ParticleDevice` class which represents an Electron device:
