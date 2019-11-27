@@ -1,8 +1,8 @@
 ---
-title: Air Quality Monitoring Kit
+title: Particle Air Quality Monitoring Kit
 layout: quickstart.hbs
 columns: two
-order: 30
+order: 22 
 ---
 
 # The Air Quality Monitoring Kit
