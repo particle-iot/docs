@@ -599,9 +599,9 @@ A new folder will be created in your project root folder - navigate to the `./Ca
 Go to your XCode target settings->General->Embedded binaries and make sure the `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
 Build your project - you now have the Particle SDK embedded in your project.
 
-### API Reference
+### Reference
 
-iOS Cloud SDK is commented using JavaDoc style comments. This makes descriptions for all properties and methods available within XCode and AppCode.
+Consult the javadoc style comments in `ParticleCloud.h` and `ParticleDevice.h` for each public method or property. If the Cloud SDK installation completed successfully in your XCode project - you should be able to press `Control` + `Space` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ## Photon Setup Library
 
@@ -835,7 +835,7 @@ Example app (in Swift) can be found [here](https://github.com/particle-iot/examp
 
 ### Reference
 
-Consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property. If the Photon Setup Library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
+Consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property. If the Photon Setup Library installation completed successfully in your XCode project - you should be able to press `Control` + `Space` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ### Installation
 
