@@ -123,7 +123,7 @@ if ParticleCloud.sharedInstance().injectSessionAccessToken("9bb9f7433940e7c808b1
 ```
 ---
 #### Get a list of all devices
-List the devices that belong to currently logged in user and find a specific device by name:
+List the devices that belong to currently logged in user and find a specific device by name. Please note that devices returned by `getDevices` do not contain variable and function info. For that information to be available, call `refresh` method on device instance:
 
 **Objective-C**
 
@@ -226,7 +226,7 @@ var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
 #### Retrieve current data usage (Electron & 3G Boron only)
 _Starting SDK version 0.5.0_
 
-Assuming here that `myElectron` is an active instance of `ParticleDevice` class which represents an Electron device:
+Assuming here that `myElectron` is an active instance of `ParticleDevice` class which represents an Electron device. Please note that due to hardware limitations this method is not available for LTE Boron devices:
 
 **Objective-C**
 ```objc
@@ -605,13 +605,13 @@ Build your project - you now have the Particle SDK embedded in your project.
 
 ### Reference
 
-Consult the javadoc style comments in `ParticleCloud.h` and `ParticleDevice.h` for each public method or property. If the Cloud SDK installation completed successfully in your XCode project - you should be able to press `Control` + `Space` to get an auto-complete hints from XCode for each public method or property in the library.
+Consult the javadoc style comments in `ParticleCloud.h`, `ParticleDevice.h` and other header files contained within the library for each public method or property. If the Cloud SDK installation completed successfully in your XCode project - you should be able to press `Control` + `Space` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ## Photon Setup Library
 
 ### Introduction
 
-The Particle Photon Setup library is meant for integrating the initial setup process of Particle devices (Photon, P0, P1) in your app. This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class, that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
+The Particle Photon Setup library is meant for integrating the initial setup process of Particle Photon family devices (Photon, P0, P1) in your app. This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class, that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
 
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
