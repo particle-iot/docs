@@ -39,7 +39,7 @@ Your system firmware version is 0.5.3
 
 This also works on the P1, assuming the USB port is exposed.
 
-{{#if photon}}
+
 ## Using Wi-Fi (Photon and P1 only)
 
 This technique is useful if you have a device built around a P1 and you don't have ports exposed. 
@@ -61,7 +61,6 @@ It should return a page with something like:
 ```
 {"id":"1e0032123447343149111039","c":"1"}
 ```
-{{/if}}
 
 ## Using USB serial
 

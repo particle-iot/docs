@@ -17,17 +17,7 @@ If you are using Windows, you can use the [Windows CLI Installer](https://binari
 
 In order to use dfu-util, your Particle device must be in DFU mode (blinking yellow).
 
-{{#if photon}}
-Hold down RESET and SETUP, release RESET and continue to hold down SETUP while the main status LED blinks magenta until it blinks yellow, then release.
-{{/if}}
-
-{{#if electron}}
-Hold down RESET and MODE, release RESET and continue to hold down MODE while the main status LED blinks magenta until it blinks yellow, then release.
-{{/if}}
-
-{{#if core}}
-Hold down RST and MODE, release RST and continue to hold down MODE while the main status LED blinks magenta until it blinks yellow, then release.
-{{/if}}
+Hold down RESET and MODE/SETUP, release RESET and continue to hold down SETUP while the main status LED blinks magenta until it blinks yellow, then release.
 
 If your device is in a particularly odd and confused state, sometimes you may need to unplug the power, hold down the SETUP/MODE button, and then plug in USB power. Release SETUP/MODE when blinking yellow.
 

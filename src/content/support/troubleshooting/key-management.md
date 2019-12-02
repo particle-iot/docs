@@ -11,13 +11,6 @@ Device Key Management
 
 An easy step-by-step walkthrough of Particle CLI commands to BACKUP, RESTORE and CHANGE Keys.
 
-{{#if core}}
-You may need to use this guide if you suffer from: "My Core is flashing yellow/red (orange) lights after it connects to Wi-Fi (Decryption Error)"
-
-More detailed info:
-https://community.particle.io/t/troubleshooting-my-core-is-flashing-yellow-red-lights-after-it-connects-to-wifi/627
-{{/if}}
-
 ### How to Backup/Save your Key:
 
 1. Place your {{device}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
