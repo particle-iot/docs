@@ -877,7 +877,7 @@ AND
 - (1) [HC-SR501](/assets/datasheets/electronsensorkit/HC-SR501.pdf) PIR motion sensor
 
 - (1) [DS18B20](https://www.adafruit.com/products/381) waterproof temperature sensor
-- (1) [SW18020P](http://www.electrodragon.com/product/vibration-switch-sensor-sw-18020p/) vibration sensor
+- (1) [SW18020P](https://www.electrodragon.com/product/vibration-sensor-sw-18010p/) vibration sensor
 - Various jumper wires, resistors, capacitors, LEDs, and push buttons
 
 ![Photo Sensor](/assets/images/photosensor.jpg)
