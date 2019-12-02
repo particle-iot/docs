@@ -1,0 +1,874 @@
+{
+  "sections": {
+    "support/general": {
+      "id": 360006406354,
+      "author": 6038784308
+    },
+    "support/particle-devices-faq": {
+      "id": 360006404774,
+      "author": 6038784308
+    },
+    "support/particle-tools-faq": {
+      "id": 360006430113,
+      "author": 6038784308
+    },
+    "support/shipping-and-returns": {
+      "id": 360006406514,
+      "author": 367433719394
+    },
+    "support/wholesale-store": {
+      "id": 360006406534,
+      "author": 367433719394
+    },
+    "support/troubleshooting": {
+      "id": 360006430133,
+      "author": 6038784308
+    }
+  },
+  "user_segment_id": 2735367,
+  "permission_group_id": 537713,
+  "pages": {
+    "support/particle-devices-faq/finding-device-id.md": {
+      "articleId": 360039735733,
+      "attachments": {
+        "/assets/images/finding-device-id-devicemanager.png": {
+          "attachmentId": 360051653934,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051653934/finding-device-id-devicemanager.png"
+        },
+        "/assets/images/finding-device-id-putty.png": {
+          "attachmentId": 360051653954,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051653954/finding-device-id-putty.png"
+        },
+        "/assets/images/finding-device-id-android_serial2.jpg": {
+          "attachmentId": 360052532333,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532333/finding-device-id-android_serial2.jpg"
+        },
+        "/assets/images/finding-device-id-android_serial1.png": {
+          "attachmentId": 360052532353,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532353/finding-device-id-android_serial1.png"
+        },
+        "/assets/images/usbserialnum-win.png": {
+          "attachmentId": 360051653974,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051653974/usbserialnum-win.png"
+        },
+        "/assets/images/usbserialnum-mac.png": {
+          "attachmentId": 360052532373,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532373/usbserialnum-mac.png"
+        },
+        "/assets/images/usbserialnum-linux.png": {
+          "attachmentId": 360052532393,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532393/usbserialnum-linux.png"
+        },
+        "/assets/images/finding-device-id-stlink.png": {
+          "attachmentId": 360051653994,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051653994/finding-device-id-stlink.png"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039735733-Finding-your-device-ID"
+    },
+    "support/general/pricing.md": {
+      "articleId": 360039741073,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741073-Pricing"
+    },
+    "support/general/product-lifecycle-policy.md": {
+      "articleId": 360039251234,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251234-Product-Lifecycle-Policy"
+    },
+    "support/particle-devices-faq/code-size-tips.md": {
+      "articleId": 360039741093,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741093-Code-Size-Tips"
+    },
+    "support/particle-devices-faq/electron-3rdparty-sims.md": {
+      "articleId": 360039741113,
+      "attachments": {
+        "/assets/images/electron-3rdparty-sims-01electronwithsim.png": {
+          "attachmentId": 360052532413,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532413/electron-3rdparty-sims-01electronwithsim.png"
+        },
+        "/assets/images/electron-3rdparty-sims-02setup3rdparty.png": {
+          "attachmentId": 360051654014,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654014/electron-3rdparty-sims-02setup3rdparty.png"
+        },
+        "/assets/images/electron-3rdparty-sims-03devices.png": {
+          "attachmentId": 360051654034,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654034/electron-3rdparty-sims-03devices.png"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741113-3rd-party-SIM-cards"
+    },
+    "support/particle-devices-faq/i2c-faq.md": {
+      "articleId": 360039251254,
+      "attachments": {
+        "/assets/images/i2c-faq-pullups.png": {
+          "attachmentId": 360052532433,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532433/i2c-faq-pullups.png"
+        },
+        "/assets/images/i2c-faq-disp7seg.jpg": {
+          "attachmentId": 360052532453,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532453/i2c-faq-disp7seg.jpg"
+        },
+        "/assets/images/i2c-faq-disp8x8.jpg": {
+          "attachmentId": 360052532473,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532473/i2c-faq-disp8x8.jpg"
+        },
+        "/assets/images/i2c-faq-compass.jpg": {
+          "attachmentId": 360051654054,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654054/i2c-faq-compass.jpg"
+        },
+        "/assets/images/i2c-faq-bme280_oled.jpg": {
+          "attachmentId": 360052532493,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532493/i2c-faq-bme280_oled.jpg"
+        },
+        "/assets/images/i2c-faq-bme280.jpg": {
+          "attachmentId": 360051654074,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654074/i2c-faq-bme280.jpg"
+        },
+        "/assets/images/i2c-faq-bme280_trigger.png": {
+          "attachmentId": 360052532513,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532513/i2c-faq-bme280_trigger.png"
+        },
+        "/assets/images/i2c-faq-bme280_action.png": {
+          "attachmentId": 360051654094,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654094/i2c-faq-bme280_action.png"
+        },
+        "/assets/images/i2c-faq-bme280_sheet.png": {
+          "attachmentId": 360051654114,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654114/i2c-faq-bme280_sheet.png"
+        },
+        "/assets/images/i2c-faq-ubidots.png": {
+          "attachmentId": 360051654134,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654134/i2c-faq-ubidots.png"
+        },
+        "/assets/images/i2c-faq-DS75.jpg": {
+          "attachmentId": 360052532533,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532533/i2c-faq-DS75.jpg"
+        },
+        "/assets/images/i2c-faq-MCP23008.jpg": {
+          "attachmentId": 360052532553,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532553/i2c-faq-MCP23008.jpg"
+        },
+        "/assets/images/i2c-faq-MCP3021.jpg": {
+          "attachmentId": 360051654154,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654154/i2c-faq-MCP3021.jpg"
+        },
+        "/assets/images/i2c-faq-fram.jpg": {
+          "attachmentId": 360051654174,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654174/i2c-faq-fram.jpg"
+        },
+        "/assets/images/i2c-faq-mux-led.jpg": {
+          "attachmentId": 360052532573,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532573/i2c-faq-mux-led.jpg"
+        },
+        "/assets/images/i2c-faq-ds75wire1.jpg": {
+          "attachmentId": 360051654194,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654194/i2c-faq-ds75wire1.jpg"
+        },
+        "/assets/images/i2c-faq-controleverything.jpg": {
+          "attachmentId": 360051654214,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654214/i2c-faq-controleverything.jpg"
+        },
+        "/assets/images/i2c-faq-logic.png": {
+          "attachmentId": 360052532593,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532593/i2c-faq-logic.png"
+        },
+        "/assets/images/i2c-faq-logic2.jpg": {
+          "attachmentId": 360051654234,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654234/i2c-faq-logic2.jpg"
+        },
+        "/assets/images/i2c-faq-I2Cslave.jpg": {
+          "attachmentId": 360051654254,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654254/i2c-faq-I2Cslave.jpg"
+        },
+        "/assets/images/i2c-faq-pi.jpg": {
+          "attachmentId": 360051654274,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654274/i2c-faq-pi.jpg"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251254-I2C-FAQ"
+    },
+    "support/particle-devices-faq/mesh-setup-over-usb.md": {
+      "articleId": 360039741133,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741133-Mesh-Setup-over-USB"
+    },
+    "support/particle-devices-faq/photon-serial2-faq.md": {
+      "articleId": 360039251274,
+      "attachments": {
+        "/assets/images/photon-serial2-faq-02bottom.png": {
+          "attachmentId": 360051654314,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654314/photon-serial2-faq-02bottom.png"
+        },
+        "/assets/images/photon-serial2-faq-04leads.jpg": {
+          "attachmentId": 360052532613,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532613/photon-serial2-faq-04leads.jpg"
+        },
+        "/assets/images/photon-serial2-faq-05epoxy.jpg": {
+          "attachmentId": 360051654334,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654334/photon-serial2-faq-05epoxy.jpg"
+        },
+        "/assets/images/photon-serial2-faq-06led.png": {
+          "attachmentId": 360051654354,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654354/photon-serial2-faq-06led.png"
+        },
+        "/assets/images/photon-serial2-faq-07ledwired.jpg": {
+          "attachmentId": 360052532633,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532633/photon-serial2-faq-07ledwired.jpg"
+        },
+        "/assets/images/photon-serial2-faq-08top.png": {
+          "attachmentId": 360051654374,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654374/photon-serial2-faq-08top.png"
+        },
+        "/assets/images/photon-serial2-faq-09noresistors.jpg": {
+          "attachmentId": 360052532653,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532653/photon-serial2-faq-09noresistors.jpg"
+        },
+        "/assets/images/photon-serial2-faq-10ledwired.jpg": {
+          "attachmentId": 360051654394,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654394/photon-serial2-faq-10ledwired.jpg"
+        },
+        "/assets/images/photon-serial2-faq-11final.jpg": {
+          "attachmentId": 360051654414,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654414/photon-serial2-faq-11final.jpg"
+        },
+        "/assets/images/photon-serial2-faq-12smt.jpg": {
+          "attachmentId": 360052532673,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532673/photon-serial2-faq-12smt.jpg"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251274-Serial2-on-the-Photon"
+    },
+    "support/particle-devices-faq/serial-faq.md": {
+      "articleId": 360039251294,
+      "attachments": {
+        "/assets/images/serial-faq-01particledev.png": {
+          "attachmentId": 360051654434,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654434/serial-faq-01particledev.png"
+        },
+        "/assets/images/serial-faq-02arduino.png": {
+          "attachmentId": 360051654454,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654454/serial-faq-02arduino.png"
+        },
+        "/assets/images/serial-faq-03devicemanager.png": {
+          "attachmentId": 360052532693,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532693/serial-faq-03devicemanager.png"
+        },
+        "/assets/images/serial-faq-04putty.png": {
+          "attachmentId": 360051654474,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654474/serial-faq-04putty.png"
+        },
+        "/assets/images/serial-faq-05android.jpg": {
+          "attachmentId": 360052532713,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532713/serial-faq-05android.jpg"
+        },
+        "/assets/images/serial-faq-07converter.jpg": {
+          "attachmentId": 360051654494,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654494/serial-faq-07converter.jpg"
+        },
+        "/assets/images/serial-faq-08sparkfun.jpg": {
+          "attachmentId": 360051654514,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654514/serial-faq-08sparkfun.jpg"
+        },
+        "/assets/images/serial-faq-06arduino.jpg": {
+          "attachmentId": 360052532733,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532733/serial-faq-06arduino.jpg"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251294-Serial-FAQ"
+    },
+    "support/particle-devices-faq/wpa2-enterprise.md": {
+      "articleId": 360039741153,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741153-WPA2-Enterprise-Setup"
+    },
+    "support/particle-tools-faq/eclipse-debug.md": {
+      "articleId": 360039741253,
+      "attachments": {
+        "/assets/images/eclipse-debug-debug-15.png": {
+          "attachmentId": 360051654594,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654594/eclipse-debug-debug-15.png"
+        },
+        "/assets/images/eclipse-debug-progshield.jpg": {
+          "attachmentId": 360051654614,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654614/eclipse-debug-progshield.jpg"
+        },
+        "/assets/images/eclipse-debug-programmer-zadig.png": {
+          "attachmentId": 360051654634,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654634/eclipse-debug-programmer-zadig.png"
+        },
+        "/assets/images/eclipse-debug-stmini.jpg": {
+          "attachmentId": 360052532773,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532773/eclipse-debug-stmini.jpg"
+        },
+        "/assets/images/eclipse-debug-stlink-zadig.png": {
+          "attachmentId": 360051654654,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654654/eclipse-debug-stlink-zadig.png"
+        },
+        "/assets/images/eclipse-debug-stlink.jpg": {
+          "attachmentId": 360051654674,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654674/eclipse-debug-stlink.jpg"
+        },
+        "/assets/images/eclipse-debug-srcdir.png": {
+          "attachmentId": 360052532793,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532793/eclipse-debug-srcdir.png"
+        },
+        "/assets/images/eclipse-debug-eclipse-extract-win.png": {
+          "attachmentId": 360052532813,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532813/eclipse-debug-eclipse-extract-win.png"
+        },
+        "/assets/images/eclipse-debug-eclipse-add-3.png": {
+          "attachmentId": 360052532833,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532833/eclipse-debug-eclipse-add-3.png"
+        },
+        "/assets/images/eclipse-debug-eclipse-add-4.png": {
+          "attachmentId": 360051654694,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654694/eclipse-debug-eclipse-add-4.png"
+        },
+        "/assets/images/eclipse-debug-eclipse-new-project-1.png": {
+          "attachmentId": 360052532853,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532853/eclipse-debug-eclipse-new-project-1.png"
+        },
+        "/assets/images/eclipse-debug-eclipse-new-project-2.png": {
+          "attachmentId": 360052532873,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532873/eclipse-debug-eclipse-new-project-2.png"
+        },
+        "/assets/images/eclipse-debug-settings-2.png": {
+          "attachmentId": 360052532893,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532893/eclipse-debug-settings-2.png"
+        },
+        "/assets/images/eclipse-debug-settings-3.png": {
+          "attachmentId": 360052532913,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532913/eclipse-debug-settings-3.png"
+        },
+        "/assets/images/eclipse-debug-settings-4.png": {
+          "attachmentId": 360052532933,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532933/eclipse-debug-settings-4.png"
+        },
+        "/assets/images/eclipse-debug-settings-5.png": {
+          "attachmentId": 360052532953,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532953/eclipse-debug-settings-5.png"
+        },
+        "/assets/images/eclipse-debug-settings-7.png": {
+          "attachmentId": 360051654714,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654714/eclipse-debug-settings-7.png"
+        },
+        "/assets/images/eclipse-debug-settings-6.png": {
+          "attachmentId": 360051654734,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654734/eclipse-debug-settings-6.png"
+        },
+        "/assets/images/eclipse-debug-code-analysis.png": {
+          "attachmentId": 360051654754,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654754/eclipse-debug-code-analysis.png"
+        },
+        "/assets/images/eclipse-debug-make-1.png": {
+          "attachmentId": 360051654774,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654774/eclipse-debug-make-1.png"
+        },
+        "/assets/images/eclipse-debug-make-2.png": {
+          "attachmentId": 360051654794,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654794/eclipse-debug-make-2.png"
+        },
+        "/assets/images/eclipse-debug-debug-1.png": {
+          "attachmentId": 360051654814,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654814/eclipse-debug-debug-1.png"
+        },
+        "/assets/images/eclipse-debug-debug-2.png": {
+          "attachmentId": 360052532973,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532973/eclipse-debug-debug-2.png"
+        },
+        "/assets/images/eclipse-debug-debug-3.png": {
+          "attachmentId": 360052532993,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052532993/eclipse-debug-debug-3.png"
+        },
+        "/assets/images/eclipse-debug-debug-4.png": {
+          "attachmentId": 360051654834,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654834/eclipse-debug-debug-4.png"
+        },
+        "/assets/images/eclipse-debug-debug-6.png": {
+          "attachmentId": 360052533013,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533013/eclipse-debug-debug-6.png"
+        },
+        "/assets/images/eclipse-debug-debug-8.png": {
+          "attachmentId": 360051654854,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654854/eclipse-debug-debug-8.png"
+        },
+        "/assets/images/eclipse-debug-debug-7.png": {
+          "attachmentId": 360051654874,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654874/eclipse-debug-debug-7.png"
+        },
+        "/assets/images/eclipse-debug-debug-9.png": {
+          "attachmentId": 360051654894,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654894/eclipse-debug-debug-9.png"
+        },
+        "/assets/images/eclipse-debug-debug-5.png": {
+          "attachmentId": 360052533033,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533033/eclipse-debug-debug-5.png"
+        },
+        "/assets/images/eclipse-debug-debug-10.png": {
+          "attachmentId": 360051654914,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654914/eclipse-debug-debug-10.png"
+        },
+        "/assets/images/eclipse-debug-debug-11.png": {
+          "attachmentId": 360052533053,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533053/eclipse-debug-debug-11.png"
+        },
+        "/assets/images/eclipse-debug-debug-12.png": {
+          "attachmentId": 360052533073,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533073/eclipse-debug-debug-12.png"
+        },
+        "/assets/images/eclipse-debug-debug-13.png": {
+          "attachmentId": 360052533093,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533093/eclipse-debug-debug-13.png"
+        },
+        "/assets/images/eclipse-debug-debug-14.png": {
+          "attachmentId": 360051654934,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654934/eclipse-debug-debug-14.png"
+        },
+        "/assets/images/eclipse-debug-settings-8.png": {
+          "attachmentId": 360052533113,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533113/eclipse-debug-settings-8.png"
+        },
+        "/assets/images/eclipse-debug-settings-9.png": {
+          "attachmentId": 360051654954,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654954/eclipse-debug-settings-9.png"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741253-Debugging-with-Eclipse"
+    },
+    "support/particle-tools-faq/installing-curl.md": {
+      "articleId": 360039251374,
+      "attachments": {
+        "/assets/images/installing-curl-01download.png": {
+          "attachmentId": 360052533133,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533133/installing-curl-01download.png"
+        },
+        "/assets/images/installing-curl-02savetarget.png": {
+          "attachmentId": 360051654974,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654974/installing-curl-02savetarget.png"
+        },
+        "/assets/images/installing-curl-10programfiles.png": {
+          "attachmentId": 360051654994,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051654994/installing-curl-10programfiles.png"
+        },
+        "/assets/images/installing-curl-11newfolder.png": {
+          "attachmentId": 360052533153,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533153/installing-curl-11newfolder.png"
+        },
+        "/assets/images/installing-curl-03curldir.png": {
+          "attachmentId": 360051655014,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655014/installing-curl-03curldir.png"
+        },
+        "/assets/images/installing-curl-04copy.png": {
+          "attachmentId": 360051655034,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655034/installing-curl-04copy.png"
+        },
+        "/assets/images/installing-curl-05copy.png": {
+          "attachmentId": 360051655054,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655054/installing-curl-05copy.png"
+        },
+        "/assets/images/installing-curl-06rename.png": {
+          "attachmentId": 360051655074,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655074/installing-curl-06rename.png"
+        },
+        "/assets/images/installing-curl-07noextension.png": {
+          "attachmentId": 360052533173,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533173/installing-curl-07noextension.png"
+        },
+        "/assets/images/installing-curl-08appearance.png": {
+          "attachmentId": 360051655094,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655094/installing-curl-08appearance.png"
+        },
+        "/assets/images/installing-curl-09folderoptions.png": {
+          "attachmentId": 360051655114,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655114/installing-curl-09folderoptions.png"
+        },
+        "/assets/images/installing-curl-10hideext.png": {
+          "attachmentId": 360051655134,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655134/installing-curl-10hideext.png"
+        },
+        "/assets/images/installing-curl-12rename.png": {
+          "attachmentId": 360052533193,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533193/installing-curl-12rename.png"
+        },
+        "/assets/images/installing-curl-13startsettings.png": {
+          "attachmentId": 360052533213,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533213/installing-curl-13startsettings.png"
+        },
+        "/assets/images/installing-curl-14settings.png": {
+          "attachmentId": 360052533233,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533233/installing-curl-14settings.png"
+        },
+        "/assets/images/installing-curl-15environmentvariables.png": {
+          "attachmentId": 360052533253,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533253/installing-curl-15environmentvariables.png"
+        },
+        "/assets/images/installing-curl-16edit.png": {
+          "attachmentId": 360051655154,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655154/installing-curl-16edit.png"
+        },
+        "/assets/images/installing-curl-17editnew.png": {
+          "attachmentId": 360051655174,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655174/installing-curl-17editnew.png"
+        },
+        "/assets/images/installing-curl-05controlpanel.png": {
+          "attachmentId": 360052533273,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533273/installing-curl-05controlpanel.png"
+        },
+        "/assets/images/installing-curl-06systemandsecurity.png": {
+          "attachmentId": 360051655194,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655194/installing-curl-06systemandsecurity.png"
+        },
+        "/assets/images/installing-curl-18system.png": {
+          "attachmentId": 360052533293,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533293/installing-curl-18system.png"
+        },
+        "/assets/images/installing-curl-08advanced.png": {
+          "attachmentId": 360051655214,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655214/installing-curl-08advanced.png"
+        },
+        "/assets/images/installing-curl-09environment.png": {
+          "attachmentId": 360051655234,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655234/installing-curl-09environment.png"
+        },
+        "/assets/images/installing-curl-19editvar.png": {
+          "attachmentId": 360052533313,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533313/installing-curl-19editvar.png"
+        },
+        "/assets/images/installing-curl-20accesstoken.png": {
+          "attachmentId": 360051655254,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655254/installing-curl-20accesstoken.png"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251374-Installing-curl-for-Windows-"
+    },
+    "support/particle-tools-faq/installing-dfu-util.md": {
+      "articleId": 360039251394,
+      "attachments": {
+        "/assets/images/installing-dfu-util-01zadig.png": {
+          "attachmentId": 360051655274,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655274/installing-dfu-util-01zadig.png"
+        },
+        "/assets/images/installing-dfu-util-24zadig.png": {
+          "attachmentId": 360052533333,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533333/installing-dfu-util-24zadig.png"
+        },
+        "/assets/images/installing-dfu-util-02download32.png": {
+          "attachmentId": 360051655294,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655294/installing-dfu-util-02download32.png"
+        },
+        "/assets/images/installing-dfu-util-10programfiles.png": {
+          "attachmentId": 360051655314,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655314/installing-dfu-util-10programfiles.png"
+        },
+        "/assets/images/installing-dfu-util-11newfolder.png": {
+          "attachmentId": 360052533353,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533353/installing-dfu-util-11newfolder.png"
+        },
+        "/assets/images/installing-dfu-util-12copyfiles.png": {
+          "attachmentId": 360051655334,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655334/installing-dfu-util-12copyfiles.png"
+        },
+        "/assets/images/installing-dfu-util-04dfufiles.png": {
+          "attachmentId": 360052533373,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533373/installing-dfu-util-04dfufiles.png"
+        },
+        "/assets/images/installing-dfu-util-13startsettings.png": {
+          "attachmentId": 360052533393,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533393/installing-dfu-util-13startsettings.png"
+        },
+        "/assets/images/installing-dfu-util-14settings.png": {
+          "attachmentId": 360052533413,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533413/installing-dfu-util-14settings.png"
+        },
+        "/assets/images/installing-dfu-util-15environmentvariables.png": {
+          "attachmentId": 360051655354,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655354/installing-dfu-util-15environmentvariables.png"
+        },
+        "/assets/images/installing-dfu-util-16edit.png": {
+          "attachmentId": 360052533433,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533433/installing-dfu-util-16edit.png"
+        },
+        "/assets/images/installing-dfu-util-17editnew.png": {
+          "attachmentId": 360051655374,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655374/installing-dfu-util-17editnew.png"
+        },
+        "/assets/images/installing-dfu-util-21command.png": {
+          "attachmentId": 360051655394,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655394/installing-dfu-util-21command.png"
+        },
+        "/assets/images/installing-dfu-util-05controlpanel.png": {
+          "attachmentId": 360052533453,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533453/installing-dfu-util-05controlpanel.png"
+        },
+        "/assets/images/installing-dfu-util-06systemandsecurity.png": {
+          "attachmentId": 360052533473,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533473/installing-dfu-util-06systemandsecurity.png"
+        },
+        "/assets/images/installing-dfu-util-18system.png": {
+          "attachmentId": 360052533493,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533493/installing-dfu-util-18system.png"
+        },
+        "/assets/images/installing-dfu-util-08advanced.png": {
+          "attachmentId": 360052533513,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533513/installing-dfu-util-08advanced.png"
+        },
+        "/assets/images/installing-dfu-util-09environment.png": {
+          "attachmentId": 360051655414,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655414/installing-dfu-util-09environment.png"
+        },
+        "/assets/images/installing-dfu-util-19editvar.png": {
+          "attachmentId": 360052533533,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533533/installing-dfu-util-19editvar.png"
+        },
+        "/assets/images/installing-dfu-util-20command.png": {
+          "attachmentId": 360051655434,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655434/installing-dfu-util-20command.png"
+        },
+        "/assets/images/installing-dfu-util-22dfu.png": {
+          "attachmentId": 360052533553,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533553/installing-dfu-util-22dfu.png"
+        },
+        "/assets/images/installing-dfu-util-23com.png": {
+          "attachmentId": 360052533573,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533573/installing-dfu-util-23com.png"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251394-Installing-DFU-util"
+    },
+    "support/particle-tools-faq/jtag.md": {
+      "articleId": 360039251414,
+      "attachments": {
+        "/assets/images/debugger2.jpg": {
+          "attachmentId": 360052533593,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533593/debugger2.jpg"
+        },
+        "/assets/images/jtag-01stlink.jpg": {
+          "attachmentId": 360052533613,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533613/jtag-01stlink.jpg"
+        },
+        "/assets/images/jtag-07mini.jpg": {
+          "attachmentId": 360051655454,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655454/jtag-07mini.jpg"
+        },
+        "/assets/images/jtag-08shield.jpg": {
+          "attachmentId": 360051655474,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655474/jtag-08shield.jpg"
+        },
+        "/assets/images/debugger1.jpg": {
+          "attachmentId": 360051655494,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655494/debugger1.jpg"
+        },
+        "/assets/images/jtag-09stlink.jpg": {
+          "attachmentId": 360051655514,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655514/jtag-09stlink.jpg"
+        },
+        "/assets/images/jtag-02connect.png": {
+          "attachmentId": 360052533633,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533633/jtag-02connect.png"
+        },
+        "/assets/images/jtag-03program.png": {
+          "attachmentId": 360051655534,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655534/jtag-03program.png"
+        },
+        "/assets/images/jtag-04saveconfig.png": {
+          "attachmentId": 360052533653,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533653/jtag-04saveconfig.png"
+        },
+        "/assets/images/jtag-05restoreconfig.png": {
+          "attachmentId": 360051655554,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655554/jtag-05restoreconfig.png"
+        },
+        "/assets/images/jtag-06eraseconfig.png": {
+          "attachmentId": 360052533673,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533673/jtag-06eraseconfig.png"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251414-JTAG-and-SWD"
+    },
+    "support/particle-tools-faq/local-build.md": {
+      "articleId": 360039741273,
+      "attachments": {
+        "/assets/images/local-build-01expand.png": {
+          "attachmentId": 360051655574,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655574/local-build-01expand.png"
+        },
+        "/assets/images/local-build-02selectmake.png": {
+          "attachmentId": 360051655594,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655594/local-build-02selectmake.png"
+        },
+        "/assets/images/local-build-08mingwinst.png": {
+          "attachmentId": 360051655614,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655614/local-build-08mingwinst.png"
+        },
+        "/assets/images/local-build-09mingwshortcut.png": {
+          "attachmentId": 360052533693,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533693/local-build-09mingwshortcut.png"
+        },
+        "/assets/images/local-build-03addpath.png": {
+          "attachmentId": 360051655634,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655634/local-build-03addpath.png"
+        },
+        "/assets/images/local-build-04lineendings.png": {
+          "attachmentId": 360051655654,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655654/local-build-04lineendings.png"
+        },
+        "/assets/images/local-build-05openanyway.png": {
+          "attachmentId": 360051655674,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655674/local-build-05openanyway.png"
+        },
+        "/assets/images/local-build-07windirs.png": {
+          "attachmentId": 360052533713,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533713/local-build-07windirs.png"
+        },
+        "/assets/images/local-build-06winbuild.png": {
+          "attachmentId": 360051655694,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655694/local-build-06winbuild.png"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741273-Local-build-using-gcc-arm"
+    },
+    "support/particle-tools-faq/workbench.md": {
+      "articleId": 360039251434,
+      "attachments": {
+        "/assets/images/workbench/settings-custom-deviceos-location.png": {
+          "attachmentId": 360052533733,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533733/settings-custom-deviceos-location.png"
+        },
+        "/assets/images/workbench/statusbar-project-settings.png": {
+          "attachmentId": 360052533753,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052533753/statusbar-project-settings.png"
+        }
+      },
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251434-Workbench"
+    },
+    "support/shipping-and-returns/returns.md": {
+      "articleId": 360039251634,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251634-Returns"
+    },
+    "support/shipping-and-returns/shipping.md": {
+      "articleId": 360039251654,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251654-Shipping"
+    },
+    "support/wholesale-store/creating-account.md": {
+      "articleId": 360039251694,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251694-Wholesale-Account-Creation",
+      "attachments": {
+        "/assets/images/companyprofilepage.png": {
+          "attachmentId": 360052534973,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052534973/companyprofilepage.png"
+        },
+        "/assets/images/locationinformation.png": {
+          "attachmentId": 360051655714,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655714/locationinformation.png"
+        },
+        "/assets/images/businessinformation.png": {
+          "attachmentId": 360051655734,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655734/businessinformation.png"
+        },
+        "/assets/images/loginscreen1.png": {
+          "attachmentId": 360052534993,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052534993/loginscreen1.png"
+        },
+        "/assets/images/loginscreen2.png": {
+          "attachmentId": 360051655754,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655754/loginscreen2.png"
+        }
+      }
+    },
+    "support/wholesale-store/placing-orders.md": {
+      "articleId": 360039741373,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741373-Wholesale-Store-Order-Placement",
+      "attachments": {
+        "/assets/images/businessinfo1.png": {
+          "attachmentId": 360051655774,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655774/businessinfo1.png"
+        },
+        "/assets/images/businessinfo2.png": {
+          "attachmentId": 360052535013,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535013/businessinfo2.png"
+        },
+        "/assets/images/complinacesurvey1.png": {
+          "attachmentId": 360052535033,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535033/complinacesurvey1.png"
+        },
+        "/assets/images/embargoimage.png": {
+          "attachmentId": 360052535053,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535053/embargoimage.png"
+        },
+        "/assets/images/geographyimage.png": {
+          "attachmentId": 360052535073,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535073/geographyimage.png"
+        },
+        "/assets/images/usagecompliance.png": {
+          "attachmentId": 360052535093,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535093/usagecompliance.png"
+        },
+        "/assets/images/lastquestioncompliance.png": {
+          "attachmentId": 360052535113,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535113/lastquestioncompliance.png"
+        },
+        "/assets/images/shipping-address.png": {
+          "attachmentId": 360051655794,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655794/shipping-address.png"
+        },
+        "/assets/images/vat-number.png": {
+          "attachmentId": 360052535133,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535133/vat-number.png"
+        }
+      }
+    },
+    "support/wholesale-store/wholesale-products.md": {
+      "articleId": 360039251714,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251714-Wholesale-Products"
+    },
+    "support/wholesale-store/wholesale-shipping.md": {
+      "articleId": 360039741393,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741393-Wholesale-Shipping"
+    },
+    "support/troubleshooting/cloud-solutions.md": {
+      "articleId": 360039741433,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741433-Cloud-Solutions"
+    },
+    "support/troubleshooting/common-questions.md": {
+      "articleId": 360039741453,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741453-Common-Questions"
+    },
+    "support/troubleshooting/device-management.md": {
+      "articleId": 360039741473,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741473-Device-Ownership"
+    },
+    "support/troubleshooting/firmware-manager.md": {
+      "articleId": 360039741493,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039741493-Firmware-Manager",
+      "attachments": {
+        "/assets/images/updater-start.png": {
+          "attachmentId": 360052535153,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535153/updater-start.png"
+        },
+        "/assets/images/updater-connected.png": {
+          "attachmentId": 360051655814,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655814/updater-connected.png"
+        },
+        "/assets/images/updater-updating.png": {
+          "attachmentId": 360052535173,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360052535173/updater-updating.png"
+        },
+        "/assets/images/updater-complete.png": {
+          "attachmentId": 360051655834,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360051655834/updater-complete.png"
+        }
+      }
+    },
+    "support/troubleshooting/firmware-upgrades.md": {
+      "articleId": 360039251774,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251774-Firmware-Upgrades"
+    },
+    "support/troubleshooting/key-management.md": {
+      "articleId": 360039251794,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251794-Device-Keys"
+    },
+    "support/troubleshooting/mode-switching.md": {
+      "ignorePage":true
+    },
+    "support/troubleshooting/troubleshooting-tools.md": {
+        "ignorePage":true
+    }
+  }
+}

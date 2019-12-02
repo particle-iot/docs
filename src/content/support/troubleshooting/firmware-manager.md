@@ -67,9 +67,7 @@ The progress bar will start to change to magenta as the update progresses
 
 ![Update in progress]({{assets}}/images/updater-updating.png)
 
-... and the LED on your device will start blinking magenta, like this:
-
-{{device-animation device "blink" "magenta" }}
+... and the LED on your device will start blinking magenta (red and blue at the same time).
 
 The update will pause for a short while halfway through as the device restarts and gets ready for the second part of the update. You don't need to do anything here - the device will automatically continue with the next part of the update.
 
@@ -83,7 +81,6 @@ Congratulations! You've updated the Device OS version on your device.
 
 Your device will automatically reboot and will run your app using the updated Device OS version.
 
-{{#if electron}}
 ### Electron Upgrade
 
 The Electron firmware for 0.6.0 and newer has changed from being made of 2 system modules, to 3 system modules. 
@@ -97,7 +94,6 @@ Firmware Manager 0.5.3
 - [Windows](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-windows.exe)
 - [macOS](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-osx.zip)
 
-{{/if}} {{!-- electron --}}
 
 ## Troubleshooting
 

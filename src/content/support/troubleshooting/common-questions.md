@@ -21,12 +21,6 @@ Yes, you can find more information on both of these at [Webhooks features sectio
 
 * There are many more options available in [the device ID FAQ](/support/particle-devices-faq/finding-device-id).
 
-{{#if core}}
-## Troubleshoot LED Color on the Core
-
-Here is a [comprehensive community guide](https://community.particle.io/t/spark-core-troubleshooting-guide-spark-team/696) on this issue.
-{{/if}}
-
 ## Installing Particle CLI
 
 Please see the [installation instructions](/tutorials/developer-tools/cli) for step-by-step guide to installing the CLI.
