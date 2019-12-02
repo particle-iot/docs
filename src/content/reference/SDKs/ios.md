@@ -588,7 +588,7 @@ adding `#import "Particle-SDK.h"`. (that is not required for swift projects)
 
 The SDK is also available as a [Carthage](https://github.com/Carthage/Carthage) dependency.
 
-Before CocoaPods v1.5.0 `use_frameworks!` flag was mandatory for dependencies written in Swift. This has caused a lot of problems while compiling projects that had dependencies written in both languages. To counter this problem, we added Carthage support and marked it as recommended way for quite a while. This is no longer the case as both dependency managers work well now.
+Before CocoaPods v1.5.0 `use_frameworks!` flag was mandatory for dependencies written in Swift. This has caused a lot of problems while compiling projects that had dependencies written in both languages. To counter this problem, we added Carthage support and marked it as recommended way for quite a while. This is no longer the case as both dependency managers work well now and CocoaPods is the preferred way.
 
 Be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
 Then to build the iOS Cloud SDK, simply create a `Cartfile` on your project root folder, containing the following line:
