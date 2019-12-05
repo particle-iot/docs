@@ -480,6 +480,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/e402-rohs.pdf)
 
+#### B Series B402
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/b402-rohs3.pdf)
+
 #### Argon
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/argon-rohs.pdf)
