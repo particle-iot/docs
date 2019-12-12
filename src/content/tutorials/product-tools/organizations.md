@@ -159,6 +159,25 @@ The combination of the Organization and Product Teams give you the
 flexibility and fine-grained control needed to define the right
 heirarchy and levels of access to meet your company's needs.
 
+### Product Collaborator View
+
+Once you are invited to collaborate on a product team (vs being part of an organization team), and accepted
+the invitation the product will show up in your personal space with the following distinctions:
+
+- If you are collaborating on a **product which belong to an organization** it will show up 
+in your personal space with a **suitcase** icon next to the name of the organization that invited you.
+- If you are collaborating on a product which belong to an individual - as his/her **personal product** - it will show up 
+in your personal space with a **person icon** next to the Particle username (email) of the individual that invited you.
+- If it is your own personal product it will show up with the same person icon and your Particle username next to it.  
+
+Here's an example:
+
+<img src="/assets/images/organizations/product-collaborator-personal-space.png"
+alt="Org and Product Team" class="full-width" />
+
+The product on the left belongs to the organization "Hex goods", which invited the user to collaborate on that
+specific product only. The product on the right belongs to the user ido@particle.io 
+
 ### Roles
 
 Each person on the Organization team has a **role** that dictates their
