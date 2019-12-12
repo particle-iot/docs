@@ -297,6 +297,8 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 ### Debugging (3rd-generation)
 
+_Note: There are a handful of limitation around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
+
 For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](/support/particle-tools-faq/eclipse-debug/). As you'll see, this is way easier in Workbench! 
 
 - You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/datasheets/accessories/mesh-accessories/#debugger) documentation.
@@ -360,15 +362,16 @@ particle call argon2 div 10
 
 ![Debug Breakpoint](/assets/images/workbench/debug-6.png)
 
-#### Disabling Mesh Networking
+#### Disabling Mesh Networking and Bluetooth
 
-In some cases you may need to disable mesh networking on your device in order to safely pause at break-points and step. If your device signals SOS ([example](https://docs.particle.io/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
+In some cases you may need to disable mesh networking and Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS ([example](https://docs.particle.io/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` and `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
 
 ```
 void setup()
 {
-    // Disable mesh networking - note: Gen3 Hardware (argon, boron, xenon, bsom, etc) only!
+    // Disable mesh networking and bluetooth - note: Gen3 Hardware (argon, boron, xenon, bsom, etc) only!
     Mesh.off();
+    BLE.off();
 
     //...rest of setup fn calls
 }
