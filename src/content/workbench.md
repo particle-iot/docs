@@ -23,7 +23,7 @@ Particle Workbench provides IoT developers with a cross-platform desktop develop
 {{box op="start" cssClass="boxedSideBySide"}}
 **Learn more:**
 - [Quickstart](/quickstart/workbench/)
-- [Community](https://community.particle.io/c/particle-workbench)
+- [Community](https://community.particle.io/c/DT)
 - [Support](https://community.particle.io/t/information-how-to-report-bugs-and-provide-feedback/44245)
 {{box op="switch"}}
 **Resources:**
