@@ -15,11 +15,12 @@ repository:
 
 ## Highlighted App Notes
 
-### SoM Designs
+### Hardware Designs
 
 - [AN001 Basic SoM Design](https://github.com/particle-iot/app-notes/tree/master/AN001-Basic-SoM-Design) is a simple SoM base board. 
 Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, 
 USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
+- [AN006 Vehicle Power](https://github.com/particle-iot/app-notes/tree/master/AN006-Vehicle-Power) provides sample designs for powering Particle devices in vehicles.
 
 ### Programming techniques
 
@@ -43,3 +44,4 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN003 Interpreting Cloud Debug](https://github.com/particle-iot/app-notes/tree/master/AN003-Interpreting-Cloud-Debug) 
 - [AN004 Interpreting Cloud Debug-2](https://github.com/particle-iot/app-notes/tree/master/AN004-Interpreting-Cloud-Debug-2) is a deep dive into interpreting cloud debug logs and cross-referencing the AT command guide for the u-blox modem.
 - [AN005 Threading Explainer](https://github.com/particle-iot/app-notes/tree/master/AN005-Threading-Explainer) provides detailed information on using execution threads on Particle devices.
+- [AN006 Vehicle Power](https://github.com/particle-iot/app-notes/tree/master/AN006-Vehicle-Power) provides sample designs for powering Particle devices in vehicles.
