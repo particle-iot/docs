@@ -26,6 +26,8 @@ _NOTE: due to limitations with the local compiler's build system, usernames (or 
 - Continue with the instructions for all operating systems, below.
 - Mac OS 10.12.0 (Sierra) or newer is required
 
+_NOTE: If you are running macOS Catalina, please use Safari to download and unpack the installer `.zip` file ([settings](/assets/images/workbench-install-with-safari-settings.png)) - unpacking with the default Archive utility will not work_
+
 ### Linux
 
 - Download the [Linux installer](https://binaries.particle.io/workbench/ParticleWorkbenchInstaller.AppImage) (.AppImage file)
