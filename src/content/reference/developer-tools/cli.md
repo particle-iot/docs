@@ -140,7 +140,7 @@ The Device Doctor will:
 * Flash the default Particle Tinker app
 
 ```sh
-# connect a device to the USB port first
+# first connect your device to the USB port and disconnect all others
 $ particle device doctor
 The Device Doctor will put your device back into a healthy state
 # follow the prompts to restore your device
