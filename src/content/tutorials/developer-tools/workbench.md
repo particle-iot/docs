@@ -459,7 +459,7 @@ Some of the available settings are:
 
 ## Source Code Management
 
-Visual Studio Code provides a support for a number of source code management providers. Source code management makes it easy for team members to share code, track changes over time, and provide a cloud-based repository for storing a copy of your code.
+Visual Studio Code provides support for a number of source code management providers. Source code management makes it easy for team members to share code, track changes over time, and provide a cloud-based repository for storing a copy of your code.
 
 [The VS Code Instructions](https://code.visualstudio.com/docs/editor/versioncontrol) are a great place to start.
 
