@@ -187,13 +187,13 @@ $ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
 
 ### Flashing a known app
 
-You can easily reset a device back to a previous existing app with a quick command. Three app names are reserved right now: "tinker", "voodoo", and "cc3000".  Tinker is the original firmware that ships with the device, and cc3000 will patch the wifi module on your Core. Voodoo is a build of [VoodooSpark](http://voodoospark.me/) to allow local wireless firmata control of a device.
+You can easily reset a device back to a previous existing app with a quick command. Two app names are reserved right now: "tinker" and "cc3000".  Tinker is the original firmware that ships with the device, and cc3000 will patch the wifi module on the Spark Core. 
 
 ```sh
 $ particle flash deviceName tinker
 $ particle flash deviceName cc3000
-$ particle flash deviceName voodoo
 
+```
 ```
 
 You can also update the factory reset version using the `--factory` flag, over USB with `--usb`, or over serial using `--serial`.
