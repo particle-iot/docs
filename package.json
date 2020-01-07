@@ -28,7 +28,7 @@
         "gulp-postcss": "^7.0.0",
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.6.1",
-        "handlebars": "^3.0.1",
+        "handlebars": "^4.3.0",
         "lodash": "^4.17.4",
         "lunr": "^0.7.2",
         "marked": "^0.3.6",
