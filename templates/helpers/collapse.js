@@ -42,7 +42,7 @@ var collapseConfig = {
 		'multilineSelector':true,
 		'options':[
 			{'title':'Electron 2G (G350), Electron 3G (U260/U270), or E Series 2G/3G (E310)', 'tag':'Electron'},
-			{'title':'E Series LTE (E402) or Boron LTE', 'tag':'LTE'},
+			{'title':'E Series LTE (E402), Boron LTE, B Series B402 SoM, or Electron LTE', 'tag':'LTE'},
 			{'title':'Boron 2G/3G', 'tag':'Boron'}
 		]				
 	}
