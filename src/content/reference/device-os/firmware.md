@@ -3107,7 +3107,7 @@ A software implementation of Data Usage that pulls sent and received session and
 
 **Note**: The internal modem counters are typically reset when the modem is power cycled (complete power removal, soft power down or Cellular.off()) or if the PDP context is deactivated and reactivated which can happen asynchronously during runtime. If the Cellular.getDataUsage() API has been read, reset or set, and then the modem's counters are reset for any reason, the next call to Cellular.getDataUsage() for a read will detect that the new reading would be less than the previous reading.  When this is detected, the current reading will remain the same, and the now lower modem count will be used as the new baseline.  Because of this mechanism, it is generally more accurate to read the getDataUsage() count often. This catches the instances when the modem count is reset, before the count starts to increase again.
 
-**Note**: LTE devices (SARA-R410M-02-B) do not support data usage APIs.
+**Note**: LTE Cat M1 devices (SARA-R410M-02B) do not support data usage APIs.
 
 To use the data usage API, an instance of the `CellularData` type needs to be created to read or set counters.  All data usage API functions and the CellularData object itself return `bool` - `true` indicating the last operation was successful and the CellularData object was updated. For set and get functions, `CellularData` is passed by reference `Cellular.dataUsage(CellularData&);` and updated by the function.  There are 5 integers and 1 boolean within the CellularData object:
 
@@ -3576,7 +3576,7 @@ You can download the latest <a href="https://www.u-blox.com/en/product-resources
 
 Another good resource is the <a href="https://www.u-blox.com/sites/default/files/AT-CommandsExamples_AppNote_%28UBX-13001820%29.pdf" target="_blank">u-blox AT Command Examples Application Note</a>.
 
-LTE devices (SARA-R410M-02B) have a slightly different AT command set in the <a href="https://www.u-blox.com/sites/default/files/SARA-R4_ATCommands_%28UBX-17003787%29.pdf" target="_blank">u-blox SARA-R4 AT Commands Manual</a>.
+LTE Cat M1 devices (SARA-R410M-02B) have a slightly different AT command set in the <a href="https://www.u-blox.com/sites/default/files/SARA-R4_ATCommands_%28UBX-17003787%29.pdf" target="_blank">u-blox SARA-R4 AT Commands Manual</a>.
 
 
 The prototype definition is as follows:

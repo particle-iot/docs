@@ -143,7 +143,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 - [Certificate of Conformity](/assets/pdfs/argon-fcc-part15b.pdf)
 - [Test report](/assets/pdfs/argon-fcc-part15b-test-report.pdf)
 
-#### Boron 2G/3G
+#### Boron 2G/3G (BRN310)
 
 802.15.4 (mesh) certification:
 
@@ -171,7 +171,7 @@ Additional FCC Test Reports:
 - [FCC Part 24](/assets/pdfs/boron310-fcc-part24-test-report.pdf)
 
 
-#### Boron LTE 
+#### Boron LTE Cat M1 (BRN402)
 
 802.15.4 (mesh) certification:
 
@@ -264,17 +264,17 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - IC ID: **8595A-SARAG350**.
 - [Test Report](/assets/pdfs/electron/ic-g350-test-report.pdf)
 
-#### Electron E402 LTE (R410M)
+#### Electron E402 LTE Cat M1 (R410M modem)
 
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/electron402-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/electron402-fcc-part15b-test-report.pdf)
 
-#### E Series E310 (U201)
+#### E Series E310 (U201 modem)
 - IC ID: **8595A-1CGM5NNN**.
 - [Certificate of Conformity](/assets/pdfs/electron/ic-u201-certificate.pdf)
 - [Test Report](/assets/pdfs/electron/ic-u201-test-report.pdf)
 
-#### E Series E402 LTE (R410M)
+#### E Series E402 LTE Cat M1 (R410M modem)
 - IC ID: **8595A-2AGQN4NNN**.
 - [Certificate of Conformity](/assets/pdfs/e402-ic.pdf)
 
@@ -304,7 +304,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [ICES-003 Test report](/assets/pdfs/boron310-fcc-part15b-test-report.pdf)
 
 
-#### Boron LTE
+#### Boron LTE (BRN402)
 
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron402-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
@@ -468,19 +468,19 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
 
-#### Electron E402D (LTE)
+#### Electron ELC402 LTE Cat M1 (SARA-R410M-02B modem)
 
 - [Test Reports](/assets/pdfs/electron402-rohs.pdf)
 
-#### E Series E310 (U201)
+#### E Series E310 (U201 modem)
 
 - [Test Reports](/assets/pdfs/electron/rohs-u201.pdf)
 
-#### E Series E402 (SARA-R410M-02B)
+#### E Series E402 (SARA-R410M-02B modem)
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/e402-rohs.pdf)
 
-#### B Series B402
+#### B Series B402 (SARA-R410M-02B modem)
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/b402-rohs3.pdf)
 
@@ -488,11 +488,11 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/argon-rohs.pdf)
 
-#### Boron 2G/3G
+#### Boron 2G/3G (BRN310, U201 modem)
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/boron310-rohs.pdf)
 
-#### Boron LTE
+#### Boron LTE (BRN402, SARA-R410M-02B modem)
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/boron402-rohs.pdf)
 
@@ -559,23 +559,23 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 2. Serve its final intended use without any further hardware and software modifications. If a control interface connection to a host is required for operation of the device, that connection can only be made through one of the above defined standardized physical interfaces.
 
 ### Documentation
-#### Electron 3G (U260)
+#### Electron 3G (U260 modem)
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=33577)
 
-#### Electron 2G (G350)
+#### Electron 2G (G350 modem)
 - Product has completed and passed all PTCRB test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 2G cellular solutions.
 
-#### E Series E310 (U201)
+#### E Series E310 (U201 modem)
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=39636)
 - [Certificate of Conformity](/assets/pdfs/electron/ptcrb-u201-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ptcrb-u201-test-report.pdf)
 
-#### E Series E402 LTE (R410M)
+#### E Series E402 LTE Cat M1 (R410M modem)
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=41338)
 - [Certificate of Conformity](/assets/pdfs/e402-ptcrb.pdf)
 - [AT&T LTE Certification](/assets/pdfs/e402-ota-att.pdf)
 
-#### Boron LTE (R410M)
+#### Boron LTE BRN402 (R410M modem)
 
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=40983)
 

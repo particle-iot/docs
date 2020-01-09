@@ -115,8 +115,8 @@ There are three different variants of the Electron, and they each work in differ
 | Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
 | E Series E310 | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 |
 | E Series E402 | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
-| Boron 2G/3G | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 | 
-| Boron LTE | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
+| Boron 2G/3G BRN310 | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 | 
+| Boron LTE BRN402 | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
 
 The Boron LTE can be used in other locations with a 3rd-party SIM card on bands 2, 3, 4, 5, 8, 12, 13, 20, and 28.
 
@@ -136,7 +136,7 @@ Your Electron, E Series E310, or Boron 2G/3G *requires a Li-Po battery or high c
 
 While the Electron does not *require* that you attach the USB cable, this will ensure that your battery does not run out of charge during the connection process.
 
-The E Series E402 (LTE) and Boron LTE can be used only powered by USB.
+The E Series E402 (LTE Cat M1) and Boron LTE can be used only powered by USB.
 
 #### 4) Is your SIM activated?
 In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io) or the mobile apps. Follow the on-screen prompts to complete device setup and SIM activation.
