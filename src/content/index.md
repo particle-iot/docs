@@ -1,5 +1,5 @@
 ---
-title: Welcome to the Particle docs
+title: Welcome to the Particle docs preview
 layout: main.hbs
 ---
 
