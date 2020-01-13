@@ -21,7 +21,7 @@ Before you contribute to the code base, check out the [`style-guides`](https://g
 
 ### Firmware
 
-The [`firmware`](https://github.com/particle-iot/firmware) repo contains
+The [`firmware`](https://github.com/particle-iot/device-os) repo contains
 the [Device OS](/reference/device-os/firmware) code that runs on the Core and Photon.
 
 See the [local build tools FAQ](/faq/particle-tools/local-build) for steps to build the firmware on your machine.
@@ -29,7 +29,7 @@ See the [local build tools FAQ](/faq/particle-tools/local-build) for steps to bu
 
 ### CLI
 
-The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/guide/tools-and-features/cli).
+The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/tutorials/developer-tools/cli).
 
 
 ### Particle API JS

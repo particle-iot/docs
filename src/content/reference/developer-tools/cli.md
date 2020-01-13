@@ -3,12 +3,13 @@ word: CLI
 title: Command Line Interface (CLI)
 layout: reference.hbs
 columns: three
+redirects: true
 order: 40
 ---
 
 # CLI Command Reference
 
-For information on how to install the Particle CLI, see the [CLI guide](/guide/tools-and-features/cli/).
+For information on how to install the Particle CLI, see the [CLI guide](/tutorials/developer-tools/cli/).
 
 ## particle setup
 
@@ -119,6 +120,8 @@ server said  { ok: true }
 Okay!
 ```
 
+Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing. If you plan on selling or giving away your device, you should both unclaim the device and release ownership of the SIM. That will allow it to be set up as if a new device later.
+
 ### particle device doctor
 
 Brings back a device with bad firmware, bad network settings or bad keys
@@ -137,7 +140,7 @@ The Device Doctor will:
 * Flash the default Particle Tinker app
 
 ```sh
-# connect a device to the USB port first
+# first connect your device to the USB port and disconnect all others
 $ particle device doctor
 The Device Doctor will put your device back into a healthy state
 # follow the prompts to restore your device
@@ -184,13 +187,13 @@ $ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
 
 ### Flashing a known app
 
-You can easily reset a device back to a previous existing app with a quick command. Three app names are reserved right now: "tinker", "voodoo", and "cc3000".  Tinker is the original firmware that ships with the device, and cc3000 will patch the wifi module on your Core. Voodoo is a build of [VoodooSpark](http://voodoospark.me/) to allow local wireless firmata control of a device.
+You can easily reset a device back to a previous existing app with a quick command. Two app names are reserved right now: "tinker" and "cc3000".  Tinker is the original firmware that ships with the device, and cc3000 will patch the wifi module on the Spark Core. 
 
 ```sh
 $ particle flash deviceName tinker
 $ particle flash deviceName cc3000
-$ particle flash deviceName voodoo
 
+```
 ```
 
 You can also update the factory reset version using the `--factory` flag, over USB with `--usb`, or over serial using `--serial`.
@@ -513,18 +516,17 @@ $ particle monitor all temperature 5000 --time > my_temperatures.csv
 
 ## particle identify
 
-  Retrieves your device id when the device is connected via USB and in listening mode (flashing blue).
+  Retrieves your device id when the device is connected via USB and in listening mode (flashing blue). It also provides the current system firmware version on the device.
 
 ```sh
-# helps get your device id via usb and serial
+# helps get your device id and system firmware version via usb and serial
 # make sure your device is connected and blinking blue
 $ particle identify
-$ particle identify 1
-$ particle identify COM3
-$ particle identify /dev/cu.usbmodem12345
+$ particle identify --port 1
+$ particle identify --port COM3
+$ particle identify --port /dev/cu.usbmodem12345
 
-$ particle identify
-0123456789ABCDEFGHI
+$ particle identify 0123456789ABCDEFGHI
 ```
 
 ## particle subscribe
@@ -595,9 +597,9 @@ $ particle serial list
 ```sh
 # opens a read-only serial monitor for a particular device
 $ particle serial monitor
-$ particle serial monitor 1
-$ particle serial monitor COM3
-$ particle serial monitor /dev/cu.usbmodem12345
+$ particle serial monitor --port 1
+$ particle serial monitor --port COM3
+$ particle serial monitor --port /dev/cu.usbmodem12345
 ```
 
 ### particle serial flash
@@ -613,6 +615,132 @@ Note that at present only binaries can be flashed using this command.
 If you wish to flash from application sources, first use `particle compile` to compile a binary from sources.
 
 If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
+
+In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable way to flash your device over USB.
+
+## particle mesh
+
+Mesh network management from the CLI.
+
+_These commands require Device OS 0.9.0 or later._
+
+_On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
+
+### particle mesh create
+
+Create a new network
+
+```
+particle mesh create <network name> <device> [--channel=N] [--password=...] [--yes]
+```
+
+### particle mesh add
+
+Add a device to the current network of an assisting device
+
+```
+particle mesh add <new device> <assisting device> [--password=...] [--yes]
+```
+
+### particle mesh remove
+
+Remove a device from its current network
+
+```
+particle mesh remove <device> [--yes]
+```
+
+### particle mesh list
+
+List all registered networks and their devices
+
+```
+particle mesh list [network] [--networks-only]
+```
+
+### particle mesh info
+
+Get the current device's network
+
+```
+particle mesh info <device>
+```
+
+### particle mesh scan
+
+Scan for networks
+
+```
+particle mesh scan <device>
+```
+
+## particle usb
+
+Various commands to interact with a device connected through USB.
+
+_On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
+
+### particle usb list
+
+List Particle USB devices attached to the host
+
+```
+particle usb list [--exclude-dfu] [--ids-only]
+```
+
+### particle usb start-listening
+
+Put a device or multiple devices into the listening mode
+
+```
+particle usb start-listening [devices...] [--all]
+```
+
+Also aliases to `usb listen`.
+
+```
+particle usb listen [devices...] [--all]
+```
+
+### particle usb stop-listening
+
+Make a device or multiple devices exit the listening mode
+
+```
+particle usb stop-listening [devices...] [--all]
+```
+
+### particle usb safe-mode
+
+Put a device or multiple devices into the safe mode
+
+```
+particle usb safe-mode [devices...] [--all]
+```
+
+### particle usb dfu
+
+Put a device or multiple devices into the DFU mode
+
+```
+particle usb dfu [devices...] [--all]
+```
+
+### particle usb reset
+
+Reset a device or multiple devices
+
+```
+particle usb reset [devices...] [--all]
+```
+
+### particle usb configure
+
+Install udev rules for Particle USB devices (Linux-only)
+
+```
+particle usb configure
+```
 
 ## particle update
 
@@ -827,15 +955,28 @@ __PASSWORD_ONLY__ (active)
  Expires at: 2017-06-12T08:44:16.371Z
 ```
 
-### particle token new
+### particle token create
 Create a new access token under your Particle account.
 
 ```sh
-$ particle token new
+$ particle token create
 ? Using account cli@particle.io
 Please enter your password: *******
 New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
 		da39a3ee5e6b4b0d3255bfef95601890afd80709
+```
+
+In order to change the duration a token is valid, use `--expires-in <seconds>` option.
+
+```sh
+$ particle token create --expires-in 600
+```
+
+To make a non-expiring token, use the `--never-expires` option. Short lived token are better for security. Reserve non-expiring tokens for hosted web application that need to access the Particle API reliability over an indefinite period of time.
+
+
+```sh
+$ particle token create --never-expires
 ```
 
 ### particle token revoke
@@ -847,3 +988,5 @@ $ particle token revoke ACCESS_TOKEN
 Please enter your password: *******
 successfully deleted ACCESS_TOKEN
 ```
+
+The only available option is `--force` which is necessary if you want to delete the access token used by the CLI itself.

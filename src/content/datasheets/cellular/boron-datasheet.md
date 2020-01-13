@@ -7,21 +7,26 @@ order: 1
 
 # Boron Datasheet <sup>(v001)</sup>
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 <div align=center><img src="/assets/images/boron/boron-top.png" ></div>
 
 ## Functional description
 
 ### Overview
 
-The Boron LTE is a powerful LTE CAT-M1/NB1 enabled development kit that can act as either a standalone cellular endpoint or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+The Boron LTE is a powerful LTE CAT-M1 enabled development kit that can act as either a standalone cellular endpoint or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
 The Boron is great for connecting existing projects to the Particle Device Cloud or as a gateway to connect an entire group of local endpoints where Wi-Fi is missing or unreliable.
 
 ### Features
 
- * u-blox SARA R410 LTE modem (Boron LTE)
-  * LTE CAT M1/ NB1 module with global hardware support (MVNO support for US only) 
+ * u-blox SARA-R410-02B LTE modem (Boron LTE)
+  * LTE CAT M1 module with global hardware support (MVNO support for US only) 
   * 3GPP Release 13 LTE Cat M1 
+  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
  * u-blox SARA U201 2G/3G modem (Boron 2G/3G)
   * HSPA/GSMqq with global hardware and SIM support 
   * Bands 800/850/900/1900/2100 MHz 
@@ -35,7 +40,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
- * On-board additional 2MB SPI flash
+ * On-board additional 4MB SPI flash
  * 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
  * Micro USB 2.0 full speed (12 Mbps)
  * Integrated Li-Po charging and battery connector
@@ -44,7 +49,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * Reset and Mode buttons
  * Dual SIM support: Nano 4FF and MFF2
  * On-board PCB antenna
- * u.FL connector for external antenna
+ * U.FL connector for external antenna
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
  * FCC and PTCRB certified
  * RoHS compliant (lead-free)
@@ -78,14 +83,16 @@ Please pay attention to the polarity of the LiPo connector. Not all LiPo batteri
 #### Li+ PIN
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Boron. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
-For the Boron 2G/3G version, make sure that the external DC supply is able to support 2A peak current reauirments.
+For the Boron 2G/3G version, make sure that the external DC supply is able to support 2A peak current requirements.
 
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Xenon or the Argon, this pin _CANNOT_ be used to power the Boron.
 
+---
+
 ### Antenna
 
-There are two radios on the Boron. A Mesh radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provide a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
+There are two radios on the Boron. A Mesh radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provided a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
 
 There are two options for the Mesh antenna on the Boron. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
@@ -93,9 +100,13 @@ There are two options for the Mesh antenna on the Boron. It comes with an on-boa
 
 **Mesh**
 
+The following antenna is optional, as the Boron comes with an on-board chip antenna for mesh. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Boron          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
+
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh antenna. For example, you can use duck or even Yagi antennas for longer range. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
 
 **Cellular**
 
@@ -119,7 +130,7 @@ There are two options for the Mesh antenna on the Boron. It comes with an on-boa
 
 ### SWD 
 
-The Boron has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Mesh Debugger.
+The Boron has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Mesh Debugger.
 
 <div align=center><img src="/assets/images/boron/swd-connector-pinout.png" ></div>
 
@@ -173,7 +184,7 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 |D2-D8  | These are generic GPIO pins. D2-D8 are PWM-able.|
 |A0-A5  | These are analog input pins that can also act as standard digital GPIO. A0-A5 are PWM-able.|
 
-
+---
 
 ### LED status
 
@@ -374,7 +385,7 @@ The micro B USB connector on the Boron is soldered on the PCB with large surface
 
 <div align=center><img src="/assets/images/proper-usb-connection.png" ></div>
 
-The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Boron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
+The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time. The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
 
 The 10 pin SWD connector provides an easy in-system debugging access to the device. The pins on the connector can easily be damaged if the mating connector cable is inserted improperly. If you are trying to debug the device, you probably are not in a good mood to begin with. The last thing you want is to render the connector useless. Be nice, and be gentle on the connector. Good luck with the debugging!

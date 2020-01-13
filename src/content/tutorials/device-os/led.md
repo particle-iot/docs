@@ -73,6 +73,10 @@ If you are unable to get past blinking green, here are a few known working situa
 
 - If your Wi-Fi network uses 5 GHz only, instead of the more common 2.4 GHz, the {{device}} cannot be used. The Wi-Fi radio is only compatible with 2.4 GHz networks.
 
+{{#if photon}}
+- If your Wi-Fi network uses 802.11n only mode (does not support 802.11b, 802.11g, or a combination of b, g, and n), it's not currently possible to connect a Photon or P1 to the network if the device is running Device OS 0.7.0 or later.
+{{/if}} 
+
 {{#unless core}}
 For home users:
 
@@ -100,52 +104,61 @@ If your {{device}} is blinking green, it is trying to connect to cellular.
 
 Electrons that are blinking green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of blinking green:
 
-### 1) Is your Electron compatible with your local cellular network?
+#### 1) Is your Electron compatible with your local cellular network?
 There are three different variants of the Electron, and they each work in different parts of the world:
 
 
 | Electron Name  | Service | Service Location | Bands (MHz) |
 | ------------- | :-------------: | :----: | :----: |
-| Electron G350  | 2G only | Worldwide | 850/900/1800/1900
+| Electron G350  | 2G only | Worldwide | 850/900/1800/1900 |
 | Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
 | Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
+| E Series E310 | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 |
+| E Series E402 | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
+| Boron 2G/3G BRN310 | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 | 
+| Boron LTE BRN402 | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
+
+The Boron LTE can be used in other locations with a 3rd-party SIM card on bands 2, 3, 4, 5, 8, 12, 13, 20, and 28.
 
 Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description" target="_blank">please visit the following link</a>.
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
-### 2) Is your antenna connected?
+#### 2) Is your antenna connected?
 Your Electron cannot connect without the included external cellular antenna. Please make sure it is connected as depicted below:
 
 ![Attach the antenna](/assets/images/antenna_attach.jpg)
 
-### 3) Is your battery connected?
-Your Electron *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
+#### 3) Is your battery connected?
+Your Electron, E Series E310, or Boron 2G/3G *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
 
 ![Connect the battery](/assets/images/attach_batt.jpg)
 
 While the Electron does not *require* that you attach the USB cable, this will ensure that your battery does not run out of charge during the connection process.
 
-### 4) Is your SIM activated?
-In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io). Follow the on-screen prompts to complete device setup and SIM activation.
+The E Series E402 (LTE Cat M1) and Boron LTE can be used only powered by USB.
 
-### 5) Are you using a 3rd party (non-Particle) SIM?
+#### 4) Is your SIM activated?
+In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io) or the mobile apps. Follow the on-screen prompts to complete device setup and SIM activation.
+
+#### 5) Are you using a 3rd party (non-Particle) SIM?
 If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  To connect the Electron with a 3rd party SIM, visit our [setup page](http://setup.particle.io), choose  "Setup an Electron with SIM card" and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
-### 6) Check the cellular coverage in your area
+If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](/support/particle-devices-faq/electron-3rdparty-sims/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
+
+#### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
-- Go to https://www.particle.io/pricing#cellular-data and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
-- Navigate to <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> in your browser
-- If you have an Electron G350, select "2G" and unselect "3G" and "4G" options. If you have an Electron U260 or U270, select both "2G" and "3G" and unselect the "4G" option. Limit the coverage map to the carrier providing service to your Particle SIM in your country (`T-Mobile and AT&T` in the US, for example).
-- Check the coverage map to ensure that you have coverage in your area.
+- Find the carrier from the [carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
+- Use a tool such as <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> to find coverage. The OpenSignal apps for iOS and Android can provide coverage information world-wide.
+- If you are using an E Series E402 (LTE) or Boron LTE, the built-in Particle SIM card can only be used in the United States, on AT&T. It will only work in areas with LTE coverage; it cannot fall back to 3G.
 
 If you are outside of the coverage map, it's possible that the Particle SIM does not have coverage in your area, and your device will be unable to connect. We are always looking to expand our coverage network, and hope to provide coverage in your area soon!
 
 
-### 7) Check the cellular reception in your location
+#### 7) Check the cellular reception in your location
 Cellular *coverage* and cellular *reception* are slightly different.  Coverage is determined by the location and availability of cellular towers in your neighborhood. Even if there is coverage, your device might not have *reception*. Things like RF interference, being in a basement, or a damaged antenna might affect your device's ability to get a good signal from the cell tower nearby.
 
 There are a bunch of things that you can do to improve your cellular reception:
@@ -154,18 +167,18 @@ There are a bunch of things that you can do to improve your cellular reception:
 - Try going outside, or by a window, to confirm that your device can connect
 
 
-### 8) Check your data limit
+#### 8) Check your data limit
 If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM console at the following link:
 
 [https://console.particle.io/billing](https://console.particle.io/billing)
 
-### 9) Cold boot your device
+#### 9) Cold boot your device
 If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
 
-### 10) Are Particle's mobile carriers experiencing issues?
+#### 10) Are Particle's mobile carriers experiencing issues?
 Check out [our status page](http://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
 
-### 11) Contact Particle
+#### 11) Contact Particle
 Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
@@ -194,18 +207,18 @@ The most common cause of blinking dark blue on a {{device}} is a loose SIM card.
 
 Electrons that are blinking blue are in listening mode. When an Electron boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
 
-### 1\. Is your SIM card inserted?
+#### 1\. Is your SIM card inserted?
 Your device cannot exit listening mode and connect to a cellular tower if your SIM is not inserted. Please make sure your SIM is inserted as demonstrated below:
 
 ![Insert your SIM](/assets/images/insert_sim.jpg)
 
-### 2\. Is your SIM card *fully* inserted?
+#### 2\. Is your SIM card *fully* inserted?
 Give your SIM an extra little push to make sure it's fully in the SIM card holder. No need to press too hard--just make sure there's no empty space between the card and the end of the holder.
 
-### 3\. Try a cold boot
+#### 3\. Try a cold boot
 Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
 
-### 4\. Check the integrity of your SIM card holder
+#### 4\. Check the integrity of your SIM card holder
 Visually inspect the SIM card holder. Are all of the contacts soldered down? Does the holder lie flush against the Electron PCB (printed circuit board)? Are any of the pins bent or depressed downwards?
 
 The easiest way to identify a bad contact in the holder is by removing the SIM card and looking at the marks on the contacts. If there are any contacts without marks, then one of the spring pins in the holder may be bent down. You can try to fix this yourself by gently bending the pin upward until it lines up with the others using a pair of fine tweezers or an exacto knife.
@@ -215,10 +228,10 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 
 Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
-### 5\. Is your SIM card damaged or defective?
+#### 5\. Is your SIM card damaged or defective?
 Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
-### 6\. Contact Particle
+#### 6\. Contact Particle
 Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
@@ -227,24 +240,27 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 {{/if}}
 
+{{#if has-mesh}}
+When your {{device}} is in Listening Mode, it is waiting for you to configure your mesh network, or is waiting for configuration by USB serial.
+
+Normally, when you've successfully configured your Gen 3 device using the mobile apps for iOS or Android, the setup complete flag is set and you will exit Listening Mode.
+
+If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](/support/particle-devices-faq/mesh-setup-over-usb/#marking-setup-done) to exit listening mode.
+
+{{else}}
+
+{{#if has-cellular}}
+When your {{device}} is in Listening Mode, it either cannot find the SIM card, or is waiting for configuration by USB serial.
+{{/if}}
+
 {{#if has-wifi}}
-When your {{device}} is in Listening Mode, it is waiting for your input to connect to {{#if electron}}a cellular tower{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}}. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
-
-{{#if photon}}
-{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}
+When your {{device}} is in Listening Mode, it is waiting for your input to connect to Wi-Fi. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 {{/if}}
 
-{{#unless core}}
-To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
-{{/unless}}
-
-{{#if core}}
-{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}
+{{/if}} {{!-- has-mesh --}}
 
 To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
-{{/if}}
 
-{{/if}}
 
 
 {{#if has-cellular}}
@@ -279,13 +295,30 @@ Tapping the `{{system-button}}` button twice on your {{device}} enter soft power
 {{/if}}
 
 
+{{#if has-mesh}}
+### Network Reset (fast blinking blue)
+
+{{device-animation device "pattern"
+  "blink blue 20 times"
+  "blink blue 50ms 50ms 20 times"
+}}
+
+To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+
+- For all mesh devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
+- For the Argon it will also clear Wi-Fi settings.
+- For the Boron, it will also clear the cellular APN and SIM selection.
+- For Ethernet, it will also clear the using Ethernet flag.
+
+{{/if}}
+
 {{#if photon}}
 
 ### Wi-Fi Network Reset
 
 {{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}
 
-To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button blinks dark blue, the continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
 {{/if}}
 
@@ -334,7 +367,7 @@ To put your device in Safe Mode:
 3. Wait for the LED to start blinking magenta
 6. Release the `{{system-button}}` button
 
-Before entering safe mode, the {{device}} will proceed through the normal steps of connecting to the cloud; blinking green, blinking cyan, and fast blinking cyan. If you're unable to connect to the cloud, you won't be able to enter safe mode.
+Before entering safe mode, the {{device}} will proceed through the normal steps of connecting to the cloud; blinking green, blinking cyan, and fast blinking cyan. If you're unable to connect to the cloud, you won't actually end up with breathing magenta, but execution of application firmware will still be blocked - so you are in a "sort-of safe mode" (e.g. to enter "Safe Listening Mode").
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
@@ -349,7 +382,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/faq/particle-tools/installing-dfu-util/)
 
-Installation tutorial can be found [here.](/guide/tools-and-features/cli/)
+Installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
 And a usage guide [here.](/reference/cli/)
 
@@ -392,12 +425,54 @@ Some users have reported issues with dfu-util on a USB3 ports (typically the blu
 {{#if photon}}
 Firmware reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-The [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
+The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
 
 ```
 particle flash --usb tinker
 ```
 
+{{/if}}
+
+{{#if has-mesh}}
+Mesh devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
+
+To program your device with a backup copy of user firmware via USB, you'll need to put it in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run a command like one of the following:
+
+Argon:
+```
+dfu-util -d 2b04:d00c -a 2 -s 0x80200000 -D tinker-0.8.0-rc.25-argon.bin
+```
+
+Boron:
+```
+dfu-util -d 2b04:d00d -a 2 -s 0x80200000 -D tinker-0.8.0-rc.25-boron.bin
+```
+
+Xenon:
+```
+dfu-util -d 2b04:d00e -a 2 -s 0x80200000 -D tinker-0.8.0-rc.25-xenon.bin
+```
+
+You don't have to flash tinker, of course, that's just an example. Note that the d00c, d00d, or d00e varies depending on the type of device which is why there are three different commands.
+
+To factory reset the user firmware after flashing valid firmware using the previous step:
+
+Hold down the MODE button and tap RESET. The status LED will blink:
+
+- Magenta (red and blue at the same time, safe mode)
+- Yellow (DFU mode)
+- Fast blinking yellow (restore factory firmware)
+
+{{device-animation device "pattern"
+  "blink magenta 20 times"
+  "blink yellow 20 times"
+  "blink yellow 50ms 50ms 20 times"
+  "blink magenta 50ms 50ms 20 times"
+}}
+
+Be sure to release the mode button as soon as you get to fast blinking yellow, otherwise you'll go one step farther and clear all of your settings as well.
+
+ 
 {{/if}}
 
 {{#if electron}}
@@ -407,7 +482,7 @@ _Since 0.6.0_
 
 The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
 
-A CLI installation tutorial can be found [here.](/guide/tools-and-features/cli/)
+A CLI installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
 And a usage guide [here.](/reference/cli/)
 
@@ -425,19 +500,55 @@ To enter Firmware Reset Mode:
 
 {{#unless core}}
 
+{{#if has-mesh}}
+
+Mesh devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
+
+To factory reset, hold down the MODE button and tap RESET. The status LED will blink:
+
+- Magenta (red and blue at the same time, safe mode)
+- Yellow (DFU mode)
+- Fast blinking yellow (restore factory firmware)
+- Fast blinking white (factory reset)
+
+This will:
+
+- Restore the factory backup user firmware (if present)
+- Clear mesh credentials
+- Boron: Clear any saved APN and default to internal SIM
+- Argon: Clear Wi-Fi credentials
+- Ethernet: Clear the using Ethernet flag
+- Clear the setup complete flag, to force setup mode again
+
+{{device-animation device "pattern"
+  "blink magenta 20 times"
+  "blink yellow 20 times"
+  "blink yellow 50ms 50ms 20 times"
+  "blink white 50ms 50ms 20 times"
+  "blink magenta 50ms 50ms 20 times"
+  "blink blue 50 times"
+}}
+
+{{else}}
+
 Factory reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 {{#if photon}}
 You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
-The [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli) can also reset the firmware using:
+{{#if has-device-doctor}}
+The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also reset the firmware using:
 
 ```
 particle device doctor
 ```
+{{/if}} {{!-- has-device-doctor --}}
 
-{{/unless}}
+
+{{/if}} {{!-- has-mesh --}}
+
+{{/unless}} {{!-- core --}}
 
 {{#if core}}
 
@@ -520,10 +631,10 @@ void setup() {
 
 void loop() {
 
-	// Don't do this: preventing loop from returning will cause breathing green
-	while(true) {
+    // Don't do this: preventing loop from returning will cause breathing green
+    while(true) {
 
-	}
+    }
 }
 ```
 
@@ -537,10 +648,10 @@ One way to solve this is to sprinkle Particle.process() calls in code that block
 
 ```
 void waitForSwitch() {
-	while(digitalRead(D7) == HIGH) {
-		// Without the following line, you'd go into breathing green
-		Particle.process();
-	}
+    while(digitalRead(D7) == HIGH) {
+        // Without the following line, you'd go into breathing green
+        Particle.process();
+    }
 }
 ```
 
@@ -567,7 +678,7 @@ You might also do something like this in loop():
 
 ```
 if (Particle.connected()) {
-	Particle.publish("myEvent", PRIVATE);
+    Particle.publish("myEvent", PRIVATE);
 }
 ```
 {{/unless}}
@@ -600,15 +711,16 @@ Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/
 
 Blinking red indicates various errors.
 
-- 2 red blinks: Could not reach the internet.
-- 3 red blinks: Connected to the internet, but could not reach the
-Particle Device Cloud.
-- Blinking "orange": This sometimes is seen as yellow or red and indicates bad server keys. 
-- Alternating cyan and red blinks can also indicate a keys issue.
+While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
+- 1 orange blink: Decryption error.
+- 2 orange blinks: Could not reach the internet.
+- 3 orange blinks: Connected to the internet, but could not reach the Particle Device Cloud. This sometimes is seen as yellow or red and indicates bad server keys.
+- 1 magenta blink: Authentication error.
+- 1 red blink: Generic handshake error. The device could have the wrong keys or has just encountered a generic error in the handshake process.
 
 {{collapse op="start" label="Repair instructions"}}
 
-Most keys related issues can be resolved using the [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli).
+Most keys related issues can be resolved using the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli).
 
 Put the {{device}} into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
 
@@ -638,7 +750,7 @@ cd c:\OpenSSL-Win32\bin
 particle keys doctor YOUR_DEVICE_ID
 ```
 
-There are additional tips for a [missing openssl error on this page](https://github.com/rickkas7/particle_notes/tree/master/installing-openssl), including tips for Mac OS X and Linux.
+There are additional tips for a [missing openssl error on this page](https://github.com/rickkas7/particle_notes/tree/master/installing-openssl), including tips for macOS (OS X) and Linux.
 
 {{collapse op="end"}}
 
@@ -676,6 +788,7 @@ There are a number of other red blink codes that may be expressed after the SOS 
 11. Invalid case
 12. Pure virtual call
 13. Stack overflow
+14. Heap error
 
 The two most common ones are:
 
@@ -699,24 +812,48 @@ If your {{device}} crashes repeatedly with an SOS code, first try recovering wit
 particle flash <mydevice> tinker
 ```
 
-{{#unless core}}
+{{#if has-device-doctor}}
 If it's not possible to enter Safe Mode, your Device OS may be corrupted.  Use the Device Doctor feature of the CLI to put your {{device}} into a healthy state.
  
 ```
 particle device doctor
 ```
-{{/unless}}
+{{/if}}
 
 Some tips for reducing the memory used by your firmware [can be found here](/faq/particle-devices/code-size-tips).
 
 **Stack overflow (13 blinks between 2 SOS patterns)**
 
-{{device-animation device "sos" 13 }}
-
 Stack overflow occurs when you try to store too much data on the stack. The size is quite limited, and storing large temporary objects on the stack can cause problems.
 
 - Main loop thread: 6144 bytes
 - Software timer callbacks: 1024 bytes
+
+**Heap error (14 blinks between 2 SOS patterns)**
+
+SOS+14 signifies:
+
+- Semaphore lock timeout 
+- _Since 0.8.0_ 60 seconds expired while trying to acquire a semaphore lock, likely due to dynamic memory allocation
+- _Since 1.2.0_ Other heap-related error, such as allocating memory from an ISR
+
+Prior to 1.2.0, attempting to allocate memory from an interrupt service routine would sometimes work, and sometimes corrupt the heap causing the software to crash sometime later, while doing something completely different. Since this is very difficult to debug, now a SOS+14 is thrown immediately.
+
+Some locations that are interrupt service routines:
+
+- ISRs attached using attachInterrupt
+- System event button handlers (just button_status, button_click, and button_final_click handlers, not all system events)
+- SPI transaction callbacks
+- SparkIntervalTimer library timer callbacks
+
+Things you should not do from an ISR:
+
+- Any memory allocation or free: new, delete, malloc, free, strdup, etc.
+- Any Particle class function like Particle.publish, Particle.subscribe, etc.
+- Most API functions, with the exception of pinSetFast, pinResetFast, and analogRead.
+- delay or other functions that block
+- Log.info, Log.error, etc.
+- sprintf, Serial.printlnf, etc. with a `%f` (float) value.
 
 ### Solid colors
 
@@ -735,7 +872,18 @@ In most cases, solid colors are the side effect of a bug. If code crashes or inf
 
 ### No status LED
 
+{{#if has-stm32}}
 If you power up your {{device}} and the status LED never comes on and the small blue led next to pin D7 is on dimly, you have a missing or corrupted bootloader.
+{{else}}
+If you power up your {{device}} and the status LED never comes on, you could have a missing or corrupted bootloader. 
+
+- Unplug the USB (and battery, if you are using one)
+- Hold down the SETUP button while plugging in the USB power
+
+If you still see no change in the status LED you probably have a missing or corrupted bootloader. 
+{{/if}}
+
+
 
 This can be corrected using a [JTAG/SWD programmer](https://docs.particle.io/faq/particle-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 

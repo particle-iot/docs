@@ -5,7 +5,7 @@
 	text-align: center;
 
 	h2 {
-		font-size: 40px;
+		font-size: 20px;
 	}
 
 	h4 {
@@ -53,8 +53,8 @@
 	display: block;
 	max-width: 240px;
 	text-decoration: none;
-	border: 3px solid @spark-blue;
-	border-radius: 10px;
+	border: 2px solid @spark-blue;
+	border-radius: 3px;
 	text-align: center;
 	color: @super-dark-gray;
 	padding: 20px;
@@ -68,6 +68,18 @@
 	color: @spark-blue;
 }
 /* Status.io Widget */
+
+.status-bar-left {
+  display: block;
+  float:left;
+  margin: 5px 16px 5px 16px;
+}
+
+.status-bar-right {
+  display: block;
+  float:right;
+  margin: 5px 16px 5px 16px;
+}
 
 .support-icon {
  width: 36px;
@@ -87,8 +99,9 @@
 .current-status-incidents {
   display: block;
   margin: 0 auto 20px;
-  max-width: 600px;
+  max-width: 800px;
   padding: 5px;
+  overflow:hidden;
 
   &, &:hover, &:active {
 	color: @NC_WHITE;
@@ -103,7 +116,7 @@
   border: 1px solid @dark-gray;
 }
 
-@StatusGreen          : #70d44b;
+@StatusGreen          : #2fcc66;
 @StatusYellow         : #ffcd00;
 @StatusRed            : #ed1c24;
 @StatusBlue           : #00aeef;
@@ -267,7 +280,7 @@
 		}
 
 		p {
-			font-size: 12px;
+			font-size: 16px;
 		}
 	}
 

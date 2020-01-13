@@ -1,0 +1,30 @@
+{{#if devices}}
+  <div class="dropdown">
+    <a id="dLabel" data-target="#" class="nav nav-device" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <i class="im-devices-icon"></i> {{device}} <i class="icon ion-chevron-down"></i>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dLabel">
+      <li>Wi-Fi</li>
+      {{#contains devices 'argon'}}
+      <li><a href="{{path.href}}{{path.name}}/argon/">Argon</a></li>
+      {{/contains}}
+      {{#contains devices 'photon'}}
+      <li><a href="{{path.href}}{{path.name}}/photon/">Photon / P Series</a></li>
+      {{/contains}}
+      {{#contains devices 'core'}}
+      <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
+      {{/contains}}
+      <li>Cellular</li>
+      {{#contains devices 'boron'}}
+      <li><a href="{{path.href}}{{path.name}}/boron/">Boron</a></li>
+      {{/contains}}
+      {{#contains devices 'electron'}}
+      <li><a href="{{path.href}}{{path.name}}/electron/">Electron / E-Series</a></li>
+      {{/contains}}
+      {{#contains devices 'xenon'}}
+      <li>Mesh</li>
+      <li><a href="{{path.href}}{{path.name}}/xenon/">Xenon</a></li>
+      {{/contains}}
+    </ul>
+  </div>
+{{/if}}

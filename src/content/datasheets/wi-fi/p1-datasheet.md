@@ -9,6 +9,8 @@ order: 3
 
 # P1 Datasheet <sup>(v010)</sup>
 
+{{downloadButton url="/assets/pdfs/datasheets/p1-datasheet.pdf"}}
+
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
 ```c++
@@ -29,7 +31,7 @@ microcontroller. The P1 comes preloaded with Particle firmware
 libraries, just like our dev kits, and it's designed to simplify your
 transition from prototype to production. The P1 is the PØ's big brother;
 it's a bit bigger and a tad more expensive, but it includes some extra
-flash and an antenna and u.FL connector on board.  Particle provides
+flash and an antenna and U.FL connector on board.  Particle provides
 free access to Particle Device Cloud for prototyping. Paid tiers of
 Particle Device Cloud start when you create a product with more than 100 devices.
 
@@ -42,7 +44,7 @@ Particle Device Cloud start when you create a product with more than 100 devices
 	- 1MB flash, 128KB RAM
 	- 1MB external SPI flash (MX25L8006E)
 	- Integrated PCB antenna
-	- Integrated u.FL connector for external antenna
+	- Integrated U.FL connector for external antenna
 	- Integrated RF switch
 - 25 Mixed-signal GPIO and advanced peripherals
 - Open source design
@@ -75,7 +77,7 @@ To avoid these voltage spikes, keep input wiring as short as possible.  If long 
 
 ### RF
 
-The RF section of the P1 includes an on-board PCB trace antenna and a u.FL connector which allows the user to connect an external antenna.  These two antenna outputs are selectable via a user API, made possible by an integrated RF switch.
+The RF section of the P1 includes an on-board PCB trace antenna and a U.FL connector which allows the user to connect an external antenna.  These two antenna outputs are selectable via a user API, made possible by an integrated RF switch.
 
 The default selected antenna will be the PCB antenna.
 
@@ -182,7 +184,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
 
-_DCT layout in `release/stable`_ <a href="https://github.com/particle-iot/firmware/blob/release/stable/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
+_DCT layout in `release/stable`_ <a href="https://github.com/particle-iot/device-os/blob/release/stable/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
 
 | Region | Offset | Size |
 |:---|---|---|
@@ -221,9 +223,9 @@ _DCT layout in `release/stable`_ <a href="https://github.com/particle-iot/firmwa
 
 ```
 // Regenerate Default Keys
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
+echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 // Regenerate Alternate Keys
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
+echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 ```
 
 ### Memory Map (Common)
@@ -288,11 +290,11 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ### Pinout diagram
 
-<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout1.png"</div></a></div>
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout1.png"></a></div>
 
-<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout2.png"</div></a></div>
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout2.png"></a></div>
 
-<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout3.png"</div></a></div>
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout3.png"></a></div>
 
 You can download a high resolution pinout diagram in a <a href="/assets/images/p1-pinout.pdf" target="_blank"><strong>PDF version here.</strong></a></div><br>
 
@@ -562,7 +564,7 @@ The P1 module comes pre-programmed with a bootloader and a user application call
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://build.particle.io/) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](/guide/tools-and-features/cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC tool chain for ARM](https://github.com/particle-iot/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io/) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](/tutorials/developer-tools/cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC tool chain for ARM](https://github.com/particle-iot/device-os), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
 ## Glossary
 
@@ -611,7 +613,7 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID: 2AEMI-PHOTON
+> Contains FCC ID: COFWMNBM11
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -675,4 +677,4 @@ https://community.particle.io
 
 **Email**
 
-<mailto:hello@particle.io>
+https://support.particle.io

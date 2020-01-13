@@ -9,6 +9,9 @@
 
     <div class='content-root'>
       <div class='menubar'>
+
+	  {{> deviceselector}}
+
       <ul class="nav guide-menu">
         {{#each tutorials}}
         <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">

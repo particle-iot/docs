@@ -190,7 +190,7 @@ Create at least one example `.ino` file inside a subfolder of `examples` to show
 
 If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/kits/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
 
-List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform constant with [the platform IDs](https://github.com/particle-iot/firmware/blob/develop/platform/shared/inc/platforms.h).
+List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform constant with [the platform IDs](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 
 ```
 #if PLATFORM_ID == 10 // Electron
@@ -250,7 +250,7 @@ Instructions for migrating v1 libraries to the new library format using the CLI 
 Follow these steps to migrate a v1 Particle library to the new v2 structure using the Particle CLI:
 
 - Install the Particle CLI version 1.19 or later.
-  - If you do not have the Particle CLI installed on your machine, you can download and install it using our OS-specific instructions, [here](/guide/tools-and-features/cli/)
+  - If you do not have the Particle CLI installed on your machine, you can download and install it using our OS-specific instructions, [here](/tutorials/developer-tools/cli/)
   - If you already have the Particle CLI installed, you can update it to the latest version by running `npm update -g particle-cli`
 
 - Run `particle library migrate` in your library directory
@@ -312,4 +312,5 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
 
 - **Versioning**: You can upload a private version multiple times with the same version number, but once you publish a version to the public you won’t be able to upload with the same version number. If you make a small mistake just increase the version number and upload again. Version numbers are free!
 
-If you're having additional issues with library migration or contribution, please feel free to post a message in the [`libraries`](https://community.particle.io/c/libraries) category of our community forums, or send us a message via our [support portal](http://support.particle.io).
+If you're having additional issues with library migration or contribution, please feel free to post a message in the 
+[community forums](https://community.particle.io), or send us a message via our [support portal](http://support.particle.io).

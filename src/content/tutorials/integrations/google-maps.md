@@ -131,6 +131,12 @@ Copy your key to the clipboard because you'll need it when you enable your integ
 
 To view, edit or delete your credentials later, you can use the [Google Developer Credentials Console](https://console.developers.google.com/apis/credentials).
 
+### Enable Billing
+
+Make sure you enable billing on your Google account. Even if you don't exceed the limits of the free tier, you'll get an error 403 if you don't enable billing.
+
+The instructions [can be found here](https://developers.google.com/maps/documentation/geolocation/usage-and-billing).
+
 ### Run the Google Maps firmware library on your devices
 
 The final preconfiguration step is the firmware that you flash to your
@@ -280,7 +286,7 @@ clone or download zip. Then, `cd` into the `oled-locator` directory.
 ### Using the Particle CLI
 
 Using the [Particle
-CLI](/guide/tools-and-features/cli/) is an easy
+CLI](/tutorials/developer-tools/cli/) is an easy
 to flash this firmware to a device.
 
 For example, if you wanted to flash the oled-locator example to the device you named "test2" then you'd use the commands:

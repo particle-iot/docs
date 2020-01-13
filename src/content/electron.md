@@ -5,7 +5,7 @@ layout: landing.hbs
 
 # Particle Electron: Cellular
 
-<img src="/assets/images/electron.png" alt="Image of the Electron" class="small"/>
+![Image of the Electron](/assets/images/electron-kit.jpg)
 
 The Electron is a tiny development kit for creating 3G cellular-connected electronics projects and products. It comes with a Particle SIM card with service in more than 100 countries worldwide.
 

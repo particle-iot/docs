@@ -7,6 +7,10 @@ order: 2
 
 # Xenon Datasheet <sup>(v001)</sup>
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/xenon-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 <div align=center><img src="/assets/images/xenon/xenon-top.png" ></div>
 
 ## Functional description
@@ -30,7 +34,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
- * On-board additional 2MB SPI flash
+ * On-board additional 4MB SPI flash
  * 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
  * Micro USB 2.0 full speed (12 Mbps)
  * Integrated Li-Po charging and battery connector
@@ -38,7 +42,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
  * RGB status LED
  * Reset and Mode buttons
  * On-board PCB antenna
- * u.FL connector for external antenna
+ * U.FL connector for external antenna
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
  * FCC, CE and IC certified
  * RoHS compliant (lead-free)
@@ -73,18 +77,22 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Xenon first. This pin can also be used to power the Xenon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
+---
+
 ### Antenna
 
 There are two options for the Mesh antenna on the Xenon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
 ### FCC approved antenna
 
-The following antenna is optional, as the Xenon comes with an on-board PCB antenna.
+The following antenna is optional, as the Xenon comes with an on-board PCB antenna. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
 
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Xenon          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
+
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh antenna. For example, you can use duck or even Yagi antennas for longer range. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
 
 
 ### Peripherals and GPIO
@@ -93,7 +101,7 @@ The following antenna is optional, as the Xenon comes with an on-board PCB anten
 | :---:|:---:|:---:|
 | Digital | 20 | I/O |
 | Analog (ADC) | 6 | I |
-| UART | 1 | I/O |
+| UART | 2 | I/O |
 | SPI  | 1 | I/O |
 | I2C  | 2 | I/O |
 | USB  | 1 | I/O |
@@ -156,8 +164,12 @@ You can download a high resolution <a href="/assets/images/xenon/xenon-pinout-v1
 |MO,MI,SCK| These are the SPI interface pins,  but can also be used as a digital GPIO.|
 |D2-D8  | These are generic GPIO pins. D2-D8 are PWM-able.|
 |A0-A5  | These are analog input pins that can also act as standard digital GPIO. A0-A5 are PWM-able.|
+|D4 | TX for Serial2. Can be used as GPIO if not using Serial2.|
+|D5 | RX for Serial2. Can be used as GPIO if not using Serial2.|
+|D6 | CTS for Serial2. Can be used as GPIO if not using Serial2.|
+|D8 | RTS for Serial2. Can be used as GPIO if not using Serial2.|
 
-
+---
 
 ### LED status
 

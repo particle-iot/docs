@@ -54,7 +54,7 @@ curl "https://api.particle.io/v1/devices/mydevice/wakeup?access_token=1234" \
 
 In these docs, you'll see example calls written using a terminal program called [curl](https://curl.haxx.se/) which may already be available on your machine.
 
-The example use form encoded data to make them easier to read and type but unless specified otherwise any endpoint can also accept a JSON object with the parameters as properties.
+The examples use form encoded data to make them easier to read and type but unless specified otherwise any endpoint can also accept a JSON object with the parameters as properties.
 
 
 ## Authentication
@@ -222,6 +222,9 @@ something different, probably `/v2`.  If we decide to deprecate any `/v1` endpoi
 we'll give you lots of notice and a clear upgrade path.
 
 ## Devices
+
+Note: The connected or online state of devices is not always accurate. When a Wi-Fi device is unplugged, for example, it may still be listed as online when not. For cellular (Electron, E Series) and Gen 3 (Argon, Boron, Xenon) devices, the connected or online state is set to true on the first connection and never set to false again.
+
 {{> api group=apiGroups.Devices}}
 ## Remote Diagnostics
 {{> api group=apiGroups.Diagnostics}}
@@ -254,7 +257,7 @@ When your device starts ("online") or stops ("offline") a session with the cloud
 {"name":"spark/status","data":"offline","ttl":"60","published_at":"2015-01-01T14:31:49.787Z","coreid":"0123456789abcdef01234567"}
 ```
 
-For cellular devices (Electron, E Series), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular devices.
+For cellular devices (Electron, E Series) and mesh devices (Argon, Boron, and Xenon), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular or mesh devices.
 
 For Wi-Fi devices (Photon, P1, Core), online events occur on every connection to the cloud and after any length of sleep. If you abruptly power off the device and offline event may take some time to occur.
 
@@ -372,9 +375,6 @@ of the response back to your devices.
 
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
 
-### Special IFTTT Events
-
-
 ## Firmware
 {{> api group=apiGroups.Firmware}}
 ## Product Firmware
@@ -399,3 +399,21 @@ please see [the guide](/tutorials/product-tools/device-groups/).
 
 ## Customers
 {{> api group=apiGroups.Customers}}
+
+### Reset Password (Simple Auth)
+
+In most cases, we recommend using **Two-Legged Auth** where you have complete control over your customers and accounts. **Simple Auth** can be used as a simpler alternative, however you will need to provide an additional service if you want to allow your customers to be able to reset their password by email. The process works like this:
+
+1. Customer loses access, clicks "forgot password" on your mobile or front-end app.
+2. App hits an endpoint on your back-end. The back-end app should know your Particle access token, the one you used to create that product, and, optionally, list of valid customer emails.
+3. This triggers an email to the customer sent from your back-end. This email can have your brand, logo, colors, etc. The email contains link to reset his or her password. Behind the scenes, a short-lived reset password token is created and stored in your back-end database.
+4. The email links to your hosted, brand-themed webpage that shows the a "set new password" field and verifies the reset password token. The customer types in new password, and the front-end hits an endpoint on your back-end with the new password.
+5. The back-end hits the update customer password API.
+6. Customer password is reset.
+
+```
+PUT /v1/products/:productIdOrSlug/customers/:customerEmail 
+{password: <new_password>, access_token: <your_token>}
+```
+
+We've provided a [sample app using Heroku and PostgreSQL](https://github.com/particle-iot/password-reset-example). This can be used as-is, or you can use it as an example of how to add support into your existing server infrastructure. 

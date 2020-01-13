@@ -2,36 +2,6 @@
 
   <div class='left'>
 
-    {{#if devices}}
-      <div class="dropdown">
-        <a id="dLabel" data-target="#" class="nav nav-device" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <i class="im-devices-icon"></i> {{device}} <i class="icon ion-chevron-down"></i>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="dLabel">
-          <li>Wi-Fi</li>
-          {{#contains devices 'argon'}}
-          <li><a href="{{path.href}}{{path.name}}/argon/">Argon</a></li>
-          {{/contains}}
-          {{#contains devices 'photon'}}
-          <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
-          {{/contains}}
-          {{#contains devices 'core'}}
-          <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
-          {{/contains}}
-          <li>Cellular</li>
-          {{#contains devices 'boron'}}
-          <li><a href="{{path.href}}{{path.name}}/boron/">Boron</a></li>
-          {{/contains}}
-          {{#contains devices 'electron'}}
-          <li><a href="{{path.href}}{{path.name}}/electron/">Electron &amp; E-Series</a></li>
-          {{/contains}}
-          {{#contains devices 'xenon'}}
-          <li>Mesh</li>
-          <li><a href="{{path.href}}{{path.name}}/xenon/">Xenon</a></li>
-          {{/contains}}
-        </ul>
-      </div>
-    {{/if}}
 
     <div class="toggle-nav">
       <a href="#" class="subnav-link toggle-navigation">
@@ -47,10 +17,10 @@
       <a class="nav {{#is path.href '/'}}active{{/is}}" href="/">Home</a>
       <a class="nav {{#contains path.href 'quickstart'}}active{{/contains}}" href="/quickstart">Quickstart</a>
       <a class="nav {{#contains path.href 'tutorials'}}active{{/contains}}" href="/tutorials">Tutorials</a>
-      <a class="nav {{#contains path.href 'reference'}}active{{/contains}}"
-      href="/reference">Reference</a>
-      <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/hardware">Datasheets</a>
+      <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
+      <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
       <a class="nav {{#contains path.href 'community'}}active{{/contains}}" href="/community">Community</a>
+      <a class="nav {{#contains path.href 'workshops'}}active{{/contains}}" href="/workshops">Workshops</a>
       <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="/support">Support</a>
     </div>
 
@@ -60,11 +30,13 @@
         <i class="icon ion-chevron-down"></i>
       </a>
       <ul class="dropdown-menu" aria-labelledby="dLabel">
-        <li><a href="/guide">Guide</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/quickstart">Quickstart</a></li>
         <li><a href="/tutorials">Tutorials</a></li>
-        <li><a href="/faq">FAQ</a></li>
         <li><a href="/reference">Reference</a></li>
-        <li><a href="/hardware">Datasheets</a></li>
+        <li><a href="/datasheets">Datasheets</a></li>
+        <li><a href="/community">Community</a></li>
+        <li><a href="/workshops">Workshops</a></li>
         <li><a href="/support">Support</a></li>
       </ul>
     </div>

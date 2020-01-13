@@ -13,34 +13,36 @@ The Particle Boron is a mesh and Bluetooth development kit designed for building
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR Boron</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
 </div>
-
 
 ### The Boron Kit comes with the following things:
 
 {{box op="start"}}
 
-* **Boron development kit**
-* **Starter Project**
-  * One micro-USB cable
-  * One mini breadboard
-* **Electronic components**
-  * Two resistors (220 ohm)
-  * One light-emitting diode (LED)
-  * One photodiode
-{{box op="end"}}
+- **Boron development kit**
+- **Starter Project**
+  - One micro-USB cable
+  - One mini breadboard
+- **Electronic components**
+  - Two resistors (220 ohm)
+  - One light-emitting diode (LED)
+  - One phototransistor
+    {{box op="end"}}
 
 ---
 
 ## 1. Set up your Boron
 
-Use the online setup application to configure your new Boron. The process includes the following.
-* Registration of your device with your Particle account
-* Connection of your device to the Particle Device Cloud
-* Particle Mesh network configuration
+For a short (~4 min) overview of what the Boron setup process looks like, watch the video below.
 
+<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/ZpO0foGJ9Po" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Once you're ready to proceed, use the online setup application to configure your new Boron. The process includes the following.
+
+- Registration of your device with your Particle account
+- Connection of your device to the Particle Device Cloud
+- Particle Mesh network configuration
 
 Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it.
 
@@ -48,32 +50,24 @@ To begin setting up your Boron, click the button below and follow the onscreen i
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
 <br />
 </div>
-
-
-
 
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Boron, skip to Step #2.<br /><br />
-2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
-
-
+2.) During set up you may skip setting up a Particle Mesh network and use the Boron in a standalone mode.
 
 {{box op="end"}}
-
-
-
 
 ---
 
 ## 2. Open the Web IDE
+
 ![Image of the Web IDE](/assets/images/webide.png)
 
 To program your Boron, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>.
-
 
 {{box op="start"}}
 **NOTE:**
@@ -89,7 +83,6 @@ If you're looking for a more traditional embedded development experience, be sur
 
 ![Image of the Web IDE with example code](/assets/images/webide-with-examples.png)
 
-
 Click on _Blink an LED_ on the left side of the page. As soon as you click the _Blink and LED_ code will load and fill the screen as shown below.
 
 ![Image of the Web IDE with example code loaded](/assets/images/loaded-blink.png)
@@ -100,24 +93,11 @@ The code is heavily commented to help you understand the general structure of th
 
 ## 4. Target your device
 
-The Web IDE can be used with multiple devices. As such, when you go to compile source code, it's a good idea to verify that the board you
-
-Before you compile the source code and flash your device with its binary output, make sure that the correct Particle device is selected.
-
-
-
-{{box op="start"}}
-**NOTE:**
-
-If you don't see your Boron listed, click on the device name. A sidebar will appear on the left with a list of all of your devices. Click on _start_ to the left of the Boron you wish to deploy code to.
-{{box op="end"}}
+The Web IDE can be used with multiple devices. As such, when you go to compile source code, it's a good idea to verify that the device you are intending to program has a gold star to the left of its name in the Devices tab (circle with 4 lines).
 
 ---
 
 ## 5. Compile your code & flash
-
-
-
 
 Click the lightning bolt icon on the top left of your screen to flash your code to your device.
 
@@ -130,3 +110,5 @@ You'll often see words like flashing and deploying used interchangeably.
 {{box op="end"}}
 
 ---
+
+For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/boron).

@@ -2,9 +2,13 @@
 title: E Series System Integration Manual
 layout: datasheet.hbs
 columns: two
-order: 6
+order: 9
 ---
 # System Integration Manual
+
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/e-series-system-integration-manual.pdf"}}
+{{/unless}}
 
 This manual provides the necessary guidelines to successfully integrate the E series module in your product.
 
@@ -145,13 +149,13 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power supply interface
 
-The E series modules can be powered over VIN, VBUS, LiPo or a combination of them. The VIN and VBUS pins are connected to the input of the power management IC which handles regulation, charging and powering of system. The VIN pin is directly connected to the inpout while VBUS pin has a reverse polarity protection diode so that power over VIN does not back feed into the USB port. You will see a drop of 0.43 V at the input when powered over USB.
+The E series modules can be powered over VIN, VBUS, LiPo or a combination of them. The VIN and VBUS pins are connected to the input of the power management IC which handles regulation, charging and powering of system. The VIN pin is directly connected to the input while VBUS pin has a reverse polarity protection diode so that power over VIN does not back feed into the USB port. You will see a drop of 0.43 V at the input when powered over USB.
 
  > **Tip:** Most of the power requirements of the E series module are dictated by the u-blox's SARA cellular modem, so it is important that you also refer to the SARA-G3 and SARA-U2-series System Integration Manual's section 1.5.
 
 #### Powering using a battery:
 
-The E series module uses TI's BQ24195 to do all of its power management. It is designed to charge a single cell Li-Ion or Li-Polymer battery while intelligently switching between charging and discharging based on the presence of an additional power supply. You can power your design with a battery alone or use it as a back up in addition to having a permanent DC source. The two things you need to keep in mind while choosing a battery is its cell chemistry and max discharge rate. The on board PMIC only supports single cell Li Ion and Li Polymer (3.7V) chemistries. The discharge rate should be able equal to or greater that 2A to meet the cellular modems peak current requirements.
+The E series module uses TI's BQ24195 to do all of its power management. It is designed to charge a single cell Li-Ion or Li-Polymer battery while intelligently switching between charging and discharging based on the presence of an additional power supply. You can power your design with a battery alone or use it as a back up in addition to having a permanent DC source. The two things you need to keep in mind while choosing a battery is its cell chemistry and max discharge rate. The on board PMIC only supports single cell Li Ion and Li Polymer (3.7V) chemistry. The discharge rate should be able equal to or greater that 2A to meet the cellular modems peak current requirements.
 The battery provided with the E series evaluation kit is rated at 1,800mAH and a discharge rate of 1C with internal over current protection.
 
 <div align=center><img src="/assets/images/e-series/schematics/e-ps-lipo.png"></div>
@@ -275,13 +279,13 @@ These specifications are based on the STM32F205RGT6 datasheet, with reference to
 
 ### Antenna interface
 
-Antenna interface provided via an IPEX MHF/u.FL receptacle. The interface has LC ESD protection of XXXKV.
+Antenna interface provided via an IPEX MHF/U.FL receptacle. The interface has LC ESD protection of XXXKV.
 
 Particle recommends the Taoglas PC104 penta-band (850/900/1800/1900/2100 MHz) GSM antenna. The antenna comes with an adhesive backing making it easy to mount. Please refer to its datasheet for further details on power characteristics and optimal placement in a product.
 
 |Antenna Type| Manufacturer | MFG. Part #| Gain|
 |:--|:--|:--|:--|
-|PCB antenna| Taoglas| [PC104.07.0165C](http://www.taoglas.com/wp-content/uploads/2015/06/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
+|PCB antenna| Taoglas| [PC104.07.0165C](/assets/datasheets/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
 
 If you are choosing your own antenna please make sure of the following:
 

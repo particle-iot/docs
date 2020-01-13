@@ -189,4 +189,4 @@ Some common errors include:
 - 1024 NETWORK\_NOT\_FOUND
 - 1025 INVALID\_JOIN\_STATUS
 
-The [full list of errors is here](https://github.com/particle-iot/firmware/blob/develop/hal/src/photon/wiced/WWD/include/wwd_constants.h#L489).
+The [full list of errors is here](https://github.com/particle-iot/device-os/blob/develop/hal/src/photon/wiced/WWD/include/wwd_constants.h#L489).

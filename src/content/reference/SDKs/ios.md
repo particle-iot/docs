@@ -7,24 +7,20 @@ order: 20
 
 # {{title}}
 
-The iOS SDK consists of two parts:
+Particle provides two iOS libraries:
 1. [Cloud SDK](#ios-cloud-sdk) - an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud.
-2. [Device Setup Library](#device-setup-library) - a library which provides an easy setup wizard for your app users to set up their Particle-powered devices.
+2. [Photon Setup Library](#photon-setup-library) - a library which provides an easy setup wizard for your app users to set up their Particle-powered devices.
 
 ## Requirements
 
-Cloud SDK supports iOS 8.0 and up, Device Setup Library supports iOS 9.0 and up.
+Cloud SDK supports iOS 8.0 and up, Photon Setup Library supports iOS 9.0 and up.
 
 ## Support and Contributions
 
-- If you **need help**, visit the [mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the iOS Cloud SDK and Device Setup library.
+- If you **need help**, visit the [mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the iOS Cloud SDK and Photon Setup Library.
 - If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `bug` label.
 - If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `enhancement` label.
 - If you **want to contribute**, submit a pull request. Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
-
-## Beta notice
-
-While iOS Cloud SDK and Device Setup Library are ready for production use, as seen in [the Particle iOS app](https://github.com/particle-iot/photon-tinker-ios), it is still under development and is currently in beta. The API is mostly stable, but may be subject to further changes prior to leaving beta. Once the SDK leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
 
 ## iOS Cloud SDK
 
@@ -38,14 +34,10 @@ Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connec
 - Read variables from devices
 - Invoke functions on devices
 - Publish events from the mobile app and subscribe to events coming from devices
-- Get data usage information for Electron devices
+- Get data usage information for Electron and 3G Boron devices
 
 All cloud operations take place asynchronously and use the well-known completion blocks (closures for swift) design pattern for reporting results allowing you to build beautiful responsive apps for your Particle products and projects.
 iOS Cloud SDK is implemented as an open-source CocoaPods static library and also as Carthage dynamic framework dependency. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
-
-**Rebranding notice**
-
-Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [Spark-SDK](https://cocoapods.org/pods/Spark-SDK) has been deprecated in favor of [Particle-SDK](https://cocoapods.org/pods/Particle-SDK) library. GitHub repository [particle-iot/spark-sdk-ios](https://github.com/particle-iot/spark-sdk-ios/) has been deprecated in favor of [particle-iot/particle-sdk-ios](https://github.com/particle-iot/particle-sdk-ios/) too.
 
 **Swift support**
 
@@ -57,8 +49,8 @@ All SDK callbacks return real optionals (`ParticleDevice?`) instead of implicitl
 
 ### Getting Started
 
-- Perform the installation step described under the **Installation** section below for integrating in your own project
-- You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/particle-sdk-ios/archive/master.zip) and try out the included iOS example app
+- Perform the installation step described under the [Installation](#installation) section below for integrating in your own project
+- You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/particle-cloud-sdk-ios/archive/master.zip) and try out the included iOS example app
 - Be sure to check [Usage](#usage) before you begin for some code examples
 
 ### Usage
@@ -67,11 +59,7 @@ Cloud SDK usage involves two basic classes: first is `ParticleCloud` which is a 
 
 ##### Return values
 
-Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation.
-This is a result of the SDK relying on AFNetworking which is a networking library for iOS and Mac OS X.
-It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa.
-The Particle Device Cloud SDK has been relying on this powerful library since the beginning, but when version 3.0 was released not long ago it contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was deprecated by Apple and `NSURLSessionDataTask` was introduced to replace it.
-You can ignore the return value (previously it was just `void`) coming out of the SDK functions, alternatively you can now make use of the `NSURLSessionDataTask` object as described.
+Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation. This is a result of the SDK relying on AFNetworking which is a networking library for iOS and macOS (OS X). It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa.
 
 ##### Error handling
 _Starting SDK version 0.8.0_
@@ -81,6 +69,8 @@ If there's an error while executing API request, completion block will have non-
 * `ParticleSDKErrorLocalizedStringKey` contains human readable error message.  
 
 `NSError.code` contains HTTP status code. `NSError.localizedDescription` contains best attempt trying to explain what happened in human readable language based on `ParticleSDKErrorLocalizedStringKey` and `NSError.code`.
+
+### Common use cases
 
 Here are few examples for the most common use cases to get your started:
 
@@ -112,8 +102,7 @@ ParticleCloud.sharedInstance().login(withUser: "username@email.com", password: "
 ---
 #### Injecting a session access token (app utilizes two legged authentication)
 
-If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `ParticleCloud` singleton class.
-In turn the `.isLoggedIn` property has been deprecated in favor of `.isAuthenticated` - which checks for the existence of an active access token instead of a username. Additionally the SDK will now automatically renew an expired session if a refresh token exists. As increased security measure the Cloud SDK will no longer save user's password in the Keychain.
+If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `ParticleCloud` singleton class. In turn the `.isLoggedIn` property has been deprecated in favor of `.isAuthenticated` - which checks for the existence of an active access token instead of a username. Additionally the SDK will now automatically renew an expired session if a refresh token exists. As increased security measure the Cloud SDK will no longer save user's password in the Keychain.
 
 **Objective-C**
 ```objc
@@ -134,7 +123,7 @@ if ParticleCloud.sharedInstance().injectSessionAccessToken("9bb9f7433940e7c808b1
 ```
 ---
 #### Get a list of all devices
-List the devices that belong to currently logged in user and find a specific device by name:
+List the devices that belong to currently logged in user and find a specific device by name. Please note that devices returned by `getDevices` do not contain variable and function info. For that information to be available, call `refresh` method on device instance:
 
 **Objective-C**
 
@@ -173,7 +162,7 @@ ParticleCloud.sharedInstance().getDevices { (devices:[ParticleDevice]?, error:Er
 ```
 ---
 
-#### Read a variable from a Particle device (Core/Photon/Electron)
+#### Read a variable from a Particle device
 Assuming here that `myPhoton` is an active instance of `ParticleDevice` class which represents a device claimed to current user:
 
 **Objective-C**
@@ -204,7 +193,7 @@ myPhoton!.getVariable("temperature", completion: { (result:Any?, error:Error?) -
 })
 ```
 ---
-#### Call a function on a Particle device (Core/Photon/Electron)
+#### Call a function on a Particle device
 Invoke a function on the device and pass a list of parameters to it, `resultCode` on the completion block will represent the returned result code of the function on the device.
 This example also demonstrates usage of the new `NSURLSessionDataTask` object returned from every SDK function call.
 
@@ -234,10 +223,10 @@ var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
 ```
 ---
 
-#### Retrieve current data usage (Electron only)
+#### Retrieve current data usage (Electron & 3G Boron only)
 _Starting SDK version 0.5.0_
 
-Assuming here that `myElectron` is an active instance of `ParticleDevice` class which represents an Electron device:
+Assuming here that `myElectron` is an active instance of `ParticleDevice` class which represents an Electron device. Please note that due to hardware limitations this method is not available for LTE Boron devices:
 
 **Objective-C**
 ```objc
@@ -402,7 +391,7 @@ handler = ParticleCloud.sharedInstance().subscribeToAllEvents(withPrefix: "temp"
 *Note:* You can have multiple handlers per event name and/or same handler per multiple events names.
 
 
-Subscribe to all events, public and private, published by devices the user owns (`handler` is a [Obj-C block](http://goshdarnblocksyntax.com/) or [Swift closure](http://fuckingswiftblocksyntax.com/)):
+Subscribe to all events, public and private, published by devices the user owns (`handler` is a Obj-C block or Swift closure:
 
 **Objective-C**
 
@@ -562,40 +551,19 @@ then in your `AppDelegate` class you can supply those credentials by setting the
 ```
 
 **Important**
-Those credentials should be kept as secret. We recommend the use of [Cocoapods-keys plugin](https://github.com/orta/cocoapods-keys) for cocoapods
-(which you have to use anyways to install the SDK). It is essentially a key value store for environment and application keys.
-It is a good security practice to keep production keys out of developer hands. CocoaPods-keys makes it easy to have per-user config settings stored securely in the developer's keychain, and not in the application source. It is a plugin that once installed will run on every pod install or pod update.
-
-After adding the following additional lines your project `Podfile`:
-```ruby
-plugin 'cocoapods-keys', {
-    :project => "YourAppName",
-    :keys => [
-        "OAuthClientId",
-        "OAuthSecret"
-    ]}
-```
----
-go to your project folder in shell and run `pod install` - it will now ask you for "OAuthClientId", "OAuthSecret" - you can copy/paste the generated keys there
-and from that point on you can feed those keys into `ParticleCloud` by adding this code to your AppDelegate `didFinishLaunchingWithOptions` function which gets called
-when your app starts:
-
-*Swift example code*
-
-```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-    var keys = YourappnameKeys()
-    ParticleCloud.sharedInstance().OAuthClientId = keys.oAuthClientId()
-    ParticleCloud.sharedInstance().OAuthClientSecret = keys.oAuthSecret()
-
-    return true
-}
-```
-
-Be sure to replace `YourAppName` with your project name.
+Those credentials should be kept as secret. 
 
 ### Installation
+
+#### Support for Swift projects
+
+To use iOS Cloud SDK from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
+For a detailed step-by-step help on integrating the Cloud SDK within a Swift project check out this [Particle community posting](https://community.particle.io/t/mobile-sdk-building-the-bridge-from-swift-to-objective-c/12020/1).
+
+The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
+
+There's also an [example app](https://github.com/particle-iot/example-app-ios), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
+
 
 #### CocoaPods
 
@@ -615,26 +583,18 @@ Replace `YourAppName` with your app target name - usually shown as the root item
 In your shell - run `pod update` in the project folder. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that file workspace file in Xcode and you can start interacting with Particle cloud and devices by
 adding `#import "Particle-SDK.h"`. (that is not required for swift projects)
 
-##### Support for Swift projects
-
-To use iOS Cloud SDK from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
-For a detailed step-by-step help on integrating the Cloud SDK within a Swift project check out this [Particle community posting](https://community.particle.io/t/mobile-sdk-building-the-bridge-from-swift-to-objective-c/12020/1).
-
-The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
-
-There's also an [example app](https://github.com/particle-iot/ios-app-example-pod), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
 #### Carthage
 
-The SDK is now also available as a [Carthage](https://github.com/Carthage/Carthage) dependency since version 0.4.0.
+The SDK is also available as a [Carthage](https://github.com/Carthage/Carthage) dependency.
 
-Before CocoaPods v1.5.0 `use_frameworks!` flag was mandatory for dependencies written in Swift. This has caused a lot of problems while compiling projects that had dependencies written in both languages. To counter this problem, we added Carthage support and marked it as recommended way for quite a while. This is no longer the case as both dependency managers work well now.
+Before CocoaPods v1.5.0 `use_frameworks!` flag was mandatory for dependencies written in Swift. This has caused a lot of problems while compiling projects that had dependencies written in both languages. To counter this problem, we added Carthage support and marked it as recommended way for quite a while. This is no longer the case as both dependency managers work well now and CocoaPods is the preferred way.
 
 Be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
 Then to build the iOS Cloud SDK, simply create a `Cartfile` on your project root folder, containing the following line:
 
 ```
-github "particle-iot/particle-sdk-ios" "master"
+github "particle-iot/particle-cloud-sdk-ios" "master"
 ```
 
 and then run the following command:
@@ -643,346 +603,19 @@ A new folder will be created in your project root folder - navigate to the `./Ca
 Go to your XCode target settings->General->Embedded binaries and make sure the `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
 Build your project - you now have the Particle SDK embedded in your project.
 
-##### Carthage example
-
-A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/particle-iot/ios-app-example-carthage).
-This app is meant to serve as basic example for using the Particle Device Cloud SDK and Device Setup Library in the Carthage dependencies form.
-To get this example app running, clone it, open the project in XCode and:
-
-1. Flash the `firmware.c` (included in the repo project) firmware to an online photon available under your account, use Build or Dev or CLI.
-1. Set Photon's name to the constant deviceName in the testCloudSDK() function
-1. Set your username/password to the appropriate constants, same place
-1. Go the project root folder in your shell, run the setup shell script (under the /bin folder) which will build the latest Particle SDK 1. Carthage dependencies
-1. Drag the 3 created .framework files under /Carthage/Build/iOS to your project
-1. Go to XCode's target general settings and also add those frameworks to "embedded binaries"
-1. Run and experiment!
-
 ### Reference
 
-#### ParticleCloud class
+Consult the javadoc style comments in `ParticleCloud.h`, `ParticleDevice.h` and other header files contained within the library for each public method or property. If the Cloud SDK installation completed successfully in your XCode project - you should be able to press `Control` + `Space` to get an auto-complete hints from XCode for each public method or property in the library.
 
-  `@property (nonatomic, strong, nullable, readonly) NSString* loggedInUsername`
-
-Currently logged in user name, nil if no valid session
-
-  `@property (nonatomic, readonly) BOOL isAuthenticated`
-
-Currently authenticated (does a access token exist?)
-
-  `@property (nonatomic, strong, nullable, readonly) NSString *accessToken`
-
-Current session access token string, nil if not logged in
-
-  `@property (nonatomic, nullable, strong) NSString *oAuthClientId`
-
-oAuthClientId unique for your app, use 'particle' for development or generate your OAuth creds for production apps (/reference/api/#create-an-oauth-client)
-
-  `@property (nonatomic, nullable, strong) NSString *oAuthClientSecret`
-
-oAuthClientSecret unique for your app, use 'particle' for development or generate your OAuth creds for production apps (/reference/api/#create-an-oauth-client)
-
-  `+ (instancetype)sharedInstance`
-
-Singleton instance of ParticleCloud class
-
- * **Returns:** initialized ParticleCloud singleton
-
-  `-(NSURLSessionDataTask *)loginWithUser:(NSString *)user password:(NSString *)password completion:(nullable ParticleCompletionBlock)completion`
-
-Login with existing account credentials to Particle cloud
-
- * **Parameters:**
-   * `user` — User name, must be a valid email address
-   * `password` — Password
-   * `completion` — Completion block will be called when login finished, NS/Error object will be passed in case of an error, nil if success
-
-  `-(NSURLSessionDataTask *)createUser:(NSString *)username password:(NSString *)password accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable ParticleCompletionBlock)completion`
-
-Sign up with new account credentials to Particle cloud
-
- * **Parameters:**
-   * `user` — Required user name, must be a valid email address
-   * `password` — Required password
-   * `accountInfo` — Optional dictionary with extended account info fields: firstName, lastName, isBusinessAccount [NSNumber @0=false, @1=true], companyName
-   * `completion` — Completion block will be called when sign-up finished, NSError object will be passed in case of an error, nil if success
-
-  `-(nullable NSURLSessionDataTask *)createCustomer:(NSString *)username password:(NSString *)password productId:(NSUInteger)productId accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable ParticleCompletionBlock)completion`
-
-Sign up with new account credentials to Particle cloud
-
- * **Parameters:**
-   * `username` — Required user name, must be a valid email address
-   * `password` — Required password
-   * `productId` — Required ProductID number should be copied from console for your specific product
-   * `accountInfo` — Optional account information metadata that contains fields: first_name, last_name, company_name, business_account [boolean] - currently has no effect for customers
-   * `completion` — Completion block will be called when sign-up finished, NSError object will be passed in case of an error, nil if success
-
-  `-(void)logout`
-
-Logout user, remove session data
-
-  `-(BOOL)injectSessionAccessToken:(NSString * _Nonnull)accessToken`
-
-Inject session access token received from a custom backend service in case Two-legged auth is being used. This session expected not to expire, or at least SDK won't know about its expiration date.
-
- * **Parameters:** `accessToken` — Particle Access token string
- * **Returns:** YES if session injected successfully
-
-  `-(BOOL)injectSessionAccessToken:(NSString *)accessToken withExpiryDate:(NSDate *)expiryDate`
-
-Inject session access token received from a custom backend service in case Two-legged auth is being used. Session will expire at expiry date.
-
- * **Parameters:**
-   * `accessToken` — Particle Access token string
-   * `expiryDate` — Date/time in which session expire and no longer be active - you'll have to inject a new session token at that point.
- * **Returns:** YES if session injected successfully
-
-  `-(BOOL)injectSessionAccessToken:(NSString *)accessToken withExpiryDate:(NSDate *)expiryDate andRefreshToken:(NSString *)refreshToken`
-
-Inject session access token received from a custom backend service in case Two-legged auth is being used. Session will expire at expiry date, and SDK will try to renew it using supplied refreshToken.
-
- * **Parameters:**
-   * `accessToken` — Particle Access token string
-   * `expiryDate` — Date/time in which session expire
-   * `refreshToken` — Refresh token will be used automatically to hit Particle cloud to create a new active session access token.
- * **Returns:** YES if session injected successfully
-
-  `-(NSURLSessionDataTask *)requestPasswordResetForCustomer:(NSString *)email productId:(NSUInteger)productId completion:(nullable ParticleCompletionBlock)completion`
-
-Request password reset for customer (in product mode) command generates confirmation token and sends email to customer using org SMTP settings
-
- * **Parameters:**
-   * `email` — user email
-   * `productId` — Product ID number
-   * `completion` — Completion block with NSError object if failure, nil if success
-
-  `-(NSURLSessionDataTask *)requestPasswordResetForUser:(NSString *)email completion:(nullable ParticleCompletionBlock)completion`
-
-Request password reset for user command generates confirmation token and sends email to customer using org SMTP settings
-
- * **Parameters:**
-   * `email` — user email
-   * `completion` — Completion block with NSError object if failure, nil if success
-
-  `-(NSURLSessionDataTask *)getDevices:(nullable void (^)(NSArray<ParticleDevice *> * _Nullable particleDevices, NSError * _Nullable error))completion`
-
-Get an array of instances of all user's claimed devices offline devices will contain only partial data (no info about functions/variables)
-
- * **Parameters:** `completion` — Completion block with the device instances array in case of success or with NSError object if failure
- * **Returns:** NSURLSessionDataTask task for requested network access
-
-  `-(NSURLSessionDataTask *)getDevice:(NSString *)deviceID completion:(nullable void (^)(ParticleDevice * _Nullable device, NSError * _Nullable error))completion`
-
-Get a specific device instance by its deviceID. If the device is offline the instance will contain only partial information the cloud has cached, notice that the the request might also take quite some time to complete for offline devices.
-
- * **Parameters:**
-   * `deviceID` — required deviceID
-   * `completion` — Completion block with first argument as the device instance in case of success or with second argument NSError object if operation failed
- * **Returns:** NSURLSessionDataTask task for requested network access
-
-  `-(NSURLSessionDataTask *)claimDevice:(NSString *)deviceID completion:(nullable ParticleCompletionBlock)completion`
-
-Claim the specified device to the currently logged in user (without claim code mechanism)
-
- * **Parameters:**
-   * `deviceID` — required deviceID
-   * `completion` — Completion block with NSError object if failure, nil if success
- * **Returns:** NSURLSessionDataTask task for requested network access
-
-  `-(NSURLSessionDataTask *)generateClaimCode:(nullable void(^)(NSString * _Nullable claimCode, NSArray * _Nullable userClaimedDeviceIDs, NSError * _Nullable error))completion`
-
-Get a short-lived claiming token for transmitting to soon-to-be-claimed device in soft AP setup process
-
- * **Parameters:** `completion` — Completion block with claimCode string returned (48 random bytes base64 encoded to 64 ASCII characters), second argument is a list of the devices currently claimed by current session user and third is NSError object for failure, nil if success
- * **Returns:** NSURLSessionDataTask task for requested network access
-
-
-  `-(NSURLSessionDataTask *)generateClaimCodeForProduct:(NSUInteger)productId completion:(nullable void(^)(NSString *_Nullable claimCode, NSArray * _Nullable userClaimedDeviceIDs, NSError * _Nullable error))completion`
-
-Get a short-lived claiming token for transmitting to soon-to-be-claimed device in soft AP setup process for specific product and organization (different API endpoints)
-
- * **Parameters:**
-   * `productId` — - the product id number
-   * `completion` — Completion block with claimCode string returned (48 random bytes base64 encoded to 64 ASCII characters), second argument is a list of the devices currently claimed by current session user and third is NSError object for a failure, nil if success
- * **Returns:** NSURLSessionDataTask task for requested network access
-
-  `-(nullable id)subscribeToAllEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable ParticleEventHandler)eventHandler`
-
-Subscribe to the firehose of public events, plus private events published by devices one owns
-
-_Starting SDK version 0.8.0_
-
-Public event stream **no longer accepts*** nil or empty string as the eventNamePrefix
-
- * **Parameters:**
-   * `eventHandler` — ParticleEventHandler event handler method - receiving NSDictionary argument which contains keys: event (name), data (payload), ttl (time to live), published_at (date/time emitted), coreid (device ID). Second argument is NSError object in case error occured in parsing the event payload.
-   * `eventName` — Filter only events that match name eventName
- * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
-
-  `-(nullable id)subscribeToMyDevicesEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable ParticleEventHandler)eventHandler`
-
-Subscribe to all events, public and private, published by devices one owns
-
- * **Parameters:**
-   * `eventHandler` — Event handler function that accepts the event payload dictionary and an NSError object in case of an error
-   * `eventNamePrefix` — Filter only events that match name eventNamePrefix, for exact match pass whole string, if nil/empty string is passed any event will trigger eventHandler
- * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
-
-  `-(nullable id)subscribeToDeviceEventsWithPrefix:(nullable NSString *)eventNamePrefix deviceID:(NSString *)deviceID handler:(nullable ParticleEventHandler)eventHandler`
-
-Subscribe to events from one specific device. If the API user has the device claimed, then she will receive all events, public and private, published by that device. If the API user does not own the device she will only receive public events.
-
- * **Parameters:**
-   * `eventNamePrefix` — Filter only events that match name eventNamePrefix, for exact match pass whole string, if nil/empty string is passed any event will trigger eventHandler
-   * `deviceID` — Specific device ID. If user has this device claimed the private & public events will be received, otherwise public events only are received.
-   * `eventHandler` — Event handler function that accepts the event payload dictionary and an NSError object in case of an error
- * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
-
-  `-(void)unsubscribeFromEventWithID:(id)eventListenerID`
-
-Unsubscribe from event/events.
-
- * **Parameters:** `eventListenerID` — The eventListener registration unique ID returned by the subscribe method which you want to cancel
-
-  `-(NSURLSessionDataTask *)publishEventWithName:(NSString *)eventName data:(NSString *)data isPrivate:(BOOL)isPrivate ttl:(NSUInteger)ttl completion:(nullable ParticleCompletionBlock)completion`
-
-Subscribe to events from one specific device. If the API user has the device claimed, then she will receive all events, public and private, published by that device. If the API user does not own the device she will only receive public events.
-
- * **Parameters:**
-   * `eventName` — Publish event named eventName
-   * `data` — A string representing event data payload, you can serialize any data you need to represent into this string and events listeners will get it
-   * `private` — A boolean flag determining if this event is private or not (only users's claimed devices will be able to listen to it)
-   * `ttl` — TTL stands for Time To Live. It it the number of seconds that the event data is relevant and meaningful. For example, an outdoor temperature reading with a precision of integer degrees Celsius might have a TTL of somewhere between 600 (10 minutes) and 1800 (30 minutes).
-
-     The geolocation of a large piece of farm equipment that remains stationary most of the time but may be moved to a different field once in a while might have a TTL of 86400 (24 hours). After the TTL has passed, the information can be considered stale or out of date.
- * **Returns:** NSURLSessionDataTask task for requested network access
-
-#### ParticleDevice class
-
-  `typedef void (^ParticleCompletionBlock)(NSError * _Nullable error)`
-
-Standard completion block for API calls, will be called when the task is completed with a nullable error object that will be nil if the task was successful.
-
-  `@property (strong, nonatomic, readonly) NSString* id`
-
-DeviceID string
-
-  `@property (strong, nullable, nonatomic) NSString* name`
-
-Device name. Device can be renamed in the cloud by setting this property. If renaming fails name will stay the same.
-
-  `@property (nonatomic, readonly) BOOL connected`
-
-Is device connected to the cloud? Best effort - May not accurate reflect true state.
-
-  `@property (strong, nonatomic, nonnull, readonly) NSArray<NSString *> *functions`
-
-List of function names exposed by device
-
-  `@property (strong, nonatomic, nonnull, readonly) NSDictionary<NSString *, NSString *> *variables`
-
-Dictionary of exposed variables on device with their respective types.
-
-  `@property (strong, nonatomic, readonly) NSString *version`
-
-Device firmware version string
-
-  `-(NSURLSessionDataTask *)getVariable:(NSString *)variableName completion:(nullable void(^)(id _Nullable result, NSError* _Nullable error))completion`
-
-Retrieve a variable value from the device
-
- * **Parameters:**
-   * `variableName` — Variable name
-   * `completion` — Completion block to be called when function completes with the variable value retrieved (as id/Any) or NSError object in case on an error
-
-  `-(NSURLSessionDataTask *)callFunction:(NSString *)functionName withArguments:(nullable NSArray *)args completion:(nullable void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completion`
-
-Call a function on the device
-
- * **Parameters:**
-   * `functionName` — Function name
-   * `args` — Array of arguments to pass to the function on the device. Arguments will be converted to string maximum length 63 chars.
-   * `completion` — Completion block will be called when function was invoked on device. First argument of block is the integer return value of the function, second is NSError object in case of an error invoking the function
-
-  `-(NSURLSessionDataTask *)signal:(BOOL)enable completion:(nullable ParticleCompletionBlock)completion`
-
-Signal device Will make the onboard LED "shout rainbows" for easy physical identification of a device
-
- * **Parameters:** `enable` — - YES to start or NO to stop LED signal.
-
-  `-(NSURLSessionDataTask *)refresh:(nullable ParticleCompletionBlock)completion`
-
-Request device refresh from cloud update online status/functions/variables/device name, etc
-
- * **Parameters:** `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
-
-  `-(NSURLSessionDataTask *)unclaim:(nullable ParticleCompletionBlock)completion`
-
-Remove device from current logged in user account
-
- * **Parameters:** `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
-
-  `-(NSURLSessionDataTask *)rename:(NSString *)newName completion:(nullable ParticleCompletionBlock)completion`
-
-Rename device
-
- * **Parameters:**
-   * `newName` — New device name
-   * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
-
-  `-(NSURLSessionDataTask *)getCurrentDataUsage:(nullable void(^)(float dataUsed, NSError* _Nullable error))completion`
-
-Retrieve current data usage report (For Electron only)
-
- * **Parameters:** `completion` — Completion block to be called when function completes with the data used in current payment period in (float)MBs. All devices other than Electron will return an error with -1 value
-
-  `-(nullable NSURLSessionDataTask *)flashFiles:(NSDictionary *)filesDict completion:(nullable ParticleCompletionBlock)completion`
-
-Flash files to device
-
- * **Parameters:**
-   * `filesDict` — files dictionary in the following format: @{@"filename.bin" : <NSData>, ...} - that is a NSString filename as key and NSData blob as value. More than one file can be flashed. Data is alway binary.
-   * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success. NSError.localized descripion will contain a detailed error report in case of a
-
-  `-(NSURLSessionDataTask *)flashKnownApp:(NSString *)knownAppName completion:(nullable ParticleCompletionBlock)completion`
-
-Flash known firmware images to device
-
- * **Parameters:**
-   * `knownAppName` — NSString of known app name. Currently @"tinker" is supported.
-   * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success. NSError.localized descripion will contain a detailed error report in case of a
-
-  `-(nullable id)subscribeToEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable ParticleEventHandler)eventHandler`
-
-Subscribe to events from this specific (claimed) device - both public and private.
-
- * **Parameters:**
-   * `eventNamePrefix` — Filter only events that match name eventNamePrefix, for exact match pass whole string, if nil/empty string is passed any event will trigger eventHandler
-   * `eventHandler` — Event handler function that accepts the event payload dictionary and an NSError object in case of an error
-
-  `-(void)unsubscribeFromEventWithID:(id)eventListenerID`
-
-Unsubscribe from event/events.
-
- * **Parameters:** `eventListenerID` — The eventListener registration unique ID returned by the subscribe method which you want to cancel
-
-## Device Setup library
+## Photon Setup Library
 
 ### Introduction
 
-The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
-This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products
-powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class,
-that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
+The Particle Photon Setup library is meant for integrating the initial setup process of Particle Photon family devices (Photon, P0, P1) in your app. This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class, that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
 
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
-With the Device Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
-iOS Device setup library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy.
-
-**Rebranding notice**
-
-Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [SparkSetup](https://cocoapods.org/pods/SparkSetup) has been deprecated in favor of [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) library. Github repository [particle-iot/spark-setup-ios](https://github.com/particle-iot/spark-setup-ios/) has been deprecated in favor of [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) too.
+With the Photon Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed. iOS Photon Setup Library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy.
 
 ### Usage
 
@@ -1035,17 +668,11 @@ if let setupController = ParticleSetupMainController(authenticationOnly: true)
 ```
 ---
 
-This will invoke Particle Device Cloud authentication (login/signup/password recovery screens) only
-after user has successfully logged in or signed up, control will be returned to the calling app.
-If an active user session already exists control will be returned immediately.
+This will invoke Particle Device Cloud authentication (login/signup/password recovery screens) only after user has successfully logged in or signed up, control will be returned to the calling app. If an active user session already exists control will be returned immediately.
 
 #### Configure device Wi-Fi credentials without claiming it
 
-If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via `initWithSetupOnly`,
-and by allowing your users to skip authentication (see `allowSkipAuthentication` flag in customization section) if you present the authentication stage.
-If an active user session exists - it'll be used and device will be claimed, otherwise it won't.
-So invoking setup without an active user session will go thru the setup steps required for configuring device Wi-Fi credentials but not for claiming it.
-However, calling `-initWithSetupOnly:` method with an active user session is essentially the same as calling `-init:`.
+If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via `initWithSetupOnly`, and by allowing your users to skip authentication (see `allowSkipAuthentication` flag in customization section) if you present the authentication stage. If an active user session exists - it'll be used and device will be claimed, otherwise it won't. So invoking setup without an active user session will go thru the setup steps required for configuring device Wi-Fi credentials but not for claiming it. However, calling `-initWithSetupOnly:` method with an active user session is essentially the same as calling `-init:`.
 Usage:
 
 **Objective-C**
@@ -1108,6 +735,7 @@ In v0.9 `brandImageBackgroundImage` has been introduced in order to improve supp
 ```objc
  NSURL *termsOfServiceLinkURL;      // URL for terms of service of the app/device usage
  NSURL *privacyPolicyLinkURL;       // URL for privacy policy of the app/device usage
+ NSURL *troubleshootingLinkURL;     // URL for troubleshooting text of the app/device usage
 ```
 ---
 
@@ -1128,11 +756,21 @@ In v0.9 `brandImageBackgroundImage` has been introduced in order to improve supp
 ```
 ---
 
+#### Further customization and localization:
+
+In v1.0.0 two more customization options were introduced:
+```objc
+ BOOL useAppResources;                  // use storyboard and assets (images and strings) from app instead of from this SDK
+ NSString *appResourcesStoryboardName;  // name of the storyboard file. default: 'setup'
+```
+
+By default all assets are loaded from library bundle. Setting `useAppResources` to true, will load ALL assets from the main bundle. This includes strings file, image assets and storyboard. You can also provide a custom name for storyboard by using `appResourcesStoryboardName` property. 
+
 #### Product creators
 
-If you're developing an app for your product / you're a product creator you should set `productMode` to YES (or true for Swift) - this will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
+If you're developing an app for your product / you're a product creator you should set `productMode` to `YES` (or `true` for Swift) - this will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
 
-If you set `productMode ` to `YES / true` be sure to also provide the `productId` (and `productName`) - please [read here](/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
+If you set `productMode ` to `YES` / `true` be sure to also provide the `productId` (and `productName`) - please [read here](/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
 
 Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](/tutorials/device-cloud/authentication), so app users could create an account. [Read here](/reference/ios/#oauth-client-configuration) on how to do it correctly.
 
@@ -1141,6 +779,7 @@ Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials fo
  NSString *productName;         // product display name
  NSUInteger productId;			  // Product Id number from Particle console
 ```
+
 ---
 
 #### Skipping authentication:
@@ -1149,7 +788,11 @@ Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials fo
  BOOL allowSkipAuthentication;          // Allow user to skip authentication (skip button will appear on signup and login screens)
  NSString *skipAuthenticationMessage;   // Message to display to user when she's requesting to skip authentication (Yes/No question)
 ```
----
+
+### iOS 13 Permission Notice
+
+Starting iOS 13, to access Wi-Fi SSID app has to be granted location permission. Photon setup relies on this information to advance past "Discover Device" screen, therefore on iOS devices running iOS 13+, additional screen requesting to grant location permission will be shown. 
+
 
 ### Advanced
 
@@ -1169,9 +812,8 @@ func particleSetupViewController(controller: ParticleSetupMainController!, didFi
 ```
 ---
 
-method will be called, if `(result == ParticleSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `ParticleDevice` instance you can interact with
-using the [iOS Cloud SDK](https://cocoapods.org/pods/Particle-SDK).
-In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `ParticleSetupMainControllerResult`. See [here](https://github.com/particle-iot/particle-setup-ios/blob/master/ParticleSetup/User/ParticleSetupMainController.h#L18-31) for additional details.
+method will be called, if `(result == ParticleSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `ParticleDevice` instance you can interact with using the [iOS Cloud SDK](https://cocoapods.org/pods/Particle-SDK).
+In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `ParticleSetupMainControllerResult`. See [here](https://github.com/particle-iot/particle-photon-setup-ios/blob/master/ParticleSetup/User/ParticleSetupMainController.h#L18-31) for additional details.
 
 If setup failed and you can still determine the device ID of the last device that was tried to be setup and failed by conforming to the @optional delegate function: (new since 0.5.0)
 
@@ -1191,21 +833,24 @@ func particleSetupViewController(controller: ParticleSetupMainController!, didNo
 
 ### Example
 
-Cocoapods usage example app (in Swift) can be found [here](https://github.com/particle-iot/ios-app-example-pod). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned ParticleDevice instance once
-setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
+Example app (in Swift) can be found [here](https://github.com/particle-iot/example-app-ios). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned ParticleDevice instance once setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference
 
-Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/ParticleSetup/) or consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property.
-If the Device Setup library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
+Consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property. If the Photon Setup Library installation completed successfully in your XCode project - you should be able to press `Control` + `Space` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ### Installation
 
+#### Support for Swift projects
+
+To use Particle Photon Setup Library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
+as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
+
 #### Cocoapods
 
-Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
+Particle Photon Setup Library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
 You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
-To install the iOS Device Setup library, create a text file named `Podfile` on main project folder, it should contain:
+To install the iOS Photon Setup Library, create a text file named `Podfile` on main project folder, it should contain:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -1219,33 +864,27 @@ end
 Replace `YourAppName` with your app target name - usually shown as the root item name in the XCode project,
 then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "ParticleSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
 
-##### Support for Swift projects
-
-To use Particle Device Setup library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
-as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
-
 #### Carthage
 
-Starting version 0.4.0 Particle iOS device setup library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
+Starting version 0.4.0 Particle iOS Photon Setup Library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
 Be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
-Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
+Then to build the Particle iOS Photon Setup Library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
-github "particle-iot/particle-setup-ios" ~> 0.6.0
+github "particle-iot/particle-photon-setup-ios" ~> 1.0.0
 ```
 
 and then run the following command:
 `carthage update --platform iOS --use-submodules --no-use-binaries`.
 
-*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/particle-iot/particle-setup-ios/blob/master/bin/setup)*
+*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/particle-iot/particle-photon-setup-ios/blob/master/bin/setup)*
 
-A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode.
-Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
-Build your project - you now have the Particle SDK embedded in your project.
-Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `ParticleSetupMainController` (see usage example).
+A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode. Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there. Build your project - you now have the Particle SDK embedded in your project. Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `ParticleSetupMainController` (see usage example).
 
-No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects.
+No need for any special process or operation integrating the Photon Setup Library with Swift-based or Swift-dependant projects.
+
+
 
 ## License
 
-Particle Cloud SDK and Particle Device Setup library are available under the Apache License 2.0.
+Particle Cloud SDK and Particle Photon Setup Library are available under the Apache License 2.0.

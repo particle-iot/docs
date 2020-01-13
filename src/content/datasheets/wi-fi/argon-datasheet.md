@@ -7,6 +7,10 @@ order: 1
 
 # Argon Datasheet <sup>(v001)</sup>
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
+{{/unless}} {{!-- pdf-generation --}}
+
 <div align=center><img src="/assets/images/argon/argon-top.png" ></div>
 
 ## Functional description
@@ -19,7 +23,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
- * Espressif ESP32-D0WD 2.4Ghz Wi-Fi coprocessor 
+ * Espressif ESP32-D0WD 2.4 GHz Wi-Fi coprocessor 
   * On-board 4MB flash for ESP32 
   * 802.11 b/g/n support 
   * 802.11 n (2.4 GHz), up to 150 Mbps
@@ -32,7 +36,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
- * On-board additional 2MB SPI flash
+ * On-board additional 4MB SPI flash
  * 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
  * Micro USB 2.0 full speed (12 Mbps)
  * Integrated Li-Po charging and battery connector
@@ -40,7 +44,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
  * RGB status LED
  * Reset and Mode buttons
  * On-board PCB antenna
- * u.FL connector for external antenna
+ * U.FL connector for external antenna
  * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
  * FCC, CE and IC certified
  * RoHS compliant (lead-free)
@@ -54,7 +58,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
 ### Power
 
 #### USB PORT
-The USB port is the easiest way to power up the Argon. Please make sure that the USB port is able to provided at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
+The USB port is the easiest way to power up the Argon. Please make sure that the USB port is able to provide at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
 
 #### VUSB PIN
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.  This pin is also protected with an internal fuse rated at 1000mA.
@@ -75,6 +79,8 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. This pin can also be used to power the Argon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
+---
+
 ### Antenna
 
 There are two radios on the Argon. A Mesh radio (nRF52840) and a WiFi radio (ESP32). For the WiFi radio, we have provide a u.FL connector to plug in the WiFi antenna. This is required if you wish to use the WiFi connectivity. 
@@ -85,9 +91,14 @@ There are two options for the Mesh antenna on the Argon. It comes with an on-boa
 
 **Mesh and WiFi**
 
+The Argon includes one of these antennas, but a second for use with mesh can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+
+
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Argon          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
+
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh antenna. For example, you can use duck or even Yagi antennas for longer range. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
 
 
 ### Peripherals and GPIO
@@ -160,7 +171,7 @@ You can download a high resolution <a href="/assets/images/argon/argon-pinout-v1
 |D2-D8  | These are generic GPIO pins. D2-D8 are PWM-able.|
 |A0-A5  | These are analog input pins that can also act as standard digital GPIO. A0-A5 are PWM-able.|
 
-
+---
 
 ### LED status
 

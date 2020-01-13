@@ -17,17 +17,7 @@ If you are using Windows, you can use the [Windows CLI Installer](https://binari
 
 In order to use dfu-util, your Particle device must be in DFU mode (blinking yellow).
 
-{{#if photon}}
-Hold down RESET and SETUP, release RESET and continue to hold down SETUP while the main status LED blinks magenta until it blinks yellow, then release.
-{{/if}}
-
-{{#if electron}}
-Hold down RESET and MODE, release RESET and continue to hold down MODE while the main status LED blinks magenta until it blinks yellow, then release.
-{{/if}}
-
-{{#if core}}
-Hold down RST and MODE, release RST and continue to hold down MODE while the main status LED blinks magenta until it blinks yellow, then release.
-{{/if}}
+Hold down RESET and MODE/SETUP, release RESET and continue to hold down SETUP while the main status LED blinks magenta until it blinks yellow, then release.
 
 If your device is in a particularly odd and confused state, sometimes you may need to unplug the power, hold down the SETUP/MODE button, and then plug in USB power. Release SETUP/MODE when blinking yellow.
 
@@ -226,7 +216,7 @@ If you have [homebrew](http://brew.sh) installed, it's as simple as running:
 brew install dfu-util
 ```
 
-The [macOS CLI Installer](/guide/tools-and-features/cli/) tries to install dfu-util if you have homebrew installed.
+The [macOS CLI Installer](/tutorials/developer-tools/cli/) tries to install dfu-util if you have homebrew installed.
 
 If you have neither homebrew nor MacPorts installed, I recommend installing homebrew as the easiest way to install dfu-util. Just follow the instructions on the [homebrew](http://brew.sh) site to install it first.
 
@@ -247,7 +237,7 @@ port install libusb dfu-util
 
 Most Linux installations have packages for dfu-util already.
 
-If you have Ubuntu, the [Linux CLI Installer](/guide/tools-and-features/cli/) will try to install dfu-util through `apt-get`.
+If you have Ubuntu, the [Linux CLI Installer](/tutorials/developer-tools/cli/) will try to install dfu-util through `apt-get`.
 
 Here are the manual install commands for some popular distributions.
 

@@ -3,14 +3,14 @@ word: CLI
 title: Command Line
 order: 22
 columns: two
-devices: [electron,photon,core,raspberry-pi,argon,boron,xenon]
+redirects: true
 layout: tutorials.hbs
 ---
 
 # Particle CLI
 
 The Particle CLI is a powerful tool for interacting with your devices
-and the Particle Device Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
+and the Particle Device Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, macOS (OS X), and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
 ## Installing
 
@@ -41,14 +41,12 @@ You can manually install the `particle-cli` Node.js package if you need the CLI 
 Make sure you have a recent [LTS version of Node.js](http://nodejs.org/) installed.
 
 ```sh
-# check that you have node.js 6 or above. Check http://nodejs.org on how to update node.js
+# check that you have node.js 10 or above. Check http://nodejs.org on how to update node.js
 $ node -v
-v6.11.4
-# check that you have npm 5 or above
+v10.15.1
+# check that you have npm 6 or above
 $ npm -v
-5.5.1
-# update npm if your version is older than 5
-$ npm install -g npm
+6.4.1
 ```
 
 Next, open a command prompt or terminal, and install by typing:
@@ -63,6 +61,7 @@ If you experience permission errors, we recommend you change the directory where
 
 For more OS-specific install instructions, see below.
 
+On Windows, make sure to download and install the [Windows Drivers](https://binaries.particle.io/drivers/windows/particle_drivers.exe) if you installed the CLI through `npm` and did not use the [Windows CLI Installer](#using-windows).
 
 To use the local flash and key features you'll also need to install [dfu-util](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
 
@@ -88,6 +87,10 @@ To force it to update, run the installer script again or enter this command:
 $ particle update-cli
 ```
 
+If the CLI is outputing unexpected errors after an update, delete the `~/.particle` (macOS and Linux) or `C:\Users\<username>\AppData\Local\particle` directory and run the installer script again to start over.
+
+**To prevent the Particle CLI from automatically updating, set the environment variable `PARTICLE_DISABLE_UPDATE=true` for your system. Use `particle update-cli` to manually update.**
+
 If you installed manually using `npm install`, you can upgrade by running the same command you used to install the tool.
 
 ### Running from source (advanced)
@@ -99,8 +102,10 @@ To grab the CLI source and play with it locally
 $ git clone https://github.com/particle-iot/particle-cli.git
 $ cd particle-cli
 $ npm install
-$ node bin/particle.js help
+$ npm start -- help
 ```
+
+View [README#Development](https://github.com/particle-iot/particle-cli#development) for more
 
 
 ## Getting Started
@@ -132,33 +137,28 @@ $ particle help keys
 ## Flashing over Serial for the Electron
 
 If you're wanting to save data on your Electron you should definitely consider flashing your Electron over
-serial instead of OTA (over-the-air).
+USB instead of OTA (over-the-air).
 
 Assuming you've compiled and downloaded the firmware binary from [Build IDE](https://build.particle.io) by clicking the cloud button next to the file name, you should
 be able to use the Particle CLI, mentioned above, to flash your application firmware to your Electron *without using data.*
 
 Steps:
-- **1:** Put the Electron in to [listening mode](/tutorials/device-os/led/electron/#listening-mode)
-- **2:** Open Particle CLI from your machine (make sure you've [installed it first](/tutorials/developer-tools/cli/electron/#installing))
+- **1:** Put the Electron in to [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-) (blinking yellow).
+- **2:** Open a command prompt or terminal window.
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
-- **4:** From the CLI issue `particle flash --serial firmware.bin`
+- **4:** From the CLI issue `particle flash --usb firmware.bin`
 
 ```sh
-# How to flash an Electron over serial
-$ particle flash --serial firmware.bin
-
-! PROTIP: Hold the SETUP button on your device until it blinks blue!
-? Press ENTER when your device is blinking BLUE
-sending file: firmware.bin
-
-Flash success!
+# How to flash an Electron over USB
+$ particle flash --usb firmware.bin
 ```
 
 *Note*: If your Electron goes into [safe
-mode](/tutorials/device-os/led/electron/#safe-mode), this is okay,
-just make sure that the Device OS version you have on the device matches
-the dependency of the Device OS version used to compile the application
-firmware.
+mode](/tutorials/device-os/led/electron/#safe-mode) blinking magenta you should put the Electron back into DFU mode (blinking yellow) and do:
+
+```
+$ particle update
+```
 
 ## Blink an LED with Tinker
 
@@ -236,7 +236,7 @@ Then let's compile that program to make sure it's valid code.  The CLI will auto
 
 ```sh
 # how to compile a program without flashing to your device
-$ particle compile {{deviceValue}} blinky.ino
+$ particle compile photon blinky.ino
 Including:
 blinky.ino
 attempting to compile firmware
@@ -245,6 +245,17 @@ grabbing binary from: https://api.particle.io/v1/binaries/01234567890ABCDEFGH
 saved firmware to firmware_123456781234.bin
 Compiled firmware downloaded.
 ```
+
+Replace photon with the type of device you have:
+
+- argon
+- boron
+- xenon
+- photon
+- p1
+- electron (also E series)
+- core (Spark Core, discontinued)
+- pi (Raspberry Pi, discontinued)
 
 
 Now that we have a valid program, let's flash it to our device!  We can use either the source code again, or we can send our binary.
@@ -448,12 +459,12 @@ This will create a `.bin` file which you then flash to your device.
 
 ### Contributing the library
 
-Once you have tested the library and you are ready to upload the library to the cloud, you run the `library contribute`
+Once you have tested the library and you are ready to upload the library to the cloud, you run the `library upload`
 command.  You run this command from the directory containing the library
 
 ```
 cd lib/mylib
-particle library contribute
+particle library upload
 ```
 
 Before the library is contributed, it is first validated. If validation succeeds, the library is contributed
@@ -473,15 +484,8 @@ has been published, the files and data cannot be changed. Subsequent changes mus
 and subsequent publish.
 
 ## Reference
-For more info on CLI commands, go [here](/reference/cli).
+For more info on CLI commands, go [here](/reference/developer-tools/cli).
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}

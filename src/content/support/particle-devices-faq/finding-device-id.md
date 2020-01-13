@@ -19,7 +19,7 @@ Also note: even though the device ID is hexadecimal, many commands that take a d
 
 ## Using the Particle CLI
 
-For the Photon, Electron, and Core, an easy way is to use the [Particle CLI](/guide/tools-and-features/cli/).
+For the Photon, Electron, and Core, an easy way is to use the [Particle CLI](/tutorials/developer-tools/cli/).
 
 Connect the device to your computer using USB and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 
@@ -39,7 +39,7 @@ Your system firmware version is 0.5.3
 
 This also works on the P1, assuming the USB port is exposed.
 
-{{#if photon}}
+
 ## Using Wi-Fi (Photon and P1 only)
 
 This technique is useful if you have a device built around a P1 and you don't have ports exposed. 
@@ -61,7 +61,6 @@ It should return a page with something like:
 ```
 {"id":"1e0032123447343149111039","c":"1"}
 ```
-{{/if}}
 
 ## Using USB serial
 

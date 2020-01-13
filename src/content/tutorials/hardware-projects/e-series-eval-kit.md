@@ -17,7 +17,7 @@ For an in-depth information on the E series evaluation board please take a look 
 
 To power up the E series evaluation kit:
 
- - Plug in the antenna to the u.FL connector (Please do this before powering up the board)
+ - Plug in the antenna to the U.FL connector (Please do this before powering up the board)
  - Plug in the micro USB cable into the USB connector labeled as E0 USB.
  - Plug in the LiPo battery provided with the kit
 
@@ -104,7 +104,7 @@ You can use any serial terminal on your computer to then monitor the results. In
 
 ### Watching results using Particle CLI
 
-You can also use [Particle CLI](/guide/tools-and-features/cli/) tool to subscribe to your's device's events using the command : `particle subscribe mine YOUR_DEVICE_NAME`
+You can also use [Particle CLI](/tutorials/developer-tools/cli/) tool to subscribe to your's device's events using the command : `particle subscribe mine YOUR_DEVICE_NAME`
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-cli-console.png" ></div>
 

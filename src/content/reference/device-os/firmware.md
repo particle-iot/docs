@@ -9,6 +9,10 @@ order: 20
 Particle Device Firmware
 ==========
 
+{{#if raspberry-pi}}
+**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions, however there will be no future updates and support is no longer available for this product.**
+{{/if}}
+
 ## Cloud Functions
 
 {{#if has-cellular}}
@@ -43,6 +47,18 @@ void setup() {
 ```
 {{/if}} {{!-- has-cellular --}}
 
+**Overview of API field limits**
+
+| API Field | Prior to 0.8.0 | Since 0.8.0 | Comment |
+|--:|--:|--:|:--|
+| Variable Key | 12 | 64 | |
+| Variable Data | 622 | 622 | |
+| Function Key | 12 | 64 | |
+| Function Argument | 63 | 622 | |
+| Publish/Subscribe Event Name | 64 | 64 | |
+| Publish/Subscribe Event Data | 255 | 622 |  |
+**Note:** Spark Core limits remain as-is prior to 0.8.0
+
 ### Particle.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
@@ -50,7 +66,7 @@ Returns a success value - `true` when the variable was registered.
 
 Particle.variable registers a variable, so its value can be retrieved from the cloud in the future. You only call Particle.variable once per variable, typically passing in a global variable. You can change the value of the underlying global variable as often as you want; the value is only retrieved when requested, so simply changing the global variable does not use any data. You do not call Particle.variable when you change the value.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int analogvalue = 0;
@@ -60,7 +76,6 @@ String aString;
 
 void setup()
 {
-  // variable name max length is 12 characters long
   Particle.variable("analogvalue", analogvalue);
   Particle.variable("temp", tempC);
   if (Particle.variable("mess", message)==false)
@@ -82,16 +97,15 @@ void loop()
 }
 ```
 
-Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters.
+Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).  The Spark Core remains limited to 12 characters.
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-It is fine to call this function when the cloud is disconnected - the variable
-will be registered next time the cloud is connected.
-
-When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware/#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
+When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
 
 You will almost never call Particle.variable from loop() (or a function called from loop()).
+
+String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
 Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
 to specify the data type of the variable. From 0.4.7 onward, the system can
@@ -107,7 +121,6 @@ char *message = "my name is particle";
 
 void setup()
 {
-  // variable name max length is 12 characters long
   Particle.variable("analogvalue", &analogvalue, INT);
   Particle.variable("temp", &tempC, DOUBLE);
   if (Particle.variable("mess", message, STRING)==false)
@@ -121,9 +134,6 @@ There are three supported data types:
  * `INT`
  * `DOUBLE`
  * `STRING`   (maximum string length is 622 bytes)
-
-
-
 
 ```json
 # EXAMPLE REQUEST IN TERMINAL
@@ -139,6 +149,7 @@ curl "https://api.particle.io/v1/devices/0123456789abcdef/mess?access_token=1234
 my name is particle
 
 ```
+
 
 ### Particle.function()
 
@@ -156,15 +167,16 @@ int funcName(String extra) {
 }
 ```
 
-Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters.
+Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). The Spark Core remains limited to 12 characters.
 
 **Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+A function callback procedure needs to return as quickly as possible otherwise the cloud call will timeout.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
-A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
+A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The Spark Core remains limited to 63 characters. The String is UTF-8 encoded.
 
-When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware/#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
+When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
 
 ```cpp
 // EXAMPLE USAGE
@@ -201,12 +213,17 @@ int brewCoffee(String command)
 
 You can expose a method on a C++ object to the Cloud.
 
-```C++
+```cpp
 // EXAMPLE USAGE WITH C++ OBJECT
 
 class CoffeeMaker {
   public:
     CoffeeMaker() {
+    }
+    
+    void setup() {
+      // You should not call Particle.function from the constructor 
+      // of an object that will be declared as a global variable.
       Particle.function("brew", &CoffeeMaker::brew, this);
     }
 
@@ -217,7 +234,10 @@ class CoffeeMaker {
 };
 
 CoffeeMaker myCoffeeMaker;
-// nothing else needed in setup() or loop()
+
+void setup() {
+	myCoffeeMaker.setup();
+}
 ```
 
 ---
@@ -249,14 +269,14 @@ Mesh devices support Particle.publish as well as Mesh.publish, which allows publ
 
 Cloud events have the following properties:
 
-* name (1–63 ASCII characters)
+* name (1–64 ASCII characters)
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-* public/private (default public)
+* PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
-  !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
-* optional data (up to 255 bytes)
+  !! **NOTE:** TTL is not implemented, hence the ttl value has no effect. Events must be caught immediately; once sent they will be gone *immediately*.
+* optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
 
 Anyone may subscribe to public events; think of them like tweets.
 Only the owner of the device will be able to subscribe to private events.
@@ -271,25 +291,29 @@ If the cloud connection is turned on and trying to connect to the cloud unsucces
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
 
+String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
+
 **NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 ---
 
-Publish a public event with the given name, no data, and the default TTL of 60 seconds.
+Publish a private event with the given name, no data, and the default TTL of 60 seconds.
 
-```C++
+```cpp
 // SYNTAX
-Particle.publish(const char *eventName);
-Particle.publish(String eventName);
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
+```
 
-RETURNS
-boolean (true or false)
+**Returns:**
+A `bool` indicating success: (true or false)
 
+```cpp
 // EXAMPLE USAGE
 bool success;
-success = Particle.publish("motion-detected");
+success = Particle.publish("motion-detected", PRIVATE);
 if (!success) {
   // get here if event publish did not work
 }
@@ -297,50 +321,49 @@ if (!success) {
 
 ---
 
-Publish a public event with the given name and data, with the default TTL of 60 seconds.
+Publish a private event with the given name and data, with the default TTL of 60 seconds.
 
-```C++
+```cpp
 // SYNTAX
-Particle.publish(const char *eventName, const char *data);
-Particle.publish(String eventName, String data);
+Particle.publish(const char *eventName, const char *data, PublishFlags flags);
+Particle.publish(String eventName, String data, PublishFlags flags);
 
 // EXAMPLE USAGE
-Particle.publish("temperature", "19 F");
-```
-
----
-
-Publish a public event with the given name, data, and TTL.
-
-```C++
-// SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl);
-Particle.publish(String eventName, String data, int ttl);
-
-// EXAMPLE USAGE
-Particle.publish("lake-depth/1", "28m", 21600);
+Particle.publish("temperature", "19 F", PRIVATE);
 ```
 
 ---
 
 Publish a private event with the given name, data, and TTL.
-In order to publish a private event, you must pass all four parameters.
 
-```C++
+```cpp
 // SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl, PRIVATE);
-Particle.publish(String eventName, String data, int ttl, PRIVATE);
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
+
+// EXAMPLE USAGE
+Particle.publish("lake-depth/1", "28m", 21600, PRIVATE);
+```
+
+---
+
+Publish a private event with the given name, data, and TTL.
+
+```cpp
+// SYNTAX
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 // EXAMPLE USAGE
 Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
 ```
 
-Publish a private event with the given name.
+Publish a public event with the given name.
 
-```C++
+```cpp
 // SYNTAX
-Particle.publish(const char *eventName, PRIVATE);
-Particle.publish(String eventName, PRIVATE);
+Particle.publish(const char *eventName, PublishFlags flags);
+Particle.publish(String eventName, PublishFlags flags);
 
 // EXAMPLE USAGE
 Particle.publish("front-door-unlocked", PRIVATE);
@@ -360,7 +383,7 @@ event: motion-detected
 data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
 ```
 
-{{#if electron}}
+{{#if has-udp-cloud}}
 ---
 
 *`NO_ACK` flag*
@@ -372,7 +395,7 @@ The `NO_ACK` flag disables this acknowledge/retry behavior and sends the event o
 
 For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occasional lost event can be tolerated.
 
-```C++
+```cpp
 // SYNTAX
 
 float temperature = sensor.readTemperature();  // by way of example, not part of the API
@@ -390,7 +413,7 @@ Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 
 This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
 
-```C++
+```cpp
 // SYNTAX
 
 Particle.publish("motion-detected", NULL, WITH_ACK);
@@ -420,6 +443,108 @@ PUBLIC and PRIVATE are mutually exclusive.
 
 Unlike functions and variables, you typically call Particle.publish from loop() (or a function called from loop). 
 
+### Particle.publishVitals()
+
+{{since when="1.2.0"}}
+
+{{#if core}}
+```cpp
+// SYNTAX
+
+system_error_t Particle.publishVitals(system_tick_t period_s = particle::NOW)
+
+Particle.publishVitals();  // Publish vitals immmediately
+Particle.publishVitals(<any value>);  // Publish vitals immediately
+```
+{{/if}}{{#unless core}}
+```cpp
+// SYNTAX
+
+system_error_t Particle.publishVitals(system_tick_t period_s = particle::NOW)
+
+Particle.publishVitals();  // Publish vitals immmediately
+Particle.publishVitals(particle::NOW);  // Publish vitals immediately
+Particle.publishVitals(5);  // Publish vitals every 5 seconds, indefinitely
+Particle.publishVitals(0);  // Publish immediately and cancel periodic publishing
+```
+{{/unless}} {{!-- unless core --}}
+
+Publish vitals information
+
+Provides a mechanism to control the interval at which system diagnostic messages are sent to the cloud. Subsequently, this controls the granularity of detail on the fleet health metrics.
+
+**Argument(s):**
+
+{{#if core}}
+_none._
+{{/if}}{{#unless core}}
+* `period_s` The period _(in seconds)_ at which vitals messages are to be sent to the cloud (default value: `particle::NOW`)
+
+  * `particle::NOW` - A special value used to send vitals immediately
+  * `0` - Publish a final message and disable periodic publishing
+  * `s` - Publish an initial message and subsequent messages every `s` seconds thereafter
+{{/unless}} {{!-- unless core --}}
+
+**Returns:**
+
+A `system_error_t` result code
+
+* `system_error_t::SYSTEM_ERROR_NONE`
+* `system_error_t::SYSTEM_ERROR_IO`
+
+**Examples:**
+
+```cpp
+// EXAMPLE - Publish vitals intermittently
+
+bool condition;
+
+setup () {
+}
+
+loop () {
+  ...  // Some logic that either will or will not set "condition"
+
+  if ( condition ) {
+    Particle.publishVitals();  // Publish vitals immmediately
+  }
+}
+```
+
+{{#unless core}}
+```cpp
+// EXAMPLE - Publish vitals periodically, indefinitely
+
+setup () {
+  Particle.publishVitals(3600);  // Publish vitals each hour
+}
+
+loop () {
+}
+```
+
+```cpp
+// EXAMPLE - Publish vitals each minute and cancel vitals after one hour
+
+size_t start = millis();
+
+setup () {
+  Particle.publishVitals(60);  // Publish vitals each minute
+}
+
+loop () {
+  // Cancel vitals after one hour
+  if (3600000 < (millis() - start)) {
+    Particle.publishVitals(0);  // Publish immediately and cancel periodic publishing
+  }
+}
+```
+{{/unless}} {{!-- unless core --}}
+
+>_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
+
+<div style="margin-left:35px;"><img src="/assets/images/diagnostic-events.png"/></div>
+
 ### Particle.subscribe()
 
 Subscribe to events published by devices.
@@ -443,7 +568,7 @@ void myHandler(const char *event, const char *data)
 
 void setup()
 {
-  Particle.subscribe("temperature", myHandler);
+  Particle.subscribe("temperature", myHandler, ALL_DEVICES);
   Serial.begin(9600);
 }
 ```
@@ -475,19 +600,47 @@ Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 You can register a method in a C++ object as a subscription handler.
 
 ```cpp
-class Subscriber {
-  public:
-   Subscriber() {
-      Particle.subscribe("some_event", &Subscriber::handler, this);
-    }
-    void handler(const char *eventName, const char *data) {
-      Serial.println(data);
-    }
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void setup();
+
+	void subscriptionHandler(const char *eventName, const char *data);
 };
 
-Subscriber mySubscriber;
-// now nothing else is needed in setup() or loop()
+MyClass::MyClass() {
+}
+
+MyClass::~MyClass() {
+}
+
+void MyClass::setup() {
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is a globally constructed object.
+MyClass myClass;
+
+void setup() {
+	myClass.setup();
+}
+
+void loop() {
+
+}
 ```
+
+You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
 
 ---
 
@@ -523,6 +676,10 @@ Particle.unsubscribe();
 
 `Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
+{{#if has-mesh}}
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling `Particle.connect()`.
+{{/if}}
+
 ```cpp
 void setup() {}
 
@@ -542,7 +699,7 @@ In most cases, you do not need to call `Particle.connect()`; it is called automa
 
 `Particle.disconnect()` disconnects the device from the Cloud.
 
-```C++
+```cpp
 int counter = 10000;
 
 void doConnectedWork() {
@@ -596,12 +753,10 @@ While this function will disconnect from the Cloud, it will keep the connection 
 
 Returns `true` when connected to the Cloud, and `false` when disconnected from the Cloud.
 
-```C++
+```cpp
 // SYNTAX
 Particle.connected();
 
-RETURNS
-boolean (true or false)
 
 // EXAMPLE USAGE
 void setup() {
@@ -616,26 +771,29 @@ void loop() {
 }
 ```
 
-{{#if has-cellular}}
+{{#if has-udp-cloud}}
 ### Particle.keepAlive()
 
-Sets the duration between keep alive messages used to maintain the connection to the cloud.
+Sets the duration between keep-alive messages used to maintain the connection to the cloud.
 
-```C++
+```cpp
 // SYNTAX
 Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
 ```
 
-A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
-Should a device becomes unreachable from the cloud (such as a timed out function call or variable get),
-one possible cause of this is that the keep alives have not been sent often enough.
+A keep-alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device. A temporary port-forwarded back-channel is set up by the network to allow packets to be sent from the cloud to the device. As this is a finite resource, unused back-channels are periodically deleted by the network.
 
-The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
+Should a device becomes unreachable from the cloud (such as a timed out function call or variable get), one possible cause of this is that the keep alives have not been sent often enough.
+
+The keep-alive for cellular devices duration varies by mobile network operator. The default keep-alive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value, typically ranging from 30 seconds to several minutes.
 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
+For the Xenon, you will need to match the keep-alive to the gateway. If your gateway, for example, is a Boron with a 3rd-party SIM card with a short keep-alive, you'll also need to set this short keep-alive on Xenon nodes. The reason is that each Xenon has its own cloud connection that needs to be kept alive.
 
-{{/if}} {{!-- has-cellular --}}
+For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
+
+{{/if}} {{!-- has-udp-cloud --}}
 
 
 ### Particle.process()
@@ -657,6 +815,7 @@ void setup() {
 }
 
 void loop() {
+  // Do not do this in real code. You should return from loop() instead!
   while (1) {
     Particle.process();
     redundantLoop();
@@ -677,7 +836,7 @@ This happens automatically when the device connects to the Cloud.
 However, if your device runs continuously for a long time,
 you may want to synchronize once per day or so.
 
-```C++
+```cpp
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
 unsigned long lastSync = millis();
 
@@ -701,15 +860,11 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Device Cloud. Returns `false` when there is a pending `syncTime()` request.
 
-```C++
+```cpp
 // SYNTAX
 Particle.syncTimeDone();
 
-// RETURNS
-// boolean (true or false)
-```
 
-```C++
 // EXAMPLE
 
 void loop()
@@ -731,15 +886,11 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Device Cloud.
 
-```C++
+```cpp
 // SYNTAX
 Particle.syncTimePending();
 
-// RETURNS
-// boolean (true or false)
-```
 
-```C++
 // EXAMPLE
 
 void loop()
@@ -768,7 +919,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 Used to check when time was last synchronized with Particle Device Cloud.
 
-```C++
+```cpp
 // SYNTAX
 Particle.timeSyncedLast();
 Particle.timeSyncedLast(timestamp);
@@ -779,8 +930,9 @@ Returns the number of milliseconds since the device began running the current pr
 This function takes one optional argument:
 - `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
 
-```C++
+```cpp
 // EXAMPLE
+
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
 
 void loop() {
@@ -820,8 +972,8 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    Particle.subscribe("particle/device/ip", handler);
-    Particle.publish("particle/device/ip");
+    Particle.subscribe("particle/device/ip", handler, MY_DEVICES);
+    Particle.publish("particle/device/ip", PRIVATE);
 }
 ```
 
@@ -862,6 +1014,24 @@ void setup() {
 {{#if has-mesh}}
 ## Mesh
 
+### Antenna selection
+
+At the time of writing (Device OS 0.8.0-rc.27), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
+
+```
+void selectExternalMeshAntenna() {
+
+#if (PLATFORM_ID == PLATFORM_ARGON)
+    digitalWrite(ANTSW1, 1);
+    digitalWrite(ANTSW2, 0);
+#elif (PLATFORM_ID == PLATFORM_BORON)
+    digitalWrite(ANTSW1, 0);
+#else
+    digitalWrite(ANTSW1, 0);
+    digitalWrite(ANTSW2, 1);
+#endif
+}
+```
 
 ### publish()
 
@@ -879,22 +1049,26 @@ The publish function takes two parameters:
 * optional data (up to 255 bytes)
 
 
-```C++
+```cpp
 // SYNTAX
 Mesh.publish(const char *name, const char *data);
+```
 
-RETURNS
-boolean (true or false)
+**Returns:**
+An `int` indicating the result. (0 = success, non-zero = system error code)
 
+```cpp
 // EXAMPLE USAGE
 Mesh.publish("motion-sensor", "living room");
 ```
 
+Note that the return value for Mesh.publish is 0 (`SYSTEM_ERROR_NONE`) for success, where the return value for Particle.publish is true (1) for success.
+
 ### subscribe()
 
-Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name.
+Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name. You can have up to 5 mesh subscription handlers.
 
-```C++
+```cpp
 
 void myHandler(const char *event, const char *data)
 {
@@ -907,6 +1081,9 @@ void setup()
   Mesh.subscribe("motion-sensor", myHandler);
 }
 ```
+
+The return value is an int (integer), `SYSTEM_ERROR_NONE` if successful or `SYSTEM_ERROR_NO_MEMORY` if there are no slots left. This is different from Particle.subscribe which returns a bool (boolean).
+
 
 ### on()
 
@@ -1032,6 +1209,249 @@ void setup() {
 }
 ```
 
+### localIP()
+
+
+`Mesh.localIP()` is used to get the ML-EID (Mesh-Local EID) IP address of the mesh node. This is an IPv6 address.
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.printlnf("localIP: %s", Mesh.localIP().toString().c_str());
+}
+```
+{{/if}}
+
+{{#if has-ethernet}}
+## Ethernet
+
+Ethernet is available on the Argon, Boron, and Xenon when used with the [Ethernet FeatherWing](/datasheets/accessories/mesh-accessories/#ethernet-featherwing).
+
+By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
+
+It's also possible to enable Ethernet detection from code. This is saved in configuration flash so you don't need to call it every time.
+
+```
+STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION));
+```
+
+If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
+
+| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+|:------:|:------------:|:--------------------------|
+|MISO    | MISO         | SPI MISO                  |
+|MOSI    | MOSI         | SPI MOSI                  |
+|SCK     | SCK          | SPI SCK                   |
+|D3      | A7           | nRESET                    |
+|D4      | D22          | nINTERRUPT                |
+|D5      | D8           | nCHIP SELECT              |
+
+When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
+
+When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
+
+
+### on()
+
+`Ethernet.on()` turns on the Ethernet module. Useful when you've turned it off, and you changed your mind.
+
+Note that `Ethernet.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Ethernet module off.
+
+### off()
+
+`Ethernet.off()` turns off the Ethernet module. 
+ 
+### connect()
+
+Attempts to connect to the Ethernet network. If there are no credentials stored, this will enter listening mode. When this function returns, the device may not have an IP address on the LAN; use `Ethernet.ready()` to determine the connection status.
+
+```cpp
+// SYNTAX
+Ethernet.connect();
+```
+
+### disconnect()
+
+Disconnects from the Ethernet network, but leaves the Ethernet module on.
+
+```cpp
+// SYNTAX
+Ethernet.disconnect();
+```
+
+### connecting()
+
+This function will return `true` once the device is attempting to connect using stored credentials, and will return `false` once the device has successfully connected to the Ethernet network.
+
+```cpp
+// SYNTAX
+Ethernet.connecting();
+```
+
+### ready()
+
+This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Ethernet.ready();
+```
+
+### listen()
+
+This will enter or exit listening mode, which opens a Serial connection to get Ethernet credentials over USB, and also listens for credentials over
+Bluetooth.
+
+```cpp
+// SYNTAX - enter listening mode
+Ethernet.listen();
+```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listening mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+Ethernet.listen(false);
+
+```
+
+### listening()
+
+```cpp
+// SYNTAX
+Ethernet.listening();
+```
+
+This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
+With a dedicated system thread though `Ethernet.listening()` will return `true` once `Ethernet.listen()` has been called
+or the {{system-button}} button has been held for 3 seconds, when the RGB LED should be blinking blue.
+It will return `false` when the device is not in listening mode.
+
+### setListenTimeout()
+
+```cpp
+// SYNTAX
+Ethernet.setListenTimeout(seconds);
+```
+
+`Ethernet.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Ethernet devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Ethernet.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Ethernet.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  
+**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
+
+```cpp
+// EXAMPLE
+// If desired, use the STARTUP() macro to set the timeout value at boot time.
+STARTUP(Ethernet.setListenTimeout(60)); // set listening mode timeout to 60 seconds
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // update the timeout later in code based on an expression
+  if (disableTimeout) Ethernet.setListenTimeout(0); // disables the listening mode timeout
+}
+```
+
+
+### getListenTimeout()
+
+```cpp
+// SYNTAX
+uint16_t seconds = Ethernet.getListenTimeout();
+```
+
+`Ethernet.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Ethernet devices do not have any timeout set (seconds=0).
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.println(Ethernet.getListenTimeout());
+}
+```
+
+
+### macAddress()
+
+`Ethernet.macAddress()` gets the MAC address of the Ethernet interface.
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  uint8_t addr[6];
+  Ethernet.macAddress(addr);
+  
+  Serial.printlnf("mac: %02x-%02x-%02x-%02x-%02x-%02x", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+}
+```
+
+### localIP()
+
+`Ethernet.localIP()` is used to get the IP address of the Ethernet interface as an `IPAddress`.
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  Serial.printlnf("localIP: %s", Ethernet.localIP().toString().c_str());
+}
+```
+
+### subnetMask()
+
+`Ethernet.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
+
+```cpp
+
+void setup() {
+  Serial.begin(9600);
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  // Prints out the subnet mask over Serial.
+  Serial.println(Ethernet.subnetMask());
+}
+```
+
+### gatewayIP()
+
+`Ethernet.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
+
+```cpp
+
+void setup() {
+  Serial.begin(9600);
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  // Prints out the gateway IP over Serial.
+  Serial.println(Ethernet.gatewayIP());
+}
+```
+
+### dnsServerIP()
+
+`Ethernet.dnsServerIP()` retrieves the IP address of the DNS server that resolves
+DNS requests for the device's network connection. This will often be 0.0.0.0.
+
+### dhcpServerIP()
+
+`Ethernet.dhcpServerIP()` retrieves the IP address of the DHCP server that manages
+the IP address used by the device's network connection. This often will be 0.0.0.0.
+
 {{/if}}
 
 
@@ -1068,6 +1488,9 @@ WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 
 If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
+{{#if has-mesh}}
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+{{/if}}
 
 ### disconnect()
 
@@ -1247,6 +1670,7 @@ Allows the application to set credentials for the Wi-Fi network from within the 
 Your device can remember more than one set of credentials:
 - Core: remembers the 7 most recently set credentials
 - Photon: remembers the 5 most recently set credentials.
+- Argon: remembers the 10 most recently set credentials.
 
 {{#if has-stm32}}
 {{since when="0.7.0"}} Photon can store one set of WPA Enterprise credentials.
@@ -1280,7 +1704,7 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES);
 
 {{/if}} {{!-- photon --}}
 
-```c++
+```cpp
 // Connects to a network with an authentication procedure specified by WiFiCredentials object
 WiFi.setCredentials(credentials);
 WiFiCredentials credentials;
@@ -1469,6 +1893,7 @@ void loop() {}
 
 `WiFi.BSSID()` retrieves the 6-byte MAC address of the access point the device is currently connected to.
 
+```cpp
 byte bssid[6];
 
 void setup() {
@@ -1479,7 +1904,7 @@ void setup() {
   WiFi.BSSID(bssid);
   Serial.printlnf("%02X:%02X:%02X:%02X:%02X:%02X", bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
 }
-
+```
 
 ### RSSI()
 
@@ -1487,8 +1912,86 @@ void setup() {
 
 ```cpp
 // SYNTAX
-WiFi.RSSI();
+int rssi = WiFi.RSSI();
+WiFiSignal rssi = WiFi.RSSI();
 ```
+
+_Since 0.8.0_
+
+`WiFi.RSSI()` returns an instance of [`WiFiSignal`](#wifisignal-class) class.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+```
+
+If you are passing the RSSI value as a variable argument, such as with Serial.printlnf, Log.info, snprintf, etc. make sure you add a cast:
+
+```
+Serial.printlnf("RSSI=%d", (int8_t) WiFi.RSSI()).
+```
+
+This is necessary for the compiler to correctly convert the WiFiSignal class into a number.
+
+### WiFiSignal Class
+
+This class allows to query a number of signal parameters of the currently connected WiFi network.
+
+#### getStrength()
+
+Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how strength values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float strength = sig.getStrength();
+
+// EXAMPLE
+WiFiSignal sig = WiFi.RSSI();
+Log.info("WiFi signal strength: %.02f%%", sig.getStrength());
+```
+
+Returns: `float`
+
+#### getQuality()
+
+Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how quality values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float quality = sig.getQuality();
+
+// EXAMPLE
+WiFiSignal sig = WiFi.RSSI();
+Log.info("WiFi signal quality: %.02f%%", sig.getQuality());
+```
+
+Returns: `float`
+
+#### getStrengthValue()
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float strength = sig.getStrengthValue();
+```
+
+Gets the raw signal strength value in dBm. Range: [-90, 0].
+
+Returns: `float`
+
+#### getQualityValue()
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float quality = sig.getQualityValue();
+```
+
+Gets the raw signal quality value (SNR) in dB. Range: [0, 90].
+
+Returns: `float`
 
 ### ping()
 
@@ -1791,7 +2294,7 @@ By default the {{device}} uses its [device ID](#deviceid-) as hostname. See [WiF
 ### WiFiCredentials class
 This class allows to define WiFi credentials that can be passed to [WiFi.setCredentials()](#setcredentials-) function.
 
-```c++
+```cpp
 // EXAMPLE - defining and using WiFiCredentials class
 
 void setup() {
@@ -1817,13 +2320,13 @@ void loop() {
 #### WiFiCredentials()
 Constructs an instance of the WiFiCredentials class. By default security type is initialized to unsecured (`UNSEC`).
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials credentials(SecurityType security = UNSEC); // 1
 WiFiCredentials credentials(const char* ssid, SecurityType security = UNSEC); // 2
 ```
 
-```c++
+```cpp
 // EXAMPLE - constructing WiFiCredentials instance
 // Empty instance, security is set to UNSEC
 WiFiCredentials credentials;
@@ -1842,12 +2345,12 @@ Parameters:
 #### setSsid()
 Sets access point SSID.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setSsid(const char* ssid);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting ssid
 WiFiCredentials credentials;
 credentials.setSsid("My AP");
@@ -1859,12 +2362,12 @@ Parameters:
 #### setSecurity()
 Sets access point security type.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setSecurity(SecurityType security);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting security type
 WiFiCredentials credentials;
 credentials.setSecurity(WPA2);
@@ -1876,12 +2379,12 @@ Parameters:
 #### setCipher()
 Sets access point cipher.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setCipher(WLanSecurityCipher cipher);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting cipher
 WiFiCredentials credentials;
 credentials.setCipher(WLAN_CIPHER_AES);
@@ -1897,12 +2400,12 @@ Sets access point password.
 When configuring credentials for WPA/WPA2 Enterprise access point with PEAP/MSCHAPv2 authentication, this function sets password for username set by [setIdentity()](#setidentity-).
 {{/if}} {{!-- has-wpa-enterprise --}}
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setPassword(const char* password);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting password
 WiFiCredentials credentials("My AP", WPA2);
 credentials.setPassword("mypassword");
@@ -1918,12 +2421,12 @@ Parameters:
 #### setChannel()
 Sets access point channel.
 
-```c++
+```cpp
 // SYNYAX
 WiFiCredentials& WiFiCredentials::setChannel(int channel);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting channel
 WiFiCredentials credentials("My AP");
 credentials.setChannel(10);
@@ -1936,12 +2439,12 @@ Parameters:
 #### setEapType()
 Sets EAP type.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setEapType(WLanEapType type);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting EAP type
 WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
 credentials.setEapType(WLAN_EAP_TYPE_PEAP);
@@ -1953,12 +2456,12 @@ Parameters:
 #### setIdentity()
 Sets EAP inner identity (username in case of PEAP/MSCHAPv2).
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setIdentity(const char* identity);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting PEAP identity (username)
 WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
 credentials.setEapType(WLAN_EAP_TYPE_PEAP);
@@ -1971,12 +2474,12 @@ Parameters:
 #### setOuterIdentity()
 Sets EAP outer identity. Defaults to "anonymous".
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setOuterIdentity(const char* identity);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting outer identity
 WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
 credentials.setOuterIdentity("notanonymous");
@@ -1988,12 +2491,12 @@ Parameters:
 #### setClientCertificate()
 Sets client certificate used for EAP-TLS authentication.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setClientCertificate(const char* cert);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting client certificate
 WiFiCredentials credentials;
 credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
@@ -2008,12 +2511,12 @@ Parameters:
 #### setPrivateKey()
 Sets private key used for EAP-TLS authentication.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setPrivateKey(const char* key);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting private key
 WiFiCredentials credentials;
 credentials.setPrivateKey("-----BEGIN RSA PRIVATE KEY-----\r\n" \
@@ -2028,12 +2531,12 @@ Parameters:
 #### setRootCertificate()
 Sets one more root (CA) certificates.
 
-```c++
+```cpp
 // SYNTAX
 WiFiCredentials& WiFiCredentials::setRootCertificate(const char* cert);
 ```
 
-```c++
+```cpp
 // EXAMPLE - setting one root certificate
 WiFiCredentials credentials;
 credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
@@ -2204,7 +2707,7 @@ if (strcmp(url,"/index")==0) {
 
 ### Complete Example
 
-Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to GitHub user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
+Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to GitHub user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/device-os/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
 
 
 
@@ -2292,7 +2795,7 @@ STARTUP(softap_set_application_page_handler(myPage, nullptr));
 {{/if}} {{!-- has-softap --}}
 
 
-{{#if electron}}
+{{#if has-cellular}}
 ## Cellular
 
 ### on()
@@ -2323,6 +2826,10 @@ Attempts to connect to the Cellular network. If there are no credentials entered
 // SYNTAX
 Cellular.connect();
 ```
+
+{{#if has-mesh}}
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+{{/if}}
 
 ### disconnect()
 
@@ -2436,7 +2943,64 @@ void setup() {
 }
 ```
 
+{{#if has-set-credentials}}
 
+### setCredentials()
+
+Sets 3rd party SIM credentials for the Cellular network from within the user application. 
+
+These credentials added to the device's non-volatile memory and only need to be set once. The setting will be preserved across reset, power down, and firmware upgrades. 
+This is different than the Electron and E series where you must call `cellular_credentials_set()` from all user firmware.
+
+You may set credentials in 3 different ways:
+
+- APN only
+- USERNAME & PASSWORD only
+- APN, USERNAME & PASSWORD
+
+The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+
+`particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
+
+
+```cpp
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+	// Clears any existing credentials. Use this to restore the use of the Particle SIM.
+	Cellular.clearCredentials();
+
+	// You should only use one of the following three commands.
+	// Only one set of credentials can be stored.
+
+	// Connects to a cellular network by APN only
+	Cellular.setCredentials("broadband");
+
+	// Connects to a cellular network with USERNAME and PASSWORD only
+	Cellular.setCredentials("username", "password");
+
+	// Connects to a cellular network with a specified APN, USERNAME and PASSWORD
+	Cellular.setCredentials("some-apn", "username", "password");
+	
+	Particle.connect();
+}
+
+void loop() {
+}
+
+```
+
+**Note**: Your {{device}} only uses one set of credentials, and they
+must be correctly matched to the SIM card that's used.  If using a
+Particle SIM, using `Cellular.setCredentials()` is not necessary as the
+default APN will be used. If you have set a different APN to use a 3rd-party
+SIM card, you can restore the use of the Particle SIM by using
+`Cellular.clearCredentials()`. 
+
+{{/if}} {{!-- has-nrfhas-set-credentials52 --}}
+
+
+{{#unless has-set-credentials}} {{!-- Electron and E series that don't save credentials in non-volatile memory --}}
 
 ### setCredentials()
 
@@ -2450,7 +3014,7 @@ Sets 3rd party credentials for the Cellular network from within the user applica
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/guide/tools-and-features/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -2460,7 +3024,7 @@ Particle SIM, using `cellular_credentials_set()` is not necessary as the
 default APN of "spark.telefonica.com" with no username or password will
 be used by Device OS. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the {{device}} to remove the settings from the modem’s volatile memory.
 
-```C++
+```cpp
 // SYNTAX
 // Connects to a cellular network by APN only
 STARTUP(cellular_credentials_set(APN, "", "", NULL));
@@ -2473,7 +3037,7 @@ STARTUP(cellular_credentials_set("", USERNAME, PASSWORD, NULL));
 STARTUP(cellular_credentials_set(APN, USERNAME, PASSWORD, NULL));
 ```
 
-```C++
+```cpp
 // EXAMPLE - an AT&T APN with no username or password in AUTOMATIC mode
 
 #include "cellular_hal.h"
@@ -2487,6 +3051,51 @@ void loop() {
   // your loop code
 }
 ```
+{{/unless}} {{!-- has-set-credentials --}}
+
+
+{{#if has-set-active-sim}}
+
+### setActiveSim()
+
+The {{device}} can use either the built-in MFF2 embedded Particle SIM card or an external nano SIM card in 
+the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
+once. The setting will be preserved across reset, power down, and firmware upgrades.
+
+
+```cpp
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+	// Choose one of these:
+	Cellular.setActiveSim(EXTERNAL_SIM);
+	Cellular.setActiveSim(INTERNAL_SIM);
+}
+
+void loop() {
+}
+```
+
+### getActiveSim()
+
+Get the current active SIM (internal or external):
+
+- INTERNAL_SIM = 1
+- EXTERNAL_SIM = 2
+
+```cpp
+void setup() {
+	Serial.begin();
+}
+
+void loop() {
+	SimType simType = Cellular.getActiveSim();
+	Serial.printlnf("simType=%d", simType);
+	delay(5000);
+}
+```
+
+{{/if}} {{!-- has-set-active-sim --}}
 
 ### getDataUsage()
 
@@ -2497,6 +3106,8 @@ A software implementation of Data Usage that pulls sent and received session and
 **Note**: There is a known issue with Sara U260/U270 modem firmware not being able to set/reset the internal counters (which does work on the Sara G350).  Because of this limitation, the set/reset function is implemented in software, using the modem's current count as the baseline.
 
 **Note**: The internal modem counters are typically reset when the modem is power cycled (complete power removal, soft power down or Cellular.off()) or if the PDP context is deactivated and reactivated which can happen asynchronously during runtime. If the Cellular.getDataUsage() API has been read, reset or set, and then the modem's counters are reset for any reason, the next call to Cellular.getDataUsage() for a read will detect that the new reading would be less than the previous reading.  When this is detected, the current reading will remain the same, and the now lower modem count will be used as the new baseline.  Because of this mechanism, it is generally more accurate to read the getDataUsage() count often. This catches the instances when the modem count is reset, before the count starts to increase again.
+
+**Note**: LTE Cat M1 devices (SARA-R410M-02B) do not support data usage APIs.
 
 To use the data usage API, an instance of the `CellularData` type needs to be created to read or set counters.  All data usage API functions and the CellularData object itself return `bool` - `true` indicating the last operation was successful and the CellularData object was updated. For set and get functions, `CellularData` is passed by reference `Cellular.dataUsage(CellularData&);` and updated by the function.  There are 5 integers and 1 boolean within the CellularData object:
 
@@ -2514,14 +3125,14 @@ cid,tx_session,rx_session,tx_total,rx_total
 31,1000,300,1000,300
 ```
 
-```c++
+```cpp
 // SYNTAX
 // Read Data Usage
 CellularData data;
 Cellular.getDataUsage(data);
 ```
 
-```c++
+```cpp
 // EXAMPLE
 
 void setup()
@@ -2588,7 +3199,7 @@ Sets the Data Usage counters to the values indicated in the supplied CellularDat
 
 Returns `bool` - `true` indicating this operation was successful and the CellularData object was updated.
 
-```c++
+```cpp
 // SYNTAX
 // Set Data Usage
 CellularData data;
@@ -2599,9 +3210,10 @@ Cellular.setDataUsage(data);
 
 Resets the Data Usage counters to all zero.  No CellularData object is required.  This is handy to call just before an operation where you'd like to measure data usage.
 
-Returns `bool` - `true` indicating this operation was successful and the internally stored software offset has been reset to zero. If getDataUsage() was called immediately after without any data being used, the CellularData object would indicate zero data used.
+Returns: `bool`
+- `true` indicates this operation was successful and the internally stored software offset has been reset to zero. If getDataUsage() was called immediately after without any data being used, the CellularData object would indicate zero data used.
 
-```c++
+```cpp
 // SYNTAX
 // Reset Data Usage
 Cellular.resetDataUsage();
@@ -2609,7 +3221,7 @@ Cellular.resetDataUsage();
 
 ### RSSI()
 
-`Cellular.RSSI()` returns a struct of type `CellularSignal` that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
+`Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
 
 `CellularSignal`
 - `rssi`: (`int`) is the signal strength with range -113dBm to -51dBm (in 2dBm steps). This variable also doubles as an error response for the entire struct; positive return values indicate an error with:
@@ -2619,7 +3231,10 @@ Cellular.resetDataUsage();
 
 **Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
 
-```C++
+_Since 0.8.0_
+See additional documentation on [`CellularSignal`](#cellularsignal-class) class.
+
+```cpp
 // SYNTAX
 
 CellularSignal sig = Cellular.RSSI();
@@ -2656,8 +3271,88 @@ void loop()
 }
 ```
 
+### CellularSignal Class
 
-bool Cellular.getBandSelect(CellularBand &data_get);
+This class allows to query a number of signal parameters of the currently connected Cellular network.
+
+#### getAccessTechnology()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+int rat = sig.getAccessTechnology();
+```
+
+Gets the current radio access technology (RAT) in use.
+
+The following radio technologies are defined:
+- `NET_ACCESS_TECHNOLOGY_GSM`: 2G RAT
+- `NET_ACCESS_TECHNOLOGY_EDGE`: 2G RAT with EDGE
+- `NET_ACCESS_TECHNOLOGY_UMTS`/`NET_ACCESS_TECHNOLOGY_UTRAN`/`NET_ACCESS_TECHNOLOGY_WCDMA`: UMTS RAT
+- `NET_ACCESS_TECHNOLOGY_LTE`: LTE RAT
+
+#### getStrength()
+
+Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how raw RAT-specific strength values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float strength = sig.getStrength();
+
+// EXAMPLE
+CellularSignal sig = Cellular.RSSI();
+Log.info("Cellular signal strength: %.02f%%", sig.getStrength());
+```
+
+Returns: `float`
+
+#### getQuality()
+
+Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how raw RAT-specific quality values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float quality = sig.getQuality();
+
+// EXAMPLE
+CellularSignal sig = Cellular.RSSI();
+Log.info("Cellular signal quality: %.02f%%", sig.getQuality());
+```
+
+Returns: `float`
+
+#### getStrengthValue()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float strength = sig.getStrengthValue();
+```
+
+Gets the raw signal strength value. This value is RAT-specific. See [`getAccessTechnology()`](#getaccesstechnology-) for a list of radio access technologies.
+
+- 2G RAT / 2G RAT with EDGE: RSSI in dBm. Range: [-111, -48] as specified in 3GPP TS 45.008 8.1.4.
+- UMTS RAT: RSCP in dBm. Range: [-121, -25] as specified in 3GPP TS 25.133 9.1.1.3.
+
+Returns: `float`
+
+#### getQualityValue()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float quality = sig.getQualityValue();
+```
+
+Gets the raw signal quality value. This value is RAT-specific. See [`getAccessTechnology()`](#getaccesstechnology-) for a list of radio access technologies.
+
+- 2G RAT: Bit Error Rate (BER) in % as specified in 3GPP TS 45.008 8.2.4. Range: [0.14%, 18.10%]
+- 2G RAT with EDGE: log10 of Mean Bit Error Probability (BEP) as defined in 3GPP TS 45.008. Range: [-0.60, -3.60] as specified in 3GPP TS 45.008 10.2.3.3.
+- UMTS RAT: Ec/Io (dB) [-24.5, 0], as specified in 3GPP TS 25.133 9.1.2.3.
+
+Returns: `float`
 
 ### getBandAvailable()
 
@@ -2856,7 +3551,7 @@ void setup() {
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
 
-```C++
+```cpp
 // EXAMPLE
 void setup() {
   Serial.begin(9600);
@@ -2870,11 +3565,19 @@ void setup() {
 
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
+{{#if boron}}
+{{since when="0.9.0"}}
+On the Boron, Cellular.command requires Device OS 0.9.0 or later; it is not supported on 0.8.0-rc versions.
+{{/if}}
+
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
 
 You can download the latest <a href="https://www.u-blox.com/en/product-resources/2432?f[0]=field_file_category%3A210" target="_blank">u-blox AT Commands Manual</a>.
 
 Another good resource is the <a href="https://www.u-blox.com/sites/default/files/AT-CommandsExamples_AppNote_%28UBX-13001820%29.pdf" target="_blank">u-blox AT Command Examples Application Note</a>.
+
+LTE Cat M1 devices (SARA-R410M-02B) have a slightly different AT command set in the <a href="https://www.u-blox.com/sites/default/files/SARA-R4_ATCommands_%28UBX-17003787%29.pdf" target="_blank">u-blox SARA-R4 AT Commands Manual</a>.
+
 
 The prototype definition is as follows:
 
@@ -2882,7 +3585,7 @@ The prototype definition is as follows:
 
 `Cellular.command()` takes one or more arguments in 4 basic types of signatures.
 
-```C++
+```cpp
 // SYNTAX (4 basic signatures with/without printf style formatting)
 int ret = Cellular.command(cb, param, timeout, format, ...);
 int ret = Cellular.command(cb, param, timeout, format);
@@ -2909,7 +3612,7 @@ int ret = Cellular.command(format);
 - `RESP_PROMPT`  = -4
 - `RESP_ABORTED` = -5
 
-```C++
+```cpp
 // EXAMPLE - Get the ICCID number of the inserted SIM card
 int callbackICCID(int type, const char* buf, int len, char* iccid)
 {
@@ -2970,12 +3673,24 @@ There are 13 different enumerated AT command responses passed by the system into
 
 {{/if}} {{!-- electron --}}
 
+{{#if has-battery-voltage}}
+## Battery Voltage
+
+The {{device}} does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
+
+```cpp
+float voltage = analogRead(BATT) * 0.0011224;
+```
+
+The constant 0.0011224 is based on the voltage divider circuit (R1 = 806K, R2 = 2M) that lowers the 3.6V LiPo battery output to a value that can be read by the ADC.
+
+{{/if}}
 
 {{#if has-fuel-gauge}}
 ## FuelGauge
 The on-board Fuel Gauge allows you to monitor the battery voltage, state of charge and set low voltage battery thresholds. Use an instance of the `FuelGauge` library to call the various fuel gauge functions.
 
-```C++
+```cpp
 // EXAMPLE
 FuelGauge fuel;
 ```
@@ -2983,7 +3698,7 @@ FuelGauge fuel;
 ### getVCell()
 Returns the battery voltage as a `float`.
 
-```C++
+```cpp
 // EXAMPLE
 FuelGauge fuel;
 Serial.println( fuel.getVCell() );
@@ -2992,7 +3707,7 @@ Serial.println( fuel.getVCell() );
 ### getSoC()
 Returns the State of Charge in percentage from 0-100% as a `float`.
 
-```C++
+```cpp
 // EXAMPLE
 FuelGauge fuel;
 Serial.println( fuel.getSoC() );
@@ -3035,11 +3750,13 @@ In some cases you can [increase the charge voltage](#setchargevoltage-) to get a
 
 ## Input/Output
 
+Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
+
 ### pinMode()
 
 `pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
 
-```C++
+```cpp
 // SYNTAX
 pinMode(pin,mode);
 ```
@@ -3048,7 +3765,7 @@ pinMode(pin,mode);
 
 `pinMode()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int button = D0;                      // button is connected to D0
 int LED = D1;                         // LED is connected to D1
@@ -3088,10 +3805,30 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 {{#if has-nrf52}}
 If you are using the Particle Ethernet FeatherWing you cannot use the pins for GPIO as they are used for the Ethernet interface:
-- D3 (RESET)
-- D4 (INTN)
-- D5 (SCSN) 
-- SPI (SCK, MOSI, MISO) is also used, however you can still share the SPI bus in many cases.
+
+| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+|:------:|:------------:|:--------------------------|
+|MISO    | MISO         | SPI MISO                  |
+|MOSI    | MOSI         | SPI MOSI                  |
+|SCK     | SCK          | SPI SCK                   |
+|D3      | A7           | nRESET                    |
+|D4      | D22          | nINTERRUPT                |
+|D5      | D8           | nCHIP SELECT              |
+
+When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
+
+When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
+{{/if}}
+
+{{#if xenon}}
+On the Xenon only, there is an optional second UART (serial) interface. If using Serial2, the following pins cannot be used as GPIO:
+
+- D4 (TX for Serial2)
+- D5 (RX for Serial2)
+- D6 (CTS for Serial2)
+- D8 (RTS for Serial2)
+
+As these pins overlap the Particle Ethernet FeatherWing, you cannot use Serial2 and the Ethernet FeatherWing at the same time.
 {{/if}}
 
 ### getPinMode(pin)
@@ -3110,7 +3847,7 @@ if (getPinMode(D0)==INPUT) {
 
 Write a `HIGH` or a `LOW` value to a GPIO pin.
 
-```C++
+```cpp
 // SYNTAX
 digitalWrite(pin, value);
 ```
@@ -3121,7 +3858,7 @@ If the pin has been configured as an `OUTPUT` with `pinMode()` or if previously 
 
 `digitalWrite()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int LED = D1;              // LED connected to D1
 
@@ -3143,7 +3880,10 @@ void loop()
 **Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 {{/if}}
 {{#if has-nrf52}}
-**Note:** All GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
 {{/if}}
 
 
@@ -3151,7 +3891,7 @@ void loop()
 
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
 
-```C++
+```cpp
 // SYNTAX
 digitalRead(pin);
 ```
@@ -3160,7 +3900,7 @@ digitalRead(pin);
 
 `digitalRead()` returns `HIGH` or `LOW`.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int button = D0;                   // button is connected to D0
 int LED = D1;                      // LED is connected to D1
@@ -3185,7 +3925,10 @@ void loop()
 {{/if}}
 
 {{#if has-nrf52}}
-**Note:** All GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
 {{/if}}
 
 {{#if has-pwm}}
@@ -3196,7 +3939,7 @@ Writes an analog value to a pin as a digital PWM (pulse-width modulated) signal.
 
 Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to `analogWrite()` (or a call to `digitalRead()` or `digitalWrite()` on the same pin).
 
-```C++
+```cpp
 // SYNTAX
 analogWrite(pin, value);
 analogWrite(pin, value, frequency);
@@ -3206,13 +3949,19 @@ analogWrite(pin, value, frequency);
 
 - `pin`: the number of the pin whose value you wish to set
 - `value`: the duty cycle: between 0 (always off) and 255 (always on). _Since 0.6.0:_ between 0 and 255 (default 8-bit resolution) or `2^(analogWriteResolution(pin)) - 1` in general.
-- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
+{{#if has-stm32}}
+- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz) on Gen 2 devices (Photon, P1, Electron). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
+{{/if}}
+{{#if has-nrf52}}
+- `frequency`: the PWM frequency:from 5 Hz to `analogWriteMaxFrequency(pin)`, currently 500 kHz on Gen 3 devices (Argon, Boron, Xenon). The default value is 500 Hz.
+{{/if}}
+
 
 **NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
 `analogWrite()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int ledPin = D1;               // LED connected to digital pin D1
@@ -3247,7 +3996,7 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 {{/if}}
 {{#if has-nrf52}}
-On mesh devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 3: Pins D2, D3, A4, and A5.
@@ -3258,10 +4007,19 @@ frequency and resolution, but individual pins in the group can have a different 
 
 - Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
 
+On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 2: Pins A0, A1, A6, and A7.
+- Group 1: Pins D4, D5, and D6.
+- Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
 {{/if}}
 
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
+
+Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/hardware/pin-info).
 
 {{/if}} {{!-- has-pwm --}}
 
@@ -3280,11 +4038,11 @@ Sets or retrieves the resolution of `analogWrite()` function of a particular pin
 `analogWriteResolution()` takes one or two arguments:
 
 - `pin`: the number of the pin whose resolution you wish to set or retrieve
-- `resolution`: (optional) resolution in bits. The value can range from 2 to 31 bits. If the resolution is not supported, it will not be applied.
+- `resolution`: (optional) resolution in bits. The value can range from 2 to 31 bits. If the resolution is not supported, it will not be applied. The default is 8.
 
 `analogWriteResolution()` returns currently set resolution.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 pinMode(D1, OUTPUT);     // sets the pin as output
 analogWriteResolution(D1, 12); // sets analogWrite resolution to 12 bits
@@ -3307,7 +4065,7 @@ Returns maximum frequency that can be used with `analogWrite()` on this pin.
 
 - `pin`: the number of the pin
 
-```C++
+```cpp
 // EXAMPLE USAGE
 pinMode(D1, OUTPUT);     // sets the pin as output
 analogWriteResolution(D1, 12); // sets analogWrite resolution to 12 bits
@@ -3328,7 +4086,7 @@ from 0-4095.
 
 **NOTE:** Device OS version 0.4.6 and 0.4.7 only - not applicable to versions from 0.4.9 onwards: While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time you want to perform an `analogWrite()`.
 
-```C++
+```cpp
 // SYNTAX
 pinMode(DAC1, OUTPUT);
 analogWrite(DAC1, 1024);
@@ -3351,12 +4109,14 @@ _Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). 
 {{/if}}
 
 {{#if has-nrf52}}
-The device has 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+The Gen 3 Feather devices (Argon, Boron, Xenon) have 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
 The sample time to read one analog value is 10 microseconds.
+
+The Boron SoM has 8 channels, A0 to A7.
 {{/if}}
 
-```C++
+```cpp
 // SYNTAX
 analogRead(pin);
 ```
@@ -3365,7 +4125,7 @@ analogRead(pin);
 
 `analogRead()` returns an integer value ranging from 0 to 4095.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int ledPin = D1;                // LED connected to digital pin D1
 int analogPin = A0;             // potentiometer connected to analog pin A0
@@ -3439,7 +4199,7 @@ Prior to using the following low-level functions, `pinMode()` must be used to co
 
 Write a `HIGH` value to a digital pin.
 
-```C++
+```cpp
 // SYNTAX
 pinSetFast(pin);
 ```
@@ -3448,7 +4208,7 @@ pinSetFast(pin);
 
 `pinSetFast()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int LED = D7;              // LED connected to D7
 
@@ -3470,7 +4230,7 @@ void loop()
 
 Write a `LOW` value to a digital pin.
 
-```C++
+```cpp
 // SYNTAX
 pinResetFast(pin);
 ```
@@ -3479,7 +4239,7 @@ pinResetFast(pin);
 
 `pinResetFast()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int LED = D7;              // LED connected to D7
 
@@ -3501,7 +4261,7 @@ void loop()
 
 Write a `HIGH` or `LOW` value to a digital pin.  This function will call pinSetFast() or pinResetFast() based on `value` and is useful when `value` is calculated. As such, this imposes a slight time overhead.
 
-```C++
+```cpp
 // SYNTAX
 digitalWriteFast(pin, value);
 ```
@@ -3510,7 +4270,7 @@ digitalWriteFast(pin, value);
 
 `digitalWriteFast()` does not return anything.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int LED = D7;              // LED connected to D7
 
@@ -3532,7 +4292,7 @@ void loop()
 
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
 
-```C++
+```cpp
 // SYNTAX
 pinReadFast(pin);
 ```
@@ -3541,7 +4301,7 @@ pinReadFast(pin);
 
 `pinReadFast()` returns `HIGH` or `LOW`.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int button = D0;                   // button is connected to D0
 int LED = D1;                      // LED is connected to D1
@@ -3571,12 +4331,30 @@ Generates a square wave of the specified frequency and duration (and 50% duty cy
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
 {{/if}}
 
+{{#if has-stm32}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
 
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 - Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
+{{/if}}
 
-```C++
+{{#if has-nrf52}}
+On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for tone(). Pins are assigned a PWM group. Each group must share the same frequency. Thus you can only output 3 different frequencies at the same time.
+
+- Group 3: Pins D2, D3, A4, and A5.
+
+- Group 2: Pins A0, A1, A2, and A3.
+
+- Group 1: Pins D4, D5, D6, and D8.
+
+On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Pins are assigned a PWM group. Each group must share the same frequency.
+
+- Group 2: Pins A0, A1, A6, and A7.
+- Group 1: Pins D4, D5, and D6.
+
+{{/if}}
+
+```cpp
 // SYNTAX
 tone(pin, frequency, duration)
 ```
@@ -3587,20 +4365,98 @@ The frequency range is from 20Hz to 20kHz. Frequencies outside this range will n
 
 `tone()` does not return anything.
 
-**NOTE:** the Photon's PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
+{{#if has-stm32}}
+**NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
 
-Pin  | TMR3 | TMR4 | TMR5
-:--- | :--: | :--: | :--:
-D0   |      |  x   |  
-D1   |      |  x   |  
-D2   |  x   |      |  
-D3   |  x   |      |  
-A4   |  x   |      |  
-A5   |  x   |      |  
-WKP  |      |      |  x
+Pin  | TMR1 | TMR3 | TMR4 | TMR5
+:--- | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |  
+D1   |      |      |  x   |  
+D2   |      |  x   |      |  
+D3   |      |  x   |      |  
+A4   |      |  x   |      |  
+A5   |      |  x   |      |  
+WKP  |      |      |      |  x
+RX   | x    |      |      |
+TX   | x    |      |      |
+
+On the P1:
+
+Pin  | TMR1 | TMR3 | TMR4 | TMR5
+:--- | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |  
+D1   |      |      |  x   |  
+D2   |      |  x   |      |  
+D3   |      |  x   |      |  
+A4   |      |  x   |      |  
+A5   |      |  x   |      |  
+WKP  |      |      |      |  x
+RX   | x    |      |      |
+TX   | x    |      |      |
+P1S0 |      |  x   |      |
+P1S1 |      |  x   |      | 
+P1S6 |  x   |      |      |
+
+On the Electron and E Series:
+
+Pin  | TMR1 | TMR3 | TMR4 | TMR5 | TMR8
+:--- | :--: | :--: | :--: | :--: | :--:
+D0   |      |      |  x   |      |      |
+D1   |      |      |  x   |      |      |  
+D2   |      |  x   |      |      |      |  
+D3   |      |  x   |      |      |      |  
+A4   |      |  x   |      |      |      |  
+A5   |      |  x   |      |      |      |  
+WKP  |      |      |      |      |  x   |
+RX   | x    |      |      |      |      |
+TX   | x    |      |      |      |      |
+B0   |      |      |      |      |  x   |
+B1   |      |      |      |      |  x   |
+B2   |      |  x   |      |      |      |  
+B3   |      |  x   |      |      |      |  
+C4   |      |      |  x   |      |      |  
+C5   |      |      |  x   |      |      |  
+{{/if}}
+
+{{#if has-nrf52}}
+**NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), different timer numbers must be used to for each frequency:
+
+ On the Argon, Boron, and Xenon:
+
+| Pin  | Timer |
+| :--: | :---: |
+| A0   | PWM2  |  
+| A1   | PWM2  |
+| A2   | PWM2  |
+| A3   | PWM2  | 
+| A4   | PWM3  |
+| A5   | PWM3  | 
+| D2   | PWM3  | 
+| D3   | PWM3  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+| D8   | PWM1  |
+
+On the B Series SoM:
+
+| Pin  | Timer |
+| :--: | :---: |
+| A0   | PWM2  |  
+| A1   | PWM2  |
+| A6   | PWM2  |
+| A7   | PWM2  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+
+{{/if}}
 
 
-```C++
+Additional information on which pins can be used for tone() is available on the [pin information page](/reference/hardware/pin-info).
+
+
+```cpp
 #include "application.h"
 // The Photon has 9 PWM pins: D0, D1, D2, D3, A4, A5, A7, RX and TX.
 //
@@ -3656,7 +4512,7 @@ Stops the generation of a square wave triggered by tone() on a specified pin. Ha
 The available pins are the same as for tone().
 
 
-```C++
+```cpp
 // SYNTAX
 noTone(pin)
 ```
@@ -3665,7 +4521,7 @@ noTone(pin)
 
 `noTone()` does not return anything.
 
-```C++
+```cpp
 //See the tone() example
 ```
 
@@ -3678,11 +4534,11 @@ Shifts out a byte of data one bit at a time on a specified pin. Starts from eith
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
 
-```C++
+```cpp
 // SYNTAX
 shiftOut(dataPin, clockPin, bitOrder, value)
 ```
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Use digital pins D0 for data and D1 for clock
@@ -3723,11 +4579,11 @@ Shifts in a byte of data one bit at a time. Starts from either the most (i.e. th
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
 
-```C++
+```cpp
 // SYNTAX
 shiftIn(dataPin, clockPin, bitOrder)
 ```
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Use digital pins D0 for data and D1 for clock
@@ -3767,7 +4623,7 @@ Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, puls
 
 The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally measure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The `pulseIn()` routine will time out and return 0 after 3 seconds.
 
-```C++
+```cpp
 // SYNTAX
 pulseIn(pin, value)
 ```
@@ -3776,7 +4632,7 @@ pulseIn(pin, value)
 
 `pulseIn()` returns the length of the pulse (in microseconds) or 0 if no pulse is completed before the 3 second timeout (unsigned long)
 
-```C++
+```cpp
 // EXAMPLE
 unsigned long duration;
 
@@ -3945,7 +4801,7 @@ Voltage can be:
 
 The default charge voltage is 4112, which corresponds to 4.112 volts. 
 
-You can also set it 4208, which corresponds to 4.208 volts. This higher voltage should not be used if the battery will be charged in temperatures exceeding 45°F. Using a higher charge voltage will allow the battery to reach a higher state-of-charge (SoC) but could damage the battery at high temperatures.
+You can also set it 4208, which corresponds to 4.208 volts. This higher voltage should not be used if the battery will be charged in temperatures exceeding 45°C. Using a higher charge voltage will allow the battery to reach a higher state-of-charge (SoC) but could damage the battery at high temperatures.
 
 
 ```
@@ -4070,6 +4926,7 @@ Returns the charge voltage register. This is the direct register value from the 
 {{/if}} {{!-- has-pmic --}}
 
 ## Serial
+(inherits from [`Stream`](#stream-class))
 
 {{#unless raspberry-pi}}
 
@@ -4099,7 +4956,7 @@ It also has {{#if has-usb-serial1}}two{{else}}one{{/if}} USB serial channel{{#if
 `Serial:` This channel communicates between the terminal and the firmware running. It uses standard input and standard output.
 {{/unless}}
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void setup()
 {
@@ -4128,7 +4985,7 @@ Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2
 {{/if}}
 
 {{#if photon}}
-`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
+`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 {{/if}}
@@ -4156,7 +5013,7 @@ To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's ma
 
 To use the Serial1{{#if has-serial2}} or Serial2{{/if}} pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 {{#if has-serial2}}
 // IMPORTANT: Include the header file for Serial2
@@ -4195,6 +5052,11 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
 
 {{#unless raspberry-pi}}
+
+{{#if has-usb-serial1}}
+**NOTE:** On Windows 10, using `USBSerial1` on the Electron and P1 may not be reliable due to limitations of the USB peripheral used for those 2 platforms. Characters may be dropped between the computer and device. `USBSerial1` is reliable for other Particle platforms and other operating systems. `Serial` is reliable for all platforms and operating systems.
+{{/if}} {{!-- has-usb-serial1 --}}
+
 #### Connect to Serial with a computer
 
 For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). Plug your {{device}} into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
@@ -4204,9 +5066,9 @@ For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). 
 - Parity: none
 - Stop Bits: 1
 
-On **OS X and Linux** systems, you can access the serial port through the terminal.
+On **macOS (OS X) and Linux** systems, you can access the serial port through the terminal.
 
-For OS X, open the terminal and type:
+For macOS, open the terminal and type:
 
 ```screen /dev/tty.u```
 
@@ -4227,7 +5089,7 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Enables serial channel with specified configuration.
 
-```C++
+```cpp
 // SYNTAX
 Serial.begin();          // via USB port
 
@@ -4278,16 +5140,15 @@ Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400
 {{/if}}
 
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void setup()
 {
   Serial.begin(9600);   // open serial over USB
-  // On Windows it will be necessary to implement the following line:
-  // Make sure your Serial Terminal app is closed before powering your device
-  // Now open your Serial Terminal!
-  while(!Serial.isConnected()) Particle.process();
 
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+  
   Serial1.begin(9600);  // open serial over TX and RX pins
 
   Serial.println("Hello Computer");
@@ -4303,6 +5164,8 @@ When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, 
 
 Pre-defined Serial configurations available:
 
+{{#if has-stm32f2}}
+
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
@@ -4316,8 +5179,8 @@ Pre-defined Serial configurations available:
 
 - `SERIAL_7O1` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
-- `SERIAL_7E1` - 7 data bits, odd parity, 1 stop bit
-- `SERIAL_7E2` - 7 data bits, odd parity, 1 stop bit
+- `SERIAL_7E1` - 7 data bits, even parity, 1 stop bit
+- `SERIAL_7E2` - 7 data bits, even parity, 1 stop bit
 {{#if has-linbus}}
 - `LIN_MASTER_13B` - 8 data bits, no parity, 1 stop bit, LIN Master mode with 13-bit break generation
 - `LIN_SLAVE_10B` - 8 data bits, no parity, 1 stop bit, LIN Slave mode with 10-bit break detection
@@ -4342,6 +5205,17 @@ Parity:
 - `SERIAL_PARITY_EVEN` - even parity
 - `SERIAL_PARITY_ODD` - odd parity
 
+{{/if}} {{!-- has-stm32 --}}
+ 
+{{#if has-nrf52}}
+- `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
+- `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
+
+Other options, including odd parity, and 7 and 9 bit modes, are not available on the {{device}}. 
+
+{{/if}} {{!-- has-nrf52 --}}
+
+
 {{#if core}}
 Hardware flow control, available only on Serial1 (`CTS` - `A0`, `RTS` - `A1`):
 {{/if}}
@@ -4351,7 +5225,7 @@ Hardware flow control, available only on Serial2 (`CTS` - `A7`, `RTS` - `RGBR` )
 {{/if}}
 
 {{#if has-nrf52}}
-On mesh devices, flow control is available on Serial1 D3(CTS) and D2(RTS). 
+On Gen 3 devices (Argon, Boron, Xenon), flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using flow control (the default), then these pins can be used as regular GPIO.
 {{/if}}
 
 {{#if xenon}}
@@ -4376,9 +5250,9 @@ LIN configuration:
 {{/if}} {{!-- has-linbus --}}
 
 {{#if has-usb-serial1}}
-***NOTE*** {{since when="0.6.0"}}: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
+**NOTE** {{since when="0.6.0"}} When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 STARTUP(USBSerial1.begin());
 void setup()
@@ -4409,7 +5283,7 @@ When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Seria
 When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
 {{/unless}}{{/unless}}
 
-```C++
+```cpp
 // SYNTAX
 Serial1.end();
 ```
@@ -4420,15 +5294,15 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
-The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is 64 bytes.
+The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is {{#if has-stm32}}64{{/if}}{{#if has-nrf52}}128{{/if}} bytes and cannot be changed. 
 
 {{#if has-usb-serial1}}
 The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{else}}
-The receive buffer size for Serial is 64 bytes.
+The receive buffer size for Serial is 64 bytes. 
 {{/if}}
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void setup()
 {
@@ -4473,7 +5347,7 @@ Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{#if has-usb-serial1}}
 ### acquireSerialBuffer()
 
-```C++
+```cpp
 // SYNTAX
 HAL_USB_USART_Config acquireSerialBuffer()
 {
@@ -4511,6 +5385,8 @@ HAL_USB_USART_Config acquireUSBSerial1Buffer()
 {{since when="0.6.0"}}
 
 It is possible for the application to allocate its own buffers for `Serial` (USB serial) and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
+
+This is not available for hardware UART ports like `Serial1`, `Serial2`, etc.. If you are getting hardware serial buffer overruns, the [Serial Buffer Library](https://github.com/rickkas7/SerialBufferRK) may be helpful.
 
 {{/if}} {{!-- has-usb-serial1 --}}
 
@@ -4553,7 +5429,7 @@ from a serial peripheral.
 The `serialEvent` functions are called in between calls to the application `loop()`. This means that if `loop()` runs for a long time due to `delay()` calls or other blocking calls the serial buffer might become full between subsequent calls to `serialEvent` and serial characters might be lost. Avoid long `delay()` calls in your application if using `serialEvent`.
 
 Since `serialEvent` functions are an
-extension of the application loop, it is ok to call any functions that you would also call from `loop()`.
+extension of the application loop, it is ok to call any functions that you would also call from `loop()`. Because of this, there is little advantage to using serial events over just reading serial from loop(). 
 
 ```cpp
 // EXAMPLE - echo all characters typed over serial
@@ -4577,7 +5453,7 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
-```C++
+```cpp
 // SYNTAX
 Serial.peek();
 Serial1.peek();
@@ -4590,14 +5466,14 @@ _Available on Serial, Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial
 
 Writes binary data to the serial port. This data is sent as a byte or series of bytes; to send the characters representing the digits of a number use the `print()` function instead.
 
-```C++
+```cpp
 // SYNTAX
 Serial.write(val);
 Serial.write(str);
 Serial.write(buf, len);
 ```
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 void setup()
@@ -4629,14 +5505,14 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Reads incoming serial data.
 
-```C++
+```cpp
 // SYNTAX
 Serial.read();
 Serial1.read();
 ```
-`read()` returns the first byte of incoming serial data available (or -1 if no data is available) - *int*
+`read()` returns the first byte of incoming serial data available (or -1 if no data is available) - `int`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int incomingByte = 0; // for incoming serial data
 
@@ -4684,7 +5560,7 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as `Serial.print()`.
 
-```C++
+```cpp
 // SYNTAX
 Serial.println(val);
 Serial.println(val, format);
@@ -4697,7 +5573,7 @@ Serial.println(val, format);
 
 `println()` returns the number of bytes written, though reading that number is optional - `size_t (long)`
 
-```C++
+```cpp
 // EXAMPLE
 //reads an analog input on analog in A0, prints the value out.
 
@@ -4737,7 +5613,7 @@ Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style forma
 
 `printf` allows strings to be built by combining a number of values with text.
 
-```C++
+```cpp
 Serial.printf("Reading temperature sensor at %s...", Time.timeStr().c_str());
 float temp = readTemp();
 Serial.printf("the temperature today is %f Kelvin", temp);
@@ -4769,7 +5645,7 @@ so to that subsequent output appears on the next line.
 
 Waits for the transmission of outgoing serial data to complete.
 
-```C++
+```cpp
 // SYNTAX
 Serial.flush();
 Serial1.flush();
@@ -4788,13 +5664,13 @@ Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
 are on the TX pin.  This mode can be used for a single wire bus communications
 scheme between microcontrollers.
 
-```C++
+```cpp
 // SYNTAX
 Serial1.halfduplex(true);  // Enable half-duplex mode
 Serial1.halfduplex(false); // Disable half-duplex mode
 ```
 
-```C++
+```cpp
 // EXAMPLE
 // Initializes Serial1 at 9600 baud and enables half duplex mode
 
@@ -4810,13 +5686,28 @@ Serial1.halfduplex(true);
 
 ### isConnected()
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void setup()
 {
   Serial.begin();   // open serial over USB
   while(!Serial.isConnected()) // wait for Host to open serial port
     Particle.process();
+
+  Serial.println("Hello there!");
+}
+```
+
+Another technique is to use `waitFor` which makes it easy to time-limit the waiting period.
+
+```cpp
+// EXAMPLE USAGE
+void setup()
+{
+  Serial.begin();   // open serial over USB
+  
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   Serial.println("Hello there!");
 }
@@ -5253,7 +6144,7 @@ This function takes no parameters and does not return anything.
 Keyboard.write(character);
 ```
 
-Momentarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/particle-iot/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
+Momentarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/particle-iot/device-os/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
 
 ```cpp
 // EXAMPLE USAGE
@@ -5284,7 +6175,7 @@ Keyboard.click(key);
 Keyboard.click(key, modifiers);
 ```
 
-Momentarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
+Momentarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
 
 ```cpp
 // EXAMPLE USAGE
@@ -5298,8 +6189,8 @@ void setup() {
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `click()` does not return anything.
 
@@ -5332,8 +6223,8 @@ void setup() {
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `press()` does not return anything.
 
@@ -5363,8 +6254,8 @@ See [`Keyboard.click()`](#click--1) documentation for information about keycodes
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `release()` does not return anything.
 
@@ -5434,10 +6325,18 @@ be used via the `SPI` object, are mapped as follows:
 * `MOSI` => `A5`
 {{/if}}
 {{#if has-nrf52}}
-* `SS` => `D14` (but can use any available GPIO)
+On the Argon, Boron, and Xenon:
+* `SS` => `A5 (D14)` (but can use any available GPIO)
 * `SCK` => `SCK (D13)`
 * `MISO` => `MISO (D11)`
 * `MOSI` => `MOSI (D12)`
+
+On the B Series SoM:
+* `SS` => `D8` (but can use any available GPIO)
+* `SCK` => `SCK (D13)`
+* `MISO` => `MISO (D11)`
+* `MOSI` => `MOSI (D12)`
+
 {{/if}}
 
 {{#if has-multiple-spi}}
@@ -5451,8 +6350,10 @@ be used via the `SPI1` object. This second port is mapped as follows:
 {{/if}}
 {{#if has-nrf52}}
 * `SCK` => `D2`
-* `MISO` => `D3`
-* `MOSI` => `D4`
+* `MOSI` => `D3`
+* `MISO` => `D4`
+
+Note: On Gen 3 devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
 {{/if}}
 {{/if}}
 
@@ -5490,7 +6391,7 @@ Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select 
 
 **Note:**  The SPI firmware ONLY initializes the user-specified slave-select pin as an `OUTPUT`. The user's code must control the slave-select pin with `digitalWrite()` before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
-```C++
+```cpp
 // SYNTAX
 SPI.begin(ss);
 {{#if has-multiple-spi}}
@@ -5501,21 +6402,28 @@ SPI2.begin(ss);
 {{/if}}
 ```
 
-Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is:
+- Argon, Boron, Xenon: `A5 (D14)`
+- B Series SoM: `D8`
+- Photon, P1, Electron, and E Series: `A2`
+{{#if core}}
+- Gen 1 (Core): `A2`
+{{/if}} {{!-- core --}}
 {{#if has-multiple-spi}}
-For `SPI1`, the default `ss` pin is `SS (D5)`.
+For `SPI1`, the default `ss` pin is `D5`.
 {{#if electron}}
-For `SPI2`, the default `ss` pin is also `SS (D5)`.
-{{/if}}
+For `SPI2`, the default `ss` pin is also `D5`.
+{{/if}} {{!-- electron --}}
+{{/if}} {{!-- has-multiple-spi --}}
 
-```C++
+```cpp
 // Example using SPI1, with D5 as the SS pin:
 SPI1.begin();
 // or
 SPI1.begin(D5);
 ```
 {{#if electron}}
-```C++
+```cpp
 // Example using SPI2, with C0 as the SS pin:
 SPI2.begin(C0);
 ```
@@ -5535,10 +6443,21 @@ Initializes the {{device}} SPI peripheral in master or slave mode.
 Parameters:
 
 - `mode`: `SPI_MODE_MASTER` or `SPI_MODE_SLAVE`
-- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is `SS (A2)`. For `SPI1`, the default pin is `SS (D5)`. {{#if electron}}For `SPI2`, the default pin is also `SS (D5)`.{{/if}}
+- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is:
+- Argon, Boron, Xenon: `A5 (D14)`
+- B Series SoM: `D8`
+- Photon, P1, Electron, and E Series: `A2`
+{{#if core}}
+- Gen 1 (Core): `A2`
+{{/if}}
+{{#if has-multiple-spi}}
+For `SPI1`, the default `ss` pin is `D5`.
+{{#if electron}}
+For `SPI2`, the default `ss` pin is also `D5`.
+{{/if}}
 
-```C++
-// Example using SPI in master mode, with A2 (default) as the SS pin:
+```cpp
+// Example using SPI in master mode, with the default SS pin:
 SPI.begin(SPI_MODE_MASTER);
 {{#if has-multiple-spi}}
 // Example using SPI1 in slave mode, with D5 as the SS pin
@@ -5550,13 +6469,17 @@ SPI2.begin(SPI_MODE_SLAVE, C0);
 {{/if}}
 ```
 
+{{#if has-nrf52}}
+Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. It is not supported on SPI. The maximum speed is 8 MHz on SPI1.
+{{/if}}
+
 {{/if}} {{!-- has-spi-slave --}}
 
 ### end()
 
 Disables the SPI bus (leaving pin modes unchanged).
 
-```C++
+```cpp
 // SYNTAX
 SPI.end();
 {{#if has-multiple-spi}}
@@ -5571,7 +6494,7 @@ SPI2.end();
 
 Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST (least-significant bit first) or MSBFIRST (most-significant bit first).
 
-```C++
+```cpp
 // SYNTAX
 SPI.setBitOrder(order);
 {{#if has-multiple-spi}}
@@ -5590,7 +6513,7 @@ Sets the SPI clock speed. The value can be specified as a direct value, or as
 as a value plus a multiplier.
 
 
-```C++
+```cpp
 // SYNTAX
 SPI.setClockSpeed(value, scale);
 SPI.setClockSpeed(frequency);
@@ -5623,6 +6546,11 @@ the clock speed using dividers is typically not portable since is dependent upon
 On the Raspberry Pi, the default SPI clock is 4 MHz.
 {{/if}}
 
+{{#if has-nrf52}}
+Gen 3 devices (Argon, Boron, and Xenon) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
+{{/if}}
+
+
 ### setClockDividerReference
 
 This function aims to ease porting code from other platforms by setting the clock speed that
@@ -5654,18 +6582,24 @@ On the Core, this is 72 MHz.
 {{#if raspberry-pi}}
 On the Raspberry Pi, this is 64 MHz.
 {{else}}
+{{#if has-stm32}}
 On the Photon and Electron, the system clock speeds are:
 - SPI - 60 MHz
 - SPI1 - 30 MHz
 {{/if}}
-{{/if}}
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, Xenon), system clock speed is 64 MHz.
+{{/if}} {{!-- has-nrf52 --}}
+{{/if}} {{!-- else raspberry-pi --}}
+{{/if}} {{!-- else core --}}
+
 
 
 ### setClockDivider()
 
 Sets the SPI clock divider relative to the selected clock reference. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
 
-```C++
+```cpp
 // SYNTAX
 SPI.setClockDivider(divider);
 {{#if has-multiple-spi}}
@@ -5686,11 +6620,30 @@ Where the parameter, `divider` can be:
  - `SPI_CLOCK_DIV128`
  - `SPI_CLOCK_DIV256`
 
+The clock reference varies depending on the device.
+
+{{#if core}}
+On the Core, the clock reference is 72 MHz.
+{{else}}
+{{#if raspberry-pi}}
+On the Raspberry Pi, the clock reference is 64 MHz.
+{{else}}
+{{#if has-stm32}}
+On the Photon and Electron, the clock reference is 120 MHz.
+{{/if}}
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, Xenon), the clock reference is 64 MHz.
+{{/if}} {{!-- has-nrf52 --}}
+{{/if}} {{!-- else raspberry-pi --}}
+{{/if}} {{!-- else core --}}
+
+
+
 ### setDataMode()
 
 Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia article on SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) for details.
 
-```C++
+```cpp
 // SYNTAX
 SPI.setDataMode(mode);
 {{#if has-multiple-spi}}
@@ -5711,7 +6664,7 @@ Where the parameter, `mode` can be:
 
 Transfers one byte over the SPI bus, both sending and receiving.
 
-```C++
+```cpp
 // SYNTAX
 SPI.transfer(val);
 {{#if has-multiple-spi}}
@@ -5730,7 +6683,7 @@ For transferring a large number of bytes, this form of transfer() uses DMA to sp
 
 **Note**: The SPI protocol is based on a one byte OUT / one byte IN interface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
 
-```C++
+```cpp
 // SYNTAX
 SPI.transfer(tx_buffer, rx_buffer, length, myFunction);
 {{#if has-multiple-spi}}
@@ -5766,7 +6719,11 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 
 Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
 
-```C++
+{{#if has-nrf52}}
+On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
+{{/if}} {{!-- has-nrf52 --}}
+
+```cpp
 // SYNTAX
 SPI.onSelect(myFunction);
 {{#if has-multiple-spi}}
@@ -5783,7 +6740,8 @@ void myFunction(uint8_t state) {
 
 Parameters: `handler`: the function to be called when the slave is selected or deselected; this should take a single uint8_t parameter (the current state: `1` - selected, `0` - deselected) and return nothing, e.g.: `void myHandler(uint8_t state)`
 
-```C++
+{{#if has-stm32}}
+```cpp
 // SPI slave example
 static uint8_t rx_buffer[64];
 static uint8_t tx_buffer[64];
@@ -5828,14 +6786,63 @@ void loop() {
     }
 }
 ```
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+```cpp
+// SPI slave example
+static uint8_t rx_buffer[64];
+static uint8_t tx_buffer[64];
+static uint32_t select_state = 0x00;
+static uint32_t transfer_state = 0x00;
+
+void onTransferFinished() {
+    transfer_state = 1;
+}
+
+void onSelect(uint8_t state) {
+    if (state)
+        select_state = state;
+}
+
+/* executes once at startup */
+void setup() {
+    Serial.begin(9600);
+    for (int i = 0; i < sizeof(tx_buffer); i++)
+      tx_buffer[i] = (uint8_t)i;
+    SPI1.onSelect(onSelect);
+    SPI1.begin(SPI_MODE_SLAVE, A5);
+}
+
+/* executes continuously after setup() runs */
+void loop() {
+    while (1) {
+        while(select_state == 0);
+        select_state = 0;
+
+        transfer_state = 0;
+        SPI1.transfer(tx_buffer, rx_buffer, sizeof(rx_buffer), onTransferFinished);
+        while(transfer_state == 0);
+        if (SPI1.available() > 0) {
+            Serial.printf("Received %d bytes", SPI.available());
+            Serial.println();
+            for (int i = 0; i < SPI.available(); i++) {
+                Serial.printf("%02x ", rx_buffer[i]);
+            }
+            Serial.println();
+        }
+    }
+}
+```
+{{/if}} {{!-- has-nrf52 --}}
 
 ### available()
 
 {{since when="0.5.0"}}
 
-Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
+Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, it returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
 
-```C++
+```cpp
 // SYNTAX
 SPI.available();
 ```
@@ -5854,7 +6861,7 @@ The `__SPISettings` object specifies the SPI peripheral settings. This object ca
 **Note:** Either `SPISettings()` (_Since 0.6.1_) or `__SPISettings()` (_Since 0.6.2_) may be used **with** `#include "Arduino.h"`
 `__SPISettings()` should be used **without** `#include "Arduino.h"`
 
-```C++
+```cpp
 // SYNTAX
 SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
 // Pre-declared __SPISettings object
@@ -5885,7 +6892,7 @@ In addition to reconfiguring the SPI peripheral, `beginTransaction()` also acqui
 
 {{/if}} {{!-- has-threading --}}
 
-```C++
+```cpp
 // SYNTAX
 SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
 // Pre-declared __SPISettings object
@@ -5919,7 +6926,7 @@ This function releases the SPI peripheral lock, allowing other threads to use it
 
 {{/if}} {{!-- has-threading --}}
 
-```C++
+```cpp
 // SYNTAX
 SPI.endTransaction();
 {{#if has-multiple-spi}}
@@ -5939,18 +6946,29 @@ Returns: Negative integer in case of an error.
 {{#if has-i2c}}
 
 Wire (I2C)
-----
+---
+(inherits from [`Stream`](#stream-class))
 
-{{#if has-embedded}}
-{{#unless electron}}
+{{#if core}}
 ![I2C](/assets/images/core-pin-i2c.jpg)
-{{/unless}}
 {{/if}}
 
-This library allows you to communicate with I2C / TWI(Two Wire Interface) devices.
+This library allows you to communicate with I2C / TWI (Two Wire Interface) devices.
 
 {{#if has-embedded}}
+
+{{#if has-stm32}}
 On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Additionally, there is a second optional I2C interface on D2 and D3 on the Argon and Xenon only.
+
+Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+
+Note that unlike the Gen 1 (Core) and Gen 2 devices (Photon/P1/Electron), Gen 3 devices are not 5V tolerant.
+{{/if}} {{!-- has-nrf52 --}}
+
 
 These pins are used via the `Wire` object.
 
@@ -5981,12 +6999,12 @@ For example, do not use `Wire.begin()` with `Wire1.write()`.
 {{/if}} {{!-- has-embedded --}}
 
 {{#if raspberry-pi}}
-There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](/datasheets/raspberrypi-datasheet/#pin-out-diagram) to find out where pins are located.
+There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](/datasheets/raspberrypi-datasheet#pin-out-diagram) to find out where pins are located.
 
 **Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
 
 It is not recommended to use the I2C pins for general purpose IO. If you need to, you must disable the I2C peripheral in `raspi-config`, reboot and use the `SCL` and `SDA` pins with `pinMode`, `digitalRead` or `digitalWrite`.
-{{/if}}
+{{/if}} {{!-- raspberry-pi --}}
 
 {{#if has-embedded}}
 
@@ -5994,7 +7012,7 @@ It is not recommended to use the I2C pins for general purpose IO. If you need to
 
 Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz and the maximum clock speed is 400KHz.
 
-```C++
+```cpp
 // SYNTAX
 Wire.setSpeed(clockSpeed);
 Wire.begin();
@@ -6008,7 +7026,7 @@ Parameters:
 
 Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). I2C clock stretching is only used with I2C Slave mode. The default I2C clock stretching mode is enabled.
 
-```C++
+```cpp
 // SYNTAX
 Wire.stretchClock(stretch);
 Wire.begin(4); // I2C Slave mode, address #4
@@ -6024,7 +7042,7 @@ Parameters:
 
 Initiate the Wire library and join the I2C bus as a master{{#if has-i2c-slave}} or slave{{/if}}. This should normally be called only once.
 
-```C++
+```cpp
 // SYNTAX
 Wire.begin();
 {{#if has-i2c-slave}}
@@ -6047,14 +7065,14 @@ Releases the I2C bus so that the pins used by the I2C bus are available for gene
 
 Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
 
-```C++
+```cpp
 // SYNTAX
 Wire.isEnabled();
 ```
 
 Returns: boolean `true` if I2C enabled, `false` if I2C disabled.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Initialize the I2C bus if not already enabled
@@ -6067,7 +7085,7 @@ if (!Wire.isEnabled()) {
 
 Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions.
 
-```C++
+```cpp
 // SYNTAX
 Wire.requestFrom(address, quantity);
 Wire.requestFrom(address, quantity, stop);
@@ -6097,7 +7115,7 @@ we hope this function isn't required, and it's provided for completeness.
 
 Begin a transmission to the I2C slave device with the given address. Subsequently, queue bytes for transmission with the `write()` function and transmit them by calling `endTransmission()`.
 
-```C++
+```cpp
 // SYNTAX
 Wire.beginTransmission(address);
 ```
@@ -6109,7 +7127,7 @@ Parameters: `address`: the 7-bit address of the device to transmit to.
 Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`.
 
 
-```C++
+```cpp
 // SYNTAX
 Wire.endTransmission();
 Wire.endTransmission(stop);
@@ -6131,7 +7149,7 @@ Returns: `byte`, which indicates the status of the transmission:
 
 Queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`){{#if has-i2c-slave}}, or writes data from a slave device in response to a request from a master{{/if}}. Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
 
-```C++
+```cpp
 // SYNTAX
 Wire.write(value);
 Wire.write(string);
@@ -6144,11 +7162,11 @@ Parameters:
 - `data`: an array of data to send as bytes
 - `length`: the number of bytes to transmit (Max. 32)
 
-Returns:  `byte`
+Returns: `byte`
 
 `write()` will return the number of bytes written, though reading that number is optional.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Master Writer running on Device No.1 (Use with corresponding Slave Reader running on Device No.2)
@@ -6174,7 +7192,7 @@ void loop() {
 
 Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()`{{#if has-i2c-slave}} or on a slave inside the `onReceive()` handler{{/if}}.
 
-```C++
+```cpp
 Wire.available();
 ```
 
@@ -6184,14 +7202,14 @@ Returns: The number of bytes available for reading.
 
 Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class.
 
-```C++
+```cpp
 // SYNTAX
 Wire.read() ;
 ```
 
 Returns: The next byte received
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Master Reader running on Device No.1 (Use with corresponding Slave Writer running on Device No.2)
@@ -6217,7 +7235,7 @@ void loop() {
 
 Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
 
-```C++
+```cpp
 // SYNTAX
 Wire.peek();
 ```
@@ -6234,7 +7252,7 @@ Parameters: `handler`: the function to be called when the slave receives data; t
 
 **Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to receive I2C data.  Post process outside of this handler.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Slave Reader running on Device No.2 (Use with corresponding Master Writer running on Device No.1)
@@ -6269,7 +7287,7 @@ Parameters: `handler`: the function to be called, takes no parameters and return
 
 **Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to send I2C data.  Post process outside of this handler.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Slave Writer running on Device No.2 (Use with corresponding Master Reader running on Device No.1)
@@ -6357,7 +7375,7 @@ struct CANMessage
 
 Create a `CANChannel` global object to connect to a CAN bus on the specified pins.
 
-```C++
+```cpp
 // SYNTAX
 CANChannel can(pins, rxQueueSize, txQueueSize);
 ```
@@ -6368,7 +7386,7 @@ Parameters:
 - `rxQueueSize` (optional): the receive queue size (default 32 message)
 - `txQueueSize` (optional): the transmit queue size (default 32 message)
 
-```C++
+```cpp
 // EXAMPLE
 CANChannel can(CAN_D1_D2);
 // Buffer 10 received messages and 5 transmitted messages
@@ -6379,7 +7397,7 @@ CANChannel can(CAN_D1_D2, 10, 5);
 
 Joins the bus at the given `baud` rate.
 
-```C++
+```cpp
 // SYNTAX
 can.begin(baud, flags);
 ```
@@ -6389,7 +7407,7 @@ Parameters:
 - `baud`: common baud rates are 50000, 100000, 125000, 250000, 500000, 1000000
 - `flags` (optional): `CAN_TEST_MODE` to run the CAN bus in test mode where every transmitted message will be received back
 
-```C++
+```cpp
 // EXAMPLE
 CANChannel can(CAN_D1_D2);
 can.begin(500000);
@@ -6564,7 +7582,7 @@ Errors heal automatically when properly communicating with other microcontroller
 
 Creates an IP address that can be used with TCPServer, TCPClient, and UDP objects.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 IPAddress localIP;
@@ -6576,7 +7594,7 @@ IPAddress IPfromBytes( server );
 
 The IPAddress also allows for comparisons.
 
-```C++
+```cpp
 if (IPfromInt == IPfromBytes)
 {
   Serial.println("Same IP addresses");
@@ -6585,7 +7603,7 @@ if (IPfromInt == IPfromBytes)
 
 You can also use indexing the get or change individual bytes in the IP address.
 
-```C++
+```cpp
 // PING ALL HOSTS ON YOUR SUBNET EXCEPT YOURSELF
 IPAddress localIP = WiFi.localIP();
 uint8_t myLastAddrByte = localIP[3];
@@ -6601,7 +7619,7 @@ for(uint8_t ipRange=1; ipRange<255; ipRange++)
 
 You can also assign to an IPAddress from an array of uint8's or a 32-bit unsigned integer.
 
-```C++
+```cpp
 IPAddress IPfromInt;  // 10.0.0.2 as 10*256^3+0*256^2+0*256+2
 IPfromInt = 167772162UL;
 uint8_t server[] = { 10, 0, 0, 2};
@@ -6611,26 +7629,2120 @@ IPfromBytes = server;
 
 Finally IPAddress can be used directly with print.
 
-```C++
+```cpp
 // PRINT THE DEVICE'S IP ADDRESS IN
 // THE FORMAT 192.168.0.10
 IPAddress myIP = WiFi.localIP();
 Serial.println(myIP);    // prints the device's IP address
 ```
 
+{{#if has-ble}}
+## Bluetooth LE (BLE)
+
+Gen 3 devices (Argon, Boron, and Xenon) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
+
+BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices.
+
+The mesh networking in Gen 3 devices is Thread Mesh (6LoWPAN over 802.15.4). While it uses the same 2.4 GHz radio spectrum as Bluetooth 5 mesh, they are different and not compatible. Particle devices do not support Bluetooth 5 mesh.
+
+The BLE protocol shares the same antenna as the mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
+
+The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
+
+BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. Some differences between 1.3.0 and 1.3.1 include:
+
+- The number of connections from a central devices to peripherals is 3. It was 1 in 1.3.0.
+- The calls to get a characteristic now return a boolean value (true = success) and take the characteristic object as a parameter rather than returning the characteristic as in 1.3.0.
+- Limits for the number user characteristics is 20. In 1.3.0 it was 7.
+
+### BLE Class
+
+#### BLE.advertise()
+
+A BLE peripheral can periodically publish data to all nearby devices using advertising. Once you've set up the [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata) object, call `BLE.advertise()` to continuously advertise the data to all BLE devices scanning for it.
+
+Optionally, you can provide a `scanResponse` data object. If provided, the central device can ask for it during the scan process. Both the advertising data and scan data are public - any device can see and request the data without authentication.
+
+```cpp
+// PROTOTYPE
+int advertise(BleAdvertisingData* advertisingData, BleAdvertisingData* scanResponse = nullptr) const;
+
+// EXAMPLE
+BleAdvertisingData advData;
+
+// While we support both the health thermometer service and the battery service, we
+// only advertise the health thermometer. The battery service will be found after
+// connecting.
+advData.appendServiceUUID(healthThermometerService);
+
+
+// Continuously advertise when not connected
+BLE.advertise(&advData);
+```
+
+Returns 0 on success or a non-zero error code.
+
+You cannot use BLE advertising while in listening mode (blinking dark blue). The device will be advertising its configuration capabilities to the Particle app when in listening mode.
+
+#### BLE.advertise(iBeacon)
+
+You can advertise as an Apple iBeacon. See the [`iBeacon`](/reference/device-os/firmware/#ibeacon) section for more information.
+
+```cpp
+// PROTOTYPE
+int advertise(const iBeacon& beacon) const;
+```
+
+Returns 0 on success or a non-zero error code.
+
+You cannot use BLE advertising including iBeacon while in listening mode (blinking dark blue). The device will be advertising its configuration capabilities to the Particle app when in listening mode.
+
+#### BLE.advertise()
+
+The advertising data set using the previous two calls is saved. You can using `BLE.stopAdvertising()` to stop and `BLE.advertise()` to resume advertising.
+
+```
+// PROTOTYPE
+int advertise() const;
+
+// EXAMPLE
+BLE.advertise();
+```
+
+Returns 0 on success or a non-zero error code.
+
+#### BLE.stopAdvertising()
+
+Stops advertising. You can resume advertising using `BLE.advertise()`. Advertising automatically stops while connected to a central device and resumes when disconnected.
+
+```
+// PROTOTYPE
+int stopAdvertising() const;
+
+// EXAMPLE
+BLE.stopAdvertising();
+```
+
+#### BLE.advertising()
+
+Returns `true` (1) if advertising is currently on or `false` (0) if not.
+
+```cpp
+// PROTOTYPE
+bool advertising() const;
+```
+
+#### BLE.getAdvertisingData()
+
+You can get the advertising data that you previously set using `getAdvertisingData()`. Initially the data will be empty.
+
+```cpp
+// PROTOTYPE
+ssize_t getAdvertisingData(BleAdvertisingData* advertisingData) const;
+```
+
+See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
+
+
+#### BLE.setAdvertisingData()
+
+You can set the advertising data using `setAdvertisingData`. You might want to do this if you want to change the data while continuously advertising.
+
+```cpp
+// PROTOTYPE
+int setAdvertisingData(BleAdvertisingData* advertisingData) const;
+```    
+
+See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
+
+
+#### BLE.setAdvertisingInterval()
+
+Sets the advertising interval. The unit is 0.625 millisecond (625 microsecond) intervals. The default value is 160, or 100 milliseconds.
+
+The range is from 20 milliseconds (32) to 10.24 seconds (16383).
+
+| Interval Value | Milliseconds | Description | 
+| ---: | --- | --- |
+| 32 | 20 ms | Minimum value |
+| 160 | 100 ms | Default value |
+| 400 | 250 ms | |
+| 800 | 500 ms | |
+| 1600 | 1 sec | |
+| 3200 | 2 sec | Upper end of recommended range |
+| 16383 | 10.24 sec | Maximum value |
+
+Returns 0 on success or a non-zero error code.
+
+```
+// PROTOTYPE
+int setAdvertisingInterval(uint16_t interval) const;
+
+// EXAMPLE
+
+// Set advertising interval to 500 milliseconds
+BLE.setAdvertisingInterval(800);
+```
+
+BLE and Thread Mesh use the same radio, and time-slice the use of the radio. BLE has priority over Thread Mesh, so using very short advertising intervals may affect the performance of mesh. It's best to stay at 100 milliseconds or higher when using BLE and Thread Mesh at the same time.
+
+#### BLE.setAdvertisingTimeout()
+
+Normally, advertising continues until `stopAdvertising()` is called or a connection is made from a central device. 
+
+You can also have advertising automatically stop after a period of time. The parameter is in units of 10 milliseconds, so if you want to advertise for 10 seconds you'd set the parameter to 1000.
+
+Pass 0 to advertise until stopped. This is the default.
+
+Returns 0 on success or a non-zero error code.
+
+```
+// PROTOTYPE
+int setAdvertisingTimeout(uint16_t timeout) const;
+```
+
+#### BLE.setAdvertisingType()
+
+The advertising type can be set with this method. This is not typically necessary.
+
+| Type | Value |
+| --- | --- |
+| `CONNECTABLE_SCANNABLE_UNDIRECTED` | 0 |
+| `CONNECTABLE_UNDIRECTED` | 1 |
+| `CONNECTABLE_DIRECTED` | 2 |
+| `NON_CONNECTABLE_NON_SCANNABLE_UNDIRECTED` | 3 |
+| `NON_CONNECTABLE_NON_SCANNABBLE_DIRECTED` | 4 |
+| `SCANNABLE_UNDIRECTED` | 5 |
+| `SCANNABLE_DIRECTED` | 6 |
+
+The default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
+
+```cpp
+// PROTOTYPE
+int setAdvertisingType(BleAdvertisingEventType type) const;
+```
+
+See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype) for more information.
+
+#### BLE.getAdvertisingParameters()
+
+Gets the advertising parameters.
+
+```cpp
+// PROTOTYPE
+int getAdvertisingParameters(BleAdvertisingParams* params) const;
+
+// EXAMPLE
+BleAdvertisingParams param;
+param.version = BLE_API_VERSION;
+param.size = sizeof(BleAdvertisingParams);
+
+int res = BLE.getAdvertisingParameters(&param);
+```
+
+See [`BleAdvertisingParameters`](/reference/device-os/firmware/#bleadvertisingparams) for more information.
+
+#### BLE.setAdvertisingParameters()
+
+Sets the advertising parameters using individual values for interval, timeout, and type.
+
+```cpp
+// PROTOTYPE
+int setAdvertisingParameters(uint16_t interval, uint16_t timeout, BleAdvertisingEventType type) const;
+```
+
+- `interval` Advertising interval in 0.625 ms units. Default is 160.
+- `timeout` Advertising timeout in 10 ms units. Default is 0.
+- `type` [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
+
+#### BLE.setAdvertisingParameters(BleAdvertisingParams)
+
+Sets the advertising parameters from the BleAdvertisingParams struct.
+
+```cpp
+// PROTOTYPE
+int setAdvertisingParameters(const BleAdvertisingParams* params) const;
+```
+
+See [`BleAdvertisingParameters`](/reference/device-os/firmware/#bleadvertisingparams) for more information.
+
+
+#### BLE.getScanResponseData()
+
+In addition to the advertising data, there is an additional 31 bytes of data referred to as the scan response data. This data can be requested during the scan process. It does not require connection or authentication. This is only used from scannable peripheral devices.
+
+```cpp
+// PROTOTYPE
+ssize_t getScanResponseData(BleAdvertisingData* scanResponse) const;
+```
+
+See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
+
+#### BLE.setScanResponseData()
+
+In addition to the advertising data, there is an additional 31 bytes of data referred to as the scan response data. This data can be requested during the scan process. It does not require connection or authentication. This is only used from scannable peripheral devices.
+
+```cpp
+// PROTOTYPE
+int setScanResponseData(BleAdvertisingData* scanResponse) const;
+```
+
+See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
+
+
+#### BLE.addCharacteristic(characteristic)
+
+Adds a characteristic to this peripheral device from a [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object. 
+
+```cpp
+// PROTOTYPE
+BleCharacteristic addCharacteristic(BleCharacteristic& characteristic) const;
+
+// EXAMPLE
+
+// Global variables:
+BleUuid serviceUuid("09b17c16-3498-4c02-beb6-3d5792528181");
+BleUuid buttonCharacteristicUuid("fe0a8cd7-9f69-45c7-b7a1-3ecb0c9e97c7");
+BleCharacteristic buttonCharacteristic("b", BleCharacteristicProperty::NOTIFY, buttonCharacteristicUuid, serviceUuid);
+
+// In setup():
+BLE.addCharacteristic(buttonCharacteristic);
+
+BleAdvertisingData data;
+data.appendServiceUUID(serviceUuid);
+BLE.advertise(&data);
+```
+
+There is a limit of 20 user characteristics, with a maximum description of 20 characters. 
+
+You can have up to 20 user services, however you typically cannot advertise that many services as the advertising payload is too small. You normally only advertise your primary service that you device will searched by. Other, less commonly used services can be found after connecting to the device.
+
+#### BLE.addCharacteristic(parameters)
+
+Instead of setting the parameters in a BleCharacteristic object you can pass them directly to addCharacteristic.
+
+The parameters are the same as the BleCharacteristic constructors and are described in more detail in the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) documentation.
+
+```cpp
+// PROTOTYPE
+BleCharacteristic addCharacteristic(const char* desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+
+BleCharacteristic addCharacteristic(const String& desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+
+template<typename T>
+BleCharacteristic addCharacteristic(const char* desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+
+template<typename T>
+BleCharacteristic addCharacteristic(const String& desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr) const;
+```
+
+There is a limit of 20 user characteristics, with a maximum description of 20 characters.
+
+You can have up to 20 user services, however you typically cannot advertise that many services as the advertising payload is too small. You normally only advertise your primary service that you device will searched by. Other, less commonly used services can be found after connecting to the device.
+
+See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+
+#### BLE.scan(array)
+
+Scan for BLE devices. This is typically used by a central device to find nearby BLE devices that can be connected to. It can also be used by an observer to find nearby beacons that continuously transmit data.
+
+There are three overloads of `BLE.scan()`, however all of them are synchronous. The calls do not return until the scan is complete. The `BLE.setScanTimeout()` method determines how long the scan will run for. 
+
+The default is 5 seconds, however you can change it using `setScanTimeout()`.
+
+```cpp
+// PROTOTYPE
+int scan(BleScanResult* results, size_t resultCount) const;
+```
+
+The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described below. It contains:
+
+- `address` The BLE address of the device
+- `advertisingData` The advertising data sent by the device
+- `scanData` The scan data (optional)
+- `rssi` The signal strength of the advertising message.
+
+BLE and Thread Mesh use the same radio, and time-slice the use of the radio. BLE has priority over Thread Mesh. Scanning takes many radio time slices and may affect Thread Mesh performance due to the reduced availability of radio time for Thread Mesh.
+
+#### BLE.scan(Vector)
+
+The `Vector` version of scan does not require guessing the number of scan items ahead of time. However, it does dynamically allocate memory to hold all of the scan results.
+
+This call does not return until the scan is complete. The `setScanTimeout()` function determines how long the scan will run for. 
+
+The default is 5 seconds, however you can change it using `setScanTimeout()`.
+
+```cpp
+// PROTOTYPE
+Vector<BleScanResult> scan() const;
+
+// EXAMPLE
+#include "Particle.h"
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate warning for unused variable
+}
+
+void loop() {
+	Vector<BleScanResult> scanResults = BLE.scan();
+
+    if (scanResults.size()) {
+        Log.info("%d devices found", scanResults.size());
+
+        for (int ii = 0; ii < scanResults.size(); ii++) {
+            Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
+                    scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+                    scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5], scanResults[ii].rssi);
+
+            String name = scanResults[ii].advertisingData.deviceName();
+            if (name.length() > 0) {
+                Log.info("Advertising name: %s", name.c_str());
+            }
+        }
+    }
+
+    delay(3000);
+}
+```
+
+The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described below. It contains:
+
+- `address` The BLE address of the device
+- `advertisingData` The advertising data sent by the device
+- `scanData` The scan data (optional)
+- `rssi` The signal strength of the advertising message.
+
+#### BLE.scan(callback)
+
+The callback version of scan does not return until the scan has reached the end of the scan timeout. There are still advantages of using this, however:
+
+- You do not need to guess how many scan results there will be ahead of time.
+- If you expect to have a lot of BLE devices in the area but only care about a few, this version can save on memory usage.
+- The callback is called as the devices are discovered - you can start to display before the timeout occurs.
+- You can stop scanning when the desired device is found instead of waiting until the timeout.
+
+The default is 5 seconds, however you can change it using `setScanTimeout()`.
+
+```cpp
+// PROTOTYPE
+int scan(BleOnScanResultCallback callback, void* context) const;
+
+// EXAMPLE
+#include "Particle.h"
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+void scanResultCallback(const BleScanResult *scanResult, void *context);
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate warning for unused variable
+}
+
+void loop() {
+	Log.info("starting scan");
+
+	int count = BLE.scan(scanResultCallback, NULL);
+	if (count > 0) {
+		Log.info("%d devices found", count);
+	}
+
+	delay(3000);
+}
+
+void scanResultCallback(const BleScanResult *scanResult, void *context) {
+	Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
+			scanResult->address[0], scanResult->address[1], scanResult->address[2],
+			scanResult->address[3], scanResult->address[4], scanResult->address[5], scanResult->rssi);
+
+	String name = scanResult->advertisingData.deviceName();
+	if (name.length() > 0) {
+		Log.info("deviceName: %s", name.c_str());
+	}
+}
+```
+
+The callback has this prototype:
+
+```cpp
+void scanResultCallback(const BleScanResult *scanResult, void *context)
+```
+
+The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described below. It contains:
+
+- `address` The BLE address of the device
+- `advertisingData` The advertising data sent by the device
+- `scanData` The scan data (optional)
+- `rssi` The signal strength of the advertising message.
+
+The `context` parameter is often used if you implement your scanResultCallback in a C++ object. You can store the object instance pointer (`this`) in the context.
+
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+#### BLE.stopScanning()
+
+The `stopScanning()` method interrupts a `BLE.scan()` in progress before the end of the timeout. It's typically called from the scan callback function.
+
+You might want to do this if you're looking for a specific device - you can stop scanning after you find it instead of waiting until the end of the scan timeout.
+
+```cpp
+// PROTOTYPE
+int stopScanning() const;
+
+// EXAMPLE
+void scanResultCallback(const BleScanResult *scanResult, void *context) {
+	// Stop scanning if we encounter any BLE device in range
+	BLE.stopScanning();
+}
+```
+
+#### BLE.setScanTimeout()
+
+Sets the length of time `scan()` will run for. The default is 5 seconds.
+
+```cpp
+// PROTOTYPE
+int setScanTimeout(uint16_t timeout) const;
+
+// EXAMPLE
+
+// Scan for 1 second
+setScanTimeout(100);
+```
+
+The unit is 10 millisecond units, so the default timeout parameter is 500.
+
+Returns 0 on success or a non-zero error code.
+
+#### BLE.getScanParameters()
+
+Gets the parameters used for scanning.
+
+```cpp
+// PROTOTYPE
+int getScanParameters(BleScanParams* params) const;
+
+// EXAMPLE
+BleScanParams scanParams;
+scanParams.version = BLE_API_VERSION;
+scanParams.size = sizeof(BleScanParams);
+int res = BLE.getScanParameters(&scanParams);
+```
+
+See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more information.
+
+#### BLE.setScanParameters()
+
+Sets the parameters used for scanning. Typically you will only ever need to change the scan timeout, but if you need finer control you can use this function.
+
+```cpp
+// PROTOTYPE
+int setScanParameters(const BleScanParams* params) const;
+```
+
+See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more information.
+
+#### BLE.connect()
+
+In a central device the logic typically involves:
+
+- Scanning for a device
+- Selecting one, either manually from a user selection, or automatically by its capabilities.
+- Connecting to it to exchange more data (optional)
+
+Scanning for devices provides its address as well as additional data (advertising data). With the address you can connect:
+
+```cpp
+// PROTOTYPE
+BlePeerDevice connect(const BleAddress& addr, bool automatic = true) const;
+BlePeerDevice connect(const BleAddress& addr, const BleConnectionParams* params, bool automatic = true) const;
+BlePeerDevice connect(const BleAddress& addr, uint16_t interval, uint16_t latency, uint16_t timeout, bool automatic = true) const;
+```
+
+- `addr` The [`BleAddress`](/reference/device-os/firmware/#bleaddress) to connect to.
+
+This call is synchronous and will block until a connection is completed or the operation times out.
+
+Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object. You typically use a construct like this:
+
+```
+// EXAMPLE:
+BlePeerDevice peer = BLE.connect(scanResults[ii].address);
+if (peer.connected()) {
+	Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
+							scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+							scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+	// ...
+}
+else {
+	Log.info("connection failed");
+	// ...
+}
+```
+
+It is possible to save the address and avoid scanning, however the address could change on some BLE devices, so you should be prepared to scan again if necessary.
+
+A central device can connect to up to 3 peripheral devices at a time. (It's limited to 1 in Device OS 1.3.0.)
+
+See the next section for the use of `BleConnectionParams` as well as interval, latency, and timeout.
+
+#### BLE.connect(options)
+
+This version of connect allows parameters for the connection to be set.
+
+```cpp
+// PROTOTYPE
+BlePeerDevice connect(const BleAddress& addr, uint16_t interval, uint16_t latency, uint16_t timeout) const;
+```
+- `addr` The [`BleAddress`](/reference/device-os/firmware/#bleaddress) to connect to.
+- `interval` The minimum connection interval in units of 1.25 milliseconds. The default is 24 (30 milliseconds).
+- `latency` Use default value 0.
+- `timeout` Connection timeout in units of 10 milliseconds. Default is 500 (5 seconds). Minimum value is 100 (1 second).
+
+Note that the timeout is the timeout after the connection is established, to determine that the other side is no longer available. It does not affect the initial connection timeout.
+
+Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object. 
+
+#### BLE.setPPCP()
+
+Sets the connection parameter defaults so future calls to connect() without options will use these values.
+
+```cpp
+// PROTOTYPE
+int setPPCP(uint16_t minInterval, uint16_t maxInterval, uint16_t latency, uint16_t timeout) const;
+```
+
+- `minInterval` the minimum connection interval in units of 1.25 milliseconds. The default is 24 (30 milliseconds).
+- `maxInterval` the minimum connection interval in units of 1.25 milliseconds. The default is 24 (30 milliseconds). The connect(options) call sets both minInterval and maxInterval to the interval parameter.
+- `latency` Use default value 0.
+- `timeout` Connection timeout in units of 10 milliseconds. Default is 500 (5 seconds). Minimum value is 100 (1 second).
+
+Note that the timeout is the timeout after the connection is established, to determine that the other side is no longer available. It does not affect the initial connection timeout.
+
+#### BLE.connected()
+
+Returns `true` (1) if a connected to a device or `false` (0) if not.
+
+```cpp
+// PROTOTYPE
+bool connected() const;
+```
+
+Can be used in central or peripheral mode, however if central mode if you are supporting more than one peripheral you may want to use the `connected()` method of the [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object to find out the status of individual connections.
+
+
+#### BLE.disconnect()
+
+Disconnects all peers.
+
+```cpp
+// PROTOTYPE
+int disconnect() const;
+```
+
+Returns 0 on success or a non-zero error code.
+
+
+#### BLE.disconnect(peripheral)
+
+Typically used in central mode when making connections to multiple peripherals to disconnect a single peripheral.
+
+```cpp
+// PROTOTYPE
+int disconnect(const BlePeerDevice& peripheral) const;
+```
+
+The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) is described below. You typically get it from `BLE.connect()`.
+
+Returns 0 on success or a non-zero error code.
+
+#### BLE.on()
+
+Turns the BLE radio on. It defaults to on, so you normally do not need to call this unless you have turned it off.
+
+```cpp
+// PROTOTYPE
+int on();
+```
+
+Returns 0 on success, or a non-zero error code.
+
+#### BLE.off()
+
+Turns the BLE radio off. You normally do not need to do this.
+
+```cpp
+// PROTOTYPE
+int off();
+```
+
+Returns 0 on success, or a non-zero error code.
+
+#### BLE.begin()
+
+Starts the BLE service. It defaults to started, so you normally do not need to call this unless you have stopped it.
+
+```cpp
+// PROTOTYPE
+int begin();
+```
+
+Returns 0 on success, or a non-zero error code.
+
+#### BLE.end()
+
+Stops the BLE service. You normally do not need to do this.
+
+```cpp
+// PROTOTYPE
+int end();
+```
+
+Returns 0 on success, or a non-zero error code.
+
+
+#### BLE.onConnected()
+
+Registers a callback function that is called when a connection is established.
+
+You can use this method, or you can simply monitor `BLE.connected()` (for peripheral devices) or `peer.connected()` for central devices.
+
+```cpp
+// PROTOTYPE
+void onConnected(BleOnConnectedCallback callback, void* context);
+```
+
+The prototype for the callback function is:
+
+```
+void callback(const BlePeerDevice& peer, void* context);
+```
+
+The callback parameters are:
+
+- `peer` The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object that has connected.
+- `context` The value you passed to `onConnected` when you registered the connected callback.
+
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+#### BLE.onDisconnected()
+
+Registers a callback function that is called when a connection is disconnected on a peripheral device.
+
+You can use this method, or you can simply monitor `BLE.connected()` (for peripheral devices) or `peer.connected()` for central devices.
+
+```cpp
+// PROTOTYPE
+void onDisconnected(BleOnDisconnectedCallback callback, void* context);
+````
+
+The prototype for the callback function is:
+
+```
+void callback(const BlePeerDevice& peer, void* context);
+```
+
+The callback parameters are the same as for onConnected().
+
+
+#### BLE.setTxPower()
+
+Sets the BLE transmit power. The default is 0 dBm.
+
+Valid values are: -20, -16, -12, -8, -4, 0, 4, 8. 
+
+-20 is the lowest power, and 8 is the highest power. 
+
+Returns 0 on success or a non-zero error code.
+
+```cpp
+// PROTOTYPE
+int setTxPower(int8_t txPower) const;
+
+// EXAMPLE
+BLE.setTxPower(-12); // Use lower power
+```
+
+Returns 0 on success or a non-zero error code.
+
+#### BLE.txPower()
+
+Gets the current txPower. The default is 0. 
+
+Returns 0 on success or a non-zero error code.
+
+```cpp
+// PROTOTYPE
+int txPower(int8_t* txPower) const;
+
+// EXAMPLE
+int8_t txPower;
+txPower = BLE.tx(&txPower);
+Log.info("txPower=%d", txPower);
+```
+
+#### BLE.address()
+
+Get the BLE address of this device.
+
+```cpp
+// PROTOTYPE
+const BleAddress address() const;
+```
+
+See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more information.
+
+### BLE Services
+
+There isn't a separate class for configuring BLE Services. A service is identified by its UUID, and this UUID passed in when creating the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object(s) for the service. For example:
+
+```cpp
+// The "Health Thermometer" service is 0x1809.
+// See https://www.bluetooth.com/specifications/gatt/services/
+BleUuid healthThermometerService(0x1809);
+
+// We're using a well-known characteristics UUID. They're defined here:
+// https://www.bluetooth.com/specifications/gatt/characteristics/
+// The temperature-measurement is 16-bit UUID 0x2A1C
+BleCharacteristic temperatureMeasurementCharacteristic("temp", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A1C), healthThermometerService);
+``` 
+
+The health thermometer only has a single characteristic, however if your service has multiple characteristics you can add them all this way.
+
+You can also create custom services by using a long UUID. You define what characteristic data to include for a custom service. [UUIDs](/reference/device-os/firmware/#bleuuid) are described below.
+
+For more information about characteristics, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#services) and  [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+
+
+### BleCharacteristic
+
+In a BLE peripheral role, each service has one or more characteristics. Each characteristic may have one of more values. 
+
+In a BLE central role, you typically have a receive handler to be notified when the peripheral updates each characteristic value that you care about.
+
+For assigned characteristics, the data will be in a defined format as defined by the Bluetooth SIG. They are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). 
+
+For more information about characteristics, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#characteristics).
+
+#### BleCharacteristic()
+
+You typically construct a characteristic as a global variable with no parameters when you are using central mode and will be receiving values from the peripheral. For example, this is done in the [heart rate central tutorial](/tutorials/device-os/bluetooth-le/#heart-rate-central) to receive values from a heart rate sensor. It's associated with a specific characteristic UUID after making the BLE connection.
+
+```cpp
+// PROTOTYPE
+BleCharacteristic();
+
+// EXAMPLE
+// Global variable
+BleCharacteristic myCharacteristic;
+```
+
+Once you've created your characteristic in `setup()` you typically hook in its onDataReceived handler.
+
+```cpp
+// In setup():
+myCharacteristic.onDataReceived(onDataReceived, NULL);
+```
+
+The `onDataReceived` function has this prototype:
+
+```cpp
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) 
+```
+
+The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object is described below.
+
+The `context` parameter can be used to pass extra data to the callback. It's typically used when you implement the callback in a C++ class to pass the object instance pointer (`this`).
+
+
+#### BleCharacteristic (peripheral)
+
+In a peripheral role, you typically define a value that you send out using this constructor. The parameters are:
+
+```cpp
+// PROTOTYPE
+BleCharacteristic(const char* desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr);
+
+BleCharacteristic(const String& desc, BleCharacteristicProperty properties, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr);
+
+// EXAMPLE
+// Global variable
+BleCharacteristic batteryLevelCharacteristic("bat", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A19), batteryLevelService);
+```
+
+- `"bat"` a short string to identify the characteristic
+- `BleCharacteristicProperty::NOTIFY` The BLE characteristic property. This is typically NOTIFY for values you send out. See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+- `BleUuid(0x2A19)` The UUID of this characteristic. In this example it's an assigned (short) UUID. See [`BleUuid`](/reference/device-os/firmware/#bleuuid).
+- `batteryLevelService` The UUID of the service this characteristic is part of.
+
+The UUIDs for the characteristic and service can be a number of formats but are typically either:
+
+- Explicit BleUuid, like `BleUuid(0x2A19)`
+- String literal or `const char *`, like `"6E400001-B5A3-F393-E0A9-E50E24DCCA9E"`
+
+Both must be the same, so if you use a string literal service UUID, you must also use a string literal for the characteristic UUID as well.
+
+You typically register your characteristic in `setup()`:
+
+```
+// In setup():
+BLE.addCharacteristic(batteryLevelCharacteristic);
+```
+
+
+#### BleCharacteristic (peripheral with data received)
+
+In a peripheral role if you are receiving data from the central device, you typically assign your characteristic like this.
+
+```cpp
+// PROTOTYPE
+// Type T is any type that can be passed to BleUuid, such as const char * or a string-literal.
+template<typename T>
+BleCharacteristic(const char* desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr)
+
+template<typename T>
+BleCharacteristic(const String& desc, BleCharacteristicProperty properties, T charUuid, T svcUuid, BleOnDataReceivedCallback callback = nullptr, void* context = nullptr)
+
+
+// EXAMPLE
+BleCharacteristic rxCharacteristic("rx", BleCharacteristicProperty::WRITE_WO_RSP, rxUuid, serviceUuid, onDataReceived, NULL);
+```
+
+- `"rx"` a short string to identify the characteristic
+- `BleCharacteristicProperty::WRITE_WO_RSP` The BLE characteristic property. This is typically WRITE_WO_RSP for values you receive. See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+- `rxUuid` The UUID of this characteristic. 
+- `serviceUuid ` The UUID of the service this characteristic is part of.
+- `onDataReceived` The function that is called when data is received.
+- `NULL` Context pointer. If your data received handler is part of a C++ class, this is a good place to put the class instance pointer (`this`).
+
+The data received handler has this prototype. 
+
+```cpp
+void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context)
+```
+
+You typically register your characteristic in `setup()` in peripheral devices:
+
+```
+// In setup():
+BLE.addCharacteristic(rxCharacteristic);
+```
+
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+#### UUID()
+
+Get the UUID of this characteristic.
+
+```cpp
+// PROTOTYPE
+BleUuid UUID() const;
+
+
+// EXAMPLE
+BleUuid uuid = batteryLevelCharacteristic.UUID();
+```
+
+See also [`BleUuid`](/reference/device-os/firmware/#bleuuid).
+
+#### properties()
+
+Get the BLE characteristic properties for this characteristic. This indicates whether it can be read, written, etc..
+
+
+```cpp
+// PROTOTYPE
+BleCharacteristicProperty properties() const;
+
+// EXAMPLE
+BleCharacteristicProperty prop = batteryLevelCharacteristic.properties();
+```
+
+See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
+
+#### getValue(buf, len)
+
+This overload of `getValue()` is typically used when you have a complex characteristic with a packed data structure that you need to manually extract. 
+
+For example, the heart measurement characteristic has a flags byte followed by either a 8-bit or 16-bit value. You typically extract that to a uint8_t buffer using this method and manually extract the data.
+
+```cpp
+// PROTOTYPE
+ssize_t getValue(uint8_t* buf, size_t len) const;
+```
+
+#### getValue(String)
+
+If your characteristic has a string value, you can read it out using this method.
+
+```cpp
+// PROTOTYPE
+ssize_t getValue(String& str) const;
+
+// EXAMPLE
+String value;
+characteristic.getValue(value);
+```
+
+#### getValue(pointer)
+
+You can read out arbitrary data types (int8_t, uint8_t, uint16_t, uint32_t, struct, etc.) by passing a pointer to the object.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+ssize_t getValue(T* val) const;
+
+// EXAMPLE
+uint16_t value;
+characteristic.getValue(&value);
+```
+
+#### setValue(buf, len)
+
+To set the value of a characteristic to arbitrary data, you can use this function.
+
+```cpp
+// PROTOTYPE
+ssize_t setValue(const uint8_t* buf, size_t len);
+```
+
+#### setValue(string)
+
+To set the value of the characteristic to a string value, use this method. The terminating null is not included in the characteristic; the length is set to the actual string length.
+
+```cpp
+// PROTOTYPE
+ssize_t setValue(const String& str);
+ssize_t setValue(const char* str);
+```
+
+#### setValue(pointer)
+
+You can write out arbitrary data types (int8_t, uint8_t, uint16_t, uint32_t, struct, etc.) by passing the value to setValue.
+
+```cpp
+// PROTOTYPE
+template<typename T>
+ssize_t setValue(T val) const;
+
+// EXAMPLE
+uint16_t value = 0x1234;
+characteristic.setValue(value);
+```
+
+#### onDataReceived()
+
+To be notified when a value is received to add a data received callback.
+
+The context is used when you've implemented the data received handler in a C++ class. You can pass the object instance (`this`) in context. If you have a global function, you probably don't need the context and can pass NULL.
+
+```cpp
+// PROTOTYPE
+void onDataReceived(BleOnDataReceivedCallback callback, void* context);
+
+// BleOnDataReceivedCallback
+void myCallback(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
+```
+
+The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+### BleCharacteristicProperty
+
+This bitfield defines what access is available to the property. It's assigned by the peripheral, and provides information to the central device about how the characteristic can be read or written.
+
+- `BleCharacteristicProperty::BROADCAST` (0x01) The value can be broadcast.
+- `BleCharacteristicProperty::READ` (0x02) The value can be read.
+- `BleCharacteristicProperty::WRITE_WO_RSP` (0x04) The value can be written without acknowledgement. For example, the UART peripheral example uses this characteristic properly to receive UART data from the central device.
+- `BleCharacteristicProperty::WRITE` (0x08) The value can be written to the peripheral from the central device.
+- `BleCharacteristicProperty::NOTIFY` (0x10) The value is published by the peripheral without acknowledgement. This is the standard way peripherals periodically publish data.
+- `BleCharacteristicProperty::INDICATE` (0x20) The value can be indicated, basically publish with acknowledgement.
+- `BleCharacteristicProperty::AUTH_SIGN_WRITES` (0x40) The value supports signed writes. This is operation not supported.
+- `BleCharacteristicProperty::EXTENDED_PROP` (0x80) The value supports extended properties. This operation is not supported.
+
+You only assign these values as a peripheral device, and will typically use one of two values:
+
+- `BleCharacteristicProperty::NOTIFY` when your peripheral periodically publishes data
+- `BleCharacteristicProperty::WRITE_WO_RSP` when your peripheral receives data from the central device.
+
+For bidirectional data transfer you typically assign two different characteristics, one for receive and one for transmit, as shown in the UART examples.
+
+### BleUuid
+
+Services and characteristics are typically identified by their UUID. There are two types:
+
+- 16-bit (short) UUIDs for well-known BLE services 
+- 128-bit (long) UUIDs for everything else
+
+The 16-bit service IDs are assigned by the Bluetooth SIG and are [listed here](https://www.bluetooth.com/specifications/gatt/services/).
+
+The 16-bit characteristic IDs are [listed here](https://www.bluetooth.com/specifications/gatt/characteristics/). 
+
+You can create a 16-bit UUID like this:
+
+```cpp
+// PROTOTYPE
+BleUuid(uint16_t uuid16);
+
+// EXAMPLE
+BleUuid healthThermometerService(0x1809);
+```
+
+The value 0x1809 is from the assigned list of service IDs.
+
+The 128-bit UUIDs are used for your own custom services and characteristics. These are not assigned by any group. You can use any UUID generator, such as the [online UUID generator](https://www.uuidgenerator.net/) or tools that you run on your computer. There is no central registry; they are statistically unlikely to ever conflict.
+
+A 128-bit (16 byte) UUID is often written like this: `240d5183-819a-4627-9ca9-1aa24df29f18`. It's a series of 32 hexadecimal digits (0-9, a-f) written in a 8-4-4-4-12 pattern. 
+
+```cpp
+// PROTOTYPE
+BleUuid(const String& uuid);
+BleUuid(const char* uuid);
+
+// EXAMPLE
+BleUuid myCustomService("240d5183-819a-4627-9ca9-1aa24df29f18");
+```
+
+You can also construct a UUID from an array of bytes (uint8_t):
+
+```cpp
+// PROTOTYPE
+BleUuid(const uint8_t* uuid128, BleUuidOrder order = BleUuidOrder::LSB);
+
+// EXAMPLE
+BleUuid myCustomService({0x24, 0x0d, 0x51, 0x83, 0x81, 0x9a, 0x46, 0x27, 0x9c, 0xa9, 0x1a, 0xa2, 0x4d, 0xf2, 0x9f, 0x18});
+```
+
+#### type()
+
+```cpp
+// PROTOTYPE
+BleUuidType type() const;
+
+// EXAMPLE
+BleUuidType uuidType = uuid.type();
+```
+
+Returns a constant:
+
+- `BleUuidType::SHORT` for 16-bit UUIDs
+- `BleUuidType::LONG` for 128-bit UUIDs
+
+
+#### isValid()
+
+```cpp
+// PROTOTYPE
+bool isValid() const;
+
+// EXAMPLE
+bool isValid = uuid.isValid();
+```
+
+Return `true` if the UUID is valid or `false` if not.
+
+#### equality
+
+You can test two UUIDs for equality.
+
+```
+// PROTOTYPE
+bool operator==(const BleUuid& uuid) const;
+bool operator==(const char* uuid) const;
+bool operator==(const String& uuid) const;
+bool operator==(uint16_t uuid) const;
+bool operator==(const uint8_t* uuid128) const;
+
+// EXAMPLE 1
+BleUuid rxUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
+BleUuid txUuid("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
+
+if (rxUuid == txUuid) {
+	// This code won't be executed since they're not equal
+}
+
+// EXAMPLE 2
+BleUuid foundServiceUUID;
+size_t svcCount = scanResult->advertisingData.serviceUUID(&foundServiceUUID, 1);
+if (svcCount > 0 && foundServiceUUID == serviceUuid) {
+	// Device advertises our custom service "serviceUuid" so try to connect to it
+}
+```
+#### rawBytes
+
+Get the underlying bytes of the UUID.
+
+```
+// PROTOTYPE
+void rawBytes(uint8_t uuid128[BLE_SIG_UUID_128BIT_LEN]) const;
+    const uint8_t* rawBytes() const;
+const uint8_t* rawBytes() const;    
+```
+
+#### Constructors
+
+Other, less commonly used constructors include:
+
+```
+// PROTOTYPE
+BleUuid(const hal_ble_uuid_t& uuid);
+BleUuid(const BleUuid& uuid);
+BleUuid(const uint8_t* uuid128, BleUuidOrder order = BleUuidOrder::LSB);
+BleUuid(const uint8_t* uuid128, uint16_t uuid16, BleUuidOrder order = BleUuidOrder::LSB);
+BleUuid(uint16_t uuid16);
+BleUuid(const String& uuid);
+BleUuid(const char* uuid);
+```
+
+#### Setters
+
+You normally don't need to set the value of a BleUuid after construction, but the following methods are available:
+
+```
+// PROTOTYPE
+BleUuid& operator=(const BleUuid& uuid);
+BleUuid& operator=(const uint8_t* uuid128);
+BleUuid& operator=(uint16_t uuid16);
+BleUuid& operator=(const String& uuid);
+BleUuid& operator=(const char* uuid);
+BleUuid& operator=(const hal_ble_uuid_t& uuid);
+```
+
+
+### BleAdvertisingData
+
+The BleAdvertisingData is used in two ways:
+
+- In the peripheral role, to define what you want to send when central devices do a scan.
+- In the central role, as a container to hold what the other side has sent during a scan.
+
+
+For more information about advertising, see [the BLE tutorial](/tutorials/device-os/bluetooth-le/#advertising).
+
+#### BleAdvertisingData()
+
+Construct a `BleAdvertisingData` object. You typically do this in a peripheral role before adding new data. 
+
+In the central role, you get a filled in object in the [`BleScanResult`](/reference/device-os/firmware/#blescanresult) object.
+
+```cpp
+// PROTOTYPE
+BleAdvertisingData();
+```
+
+#### append()
+
+Appends advertising data of a specific type to the advertising data object.
+
+```cpp
+// PROTOTYPE
+size_t append(BleAdvertisingDataType type, const uint8_t* buf, size_t len, bool force = false);
+
+// EXAMPLE
+BleAdvertisingData advData;
+
+uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, sizeof(flagsValue));
+```
+
+- `type` The type of data to append. The valid types are listed in the [`BleAdvertisingDataType`](/reference/device-os/firmware/#bleadvertisingdatatype) section, below.
+- `buf` Pointer to the buffer containing the data
+- `len` The length of the data in bytes
+- `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
+
+Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
+
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically.
+
+#### appendCustomData
+
+Appends custom advertising data to the advertising data object.
+
+```cpp
+// PROTOTYPE
+size_t appendCustomData(const uint8_t* buf, size_t len, bool force = false);
+```
+
+- `buf` Pointer to the buffer containing the data
+- `len` The length of the data in bytes
+- `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
+
+Note that advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and each block includes a type and a length byte, so you are quite limited in what you can add.
+
+The first two bytes of the company data are typically the [company ID](https://www.bluetooth.com/specifications/assigned-numbers/company-identifiers/). You need to be a member of the Bluetooth SIG to get a company ID, and the field is only 16 bits wide, so there can only be 65534 companies.
+
+The special value of 0xffff is reserved for internal use and testing. 
+
+If you are using private custom data it's recommended to begin it with two 0xff bytes, that way your data won't confuse apps that are scanning for company-specific custom data.
+
+The maximum custom data size is 26 bytes, including the company ID. Adding data that is too large will cause it to be omitted (not truncated).
+
+#### appendLocalName()
+
+An optional field in the advertising data is the local name. This can be useful if the user needs to select from multiple devices.
+
+The name takes up the length of the name plus two bytes (type and length). The total advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and if you include service identifiers there isn't much left space for the name.
+
+```cpp
+// PROTOTYPE
+size_t appendLocalName(const char* name);
+size_t appendLocalName(const String& name);
+```
+
+#### appendServiceUUID()
+
+Appends a service UUID to the advertisement (short or long). You typically only advertise the primary service. 
+
+For example, the health thermometer advertises the health thermometer service. Upon connecting, the central device can discover that it also supports the battery service. Put another way, a user or app would most likely only want to discover a nearby thermometer, not any battery powered device nearby. 
+
+```cpp
+// PROTOTYPE
+// Type T is any type that can be passed to the BleUuid constructor
+template<typename T>
+size_t appendServiceUUID(T uuid, bool force = false) 
+
+// EXAMPLE
+advData.appendServiceUUID(healthThermometerService);
+```
+
+- `uuid` The UUID to add. This can be a [`BleUuid`](/reference/device-os/firmware/#bleuuid) object, a uint16_t (short UUID), or a const char * or string literal specifying a long UUID.
+- `force` If true, then multiple blocks of the same type can be appended. The default is false, which replaces an existing block and is the normal behavior.
+
+Since long UUIDs are long (16 bytes plus 2 bytes of overhead) they will use a lot of the 31 byte payload, leaving little room for other things like short name.
+
+#### clear()
+
+Remove all existing data from the BleAdvertisingData object.
+
+```cpp
+// PROTOTYPE
+void clear();
+```
+
+#### remove()
+
+Remove a specific data type from the BleAdvertisingData object.
+
+```cpp
+// PROTOTYPE
+void remove(BleAdvertisingDataType type);
+```
+
+- `type` The [`BleAdvertisingDataType`](/reference/device-os/firmware/#bleadvertisingdatatype) to remove.
+
+
+#### set()
+
+In a peripheral role, you sometimes will want to build your advertising data complete by hand. You can then copy your pre-build structure into the BleAdvertisingData object using `set()`.
+
+```cpp
+// PROTOTYPE
+size_t set(const uint8_t* buf, size_t len);
+```
+
+#### get(type, buffer)
+
+In the central role, if you want to get a specific block of advertising data by type, you can use this method.
+
+```cpp
+// PROTOTYPE
+size_t get(BleAdvertisingDataType type, uint8_t* buf, size_t len) const;
+```
+
+- `type` The [`BleAdvertisingDataType`](/reference/device-os/firmware/#bleadvertisingdatatype) to get.
+- `buf` A pointer to the buffer to hold the data.
+- `len` The length of the buffer in bytes.
+
+Returns the number of bytes copied, which will be <= `len`. Returns 0 if the type does not exist in the advertising data.
+
+
+#### get(buffer)
+
+In the central role, if you want to get the advertising data as a complete block of data, you can use the get method with a buffer and length.
+
+Advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`) and you should make your buffer at least that large to be able to receive the largest possible data.
+
+
+```cpp
+// PROTOTYPE
+size_t get(uint8_t* buf, size_t len) const;
+```
+
+- `buf` A pointer to the buffer to hold the data.
+- `len` The length of the buffer in bytes.
+
+Returns the number of bytes copied, which will be <= `len`.
+
+#### length()
+
+Return the length of the data in bytes.
+
+```cpp
+// PROTOTYPE
+size_t length() const;
+```
+
+#### deviceName()
+
+Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). Returns a String object or an empty string if the advertising data does not contain a name.
+
+```cpp
+// PROTOTYPE
+String deviceName() const;
+```
+
+#### deviceName(buf)
+
+Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). 
+
+```cpp
+// PROTOTYPE
+size_t deviceName(char* buf, size_t len) const;
+```
+
+- `buf` Buffer to hold the name. A buffer that is `BLE_MAX_ADV_DATA_LEN` bytes long will always be large enough.
+- `len` Length of the buffer in bytes.
+
+Returns the size of the name in bytes. Returns 0 if there is no name.
+
+Note that the buf will not be null-terminated (not a c-string).  
+
+#### serviceUUID()
+
+Returns an array of service UUIDs in the advertising data.
+
+```cpp
+// PROTOTYPE
+size_t serviceUUID(BleUuid* uuids, size_t count) const;
+```
+
+- `uuids` Pointer to an array of [`BleUuid`](/reference/device-os/firmware/#bleuuid) objects to fill in
+- `len` The number of array entries (not bytes)
+
+Returns the number of UUIDs in the advertisement.
+
+This includes all UUIDs in the following advertising data types:
+- `SERVICE_UUID_16BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_16BIT_COMPLETE`
+- `SERVICE_UUID_128BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_128BIT_COMPLETE `
+
+There is often a single UUID advertised, even for devices that have multiple services. For example, a heart rate monitor might only advertise that it's a heart rate monitor even though it also supports the battery service. The additional services can be discovered after connecting.
+
+Since the advertisement data is limited to 31 bytes, the maximum number of services that could be advertised is 14 16-bit UUIDs. 
+
+#### customData()
+
+Returns the `MANUFACTURER_SPECIFIC_DATA` data in an advertisement.
+
+```cpp
+// PROTOTYPE
+size_t customData(uint8_t* buf, size_t len) const;
+```
+- `buf` Buffer to hold the data. A buffer that is `BLE_MAX_ADV_DATA_LEN` bytes long will always be large enough.
+- `len` Length of the buffer in bytes.
+
+Returns the size of the data in bytes. Returns 0 if there is no `MANUFACTURER_SPECIFIC_DATA`.
+
+#### contains()
+
+Return true if the advertising data contains the specified type.
+
+```cpp
+// PROTOTYPE
+bool contains(BleAdvertisingDataType type) const;
+```
+
+- `type` The data type to look for. For example: `BleAdvertisingDataType::SHORT_LOCAL_NAME`. See [`BleAdvertisingDataType`](/reference/device-os/firmware/#bleadvertisingdatatype).
+
+
+### BleAdvertisingDataType
+
+The following are the valid values for `BleAdvertisingDataType`. In many cases you won't need to use the directly as you can use methods like `serviceUUID` in the `BleAdvertisingData` to set both the type and data automatically.
+
+You would typically use these constants like this: `BleAdvertisingDataType::FLAGS`. 
+
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically. 
+
+Similarly, you typically use [`appendCustomData()`](/reference/device-os/firmware/#appendcustomdata) instead of directly using `MANUFACTURER_SPECIFIC_DATA`. The [`appendLocalName`()](/reference/device-os/firmware/#appendlocalname-) and [`appendServiceUUID()`](/reference/device-os/firmware/#appendserviceuuid-) functions of the [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata) also set the appropriate advertising data type.
+
+- `FLAGS`
+- `SERVICE_UUID_16BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_16BIT_COMPLETE`
+- `SERVICE_UUID_32BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_32BIT_COMPLETE`
+- `SERVICE_UUID_128BIT_MORE_AVAILABLE`
+- `SERVICE_UUID_128BIT_COMPLETE`
+- `SHORT_LOCAL_NAME`
+- `COMPLETE_LOCAL_NAME`
+- `TX_POWER_LEVEL`
+- `CLASS_OF_DEVICE`
+- `SIMPLE_PAIRING_HASH_C`
+- `SIMPLE_PAIRING_RANDOMIZER_R`
+- `SECURITY_MANAGER_TK_VALUE`
+- `SECURITY_MANAGER_OOB_FLAGS`
+- `SLAVE_CONNECTION_INTERVAL_RANGE`
+- `SOLICITED_SERVICE_UUIDS_16BIT`
+- `SOLICITED_SERVICE_UUIDS_128BIT`
+- `SERVICE_DATA`
+- `PUBLIC_TARGET_ADDRESS`
+- `RANDOM_TARGET_ADDRESS`
+- `APPEARANCE`
+- `ADVERTISING_INTERVAL`
+- `LE_BLUETOOTH_DEVICE_ADDRESS`
+- `SIMPLE_PAIRING_HASH_C256`
+- `SIMPLE_PAIRING_RANDOMIZER_R256`
+- `SERVICE_SOLICITATION_32BIT_UUID`
+- `SERVICE_DATA_32BIT_UUID`
+- `SERVICE_DATA_128BIT_UUID`
+- `LESC_CONFIRMATION_VALUE`
+- `LESC_RANDOM_VALUE`
+- `INDOOR_POSITIONING`
+- `TRANSPORT_DISCOVERY_DATA`
+- `LE_SUPPORTED_FEATURES`
+- `CHANNEL_MAP_UPDATE_INDICATION`
+- `PB_ADV`
+- `MESH_MESSAGE`
+- `MESH_BEACON`
+- `THREE_D_INFORMATION_DATA`
+- `MANUFACTURER_SPECIFIC_DATA`
+
+### BleAdvertisingDataType::FLAGS
+
+The valid values for advertising data type flags are:
+
+- `BLE_SIG_ADV_FLAG_LE_LIMITED_DISC_MODE` (0x01)
+- `BLE_SIG_ADV_FLAG_LE_GENERAL_DISC_MODE` (0x02)
+- `BLE_SIG_ADV_FLAG_BR_EDR_NOT_SUPPORTED` (0x04)
+- `BLE_SIG_ADV_FLAG_LE_BR_EDR_CONTROLLER` (0x08)
+- `BLE_SIG_ADV_FLAG_LE_BR_EDR_HOST` (0x10)
+- `BLE_SIG_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE` (0x05)
+- `BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE` (0x06)
+
+The most commonly used is `BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE`: supports Bluetooth LE only in general discovery mode. Any nearby device can discover it by scanning. Bluetooth Basic Rate/Enhanced Data Rate (BR/EDT) is not supported. 
+
+You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If you do not include it, one will be inserted automatically. 
+
+
+```cpp
+// EXAMPLE
+
+// In setup():
+BleAdvertisingData advData;
+
+uint8_t flagsValue = BLE_SIG_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+advData.append(BleAdvertisingDataType::FLAGS, &flagsValue, sizeof(flagsValue));
+
+advData.appendServiceUUID(healthThermometerService);
+
+BLE.advertise(&advData);
+```
+
+
+### BlePeerDevice
+
+When using a Particle device in BLE central mode, connecting a peripheral returns a `BlePeerDevice` object. This object can be used to see if the connection is still open and get [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) objects for the peripheral device.
+
+Typically you'd get the `BlePeerDevice` from calling [`BLE.connect()`](/reference/device-os/firmware/#ble-connect-).
+
+```cpp
+BlePeerDevice peer = BLE.connect(scanResults[ii].address);
+if (peer.connected()) {
+	peerTxCharacteristic = peer.getCharacteristicByUUID(txUuid);
+	peerRxCharacteristic = peer.getCharacteristicByUUID(rxUuid);
+	// ...
+}
+```
+
+Once you have the `BlePeerDevice` object you can use the following methods:
+
+
+#### connected()
+
+Returns true if the peer device is currently connected.
+
+```cpp
+// PROTOTYPE
+bool connected();
+
+// EXAMPLE
+if (peer.connected()) {
+	// Peripheral is connected
+}
+else {
+	// Peripheral has disconnected
+}
+```
+
+#### address()
+
+Get the BLE address of the peripheral device.
+
+```cpp
+// PROTOTYPE
+const BleAddress& address() const;
+
+// EXAMPLE
+Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X", peer.address()[0], peer.address()[1], peer.address()[2], peer.address()[3], peer.address()[4], peer.address()[5]);
+```
+
+See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more information.
+
+#### getCharacteristicByUUID()
+
+Get a characteristic by its UUID, either short or long UUID. See also [`BleUuid`](/reference/device-os/firmware/#bleuuid). Returns true if the characteristic was found.
+
+You often do this from the central device after making a connection. 
+
+```cpp
+// PROTOTYPE
+bool getCharacteristicByUUID(BleCharacteristic& characteristic, const BleUuid& uuid) const;
+
+// EXAMPLE
+BleCharacteristic characteristic;
+bool bResult = peer.getCharacteristicByUUID(characteristic, BleUuid(0x180d));
+
+// EXAMPLE
+BleCharacteristic characteristic;
+bool bResult = peer.getCharacteristicByUUID(characteristic, BleUuid("6E400002-B5A3-F393-E0A9-E50E24DCCA9E"));
+```
+
+#### getCharacteristicByDescription()
+
+Get the characteristic by its description. As these strings are not standardized like UUIDs, it's best to use UUIDs instead. Returns true if the characteristic was found.
+
+```cpp
+// PROTOTYPE
+bool getCharacteristicByDescription(BleCharacteristic& characteristic, const char* desc) const;
+bool getCharacteristicByDescription(BleCharacteristic& characteristic, const String& desc) const;
+
+// EXAMPLE
+BleCharacteristic characteristic;
+bool bResult = peer.getCharacteristicByDescription(characteristic, "rx");
+```
+
+#### BleScanResult
+
+When scanning, you get back one of:
+
+- An array of `BleScanResult` records
+- A Vector of `BleScanResult` records
+- A callback that is called once for each device found, passed a `BleScanResult`.
+
+The following fields are provided:
+
+```
+// DEFINITION
+class BleScanResult {
+public:
+    BleAddress address;
+    BleAdvertisingData advertisingData;
+    BleAdvertisingData scanResponse;
+    int8_t rssi;
+};
+```
+
+- `address` The BLE address of the peripheral. You use this if you want to connect to it. See [`BleAddress`](/reference/device-os/firmware/#bleaddress).
+- `advertisingData` The advertising data provided by the peripheral. It's small (up to 31 bytes).
+- `scanResponse` The scan response data. This is an optional extra 31 bytes of data that can be provided by the peripheral. It requires an additional request to the peripheral, but is less overhead than connecting.
+- `rssi` The signal strength, which is a negative number of dBm. Numbers closer to 0 are a stronger signal.
+
+### BleAddress
+
+Each Bluetooth device has an address, which is encapsulated in the BleAddress object. The address is 6 octets, and the BleAddress object has two additional bytes of overhead. The BleAddress object can be trivially copied.
+
+#### copy (BleAddress)
+
+You can copy and existing BleAddress.
+
+```
+// PROTOTYPE
+BleAddress& operator=(hal_ble_addr_t addr)
+BleAddress& operator=(const uint8_t addr[BLE_SIG_ADDR_LEN])
+```
+
+#### address byte (BleAddress)
+
+The BleAddress is 6 octets long (constant: `BLE_SIG_ADDR_LEN`). You can access individual bytes using array syntax:
+
+```
+// PROTOTYPE
+uint8_t operator[](uint8_t i) const;
+
+// EXAMPLE
+Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
+		scanResults[ii].rssi,
+		scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+		scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
+```
+
+#### equality (BleAddress)
+
+You can test two BleAddress objects for equality (same address).
+
+```
+// PROTOTYPE
+bool operator==(const BleAddress& addr) const 
+```
+
+#### Getters
+
+Often you will get the value of a BleAddress for debugging purposes.
+
+```
+// PROTOTYPE
+BleAddressType type() const;
+void octets(uint8_t addr[BLE_SIG_ADDR_LEN]) const;
+String toString(bool stripped = false) const;
+size_t toString(char* buf, size_t len, bool stripped = false) const;
+hal_ble_addr_t halAddress() const;
+uint8_t operator[](uint8_t i) const;
+
+// EXAMPLE 1
+Log.info("found device %s", scanResult->address.toString().c_str());
+
+// EXAMPLE 2
+Log.info("found device %02X:%02X:%02X:%02X:%02X:%02X",
+			scanResult->address[0], scanResult->address[1], scanResult->address[2],
+			scanResult->address[3], scanResult->address[4], scanResult->address[5]);
+```
+
+#### Constructor
+
+Normally you won't construct a BleAddress as you get one back from scanning using `BLE.scan()`. However there are numerous options:
+
+```
+// PROTOTYPE
+BleAddress(const hal_ble_addr_t& addr);
+BleAddress(const uint8_t addr[BLE_SIG_ADDR_LEN], BleAddressType type = BleAddressType::PUBLIC);
+BleAddress(const char* address, BleAddressType type = BleAddressType::PUBLIC);
+BleAddress(const String& address, BleAddressType type = BleAddressType::PUBLIC);
+```
+
+#### Setters
+
+You will not normally need to set the value of a BleAddress, but there are methods to do so:
+
+```
+// PROTOTYPE
+int type(BleAddressType type);
+int set(const uint8_t addr[BLE_SIG_ADDR_LEN], BleAddressType type = BleAddressType::PUBLIC);
+int set(const char* address, BleAddressType type = BleAddressType::PUBLIC);
+int set(const String& address, BleAddressType type = BleAddressType::PUBLIC);
+```
+
+### BleAddressType
+
+This enumeration specifies the type of BLE address. The default is PUBLIC. The type is part of the BleAddress class.
+
+- `BleAddressType::PUBLIC` Public (identity address).
+- `BleAddressType::RANDOM_STATIC` Random static (identity) address.
+- `BleAddressType::RANDOM_PRIVATE_RESOLVABLE` Random private resolvable address.
+- `BleAddressType::RANDOM_PRIVATE_NON_RESOLVABLE` Random private non-resolvable address.
+
+### BleAdvertisingEventType
+
+You will not typically need to change this. The default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
+
+Valid values include:
+
+- `CONNECTABLE_SCANNABLE_UNDIRECTED`
+- `CONNECTABLE_UNDIRECTED`
+- `CONNECTABLE_DIRECTED`
+- `NON_CONNECTABLE_NON_SCANABLE_UNDIRECTED`
+- `NON_CONNECTABLE_NON_SCANABLE_DIRECTED`
+- `SCANABLE_UNDIRECTED`
+- `SCANABLE_DIRECTED `
+
+### BleAdvertisingParams
+
+To set the parameters for advertising, you can use the BleAdvertisingParams structure:
+
+```cpp
+// PROTOTYPE
+uint16_t version;
+uint16_t size;
+uint16_t interval;
+uint16_t timeout;
+hal_ble_adv_evt_type_t type; 
+uint8_t filter_policy;
+uint8_t inc_tx_power;
+uint8_t reserved;
+
+// EXAMPLE
+BleAdvertisingParams param;
+param.version = BLE_API_VERSION;
+param.size = sizeof(BleAdvertisingParams);
+int res = BLE.getAdvertisingParameters(&param);
+```
+
+- `version` Always set to `BLE_API_VERSION`.
+- `size` Always set to `sizeof(BleAdvertisingParams)`.
+- `interval` Advertising interval in 0.625 ms units. Default is 160.
+- `timeout` Advertising timeout in 10 ms units. Default is 0.
+- `type` See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
+- `filter_policy` Default is 0.
+- `inc_tx_power` Default is 0.
+
+### BleScanParams
+
+The BleScanParams structure specifies the settings for scanning on a central device.
+
+```cpp
+// PROTOTYPE
+uint16_t version;
+uint16_t size;
+uint16_t interval;
+uint16_t window;
+uint16_t timeout; uint8_t active;
+uint8_t filter_policy;
+
+// EXAMPLE
+BleScanParams scanParams;
+scanParams.version = BLE_API_VERSION;
+scanParams.size = sizeof(BleScanParams);
+int res = BLE.getScanParameters(&scanParams);
+```
+
+- `version` Always set to `BLE_API_VERSION`.
+- `size` Always set to `sizeof(BleScanParams)`.
+- `interval` Advertising interval in 0.625 ms units. Default is 160.
+- `window` Scanning window in 0.625 ms units. Default is 80.
+- `timeout` Scan timeout in 10 ms units. Default value is 500.
+- `active` Boolean value, typically 1.
+- `filter_policy` Default is 0.
+
+### iBeacon
+
+[Apple iOS iBeacon](https://developer.apple.com/ibeacon/) can be used to customize mobile app content based on nearby beacons.
+
+There are three parameters of interest:
+
+| Field | Size  | Description |
+| :---: | :---: | --- |
+| UUID | 16 bytes | Application developers should define a UUID specific to their app and deployment use case. | 
+| Major | 2 bytes | Further specifies a specific iBeacon and use case. For example, this could define a sub-region within a larger region defined by the UUID. |
+| Minor | 2 bytes | Allows further subdivision of region or use case, specified by the application developer. |
+
+(From the [Getting Started with iBeacon](https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf) guide.)
+
+In other words, you'll assign a single UUID to all of the beacons in your fleet of beacons and figure out which one you're at using the major and minor values. When searching for an iBeacon, you need to know the UUID of the beacon you're looking for, so you don't want to assign too many. 
+
+```
+// PROTOTYPE
+// Type T is any type that can be passed to the BleUuid constructor, such as a BleUuid object, const char *, or Uint16_t.
+template<typename T>
+iBeacon(uint16_t major, uint16_t minor, T uuid, int8_t measurePower)
+    
+
+// EXAMPLE
+void setup() {
+    iBeacon beacon(1, 2, "9c1b8bdc-5548-4e32-8a78-b9f524131206", -55);
+    BLE.advertise(beacon);
+}
+```
+
+The parameters to the iBeacon constructor in the example are:
+
+- Major version (1)
+- Minor version (2)
+- Application UUID ("9c1b8bdc-5548-4e32-8a78-b9f524131206")
+- Power measurement in dBm (-55)
+
+
+{{/if}} {{!-- has-ble --}}
+
+
+{{#if has-nfc-tag}}
+## NFC
+
+NFC (Near-Field Communication) is typically used to communicate small amounts of data to a mobile app in very close range, within a few inches.
+
+Particle Gen 3 devices only support emulating an NFC tag. They cannot locate or communicate with tags themselves, or support protocols such as for NFC payments.
+
+A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, directly underneath the USB connector.
+
+NFC is supported in Device OS 1.3.1 and later. NFC support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. 
+
+### Example app
+
+You can run this device firmware and use a mobile app like **NFC Reader** to read the NFC data. The blue D7 LED will flash briefly when reading. Each time you read, the counter will increment.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+SYSTEM_MODE(MANUAL);
+
+static void nfcCallback(nfc_event_type_t type, nfc_event_t* event, void* context);
+
+int counter = 0;
+volatile bool updateCounter = true;
+
+void setup (void) {
+	pinMode(D7, OUTPUT);
+	digitalWrite(D7, 0);
+}
+
+void loop(){
+	if (updateCounter) {
+		updateCounter = false;
+
+		char buf[64];
+		snprintf(buf, sizeof(buf), "testing counter=%d", ++counter);
+
+		NFC.setText(buf, "en");
+		NFC.on(nfcCallback);
+
+		Log.info("next read should show: %s", buf);
+	}
+}
+
+static void nfcCallback(nfc_event_type_t type, nfc_event_t* event, void* context) {
+	switch (type) {
+	case NFC_EVENT_FIELD_ON: {
+		digitalWrite(D7, 1);
+		break;
+	}
+	case NFC_EVENT_FIELD_OFF: {
+		digitalWrite(D7, 0);
+		break;
+	}
+	case NFC_EVENT_READ: {
+		updateCounter = true;
+		break;
+	}
+	default:
+		break;
+	}
+}
+```
+
+### NFC.on()
+
+Turn NFC on, optionally with a callback function.
+
+```
+// PROTOTYPE
+int on(nfc_event_callback_t cb=nullptr);
+```
+
+The callback function has this prototype:
+
+```
+void nfcCallback(nfc_event_type_t type, nfc_event_t* event, void* context);
+```
+
+- `type` The type of event (described below)
+- `event` The internal event structure (not currently used)
+- `context` An optional context pointer set when the callback is registered (not currently used).
+
+The event types are:
+
+- `NFC_EVENT_FIELD_ON` NFC tag has detected external NFC field and was selected by an NFC polling device.
+- `NFC_EVENT_FIELD_OFF` External NFC field has been removed.
+- `NFC_EVENT_READ` NFC polling device has read all tag data.
+
+NFC events may occur at interrupt service time. You should not, for example:
+
+- Allocate or free memory (`malloc`, `free`, `new`, `delete`, `strdup`, etc.).
+- Call Particle functions like `Particle.publish()`
+- Call `delay()`
+- Call `Serial.print()`, `Log.info()`, etc.
+
+### NFC.off()
+
+Turns NFC off.
+
+```
+// PROTOTYPE
+int off();
+```
+
+### NFC.update()
+
+Updates the NFC device, usually after changing the data using `NFC.setCustomData()`, `NFC.setText()`, etc..
+
+```
+// PROTOTYPE
+int update();
+```
+
+### NFC.setText()
+
+Sets text to be passed to the NFC reader.
+
+```
+// PROTOTYPE
+int setText(const char* text, const char* encoding)
+```
+
+- `text` A c-string (null-terminated) containing the text to send
+- `encoding` The [IANA language code](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry). For example, "en" for English.
+
+Note that all of the set options are mutually exclusive. Calling `NFC.setText()` will clear any `NFC.setUri()`, `NFC.setLaunchApp()`, etc..
+
+
+### NFC.setUri()
+
+Sets a URI as the NFC data. 
+
+```
+// PROTOTYPE
+int setUri(const char* uri, NfcUriType uriType)
+
+// EXAMPLE
+
+// Open the web site https://www.particle.io:
+NFC.setUri("particle.io", NfcUriType::NFC_URI_HTTPS_WWW);
+```
+
+The following NfcUriTypes are defined:
+
+| NfcUriType | Prefix |
+| --- | --- |
+| `NFC_URI_NONE` | (no prefix) |
+| `NFC_URI_HTTP_WWW` | "http://www." |
+| `NFC_URI_HTTPS_WWW` |  "https://www." |
+| `NFC_URI_HTTP` | "http:" |
+| `NFC_URI_HTTPS` | "https:" |
+| `NFC_URI_TEL` |  "tel:" |
+| `NFC_URI_MAILTO` |  "mailto:" |
+| `NFC_URI_FTP_ANONYMOUS` |  "ftp://anonymous:anonymous@" |
+| `NFC_URI_FTP_FTP` | "ftp://ftp." |
+| `NFC_URI_FTPS` |  "ftps://" |
+| `NFC_URI_SFTP` |  "sftp://" |
+| `NFC_URI_SMB` |  "smb://" |
+| `NFC_URI_NFS` |  "nfs://" |
+| `NFC_URI_FTP` |  "ftp://" |
+| `NFC_URI_DAV` |  "dav://" |
+| `NFC_URI_NEWS` | "news:" |
+| `NFC_URI_TELNET` |  "telnet://" |
+| `NFC_URI_IMAP` |  "imap:" |
+| `NFC_URI_RTSP` | "rtsp://" |
+| `NFC_URI_URN` |  "urn:" |
+| `NFC_URI_POP` |  "pop:" |
+| `NFC_URI_SIP` |  "sip:" |
+| `NFC_URI_SIPS` |  "sips:" |
+| `NFC_URI_TFTP` |  "tftp:" |
+| `NFC_URI_BTSPP` |  "btspp://" |
+| `NFC_URI_BTL2CAP` |  "btl2cap://" |
+| `NFC_URI_BTGOEP` |  "btgoep://" |
+| `NFC_URI_TCPOBEX` |  "tcpobex://" |
+| `NFC_URI_IRDAOBEX` |  "irdaobex://" |
+| `NFC_URI_FILE` |  "file://" |
+| `NFC_URI_URN_EPC_ID` |  "urn:epc:id:" |
+| `NFC_URI_URN_EPC_TAG` |  "urn:epc:tag:" |
+| `NFC_URI_URN_EPC_PAT` |  "urn:epc:pat:" |
+| `NFC_URI_URN_EPC_RAW` |  "urn:epc:raw:" |
+| `NFC_URI_URN_EPC` |  "urn:epc:" |
+| `NFC_URI_URN_NFC` |  "urn:nfc:" |
+
+Note that all of the set options are mutually exclusive. Calling `NFC.setUri()` will clear any setText, setLaunchApp, etc..
+
+
+### NFC.setLaunchApp()
+
+On Android devices, it's possible to set an app (by its android package name) to launch when the tag is read.
+
+```
+// PROTOTYPE
+int setLaunchApp(const char* androidPackageName);
+```
+
+Note that all of the set options are mutually exclusive. Calling `NFC.setLaunchApp()` will clear any `NFC.setText()`, `NFC.setUri()`, etc..
+
+This does not do anything on iOS. An NFC-aware iOS app can read the package name, but in general won't be able to do much with it.
+
+### NFC.setCustomData()
+
+It's possible to send any NFC-compliant data instead of one of the pre-defined types above. 
+
+```
+// PROTOTYPE
+int setCustomData(Record& record)
+```
+
+Note that all of the set options are mutually exclusive. Calling `NFC.setCustomData()` will clear any `NFC.setText()`, `NFC.setUri()`, etc..
+
+### Record (NFC)
+
+The NFC `Record` class specifies the custom data to be sent via NFC. This section describes the methods you may need to use `BLE.setCustomData()`.
+
+#### setTnf();
+
+```
+// PROTOTYPE
+void setTnf(Tnf tnf)
+```
+
+The valid values for Record::Tnf are:
+
+- `TNF_EMPTY` (0x00)
+- `TNF_WELL_KNOWN` (0x01)
+- `TNF_MIME_MEDIA` (0x02)
+- `TNF_ABSOLUTE_URI` (0x03)
+- `TNF_EXTERNAL_TYPE` (0x04)
+- `TNF_UNKNOWN` (0x05)
+- `TNF_UNCHANGED` (0x06)
+- `TNF_RESERVED` (0x07)
+
+#### setType()
+
+Set the type field in the NFC record.
+
+```
+// PROTOTYPE
+size_t setType(const void* type, uint8_t numBytes);
+```
+
+#### setId()
+
+The ID field is optional in NFC. If you are using the ID, call this method to set the value. It will automatically set the IL field in the header.
+
+```
+// PROTOTYPE
+size_t setId(const void* id, uint8_t numBytes);
+```
+
+#### setPayload()
+
+Appends to the NFC record payload.
+
+```
+// PROTOTYPE
+size_t setPayload(const void* payload, size_t numBytes);
+```
+
+Returns the number of bytes added (`numBytes`).
+
+{{/if}} {{!-- has-nfc-tag --}}
+
+
 {{#if has-tcpserver}}
 ## TCPServer
 
 Create a server that listens for incoming connections on the specified port.
 
-```C++
+{{#if has-mesh}}
+The TCPServer can only be used on a Wi-Fi or Ethernet mesh gateway, including the Argon and the Xenon when used in an Ethernet shield. 
+The Thread mesh network does not support TCP across the mesh network; it only supports UDP from nodes that are only on mesh. 
+{{/if}}
+
+```cpp
 // SYNTAX
 TCPServer server = TCPServer(port);
 ```
 
 Parameters: `port`: the port to listen on (`int`)
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // telnet defaults to port 23
@@ -6672,7 +9784,7 @@ void loop()
 
 Tells the server to begin listening for incoming connections.
 
-```C++
+```cpp
 // SYNTAX
 server.begin();
 ```
@@ -6685,12 +9797,25 @@ Gets a client that is connected to the server and has data available for reading
 
 ### write()
 
-Write data to the last client that connected to a server. This data is sent as a byte or series of bytes.
+Write data to the last client that connected to a server. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
 
-```C++
+_Since 0.7.0_
+{{#if photon}}
+
+This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
+{{/if}}
+
+The application code may additionally check if an error occurred during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
+
+
+```cpp
 // SYNTAX
 server.write(val);
 server.write(buf, len);
+{{#if photon}}
+server.write(val, timeout);
+server.write(buf, len, timeout);
+{{/if}}
 ```
 
 Parameters:
@@ -6698,17 +9823,22 @@ Parameters:
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
+{{#if photon}}
+- `timeout`: timeout in milliseconds (`0` - non-blocking mode)
+{{/if}}
 
-Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this.
+Returns: `size_t`: the number of bytes written
+
+**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use [`getWriteError()`](#getwriteerror-) to check for write errors.
 
 ### print()
 
 Print data to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
-```C++
+```cpp
 // SYNTAX
 server.print(data);
-server.print(data, BASE) ;
+server.print(data, BASE);
 ```
 
 Parameters:
@@ -6716,13 +9846,13 @@ Parameters:
 - `data`: the data to print (char, byte, int, long, or string)
 - `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
-Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
+Returns: `size_t`: the number of bytes written
 
 ### println()
 
 Print data, followed by a newline, to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
-```C++
+```cpp
 // SYNTAX
 server.println();
 server.println(data);
@@ -6734,20 +9864,56 @@ Parameters:
 - `data` (optional): the data to print (char, byte, int, long, or string)
 - `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
+### getWriteError()
+
+Get the error code of the most recent [`write()`](#write--3) operation.
+
+Returns: int `0` when everything is ok, a non-zero error code in case of an error.
+
+This value is updated every after every call to [`write()`](#write--3) or can be manually cleared by  [`clearWriteError()`](#clearwriteerror-)
+
+```cpp
+// SYNTAX
+int err = server.getWriteError();
+```
+
+```cpp
+// EXAMPLE
+TCPServer server;
+// Write in non-blocking mode to the last client that connected to the server
+int bytes = server.write(buf, len, 0);
+int err = server.getWriteError();
+if (err != 0) {
+  Log.trace("TCPServer::write() failed (error = %d), number of bytes written: %d", err, bytes);
+}
+```
+
+### clearWriteError()
+
+Clears the error code of the most recent [`write()`](#write--3) operation setting it to `0`. This function is automatically called by [`write()`](#write--3).
+
+`clearWriteError()` does not return anything.
+
 {{/if}}
 
 {{#if has-tcpclient}}
 
 ## TCPClient
+(inherits from [`Stream`](#stream-class) via `Client`)
 
 Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
 
-```C++
+{{#if has-mesh}}
+The TCPClient can only be used on mesh gateway, including the Argon, Boron, and the Xenon when used in an Ethernet shield. 
+The Thread mesh network does not support TCP across the mesh network; it only supports UDP from nodes that are only on mesh. 
+{{/if}}
+
+```cpp
 // SYNTAX
 TCPClient client;
 ```
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 TCPClient client;
@@ -6796,14 +9962,14 @@ void loop()
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/guide/tools-and-features/webhooks/).
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks).
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
 
 Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data.
 
-```C++
+```cpp
 // SYNTAX
 client.connected();
 ```
@@ -6814,7 +9980,7 @@ Returns true if the client is connected, false if not.
 
 Returns true if the network socket is open and the underlying network is ready. 
 
-```C++
+```cpp
 // SYNTAX
 client.status();
 ```
@@ -6825,7 +9991,7 @@ This is different than connected() which returns true if the socket is closed bu
 
 Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name.
 
-```C++
+```cpp
 // SYNTAX
 client.connect();
 client.connect(ip, port);
@@ -6842,12 +10008,25 @@ Returns true if the connection succeeds, false if not.
 
 ### write()
 
-Write data to the server the client is connected to. This data is sent as a byte or series of bytes.
+Write data to the server the client is connected to. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
 
-```C++
+_Since 0.7.0_
+{{#if photon}}
+
+This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
+{{/if}}
+
+The application code may additionally check if an error occurred during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
+
+
+```cpp
 // SYNTAX
 client.write(val);
 client.write(buf, len);
+{{#if photon}}
+client.write(val, timeout);
+client.write(buf, len, timeout);
+{{/if}}
 ```
 
 Parameters:
@@ -6855,14 +10034,19 @@ Parameters:
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
+{{#if photon}}
+- `timeout`: timeout in milliseconds (`0` - non-blocking mode)
+{{/if}}
 
-Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this value.
+Returns: `size_t`: `write()` returns the number of bytes written.
+
+**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} to check for write errors.
 
 ### print()
 
 Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
-```C++
+```cpp
 // SYNTAX
 client.print(data);
 client.print(data, BASE) ;
@@ -6879,7 +10063,7 @@ Returns:  `byte`:  `print()` will return the number of bytes written, though rea
 
 Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
-```C++
+```cpp
 // SYNTAX
 client.println();
 client.println(data);
@@ -6895,7 +10079,7 @@ Parameters:
 
 Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to).
 
-```C++
+```cpp
 // SYNTAX
 client.available();
 ```
@@ -6905,7 +10089,7 @@ Returns the number of bytes available.
 ### read()
 Read the next byte received from the server the client is connected to (after the last call to `read()`).
 
-```C++
+```cpp
 // SYNTAX
 client.read();
 ```
@@ -6914,7 +10098,7 @@ Returns the next byte (or character), or -1 if none is available.
 
 or `int read(uint8_t *buffer, size_t size)` reads all readily available bytes up to `size` from the server the client is connected to into the provided `buffer`.
 
-```C++
+```cpp
 // SYNTAX
 bytesRead = client.read(buffer, length);
 ```
@@ -6927,7 +10111,7 @@ Waits until all outgoing data in buffer has been sent.
 
 **NOTE:** That this function does nothing at present.
 
-```C++
+```cpp
 // SYNTAX
 client.flush();
 ```
@@ -6943,7 +10127,7 @@ from `TCPServer.available()` (where the client is a remote client connecting to 
 When `TCPClient` was created directly via `TCPClient.connect()`, then `remoteIP`
 returns the remote server the client is connected to.
 
-```C++
+```cpp
 
 // EXAMPLE - TCPClient from TCPServer
 
@@ -6971,7 +10155,7 @@ void loop()
 }
 ```
 
-```C++
+```cpp
 // EXAMPLE - TCPClient.connect()
 
 TCPClient client;
@@ -6989,14 +10173,46 @@ if (client.connected())
 
 Disconnect from the server.
 
-```C++
+```cpp
 // SYNTAX
 client.stop();
 ```
+
+### getWriteError()
+
+Get the error code of the most recent [`write()`](#write--4) operation.
+
+Returns: int `0` when everything is ok, a non-zero error code in case of an error.
+
+
+This value is updated every after every call to [`write()`](#write--4) or can be manually cleared by {{#if has-tcpserver}}[`clearWriteError()`](#clearwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`clearWriteError()`](#clearwriteerror-){{/if}}
+
+
+```cpp
+// SYNTAX
+int err = client.getWriteError();
+```
+
+```cpp
+// EXAMPLE
+TCPClient client;
+// Write in non-blocking mode
+int bytes = client.write(buf, len, 0);
+int err = client.getWriteError();
+if (err != 0) {
+  Log.trace("TCPClient::write() failed (error = %d), number of bytes written: %d", err, bytes);
+}
+```
+
+### clearWriteError()
+
+Clears the error code of the most recent [`write()`](#write--4) operation setting it to `0`. This function is automatically called by [`write()`](#write--4).
+
+`clearWriteError()` does not return anything.
 {{/if}}
 
-
 ## UDP
+(inherits from [`Stream`](#stream-class) and `Printable`)
 
 This class enables UDP messages to be sent and received.
 
@@ -7064,7 +10280,7 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/guide/tools-and-features/webhooks/).
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks).
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()
@@ -7259,7 +10475,7 @@ Waits until all outgoing data in buffer has been sent.
 
 **NOTE:** That this function does nothing at present.
 
-```C++
+```cpp
 // SYNTAX
 Udp.flush();
 ```
@@ -7402,7 +10618,7 @@ Parameters:
 Returns:
 - `int`: The number of bytes written. Negative value on error.
 
-{{#if photon}}
+{{#if has-udp-multicast}}
 ### joinMulticast()
 
 {{since when="0.4.5"}}
@@ -7443,11 +10659,13 @@ IPAddress multicastAddress(224,0,0,0);
 Udp.leaveMulticast(multicastAddress);
 ```
 
-{{/if}} {{!-- photon --}}
+{{/if}} {{!-- has-udp-multicast --}}
 
 ## Servo
 
 This library allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
+
+This example uses pin D0, but D0 cannot be used for Servo on all devices.
 
 ```cpp
 // EXAMPLE CODE
@@ -7481,6 +10699,10 @@ void loop()
 
 **NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
 
+{{#if has-nrf52}}
+**NOTE:** Servo is only supported on mesh devices in Device OS 0.8.0-rc.26 and later.
+{{/if}}
+
 
 ### attach()
 
@@ -7488,6 +10710,10 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 
 - on the Core, Servo can be connected to A0, A1, A4, A5, A6, A7, D0, and D1.
 - on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
+- on the P1, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, P1S0, P1S1
+- on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
+- on Gen 3 Argon, Boron, and Xenon devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for Servo.
+- On Gen 3 B Series SoM devices, pins A0, A1, A6, A7, D4, D5, and D6 can be used for Servo.
 
 ```cpp
 // SYNTAX
@@ -7724,7 +10950,7 @@ The onChange handler is called 1000 times per second so you should be careful to
 
 Allows a set of PWM pins to mirror the functionality of the on-board RGB LED.
 
-```C++
+```cpp
 // SYNTAX
 // Common-cathode RGB LED connected to A4 (R), A5 (G), A7 (B)
 RGB.mirrorTo(A4, A5, A7);
@@ -7739,8 +10965,8 @@ STARTUP(RGB.mirrorTo(A4, A5, A7));
 
 Parameters:
   - `pinr`: PWM-enabled pin number connected to red LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
-  - `ping`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
-  - `pinb`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `ping`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `pinb`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `invert` (optional): `true` if the connected RGB LED is common-anode, `false` if common-cathode (default).
   - `bootloader` (optional): if `true`, the RGB mirroring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirroring only works while the firmware is running (default).
 
@@ -7772,7 +10998,7 @@ This class allows to define a _LED status_ that represents an application-specif
 
 ```cpp
 // EXAMPLE - defining and using a LED status
-LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK);
+LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK, LED_SPEED_NORMAL, LED_PRIORITY_IMPORTANT);
 
 void setup() {
     // Blink red for 3 seconds after connecting to the Cloud
@@ -8328,7 +11554,7 @@ Returns the number of milliseconds since the device began running the current pr
 
 `unsigned long time = millis();`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 unsigned long time;
@@ -8356,7 +11582,7 @@ Returns the number of microseconds since the device booted.
 
 `unsigned long time = micros();`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 unsigned long time;
@@ -8382,14 +11608,14 @@ In Device OS v0.4.3 and earlier this number will overflow (go back to zero), aft
 
 Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
 
-```C++
+```cpp
 // SYNTAX
 delay(ms);
 ```
 
 `ms` is the number of milliseconds to pause *(unsigned long)*
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int ledPin = D1;              // LED connected to digital pin D1
@@ -8414,13 +11640,13 @@ the parameter for millis is an unsigned long, errors may be generated if a progr
 
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
 
-```C++
+```cpp
 // SYNTAX
 delayMicroseconds(us);
 ```
 `us` is the number of microseconds to pause *(unsigned int)*
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int outPin = D1;              // digital pin D1
@@ -8452,7 +11678,7 @@ Serial.print(Time.hour());
 Serial.print(Time.hour(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 0-23
 
@@ -8469,9 +11695,9 @@ Serial.print(Time.hourFormat12());
 
 // Print the hour in 12-hour format for a given time, in this case: 3
 Serial.print(Time.hourFormat12(1400684400));
-`
+```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 1-12
 
@@ -8489,7 +11715,7 @@ Serial.print(Time.isAM());
 Serial.print(Time.isAM(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
@@ -8507,7 +11733,7 @@ Serial.print(Time.isPM());
 Serial.print(Time.isPM(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
@@ -8526,7 +11752,7 @@ Serial.print(Time.minute());
 Serial.print(Time.minute(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 0-59
 
@@ -8545,7 +11771,7 @@ Serial.print(Time.second());
 Serial.print(Time.second(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 0-59
 
@@ -8563,7 +11789,7 @@ Serial.print(Time.day());
 Serial.print(Time.day(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 1-31
 
@@ -8589,7 +11815,7 @@ Serial.print(Time.weekday());
 Serial.print(Time.weekday(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 1-7
 
@@ -8608,7 +11834,7 @@ Serial.print(Time.month());
 Serial.print(Time.month(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer 1-12
 
@@ -8626,7 +11852,7 @@ Serial.print(Time.year());
 Serial.print(Time.year(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 Returns: Integer
 
@@ -8640,7 +11866,7 @@ Retrieve the current time as seconds since January 1, 1970 (commonly known as "U
 Serial.print(Time.now()); // 1400647897
 ```
 
-Returns: system_tick_t (uint32_t), 32-bit unsigned integer
+Returns: time_t (Unix timestamp), coordinated universal time (UTC), long integer (32-bit)
 
 ### local()
 
@@ -8738,7 +11964,7 @@ Also see: [`Particle.syncTime()`](#particle-synctime-)
 Time.setTime(1413034662);
 ```
 
-Parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 ### timeStr()
 
@@ -8766,7 +11992,7 @@ Time.format();                // current time with preset format
 time_t time = Time.now();
 Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
 
-Time.zone(-5.25);  // setup a time zone, which is part of the ISO6801 format
+Time.zone(-5.25);  // setup a time zone, which is part of the ISO8601 format
 Time.format(time, TIME_FORMAT_ISO8601_FULL); // 2004-01-10T08:22:04-05:15
 
 ```
@@ -8777,7 +12003,7 @@ The formats available are:
 - `TIME_FORMAT_ISO8601_FULL`
 - custom format based on [strftime()](http://www.cplusplus.com/reference/ctime/strftime/)
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
 
 If you have set the time zone using Time.zone(), beginDST(), etc. the formatted time will be formatted in local time.
 
@@ -8852,7 +12078,7 @@ void loop()
 
 ### Advanced
 
-For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard libray time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
+For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard library time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
 
 {{#if has-interrupts}}
 
@@ -8871,6 +12097,11 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 **NOTE:**
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
+{{#if has-nrf52}}
+All A and D pins (including TX, RX, and SPI) on Gen 3 (mesh) devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
+{{/if}}
+
+{{#if has-stm32}}
 External interrupts are supported on the following pins:
 
 **Photon**
@@ -8881,7 +12112,7 @@ Not supported on the Photon (you can't use attachInterrupt on these pins):
 
 No restrictions on the Photon (all of these can be used at the same time):
 
-  - D5, D6, D7, A2, A6, WKP, TX, RX
+  - D5, D6, D7, A2, WKP, TX, RX
 
 Shared on the Photon (only one pin for each bullet item can be used at the same time):
 
@@ -8902,7 +12133,7 @@ Not supported on the P1 (you can't use attachInterrupt on these pins):
 
 No restrictions on the P1 (all of these can be used at the same time):
 
-  - D5, D6, A2, A6, TX, RX
+  - D5, D6, A2, TX, RX
 
 Shared on the P1 (only one pin for each bullet item can be used at the same time):
 
@@ -8920,10 +12151,12 @@ Not supported on the Electron/E series (you can't use attachInterrupt on these p
 
   - D0, A5 (shared with MODE button)
   - D7 (shared with BATT_INT_PC13)
+  - C1 (shared with RXD_UC)
+  - C2 (shared with RI_UC)
 
 No restrictions on the Electron/E series (all of these can be used at the same time):
 
-  - D5, D6, A6
+  - D5, D6
 
 Shared on the Electron/E series (only one pin for each bullet item can be used at the same time):
 
@@ -8943,6 +12176,9 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
 
 Interrupts supported on D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7 only.
 {{/if}}
+{{/if}} {{!-- has-stm32 --}}
+
+Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/hardware/pin-info).
 
 ```
 // SYNTAX
@@ -8964,7 +12200,7 @@ attachInterrupt(pin, function, mode, priority, subpriority);
 
 The function returns a boolean whether the ISR was successfully attached (true) or not (false).
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 void blink(void);
@@ -9036,7 +12272,7 @@ detachInterrupt(pin);
 
 Re-enables interrupts (after they've been disabled by `noInterrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 void setup() {}
@@ -9060,7 +12296,7 @@ void loop()
 
 Disables interrupts (you can re-enable them with `interrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
-```C++
+```cpp
 // SYNTAX
 noInterrupts();
 ```
@@ -9098,9 +12334,15 @@ void setup()
 }
 ```
 
+(That is for illustration only. You should not call Serial.println from a software timer because Serial is not thread-safe. It's possible that text being written from the main loop thread would be inter-mixed with text from the timer.)
+
 Timers may be started, stopped, reset within a user program or an ISR.  They may also be "disposed", removing them from the (max. 10) active timer list.
 
 The timer callback is similar to an interrupt - it shouldn't block. However, it is less restrictive than an interrupt. If the code does block, the system will not crash - the only consequence is that other software timers that should have triggered will be delayed until the blocking timer callback function returns.
+
+You should not use functions like `Particle.publish` from a timer callback. 
+
+Software timers run with a smaller stack (1024 bytes vs. 6144 bytes). This can limit the functions you use from the callback function.
 
 // SYNTAX
 
@@ -9148,7 +12390,7 @@ Starts a stopped timer (a newly created timer is stopped). If `start()` is calle
 
 `start()`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.start(); // starts timer if stopped or resets it if started.
 
@@ -9160,7 +12402,7 @@ Stops a running timer.
 
 `stop()`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.stop(); // stops a running timer.
 
@@ -9174,7 +12416,7 @@ Changes the period of a previously created timer. It can be called to change the
 
 `newPeriod` is the new timer period (unsigned int)
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.changePeriod(1000); // Reset period of timer to 1000ms.
 
@@ -9187,7 +12429,7 @@ Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is 
 
 `reset()`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.reset(); // reset timer if running, or start timer if stopped.
 
@@ -9205,7 +12447,7 @@ timer.reset(); // reset timer if running, or start timer if stopped.
 
 Start, stop and reset a timer or change a timer's period (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if started.
 
@@ -9222,7 +12464,7 @@ timer.changePeriodFromISR(newPeriod);  // WITHIN an ISR, change the timer period
 
 Stop and remove a timer from the (max. 10) timer list, freeing a timer "slot" in the list.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 timer.dispose(); // stop and delete timer from timer list.
 
@@ -9236,7 +12478,7 @@ timer.dispose(); // stop and delete timer from timer list.
 
 Returns `true` if the timer is in active state (pending), or `false` otherwise.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 if (timer.isActive()) {
     // ...
@@ -9274,7 +12516,7 @@ void loop() {
 // AWDT count reset automatically after loop() ends
 ```
 
-A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed.  This is the amount of memory needed to support the thread and function that is called.  In practice, on the Photon (v0.5.0) calling the `System.reset` function requires approx. 170 bytes of memory. If not enough memory is allocated, the application will crash due to a Stack Overflow.  The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led/photon/#red-flash-sos).
+A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed.  This is the amount of memory needed to support the thread and function that is called.  In practice, on the Photon (v0.5.0) calling the `System.reset` function requires approx. 170 bytes of memory. If not enough memory is allocated, the application will crash due to a Stack Overflow.  The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
 
@@ -9297,7 +12539,7 @@ Calculates the minimum of two numbers.
 
 The functions returns the smaller of the two numbers.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 sensVal = min(sensVal, 100); // assigns sensVal to the smaller of sensVal or 100
                              // ensuring that it never gets above 100.
@@ -9309,7 +12551,7 @@ Perhaps counter-intuitively, max() is often used to constrain the lower end of a
 **WARNING:**
 Because of the way the min() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results
 
-```C++
+```cpp
 min(a++, 100);   // avoid this - yields incorrect results
 
 a++;
@@ -9327,7 +12569,7 @@ Calculates the maximum of two numbers.
 
 The functions returns the larger of the two numbers.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 sensVal = max(senVal, 20); // assigns sensVal to the larger of sensVal or 20
                            // (effectively ensuring that it is at least 20)
@@ -9339,7 +12581,7 @@ Perhaps counter-intuitively, max() is often used to constrain the lower end of a
 **WARNING:**
 Because of the way the max() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results
 
-```C++
+```cpp
 max(a--, 0);   // avoid this - yields incorrect results
 
 a--;           // use this instead -
@@ -9360,7 +12602,7 @@ and returns `-x` if `x` is less than `0`.
 **WARNING:**
 Because of the way the abs() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results.
 
-```C++
+```cpp
 abs(a++);   // avoid this - yields incorrect results
 
 a++;          // use this instead -
@@ -9382,7 +12624,7 @@ The function will return:
 `a`: if `x` is less than `a`
 `b`: if `x` is greater than `b`
 
-```C++
+```cpp
 // EXAMPLE USAGE
 sensVal = constrain(sensVal, 10, 150);
 // limits range of sensor values to between 10 and 150
@@ -9390,7 +12632,7 @@ sensVal = constrain(sensVal, 10, 150);
 
 ### map()
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Map an analog value to 8 bits (0 to 255)
@@ -9437,7 +12679,7 @@ The function returns the mapped value, as integer or floating point depending on
 *Appendix:*
 For the mathematically inclined, here's the whole function
 
-```C++
+```cpp
 int map(int value, int fromStart, int fromEnd, int toStart, int toEnd)
 {
     if (fromEnd == fromStart) {
@@ -9486,7 +12728,7 @@ Parameters
 
 Returns: a random value between 0 and up to, but not including `max`.
 
-```c++
+```cpp
 int r = random(10);
 // r is >= 0 and < 10
 // The smallest value returned is 0
@@ -9507,7 +12749,7 @@ Parameters:
 Returns: a random value from `min` and up to, but not including `max`.
 
 
-```c++
+```cpp
 int r = random(10, 100);
 // r is >= 10 and < 100
 // The smallest value returned is 10
@@ -9565,6 +12807,12 @@ from the cloud, and setting the seed is left to up you.
 
 ## EEPROM
 
+{{#if has-eeprom-file}}
+EEPROM emulation allows small amounts  of data to be stored and persisted even across reset, power down, and user and system firmware flash operations.
+
+On the {{device}} the EEPROM emulation is stored as a file on the flash file system. Since the data is spread across a large number of flash sectors, flash erase-write cycle limits should not be an issue in general.
+
+{{else}}
 EEPROM emulation allocates a region of the device's built-in Flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled.
@@ -9573,17 +12821,20 @@ Each write containing changed values will add more data to the page until it is 
 
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
+{{/if}}
+
 
 ### length()
 Returns the total number of bytes available in the emulated EEPROM.
 
-```c++
+```cpp
 // SYNTAX
 size_t length = EEPROM.length();
 ```
 
 - The Core has 127 bytes of emulated EEPROM.
-- The Photon and Electron have 2047 bytes of emulated EEPROM.
+- The Gen 2 (Photon, P1, Electron, and E Series) have 2047 bytes of emulated EEPROM.
+- The Gen 3 (Argon, Boron, Xenon) devices have 4096 bytes of emulated EEPROM.
 
 ### put()
 This function will write an object to the EEPROM. You can write single values like `int` and
@@ -9601,7 +12852,7 @@ and `EEPROM.length()-1`
 `object` is the object data to write. The number of bytes to write is automatically determined from
 the type of object.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 // Write a value (2 bytes in this case) to the EEPROM address
 int addr = 10;
@@ -9644,7 +12895,7 @@ and `EEPROM.length()-1`
 `object` is the object data that would be read. The number of bytes read is automatically determined
 from the type of object.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 // Read a value (2 bytes in this case) from EEPROM addres
 int addr = 10;
@@ -9686,7 +12937,7 @@ uint8_t value = EEPROM.read(int address);
 
 `address` is the address (int) of the EEPROM location to read
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Read the value of the second byte of EEPROM
@@ -9707,7 +12958,7 @@ write(int address, uint8_t value);
 `address` is the address (int) of the EEPROM location to write to
 `value` is the byte data (uint8_t) to write
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // Write a byte value to the second byte of EEPROM
@@ -9725,16 +12976,19 @@ haven't changed.
 ### clear()
 Erase all the EEPROM so that all reads will return 255 (hexadecimal 0xFF).
 
-```C++
+```cpp
 // EXAMPLE USAGE
 // Reset all EEPROM locations to 0xFF
 EEPROM.clear();
 ```
 
+{{#unless has-eeprom-file}}
 Calling this function pauses processor execution (including code running in interrupts) for 800ms since
 no instructions can be fetched from Flash while the Flash controller is busy erasing both EEPROM
 pages.
+{{/unless}}
 
+{{#unless has-eeprom-file}}
 ### hasPendingErase()
 ### performPendingErase()
 
@@ -9771,6 +13025,8 @@ If the application never calls `performPendingErase()` then the pending page era
 when data is written using `put()` or `write()` and both pages are full. So calling
 `performPendingErase()` is optional and provided to avoid the uncertainty of a potential processor
 pause any time `put()` or `write()` is called.
+{{/unless}} {{!-- has-eeprom-file --}}
+
 
 {{/if}}
 
@@ -9805,7 +13061,7 @@ Power Conditions and how they relate to Backup RAM initialization and data reten
 
 With regular RAM, data is stored in RAM by declaring variables.
 
-```C++
+```cpp
 // regular variables stored in RAM
 float lastTemperature;
 int numberOfPresses;
@@ -9818,7 +13074,7 @@ they will have the initial value 0 if an initial value isn't specified.
 
 Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
 
-```C++
+```cpp
 // retained variables stored in backup RAM
 retained float lastTemperature;
 retained int numberOfPresses;
@@ -9846,7 +13102,7 @@ Here's some typical use cases for `retained` variables:
 Finally, if you don't need the persistence of `retained` variables, you
 can consider them simply as extra RAM to use.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
 
@@ -9977,7 +13233,7 @@ PRODUCT_ID(94); // replace by your product ID
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
-You can find more details about the product ID and how to get yours in the [_Console_ guide.](/guide/tools-and-features/console/#your-product-id)
+You can find more details about the product ID and how to get yours in the [_Console_ guide.](/tutorials/device-cloud/console#your-product-id)
 
 ## System Events
 
@@ -10075,11 +13331,11 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 |       | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
 |       | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
 |       | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
-|       | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
+|       | button_click | 4096 | event sent each time SETUP/MODE button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
 |       | button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
 | 0.6.1 | time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
 | 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
-
+| 0.8.0 | out_of_memory | 1<<18 | event generated when a request for memory could not be satisfied | the amount in bytes of memory that could not be allocated | 
 
 ## System Modes
 
@@ -10142,8 +13398,6 @@ The semi-automatic mode is therefore much like the automatic mode, except:
 - When the device boots up, `setup()` and `loop()` will begin running immediately.
 - Once the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked while the device attempts to negotiate a connection. This connection will block execution of `loop()` or `setup()` until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect-).
 
-`Particle.connect();
-
 ### Manual mode
 
 
@@ -10179,9 +13433,6 @@ When using manual mode:
 ## System Thread
 
 {{since when="0.4.6"}}
-
-{{#if electron}}**Please note:** The System Thread feature is in Beta - we advise only using this
-in production after extensive testing.{{/if}}
 
 The System Thread is a system configuration that helps ensure the application loop
 is not interrupted by the system background processing and network management.
@@ -10310,6 +13561,16 @@ void so_timing_sensitive()
 }
 ```
 
+You must avoid within a SINGLE_THREADED_BLOCK:
+
+- Lengthy operations
+- Calls to delay()
+- Any call that can block (Particle.publish, Cellular.RSSI, and others)
+- Any function that uses a mutex to guard a resource (Log.info, SPI transactions, etc.)
+
+The problem with mutex guarded resources is a bit tricky. For example: Log.info uses a mutex to prevent multiple threads from trying to log at the same time, causing the messages to be mixed together. However the code runs with interrupts and thread swapping enabled. Say the system thread is logging and your user thread code swaps in. The system thread still holds the logging mutex. Your code enters a SINGLE_THREADED_BLOCK, then does Log.info. The system will deadlock at this point. Your Log.info in the user thread blocks on the logging mutex. However it will never become available because thread swapping has been disabled, so the system thread can never release it. All threads will stop running at this point.
+
+Because it's hard to know exactly what resources will be guarded by a mutex its best to minimize the use of SINGLE_THREADED_BLOCK.
 
 ### ATOMIC_BLOCK()
 
@@ -10488,7 +13749,7 @@ Can be used to determine how long the System button (MODE on Core/Electron, SETU
 
 Returns `uint16_t` as duration button has been held down in milliseconds.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 void button_handler(system_event_t event, int duration, void* )
 {
@@ -10658,7 +13919,7 @@ void loop() {}
 
 {{since when="0.4.6"}}
 
-```C++
+```cpp
 // SYNTAX
 System.enterSafeMode();
 ```
@@ -10670,79 +13931,18 @@ Resets the device and restarts in safe mode.
 
 ### sleep() [ Sleep ]
 
-`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
 {{#if has-nrf52}}
-**The sleep modes described here are for the Photon and Electron. Updated documentation with details
-for mesh devices will be provided soon.**
+Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
 {{/if}}
-
-
-```
-// Variants of System.sleep()
-
-// Turn off {{network-type}} for seconds.
-// Keep application running.
-// Low power usage.
-System.sleep(seconds);
-
-// Turn off microcontroller and {{network-type}}.
-// Reset after seconds.
-// Ultra low power usage.
-System.sleep(SLEEP_MODE_DEEP, seconds);
-
-{{#if has-fuel-gauge}}
-// Turn off microcontroller, {{network-type}} and fuel gauge.
-// Reset after seconds.
-// Lowest power usage.
-System.sleep(SLEEP_MODE_SOFTPOWEROFF, seconds);
-{{/if}}
-
-{{#if has-cellular}}
-// Keep {{network-type}} running.
-// Turn off microcontroller.
-// Reset after seconds.
-System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
-{{/if}}
-
-// Turn off {{network-type}}.
-// Pause microcontroller.
-// Application resumes on pin trigger or after seconds.
-// Very low power usage.
-System.sleep(wakeUpPin, edgeTriggerMode, seconds);
-
-{{#if has-cellular}}
-// Keep {{network-type}} running.
-// Pause microcontroller.
-// Application resumes on pin trigger or after seconds.
-System.sleep(wakeUpPin, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
-{{/if}}
-```
-
-There are several variations of `System.sleep()` based on which arguments are passed. See below for details.
-
-In all cases, if the wake up time `seconds` is omitted or 0, the application will keep sleeping until the `wakeUpPin` triggers (if specified) or the user hits the {{reset-button}} button.
 
 ---
 
-`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in standby mode.
+{{#if has-stm32}}
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
 
-```C++
-// SYNTAX
-System.sleep(long seconds);
-
-// EXAMPLE USAGE
-
-// Put the Wi-Fi module in standby (low power) for 5 seconds
-System.sleep(5);
-// The device LED will breathe white during sleep
-```
-
----
-
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode.
-
-```C++
+```cpp
 // SYNTAX
 System.sleep(SLEEP_MODE_DEEP, long seconds);
 
@@ -10751,46 +13951,84 @@ System.sleep(SLEEP_MODE_DEEP, long seconds);
 // Put the device into deep sleep for 60 seconds
 System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
+
+// Since 0.8.0
+// Put the device into deep sleep for 60 seconds and disable {{#if core}}A7{{else}}WKP{{/if}} pin
+System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
+// The device LED will shut off during deep sleep
+// The device will not wake up if a rising edge signal is applied to {{#if core}}A7{{else}}WKP{{/if}}
 ```
 
-In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+`System.sleep(SLEEP_MODE_DEEP)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
+
+
+```cpp
+// SYNTAX
+System.sleep(SLEEP_MODE_DEEP);
+
+// EXAMPLE USAGE
+
+// Put the device into deep sleep until wakened by D8.
+System.sleep(SLEEP_MODE_DEEP);
+// The device LED will shut off during deep sleep
+```
+{{/if}} {{!-- has-nrf52 --}}
+
+In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a standby mode. 
+
 When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
-As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
+The standby mode is used to achieve the lowest power consumption.  After entering standby mode, the RAM and register contents are lost{{#if has-backup-ram}} except for retained memory{{/if}}.
 
+For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods of 5 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up, and supports sleeping for shorter intervals.
 
-The device will automatically *wake up* and reestablish the network connection after the specified number of seconds.
+{{#if has-stm32}}
+The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
 
-**Note:**
-You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
+{{since when="0.8.0"}}
+Wake up by {{#if core}}A7{{else}}WKP{{/if}} pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
 
 {{#if has-fuel-gauge}}
 ---
 
 `System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`. This is also the same net result as used in the user-activated Soft Power Down feature when you double-tap the Mode button and the Electron powers down.
 
-```C++
+```cpp
 // SYNTAX
 System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 ```
 {{/if}} {{!-- has-fuel-gauge --}}
 
-{{#if has-cellular}}
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+
+The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
+
+Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
+
+{{#if has-fuel-gauge}}
 ---
 
-`System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_NETWORK_STANDBY)` is just like `SLEEP_MODE_DEEP` but does not turn the {{network-type}} OFF.  This significantly reduces the amount of data required for reconnecting to the carrier when the {{device}} restarts from SLEEP_MODE_DEEP.  Note that this mode is most beneficial with a long KeepAlive time (23 mins on Particle SIM) where the {{device}} maximum deep sleep time can be set to the KeepAlive time.
-
-```C++
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
+```cpp
 // SYNTAX
-System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
+System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 ```
-{{/if}}
+{{/if}} {{!-- has-fuel-gauge --}}
+
+
+{{/if}} {{!-- has-nrf52 --}}
+
 
 ---
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.{{/if}}
 
-```C++
+```cpp
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
 {{#if has-cellular}}
@@ -10805,27 +14043,116 @@ System.sleep(D1,RISING);
 ```
 
 {{#if core}}
-It is mandatory to update the *bootloader* (https://github.com/particle-iot/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
+It is mandatory to update the *bootloader* (https://github.com/particle-iot/device-os/tree/bootloader-patch-update) for proper functioning of this mode.
 {{/if}}
 
 {{#if has-cellular}}
-The Electron maintains the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption.
+The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption during sleep. Roughly speaking, for sleep periods of less than 15 minutes, `SLEEP_NETWORK_STANDBY` uses less power.
+
+For sleep periods of less than 5 minutes you must use `SLEEP_NETWORK_STANDBY`. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up and prevents your SIM from being blocked.
 {{/if}}
 
 
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-    - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
-    - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+{{#unless core}}
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
+{{#if electron}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
+The device will automatically reconnect to the cloud if the cloud was connected when sleep was entered. If disconnected prior to sleep, it will stay disconnected on wake.
 
-```C++
+{{since when="0.8.0"}}
+```cpp
+// SYNTAX
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount);
+{{#if has-cellular}}
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins
+// Specify the pins in-place (using std::initializer_list)
+System.sleep({D1, A4}, RISING);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin
+// Specify the pins and edge trigger mode in-place (using std::initializer_list)
+System.sleep({D1, A4}, {RISING, FALLING});
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins
+// Specify the pins in an array
+pin_t wakeUpPins[2] = {D1, A4};
+System.sleep(wakeUpPins, 2, RISING);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin
+// Specify the pins and edge trigger modes in an array
+pin_t wakeUpPins[2] = {D1, A4};
+InterruptMode edgeTriggerModes[2] = {RISING, FALLING};
+System.sleep(wakeUpPins, 2, edgeTriggerModes, 2);
+// The device LED will shut off during sleep
+```
+
+Multiple wakeup pins may be specified for this mode.
+
+*Parameters:*
+
+- `wakeUpPins`: a list of wakeup pins:
+    - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
+    - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+{{#unless core}}
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+
+- `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `edgeTriggerModes`: defines when the interrupt should be triggered on a specific pin from `wakeUpPins` list:
+    - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
+    - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
+- `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
+{{#if electron}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
+
+```cpp
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
 {{#if has-cellular}}
@@ -10839,44 +14166,327 @@ System.sleep(D1,RISING,60);
 // The device LED will shut off during sleep
 ```
 
-{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/particle-iot/firmware/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.{{/if}}
 
+{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/particle-iot/device-os/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
 
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-    - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
-    - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+{{#unless core}}
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+apply
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
-{{#if electron}}
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
+{{#if has-cellular}}
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
-*Power consumption:*
+{{since when="0.8.0"}}
+```cpp
+// SYNTAX
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, long seconds);
 
-- Core
- - In *standard sleep mode*, the device current consumption is in the range of: **30mA to 38mA**
- - In *deep sleep mode*, the current consumption is around: **3.2 μA**
-- Photon
- - Please see the [Photon datasheet](/datasheets/photon-datasheet/#recommended-operating-conditions)
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, long seconds);
+{{#if has-cellular}}
 
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY, long seconds);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins or wakeup after 60 seconds whichever comes first
+// Specify the pins in-place (using std::initializer_list)
+System.sleep({D1, A4}, RISING, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin or wakeup after 60 seconds whichever comes first
+// Specify the pins and edge trigger mode in-place (using std::initializer_list)
+System.sleep({D1, A4}, {RISING, FALLING}, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins or wakeup after 60 seconds whichever comes first
+// Specify the pins in an array
+pin_t wakeUpPins[2] = {D1, A4};
+System.sleep(wakeUpPins, 2, RISING, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin or wakeup after 60 seconds whichever comes first
+// Specify the pins and edge trigger modes in an array
+pin_t wakeUpPins[2] = {D1, A4};
+InterruptMode edgeTriggerModes[2] = {RISING, FALLING};
+System.sleep(wakeUpPins, 2, edgeTriggerModes, 2, 60);
+// The device LED will shut off during sleep
+```
+
+Multiple wakeup pins may be specified for this mode.
+
+*Parameters:*
+
+- `wakeUpPins`: a list of wakeup pins:
+    - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
+    - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+{{#unless core}}
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+(#attachinterrupt-) apply
+- `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `edgeTriggerModes`: defines when the interrupt should be triggered on a specific pin from `wakeUpPins` list:
+    - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
+    - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
+- `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
+{{#if has-cellular}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
 
 _Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
-_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
+_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.
+
+_Since 0.8.0_ All `System.sleep()` variants return an instance of [`SleepResult`](#sleepresult-) class that can be queried on the result of `System.sleep()` execution.
+
+_Since 0.8.0_ An application may check the information about the latest sleep by using [`System.sleepResult()`](#sleepresult-) or additional accessor methods:
+- [`System.wakeUpReason()`](#wakeupreason-)
+- [`System.wokenUpByPin()`](#wokenupbypin--1)
+- [`System.wokenUpByRtc()`](#wokenupbyrtc--1)
+- [`System.wakeUpPin()`](#wakeuppin-)
+- [`System.sleepError()`](#sleeperror-)
+
+---
+
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in this mode.
+
+This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(MANUAL) instead.
+
+```cpp
+// SYNTAX
+System.sleep(long seconds);
+
+// EXAMPLE USAGE
+
+// Put the Wi-Fi module in standby (low power) for 5 seconds
+System.sleep(5);
+// The device LED will breathe white during sleep
+```
 
 {{/if}} {{!-- has-sleep --}}
+
+### SleepResult Class
+
+{{since when="0.8.0"}}
+
+This class allows to query the information about the latest `System.sleep()`.
+
+#### reason()
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+int reason = result.reason();
+```
+
+Get the wake up reason.
+
+```cpp
+// EXAMPLE
+SleepResult result = System.sleepResult();
+switch (result.reason()) {
+  case WAKEUP_REASON_NONE: {
+    Log.info("{{device}} did not wake up from sleep");
+    break;
+  }
+  case WAKEUP_REASON_PIN: {
+    Log.info("{{device}} was woken up by a pin");
+    break;
+  }
+  case WAKEUP_REASON_RTC: {
+    Log.info("{{device}} was woken up by the RTC (after a specified number of seconds)");
+    break;
+  }
+  case WAKEUP_REASON_PIN_OR_RTC: {
+    Log.info("{{device}} was woken up by either a pin or the RTC (after a specified number of seconds)");
+    break;
+  }
+}
+```
+
+Returns a code describing a reason {{device}} woke up from sleep. The following reasons are defined:
+- `WAKEUP_REASON_NONE`: {{device}} did not wake up from sleep
+- `WAKEUP_REASON_PIN`: {{device}} was woken up by an edge signal to a pin
+- `WAKEUP_REASON_RTC`: {{device}} was woken up by the RTC (after a specified number of seconds)
+- `WAKEUP_REASON_PIN_OR_RTC`: {{device}} was woken up either by an edge signal to a pin or by the RTC (after a specified number of seconds)
+
+
+#### wokenUpByPin()
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+bool r = result.wokenUpByPin();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+if (result.wokenUpByPin()) {
+  Log.info("{{device}} was woken up by a pin");
+}
+```
+
+Returns `true` when {{device}} was woken up by a pin.
+
+#### wokenUpByRtc()
+
+Returns `true` when {{device}} was woken up by the RTC (after a specified number of seconds).
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+bool r = result.wokenUpByRtc();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+if (result.wokenUpByRtc()) {
+  Log.info("{{device}} was woken up by the RTC (after a specified number of seconds)");
+}
+```
+
+#### rtc()
+
+An alias to [`wokenUpByRtc()`](#wokenupbyrtc-).
+
+#### pin()
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+pin_t pin = result.pin();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+pin_t pin = result.pin();
+if (result.wokenUpByPin()) {
+  Log.info("{{device}} was woken up by the pin number %d", pin);
+}
+```
+
+Returns: the number of the pin that woke the device.
+
+#### error()
+
+Get the error code of the latest sleep.
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+int err = result.error();
+```
+
+Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or a non-zero error code.
+
+### sleepResult()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+```
+
+Retrieves the information about the latest sleep.
+
+Returns: an instance of [`SleepResult`](#sleepresult-) class.
+
+### wakeUpReason()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+int reason = System.wakeUpReason();
+```
+
+See [`SleepResult`](#reason-) documentation.
+
+### wokenUpByPin()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+bool result = System.wokenUpByPin();
+```
+
+See [`SleepResult`](#wokenupbypin-) documentation.
+
+### wokenUpByRtc()
+
+_Since 0.8.0_
+
+```cpp
+// SYNTAX
+bool result = System.wokenUpByRtc();
+```
+
+See [`SleepResult`](#wokenupbyrtc-) documentation.
+
+### wakeUpPin()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+pin_t pin = System.wakeUpPin();
+```
+
+See [`SleepResult`](#pin-) documentation.
+
+### sleepError()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+int err = System.sleepError();
+```
+
+See [`SleepResult`](#error-) documentation.
 
 ### reset()
 
 Resets the device, just like hitting the reset button or powering down and back up.
 
-```C++
+```cpp
 uint32_t lastReset = 0;
 
 void setup() {
@@ -10907,7 +14517,7 @@ void setup() {
     // Register the event handler
     System.on(reset_pending, on_reset_pending);
     // Disable resetting of the device
-    System.enableReset();
+    System.disableReset();
 
 }
 
@@ -11048,6 +14658,18 @@ Disables the system flag.
 
 Returns `true` if the system flag is enabled.
 
+### System Uptime
+
+_Since 0.8.0_
+
+#### System.millis()
+
+Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-) function but returns a 64-bit value.
+
+#### System.uptime()
+
+Returns the number of seconds passed since the device was last reset.
+
 {{#if has-interrupts}}
 
 ## System Interrupts
@@ -11081,7 +14703,7 @@ NB: SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected
 {{/if}} {{!-- has-stm32f2 --}}
 
 See the [full list of interrupts in the firmware
-repository](https://github.com/particle-iot/firmware/blob/develop/hal/inc/interrupts_hal.h).
+repository](https://github.com/particle-iot/device-os/blob/develop/hal/inc/interrupts_hal.h).
 
 > When implementing an interrupt handler, the handler **must** execute quickly, or the system operation may be impaired. Any variables shared between the interrupt handler and the main program should be declared as `volatile` to ensure that changes in the interrupt handler are visible in the main loop and vice versa.
 
@@ -11111,6 +14733,53 @@ detachSystemInterrupt(SysInterrupt_TIM5);
 // remove all handlers for the SysInterrupt_TIM5 interrupt
 ```
 
+### attachInteruptDirect()
+
+_Since 0.8.0_
+
+Registers a function that is called when an interrupt happens. This function installs the interrupt handler function directly into the interrupt vector table and will override system handlers for the specified interrupt.
+
+**NOTE**: Most likely use-cases:
+- if lower latency is required: handlers registered with `attachInterrupt()` or `attachSystemInterrupt()` may be called with some delay due to handler chaining or some additional processing done by the system
+- system interrupt handler needs to be overriden
+- interrupt unsupported by `attachSystemInterrupt()` needs to be handled
+
+```cpp
+// SYNTAX
+attachInterruptDirect(irqn, handler);
+
+// EXAMPLE
+void handle_timer5()
+{
+  // called when timer 5 fires an interrupt
+}
+
+void setup()
+{
+  attachSystemInterrupt(TIM5_IRQn, handle_timer5);
+}
+```
+
+Parameters:
+- `irqn`: platform-specific IRQ number
+- `handler`: interrupt handler function pointer
+
+### detachInterruptDirect()
+
+_Since 0.8.0_
+
+Unregisters application-provided interrupt handlers for the given interrupt and restores the default one.
+
+```cpp
+// SYNTAX
+detachInterruptDirect(irqn);
+
+// EXAMPLE
+detachInterruptDirect(TIM5_IRQn);
+```
+
+Parameters:
+- `irqn`: platform-specific IRQ number
 
 {{/if}} {{!-- has-interrupts --}}
 
@@ -11316,7 +14985,7 @@ system("my_command");
 
 Allows a pin to mirror the functionality of the SETUP/MODE button.
 
-```C++
+```cpp
 // SYNTAX
 System.buttonMirror(D1, RISING);
 System.buttonMirror(D1, FALLING, true);
@@ -11350,7 +15019,7 @@ STARTUP(System.buttonMirror(D1, RISING, true));
 
 Disables SETUP button mirroring on a pin.
 
-```C++
+```cpp
 // SYNTAX
 System.disableButtonMirror();
 System.disableButtonMirror(false);
@@ -11420,28 +15089,349 @@ void loop() {
 
 
 ## OTA Updates
+This section describes the Device OS APIs that control firmware updates
+for Particle devices.
 
-Application firmware can use these functions to turn on or off OTA updates.
+_Many of the behaviors described below require
+Device OS version 1.2.0 or higher_.
 
-TODO: document system events when an update is received but not yet applied
+### Controlling OTA Availability
 
-### System.enableUpdates()
+This feature allows the application developer to control when the device
+is available for firmware updates. This affects both over-the-air (OTA)
+and over-the-wire (OTW) updates. OTA availability also affects both
+_single device OTA updates_ (flashing a single device) and _fleet-wide OTA updates_
+(deploying a firmware update to many devices in a Product).
 
-Enables OTA updates. Updates are enabled by default.
+Firmware updates are enabled by default when the device starts up after a deep sleep or system reset. Applications may choose to disable firmware updates during critical periods by calling the `System.disableUpdates()` function and then enabling them again with `System.enableUpdates()`.
+
+When the firmware update is the result of an [Intelligent
+Firmware Release](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases),
+the update is delivered immediately after `System.enableUpdates()` is called.
+
+Standard Firmware Releases are delivered the next time the device connects to the cloud or when the current session expires or is revoked.
+
+**Note**: Calling `System.disableUpdates()` and `System.enableUpdates()`
+for devices running Device OS version 1.2.0 or later will result in a
+message sent to the Device Cloud. This will result in a small amount of
+additional data usage each time they are called.
 
 ### System.disableUpdates()
+```cpp
+// System.disableUpdates() example where updates are disabled
+// when the device is busy.
 
-Disables OTA updates. An attempt to start an OTA update will fail.
+int unlockScooter(String arg) {
+  // scooter is busy, so disable updates
+  System.disableUpdates();
+  // ... do the unlock step
+  // ...
+  return 0;
+}
+
+int parkScooter(String arg) {
+  // scooter is no longer busy, so enable updates
+  System.enableUpdates();
+  // ... do the park step
+  // ...
+  return 0;
+}
+
+void setup() {
+  Particle.function("unlockScooter", unlockScooter);
+  Particle.function("parkScooter", parkScooter);
+}
+
+```
+Disables OTA updates on this device. An attempt to begin an OTA update
+from the cloud will be prevented by the device. When updates are disabled, firmware updates are not
+delivered to the device [unless forced](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates).
+
+**Since 1.2.0**
+
+Device OS version 1.2.0 introduced enhanced support of
+`System.disableUpdates()` and `System.enableUpdates()`. When running Device OS version 1.2.0
+or higher, the device will notify the Device Cloud of its OTA
+availability, which is [visible in the
+Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+as well as [queryable via the REST
+API](/reference/device-cloud/api/#get-device-information). The cloud
+will use this information to deliver [Intelligent Firmware
+Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+
+In addition, a cloud-side system event will be emitted when updates are disabled,
+`particle/device/updates/enabled` with a data value of `false`. This event is sent
+only if updates were not already disabled.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
+
+**Enterprise Feature**
+
+When updates are disabled, an attempt to send a firmware update to a
+device that has called `System.disableUpdates()` will result in the
+[`System.updatesPending()`](#system-updatespending-) function returning `true`.
+
+### System.enableUpdates()
+```cpp
+// System.enableUpdates() example where updates are disabled on startup
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+  System.disableUpdates();  // updates are disabled most of the time
+
+  Particle.connect();       // now connect to the cloud 
+}
+
+bool isSafeToUpdate() {
+  // determine if the device is in a good state to receive updates. 
+  // In a real application, this function would inspect the device state
+  // to determine if it is busy or not. 
+  return true;
+}
+
+void loop() {
+  if (isSafeToUpdate()) {
+    // Calling System.enableUpdates() when updates are already enabled
+    // is safe, and doesn't use any data. 
+    System.enableUpdates();
+  }
+  else {
+    // Calling System.disableUpdates() when updates are already disabled
+    // is safe, and doesn't use any data. 
+    System.disableUpdates();
+  }
+}
+```
+Enables firmware updates on this device. Updates are enabled by default when the device starts.
+
+Calling this function marks the device as available for updates. When
+updates are enabled, updates triggered from the Device Cloud are delivered to
+the device.
+
+In addition, a cloud-side system event will be emitted when updates are
+enabled,
+`particle/device/updates/enabled` with a data value of `true`. This event is sent
+only if updates were not already enabled.
+
+**Since 1.2.0**
+
+Device OS version 1.2.0 introduced enhanced support of
+`System.disableUpdates()` and `System.enableUpdates()`. If running 1.2.0
+or higher, the device will notify the Device Cloud of its OTA update
+availability, which is [visible in the
+Console](/tutorials/device-cloud/ota-updates/#ota-availability-in-the-console)
+as well as [queryable via the REST
+API](/reference/device-cloud/api/#get-device-information). The cloud
+will use this information to deliver [Intelligent Firmware
+Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Limited Support | Limited Support | Limited Support |
+| Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
 
 ### System.updatesEnabled()
+```cpp
+// System.updatesEnabled() example
+bool isSafeToUpdate() {
+  return true;
+}
 
-Determine if OTA updates are presently enabled or disabled.
+void loop() {
+  if (!isSafeToUpdate() && System.updatesEnabled()) {
+      Particle.publish("error", "Updates are enabled but the device is not safe to update.");
+  }
+}
+```
+
+Determine if firmware updates are presently enabled or disabled for this device.
+
+Returns `true` on startup, and after `System.enableUpdates()` has been called. Returns `false` after `System.disableUpdates()` has been called.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS &lt; 1.2.0 | Supported | Supported | Supported |
+| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
 
 ### System.updatesPending()
+```cpp
+// System.updatesPending() example
 
-Indicates if there are OTA updates pending.
+SYSETM_MODE(SEMI_AUTOMATIC);
 
-**Note:** Currently this function does not really do what the name might suggests but rather indicates whether an update is currently active or not. It can't be used in connection with `System.disableUpdates()` as that would prevent `System.upatesPending()` from becoming `true`. 
+void setup() {
+  // When disabling updates by default, you must use either system
+  // thread enabled or system mode SEMI_AUTOMATIC or MANUAL
+  System.disableUpdates();
+
+  // After setting the disable updates flag, it's safe to connect to
+  // the cloud.
+  Particle.connect();
+}
+
+bool isSafeToUpdate() {
+  // ...
+  return true;
+}
+
+void loop() {
+  // NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
+  if (isSafeToUpdate() && System.updatesPending()) {
+        System.enableUpdates();
+
+        // Wait 2 minutes for the update to complete and the device
+        // to restart. If the device doesn't automatically reset, manually
+        // reset just in case.
+        unsigned long start = millis();
+        while (millis() - start < (120 * 1000)) {
+            Particle.process();
+        }
+        // You normally won't reach this point as the device will
+        // restart automatically to apply the update.
+        System.reset();
+    }
+    else {
+      // ... do some critical activity that shouldn't be interrupted
+    }
+}
+
+```
+
+**Enterprise Feature, Since 1.2.0**
+
+`System.updatesPending()` indicates if there is a firmware update pending that was not delivered to the device while updates were disabled. When an update is pending, the `firmware_update_pending` system event is emitted and the `System.updatesPending()` function returns `true`.
+
+When new product firmware is released with the `intelligent` option
+enabled, the firmware is delivered immediately after release for devices
+that have firmware updates are enabled.
+
+For devices with [updates disabled](#system-disableupdates-), firmware
+updates are deferred by the device. The device is notified of the
+pending update at the time of deferral. The system event
+`firmware_update_pending` is emmitted and the `System.updatesPending()`
+function returns `true`.  The update is delivered when the application
+later re-enables updates by calling `System.enableUpdates()`, or when
+updates are force enabled from the cloud, or when the device is restarted.
+
+In addition, a cloud-side system event will be emitted when a pending
+OTA update is queued,
+`particle/device/updates/pending` with a data value of `true`.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+| ------- | ---------------------- | ---------------- |------------------- |
+| Device OS < 1.2.0 | N/A | N/A | N/A |
+| Device OS >= 1.2.0 | N/A | N/A | Supported |
+
+### System.updatesForced()
+
+```cpp
+// System.updatesForced() example
+void loop() {
+  if (System.updatesForced()) {
+    // don't perform critical functions while updates are forced
+  }
+  else {
+    // perform critical functions
+  }
+}
+```
+
+*Since 1.2.0*
+
+When the device is not available for updates, the pending firmware
+update is not normally delivered to the device. Updates can be forced in
+the cloud [either via the Console or the REST API](/tutorials/device-cloud/ota-updates/#force-enable-ota-updates) to override the local
+setting on the device. This means that firmware updates are delivered
+even when `System.disableUpdates()` has been called by the device application.
+
+When updates are forced in the cloud, the `System.updatesForced()` function returns `true`. 
+
+In addition, a cloud-side system event will be emitted when OTA updates
+are force enabled from the cloud, `particle/device/updates/forced` with
+a data value of `true`.
+
+
+Updates may be forced for a particular device. When this happens, updates are delivered even when `System.disableUpdates()` has been called.
+
+When updates are forced in the cloud, this function returns `true`.
+
+Forced updates may be used with Product firmware releases or single
+device OTA updates.
+
+| Version | Self service customers | Standard Product | Enterprise Product |
+--------- | ---------------------- | ---------------- | ------------------ |
+| Device OS &lt; 1.2.0 | N/A | N/A | N/A |
+| Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
+
+
+
+## Checking for Features
+
+User firmware is designed to run transparently regardless of what type of device it is run on. However, sometimes you will need to have code that varies depending on the capabilities of the device.
+
+It's always best to check for a capability, rather than a specific device. For example, checking for cellular instead of checking for the Electron allows the code to work properly on the Boron without modification.
+
+Some commonly used features include:
+
+- Wiring_Cellular
+- Wiring_Ethernet
+- Wiring_IPv6
+- Wiring_Keyboard
+- Wiring_Mesh
+- Wiring_Mouse
+- Wiring_Serial2
+- Wiring_Serial3
+- Wiring_Serial4
+- Wiring_Serial5
+- Wiring_SPI1
+- Wiring_SPI2
+- Wiring_USBSerial1
+- Wiring_WiFi
+- Wiring_Wire1
+- Wiring_Wire3
+- Wiring_WpaEnterprise
+
+For example, you might have code like this to declare two different methods, depending on your network type:
+
+```
+#if Wiring_WiFi
+	const char *wifiScan();
+#endif
+
+#if Wiring_Cellular
+	const char *cellularScan();
+#endif
+```
+
+The official list can be found [in the source](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_platform.h#L47).
+
+### Checking Device OS Version
+
+The define value `SYSTEM_VERSION` specifies the [system version](https://github.com/particle-iot/device-os/blob/develop/system/inc/system_version.h).
+
+For example, if you had code that you only wanted to include in 0.7.0 and later, you'd check for:
+
+```
+#if SYSTEM_VERSION >= SYSTEM_VERSION_v070
+// Code to include only for 0.7.0 and later
+#endif
+```
+
+### Checking Platform ID
+
+It's always best to check for features, but it is possible to check for a specific platform:
+
+```
+#if PLATFORM_ID == PLATFORM_BORON
+// Boron-specific code goes here
+#endif
+```
+
+You can find a complete list of platforms in [the source](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 
 ## Arduino Compatibility
 
@@ -11465,7 +15455,7 @@ This is done by adding  `#include "Arduino.h"` to each source file that requires
 
 ### Arduino APIs added by Firmware Version
 
-Once `Arduino.h` has been added to a source file, additional arduino APIs are made available.
+Once `Arduino.h` has been added to a source file, additional Arduino APIs are made available.
 The APIs added are determined by the targeted firmware version. In addition to defining the new APIs,
 the `ARDUINO` symbol is set to a value that describes the supported SDK version. (e.g. 10800 for 1.8.0)
 
@@ -11496,7 +15486,7 @@ You read the description and determine this is perfect for your application or l
 
 In your application sources, or library headers you would add the definition like this:
 
-```c++
+```cpp
 // Example of adding an Arduino SDK API in a later Arduino SDK than presently supported
 #include "Arduino.h" // this declares that our app/library wants the extended Arduino support
 
@@ -11509,7 +15499,7 @@ bool engageHyperdrive() {
 ```
  
 In your source code, you use the function normally. When compiling against a version of firmware that supports
-an older arduino SDK, then your own version of the API will be used.  Later, when `engageHyperdrive()` is added to
+an older Arduino SDK, then your own version of the API will be used.  Later, when `engageHyperdrive()` is added to
 Particle firmware,  our version will be used. This happens when the `ARDUINO` version is the same or greater than
 the the corresponding version of the Arduino SDK, which indicates the API is provided by Particle firmware.
 
@@ -11540,7 +15530,7 @@ Constructs an instance of the String class. There are multiple versions that con
   * an integer or long integer variable, using a specified base
   * a float variable, showing a specific number of decimal places
 
-```C++
+```cpp
 // SYNTAX
 String(val)
 String(val, base)
@@ -11584,7 +15574,7 @@ Returns: an instance of the String class
 
 Access a particular character of the String.
 
-```C++
+```cpp
 // SYNTAX
 string.charAt(n)
 ```
@@ -11601,7 +15591,7 @@ Returns: the n'th character of the String
 Compares two Strings, testing whether one comes before or after the other, or whether they're equal. The strings are compared character by character, using the ASCII values of the characters. That means, for example, that 'a' comes before 'b' but after 'A'. Numbers come before letters.
 
 
-```C++
+```cpp
 // SYNTAX
 string.compareTo(string2)
 ```
@@ -11621,7 +15611,7 @@ Returns:
 
 Combines, or *concatenates* two strings into one string. The second string is appended to the first, and the result is placed in the original string.
 
-```C++
+```cpp
 // SYNTAX
 string.concat(string2)
 ```
@@ -11636,7 +15626,7 @@ Returns: None
 
 Tests whether or not a String ends with the characters of another String.
 
-```C++
+```cpp
 // SYNTAX
 string.endsWith(string2)
 ```
@@ -11656,7 +15646,7 @@ Returns:
 
 Compares two strings for equality. The comparison is case-sensitive, meaning the String "hello" is not equal to the String "HELLO".
 
-```C++
+```cpp
 // SYNTAX
 string.equals(string2)
 ```
@@ -11673,7 +15663,7 @@ Returns:
 
 Compares two strings for equality. The comparison is not case-sensitive, meaning the String("hello") is equal to the String("HELLO").
 
-```C++
+```cpp
 // SYNTAX
 string.equalsIgnoreCase(string2)
 ```
@@ -11692,7 +15682,7 @@ Returns:
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
 
-```C++
+```cpp
 
 Particle.publish("startup", String::format("frobnicator started at %s", Time.timeStr().c_str()));
 
@@ -11703,7 +15693,7 @@ Particle.publish("startup", String::format("frobnicator started at %s", Time.tim
 
 Copies the string's characters to the supplied buffer.
 
-```C++
+```cpp
 // SYNTAX
 string.getBytes(buf, len)
 ```
@@ -11723,13 +15713,13 @@ The object also supports `operator const char *` so for things that specifically
 
 You would normally use c_str() if you need to pass the string to something like Serial.printlnf or Log.info where the conversion is ambiguous:
 
-```C++
+```cpp
 Serial.printlnf("the string is: %s", string.c_str());
 ```
 
 This is also helpful if you want to print out an IP address:
 
-```C++
+```cpp
 Serial.printlnf("ip addr: %s", WiFi.localIP().toString().c_str());
 ```
 
@@ -11737,7 +15727,7 @@ Serial.printlnf("ip addr: %s", WiFi.localIP().toString().c_str());
 
 Locates a character or String within another String. By default, searches from the beginning of the String, but can also start from a given index, allowing for the locating of all instances of the character or String.
 
-```C++
+```cpp
 // SYNTAX
 string.indexOf(val)
 string.indexOf(val, from)
@@ -11755,7 +15745,7 @@ Returns: The index of val within the String, or -1 if not found.
 
 Locates a character or String within another String. By default, searches from the end of the String, but can also work backwards from a given index, allowing for the locating of all instances of the character or String.
 
-```C++
+```cpp
 // SYNTAX
 string.lastIndexOf(val)
 string.lastIndexOf(val, from)
@@ -11773,7 +15763,7 @@ Returns: The index of val within the String, or -1 if not found.
 
 Returns the length of the String, in characters. (Note that this doesn't include a trailing null character.)
 
-```C++
+```cpp
 // SYNTAX
 string.length()
 ```
@@ -11788,7 +15778,7 @@ Returns: The length of the String in characters.
 
 The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
 
-```C++
+```cpp
 // SYNTAX
 string.remove(index)
 string.remove(index,count)
@@ -11806,7 +15796,7 @@ Returns: None
 
 The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring.
 
-```C++
+```cpp
 // SYNTAX
 string.replace(substring1, substring2)
 ```
@@ -11815,7 +15805,7 @@ Parameters:
 
   * string: the string which will be modified - a variable of type String
   * substring1: searched for - another variable of type String (single or multi-character), char or const char (single character only)
-  * substring2: replaced with - another variable of type String (signle or multi-character), char or const char (single character only)
+  * substring2: replaced with - another variable of type String (single or multi-character), char or const char (single character only)
 
 Returns: None
 
@@ -11823,7 +15813,7 @@ Returns: None
 
 The String reserve() function allows you to allocate a buffer in memory for manipulating strings.
 
-```C++
+```cpp
 // SYNTAX
 string.reserve(size)
 ```
@@ -11863,7 +15853,7 @@ void loop() {
 
 Sets a character of the String. Has no effect on indices outside the existing length of the String.
 
-```C++
+```cpp
 // SYNTAX
 string.setCharAt(index, c)
 ```
@@ -11879,7 +15869,7 @@ Returns: None
 
 Tests whether or not a String starts with the characters of another String.
 
-```C++
+```cpp
 // SYNTAX
 string.startsWith(string2)
 ```
@@ -11898,7 +15888,7 @@ Returns:
 
 Get a substring of a String. The starting index is inclusive (the corresponding character is included in the substring), but the optional ending index is exclusive (the corresponding character is not included in the substring). If the ending index is omitted, the substring continues to the end of the String.
 
-```C++
+```cpp
 // SYNTAX
 string.substring(from)
 string.substring(from, to)
@@ -11916,7 +15906,7 @@ Returns: the substring
 
 Copies the string's characters to the supplied buffer.
 
-```C++
+```cpp
 // SYNTAX
 string.toCharArray(buf, len)
 ```
@@ -11932,7 +15922,7 @@ Returns: None
 
 Converts a valid String to a float. The input string should start with a digit. If the string contains non-digit characters, the function will stop performing the conversion. For example, the strings "123.45", "123", and "123fish" are converted to 123.45, 123.00, and 123.00 respectively. Note that "123.456" is approximated with 123.46. Note too that floats have only 6-7 decimal digits of precision and that longer strings might be truncated.
 
-```C++
+```cpp
 // SYNTAX
 string.toFloat()
 ```
@@ -11947,7 +15937,7 @@ Returns: float (If no valid conversion could be performed because the string doe
 
 Converts a valid String to an integer. The input string should start with an integral number. If the string contains non-integral numbers, the function will stop performing the conversion.
 
-```C++
+```cpp
 // SYNTAX
 string.toInt()
 ```
@@ -11962,7 +15952,7 @@ Returns: long (If no valid conversion could be performed because the string does
 
 Get a lower-case version of a String. `toLowerCase()` modifies the string in place.
 
-```C++
+```cpp
 // SYNTAX
 string.toLowerCase()
 ```
@@ -11977,7 +15967,7 @@ Returns: None
 
 Get an upper-case version of a String. `toUpperCase()` modifies the string in place.
 
-```C++
+```cpp
 // SYNTAX
 string.toUpperCase()
 ```
@@ -11992,7 +15982,7 @@ Returns: None
 
 Get a version of the String with any leading and trailing whitespace removed.
 
-```C++
+```cpp
 // SYNTAX
 string.trim()
 ```
@@ -12018,7 +16008,7 @@ Some of the Particle classes that rely on Stream include :
 ### setTimeout()
 `setTimeout()` sets the maximum milliseconds to wait for stream data, it defaults to 1000 milliseconds.
 
-```C++
+```cpp
 // SYNTAX
 stream.setTimeout(time);
 ```
@@ -12033,7 +16023,7 @@ Returns: None
 ### find()
 `find()` reads data from the stream until the target string of given length is found.
 
-```C++
+```cpp
 // SYNTAX
 stream.find(target);		// reads data from the stream until the target string is found
 stream.find(target, length);	// reads data from the stream until the target string of given length is found
@@ -12050,7 +16040,7 @@ Returns: returns true if target string is found, false if timed out
 ### findUntil()
 `findUntil()` reads data from the stream until the target string or terminator string is found.
 
-```C++
+```cpp
 // SYNTAX
 stream.findUntil(target, terminal);		// reads data from the stream until the target string or terminator is found
 stream.findUntil(target, terminal, length);	// reads data from the stream until the target string of given length or terminator is found
@@ -12068,7 +16058,7 @@ Returns: returns true if target string or terminator string is found, false if t
 ### readBytes()
 `readBytes()` read characters from a stream into a buffer. The function terminates if the determined length has been read, or it times out.
 
-```C++
+```cpp
 // SYNTAX
 stream.readBytes(buffer, length);
 ```
@@ -12084,7 +16074,7 @@ Returns: returns the number of characters placed in the buffer (0 means no valid
 ### readBytesUntil()
 `readBytesUntil()` reads characters from a stream into a buffer. The function terminates if the terminator character is detected, the determined length has been read, or it times out.
 
-```C++
+```cpp
 // SYNTAX
 stream.readBytesUntil(terminator, buffer, length);
 ```
@@ -12101,7 +16091,7 @@ Returns: returns the number of characters placed in the buffer (0 means no valid
 ### readString()
 `readString()` reads characters from a stream into a string. The function terminates if it times out.
 
-```C++
+```cpp
 // SYNTAX
 stream.readString();
 ```
@@ -12115,7 +16105,7 @@ Returns: the entire string read from stream (String)
 ### readStringUntil()
 `readStringUntil()` reads characters from a stream into a string until a terminator character is detected. The function terminates if it times out.
 
-```C++
+```cpp
 // SYNTAX
 stream.readStringUntil(terminator);
 ```
@@ -12133,7 +16123,7 @@ Returns: the entire string read from stream, until the terminator character is d
  - Initial characters that are not digits or a minus sign, are skipped;
  - Parsing stops when no characters have been read for a configurable time-out value, or a non-digit is read;
 
-```C++
+```cpp
 // SYNTAX
 stream.parseInt();
 stream.parseInt(skipChar);	// allows format characters (typically commas) in values to be ignored
@@ -12149,7 +16139,7 @@ Returns: parsed int value (long). If no valid digits were read when the time-out
 ### parseFloat()
 `parseFloat()` as `parseInt()` but returns the first valid floating point value from the current position.
 
-```C++
+```cpp
 // SYNTAX
 stream.parsetFloat();
 stream.parsetFloat(skipChar);	// allows format characters (typically commas) in values to be ignored
@@ -12396,6 +16386,7 @@ Parameters:
 The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler.
 
 - [Papertrail](https://papertrailapp.com/) Log Handler by [barakwei](https://community.particle.io/users/barakwei/activity). [[Particle Build](https://build.particle.io/libs/585c5e64edfd74acf7000e7a/)] [[GitHub Repo](https://github.com/barakwei/ParticlePapertrail)] [[Known Issues](https://github.com/barakwei/ParticlePapertrail/issues/)]
+- Web Log Handler by [geeksville](https://github.com/geeksville). [[Particle Build](https://build.particle.io/libs/ParticleWebLog)] [[GitHub Repo](https://github.com/geeksville/ParticleWebLog)] [[Known Issues](https://github.com/geeksville/ParticleWebLog/issues/)]
 - More to come (feel free to add your own by editing the docs on GitHub)
 
 ### Logger Class
@@ -12505,11 +16496,158 @@ Parameters:
 
   * level : logging level
 
+## Global Object Constructors
+
+It can be convenient to use C++ objects as global variables. You must be careful about what you do in the constructor, however.
+
+The first code example is the bad example, don't do this.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void subscriptionHandler(const char *eventName, const char *data);
+};
+
+MyClass::MyClass() {
+	// This is generally a bad idea. You should avoid doing this from a constructor.
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+}
+
+MyClass::~MyClass() {
+
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is a globally constructed object.
+MyClass myClass;
+
+void setup() {
+
+}
+void loop() {
+
+}
+
+```
+
+Making `MyClass myClass` a global variable is fine, and is a useful technique. However, it contains a `Particle.subscribe` call in the constructor. This may fail, or crash the device. You should avoid in a global constructor:
+
+- All functions in the Particle class (Particle.subscribe, Particle.variable, etc.)
+- Creation of threads
+- Hardware initialization including I2C and SPI
+- Calls to `delay()`
+- Any class that depends on another globally initialized class instance
+
+The reason is that the order that the compiler initializes global objects varies, and is not predictable. Thus sometimes it may work, but then later it may decide to reorder initialization  and may fail.
+
+---
+
+One solution is to use two-phase setup. Instead of putting the setup code in the constructor, you put it in a setup() method of your class and call the setup() method from the actual setup(). This is the recommended method.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void setup();
+
+	void subscriptionHandler(const char *eventName, const char *data);
+};
+
+MyClass::MyClass() {
+}
+
+MyClass::~MyClass() {
+}
+
+void MyClass::setup() {
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is a globally constructed object.
+MyClass myClass;
+
+void setup() {
+	myClass.setup();
+}
+
+void loop() {
+
+}
+```
+
+---
+
+Another option is to allocate the class member using `new` instead.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void subscriptionHandler(const char *eventName, const char *data);
+};
+
+MyClass::MyClass() {
+	// This is OK as long as MyClass is allocated with new from setup
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+}
+
+MyClass::~MyClass() {
+
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is allocated in setup() using new, and is safe because
+// the constructor is called during setup() time.
+MyClass *myClass;
+
+void setup() {
+	myClass = new MyClass();
+}
+
+void loop() {
+
+}
+
+```
 
 
 ## Language Syntax
 
-Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specically gcc C++11.
+Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specifically:
+
+| Device OS Version | C++ (.cpp and .ino) | C (.c) |
+| --- | :--: | :---: |
+| 1.2.1 and later | gcc C++14 | gcc C11 |
+| earlier versions | gcc C++11 | gcc C11 |
 
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
@@ -12539,7 +16677,7 @@ void loop()
 #### loop()
 After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.  A return may be used to exit the loop() before it completely finishes.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int button = D0;
@@ -12569,7 +16707,7 @@ void loop()
 
 `if`, which is used in conjunction with a comparison operator, tests whether a certain condition has been reached, such as an input being above a certain number.
 
-```C++
+```cpp
 // SYNTAX
 if (someVariable > 50)
 {
@@ -12580,7 +16718,7 @@ The program tests to see if someVariable is greater than 50. If it is, the progr
 
 The brackets may be omitted after an *if* statement. If this is done, the next line (defined by the semicolon) becomes the only conditional statement.
 
-```C++
+```cpp
 if (x > 120) digitalWrite(LEDpin, HIGH);
 
 if (x > 120)
@@ -12598,7 +16736,7 @@ The statements being evaluated inside the parentheses require the use of one or 
 
 #### Comparison Operators
 
-```C++
+```cpp
 x == y (x is equal to y)
 x != y (x is not equal to y)
 x <  y (x is less than y)
@@ -12618,7 +16756,7 @@ This is because C evaluates the statement `if (x=10)` as follows: 10 is assigned
 
 *if/else* allows greater control over the flow of code than the basic *if* statement, by allowing multiple tests to be grouped together. For example, an analog input could be tested and one action taken if the input was less than 500, and another action taken if the input was 500 or greater. The code would look like this:
 
-```C++
+```cpp
 // SYNTAX
 if (pinFiveInput < 500)
 {
@@ -12635,7 +16773,7 @@ Each test will proceed to the next one until a true test is encountered. When a 
 
 Note that an *else if* block may be used with or without a terminating *else* block and vice versa. An unlimited number of such else if branches is allowed.
 
-```C++
+```cpp
 if (pinFiveInput < 500)
 {
   // do Thing A
@@ -12658,7 +16796,7 @@ The `for` statement is used to repeat a block of statements enclosed in curly br
 
 There are three parts to the for loop header:
 
-```C++
+```cpp
 // SYNTAX
 for (initialization; condition; increment)
 {
@@ -12667,7 +16805,7 @@ for (initialization; condition; increment)
 ```
 The *initialization* happens first and exactly once. Each time through the loop, the *condition* is tested; if it's true, the statement block, and the *increment* is executed, then the condition is tested again. When the *condition* becomes false, the loop ends.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 // slowy make the LED glow brighter
@@ -12691,7 +16829,7 @@ The C `for` loop is much more flexible than for loops found in some other comput
 
 For example, using a multiplication in the increment line will generate a logarithmic progression:
 
-```C++
+```cpp
 for(int x = 2; x < 100; x = x * 1.5)
 {
   Serial.print(x);
@@ -12700,7 +16838,7 @@ for(int x = 2; x < 100; x = x * 1.5)
 ```
 Another example, fade an LED up and down with one for loop:
 
-```C++
+```cpp
 // slowy make the LED glow brighter
 int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
 
@@ -12728,7 +16866,7 @@ Like `if` statements, `switch`...`case` controls the flow of programs by allowin
 
 The `break` keyword exits the switch statement, and is typically used at the end of each case. Without a break statement, the switch statement will continue executing the following expressions ("falling-through") until a break, or the end of the switch statement is reached.
 
-```C++
+```cpp
 // SYNTAX
 switch (var)
 {
@@ -12745,7 +16883,7 @@ switch (var)
 `var` is the variable whose value to compare to the various cases
 `label` is a value to compare the variable to
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 switch (var)
@@ -12766,7 +16904,7 @@ switch (var)
 
 `while` loops will loop continuously, and infinitely, until the expression inside the parenthesis, () becomes false. Something must change the tested variable, or the `while` loop will never exit. This could be in your code, such as an incremented variable, or an external condition, such as testing a sensor.
 
-```C++
+```cpp
 // SYNTAX
 while(expression)
 {
@@ -12775,7 +16913,7 @@ while(expression)
 ```
 `expression` is a (boolean) C statement that evaluates to true or false.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 var = 0;
@@ -12790,7 +16928,7 @@ while(var < 200)
 
 The `do` loop works in the same manner as the `while` loop, with the exception that the condition is tested at the end of the loop, so the do loop will *always* run at least once.
 
-```C++
+```cpp
 // SYNTAX
 do
 {
@@ -12798,7 +16936,7 @@ do
 } while (test condition);
 ```
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 do
@@ -12813,7 +16951,7 @@ do
 
 `break` is used to exit from a `do`, `for`, or `while` loop, bypassing the normal loop condition. It is also used to exit from a `switch` statement.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 for (int x = 0; x < 255; x++)
@@ -12833,7 +16971,7 @@ for (int x = 0; x < 255; x++)
 
 The continue statement skips the rest of the current iteration of a loop (`do`, `for`, or `while`). It continues by checking the conditional expression of the loop, and proceeding with any subsequent iterations.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 for (x = 0; x < 255; x++)
@@ -12849,7 +16987,7 @@ for (x = 0; x < 255; x++)
 
 Terminate a function and return a value from a function to the calling function, if desired.
 
-```C++
+```cpp
 //EXAMPLE USAGE
 
 // A function to compare a sensor input to a threshold
@@ -12861,7 +16999,7 @@ Terminate a function and return a value from a function to the calling function,
 ```
 The return keyword is handy to test a section of code without having to "comment out" large sections of possibly buggy code.
 
-```C++
+```cpp
 void loop()
 {
   // brilliant code idea to test here
@@ -12877,7 +17015,7 @@ void loop()
 
 Transfers program flow to a labeled point in the program
 
-```C++
+```cpp
 // SYNTAX
 
 label:
@@ -12891,7 +17029,7 @@ The use of `goto` is discouraged in C programming, and some authors of C program
 
 With that said, there are instances where a `goto` statement can come in handy, and simplify coding. One of these situations is to break out of deeply nested `for` loops, or `if` logic blocks, on a certain condition.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 for(byte r = 0; r < 255; r++) {
@@ -12924,7 +17062,7 @@ Forgetting to end a line in a semicolon will result in a compiler error. The err
 
 Curly braces (also referred to as just "braces" or as "curly brackets") are a major part of the C programming language. They are used in several different constructs, outlined below, and this can sometimes be confusing for beginners.
 
-```C++
+```cpp
 //The main uses of curly braces
 
 //Functions
@@ -12981,7 +17119,7 @@ Comments are lines in the program that are used to inform yourself or others abo
 
 Comments only purpose are to help you understand (or remember) how your program works or to inform others how your program works. There are two different ways of marking a line as a comment:
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 x = 5;  // This is a single line comment. Anything after the slashes is a comment
@@ -13010,7 +17148,7 @@ Note that the # is necessary.
 
 This can have some unwanted side effects if the constant name in a `#define` is used in some other constant or variable name. In that case the text would be replaced by the `#define` value.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 #define ledPin 3
@@ -13042,7 +17180,7 @@ Stores the value to the right of the equal sign in the variable to the left of t
 
 The single equal sign in the C programming language is called the assignment operator. It has a different meaning than in algebra class where it indicated an equation or equality. The assignment operator tells the microcontroller to evaluate whatever value or expression is on the right side of the equal sign, and store it in the variable to the left of the equal sign.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int sensVal;                // declare an integer variable named sensVal
@@ -13053,13 +17191,13 @@ The variable on the left side of the assignment operator ( = sign ) needs to be 
 
 Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal.
 
-#### + - * / (additon subtraction multiplication division)
+#### + - * / (addition subtraction multiplication division)
 
 These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 2,147,483,647 gives -2,147,483,648). If the operands are of different types, the "larger" type is used for the calculation.
 
 If one of the numbers (operands) are of the type float or of type double, floating point math will be used for the calculation.
 
-```C++
+```cpp
 // EXAMPLE USAGES
 
 y = y + 3;
@@ -13068,7 +17206,7 @@ i = j * 6;
 r = r / 5;
 ```
 
-```C++
+```cpp
 // SYNTAX
 result = value1 + value2;
 result = value1 - value2;
@@ -13096,9 +17234,9 @@ Calculates the remainder when one integer is divided by another. It is useful fo
 
 `result` is the remainder
 
-The remainder function can have unexpected behavoir when some of the opperands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
+The remainder function can have unexpected behavior when some of the operands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
 
-```C++
+```cpp
 // EXAMPLE USAGES
 
 x = 9 % 5;   // x now contains 4
@@ -13110,7 +17248,7 @@ x = 7 % -5;  // x now contains 2
 x = -7 % -5; // x now contains -2
 ```
 
-```C++
+```cpp
 EXAMPLE CODE
 //update one value in an array each time through a loop
 
@@ -13137,7 +17275,7 @@ These can be used inside the condition of an if statement.
 
 True only if both operands are true, e.g.
 
-```C++
+```cpp
 if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH)
 {
   // read two switches
@@ -13150,7 +17288,7 @@ if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH)
 
 True if either operand is true, e.g.
 
-```C++
+```cpp
 if (x > 0 || y > 0)
 {
   // ...
@@ -13162,7 +17300,7 @@ if (x > 0 || y > 0)
 
 True if the operand is false, e.g.
 
-```C++
+```cpp
 if (!x)
 {
   // ...
@@ -13192,7 +17330,7 @@ The bitwise AND operator in C++ is a single ampersand, &, used between two other
     0  0  0  1    (operand1 & operand2) - returned result
 ```
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int a =  92;    // in binary: 0000000001011100
@@ -13211,7 +17349,7 @@ The bitwise OR operator in C++ is the vertical bar symbol, |. Like the & operato
     ----------
     0  1  1  1    (operand1 | operand2) - returned result
 ```
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int a =  92;    // in binary: 0000000001011100
@@ -13231,7 +17369,7 @@ There is a somewhat unusual operator in C++ called bitwise EXCLUSIVE OR, also kn
 ```
 Another way to look at bitwise XOR is that each bit in the result is a 1 if the input bits are different, or 0 if they are the same.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int x = 12;     // binary: 1100
@@ -13274,7 +17412,7 @@ variable >> number_of_bits
 `variable` can be `byte`, `int`, `long`
 `number_of_bits` and integer <= 32
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 int a = 5;        // binary: 0000000000000101
@@ -13283,7 +17421,7 @@ int c = b >> 3;   // binary: 0000000000000101, or back to 5 like we started with
 ```
 When you shift a value x by y bits (x << y), the leftmost y bits in x are lost, literally shifted out of existence:
 
-```C++
+```cpp
 int a = 5;        // binary: 0000000000000101
 int b = a << 14;  // binary: 0100000000000000 - the first 1 in 101 was discarded
 ```
@@ -13302,20 +17440,20 @@ If you are certain that none of the ones in a value are being shifted into obliv
 ```
 When you shift x right by y bits (x >> y), and the highest bit in x is a 1, the behavior depends on the exact data type of x. If x is of type int, the highest bit is the sign bit, determining whether x is negative or not, as we have discussed above. In that case, the sign bit is copied into lower bits, for esoteric historical reasons:
 
-```C++
+```cpp
 int x = -16;     // binary: 1111111111110000
 int y = x >> 3;  // binary: 1111111111111110
 ```
 This behavior, called sign extension, is often not the behavior you want. Instead, you may wish zeros to be shifted in from the left. It turns out that the right shift rules are different for unsigned int expressions, so you can use a typecast to suppress ones being copied from the left:
 
-```C++
+```cpp
 int x = -16;                   // binary: 1111111111110000
 int y = (unsigned int)x >> 3;  // binary: 0001111111111110
 ```
 
 If you are careful to avoid sign extension, you can use the right-shift operator >> as a way to divide by powers of 2. For example:
 
-```C++
+```cpp
 int x = 1000;
 int y = x >> 3;   // integer division of 1000 by 8, causing y = 125
 ```
@@ -13325,7 +17463,7 @@ int y = x >> 3;   // integer division of 1000 by 8, causing y = 125
 
 Increment or decrement a variable
 
-```C++
+```cpp
 // SYNTAX
 x++;  // increment x by one and returns the old value of x
 ++x;  // increment x by one and returns the new value of x
@@ -13336,7 +17474,7 @@ x-- ;   // decrement x by one and returns the old value of x
 
 where `x` is an integer or long (possibly unsigned)
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 x = 2;
@@ -13353,7 +17491,7 @@ y = x--;      // x contains 2 again, y still contains 3
 
 Perform a mathematical operation on a variable with another constant or variable. The += (et al) operators are just a convenient shorthand for the expanded syntax.
 
-```C++
+```cpp
 // SYNTAX
 x += y;   // equivalent to the expression x = x + y;
 x -= y;   // equivalent to the expression x = x - y;
@@ -13364,7 +17502,7 @@ x /= y;   // equivalent to the expression x = x / y;
 `x` can be any variable type
 `y` can be any variable type or constant
 
-```C++
+```cpp
 // EXAMPLE USAGE
 
 x = 2;
@@ -13429,7 +17567,7 @@ So if:
 
 The compound bitwise OR operator (|=) is often used with a variable and a constant to "set" (set to 1) particular bits in a variable.
 
-```C++
+```cpp
 // SYNTAX
 x |= y;   // equivalent to x = x | y;
 ```
@@ -13895,47 +18033,94 @@ The stack size cannot be changed as it's allocated by the Device OS before the u
 
 {{/if}}
 
-## Firmware Releases
+## Device OS Versions
 
-Particle device firmware is open source and stored [here on Github](https://github.com/particle-iot/firmware).
+Particle Device OS firmware is open source and stored [here on GitHub](https://github.com/particle-iot/device-os).
 
-Firmware releases are published [here on Github](https://github.com/particle-iot/firmware/releases) as they are created, tested and deployed.
+New versions are published [here on GitHub](https://github.com/particle-iot/device-os/releases) as they are created, tested and deployed.
 
-### Firmware Release Process
+### New version release process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/particle-iot/firmware/wiki/Firmware-Release-Process).
+The process in place for releasing all Device OS versions as prerelease or default release versions can be found [here on GitHub](https://github.com/particle-iot/device-os/wiki/Firmware-Release-Process).
 
-### Github Release Notes
+### GitHub Release Notes
 
-Please go to Github to read the Changelog for your desired firmware version (Click a version below).
+Please go to GitHub to read the Changelog for your desired firmware version (Click a version below).
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/firmware/releases/tag/v0.7.0)|-|-|-|-|-|-|
-|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.7)|
-|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|[v0.6.3](https://github.com/spark/firmware/releases/tag/v0.6.3)|[v0.6.4](https://github.com/spark/firmware/releases/tag/v0.6.4)|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|-|-|
-|-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|-|-|
-|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/firmware/releases/tag/v0.5.4)|[v0.5.5](https://github.com/spark/firmware/releases/tag/v0.5.5)|-|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|-|-|
+|v1.4.x default releases|[v1.4.0](https://github.com/particle-iot/device-os/releases/tag/v1.4.0)|[v1.4.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.1)|[v1.4.2](https://github.com/particle-iot/device-os/releases/tag/v1.4.2)|[v1.4.3](https://github.com/particle-iot/device-os/releases/tag/v1.4.3)|[v1.4.4](https://github.com/particle-iot/device-os/releases/tag/v1.4.4)|-|-|
+|v1.4.x prereleases|[v1.4.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.0-rc.1)|[v1.4.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.1-rc.1)|-|-|-|-|-|
+|v1.3.x default releases|[v1.3.1](https://github.com/particle-iot/device-os/releases/tag/v1.3.1)|-|-|-|-|-|-|
+|v1.3.x prereleases|[v1.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.3.0-rc.1)|[v1.3.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.3.1-rc.1)|-|-|-|-|-|
+|v1.2.x default releases|[v1.2.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.1)|-|-|-|-|-|-|
+|v1.2.x prereleases|[v1.2.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.0-beta.1)|[v1.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.0-rc.1)|[v1.2.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.1)|[v1.2.1-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.2)|[v1.2.1-rc.3](https://github.com/particle-iot/device-os/releases/tag/v1.2.1-rc.3)|-|-|
+|v1.1.x default releases|[v1.1.0](https://github.com/particle-iot/device-os/releases/tag/v1.1.0)|[v1.1.1](https://github.com/particle-iot/device-os/releases/tag/v1.1.1)|-|-|-|-|-|
+|v1.1.x prereleases|[v1.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.1.0-rc.1)|[v1.1.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.1.0-rc.2)|[v1.1.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.1.1-rc.1)|-|-|-|-|
+|v1.0.x default releases|[v1.0.0](https://github.com/particle-iot/device-os/releases/tag/v1.0.0)|[v1.0.1](https://github.com/particle-iot/device-os/releases/tag/v1.0.1)|-|-|-|-|-|
+|v1.0.x prereleases|[v1.0.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.0.1-rc.1)|-|-|-|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.10](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.10)|[v0.8.0-rc.11](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.11)|[v0.8.0-rc.12](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.12)|[v0.8.0-rc.14](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.14)|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.1)|[v0.8.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.2)|[v0.8.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.3)|[v0.8.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.4)|[v0.8.0-rc.7](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.7)|[v0.8.0-rc.8](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.8)|[v0.8.0-rc.9](https://github.com/particle-iot/device-os/releases/tag/v0.8.0-rc.9)|
+|v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/device-os/releases/tag/v0.7.0)|-|-|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/particle-iot/device-os/releases/tag/v0.7.0-rc.7)|
+|v0.6.x default releases|[v0.6.0](https://github.com/particle-iot/device-os/releases/tag/v0.6.0)|[v0.6.1](https://github.com/particle-iot/device-os/releases/tag/v0.6.1)|[v0.6.2](https://github.com/particle-iot/device-os/releases/tag/v0.6.2)|[v0.6.3](https://github.com/particle-iot/device-os/releases/tag/v0.6.3)|[v0.6.4](https://github.com/particle-iot/device-os/releases/tag/v0.6.4)|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.6.2-rc.2)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.6.1-rc.2)|-|-|-|
+|v0.5.x default releases|[v0.5.0](https://github.com/particle-iot/device-os/releases/tag/v0.5.0)|[v0.5.1](https://github.com/particle-iot/device-os/releases/tag/v0.5.1)|[v0.5.2](https://github.com/particle-iot/device-os/releases/tag/v0.5.2)|[v0.5.3](https://github.com/particle-iot/device-os/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/device-os/releases/tag/v0.5.4)|[v0.5.5](https://github.com/particle-iot/device-os/releases/tag/v0.5.5)|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/particle-iot/device-os/releases/tag/v0.5.3-rc.3)|-|-|-|-|
 
 ### Programming and Debugging Notes
 
-If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on Github and your version's notes will be found below the table :)
+If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on GitHub and your version's notes will be found below the table :)
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.6.x default releases|[v0.7.0](/reference/device-os/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
-|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.5](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.5&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.6](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.6&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.7](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.7&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|
+|v1.4.x default releases|[v1.4.0](/reference/device-os/firmware/photon/?fw_ver=1.4.0&cli_ver=1.47.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.1](/reference/device-os/firmware/photon/?fw_ver=1.4.1&cli_ver=1.48.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.2](/reference/device-os/firmware/photon/?fw_ver=1.4.2&cli_ver=1.49.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.3](/reference/device-os/firmware/photon/?fw_ver=1.4.3&cli_ver=1.52.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.4](/reference/device-os/firmware/photon/?fw_ver=1.4.4&cli_ver=1.53.0&electron_parts=3#programming-and-debugging-notes)|-|-|
+|v1.4.x prereleases|[v1.4.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.4.0-rc.1&cli_ver=1.43.3&electron_parts=3#programming-and-debugging-notes)|[v1.4.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.4.1-rc.1&cli_ver=1.47.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v1.3.x default releases|[v1.3.1](/reference/device-os/firmware/photon/?fw_ver=1.3.1&cli_ver=1.46.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v1.3.x prereleases|[v1.3.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.3.0-rc.1&cli_ver=1.41.2&electron_parts=3#programming-and-debugging-notes)|[v1.3.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.3.1-rc.1&cli_ver=1.43.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v1.2.x default releases|[v1.2.1](/reference/device-os/firmware/photon/?fw_ver=1.2.1&cli_ver=1.43.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v1.2.x prereleases|[v1.2.0-beta.1](/reference/device-os/firmware/photon/?fw_ver=1.2.0-beta.1&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.2.0-rc.1&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.1&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.2&cli_ver=1.41.1&electron_parts=3#programming-and-debugging-notes)|[v1.2.1-rc.3](/reference/device-os/firmware/photon/?fw_ver=1.2.1-rc.3&cli_ver=1.41.2&electron_parts=3#programming-and-debugging-notes)|-|
+|v1.1.x default releases|[v1.1.0](/reference/device-os/firmware/photon/?fw_ver=1.1.0&cli_ver=1.41.0&electron_parts=3#programming-and-debugging-notes)|[v1.1.1](/reference/device-os/firmware/photon/?fw_ver=1.1.1&cli_ver=1.42.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v1.0.x prereleases|[v1.0.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1-rc.1&cli_ver=1.38.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v1.1.x prereleases|[v1.1.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.1.0-rc.1&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|[v1.1.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.1.0-rc.2&cli_ver=1.40.0&electron_parts=3#programming-and-debugging-notes)|[v1.1.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.1.1-rc.1&cli_ver=1.41.2&electron_parts=3#programming-and-debugging-notes)|-|-|
+|v1.0.x default releases|[v1.0.0](/reference/device-os/firmware/photon/?fw_ver=1.0.0&cli_ver=1.37.0&electron_parts=3#programming-and-debugging-notes)|[v1.0.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1&cli_ver=1.39.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v1.0.x prereleases|[v1.0.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.0.1-rc.1&cli_ver=1.38.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.10](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.10&cli_ver=1.33.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.11](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.11&cli_ver=1.35.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.12](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.12&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.14](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.14&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.1&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.2&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.3&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.4&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.7](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.7&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.8](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.8&cli_ver=1.32.1&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.9](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.9&cli_ver=1.32.4&electron_parts=3#programming-and-debugging-notes)|
+|v0.7.x default releases|[v0.7.0](/reference/device-os/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.5](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.5&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.6](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.6&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.7](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.7&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|
 |v0.6.x default releases|[v0.6.0](/reference/device-os/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](/reference/device-os/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|[v0.6.2](/reference/device-os/firmware/photon/?fw_ver=0.6.2&cli_ver=1.22.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.3](/reference/device-os/firmware/photon/?fw_ver=0.6.3&cli_ver=1.25.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.4](/reference/device-os/firmware/photon/?fw_ver=0.6.4&cli_ver=1.26.2&electron_parts=3#programming-and-debugging-notes)|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
-|-|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|v0.5.x default releases|[v0.5.0](/reference/device-os/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](/reference/device-os/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](/reference/device-os/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](/reference/device-os/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](/reference/device-os/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|[v0.5.5](/reference/device-os/firmware/photon/?fw_ver=0.5.5&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|-|-|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v0.5.x default releases|[v0.5.0](/reference/device-os/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](/reference/device-os/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](/reference/device-os/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](/reference/device-os/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](/reference/device-os/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|[v0.5.5](/reference/device-os/firmware/photon/?fw_ver=0.5.5&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|-|-|
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v1.29.0 = 0.7.0
+v1.53.0 = 1.4.4
+v1.52.0 = 1.4.3
+v1.49.0 = 1.4.2
+v1.48.0 = 1.4.1
+v1.47.0 = 1.4.0, 1.4.1-rc.1
+v1.46.1 = 1.3.1
+v1.43.3 = 1.3.1-rc.1, 1.4.0-rc.1
+v1.43.1 = 1.2.1
+v1.42.0 = 1.1.1
+v1.41.2 = 1.1.1-rc.1, 1.2.1-rc.3, 1.3.0-rc.1
+v1.41.1 = 1.2.1-rc.2
+v1.41.0 = 1.1.0, 1.2.0-rc.1, 1.2.1-rc.1
+v1.40.0 = 1.1.0-rc.1, 1.1.0-rc.2, 1.2.0-beta.1
+v1.39.0 = 1.0.1
+v1.38.0 = 1.0.1-rc.1
+v1.37.0 = 1.0.0
+v1.36.3 = 0.8.0-rc.14
+v1.36.3 = 0.8.0-rc.12
+v1.35.0 = 0.8.0-rc.11
+v1.33.0 = 0.8.0-rc.10
+v1.32.4 = 0.8.0-rc.9
+v1.32.1 = 0.8.0-rc.8
+v1.29.0 = 0.7.0, 0.8.0-rc.1, 0.8.0-rc2, 0.8.0-rc.3, 0.8.0-rc.4, 0.8.0-rc.7
 v1.26.2 = 0.6.4
 v1.25.0 = 0.6.3
 v1.23.1 = 0.7.0-rc.1 support for WPA Enterprise setup
@@ -13979,6 +18164,22 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@0.6.4endif
 ##### @FW_VER@0.7.0if
 ##### @FW_VER@0.7.0endif
+##### @FW_VER@1.1.1if
+##### @FW_VER@1.1.1endif
+##### @FW_VER@1.2.1if
+##### @FW_VER@1.2.1endif
+##### @FW_VER@1.3.1if
+##### @FW_VER@1.3.1endif
+##### @FW_VER@1.4.0if
+##### @FW_VER@1.4.0endif
+##### @FW_VER@1.4.1if
+##### @FW_VER@1.4.1endif
+##### @FW_VER@1.4.2if
+##### @FW_VER@1.4.2endif
+##### @FW_VER@1.4.3if
+##### @FW_VER@1.4.3endif
+##### @FW_VER@1.4.4if
+##### @FW_VER@1.4.4endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -14001,6 +18202,50 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.26.2endif
 ##### @CLI_VER@1.29.0if
 ##### @CLI_VER@1.29.0endif
+##### @CLI_VER@1.32.1if
+##### @CLI_VER@1.32.1endif
+##### @CLI_VER@1.32.4if
+##### @CLI_VER@1.32.4endif
+##### @CLI_VER@1.33.0if
+##### @CLI_VER@1.33.0endif
+##### @CLI_VER@1.35.0if
+##### @CLI_VER@1.35.0endif
+##### @CLI_VER@1.36.3if
+##### @CLI_VER@1.36.3endif
+##### @CLI_VER@1.37.0if
+##### @CLI_VER@1.37.0endif
+##### @CLI_VER@1.38.0if
+##### @CLI_VER@1.38.0endif
+##### @CLI_VER@1.39.0if
+##### @CLI_VER@1.39.0endif
+##### @CLI_VER@1.40.0if
+##### @CLI_VER@1.40.0endif
+##### @CLI_VER@1.41.0if
+##### @CLI_VER@1.41.0endif
+##### @CLI_VER@1.41.1if
+##### @CLI_VER@1.41.1endif
+##### @CLI_VER@1.41.2if
+##### @CLI_VER@1.41.2endif
+##### @CLI_VER@1.42.0if
+##### @CLI_VER@1.42.0endif
+##### @CLI_VER@1.43.0if
+##### @CLI_VER@1.43.0endif
+##### @CLI_VER@1.43.1if
+##### @CLI_VER@1.43.1endif
+##### @CLI_VER@1.43.3if
+##### @CLI_VER@1.43.3endif
+##### @CLI_VER@1.46.1if
+##### @CLI_VER@1.46.1endif
+##### @CLI_VER@1.47.0if
+##### @CLI_VER@1.47.0endif
+##### @CLI_VER@1.48.0if
+##### @CLI_VER@1.48.0endif
+##### @CLI_VER@1.49.0if
+##### @CLI_VER@1.49.0endif
+##### @CLI_VER@1.52.0if
+##### @CLI_VER@1.52.0endif
+##### @CLI_VER@1.53.0if
+##### @CLI_VER@1.53.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -14046,9 +18291,9 @@ The easiest way to upgrade to Device OS Version @FW_VER@ is to use the
 Particle CLI with a single command.  You will first upgrade the Device
 OS, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
-To upgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
 ```
 The easy local method using Particle CLI
@@ -14079,13 +18324,99 @@ particle flash --usb tinker
 
 ##### @FW_VER@0.7.0endif
 
+##### @FW_VER@1.1.1if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.1.1
+
+##### @FW_VER@1.1.1endif
+
+##### @FW_VER@1.2.1if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.2.1
+
+##### @FW_VER@1.2.1endif
+
+##### @FW_VER@1.3.1if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.2.1
+- Then update to 1.3.1
+
+##### @FW_VER@1.3.1endif
+
+##### @FW_VER@1.4.0if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.2.1
+- Then update to 1.4.0
+
+##### @FW_VER@1.4.0endif
+
+##### @FW_VER@1.4.1if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.2.1
+- Then update to 1.4.1
+
+##### @FW_VER@1.4.1endif
+
+##### @FW_VER@1.4.2if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.2.1
+- Then update to 1.4.2
+
+##### @FW_VER@1.4.2endif
+
+##### @FW_VER@1.4.3if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.2.1
+- Then update to 1.4.3
+
+##### @FW_VER@1.4.3endif
+
+##### @FW_VER@1.4.4if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+- Then update to 1.2.1
+- Then update to 1.4.4
+
+##### @FW_VER@1.4.4endif
+
 **Note:** As a Product in the Console, when flashing a >= 0.6.0 user
 app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware.
 This will consume about 500KB of data as it has to transfer two 0.5.3
 system parts and three >= 0.6.0 system parts. Devices will not
 automatically update Device OS if not added as a Product in Console.
 
-**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [Github Release Notes](#github-release-notes).
+**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [GitHub Release Notes](#github-release-notes).
 
 If your device is online, you can attempt to OTA (Over The Air) update these system parts as well with the Particle CLI.  Run the following commands in order for your device type:
 
@@ -14144,9 +18475,9 @@ particle flash YOUR_DEVICE_NAME tinker (optional)
 
 This **requires CLI version @CLI_VER@ or newer**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
-To upgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
+To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
 ```
@@ -14201,7 +18532,7 @@ particle flash --usb tinker (optional)
 
 **The local DFU-UTIL method**
 can be applied to offline devices locally over USB using `dfu-util`
-- Put the device in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED)
+- Put the device in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED)
 - open a terminal window, change to the directory where you downloaded the files above, and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
@@ -14270,9 +18601,9 @@ Current default Device OS would be the latest non-rc.x firmware version.  E.g. i
 ##### @FW_VER@0.7.0endif
 The easiest way to downgrade from a Device OS Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the Device OS. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
-If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
+If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
-To downgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To downgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
 ```
 Downgrading from @FW_VER@ to current default firmware

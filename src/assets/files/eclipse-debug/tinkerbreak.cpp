@@ -1,5 +1,10 @@
 #include "Particle.h"
 
+// This turns off optimization for this file which makes it easier to debug.
+// Otherwise you can't break on some lines, and some local variables won't
+// be available.
+#pragma GCC optimize ("O0")
+
 /* Function prototypes -------------------------------------------------------*/
 int tinkerDigitalRead(String pin);
 int tinkerDigitalWrite(String command);

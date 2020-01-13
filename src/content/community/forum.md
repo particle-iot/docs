@@ -31,7 +31,6 @@ Stop by and join on of the best places online meet other people using Particle t
   - [Official Resources](#official-resources)
   - [Tools and SDKs](#tools-and-sdks)
   - [External Resources](#external-resources)
-  - [Conferences](#conferences)
   - [Podcasts](#podcasts)
   - [Useful Tools, Docs & FAQs](#useful-tools-docs-amp-faqs)
   - [Tutorials](#tutorials)
@@ -46,10 +45,10 @@ Stop by and join on of the best places online meet other people using Particle t
 
 - [Particle Docs](/)
 - [Particle Forums](https://community.particle.io/)
-- [DeviceOS Firmware Reference](/reference/device-os/firmware)
+- [Device OS Firmware Reference](/reference/device-os/firmware)
 - [Cloud API Reference](/reference/device-cloud/api/)
 - [GitHub Organization](https://github.com/particle-iot)
-- [DeviceOS Firmware Release Notes](/reference/device-os/firmware/photon/#github-release-notes)
+- [Device OS Firmware Release Notes](/reference/device-os/firmware/photon/#github-release-notes)
 - [FAQ](/support/particle-devices-faq)
 - [Particle YouTube Channel](https://www.youtube.com/channel/UCpYjkSkGOXAMXeZjZkbb-PQ)
 - [Particle Blog](https://blog.particle.io)
@@ -69,17 +68,11 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## External Resources
 
-- [Particle on Hackster.io](https://www.hackster.io/particle)
+- [Particle on Hackster](https://www.hackster.io/particle)
 - [Particle on Instructables](http://www.instructables.com/howto/Particle/)
 - [Getting Started with the Photon by Simon Monk](https://www.amazon.com/Getting-Started-Photon-Affordable-Hackable/dp/1457187019)
 - [Community Supported Particle Clients](/community/community)
 
-## Conferences
-
-- [June 11-15 - NDC {Oslo} ](https://ndcoslo.com/talk/ditching-promises-and-socially-acceptable-callback-hell/)
-- [August 5-8 - That Conference](https://www.thatconference.com/sessions/session/12893)
-- [September 27 - Open Source Hardware Summit](https://2018.oshwa.org/)
-- [October 21-23 - All Things Open](https://allthingsopen.org/)
 
 ## Podcasts
 

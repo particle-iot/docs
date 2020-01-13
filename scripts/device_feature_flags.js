@@ -30,13 +30,14 @@ module.exports = function plugin(options) {
 
 		Object.keys(files).forEach(function (fileName) {
 			var file = files[fileName];
-			var device = file.device;
-			if (!device) {
-				return;
+			if (file.setdevice) {
+				file.device = file.setdevice;
 			}
-
-			var featureFlags = deviceFeatureFlags[device];
-			assign(file, featureFlags);
+			
+			if (file.device) {
+				var featureFlags = deviceFeatureFlags[file.device];
+				assign(file, featureFlags);
+			}
 		});
 
 		done();

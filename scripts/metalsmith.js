@@ -48,7 +48,7 @@ var prettify = require('prettify');
 prettify.register(handlebars);
 
 //disable autolinking
-function noop() {}
+function noop() { }
 noop.exec = noop;
 var marked = require('marked');
 marked.InlineLexer.rules.gfm.url = noop;
@@ -62,7 +62,7 @@ var generateSearch = process.env.SEARCH_INDEX !== '0';
 // Make Particle.function searchable with function only
 lunr_.tokenizer.separator = /[\s\-.]+/;
 
-exports.metalsmith = function() {
+exports.metalsmith = function () {
   function removeEmptyTokens(token) {
     if (token.length > 0) {
       return token;
@@ -92,7 +92,7 @@ exports.metalsmith = function() {
     // Auto-generate documentation from the API using comments formatted in the apidoc format
     .use(
       apidoc({
-        destFile: 'content/reference/api.md',
+        destFile: 'content/reference/device-cloud/api.md',
         apis: [
           {
             src: '../api-service/',
@@ -109,7 +109,7 @@ exports.metalsmith = function() {
     )
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({
-      destFile: 'content/reference/javascript.md',
+      destFile: 'content/reference/SDKs/javascript.md',
       srcFile: '../particle-api-js/docs/api.md',
       fragment: 'GENERATED_JAVASCRIPT_DOCS',
       preprocess: javascriptDocsPreprocess,
@@ -121,13 +121,13 @@ exports.metalsmith = function() {
     }))
     // Add properties to files that match the pattern
     .use(fileMetadata([
-      {pattern: 'content/**/*.md', metadata: {lunr: generateSearch, assets: '/assets', branch: gitBranch}}
+      { pattern: 'content/**/*.md', metadata: { lunr: generateSearch, assets: '/assets', branch: gitBranch } }
     ]))
     .use(msIf(
       environment === 'development',
       fileMetadata([
-        {pattern: 'content/**/*.md', metadata: {development: true}},
-        {pattern: '**/*.hbs', metadata: {development: true}}
+        { pattern: 'content/**/*.md', metadata: { development: true } },
+        { pattern: '**/*.hbs', metadata: { development: true } }
       ])
     ))
     // Handlebar templates for use in the front-end JS code
@@ -167,6 +167,7 @@ exports.metalsmith = function() {
           'developer-tools',
           'device-cloud',
           'SDKs',
+          'hardware',
           'discontinued'
         ]
       },
@@ -176,12 +177,14 @@ exports.metalsmith = function() {
         orderDynamicCollections: [
           'device-os',
           'developer-tools',
-          'device-cloud',
           'cellular-connectivity',
+          'device-cloud',
+          'diagnostics',
           'product-tools',
-          'iot-rules-engine',
           'integrations',
-          'hardware-projects'
+          'hardware-projects',
+          'iot-rules-engine',
+          'learn-more'
         ]
       },
       datasheets: {
@@ -192,45 +195,56 @@ exports.metalsmith = function() {
           'cellular',
           'mesh',
           'certifications',
+          'accessories',
+          'app-notes',
           'discontinued'
         ]
       },
       community: {
-          pattern: 'community/*md',
-          sortBy: 'order',
-          orderDynamicCollections: [
-          ]
-        },
+        pattern: 'community/*md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+        ]
+      },
+      workshops: {
+        pattern: 'workshops/:section/*md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'particle-workshops',
+          'mesh-101-workshop',
+          'photon-maker-kit-workshop'
+        ]
+      },
       support: {
         pattern: 'support/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
+          'general',
           'particle-devices-faq',
           'particle-tools-faq',
-          'pricing',
           'shipping-and-returns',
           'wholesale-store',
           'troubleshooting'
         ]
       },
       supportBase: {
-          pattern: 'support/*.md',
-          sortBy: 'order',
-          orderDynamicCollections: [
-          ]
-        },
+        pattern: 'support/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+        ]
+      },
       quickstart: {
-          pattern: 'quickstart/*md',
-          sortBy: 'order',
-          orderDynamicCollections: [
-          ]
+        pattern: 'quickstart/*md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+        ]
       },
       landing: {
-          pattern: '*md',
-          sortBy: 'order',
-          orderDynamicCollections: [
-          ]
-        }
+        pattern: '*md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+        ]
+      }
     }))//end of collections/sections
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link
@@ -238,7 +252,7 @@ exports.metalsmith = function() {
       key: 'devices',
       redirectTemplate: '../templates/redirector.html.hbs'
     }))
-		// Fix previous / next links when a page doesn't exist for a specific device
+    // Fix previous / next links when a page doesn't exist for a specific device
     .use(fixLinks({
       key: 'devices'
     }))
@@ -248,9 +262,9 @@ exports.metalsmith = function() {
     .use(deviceFeatureFlags({
       config: '../config/device_features.json'
     }))
-	// Create HTML pages with meta http-equiv='refresh' redirects
+    // Create HTML pages with meta http-equiv='refresh' redirects
     .use(redirects({
-        config: '../config/redirects.json'
+      config: '../config/redirects.json'
     }))
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
@@ -258,16 +272,16 @@ exports.metalsmith = function() {
       engine: 'handlebars',
       pattern: ['**/*.md', '**/*.hbs']
     }))
-	// Remove the .hbs extension from generated files that contained handlebar markers
+    // Remove the .hbs extension from generated files that contained handlebar markers
     .use(copy({
-        pattern: '**/*.hbs',
-        transform: function removeLastExtension(file) {
-			return path.join(path.dirname(file), path.basename(file, path.extname(file)));
-		},
-        move: true
+      pattern: '**/*.hbs',
+      transform: function removeLastExtension(file) {
+        return path.join(path.dirname(file), path.basename(file, path.extname(file)));
+      },
+      move: true
     }))
-	// THIS IS IT!
-	// Render the main docs files into HTML
+    // THIS IS IT!
+    // Render the main docs files into HTML
     .use(markdown())
     // Add a toc key for each file based on the HTML header elements in the file
     .use(autotoc({
@@ -279,11 +293,11 @@ exports.metalsmith = function() {
     .use(lunr({
       indexPath: 'search-index.json',
       fields: {
-          contents: 1,
-          title: 10
+        contents: 1,
+        title: 10
       },
       pipelineFunctions: [
-          removeEmptyTokens
+        removeEmptyTokens
       ]
     }))
     // For files that have a template frontmatter key, look for that template file in the configured directory and
@@ -300,7 +314,7 @@ exports.metalsmith = function() {
   return metalsmith;
 };
 
-exports.compress = function(callback) {
+exports.compress = function (callback) {
   Metalsmith(__dirname)
     .clean(false)
     .concurrency(100)
@@ -313,7 +327,7 @@ exports.compress = function(callback) {
     .build(callback);
 };
 
-exports.build = function(callback) {
+exports.build = function (callback) {
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     exports.metalsmith()
@@ -321,7 +335,7 @@ exports.build = function(callback) {
         src: ['search-index.json'],
         overwrite: true
       }))
-      .build(function(err, files) {
+      .build(function (err, files) {
         if (err) {
           throw err;
         }
@@ -332,14 +346,14 @@ exports.build = function(callback) {
   });
 };
 
-exports.test = function(callback) {
+exports.test = function (callback) {
   var server = serve({ cache: 300, port: 8081 });
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     generateSearch = true;
     exports.metalsmith()
       .use(server)
-      .build(function(err, files) {
+      .build(function (err, files) {
         if (err) {
           console.error(err, err.stack);
         }
@@ -351,7 +365,7 @@ exports.test = function(callback) {
   return server;
 };
 
-exports.server = function(callback) {
+exports.server = function (callback) {
   environment = 'development';
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
@@ -366,18 +380,19 @@ exports.server = function(callback) {
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
           '../templates/layouts/community.hbs': 'content/community/*.md',
+          '../templates/layouts/workshops.hbs': 'content/workshops/**/*.md',
           '../templates/layouts/landing.hbs': 'content/*.md',
           '../templates/layouts/main.hbs': 'content/index.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
-          '${source}/assets/js/*.js*' : true,
-          '${source}/assets/images/**/*' : true,
+          '${source}/assets/js/*.js*': true,
+          '${source}/assets/images/**/*': true,
           '../config/device_features.json': 'content/**/*.md',
           '../api-service/lib/**/*.js': 'content/reference/api.md',
           '../config/redirects.json': '**/*'
         },
         livereload: true
       }))
-      .build(function(err, files) {
+      .build(function (err, files) {
         if (err) {
           console.error(err, err.stack);
         }

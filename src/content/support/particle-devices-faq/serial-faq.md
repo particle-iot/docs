@@ -35,7 +35,7 @@ The [documentation for Serial is here](/reference/device-os/firmware#serial).
 
 ### Particle CLI 
 
-A common way to view debug serial messages is the [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/photon/). Note that the CLI only reads serial messages, it is strictly a serial monitor, and you can't type things to the Photon/Electron. Still, it's quick and easy, and very handy.
+A common way to view debug serial messages is the [Particle CLI](/tutorials/developer-tools/cli/). Note that the CLI only reads serial messages, it is strictly a serial monitor, and you can't type things to the Photon/Electron. Still, it's quick and easy, and very handy.
 
 ```
 $ particle serial monitor
@@ -238,7 +238,7 @@ Typically DTE devices have a male connector. Pin 2 is an input and pin 3 is an o
 
 Likewise, DCE devices typically have a female connector. Pin 2 is an output and pin 3 is an input.
 
-The Sparkfun board has a female DB9 and makes the Photon a DCE. This makes sense because most computer serial ports are DTE.
+The SparkFun board has a female DB9 and makes the Photon a DCE. This makes sense because most computer serial ports are DTE.
 
 ## Baud rate, bits, parity, and stop bits
 

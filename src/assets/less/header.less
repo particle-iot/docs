@@ -62,6 +62,10 @@ a.nav {
   }
 }
 
+a.nav-device {
+  font-size: 14px;
+}
+
 a.nav.active {
   color: @spark-blue;
   border-bottom: 2px solid;
@@ -121,7 +125,8 @@ a.nav-device {
 .dropdown {
   position: relative;
   display: inline-block;
-  margin-right: 10px;
+  margin-left: 20px;
+  padding-top: 0px;
   a {
     margin-right: 12px !important;
   }
@@ -145,7 +150,7 @@ a.nav-device {
   min-width: 70px;
   padding: 5px 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   list-style: none;
   background-color: @NC_WHITE;
@@ -174,6 +179,18 @@ a.nav-device {
   overflow: hidden;
   background-color: @NC_MORNING_MIST;
 }
+
+.dropdown-menu > li {
+  display: block;
+  padding: 3px 10px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: @NC_SPACE_GRAY;
+  white-space: nowrap;
+  width: 100%;
+}
+
 .dropdown-menu > li > a {
   display: block;
   padding: 3px 20px;

@@ -10,13 +10,13 @@ order: 12
 
 **The firmware manager is no longer supported.**
 
-It can still be used to update devices to Device OS 0.6.0 but cannot upgrade to newer versions. The [Particle CLI](/guide/tools-and-features/cli) should be used instead.
+It can still be used to update devices to Device OS 0.6.0 but cannot upgrade to newer versions. The [Particle CLI](/tutorials/developer-tools/cli) should be used instead.
 
 The Firmware Manager is a desktop application that upgrades your {{device}} to the latest Device OS version. It provides an easy way to update Device OS version while avoiding cellular data charges.
 
 ## Getting Started
 
-The Firmware Manager is available for Windows and OS X. 
+The Firmware Manager is available for Windows and macOS (OS X). 
 
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-windows-logo.png"> Windows
 
@@ -29,7 +29,7 @@ The first time the utility is run, you will be prompted to enable administrator 
  
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-apple-logo.png"> OS X
 
-Click [Firmware Manager for OS X](https://binaries.particle.io/updater/particle_firmware_manager-v0.6.0-osx.zip) to download the application to your downloads folder.
+Click [Firmware Manager for macOS](https://binaries.particle.io/updater/particle_firmware_manager-v0.6.0-osx.zip) to download the application to your downloads folder.
 
 The application is provided as a Zip file. Once the file has downloaded, double-click the file to start unpacking the application. This will take just a few seconds and you'll then see a folder named "Particle firmware manager" with a Particle icon.  
 
@@ -67,9 +67,7 @@ The progress bar will start to change to magenta as the update progresses
 
 ![Update in progress]({{assets}}/images/updater-updating.png)
 
-... and the LED on your device will start blinking magenta, like this:
-
-{{device-animation device "blink" "magenta" }}
+... and the LED on your device will start blinking magenta (red and blue at the same time).
 
 The update will pause for a short while halfway through as the device restarts and gets ready for the second part of the update. You don't need to do anything here - the device will automatically continue with the next part of the update.
 
@@ -83,7 +81,6 @@ Congratulations! You've updated the Device OS version on your device.
 
 Your device will automatically reboot and will run your app using the updated Device OS version.
 
-{{#if electron}}
 ### Electron Upgrade
 
 The Electron firmware for 0.6.0 and newer has changed from being made of 2 system modules, to 3 system modules. 
@@ -97,7 +94,6 @@ Firmware Manager 0.5.3
 - [Windows](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-windows.exe)
 - [macOS](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-osx.zip)
 
-{{/if}} {{!-- electron --}}
 
 ## Troubleshooting
 
