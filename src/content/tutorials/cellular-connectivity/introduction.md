@@ -137,28 +137,7 @@ In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the
 
 <sup>5</sup>The B Series LTE, E Series LTE, and Electron LTE cannot be used outside of the United States, Canada, and Mexico at this time. 
 
-<sup>6</sup>The u-blox SARA-R410M-02B modem supports the following LTE cellular bands:
-
-
-| Parameter | Value |
-| --- | --- |
-| LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
-| | Band 28 (700 MHz)  |
-| | Band 13 (750 MHz)  |
-| | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
-| | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
-| | Band 8 (900 MHz)  |
-| | Band 4 (1700 MHz) |
-| | Band 3 (1800 MHz)  |
-| | Band 2 (1900 MHz) |
-| | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
-
+<sup>6</sup>The u-blox SARA-R410M-02B modem supports a number of bands, see [LTE Cat M1](#lte-cat-m1) below.
 
 
 ### 3rd-party SIM cards
@@ -192,10 +171,36 @@ At this time, Particle is unable to provide worldwide roaming for LTE devices us
 
 ### LTE Cat M1
 
-In the United States, Particle devices use LTE Cat M1 on the AT&T network. 
+In the United States, Particle devices use LTE Cat M1 on the AT&T network. In all locations that AT&T supports LTE on their own network (not roaming and not a partner carrier), LTE Cat M1 should also be supported. 
 
-In all locations that AT&T supports LTE on their own network (not roaming), LTE Cat M1 should also be supported. Note that this does not include 4G areas, which on the AT&T network are HSPA+, not actually LTE.
+In Mexico, AT&T Mexico is used for LTE Cat M1.
 
+In Canada, any of Rogers, Telus, or Bell is used for LTE Cat M1.
+
+| Frequency | Band | AT&T US | AT&T MX | Rogers CA<sup>2</sup> | Telus CA<sup>2</sup> | Bell CA<sup>2</sup> |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+|  700 | 12             | &check; |         | &check; | &check; | &check; |  
+|  700 | 13<sup>1</sup> |         |         |         | &check; | &check; |
+|  700 | 17             |         |         |         | &check; | &check; |
+|  700 | 28             |         |         |         |         |         |  
+|  700 | 29             |         |         |         | &check; | &check; |
+|  800 | 20             |         |         |         |         |         |
+|  850 | 26             |         |         |         |         |         |
+|  850 | 18             |         |         |         |         |         |
+|  850 |  5             |         |         |         | &check; | &check; |
+|  850 | 19             |         |         |         |         |         |
+|  900 |  8             |         |         |         |         |         |
+| 1700 |  4             | &check; | &check; | &check; | &check; | &check; | 
+| 1800 |  3             |         |         |         |         |         |
+| 1900 |  2             | &check; |         |         | &check; | &check; | 
+| 1900 | 25             |         |         |         |         |         |
+| 1900 | 39             |         |         |         |         |         |
+| 2100 |  1             |         |         |         |         |         |
+| 2600 |  7<sup>1</sup> |         |         | &check; | &check; | &check; | 
+
+<sup>1</sup>Band 13 (700 MHz) and Band 7 (2600 MHz) are not used for LTE Cat M1 and are not supported by the u-blox SARA-R410M-02B.
+
+<sup>2</sup>The Canadian bands are for all types of LTE. Not all are used for LTE Cat M1.
 
 ## 2G and 3G Sunset
 
