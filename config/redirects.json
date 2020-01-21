@@ -25,6 +25,7 @@
     "/core/webhooks": "/tutorials/device-os/webhooks",
     "/dashboard": "/tutorials/device-cloud/console",
     "/datasheets": "/datasheets/wi-fi/photon-datasheet",
+    "/datasheets/accessories/mesh-accessories":"/datasheets/accessories/gen3-accessories",
     "/datasheets/core-datasheet": "/datasheets/discontinued/core-datasheet",
     "/datasheets/core-shields": "/datasheets/discontinued/core-shields",
     "/datasheets/discontinued-products": "/datasheets/discontinued/core-datasheet",

@@ -5,11 +5,9 @@ columns: two
 order: 2
 ---
 
-# Xenon Datasheet <sup>(v001)</sup>
+# Xenon Datasheet <sup>(v002)</sup>
 
-{{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/xenon-datasheet.pdf"}}
-{{/unless}} {{!-- pdf-generation --}}
+**The Xenon has been discontinued.** See [mesh deprecation](/datasheets/discontinued/mesh/) for more information.
 
 <div align=center><img src="/assets/images/xenon/xenon-top.png" ></div>
 
@@ -401,6 +399,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | v001     | 26 Oct 2018 | MB | Initial release |
+| v002     | 21 Jan 2020 | RK | Discontinued |
 
 ## Known Errata
 

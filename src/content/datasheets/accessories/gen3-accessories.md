@@ -1,21 +1,23 @@
 ---
-title: Mesh Accessories
+title: Gen3 Accessories
 layout: datasheet.hbs
 columns: two
 order: 20
 ---
 
-# Mesh Accessories
+# Gen3 Accessories
 
-## Grove Starter Kit for Particle Mesh
+These accessories are for the Particle Gen 3 devices: Argon and Boron in the Adafruit Feather form-factor.
+
+## Grove Starter Kit 
 
 <div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/grove-mesh-starter-kit.png" ></div>
 
-The Grove starter kit is designed to make your first exploration into the world of sensing and actuating a breeze. The kit comes with seven different components that work out-of-the-box with Particle Mesh hardware and let you focus on learning the basics. Working with Starter Kit requires no soldering and minimal wiring. Simply connect the kit’s Grove Shield (the new co-developed FeatherWing adapter from Particle and SeeedStudio) to your Particle Mesh board and use the included cables to connect the adapter and the sensors and actuators that you want to use. It’s a plug-and-play experience.
+The Grove starter kit is designed to make your first exploration into the world of sensing and actuating a breeze. The kit comes with seven different components that work out-of-the-box with Particle Gen 3 hardware and let you focus on learning the basics. Working with Starter Kit requires no soldering and minimal wiring. Simply connect the kit’s Grove Shield (the new co-developed FeatherWing adapter from Particle and SeeedStudio) to your Particle Gen 3 board and use the included cables to connect the adapter and the sensors and actuators that you want to use. It’s a plug-and-play experience.
 
 ### Kit Contents
 
- - 1x Grove Shield for Particle Mesh
+ - 1x Grove Shield for Particle Gen 3 devices
  - 1x Button
  - 1x Rotary Angle Sensor
  - 1x Ultrasonic Ranger
@@ -27,7 +29,7 @@ The Grove starter kit is designed to make your first exploration into the world 
 
 #### Grove shield
 
-The main shield consists of a connector to plug in any of the Particle Mesh dev kit and a set of 8 grove ports for plugging in various grove accessories. The ports consist of:
+The main shield consists of a connector to plug in any of the Particle Argon or Boron dev kit and a set of 8 grove ports for plugging in various grove accessories. The ports consist of:
 
  - 3 Digital ports
  - 2 Analog ports
@@ -43,7 +45,7 @@ The pins on the [Grove connector](http://wiki.seeedstudio.com/Grove_System/) are
 | 3 | Red | Power | Power | Power | Power|
 | 4 | Black | GND | GND | GND | GND |
 
-For a short (~6 min) example of using the Grove Starter Kit for Particle Mesh, watch the video below.
+For a short (~6 min) example of using the Grove Starter Kit, watch the video below.
 
 <iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/JYp3gBrcQ18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -177,9 +179,9 @@ Note that if you are using the Adafruit OLED display and the Particle Ethernet F
 
 <div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png" ></div>
 
-The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon, Boron, or Xenon and turns any Particle Mesh developer kit into an Ethernet gateway. Based on the [WIZnet W5500](/assets/datasheets/w5500.pdf) chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Mesh device.
+The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon or Boron and turns it into an Ethernet gateway. Based on the [WIZnet W5500](/assets/datasheets/w5500.pdf) chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Gen 3 device.
 
-The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Mesh device along with a Feather accessory.
+The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Gen 3 device along with a Feather accessory.
 
 - 10BaseT/100BaseTX Ethernet 
 - Support Auto Negotiation (Full and half duplex, for both 10BaseT and 100BaseTX)
@@ -188,7 +190,7 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 ### Pin Map
 
-|Mesh Pin|Ethernet FeatherWing Pin   |
+|Particle Pin|Ethernet FeatherWing Pin   |
 |:-------|:--------------------------|
 |MISO    | SPI MISO                  |
 |MOSI    | SPI MOSI                  |
@@ -199,9 +201,9 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 **Notes:**
 
-<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises. However the Device OS does not allow use of other pins (at least through 1.1.0).
+<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Gen 3 device if the need arises. However the Device OS does not allow use of other pins (at least through 1.1.0).
 
-The Ethernet driver for this wing is baked into the Mesh Device OS. When you set up a new Particle Mesh device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
+The Ethernet driver for this wing is baked into Device OS. When you set up a new Particle Gen 3 device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
 
 The hardware design for this wing is completely open source. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
 
@@ -237,7 +239,7 @@ The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100
 
 The Particle Classic Adapter lets you use your Asset Tracker, Relay Shield, or other third-party shields with our third generation developer kits. Plug your Argon, Boron, or Xenon into this adapter and continue development as usual!
 
-The top of the adapter has female connectors for you to plug in the Particle Mesh device. The bottom has male header pins in the Particle legacy form-factor for devices such as the Electron, Photon, or the Core.
+The top of the adapter has female connectors for you to plug in the Particle Gen 3 device. The bottom has male header pins in the Particle legacy form-factor for devices such as the Electron, Photon, or the Core.
 
 The legacy side (male pins on the bottom) are designed to fit an Electron. So when plugging into a Photon socket please make sure the B/C pins side are hanging off the end, not plugged into anything.
 
@@ -343,7 +345,7 @@ When using the classic adapter, some pins will hang off the edge. Makes sure the
 
 ### Pin Map
 
-|Legacy Device | Mesh Device|
+|Legacy Device | Gen 3 Device|
 |:-------------|:-----------|
 |A0 |A0 |
 |A1 |A1 |
@@ -371,21 +373,21 @@ When using the classic adapter, some pins will hang off the edge. Makes sure the
 
 **Notes:**
 
-<sup>[1]</sup> These pins are connected via jumper pads on the top. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises.
+<sup>[1]</sup> These pins are connected via jumper pads on the top. You can cut these jumper traces and rewire them to a different pin on the Gen 3 device if the need arises.
 
 <sup>[2]</sup> Pins C0 to C4 and B0 to B4 on the Particle legacy device headers are not connected to anything.
 
-<sup>[3]</sup> Pins MD, Li+, and EN on the Particle Mesh device are not connected to anything.
+<sup>[3]</sup> Pins MD, Li+, and EN on the Particle Gen 3 device are not connected to anything.
 
 ### I2C
 
-I2C (Wire) can be used on D0 and D1. However, pins on the mesh devices are not 5V tolerant, so make sure you do not have pull-ups to 5V.
+I2C (Wire) can be used on D0 and D1. However, pins on the Gen 3 devices are not 5V tolerant, so make sure you do not have pull-ups to 5V.
 
 ### SPI
 
-It's not possible to use SPI with the classic adapter. The mesh SPI pins (MISO, MOSI, SCK) are not connected to pins that support SPI on the Electron or Photon (B5, WKP, DAC). The mesh SPI1 pins overlap the Electron/Photon SPI1 pins, however they're different!
+It's not possible to use SPI with the classic adapter. The Gen 3 SPI pins (MISO, MOSI, SCK) are not connected to pins that support SPI on the Electron or Photon (B5, WKP, DAC). The Gen 3 SPI1 pins overlap the Electron/Photon SPI1 pins, however they're different!
 
-| SPI1 | Classic | Mesh | 
+| SPI1 | Classic | Gen 3 | 
 | --- | --- | --- |
 | SCK | D4 | D2 |
 | MOSI | D2 | D3 |
@@ -393,13 +395,13 @@ It's not possible to use SPI with the classic adapter. The mesh SPI pins (MISO, 
 
 ### Other Features
 
-The mesh devices do not support DAC or CAN, so those classic devices using those features won't work with the classic adapter.
+The Gen 3 devices do not support DAC or CAN, so those classic devices using those features won't work with the classic adapter.
 
 ## Debugger
 
 <div align=center><img src="/assets/images/accessories/debugger.png" ></div>
 
-The Particle Debugger gives you the power of professional debugging at a fraction of the cost. Using this accessory, you’ll be able to program Particle mesh-ready hardware over common interfaces like JTAG and SWD, using open source tools like GDB and openocd.
+The Particle Debugger gives you the power of professional debugging at a fraction of the cost. Using this accessory, you’ll be able to program Particle Gen 3 hardware over common interfaces like JTAG and SWD, using open source tools like GDB and openocd.
 
 Supports the open source [CMSIS-DAP specification](https://os.mbed.com/handbook/DAPLink) and DAPLink firmware developed by ARM. On Mac, Linux, and Windows it requires no additional device drivers. 
 
@@ -409,7 +411,7 @@ Comes with one JTAG ribbon cable.
 
 For more information about debugging see the [JTAG FAQ](/support/particle-tools-faq/jtag/). Future version of Particle Workbench will support the Particle Debugger as well. The design is open source and the design files are available [here](https://github.com/particle-iot/debugger).
 
-### Debugging mesh devices
+### Debugging Gen 3 devices
 
 Connecting a Argon, Boron, or Xenon to the debugger is as easy as connecting the included ribbon cable, as pictured below. It's keyed so it will only go in one way. The devices ship with a small plastic protective plug in the debugging connector; make sure you remove that first.
 
@@ -442,7 +444,7 @@ In order to use SWD debugging you need to connect:
 
 <div align=center><img src="/assets/images/accessories/mesh-tripler-top-view.png" ></div>
 
-Perfect for any prototyping project, the Tripler provides space to add-on up to two FeatherWing accessories without any stacking header needs. Compatible with the newest generation of Particle developer kits (Particle Mesh).
+Perfect for any prototyping project, the Tripler provides space to add-on up to two FeatherWing accessories without any stacking header needs. Compatible Gen 3 Particle developer kits.
 
 The Tripler has three breakouts for each pin on a Feather, as well as plain grid proto holes. In addition, three sets of pins are cross connected with a full strip of connected pads for GND and 3.3V.
 
