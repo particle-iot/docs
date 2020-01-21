@@ -1014,6 +1014,11 @@ void setup() {
 {{#if has-mesh}}
 ## Mesh
 
+**The mesh networking features described in this section will be supported only through Device OS 1.6.x (March 2020).**
+
+After that version, all of the features in the Mesh object will be removed from the Device OS API. See [mesh deprecation](/datasheets/discontinued/mesh/) for more information.
+
+
 ### Antenna selection
 
 At the time of writing (Device OS 0.8.0-rc.27), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
@@ -8263,11 +8268,16 @@ Returns 0 on success or a non-zero error code.
 
 #### BLE.on()
 
-Turns the BLE radio on. It defaults to on, so you normally do not need to call this unless you have turned it off.
+Turns the BLE radio on. It defaults to on in `SYSTEM_MODE(AUTOMATIC)`. In `SYSTEM_MODE(SEMI_AUTOMATIC)` or `SYSTEM_MODE(MANUAL)` you must turn on BLE.
 
 ```cpp
 // PROTOTYPE
 int on();
+
+// EXAMPLE
+void setup() {
+  BLE.on();
+}
 ```
 
 Returns 0 on success, or a non-zero error code.

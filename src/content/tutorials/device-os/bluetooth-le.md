@@ -562,6 +562,8 @@ uint8_t lastBattery = 100;
 void setup() {
 	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
 
+	BLE.on();
+
 	BLE.addCharacteristic(temperatureMeasurementCharacteristic);
 
 	BLE.addCharacteristic(batteryLevelCharacteristic);
@@ -693,6 +695,8 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 void setup() {
 	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
 
+	BLE.on();
+
 	display.setup();
 	display.clearDisplay();
 	display.display();
@@ -811,6 +815,8 @@ LEDStatus ledOverride(RGB_COLOR_WHITE, LED_PATTERN_SOLID, LED_SPEED_NORMAL, LED_
 
 void setup() {
 	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
+
+	BLE.on();
 }
 
 void loop() {
@@ -886,6 +892,8 @@ void setAdvertisingData();
 
 void setup() {
 	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
+
+	BLE.on();
 
 	setAdvertisingData();
 }
@@ -1010,6 +1018,8 @@ void setup() {
 	for(size_t ii = 0; ii < MAX_BUTTONS; ii++) {
 		buttonCharacteristic[ii].onDataReceived(onDataReceived, NULL);
 	}
+
+	BLE.on();
 }
 
 void loop() {
@@ -1143,6 +1153,8 @@ void setup() {
 	pinMode(SWITCH_PIN, INPUT_PULLUP);
 	attachInterrupt(SWITCH_PIN, interruptHandler, FALLING);
 
+	BLE.on();
+
     BLE.addCharacteristic(buttonCharacteristic);
 
     BleAdvertisingData data;
@@ -1230,6 +1242,8 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 void setup() {
     Serial.begin();
 
+	BLE.on();
+
     BLE.addCharacteristic(txCharacteristic);
     BLE.addCharacteristic(rxCharacteristic);
 
@@ -1302,6 +1316,8 @@ size_t counter = 0;
 
 
 void setup() {
+	BLE.on();
+
 	// You must add this to your setup() to initialize the library
 	bleLogHandler.setup();
 }
@@ -1489,6 +1505,7 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 
 void setup() {
     Serial.begin();
+	BLE.on();
     peerTxCharacteristic.onDataReceived(onDataReceived, &peerTxCharacteristic);
 }
 

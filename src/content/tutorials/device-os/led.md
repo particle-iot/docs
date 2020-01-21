@@ -434,7 +434,7 @@ particle flash --usb tinker
 {{/if}}
 
 {{#if has-mesh}}
-Mesh devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
+Gen 3 devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
 
 To program your device with a backup copy of user firmware via USB, you'll need to put it in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run a command like one of the following:
 
@@ -502,7 +502,7 @@ To enter Firmware Reset Mode:
 
 {{#if has-mesh}}
 
-Mesh devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
+Gen 3 (Argon, Boron, Xenon) devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
 
 To factory reset, hold down the MODE button and tap RESET. The status LED will blink:
 
