@@ -59,6 +59,8 @@ var gitBranch;
 
 var generateSearch = process.env.SEARCH_INDEX !== '0';
 
+var noScripts = true;
+
 // Make Particle.function searchable with function only
 lunr_.tokenizer.separator = /[\s\-.]+/;
 
@@ -121,7 +123,7 @@ exports.metalsmith = function () {
     }))
     // Add properties to files that match the pattern
     .use(fileMetadata([
-      { pattern: 'content/**/*.md', metadata: { lunr: generateSearch, assets: '/assets', branch: gitBranch } }
+      { pattern: 'content/**/*.md', metadata: { lunr: generateSearch, assets: '/assets', branch: gitBranch, noScripts: noScripts } }
     ]))
     .use(msIf(
       environment === 'development',
