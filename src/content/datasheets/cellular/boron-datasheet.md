@@ -34,7 +34,6 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
-  * IEEE 802.15.4-2006: 250 Kbps 
   * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
   * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 

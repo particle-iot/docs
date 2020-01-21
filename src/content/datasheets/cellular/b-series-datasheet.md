@@ -32,7 +32,6 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
-  * IEEE 802.15.4-2006: 250 Kbps 
   * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
   * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
@@ -273,7 +272,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 Boron has two radio modules.
 
 #### nRF52840
-- Bluetooth® 5, IEEE 802.15.4-2006, 2.4 GHz
+- Bluetooth® 5, 2.4 GHz
   - 95 dBm sensitivity in 1 Mbps Bluetooth® low energy mode
   - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
   - 20 to +8 dBm TX power, configurable in 4 dB steps

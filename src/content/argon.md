@@ -40,7 +40,6 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 
 - ARM Cortex-M4F 32-bit processor @ 64MHz
 - 1MB flash, 256KB RAM
-- IEEE 802.15.4-2006: 250 Kbps
 - Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
 - Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
