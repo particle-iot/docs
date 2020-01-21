@@ -195,7 +195,6 @@ exports.metalsmith = function () {
         orderDynamicCollections: [
           'wi-fi',
           'cellular',
-          'mesh',
           'certifications',
           'accessories',
           'app-notes',
