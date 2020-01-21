@@ -3,11 +3,11 @@ title: Boron
 layout: landing.hbs
 ---
 
-# Particle Boron: LTE + Bluetooth + Mesh
+# Particle Boron: LTE + Bluetooth
 
 ![Image of the Boron Kit](/assets/images/boron-kit-docs-crop.jpg)
 
-The Boron LTE is a powerful LTE CAT-M1 enabled development kit that can act as either a standalone cellular device or LTE enabled gateway, repeater, or endpoint for a Particle Mesh networks.
+The Boron LTE is a powerful LTE CAT-M1 enabled development kit for cellular networks.
 
 Equipped with the Nordic nRF52840 and u-blox SARA 410 processors, the Boron has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
 
@@ -43,7 +43,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 - ARM Cortex-M4F 32-bit processor @ 64MHz
 - 1MB flash, 256KB RAM
-- Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
+- Bluetooth LE (BLE) central and peripheral support
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
 - Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
 - ARM TrustZone CryptoCell-310 Cryptographic and security module

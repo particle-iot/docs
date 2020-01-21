@@ -7,6 +7,8 @@ layout: landing.hbs
 
 ![Image of the Xenon in a breadboard](/assets/images/xenon-breadboard-05.png)
 
+**The Xenon has been discontinued.** See [mesh deprecation](/datasheets/discontinued/mesh/) for more information.
+
 The Xenon is a low cost mesh-enabled development kit that can act as either an endpoint or repeater within a Particle Mesh network.
 
 Equipped with the Nordic nRF52840, the Xenon has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
