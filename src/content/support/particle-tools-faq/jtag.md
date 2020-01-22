@@ -15,7 +15,7 @@ JTAG can also be used with a source-level debugger ([gdb](https://www.gnu.org/so
 
 There is also a variation known as Serial Wire Debug (SWD), used with ARM devices, of which the Photon/P1/Electron are. This is helpful because it only requires two pins (D6 and D7).
 
-SWD is also used with the Gen 3 devices (Argon, Boron, and Xenon; nRF52840) via the 10-pin debugging connector. 
+SWD is also used with the Gen 3 devices (Argon and Boron; nRF52840) via the 10-pin debugging connector. 
 
 Occasionally you'll see SWIM was well, but that's generally for STM8 processors. It won't hurt if your programmer supports SWD and SWIM, but a SWIM-only programmer can't program STM32 Particle devices.
 
@@ -24,7 +24,7 @@ Occasionally you'll see SWIM was well, but that's generally for STM8 processors.
 
 ### Particle Debugger 
 
-The Particle Debugger is the easiest way to use SWD on Gen 3 devices (Argon, Boron, and Xenon). It connects easily with the included ribbon cable.
+The Particle Debugger is the easiest way to use SWD on Gen 3 devices (Argon and Boron). It connects easily with the included ribbon cable.
 
 ![Debugger](/assets/images/debugger2.jpg)
 
@@ -37,7 +37,7 @@ Another common programmer is the [ST-LINK/V2](http://www.st.com/en/development-t
 
 ![ST-LINK/V2](/assets/images/jtag-01stlink.jpg)
 
-It can only be used with Gen 1 (Core) and Gen 2 (Photon, P1, Electron, and E Series) devices, not with Gen 3 devices (Argon, Boron, Xenon).
+It can only be used with Gen 1 (Core) and Gen 2 (Photon, P1, Electron, and E Series) devices, not with Gen 3 devices (Argon, Boron).
 
 ### ST-LINK/V2 Mini SWD
 
@@ -45,7 +45,7 @@ There are also "ST-LINK/V2 Mini" devices. These also connect by USB but only use
 
 ![ST-LINK/V2 Mini](/assets/images/jtag-07mini.jpg)
 
-It can only be used with 1st and 2nd generation devices (Photon, P1, Electron, E Series, and Core), not with Gen 3 (mesh) devices.
+It can only be used with 1st and 2nd generation devices (Photon, P1, Electron, E Series, and Core), not with Gen 3 devices.
 
 ### Particle Photon Programmer Shield
 
@@ -53,7 +53,7 @@ Finally, there's the [Particle Programmer Shield](https://github.com/particle-io
 
 ![Particle Programmer Shield](/assets/images/jtag-08shield.jpg)
 
-It can only be used with 1st and 2nd generation devices (Photon, Electron, and Core), not with mesh devices.
+It can only be used with 1st and 2nd generation devices (Photon, Electron, and Core), not with Gen 3 devices.
 
 
 ## Connecting to the Photon/Electron/P1
@@ -337,13 +337,25 @@ $ cd 0.10.0-particle.1
 Windows Command Prompt:
 
 ```html
-C:\Users\rick>cd .particle\toolchains\openocdC:\Users\rick\.particle\toolchains\openocd>dir Volume in drive C is Windows 10 Volume Serial Number is 98E3-995C Directory of C:\Users\IEUser\.particle\toolchains\openocd04/09/2019  09:08 AM    <DIR>          .04/09/2019  09:08 AM    <DIR>          ..04/09/2019  09:08 AM    <DIR>          0.10.0-particle.1               0 File(s)              0 bytes               3 Dir(s)  22,179,033,088 bytes free
+C:\Users\rick>cd .particle\toolchains\openocd
+
+C:\Users\rick\.particle\toolchains\openocd>dir
+ Volume in drive C is Windows 10
+ Volume Serial Number is 98E3-995C
+
+ Directory of C:\Users\IEUser\.particle\toolchains\openocd
+
+04/09/2019  09:08 AM    <DIR>          .
+04/09/2019  09:08 AM    <DIR>          ..
+04/09/2019  09:08 AM    <DIR>          0.10.0-particle.1
+               0 File(s)              0 bytes
+               3 Dir(s)  22,179,033,088 bytes free
 C:\Users\rick\.particle\toolchains\openocd>cd 0.10.0-particle.1
 ```
 
 ### With the Particle Debugger (3rd generation)
 
-Using the Particle debugger and Gen 3 devices (Argon, Boron, Xenon):
+Using the Particle debugger and Gen 3 devices (Argon, Boron):
 
 - Connect the Particle Debugger ribbon cable between the debugger and device.
 - Connect the device by USB to your computer
@@ -445,7 +457,7 @@ For the ST-LINK/V2 use **interface/stlink-v2**. The ST-LINK/V2 can only be used 
 
 ## OpenOCD commands (3rd generation)
 
-These commands are for 3rd-generation (mesh) devices including the Argon, Boron, and Xenon.
+These commands are for Gen 3 devices including the Argon and Boron.
 
 ### Programming the boot loader (3rd generation)
 

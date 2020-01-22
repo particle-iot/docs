@@ -154,7 +154,7 @@ Additional information available [here.](http://wiki.seeedstudio.com/Grove-4-Dig
 
 ![Adafruit FeatherWing OLED Display](/assets/images/accessories/adafruit_oled.jpg)
 
-The Adafruit OLED display FeatherWing makes it easy to add a small text and graphics display to your project. Built in a FeatherWing form-factor, you can use a FeatherWing Doubler or FeatherWing Tripler to add a display to your Argon, Boron, or Xenon project with no loose wires. And it includes three handy momentary push-buttons.
+The Adafruit OLED display FeatherWing makes it easy to add a small text and graphics display to your project. Built in a FeatherWing form-factor, you can use a FeatherWing Doubler or FeatherWing Tripler to add a display to your Argon or Boron project with no loose wires. And it includes three handy momentary push-buttons.
 
 You can purchase one from the [Particle Store](https://store.particle.io/collections/accessories) or from [Adafruit](https://www.adafruit.com/product/2900). You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).
 
@@ -225,7 +225,7 @@ It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1
 | Output Voltage | | 5 | | V |
 | Output Current | | | 1800 | mA |
 
-<sup>1</sup>Operating temperature of the Ag9905M module only. The operating temperature range of the Xenon is smaller, -20 to +60&deg;C.
+<sup>1</sup>Operating temperature of the Ag9905M module only. The operating temperature range of Particle Gen 3 devices is smaller, -20 to +60&deg;C.
 
 Note that because the Ethernet FeatherWing with PoE supplies 5V to the device by the VUSB pin, you should not power it by both PoE and the USB serial port at the same time. 
 
@@ -237,13 +237,13 @@ The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100
 
 <div align=center><img src="/assets/images/accessories/classic-adapter.png" ></div>
 
-The Particle Classic Adapter lets you use your Asset Tracker, Relay Shield, or other third-party shields with our third generation developer kits. Plug your Argon, Boron, or Xenon into this adapter and continue development as usual!
+The Particle Classic Adapter lets you use your Asset Tracker, Relay Shield, or other third-party shields with our third generation developer kits. Plug your Argon or Boron into this adapter and continue development as usual!
 
 The top of the adapter has female connectors for you to plug in the Particle Gen 3 device. The bottom has male header pins in the Particle legacy form-factor for devices such as the Electron, Photon, or the Core.
 
 The legacy side (male pins on the bottom) are designed to fit an Electron. So when plugging into a Photon socket please make sure the B/C pins side are hanging off the end, not plugged into anything.
 
-You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUSB and the USB connector).
+You cannot supply more than 3.3V to any pin on the Argon or Boron (except VUSB and the USB connector).
 
 **Note:** This product is a one-way adapter. That is, this product does not enable use of Adafruit FeatherWings with the Photon or Electron.
 
@@ -413,7 +413,7 @@ For more information about debugging see the [JTAG FAQ](/support/particle-tools-
 
 ### Debugging Gen 3 devices
 
-Connecting a Argon, Boron, or Xenon to the debugger is as easy as connecting the included ribbon cable, as pictured below. It's keyed so it will only go in one way. The devices ship with a small plastic protective plug in the debugging connector; make sure you remove that first.
+Connecting a Argon or Boron to the debugger is as easy as connecting the included ribbon cable, as pictured below. It's keyed so it will only go in one way. The devices ship with a small plastic protective plug in the debugging connector; make sure you remove that first.
 
 ![Debugger](/assets/images/debugger2.jpg)
 

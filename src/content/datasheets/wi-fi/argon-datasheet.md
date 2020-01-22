@@ -221,7 +221,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 Argon has two radio modules. 
 
-Nordic Semiconductor nRF52840 SoC for BLE, Thread, and NFC.
+Nordic Semiconductor nRF52840 SoC for BLE and NFC.
 
 | Feature | Description|
 | :-------|:---------- |

@@ -192,10 +192,6 @@ out <a href="https://particle.io/for-good" target="_blank">Particle for
 Good</a> to get access to special benefits and resources for approved
 organizations.
 
-### Do I have to pay anything to use Particle Mesh devices?
-
-Pricing for mesh deployments is available by visiting http://particle.io/pricing and selecting "Mesh" from the top dropdown.
-
 ## Users vs. Products
 
 ### What is the difference between User and Product accounts?

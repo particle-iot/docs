@@ -1231,7 +1231,7 @@ void setup() {
 {{#if has-ethernet}}
 ## Ethernet
 
-Ethernet is available on the Argon, Boron, and Xenon when used with the [Ethernet FeatherWing](/datasheets/accessories/mesh-accessories/#ethernet-featherwing).
+Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/mesh-accessories/#ethernet-featherwing).
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
 
@@ -1243,7 +1243,7 @@ STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION));
 
 If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
-| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+| Argon, Boron| B Series SoM | Ethernet FeatherWing Pin  |
 |:------:|:------------:|:--------------------------|
 |MISO    | MISO         | SPI MISO                  |
 |MOSI    | MOSI         | SPI MOSI                  |
@@ -6358,7 +6358,7 @@ be used via the `SPI1` object. This second port is mapped as follows:
 * `MOSI` => `D3`
 * `MISO` => `D4`
 
-Note: On Gen 3 devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
+Note: On Gen 3 devices, the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a Gen 3 device with the classic adapter.
 {{/if}}
 {{/if}}
 

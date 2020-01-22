@@ -622,6 +622,10 @@ In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable 
 
 Mesh network management from the CLI.
 
+**The mesh networking features described in this section will be supported only December 31, 2020.**
+
+See [mesh deprecation](/datasheets/discontinued/mesh/) for more information.
+
 _These commands require Device OS 0.9.0 or later._
 
 _On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._

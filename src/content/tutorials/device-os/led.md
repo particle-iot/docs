@@ -305,7 +305,7 @@ Tapping the `{{system-button}}` button twice on your {{device}} enter soft power
 
 To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
-- For all mesh devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
+- For all Gen 3 devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
 - For the Argon it will also clear Wi-Fi settings.
 - For the Boron, it will also clear the cellular APN and SIM selection.
 - For Ethernet, it will also clear the using Ethernet flag.

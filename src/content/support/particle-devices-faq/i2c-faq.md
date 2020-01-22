@@ -75,7 +75,7 @@ This allows I2C devices to not only run at 5V, but will also have 5V levels for 
 
 This is different than SPI, which is 5V tolerant, but will only supply 3.3V on MOSI and SCK. Most 5V SPI devices will tolerate the lower 3.3V logic level, but with I2C there will be true 5V logic levels.
 
-3rd-generation devices (Argon, Boron, Xenon) **are not 5V tolerant** and must not be used with pull-ups to 5V!
+3rd-generation devices (Argon, Boron, and B Series SoM) **are not 5V tolerant** and must not be used with pull-ups to 5V!
 
 ### Pins
 

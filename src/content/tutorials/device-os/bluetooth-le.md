@@ -18,7 +18,7 @@ Particle devices support both the peripheral and central roles:
 
 BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
 
-The BLE protocol shares the same antenna as the Thread Mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
+The BLE protocol can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
 
 The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
 

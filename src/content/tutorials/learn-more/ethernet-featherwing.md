@@ -8,19 +8,13 @@ layout: tutorials.hbs
 
 # Ethernet FeatherWing
 
-In addition to Wi-Fi (Argon, Photon) and cellular (Boron, Electron), you can use Ethernet to connect devices to the Internet. Most commonly this is done using the Xenon, the least expensive of the 3rd-generation models, however the Ethernet FeatherWing can be used with the Argon and Boron, as well.
+In addition to Wi-Fi (Argon, Photon) and cellular (Boron, Electron), you can use Ethernet to connect devices to the Internet. 
 
 ![PoE](/assets/images/ethernet-featherwing-2.jpg)
 
-Some common situations where Ethernet is useful include:
+This allows a Particle device in an environment that does not have Wi-Fi, but does have wired Ethernet. This might be the case in industrial situations and factories, for example.
 
-- Using a Xenon plus Ethernet FeatherWing as a gateway to the Internet for your Particle mesh network of additional Xenons.
-
-- Using a Particle device in an environment that does not have Wi-Fi, but does have wired Ethernet. This might be the case in industrial situations and factories, for example.
-
-- Using a Particle device on an Ethernet network with PoE (Power over Ethernet) to both provide networking and powering the device, eliminating the need for many small power adapters.
-
-The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Mesh device along with an additional FeatherWing accessory. Ethernet uses the WIZnet W5500 chip.
+The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Gen 3 device along with an additional FeatherWing accessory. Ethernet uses the WIZnet W5500 chip.
 
 For example, you might include:
 
@@ -32,7 +26,7 @@ For example, you might include:
 
 The Power over Ethernet, commonly referred to as PoE, provides a way to power a device, in addition to providing networking capabilities, all over existing Cat 5 or Cat 6 twisted-pair Ethernet. 
 
-The Particle PoE module plugs into the Ethernet FeatherWing to add the ability to power your 3rd-generation Particle device, typically a Xenon.
+The Particle PoE module plugs into the Ethernet FeatherWing to add the ability to power your 3rd-generation Particle device such as an Argon or Boron.
 
 It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1800 mA to your device and any Feather accessories. It is a Class 0 IEEE 802.3af device. 
 
@@ -42,7 +36,7 @@ The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100
 
 ![PoE](/assets/images/poe-2.jpg)
 
-If you attach a LiPo battery to the Argon, Boron, or Xenon, it can be charged by PoE. 
+If you attach a LiPo battery to the Argon or Boron, it can be charged by PoE. 
 
 The PoE adapter supplies 1800 mA. This is enough to power any Particle Gen 3 device with some power available to power FeatherWings in the extra FeatherWing socket.
 
