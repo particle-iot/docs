@@ -63,7 +63,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 - JTAG (SWD) Connector
 - RGB status LED
 - Reset and Mode buttons
-- On-board 2.4GHz PCB antenna for Thread/Bluetooth (does not support Wi-Fi)
+- On-board 2.4GHz PCB antenna for Bluetooth (does not support Wi-Fi)
 - Two U.FL connectors for external antennas (one for Bluetooth, another for Wi-Fi)
 
 - Meets the [Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
