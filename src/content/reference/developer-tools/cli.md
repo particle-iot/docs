@@ -624,7 +624,7 @@ Mesh network management from the CLI.
 
 **The mesh networking features described in this section will be supported only December 31, 2020.**
 
-See [mesh deprecation](/datasheets/discontinued/mesh/) for more information.
+See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
 _These commands require Device OS 0.9.0 or later._
 

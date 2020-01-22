@@ -58,7 +58,7 @@ To begin setting up your Argon, click the button below and follow the onscreen i
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Argon, skip to Step #2.<br /><br />
-2.) We recommend setting up the Argon as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/datasheets/discontinued/mesh/) for more information.
+2.) We recommend setting up the Argon as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
 {{box op="end"}}
 

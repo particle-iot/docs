@@ -7,7 +7,7 @@ order: 2
 
 # Xenon Datasheet <sup>(v002)</sup>
 
-**The Xenon has been discontinued.** See [mesh deprecation](/datasheets/discontinued/mesh/) for more information.
+**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
 <div align=center><img src="/assets/images/xenon/xenon-top.png" ></div>
 

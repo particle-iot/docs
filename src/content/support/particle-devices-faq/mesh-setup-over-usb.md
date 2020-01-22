@@ -11,7 +11,7 @@ Normally, mesh networks are set up using the mobile apps for iOS and Android. Al
 
 **The mesh networking features described in this section will be supported only through Device OS 1.6.x (March 2020).**
 
-After December 31, 2020, the mesh features of the mobile apps and CLI will be removed and it will no longer be possible to create or modify a mesh network. See [mesh deprecation](/datasheets/discontinued/mesh/) for more information.
+After December 31, 2020, the mesh features of the mobile apps and CLI will be removed and it will no longer be possible to create or modify a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
 ## Gateway Setup
 
