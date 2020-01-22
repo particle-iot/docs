@@ -2,7 +2,7 @@
 title: CircuitPython on Xenon
 layout: tutorials.hbs
 columns: two
-order: 51
+order: 52
 ---
 
 # Using CircuitPython with a Particle Xenon
@@ -21,7 +21,7 @@ In addition, you'll need to install the following software:
 
 1. [J-Link Software](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) if using a Segger J-Link for this tutorial.
 2. [nRF Command-Line Tools](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs)
-3. [arm gcc compiler](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
+3. [arm gcc compiler](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm). Note: Make sure that the GCC Compiler is in your PATH
 4. [OpenOCD](https://docs.particle.io/support/particle-tools-faq/jtag/#installing-openocd-manually) unless you've already installed [Particle Workbench](https://particle.io/workbench), in which case OpenOCD will have been installed for you.
 
 ## Replacing the Default Bootloader
