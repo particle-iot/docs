@@ -172,7 +172,7 @@ Next, let's explore using Bluetooth with Particle Devices.
 #include "DiagnosticsHelperRK.h"
 ```
 <br />
-4. Now, let's turn on threading in the app, using the `SYSTEM_THREAD` command below. This opt-in change will allow your user firmware and system firmware to run on separate threads, which can speed things up when you're doing cloud publishes and local operations like Bluetooth.
+4. Now, let's turn on threading in the app, using the `SYSTEM_THREAD` command below. This opt-in change will allow your user firmware and system firmware to run on separate threads, which can speed things up when you're doing cloud publishes and local operations like Bluetooth. Note: be sure to place the following line near the top of your program, outside of the `setup` and `loop` functions.
 ```
 SYSTEM_THREAD(ENABLED);
 ```
