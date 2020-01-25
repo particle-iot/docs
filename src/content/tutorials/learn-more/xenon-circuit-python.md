@@ -24,6 +24,11 @@ In addition, you'll need to install the following software:
 3. [arm gcc compiler](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm). Note: Make sure that the GCC Compiler is in your PATH
 4. [OpenOCD](https://docs.particle.io/support/particle-tools-faq/jtag/#installing-openocd-manually) unless you've already installed [Particle Workbench](https://particle.io/workbench), in which case OpenOCD will have been installed for you.
 
+
+Lastly, you will need to download a CircuitPython release
+
+1. [CircuitPython](https://circuitpython.org/board/particle_xenon)
+
 ## Replacing the Default Bootloader
 
 The first step to using your Xenon with CircuitPython is to replace the Particle bootloader on the device with an nRF52-friendly bootloader. This replacement process is often referred to as "burning a bootloader."
