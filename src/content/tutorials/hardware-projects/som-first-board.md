@@ -102,7 +102,7 @@ Note that there are different key configurations for the M.2 connector. Make sur
 
 The M.2 connector is not designed for repeated insertion and removal so you should avoid removing the SoM too often if possible.
 
-Make sure you don't place any components on the top side of your base board underneath the SoM. Since the A series and B series SoMs are two-sided, the RF shielding may hit components under the SIM, preventing the SoM from seating properly. It fine to put ground plane or traces in that zone, and you could put components on the underside of your base board, if you needed to.
+Make sure you don't place any components on the top side of your base board underneath the SoM. Since the B series SoMs are two-sided, the RF shielding may hit components under the SIM, preventing the SoM from seating properly. It fine to put ground plane or traces in that zone, and you could put components on the underside of your base board, if you needed to.
 
 ### Hold-down screw
 

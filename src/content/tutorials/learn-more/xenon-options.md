@@ -23,7 +23,7 @@ You can also use your Xenon in [standalone mode, with no network connectivity](/
 
 Alternatively, you can provision your Xenon for use as a dev kit disconnected from the Particle platform. Available options are:
 
-- Use the Particle Xenon as a nRF52840 dev kit.
+- [Use the Particle Xenon as a nRF52840 dev kit](https://github.com/particle-iot/app-notes/tree/master/AN008-Xenon-Nordic-SDK).
 - [Use the Particle Xenon as a CircuitPython device](/tutorials/learn-more/xenon-circuit-python/).
 
 Both of these options will remove the Particle Device OS and bootloader, so the device will no longer be able to connect to the Particle Device Cloud.
