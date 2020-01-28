@@ -23,7 +23,7 @@ var ignoreHosts = [
   'www.st.com', // randomly returns 403 errors
   '192.168.0.1',
 ];
-var devices = ['photon', 'electron', 'core', 'raspberry-pi', 'argon', 'boron', 'xenon'];
+var devices = ['photon', 'electron', 'core', 'argon', 'boron', 'xenon'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
 // TEMPORARY: When doing a commit on HEAD, links to the binaries from the firmware release pages
@@ -236,12 +236,6 @@ describe('Crawler', function() {
         return;
       }
             
-      // TEMPORARY: I can't get a clean build without fixing this redirect, but I can't fix the redirect without a clean build!
-      // ERROR: 404 ON https://www.particle.io/particle-pi CONTENT landing page LINKS TO https://docs.particle.io/guide/getting-started/start/raspberry-pi/
-      if (queueItem.referrer === 'https://www.particle.io/particle-pi') {
-    	  return;
-      }
-
       // allow 5XX status codes on external links
       var isWarning = (urlis.external && Math.floor(queueItem.stateData.code / 100) === 5);
       
@@ -251,10 +245,6 @@ describe('Crawler', function() {
       }
       if (queueItem.stateData.code === 403 && queueItem.url.indexOf('dfu-util.sourceforge.net') >= 0) {
     	  // dfu-util.sourceforge.net is randomly returning 403 errors as well. Treat as warning, not error.
-    	  isWarning = true;
-      }
-      if (queueItem.stateData.code === 403 && queueItem.url.indexOf('digikey.com') >= 0) {
-    	  // Make 403 errors from Digikey warnings so the build won't fail
     	  isWarning = true;
       }
       

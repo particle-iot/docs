@@ -2,7 +2,7 @@
 title: Device Keys
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi,argon,boron,xenon ]
+devices: [ photon,electron,core,argon,boron,xenon ]
 order: 7
 ---
 

@@ -2,7 +2,7 @@
 title: Web IDE (Build)
 layout: tutorials.hbs
 columns: two
-devices: [ electron,photon,core,raspberry-pi,argon,boron,xenon ]
+devices: [ electron,photon,core,argon,boron,xenon ]
 order: 20
 ---
 
@@ -80,14 +80,6 @@ Flashing Your First App
 
 The best way to get started with the IDE is to start writing code:
 
-{{#if raspberry-pi}}
-- **Connect**: Make sure your device is powered connected to the
-Particle Device Cloud and ready to be updated.
-{{else}}
-- **Connect**: Make sure your device is powered and "breathing" Cyan,
-which indicates that it's connected to the Particle Device Cloud and ready to be updated.
-{{/if}}
-
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
 
 {{#if electron}}
@@ -121,9 +113,6 @@ void loop() {
 ![Particle Build](/assets/images/ide-devices.png)
 {{/if}}
 
-{{#if raspberry-pi}}
-![Particle Build](/assets/images/ide-devices.png)
-{{/if}}
 
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
@@ -137,11 +126,8 @@ void loop() {
 
 ![Web IDE Status Bar](/assets/images/web-ide-status-bar.png)
 
-{{#if raspberry-pi}}
-- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, your device will begin running the app.
-{{else}}
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
-{{/if}}
+
 ![Particle Build](/assets/images/ide-examples.png)
 
 - **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your devices.
@@ -279,8 +265,6 @@ _If there are no code changes and you **verify** code for the second time, the "
 
 ![Code memory information](/assets/images/ide-mem-usage.png)
 
-{{#if raspberry-pi}}
-{{else}}
 
 Wait, what is firmware?
 ---
@@ -297,7 +281,7 @@ In our case, because the Cores, Photons and Electrons are connected to the inter
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
 
 For every device which version of our firmware you want to build against. In most cases you want to build with the latest firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
-{{/if}}
+
 
 Troubleshooting
 ---

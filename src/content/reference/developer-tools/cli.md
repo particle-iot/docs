@@ -230,7 +230,6 @@ $ particle flash --usb firmware.bin
   - core ('c')
   - electron ('e')
   - p1
-  - raspberry-pi ('pi')
   - duo ('d')
   - oak ('o')
   - bluz ('b')

@@ -2,7 +2,7 @@
 title: Tinker & Mobile App
 layout: tutorials.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi,argon,boron,xenon]
+devices: [ photon,electron,core,argon,boron,xenon]
 order: 23
 ---
 
@@ -163,30 +163,6 @@ You can try testing different kinds of light, or you can even swap out your phot
 
 
 When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/tutorials/developer-tools/build)
-{{/if}}
-
-{{#if raspberry-pi}}
-
-## Beta Compatibility
-
-Raspberry Pi compatibility with the Particle Device Cloud and Particle development tools is still currently in beta. Raspberry Pi **does not yet have full compatibility** in the Particle App for iOS, Windows, and Android, but we will be working throughout the upcoming months to add support for existing features.
-
-Several features are still currently supported, if you care to use the Particle mobile app with your Raspberry Pi right away.
-
-- **Raspberry Pi device support**. Raspberry Pi devices are still supported in the Particle mobile app. You should still be able to select them from the list of devices claimed to your account.
-
-- **Toggle D7 user LED**. If you have run the `sudo particle-agent setup` command, your device will have a Raspberry Pi-compatible version of Tinker running. If you toggle the D7 LED with `digitalWrite()`, you should see the green activity LED next to the red power LED toggle as well.
-
-- **Read and write to digital GPIO**. Currently, the Tinker view for Raspberry Pi devices displays the Photon's 8 digital and 8 analog GPIOs. Note that the Raspberry Pi _does not have any analog inputs/outputs_, so the functions available to each pin are not necessarily correct. For a full list of pin mappings between the Photon and the Raspberry Pi, please see the [Raspberry Pi datasheet](/datasheets/raspberrypi-datasheet/).
-
-- **Device Inspector.** The Device Inspector view, which lets you see information about your Raspberry Pi, view and interact with exposed `Particle.function()` and `Particle.variable()`'s on your Pi, and view/search/filter the event stream from your Raspberry Pi, is operational.
-
-To download the Particle App, and to stay up to date with the latest changes and improvements, visit the following download URLs for our Windows, iOS, and Android apps, below:
-
-* Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
-
-
-
 {{/if}}
 
 {{#if photon}}
