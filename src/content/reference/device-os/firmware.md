@@ -676,7 +676,7 @@ Particle.unsubscribe();
 
 `Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 **Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling `Particle.connect()`.
 {{/if}}
 
@@ -1493,7 +1493,7 @@ WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 
 If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 **Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
 {{/if}}
 
@@ -2832,7 +2832,7 @@ Attempts to connect to the Cellular network. If there are no credentials entered
 Cellular.connect();
 ```
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 **Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
 {{/if}}
 
