@@ -9,7 +9,7 @@ order: 4
 
 ![Image of the Boron in a breadboard](/assets/images/boron-breadboard.jpg)
 
-The Particle Boron is a mesh and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an Android or iOS mobile phone and a connection to the internet.
+The Particle Boron is a cellular and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an Android or iOS mobile phone and a connection to the internet.
 
 <div  align="center">
 <br />
@@ -42,7 +42,6 @@ Once you're ready to proceed, use the online setup application to configure your
 
 - Registration of your device with your Particle account
 - Connection of your device to the Particle Device Cloud
-- Particle Mesh network configuration
 
 Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it.
 
@@ -57,7 +56,7 @@ To begin setting up your Boron, click the button below and follow the onscreen i
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Boron, skip to Step #2.<br /><br />
-2.) During set up you may skip setting up a Particle Mesh network and use the Boron in a standalone mode.
+2.) We recommend setting up the Argon as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
 {{box op="end"}}
 

@@ -8,7 +8,7 @@ order: 15
 
 # Adafruit Feather Accessories
 
-The mesh prototyping devices (Argon, Boron, and Xenon) use the [Adafruit Feather form-factor](https://learn.adafruit.com/adafruit-feather/feather-specification). You can easily add displays, sensors, easily, even if the FeatherWing was not made by Particle.
+The Gen 3 prototyping devices (Argon and Boron) use the [Adafruit Feather form-factor](https://learn.adafruit.com/adafruit-feather/feather-specification). You can easily add displays, sensors, easily, even if the FeatherWing was not made by Particle.
 
 ## Doubler and Tripler
 
@@ -33,7 +33,7 @@ Note that you can only include one Particle device in a double or tripler. Putti
 
 ![Adafruit FeatherWing OLED Display](/assets/images/accessories/adafruit_oled.jpg)
 
-The Adafruit OLED display FeatherWing makes it easy to add a small text and graphics display to your project. Built in a FeatherWing form-factor, you can use a FeatherWing Doubler or FeatherWing Tripler to add a display to your Argon, Boron, or Xenon project with no loose wires. And it includes three handy momentary push-buttons.
+The Adafruit OLED display FeatherWing makes it easy to add a small text and graphics display to your project. Built in a FeatherWing form-factor, you can use a FeatherWing Doubler or FeatherWing Tripler to add a display to your Argon or Boron project with no loose wires. And it includes three handy momentary push-buttons.
 
 You can purchase one from the [Particle Store](https://store.particle.io/collections/accessories) or from [Adafruit](https://www.adafruit.com/product/2900). You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).
 
@@ -60,7 +60,7 @@ If you need a bigger display, the [Adafruit TFT FeatherWing - 2.4" 320x240 Touch
 
 ![2.4 Display](/assets/images/feather-2.4-display.jpg)
 
-This does not work with the doubler or tripler; you insert the Argon, Boron, or Xenon in the back of the unit. It also includes an SD card reader.
+This does not work with the doubler or tripler; you insert the Argon or Boron in the back of the unit. It also includes an SD card reader.
 
 ![2.4 Display Back](/assets/images/feather-2.4.jpg)
 
@@ -83,7 +83,7 @@ The following pins are used:
 
 ### Adafruit TFT FeatherWing - 3.5" 480x320 Touchscreen 
 
-If you need an even bigger display, the [Adafruit TFT FeatherWing - 3.5" 480x320 Touchscreen ](https://www.adafruit.com/product/3651) works great. This does not work with the doubler or tripler; you insert the Argon, Boron, or Xenon in the back of the unit. It also includes an SD card reader.
+If you need an even bigger display, the [Adafruit TFT FeatherWing - 3.5" 480x320 Touchscreen ](https://www.adafruit.com/product/3651) works great. This does not work with the doubler or tripler; you insert the Argon or Boron in the back of the unit. It also includes an SD card reader.
 
 ![3.5 Display Back](/assets/images/feather-3.5.jpg)
 
@@ -443,11 +443,11 @@ Sample code for the GPS with LCD display can be [found here](https://go.particle
 
 ![Particle Ethernet FeatherWing](/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png)
 
-The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon, Boron, or Xenon and turns any Particle Mesh developer kit into an Ethernet gateway. Based on the WIZnet W5500 chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Mesh device.
+The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon or Boron and turns any Particle Gen 3 developer kit into an Ethernet gateway. Based on the WIZnet W5500 chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Gen 3 device.
 
-The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Mesh device along with a Feather accessory.
+The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Gen 3 device along with a Feather accessory.
 
-|Mesh Pin|Ethernet FeatherWing Pin   |
+|Particle Pin|Ethernet FeatherWing Pin   |
 |:-------|:--------------------------|
 |MISO    | SPI MISO                  |
 |MOSI    | SPI MOSI                  |
@@ -458,9 +458,9 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 **Notes:**
 
-<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises.
+<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Gen 3 device if the need arises.
 
-The Ethernet driver for this wing is baked into the Mesh Device OS. When you set up a new Particle Mesh device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
+The Ethernet driver for this wing is baked into the Device OS. When you set up a new Particle Gen 3 device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
 
 The hardware design for this wing is completely open source. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
 

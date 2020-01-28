@@ -240,7 +240,7 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 {{/if}}
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 When your {{device}} is in Listening Mode, it is waiting for you to configure your mesh network, or is waiting for configuration by USB serial.
 
 Normally, when you've successfully configured your Gen 3 device using the mobile apps for iOS or Android, the setup complete flag is set and you will exit Listening Mode.
@@ -257,7 +257,7 @@ When your {{device}} is in Listening Mode, it either cannot find the SIM card, o
 When your {{device}} is in Listening Mode, it is waiting for your input to connect to Wi-Fi. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 {{/if}}
 
-{{/if}} {{!-- has-mesh --}}
+{{/if}} {{!-- has-gen3 --}}
 
 To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 
@@ -295,7 +295,7 @@ Tapping the `{{system-button}}` button twice on your {{device}} enter soft power
 {{/if}}
 
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 ### Network Reset (fast blinking blue)
 
 {{device-animation device "pattern"
@@ -305,7 +305,7 @@ Tapping the `{{system-button}}` button twice on your {{device}} enter soft power
 
 To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
-- For all mesh devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
+- For all Gen 3 devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
 - For the Argon it will also clear Wi-Fi settings.
 - For the Boron, it will also clear the cellular APN and SIM selection.
 - For Ethernet, it will also clear the using Ethernet flag.
@@ -433,8 +433,8 @@ particle flash --usb tinker
 
 {{/if}}
 
-{{#if has-mesh}}
-Mesh devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
+{{#if has-gen3}}
+Gen 3 devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
 
 To program your device with a backup copy of user firmware via USB, you'll need to put it in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run a command like one of the following:
 
@@ -500,9 +500,9 @@ To enter Firmware Reset Mode:
 
 {{#unless core}}
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 
-Mesh devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
+Gen 3 (Argon, Boron, Xenon) devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
 
 To factory reset, hold down the MODE button and tap RESET. The status LED will blink:
 
@@ -546,7 +546,7 @@ particle device doctor
 {{/if}} {{!-- has-device-doctor --}}
 
 
-{{/if}} {{!-- has-mesh --}}
+{{/if}} {{!-- has-gen3 --}}
 
 {{/unless}} {{!-- core --}}
 

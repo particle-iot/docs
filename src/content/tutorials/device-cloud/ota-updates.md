@@ -44,7 +44,7 @@ class="full-width"/>
 
 - **Device OS**: Our embedded operating system which runs on all Particle devices, Device OS, is architected to reliably and resiliently accept firmware updates from the Device Cloud.
 
-- **Connectivity**: OTA updates work seamlessly across Particle's suite of connectivity offerings. Devices connecting over Wi-Fi, Cellular, and even via a Mesh network can receive firmware updates using our OTA feature set.
+- **Connectivity**: OTA updates work seamlessly across Particle's suite of connectivity offerings. Devices connecting over Wi-Fi and Cellular can receive firmware updates using our OTA feature set.
 
 - **Device Cloud**: The Device Cloud tightly integrates with Device OS to safely and effectively deliver OTA updates. It also provides a variety of flexible management tools to choose how OTA updates should be applied based on your needs.
 

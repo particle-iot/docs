@@ -253,6 +253,10 @@ describe('Crawler', function() {
     	  // dfu-util.sourceforge.net is randomly returning 403 errors as well. Treat as warning, not error.
     	  isWarning = true;
       }
+      if (queueItem.stateData.code === 403 && queueItem.url.indexOf('digikey.com') >= 0) {
+    	  // Make 403 errors from Digikey warnings so the build won't fail
+    	  isWarning = true;
+      }
       
       var msg = util.format('%s ON %s CONTENT %s LINKS TO %s', queueItem.stateData.code, queueItem.referrer, queueItem.meta.content, queueItem.url);
       if (isWarning) {

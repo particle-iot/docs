@@ -1,3 +1,4 @@
+{{#unless noScripts}}
 <!-- SEGMENT -->
 <script type="text/javascript">
   !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
@@ -9,6 +10,8 @@
     analytics.page()
   }}();
 </script>
+{{/unless}}
+
 <!-- Let me embed vines -->
 <script async src="https://platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
 
@@ -31,6 +34,7 @@
 <script src='/assets/js/collapse.js'></script>
 <script src='/assets/js/fonts-license.js'></script>
 
+{{#unless noScripts}}
 <!-- Marketo Munchkin -->
 <script type="text/javascript">
 (function() {
@@ -54,6 +58,7 @@
   document.getElementsByTagName('head')[0].appendChild(s);
 })();
 </script>
+{{/unless}}
 
 <!-- Live Reload -->
 {{#if development}}

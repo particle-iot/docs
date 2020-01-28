@@ -3,11 +3,11 @@ title: Argon
 layout: landing.hbs
 ---
 
-# Particle Argon: Wi-Fi + Bluetooth + Mesh
+# Particle Argon: Wi-Fi + Bluetooth
 
 ![Image of the Argon Kit](/assets/images/argon-kit-looped-antenna-docs-crop.jpg)
 
-The Particle Argon is a powerful Wi-Fi development kit that you can use as a standalone Wi-Fi device or Wi-Fi enabled gateway, repeater, or endpoint for Particle Mesh networks.
+The Particle Argon is a powerful Wi-Fi development kit that you can use on Wi-Fi networks.
 
 Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
 
@@ -40,8 +40,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 
 - ARM Cortex-M4F 32-bit processor @ 64MHz
 - 1MB flash, 256KB RAM
-- IEEE 802.15.4-2006: 250 Kbps
-- Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
+- Bluetooth LE (BLE) central and peripheral support
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
 - Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
 - ARM TrustZone CryptoCell-310 Cryptographic and security module
@@ -64,8 +63,8 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 - JTAG (SWD) Connector
 - RGB status LED
 - Reset and Mode buttons
-- On-board 2.4GHz PCB antenna for Thread/Bluetooth (does not support Wi-Fi)
-- Two U.FL connectors for external antennas (one for Thread/Bluetooth, another for Wi-Fi)
+- On-board 2.4GHz PCB antenna for Bluetooth (does not support Wi-Fi)
+- Two U.FL connectors for external antennas (one for Bluetooth, another for Wi-Fi)
 
 - Meets the [Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
 - FCC, CE and IC certified

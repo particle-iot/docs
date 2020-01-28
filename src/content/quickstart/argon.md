@@ -9,7 +9,7 @@ order: 3
 
 ![Image of the Argon in a breadboard](/assets/images/argon-breadboard.jpg)
 
-The Particle Argon is a development kit with Wi-Fi, mesh, and Bluetooth radios for building connected projects and products.
+The Particle Argon is a development kit with Wi-Fi and Bluetooth radios for building connected projects and products.
 
 To set up your Argon, you'll need an Android or iOS mobile phone and a connection to the internet.
 
@@ -44,7 +44,6 @@ Once you're ready to proceed, use the online setup application to configure your
 
 - Registration of your device with your Particle account
 - Connection of your device to the Particle Device Cloud
-- Particle Mesh network configuration
 
 Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it.
 
@@ -59,7 +58,7 @@ To begin setting up your Argon, click the button below and follow the onscreen i
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Argon, skip to Step #2.<br /><br />
-2.) During set up you may skip setting up a Particle Mesh network and use the Argon in a standalone mode.
+2.) We recommend setting up the Argon as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
 {{box op="end"}}
 

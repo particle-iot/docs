@@ -9,6 +9,10 @@ order: 1200
 
 Normally, mesh networks are set up using the mobile apps for iOS and Android. Alternatively, you can set up a gateway and mesh nodes using a computer and the devices connected by USB using the process described here.
 
+**The mesh networking features described in this section will be supported only through Device OS 1.6.x (March 2020).**
+
+After December 31, 2020, the mesh features of the mobile apps and CLI will be removed and it will no longer be possible to create or modify a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+
 ## Gateway Setup
 
 The first step is to configure your gateway device. This is your connection to the Internet and it is required. It's not possible to set up a completely standalone network at this time. 

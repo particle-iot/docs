@@ -5,7 +5,7 @@ columns: two
 order: 1
 ---
 
-# Argon Datasheet <sup>(v001)</sup>
+# Argon Datasheet <sup>(v002)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
@@ -17,9 +17,9 @@ order: 1
 
 ### Overview
 
-The Argon is a powerful Wi-Fi enabled development board that can act as either a standalone Wi-Fi endpoint or Wi-Fi enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+The Argon is a powerful Wi-Fi enabled development board for Wi-Fi networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
-The Argon is great for connecting existing projects to the Particle Device Cloud or as a gateway to connect an entire group of local endpoints.
+The Argon is great for connecting existing projects to the Particle Device Cloud over a Wi-Fi network.
 
 ### Features
 
@@ -30,7 +30,6 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
-  * IEEE 802.15.4-2006: 250 Kbps 
   * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
   * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
@@ -83,22 +82,22 @@ This pin is the output of the on board 3.3V step-down switching regulator (Torex
 
 ### Antenna
 
-There are two radios on the Argon. A Mesh radio (nRF52840) and a WiFi radio (ESP32). For the WiFi radio, we have provide a u.FL connector to plug in the WiFi antenna. This is required if you wish to use the WiFi connectivity. 
+There are two radios on the Argon. A BLE radio (nRF52840) and a WiFi radio (ESP32). For the WiFi radio, we have provide a u.FL connector to plug in the WiFi antenna. This is required if you wish to use the WiFi connectivity. 
 
-There are two options for the Mesh antenna on the Argon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
+There are two options for the BLE antenna on the Argon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
 ### FCC approved antennas
 
-**Mesh and WiFi**
+**BLE and WiFi**
 
-The Argon includes one of these antennas, but a second for use with mesh can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+The Argon includes one of these antennas, but a second for use with BLE can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
 
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Argon          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
 
-It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh antenna. For example, you can use duck or even Yagi antennas for longer range. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
 
 
 ### Peripherals and GPIO
@@ -117,7 +116,7 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh 
 
 ### SWD 
 
-The Argon has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Argon bootloader, device OS, or the user firmware using any standard SWD tools including our Mesh Debugger.
+The Argon has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Argon bootloader, device OS, or the user firmware using any standard SWD tools including our Gen 3 Debugger.
 
 <div align=center><img src="/assets/images/argon/swd-connector-pinout.png" ></div>
 
@@ -222,7 +221,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 Argon has two radio modules. 
 
-Nordic Semiconductor nRF52840 SoC for BLE, Thread, and NFC.
+Nordic Semiconductor nRF52840 SoC for BLE and NFC.
 
 | Feature | Description|
 | :-------|:---------- |
@@ -412,6 +411,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | v001     | 26 Oct 2018 | MB | Initial release |
+| v002     | 21 Jan 2020 | RK | Remove mesh |
 
 ## Known Errata
 

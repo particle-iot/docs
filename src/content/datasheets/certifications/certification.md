@@ -120,7 +120,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 #### Argon
 
-802.15.4 (mesh) certification:
+802.15.4 certification:
 
 - FCC ID: [2AEMI-ARGN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=j56OXdnX7qhTRT%2BFJDABXg%3D%3D&fcc_id=2AEMI-ARGN)
 - [Certificate of Conformity](/assets/pdfs/argon-mesh-wifi-fcc.pdf)
@@ -145,7 +145,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 #### Boron 2G/3G (BRN310)
 
-802.15.4 (mesh) certification:
+802.15.4 certification:
 
 - FCC ID: [2AEMI-BRN310](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ga4Ga888rpYrKWc2fmsMbQ%3D%3D&fcc_id=2AEMI-BRN310)
 - [Certificate of Conformity](/assets/pdfs/boron310-mesh-fcc.pdf)
@@ -173,7 +173,7 @@ Additional FCC Test Reports:
 
 #### Boron LTE Cat M1 (BRN402)
 
-802.15.4 (mesh) certification:
+802.15.4 certification:
 
 - FCC ID: [2AEMI-BRN402](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=86FVMi%2FyRce7yQ4d9ekA2g%3D%3D&fcc_id=2AEMI-BRN402)
 - [Certificate of Conformity](/assets/pdfs/boron402-mesh-fcc.pdf)
@@ -201,7 +201,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 #### Xenon
 
-802.15.4 (mesh) certification:
+802.15.4 certification:
 
 - FCC ID: [2AEMI-XENN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ugNeG69Gjl0KuJ%2Fo9IiqNg%3D%3D&fcc_id=2AEMI-XENN)
 - [Certificate of Conformity](/assets/pdfs/xenon-mesh-fcc.pdf)

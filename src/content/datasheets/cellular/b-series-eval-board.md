@@ -35,7 +35,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 | 8 | **Ethernet connector** | RJ45 connector for twisted pair Ethernet, 10 or 100 Mbit/sec. |
 | 9 | **PoE connector** | Connect for the Particle PoE adapter for power-over-Ethernet. |
 | 10 | **Cellular antenna** | Connector for an external SMA connected cellular antenna. |
-| 11 | **Bluetooth/mesh antenna** | Connector for an external SMA connected antenna for Bluetooth and mesh networking. |
+| 11 | **Bluetooth antenna** | Connector for an external SMA connected antenna for Bluetooth networking. |
 | 12 | **TF/SD Card** | MicroSD card slot. |
 | 13 | **User LED** | Blue LED connected to pin D7. | 
 | 14 | **Reset Button** |This is same as the RESET button on the Boron. |
@@ -156,7 +156,7 @@ These rules also apply to tone() (square wave with 50% duty cycle), however sinc
 The basic setup for the B series to be operational is shown below:
 
 - Plug the cellular antenna into the U.FL connector labeled **CELL** on the SoM. Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the u-blox module if no antenna is connected.
-- If you are going to use mobile app setup, mesh networking, or BLE, connect the 2.4 GHz antenna (the smaller one) to the **BT** U.FL connector on the SoM.
+- If you are going to use mobile app setup or BLE, connect the 2.4 GHz antenna (the smaller one) to the **BT** U.FL connector on the SoM.
 - Connect power the USB (3) or a LiPo battery (4).
 - Turn on the appropriate power switches (5).
 
@@ -286,4 +286,5 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | 001      | 29 Apr 2019 | RK | Initial Release |
+| 002      | 21 Jan 2020 | RK | Remove mesh |
 

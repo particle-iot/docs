@@ -5,11 +5,9 @@ columns: two
 order: 2
 ---
 
-# Xenon Datasheet <sup>(v001)</sup>
+# Xenon Datasheet <sup>(v002)</sup>
 
-{{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/xenon-datasheet.pdf"}}
-{{/unless}} {{!-- pdf-generation --}}
+**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
 <div align=center><img src="/assets/images/xenon/xenon-top.png" ></div>
 
@@ -28,7 +26,6 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
-  * IEEE 802.15.4-2006: 250 Kbps 
   * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
   * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
@@ -401,6 +398,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | v001     | 26 Oct 2018 | MB | Initial release |
+| v002     | 21 Jan 2020 | RK | Discontinued |
 
 ## Known Errata
 

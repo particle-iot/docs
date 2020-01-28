@@ -7,7 +7,7 @@ layout: landing.hbs
 
 ![Image of the Xenon in a breadboard](/assets/images/ethernet-featherwing.jpg)
 
-The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon, Boron, or Xenon and turns any Particle Mesh dev kit into an Ethernet gateway. Based on the WIZnet W5500 chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Mesh device.
+The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon or Boron and turns any Particle Gen 3 dev kit into an Ethernet gateway. Based on the WIZnet W5500 chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Gen 3 device.
 
 
 {{box op="start" cssClass="boxedSideBySide"}}
@@ -27,7 +27,7 @@ The Ethernet FeatherWing is the fastest way to add wired connectivity to your Ar
 ## Hardware specifications
 {{box op="start"}}
 
-Add wired connectivity to your Mesh dev kit
+Add wired connectivity to your Gen 3 dev kit
 
 
 {{box op="end"}}

@@ -676,7 +676,7 @@ Particle.unsubscribe();
 
 `Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 **Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling `Particle.connect()`.
 {{/if}}
 
@@ -1014,6 +1014,11 @@ void setup() {
 {{#if has-mesh}}
 ## Mesh
 
+**The mesh networking features described in this section will be supported only through Device OS 1.6.x (March 2020).**
+
+After that version, all of the features in the Mesh object will be removed from the Device OS API. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+
+
 ### Antenna selection
 
 At the time of writing (Device OS 0.8.0-rc.27), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
@@ -1226,7 +1231,7 @@ void setup() {
 {{#if has-ethernet}}
 ## Ethernet
 
-Ethernet is available on the Argon, Boron, and Xenon when used with the [Ethernet FeatherWing](/datasheets/accessories/mesh-accessories/#ethernet-featherwing).
+Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/mesh-accessories/#ethernet-featherwing).
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
 
@@ -1238,7 +1243,7 @@ STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION));
 
 If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
-| Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
+| Argon, Boron| B Series SoM | Ethernet FeatherWing Pin  |
 |:------:|:------------:|:--------------------------|
 |MISO    | MISO         | SPI MISO                  |
 |MOSI    | MOSI         | SPI MOSI                  |
@@ -1488,7 +1493,7 @@ WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 
 If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 **Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
 {{/if}}
 
@@ -2827,7 +2832,7 @@ Attempts to connect to the Cellular network. If there are no credentials entered
 Cellular.connect();
 ```
 
-{{#if has-mesh}}
+{{#if has-gen3}}
 **Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
 {{/if}}
 
@@ -3996,7 +4001,7 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 {{/if}}
 {{#if has-nrf52}}
-On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On Gen 3 Feather devices (Argon, Boron), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 3: Pins D2, D3, A4, and A5.
@@ -6353,7 +6358,7 @@ be used via the `SPI1` object. This second port is mapped as follows:
 * `MOSI` => `D3`
 * `MISO` => `D4`
 
-Note: On Gen 3 devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
+Note: On Gen 3 devices, the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a Gen 3 device with the classic adapter.
 {{/if}}
 {{/if}}
 
@@ -7641,9 +7646,7 @@ Serial.println(myIP);    // prints the device's IP address
 
 Gen 3 devices (Argon, Boron, and Xenon) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
 
-BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices.
-
-The mesh networking in Gen 3 devices is Thread Mesh (6LoWPAN over 802.15.4). While it uses the same 2.4 GHz radio spectrum as Bluetooth 5 mesh, they are different and not compatible. Particle devices do not support Bluetooth 5 mesh.
+BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
 
 The BLE protocol shares the same antenna as the mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and configured one. 
 
@@ -8263,11 +8266,16 @@ Returns 0 on success or a non-zero error code.
 
 #### BLE.on()
 
-Turns the BLE radio on. It defaults to on, so you normally do not need to call this unless you have turned it off.
+Turns the BLE radio on. It defaults to on in `SYSTEM_MODE(AUTOMATIC)`. In `SYSTEM_MODE(SEMI_AUTOMATIC)` or `SYSTEM_MODE(MANUAL)` you must turn on BLE.
 
 ```cpp
 // PROTOTYPE
 int on();
+
+// EXAMPLE
+void setup() {
+  BLE.on();
+}
 ```
 
 Returns 0 on success, or a non-zero error code.

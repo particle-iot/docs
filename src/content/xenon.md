@@ -7,6 +7,8 @@ layout: landing.hbs
 
 ![Image of the Xenon in a breadboard](/assets/images/xenon-breadboard-05.png)
 
+**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+
 The Xenon is a low cost mesh-enabled development kit that can act as either an endpoint or repeater within a Particle Mesh network.
 
 Equipped with the Nordic nRF52840, the Xenon has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
@@ -42,7 +44,6 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 
 - ARM Cortex-M4F 32-bit processor @ 64MHz
 - 1MB flash, 256KB RAM
-- IEEE 802.15.4-2006: 250 Kbps
 - Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
 - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
 - Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations

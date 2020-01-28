@@ -4015,8 +4015,8 @@
       }
     },
     "metalsmith-lunr": {
-      "version": "git://github.com/particle-iot/metalsmith-lunr.git#cf928f61cc468566c47cfc71485bc4dc3877c066",
-      "from": "git://github.com/particle-iot/metalsmith-lunr.git#0.3.0",
+      "version": "git://github.com/particle-iot/metalsmith-lunr.git#57918e5050a14ee636e3b9e978ce0002565d1248",
+      "from": "git://github.com/particle-iot/metalsmith-lunr.git#0.3.1",
       "requires": {
         "cheerio": "^0.19.0",
         "lunr": "^0.7.0"
@@ -4024,7 +4024,7 @@
       "dependencies": {
         "cheerio": {
           "version": "0.19.0",
-          "resolved": "http://registry.npmjs.org/cheerio/-/cheerio-0.19.0.tgz",
+          "resolved": "https://registry.npmjs.org/cheerio/-/cheerio-0.19.0.tgz",
           "integrity": "sha1-dy5wFfLuKZZQltcepBdbdas1SSU=",
           "requires": {
             "css-select": "~1.0.0",
@@ -4036,7 +4036,7 @@
         },
         "css-select": {
           "version": "1.0.0",
-          "resolved": "http://registry.npmjs.org/css-select/-/css-select-1.0.0.tgz",
+          "resolved": "https://registry.npmjs.org/css-select/-/css-select-1.0.0.tgz",
           "integrity": "sha1-sRIcpRhI3SZOIkTQWM7iVN7rRLA=",
           "requires": {
             "boolbase": "~1.0.0",
@@ -4047,7 +4047,7 @@
         },
         "css-what": {
           "version": "1.0.0",
-          "resolved": "http://registry.npmjs.org/css-what/-/css-what-1.0.0.tgz",
+          "resolved": "https://registry.npmjs.org/css-what/-/css-what-1.0.0.tgz",
           "integrity": "sha1-18wt9FGAZm+Z0rFEYmOUaeAPc2w="
         },
         "domhandler": {
@@ -4068,7 +4068,7 @@
         },
         "htmlparser2": {
           "version": "3.8.3",
-          "resolved": "http://registry.npmjs.org/htmlparser2/-/htmlparser2-3.8.3.tgz",
+          "resolved": "https://registry.npmjs.org/htmlparser2/-/htmlparser2-3.8.3.tgz",
           "integrity": "sha1-mWwosZFRaovoZQGn15dX5ccMEGg=",
           "requires": {
             "domelementtype": "1",
@@ -4089,14 +4089,14 @@
             },
             "entities": {
               "version": "1.0.0",
-              "resolved": "http://registry.npmjs.org/entities/-/entities-1.0.0.tgz",
+              "resolved": "https://registry.npmjs.org/entities/-/entities-1.0.0.tgz",
               "integrity": "sha1-sph6o4ITR/zeZCsk/fyeT7cSvyY="
             }
           }
         },
         "lodash": {
           "version": "3.10.1",
-          "resolved": "http://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz",
+          "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz",
           "integrity": "sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y="
         }
       }

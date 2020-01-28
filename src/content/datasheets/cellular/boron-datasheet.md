@@ -5,7 +5,7 @@ columns: two
 order: 1
 ---
 
-# Boron Datasheet <sup>(v001)</sup>
+# Boron Datasheet <sup>(v002)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -17,9 +17,9 @@ order: 1
 
 ### Overview
 
-The Boron LTE is a powerful LTE CAT-M1 enabled development kit that can act as either a standalone cellular endpoint or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+The Boron LTE is a powerful LTE CAT-M1 enabled development kit that supports cellular networks and Bluetooth LE (BLE). It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
-The Boron is great for connecting existing projects to the Particle Device Cloud or as a gateway to connect an entire group of local endpoints where Wi-Fi is missing or unreliable.
+The Boron is great for connecting existing projects to the Particle Device Cloud where Wi-Fi is missing or unreliable.
 
 ### Features
 
@@ -34,7 +34,6 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
-  * IEEE 802.15.4-2006: 250 Kbps 
   * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
   * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
@@ -92,21 +91,21 @@ This pin is the output of the on board 3.3V step-down switching regulator (Torex
 
 ### Antenna
 
-There are two radios on the Boron. A Mesh radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provided a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
+There are two radios on the Boron. A BLE radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provided a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
 
-There are two options for the Mesh antenna on the Boron. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
+There are two options for the BLE antenna on the Boron. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
 ### FCC approved antennas
 
-**Mesh**
+**BLE**
 
-The following antenna is optional, as the Boron comes with an on-board chip antenna for mesh. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+The following antenna is optional, as the Boron comes with an on-board chip antenna for BLE. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
 
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Boron          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
 
-It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh antenna. For example, you can use duck or even Yagi antennas for longer range. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE antenna. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
 
 **Cellular**
 
@@ -130,7 +129,7 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh 
 
 ### SWD 
 
-The Boron has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Mesh Debugger.
+The Boron has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Gen 3 Debugger.
 
 <div align=center><img src="/assets/images/boron/swd-connector-pinout.png" ></div>
 
@@ -250,7 +249,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 Boron has two radio modules.
 
-Nordic Semiconductor nRF52840 for Mesh.
+Nordic Semiconductor nRF52840 for BLE.
 
 | Feature | Description|
 | :-------|:---------- |
@@ -467,6 +466,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | v001     | 26 Oct 2018 | MB | Initial release |
+| v002     | 21 Jan 2020 | RK | Remove mesh |
 
 ## Known Errata
 

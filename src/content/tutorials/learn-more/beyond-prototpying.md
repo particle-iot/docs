@@ -59,7 +59,7 @@ Once you've built and tested your solderless breadboard with solid wires, the ne
 
 Resist the temptation to solder your device in place. Always use sockets, otherwise it's really a pain to troubleshoot or swap out the device if a problem occurs.
 
-- Gen 3 feather (Argon, Boron, Xenon): 1x [12-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231), 1x [16-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC161LFBN-RC/S7014-ND/810154)
+- Gen 3 feather (Argon and Boron): 1x [12-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231), 1x [16-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC161LFBN-RC/S7014-ND/810154)
 - Photon: 2x [12-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231)
 - Electron: 2x [18-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC181LFBN-RC/S7016-ND/810156)
 

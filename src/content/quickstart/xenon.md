@@ -9,6 +9,8 @@ order: 5
 
 ![Image of the Xenon in a breadboard](/assets/images/xenon-breadboard-05.png)
 
+**The Xenon has been discontinued.** See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+
 The Particle Xenon is a mesh and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an iOS or Android mobile phone and a connection to the internet.
 
 <div  align="center">

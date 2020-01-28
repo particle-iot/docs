@@ -19,7 +19,7 @@ order: 2
 
 ### Overview
 
-The B Series System-on-a-Module (SoM) can act as either a standalone cellular endpoint or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 micro-controller.
+The B Series System-on-a-Module (SoM) is a cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 micro-controller.
 
 The B Series is designed to be integrated into your circuit board design, plugging a M.2 NGFF connector on your board, allowing the module to be changed or upgraded easily.
 
@@ -32,7 +32,6 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
-  * IEEE 802.15.4-2006: 250 Kbps 
   * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
   * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
@@ -65,7 +64,7 @@ VCC is used to supply power to the u-blox SARA-R410M cellular module. The recomm
 
 #### 3V3
 
-3V3 is used to supply power to mesh system (nRF52840, logic ICs, memory, etc.) and 3.3v is recommended. VCC input voltage range is between 3V to 3.6V DC. Make sure that the supply can handle currents of at least 150mA.
+3V3 is used to supply power to nRF52840, logic ICs, memory, etc. and 3.3v is recommended. VCC input voltage range is between 3V to 3.6V DC. Make sure that the supply can handle currents of at least 150mA.
 
 #### VBus
 
@@ -75,11 +74,11 @@ VBus is connected to the USB detect pin of nRF52840 to enables the USB interface
 
 ### Antenna
 
-There are two radios on the B402 module. A Mesh radio (nRF52840) and a cellular radio (u-blox). We have provided two u.FL connectors to plug in the cellular and Mesh antenna. These are required if you wish to use the cellular and Mesh connectivity.
+There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular radio (u-blox). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
-- For the mesh antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
+- For the BLE antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
  
 
 ### Peripherals and GPIO
@@ -273,7 +272,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 Boron has two radio modules.
 
 #### nRF52840
-- Bluetooth® 5, IEEE 802.15.4-2006, 2.4 GHz
+- Bluetooth® 5, 2.4 GHz
   - 95 dBm sensitivity in 1 Mbps Bluetooth® low energy mode
   - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
   - 20 to +8 dBm TX power, configurable in 4 dB steps

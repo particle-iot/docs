@@ -1,5 +1,6 @@
 {
   "Core": [
+    "gen1",
     "stm32",
     "stm32f1",
     "wifi",
@@ -24,6 +25,7 @@
     "tcpclient"
   ],
   "Photon": [
+    "gen2",
     "stm32",
     "stm32f2",
     "wifi",
@@ -66,6 +68,7 @@
     "device-doctor"
   ],
   "Electron": [
+    "gen2",
     "stm32",
     "stm32f2",
     "cellular",
@@ -118,6 +121,7 @@
     "tcpclient"
   ],
   "Argon": [
+    "gen3",
     "nrf52",
     "nrf52840",
     "mesh",
@@ -155,6 +159,7 @@
     "nfc-tag"
   ],
   "Boron": [
+    "gen3",
     "nrf52",
     "nrf52840",
     "mesh",
@@ -194,6 +199,7 @@
     "nfc-tag"
   ],
   "Xenon": [
+    "gen3",
     "nrf52",
     "nrf52840",
     "mesh",
