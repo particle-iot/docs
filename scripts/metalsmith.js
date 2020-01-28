@@ -387,7 +387,7 @@ exports.server = function (callback) {
           '${source}/assets/js/*.js*': true,
           '${source}/assets/images/**/*': true,
           '../config/device_features.json': 'content/**/*.md',
-          '../api-service/lib/**/*.js': 'content/reference/api.md',
+          '../api-service/src/**/*.js': 'content/reference/device-cloud/api.md',
           '../config/redirects.json': '**/*'
         },
         livereload: true
