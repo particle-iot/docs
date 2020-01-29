@@ -5,10 +5,10 @@ order: 2
 shared: true
 columns: two
 layout: tutorials.hbs
-devices: [photon,electron,core,xenon,argon,boron]
+redirects: true
 ---
 
-# {{title}}
+# Device Vitals
 
 Device Vitals are indicators that impact the overall health of a
 device. This is useful when troubleshooting connectivity issues for
@@ -282,17 +282,19 @@ check. Think of this as a way to run a real-time diagnostics test of the
 device. Note that the relevant connectivity layers vary based on the type of device (i.e.
 Wi-Fi vs. Cellular).
 
-For your device, these connectivity layers are:
+For your device, these connectivity layers can be:
 
-{{#if has-cellular}}
+For Cellular:
+
   <img class="full-width" alt="Device Vitals, SIM Card, Cellular Network, and
   Particle Device Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
-{{else}}
+
+For Wi-Fi:
+
   <img alt="Device Vitals and
   Device Particle Device Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-wifi.png"/>
-{{/if}}
 
 ### Device Vitals
 
@@ -381,13 +383,15 @@ device on the Console:
 Click the **Run Tests** button to run the test suite, if the tests have
 not already begun to run:
 
-{{#if has-cellular}}
+For Cellular:
+
 <img class="full-width"
 src="/assets/images/remote-diagnostics/default-diagnostics-state-cellular.png"/>
-{{else}}
+
+For Wi-Fi:
+
 <img class="full-width"
 src="/assets/images/remote-diagnostics/default-diagnostics-state-wifi.png"/>
-{{/if}}
 
 Running the tests will kick off diagnostics for each layer of the
 connectivity stack. Tests will be run in parallel, and the test results
@@ -406,15 +410,19 @@ A _healthy_ test result means that all tests have passed
 successfully. The device is operating normally. This state looks like
 this:
 
-{{#if has-cellular}}
+For Cellular:
+
 <img
 src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
 class="full-width"/>
-{{else}}
+
+For Wi-Fi:
+
 <img
 src="/assets/images/remote-diagnostics/successful-diagnostics-test-wifi.png"
 class="full-width"/>
-{{/if}}
+
+
 <p class="caption">All diagnostic tests have passed and this device is
 healthy! Woot!</p>
 
@@ -431,31 +439,31 @@ the healthy range. However, all diagnostic tests still passed. This is
 an indication that there _may be a problem_, and you should investigate
 it further:
 
-{{#if has-cellular}}
+For Cellular:
+
 <img
 src="/assets/images/remote-diagnostics/warning-diagnostics-test.png"
 class="full-width" style="max-height: inherit"/>
-{{else}}
+
+For Wi-Fi:
+
 <img
 src="/assets/images/remote-diagnostics/warning-diagnostics-test-wifi.png"
 class="full-width" style="max-height: inherit"/>
-{{/if}}
 
 In the warning state, you will receive some helpful text to explain what
 is happening as well as some recommendations on how to return the device
 to a fully healthy state.
 
-{{#if has-cellular}}
-In this case, the device's battery is running low (12%) but the device
+For cellular devices, the device's battery is running low (12%) but the device
 is still online and able to communicate with the Particle Device Cloud.
 For devices with low battery, the recommendation is simple
 &mdash; recharge the battery before the device turns off.
-{{else}}
-In this case, the device is getting rate-limited in firmware because it
+
+For Wi-Fi devices, the device is getting rate-limited in firmware because it
 is attempting to publish events too quickly. The recommendation is to
 rework the application firmware by reducing the frequency of event
 publishes to 1 per second or less.
-{{/if}}
 
 #### Unhealthy
 
@@ -463,17 +471,19 @@ The test run will be marked as _unhealthy_ if one or more of the Remote
 Diagnostic tests fail. Note that failure is defined as a state in which
 the device will not be able to communicate with the Particle Device Cloud:
 
-{{#if has-cellular}}
+For Cellular:
+
 <img src="/assets/images/remote-diagnostics/diagnostic-failure.png"
 class="full-width" />
 <p class="caption">This Remote Diagnostic test reports a problem because the
 SIM is deactivated<br/>causing 3 tests to fail</p>
-{{else}}
+
+For Wi-Fi:
+
 <img src="/assets/images/remote-diagnostics/diagnostic-failure-wifi.png"
 class="full-width" />
 <p class="caption">This Remote Diagnostic test reports a problem because
 the device is unresponsive</p>
-{{/if}}
 
 In this state, the test will be marked clearly as failing with a red "X"
 icon. In this case, we are not able to successfully communicate with the
@@ -483,15 +493,11 @@ that the device is unresponsive.
 Anytime the Health Check tests fail, there will be a course of
 action suggested in the test results summary. These calls-to-action are
 designed to help your team quickly identify a solution to the
-connectivity issue that has arisen. In this scenario, the call to action
-is {{#if has-cellular}}simple &mdash; reactivate the SIM{{else}} to visit
-the docs to troubleshoot device connectivity{{/if}}. Remote Diagnostics provides this
+connectivity issue that has arisen. 
+
+For cellular devices, the call to actionis to reactivate the SIM.
+
+Otherwise, visit
+the docs to troubleshoot device connectivity. Remote Diagnostics provides this
 call-to-action intelligently based on the test failures.
 
-To help uncover what the cause of the issue might be, the last known
-device diagnostic reading is displayed. For this device, we can see that
-{{#if has-cellular}}the SIM card is deactivated. This prevents the device from connecting
-and the cellular network from initiating a session.{{else}} the last
-known diagnostics reading showed a weak Wi-Fi signal. This may be the
-cause of why the device is now not responsive to requests from the
-Particle Device Cloud.{{/if}}

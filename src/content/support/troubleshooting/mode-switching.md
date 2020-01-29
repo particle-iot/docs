@@ -2,7 +2,7 @@
 title: System Modes
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,argon,boron,xenon ]
+redirects: true
 order: 6
 ---
 
@@ -10,17 +10,17 @@ order: 6
 Mode Switching (Firmware)
 ===
 
-One of our goals with the {{device}} and Particle OS was to abstract away the connectivity layer. When you're running a distributed OS where some of your software runs on the device and some of your software runs in the cloud, you want the connection between the two to "just work".
+One of our goals with the device and Particle OS was to abstract away the connectivity layer. When you're running a distributed OS where some of your software runs on the device and some of your software runs in the cloud, you want the connection between the two to "just work".
 
 However, sometimes you don't want everything to be automatic; you want to take control of the connection, so you can decide when the device should try to connect and when it shouldn't. This is particularly helpful when you want your application code to start running immediately as soon as the device is powered, and the connectivity stuff can happen later on.
 
-As of today, the {{device}} has three modes: **AUTOMATIC, SEMI_AUTOMATIC, and MANUAL**. Let's go through each of them in turn.
+As of today, the device has three modes: **AUTOMATIC, SEMI_AUTOMATIC, and MANUAL**. Let's go through each of them in turn.
 
 ### Automatic Mode
 
-The default mode of the {{device}} is "automatic mode". This means that the {{device}} will attempt to connect to {{network-type}} automatically. If you don't explicitly define the connection mode, the {{device}} will be running in automatic mode. This is identical to how the {{device}} has always worked up until now.
+The default mode of the device is "automatic mode". This means that the device will attempt to connect to network (cellular or Wi-Fi) automatically. If you don't explicitly define the connection mode, the device will be running in automatic mode. This is identical to how the device has always worked up until now.
 
-Behind the scenes, what's running on the {{device}} looks something like this:
+Behind the scenes, what's running on the device looks something like this:
 
 	void main() {
 	  // First, connect to the internet
@@ -39,7 +39,7 @@ Behind the scenes, what's running on the {{device}} looks something like this:
 	  }
 	}
 
-But the whole point of the automatic mode is you don't really need to know that. The {{network-type}} connection just works. So let's say your code looks like this:
+But the whole point of the automatic mode is you don't really need to know that. The network connection just works. So let's say your code looks like this:
 
 	// You don't have to add this, but if you want to be explicit:
 	SYSTEM_MODE(AUTOMATIC);
@@ -57,7 +57,7 @@ But the whole point of the automatic mode is you don't really need to know that.
 
 What's actually happening is that first we're calling **Particle.connect()**, which will connect the device to the Cloud. Once it's connected, then your code will run, and your **loop()** will alternate with **Particle.process()** so that we can process incoming messages in something that resembles a background process. (Side note: **Particle.process()** also runs during delays).
 
-OK, that's all well and good, but what if I don't know whether my {{device}} will have an internet connection? I still want my LED to blink. So now we've got:
+OK, that's all well and good, but what if I don't know whether my device will have an internet connection? I still want my LED to blink. So now we've got:
 
 ### Semi-automatic mode
 
@@ -86,18 +86,18 @@ OK, that's all well and good, but what if I don't know whether my {{device}} wil
 		connectToCloud = true;
 	}
 
-In this version of the code, when the {{device}} is plugged in, the LED will immediately start blinking. When a button attached to D1 is depressed (bringing D1 to **LOW**), **Particle.connect()** will be called. {{#unless electron}}If the {{device}} already has Wi-Fi credentials in memory, it will attempt to connect; otherwise, it will enter listening mode, and wait for your network name and password through the Particle mobile app or over USB.
-{{/unless}}{{#if electron}}If the {{device}} has a SIM card inserted, it will attempt to connect; otherwise, it will enter listening mode.
-{{/if}}
+In this version of the code, when the device is plugged in, the LED will immediately start blinking. When a button attached to D1 is depressed (bringing D1 to **LOW**), **Particle.connect()** will be called. For Wi-Fi devices, if the device already has Wi-Fi credentials in memory, it will attempt to connect; otherwise, it will enter listening mode, and wait for your network name and password through the Particle mobile app or over USB.
+
+For cellular devices with a removable SIM card like the Electron 2G and 3G, If the device has a SIM card inserted, it will attempt to connect; otherwise, it will enter listening mode,
 
 
 The only main difference between **SEMI_AUTOMATIC** mode and **AUTOMATIC** mode is that **Particle.connect()** is not called at the beginning of your code; you have to do that yourself. Let's go deeper down the rabbit hole with:
 
 ### Manual Mode
 
-The {{device}}'s manual mode puts everything in your hands. This mode gives you a lot of rope to hang yourself with, so tread cautiously.
+The device's manual mode puts everything in your hands. This mode gives you a lot of rope to hang yourself with, so tread cautiously.
 
-Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Cloud using **Particle.connect()** yourself. However, in manual mode, the {{device}} will not call **Particle.process()** automatically; you have to call it yourself. So your code might look like this:
+Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Cloud using **Particle.connect()** yourself. However, in manual mode, the device will not call **Particle.process()** automatically; you have to call it yourself. So your code might look like this:
 
 	SYSTEM_MODE(MANUAL);
 
@@ -126,11 +126,11 @@ Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Clou
 		connectToCloud = true;
 	}
 
-**You must call Particle.process() as frequently as possible to process messages from the {{network-type}} module.** If you do not do so, you will encounter erratic behavior, such as:
+**You must call Particle.process() as frequently as possible to process messages from the network-type module.** If you do not do so, you will encounter erratic behavior, such as:
 
-- The {{device}} losing its connection to the Cloud
-- The {{device}} breathing cyan when in fact it is not connected
-- Long delays when a request is sent to the {{device}} because the {{device}} won't respond until it's processed the message
+- The device losing its connection to the Cloud
+- The device breathing cyan when in fact it is not connected
+- Long delays when a request is sent to the device because the device won't respond until it's processed the message
 
 Sounds kinda terrible, right? Except this can be really useful when you're writing code that is very sensitive to exact timing, and the **Particle.process()** call might interrupt your sensitive code. By turning on **MANUAL** mode, you can make sure that **Particle.process()** is called when you want, and not when the processor is busy with a time-sensitive task.
 

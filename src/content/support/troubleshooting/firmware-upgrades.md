@@ -2,13 +2,12 @@
 title: Firmware Upgrades
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,argon,boron,xenon ]
+redirects: true
 order: 9
 ---
 
 How do I upgrade my firmware?
 ===
-{{#unless core}}
 
 
 ## The Simple Way (one CLI command - recommended)
@@ -77,9 +76,8 @@ particle flash --usb electron-system-part2@1.2.1.bin
 particle flash --usb electron-system-part3@1.2.1.bin
 ```
 
-{{else}}
 
-## Full Firmware Upgrade
+## Full Firmware Upgrade (Spark Core only)
 
 If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using [dfu-util](http://dfu-util.sourceforge.net/) and installing the [Particle CLI](/tutorials/developer-tools/cli)
 , which provides an excellent local development and troubleshooting environment for your Particle development.
@@ -92,6 +90,5 @@ Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. On
 
 These commands replace the factory reset image, and re-patch the radio, bringing your Core to an upgraded factory state.
 
-{{/unless}}
 
 For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).

@@ -2,7 +2,7 @@
 title: Web IDE (Build)
 layout: tutorials.hbs
 columns: two
-devices: [ electron,photon,core,argon,boron,xenon ]
+redirects: true
 order: 20
 ---
 
@@ -33,7 +33,7 @@ Particle Build is an Integrated Development Environment, or IDE; that means that
 
 Particle Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
 
-- **Flash**: Flashes the current code to the device. This initiates an *over-the-air firmware update* and loads the new software onto your device. {{#if electron}}**Note: Flashing OTA for the Electron uses data and should consider using flash over serial instead.**{{/if}}
+- **Flash**: Flashes the current code to the device. This initiates an *over-the-air firmware update* and loads the new software onto your device. **Note: Flashing OTA for the cellular devices uses data and should consider using flash over USB instead.**
 - **Verify**: This compiles your code without actually flashing it to the device; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
 - **Save**: Saves any changes you've made to your code.
 
@@ -82,9 +82,7 @@ The best way to get started with the IDE is to start writing code:
 
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
 
-{{#if electron}}
-**NOTE**: Each over *over-the-air firmware update* on Electron counts towards your data allowance. You can also flash the Electron locally [using our CLI](/reference/cli/#compiling-remotely-and-flashing-locally).
-{{/if}}
+**NOTE**: Each over *over-the-air firmware update* on cellular devices counts towards your data allowance. You can also flash the devices locally [using our CLI](/reference/cli/#compiling-remotely-and-flashing-locally) over USB.
 
 ```
 //D7 LED Flash Example
@@ -101,17 +99,8 @@ void loop() {
     delay(1000);
 }
 ```
-{{#if electron}}
+
 ![Particle Build](/assets/images/enew-ide.png)
-{{/if}}
-
-{{#if photon}}
-![Particle Build](/assets/images/ide-devices.png)
-{{/if}}
-
-{{#if core}}
-![Particle Build](/assets/images/ide-devices.png)
-{{/if}}
 
 
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
@@ -272,7 +261,7 @@ Wait, what is firmware?
 An *embedded system* like the Core, Photon or Electron doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
 
 
-![Firmware versions]({{assets}}/images/ide-firmware-versions.png)
+![Firmware versions](/assets/images/ide-firmware-versions.png)
 
 *Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
 
@@ -286,7 +275,7 @@ For every device which version of our firmware you want to build against. In mos
 Troubleshooting
 ---
 
-![Clear cache]({{assets}}/images/ide-clear-cache.png)
+![Clear cache](/assets/images/ide-clear-cache.png)
 
 Particle Build uses a local cache to improve its performance. In some cases this may cause errors or outdated information about libraries. If you encounter similar symptoms try clearing the cache by going to **Settings** and clicking **Clear cache** button.
 

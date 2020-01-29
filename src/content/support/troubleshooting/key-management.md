@@ -2,7 +2,7 @@
 title: Device Keys
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,argon,boron,xenon ]
+redirects: true
 order: 7
 ---
 
@@ -13,21 +13,21 @@ An easy step-by-step walkthrough of Particle CLI commands to BACKUP, RESTORE and
 
 ### How to Backup/Save your Key:
 
-1. Place your {{device}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
+1. Place your device into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 
-2. Run the ``particle keys save mykey.der`` command. This will backup the key on your {{device}} to the Home folder on your computer.  You can substitute your own naming convention for the *.der file if you wish.
+2. Run the ``particle keys save mykey.der`` command. This will backup the key on your device to the Home folder on your computer.  You can substitute your own naming convention for the *.der file if you wish.
 
 ### How to Restore/Load your Key:
 
-1. Place your {{device}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
+1. Place your device into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 
-2. Run the ``particle keys load mykey.der`` command. This will restore the key you saved previously to your Home directory to your {{device}}.  The file may not necessarily be named mykey.der, substitute whatever you backed it up as previously with the ``particle keys save`` command.
+2. Run the ``particle keys load mykey.der`` command. This will restore the key you saved previously to your Home directory to your device.  The file may not necessarily be named mykey.der, substitute whatever you backed it up as previously with the ``particle keys save`` command.
 
 ### How to Change your Key:
 
-If you have physical access to the {{device}} in question, here's how to change the Key on it. Once you do that you can share the Public key with us and we'll get you up and running again on that {{device}}.  You may not even need to share the key with us if it your {{device}} connects to the Cloud after following this procedure.
+If you have physical access to the device in question, here's how to change the Key on it. Once you do that you can share the Public key with us and we'll get you up and running again on that device.  You may not even need to share the key with us if it your device connects to the Cloud after following this procedure.
 
-Bare with me for these next steps! This is slightly complicated because of the great security implemented on the {{device}}.
+Bare with me for these next steps! This is slightly complicated because of the great security implemented on the device.
 
 1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! [Particle CLI](/tutorials/developer-tools/cli)
 
@@ -35,13 +35,13 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 3. To login on the Particle CLI, run the command `particle login` and follow the prompts for email and password.
 
-4. Next we need to get the Device ID of your {{device}}. Start by putting the {{device}} into Listening Mode by resetting it, and then holding the Mode button for about 3 seconds until it starts blinking BLUE.
+4. Next we need to get the Device ID of your device. Start by putting the device into Listening Mode by resetting it, and then holding the Mode button for about 3 seconds until it starts blinking BLUE.
 
-5. Next run the following command to get the ID of your {{device}}: ``particle serial identify``. It should reply "Your device id is: xxxxxxxxxxxxxxxxxx". Copy the number down or to your clipboard for later.
+5. Next run the following command to get the ID of your device: ``particle serial identify``. It should reply "Your device id is: xxxxxxxxxxxxxxxxxx". Copy the number down or to your clipboard for later.
 
 6. View the key commands and example output here for the next steps: [particle keys doctor](/reference/cli/#particle-keys-doctor)
 
-7. Place your {{device}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
+7. Place your device into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 
 8. It's a good idea to run the ``particle keys server`` command in case your server keys or address are corrupted.
 
@@ -49,6 +49,6 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 10. If ``particle keys doctor`` fails to send the keys to the cloud please contact [Particle support](https://support.particle.io).
 
-Congrats, you made it to the end! now your {{device}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
+Congrats, you made it to the end! now your device should be connected to the Cloud... or will be just as soon as we add your Key to the server.
 
 For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).
