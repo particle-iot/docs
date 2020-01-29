@@ -610,6 +610,30 @@ APPSOURCES+=$(call target_files,$(USRSRC_SLASH),*.c)
 INCLUDE_DIRS += $(SOURCE_PATH)/inc
 ```
 
+## Defining custom symbols
+
+If you want to pass custom symbols from your build script to your application source code, define them in the `EXTRA_CFLAGS` make parameter or the `EXTRA_CFLAGS` environment variable. Put `-D` in front of each symbol to define. Use a macro to convert a define into a string in your application.
+
+```
+cd firmware/modules
+make all PLATFORM=photon APPDIR=../../blinkled EXTRA_CFLAG="-DGIT_COMMIT=abc123 -DTEMPERATURE_SENSOR_AVAILABLE -DEEPROM_VERSION=3"
+```
+
+Using the symbols in your application
+```
+#define STRINGIFY(x) #x
+String git_hash = STRINGIFY(GIT_COMMIT);
+
+void setup() {
+  Particle.variable("git_hash", git_hash);
+
+  setupEEPROM(EEPROM_VERSION);
+
+#if TEMPERATURE_SENSOR_AVAILABLE
+  setupTemperatureSensor();
+#endif
+}
+```
 
 ## Flashing using DFU during build
 

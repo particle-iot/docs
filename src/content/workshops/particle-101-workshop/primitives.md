@@ -11,9 +11,9 @@ layout: workshops.hbs
 | **Project Goal**            | Start programming your Argon, read sensor data, and leverage the device cloud.                         |
 | --------------------------- | --------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How to interact with sensors, using Particle variables, cloud functions and publish/subscribe.                               |
-| **Tools you’ll need**       | Access to the internet for build.particle.io and console.particle.io. Plus the Particle CLI, Particle Workbench, a [Particle Argon](https://store.particle.io/products/argon-kit), and [Grove Starter Kit for Particle Mesh](https://store.particle.io/collections/shields-and-kits/products/grove-starter-kit) |
+| **Tools you’ll need**       | Access to the internet for build.particle.io and console.particle.io. Plus the Particle CLI, Particle Workbench, a [Particle Argon](https://store.particle.io/products/argon-kit), and Grove Starter Kit for Particle Mesh |
 | **Time needed to complete** | 60 minutes                                                                                                |
-In this session, you'll explore the Particle ecosystem via an Argon-powered [Grove Starter Kit for Particle Mesh](https://store.particle.io/collections/shields-and-kits/products/grove-starter-kit) with several sensors!
+In this session, you'll explore the Particle ecosystem via an Argon-powered Grove Starter Kit for Particle Mesh with several sensors!
 
 {{box op="start" cssClass="boxed warningBox"}}
 **Tip:** Go back to the source<br />
@@ -71,7 +71,7 @@ The Grove Starter Kit for Particle Mesh comes with seven different components th
 For this lab, you'll need the following items from the kit:
 
 - [Argon](https://store.particle.io/products/argon-kit)
-- [Grove Starter Kit for Particle Mesh](https://store.particle.io/collections/shields-and-kits/products/grove-starter-kit)
+- Grove Starter Kit for Particle Mesh
   - Grove FeatherWing
   - Temperature and Humidity Sensor
   - Chainable LED
@@ -355,8 +355,6 @@ In addition to viewing published messages from the console, you can subscribe to
 ## Bonus: Working with Mesh Publish and Subscribe
 
 If you've gotten this far and still have some time on your hands, how about some extra credit? So far, everything you've created has been isolated to a single device, a Particle Argon. Particle 3rd generation devices come with built-in mesh-networking capabilities.
-
-If you have a Xenon on hand, why not try creating a mesh network with your Argon and adding the Xenon by [following this lab in the Particle docs](https://docs.particle.io/workshops/mesh-101-workshop/mesh-messaging/)? Then, use `Mesh.publish` and `subscribe` to add some interactivity between your two devices, like taking a heart-rate reading when the `SETUP` button on the Xenon is pressed, or lighting up the `D7` LED on the Xenon each time the barometer sensor takes a reading.
 
 ## Appendix: Grove sensor resources
 
