@@ -2,35 +2,22 @@
 title: Hardware Examples
 layout: tutorials.hbs
 columns: two
-devices: [photon,electron,core,raspberry-pi,xenon,argon,boron]
+devices: [photon,electron,core,xenon,argon,boron]
 order: 90
 ---
 
 # Hardware Examples
 
-{{#if raspberry-pi }}
-
-**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions, however there will be no future updates and support is no longer available for this product.**
-
-Here you will find a bunch of examples to get you started using your Raspberry Pi with Particle!
-
-{{else}}
-
 Here you will find a bunch of examples to get you started with your new Particle device! {{#unless electron}}The diagrams here show the Photon, but these examples will work with either the Photon or the Core.{{/unless}}
 
 These examples are also listed in the online IDE in the Code menu.
 
-{{/if}} {{!-- raspberry-pi --}}
 
 To complete all the examples, you will need the following materials:
 
 #### Materials
 * **Hardware**
-  {{#if raspberry-pi }}
-  * Your Raspberry Pi 2 or 3
-  {{else}}
   * Your Particle device
-  {{/if}}
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
@@ -39,9 +26,7 @@ To complete all the examples, you will need the following materials:
   {{#if electron}}
   * LiPo Battery (included with the Electron)
   {{/if}}
-  {{#if raspberry-pi}}
-  * (Optional) A break out board like the [Adafruit Pi T-Cobbler](https://www.adafruit.com/product/2028)
-  {{/if}}
+
 
 {{#if electron}}All of the example circuits are based on the reference card that came along with your Electron kit. If you have misplaced yours, download it [here!](/assets/images/electron/illustrations/electron-card.pdf){{/if}}
 
@@ -97,13 +82,6 @@ Position the LED in the breadboard. The long lead (anode) goes to + (left) and t
 
 In the picture, the long lead of the LED connects to pin D6 using the blue wire. The short lead of the LED connects to a 220 ohm resistor that connects it to ground. That completes the circuit.
  
-{{#if raspberry-pi}}
-Feel free to continue without connecting the external LED if that's too much trouble since the Raspberry Pi has a green LED on board that we'll use in the blink example.
-{{/if}}
-
-{{#if raspberry-pi}}
-![Blink LED Circuit](/assets/images/raspberry-pi/illustrations/raspberry-pi-blink-led.png)
-{{else}}
 {{#if electron}}
 ![Blink LED Circuit](/assets/images/blink-led-electron.jpg)
 {{else}}
@@ -111,7 +89,6 @@ Feel free to continue without connecting the external LED if that's too much tro
 ![Blink LED Circuit](/assets/images/blink-led-photon.jpg)
 {{else}}
 ![Blink LED Circuit](/assets/images/blink-led-argon.jpg)
-{{/if}}
 {{/if}}
 {{/if}}
 
@@ -385,59 +362,8 @@ To better understand the concept of making API calls to your device over the clo
 
 <div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
 
-{{#if raspberry-pi}}
 
-## Script Execution, Publish and the Console
 
-### Intro
-
-One of the most common use cases for IoT is to bring valuable sensor data online to make it accessible from anywhere and to inform intelligent reactions. Is the room temperature in your den climbing too high? Time to lower the shades. Are your plants overwatered from summer storms? Best not turn on the sprinklers.
-
-In this example, we'll show you how to collect sensor data from your Raspberry Pi (the internal temperature of your Pi's processor) and post that data to the Particle Console.
-
-The program to access the temperature sensor is `vcgencmd measure_temp`. It returns a string like `temp=43.5'C`.
-
-After flashing the code below to your Raspberry Pi, you can check out the results on your console at [console.particle.io](https://console.particle.io). When the CPU is very busy the temperature will go up.
-
-You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
-
-### Setup
-For this example, we'll use the internal CPU temperature sensor in the Raspberry Pi so just power it up.
-
-### Code
-
-<pre><code class="lang-cpp" data-firmware-example-code-block=true>
-// -----------------------------------------
-// Execute a script and publish the result
-// -----------------------------------------
-   
-void setup() {
-  // Nothing to set up here
-}
-
-void loop() {
-  // Measure the CPU temperature by running the vcgencmd program
-  Process proc = Process::run("vcgencmd measure_temp");
-  // Wait for vcgencmd to finish
-  proc.wait();
-
-  // The output is temp=43.5'C so fast-forward until the the character = is found
-  proc.out().find("=");
-  // Convert the string to a number
-  float cpuTemp = proc.out().parseFloat();
-
-  // Publish the event to the Particle cloud. It will be visible in the Console.
-  Particle.publish("cpu_temp", String(cpuTemp), PRIVATE);
-
-  // Repeat after a 1 second pause
-  delay(1000);
-}
-
-</code></pre>
-
-{{/if}} {{!-- raspberry-pi --}}
-
-{{#unless raspberry-pi}}
 
 ## Read your photo sensor: Function and Variable
 
@@ -1159,8 +1085,6 @@ void myHandler(const char *event, const char *data)
 
 </code></pre>
 
-{{/unless}} {{!-- raspberry-pi --}}
-
 
 {{#if electron}}
 <div style="display: none;" id="electron-combined-publish" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#electron-combined-publish" data-firmware-example-title="Electron Combined Publishes" data-firmware-example-description="Learn how to send many data points in a single Publish to save data"></div>
@@ -1316,14 +1240,12 @@ When you tap a pin on the mobile app, it sends a message up to the cloud. Your d
 
 Your device already knew how to communicate with the mobile app because of the firmware loaded onto your device as a default. We call this the Tinker firmware. It's just like the user firmware you've been loading onto your device in these examples. It's just that with the Tinker firmware, we've specified special `Particle.function`s that the mobile app knows and understands.
 
-If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device {{#if raspberry-pi}}by running `particle-agen setup`.{{else}}{{#unless electron}}by putting it in [factory reset mode](/guide/getting-started/modes/#factory-reset), or {{/unless}}by re-flashing your device with Tinker in the Particle app.{{/if}}
+If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device {{#unless electron}}by putting it in [factory reset mode](/guide/getting-started/modes/#factory-reset), or {{/unless}}by re-flashing your device with Tinker in the Particle app.
 
-{{#unless raspberry-pi}}
 To reflash Tinker from within the app:
 
 - **iOS Users**: Tap the list button at the top left. Then tap the arrow next to your desired device and tap the "Re-flash Tinker" button in the pop out menu.
 - **Android Users**: With your desired device selected, tap the options button in the upper right and tap the "Reflash Tinker" option in the drop down menu.
-{{/unless}} {{!-- raspberry-pi --}}
 
 The Tinker app is a great example of how to build a very powerful application with not all that much code. If you're a technical person, you can have a look at the latest release [here.](https://github.com/particle-iot/device-os/blob/master/user/src/application.cpp)
 

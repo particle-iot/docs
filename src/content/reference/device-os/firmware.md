@@ -2,16 +2,12 @@
 title: Device OS API
 layout: reference.hbs
 columns: three
-devices: [photon,electron,core,raspberry-pi,xenon,argon,boron]
+devices: [photon,electron,core,xenon,argon,boron]
 order: 20
 ---
 
 Particle Device Firmware
 ==========
-
-{{#if raspberry-pi}}
-**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions, however there will be no future updates and support is no longer available for this product.**
-{{/if}}
 
 ## Cloud Functions
 
@@ -4933,7 +4929,6 @@ Returns the charge voltage register. This is the direct register value from the 
 ## Serial
 (inherits from [`Stream`](#stream-class))
 
-{{#unless raspberry-pi}}
 
 {{#if electron}}
 Used for communication between the {{device}} and a computer or other devices. The {{device}} has four hardware (USART) serial channels. 
@@ -4953,13 +4948,7 @@ Used for communication between the {{device}} and a computer or other devices. T
 
 It also has {{#if has-usb-serial1}}two{{else}}one{{/if}} USB serial channel{{#if has-usb-serial1}}s{{else}}{{/if}}.
 
-{{/unless}}{{!-- raspberry-pi --}}
-
-{{#unless raspberry-pi}}
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
-{{else}}
-`Serial:` This channel communicates between the terminal and the firmware running. It uses standard input and standard output.
-{{/unless}}
 
 ```cpp
 // EXAMPLE USAGE
@@ -4977,10 +4966,6 @@ void setup()
 
 {{#if has-nrf52}}
 Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the {{device}}. 
-{{/if}}
-
-{{#if raspberry-pi}}
-**IMPORTANT**: Support for `Serial1` is not complete for the Raspberry Pi so `Serial1` never returns any data.
 {{/if}}
 
 {{#if has-serial2}}
@@ -5056,7 +5041,6 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
 
-{{#unless raspberry-pi}}
 
 {{#if has-usb-serial1}}
 **NOTE:** On Windows 10, using `USBSerial1` on the Electron and P1 may not be reliable due to limitations of the USB peripheral used for those 2 platforms. Characters may be dropped between the computer and device. `USBSerial1` is reliable for other Particle platforms and other operating systems. `Serial` is reliable for all platforms and operating systems.
@@ -5086,7 +5070,7 @@ On Linux, you can accomplish the same thing by using:
 and pressing tab to autocomplete.
 
 Now you are ready to read data sent by the {{device}} over Serial and send data back.
-{{/unless}} {{!-- raspberry-pi --}}
+
 
 ### begin()
 
@@ -5281,12 +5265,12 @@ Disables serial channel.
 
 When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), disables serial communication, allowing channel's RX and TX pins to be used for general input and output. To re-enable serial communication, call `SerialX.begin()`.
 
-{{#unless core}}{{#unless raspberry-pi}}
+{{#unless core}}
 
 {{since when="0.6.0"}}
 
 When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
-{{/unless}}{{/unless}}
+{{/unless}}
 
 ```cpp
 // SYNTAX
@@ -6381,14 +6365,6 @@ Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
 
 {{/if}} {{!-- has-embedded --}}
 
-{{#if raspberry-pi}}
-
-There are dedicated pins for SPI on the Raspberry Pi: `MOSI`, `MISO`, `SCK` and 2 chip select pins `CE0` and `CE1`.
-
-**Note**: Before using the SPI interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `SPI` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the SPI peripheral.
-
-It is not recommended to use the SPI pins for general purpose IO. If you need to, you must disable the SPI peripheral in `raspi-config`, reboot and use the `MOSI`, `MISO`, `SCK`, `CE0` and `CE1` pins with `pinMode`, `digitalRead` or `digitalWrite`.
-{{/if}} {{!-- raspberry-pi --}}
 
 ### begin()
 
@@ -6547,10 +6523,6 @@ This method can make writing portable code easier, since it specifies the clock 
 absolutely, giving comparable results across devices. In contrast, specifying
 the clock speed using dividers is typically not portable since is dependent upon the system clock speed.
 
-{{#if raspberry-pi}}
-On the Raspberry Pi, the default SPI clock is 4 MHz.
-{{/if}}
-
 {{#if has-nrf52}}
 Gen 3 devices (Argon, Boron, and Xenon) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
 {{/if}}
@@ -6584,9 +6556,7 @@ The default clock divider reference is the system clock.
 {{#if core}}
 On the Core, this is 72 MHz.
 {{else}}
-{{#if raspberry-pi}}
-On the Raspberry Pi, this is 64 MHz.
-{{else}}
+
 {{#if has-stm32}}
 On the Photon and Electron, the system clock speeds are:
 - SPI - 60 MHz
@@ -6595,7 +6565,6 @@ On the Photon and Electron, the system clock speeds are:
 {{#if has-nrf52}}
 On Gen 3 devices (Argon, Boron, Xenon), system clock speed is 64 MHz.
 {{/if}} {{!-- has-nrf52 --}}
-{{/if}} {{!-- else raspberry-pi --}}
 {{/if}} {{!-- else core --}}
 
 
@@ -6630,16 +6599,13 @@ The clock reference varies depending on the device.
 {{#if core}}
 On the Core, the clock reference is 72 MHz.
 {{else}}
-{{#if raspberry-pi}}
-On the Raspberry Pi, the clock reference is 64 MHz.
-{{else}}
+
 {{#if has-stm32}}
 On the Photon and Electron, the clock reference is 120 MHz.
 {{/if}}
 {{#if has-nrf52}}
 On Gen 3 devices (Argon, Boron, Xenon), the clock reference is 64 MHz.
 {{/if}} {{!-- has-nrf52 --}}
-{{/if}} {{!-- else raspberry-pi --}}
 {{/if}} {{!-- else core --}}
 
 
@@ -7003,13 +6969,6 @@ For example, do not use `Wire.begin()` with `Wire1.write()`.
 
 {{/if}} {{!-- has-embedded --}}
 
-{{#if raspberry-pi}}
-There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](/datasheets/raspberrypi-datasheet#pin-out-diagram) to find out where pins are located.
-
-**Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
-
-It is not recommended to use the I2C pins for general purpose IO. If you need to, you must disable the I2C peripheral in `raspi-config`, reboot and use the `SCL` and `SDA` pins with `pinMode`, `digitalRead` or `digitalWrite`.
-{{/if}} {{!-- raspberry-pi --}}
 
 {{#if has-embedded}}
 

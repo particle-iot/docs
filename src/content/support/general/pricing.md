@@ -230,10 +230,6 @@ User Device Cloud subscriptions on the <a href="https://console.particle.io/bill
 target="_blank">billing page</a> of the Console to
 get an idea of how close you are to these caps.
 
-Note that we count both official Particle devices + Compounds towards
-these totals, categorized by connectivity type. For instance, Raspberry Pis
-provisioned to the Particle Device Cloud will be counted towards your Wi-Fi
-device count.
 
 ## Grandfathered Products
 

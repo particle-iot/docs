@@ -53,8 +53,6 @@ Created by Zach Supalla.
         localStorage.setItem('lastDevice', 'core');
       } else if (currentPath.indexOf('electron') > -1) {
         localStorage.setItem('lastDevice', 'electron');
-      } else if (currentPath.indexOf('raspberry-pi') > -1) {
-        localStorage.setItem('lastDevice', 'raspberry-pi');
       } else if (currentPath.indexOf('argon') > -1) {
         localStorage.setItem('lastDevice', 'argon');
       } else if (currentPath.indexOf('boron') > -1) {
@@ -350,7 +348,7 @@ Created by Zach Supalla.
     var pathSearch = window.location.pathname.split("/").filter(function(n){return n!=""});
     var deviceSearch = pathSearch[pathSearch.length - 1];
 
-    var allDevices = ["photon","core","electron","raspberry-pi","argon","boron","xenon"];
+    var allDevices = ["photon","core","electron","argon","boron","xenon"];
 
     if (specifier.length>0) {
       if (allDevices.indexOf(specifier)!=-1) { // the specifier is one of the devices
