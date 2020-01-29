@@ -2,7 +2,7 @@
 title: Firmware Manager
 layout: support.hbs
 columns: two
-devices: [ photon,electron ]
+redirects: true
 order: 12
 ---
 
@@ -12,13 +12,13 @@ order: 12
 
 It can still be used to update devices to Device OS 0.6.0 but cannot upgrade to newer versions. The [Particle CLI](/tutorials/developer-tools/cli) should be used instead.
 
-The Firmware Manager is a desktop application that upgrades your {{device}} to the latest Device OS version. It provides an easy way to update Device OS version while avoiding cellular data charges.
+The Firmware Manager is a desktop application that upgrades your device to the latest Device OS version. It provides an easy way to update Device OS version while avoiding cellular data charges.
 
 ## Getting Started
 
 The Firmware Manager is available for Windows and macOS (OS X). 
 
-### <img style="margin:0; block:inline" src="{{assets}}/images/updater-windows-logo.png"> Windows
+### <img style="margin:0; block:inline" src="/assets/images/updater-windows-logo.png"> Windows
 
 Click [Firmware Manager for Windows](https://binaries.particle.io/updater/particle_firmware_manager-v0.6.0-windows.exe) to download the application to your downloads folder. The file name will begin with "particle_firmware_manager".
 
@@ -27,7 +27,7 @@ Once the download is complete, double-click the downloaded file to run.
 The first time the utility is run, you will be prompted to enable administrator access.  This is so it can install the Particle USB Drivers to your machine.
 
  
-### <img style="margin:0; block:inline" src="{{assets}}/images/updater-apple-logo.png"> OS X
+### <img style="margin:0; block:inline" src="/assets/images/updater-apple-logo.png"> OS X
 
 Click [Firmware Manager for macOS](https://binaries.particle.io/updater/particle_firmware_manager-v0.6.0-osx.zip) to download the application to your downloads folder.
 
@@ -49,13 +49,13 @@ Using the firmware manager follows these steps:
 
 When the application starts, you'll see a screen like this:
 
-![Updater Start Screen]({{assets}}/images/updater-start.png)
+![Updater Start Screen](/assets/images/updater-start.png)
 
 ### Connecting your Device
 
-If you haven't already connected your {{device}} to your computer with a USB cable, do that now. When connected, the screen will look like this:
+If you haven't already connected your device to your computer with a USB cable, do that now. When connected, the screen will look like this:
 
-![Updater Connected]({{assets}}/images/updater-connected.png)
+![Updater Connected](/assets/images/updater-connected.png)
 
 (On Windows, the device location will be shown as COM1: or similar.)
 
@@ -65,7 +65,7 @@ When you're ready to update your device, click on the button "Update to 0.5.0". 
 
 The progress bar will start to change to magenta as the update progresses
 
-![Update in progress]({{assets}}/images/updater-updating.png)
+![Update in progress](/assets/images/updater-updating.png)
 
 ... and the LED on your device will start blinking magenta (red and blue at the same time).
 
@@ -75,7 +75,7 @@ The update will pause for a short while halfway through as the device restarts a
 
 When the update is complete you'll see this screen
 
-![Update complete]({{assets}}/images/updater-complete.png)
+![Update complete](/assets/images/updater-complete.png)
 
 Congratulations! You've updated the Device OS version on your device.
 

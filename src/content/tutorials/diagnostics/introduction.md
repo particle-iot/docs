@@ -4,7 +4,7 @@ title: Introduction
 order: 1
 columns: two
 layout: tutorials.hbs
-devices: [photon, electron, argon, boron, xenon]
+redirects: true
 ---
 
 # Particle Diagnostics
