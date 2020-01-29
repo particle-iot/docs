@@ -616,12 +616,13 @@ If you want to pass custom symbols from your build script to your application so
 
 ```
 cd firmware/modules
-make all PLATFORM=photon APPDIR=../../blinkled EXTRA_CFLAG="-DGIT_COMMIT=abc123 -DTEMPERATURE_SENSOR_AVAILABLE -DEEPROM_VERSION=3"
+make all PLATFORM=photon APPDIR=../../blinkled EXTRA_CFLAGS="-DGIT_COMMIT=abc123 -DTEMPERATURE_SENSOR_AVAILABLE -DEEPROM_VERSION=3"
 ```
 
 Using the symbols in your application
 ```
-#define STRINGIFY(x) #x
+#define __STRINGIFY(x) #x
+#define STRINGIFY(x) __STRINGIFY(x)
 String git_hash = STRINGIFY(GIT_COMMIT);
 
 void setup() {
