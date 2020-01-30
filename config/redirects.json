@@ -192,6 +192,8 @@
     "/shields": "/datasheets/kits-and-accessories/kits",
     "/support": "/support/menu-base",
     "/support/particle-devices-faq": "/support/particle-devices-faq/code-size-tips",
+    "/support/particle-devices-faq/i2c-faq/":"/tutorials/learn-more/about-i2c",
+    "/support/particle-devices-faq/serial-faq/":"/tutorials/learn-more/about-serial",   
     "/support/shipping-and-returns": "/support/shipping-and-returns/shipping",
     "/support/support-and-fulfillment": "/support/shipping-and-returns/shipping",
     "/support/support-and-fulfillment/menu-base": "/support/menu-base",

@@ -1,11 +1,11 @@
 ---
-title: I2C FAQ
-layout: support.hbs
+title: About I2C
+layout: tutorials.hbs
 columns: two
-order: 1100
+order: 10
 ---
 
-# I2C FAQ
+# About I2C
 
 I2C, also written as I<sup>2</sup>C, and pronounced I-squared-C, is a method for communicating between devices such as sensors, displays and other peripherals and a microcontroller like the Photon or Electron. It's short for Inter-Integrated Circuit.
 
@@ -79,12 +79,12 @@ This is different than SPI, which is 5V tolerant, but will only supply 3.3V on M
 
 ### Pins
 
-On the Photon, Electron, P1 and Core, the I2C interface (Wire) is on D0 and D1:
+On the all devices there is an I2C interface (Wire) on D0 and D1:
 
 - DO: SDA
 - D1: SCL
 
-On the Electron, there is a second I2C interface (Wire1) on C4 and C5 as well:
+On the Electron, there is a second I2C interface (Wire1) on C4 and C5 as well (with limitations):
 
 - C4: SDA
 - C5: SCL

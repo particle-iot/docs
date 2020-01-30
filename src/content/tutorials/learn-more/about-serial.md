@@ -1,12 +1,13 @@
 ---
-title: Serial FAQ
-layout: support.hbs
+title: About Serial
+layout: tutorials.hbs
 columns: two
-order: 1120
+order: 14
 ---
 
-# Serial FAQ
+# About Serial
 
+*Learn about serial ports, UARTs, USB serial ports, RS-232, and more!*
 
 ## USB serial
 
@@ -48,24 +49,10 @@ testing 5
 testing 6
 ```
 
+### Particle Workbench
 
-### Particle Dev (Atom IDE)
+In Particle Workbench (VS Code), open the command palette (Command-Shift-P on the Mac, Ctrl-Shift-P on Windows and Linux) and select **Particle: Serial Monitor**.
 
-Select **Show Serial Monitor** in the Particle menu if the Serial Monitor is not showing. Make sure you have the correct port select and click **Connect**.
-
-![Particle Dev Window](/assets/images/serial-faq-01particledev.png)
-
-Note that you can write stuff to the serial port in Particle Dev, but you must do so in the **Enter string to send box**, it's not like a regular terminal emulator where you type in the same place where stuff is being printed out.
-
-### Arduino IDE
-
-Select the port from the **Port** hierarchical menu in the **Tools** menu.
-
-Then select **Serial Monitor** from the **Tools** menu.
-
-![Arduino Window](/assets/images/serial-faq-02arduino.png)
-
-You can send data via serial with the Arduino IDE as well, but you need to enter text to send in the box at the top of the window and press Return or click **Send**.
 
 ### Windows - using PuTTY or CoolTerm
 
@@ -118,6 +105,24 @@ screen /dev/ttyACM0
 
 Screen allows you you both send characters to the Photon or Electron as well as receive them from the USB serial device.
 
+
+### Particle Dev (Atom IDE)
+
+Select **Show Serial Monitor** in the Particle menu if the Serial Monitor is not showing. Make sure you have the correct port select and click **Connect**.
+
+![Particle Dev Window](/assets/images/serial-faq-01particledev.png)
+
+Note that you can write stuff to the serial port in Particle Dev, but you must do so in the **Enter string to send box**, it's not like a regular terminal emulator where you type in the same place where stuff is being printed out.
+
+### Arduino IDE
+
+Select the port from the **Port** hierarchical menu in the **Tools** menu.
+
+Then select **Serial Monitor** from the **Tools** menu.
+
+![Arduino Window](/assets/images/serial-faq-02arduino.png)
+
+You can send data via serial with the Arduino IDE as well, but you need to enter text to send in the box at the top of the window and press Return or click **Send**.
 
 ### Android phone or tablet with USB OTG
 
@@ -204,6 +209,8 @@ Many 5V serial devices will correctly respond to 3.3V values as logic 1 even tho
 
 One thing that you absolutely must never do is connect a Photon directly to a computer or other device using an actual RS232 interface. A converter is required and is described in the next section.
 
+Gen 3 devices including the Argon, Boron, and B Series SoM are not 5V tolerant and can only use 3.3V serial logic levels.
+
 ## Interfacing to RS232 devices
 
 Actual RS232 devices, such as old computers, newer computers with an adapter, and various external hardware devices likely use "real" RS232 signal levels, which can range between +15V and -15V. This will cause immediate, permanent damage to the Photon or Electron if connected directly.
@@ -240,11 +247,11 @@ Likewise, DCE devices typically have a female connector. Pin 2 is an output and 
 
 The SparkFun board has a female DB9 and makes the Photon a DCE. This makes sense because most computer serial ports are DTE.
 
-## Baud rate, bits, parity, and stop bits
+## Baud rate, bits, parity, and stop bits (Gen 2)
 
 There are four configuration parameters for serial, and you must make sure they're all set correctly, otherwise communication will often fail, either with no data or garbage characters received.
 
-The baud rate is the speed that data is sent. A common value is 9600. The valid values for the Photon and Electron are 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, and 115200. Neither device can use speeds under 1200 (such as 300 or 600).
+The baud rate is the speed that data is sent. A common value is 9600. The valid values for the Photon, P1 and Electron are 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, and 115200. Neither device can use speeds under 1200 (such as 300 or 600).
 
 The number of bits per byte is typically 8. It's occasionally 7 or 9.
 There is limited support for 9 bit in Device OS version 0.5.0 and later, and full support for 7 and 9 bit in 0.6.0 and later.
@@ -276,13 +283,40 @@ You use these with the [Serial.begin](/reference/device-os/firmware/#begin-) cal
 Serial1.begin(9600, SERIAL_9N1);
 ```
 
+## Baud rate, bits, parity, and stop bits (Gen 3)
+
+On the Argon, Boron, and B Series SoM, the available baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000
+
+They also only support 8 bits, 1 stop bit, and either none or even parity. No other modes are supported.
+
+- SERIAL_8N1 - 8 data bits, no parity, 1 stop bit (default)
+- SERIAL_8E1 - 8 data bits, even parity, 1 stop bit
+
+You use these with the [Serial.begin](/reference/device-os/firmware/#begin-) call, for example:
+
+```
+Serial1.begin(9600);
+```
 
 ## Flow control
+
 There are two types of flow control in serial: hardware (RTS/CTS) and software (XON/XOFF). 
 
 The Photon does not support hardware flow control (RTS/CTS). The Electron does not currently support hardware flow control.
 
 Neither the Photon or Electron support software (XON/XOFF) flow control, either. In some limited cases, you could note when you receive XOFF (Ctrl-S) in your received data and stop sending, however there is currently no way to stop the send FIFO from sending, so this will only work when you don't have any data waiting to be sent.
+
+On the Argon, Boron, and B Series SoM hardware flow control is available on Serial1 on pins D3(CTS) and D2(RTS). 
+
+- `SERIAL_FLOW_CONTROL_NONE` - no flow control
+- `SERIAL_FLOW_CONTROL_RTS` - RTS flow control
+- `SERIAL_FLOW_CONTROL_CTS` - CTS flow control
+- `SERIAL_FLOW_CONTROL_RTS_CTS` - RTS/CTS flow control
+
+```
+Serial1.begin(9600, SERIAL_FLOW_CONTROL_RTS_CTS);
+```
+
 
 ## Communicating with an Arduino
 
