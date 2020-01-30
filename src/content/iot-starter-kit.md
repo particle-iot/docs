@@ -43,13 +43,13 @@ For technical documentation on each of the included components, please see the l
   * [LiPo battery](https://docs.particle.io/tutorials/learn-more/batteries/)
 * Grove FeatherWing Adapter
 * Grove modules:
-  * [Button](https://docs.particle.io/datasheets/accessories/mesh-accessories/#button) 
-  * [Rotary encoder](https://docs.particle.io/datasheets/accessories/mesh-accessories/#rotary-angle-sensor)
-  * [Ultrasonic range finder](https://docs.particle.io/datasheets/accessories/mesh-accessories/#ultrasonic-ranger) 
-  * [Temperature and humidity sensor](https://docs.particle.io/datasheets/accessories/mesh-accessories/#temperature-and-humidity-sensor)
-  * [Light sensor](https://docs.particle.io/datasheets/accessories/mesh-accessories/#light-sensor-v1-2) 
-  * [RGB LED (chainable)](https://docs.particle.io/datasheets/accessories/mesh-accessories/#chainable-rgb-led)
-  * [Buzzer](https://docs.particle.io/datasheets/accessories/mesh-accessories/#buzzer) 
-  * [4-Digit display](https://docs.particle.io/datasheets/accessories/mesh-accessories/#4-digit-display)
+  * [Button](https://docs.particle.io/datasheets/accessories/gen3-accessories/#button) 
+  * [Rotary encoder](https://docs.particle.io/datasheets/accessories/gen3-accessories/#rotary-angle-sensor)
+  * [Ultrasonic range finder](https://docs.particle.io/datasheets/accessories/gen3-accessories/#ultrasonic-ranger) 
+  * [Temperature and humidity sensor](https://docs.particle.io/datasheets/accessories/gen3-accessories/#temperature-and-humidity-sensor)
+  * [Light sensor](https://docs.particle.io/datasheets/accessories/gen3-accessories/#light-sensor-v1-2) 
+  * [RGB LED (chainable)](https://docs.particle.io/datasheets/accessories/gen3-accessories/#chainable-rgb-led)
+  * [Buzzer](https://docs.particle.io/datasheets/accessories/gen3-accessories/#buzzer) 
+  * [4-Digit display](https://docs.particle.io/datasheets/accessories/gen3-accessories/#4-digit-display)
 * Grove wire (8) 
 {{box op="end"}}

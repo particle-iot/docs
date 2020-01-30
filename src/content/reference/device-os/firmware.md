@@ -1227,7 +1227,7 @@ void setup() {
 {{#if has-ethernet}}
 ## Ethernet
 
-Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/mesh-accessories/#ethernet-featherwing).
+Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing).
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
 

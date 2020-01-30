@@ -44,6 +44,6 @@ For technical documentation on each of the included components, please see the l
 - **Grove FeatherWing Adapter** (3)
 - **Grove modules:**
   - **[Water sensor](https://www.seeedstudio.com/Grove-Water-Sensor-p-748.html)** (2)
-  - **[Button](https://docs.particle.io/datasheets/accessories/mesh-accessories/#button)** 
+  - **[Button](https://docs.particle.io/datasheets/accessories/gen3-accessories/#button)** 
 - **Grove wires** (3)
 {{box op="end"}}
