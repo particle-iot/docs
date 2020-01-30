@@ -55,7 +55,7 @@
     "/datasheets/photon-shields": "/datasheets/accessories/legacy-accessories",
     "/datasheets/raspberrypi-datasheet": "/raspberry-pi",
     "/dev": "/tutorials/developer-tools/dev",
-    "/ethernet-featherwing": "/datasheets/accessories/mesh-accessories/#ethernet-featherwing",
+    "/ethernet-featherwing": "/datasheets/accessories/gen3-accessories/#ethernet-featherwing",
     "/examples": "/tutorials",
     "/faq": "/support/particle-devices-faq/finding-device-id",
     "/faq/discontinued-products/raspberry-pi": "/raspberry-pi",

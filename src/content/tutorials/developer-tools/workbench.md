@@ -301,7 +301,7 @@ _Note: There are a handful of limitation around debugging 3rd-generation hardwar
 
 For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](/support/particle-tools-faq/eclipse-debug/). As you'll see, this is way easier in Workbench! 
 
-- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/datasheets/accessories/mesh-accessories/#debugger) documentation.
+- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
 ![Debugger](/assets/images/debugger3.jpg)
 
@@ -401,7 +401,7 @@ That is just a brief introduction to debugging. For more information, see the [V
 
 ### Debugging (2nd-generation with Particle Debugger)
 
-- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device's D6 and D7 pins as described in the [Particle Debugger](/datasheets/accessories/mesh-accessories/#debugger) documentation.
+- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device's D6 and D7 pins as described in the [Particle Debugger](/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
 - Create a new project using the Command Palette and **Particle: Create New Project**. If you already created a project for the 3rd-generation device, you can just reuse that one.
 - Rename TinkerBreak.ino to TinkerBreak.cpp. Paste in the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp) into TinkerBreak.cpp.

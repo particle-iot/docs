@@ -23,7 +23,7 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 - **Grove FeatherWing Adapter** (3)
 - **Grove modules:**
   - **[Water sensor](https://www.seeedstudio.com/Grove-Water-Sensor-p-748.html)** (2)
-  - * [Button](https://docs.particle.io/datasheets/accessories/mesh-accessories/#button) 
+  - * [Button](https://docs.particle.io/datasheets/accessories/gen3-accessories/#button) 
 - **Grove wires** (3)
 ---
 
