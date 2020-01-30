@@ -18,8 +18,8 @@ This workshop will take you through the basics of connecting a Particle Photon d
 
 1.  Create a new [Particle account](https://login.particle.io/signup)
 2.  Install the Particle [iOS](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App
-3.  [Install the Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/)
-4.  [Install the Particle Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/)
+3.  [Install the Particle CLI](/tutorials/developer-tools/cli/)
+4.  [Install the Particle Desktop IDE](/guide/tools-and-features/dev/)
 5.  [Create an Azure Account](https://azure.com)
 
 ## Workshop Content

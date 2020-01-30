@@ -134,10 +134,10 @@ Stop by and join on of the best places online meet other people using Particle t
 ## Particle Libraries
 
 - [Internet Button](https://github.com/particle-iot/InternetButton.git)
-- [Asset Tracker](https://github.com/spark/AssetTracker.git)
-- [Power Shield](https://github.com/spark/PowerShield.git)
+- [Asset Tracker](https://github.com/particle-iot/AssetTracker.git)
+- [Power Shield](https://github.com/particle-iot/PowerShield.git)
 - [Relay Shield](https://build.particle.io/libs/RelayShield/0.0.6/tab/RelayShield.cpp)
-- [Maker Kit](https://github.com/spark/makerkit.git)
+- [Maker Kit](https://github.com/particle-iot/makerkit.git)
 
 ## Community Libraries
 
@@ -145,9 +145,9 @@ Stop by and join on of the best places online meet other people using Particle t
 - [blynk](https://build.particle.io/libs/blynk/0.5.3/tab/blynk.cpp)
 - [OneWire](https://build.particle.io/libs/OneWire/2.0.1/tab/DS18.cpp)
 - [Ubidots](https://github.com/ubidots/ubidots-particle)
-- [google-maps-device-locator](https://github.com/spark/google-maps-device-locator.git)
+- [google-maps-device-locator](https://github.com/particle-iot/google-maps-device-locator.git)
 - [photon-thermistor](https://github.com/kegnet/photon-thermistor.git)
-- [Serial_LCD_Sparkfun](https://github.com/spark/serial_lcd_library.git)
+- [Serial_LCD_Sparkfun](https://github.com/particle-iot/serial_lcd_library.git)
 - [PL_microEPD](https://github.com/RobPo/Paperino)
 - [MQTT](https://github.com/hirotakaster/MQTT.git)
 - [PietteTech_DHT](https://build.particle.io/libs/PietteTech_DHT/0.0.5/tab/PietteTech_DHT.cpp)

@@ -425,7 +425,7 @@ Some users have reported issues with dfu-util on a USB3 ports (typically the blu
 {{#if photon}}
 Firmware reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
+The [Particle CLI](/tutorials/developer-tools/cli) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
 
 ```
 particle flash --usb tinker
@@ -538,7 +538,7 @@ You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-net
 {{/if}}
 
 {{#if has-device-doctor}}
-The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also reset the firmware using:
+The [Particle CLI](/tutorials/developer-tools/cli) can also reset the firmware using:
 
 ```
 particle device doctor
@@ -720,7 +720,7 @@ While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
 
 {{collapse op="start" label="Repair instructions"}}
 
-Most keys related issues can be resolved using the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli).
+Most keys related issues can be resolved using the [Particle CLI](/tutorials/developer-tools/cli).
 
 Put the {{device}} into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
 
@@ -885,5 +885,5 @@ If you still see no change in the status LED you probably have a missing or corr
 
 
 
-This can be corrected using a [JTAG/SWD programmer](https://docs.particle.io/faq/particle-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
+This can be corrected using a [JTAG/SWD programmer](/faq/particle-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 

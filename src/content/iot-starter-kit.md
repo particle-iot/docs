@@ -14,7 +14,7 @@ The IoT Starter Kit comes with seven different Grove modules that work out-of-th
 
 <div align="center">
 <br />
-<a href="http://docs.particle.io/quickstart/isk-project/" target="_blank" class="button">BUILD YOUR FIRST IoT PROJECT</a>
+<a href="/quickstart/isk-project/" target="_blank" class="button">BUILD YOUR FIRST IoT PROJECT</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}
@@ -37,19 +37,19 @@ The IoT Starter Kit comes with seven different Grove modules that work out-of-th
 For technical documentation on each of the included components, please see the links below.
 
 {{box op="start"}}
-* [Particle Argon](https://docs.particle.io/argon/)
-  * [2.4 Ghz antenna](https://docs.particle.io/datasheets/wi-fi/argon-datasheet/#antenna)
+* [Particle Argon](/argon/)
+  * [2.4 Ghz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
   * Micro-USB cable
-  * [LiPo battery](https://docs.particle.io/tutorials/learn-more/batteries/)
+  * [LiPo battery](/tutorials/learn-more/batteries/)
 * Grove FeatherWing Adapter
 * Grove modules:
-  * [Button](https://docs.particle.io/datasheets/accessories/gen3-accessories/#button) 
-  * [Rotary encoder](https://docs.particle.io/datasheets/accessories/gen3-accessories/#rotary-angle-sensor)
-  * [Ultrasonic range finder](https://docs.particle.io/datasheets/accessories/gen3-accessories/#ultrasonic-ranger) 
-  * [Temperature and humidity sensor](https://docs.particle.io/datasheets/accessories/gen3-accessories/#temperature-and-humidity-sensor)
-  * [Light sensor](https://docs.particle.io/datasheets/accessories/gen3-accessories/#light-sensor-v1-2) 
-  * [RGB LED (chainable)](https://docs.particle.io/datasheets/accessories/gen3-accessories/#chainable-rgb-led)
-  * [Buzzer](https://docs.particle.io/datasheets/accessories/gen3-accessories/#buzzer) 
-  * [4-Digit display](https://docs.particle.io/datasheets/accessories/gen3-accessories/#4-digit-display)
+  * [Button](/datasheets/accessories/gen3-accessories/#button) 
+  * [Rotary encoder](/datasheets/accessories/gen3-accessories/#rotary-angle-sensor)
+  * [Ultrasonic range finder](/datasheets/accessories/gen3-accessories/#ultrasonic-ranger) 
+  * [Temperature and humidity sensor](/datasheets/accessories/gen3-accessories/#temperature-and-humidity-sensor)
+  * [Light sensor](/datasheets/accessories/gen3-accessories/#light-sensor-v1-2) 
+  * [RGB LED (chainable)](/datasheets/accessories/gen3-accessories/#chainable-rgb-led)
+  * [Buzzer](/datasheets/accessories/gen3-accessories/#buzzer) 
+  * [4-Digit display](/datasheets/accessories/gen3-accessories/#4-digit-display)
 * Grove wire (8) 
 {{box op="end"}}

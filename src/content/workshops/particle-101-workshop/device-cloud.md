@@ -17,7 +17,7 @@ layout: workshops.hbs
 In this session, we'll take a look at the Particle CLI and Device Cloud API. If you get stuck at any point during this session, [click here for the completed, working source](https://go.particle.io/shared_apps/5d40aec2279e1e000b9ad57b).
 
 ## The Particle CLI
-1.  If you haven't already, [install the Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/photon/). Open a terminal window and type the following command:
+1.  If you haven't already, [install the Particle CLI](/guide/tools-and-features/cli/photon/). Open a terminal window and type the following command:
 ```bash
 bash <( curl -sL https://particle.io/install-cli )
 ```
