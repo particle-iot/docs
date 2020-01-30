@@ -80,7 +80,7 @@ cards into your product</p>
 
 SIM activation requires selection of a home country for billing
 purposes. For more information on home countries, please see the
-[cellular billing guide](/tutorials/cellular-connectivity/billing). You
+[cellular billing guide](/tutorials/cellular-connectivity/billing/). You
 will be presented with a dropdown to select the home country after
 importing the desired ICCIDs:
 

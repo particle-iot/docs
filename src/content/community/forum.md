@@ -45,11 +45,11 @@ Stop by and join on of the best places online meet other people using Particle t
 
 - [Particle Docs](/)
 - [Particle Forums](https://community.particle.io/)
-- [Device OS Firmware Reference](/reference/device-os/firmware)
+- [Device OS Firmware Reference](/reference/device-os/firmware/)
 - [Cloud API Reference](/reference/device-cloud/api/)
 - [GitHub Organization](https://github.com/particle-iot)
 - [Device OS Firmware Release Notes](/reference/device-os/firmware/photon/#github-release-notes)
-- [FAQ](/support/particle-devices-faq)
+- [FAQ](/support/particle-devices-faq/code-size-tips/)
 - [Particle YouTube Channel](https://www.youtube.com/channel/UCpYjkSkGOXAMXeZjZkbb-PQ)
 - [Particle Blog](https://blog.particle.io)
 - [Particle Store](https://store.particle.io)
@@ -59,11 +59,11 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Web IDE (Particle Build)](https://build.particle.io)
 - [Particle Console](https://console.particle.io)
 - [Desktop IDE (Particle Dev)](/tutorials/developer-tools/dev/)
-- [Particle Mobile App](/tutorials/developer-tools/tinker)
-- [Particle CLI](/tutorials/developer-tools/cli)
-- [JavaScript SDK](/reference/SDKs/javascript)
-- [iOS SDK](/reference/SDKs/ios)
-- [Android SDK](/reference/SDKs/android)
+- [Particle Mobile App](/tutorials/developer-tools/tinker/)
+- [Particle CLI](/tutorials/developer-tools/cli/)
+- [JavaScript SDK](/reference/SDKs/javascript/)
+- [iOS SDK](/reference/SDKs/ios/)
+- [Android SDK](/reference/SDKs/android/)
 - [Webhooks](/tutorials/device-cloud/webhooks/)
 
 ## External Resources
@@ -71,7 +71,7 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Particle on Hackster](https://www.hackster.io/particle)
 - [Particle on Instructables](http://www.instructables.com/howto/Particle/)
 - [Getting Started with the Photon by Simon Monk](https://www.amazon.com/Getting-Started-Photon-Affordable-Hackable/dp/1457187019)
-- [Community Supported Particle Clients](/community/community)
+- [Community Supported Particle Clients](/community/community/)
 
 
 ## Podcasts
@@ -82,11 +82,11 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## Useful Tools, Docs & FAQs
 
-- [Serial FAQ](/support/particle-devices-faq/serial-faq)
-- [I2C FAQ](/support/particle-devices-faq/i2c-faq)
-- [Local Builds using GCC-ARM](/support/particle-tools-faq/local-build)
-- [JTAG and SWD Debugging](/support/particle-tools-faq/jtag)
-- [Code Size Tips](/support/particle-devices-faq/code-size-tips)
+- [Serial FAQ](/tutorials/learn-more/about-serial/)
+- [I2C FAQ](/tutorials/learn-more/about-i2c/)
+- [Local Builds using GCC-ARM](/support/particle-tools-faq/local-build/)
+- [JTAG and SWD Debugging](/support/particle-tools-faq/jtag/)
+- [Code Size Tips](/support/particle-devices-faq/code-size-tips/)
 - [Measuring Electron Power Consumption](https://github.com/rickkas7/particle_notes/tree/master/measuring-electron-power)
 - [Tips for Public and Private Particle Events](https://github.com/rickkas7/particle_notes/tree/master/public-private-event-tips)
 - [Using Retained Memory](https://github.com/rickkas7/particle_notes/tree/master/retained-memory-tips)
@@ -108,9 +108,9 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Google Cloud Platform Integration](/tutorials/integrations/google-cloud-platform/)
 - [Google Maps Integration](/tutorials/integrations/google-maps/)
 - [Azure IoT Hub Integration](/tutorials/integrations/azure-iot-hub/)
-- [Webhooks Tutorial](/tutorials/device-cloud/webhooks)
+- [Webhooks Tutorial](/tutorials/device-cloud/webhooks/)
 - [InfluxData Tutorial](/tutorials/integrations/influxdata)
-- [Maker Kit Tutorials](/tutorials/hardware-projects/maker-kit)
+- [Maker Kit Tutorials](/tutorials/hardware-projects/maker-kit/)
 - [E Series Eval Kit Tutorials](/tutorials/hardware-projects/e-series-eval-kit/)
 - [Poor Man's CAN Bus](https://github.com/monkbroc/poor-man-can)
 - [Particle Webhooks Intermediate Tutorial](https://github.com/rickkas7/particle-webhooks)
@@ -124,10 +124,10 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## Hardware Datasheets
 
-- [Photon Datasheet](/datasheets/wi-fi/photon-datasheet)
-- [P1 Datasheet](/datasheets/wi-fi/p1-datasheet)
-- [Electron Datasheet](/datasheets/cellular/electron-datasheet)
-- [E Series Datasheet](/datasheets/cellular/e-series-datasheet)
+- [Photon Datasheet](/datasheets/wi-fi/photon-datasheet/)
+- [P1 Datasheet](/datasheets/wi-fi/p1-datasheet/)
+- [Electron Datasheet](/datasheets/cellular/electron-datasheet/)
+- [E Series Datasheet](/datasheets/cellular/e-series-datasheet/)
 
 # Popular Libraries
 

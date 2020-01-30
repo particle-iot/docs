@@ -6,7 +6,20 @@ const path = require('path');
 const contentRoot = path.join(__dirname, '../../src/content');
 console.log('contentRoot=' + contentRoot);
 
-const redirects = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/redirects.json')));
+let redirects = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/redirects.json')));
+
+// To simplify the logic below, we replicate every redirect that does not end with a '/' to one that does
+for(const old in redirects) {
+    const replaceWith = redirects[old];
+    if (old.match(/\/$/)) {
+
+    }
+    else {
+        redirects[old + '/'] = replaceWith;
+        // console.log('added fake ' + old);
+    }
+}
+
 
 let mdFiles = [];
 
@@ -24,18 +37,42 @@ function processDir(dir) {
 }
 
 function fixRedirects(content) {
-    let changed = false;
-
-    const origContent = content;
 
     for(const old in redirects) {
-        const replaceWith = redirects[old];
+        let replaceWith = redirects[old];
 
-        content = content.replace(/'[' + old + '\/?'+ ']'/);
-         
+        if (replaceWith.match(/\/$/)) {
+        }
+        else {
+            // Always terminate with a trailing slash
+            replaceWith += '/';
+        }
+
+        content = replaceUrl(content, '](', ')', old, replaceWith);
+        content = replaceUrl(content, '](', '#', old, replaceWith);
+
+        content = replaceUrl(content, 'href="', '"', old, replaceWith);
+        content = replaceUrl(content, 'href="', '#', old, replaceWith);
     }
+    return content;
+}
 
-    return changed;
+function replaceUrl(content, prefix, suffix, oldUrl, newUrl) {
+    let index = 0;
+    while(true) {
+        const searchStr = prefix + oldUrl + suffix;
+
+        index = content.indexOf(searchStr, index);
+        if (index < 0) {
+            break;
+        }
+        console.log('found=' + oldUrl + ' index=' +index);
+
+        content = content.substring(0, index) + prefix + newUrl + suffix + content.substring(index + searchStr.length);
+        
+        index += prefix.length + newUrl.length + suffix.length;
+    }
+    return content;
 }
 
 
@@ -55,12 +92,13 @@ function processNextMdFile() {
     let mdFile = fs.readFileSync(mdPath, 'utf8');
     let changed = false;
 
-    if (fixRedirects(mdFile)) {
-        changed = true;
-    }
-    if (changed) {
+    const orig = mdFile;
+
+    mdFile = fixRedirects(mdFile)
+
+    if (orig !== mdFile) {
         console.log('updating ' + mdPath);
-        // fs.writeFileSync(mdPath, mdFile);
+        fs.writeFileSync(mdPath, mdFile);
     }
 
     processNextMdFile();

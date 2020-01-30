@@ -31,7 +31,7 @@ Once you've claimed your Photon, you'll use [Tinker](/guide/getting-started/tink
 1.  Create a new [Particle account](https://login.particle.io/signup)
 2.  Install the Particle [iOS](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App
 3.  [Install the Particle CLI](/tutorials/developer-tools/cli/#install-the-particle-cli)
-4.  [Install the Particle Desktop IDE](/guide/tools-and-features/dev/)
+4.  [Install the Particle Desktop IDE](/tutorials/developer-tools/dev/)
 
 ## Mobile App Instructions
 

@@ -23,7 +23,7 @@ The IoT Starter Kit comes with seven different Grove modules that work out-of-th
 - [Quickstart with an IoT starter project](/quickstart/isk-project/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io)
-- [Support](/support/support-and-fulfillment/menu-base/)
+- [Support](/support/menu-base/)
   {{box op="switch"}}
   **Resources:**
 - [Argon hardware files](https://github.com/particle-iot/argon)

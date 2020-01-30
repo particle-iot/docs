@@ -9,7 +9,7 @@ order: 110
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-evalkit.jpg" ></div>
 
-For an in-depth information on the E series evaluation board please take a look at the datasheet <a href="/datasheets/electron-(cellular)/e-series-eval-board">here.</a>
+For an in-depth information on the E series evaluation board please take a look at the datasheet <a href="/datasheets/cellular/e-series-eval-board/">here.</a>
 
 ## Tutorial #1: Temperature Monitoring
 

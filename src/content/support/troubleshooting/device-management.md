@@ -97,7 +97,7 @@ There are two primary ways to remove a device from your account--using the Parti
 
 **Using the Particle CLI**
 
-**1. Install [CLI](/tutorials/developer-tools/cli)**.  Make sure you've got the CLI installed by typing
+**1. Install [CLI](/tutorials/developer-tools/cli/)**.  Make sure you've got the CLI installed by typing
 
 ``particle help``
 

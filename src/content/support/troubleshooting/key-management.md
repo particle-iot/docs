@@ -29,7 +29,7 @@ If you have physical access to the device in question, here's how to change the 
 
 Bare with me for these next steps! This is slightly complicated because of the great security implemented on the device.
 
-1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! [Particle CLI](/tutorials/developer-tools/cli)
+1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! [Particle CLI](/tutorials/developer-tools/cli/)
 
 2. Once the CLI tool is installed the first thing you should do is login to your Particle account.  If you do not have an account yet, please set one up at https://build.particle.io/build .
 
@@ -39,7 +39,7 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 5. Next run the following command to get the ID of your device: ``particle serial identify``. It should reply "Your device id is: xxxxxxxxxxxxxxxxxx". Copy the number down or to your clipboard for later.
 
-6. View the key commands and example output here for the next steps: [particle keys doctor](/reference/cli/#particle-keys-doctor)
+6. View the key commands and example output here for the next steps: [particle keys doctor](/reference/developer-tools/cli/#particle-keys-doctor)
 
 7. Place your device into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 

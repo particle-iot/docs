@@ -34,7 +34,7 @@ To complete all the examples, you will need the following materials:
 <p class = "boxedHead">NOTE:</p>
 <p class = "boxed">
 
-Since Electron is a cellular device and OTA usage consumes data, it's important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you [update firmware happen over USB](/guide/tools-and-features/cli/electron/#flashing-over-serial-for-the-electron), instead of the cellular network. You'll first need to install the [Particle Command Line Interface](/guide/tools-and-features/cli/) on your computer.
+Since Electron is a cellular device and OTA usage consumes data, it's important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you [update firmware happen over USB](/guide/tools-and-features/cli/electron/#flashing-over-serial-for-the-electron), instead of the cellular network. You'll first need to install the [Particle Command Line Interface](/tutorials/developer-tools/cli/) on your computer.
 
 </p>
 
@@ -356,9 +356,9 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/led \
   -d arg=on
 ```
 
-Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Particle.function()](/reference/firmware/#particle-function-), which is a string of characters, rather than the second argument, which is a function.
+Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Particle.function()](/reference/device-os/firmware/#particle-function-), which is a string of characters, rather than the second argument, which is a function.
 
-To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/api)
+To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/device-cloud/api/)
 
 <div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
 
@@ -706,7 +706,7 @@ You can check out the results on your console at [console.particle.io](https://c
 
 ![Console](/assets/images/console-beamstatus.png)
 
-You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
+You can also hook up publishes to IFTTT! More info [here](/tutorials/integrations/ifttt/).
 
 ### Setup
 
@@ -1240,7 +1240,7 @@ When you tap a pin on the mobile app, it sends a message up to the cloud. Your d
 
 Your device already knew how to communicate with the mobile app because of the firmware loaded onto your device as a default. We call this the Tinker firmware. It's just like the user firmware you've been loading onto your device in these examples. It's just that with the Tinker firmware, we've specified special `Particle.function`s that the mobile app knows and understands.
 
-If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device {{#unless electron}}by putting it in [factory reset mode](/guide/getting-started/modes/#factory-reset), or {{/unless}}by re-flashing your device with Tinker in the Particle app.
+If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device {{#unless electron}}by putting it in [factory reset mode](/tutorials/device-os/led/#factory-reset), or {{/unless}}by re-flashing your device with Tinker in the Particle app.
 
 To reflash Tinker from within the app:
 

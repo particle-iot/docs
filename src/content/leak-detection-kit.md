@@ -25,7 +25,7 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 - [Quickstart with the leak detection system](/quickstart/ldk-project/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io)
-- [Support](/support/support-and-fulfillment/menu-base/)
+- [Support](/support/menu-base/)
   {{box op="switch"}}
   **Resources:**
 - [Argon hardware files](https://github.com/particle-iot/argon)

@@ -127,7 +127,7 @@ For more information on how to start using integrations, you should
 check out:
 
 - [Webhooks
-guide](/guide/tools-and-features/webhooks/)
+guide](/tutorials/device-cloud/webhooks/)
 - [Webhooks
 tutorial](/tutorials/device-cloud/webhooks/)
 - [Azure IoT Hub
@@ -258,7 +258,7 @@ To import devices, click on the Devices icon in your product sidebar, then click
 
 ![Your product's devices](/assets/images/devices-page.png)
 
-To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](/photon/cli/#running-from-source-advanced-particle-identify) *You cannot register devices that have already been 'claimed' by someone outside of your team; all of these devices must either belong to a team member or belong to no one*. The file should look something like this:
+To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](/tutorials/developer-tools/cli/#running-from-source-advanced-particle-identify) *You cannot register devices that have already been 'claimed' by someone outside of your team; all of these devices must either belong to a team member or belong to no one*. The file should look something like this:
 
 ```
 55ff6d04498b49XXXXXXXXXX
@@ -295,13 +295,13 @@ risk when deploying new firmware to devices:
 <p class="caption">The recommended flow for releasing firmware</p>
 
 1. The first step of the release flow is using [**development
-devices**](/guide/how-to-build-a-product/development-devices/) to rapidly develop and iterate on product firmware. These are special
+devices**](/tutorials/product-tools/development-devices/) to rapidly develop and iterate on product firmware. These are special
 product devices marked specifically for internal testing.
 This gives you the flexibility to experiment with
 new firmwares while still simulating behaviors of deployed devices in
 the production fleet. For information on marking a device as a
 development devices, check out [the
-guide](/guide/how-to-build-a-product/development-devices/#marking-a-development-device).
+guide](/tutorials/product-tools/development-devices/#marking-a-development-device).
 
 2. When you have finalized a firmware that you feel confident in releasing
 to your fleet, [**prepare the binary and upload it to your
@@ -321,7 +321,7 @@ target product devices to automatically download and run the firmware.
 The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
 delivered to a given device. If you are on the Enterprise plan with
-access to [device groups](/guide/how-to-build-a-product/device-groups/),
+access to [device groups](/tutorials/product-tools/device-groups/),
 you can more safely roll out the firmware by targeting a subset of the
 fleet for release.
 
@@ -331,7 +331,7 @@ process.
 #### Development devices
 
 Please visit the [guide on development
-devices](/guide/how-to-build-a-product/development-devices/) for
+devices](/tutorials/product-tools/development-devices/) for
 information on this feature.
 
 #### Preparing a binary
@@ -341,7 +341,7 @@ Click the Firmware icon in the left sidebar to get started. This will direct you
 <img src="/assets/images/firmware-page.png" class="full-width"
 alt="Firmware page"/>
 
-If you have been using the [Web IDE](/tutorials/developer-tools/build) to
+If you have been using the [Web IDE](/tutorials/developer-tools/build/) to
 develop firmware, you are used to the process of writing, compiling, and
 then flashing firmware. You will follow the same high-level process
 here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.
@@ -385,7 +385,7 @@ will see the name of your app in the pane, along with a download icon
 ![Compile firmware](/assets/images/ide-compile.png)
 <p class="caption">Compile and download a product binary from the web IDE</p>
 
-If you are using the [Desktop IDE](/guide/tools-and-features/dev/), clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success. **Note**: Make sure that you have a device selected in Particle Dev before compiling.
+If you are using the [Desktop IDE](/tutorials/developer-tools/dev/), clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success. **Note**: Make sure that you have a device selected in Particle Dev before compiling.
 
 ![Compile firmware](/assets/images/particle-dev-icon.png)
 <p class="caption">Particle Dev will automatically add a compiled binary to your working directory after you compile</p>
@@ -456,9 +456,9 @@ they start a new secure session with the cloud (this is called a
 
 It is also possible to release firmware to a subset of your product
 fleet, using [device
-groups](/guide/how-to-build-a-product/device-groups/). For more
+groups](/tutorials/product-tools/device-groups/). For more
 information on fine-grained firmware management, please check out
-[the guide](/guide/how-to-build-a-product/device-groups) on device
+[the guide](/tutorials/product-tools/device-groups/) on device
 groups. Note that this is a feature currently only available to
 enterprise customers. Please [contact us](https://particle.io/sales) for
 access to this feature.
@@ -545,13 +545,13 @@ There are three ways you can authenticate your customers:
 - **Two-legged authentication**. Your customers will create an account on your servers using your own authentication system, and your web servers will create an account with Particle for each customer that is paired to that customer. Your servers will request a scoped access token for each customer to interact with their device. This is a completely white-labeled solution.
 - **Login with Particle**. Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. Unlike the other authentication options, this option will showcase Particle branding. This is most useful when the customer is aware of Particle and may be using Particle's development tools with the product.
 
-When you create your Product in the Console, you will be asked which authentication method you want to use. Implementation of these methods are covered in detail in the [How to build a web app](/guide/how-to-build-a-product/web-app/) section of this guide.
+When you create your Product in the Console, you will be asked which authentication method you want to use. Implementation of these methods are covered in detail in the [How to build a web app](/tutorials/device-cloud/authentication/) section of this guide.
 
 As customers are created for your product, they will begin to appear on your Customers (<i class="ion-user"></i>) page. For each customer, you will be able to see their username and associated device ID. Note that the device ID column will not be populated until the customer goes through the claiming process with their device.
 
 ### Monitoring Event Logs
 
-The Logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the Console](/guide/tools-and-features/console/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the Logs page, be sure to use `Particle.publish()` in your firmware.
+The Logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the Console](/tutorials/device-cloud/console/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the Logs page, be sure to use `Particle.publish()` in your firmware.
 
 ### Managing your billing
 

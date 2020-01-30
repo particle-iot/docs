@@ -1227,7 +1227,7 @@ void setup() {
 {{#if has-ethernet}}
 ## Ethernet
 
-Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing).
+Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/).
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
 
@@ -2959,7 +2959,7 @@ You may set credentials in 3 different ways:
 - USERNAME & PASSWORD only
 - APN, USERNAME & PASSWORD
 
-The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -3015,7 +3015,7 @@ Sets 3rd party credentials for the Cellular network from within the user applica
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -4975,7 +4975,7 @@ Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2
 {{/if}}
 
 {{#if photon}}
-`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
+`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 {{/if}}
@@ -9929,7 +9929,7 @@ void loop()
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks).
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
@@ -10247,7 +10247,7 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks).
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()
@@ -10955,7 +10955,7 @@ Parameters:
 This library allows applications to share control over the on-device RGB
 LED with the Device OS in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
 
-The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/tutorials/device-os/led) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
+The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/tutorials/device-os/led/) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
 
 **Note:** Consider using this library instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
 
@@ -17985,7 +17985,7 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 
 The Photon, P1, and Electron all have an STM32F205 processor with 128K of available RAM and 128K of flash for your user firmware.
 
-Some tips for understanding the memory used by your firmware [can be found here](/faq/particle-devices/code-size-tips).
+Some tips for understanding the memory used by your firmware [can be found here](/support/particle-devices-faq/code-size-tips/).
 
 Some of the available resources are used by the system, so there's about 80K of free RAM available for the user firmware to use.
 
@@ -18258,7 +18258,7 @@ The easiest way to upgrade to Device OS Version @FW_VER@ is to use the
 Particle CLI with a single command.  You will first upgrade the Device
 OS, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
 To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
@@ -18442,7 +18442,7 @@ particle flash YOUR_DEVICE_NAME tinker (optional)
 
 This **requires CLI version @CLI_VER@ or newer**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
 To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order for your device type:
 
@@ -18568,7 +18568,7 @@ Current default Device OS would be the latest non-rc.x firmware version.  E.g. i
 ##### @FW_VER@0.7.0endif
 The easiest way to downgrade from a Device OS Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the Device OS. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
-If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
+If you have the [Particle CLI](/tutorials/developer-tools/cli/) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
 To downgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 

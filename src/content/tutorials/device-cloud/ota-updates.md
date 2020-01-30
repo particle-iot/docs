@@ -264,7 +264,7 @@ your fleet:
 <p class="caption">The recommended flow for releasing firmware</p>
 
 1. The first step of the release flow is using [**development
-devices**](/guide/how-to-build-a-product/development-devices/) to rapidly develop and iterate on product firmware. These are special
+devices**](/tutorials/product-tools/development-devices/) to rapidly develop and iterate on product firmware. These are special
 product devices marked specifically for internal testing.
 This gives you the flexibility to experiment with
 new firmwares while still simulating behaviors of deployed devices in
@@ -303,7 +303,7 @@ Click the Firmware icon in the left sidebar to get started. This will direct you
 <img src="/assets/images/firmware-page.png" class="full-width"
 alt="Firmware page"/>
 
-If you have been using the [Web IDE](/tutorials/developer-tools/build) to
+If you have been using the [Web IDE](/tutorials/developer-tools/build/) to
 develop firmware, you are used to the process of writing, compiling, and
 then flashing firmware. You will follow the same high-level process
 here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.

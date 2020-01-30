@@ -154,7 +154,7 @@ git --help
 
 If you have not already done so, you should install dfu-util and the necessary drivers. If you have used the [Particle Windows CLI installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe), this will have been already.
 
-There are also additional instructions in the [FAQ for installing dfu-util](/faq/particle-tools/installing-dfu-util/).
+There are also additional instructions in the [FAQ for installing dfu-util](/support/particle-tools-faq/installing-dfu-util/).
 
 ### Install other build tools - Windows
 
@@ -257,7 +257,7 @@ If you have not already done so, you should install dfu-util.
 brew install dfu-util
 ```
 
-There are additional instructions in the [FAQ for installing dfu-util](/faq/particle-tools/installing-dfu-util/) including installing Homebrew if necessary or using MacPorts if you use that instead of Homebrew.
+There are additional instructions in the [FAQ for installing dfu-util](/support/particle-tools-faq/installing-dfu-util/) including installing Homebrew if necessary or using MacPorts if you use that instead of Homebrew.
 
 
 {{collapse op="end"}}
@@ -345,7 +345,7 @@ sudo apt-get install dfu-util
 
 By default, dfu-util requires sudo (root access) to run. This will cause a problem using the program-dfu option in make, and many other locations.
 
-The easiest solution is to install the [Particle CLI](/tutorials/developer-tools/cli), however you can also manually install a udev rule:
+The easiest solution is to install the [Particle CLI](/tutorials/developer-tools/cli/), however you can also manually install a udev rule:
 
 - Download the [50-particle.rules](/assets/files/50-particle.rules) file, then:
 
@@ -534,7 +534,7 @@ particle flash --serial target/blinkled.bin
 
 ## Building with libraries
 
-To use libraries with local build you should use the [extended project structure](/tutorials/device-os/libraries) within the APPDIR.
+To use libraries with local build you should use the [extended project structure](/tutorials/device-os/libraries/) within the APPDIR.
 
 It looks like this:
 

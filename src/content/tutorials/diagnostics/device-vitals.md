@@ -65,7 +65,7 @@ to the full collection of vitals, see [this
 section](#last-recorded-vitals).
 
 For information on upgrading Device OS versions for your devices to get
-the most out of Device Vitals, check out the [Device OS guide](/guide/tools-and-features/device-os/#managing-device-os).
+the most out of Device Vitals, check out the [Device OS guide](/tutorials/device-os/device-os/#managing-device-os).
 
 ### Signal Strength
 The strength of the device’s connection to the
@@ -201,7 +201,7 @@ application firmware.
 send its vitals ad-hoc via the Console or the Device Cloud API.
 
 The device delivers the diagnostics data to the Particle Device Cloud
-via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
+via the [`spark/device/diagnostics/update`](/reference/device-cloud/api/#device-vitals-event)
 system event. The device vitals event will include a data payload of the
 most recent readings the device collected.
 
@@ -268,10 +268,10 @@ useful if you'd like to automate devices in your fleet reporting
 diagnostic information on a regular cadence**.
 
 You will need to make a `POST` request to the [refresh device
-vitals](/reference/api/#refresh-device-vitals) API endpoint, then listen for the
+vitals](/reference/device-cloud/api/#refresh-device-vitals) API endpoint, then listen for the
 published event from the device either using the [server-sent event
-stream](/reference/api/#product-event-streamh) or by
-[setting up a webhook](/guide/tools-and-features/webhooks/) that
+stream](/reference/device-cloud/api/#product-event-streamh) or by
+[setting up a webhook](/tutorials/device-cloud/webhooks/) that
 triggers off of the `spark/device/diagnostics/update` event.
 
 
@@ -360,9 +360,9 @@ shuttling of messages to and from a Particle device.
 
 The API provides a REST interface to allow remote interactions with
 Particle devices and the cloud. This includes calling a [
-function](/reference/api/#call-a-function),
-checking a [variable](/reference/api/#get-a-variable-value),
-or publishing an [event](/reference/api/#publish-an-event)
+function](/reference/device-cloud/api/#call-a-function),
+checking a [variable](/reference/device-cloud/api/#get-a-variable-value),
+or publishing an [event](/reference/device-cloud/api/#publish-an-event)
 that devices subscribe to.
 
 #### Webhooks

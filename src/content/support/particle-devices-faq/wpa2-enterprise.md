@@ -15,7 +15,7 @@ This is also different than situations where you enter a password (sometimes a u
 
 ## Install the Particle CLI
 
-You should install the Particle Command Line Interface using the [Particle CLI Installer](/tutorials/developer-tools/cli) for Windows, Mac, or Linux if you have not already done so.
+You should install the Particle Command Line Interface using the [Particle CLI Installer](/tutorials/developer-tools/cli/) for Windows, Mac, or Linux if you have not already done so.
 
 It's the easiest way to upgrade the Particle Device OS on your Photon and set up WPA2 Enterprise. 
 
