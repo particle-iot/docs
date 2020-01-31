@@ -16,7 +16,7 @@ The Air Quality Kit includes a Particle Argon and three specialized sensors to m
 
 <div align="center">
 <br />
-<a href="http://docs.particle.io/quickstart/aqmk-project/" target="_blank" class="button">BUILD YOUR AIR QUALITY MONITORING KIT</a>
+<a href="/quickstart/aqmk-project/" target="_blank" class="button">BUILD YOUR AIR QUALITY MONITORING KIT</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}
@@ -24,7 +24,7 @@ The Air Quality Kit includes a Particle Argon and three specialized sensors to m
 - [Quickstart with Air Quality Monitoring](/quickstart/aqm-project/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io)
-- [Support](/support/support-and-fulfillment/menu-base/)
+- [Support](/support/menu-base/)
   {{box op="switch"}}
   **Resources:**
 - [Argon hardware files](https://github.com/particle-iot/argon)
@@ -36,14 +36,14 @@ The Air Quality Kit includes a Particle Argon and three specialized sensors to m
 ![The Particle Leak Detection Kit's contents knolled on a white background](/assets/images/Leak-Detection-Kit-contents.jpg)
 For technical documentation on each of the included components, please see the links below.
 {{box op="start"}}
-- **[Particle Argon](https://docs.particle.io/argon/)**  
-- **[Particle Xenon](https://docs.particle.io/xenon/)** (2)
+- **[Particle Argon](/argon/)**  
+- **[Particle Xenon](/xenon/)** (2)
 - **[LiPo battery](https://store.particle.io/collections/accessories/products/li-po-battery)** (3)
-- **[2.4Ghz antenna](https://docs.particle.io/datasheets/wi-fi/argon-datasheet/#antenna)**
+- **[2.4Ghz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)**
 - **Micro-USB cable** (3)
 - **Grove FeatherWing Adapter** (3)
 - **Grove modules:**
   - **[Water sensor](https://www.seeedstudio.com/Grove-Water-Sensor-p-748.html)** (2)
-  - **[Button](https://docs.particle.io/datasheets/accessories/gen3-accessories/#button)** 
+  - **[Button](/datasheets/accessories/gen3-accessories/#button)** 
 - **Grove wires** (3)
 {{box op="end"}}

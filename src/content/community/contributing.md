@@ -22,19 +22,19 @@ Before you contribute to the code base, check out the [`style-guides`](https://g
 ### Firmware
 
 The [`firmware`](https://github.com/particle-iot/device-os) repo contains
-the [Device OS](/reference/device-os/firmware) code that runs on the Core and Photon.
+the [Device OS](/reference/device-os/firmware/) code that runs on the Core and Photon.
 
-See the [local build tools FAQ](/faq/particle-tools/local-build) for steps to build the firmware on your machine.
+See the [local build tools FAQ](/support/particle-tools-faq/local-build/) for steps to build the firmware on your machine.
 
 
 ### CLI
 
-The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/tutorials/developer-tools/cli).
+The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/tutorials/developer-tools/cli/).
 
 
 ### Particle API JS
 
-The [`particle-api-js`](https://github.com/particle-iot/particle-api-js) repo contains the code used to run [Particle API JS](/reference/javascript), the official Particle JavaScript wrapper.
+The [`particle-api-js`](https://github.com/particle-iot/particle-api-js) repo contains the code used to run [Particle API JS](/reference/SDKs/javascript/), the official Particle JavaScript wrapper.
 
 
 ### Mobile
@@ -54,21 +54,21 @@ There are several mobile repos, for both iOS and Android.
 
 ### Particle Dev
 
-The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains the code used to run [Particle Dev](/guide/tools-and-features/dev), our professional, open source, hackable IDE, designed for use with Particle devices.
+The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains the code used to run [Particle Dev](/tutorials/developer-tools/dev/), our professional, open source, hackable IDE, designed for use with Particle devices.
 
 
 ### Documentation
 
-The [`docs`](https://github.com/particle-iot/docs) repo contains Particle's open source [documentation](/reference/device-os/firmware). If you want something to be added or changed, just make a pull request.
+The [`docs`](https://github.com/particle-iot/docs) repo contains Particle's open source [documentation](/reference/device-os/firmware/). If you want something to be added or changed, just make a pull request.
 
 
 ### Official Libraries
 
 Particle maintains several open source libraries to be used with official Particle shields. They include:
 
-- [`InternetButton`](https://github.com/particle-iot/InternetButton): the library intended for use with the [Internet Button](/datasheets/particle-shields/#internet-button).
-- [`RelayShield`](https://github.com/particle-iot/RelayShield): the library intended for use with the [Photon Relay Shield](/datasheets/particle-shields/#relay-shield)
-- [`PowerShield`](https://github.com/particle-iot/PowerShield): the library intended for use with the [Photon Power Shield](/datasheets/particle-shields/#power-shield)
+- [`InternetButton`](https://github.com/particle-iot/InternetButton): the library intended for use with the [Internet Button](/datasheets/accessories/legacy-accessories/#internet-button).
+- [`RelayShield`](https://github.com/particle-iot/RelayShield): the library intended for use with the [Photon Relay Shield](/datasheets/accessories/legacy-accessories/#relay-shield)
+- [`PowerShield`](https://github.com/particle-iot/PowerShield): the library intended for use with the [Photon Power Shield](/datasheets/accessories/legacy-accessories/#power-shield)
 
 
 ### Local Cloud

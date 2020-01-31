@@ -63,7 +63,7 @@ If your {{device}} is blinking green, it is trying to connect to Wi-Fi.
 If you are unable to get past blinking green, here are a few known working situations that the {{device}} is not compatible with:
 
 {{#if photon}}
-- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/support/particle-devices-faq/wpa2-enterprise). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
+- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/support/particle-devices-faq/wpa2-enterprise/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 {{/if}} 
 {{#if core}}
 - If you are using a corporate or school network that uses WPA2 Enterprise, you cannot use a {{device}}. If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
@@ -179,7 +179,7 @@ If all else fails, try restarting it! Remove *both* the USB cable and Li-Po batt
 Check out [our status page](http://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
 
 #### 11) Contact Particle
-Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](/support/menu-base/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
@@ -226,13 +226,13 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 ![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
 <p class="caption"> <a target="_blank" href="/assets/images/bad-sim-socket.png">Click here</a> for a larger image.</p>
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/menu-base/).
 
 #### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/).
+Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/menu-base/).
 
 #### 6\. Contact Particle
-Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](/support/menu-base/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
@@ -380,11 +380,11 @@ The device will itself automatically enter safe mode if there is no application 
 
 {{device-animation device "blink" "yellow" }}
 
-If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/faq/particle-tools/installing-dfu-util/)
+If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/support/particle-tools-faq/installing-dfu-util/)
 
 Installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
-And a usage guide [here.](/reference/cli/)
+And a usage guide [here.](/reference/developer-tools/cli/)
 
 To enter DFU Mode:
 
@@ -414,7 +414,7 @@ To enter DFU Mode:
 
 The {{device}} now is in the DFU mode.
 
-DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](/faq/particle-tools/installing-dfu-util).
+DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](/support/particle-tools-faq/installing-dfu-util/).
 
 Some users have reported issues with dfu-util on a USB3 ports (typically the blue ones). Use a USB2 port if the USB3 port doesn't work.
 
@@ -425,7 +425,7 @@ Some users have reported issues with dfu-util on a USB3 ports (typically the blu
 {{#if photon}}
 Firmware reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
+The [Particle CLI](/tutorials/developer-tools/cli/) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
 
 ```
 particle flash --usb tinker
@@ -484,7 +484,7 @@ The Electron can store a backup copy of any desired user firmware in flash memor
 
 A CLI installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
-And a usage guide [here.](/reference/cli/)
+And a usage guide [here.](/reference/developer-tools/cli/)
 
 To enter Firmware Reset Mode:
 
@@ -538,7 +538,7 @@ You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-net
 {{/if}}
 
 {{#if has-device-doctor}}
-The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also reset the firmware using:
+The [Particle CLI](/tutorials/developer-tools/cli/) can also reset the firmware using:
 
 ```
 particle device doctor
@@ -694,7 +694,7 @@ While all of the causes above were unintentionally causing breathing green, you 
 
 ### Rainbows/Nyan
 
-Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/cli/#particle-nyan) CLI command, you can have a device's status LED display a rainbow pattern. This is handy if you have multiple devices nearby and are not sure which one is which. 
+Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/developer-tools/cli/#particle-nyan) CLI command, you can have a device's status LED display a rainbow pattern. This is handy if you have multiple devices nearby and are not sure which one is which. 
 
 {{device-animation device "pattern"
   "on #0000f3 100ms"
@@ -720,7 +720,7 @@ While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
 
 {{collapse op="start" label="Repair instructions"}}
 
-Most keys related issues can be resolved using the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli).
+Most keys related issues can be resolved using the [Particle CLI](/tutorials/developer-tools/cli/).
 
 Put the {{device}} into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
 
@@ -820,7 +820,7 @@ particle device doctor
 ```
 {{/if}}
 
-Some tips for reducing the memory used by your firmware [can be found here](/faq/particle-devices/code-size-tips).
+Some tips for reducing the memory used by your firmware [can be found here](/support/particle-devices-faq/code-size-tips/).
 
 **Stack overflow (13 blinks between 2 SOS patterns)**
 
@@ -885,5 +885,5 @@ If you still see no change in the status LED you probably have a missing or corr
 
 
 
-This can be corrected using a [JTAG/SWD programmer](https://docs.particle.io/faq/particle-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
+This can be corrected using a [JTAG/SWD programmer](/support/particle-tools-faq/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 

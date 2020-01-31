@@ -46,6 +46,7 @@
     "/datasheets/kits-and-accessories/kits": "/datasheets/accessories/legacy-accessories",
     "/datasheets/kits-and-accessories/particle-shields": "/datasheets/accessories/legacy-accessories",
     "/datasheets/kits-and-accessories/raspberrypi-datasheet": "/raspberry-pi",
+    "/datasheets/mesh/xenon-datasheet":"/datasheets/discontinued/xenon-datasheet",
     "/datasheets/p1-datasheet": "/datasheets/wi-fi/p1-datasheet",
     "/datasheets/particle-shields": "/datasheets/accessories/legacy-accessories",
     "/datasheets/photon-(wifi)": "/datasheets/wi-fi/photon-datasheet",

@@ -36,7 +36,7 @@ an action in the _physical world_.
 Some of the specific ways you could use the Rules Engine in this way include:
 
 - Send an over-the-air firmware update to a device when it has been
-added to a [device group](https://docs.particle.io/guide/how-to-build-a-product/device-groups/)
+added to a [device group](/tutorials/product-tools/device-groups/)
 - Activate certain features of your product when customer payment
 information is collected
 - Disable access to using a broken device when a serviceperson is

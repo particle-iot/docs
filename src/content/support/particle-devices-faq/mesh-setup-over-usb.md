@@ -128,7 +128,7 @@ Your system firmware version is 1.2.1
 - Save the device ID and ICCID, you'll need them later. If you get a serial timed out error, just try the command again.
 
 - If you are using the Particle SIM card built into your Boron, Copy the ICCID and go to: [https://setup.particle.io](https://setup.particle.io). Click on the link to **Activate a Particle SIM** under the pictures. Enter the ICCID and proceed through the activation steps.
-- If you want to use a 3rd-party SIM with the Boron, follow [the instructions here](/support/particle-devices-faq/electron-3rdparty-sims) for setting up a Boron with 3rd-party SIM card.
+- If you want to use a 3rd-party SIM with the Boron, follow [the instructions here](/support/particle-devices-faq/electron-3rdparty-sims/) for setting up a Boron with 3rd-party SIM card.
 - Once you've activated your SIM, exit listening mode:
 
 ```html

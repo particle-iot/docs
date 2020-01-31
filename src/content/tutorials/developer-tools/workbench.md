@@ -364,7 +364,7 @@ particle call argon2 div 10
 
 #### Disabling Mesh Networking and Bluetooth
 
-In some cases you may need to disable mesh networking and Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS ([example](https://docs.particle.io/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` and `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
+In some cases you may need to disable mesh networking and Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS ([example](/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` and `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
 
 ```
 void setup()

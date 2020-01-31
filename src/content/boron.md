@@ -24,7 +24,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 - [Quickstart with starter project](/quickstart/boron/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io/c/hardware)
-- [Support](/support/support-and-fulfillment/menu-base/)
+- [Support](/support/menu-base/)
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/boron)

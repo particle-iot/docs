@@ -58,7 +58,7 @@ behavior, or run different versions of firmware.
 or customers that need access to certain device groups.
 
 _Quick tip_: If you prefer, you can also [call the Particle
-API](/reference/api/#create-device-group) directly to create a device
+API](/reference/device-cloud/api/#create-device-group) directly to create a device
 group.
 
 ## Assigning Groups to Devices
@@ -95,10 +95,10 @@ update groups of the selected devices. **Note that editing groups for a
 device may result in the device being targeted for an OTA firmware
 update**, due to product firmware releases by group.
 
-_Quick tip_: If you prefer, you can also [call the Particle API](/reference/api/#batch-assign-groups-to-devices) directly to assign groups to a device.
+_Quick tip_: If you prefer, you can also [call the Particle API](/reference/device-cloud/api/#batch-assign-groups-to-devices) directly to assign groups to a device.
 
 _Quick tip_: After assigning groups to devices, you can use the Console
-or the [Particle API](/reference/api/#list-devices-in-a-product) to filter product devices by group.
+or the [Particle API](/reference/device-cloud/api/#list-devices-in-a-product) to filter product devices by group.
 
 ## Firmware Release by Group
 
@@ -106,7 +106,7 @@ With devices segmented into groups, it is now possible to gain more
 control and flexibility over the firmware release process. If you are
 unfamiliar with how to rollout firmware to a product fleet, please check
 out the [Particle Console
-Guide](/guide/tools-and-features/console/#rollout-firmware) before
+Guide](/tutorials/device-cloud/console/#rollout-firmware) before
 continuing.
 
 With grouping enabled, you can *release a product firmware to one or

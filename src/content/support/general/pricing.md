@@ -89,7 +89,7 @@ overage rate is $0.40/MB, in 1 MB increments.
 The device cloud charge occurs even if you have no data usage in a month, as the SIM is still active in the mobile carrier network. If you do not need to use the device, you can pause the SIM, which will stop billing. 
 
 For more information on cellular billing, check out [the
-guide](/tutorials/cellular-connectivity/billing).
+guide](/tutorials/cellular-connectivity/billing/).
 
 **Unclaiming** a device removes it from your account, but does not stop billing. As the device claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing.
 
@@ -211,7 +211,7 @@ at scale. A Product also has team members, which allows many Particle users to
 collaborate on an IoT project together. As a user, you can _belong to_
 one or more Product teams. For more information on
 Products, [check out the
-guide](/guide/tools-and-features/console/#product-tools).
+guide](/tutorials/device-cloud/console/#product-tools).
 
 You can think of Users and Products as two different "spaces" in which devices can
 be managed. As a result, they are also billed separately from one
@@ -247,7 +247,7 @@ Device Cloud pricing. These include:
   (up from 1MB)
 - No metering on number of team members or outbound events. Both are now
   unlimited.
-- Access to [Device Groups](/guide/how-to-build-a-product/device-groups/),
+- Access to [Device Groups](/tutorials/product-tools/device-groups/),
 a powerful fleet management tool previously only available to Production customers
 
 ### How can I upgrade to the new Device Cloud Pricing?

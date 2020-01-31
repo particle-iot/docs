@@ -45,11 +45,11 @@ Stop by and join on of the best places online meet other people using Particle t
 
 - [Particle Docs](/)
 - [Particle Forums](https://community.particle.io/)
-- [Device OS Firmware Reference](/reference/device-os/firmware)
+- [Device OS Firmware Reference](/reference/device-os/firmware/)
 - [Cloud API Reference](/reference/device-cloud/api/)
 - [GitHub Organization](https://github.com/particle-iot)
 - [Device OS Firmware Release Notes](/reference/device-os/firmware/photon/#github-release-notes)
-- [FAQ](/support/particle-devices-faq)
+- [FAQ](/support/particle-devices-faq/code-size-tips/)
 - [Particle YouTube Channel](https://www.youtube.com/channel/UCpYjkSkGOXAMXeZjZkbb-PQ)
 - [Particle Blog](https://blog.particle.io)
 - [Particle Store](https://store.particle.io)
@@ -59,11 +59,11 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Web IDE (Particle Build)](https://build.particle.io)
 - [Particle Console](https://console.particle.io)
 - [Desktop IDE (Particle Dev)](/tutorials/developer-tools/dev/)
-- [Particle Mobile App](/tutorials/developer-tools/tinker)
-- [Particle CLI](/tutorials/developer-tools/cli)
-- [JavaScript SDK](/reference/SDKs/javascript)
-- [iOS SDK](/reference/SDKs/ios)
-- [Android SDK](/reference/SDKs/android)
+- [Particle Mobile App](/tutorials/developer-tools/tinker/)
+- [Particle CLI](/tutorials/developer-tools/cli/)
+- [JavaScript SDK](/reference/SDKs/javascript/)
+- [iOS SDK](/reference/SDKs/ios/)
+- [Android SDK](/reference/SDKs/android/)
 - [Webhooks](/tutorials/device-cloud/webhooks/)
 
 ## External Resources
@@ -71,7 +71,7 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Particle on Hackster](https://www.hackster.io/particle)
 - [Particle on Instructables](http://www.instructables.com/howto/Particle/)
 - [Getting Started with the Photon by Simon Monk](https://www.amazon.com/Getting-Started-Photon-Affordable-Hackable/dp/1457187019)
-- [Community Supported Particle Clients](/community/community)
+- [Community Supported Particle Clients](/community/community/)
 
 
 ## Podcasts
@@ -82,11 +82,11 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## Useful Tools, Docs & FAQs
 
-- [Serial FAQ](/support/particle-devices-faq/serial-faq)
-- [I2C FAQ](/support/particle-devices-faq/i2c-faq)
-- [Local Builds using GCC-ARM](/support/particle-tools-faq/local-build)
-- [JTAG and SWD Debugging](/support/particle-tools-faq/jtag)
-- [Code Size Tips](/support/particle-devices-faq/code-size-tips)
+- [Serial FAQ](/tutorials/learn-more/about-serial/)
+- [I2C FAQ](/tutorials/learn-more/about-i2c/)
+- [Local Builds using GCC-ARM](/support/particle-tools-faq/local-build/)
+- [JTAG and SWD Debugging](/support/particle-tools-faq/jtag/)
+- [Code Size Tips](/support/particle-devices-faq/code-size-tips/)
 - [Measuring Electron Power Consumption](https://github.com/rickkas7/particle_notes/tree/master/measuring-electron-power)
 - [Tips for Public and Private Particle Events](https://github.com/rickkas7/particle_notes/tree/master/public-private-event-tips)
 - [Using Retained Memory](https://github.com/rickkas7/particle_notes/tree/master/retained-memory-tips)
@@ -108,9 +108,9 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Google Cloud Platform Integration](/tutorials/integrations/google-cloud-platform/)
 - [Google Maps Integration](/tutorials/integrations/google-maps/)
 - [Azure IoT Hub Integration](/tutorials/integrations/azure-iot-hub/)
-- [Webhooks Tutorial](/tutorials/device-cloud/webhooks)
+- [Webhooks Tutorial](/tutorials/device-cloud/webhooks/)
 - [InfluxData Tutorial](/tutorials/integrations/influxdata)
-- [Maker Kit Tutorials](/tutorials/hardware-projects/maker-kit)
+- [Maker Kit Tutorials](/tutorials/hardware-projects/maker-kit/)
 - [E Series Eval Kit Tutorials](/tutorials/hardware-projects/e-series-eval-kit/)
 - [Poor Man's CAN Bus](https://github.com/monkbroc/poor-man-can)
 - [Particle Webhooks Intermediate Tutorial](https://github.com/rickkas7/particle-webhooks)
@@ -124,20 +124,20 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## Hardware Datasheets
 
-- [Photon Datasheet](/datasheets/wi-fi/photon-datasheet)
-- [P1 Datasheet](/datasheets/wi-fi/p1-datasheet)
-- [Electron Datasheet](/datasheets/cellular/electron-datasheet)
-- [E Series Datasheet](/datasheets/cellular/e-series-datasheet)
+- [Photon Datasheet](/datasheets/wi-fi/photon-datasheet/)
+- [P1 Datasheet](/datasheets/wi-fi/p1-datasheet/)
+- [Electron Datasheet](/datasheets/cellular/electron-datasheet/)
+- [E Series Datasheet](/datasheets/cellular/e-series-datasheet/)
 
 # Popular Libraries
 
 ## Particle Libraries
 
 - [Internet Button](https://github.com/particle-iot/InternetButton.git)
-- [Asset Tracker](https://github.com/spark/AssetTracker.git)
-- [Power Shield](https://github.com/spark/PowerShield.git)
+- [Asset Tracker](https://github.com/particle-iot/AssetTracker.git)
+- [Power Shield](https://github.com/particle-iot/PowerShield.git)
 - [Relay Shield](https://build.particle.io/libs/RelayShield/0.0.6/tab/RelayShield.cpp)
-- [Maker Kit](https://github.com/spark/makerkit.git)
+- [Maker Kit](https://github.com/particle-iot/makerkit.git)
 
 ## Community Libraries
 
@@ -145,9 +145,9 @@ Stop by and join on of the best places online meet other people using Particle t
 - [blynk](https://build.particle.io/libs/blynk/0.5.3/tab/blynk.cpp)
 - [OneWire](https://build.particle.io/libs/OneWire/2.0.1/tab/DS18.cpp)
 - [Ubidots](https://github.com/ubidots/ubidots-particle)
-- [google-maps-device-locator](https://github.com/spark/google-maps-device-locator.git)
+- [google-maps-device-locator](https://github.com/particle-iot/google-maps-device-locator.git)
 - [photon-thermistor](https://github.com/kegnet/photon-thermistor.git)
-- [Serial_LCD_Sparkfun](https://github.com/spark/serial_lcd_library.git)
+- [Serial_LCD_Sparkfun](https://github.com/particle-iot/serial_lcd_library.git)
 - [PL_microEPD](https://github.com/RobPo/Paperino)
 - [MQTT](https://github.com/hirotakaster/MQTT.git)
 - [PietteTech_DHT](https://build.particle.io/libs/PietteTech_DHT/0.0.5/tab/PietteTech_DHT.cpp)

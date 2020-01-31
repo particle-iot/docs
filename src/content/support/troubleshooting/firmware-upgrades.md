@@ -12,7 +12,7 @@ How do I upgrade my firmware?
 
 ## The Simple Way (one CLI command - recommended)
 
-If you are using the [Particle CLI](/tutorials/developer-tools/cli) and have been able to use it successfully to login to your account, then you should be able to upgrade your device firmware and it will auto-update the CLI for you. Yeah I know, it's great right?!
+If you are using the [Particle CLI](/tutorials/developer-tools/cli/) and have been able to use it successfully to login to your account, then you should be able to upgrade your device firmware and it will auto-update the CLI for you. Yeah I know, it's great right?!
 
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - From a command prompt or terminal window, run the command:
@@ -24,7 +24,7 @@ particle update
 
 ## Manual Firmware Update 
 
-Install the [Particle CLI](/tutorials/developer-tools/cli) if you have not already done so.
+Install the [Particle CLI](/tutorials/developer-tools/cli/) if you have not already done so.
 
 ### Argon, Boron, and Xenon
 
@@ -79,7 +79,7 @@ particle flash --usb electron-system-part3@1.2.1.bin
 
 ## Full Firmware Upgrade (Spark Core only)
 
-If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using [dfu-util](http://dfu-util.sourceforge.net/) and installing the [Particle CLI](/tutorials/developer-tools/cli)
+If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using [dfu-util](http://dfu-util.sourceforge.net/) and installing the [Particle CLI](/tutorials/developer-tools/cli/)
 , which provides an excellent local development and troubleshooting environment for your Particle development.
 
 Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:

@@ -422,7 +422,7 @@ Remember that it's necessary to publish every new version after uploading it bef
 
 Create a webhook that will trigger an HTTP request when a Particle event is published to the cloud. You can pass in an `eventName`, `url`, and `deviceID`
 as arguments to the CLI command. Optionally, you can create your own custom JSON file that includes webhook params. For a full list of available
-webhook parameters, see the [REST API documentation](/reference/api/#create-a-webhook). This command is only available for user webhooks.
+webhook parameters, see the [REST API documentation](/reference/device-cloud/api/#create-a-webhook). This command is only available for user webhooks.
 
 ```sh
 $ particle webhook create temperature https://mysite.com

@@ -259,7 +259,7 @@ describe('Crawler', function() {
           return [];
         }  
 
-        if (toQueueUrl.indexOf('https://github.com/particle-iot/docs/tree/master/src/content') === 0) {
+        if (toQueueUrl.indexOf('https://github.com/particle-iot/docs/tree/') === 0) {
           // Github edit links are not crawled because it's not possible to edit pages until the page has
           // been committed, but you can't commit the page until CI passes.
           return [];

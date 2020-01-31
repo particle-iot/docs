@@ -164,7 +164,7 @@ When you find the desired release, scroll down to the **Downloads** section. Her
 
 Find the files relevant to your device (each binary is suffixed with the device type) and click to download them to your machine. Note that you'll only need to do this step once to store a copy of the binaries on your computer.
 
-Next, you'll flash these files to a device using the `particle flash` command in the CLI. If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli). Open up your Terminal and run the following commands to flash the system modules to a device:
+Next, you'll flash these files to a device using the `particle flash` command in the CLI. If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli/). Open up your Terminal and run the following commands to flash the system modules to a device:
 
 ```bash
 particle flash YOUR_DEVICE_NAME_OR_ID path/to/system-part1.bin
@@ -191,9 +191,9 @@ Then use the **Particle: Flash application & Device OS (local)** command to flas
 There are additional instructions in the [Workbench tutorial](/tutorials/developer-tools/workbench/#local-build-and-flash).
 
 #### CLI (Local)
-The Particle CLI offers two different methods of updating Device OS locally. Both require that the device is connected to your computer over USB.  If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli) and ensure you are running version **1.24.1** or later. You can check with `particle --version`.
+The Particle CLI offers two different methods of updating Device OS locally. Both require that the device is connected to your computer over USB.  If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli/) and ensure you are running version **1.24.1** or later. You can check with `particle --version`.
 
-The first approach is to run [`particle update`](/reference/cli/#particle-update). Open up your Terminal and run the following command to flash the latest Device OS to a device:
+The first approach is to run [`particle update`](/reference/developer-tools/cli/#particle-update). Open up your Terminal and run the following command to flash the latest Device OS to a device:
 
 
 ```bash

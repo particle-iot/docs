@@ -16,7 +16,7 @@ Leveraging high quality libraries to build Internet-connected projects and appli
 
 In general, libraries in the Particle ecosystem have the following features:
 
-1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](/reference/device-os/firmware) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
+1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](/reference/device-os/firmware/) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
 
 2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling NeoPixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
 
@@ -26,7 +26,7 @@ In general, libraries in the Particle ecosystem have the following features:
 
 ### Public Libraries
 
-The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our [Libraries API](/reference/api/#libraries). The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
+The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our [Libraries API](/reference/device-cloud/api/#libraries). The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
@@ -155,9 +155,9 @@ An extended project can be created by using the Desktop IDE "Start a new project
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
-- [Using libraries with the Web IDE](/tutorials/developer-tools/build)
-- [Using libraries with the Desktop IDE](/tutorials/developer-tools/dev)
-- [Using libraries with the Command Line Interface (CLI)](/tutorials/developer-tools/cli)
+- [Using libraries with the Web IDE](/tutorials/developer-tools/build/)
+- [Using libraries with the Desktop IDE](/tutorials/developer-tools/dev/)
+- [Using libraries with the Command Line Interface (CLI)](/tutorials/developer-tools/cli/)
 
 ## Contributing libraries
 
@@ -167,14 +167,14 @@ publishing to the public.
 
 Library contribution is currently supported via our Command Line Interface (CLI).
 
-- [Contributing libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library-upload)
+- [Contributing libraries with the Command Line Interface (CLI)](/reference/developer-tools/cli/#particle-library-upload)
 
 
 ### Preparing the structure
 
 There are several ways to start contributing a Particle library.
 
-You can start a brand new library by generating the file structure with the Command Line Interface (CLI) using the [`particle library create`](/reference/cli/#particle-library-create) or downloading the [example library](https://github.com/particle-iot/uber-library-example) and editing it.
+You can start a brand new library by generating the file structure with the Command Line Interface (CLI) using the [`particle library create`](/reference/developer-tools/cli/#particle-library-create) or downloading the [example library](https://github.com/particle-iot/uber-library-example) and editing it.
 
 If you made a library in the past, you can migrate it to the new format with `particle library migrate`.
 
@@ -188,7 +188,7 @@ The main sources of the library go into `src/lib_name.cpp` and `src/lib_name.h`.
 
 Create at least one example `.ino` file inside a subfolder of `examples` to show people how to use the library.
 
-If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/kits/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
+If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/accessories/legacy-accessories/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
 
 List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform constant with [the platform IDs](https://github.com/particle-iot/device-os/blob/develop/hal/shared/platforms.h).
 

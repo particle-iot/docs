@@ -82,7 +82,7 @@ The best way to get started with the IDE is to start writing code:
 
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
 
-**NOTE**: Each over *over-the-air firmware update* on cellular devices counts towards your data allowance. You can also flash the devices locally [using our CLI](/reference/cli/#compiling-remotely-and-flashing-locally) over USB.
+**NOTE**: Each over *over-the-air firmware update* on cellular devices counts towards your data allowance. You can also flash the devices locally [using our CLI](/reference/developer-tools/cli/#compiling-remotely-and-flashing-locally) over USB.
 
 ```
 //D7 LED Flash Example
@@ -180,7 +180,7 @@ To include a firmware library in your Particle project, open the library drawer,
 
 Read on for detailed instructions to include a firmware library in your Particle application with Build.
 
-We have [a detailed reference guide about libraries](/guide/tools-and-features/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
+We have [a detailed reference guide about libraries](/tutorials/device-os/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
 
 ##### Step 1 - Go to the Libraries tab
 Click on the libraries bookmark icon on the left hand side of the Build interface.
@@ -191,7 +191,7 @@ Click on the libraries bookmark icon on the left hand side of the Build interfac
 
 ![Bookmark icon](/assets/images/libraries-guide-librarylist.png)
 
-Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/guide/tools-and-features/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/tutorials/device-os/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
 
 To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing arrows at the bottom of the library list.
 
@@ -212,9 +212,9 @@ The detailed view for a library includes the following:
 
 - `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
 - `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
-- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/guide/tools-and-features/libraries/#contributing-libraries).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/tutorials/device-os/libraries/#contributing-libraries).
 - `Library description`: Detailed information about the library
-- `Library files`: What files come with the library. This follows the [new library file structure](/guide/tools-and-features/libraries/#library-file-structure).
+- `Library files`: What files come with the library. This follows the [new library file structure](/tutorials/device-os/libraries/#library-file-structure).
 - `Library examples`: Those are examples of usage. If you click on one of them, you will be shown the source code. To use it as one of your projects, click on 'Use this example'.
 
 ![Library examples](/assets/images/libraries-guide-libraryexamples.png)
@@ -239,7 +239,7 @@ Clicking the `Confirm` button will bring you back to your Particle project. The 
 Contribute a library
 ---
 
-This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.
+This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/tutorials/device-os/libraries/#contributing-libraries) to find more about contributing a library.
 
 Checking code memory usage
 ---

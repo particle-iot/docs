@@ -216,7 +216,7 @@ For maximum cross-module flexibility, you should try to use only the common pins
 
 Unlike the Boron, the B402 module does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
 
-A detailed explanation of different color codes of the RGB system LED can be found [here](https://docs.particle.io/tutorials/device-os/led/).
+A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
 
 ## Technical specifications
 

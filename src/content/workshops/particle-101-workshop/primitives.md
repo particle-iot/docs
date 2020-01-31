@@ -66,7 +66,7 @@ You're now ready to program your Argon with Particle Workbench. Let's get the de
 
 ## Unboxing the Grove Starter Kit
 
-The Grove Starter Kit for Particle Mesh comes with seven different components that work out-of-the-box with Particle Mesh devices, and a Grove Shield that allows you to plug in your Feather-compatible Mesh devices for quick prototyping. The shield houses eight Grove ports that support all types of Grove accessories. For more information about the kit, [click here](https://docs.particle.io/datasheets/accessories/gen3-accessories/#grove-starter-kit-for-particle-mesh).
+The Grove Starter Kit for Particle Mesh comes with seven different components that work out-of-the-box with Particle Mesh devices, and a Grove Shield that allows you to plug in your Feather-compatible Mesh devices for quick prototyping. The shield houses eight Grove ports that support all types of Grove accessories. For more information about the kit, [click here](/datasheets/accessories/gen3-accessories/#grove-starter-kit-for-particle-mesh).
 
 For this lab, you'll need the following items from the kit:
 
@@ -92,7 +92,7 @@ Now, you're ready to start using your first Grove component!
 
 ## Working with Particle Variables plus the Temperature & Humidity Sensor
 
-The Particle Device OS provides a simple way to access sensor values and device local state through the [variable primitive](https://docs.particle.io/reference/device-os/firmware/argon/#particle-variable-). Registering an item of firmware state as a variable enables you to retrieve that state from the Particle Device Cloud. Let's explore this now with the help of the Grove Temperature and Humidity sensor.
+The Particle Device OS provides a simple way to access sensor values and device local state through the [variable primitive](/reference/device-os/firmware/argon/#particle-variable-). Registering an item of firmware state as a variable enables you to retrieve that state from the Particle Device Cloud. Let's explore this now with the help of the Grove Temperature and Humidity sensor.
 
 ### Connect the Temperature sensor
 
@@ -222,7 +222,7 @@ Now that you've mastered Particle variables for reading sensor data, let's look 
 
 ## Working with Particle Functions and the Chainable LED
 
-As with Particle variables, the [function](https://docs.particle.io/reference/device-os/firmware/photon/#particle-function-) primitive exposes our device to the Particle Device Cloud. Where variables expose state, functions expose actions.
+As with Particle variables, the [function](/reference/device-os/firmware/photon/#particle-function-) primitive exposes our device to the Particle Device Cloud. Where variables expose state, functions expose actions.
 
 In this section, you'll use the Grove Chainable LED and the `Particle.function` command to take a heart-rate reading, on demand.
 
@@ -304,7 +304,7 @@ Particle.function("toggleLed", toggleLed);
 
 ## Working with Particle Publish & Subscribe plus a light sensor
 
-For the final section of this lab, you're going to explore the [Particle `pub/sub` primitives](https://docs.particle.io/reference/device-os/firmware/photon/#particle-publish-), which allows inter-device (and app!) messaging through the Particle Device Cloud. You'll use the light sensor and publish messages to all listeners when light is detected.
+For the final section of this lab, you're going to explore the [Particle `pub/sub` primitives](/reference/device-os/firmware/photon/#particle-publish-), which allows inter-device (and app!) messaging through the Particle Device Cloud. You'll use the light sensor and publish messages to all listeners when light is detected.
 
 ### Connect the Light sensor
 
@@ -363,52 +363,52 @@ This section contains links and resources for the Grove sensors included in the 
 ### Button
 
 - Sensor Type: Digital
-- [Particle Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#button)
+- [Particle Documentation](/datasheets/accessories/gen3-accessories/#button)
 - [Seeed Studio Documentation](https://www.seeedstudio.com/Grove-Button-p-766.html)
 
 ### Rotary Angle Sensor
 
 - Sensor Type: Analog
-- [Particle Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#rotary-angle-sensor)
-- [Seeed Studio Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#button)
+- [Particle Documentation](/datasheets/accessories/gen3-accessories/#rotary-angle-sensor)
+- [Seeed Studio Documentation](/datasheets/accessories/gen3-accessories/#button)
 
 
 ### Ultrasonic Ranger
 
 - Sensor Type: Digital
 - [Particle Firmware Library](https://build.particle.io/libs/Grove_Ultrasonic_Ranger/1.0.0/tab/Ultrasonic.cpp)
-- [Particle Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#ultrasonic-ranger)
+- [Particle Documentation](/datasheets/accessories/gen3-accessories/#ultrasonic-ranger)
 - [Seeed Studio Documentation](http://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/)
 
 ### Temperature and Humidity Sensor
 
 - Sensor Type: Digital
 - [Particle Firmware Library](https://build.particle.io/libs/Grove_Temperature_And_Humidity_Sensor/1.0.6/tab/Seeed_DHT11.cpp)
-- [Particle Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#temperature-and-humidity-sensor)
+- [Particle Documentation](/datasheets/accessories/gen3-accessories/#temperature-and-humidity-sensor)
 - [Seeed Studio Documentation](http://wiki.seeedstudio.com/Grove-TemperatureAndHumidity_Sensor/)
 
 ### Light sensor
 
 - Sensor Type: Analog
-- [Particle Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#light-sensor-v1-2)
+- [Particle Documentation](/datasheets/accessories/gen3-accessories/#light-sensor-v1-2)
 - [Seeed Studio Documentation](http://wiki.seeedstudio.com/Grove-Light_Sensor/)
 
 ### Chainable LED
 
 - Sensor Type: Serial
 - [Particle Firmware Library](https://build.particle.io/libs/Grove_ChainableLED/1.0.1/tab/ChainableLED.cpp)
-- [Particle Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#chainable-rgb-led)
+- [Particle Documentation](/datasheets/accessories/gen3-accessories/#chainable-rgb-led)
 - [Seeed Studio Documentation](http://wiki.seeedstudio.com/Grove-Chainable_RGB_LED/)
 
 ### Buzzer
 
 - Sensor Type: Digital
-- [Particle Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#buzzer)
+- [Particle Documentation](/datasheets/accessories/gen3-accessories/#buzzer)
 - [Seeed Studio Documentation](http://wiki.seeedstudio.com/Grove-Buzzer/)
 
 ### 4-Digit Display
 
 - Sensor Type: Digital
 - [Particle Firmware Library](https://build.particle.io/libs/Grove_4Digit_Display/1.0.1/tab/TM1637.cpp)
-- [Particle Documentation](https://docs.particle.io/datasheets/accessories/gen3-accessories/#4-digit-display)
+- [Particle Documentation](/datasheets/accessories/gen3-accessories/#4-digit-display)
 - [Seeed Studio Documentation](http://wiki.seeedstudio.com/Grove-4-Digit_Display/)

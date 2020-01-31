@@ -187,7 +187,7 @@ on the <a href="https://console.particle.io" target="_blank">Particle Console</a
 
 Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
 by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
-for a <a href="/guide/tools-and-features/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
+for a <a href="/tutorials/device-cloud/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
 hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
 then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
 

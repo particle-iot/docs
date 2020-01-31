@@ -145,7 +145,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 ### External Coexistence Interface
 
-**Note:** Currently this interface is unsupported. If you need this feature for a product, please [contact Particle](/support/support-and-fulfillment/menu-base/).
+**Note:** Currently this interface is unsupported. If you need this feature for a product, please [contact Particle](/support/menu-base/).
 
 The Photon supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
 
@@ -567,7 +567,7 @@ The Photon comes preprogrammed with a bootloader and a user application called T
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](/tutorials/developer-tools/cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/particle-iot/device-os), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](/tutorials/developer-tools/cli/) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/particle-iot/device-os), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
 ## Glossary
 
