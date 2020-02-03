@@ -13902,6 +13902,10 @@ Resets the device and restarts in safe mode.
 
 {{#if has-nrf52}}
 Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
+
+On the Argon, Boron, and Xenon, WKP is pin D8.
+
+On the B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8.
 {{/if}}
 
 ---

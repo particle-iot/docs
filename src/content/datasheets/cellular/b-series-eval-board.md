@@ -181,23 +181,23 @@ It requires these jumpers, which should be installed at the factory:
 
 To use the MicroSD card, you must add the jumpers:
 
-- TF_MI to MISO
-- TF_CK to SCK
-- TF_MO to MOSI
-- TF_CS to GPIO1
-- TF_DET to PWM2 (optional)
+- SD_MISO to PWM0 (D4, SPI1 MISO)
+- SD_SCK to RTS (D2, SPI1 SCK)
+- SD_MOSI to CTS (D3, SPI1 MOSI)
+- SD_CS to PWM1 (D5)
+- SD_DECT to PWM2 (D6) (optional)
 
 You will normally use this with the [SdFat](https://build.particle.io/libs/SdFat/1.0.16/tab/SdFat.h) library.
 
-With the jumpers installed, it will use the primary SPI and pin D23 as the chip select.
+With the jumpers installed, it will use the secondary SPI (SPI1) and pin D5 as the chip select.
 
 | Micro SD | nRF52 Pin | SoM Pin | SoM Pin Number |
 | :---: | :---: |  :---: |  :---: | 
-| SD\_MISO | P1.14 | D11 | 11 |
-| SD\_SCK | P1.15 | D13 | 13 |
-| SD\_MOSI | P1.13 | D12 | 12 |
-| SD\_CS | P1.03 | D8 | 48 |
-| SD\_DET | P1.1 | D6 | 70 |
+| SD\_MISO | P1.8 | D4 / PWM0 / SPI1 MISO | 66 |
+| SD\_SCK | P1.12 | D2 / RTS / SPI1 SCK | 42 |
+| SD\_MOSI | P1.1 | D3 / CTS / SPI1 MOSI | 40 |
+| SD\_CS | P1.10 | D5 / PWM1 | 68 |
+| SD\_DET | P1.11 | D6 / PWM2 | 70 |
 
 ---
 
@@ -287,4 +287,5 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 |:---------|:-----|:-------|:---------|
 | 001      | 29 Apr 2019 | RK | Initial Release |
 | 002      | 21 Jan 2020 | RK | Remove mesh |
+| 003      |  3 Feb 2020 | RK | Correct pins for SD card |
 
