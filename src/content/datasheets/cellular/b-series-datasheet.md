@@ -88,10 +88,10 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
 | Digital | 24 (max) | I/O |
 | Analog (ADC) | 8 (max) | I |
 | UART | 1 | I/O |
-| SPI  | 1 | I/O |
-| I2C  | 1 | I/O |
+| SPI  | 2 | I/O |
+| I2C  | 2 | I/O |
 | USB  | 1 | I/O |
-| PWM  | 4 (max) | O |
+| PWM  | 7 (max) | O |
 | NFC  | 1 | O |
 
 There are some optional B402 module specific I/O:
@@ -437,4 +437,5 @@ The bootloader allows you to easily update the user application via several diff
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | 001      | 29 Apr 2019 | RK | Initial Release |
+| 002      | 03 Feb 2020 | RK | Fixed number of I2C, SPI, and PWM |
 
