@@ -371,8 +371,10 @@ describe('Crawler', function() {
     crawler.on('complete', function() {
       if (stats.errors > 0) {
         delete crawlerData.success; 
+        crawlerData.error = Math.floor(Date.now() / 1000);
       }
       else {
+        delete crawlerData.error;
         crawlerData.success = Math.floor(Date.now() / 1000);
       }
 

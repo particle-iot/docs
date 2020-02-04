@@ -18,7 +18,7 @@ updating the code on an embedded device.
 leading OTA update capabilities</p>
 
 The value of incorporating OTA update capabilities into a connected
-product cannot be understated, and include:
+product include:
 
 - The ability to add **new software features** to a product after a device has been deployed in the field to improve functionality over time
 - The opportunity to **rapidly respond to bugs and security vulnerabilities** without the need for physical recalls of devices or truck rolls
@@ -288,9 +288,8 @@ to a product device.
 target product devices to automatically download and run the firmware.
 The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
-delivered to a given device. If you are on the Enterprise plan with
-access to [device groups](/tutorials/product-tools/device-groups/),
-you can more safely roll out the firmware by targeting a subset of the
+delivered to a given device. [Device groups](/tutorials/product-tools/device-groups/),
+allow you to more safely roll out the firmware by targeting a subset of the
 fleet for release.
 
 The rest of this section contains details around how to go through this
