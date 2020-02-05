@@ -17,12 +17,14 @@ order: 24
 | United States | AT&T,T-Mobile (USA) |<sup>1</sup> | U260 |
 | Canada | Rogers AT&T Wireless |&#x2714; | U260 |
 | United Kingdom | Telefonica O2 UK |&#x2714; | U270 |
+| Afghanistan | Roshan (TDAC) |&#x2714; | U270 |
 | Algeria | Mobilis |&#x2714; | U270 |
 | Argentina | Movistar Argentina |&#x2714; | U260 |
 | Aruba | Setar |&#x2714; | U260 |
 | Australia | Telstra MobileNet |  | U260 |
 | Austria | T-Mobile Austria |&#x2714; | U270 |
 | Azerbaijan | Azercell |&#x2714; | U270 |
+| Bahrain | Batelco |&#x2714; | U270 |
 | Bangladesh | GrameenPhone |&#x2714; | U270 |
 | Belarus | Velcom (Mobilkom) |&#x2714; | U270 |
 | Belgium | Base (KPN) |&#x2714; | U270 |
@@ -55,6 +57,7 @@ order: 24
 | Germany | Telefonica O2 Germany,Telekom Deutschland GmbH |&#x2714; | U270 |
 | Ghana | Vodafone Ghana (ONEtouch) |&#x2714; | U270 |
 | Greece | Wind Hellas |&#x2714; | U270 |
+| Greenland | Tele Greenland |&#x2714; | U260 |
 | Guatemala | Telefonica Moviles Guatemala |&#x2714; | U260 |
 | Guinea | GNBSB-Spacetel MTN Guinea Bissau |&#x2714; | U270 |
 | Guyana | Digicel Guyana |&#x2714; | U260 |
@@ -76,19 +79,25 @@ order: 24
 | Lithuania | TELE2, Lithuania |&#x2714; | U270 |
 | Luxembourg | TANGO Mobile SA |&#x2714; | U270 |
 | Macao | CTM Macau |&#x2714; | U270 |
+| Macedonia | T-Mobile Macedonia |&#x2714; | U270 |
+| Madagascar | Celtel Madagascar |&#x2714; | U270 |
 | Malaysia | Digi Telecom Malaysia |&#x2714; | U270 |
 | Malta | Go Mobile Malta |&#x2714; | U270 |
 | Mexico | Telefonica Moviles Mexico |&#x2714; | U260 |
 | Moldova, Republic of | Orange Moldova |&#x2714; | U270 |
+| Mongolia | Unitel Mongolia |&#x2714; | U270 |
 | Montenegro | Telenor Montenegro |&#x2714; | U270 |
 | Montserrat | Cable & Wireless Montserrat |&#x2714; | U260 |
 | Morocco | Medi Telecom |&#x2714; | U270 |
+| Mozambique | Vodacom Mozambique |&#x2714; | U270 |
 | Netherlands | KPN B.V. |&#x2714; | U270 |
 | Netherlands Antilles | Digicel Curacao |&#x2714; | U260 |
 | New Zealand | Spark New Zealand |<sup>2</sup> | U260 |
 | Nicaragua | Telefonia Celular de Nicaragua |&#x2714; | U260 |
+| Niger | Celtel Niger S.A. |&#x2714; | U270 |
 | Nigeria | Celtel Nigeria |&#x2714; | U270 |
 | Norway | Telia Sonera Norge |&#x2714; | U270 |
+| Oman | Omantel |&#x2714; | U270 |
 | Pakistan | Mobilink Pakistan |&#x2714; | U270 |
 | Panama | Telefonica Moviles Panama S.A. |&#x2714; | U260 |
 | Peru | Telefonica Moviles Peru |&#x2714; | U260 |
@@ -115,6 +124,7 @@ order: 24
 | Sweden | Telenor Sverige AB |&#x2714; | U270 |
 | Switzerland | Sunrise |<sup>2</sup> | U270 |
 | Taiwan | Taiwan Mobile Co., Ltd. |&#x2714; | U270 |
+| Tanzania | Celtel Tanzania Ltd. |&#x2714; | U270 |
 | Thailand | Total Access Communic.Thailand |&#x2714; | U270 |
 | Trinidad and Tobago | Telecom.Trinidad and Tobago Lim. |&#x2714; | U260 |
 | Tunisia | Orange Tunisie |&#x2714; | U270 |
@@ -126,6 +136,7 @@ order: 24
 | United States | AT&T,T-Mobile (USA) |<sup>1</sup> | U260 |
 | Uruguay | Movistar Uruguay |&#x2714; | U260 |
 | Venezuela | Telefonica Moviles Venezuela |&#x2714; | U260 |
+| Vietnam | Viettel Mobile |&#x2714; | U270 |
 | Yemen | MTN Yemen |&#x2714; | U270 |
 
 {{collapse op="end"}}
@@ -206,7 +217,7 @@ order: 24
 |   | Jersey Telecom |
 | Guyana | Cellink Plus |
 | Haiti | Digicel |
-| Holy See | Vodafone |
+| Holy See (Vatican City) | Vodafone |
 | Honduras | Digicel |
 |   | Claro |
 | Hong Kong | Hutchison |
@@ -326,6 +337,10 @@ order: 24
 - <sup>2</sup>2G is only available with a 3rd-party SIM card on the Electron.
 
 {{collapse op="end"}}
+
+
+
+
 
 
 
