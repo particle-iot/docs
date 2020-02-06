@@ -453,9 +453,15 @@ Some of the available settings are:
 
 ![Compile Button Action](/assets/images/workbench/compileButtonAction.png)
 
+- **Disable Welcome Screen**: don't show the Welcome screen at start-up.
+
 - **Disable Local Compiler Dirty Check**: don't recommend running the clean task when the target Device OS version has been previously built.
 
 - **Enable Verbose Local Compiler Logging**: print log messages for each Device OS file being compiled. The default is to print only warnings, errors and completion messages.
+
+- **Compile Defines**: Specify a list of preprocessor definitions to set while compiling your application (local compilation only).
+
+- **Custom Device OS Location**: Source Device OS from a custom location - see [FAQ](/support/particle-tools-faq/workbench/#working-with-a-custom-device-os-build).
 
 ## Source Code Management
 
