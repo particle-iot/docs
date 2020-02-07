@@ -3,6 +3,7 @@ title: E Series datasheet
 layout: datasheet.hbs
 columns: two
 order: 7
+description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
 ---
 
 # E Series Module Datasheet <sup>(v002)</sup>

@@ -5,6 +5,7 @@ order: 21
 shared: true
 columns: two
 layout: tutorials.hbs
+description: Older desktop IDE for programming Particle devices for Windows and Mac OS (discontinued)
 ---
 
 # Desktop IDE (Dev)

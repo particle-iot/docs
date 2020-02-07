@@ -1,6 +1,7 @@
 ---
 title: Boron
 layout: landing.hbs
+description: Particle Boron, Gen 3 cellular and BLE
 ---
 
 # Particle Boron: LTE + Bluetooth

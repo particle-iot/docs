@@ -4,6 +4,7 @@ layout: quickstart.hbs
 columns: two
 order: 6
 setdevice: photon
+description: Getting started with your Particle Photon, Gen 2 Wi-Fi device
 ---
 
 ## What's in the box

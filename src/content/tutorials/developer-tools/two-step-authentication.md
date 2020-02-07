@@ -4,6 +4,7 @@ title: Two-Step Authentication
 order: 24
 columns: two
 layout: tutorials.hbs
+description: Using two-step (2FA, MFA) authentication with your Particle account
 ---
 
 # Two-step Authentication

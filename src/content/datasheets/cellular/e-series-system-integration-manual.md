@@ -3,6 +3,7 @@ title: E Series System Integration Manual
 layout: datasheet.hbs
 columns: two
 order: 9
+description: Integration Manual for E Series modules, Gen 2 cellular
 ---
 # System Integration Manual
 

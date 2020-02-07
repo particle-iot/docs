@@ -5,6 +5,7 @@ order: 31
 shared: true
 columns: two
 layout: tutorials.hbs
+description: Web-based management for your Particle IoT devices
 ---
 
 

@@ -5,6 +5,7 @@ order: 1
 shared: true
 columns: two
 layout: tutorials.hbs
+description: Managing over-the-air (OTA) firmware updates for Particle IoT devices
 ---
 
 # {{title}}

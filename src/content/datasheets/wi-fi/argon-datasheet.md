@@ -3,6 +3,7 @@ title: Argon datasheet
 layout: datasheet.hbs
 columns: two
 order: 1
+description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 
 # Argon Datasheet <sup>(v002)</sup>

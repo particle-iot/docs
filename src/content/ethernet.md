@@ -1,6 +1,7 @@
 ---
 title: Ethernet FeatherWing
 layout: landing.hbs
+description: Ethernet support for Particle Gen 3 Adafruit Feather devices (Argon, Boron)
 ---
 
 # Particle Ethernet FeatherWing

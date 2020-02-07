@@ -4,6 +4,7 @@ layout: tutorials.hbs
 columns: two
 redirects: true
 order: 20
+description: Web-based IDE for programming your Particle IoT devices
 ---
 
 Flash Apps with Particle Build

@@ -3,6 +3,7 @@ title: InfluxData
 layout: tutorials.hbs
 columns: two
 order: 130
+description: Connecting InfluxData to your Particle IoT device using the Particle Cloud
 ---
 
 # {{title}} Integration

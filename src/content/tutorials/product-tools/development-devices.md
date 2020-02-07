@@ -3,12 +3,13 @@ title: Development Devices
 columns: two
 layout: tutorials.hbs
 order: 42
+description: Using Development Devices to rapidly iterate device firmware for Particle products
 ---
 
 # {{title}}
 
 As a firmware engineer building a Particle product, it is important that
-you can rapidly iterate on new device firmwares, while still simulating
+you can rapidly iterate on new device firmware, while still simulating
 the behaviors of production devices deployed in the
 field. Development devices allow you to do just this.
 

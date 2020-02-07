@@ -3,6 +3,7 @@ title: Xenon
 layout: quickstart.hbs
 columns: two
 order: 5
+description: Getting started with your Particle Xenon, Gen 3 Particle Mesh and BLE device (discontinued)
 ---
 
 # Quick start: Xenon

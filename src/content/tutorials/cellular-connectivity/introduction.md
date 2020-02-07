@@ -3,6 +3,7 @@ title: Introduction
 columns: two
 layout: tutorials.hbs
 order: 10
+description: Introduction to Particle cellular devices and cellular standards
 ---
 
 # Introduction to Cellular Devices

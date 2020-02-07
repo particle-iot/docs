@@ -1,6 +1,7 @@
 ---
 title: Electron
 layout: landing.hbs
+description: Particle Electron, Gen 2 cellular development kit
 ---
 
 # Particle Electron: Cellular

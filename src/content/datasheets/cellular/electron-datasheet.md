@@ -3,6 +3,7 @@ title: Electron datasheet
 layout: datasheet.hbs
 columns: two
 order: 6
+description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 ---
 
 

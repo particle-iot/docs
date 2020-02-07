@@ -3,6 +3,7 @@ title: Security
 columns: two
 layout: tutorials.hbs
 order: 40
+description: Learn about security on the Particle platform
 ---
 
 # Security

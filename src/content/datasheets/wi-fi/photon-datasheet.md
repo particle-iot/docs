@@ -3,6 +3,7 @@ title: Photon datasheet
 layout: datasheet.hbs
 columns: two
 order: 2
+description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 ---
 
 {{#unless pdf-generation}}

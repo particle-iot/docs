@@ -3,6 +3,7 @@ title: Google Cloud Platform
 layout: tutorials.hbs
 columns: two
 order: 100
+description: Connecting the Google Cloud platform to your Particle IoT device using the Particle Cloud
 ---
 
 # {{title}} Integration

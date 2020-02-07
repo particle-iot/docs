@@ -3,6 +3,7 @@ title: P1 datasheet
 layout: datasheet.hbs
 columns: two
 order: 3
+description: Datasheet for the Particle P1, Gen 2 Wi-Fi mass-production module
 ---
 
 {{#unless pdf-generation}}

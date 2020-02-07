@@ -1,6 +1,7 @@
 ---
 title: Argon
 layout: landing.hbs
+description: Particle Argon, Gen 3 Wi-Fi and BLE
 ---
 
 # Particle Argon: Wi-Fi + Bluetooth

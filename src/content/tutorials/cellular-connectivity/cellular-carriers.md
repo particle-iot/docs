@@ -3,6 +3,7 @@ title: Cellular Carriers
 layout: tutorials.hbs
 columns: two
 order: 24
+description: Cellular carriers for Particle cellular devices using the Particle SIM
 ---
 
 ## Cellular Carriers
