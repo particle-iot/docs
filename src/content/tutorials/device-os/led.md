@@ -2,9 +2,14 @@
 title: Status LED and Device Modes
 layout: tutorials.hbs
 columns: two
-devices: [ photon,electron,core,argon,boron,xenon ]
+devices: [ boron,photon,electron,argon,xenon ]
 order: 2 
 ---
+
+# Status LED - {{device}}
+
+You are viewing the Status LED and Device Modes for the **{{device}}**. To view the documentation for other 
+devices, use the blue device selector below the Particle logo on the left side of the page.
 
 ## Standard Modes
 These modes are the typical behaviors you will see from your {{device}} on a regular basis. They are the light patterns of a healthy {{device}}.
@@ -65,9 +70,7 @@ If you are unable to get past blinking green, here are a few known working situa
 {{#if photon}}
 - If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/support/particle-devices-faq/wpa2-enterprise/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 {{/if}} 
-{{#if core}}
-- If you are using a corporate or school network that uses WPA2 Enterprise, you cannot use a {{device}}. If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
-{{/if}}
+
 
 - If you are using a network that takes you to a web page where you need to either sign in or agree to terms and service when you first connect, using the {{device}} directly will be difficult or impossible. This is the case in some hotels and public Wi-Fi networks and is often referred to as Captive Portal.
 
@@ -77,11 +80,9 @@ If you are unable to get past blinking green, here are a few known working situa
 - If your Wi-Fi network uses 802.11n only mode (does not support 802.11b, 802.11g, or a combination of b, g, and n), it's not currently possible to connect a Photon or P1 to the network if the device is running Device OS 0.7.0 or later.
 {{/if}} 
 
-{{#unless core}}
 For home users:
 
 - If your router uses WEP encryption, you should upgrade your router to something more secure. However it may be possible to connect your {{device}} with some difficulty by following the [WEP configuration instructions](http://rickkas7.github.io/wep/).
-{{/unless}}
 
 And the less common situations:
 
@@ -89,9 +90,7 @@ And the less common situations:
 
 - If your Wi-Fi network does not support DHCP, and only uses static IP addresses, it is possible, though somewhat difficult, to set up a {{device}}. You will need to flash a program by USB to set the IP address.
 
-{{#unless core}}
 - If the Wi-Fi network restricts access to known device Ethernet MAC addresses, you'll need to determine the MAC address and give it to the network administrator. Put the {{device}} in listening mode (blinking dark blue) by holding down the {{system-button}} button, then use the Particle CLI command `particle serial mac`.
-{{/unless}}
 
 {{collapse op="end"}}
 
@@ -322,16 +321,6 @@ To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button
 
 {{/if}}
 
-{{#if core}}
-
-### Wi-Fi Network Reset
-
-{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}
-
-To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
-
-{{/if}}
-
 
 {{#if has-cellular}}
 ### Cellular Off
@@ -345,7 +334,7 @@ To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button
 If your {{device}} is breathing white, the {{network-type}} module is off. You might see this mode if:
 
 - You have set your module to `MANUAL` or `SEMI_AUTOMATIC` in your user firmware
-- You have called {{#if electron}}`Cellular.off()`{{/if}}{{#if photon}}`WiFi.off()`{{/if}}{{#if core}}`WiFi.off()`{{/if}} in your user firmware
+- You have called `Cellular.off()` or `WiFi.off()` in your user firmware
 
 
 
@@ -388,7 +377,6 @@ And a usage guide [here.](/reference/developer-tools/cli/)
 
 To enter DFU Mode:
 
-{{#unless core}}
 
 1. Hold down BOTH buttons
 2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.
@@ -399,18 +387,6 @@ To enter DFU Mode:
 {{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}
 {{/if}}
 
-{{/unless}}
-
-{{#if core}}
-
-1. Hold down BOTH buttons
-2. Release only the `RST` button, while holding down the `{{system-button}}` button.
-3. Wait for the LED to start flashing yellow
-4. Release the `{{system-button}}` button
-"
-{{vine "https://vine.co/v/eZUgeu0r639/embed/simple"}}
-
-{{/if}}
 
 The {{device}} now is in the DFU mode.
 
@@ -418,7 +394,6 @@ DFU mode requires device drivers under Windows. These should automatically be in
 
 Some users have reported issues with dfu-util on a USB3 ports (typically the blue ones). Use a USB2 port if the USB3 port doesn't work.
 
-{{#unless core}}
 
 ### Firmware Reset
 
@@ -494,11 +469,8 @@ To enter Firmware Reset Mode:
 4. Release the `{{system-button}}` button
 {{/if}}
 
-{{/unless}}
-
 ### Factory Reset
 
-{{#unless core}}
 
 {{#if has-gen3}}
 
@@ -548,28 +520,6 @@ particle device doctor
 
 {{/if}} {{!-- has-gen3 --}}
 
-{{/unless}} {{!-- core --}}
-
-{{#if core}}
-
-{{vine "https://vine.co/v/eZU6XdrYbd5/embed/simple"}}
-
-A factory reset restores the firmware on the {{device}} to the default Tinker app and clears all your Wi-Fi credentials.
-
-Procedure:
-
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the `{{system-button}}` button until you see the {{device}} change from blinking yellow to blinking white. Then release the button.  The {{device}} should begin after the factory reset is complete.
-
-1. Hold down BOTH buttons
-2. Release only the `RST` button, while holding down the `{{system-button}}` button.
-3. Wait for the LED to start blinking yellow (continue to hold the `{{system-button}}` button)
-4. The LED will turn solid white (continue to hold the `{{system-button}}` button)
-5. Finally, the LED will turn blink white rapidly
-6. Release the `{{system-button}}` button
-
-
-You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
-{{/if}}
 
 
 
@@ -593,13 +543,6 @@ If the Cellular module is on but not connected to a cellular tower, your {{devic
 If the Wi-Fi module is on but not connected to a network, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
 {{/if}}
 
-{{#if core}}
-### Wi-Fi Module Not Connected
-
-{{device-animation device "breathe" "blue" }}
-
-If the Wi-Fi module is on but not connected to a network, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
-{{/if}}
 
 ### Cloud Not Connected
 
@@ -657,7 +600,6 @@ void waitForSwitch() {
 
 In general it's better to structure your code so it always returns from loop(), but if that's not a viable solution, you can sprinkle some Particle.process() calls in your code.
 
-{{#unless core}}
 #### Solution 2: Enable SYSTEM_THREAD
 
 The other solution is to use [SYSTEM_THREAD](/reference/device-os/firmware/#system-thread) mode.
@@ -681,7 +623,6 @@ if (Particle.connected()) {
     Particle.publish("myEvent", PRIVATE);
 }
 ```
-{{/unless}}
 
 {{#if has-wifi}}
 #### Side note: Wi-Fi only mode
@@ -769,9 +710,7 @@ A pattern of more than 10 red blinks is caused by the firmware crashing. The pat
 {{#if electron}}
 [Enter safe mode](#safe-mode), tweak your firmware and try again!
 {{/if}}
-{{#if core}}
-[Perform a factory reset](#factory-reset), tweak your firmware and try again!
-{{/if}}
+
 
 There are a number of other red blink codes that may be expressed after the SOS blinks:
 
@@ -858,13 +797,8 @@ Things you should not do from an ISR:
 ### Solid colors
 
 
-{{#if core}}
-Solid colors are rare. There are two expected situations:
-- Solid white if you are in the middle of a factory reset.
-{{/if}}
-{{#unless core}}
 Solid colors are rare. There only expected situation is:
-{{/unless}}
+
 - Solid magenta if you are loading code in ymodem serial mode.
 
 

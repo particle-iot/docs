@@ -1,19 +1,15 @@
 ---
-title: Device OS API
+title: Device OS API - Core
 layout: reference.hbs
 columns: three
-devices: [boron,photon,electron,xenon,argon]
+setdevice: core
 order: 20
 ---
 
 Device OS API - {{device}}
 ==========
 
-You are viewing the Device OS API documentation for the **{{device}}**. To view the documentation for other 
-devices, use the blue device selector below the Particle logo on the left side of the page.
-
-The Device OS API for discontinued devices such as the [Spark Core](/reference/discontinued/firmware-core/) 
-can be found in the Discontinued section.
+**This section is the Device OS API for the Spark Core only. The last version of Device OS that can be used with the Spark Core is 1.4.4.**
 
 ## Cloud Functions
 
@@ -59,6 +55,7 @@ void setup() {
 | Function Argument | 63 | 622 | |
 | Publish/Subscribe Event Name | 64 | 64 | |
 | Publish/Subscribe Event Data | 255 | 622 |  |
+**Note:** Spark Core limits remain as-is prior to 0.8.0
 
 ### Particle.variable()
 
@@ -98,7 +95,7 @@ void loop()
 }
 ```
 
-Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). 
+Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).  The Spark Core remains limited to 12 characters.
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
@@ -168,14 +165,14 @@ int funcName(String extra) {
 }
 ```
 
-Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). 
+Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). The Spark Core remains limited to 12 characters.
 
 **Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 A function callback procedure needs to return as quickly as possible otherwise the cloud call will timeout.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
-A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The String is UTF-8 encoded.
+A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The Spark Core remains limited to 63 characters. The String is UTF-8 encoded.
 
 When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
 
@@ -277,7 +274,7 @@ Cloud events have the following properties:
 * PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! **NOTE:** TTL is not implemented, hence the ttl value has no effect. Events must be caught immediately; once sent they will be gone *immediately*.
-* optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).
+* optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
 
 Anyone may subscribe to public events; think of them like tweets.
 Only the owner of the device will be able to subscribe to private events.
@@ -448,6 +445,16 @@ Unlike functions and variables, you typically call Particle.publish from loop() 
 
 {{since when="1.2.0"}}
 
+{{#if core}}
+```cpp
+// SYNTAX
+
+system_error_t Particle.publishVitals(system_tick_t period_s = particle::NOW)
+
+Particle.publishVitals();  // Publish vitals immmediately
+Particle.publishVitals(<any value>);  // Publish vitals immediately
+```
+{{/if}}{{#unless core}}
 ```cpp
 // SYNTAX
 
@@ -458,6 +465,7 @@ Particle.publishVitals(particle::NOW);  // Publish vitals immediately
 Particle.publishVitals(5);  // Publish vitals every 5 seconds, indefinitely
 Particle.publishVitals(0);  // Publish immediately and cancel periodic publishing
 ```
+{{/unless}} {{!-- unless core --}}
 
 Publish vitals information
 
@@ -465,11 +473,15 @@ Provides a mechanism to control the interval at which system diagnostic messages
 
 **Argument(s):**
 
+{{#if core}}
+_none._
+{{/if}}{{#unless core}}
 * `period_s` The period _(in seconds)_ at which vitals messages are to be sent to the cloud (default value: `particle::NOW`)
 
   * `particle::NOW` - A special value used to send vitals immediately
   * `0` - Publish a final message and disable periodic publishing
   * `s` - Publish an initial message and subsequent messages every `s` seconds thereafter
+{{/unless}} {{!-- unless core --}}
 
 **Returns:**
 
@@ -497,6 +509,7 @@ loop () {
 }
 ```
 
+{{#unless core}}
 ```cpp
 // EXAMPLE - Publish vitals periodically, indefinitely
 
@@ -524,7 +537,7 @@ loop () {
   }
 }
 ```
-
+{{/unless}} {{!-- unless core --}}
 
 >_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
 
@@ -732,7 +745,7 @@ While this function will disconnect from the Cloud, it will keep the connection 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. 
-Safe mode can be used to reconnect to the cloud.*
+{{#if core}}A factory reset should resolve the issue.{{/if}}{{#unless core}}Safe mode can be used to reconnect to the cloud.{{/unless}}*
 
 ### Particle.connected()
 
@@ -1559,7 +1572,7 @@ void loop() {
 ### listen()
 
 This will enter or exit listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
-Soft AP on the Photon or BLE on the Argon.
+{{#if core}}Smart Config{{/if}}{{#if photon}}Soft AP{{/if}}.
 
 ```cpp
 // SYNTAX - enter listening mode
@@ -1586,6 +1599,10 @@ WiFi.listen(false);
 WiFi.listening();
 ```
 
+{{#unless has-threading}}
+Because listening mode blocks your application code on the {{device}}, this command is not useful on the Core.
+It will always return `false`.
+{{/unless}} {{!-- has-threading --}}
 {{#if has-threading}}
 This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
 With a dedicated system thread though `WiFi.listening()` will return `true` once `WiFi.listen()` has been called
@@ -1605,6 +1622,12 @@ WiFi.setListenTimeout(seconds);
 
 `WiFi.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Wi-Fi devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (WiFi.listening()==true).  After the timer expires, listening mode will be exited automatically.  If WiFi.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  {{#if has-threading}}**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.{{/if}} 
 
+{{#if core}}
+Because listening mode blocks your application code on the Core, this command should be avoided in loop().  It can be used with the STARTUP() macro or in setup() on the Core.
+It will always return `false`.
+
+This setting is not persistent in memory if the {{device}} is rebooted.
+{{/if}}
 
 ```cpp
 // EXAMPLE
@@ -1648,6 +1671,7 @@ void setup() {
 Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
 
 Your device can remember more than one set of credentials:
+- Core: remembers the 7 most recently set credentials
 - Photon: remembers the 5 most recently set credentials.
 - Argon: remembers the 10 most recently set credentials.
 
@@ -1770,6 +1794,11 @@ Lists the Wi-Fi networks with credentials stored on the device. Returns the numb
 
 Note that this returns details about the Wi-Fi networks, but not the actual password.
 
+{{#if core}}
+
+*Core: always returns 0 since Wi-Fi credentials cannot be read back from the CC3000 Wi-Fi module.*
+
+{{else}}
 
 ```cpp
 // EXAMPLE
@@ -1787,6 +1816,7 @@ for (int i = 0; i < found; i++) {
 }
 ```
 
+{{/if}}
 
 ### clearCredentials()
 
@@ -1833,6 +1863,9 @@ void setup() {
 ```cpp
 // EXAMPLE USAGE
 
+// Only for Spark Core using firmware < 0.4.0
+// Mac address is in the reversed order and
+// is fixed from v0.4.0 onwards
 
 byte mac[6];
 
@@ -3953,12 +3986,14 @@ void loop()
 ```
 
 {{#if has-stm32}}
+{{#if core}}- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.{{/if}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 - Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
 
 The PWM frequency must be the same for pins in the same timer group.
 
+{{#if core}}- On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.{{/if}}
 - On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
 - On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX/P1S6.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
@@ -4119,6 +4154,19 @@ void loop()
 ### setADCSampleTime()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
+
+{{#if core}}
+On the Core, this parameter can be one of the following values (ADC clock = 18MHz or 55.6ns per cycle):
+
+ * ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles, 83ns
+ * ADC_SampleTime_7Cycles5: Sample time equal to 7.5 cycles, 417ns
+ * ADC_SampleTime_13Cycles5: Sample time equal to 13.5 cycles, 750ns
+ * ADC_SampleTime_28Cycles5: Sample time equal to 28.5 cycles, 1.58us
+ * ADC_SampleTime_41Cycles5: Sample time equal to 41.5 cycles, 2.31us
+ * ADC_SampleTime_55Cycles5: Sample time equal to 55.5 cycles, 3.08us
+ * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles, 3.97us
+ * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles, 13.3us
+{{/if}}
 
  On the Photon and Electron, this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
 
@@ -4282,6 +4330,9 @@ void loop()
 
 Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin. tone() is generally used to make sounds or music on speakers or piezo buzzers.
 
+{{#if core}}
+- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
+{{/if}}
 
 {{#if has-stm32}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
@@ -4573,7 +4624,7 @@ loop() {
 
 Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
 
-The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally measure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The `pulseIn()` routine will time out and return 0 after 3 seconds.
+The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally measure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The `pulseIn()` routine will time out and return 0 after 3 seconds.
 
 ```cpp
 // SYNTAX
@@ -4921,6 +4972,10 @@ Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2
 
 {{#if has-serial2}}
 
+{{#if core}}
+`Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins.
+{{/if}}
+
 {{#if photon}}
 `Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
 
@@ -4948,7 +5003,7 @@ To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's ma
 `Serial5:` This channel is optionally available via the Electron's C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file.
 {{/if}}
 
-To use the Serial1{{#if has-serial2}} or Serial2{{/if}} pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and ground.
+To use the Serial1{{#if has-serial2}} or Serial2{{/if}} pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 
 ```cpp
 // EXAMPLE USAGE
@@ -5041,7 +5096,7 @@ Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EV
 
 {{#if has-serial2}}
 #include "Serial2/Serial2.h"
-Serial2.begin(speed);         // RGB-LED green(TX) and blue (RX) pins
+Serial2.begin(speed);         {{#if core}}// D1(TX) and D0(RX) pins{{else}}// RGB-LED green(TX) and blue (RX) pins{{/if}}
 Serial2.begin(speed, config); //  "
 
 Serial2.begin(9600);         // via RGB Green (TX) and Blue (RX) LED pins
@@ -5062,6 +5117,10 @@ Serial5.begin(speed, config); //  "
 Parameters:
 - `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_ 
 - `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
+
+{{#if core}}
+Hardware serial port baud rates are: 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, and 115200 on the {{device}}.
+{{/if}}
 
 {{#if has-stm32f2}}
 Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, and 230400 on the {{device}}.
@@ -5148,6 +5207,10 @@ Other options, including odd parity, and 7 and 9 bit modes, are not available on
 {{/if}} {{!-- has-nrf52 --}}
 
 
+{{#if core}}
+Hardware flow control, available only on Serial1 (`CTS` - `A0`, `RTS` - `A1`):
+{{/if}}
+
 {{#if has-stm32f2}} {{!-- photon and electron --}}
 Hardware flow control, available only on Serial2 (`CTS` - `A7`, `RTS` - `RGBR` ):
 {{/if}}
@@ -5204,10 +5267,12 @@ Disables serial channel.
 
 When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), disables serial communication, allowing channel's RX and TX pins to be used for general input and output. To re-enable serial communication, call `SerialX.begin()`.
 
+{{#unless core}}
 
 {{since when="0.6.0"}}
 
 When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
+{{/unless}}
 
 ```cpp
 // SYNTAX
@@ -5644,6 +5709,8 @@ _Since 0.5.3 Available on `Serial`._
 _Since 0.6.0 Available on `Serial`{{#if has-usb-serial1}} and `USBSerial1`{{/if}}._
 
 Used to check if host has serial port (virtual COM port) open.
+
+{{#if core}}***NOTE:*** This function always returns `true` on {{device}}.{{/if}}
 
 Returns:
 - `true` when Host has virtual COM port open.
@@ -6234,6 +6301,9 @@ This library allows you to communicate with SPI devices, with the {{device}} as 
 {{#if has-stm32}}_Since 0.5.0_ {{/if}}The {{device}} can function as a SPI slave.
 {{/if}}
 
+{{#if core}}
+![SPI](/assets/images/core-pin-spi.jpg)
+{{/if}}
 
 {{#if has-embedded}}
 
@@ -6319,6 +6389,9 @@ Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  I
 - Argon, Boron, Xenon: `A5 (D14)`
 - B Series SoM: `D8`
 - Photon, P1, Electron, and E Series: `A2`
+{{#if core}}
+- Gen 1 (Core): `A2`
+{{/if}} {{!-- core --}}
 {{#if has-multiple-spi}}
 For `SPI1`, the default `ss` pin is `D5`.
 {{#if electron}}
@@ -6357,6 +6430,9 @@ Parameters:
 - Argon, Boron, Xenon: `A5 (D14)`
 - B Series SoM: `D8`
 - Photon, P1, Electron, and E Series: `A2`
+{{#if core}}
+- Gen 1 (Core): `A2`
+{{/if}}
 {{#if has-multiple-spi}}
 For `SPI1`, the default `ss` pin is `D5`.
 {{#if electron}}
@@ -6479,6 +6555,9 @@ SPI.setClockDivider(SPI_CLK_DIV4);
 ```
 
 The default clock divider reference is the system clock.
+{{#if core}}
+On the Core, this is 72 MHz.
+{{else}}
 
 {{#if has-stm32}}
 On the Photon and Electron, the system clock speeds are:
@@ -6488,6 +6567,7 @@ On the Photon and Electron, the system clock speeds are:
 {{#if has-nrf52}}
 On Gen 3 devices (Argon, Boron, Xenon), system clock speed is 64 MHz.
 {{/if}} {{!-- has-nrf52 --}}
+{{/if}} {{!-- else core --}}
 
 
 
@@ -6518,13 +6598,17 @@ Where the parameter, `divider` can be:
 
 The clock reference varies depending on the device.
 
+{{#if core}}
+On the Core, the clock reference is 72 MHz.
+{{else}}
+
 {{#if has-stm32}}
 On the Photon and Electron, the clock reference is 120 MHz.
 {{/if}}
 {{#if has-nrf52}}
 On Gen 3 devices (Argon, Boron, Xenon), the clock reference is 64 MHz.
 {{/if}} {{!-- has-nrf52 --}}
-
+{{/if}} {{!-- else core --}}
 
 
 
@@ -6565,7 +6649,7 @@ SPI2.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
-
+{{#unless core}}
 ### transfer(void\*, void\*, size_t, std::function)
 
 For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initializes, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
@@ -6738,6 +6822,7 @@ SPI.available();
 
 Returns the number of bytes available.
 
+{{/unless}} {{!-- core --}}
 
 {{#if has-spi-settings}}
 ### SPISettings
@@ -6805,6 +6890,9 @@ Returns: Negative integer in case of an error.
 
 Releases the SPI peripheral.
 
+{{#if core}}
+**NOTE:** This function does nothing on {{device}}.
+{{/if}} {{!-- core --}}
 
 {{#if has-threading}}
 This function releases the SPI peripheral lock, allowing other threads to use it. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
@@ -6834,13 +6922,16 @@ Wire (I2C)
 ---
 (inherits from [`Stream`](#stream-class))
 
+{{#if core}}
+![I2C](/assets/images/core-pin-i2c.jpg)
+{{/if}}
 
 This library allows you to communicate with I2C / TWI (Two Wire Interface) devices.
 
 {{#if has-embedded}}
 
 {{#if has-stm32}}
-On the Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
 {{/if}} {{!-- has-stm32 --}}
 
 {{#if has-nrf52}}
@@ -6848,7 +6939,7 @@ On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial 
 
 Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
 
-Note that unlike Gen 2 devices (Photon/P1/Electron), Gen 3 devices are not 5V tolerant.
+Note that unlike the Gen 1 (Core) and Gen 2 devices (Photon/P1/Electron), Gen 3 devices are not 5V tolerant.
 {{/if}} {{!-- has-nrf52 --}}
 
 
@@ -10139,6 +10230,9 @@ _Note that UDP does not guarantee that messages are always delivered, or that
 they are delivered in the order supplied. In cases where your application
 requires a reliable connection, `TCPClient` is a simpler alternative._
 
+{{#if core}}
+The UDP protocol implementation has known issues that will require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
+{{/if}}
 
 There are two primary ways of working with UDP - buffered operation and unbuffered operation.
 
@@ -10583,6 +10677,7 @@ void loop()
 
 Set up a servo on a particular pin. Note that, Servo can only be attached to pins with a timer.
 
+- on the Core, Servo can be connected to A0, A1, A4, A5, A6, A7, D0, and D1.
 - on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
 - on the P1, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, P1S0, P1S1
 - on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
@@ -11310,8 +11405,12 @@ Applies theme settings.
 
 ```cpp
 // SYNTAX
+{{#unless core}}
 void LEDSystemTheme::apply(bool save = false);
-
+{{/unless}}
+{{#if core}}
+void LEDSystemTheme::apply();
+{{/if}}
 
 // EXAMPLE - applying theme settings
 LEDSystemTheme theme;
@@ -11319,9 +11418,11 @@ theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE);
 theme.apply();
 ```
 
+{{#unless core}}
 Parameters:
 
   * `save` : whether theme settings should be saved to a persistent storage (default value is `false`)
+{{/unless}}
 
 #### restoreDefault()
 
@@ -11351,10 +11452,15 @@ LED_SIGNAL_CLOUD_HANDSHAKE | Performing handshake with the Cloud | Normal | Fast
 LED_SIGNAL_CLOUD_CONNECTED | Connected to the Cloud | Background | Breathing cyan
 LED_SIGNAL_SAFE_MODE | Connected to the Cloud in safe mode | Background | Breathing magenta
 LED_SIGNAL_LISTENING_MODE | Listening mode | Normal | Slow blinking blue
+{{#unless core}}
 LED_SIGNAL_DFU_MODE * | DFU mode | Critical | Blinking yellow
+LED_SIGNAL_FIRMWARE_UPDATE * | Performing firmware update | Critical | Blinking magenta
+{{/unless}}
 LED_SIGNAL_POWER_OFF | Soft power down is pending | Critical | Solid gray
 
+{{#unless core}}
 **Note:** Signals marked with an asterisk (*) are implemented within the bootloader and currently don't support pattern type and speed customization due to flash memory constraints. This may be changed in future versions of the firmware.
+{{/unless}}
 
 ### LEDPriority Enum
 
@@ -11465,7 +11571,7 @@ void loop()
 }
 ```
 
-It overflows at the maximum 32-bit unsigned long value.
+In Device OS v0.4.3 and earlier this number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron. In newer Device OS versions, it overflows at the maximum 32-bit unsigned long value.
 
 ### delay()
 
@@ -11872,6 +11978,10 @@ If you have set the time zone using Time.zone(), beginDST(), etc. the formatted 
 
 **Note:** The custom time provided to `Time.format()` needs to be UTC based and *not* contain the time zone offset (as `Time.local()` would), since the time zone correction is performed by the high level `Time` methods internally.
 
+{{#if core}}
+**Note:** On the Core the format function is implemented using `strftime()` which adds several kilobytes to the size of firmware.
+Application firmware that has limited space available may want to consider using simpler alternatives that consume less firmware space, such as `sprintf()`.
+{{/if}}
 
 ### setFormat()
 
@@ -12030,7 +12140,11 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
   - C3, TX
   - C4, RX
 
+{{#if core}}
+#### Spark Core
 
+Interrupts supported on D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7 only.
+{{/if}}
 {{/if}} {{!-- has-stm32 --}}
 
 Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/hardware/pin-info).
@@ -12165,7 +12279,8 @@ noInterrupts();
 ## Software Timers
 
 {{#if has-stm32}}
-_Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box.
+_Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
+`freertos4core` Particle library <a href="https://build.particle.io/libs/freertos4core/0.2.0/tab/example/timers.ino" target="_blank">(Timers.ino example found here)</a> should be used to add FreeRTOS to the core._
 {{/if}}
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
@@ -12686,6 +12801,7 @@ Returns the total number of bytes available in the emulated EEPROM.
 size_t length = EEPROM.length();
 ```
 
+- The Core has 127 bytes of emulated EEPROM.
 - The Gen 2 (Photon, P1, Electron, and E Series) have 2047 bytes of emulated EEPROM.
 - The Gen 3 (Argon, Boron, Xenon) devices have 4096 bytes of emulated EEPROM.
 
@@ -13598,7 +13714,7 @@ Firmware 0.4.7 has a version number 0x00040700
 
 {{since when="0.4.6"}}
 
-Can be used to determine how long the System button (SETUP on Photon, MODE on other devices) has been pushed.
+Can be used to determine how long the System button (MODE on Core/Electron, SETUP on Photon) has been pushed.
 
 Returns `uint16_t` as duration button has been held down in milliseconds.
 
@@ -13716,6 +13832,18 @@ Serial.println(freemem);
 ```
 
 
+{{#if core}}
+### factoryReset()
+
+This will perform a factory reset and do the following:
+- Restore factory reset firmware from external flash (tinker)
+- Erase Wi-Fi profiles
+- Enter Listening mode upon completion
+
+```cpp
+System.factoryReset()
+```
+{{/if}}
 ### dfu()
 
 The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
@@ -13798,10 +13926,10 @@ System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
 
 // Since 0.8.0
-// Put the device into deep sleep for 60 seconds and disable WKP pin
+// Put the device into deep sleep for 60 seconds and disable {{#if core}}A7{{else}}WKP{{/if}} pin
 System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
 // The device LED will shut off during deep sleep
-// The device will not wake up if a rising edge signal is applied to WKP
+// The device will not wake up if a rising edge signal is applied to {{#if core}}A7{{else}}WKP{{/if}}
 ```
 
 {{/if}} {{!-- has-stm32 --}}
@@ -13831,10 +13959,10 @@ The standby mode is used to achieve the lowest power consumption.  After enterin
 For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods of 5 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up, and supports sleeping for shorter intervals.
 
 {{#if has-stm32}}
-The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the WKP pin.
+The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
 
 {{since when="0.8.0"}}
-Wake up by WKP pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
+Wake up by {{#if core}}A7{{else}}WKP{{/if}} pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
 
 {{#if has-fuel-gauge}}
 ---
@@ -13871,9 +13999,7 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 
 ---
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. 
-
-The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.{{/if}}
 
 ```cpp
 // SYNTAX
@@ -13889,6 +14015,10 @@ System.sleep(D1,RISING);
 // The device LED will shut off during sleep
 ```
 
+{{#if core}}
+It is mandatory to update the *bootloader* (https://github.com/particle-iot/device-os/tree/bootloader-patch-update) for proper functioning of this mode.
+{{/if}}
+
 {{#if has-cellular}}
 The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption during sleep. Roughly speaking, for sleep periods of less than 15 minutes, `SLEEP_NETWORK_STANDBY` uses less power.
 
@@ -13901,7 +14031,11 @@ For sleep periods of less than 5 minutes you must use `SLEEP_NETWORK_STANDBY`. Y
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
 {{#if has-stm32}}
     - supports external interrupts on the following pins:
+{{#unless core}}
       - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
 {{else}}
     - all pins are allowed, but a maximum of 8 can be used at a time
@@ -13968,7 +14102,11 @@ Multiple wakeup pins may be specified for this mode.
     - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
 {{#if has-stm32}}
     - supports external interrupts on the following pins:
+{{#unless core}}
       - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
 {{else}}
     - all pins are allowed, but a maximum of 8 can be used at a time
@@ -14001,14 +14139,20 @@ System.sleep(D1,RISING,60);
 // The device LED will shut off during sleep
 ```
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.{{/if}}
+
+{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/particle-iot/device-os/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
 
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
 {{#if has-stm32}}
     - supports external interrupts on the following pins:
+{{#unless core}}
       - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
 {{else}}
     - all pins are allowed, but a maximum of 8 can be used at a time
@@ -14075,7 +14219,11 @@ Multiple wakeup pins may be specified for this mode.
     - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
 {{#if has-stm32}}
     - supports external interrupts on the following pins:
+{{#unless core}}
       - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+{{else}}
+      - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+{{/unless}}
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
 {{else}}
     - all pins are allowed, but a maximum of 8 can be used at a time
@@ -17492,7 +17640,7 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 
 ### Data Types
 
-**Note:** The Photon/P1/Electron uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
+**Note:** The Core/Photon/Electron uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
 
 #### void
 
@@ -17582,7 +17730,7 @@ byte b = 0x11;
 
 #### int
 
-Integers are your primary data-type for number storage. On the Photon/Electron, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
+Integers are your primary data-type for number storage. On the Core/Photon/Electron, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
 int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
 
 Other variations:
@@ -17593,7 +17741,7 @@ Other variations:
 
 #### unsigned int
 
-The Photon/Electron stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
+The Core/Photon/Electron stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
 The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
 
 Other variations:
@@ -17627,7 +17775,7 @@ Floating point math is also much slower than integer math in performing calculat
 
 #### double
 
-Double precision floating point number. On the Photon/Electron, doubles have 8-byte (64 bit) precision.
+Double precision floating point number. On the Core/Photon/Electron, doubles have 8-byte (64 bit) precision.
 
 #### string - char array
 
@@ -17874,7 +18022,6 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v1.5.x prereleases|[v1.5.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.1)|-|-|-|-|-|-|
 |v1.4.x default releases|[v1.4.0](https://github.com/particle-iot/device-os/releases/tag/v1.4.0)|[v1.4.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.1)|[v1.4.2](https://github.com/particle-iot/device-os/releases/tag/v1.4.2)|[v1.4.3](https://github.com/particle-iot/device-os/releases/tag/v1.4.3)|[v1.4.4](https://github.com/particle-iot/device-os/releases/tag/v1.4.4)|-|-|
 |v1.4.x prereleases|[v1.4.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.0-rc.1)|[v1.4.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.1-rc.1)|-|-|-|-|-|
 |v1.3.x default releases|[v1.3.1](https://github.com/particle-iot/device-os/releases/tag/v1.3.1)|-|-|-|-|-|-|
@@ -17901,7 +18048,6 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v1.5.x prereleases|[v1.5.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.5.0-rc.1&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v1.4.x default releases|[v1.4.0](/reference/device-os/firmware/photon/?fw_ver=1.4.0&cli_ver=1.47.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.1](/reference/device-os/firmware/photon/?fw_ver=1.4.1&cli_ver=1.48.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.2](/reference/device-os/firmware/photon/?fw_ver=1.4.2&cli_ver=1.49.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.3](/reference/device-os/firmware/photon/?fw_ver=1.4.3&cli_ver=1.52.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.4](/reference/device-os/firmware/photon/?fw_ver=1.4.4&cli_ver=1.53.0&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v1.4.x prereleases|[v1.4.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.4.0-rc.1&cli_ver=1.43.3&electron_parts=3#programming-and-debugging-notes)|[v1.4.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.4.1-rc.1&cli_ver=1.47.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v1.3.x default releases|[v1.3.1](/reference/device-os/firmware/photon/?fw_ver=1.3.1&cli_ver=1.46.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
@@ -17925,7 +18071,6 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v2.1.0  = 1.5.0-rc.1
 v1.53.0 = 1.4.4
 v1.52.0 = 1.4.3
 v1.49.0 = 1.4.2
@@ -18008,8 +18153,6 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@1.4.3endif
 ##### @FW_VER@1.4.4if
 ##### @FW_VER@1.4.4endif
-##### @FW_VER@1.5.0if
-##### @FW_VER@1.5.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -18076,8 +18219,6 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.52.0endif
 ##### @CLI_VER@1.53.0if
 ##### @CLI_VER@1.53.0endif
-##### @CLI_VER@2.1.0if
-##### @CLI_VER@2.1.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -18105,7 +18246,7 @@ The following instructions are for upgrading to **Device OS v@FW_VER@** which re
 
 **Updating Device OS Automatically**
 
-To update your Photon or P1 Device OS version automatically, compile and flash your application in the [Build IDE](https://build.particle.io), selecting version **@FW_VER@** in the devices drawer. The app will be flashed, following by the system part1 and part2 firmware for Photon and P1. Other update instructions for Photon, P1 and Electron can be found below.
+To update your Photon, P1 or Core Device OS version automatically, compile and flash your application in the [Build IDE](https://build.particle.io), selecting version **@FW_VER@** in the devices drawer. The app will be flashed, following by the system part1 and part2 firmware for Photon and P1. Other update instructions for Core, Photon, P1 and Electron can be found below.
 
 ---
 
@@ -18242,17 +18383,6 @@ particle flash --usb tinker
 
 ##### @FW_VER@1.4.4endif
 
-##### @FW_VER@1.5.0if
-**Note:** The following update sequence is required!
-
-- First Update to 0.5.3 (if the current version is less than that)
-- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
-- Then update to 0.7.0
-- Then update to 1.2.1
-- Then update to 1.5.0
-
-##### @FW_VER@1.5.0endif
-
 **Note:** As a Product in the Console, when flashing a >= 0.6.0 user
 app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware.
 This will consume about 500KB of data as it has to transfer two 0.5.3
@@ -18266,6 +18396,9 @@ If your device is online, you can attempt to OTA (Over The Air) update these sys
 ##### @ELECTRON_PARTS@2if
 ```
 The OTA method using Particle CLI
+
+// Core
+particle flash YOUR_DEVICE_NAME tinker-@FW_VER@-core.bin
 
 // Photon
 particle flash YOUR_DEVICE_NAME system-part1-@FW_VER@-photon.bin
@@ -18288,6 +18421,8 @@ particle flash YOUR_DEVICE_NAME tinker (optional)
 ```
 The OTA method using Particle CLI
 
+// Core
+particle flash YOUR_DEVICE_NAME tinker-@FW_VER@-core.bin
 
 // Photon
 particle flash YOUR_DEVICE_NAME system-part1-@FW_VER@-photon.bin
@@ -18321,6 +18456,9 @@ To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os
 ```
 The local method over USB using Particle CLI
 
+// Core
+particle flash --usb tinker-@FW_VER@-core.bin
+
 // Photon
 particle flash --usb system-part1-@FW_VER@-photon.bin
 particle flash --usb system-part2-@FW_VER@-photon.bin
@@ -18341,6 +18479,9 @@ particle flash --usb tinker (optional)
 ##### @ELECTRON_PARTS@3if
 ```
 The local method over USB using Particle CLI
+
+// Core
+particle flash --usb tinker-@FW_VER@-core.bin
 
 // Photon
 particle flash --usb system-part1-@FW_VER@-photon.bin
@@ -18371,6 +18512,9 @@ can be applied to offline devices locally over USB using `dfu-util`
 ```
 The local DFU-UTIL method
 
+// Core
+dfu-util -d 1d50:607f -a 0 -s 0x8005000:leave -D tinker-@FW_VER@-core.bin
+
 // Photon
 dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-@FW_VER@-photon.bin
 dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-@FW_VER@-photon.bin
@@ -18389,6 +18533,8 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part2-@FW_VER@-electron.
 ```
 The local DFU-UTIL method
 
+// Core
+dfu-util -d 1d50:607f -a 0 -s 0x8005000:leave -D tinker-@FW_VER@-core.bin
 
 // Photon
 dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-@FW_VER@-photon.bin
@@ -18412,7 +18558,7 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.
 Current default Device OS would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
 
 ##### @FW_VER@0.5.1if
-**Caution:** After upgrading to 0.5.1, DO NOT downgrade Device OS via OTA remotely! This will cause Wi-Fi credentials to be erased on the Photon and P1.  This does not affect the Electron.  Feel free to downgrade locally with the understanding that you will have to re-enter Wi-Fi credentials.  Also note that 0.5.1 fixes several important bugs, so there should be no reason you'd normally want to downgrade.
+**Caution:** After upgrading to 0.5.1, DO NOT downgrade Device OS via OTA remotely! This will cause Wi-Fi credentials to be erased on the Photon and P1.  This does not affect the Core or Electron.  Feel free to downgrade locally with the understanding that you will have to re-enter Wi-Fi credentials.  Also note that 0.5.1 fixes several important bugs, so there should be no reason you'd normally want to downgrade.
 ##### @FW_VER@0.5.1endif
 
 ##### @FW_VER@0.5.2if

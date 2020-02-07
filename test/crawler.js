@@ -24,7 +24,7 @@ var ignoreHosts = [
   'www.st.com', // randomly returns 403 errors
   '192.168.0.1',
 ];
-var devices = ['photon', 'electron', 'core', 'argon', 'boron', 'xenon'];
+var devices = ['photon', 'electron', 'argon', 'boron', 'xenon'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
 var stats = {

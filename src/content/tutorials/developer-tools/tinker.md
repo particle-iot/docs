@@ -2,11 +2,14 @@
 title: Tinker & Mobile App
 layout: tutorials.hbs
 columns: two
-devices: [ photon,electron,core,argon,boron,xenon]
+devices: [ photon,electron,argon,boron,xenon]
 order: 23
 ---
 
-# Tinkering with "Tinker"
+# Tinkering with "Tinker" - {{device}}
+
+You are viewing the Tinker documentation the **{{device}}**. To view the documentation for other 
+devices, use the blue device selector below the Particle logo on the left side of the page.
 
 ![Tinker selection](/assets/images/tinker.png)
 

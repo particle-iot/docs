@@ -182,6 +182,7 @@
     "/reference/api": "/reference/device-cloud/api",
     "/reference/cli": "/reference/developer-tools/cli",
     "/reference/community": "/community/community",
+    "/reference/device-os/firmware/core":"/reference/discontinued/firmware-core",
     "/reference/device-os/firmware/raspberry-pi": "/raspberry-pi",
     "/reference/discontinued/particle-agent": "/raspberry-pi",
     "/reference/firmware": "/reference/device-os/firmware",
