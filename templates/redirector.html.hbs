@@ -27,6 +27,15 @@
             if (lastDevice && fork) {
                 window.location.replace(fork.path + window.location.hash);
             }
+            else {
+                // 2020-02: Skip the device selection interstitial if the
+                // last device is not set and instead jump to the first device
+                // in the list. 
+                if (devices.length >= 1) {
+                    var fork = forkLocations[devices[0]];
+                    window.location.replace(fork.path + window.location.hash);
+                }
+            }
         }
     </script>
     <script src="/assets/js/docs.js"></script>

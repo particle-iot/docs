@@ -2,13 +2,16 @@
 title: Hardware Examples
 layout: tutorials.hbs
 columns: two
-devices: [photon,electron,core,xenon,argon,boron]
+devices: [photon,electron,xenon,argon,boron]
 order: 90
 ---
 
-# Hardware Examples
+# Hardware Examples - {{device}}
 
-Here you will find a bunch of examples to get you started with your new Particle device! {{#unless electron}}The diagrams here show the Photon, but these examples will work with either the Photon or the Core.{{/unless}}
+You are viewing the Hardware Examples for the **{{device}}**. To view the documentation for other 
+devices, use the blue device selector below the Particle logo on the left side of the page.
+
+Here you will find a bunch of examples to get you started with your new Particle device! {{#unless electron}}The diagrams here show the Photon, but these examples will work with either the Photon.{{/unless}}
 
 These examples are also listed in the online IDE in the Code menu.
 
@@ -140,7 +143,7 @@ int led1 = D6; // Instead of writing D0 over and over again, we'll write led1
 // You'll need to wire an LED to this one to see it blink.
 
 int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
-// This one is the little blue LED on your board. On the Photon it is next to D7, and on the Core it is next to the USB jack.
+// This one is the little blue LED on your board. On the Photon it is next to D7.
 
 // Having declared these variables, let's move on to the setup function.
 // The setup function is a standard part of any microcontroller program.
@@ -896,7 +899,7 @@ void myHandler(const char *event, const char *data)
 
 In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
 
-Go find a buddy who has a Core, Photon, or Electron. Your buddy does not have to be next to you--she or he can be across the world if you like! All you need is a connection.
+Go find a buddy who has a Photon, or Electron. Your buddy does not have to be next to you--she or he can be across the world if you like! All you need is a connection.
 
 Connect your device and copy the firmware on the right into a new app. Pick a weird name for your event. {{#unless electron}}If your device were named `starfish` for example, you could make your event name something like `starfish_special_event_20150515`. Have your buddy pick a name for their event as well. No more than 63 ASCII characters, and no spaces!{{/unless}}{{#if electron}}Keep it short for data efficiency, but unique so no one else will be using it.{{/if}}
 
