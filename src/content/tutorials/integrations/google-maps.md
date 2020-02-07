@@ -3,6 +3,7 @@ title: Google Maps
 layout: tutorials.hbs
 columns: two
 order: 110
+description: Cellular and Wi-Fi geolocation for your Particle IoT device
 ---
 
 # {{title}}

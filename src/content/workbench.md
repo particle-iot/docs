@@ -1,6 +1,7 @@
 ---
 title: Workbench
 layout: landing.hbs
+description: Desktop IDE for writing Particle IoT device firmware for Windows, Mac OS, and Linux
 ---
 
 # Particle Workbench

@@ -3,6 +3,7 @@ title: Argon
 layout: quickstart.hbs
 columns: two
 order: 3
+description: Getting started with your Particle Argon, Gen 3 Wi-Fi and BLE device
 ---
 
 # Quick start: Argon

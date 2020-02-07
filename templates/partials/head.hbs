@@ -9,8 +9,17 @@
 <link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/49057/Dashboard/style.css?9t9e91">
 
 <!-- Meta -->
-<meta content="Particle" property="og:title">
+{{#if sectionTitle}}
+<meta content="{{title}} - {{sectionTitle}}" property="og:title">
+{{else}}
+<meta content="{{title}}" property="og:title">
+{{/if}}
+
+{{#if description}}
+<meta content="{{description}}" name="description">
+{{else}}
 <meta content="Documentation for Particle, a platform for connected devices." name="description">
+{{/if}}
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="/assets/orange.ico" type="image/x-icon" />

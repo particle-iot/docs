@@ -3,6 +3,7 @@ title: Boron datasheet
 layout: datasheet.hbs
 columns: two
 order: 1
+description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
 # Boron Datasheet <sup>(v002)</sup>

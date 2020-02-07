@@ -3,6 +3,7 @@ title: iOS SDK
 layout: reference.hbs
 columns: three
 order: 20
+description: Manage your Particle IoT device IoT device from an iOS phone or tablet
 ---
 
 # {{title}}

@@ -5,6 +5,7 @@ order: 140
 shared: true
 columns: two
 layout: tutorials.hbs
+description: Connecting the IFTTT (if this then that) to your Particle IoT device using the Particle Cloud
 ---
 
 # Particle Channel on IFTTT

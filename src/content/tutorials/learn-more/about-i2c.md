@@ -3,6 +3,7 @@ title: About I2C
 layout: tutorials.hbs
 columns: two
 order: 10
+description: Learn more about the I2C interface on your Particle IoT device
 ---
 
 # About I2C

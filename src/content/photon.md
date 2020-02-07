@@ -1,6 +1,7 @@
 ---
 title: Photon
 layout: landing.hbs
+description: Particle Photon, Gen 2 Wi-Fi development kit
 ---
 
 # Particle Photon: Wi-Fi

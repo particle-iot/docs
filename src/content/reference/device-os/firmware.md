@@ -4,6 +4,7 @@ layout: reference.hbs
 columns: three
 devices: [boron,photon,electron,xenon,argon]
 order: 20
+description: Reference manual for the C++ API used by user firmware running on Particle IoT devices
 ---
 
 Device OS API - {{device}}

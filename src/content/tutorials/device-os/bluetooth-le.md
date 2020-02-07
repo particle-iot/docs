@@ -3,6 +3,7 @@ title: Bluetooth LE
 order: 4
 columns: two
 layout: tutorials.hbs
+description: Getting started with Bluetooth LE (BLE) on Particle IoT devices
 ---
 
 # Bluetooth LE (BLE)

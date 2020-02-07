@@ -4,6 +4,7 @@ layout: quickstart.hbs
 columns: two
 order: 7
 setdevice: electron
+description: Getting started with your Particle Electron, Gen 2 cellular device
 ---
 
 <h1 id="getting-started">Getting Started<a href="#getting-started" class="header-permalinks"><i class="ion-link"></i></a></h1><h2 id="what-39-s-in-the-box-">What&apos;s in the Box?<a href="#what-39-s-in-the-box-" class="header-permalinks"><i class="ion-link"></i></a></h2><p><img src="/assets/images/electronItemBox.jpg" alt=""></p>

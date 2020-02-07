@@ -4,6 +4,7 @@ order: 40
 shared: true
 columns: two
 layout: tutorials.hbs
+description: Learn more about the Li-Po (lithium ion polymer) battery on some Particle IoT devices
 ---
 
 # Batteries

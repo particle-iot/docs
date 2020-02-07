@@ -3,6 +3,7 @@ title: Using a Xenon without Mesh
 layout: tutorials.hbs
 columns: two
 order: 51
+description: Options for using Particle Xenon devices without Particle Mesh
 ---
 
 # Using a Particle Xenon without Particle Mesh

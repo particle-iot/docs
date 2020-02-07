@@ -3,6 +3,7 @@ title: CircuitPython on Xenon
 layout: tutorials.hbs
 columns: two
 order: 52
+description: How to use CircuitPython on the Particle Xenon
 ---
 
 # Using CircuitPython with a Particle Xenon

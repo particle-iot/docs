@@ -3,6 +3,7 @@ title: Cellular Data Guide
 layout: tutorials.hbs
 columns: two
 order: 22
+description: Optimizing data using with Particle cellular devices
 ---
 
 ## Cellular Data Service with Particle

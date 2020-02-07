@@ -3,6 +3,7 @@ title: E Series Evaluation Board
 layout: datasheet.hbs
 columns: two
 order: 8
+description: Datasheet for the Particle E Series Evaluation Board, Gen 2 cellular 
 ---
 # E Series Evaluation Board
 

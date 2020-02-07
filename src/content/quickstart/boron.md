@@ -3,6 +3,7 @@ title: Boron
 layout: quickstart.hbs
 columns: two
 order: 4
+description: Getting started with your Particle Boron, Gen 3 cellular and BLE device
 ---
 
 # Quick start: Boron

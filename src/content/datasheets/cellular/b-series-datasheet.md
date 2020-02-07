@@ -3,6 +3,7 @@ title: B Series datasheet
 layout: datasheet.hbs
 columns: two
 order: 2
+description: Datasheet for the Particle B Series SoM, Gen 3 cellular
 ---
 
 # B402 Datasheet <sup>(001)</sup>

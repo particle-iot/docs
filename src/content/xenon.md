@@ -1,6 +1,7 @@
 ---
 title: Xenon
 layout: landing.hbs
+description: Particle Xenon, Gen 3 Particle Mesh (discontinued)
 ---
 
 # Particle Xenon: Bluetooth + Mesh

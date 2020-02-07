@@ -3,6 +3,7 @@ title: About Serial
 layout: tutorials.hbs
 columns: two
 order: 14
+description: Learn more about the serial interface on your Particle IoT device
 ---
 
 # About Serial

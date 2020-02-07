@@ -3,6 +3,7 @@ title: SIM Management
 columns: two
 layout: tutorials.hbs
 order: 20
+description: Managing your cellular SIMs from the Particle console
 ---
 
 # {{title}}
