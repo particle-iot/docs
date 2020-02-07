@@ -45,7 +45,9 @@ To connect the sensor, connect a Grove cable to the port on the sensor. Then, co
 
 ### Install the sensor firmware library
 
-TKKTKTKT
+- If you are using the Web IDE, click the **Libraries** icon on the left and select **Grove_Temperature_And_Humidity_Sensor** and add it to your project.
+
+- If you are using Particle Workbench, from the **Command Palette** (Ctrl+Shift+P on Windows and Linux, and Cmd+Shift+P on Mac) select **Particle: Install Library** and install the library **Grove_Temperature_And_Humidity_Sensor**.
 
 
 ### Read from the sensor
