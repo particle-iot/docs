@@ -70,7 +70,13 @@ module.exports = function plugin(options) {
 
         sitemap += '</urlset>\n';
 
-        fs.writeFileSync(path.join(__dirname, options.output), sitemap);
+        const sitemapPath = path.join(__dirname, options.output);
+
+        if (!fs.existsSync(path.dirname(sitemapPath))) {
+            fs.mkdirSync(path.dirname(sitemapPath));
+        }
+        
+        fs.writeFileSync(sitemapPath, sitemap);
 
         done();
     };
