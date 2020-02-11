@@ -58,7 +58,7 @@ There are several awesome buttons and LEDs on your Electron to make it easier to
 <ul>
 <li><strong>Software</strong><ul>
 <li>The <a href="http://build.particle.io" target="_blank" rel="noopener noreferrer">online IDE</a></li>
-<li>or the local <a href="http://particle.io/dev" target="_blank" rel="noopener noreferrer">Particle Dev</a></li>
+<li>or [Particle Workbench](/quickstart/workbench/)</li>
 </ul>
 </li>
 <li><strong>Experience</strong><ul>

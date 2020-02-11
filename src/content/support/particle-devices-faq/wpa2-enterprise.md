@@ -7,11 +7,15 @@ order: 1030
 
 # WPA2 Enterprise Setup
 
-Starting with Particle Device OS 0.7.0 you can use the Photon and P1 on a WPA2 Enterprise Wi-Fi network. This type of network is common in university and corporate networks. If you see a reference to RADIUS, 802.1(x), need to enter both a username and password, or have a certificate or key file, you probably have a WPA2 Enterprise network.
+Starting with Particle Device OS 0.7.0 on the Photon and P1 you can use the Photon and P1 on a WPA2 Enterprise Wi-Fi network. This type of network is common in university and corporate networks. If you see a reference to RADIUS, 802.1(x), need to enter both a username and password, or have a certificate or key file, you probably have a WPA2 Enterprise network.
 
 Most home networks use WPA2 Personal and have a simpler setup that only requires a SSID (network name) and a password and do not require these steps.
 
 This is also different than situations where you enter a password (sometimes a username or email address as well) into a web page to get onto the network. That's referred to as a captive portal and is common in hotel and other public Wi-Fi networks. Captive portals are not supported.
+
+The Photon and P1 only support EAP-TLS with TLS 1.1, and PEAP/MSCHAPv2 mode. TLS 1.2 is not supported at this time.
+
+The Argon does not support WPA2 Enterprise at this time.
 
 ## Install the Particle CLI
 

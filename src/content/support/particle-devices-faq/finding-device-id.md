@@ -138,6 +138,9 @@ The screen will probably clear. Press the letter i (lowercase i, as in identify)
 
 You will probably want to issue the screen command in a new Terminal window, because it's hard to close screen once you start it and you'll probably just need to close the window afterwards.
 
+### Serial - Particle Workbench
+
+If you have Particle Workbench installed, you can get to the serial monitor from the **Command Palette** (Cmd+Shift+P on Mac, or Ctrl-Shift-P on Windows and Linux) then **Particle: Serial Monitor**.
 
 ### Serial - Particle Dev (Atom IDE)
 

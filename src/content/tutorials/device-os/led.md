@@ -555,7 +555,7 @@ When your {{device}} is connected to {{network-type}} but not to the cloud, it w
 
 #### I can't flash my {{device}} anymore
 
-Breathing green means that {{network-type}} is on, but you're not connected to the Particle cloud. Because of this, you cannot flash your {{device}} from the cloud. That includes Particle Build (Web IDE), Particle Dev (Atom IDE) and Particle CLI cloud-based flashing commands.
+Breathing green means that {{network-type}} is on, but you're not connected to the Particle cloud. Because of this, you cannot flash your {{device}} from the cloud. That includes Particle Build (Web IDE), Particle Workbench, and Particle CLI cloud-based flashing commands.
  
 Fortunately, you can usually get around this by entering safe mode, breathing magenta.
 

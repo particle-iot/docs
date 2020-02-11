@@ -435,6 +435,10 @@ With the debugger positioned like this, USB connector toward you and the headers
 | CTS | GND   | 
 | GND | VUSB  |
 
+The RX and TX pins are only available on the debugger header pins and are not connected to the Argon or Boron RX and TX pins.
+
+The RTS and CTS (hardware flow control pins) are not currently supported by the debugger firmware and cannot be used.
+
 In order to use SWD debugging you need to connect:
 
 - D7: SWDIO

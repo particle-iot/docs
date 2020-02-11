@@ -19,7 +19,7 @@ While you can still use these instructions, a much easier way to use gcc-arm is 
 {{box op="end"}}
 
 
-This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/tutorials/developer-tools/dev/), or [Particle CLI](/tutorials/developer-tools/cli/) which are much easier to install and use.
+This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Workbench](/quickstart/workbench/), or [Particle CLI](/tutorials/developer-tools/cli/) which are much easier to install and use.
 
 {{collapse op="computerOsSelector"}}
 
