@@ -240,7 +240,7 @@ Clicking the `Confirm` button will bring you back to your Particle project. The 
 Contribute a library
 ---
 
-This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/tutorials/device-os/libraries/#contributing-libraries) to find more about contributing a library.
+This functionality was moved to the Command Line Interface (CLI). You can follow [this link](/tutorials/device-os/libraries/#contributing-libraries) to find more about contributing a library.
 
 Checking code memory usage
 ---
