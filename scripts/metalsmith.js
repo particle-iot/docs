@@ -42,6 +42,7 @@ var insertFragment = require('./insert_fragment');
 var javascriptDocsPreprocess = require('./javascript_docs_preprocess');
 var git = require('git-rev');
 var path = require('path');
+var sitemap = require('./sitemap.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -262,6 +263,11 @@ exports.metalsmith = function () {
     // {{#if has-wifi}}Connect to Wi-Fi{{/if}}
     .use(deviceFeatureFlags({
       config: '../config/device_features.json'
+    }))
+    .use(sitemap({
+      config: '../config/sitemap.json',
+      output: '../build/sitemap.xml',
+      baseUrl: 'https://docs.particle.io/'
     }))
     // Create HTML pages with meta http-equiv='refresh' redirects
     .use(redirects({
