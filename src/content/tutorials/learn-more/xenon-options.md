@@ -30,3 +30,6 @@ Alternatively, you can provision your Xenon for use as a dev kit disconnected fr
 
 These options will remove the Particle Device OS and bootloader, so the device will no longer be able to connect to the Particle Device Cloud.
 
+## Option 3: Use your Xenon with the Ethernet FeatherWing
+
+Using Device OS 1.6.x you can continue to use a Xenon in the Ethernet FeatherWing. You can continue to do so after January 1, 2021, however you will only be able to claim a Xenon to your account using the Particle CLI as there will be no mobile app support at that time.
