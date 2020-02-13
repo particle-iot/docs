@@ -183,8 +183,6 @@ particle flash --usb tinker
 
 #include "dct.h"
 
-SerialLogHandler logHandler(LOG_LEVEL_ALL);
-
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
 // setActiveSim and setCredentials must be in STARTUP to take effect immediately
