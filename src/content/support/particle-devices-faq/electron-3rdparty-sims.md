@@ -268,14 +268,13 @@ particle flash --usb tinker
   particle device rename YOUR_DEVICE_ID "New Name"
   ```
 
-- To restore the use of the embedded MFF2 Particle SIM card use this program instead:
+- To restore the use of the embedded MFF2 Particle SIM card use this program instead (Boron LTE):
 
 ```cpp
 #include "Particle.h"
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
-// setActiveSim and setCredentials must be in STARTUP to take effect immediately
 STARTUP({
   Cellular.setActiveSim(INTERNAL_SIM);
   Cellular.clearCredentials();
