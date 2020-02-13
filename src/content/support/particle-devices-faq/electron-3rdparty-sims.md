@@ -55,10 +55,10 @@ Some carriers may also require a username and password. Note those, if they are 
 {{collapse op="cellularDevice"}}
 
 {{collapse op="start" cellularDevice="Boron"}}
-## Setting up a 3rd-party SIM card - Boron
+## Setting up a 3rd-party SIM card - Boron 2G/3G
 
 - For the Boron 2G/3G most nano SIM cards are compatible.
-- For the Boron LTE, support for LTE Cat M1 is required. This is an IoT-specific subset of LTE, and not all carriers support LTE Cat M1 at this time. Some may not have approved the u-blox SARA-R410M-02B modem used in the Boron LTE yet and may not allow it on their network, as well.
+- For the Boron LTE, support for LTE Cat M1 is required. This is an IoT-specific subset of LTE, and not all carriers support LTE Cat M1 at this time. Some may not have approved the u-blox SARA-R410M-02B modem used in the Boron LTE yet and may not allow it on their network, as well. For using 3rd-party SIM on Boron LTE, please refer to the next section below.
 
 If you're ready to set up your Boron, follow these steps:
 
@@ -101,7 +101,7 @@ void loop() {
 - Compile the code and flash it in DFU mode (blinking yellow):
 
 ```html
-particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin 
+particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin
 particle flash --usb firmware.bin
 ```
 
@@ -123,15 +123,15 @@ particle flash --usb tinker
   ```
   particle identify
   ```
-  
+
   * Claim the device to your account. It must be breathing cyan for this to work.
 
   ```
   particle device add YOUR_DEVICE_ID
   ```
-  
+
   * Name your device if desired.
-   
+
   ```
   particle device rename YOUR_DEVICE_ID "New Name"
   ```
@@ -161,6 +161,158 @@ void loop() {
 - This method is intended for using the Boron as a standalone, non-mesh, device, like an Electron. It's difficult to set up a mesh network using a 3rd-party SIM card at this time, because the mobile app will default to trying to activate the Particle SIM card. You can, however, set up the network using the Particle SIM and switch it to a 3rd-party SIM card once set up.
 - Alternatively, there is a technique that allows you to set up a Boron with a mesh network when the Particle SIM card cannot be used, such as the Boron LTE out of the United States. It requires the Particle Ethernet FeatherWing and is [described in this community post](https://community.particle.io/t/instructions-creating-mesh-network-with-boron-lte-and-3rd-party-sim-card/46467).
 
+## Setting up a 3rd-party SIM card - Boron LTE
+
+- For the Boron LTE, support for LTE Cat M1 is required. This is an IoT-specific subset of LTE, and not all carriers support LTE Cat M1 at this time. Some may not have approved the u-blox SARA-R410M-02B modem used in the Boron LTE yet and may not allow it on their network, as well.
+
+If you're ready to set up your Boron, follow these steps:
+
+- Put the Boron in DFU mode (blinking yellow) by holding down MODE. Tap RESET and continue to hold down MODE. The status LED will blink magenta (red and blue at the same time), then yellow. Release when it is blinking yellow.
+- Update the device. If the device goes out of blinking yellow after the first command, put it back into DFU mode.
+
+```html
+particle update
+particle flash --usb tinker
+```
+- When the command reports **Flash success!**, reset the Boron. It should go back into listening mode (blinking dark blue).
+
+- Create a program to set the APN and switch to an external SIM. This program needs to be run when switching from internal to external SIM card, or when switching from one external SIM to another. Here's the code. One way is to save this to a file, I called mine 3rdPartySIM.cpp.
+
+```cpp
+#include "Particle.h"
+
+#include "dct.h"
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+// setActiveSim and setCredentials must be in STARTUP to take effect immediately
+STARTUP({
+  Cellular.setActiveSim(EXTERNAL_SIM);
+  Cellular.setCredentials("epc.tmobile.com");
+});    // The order here is important because the APN needs to be set only after the SIM switch
+
+int at_ret_val = 1;
+
+void setup() {
+  Cellular.on();
+  int retry_count = 3;
+
+  while(at_ret_val != RESP_OK && retry_count)
+  {
+    delay(5000);
+	// not resetting after UMNOPROF setting because in Gen3,
+    // we reset as a part of putting the second/actual app firmware
+    at_ret_val = Cellular.command(10000,"AT+UMNOPROF=1\r\n");
+    retry_count--;
+  }
+
+   // This clears the setup done flag on brand new devices so it won't stay in listening mode
+   const uint8_t val = 0x01;
+   dct_write_app_data(&val, DCT_SETUP_DONE_OFFSET, 1);
+
+	// This is just so you know the operation is complete
+	pinMode(D7, OUTPUT);
+	digitalWrite(D7, HIGH);
+}
+
+void loop() {
+  // If setting the UMNOPROF (mobile network profile) was unsuccessful, LED blinks every 1 sec
+  if (at_ret_val != RESP_OK)
+  {
+    digitalWrite(D7, HIGH);
+    delay(1000);
+    digitalWrite(D7, LOW);
+    delay(1000);
+  }
+}
+```
+
+- Replace "epc.tmobile.com" with the APN for your SIM card (see above for more details about the APN).
+- Compile the code and flash it in DFU mode (blinking yellow):
+
+```html
+particle compile boron 3rdPartySIM.cpp --saveTo firmware.bin
+particle flash --usb firmware.bin
+```
+
+- The blue LED next to the USB connector should light after reboot to signal that the APN and mobile network operator has been set. If it has not been set, the LED blinks every 1 sec.
+
+- Flash Tinker back to the Boron:
+
+```
+particle flash --usb tinker
+```
+
+- You should now be able to use the device with your 3rd-party SIM card!
+
+- If you have never claimed the Boron to your account you will need to do that manually now.
+
+  * Put the Boron in listening mode by holding down the MODE button
+  * Enter this command in a command prompt or terminal window. Note the device ID.
+
+  ```
+  particle identify
+  ```
+
+  * Claim the device to your account. It must be breathing cyan for this to work.
+
+  ```
+  particle device add YOUR_DEVICE_ID
+  ```
+
+  * Name your device if desired.
+
+  ```
+  particle device rename YOUR_DEVICE_ID "New Name"
+  ```
+
+- To restore the use of the embedded MFF2 Particle SIM card use this program instead (Boron LTE):
+
+```cpp
+#include "Particle.h"
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+STARTUP({
+  Cellular.setActiveSim(INTERNAL_SIM);
+  Cellular.clearCredentials();
+});   // The order here is important because the APN needs to be set only after the SIM switch
+
+int at_ret_val = 1;
+
+void setup() {
+    Cellular.on();
+    int retry_count = 3;
+    while(at_ret_val != RESP_OK && retry_count)
+    {
+        delay(5000);
+		// not resetting after UMNOPROF setting because in Gen3,
+    	// we reset as a part of putting the second/actual app firmware
+        at_ret_val = Cellular.command(10000,"AT+UMNOPROF=1\r\n");
+        retry_count--;
+    }
+	// This is just so you know the operation is complete
+	pinMode(D7, OUTPUT);
+	digitalWrite(D7, HIGH);
+}
+
+void loop() {
+    // If setting the UMNOPROF (mobile network profile) was unsuccessful, LED blinks every 1 sec
+    if (at_ret_val != RESP_OK)
+    {
+      digitalWrite(D7, HIGH);
+      delay(1000);
+      digitalWrite(D7, LOW);
+      delay(1000);
+    }
+}
+```
+
+- Note: You must both call `Cellular.setActiveSim(INTERNAL_SIM)` and remove the external SIM card on the Boron LTE. Just deactivating the SIM in software won't completely disable the external SIM and will cause connection failures.
+
+- This method is intended for using the Boron as a standalone, non-mesh, device, like an Electron. It's difficult to set up a mesh network using a 3rd-party SIM card at this time, because the mobile app will default to trying to activate the Particle SIM card. You can, however, set up the network using the Particle SIM and switch it to a 3rd-party SIM card once set up.
+- Alternatively, there is a technique that allows you to set up a Boron with a mesh network when the Particle SIM card cannot be used, such as the Boron LTE out of the United States. It requires the Particle Ethernet FeatherWing and is [described in this community post](https://community.particle.io/t/instructions-creating-mesh-network-with-boron-lte-and-3rd-party-sim-card/46467).
+
 ## The APN setting is persistent on the Boron
 
 On the Boron, the APN (also username and password, if used) and the SIM card choice (internal or external) is saved in configuration flash. This setting is saved across reset, power-down, user and system firmware updates.
@@ -170,7 +322,7 @@ You only need to set the APN and SIM selection once, however the keep-alive valu
 
 ## Switching back to the Particle SIM - Boron
 
-To switch back to the internal MFF2 embedded Particle SIM card on the Boron, you need to flash code to change the SIM card setting:
+To switch back to the internal MFF2 embedded Particle SIM card on the Boron 2G/3G, you need to flash code to change the SIM card setting. To switch back to the internal MFF2 embedded Particle SIM card on the Boron LTE, please see the section above.
 
 ```cpp
 #include "Particle.h"
