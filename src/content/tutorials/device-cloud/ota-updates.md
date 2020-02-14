@@ -63,7 +63,7 @@ Particle's OTA updates have been built from the ground up to be reliable and res
 
 - **Automatic rollbacks**: If for some reason an OTA is interrupted (like a disruption in connectivity or a device losing power), the device will fail gracefully by automatically reverting to the previous version of working firmware.
 
-- **Minimal disruption**: A Particle device continues to run its current version of firmware while it receives an OTA update. After a brief reset, the device seamlessly begins running the new firmware.
+- **Minimal disruption**: A Particle device continues to run its current version of firmware while it receives an OTA update. After a brief reset, the device seamlessly begins running the new firmware. If at this point the version of Device OS running on the device is older than the minimum version of Device OS to run the user application, the device will enter safe mode and download the required Device OS. Once this is complete, the device will reset and begin running the new firmware on the updated Device OS.
 
 - **Application and Device OS version management**: Particle's OTA
 capabilities make it easy to manage _both_ the firmware applications
