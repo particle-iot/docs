@@ -6,7 +6,7 @@ order: 2
 description: Datasheet for the Particle B Series SoM, Gen 3 cellular
 ---
 
-# B402 Datasheet <sup>(001)</sup>
+# B402 Datasheet <sup>(003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-datasheet.pdf"}}
@@ -439,4 +439,5 @@ The bootloader allows you to easily update the user application via several diff
 |:---------|:-----|:-------|:---------|
 | 001      | 29 Apr 2019 | RK | Initial Release |
 | 002      | 03 Feb 2020 | RK | Fixed number of I2C, SPI, and PWM |
+| 003      | 18 Feb 2020 | RK | Keep-out diagram M.2 connector was upside-down |
 
