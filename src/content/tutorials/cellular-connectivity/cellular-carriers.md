@@ -32,6 +32,7 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Bolivia | NuevaTel (Viva) |&#x2714; | U260 |
 | Bosnia and Herzegovina | BH Telecom |&#x2714; | U270 |
 | Botswana | Mascom Wireless |&#x2714; | U270 |
+| Brazil | Vivo |&#x2714; | U260 |
 | Bulgaria | Vivacom (Vivatel) |&#x2714; | U270 |
 | Cabo Verde | T+ Telecomunicações |&#x2714; | U270 |
 | Cameroon | MTN Cameroon |&#x2714; | U270 |
@@ -338,6 +339,8 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 - <sup>2</sup>2G is only available with a 3rd-party SIM card on the Electron.
 
 {{collapse op="end"}}
+
+
 
 
 
