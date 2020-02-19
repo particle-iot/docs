@@ -580,6 +580,11 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=40983)
 
+#### B Series B402 SoM (R410M modem)
+
+- [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=43054)
+
+
 ## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>
 ### Description
 - **Website**: [http://www.globalcertificationforum.org/](http://www.globalcertificationforum.org/)
@@ -597,7 +602,7 @@ The GCF is a certification partnership between European network operators, mobil
 
 #### AT&T (LTE Cat M1)
 
-The Boron LTE (BRN402) and E Series LTE (E402) are certified for use on the AT&T LTE Cat M1 network. From the [AT&T Certified Devices page](https://iotdevices.att.com/certified-devices.aspx) search for "Particle".
+The Boron LTE (BRN402), E Series LTE (E402), and B Series SoM (B402) are certified for use on the AT&T LTE Cat M1 network. From the [AT&T Certified Devices page](https://iotdevices.att.com/certified-devices.aspx) search for "Particle".
 
 
 

@@ -10,7 +10,7 @@
   "cellular/e-series-eval-board.md": "16012a4053910171f905b62d190f3195",
   "cellular/e-series-system-integration-manual.md": "65e04c1dc4e74ee52719cc6274d23b36",
   "cellular/electron-datasheet.md": "445055c8cc502006f1ea038996906ce1",
-  "certifications/certification.md": "9d3cafc78039f8e5e5dc41119c0ebc6a",
+  "certifications/certification.md": "9c9e63377c62085d796825670c1e14b6",
   "discontinued/core-datasheet.md": "0dd4bbf957cd849f1b83e7c96b3bdc1c",
   "discontinued/core-shields.md": "090fdd61aa48dba80944d3f55aaa9888",
   "discontinued/raspberry-pi.md": "5afae6cb3166f53131439db8d2cd3483",
@@ -18,6 +18,6 @@
   "discontinued/xenon-datasheet.md": "dd6a6d54f9ae8b9172f0805dbc255198",
   "mesh/xenon-datasheet.md": "ec03d8fee7e3e45e55f1293b610642c5",
   "wi-fi/argon-datasheet.md": "4d8e3ab9bd8ab16be7b2ad529d47f83c",
-  "wi-fi/p1-datasheet.md": "dfa6353174ceab2baa3f9089ff818d93",
-  "wi-fi/photon-datasheet.md": "ad25473ea6138809161261ba1e5a6e1e"
+  "wi-fi/p1-datasheet.md": "66b47c02cfbcf7eec1287315b6a4c732",
+  "wi-fi/photon-datasheet.md": "5c7baeda28b60eb552acc02358c0c0bf"
 }
