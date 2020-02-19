@@ -12,7 +12,7 @@ Wow. Never thought we’d see you here. This is awkward. Well, since you’re al
 
 ### 30-Day Unopened Return Policy
 
-If you are not 100% satisfied with your order, we will be happy to arrange a return for any unopened items purchased within 30 days. Simply visit our [support portal](https://support.particle.io/) with your order number, email address you used to place the order, and a brief description of the reason for the return. Please note your refund will be subject to a restocking fee of $2.85 per device.
+If you are not 100% satisfied with your order, we will be happy to arrange a return for any unopened items purchased within 30 days. Simply visit our [support portal](https://support.particle.io/) with your order number, email address you used to place the order, and a brief description of the reason for the return. Please note your refund will be subject to a restocking fee of 10% of your order.
 
 ### Opened Product Return Policy
 
@@ -40,4 +40,4 @@ If we determine that something is wrong with your product due to a manufacturing
 - We reserve the right to limit support, or deny returns on items that were purchased over 1 calendar year from the order date or deprecated/unsupported products
 - If your return is not received in restockable condition, we reserve the right to change your refund amount or method (e.g., limit your refund to store credit)
 -Your original shipping charge will not be refunded
-- A $2.85 per device restocking fee will be deducted from any refunds issued
+- A 10% restocking fee will be deducted from any refunds issued
