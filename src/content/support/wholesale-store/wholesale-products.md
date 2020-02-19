@@ -125,7 +125,7 @@ If you’ve made a purchase through our Wholesale Store, our replacement process
 
 Orders on our Wholesale Store are committed POs that are non-cancellable and non-refundable. We also can not delay shipping timelines in the case of a committed PO.
 
-In certain circumstances, we may allow returns or exchanges if the items are in original condition. If you have a question about a particular return or exchange, please contact us via our [support portal](https://support.particle.io/) within 15 days of receipt of your order. A $2.85 per unopened device restocking fee may be deducted from any refunds issued.
+In certain circumstances, we may allow returns or exchanges if the items are in original condition. If you have a question about a particular return or exchange, please contact us via our [support portal](https://support.particle.io/) within 15 days of receipt of your order. A 10% estocking fee may be deducted from any refunds issued.
 
 ### Items on Reels or Trays
 
@@ -163,7 +163,7 @@ You may need to register your business as a shipper of a certain type batteries.
 
 You may also need to confirm your labeling fits the type of battery you are shipping. Shipping reps will often do an audit of your packaging.
 
-Be on the look out for frequent regulatory changes.(http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) New regulations went into effect Jan 1, 2017.
+Be on the look out for frequent regulatory changes.(http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) New regulations went into effect Jan 1, 2020.
 
 ## Any Other Questions
 
