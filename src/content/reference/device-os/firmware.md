@@ -71,6 +71,7 @@ Particle.variable registers a variable, so its value can be retrieved from the c
 ```cpp
 // EXAMPLE USAGE
 
+bool flag = false;
 int analogvalue = 0;
 double tempC = 0;
 char *message = "my name is particle";
@@ -78,9 +79,10 @@ String aString;
 
 void setup()
 {
+  Particle.variable("flag", flag);
   Particle.variable("analogvalue", analogvalue);
   Particle.variable("temp", tempC);
-  if (Particle.variable("mess", message)==false)
+  if (Particle.variable("mess", message) == false)
   {
       // variable not registered!
   }
@@ -93,59 +95,101 @@ void loop()
 {
   // Read the analog value of the sensor (TMP36)
   analogvalue = analogRead(A0);
-  //Convert the reading into degree celcius
-  tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
+  // Convert the reading into degree Celsius
+  tempC = (((analogvalue * 3.3) / 4095) - 0.5) * 100;
   delay(200);
 }
 ```
 
-Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). 
+_Since 1.6.0:_ It is also possible to register a function as a cloud variable. Such a function should return a value of one of the supported variable types and take no arguments. The function will be called only when the value of the variable is requested.
+
+```cpp
+// EXAMPLE USAGE - registering functions as cloud variables
+
+bool flag() {
+  return false;
+}
+
+int analogvalue() {
+  // Read the analog value of the sensor (TMP36)
+  return analogRead(A0);
+}
+
+double tempC() {
+  // Convert the reading into degree Celsius
+  return (((analogvalue() * 3.3) / 4095) - 0.5) * 100;
+}
+
+String message() {
+  return "my name is particle";
+}
+
+void setup()
+{
+  Particle.variable("flag", flag);
+  Particle.variable("analogvalue", analogvalue);
+  Particle.variable("temp", tempC);
+  Particle.variable("mess", message);
+
+  pinMode(A0, INPUT);
+}
+
+void loop()
+{
+}
+```
+
+Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
+When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud variables must be registered in the `setup()` function. The information about registered variables will be sent to the cloud when the `setup()` function has finished its execution. In the [`SEMI_AUTOMATIC`](#semi-automatic-mode) and [`MANUAL`](#manual-mode) system modes, the variables must be registered before [`Particle.connect()`](#particle-connect-) is called.
 
-You will almost never call Particle.variable from loop() (or a function called from loop()).
+_Before 1.6.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud variables as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.variable()` after the registration information has been sent does not re-send the request and the variable will not work.
 
 String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
-Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
-to specify the data type of the variable. From 0.4.7 onward, the system can
-infer the type from the actual variable. Additionally, the variable address
-was passed via the address-of operator (`&`). With 0.4.7 and newer, this is no longer required.
+Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter to specify the data type of the variable. From 0.4.7 onward, the system can infer the type from the actual variable. Additionally, the variable address was passed via the address-of operator (`&`). With 0.4.7 and newer, this is no longer required.
 
-This is the pre-0.4.7 syntax:
+```cpp
+// EXAMPLE USAGE - pre-0.4.7 syntax
 
-```
+bool flag = false;
 int analogvalue = 0;
 double tempC = 0;
 char *message = "my name is particle";
 
 void setup()
 {
+  Particle.variable("flag", &flag, BOOLEAN);
   Particle.variable("analogvalue", &analogvalue, INT);
   Particle.variable("temp", &tempC, DOUBLE);
-  if (Particle.variable("mess", message, STRING)==false)
+  if (Particle.variable("mess", message, STRING) == false)
+  {
       // variable not registered!
+  }
   pinMode(A0, INPUT);
 }
 ```
 
-There are three supported data types:
+There are four supported data types:
 
+ * `BOOLEAN`
  * `INT`
  * `DOUBLE`
- * `STRING`   (maximum string length is 622 bytes)
+ * `STRING` (maximum string length is 622 bytes)
 
-```json
+```sh
 # EXAMPLE REQUEST IN TERMINAL
 # Device ID is 0123456789abcdef
 # Your access token is 123412341234
+curl "https://api.particle.io/v1/devices/0123456789abcdef/flag?access_token=123412341234"
 curl "https://api.particle.io/v1/devices/0123456789abcdef/analogvalue?access_token=123412341234"
 curl "https://api.particle.io/v1/devices/0123456789abcdef/temp?access_token=123412341234"
 curl "https://api.particle.io/v1/devices/0123456789abcdef/mess?access_token=123412341234"
 
 # In return you'll get something like this:
+false
 960
 27.44322344322344
 my name is particle
@@ -178,7 +222,9 @@ In order to register a cloud  function, the user provides the `funcKey`, which i
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The String is UTF-8 encoded.
 
-When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
+When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud functions must be registered in the `setup()` function. The information about registered functions will be sent to the cloud when the `setup()` function has finished its execution. In the [`SEMI_AUTOMATIC`](#semi-automatic-mode) and [`MANUAL`](#manual-mode) system modes, the functions must be registered before [`Particle.connect()`](#particle-connect-) is called.
+
+_Before 1.6.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud functions as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.function()` after the registration information has been sent does not re-send the request and the function will not work.
 
 ```cpp
 // EXAMPLE USAGE
