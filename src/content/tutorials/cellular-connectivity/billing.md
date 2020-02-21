@@ -39,6 +39,8 @@ We measure data use by querying cellular carriers for what they've measured. Bec
 
 You can set data limits on each SIM independently, see what your current limits are, and unpause SIMs in the [Console](https://console.particle.io).
 
+Cellular data usage can take 24 hours to be reported and in some cases longer. Your SIM may consume data in excess of the cap in this case.
+
 ## Activation, Deactivation, Reactivation, Pausing
 Pausing is related to temporary behaviors of individual SIMs, and the activation terms can apply in a couple of ways. Remember that if your Electron doesn't have data service then any application running will not function as you expect unless you've explicitly written it for offline behavior! Check out System Modes and Threading over in the Firmware Reference for details.
 
