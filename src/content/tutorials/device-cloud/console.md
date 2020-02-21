@@ -409,6 +409,16 @@ Click upload. Congrats! You've uploaded your first version of product firmware! 
 ![Product firmware version](/assets/images/product-firmware.png)
 <p class="caption">Your firmware version now appears in your list of available binaries</p>
 
+You can update the details of your product firmware version by clicking
+Edit when hovering over that firmware version.
+
+If you find a problem with your firmware version during testing, you can
+delete the firmware version, recompile it and reupload it. It is only
+possible to delete a firmware version before marking it as released.
+
+![Product firmware editor](/assets/images/product-firmware-editor.png)
+<p class="caption">Edit the details of your firmware version or delete an unreleased version</p>
+
 #### Releasing firmware
 
 Time to flash that shiny new binary to some devices! Notice that when
