@@ -283,7 +283,10 @@ but we also recommend [**locking one or more devices**](/tutorials/device-cloud/
 to the newly updated firmware and ensure that it re-connects
 successfully to the cloud. This is because locking more closely
 represents a release action, with the specific firmware being delivered
-to a product device.
+to a product device. If you find a problem at this step, [delete the
+firmware version, recompile it and reupload it](/tutorials/device-cloud/console/#uploading-firmware).
+It is only possible to delete a firmware version before marking it as
+released.
 
 4. [**Mark the firmware as released**](/tutorials/device-cloud/console/#releasing-firmware). This will
 target product devices to automatically download and run the firmware.
