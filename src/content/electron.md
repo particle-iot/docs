@@ -91,7 +91,7 @@ Device Cloud Features:
 <div align="center">
 <br />
 
-<a href="https://store.particle.io/products/photon" target="_blank" class="button">BUY AN ELECTRON</a>
+<a href="https://store.particle.io/collections/cellular" target="_blank" class="button">BUY AN ELECTRON</a>
 </div>
 
 {{box op="end"}}

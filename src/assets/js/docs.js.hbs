@@ -359,6 +359,10 @@ Created by Zach Supalla.
     var topFilteredResults = [];
 
     if (allDevices.indexOf(deviceSearch)!=-1) { // this section has device sensitivity
+      var deviceMatchedFirmwareApiResult = false;
+      var extraMatches = [];
+      var urlAdded = {};
+
       for (x=0; x<results.length; x++) {
         var params = String(results[x].ref);
         var paramDeviceCount=0;
@@ -367,14 +371,50 @@ Created by Zach Supalla.
             paramDeviceCount++;
           }
         }
-        if (paramDeviceCount==0) {  // does it have one of the allDevices in it?
-          topFilteredResults.push(results[x]);
+
+        var isFirmwareApi = (results[x].ref.indexOf('/firmware/') >= 0);
+        var urlNoHash = results[x].ref;
+        var hashIndex = urlNoHash.indexOf('#');
+        if (hashIndex >= 0) {
+          urlNoHash = urlNoHash.substring(0, hashIndex);
         }
-        else {  // check to see if it includes the deviceSearch term
-          if (String(results[x].ref).indexOf(deviceSearch) >= 0) {
-            topFilteredResults.push(results[x]);
+
+        if (!isFirmwareApi) {
+          if (urlAdded[urlNoHash]) {
+            // For things other than the Device OS API Reference, only add the URL
+            // one to the search listing, otherwise searching for 'PMIC' will return
+            // a bunch of matches in the Datasheet, which isn't really helpful.
+            continue;
           }
         }
+
+        if (paramDeviceCount==0) {  // does it have one of the allDevices in it?
+          topFilteredResults.push(results[x]);
+          urlAdded[urlNoHash] = true;
+        }
+        else {  // check to see if it includes the deviceSearch term
+          var wasAdded = false;
+          if (String(results[x].ref).indexOf(deviceSearch) >= 0) {
+            topFilteredResults.push(results[x]);
+            wasAdded = true;
+          }
+          if (isFirmwareApi) {
+            // Is a firmware API match
+            if (wasAdded) {
+              deviceMatchedFirmwareApiResult = true;
+            }
+            else {
+              extraMatches.push(results[x]);
+            }
+          }
+        }
+      }
+
+      if (!deviceMatchedFirmwareApiResult && extraMatches.length > 0) {
+        // If there were no device-matched firmware API listing, but there were extraMatches
+        // for other devices, add the others back in. This is to allow searching for, say,
+        // PMIC when the device type is Photon and get back Electron and Boron results.
+        Array.prototype.push.apply(topFilteredResults, extraMatches);
       }
     }
     else {  // this section does not have device sensitivity, do not filter by device
@@ -385,7 +425,12 @@ Created by Zach Supalla.
   }
 
   Docs.buildSearchResults = function(results, store) {
-    var fiveResults = results.slice(0,5);
+    var numResults = Math.floor((window.innerHeight - 100) / 65);
+    if (numResults < 5) {
+      numResults = 5;
+    }
+    
+    var fiveResults = results.slice(0,numResults);
 
     var niceResults = fiveResults.map(function(r) {
       var resultInfo = store[r.ref];
