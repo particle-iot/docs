@@ -303,9 +303,7 @@ Serial1.begin(9600);
 
 There are two types of flow control in serial: hardware (RTS/CTS) and software (XON/XOFF). 
 
-The Photon does not support hardware flow control (RTS/CTS). The Electron does not currently support hardware flow control.
-
-Neither the Photon or Electron support software (XON/XOFF) flow control, either. In some limited cases, you could note when you receive XOFF (Ctrl-S) in your received data and stop sending, however there is currently no way to stop the send FIFO from sending, so this will only work when you don't have any data waiting to be sent.
+The Photon and Electron only support hardware flow control on Serial2, which requires disabling the RGB LED. Flow control pins are A7(CTS) and RGB-R(RTS).
 
 On the Argon, Boron, and B Series SoM hardware flow control is available on Serial1 on pins D3(CTS) and D2(RTS). 
 
@@ -317,6 +315,8 @@ On the Argon, Boron, and B Series SoM hardware flow control is available on Seri
 ```
 Serial1.begin(9600, SERIAL_FLOW_CONTROL_RTS_CTS);
 ```
+
+None of the devices support software (XON/XOFF) flow control. In some limited cases, you could note when you receive XOFF (Ctrl-S) in your received data and stop sending, however there is currently no way to stop the send FIFO from sending, so this will only work when you don't have any data waiting to be sent.
 
 
 ## Communicating with an Arduino
