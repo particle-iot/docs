@@ -583,8 +583,7 @@ curl -X POST -u client-id-1234:secret \
 https://api.particle.io/oauth/token
 ```
 
-The response will be identical to the new access token creation endpoint above.
-
+The response will be identical to the new access token creation endpoint above. Refresh tokens can only be used product oAuth tokens. They cannot be used to renew a Particle developer account access token (particle:particle).
 
 
 

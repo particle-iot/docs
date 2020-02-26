@@ -590,6 +590,7 @@ For user firmware on the Photon and P1:
 
 ```html
 -c "reset halt" \
+-c "flash protect 0 9 10 off" \
 -c "program /Users/rickk/Downloads/firmware.bin verify 0x80A0000" \
 ```
 
@@ -604,10 +605,11 @@ For the Electron running 0.6.0 or later, there are three system parts, and note 
 -c "flash protect 0 5 8 on" \
 ```
 
-For user firmware on the Electron:
+
 
 ```html
 -c "reset halt" \
+-c "flash protect 0 8 9 off" \
 -c "program /Users/rickk/Downloads/firmware.bin verify 0x8080000" \
 ```
 
