@@ -275,7 +275,7 @@ Cloud events have the following properties:
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-* PUBLIC/PRIVATE (prior to 0.8.0 default PUBLIC - thereafter it's a required parameter and PRIVATE is advisable)
+* PUBLIC/PRIVATE (the default is PUBLIC but PRIVATE is advisable)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! **NOTE:** TTL is not implemented, hence the ttl value has no effect. Events must be caught immediately; once sent they will be gone *immediately*.
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).
@@ -2994,7 +2994,9 @@ void loop() {
 
 ```
 
-**Note**: Your {{device}} only uses one set of credentials, and they
+### clearCredentials()
+
+Your device only uses one set of credentials, and they
 must be correctly matched to the SIM card that's used.  If using a
 Particle SIM, using `Cellular.setCredentials()` is not necessary as the
 default APN will be used. If you have set a different APN to use a 3rd-party
