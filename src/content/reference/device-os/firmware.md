@@ -445,6 +445,11 @@ PUBLIC and PRIVATE are mutually exclusive.
 
 Unlike functions and variables, you typically call Particle.publish from loop() (or a function called from loop). 
 
+---
+
+For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+
+
 ### Particle.publishVitals()
 
 {{since when="1.2.0"}}
@@ -454,7 +459,7 @@ Unlike functions and variables, you typically call Particle.publish from loop() 
 
 system_error_t Particle.publishVitals(system_tick_t period_s = particle::NOW)
 
-Particle.publishVitals();  // Publish vitals immmediately
+Particle.publishVitals();  // Publish vitals immediately
 Particle.publishVitals(particle::NOW);  // Publish vitals immediately
 Particle.publishVitals(5);  // Publish vitals every 5 seconds, indefinitely
 Particle.publishVitals(0);  // Publish immediately and cancel periodic publishing
@@ -630,7 +635,7 @@ You should not call `Particle.subscribe()` from the constructor of a globally al
 
 ---
 
-A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
+A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans". The maximum length of the subscribe prefix is 64 characters.
 
 Received events will be passed to a handler function similar to `Particle.function()`.
 A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
@@ -657,6 +662,8 @@ Removes all subscription handlers previously registered with `Particle.subscribe
 // SYNTAX
 Particle.unsubscribe();
 ```
+
+There is no function to unsubscribe a single event handler. 
 
 ### Particle.connect()
 
@@ -6838,6 +6845,13 @@ Reconfigures the SPI peripheral with the supplied settings (see [`SPISettings`](
 {{#if has-threading}}
 In addition to reconfiguring the SPI peripheral, `beginTransaction()` also acquires the SPI peripheral lock, blocking other threads from using the selected SPI peripheral until [`endTransaction()`](#endtransaction-) is called. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
 
+It is required that you use `beginTransaction()` and `endTransaction()` if:
+
+- You have more than one SPI device and they have different settings (speed, bit order, or mode)
+- You have more than one thread or use SPI from a Software Timer
+- You want to be compatible with the Ethernet FeatherWing or support Ethernet on your B Series SoM base board
+
+You must not use `beginTransaction()` within a `SINGLE_THREADED_BLOCK` as deadlock can occur.
 {{/if}} {{!-- has-threading --}}
 
 ```cpp
@@ -6858,6 +6872,8 @@ Parameters:
 - `settings`: [`SPISettings`](#spisettings) object with chosen settings
 
 Returns: Negative integer in case of an error.
+
+You should set your SPI CS/SS pin between the calls to `beginTransaction()` and `endTransaction()`. You typically use `pinResetFast()` right after `beginTransaction()` and `pinSetFast()` right before `endTransaction()`.
 
 ### endTransaction()
 

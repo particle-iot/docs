@@ -627,10 +627,11 @@ else return -2;
 
 ```
 
-Put the Electron in DFU mode ([blinking yellow](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
+Put the Electron/E Series in DFU mode ([blinking yellow](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
 
 ```
-particle compile electron --target 0.4.8 tinker.ino --saveTo firmware.bin
+particle update
+particle compile electron tinker.ino --saveTo firmware.bin
 particle flash --usb firmware.bin
 ```
 
