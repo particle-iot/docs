@@ -8664,7 +8664,7 @@ BleUuid healthThermometerService(0x1809);
 
 The value 0x1809 is from the assigned list of service IDs.
 
-The 128-bit UUIDs are used for your own custom services and characteristics. These are not assigned by any group. You can use any UUID generator, such as the [online UUID generator](https://www.uuidgenerator.net/) or tools that you run on your computer. There is no central registry; they are statistically unlikely to ever conflict.
+The 128-bit UUIDs are used for your own custom services and characteristics. These are not assigned by any group. You can use any UUID generator, such as the [online UUID generator](https://www.uuidtools.com/) or tools that you run on your computer. There is no central registry; they are statistically unlikely to ever conflict.
 
 A 128-bit (16 byte) UUID is often written like this: `240d5183-819a-4627-9ca9-1aa24df29f18`. It's a series of 32 hexadecimal digits (0-9, a-f) written in a 8-4-4-4-12 pattern. 
 

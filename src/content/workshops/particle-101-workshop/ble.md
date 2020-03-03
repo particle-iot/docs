@@ -45,7 +45,7 @@ const unsigned long UPDATE_INTERVAL = 2000;
 unsigned long lastUpdate = 0;
 ```
 <br />
-6. Now, add a UUID for the service, and three characteristic objects to represent uptime, signal strength, and free memory. <br /><br />The service UUID is arbitrary and you should change it from the default below using a UUID generator like the one [here](https://www.uuidgenerator.net/).
+6. Now, add a UUID for the service, and three characteristic objects to represent uptime, signal strength, and free memory. <br /><br />The service UUID is arbitrary and you should change it from the default below using a UUID generator like the one [here](https://www.uuidtools.com/).
 <br /><br />
 Keep track of the UUID you create here  because you'll need it in the next section as well. The Service UUIDs should remain unchanged.
   ```cpp
