@@ -13913,7 +13913,7 @@ System.sleep(SLEEP_MODE_DEEP, long seconds);
 // EXAMPLE USAGE
 
 // Put the device into deep sleep for 60 seconds
-System.sleep(SLEEP_MODE_DEEP,60);
+System.sleep(SLEEP_MODE_DEEP, 60);
 // The device LED will shut off during deep sleep
 
 // Since 0.8.0
@@ -13922,6 +13922,8 @@ System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
 // The device LED will shut off during deep sleep
 // The device will not wake up if a rising edge signal is applied to WKP
 ```
+
+Note: Be sure WKP is LOW before going into SLEEP_MODE_DEEP with a time interval! If WKP is high, even if it falls and rises again the device will not wake up. Additionally, the time limit will not wake the device either, and the device will stay in sleep mode until reset or power cycled.
 
 {{/if}} {{!-- has-stm32 --}}
 
@@ -13953,7 +13955,7 @@ The standby mode is used to achieve the lowest power consumption.  After enterin
 For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods of 5 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up, and supports sleeping for shorter intervals.
 
 {{#if has-stm32}}
-The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the WKP pin.
+The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the WKP pin. 
 
 {{since when="0.8.0"}}
 Wake up by WKP pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
@@ -14703,13 +14705,21 @@ void handle_timer5()
 
 void setup()
 {
-  attachSystemInterrupt(TIM5_IRQn, handle_timer5);
+  attachInterruptDirect(TIM5_IRQn, handle_timer5);
 }
+
 ```
 
 Parameters:
 - `irqn`: platform-specific IRQ number
 - `handler`: interrupt handler function pointer
+
+If the interrupt is an external (pin) interrupt, you also need to clear the interrupt flag from your direct interrupt handler, as it is not done automatically for direct interrrupts.
+
+```
+// EXAMPLE
+EXTI_ClearFlag(EXTI9_5_IRQn);
+```
 
 ### detachInterruptDirect()
 
