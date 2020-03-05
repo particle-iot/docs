@@ -43,7 +43,8 @@ The next few steps assume you have cURL installed on your machine. If you don't 
 {{box op="end"}}
 
 
-1.  First, you'll need to obtain an access token from the CLI. Type `particle token list` to view the tokens associated with your account. The first one listed is your `user` token, and can be used to access the Device Cloud API. If no tokens are listed, generate a new one with `particle token new`.
+1.  First, you'll need to obtain an access token. You can create one using [the Particle CLI](/reference/developer-tools/cli/#particle-token-create).
+
 <br /><br />
 2.  With your token and Device ID in hand, type the following cURL command into a terminal window, replacing the text below in `< >` with your information.
 ```bash

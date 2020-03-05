@@ -46,7 +46,7 @@ At the bottom, there are four more buttons to navigate through the IDE:
 - **Library**: Explore libraries submitted by other users, and develop your own.
 - **Docs**: Brings you to the documentation for Particle.
 - **Devices**: Shows a list of your devices, so you can choose which to flash, and get more information on each device.
-- **Settings**: Change your password, log out, or get your access token for API calls.
+- **Settings**: Change your password or log out.
 
 Keyboard Shortcuts
 ---

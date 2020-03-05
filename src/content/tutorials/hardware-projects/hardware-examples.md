@@ -324,7 +324,8 @@ and replace your-access-token-goes-here with your actual access token-->
 */
 ```
 
-Edit the code in your text file so that "your-device-ID-goes-here" is your actual device ID, and "your-access-token-goes-here" is your actual access token. These things are accessible through your IDE at [build.particle.io](http://build.particle.io). Your device ID can be found in your Devices drawer (the crosshairs) when you click on the device you want to use, and your access token can be found in settings (the cogwheel).
+Edit the code in your text file so that "your-device-ID-goes-here" is your actual device ID, and "your-access-token-goes-here" is your actual access token. You can create an access token using [the Particle CLI](/reference/developer-tools/cli/#particle-token-create). You can find the Device IDs of your devices using `particle list`.
+
 
 Open that `.html` file in a browser. You'll see a very simple HTML form that allows you to select whether you'd like to turn the LED on or off.
 

@@ -79,9 +79,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef01234567/brew \
 # LESSON: Protect your access token.
 ```
 
-Your access token can be found in the Particle Build web IDE on the 'Settings' page.
-
-[Particle Build >](https://build.particle.io)
+You can create an access token using [the Particle CLI](/reference/developer-tools/cli/#particle-token-create).
 
 When you connect your Particle device to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Particle device—using your access token.

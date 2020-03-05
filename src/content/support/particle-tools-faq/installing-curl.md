@@ -139,11 +139,7 @@ After editing the system path environment variable you'll need to restart the co
 
 ## Testing
 
-Most calls require an access token. You can find one by logging into [https://build.particle.io](https://build.particle.io). Click on the Settings icon (1) and your access token is in the highlighted box.
-
-![Access Token](/assets/images/installing-curl-20accesstoken.png)
-
-Make sure you keep your token secret, because it allows access and control over all of your devices.
+Most calls require an access token. You can create one using [the Particle CLI](/reference/developer-tools/cli/#particle-token-create).
 
 You should now be able to open a Command Prompt window and type in a command like:
 
