@@ -22,7 +22,7 @@ It's possible to work with a non-released branch, fork, or manually merged PRs o
 git clone git@github.com:particle-iot/device-os.git
 cd ./device-os
 git submodule update --init --recursive
-git checkout -b develop
+git checkout develop
 ```
 
 - Launch Visual Studio Code
