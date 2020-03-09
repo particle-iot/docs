@@ -865,10 +865,24 @@
       "html_url": "https://particle.zendesk.com/hc/en-us/articles/360039251794-Device-Keys"
     },
     "support/troubleshooting/mode-switching.md": {
-      "ignorePage":true
+      "ignorePage": true
     },
     "support/troubleshooting/troubleshooting-tools.md": {
-        "ignorePage":true
+      "ignorePage": true
+    },
+    "support/particle-devices-faq/xenon-standalone.md": {
+      "articleId": 360044183314,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360044183314-Xenon-Standalone",
+      "attachments": {
+        "/assets/images/blinkManualDownload.png": {
+          "attachmentId": 360060873413,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060873413/blinkManualDownload.png"
+        }
+      }
+    },
+    "support/shipping-and-returns/mesh-deprecation.md": {
+      "articleId": 360044183454,
+      "html_url": "https://particle.zendesk.com/hc/en-us/articles/360044183454-Mesh-Deprecation"
     }
   }
 }
