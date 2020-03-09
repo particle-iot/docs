@@ -68,7 +68,7 @@ fleet.
 
 The price and what's included with the Device Cloud differs for Wi-Fi
 and cellular devices:
-- **Wi-Fi**: your first 100 devices are always free. When you’re ready to scale higher, talk to our team for more volume details.
+- **Wi-Fi**: your first 100 devices are always free. For fleets larger than 100 devices, you will be charged $1.29 per device/mo. 
 - **Cellular**: The first 3 months for each device is free. After 3 months, you will be
 charged $2.99 per device/mo., which includes 3MB of cellular data
 
