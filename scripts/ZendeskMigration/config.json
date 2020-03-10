@@ -23,6 +23,10 @@
     "support/troubleshooting": {
       "id": 360006430133,
       "author": 6038784308
+    },
+    "app-notes": {
+      "id": 360007654254,
+      "author": 6038784308
     }
   },
   "user_segment_id": 2735367,
@@ -883,6 +887,178 @@
     "support/shipping-and-returns/mesh-deprecation.md": {
       "articleId": 360044183454,
       "html_url": "https://particle.zendesk.com/hc/en-us/articles/360044183454-Mesh-Deprecation"
+    },
+    "AN001-Basic-SoM-Design/README.md": {
+      "articleId": 360044251074,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360044251074-AN001-Basic-SoM-Design",
+      "attachments": {
+        "AN001-Basic-SoM-Design/images/whole-board.png": {
+          "attachmentId": 360061057353,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061057353/whole-board.png"
+        },
+        "AN001-Basic-SoM-Design/images/features.png": {
+          "attachmentId": 360061057373,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061057373/features.png"
+        },
+        "AN001-Basic-SoM-Design/images/board.png": {
+          "attachmentId": 360061057393,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061057393/board.png"
+        },
+        "AN001-Basic-SoM-Design/images/sch3.png": {
+          "attachmentId": 360060132514,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060132514/sch3.png"
+        },
+        "AN001-Basic-SoM-Design/images/sch2.png": {
+          "attachmentId": 360060132534,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060132534/sch2.png"
+        },
+        "AN001-Basic-SoM-Design/images/sch1.png": {
+          "attachmentId": 360060132554,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060132554/sch1.png"
+        },
+        "AN001-Basic-SoM-Design/images/sch4.png": {
+          "attachmentId": 360060132574,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060132574/sch4.png"
+        }
+      },
+      "hash": "be0eb13bae6129739651fca4776b9c1bddf7fe45"
+    },
+    "AN002-Device-Powerdown/README.md": {
+      "hash": "82335cc8740c6b33d7dd66e8a63f7b1aa6fe2325",
+      "articleId": 360044252554,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360044252554-AN002-Device-Powerdown"
+    },
+    "AN003-Interpreting-Cloud-Debug/README.md": {
+      "hash": "6d0d093ba94d2ab80ade72dde497b7d016880a44",
+      "articleId": 360044776613,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360044776613-AN003-Interpreting-Cloud-Debug-Logs",
+      "attachments": {
+        "AN003-Interpreting-Cloud-Debug/images/deactivated-sim.png": {
+          "attachmentId": 360061058073,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058073/deactivated-sim.png"
+        }
+      }
+    },
+    "AN004-Interpreting-Cloud-Debug-2/README.md": {
+      "hash": "c844a21f94b8aa87b09c1dcfdc281fcd4806b7ff",
+      "articleId": 360044776633,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360044776633-AN004-Interpreting-Cloud-Debug-Logs-2",
+      "attachments": {
+        "AN004-Interpreting-Cloud-Debug-2/images/creg-syntax.png": {
+          "attachmentId": 360060133454,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133454/creg-syntax.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/creg-set.png": {
+          "attachmentId": 360061058093,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058093/creg-set.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/creg-stat.png": {
+          "attachmentId": 360060133494,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133494/creg-stat.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/creg-lac.png": {
+          "attachmentId": 360060133514,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133514/creg-lac.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/cops-values.png": {
+          "attachmentId": 360060133534,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133534/cops-values.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/cops-act.png": {
+          "attachmentId": 360061058113,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058113/cops-act.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/csq.png": {
+          "attachmentId": 360060133554,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133554/csq.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/csq-rssi.png": {
+          "attachmentId": 360061058133,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058133/csq-rssi.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/cereg-syntax.png": {
+          "attachmentId": 360060133574,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133574/cereg-syntax.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/cereg-stat.png": {
+          "attachmentId": 360060133594,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133594/cereg-stat.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/cereg-act.png": {
+          "attachmentId": 360060133614,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133614/cereg-act.png"
+        },
+        "AN004-Interpreting-Cloud-Debug-2/images/cops-lte-act.png": {
+          "attachmentId": 360061058153,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058153/cops-lte-act.png"
+        }
+      }
+    },
+    "AN005-Threading-Explainer/README.md": {
+      "hash": "2b0373e6a67735918d35000ff79509867e296dee",
+      "articleId": 360044776653,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360044776653-AN005-Threading-Explainer"
+    },
+    "AN006-Vehicle-Power/README.md": {
+      "hash": "9234e636c24da9681e7a30d01b1d46033792bbda",
+      "articleId": 360044252574,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360044252574-AN006-Vehicle-Power",
+      "attachments": {
+        "AN006-Vehicle-Power/images/smoothing.png": {
+          "attachmentId": 360061058173,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058173/smoothing.png"
+        },
+        "AN006-Vehicle-Power/images/schematic1.png": {
+          "attachmentId": 360060133634,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133634/schematic1.png"
+        },
+        "AN006-Vehicle-Power/images/board1.png": {
+          "attachmentId": 360061058193,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058193/board1.png"
+        },
+        "AN006-Vehicle-Power/images/design1.jpg": {
+          "attachmentId": 360061058213,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058213/design1.jpg"
+        },
+        "AN006-Vehicle-Power/images/schematic2.png": {
+          "attachmentId": 360060133654,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133654/schematic2.png"
+        },
+        "AN006-Vehicle-Power/images/board2.png": {
+          "attachmentId": 360060133674,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133674/board2.png"
+        },
+        "AN006-Vehicle-Power/images/design2.jpg": {
+          "attachmentId": 360061058233,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058233/design2.jpg"
+        },
+        "AN006-Vehicle-Power/images/schematic3.png": {
+          "attachmentId": 360060133694,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133694/schematic3.png"
+        },
+        "AN006-Vehicle-Power/images/board3.png": {
+          "attachmentId": 360060133714,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360060133714/board3.png"
+        },
+        "AN006-Vehicle-Power/images/design3.jpg": {
+          "attachmentId": 360061058253,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058253/design3.jpg"
+        },
+        "AN006-Vehicle-Power/images/design3-gps.jpg": {
+          "attachmentId": 360061058273,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360061058273/design3-gps.jpg"
+        }
+      }
+    },
+    "AN007-Tower-Info/README.md": {
+      "hash": "cb492826692301f65ed40db8236d21e9fad6360e",
+      "articleId": 360044776673,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360044776673-AN007-Tower-Info"
+    },
+    "AN008-Xenon-Nordic-SDK/README.md": {
+      "hash": "43b0ed574d7cd6633fe25b17185c57690b152cb7",
+      "articleId": 360044252594,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360044252594-Using-a-Xenon-with-the-Nordic-SDK"
     }
   }
 }
