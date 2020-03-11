@@ -69,7 +69,7 @@ If your {{device}} is blinking green, it is trying to connect to Wi-Fi.
 If you are unable to get past blinking green, here are a few known working situations that the {{device}} is not compatible with:
 
 {{#if photon}}
-- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/support/particle-devices-faq/wpa2-enterprise/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
+- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](https://support.particle.io/hc/en-us/articles/360039741153/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 {{/if}} 
 
 
@@ -146,7 +146,7 @@ If you're not using a Particle SIM, you will have to change the cellular APN on 
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
-If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](/support/particle-devices-faq/electron-3rdparty-sims/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
+If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](https://support.particle.io/hc/en-us/articles/360039741113/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
 
 #### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
@@ -179,7 +179,7 @@ If all else fails, try restarting it! Remove *both* the USB cable and Li-Po batt
 Check out [our status page](http://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
 
 #### 11) Contact Particle
-Still having issues? [Write us an email](/support/menu-base/) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](https://support.particle.io/hc/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
@@ -226,13 +226,13 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 ![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
 <p class="caption"> <a target="_blank" href="/assets/images/bad-sim-socket.png">Click here</a> for a larger image.</p>
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/menu-base/).
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](https://support.particle.io/hc/).
 
 #### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/menu-base/).
+Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](https://support.particle.io/hc/).
 
 #### 6\. Contact Particle
-Still having issues? [Write us an email](/support/menu-base/) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](https://support.particle.io/hc/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
@@ -245,7 +245,7 @@ When your {{device}} is in Listening Mode, it is waiting for you to configure yo
 
 Normally, when you've successfully configured your Gen 3 device using the mobile apps for iOS or Android, the setup complete flag is set and you will exit Listening Mode.
 
-If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](/support/particle-devices-faq/mesh-setup-over-usb/#marking-setup-done) to exit listening mode.
+If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](https://support.particle.io/hc/en-us/articles/360039741133/#marking-setup-done) to exit listening mode.
 
 {{else}}
 
@@ -370,7 +370,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 {{device-animation device "blink" "yellow" }}
 
-If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/support/particle-tools-faq/installing-dfu-util/)
+If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](https://support.particle.io/hc/en-us/articles/360039251394/)
 
 Installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
@@ -391,7 +391,7 @@ To enter DFU Mode:
 
 The {{device}} now is in the DFU mode.
 
-DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](/support/particle-tools-faq/installing-dfu-util/).
+DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](https://support.particle.io/hc/en-us/articles/360039251394/).
 
 Some users have reported issues with dfu-util on a USB3 ports (typically the blue ones). Use a USB2 port if the USB3 port doesn't work.
 
@@ -760,7 +760,7 @@ particle device doctor
 ```
 {{/if}}
 
-Some tips for reducing the memory used by your firmware [can be found here](/support/particle-devices-faq/code-size-tips/).
+Some tips for reducing the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
 
 **Stack overflow (13 blinks between 2 SOS patterns)**
 
@@ -820,5 +820,5 @@ If you still see no change in the status LED you probably have a missing or corr
 
 
 
-This can be corrected using a [JTAG/SWD programmer](/support/particle-tools-faq/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
+This can be corrected using a [JTAG/SWD programmer](https://support.particle.io/hc/en-us/articles/360039251414/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 

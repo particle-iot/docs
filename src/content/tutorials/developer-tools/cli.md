@@ -25,13 +25,13 @@ bash <( curl -sL https://particle.io/install-cli )
 
 This command downloads the `particle` command to your home directory at `~/bin`, installs a version of Node.js to `~/.particle` and installs the `particle-cli` Node.js module that contain the code of the CLI.
 
-It will also try to install [DFU-util](/support/particle-tools-faq/installing-dfu-util/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](/support/particle-tools-faq/installing-dfu-util/) if the installer is not able to automatically install dfu-util.
+It will also try to install [DFU-util](https://support.particle.io/hc/en-us/articles/360039251394/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](https://support.particle.io/hc/en-us/articles/360039251394/) if the installer is not able to automatically install dfu-util.
 
 The installer also works on the Raspberry Pi!
 
 ### Using Windows
 
-Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/support/particle-tools-faq/installing-dfu-util/).
+Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](https://support.particle.io/hc/en-us/articles/360039251394/).
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 
@@ -274,7 +274,7 @@ flash device said  {"id":"01234567890ABCDEFGH","status":"Update started"}
 
 ## Compile and flash code locally
 
-You can find a [step-by-step guide to installing the local build toolchain for the firmware](/support/particle-tools-faq/local-build/) in the FAQ section of the documentation.
+You can find a [step-by-step guide to installing the local build toolchain for the firmware](https://support.particle.io/hc/en-us/articles/360039741273/) in the FAQ section of the documentation.
 
 After building your code on your machine, you can flash it to your device over Serial or remotely.
 

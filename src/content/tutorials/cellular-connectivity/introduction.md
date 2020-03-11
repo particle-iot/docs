@@ -143,7 +143,7 @@ In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the
 
 ### 3rd-party SIM cards
 
-Some Particle devices support [3rd-party SIM cards](/support/particle-devices-faq/electron-3rdparty-sims/). These can provide service in locations where the Particle SIM is not supported, for example.
+Some Particle devices support [3rd-party SIM cards](https://support.particle.io/hc/en-us/articles/360039741113/). These can provide service in locations where the Particle SIM is not supported, for example.
 
 | Device | Model | 3rd-party SIM supported |
 | --- | :--- | :---: |
