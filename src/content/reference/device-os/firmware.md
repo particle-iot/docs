@@ -3809,6 +3809,12 @@ void loop()
 - INPUT\_PULLUP does not work as expected on TX on the P1, Electron, and  E Series and should not be used. 
 - INPUT\_PULLDOWN does not work as expected on D0 and D1 on the P1 because the P1 module has hardware pull-up resistors on these pins. 
 
+On Gen 2 devices (Photon, P1, Electron, and E Series), GPIO pins are 5V tolerant if all of these conditions are met:
+- Digital input mode (INPUT) (the ADC is not 5V tolerant)
+- Not using INPUT_PULLDOWN or INPUT_PULLUP (internal pull is not 5V tolerant)
+- Not using pins A3 or A6 (the DAC pins are not 5V tolerant, even in INPUT mode)
+- Not using pins D0 and D1 on the P1 only as there is a pull-up to 3V3 on the P1 module only
+
 Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external devices. After reset, these pins will be briefly taken over for JTAG/SWD, before being restored to the default high-impedance INPUT state during boot.
 
 - D3, D5, and D7 are pulled high with a pull-up
@@ -3819,6 +3825,8 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 {{/if}}
 
 {{#if has-nrf52}}
+When used as an INPUT or analog input, make sure the signal does not exceed 3.3V. Gen 3 devices (Argon, Boron, Xenon, and B Series SoM) are not 5V tolerant!
+
 If you are using the Particle Ethernet FeatherWing you cannot use the pins for GPIO as they are used for the Ethernet interface:
 
 | Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
@@ -12488,9 +12496,20 @@ void loop() {
 // AWDT count reset automatically after loop() ends
 ```
 
-A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed.  This is the amount of memory needed to support the thread and function that is called.  In practice, on the Photon (v0.5.0) calling the `System.reset` function requires approx. 170 bytes of memory. If not enough memory is allocated, the application will crash due to a Stack Overflow.  The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
+A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes.
+
+This is the amount of memory needed to support the thread and function that is called.  In practice, on the Photon (v0.5.0) calling the `System.reset` function requires approx. 170 bytes of memory. If not enough memory is allocated, the application will crash due to a Stack Overflow.  The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
+
+You should generally not try to do anything other than call System.reset() or perhaps set some retained variables in your application watchdog callback. In particular:
+
+- Do not call any cloud functions like `Particle.publish()` or even `Particle.disconnect()`.
+- Do not call `Cellular.command()`.
+
+Calling these functions will likely cause the system to deadlock and not reset.
+
+Note: `waitFor` and `waitUntil` do not tickle the application watchdog. If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 {{/if}} {{!-- has-application-watchdog --}}
 
@@ -13647,6 +13666,9 @@ waitUntil(Cellular.ready);
 ```
 {{/if}}
 
+Note: `waitUntil` does not tickle the [application watchdog](/reference/device-os/firmware/#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+
+
 #### waitFor()
 
 To delay the application only for a period of time or the condition is met.
@@ -13669,6 +13691,9 @@ if (waitFor(notConnected, 10000)) {
     Particle.publish("weather", "sunny");
 }
 ```
+
+Note: `waitFor` does not tickle the [application watchdog](/reference/device-os/firmware/#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+
 
 {{/if}} {{!-- has-threading --}}
 

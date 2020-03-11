@@ -19,7 +19,7 @@ Let's quickly go over what you see.
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR PHOTON</a>
+<a href="https://setup.particle.io/?family=photon&device=photon"  target="_blank" class="button">SET UP YOUR PHOTON</a>
 </div>
 
 ### What's on it?

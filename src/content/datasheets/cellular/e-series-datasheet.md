@@ -6,7 +6,7 @@ order: 7
 description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
 ---
 
-# E Series Module Datasheet <sup>(v002)</sup>
+# E Series Module Datasheet <sup>(v003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
@@ -613,7 +613,7 @@ In the event that these conditions can not be met (for example certain laptop co
 The final end product must be labeled in a visible area with the following:
 > Contains FCC ID:
 
- * XPYSARAU201 (For 3G E series module using the U201 module)
+ * XPY1CGM5NNN (For 3G E series module using the U201 module)
  * XPY2AGQN4NNN (For LTE E series module using the R410 module)
 
 **Manual Information to the End User**
@@ -659,6 +659,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v001     | 07-Nov-2017   | MB     | Initial release |
 | v002     | 31-Jul-2019   | RK     | Added LTE information |
 |          |               |        | Removed E201, E302, E303 models |
+| v003     | 11-Mar-2020   | RK     | Corrected FCC ID for 2G/3G model |
 
 ## Known Errata
 
