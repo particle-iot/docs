@@ -37,7 +37,7 @@ The Particle Boron is a cellular and Bluetooth development kit designed for buil
 
 For a short (~4 min) overview of what the Boron setup process looks like, watch the video below.
 
-<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/ZpO0foGJ9Po" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/xymSayKBGbg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Once you're ready to proceed, use the online setup application to configure your new Boron. The process includes the following.
 
