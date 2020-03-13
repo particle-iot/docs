@@ -5,6 +5,7 @@ order: 1
 shared: true
 columns: two
 layout: tutorials.hbs
+description: Managing over-the-air (OTA) firmware updates for Particle IoT devices
 ---
 
 # {{title}}
@@ -18,7 +19,7 @@ updating the code on an embedded device.
 leading OTA update capabilities</p>
 
 The value of incorporating OTA update capabilities into a connected
-product cannot be understated, and include:
+product include:
 
 - The ability to add **new software features** to a product after a device has been deployed in the field to improve functionality over time
 - The opportunity to **rapidly respond to bugs and security vulnerabilities** without the need for physical recalls of devices or truck rolls
@@ -62,7 +63,7 @@ Particle's OTA updates have been built from the ground up to be reliable and res
 
 - **Automatic rollbacks**: If for some reason an OTA is interrupted (like a disruption in connectivity or a device losing power), the device will fail gracefully by automatically reverting to the previous version of working firmware.
 
-- **Minimal disruption**: A Particle device continues to run its current version of firmware while it receives an OTA update. After a brief reset, the device seamlessly begins running the new firmware.
+- **Minimal disruption**: A Particle device continues to run its current version of firmware while it receives an OTA update. After a brief reset, the device seamlessly begins running the new firmware. If at this point the version of Device OS running on the device is older than the minimum version of Device OS to run the user application, the device will enter safe mode and download the required Device OS. Once this is complete, the device will reset and begin running the new firmware on the updated Device OS.
 
 - **Application and Device OS version management**: Particle's OTA
 capabilities make it easy to manage _both_ the firmware applications
@@ -264,7 +265,7 @@ your fleet:
 <p class="caption">The recommended flow for releasing firmware</p>
 
 1. The first step of the release flow is using [**development
-devices**](/guide/how-to-build-a-product/development-devices/) to rapidly develop and iterate on product firmware. These are special
+devices**](/tutorials/product-tools/development-devices/) to rapidly develop and iterate on product firmware. These are special
 product devices marked specifically for internal testing.
 This gives you the flexibility to experiment with
 new firmwares while still simulating behaviors of deployed devices in
@@ -282,15 +283,17 @@ but we also recommend [**locking one or more devices**](/tutorials/device-cloud/
 to the newly updated firmware and ensure that it re-connects
 successfully to the cloud. This is because locking more closely
 represents a release action, with the specific firmware being delivered
-to a product device.
+to a product device. If you find a problem at this step, [delete the
+firmware version, recompile it and reupload it](/tutorials/device-cloud/console/#uploading-firmware).
+It is only possible to delete a firmware version before marking it as
+released.
 
 4. [**Mark the firmware as released**](/tutorials/device-cloud/console/#releasing-firmware). This will
 target product devices to automatically download and run the firmware.
 The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
-delivered to a given device. If you are on the Enterprise plan with
-access to [device groups](/tutorials/product-tools/device-groups/),
-you can more safely roll out the firmware by targeting a subset of the
+delivered to a given device. [Device groups](/tutorials/product-tools/device-groups/),
+allow you to more safely roll out the firmware by targeting a subset of the
 fleet for release.
 
 The rest of this section contains details around how to go through this
@@ -303,7 +306,7 @@ Click the Firmware icon in the left sidebar to get started. This will direct you
 <img src="/assets/images/firmware-page.png" class="full-width"
 alt="Firmware page"/>
 
-If you have been using the [Web IDE](/tutorials/developer-tools/build) to
+If you have been using the [Web IDE](/tutorials/developer-tools/build/) to
 develop firmware, you are used to the process of writing, compiling, and
 then flashing firmware. You will follow the same high-level process
 here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.

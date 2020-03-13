@@ -3,6 +3,7 @@ title: Google Maps
 layout: tutorials.hbs
 columns: two
 order: 110
+description: Cellular and Wi-Fi geolocation for your Particle IoT device
 ---
 
 # {{title}}
@@ -187,7 +188,7 @@ on the <a href="https://console.particle.io" target="_blank">Particle Console</a
 
 Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
 by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
-for a <a href="/guide/tools-and-features/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
+for a <a href="/tutorials/device-cloud/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
 hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
 then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
 
@@ -309,15 +310,6 @@ particle flash --usb firmware.bin
 This will flash the firmware to your electron locally (over USB) to
 prevent consuming data from over-the-air firmware updates.
 
-### Using Particle Dev (Local IDE)
-
-It's also easy to open this example using Particle Dev (Local IDE).
-
-![Particle DEV](/assets/images/google-maps-18.png)
-
-Makes sure you have a recent version of Particle Dev, as older versions don't know how to automatically load libraries. 
-
-Also, you want to make sure you close all open windows, then open the .cpp file for the example you want to use. For example, the oled-locator.cpp file. You want to make sure that only a single project is visible in the left-hand folder navigation.
 
 ### Using Particle Build (Web IDE)
 

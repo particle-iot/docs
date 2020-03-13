@@ -3,6 +3,7 @@ title: CircuitPython on Xenon
 layout: tutorials.hbs
 columns: two
 order: 52
+description: How to use CircuitPython on the Particle Xenon
 ---
 
 # Using CircuitPython with a Particle Xenon
@@ -22,16 +23,18 @@ In addition, you'll need to install the following software:
 1. [J-Link Software](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) if using a Segger J-Link for this tutorial.
 2. [nRF Command-Line Tools](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs)
 3. [arm gcc compiler](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm). Note: Make sure that the GCC Compiler is in your PATH
-4. [OpenOCD](https://docs.particle.io/support/particle-tools-faq/jtag/#installing-openocd-manually) unless you've already installed [Particle Workbench](https://particle.io/workbench), in which case OpenOCD will have been installed for you.
-
-
-Lastly, you will need to download a CircuitPython release
-
-1. [CircuitPython](https://circuitpython.org/board/particle_xenon)
+4. [OpenOCD](https://support.particle.io/hc/en-us/articles/360039251414/#installing-openocd-manually) unless you've already installed [Particle Workbench](https://particle.io/workbench), in which case OpenOCD will have been installed for you.
+5. Lastly, you will need to download a [CircuitPython release](https://circuitpython.org/board/particle_xenon)
 
 ## Replacing the Default Bootloader
 
 The first step to using your Xenon with CircuitPython is to replace the Particle bootloader on the device with an nRF52-friendly bootloader. This replacement process is often referred to as "burning a bootloader."
+
+_*NOTE*_: If you want to build the bootloader yourself, follow the instructions below. Alternativly, you can download the latest bootloader from [Adafruit directly](https://github.com/adafruit/Adafruit_nRF52_Bootloader/releases) on the releases page for the `Adafruit_nRF52_Bootloader` repo. Scroll down and look for a file with a name that starts with `particle_xenon_bootloader-`. Click [here](https://github.com/adafruit/Adafruit_nRF52_Bootloader/releases/download/0.3.1/particle_xenon_bootloader-0.3.1_s140_6.1.1.hex) for a direct link to the `0.3.1` version.
+
+If you choose to download the bootloader directly, you can skip to [burning the bootloader with OpenOCD](#use-openocd-to-burn-the-bootloader-to-your-xenon)
+
+### Cloning the GitHub Repo
 
 1. In a development folder on your machine, use a terminal to clone the `Adafruit_nRF_Bootloader` repository.
 

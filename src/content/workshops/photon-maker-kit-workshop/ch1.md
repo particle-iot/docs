@@ -24,14 +24,14 @@ Particle provides three methods for claiming a new Photon:
 
 Approaches #1 and #2 use SoftAP capabilities on the Photon to cause the device to appear as a Wi-Fi access point. Once connected, you can configure the device's connection to a local Wi-Fi network. Approach #3 is more common for power users or in workshop settings where a large number of devices are being claimed simultaneously.
 
-Once you've claimed your Photon, you'll use [Tinker](https://docs.particle.io/guide/getting-started/tinker/photon/) on the Particle mobile app to interact with your new device.
+Once you've claimed your Photon, you'll use [Tinker](/guide/getting-started/tinker/photon/) on the Particle mobile app to interact with your new device.
 
 ## Before you start
 
 1.  Create a new [Particle account](https://login.particle.io/signup)
 2.  Install the Particle [iOS](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App
-3.  [Install the Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/#install-the-particle-cli)
-4.  [Install the Particle Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/)
+3.  [Install the Particle CLI](/tutorials/developer-tools/cli/#install-the-particle-cli)
+4.  [Install the Particle Desktop IDE](/tutorials/developer-tools/dev/)
 
 ## Mobile App Instructions
 

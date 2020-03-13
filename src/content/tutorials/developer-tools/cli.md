@@ -5,6 +5,7 @@ order: 22
 columns: two
 redirects: true
 layout: tutorials.hbs
+description: Command line interface for managing your Particle devices for Windows, Mac OS, and Linux
 ---
 
 # Particle CLI
@@ -24,13 +25,13 @@ bash <( curl -sL https://particle.io/install-cli )
 
 This command downloads the `particle` command to your home directory at `~/bin`, installs a version of Node.js to `~/.particle` and installs the `particle-cli` Node.js module that contain the code of the CLI.
 
-It will also try to install [DFU-util](/faq/particle-tools/installing-dfu-util/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](/faq/particle-tools/installing-dfu-util/) if the installer is not able to automatically install dfu-util.
+It will also try to install [DFU-util](https://support.particle.io/hc/en-us/articles/360039251394/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](https://support.particle.io/hc/en-us/articles/360039251394/) if the installer is not able to automatically install dfu-util.
 
 The installer also works on the Raspberry Pi!
 
 ### Using Windows
 
-Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/faq/particle-tools/installing-dfu-util/).
+Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](https://support.particle.io/hc/en-us/articles/360039251394/).
 
 The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 
@@ -255,7 +256,6 @@ Replace photon with the type of device you have:
 - p1
 - electron (also E series)
 - core (Spark Core, discontinued)
-- pi (Raspberry Pi, discontinued)
 
 
 Now that we have a valid program, let's flash it to our device!  We can use either the source code again, or we can send our binary.
@@ -274,7 +274,7 @@ flash device said  {"id":"01234567890ABCDEFGH","status":"Update started"}
 
 ## Compile and flash code locally
 
-You can find a [step-by-step guide to installing the local build toolchain for the firmware](/faq/particle-tools/local-build) in the FAQ section of the documentation.
+You can find a [step-by-step guide to installing the local build toolchain for the firmware](https://support.particle.io/hc/en-us/articles/360039741273/) in the FAQ section of the documentation.
 
 After building your code on your machine, you can flash it to your device over Serial or remotely.
 
@@ -312,7 +312,7 @@ The overall flow when consuming a library goes like this
 - edit your source code to use the library
 - compile your project - `particle compile`
 
-These commands are described in more details in [the CLI reference](/reference/cli/#particle-library).
+These commands are described in more details in [the CLI reference](/reference/developer-tools/cli/#particle-library).
 
 ### library search
 
@@ -484,7 +484,7 @@ has been published, the files and data cannot be changed. Subsequent changes mus
 and subsequent publish.
 
 ## Reference
-For more info on CLI commands, go [here](/reference/developer-tools/cli).
+For more info on CLI commands, go [here](/reference/developer-tools/cli/).
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.

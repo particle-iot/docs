@@ -2,8 +2,9 @@
 title: Web IDE (Build)
 layout: tutorials.hbs
 columns: two
-devices: [ electron,photon,core,raspberry-pi,argon,boron,xenon ]
+redirects: true
 order: 20
+description: Web-based IDE for programming your Particle IoT devices
 ---
 
 Flash Apps with Particle Build
@@ -33,7 +34,7 @@ Particle Build is an Integrated Development Environment, or IDE; that means that
 
 Particle Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
 
-- **Flash**: Flashes the current code to the device. This initiates an *over-the-air firmware update* and loads the new software onto your device. {{#if electron}}**Note: Flashing OTA for the Electron uses data and should consider using flash over serial instead.**{{/if}}
+- **Flash**: Flashes the current code to the device. This initiates an *over-the-air firmware update* and loads the new software onto your device. **Note: Flashing OTA for the cellular devices uses data and should consider using flash over USB instead.**
 - **Verify**: This compiles your code without actually flashing it to the device; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
 - **Save**: Saves any changes you've made to your code.
 
@@ -45,7 +46,7 @@ At the bottom, there are four more buttons to navigate through the IDE:
 - **Library**: Explore libraries submitted by other users, and develop your own.
 - **Docs**: Brings you to the documentation for Particle.
 - **Devices**: Shows a list of your devices, so you can choose which to flash, and get more information on each device.
-- **Settings**: Change your password, log out, or get your access token for API calls.
+- **Settings**: Change your password or log out.
 
 Keyboard Shortcuts
 ---
@@ -80,19 +81,9 @@ Flashing Your First App
 
 The best way to get started with the IDE is to start writing code:
 
-{{#if raspberry-pi}}
-- **Connect**: Make sure your device is powered connected to the
-Particle Device Cloud and ready to be updated.
-{{else}}
-- **Connect**: Make sure your device is powered and "breathing" Cyan,
-which indicates that it's connected to the Particle Device Cloud and ready to be updated.
-{{/if}}
-
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
 
-{{#if electron}}
-**NOTE**: Each over *over-the-air firmware update* on Electron counts towards your data allowance. You can also flash the Electron locally [using our CLI](/reference/cli/#compiling-remotely-and-flashing-locally).
-{{/if}}
+**NOTE**: Each over *over-the-air firmware update* on cellular devices counts towards your data allowance. You can also flash the devices locally [using our CLI](/reference/developer-tools/cli/#compiling-remotely-and-flashing-locally) over USB.
 
 ```
 //D7 LED Flash Example
@@ -109,21 +100,9 @@ void loop() {
     delay(1000);
 }
 ```
-{{#if electron}}
+
 ![Particle Build](/assets/images/enew-ide.png)
-{{/if}}
 
-{{#if photon}}
-![Particle Build](/assets/images/ide-devices.png)
-{{/if}}
-
-{{#if core}}
-![Particle Build](/assets/images/ide-devices.png)
-{{/if}}
-
-{{#if raspberry-pi}}
-![Particle Build](/assets/images/ide-devices.png)
-{{/if}}
 
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
@@ -137,11 +116,8 @@ void loop() {
 
 ![Web IDE Status Bar](/assets/images/web-ide-status-bar.png)
 
-{{#if raspberry-pi}}
-- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, your device will begin running the app.
-{{else}}
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
-{{/if}}
+
 ![Particle Build](/assets/images/ide-examples.png)
 
 - **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your devices.
@@ -205,7 +181,7 @@ To include a firmware library in your Particle project, open the library drawer,
 
 Read on for detailed instructions to include a firmware library in your Particle application with Build.
 
-We have [a detailed reference guide about libraries](/guide/tools-and-features/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
+We have [a detailed reference guide about libraries](/tutorials/device-os/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
 
 ##### Step 1 - Go to the Libraries tab
 Click on the libraries bookmark icon on the left hand side of the Build interface.
@@ -216,7 +192,7 @@ Click on the libraries bookmark icon on the left hand side of the Build interfac
 
 ![Bookmark icon](/assets/images/libraries-guide-librarylist.png)
 
-Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/guide/tools-and-features/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/tutorials/device-os/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
 
 To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing arrows at the bottom of the library list.
 
@@ -237,9 +213,9 @@ The detailed view for a library includes the following:
 
 - `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
 - `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
-- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/guide/tools-and-features/libraries/#contributing-libraries).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/tutorials/device-os/libraries/#contributing-libraries).
 - `Library description`: Detailed information about the library
-- `Library files`: What files come with the library. This follows the [new library file structure](/guide/tools-and-features/libraries/#library-file-structure).
+- `Library files`: What files come with the library. This follows the [new library file structure](/tutorials/device-os/libraries/#library-file-structure).
 - `Library examples`: Those are examples of usage. If you click on one of them, you will be shown the source code. To use it as one of your projects, click on 'Use this example'.
 
 ![Library examples](/assets/images/libraries-guide-libraryexamples.png)
@@ -264,7 +240,7 @@ Clicking the `Confirm` button will bring you back to your Particle project. The 
 Contribute a library
 ---
 
-This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.
+This functionality was moved to the Command Line Interface (CLI). You can follow [this link](/tutorials/device-os/libraries/#contributing-libraries) to find more about contributing a library.
 
 Checking code memory usage
 ---
@@ -279,8 +255,6 @@ _If there are no code changes and you **verify** code for the second time, the "
 
 ![Code memory information](/assets/images/ide-mem-usage.png)
 
-{{#if raspberry-pi}}
-{{else}}
 
 Wait, what is firmware?
 ---
@@ -288,7 +262,7 @@ Wait, what is firmware?
 An *embedded system* like the Core, Photon or Electron doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
 
 
-![Firmware versions]({{assets}}/images/ide-firmware-versions.png)
+![Firmware versions](/assets/images/ide-firmware-versions.png)
 
 *Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
 
@@ -297,12 +271,12 @@ In our case, because the Cores, Photons and Electrons are connected to the inter
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
 
 For every device which version of our firmware you want to build against. In most cases you want to build with the latest firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
-{{/if}}
+
 
 Troubleshooting
 ---
 
-![Clear cache]({{assets}}/images/ide-clear-cache.png)
+![Clear cache](/assets/images/ide-clear-cache.png)
 
 Particle Build uses a local cache to improve its performance. In some cases this may cause errors or outdated information about libraries. If you encounter similar symptoms try clearing the cache by going to **Settings** and clicking **Clear cache** button.
 

@@ -42,6 +42,7 @@ var insertFragment = require('./insert_fragment');
 var javascriptDocsPreprocess = require('./javascript_docs_preprocess');
 var git = require('git-rev');
 var path = require('path');
+var sitemap = require('./sitemap.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -263,6 +264,11 @@ exports.metalsmith = function () {
     .use(deviceFeatureFlags({
       config: '../config/device_features.json'
     }))
+    .use(sitemap({
+      config: '../config/sitemap.json',
+      output: '../build/sitemap.xml',
+      baseUrl: 'https://docs.particle.io/'
+    }))
     // Create HTML pages with meta http-equiv='refresh' redirects
     .use(redirects({
       config: '../config/redirects.json'
@@ -388,7 +394,7 @@ exports.server = function (callback) {
           '${source}/assets/js/*.js*': true,
           '${source}/assets/images/**/*': true,
           '../config/device_features.json': 'content/**/*.md',
-          '../api-service/lib/**/*.js': 'content/reference/api.md',
+          '../api-service/src/**/*.js': 'content/reference/device-cloud/api.md',
           '../config/redirects.json': '**/*'
         },
         livereload: true

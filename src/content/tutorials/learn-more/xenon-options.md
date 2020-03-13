@@ -3,6 +3,7 @@ title: Using a Xenon without Mesh
 layout: tutorials.hbs
 columns: two
 order: 51
+description: Options for using Particle Xenon devices without Particle Mesh
 ---
 
 # Using a Particle Xenon without Particle Mesh
@@ -17,7 +18,7 @@ If you wish, you can continue to use your Xenon as a part of a pre-existing Part
 
 *_Please note that this option, while available, is not supported by Particle for production use._*
 
-You can also use your Xenon in [standalone mode, with no network connectivity](/support/particle-devices-faq/xenon-standalone/#set-the-system_mode).
+You can also use your Xenon in [standalone mode, with no network connectivity](https://support.particle.io/hc/en-us/articles/360044183314/#set-the-system_mode).
 
 ## Option 2: Provision your Xenon as a non-Particle dev kit
 
@@ -25,5 +26,10 @@ Alternatively, you can provision your Xenon for use as a dev kit disconnected fr
 
 - [Use the Particle Xenon as a nRF52840 dev kit](https://github.com/particle-iot/app-notes/tree/master/AN008-Xenon-Nordic-SDK).
 - [Use the Particle Xenon as a CircuitPython device](/tutorials/learn-more/xenon-circuit-python/).
+- [Use the Particle Xenon with the Zephyr Project](https://docs.zephyrproject.org/latest/boards/arm/particle_xenon/doc/index.html) (Real-time operating system with MicroPython).
 
-Both of these options will remove the Particle Device OS and bootloader, so the device will no longer be able to connect to the Particle Device Cloud.
+These options will remove the Particle Device OS and bootloader, so the device will no longer be able to connect to the Particle Device Cloud.
+
+## Option 3: Use your Xenon with the Ethernet FeatherWing
+
+Using Device OS 1.6.x you can continue to use a Xenon in the Ethernet FeatherWing. You can continue to do so after January 1, 2021, however you will only be able to claim a Xenon to your account using the Particle CLI as there will be no mobile app support at that time.

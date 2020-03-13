@@ -3,6 +3,7 @@ title: Maker Kit Tutorials
 layout: tutorials.hbs
 columns: two
 order: 100
+description: Tutorials for the Photon Maker Kit, a collection of sensors and accessories for the Particle Photon
 ---
 
 # {{title}}
@@ -578,7 +579,7 @@ Particle.publish("conf_avail"); //publish to conf_avail webhook
 ```
 The name of the event being published matches the **event name** parameter in the webhook we just made.
 
-Check out the [Publish](/reference/device-os/firmware/photon/#particle-publish-),  [Subscribe](/reference/device-os/firmware/photon/#particle-subscribe-), and [Webhooks](/tutorials/device-cloud/webhooks) documentation for more information.
+Check out the [Publish](/reference/device-os/firmware/photon/#particle-publish-),  [Subscribe](/reference/device-os/firmware/photon/#particle-subscribe-), and [Webhooks](/tutorials/device-cloud/webhooks/) documentation for more information.
 
 ### Set up the hardware
 On the PIR sensor itself, with the back of the PCB facing up, find the two small potentiometers. The one on the left controls the range of the sensor (3-7 meters), and the one on the right controls how long the sensor stays triggered once tripped (1.5 - 300 seconds). Set the range potentiometer to the size of your conference room, or just turn it all the way to the right if your conference room has no windows. Set the second potentiometer all the way to the left (counterclockwise) to maximize its timing resolution.

@@ -5,6 +5,7 @@ order: 21
 shared: true
 columns: two
 layout: tutorials.hbs
+description: Older desktop IDE for programming Particle devices for Windows and Mac OS (discontinued)
 ---
 
 # Desktop IDE (Dev)
@@ -60,7 +61,7 @@ To access most of features you need to log in using your Particle account (which
 
 Enter your email and password then click the "Log In" button. After a successful login, the dialog will hide and a link will appear at the bottom showing your current account email.
 
-**NOTE**: When using [Command Line](/tutorials/developer-tools/cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
+**NOTE**: When using [Command Line](/tutorials/developer-tools/cli/) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
 
 ### Selecting Device
 
@@ -154,7 +155,7 @@ To include a firmware library in your Particle project, open the library drawer 
 
 Read on for detailed instructions to include a firmware library in your Particle application with Build.
 
-We have [a detailed reference guide about libraries](/guide/tools-and-features/libraries) but for now here's a step by step guide on how to include a library in our Desktop IDE.
+We have [a detailed reference guide about libraries](/tutorials/device-os/libraries/) but for now here's a step by step guide on how to include a library in our Desktop IDE.
 
 ##### Step 1 - Open the libraries tab
 
@@ -166,7 +167,7 @@ Once you have opened your Particle project in the Desktop IDE, open the librarie
 
 ![Library list](/assets/images/libraries/libraries-list-dev.png)
 
-Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/guide/tools-and-features/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/tutorials/device-os/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
 
 To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing buttons at the bottom of the library list.
 
@@ -188,9 +189,9 @@ The information included with each library search result includes:
 
 - `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
 - `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
-- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/guide/tools-and-features/libraries/#contributing-libraries).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/tutorials/device-os/libraries/#contributing-libraries).
 - `Library description`: Detailed information about the library
-- `View source`: Clicking this icon will download the source files of the library and open them in another window. Library source files include the source files for the library itself which follow the [new library file structure](/guide/tools-and-features/libraries/#library-file-structure), as well as library examples, which demonstrate usage of the library.
+- `View source`: Clicking this icon will download the source files of the library and open them in another window. Library source files include the source files for the library itself which follow the [new library file structure](/tutorials/device-os/libraries/#library-file-structure), as well as library examples, which demonstrate usage of the library.
 
 ![View source](/assets/images/libraries/libraries-dev-source.png)
 
@@ -227,11 +228,11 @@ For example, if we were using the library "UberSensor", it would be included lik
 
 ## Contribute a library
 
-See the [detailed library guide](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library from the Desktop IDE.
+See the [detailed library guide](/tutorials/device-os/libraries/#contributing-libraries) to find more about contributing a library from the Desktop IDE.
 
 ## Targeting different platforms and firmware versions
 
-Similarly to the [Web IDE](/tutorials/developer-tools/build) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
+Similarly to the [Web IDE](/tutorials/developer-tools/build/) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
 
 **Note:** By default all projects are compiled for latest version of firmware for a Photon.
 
@@ -241,7 +242,7 @@ To know what platform and version you are targeting take a look at the status ba
 
 The first item is currently selected device. Once you select a different device, the target platform will be automatically changed to its platform.
 
-The second one is the platform you want to target. Different platforms have different capabilities (i.e. Photon has WiFi but Electron has cellular instead) so keep in mind that some firmware methods might not exist or work differently (consult [the reference](/reference) to make sure they will work as you expect).
+The second one is the platform you want to target. Different platforms have different capabilities (i.e. Photon has WiFi but Electron has cellular instead) so keep in mind that some firmware methods might not exist or work differently (consult [the reference](/reference/device-os/firmware/) to make sure they will work as you expect).
 
 Clicking on the platform name will allow you to select a different one:
 
@@ -249,11 +250,11 @@ Clicking on the platform name will allow you to select a different one:
 
 **Note:** You can target platforms you don't own hardware of and at least test if the code compiles.
 
-The last item is the firmware version aka the build target. This allows you to select exactly which version you want to use. When reading [the reference](/reference/device-os/firmware) you might have noticed that some functions have a note saying: _Since X.Y.Z_. This specifies the minimum build target you need to use in order to have this function available.
+The last item is the firmware version aka the build target. This allows you to select exactly which version you want to use. When reading [the reference](/reference/device-os/firmware/) you might have noticed that some functions have a note saying: _Since X.Y.Z_. This specifies the minimum build target you need to use in order to have this function available.
 
 When you use a version newer than's on your device (which can be checked
 using `particle serial inspect` [CLI
-command](/tutorials/developer-tools/cli)) it will enter **safe mode**
+command](/tutorials/developer-tools/cli/)) it will enter **safe mode**
 which should be automatically fixed with multiple consecutive flashes.
 The exception here is the Electron where updating Device OS versions would incur charges. In this case, the IDE will select the build target that's currently on the device in order to keep the device running.
 

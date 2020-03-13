@@ -1,0 +1,14 @@
+{
+    "ignore":[
+        "page-not-found.md",
+        "raspberry-pi.md",
+        "start.md",
+        "towerinfo.md",
+        "assets/images" 
+    ],
+    "priority":{
+        "discontinued":0.1,
+        "support/":0.1,
+        "xenon":0.2
+    }
+}

@@ -130,7 +130,7 @@ function getCountries() {
 	        	else
 	        	if (sku === 'E270') {
 	        		which3G = 'U270';
-	        	}
+				}
 	        });	  
 	        // console.log('Retrieved Country ' + record.getId() + ' ' + record.get('Country') + ' has2G=' + has2G + ' which3G=' + which3G);
 	        countryNameMap[record.getId()] = record.get('Country');
@@ -211,7 +211,7 @@ function getFullData() {
 	    		break;
 	    		
 	    	case 'Bundled':
-	    		if (zone >= 5) {
+	    		if (zone >= 6) {
 		    		// Zone 6 and higher is hidden for Telefonica, except for Korea and Taiwan
 		    		if (countryName == 'South Korea' || countryName === 'Taiwan') {
 		    			// OK
@@ -270,7 +270,7 @@ function getFullData() {
 				addCountryData(countryName, 'has2g', no2g[countryName] ? no2g[countryName] : '&#x2714;');
 
 	    		
-				addCountryData(countryName, 'has3g', which3G);							
+				addCountryData(countryName, 'has3g', which3G ? which3G : 'U270');							
 
 	    	}
 	    	else {

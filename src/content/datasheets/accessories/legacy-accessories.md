@@ -3,6 +3,7 @@ title: Legacy Accessories
 layout: datasheet.hbs
 columns: two
 order: 30
+description: Accessories for Particle Photon and Electron devices (Gen 2)
 ---
 
 # Legacy Accessories
@@ -379,7 +380,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 ### Photon with Headers (1)
 
 ![Photon with Headers](/assets/images/photon-loose-top.jpg)
-[Click here for the Photon datasheet](/datasheets/photon-datasheet/)
+[Click here for the Photon datasheet](/datasheets/wi-fi/photon-datasheet/)
 
 ### USB Micro B Cable (1)
 

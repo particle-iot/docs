@@ -17,7 +17,7 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 
 <div align="center">
 <br />
-<a href="http://docs.particle.io/quickstart/isk-project/" target="_blank" class="button">BUILD YOUR LEAK DETECTION SYSTEM</a>
+<a href="/quickstart/isk-project/" target="_blank" class="button">BUILD YOUR LEAK DETECTION SYSTEM</a>
 </div>
 
 {{box op="start" cssClass="boxedSideBySide"}}
@@ -25,7 +25,7 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 - [Quickstart with the leak detection system](/quickstart/ldk-project/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io)
-- [Support](/support/support-and-fulfillment/menu-base/)
+- [Support](https://support.particle.io/hc/)
   {{box op="switch"}}
   **Resources:**
 - [Argon hardware files](https://github.com/particle-iot/argon)
@@ -39,14 +39,14 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 ![The Particle Leak Detection Kit's contents knolled on a white background](/assets/images/Leak-Detection-Kit-contents.jpg)
 For technical documentation on each of the included components, please see the links below.
 {{box op="start"}}
-- **[Particle Argon](https://docs.particle.io/argon/)**  
-- **[Particle Xenon](https://docs.particle.io/xenon/)** (2)
+- **[Particle Argon](/argon/)**  
+- **[Particle Xenon](/xenon/)** (2)
 - **[LiPo battery](https://store.particle.io/collections/accessories/products/li-po-battery)** (3)
-- **[2.4Ghz antenna](https://docs.particle.io/datasheets/wi-fi/argon-datasheet/#antenna)
+- **[2.4Ghz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
 - **Micro-USB cable** (3)
 - **Grove FeatherWing Adapter** (3)
 - **Grove modules:**
   - **[Water sensor](https://www.seeedstudio.com/Grove-Water-Sensor-p-748.html)** (2)
-  - * [Button](https://docs.particle.io/datasheets/accessories/mesh-accessories/#button) 
+  - * [Button](/datasheets/accessories/gen3-accessories/#button) 
 - **Grove wires** (3)
 {{box op="end"}}

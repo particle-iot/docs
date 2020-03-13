@@ -3,6 +3,7 @@ title: Boron
 layout: quickstart.hbs
 columns: two
 order: 4
+description: Getting started with your Particle Boron, Gen 3 cellular and BLE device
 ---
 
 # Quick start: Boron
@@ -13,7 +14,7 @@ The Particle Boron is a cellular and Bluetooth development kit designed for buil
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/?family=mesh&device=boron"  target="_blank" class="button">SET UP YOUR BORON</a>
 </div>
 
 ### The Boron Kit comes with the following things:

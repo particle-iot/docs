@@ -38,7 +38,8 @@ module.exports = function(options) {
 						return new Buffer(value);
 					}
 				});
-
+				
+				newFile['titlePlatform'] = newFile['title'] + ' - ' + titleize(value);
 				newFile[value] = true;
 				newFile[keySingular] = titleize(value);
 				newFile[keySingular + 'Value'] = value;

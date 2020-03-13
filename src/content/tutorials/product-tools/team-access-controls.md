@@ -3,6 +3,7 @@ title: Team Access Controls
 columns: two
 layout: tutorials.hbs
 order: 43
+description: Learn about team access controls, managing access different members of your product team
 ---
 
 # Team Access Controls

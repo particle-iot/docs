@@ -4,21 +4,22 @@ layout: quickstart.hbs
 columns: two
 order: 6
 setdevice: photon
+description: Getting started with your Particle Photon, Gen 2 Wi-Fi device
 ---
 
 ## What's in the box
 ![](/assets/images/photon-kit-new.jpg)
 <p class="caption">Your new Photon! Note that many components pictured will only be included if you purchased a Photon Kit.</p>
 
-Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit addons](https://docs.particle.io/datasheets/kits) and check out the [Photon datasheet](https://docs.particle.io/datasheets/photon-datasheet/) if you like!
+Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit addons](/datasheets/accessories/legacy-accessories/) and check out the [Photon datasheet](/datasheets/wi-fi/photon-datasheet/) if you like!
 
-If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button tutorial](https://docs.particle.io/guide/tools-and-features/button/) for more detailed info.
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button tutorial](/quickstart/button/) for more detailed info.
 
 Let's quickly go over what you see.
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR PHOTON</a>
+<a href="https://setup.particle.io/?family=photon&device=photon"  target="_blank" class="button">SET UP YOUR PHOTON</a>
 </div>
 
 ### What's on it?
@@ -116,4 +117,4 @@ Once you have connected your device, it has learned that network. Your device ca
 <p><strong>Congratulations, you just blinked an LED over the internet, using your Particle device!</strong></p>
 
 
-For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/photon).
+For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/photon/).

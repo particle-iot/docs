@@ -3,6 +3,7 @@ title: Boron datasheet
 layout: datasheet.hbs
 columns: two
 order: 1
+description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
 # Boron Datasheet <sup>(v002)</sup>
@@ -17,18 +18,18 @@ order: 1
 
 ### Overview
 
-The Boron LTE is a powerful LTE CAT-M1 enabled development kit that supports cellular networks and Bluetooth LE (BLE). It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+The Boron is a powerful LTE Cat M1 or 2G/3G enabled development kit that supports cellular networks and Bluetooth LE (BLE). It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
 The Boron is great for connecting existing projects to the Particle Device Cloud where Wi-Fi is missing or unreliable.
 
 ### Features
 
  * u-blox SARA-R410-02B LTE modem (Boron LTE)
-  * LTE CAT M1 module with global hardware support (MVNO support for US only) 
+  * LTE Cat M1 module with global hardware support (MVNO support for US only) 
   * 3GPP Release 13 LTE Cat M1 
   * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
  * u-blox SARA U201 2G/3G modem (Boron 2G/3G)
-  * HSPA/GSMqq with global hardware and SIM support 
+  * HSPA/GSM with global hardware and SIM support 
   * Bands 800/850/900/1900/2100 MHz 
   * 3GPP Release 7 
  * Nordic Semiconductor nRF52840 SoC 
@@ -258,13 +259,13 @@ Nordic Semiconductor nRF52840 for BLE.
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-u-blox SARA U201 (2G/3G) and R410 (LTE) for cellular.
+u-blox SARA U201 (2G/3G) and R410 (LTE Cat M1) for cellular.
 
 
 | BORON  | Compatible Countries |
 |:-------|:---------------------|
 |2G/3G   | Worldwide            |
-|LTE     | USA only             |
+|LTE     | USA, Canada, and Mexico (LTE Cat M1) |
 
 ### I/O Characteristics 
 
@@ -345,13 +346,13 @@ The complete schematic and board files are open source and available on Particle
 
 ## Ordering information
 
-Borons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G/3G and LTE versions.
+Borons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G/3G and LTE Cat M1 versions.
 
 ## Qualification and approvals
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
 
-**BORON LTE**
+**BORON LTE (Cat M1) **
 
 -   Model Number: BRN402
 -   RoHS
@@ -384,8 +385,7 @@ The micro B USB connector on the Boron is soldered on the PCB with large surface
 
 <div align=center><img src="/assets/images/proper-usb-connection.png" ></div>
 
-The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time. The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
-
+The U.FL antenna connector is not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used securely hold the plug in place.
 
 The 10 pin SWD connector provides an easy in-system debugging access to the device. The pins on the connector can easily be damaged if the mating connector cable is inserted improperly. If you are trying to debug the device, you probably are not in a good mood to begin with. The last thing you want is to render the connector useless. Be nice, and be gentle on the connector. Good luck with the debugging!
 

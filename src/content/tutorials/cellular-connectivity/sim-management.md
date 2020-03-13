@@ -3,6 +3,7 @@ title: SIM Management
 columns: two
 layout: tutorials.hbs
 order: 20
+description: Managing your cellular SIMs from the Particle console
 ---
 
 # {{title}}
@@ -80,7 +81,7 @@ cards into your product</p>
 
 SIM activation requires selection of a home country for billing
 purposes. For more information on home countries, please see the
-[cellular billing guide](/tutorials/cellular-connectivity/billing). You
+[cellular billing guide](/tutorials/cellular-connectivity/billing/). You
 will be presented with a dropdown to select the home country after
 importing the desired ICCIDs:
 
@@ -184,6 +185,8 @@ list and select "Set data limit."
 ![Override data limit](/assets/images/sims-for-products/override-data-limit.png)
 <p class="caption">You can easily override the default data limit for an
 individual SIM using the Console</p>
+
+Cellular data usage can take 24 hours to be reported and in some cases longer. Your SIM may consume data in excess of the cap in this case.
 
 ## Monitoring your fleet
 

@@ -1,0 +1,16 @@
+{
+  "name": "FixLinks",
+  "description": "Tool to fix links within the docs",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "author": "rick@particle.io",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

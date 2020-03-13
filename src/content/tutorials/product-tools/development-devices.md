@@ -3,12 +3,13 @@ title: Development Devices
 columns: two
 layout: tutorials.hbs
 order: 42
+description: Using Development Devices to rapidly iterate device firmware for Particle products
 ---
 
 # {{title}}
 
 As a firmware engineer building a Particle product, it is important that
-you can rapidly iterate on new device firmwares, while still simulating
+you can rapidly iterate on new device firmware, while still simulating
 the behaviors of production devices deployed in the
 field. Development devices allow you to do just this.
 
@@ -24,7 +25,7 @@ This allows you to freely flash new firmware to these devices from the
 development tool of your choice (i.e. the <a href="https://build.particle.io" target="_blank">Web IDE</a>, <a href="https://www.particle.io/products/development-tools/particle-desktop-ide" target="_blank">Local IDE</a>, or the <a href="https://github.com/particle-iot/particle-cli">CLI</a>),
 without having it immediately overwritten by the Particle cloud. These
 devices will continue to maintain [product
-privileges](/guide/how-to-build-a-product/security/#product-privileges),
+privileges](/tutorials/product-tools/security/#product-privileges),
 allowing you the flexibility to experiment with new firmwares while
 still simulating behaviors of deployed devices in the production fleet.
 
@@ -58,7 +59,7 @@ find all of your development devices. When sorting in descending order,
 development devices will appear at the top of your device list.
 
 *Quick tip*: If you prefer, you can also [call the Particle
-API](/reference/api/#mark-product-development-device) directly to mark a device as a
+API](/reference/device-cloud/api/#mark-product-development-device) directly to mark a device as a
 development device.
 
 
@@ -87,5 +88,5 @@ immediate over-the-air update**. This happens to return the
 device to its targeted version of product firmware.
 
 *Quick tip*: If you prefer, you can also [call the Particle
-API](/reference/api/#unmark-product-development-device) directly to unmark a device as a
+API](/reference/device-cloud/api/#unmark-product-development-device) directly to unmark a device as a
 development device.

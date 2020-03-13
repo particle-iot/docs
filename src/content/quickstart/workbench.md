@@ -3,6 +3,7 @@ title: Workbench
 layout: quickstart.hbs
 columns: two
 order: 10
+description: Getting started with Particle Workbench, desktop IDE for Windows, Mac OS, and Linux
 ---
 
 # Quick start: Workbench
@@ -42,7 +43,7 @@ _NOTE: If you are running Mac OS 10.15 (Catalina), please use Safari to download
 ![Authenticate](/assets/images/workbench/install7.png)
 
 - Ubuntu Linux (or other Debian-style distribution) is required to use the installer.
-- If you are having difficulties, there are [additional tips in the FAQ](/support/particle-tools-faq/workbench/#linux-tips).
+- If you are having difficulties, there are [additional tips in the FAQ](https://support.particle.io/hc/en-us/articles/360039251434/#linux-tips).
 
 ### All Operating Systems
 

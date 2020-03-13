@@ -36,20 +36,20 @@ If you {{popup 'turn your internet button over' 'img' 'internet-button-bottom.jp
 </br>
 You can also remove the module cover and Photon, then the shield cover, to expose the {{popup 'top of the shield' 'img' 'internet-button-uncovered.jpg'}}. Here, you can see the exposed LEDs and and the accelerometer.
 
-For more information, check out the [Internet Button datasheet](/datasheets/particle-shields/#internet-button).
+For more information, check out the [Internet Button datasheet](/datasheets/accessories/legacy-accessories/#internet-button).
 
 ## Connecting
 
-Plug in your Photon and go through the [setup process](/quickstart/photon).
+Plug in your Photon and go through the [setup process](/quickstart/photon/).
 
 
 ## Examples
 
 You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/InternetButton/0.1.11/tab/example/1_Blink_An_LED.cpp). You can also access them via [this GitHub repo](https://github.com/particle-iot/InternetButton/tree/master/examples), or by checking out the text below.
 
-You should be able to fork the examples from Particle Build or copy and paste the code from the GitHub repo or from this page. We recommend going through these examples in order for the best understanding of how the Internet Button works. If you haven't used Particle Build before, read the [Particle Build guide](/tutorials/developer-tools/build).
+You should be able to fork the examples from Particle Build or copy and paste the code from the GitHub repo or from this page. We recommend going through these examples in order for the best understanding of how the Internet Button works. If you haven't used Particle Build before, read the [Particle Build guide](/tutorials/developer-tools/build/).
 
-**If you copy and paste these examples, make sure that you include the official Internet Button library before flashing the code.** Instructions on how to include a library can be found [here](/tutorials/device-os/libraries).
+**If you copy and paste these examples, make sure that you include the official Internet Button library before flashing the code.** Instructions on how to include a library can be found [here](/tutorials/device-os/libraries/).
 
 ### Blink an LED
 

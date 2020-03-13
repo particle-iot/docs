@@ -3,6 +3,7 @@ title: Android SDK
 layout: reference.hbs
 columns: three
 order: 30
+description: Manage your Particle IoT device from an Android phone
 sdkversion: 0.5.1
 devicesetupversion: 0.6.3
 asyncclasslink: https://github.com/particle-iot/particle-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Async.java
@@ -523,9 +524,9 @@ under `devicesetup -> src -> main -> res -> values`.
 
 If you're developing an app for your product / you're a product creator you should create a boolean resource as follows: `<bool name="productMode">true</bool>`.  This will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
 
-If you set `productMode ` to `true` be sure to also provide the `product_id` and `product_name` - please [read here](/guide/tools-and-features/console/#your-product-id) for how to find your productId number.
+If you set `productMode ` to `true` be sure to also provide the `product_id` and `product_name` - please [read here](/tutorials/device-cloud/console/#your-product-id) for how to find your productId number.
 
-Lastly, make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](/tutorials/device-cloud/authentication), so app users could create an account. [Read here](/reference/android/#oauth-client-configuration) on how to do this.
+Lastly, make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](/tutorials/device-cloud/authentication/), so app users could create an account. [Read here](/reference/SDKs/android/#oauth-client-configuration) on how to do this.
 
 
 ```xml

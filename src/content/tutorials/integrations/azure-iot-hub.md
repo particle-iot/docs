@@ -3,6 +3,7 @@ title: Azure IoT Hub
 layout: tutorials.hbs
 columns: two
 order: 120
+description: Connecting the Azure IoT Hub to your Particle IoT device using the Particle Cloud
 ---
 
 # {{title}}
@@ -243,7 +244,7 @@ on the <a href="https://console.particle.io" target="_blank">Particle Console</a
 
 Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
 by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
-for a <a href="/guide/tools-and-features/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
+for a <a href="/tutorials/device-cloud/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
 hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
 then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
 
@@ -319,7 +320,7 @@ Go ahead and flash the firmware with the `Particle.publish()` that will trigger 
 a Particle device.
 
 Once confident in the firmware, you can stream data from large numbers of devices by
-<a href="/guide/tools-and-features/console/#rollout-firmware" target="_blank">rolling out the firmware</a>
+<a href="/tutorials/device-cloud/console/#rollout-firmware" target="_blank">rolling out the firmware</a>
 to a product fleet. Remember that this requires creating the integration under the product scope, allowing
 any device in the product fleet to trigger the it.
 

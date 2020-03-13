@@ -1,11 +1,12 @@
 ---
-title: Gen3 Accessories
+title: Gen 3 Accessories
 layout: datasheet.hbs
 columns: two
 order: 20
+description: Accessories for Particle Gen 3 devices including the Argon and Boron, and other Adafruit FeatherWing accessories.
 ---
 
-# Gen3 Accessories
+# Gen 3 Accessories
 
 These accessories are for the Particle Gen 3 devices: Argon and Boron in the Adafruit Feather form-factor.
 
@@ -409,7 +410,7 @@ It also provides a USB to TTL serial port. This requires no device drivers on Ma
 
 Comes with one JTAG ribbon cable.
 
-For more information about debugging see the [JTAG FAQ](/support/particle-tools-faq/jtag/). Future version of Particle Workbench will support the Particle Debugger as well. The design is open source and the design files are available [here](https://github.com/particle-iot/debugger).
+For more information about debugging see the [JTAG FAQ](https://support.particle.io/hc/en-us/articles/360039251414/). Future version of Particle Workbench will support the Particle Debugger as well. The design is open source and the design files are available [here](https://github.com/particle-iot/debugger).
 
 ### Debugging Gen 3 devices
 
@@ -433,6 +434,10 @@ With the debugger positioned like this, USB connector toward you and the headers
 | TX  | NC    |  
 | CTS | GND   | 
 | GND | VUSB  |
+
+The RX and TX pins are only available on the debugger header pins and are not connected to the Argon or Boron RX and TX pins.
+
+The RTS and CTS (hardware flow control pins) are not currently supported by the debugger firmware and cannot be used.
 
 In order to use SWD debugging you need to connect:
 

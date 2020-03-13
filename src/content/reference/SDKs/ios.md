@@ -3,6 +3,7 @@ title: iOS SDK
 layout: reference.hbs
 columns: three
 order: 20
+description: Manage your Particle IoT device IoT device from an iOS phone or tablet
 ---
 
 # {{title}}
@@ -542,7 +543,7 @@ The system events types are:
 
 If you are creating an app, you are required to provide the `ParticleCloud` class with OAuth clientId and secret.
 Those are used to identify users coming from your specific app to the Particle Device Cloud.
-Please follow the procedure described [in our guide](/tutorials/device-cloud/authentication) to create those strings,
+Please follow the procedure described [in our guide](/tutorials/device-cloud/authentication/) to create those strings,
 then in your `AppDelegate` class you can supply those credentials by setting the following properties in `ParticleCloud` singleton:
 
 ```objc
@@ -770,9 +771,9 @@ By default all assets are loaded from library bundle. Setting `useAppResources` 
 
 If you're developing an app for your product / you're a product creator you should set `productMode` to `YES` (or `true` for Swift) - this will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
 
-If you set `productMode ` to `YES` / `true` be sure to also provide the `productId` (and `productName`) - please [read here](/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
+If you set `productMode ` to `YES` / `true` be sure to also provide the `productId` (and `productName`) - please [read here](/tutorials/device-cloud/console/#your-product-id) about how to find your productId number.
 
-Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](/tutorials/device-cloud/authentication), so app users could create an account. [Read here](/reference/ios/#oauth-client-configuration) on how to do it correctly.
+Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](/tutorials/device-cloud/authentication/), so app users could create an account. [Read here](/reference/SDKs/ios/#oauth-client-configuration) on how to do it correctly.
 
 ```objc
  BOOL productMode;              // enable product mode

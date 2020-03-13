@@ -1,6 +1,7 @@
 ---
 title: Ethernet FeatherWing
 layout: landing.hbs
+description: Ethernet support for Particle Gen 3 Adafruit Feather devices (Argon, Boron)
 ---
 
 # Particle Ethernet FeatherWing
@@ -15,7 +16,7 @@ The Ethernet FeatherWing is the fastest way to add wired connectivity to your Ar
 - [Quick start](/quickstart/ethernet/)
 
 - Code examples
-- [Support](/support/support-and-fulfillment/menu-base/)
+- [Support](https://support.particle.io/hc/)
 {{box op="switch"}}
 **Resources:**
 - Code

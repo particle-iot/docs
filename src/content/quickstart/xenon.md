@@ -3,6 +3,7 @@ title: Xenon
 layout: quickstart.hbs
 columns: two
 order: 5
+description: Getting started with your Particle Xenon, Gen 3 Particle Mesh and BLE device (discontinued)
 ---
 
 # Quick start: Xenon
@@ -15,7 +16,7 @@ The Particle Xenon is a mesh and Bluetooth development kit designed for building
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
+<a href="https://setup.particle.io/?family=mesh&device=xenon"  target="_blank" class="button">SET UP YOUR XENON</a>
 </div>
 
 ### The Xenon Kit comes with the following things:

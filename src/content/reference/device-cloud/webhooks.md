@@ -3,11 +3,12 @@ title: Webhooks
 layout: reference.hbs
 columns: three
 order: 50
+description: Control external web services from your Particle IoT device using the Particle cloud
 ---
 
 # {{title}}
 
-Webhooks lets you connect Particle events to other services on the Internet.  If you're new to webhooks, you should start at [the guide for webhooks](/guide/tools-and-features/webhooks) before continuing on here.
+Webhooks lets you connect Particle events to other services on the Internet.  If you're new to webhooks, you should start at [the guide for webhooks](/tutorials/device-cloud/webhooks/) before continuing on here.
 
 You can create and administer webhooks with the [Console](https://console.particle.io) and the [Command Line Interface (CLI)](https://particle.io/cli).
 
@@ -313,7 +314,7 @@ Customize the webhook response event name that your devices can subscribe to.
 
 This is most commonly use to have the response contains to the device ID so the device that triggered an event will be the only one to get the response.
 
-[See the product webhook guide](/guide/tools-and-features/webhooks/#product-webhook-responses) for more details.
+[See the product webhook guide](/tutorials/device-cloud/webhooks/#product-webhook-responses) for more details.
 
 ### errorResponseTopic
 
@@ -505,7 +506,7 @@ The event name will use the triggering event, not the webhook hook name filter.
 
 If your hook captures everything starting with `my-hooks`, but you published `my-hooks/get_weather`, then your response event name would be `hook-response/my-hooks/get_weather`.  Each packet event name includes the index of the packet in the response.
 
-The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
+The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
 
 ### Errors
 
@@ -523,7 +524,7 @@ Error responses from the target url will also be sent back in the response event
 Too many errors from a receiving server can result in [webhook
 throttling](#limits).
 
-The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
+The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
 
 ## Using the Console
 
@@ -632,7 +633,7 @@ Successfully deleted webhook!
 POST /v1/webhooks
 ```
 
-See the [API reference](/reference/api/#webhooks) for details on the webhook endpoints.
+See the [API reference](/reference/device-cloud/api/#webhooks) for details on the webhook endpoints.
 
 ## Limits
 
@@ -847,6 +848,10 @@ Below are a few community-written webhook examples. They have been sorted by wha
 ### Saving data in Firebase
 
 - [Firebase tutorial](https://github.com/rickkas7/firebase_tutorial) by [rickkas7](http://community.particle.io/users/rickkas7/activity)
+
+### Sending Data to Influx Cloud
+
+- [InfluxData Cloud 2 tutorial](https://github.com/davidgs/ParticleInflux) by [davidgs](https://community.particle.io/u/davidgs/activity)
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 

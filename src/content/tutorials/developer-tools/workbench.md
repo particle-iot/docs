@@ -4,6 +4,7 @@ title: Workbench
 order: 20
 columns: two
 layout: tutorials.hbs
+description: Desktop IDE for programming Particle IoT devices for Windows, Mac OS, and Linux
 ---
 
 # Particle Workbench
@@ -299,9 +300,9 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 _Note: There are a handful of limitation around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
 
-For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](/support/particle-tools-faq/eclipse-debug/). As you'll see, this is way easier in Workbench! 
+For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](https://support.particle.io/hc/en-us/articles/360039741253/). As you'll see, this is way easier in Workbench! 
 
-- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/datasheets/accessories/mesh-accessories/#debugger) documentation.
+- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device using the included ribbon cable as described in the [Particle Debugger](/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
 ![Debugger](/assets/images/debugger3.jpg)
 
@@ -364,7 +365,7 @@ particle call argon2 div 10
 
 #### Disabling Mesh Networking and Bluetooth
 
-In some cases you may need to disable mesh networking and Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS ([example](https://docs.particle.io/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` and `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
+In some cases you may need to disable mesh networking and Bluetooth on your device in order to safely pause at break-points and step. If your device signals SOS ([example](/tutorials/device-os/led/argon/#red-flash-sos)) while debugging, try adding `Mesh.off();` and `BLE.off();` to the top of the `setup()` function in the TinkerBreak.cpp source file like this:
 
 ```
 void setup()
@@ -401,7 +402,7 @@ That is just a brief introduction to debugging. For more information, see the [V
 
 ### Debugging (2nd-generation with Particle Debugger)
 
-- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device's D6 and D7 pins as described in the [Particle Debugger](/datasheets/accessories/mesh-accessories/#debugger) documentation.
+- You'll need two USB connections to your computer: Your device, connected by a micro USB cable, and the Particle debugger, either directly plugged into a USB A port, or into a USB A extension cable. The Particle Debugger also needs to connect to your device's D6 and D7 pins as described in the [Particle Debugger](/datasheets/accessories/gen3-accessories/#debugger) documentation.
 
 - Create a new project using the Command Palette and **Particle: Create New Project**. If you already created a project for the 3rd-generation device, you can just reuse that one.
 - Rename TinkerBreak.ino to TinkerBreak.cpp. Paste in the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp) into TinkerBreak.cpp.
@@ -453,9 +454,15 @@ Some of the available settings are:
 
 ![Compile Button Action](/assets/images/workbench/compileButtonAction.png)
 
+- **Disable Welcome Screen**: don't show the Welcome screen at start-up.
+
 - **Disable Local Compiler Dirty Check**: don't recommend running the clean task when the target Device OS version has been previously built.
 
 - **Enable Verbose Local Compiler Logging**: print log messages for each Device OS file being compiled. The default is to print only warnings, errors and completion messages.
+
+- **Compile Defines**: Specify a list of preprocessor definitions to set while compiling your application (local compilation only).
+
+- **Custom Device OS Location**: Source Device OS from a custom location - see [FAQ](https://support.particle.io/hc/en-us/articles/360039251434/#working-with-a-custom-device-os-build).
 
 ## Source Code Management
 
@@ -715,5 +722,5 @@ If you are used to the editing keyboard shortcuts, you can install the Atom keym
 
 ## Learn More
 
-Additional questions and answers are in the [FAQ](/support/particle-tools-faq/workbench).
+Additional questions and answers are in the [FAQ](https://support.particle.io/hc/en-us/articles/360039251434/).
 

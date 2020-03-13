@@ -17,7 +17,7 @@ layout: workshops.hbs
 In this session, we'll take a look at the Particle CLI and Device Cloud API. If you get stuck at any point during this session, [click here for the completed, working source](https://go.particle.io/shared_apps/5d40aec2279e1e000b9ad57b).
 
 ## The Particle CLI
-1.  If you haven't already, [install the Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/photon/). Open a terminal window and type the following command:
+1.  If you haven't already, [install the Particle CLI](/guide/tools-and-features/cli/photon/). Open a terminal window and type the following command:
 ```bash
 bash <( curl -sL https://particle.io/install-cli )
 ```
@@ -43,7 +43,8 @@ The next few steps assume you have cURL installed on your machine. If you don't 
 {{box op="end"}}
 
 
-1.  First, you'll need to obtain an access token from the CLI. Type `particle token list` to view the tokens associated with your account. The first one listed is your `user` token, and can be used to access the Device Cloud API. If no tokens are listed, generate a new one with `particle token new`.
+1.  First, you'll need to obtain an access token. You can create one using [the Particle CLI](/reference/developer-tools/cli/#particle-token-create).
+
 <br /><br />
 2.  With your token and Device ID in hand, type the following cURL command into a terminal window, replacing the text below in `< >` with your information.
 ```bash

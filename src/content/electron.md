@@ -1,6 +1,7 @@
 ---
 title: Electron
 layout: landing.hbs
+description: Particle Electron, Gen 2 cellular development kit
 ---
 
 # Particle Electron: Cellular
@@ -23,11 +24,12 @@ The Electron is a tiny development kit for creating 3G cellular-connected electr
 **Learn more:**
 - [Quickstart with starter project](/quickstart/electron/)
 - [Community](https://community.particle.io/)
-- [Support](/support/support-and-fulfillment/menu-base/)
+- [Support](https://support.particle.io/hc/)
 {{box op="switch"}}
 **Resources:**
 - [Hardware files](https://github.com/particle-iot/electron/)
 - [Datasheet](/datasheets/cellular/electron-datasheet/)
+- [Certification](/datasheets/certifications/certification)
 {{box op="end"}}
 
 ## Electron 3G hardware specifications
@@ -90,7 +92,7 @@ Device Cloud Features:
 <div align="center">
 <br />
 
-<a href="https://store.particle.io/products/photon" target="_blank" class="button">BUY AN ELECTRON</a>
+<a href="https://store.particle.io/collections/cellular" target="_blank" class="button">BUY AN ELECTRON</a>
 </div>
 
 {{box op="end"}}

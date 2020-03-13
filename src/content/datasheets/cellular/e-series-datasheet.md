@@ -3,9 +3,10 @@ title: E Series datasheet
 layout: datasheet.hbs
 columns: two
 order: 7
+description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
 ---
 
-# E Series Module Datasheet <sup>(v002)</sup>
+# E Series Module Datasheet <sup>(v003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
@@ -46,7 +47,7 @@ The E series can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo b
 #### VIN
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
-The E Series LTE (E402) can be powered with as little as 550 mA at 5V.
+The E Series LTE (E402, LTE Cat M1) can be powered with as little as 550 mA at 5V.
 
 #### LiPo
 This pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the E series since the PMIC by-passes the regulator and supplies power to the E series module via an internal FET leading to lower quiescent current.
@@ -58,7 +59,7 @@ Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. I
 #### VBUS
 This pin is internally connected to USB supply rail and will output 5V when the E series module is plugged into an USB port. It is intentionally left unpopulated. This pin will _NOT_ output any voltage when the E series module is powered via VIN and/or the LiPo battery.
 
-Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the E series alone can consume a peak of 800mA to 1800mA (2G/3G) or 550 mA (LTE) of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port for 2G/3G. The E series will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
+Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the E series alone can consume a peak of 800mA to 1800mA (2G/3G) or 550 mA (LTE Cat M1) of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port for 2G/3G. The E series will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
 #### 3V3 Pin
 This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source with a max load of 800mA. Unlike the Photon or the Core, this pin _CANNOT_ be used as an input to power the E series module.
@@ -380,7 +381,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-The E series is available in two different versions: A 2G/3G global model (SARA-U201) and a LTE model (SARA-R410M-02B).
+The E series is available in two different versions: A 2G/3G global model (SARA-U201) and a LTE Cat M1 model (SARA-R410M-02B).
 
 Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobile phone. It is a low-power and low-data-rate variation of LTE for use with IoT devices. It can only be used in the United States, Canada. and Mexico at this time.
 
@@ -547,8 +548,8 @@ There are two connectors on the E series that will get damaged with improper usa
 
 The micro B USB connector on the E series is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
 
+The U.FL antenna connector is not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used securely hold the plug in place.
 
-The u.FL antenna connector is a very fragile piece of hardware (and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the E series by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
 ## Default settings
 
@@ -556,7 +557,7 @@ The E series comes pre-programmed with a bootloader and a user application calle
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/particle-iot/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC tool chain for ARM](https://github.com/particle-iot/device-os), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/tutorials/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
 ## Glossary
 |Term|Definition |
@@ -583,7 +584,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 |Name|Connectivity       |Geography             |u-blox variant|Band Support|
 |:---|:------------------|:---------------------|:-------------|:-----------|
 |E310|3G with 2G fallback|Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
-|E402|LTE M1 only        |North America         |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
+|E402|LTE M1 only        |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
@@ -612,7 +613,7 @@ In the event that these conditions can not be met (for example certain laptop co
 The final end product must be labeled in a visible area with the following:
 > Contains FCC ID:
 
- * XPYSARAU201 (For 3G E series module using the U201 module)
+ * XPY1CGM5NNN (For 3G E series module using the U201 module)
  * XPY2AGQN4NNN (For LTE E series module using the R410 module)
 
 **Manual Information to the End User**
@@ -658,6 +659,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v001     | 07-Nov-2017   | MB     | Initial release |
 | v002     | 31-Jul-2019   | RK     | Added LTE information |
 |          |               |        | Removed E201, E302, E303 models |
+| v003     | 11-Mar-2020   | RK     | Corrected FCC ID for 2G/3G model |
 
 ## Known Errata
 

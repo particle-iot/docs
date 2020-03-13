@@ -4,17 +4,18 @@ layout: quickstart.hbs
 columns: two
 order: 7
 setdevice: electron
+description: Getting started with your Particle Electron, Gen 2 cellular device
 ---
 
 <h1 id="getting-started">Getting Started<a href="#getting-started" class="header-permalinks"><i class="ion-link"></i></a></h1><h2 id="what-39-s-in-the-box-">What&apos;s in the Box?<a href="#what-39-s-in-the-box-" class="header-permalinks"><i class="ion-link"></i></a></h2><p><img src="/assets/images/electronItemBox.jpg" alt=""></p>
 <p class="caption">Introducing the Electron.</p>
 
-<p>Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different <a href="/datasheets/kits">kit addons</a> and check out the <a href="/datasheets/electron-datasheet/">Electron datasheet</a> if you like!</p>
+<p>Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different <a href="/datasheets/accessories/legacy-accessories/">kit addons</a> and check out the <a href="/datasheets/cellular/electron-datasheet/">Electron datasheet</a> if you like!</p>
 <p>Let&apos;s quickly go over what you see.</p>
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ELECTRON</a>
+<a href="https://setup.particle.io/?family=electroneseries&device=electron"  target="_blank" class="button">SET UP YOUR ELECTRON</a>
 </div>
 
 <h3 id="what-39-s-all-here-">What&apos;s all here?<a href="#what-39-s-all-here-" class="header-permalinks"><i class="ion-link"></i></a></h3><p><span class="popupLink"><strong>The Cellular Module.</strong><span class="popup"><img src="/assets/images/electronUblox.jpg" style="margin:auto; max-width:100%"></span></span>
@@ -34,8 +35,8 @@ to wired power source. Consider this battery your Electron&apos;s best friend!</
 <p><strong>Buttons and LEDs.</strong>
 There are several awesome buttons and LEDs on your Electron to make it easier to use.</p>
 <ul>
-<li>The <code>MODE</code> button is on the left and the <code>RESET</code> button is on the right. You can use these buttons to help you set your device&apos;s <a href="/tutorials/device-os/led">mode</a>.</li>
-<li>The <strong>RGB LED</strong> is in the center of your Electron, above the module. The color of the RGB LED tells you what <a href="/tutorials/device-os/led">mode</a> your Electron is currently in.</li>
+<li>The <code>MODE</code> button is on the left and the <code>RESET</code> button is on the right. You can use these buttons to help you set your device&apos;s <a href="/tutorials/device-os/led/">mode</a>.</li>
+<li>The <strong>RGB LED</strong> is in the center of your Electron, above the module. The color of the RGB LED tells you what <a href="/tutorials/device-os/led/">mode</a> your Electron is currently in.</li>
 <li>The <strong>D7 LED</strong> is next to the D7 pin on your Electron, on the upper right quadrant. This LED will turn on when the D7 pin is set to <code>HIGH</code>.</li>
 </ul>
   <h1 id="annotated-examples">Annotated examples<a href="#annotated-examples" class="header-permalinks"><i class="ion-link"></i></a></h1><p>Here you will find a bunch of examples to get you started with your new Particle device! </p>
@@ -57,7 +58,7 @@ There are several awesome buttons and LEDs on your Electron to make it easier to
 <ul>
 <li><strong>Software</strong><ul>
 <li>The <a href="http://build.particle.io" target="_blank" rel="noopener noreferrer">online IDE</a></li>
-<li>or the local <a href="http://particle.io/dev" target="_blank" rel="noopener noreferrer">Particle Dev</a></li>
+<li>or [Particle Workbench](/quickstart/workbench/)</li>
 </ul>
 </li>
 <li><strong>Experience</strong><ul>
@@ -68,10 +69,10 @@ There are several awesome buttons and LEDs on your Electron to make it easier to
 <p class="boxedHead">NOTE:</p>
 <p class="boxed">
 
-Since Electron is a cellular device and OTA usage consumes data, it&apos;s important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you update firmware happen over USB, instead of the cellular network. You&apos;ll first need to install the <a href="/tutorials/developer-tools/cli">Particle Command Line Interface</a> on your computer.
+Since Electron is a cellular device and OTA usage consumes data, it&apos;s important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you update firmware happen over USB, instead of the cellular network. You&apos;ll first need to install the <a href="/tutorials/developer-tools/cli/">Particle Command Line Interface</a> on your computer.
 
 </p>
 
 
-For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/electron).
+For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/electron/).
 

@@ -4,6 +4,7 @@ title: Device OS
 order: 1
 columns: two
 layout: tutorials.hbs
+description: Introduction to Particle Device OS API for Particle IoT devices
 ---
 
 # {{title}}
@@ -28,6 +29,78 @@ Unlike application firmware, Device OS is written and maintained primarily by th
 That being said, Particle's firmware repository is available as an open
 source project for those that want deep visibility into Device OS code. To view the code and/or contribute, check out the [repo on GitHub](https://github.com/particle-iot/device-os).
 
+
+## Communication
+
+Device OS supports a number of ways for devices to communicate with each other and with the Particle cloud. The Particle cloud connection is encrypted and mutually authenticated using RSA public/private key pairs.
+
+#### Particle.publish
+
+[Particle.publish](/reference/device-os/firmware/#particle-publish-) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
+
+When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhooks](/reference/device-cloud/webhooks/) that makes a connection to an external service or web server.
+
+Using publish and a webhook is particularly advantageous on cellular devices. It's possible to send an event securely in perhaps 200 bytes. Making a TLS/SSL connection to an external web service directly over cellular might use 5000 bytes of data per connection. That can add up quickly!
+
+For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+
+#### Particle.subscribe
+
+[Particle.subscribe](/reference/device-os/firmware/#particle-subscribe-) allows a device to listen for an event from another device or the cloud.
+
+Subscribing to private events is secure, as only devices in your account can send these events. Also, subscribe works across all connection types such as Wi-Fi and cellular, and does not require any firewall modifications for Wi-Fi networks.
+
+#### Particle.function
+
+[Particle.function](/reference/device-os/firmware/#particle-subscribe-) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
+
+There is no ability for devices to send function calls to other devices; publish and subscribe should be used instead.
+
+#### Particle.variable
+
+[Particle.variable](/reference/device-os/firmware/#particle-subscribe-) allows the cloud to query a value from the device.
+
+- For a publish, every time you publish, the data is sent up to the cloud.
+- For a variable, the current value is stored on the device, and is only sent when requested.
+
+Depending on your situation, one or the other may be more efficient. Also note:
+
+- If you are querying a value from a large number of devices, it's almost always more efficient to use publish as you can hit the [API rate limits](/reference/device-cloud/api/#api-rate-limits) if you need to make a variable retrieval to hundreds or thousands of devices.
+- Variables cannot be queried if the device is offline, including in sleep mode. For those applications, you'll want to publish a value before sleep instead.
+
+#### TCP
+
+Particle devices can also use low-level networking communication methods like [TCP](/reference/device-os/firmware/#tcpclient). TCP connections do not use the Particle cloud and are suitable for applications with higher data rates, very large data, and other specialized applications. While TCP is flexible, it does not include built-in encryption. Encryption requires the use of third-party libraries.
+
+Note that TCP server mode is not supported on cellular devices. Cellular devices can only make outgoing TCP client connections, though data does flow both ways once connected.
+
+#### UDP
+
+In addition to TCP, the low-level [UDP](/reference/device-os/firmware/#udp) networking protocol is also supported. 
+
+On cellular devices, persistent UDP listeners are not supported. UDP packets can be received, but only after sending a packet, only from the address that was sent to, and only for a limited period of time, between 30 seconds and 23 minutes, depending on the carrier. 
+
+#### BLE (Bluetooth LE)
+
+[BLE](/reference/device-os/firmware/#bluetooth-le-ble-) can be used to send data between BLE compatible devices at short distances, typically within 10 meters. BLE does not require pairing (like with A2DP Bluetooth headsets) but does not have built-in encryption support. Both peripheral and central modes are supported, so the Particle device can be either side of the BLE connection.
+
+BLE is only supported on Gen 3 devices (Argon, Boron, B Series SoM).
+
+#### Webhooks
+
+[Webhooks](/reference/device-cloud/webhooks/) allow an event, typically generated from a device, to trigger an outgoing connection to a server on the Internet. This might be your own server, a cloud-hosted server, such as Heroku, Amazon EC2 or lambda, Google Cloud AppEngine or cloud function, etc..
+
+#### Server-Sent-Events
+
+[SSE](/reference/device-cloud/api/#get-a-stream-of-your-events) allows your server, or cloud-hosted server like Heroku, Amazon EC2, or Google AppEngine to make a connection to the Particle cloud and keep it open to receive events. This can be more efficient and have lower latency.
+
+Because the connection is made from your server, you can do it from a home or office network without firewall changes and without requiring SSL server certificates while still having full TLS/SSL security.
+
+One common way is to use the [particle-api-js](/reference/SDKs/javascript/#geteventstream) from node.js (server-based Javascript) but any language can be used.
+
+#### Cloud API
+
+The [Cloud API](/reference/device-cloud/api/) allows any REST compatible server to make calls to the Particle cloud. This includes publishing events, calling functions, and reading variables.
 
 ## Versioning
 New features, security patches, and bug fixes are introduced to new versions of Device OS regularly by the Particle team. These changes to Device OS are bundled into _releases_ that are versioned using [semantic versioning](http://semver.org/) best practices.
@@ -164,7 +237,7 @@ When you find the desired release, scroll down to the **Downloads** section. Her
 
 Find the files relevant to your device (each binary is suffixed with the device type) and click to download them to your machine. Note that you'll only need to do this step once to store a copy of the binaries on your computer.
 
-Next, you'll flash these files to a device using the `particle flash` command in the CLI. If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli). Open up your Terminal and run the following commands to flash the system modules to a device:
+Next, you'll flash these files to a device using the `particle flash` command in the CLI. If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli/). Open up your Terminal and run the following commands to flash the system modules to a device:
 
 ```bash
 particle flash YOUR_DEVICE_NAME_OR_ID path/to/system-part1.bin
@@ -191,9 +264,9 @@ Then use the **Particle: Flash application & Device OS (local)** command to flas
 There are additional instructions in the [Workbench tutorial](/tutorials/developer-tools/workbench/#local-build-and-flash).
 
 #### CLI (Local)
-The Particle CLI offers two different methods of updating Device OS locally. Both require that the device is connected to your computer over USB.  If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli) and ensure you are running version **1.24.1** or later. You can check with `particle --version`.
+The Particle CLI offers two different methods of updating Device OS locally. Both require that the device is connected to your computer over USB.  If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli/) and ensure you are running version **1.24.1** or later. You can check with `particle --version`.
 
-The first approach is to run [`particle update`](/reference/cli/#particle-update). Open up your Terminal and run the following command to flash the latest Device OS to a device:
+The first approach is to run [`particle update`](/reference/developer-tools/cli/#particle-update). Open up your Terminal and run the following command to flash the latest Device OS to a device:
 
 
 ```bash

@@ -5,6 +5,7 @@ layout: reference.hbs
 columns: three
 redirects: true
 order: 40
+description: Command line interface for managing your devices for Windows, Mac OS, and Linux
 ---
 
 # CLI Command Reference
@@ -230,7 +231,6 @@ $ particle flash --usb firmware.bin
   - core ('c')
   - electron ('e')
   - p1
-  - raspberry-pi ('pi')
   - duo ('d')
   - oak ('o')
   - bluz ('b')
@@ -423,7 +423,7 @@ Remember that it's necessary to publish every new version after uploading it bef
 
 Create a webhook that will trigger an HTTP request when a Particle event is published to the cloud. You can pass in an `eventName`, `url`, and `deviceID`
 as arguments to the CLI command. Optionally, you can create your own custom JSON file that includes webhook params. For a full list of available
-webhook parameters, see the [REST API documentation](/reference/api/#create-a-webhook). This command is only available for user webhooks.
+webhook parameters, see the [REST API documentation](/reference/device-cloud/api/#create-a-webhook). This command is only available for user webhooks.
 
 ```sh
 $ particle webhook create temperature https://mysite.com
@@ -622,7 +622,7 @@ In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable 
 
 Mesh network management from the CLI.
 
-**The mesh networking features described in this section will be supported only December 31, 2020.**
+**The mesh networking features described in this section will be supported only through December 31, 2020.**
 
 See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
@@ -970,7 +970,7 @@ New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
 		da39a3ee5e6b4b0d3255bfef95601890afd80709
 ```
 
-In order to change the duration a token is valid, use `--expires-in <seconds>` option.
+In order to change the duration a token is valid, use `--expires-in <seconds>` option. The default if not specified is 90 days.
 
 ```sh
 $ particle token create --expires-in 600

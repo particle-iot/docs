@@ -3,6 +3,7 @@ title: Bluetooth LE
 order: 4
 columns: two
 layout: tutorials.hbs
+description: Getting started with Bluetooth LE (BLE) on Particle IoT devices
 ---
 
 # Bluetooth LE (BLE)
@@ -83,7 +84,7 @@ A characteristic is also assigned a short name. This can also be used to retriev
 
 The maximum size of the characteristic will depend on both devices. For example, different phones may have different limits.
 
-When sending between two Particle Gen 3 devices, the maximum characteristic that can be sent is 244 bytes. If you attempt to send a larger characteristic, only the first 244 bytes will be sent.
+When sending between two Particle Gen 3 devices with the default settings, the maximum characteristic that can be sent is 244 bytes. If you attempt to send a larger characteristic, only the first 244 bytes will be sent.
 
 | Characteristic Size | Maximum Data Transfer Rate |
 | --- | --- |
@@ -96,6 +97,7 @@ When sending between two Particle Gen 3 devices, the maximum characteristic that
 
 Note, however, the most efficient size is a maximum 236 bytes. Above that size, fragmentation occurs which lowers the transfer rate. The maximum efficient size could vary slightly based on other factors.
 
+You can improve performance by adjusting the [PPCP settings](/reference/device-os/firmware/#ble-setppcp-) to reduce the interval setting. It may be possible to transmit as fast as 52 Kbits/sec. with adjusted settings.
 
 #### Peripheral Characteristics
 

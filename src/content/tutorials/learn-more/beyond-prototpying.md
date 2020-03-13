@@ -4,6 +4,7 @@ order: 50
 shared: true
 columns: two
 layout: tutorials.hbs
+description: Move beyond prototyping breadboards to custom printed circuit boards and SMD (surface mount device) technology
 ---
 
 # Beyond Prototyping

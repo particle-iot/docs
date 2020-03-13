@@ -15,15 +15,15 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 
 ![The Particle Leak Detection Kit's contents knolled on a white background](/assets/images/Leak-Detection-Kit-contents.jpg)
 
-- **[Particle Argon](https://docs.particle.io/argon/)**  
-- **[Particle Xenon](https://docs.particle.io/xenon/)** (2)
+- **[Particle Argon](/argon/)**  
+- **[Particle Xenon](/xenon/)** (2)
 - **[LiPo battery](https://store.particle.io/collections/accessories/products/li-po-battery)** (3)
-- **[2.4Ghz antenna](https://docs.particle.io/datasheets/wi-fi/argon-datasheet/#antenna)
+- **[2.4Ghz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
 - **Micro-USB cable** (3)
 - **Grove FeatherWing Adapter** (3)
 - **Grove modules:**
   - **[Water sensor](https://www.seeedstudio.com/Grove-Water-Sensor-p-748.html)** (2)
-  - * [Button](https://docs.particle.io/datasheets/accessories/mesh-accessories/#button) 
+  - * [Button](/datasheets/accessories/gen3-accessories/#button) 
 - **Grove wires** (3)
 ---
 

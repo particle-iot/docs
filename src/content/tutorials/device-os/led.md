@@ -2,9 +2,15 @@
 title: Status LED and Device Modes
 layout: tutorials.hbs
 columns: two
-devices: [ photon,electron,core,argon,boron,xenon ]
+devices: [ boron,photon,electron,argon,xenon ]
 order: 2 
+description: Explanation of status LED codes and device modes for Particle IoT devices
 ---
+
+# Status LED - {{device}}
+
+You are viewing the Status LED and Device Modes for the **{{device}}**. To view the documentation for other 
+devices, use the blue device selector below the Particle logo on the left side of the page.
 
 ## Standard Modes
 These modes are the typical behaviors you will see from your {{device}} on a regular basis. They are the light patterns of a healthy {{device}}.
@@ -63,11 +69,9 @@ If your {{device}} is blinking green, it is trying to connect to Wi-Fi.
 If you are unable to get past blinking green, here are a few known working situations that the {{device}} is not compatible with:
 
 {{#if photon}}
-- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/support/particle-devices-faq/wpa2-enterprise). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
+- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](https://support.particle.io/hc/en-us/articles/360039741153/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 {{/if}} 
-{{#if core}}
-- If you are using a corporate or school network that uses WPA2 Enterprise, you cannot use a {{device}}. If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
-{{/if}}
+
 
 - If you are using a network that takes you to a web page where you need to either sign in or agree to terms and service when you first connect, using the {{device}} directly will be difficult or impossible. This is the case in some hotels and public Wi-Fi networks and is often referred to as Captive Portal.
 
@@ -77,11 +81,9 @@ If you are unable to get past blinking green, here are a few known working situa
 - If your Wi-Fi network uses 802.11n only mode (does not support 802.11b, 802.11g, or a combination of b, g, and n), it's not currently possible to connect a Photon or P1 to the network if the device is running Device OS 0.7.0 or later.
 {{/if}} 
 
-{{#unless core}}
 For home users:
 
 - If your router uses WEP encryption, you should upgrade your router to something more secure. However it may be possible to connect your {{device}} with some difficulty by following the [WEP configuration instructions](http://rickkas7.github.io/wep/).
-{{/unless}}
 
 And the less common situations:
 
@@ -89,9 +91,7 @@ And the less common situations:
 
 - If your Wi-Fi network does not support DHCP, and only uses static IP addresses, it is possible, though somewhat difficult, to set up a {{device}}. You will need to flash a program by USB to set the IP address.
 
-{{#unless core}}
 - If the Wi-Fi network restricts access to known device Ethernet MAC addresses, you'll need to determine the MAC address and give it to the network administrator. Put the {{device}} in listening mode (blinking dark blue) by holding down the {{system-button}} button, then use the Particle CLI command `particle serial mac`.
-{{/unless}}
 
 {{collapse op="end"}}
 
@@ -146,7 +146,7 @@ If you're not using a Particle SIM, you will have to change the cellular APN on 
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
-If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](/support/particle-devices-faq/electron-3rdparty-sims/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
+If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](https://support.particle.io/hc/en-us/articles/360039741113/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
 
 #### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
@@ -179,7 +179,7 @@ If all else fails, try restarting it! Remove *both* the USB cable and Li-Po batt
 Check out [our status page](http://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
 
 #### 11) Contact Particle
-Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](https://support.particle.io/hc/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
@@ -226,13 +226,13 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 ![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
 <p class="caption"> <a target="_blank" href="/assets/images/bad-sim-socket.png">Click here</a> for a larger image.</p>
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](https://support.particle.io/hc/).
 
 #### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/).
+Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](https://support.particle.io/hc/).
 
 #### 6\. Contact Particle
-Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](https://support.particle.io/hc/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
@@ -245,7 +245,7 @@ When your {{device}} is in Listening Mode, it is waiting for you to configure yo
 
 Normally, when you've successfully configured your Gen 3 device using the mobile apps for iOS or Android, the setup complete flag is set and you will exit Listening Mode.
 
-If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](/support/particle-devices-faq/mesh-setup-over-usb/#marking-setup-done) to exit listening mode.
+If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](https://support.particle.io/hc/en-us/articles/360039741133/#marking-setup-done) to exit listening mode.
 
 {{else}}
 
@@ -322,16 +322,6 @@ To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button
 
 {{/if}}
 
-{{#if core}}
-
-### Wi-Fi Network Reset
-
-{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}
-
-To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
-
-{{/if}}
-
 
 {{#if has-cellular}}
 ### Cellular Off
@@ -345,7 +335,7 @@ To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button
 If your {{device}} is breathing white, the {{network-type}} module is off. You might see this mode if:
 
 - You have set your module to `MANUAL` or `SEMI_AUTOMATIC` in your user firmware
-- You have called {{#if electron}}`Cellular.off()`{{/if}}{{#if photon}}`WiFi.off()`{{/if}}{{#if core}}`WiFi.off()`{{/if}} in your user firmware
+- You have called `Cellular.off()` or `WiFi.off()` in your user firmware
 
 
 
@@ -380,15 +370,14 @@ The device will itself automatically enter safe mode if there is no application 
 
 {{device-animation device "blink" "yellow" }}
 
-If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/faq/particle-tools/installing-dfu-util/)
+If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](https://support.particle.io/hc/en-us/articles/360039251394/)
 
 Installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
-And a usage guide [here.](/reference/cli/)
+And a usage guide [here.](/reference/developer-tools/cli/)
 
 To enter DFU Mode:
 
-{{#unless core}}
 
 1. Hold down BOTH buttons
 2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.
@@ -399,33 +388,20 @@ To enter DFU Mode:
 {{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}
 {{/if}}
 
-{{/unless}}
-
-{{#if core}}
-
-1. Hold down BOTH buttons
-2. Release only the `RST` button, while holding down the `{{system-button}}` button.
-3. Wait for the LED to start flashing yellow
-4. Release the `{{system-button}}` button
-"
-{{vine "https://vine.co/v/eZUgeu0r639/embed/simple"}}
-
-{{/if}}
 
 The {{device}} now is in the DFU mode.
 
-DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](/faq/particle-tools/installing-dfu-util).
+DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](https://support.particle.io/hc/en-us/articles/360039251394/).
 
 Some users have reported issues with dfu-util on a USB3 ports (typically the blue ones). Use a USB2 port if the USB3 port doesn't work.
 
-{{#unless core}}
 
 ### Firmware Reset
 
 {{#if photon}}
 Firmware reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
+The [Particle CLI](/tutorials/developer-tools/cli/) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
 
 ```
 particle flash --usb tinker
@@ -484,7 +460,7 @@ The Electron can store a backup copy of any desired user firmware in flash memor
 
 A CLI installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
-And a usage guide [here.](/reference/cli/)
+And a usage guide [here.](/reference/developer-tools/cli/)
 
 To enter Firmware Reset Mode:
 
@@ -494,11 +470,8 @@ To enter Firmware Reset Mode:
 4. Release the `{{system-button}}` button
 {{/if}}
 
-{{/unless}}
-
 ### Factory Reset
 
-{{#unless core}}
 
 {{#if has-gen3}}
 
@@ -538,7 +511,7 @@ You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-net
 {{/if}}
 
 {{#if has-device-doctor}}
-The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also reset the firmware using:
+The [Particle CLI](/tutorials/developer-tools/cli/) can also reset the firmware using:
 
 ```
 particle device doctor
@@ -548,28 +521,6 @@ particle device doctor
 
 {{/if}} {{!-- has-gen3 --}}
 
-{{/unless}} {{!-- core --}}
-
-{{#if core}}
-
-{{vine "https://vine.co/v/eZU6XdrYbd5/embed/simple"}}
-
-A factory reset restores the firmware on the {{device}} to the default Tinker app and clears all your Wi-Fi credentials.
-
-Procedure:
-
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the `{{system-button}}` button until you see the {{device}} change from blinking yellow to blinking white. Then release the button.  The {{device}} should begin after the factory reset is complete.
-
-1. Hold down BOTH buttons
-2. Release only the `RST` button, while holding down the `{{system-button}}` button.
-3. Wait for the LED to start blinking yellow (continue to hold the `{{system-button}}` button)
-4. The LED will turn solid white (continue to hold the `{{system-button}}` button)
-5. Finally, the LED will turn blink white rapidly
-6. Release the `{{system-button}}` button
-
-
-You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
-{{/if}}
 
 
 
@@ -593,13 +544,6 @@ If the Cellular module is on but not connected to a cellular tower, your {{devic
 If the Wi-Fi module is on but not connected to a network, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
 {{/if}}
 
-{{#if core}}
-### Wi-Fi Module Not Connected
-
-{{device-animation device "breathe" "blue" }}
-
-If the Wi-Fi module is on but not connected to a network, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
-{{/if}}
 
 ### Cloud Not Connected
 
@@ -611,7 +555,7 @@ When your {{device}} is connected to {{network-type}} but not to the cloud, it w
 
 #### I can't flash my {{device}} anymore
 
-Breathing green means that {{network-type}} is on, but you're not connected to the Particle cloud. Because of this, you cannot flash your {{device}} from the cloud. That includes Particle Build (Web IDE), Particle Dev (Atom IDE) and Particle CLI cloud-based flashing commands.
+Breathing green means that {{network-type}} is on, but you're not connected to the Particle cloud. Because of this, you cannot flash your {{device}} from the cloud. That includes Particle Build (Web IDE), Particle Workbench, and Particle CLI cloud-based flashing commands.
  
 Fortunately, you can usually get around this by entering safe mode, breathing magenta.
 
@@ -657,7 +601,6 @@ void waitForSwitch() {
 
 In general it's better to structure your code so it always returns from loop(), but if that's not a viable solution, you can sprinkle some Particle.process() calls in your code.
 
-{{#unless core}}
 #### Solution 2: Enable SYSTEM_THREAD
 
 The other solution is to use [SYSTEM_THREAD](/reference/device-os/firmware/#system-thread) mode.
@@ -681,7 +624,6 @@ if (Particle.connected()) {
     Particle.publish("myEvent", PRIVATE);
 }
 ```
-{{/unless}}
 
 {{#if has-wifi}}
 #### Side note: Wi-Fi only mode
@@ -694,7 +636,7 @@ While all of the causes above were unintentionally causing breathing green, you 
 
 ### Rainbows/Nyan
 
-Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/cli/#particle-nyan) CLI command, you can have a device's status LED display a rainbow pattern. This is handy if you have multiple devices nearby and are not sure which one is which. 
+Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/developer-tools/cli/#particle-nyan) CLI command, you can have a device's status LED display a rainbow pattern. This is handy if you have multiple devices nearby and are not sure which one is which. 
 
 {{device-animation device "pattern"
   "on #0000f3 100ms"
@@ -720,7 +662,7 @@ While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
 
 {{collapse op="start" label="Repair instructions"}}
 
-Most keys related issues can be resolved using the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli).
+Most keys related issues can be resolved using the [Particle CLI](/tutorials/developer-tools/cli/).
 
 Put the {{device}} into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
 
@@ -769,9 +711,7 @@ A pattern of more than 10 red blinks is caused by the firmware crashing. The pat
 {{#if electron}}
 [Enter safe mode](#safe-mode), tweak your firmware and try again!
 {{/if}}
-{{#if core}}
-[Perform a factory reset](#factory-reset), tweak your firmware and try again!
-{{/if}}
+
 
 There are a number of other red blink codes that may be expressed after the SOS blinks:
 
@@ -820,7 +760,7 @@ particle device doctor
 ```
 {{/if}}
 
-Some tips for reducing the memory used by your firmware [can be found here](/faq/particle-devices/code-size-tips).
+Some tips for reducing the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
 
 **Stack overflow (13 blinks between 2 SOS patterns)**
 
@@ -858,13 +798,8 @@ Things you should not do from an ISR:
 ### Solid colors
 
 
-{{#if core}}
-Solid colors are rare. There are two expected situations:
-- Solid white if you are in the middle of a factory reset.
-{{/if}}
-{{#unless core}}
 Solid colors are rare. There only expected situation is:
-{{/unless}}
+
 - Solid magenta if you are loading code in ymodem serial mode.
 
 
@@ -885,5 +820,5 @@ If you still see no change in the status LED you probably have a missing or corr
 
 
 
-This can be corrected using a [JTAG/SWD programmer](https://docs.particle.io/faq/particle-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
+This can be corrected using a [JTAG/SWD programmer](https://support.particle.io/hc/en-us/articles/360039251414/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 

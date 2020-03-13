@@ -21,7 +21,7 @@ For more information about Device Cloud pricing, check out <a
 href="https://particle.io/pricing" target="_blank">our pricing page</a>.
 
 There are also FAQs for cellular Device Cloud pricing
-[here](/support/general/pricing).
+[here](https://support.particle.io/hc/en-us/articles/360039741073/).
 
 ## Data Limits
 Limits act as a safety cutoff for your data usage to avoid paying
@@ -38,6 +38,8 @@ When a SIM reaches or exceeds the set limit then data service will be paused. It
 We measure data use by querying cellular carriers for what they've measured. Because of this our knowledge of a SIM's usage has a little lag and it's possible to go over a set limit, especially if you're using data very quickly. 
 
 You can set data limits on each SIM independently, see what your current limits are, and unpause SIMs in the [Console](https://console.particle.io).
+
+Cellular data usage can take 24 hours to be reported and in some cases longer. Your SIM may consume data in excess of the cap in this case.
 
 ## Activation, Deactivation, Reactivation, Pausing
 Pausing is related to temporary behaviors of individual SIMs, and the activation terms can apply in a couple of ways. Remember that if your Electron doesn't have data service then any application running will not function as you expect unless you've explicitly written it for offline behavior! Check out System Modes and Threading over in the Firmware Reference for details.
@@ -108,7 +110,7 @@ It's important to note that the estimated cost represents data used *up to that 
 ## How to Reduce Your Bill
 You can reduce your monthly cost in two main ways. One is by setting your data limit lower. This will make sure that your bill will never be much higher than you expect (allowing for taxes and fees). It's also a bit abrupt. Your device will lose connection and the behavior will change unless you've written in offline behavior.
 
-The lighter approach is to reduce the amount of data consumed by the device itself via firmware optimization. We have a whole guide for that! [Data Usage Guide](/tutorials/cellular-connectivity/data)
+The lighter approach is to reduce the amount of data consumed by the device itself via firmware optimization. We have a whole guide for that! [Data Usage Guide](/tutorials/cellular-connectivity/data/)
 
 ## How to Update Billing Info
 If there's ever a need to update your billing information, or add a new credit card, you can do this easily from the Console. If a payment attempt ever fails, we'll ask you to go and edit your billing information before we try and charge your card again. To do this, simply visit the [Edit Card](https://console.particle.io/billing/edit-card) screen on the billing page of your Console.

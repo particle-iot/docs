@@ -3,6 +3,7 @@ title: Particle API JS (Javascript SDK)
 layout: reference.hbs
 columns: three
 order: 10
+description: Manage your Particle IoT device your IoT device from a web browser or server (node.js) using Javascript
 ---
 
 # Particle API JS
@@ -333,7 +334,7 @@ particle.getEventStream(options).then(function(stream) {
 Register an event stream in the Particle cloud with [`publishEvent`](#publishevent)
 
 ```javascript
-var publishEventPr = particle.publishEvent({ name: 'test', data: {}, auth: token });
+var publishEventPr = particle.publishEvent({ name: 'test', data: JSON.stringify({ ok: true }), auth: token });
 
 publishEventPr.then(
   function(data) {
