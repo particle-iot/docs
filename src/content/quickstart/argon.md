@@ -39,7 +39,7 @@ To set up your Argon, you'll need an Android or iOS mobile phone and a connectio
 
 For a short (~4 min) overview of what the Argon setup process looks like, watch the video below.
 
-<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/54kmDEoQSP0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/xK20wrWDduQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Once you're ready to proceed, use the online setup application to configure your new Argon. The process includes the following.
 
