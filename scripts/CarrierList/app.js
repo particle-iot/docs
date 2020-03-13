@@ -38,6 +38,9 @@ var countryList = [];
 // Country data object. Key is the normalized country name.
 var countryData = {};
 
+// Country to region map. Key is the country record ID. Value is a region record ID.
+var countryRegionMap = {};
+
 // Map planName recordID to the plan name. Key is record ID.
 var planNameMap = {};
 
@@ -57,6 +60,12 @@ var has2GMap = {};
 
 // Map of SKU record ID to SKU name. Key is record ID.
 var skuNameMap = {};
+
+// Map of Region record ID to region name. Key is region record ID.
+var regionNameMap = {};
+
+// Map of Region record ID to region parent. Key is region record ID.
+var regionParentMap = {};
 
 // Start by getting the plans. The other operations are chained off the completion of that.
 getPlans();
@@ -82,7 +91,32 @@ function getPlans() {
 	}, function done(err) {
 	    if (err) { console.error(err); return; }
 	    
-	    getSKUs();
+	    getRegions();
+	});
+}
+
+function getRegions() {
+	base('Region').select({
+	    maxRecords: 100,
+	    fields: ['Name','Parent']
+	}).eachPage(function page(records, fetchNextPage) {
+	    // This function (`page`) will get called for each page of records.
+	
+	    records.forEach(function(record) {
+	        // console.log('Retrieved Region id=' + record.getId() + ' name=' + record.get('Name') + ' parent=' + record.get('Parent'));
+			regionNameMap[record.getId()] = record.get('Name');
+			regionParentMap[record.getId()] = record.get('Parent');
+	    });
+	
+	    // To fetch the next page of records, call `fetchNextPage`.
+	    // If there are more records, `page` will get called again.
+	    // If there are no more records, `done` will get called.
+	    fetchNextPage();
+	
+	}, function done(err) {
+	    if (err) { console.error(err); return; }
+	    
+	    getSKUs(); 
 	});
 }
 
@@ -111,7 +145,7 @@ function getSKUs() {
 function getCountries() {
 	base('Countries').select({
 	    maxRecords: 9999,
-	    fields: ['Country','SKUs']
+	    fields: ['Country','SKUs','Region']
 	}).eachPage(function page(records, fetchNextPage) {
 	    // This function (`page`) will get called for each page of records.
 
@@ -133,7 +167,9 @@ function getCountries() {
 				}
 	        });	  
 	        // console.log('Retrieved Country ' + record.getId() + ' ' + record.get('Country') + ' has2G=' + has2G + ' which3G=' + which3G);
-	        countryNameMap[record.getId()] = record.get('Country');
+			countryNameMap[record.getId()] = record.get('Country');
+			
+			countryRegionMap[record.getId()] = record.get('Region');
 
 	        if (which3G) {
 	        	which3GMap[record.getId()] = which3G;
@@ -183,15 +219,16 @@ function getFullData() {
 	    records.forEach(function(record) {
 	        // console.log('Retrieved ' + record.get('ID'), record);
 	    	// console.log('record IDs: Country=' + record.get('Country') + ' Carrier-link=' + record.get('Carrier-link') + ' Plan_Name-link=' +record.get('Plan_Name-link'));
-	    	
-	    	let countryName = countryNameMap[record.get('Country')]; 
+			let countryId = record.get('Country');
+
+	    	let countryName = countryNameMap[countryId]; 
 	    	let carrierName = carrierNameMap[record.get('Carrier-link')];
 	    	const planName = planNameMap[record.get('Plan_Name-link')];
 	    	const rank = record.get('Network rank');
 	    	const zone = parseInt(record.get('Partner zone'));
 	    	
-	    	const has2G = has2GMap[record.get('Country')];
-	    	const which3G = which3GMap[record.get('Country')];
+	    	const has2G = has2GMap[countryId];
+	    	const which3G = which3GMap[countryId];
 	    	
 			if (normalizeCountry[countryName]) {
 				countryName = normalizeCountry[countryName];
@@ -272,9 +309,13 @@ function getFullData() {
 	    		
 				addCountryData(countryName, 'has3g', which3G ? which3G : 'U270');							
 
+				var regionName = regionNameMap[countryRegionMap[countryId]];
+				var isEurope = regionName === 'Europe' || regionName === 'Baltics';
+				addCountryData(countryName, 'isEurope', isEurope);			
+				// console.log('countryName=' + countryName + ' isEurope=' + isEurope);				
 	    	}
 	    	else {
-		    	console.log('hidden: countryName=' + countryName + ' carrierName=' + carrierName + ' planName=' + planName + ' rank=' + rank + ' zone=' + zone);	    	
+		    	// console.log('hidden: countryName=' + countryName + ' carrierName=' + carrierName + ' planName=' + planName + ' rank=' + rank + ' zone=' + zone);	    	
 	    	} 
 	    		
 	    });
@@ -341,7 +382,7 @@ function addCountryDataArrayArray(country, key, value) {
 function generateMarkdown() {
 	var md = '';
 	
-	var simTypes = ['Electron', 'LTE', 'Boron'];
+	var simTypes = ['Electron', 'LTE', 'Boron', 'B523'];
 	
 	for(var jj = 0; jj < simTypes.length; jj++) {
 		var simType = simTypes[jj];
@@ -357,15 +398,17 @@ function generateMarkdown() {
 		}
 		
 		var countryAdded = {};
-		
-		
-		for(var ii = 0; ii < countryList.length; ii++) {
+		var ii = 0;
+		if (simType == 'LTE' || simType == 'B523') {
+			ii += countryListTop.length;
+		}
+		for(; ii < countryList.length; ii++) {
 			var country = countryList[ii];
 
 			var carrierArray = [];
 			
 			if (!countryData[country]) {
-				console.log('missing data for ' + country);
+		 		console.log('missing data for ' + country);
 				continue;
 			}
 			
@@ -400,6 +443,19 @@ function generateMarkdown() {
 				if (hasSecondaryOrBackup && countryData[country].vodafoneCarrierBackup) {
 					for(var kk = 0; kk < countryData[country].vodafoneCarrierBackup.length; kk++) {
 						carrierArray.push(countryData[country].vodafoneCarrierBackup[kk] + '<sup>3</sup>');
+					}
+				}
+			}
+			else
+			if (simType === 'B523') {
+				// Europe only
+				if (!countryData[country].isEurope) {
+					continue;
+				}
+				// Include Vodafone OneNet carriers
+				if (countryData[country].vodafoneCarrierPrimary) {
+					for(var kk = 0; kk < countryData[country].vodafoneCarrierPrimary.length; kk++) {
+						carrierArray.push(countryData[country].vodafoneCarrierPrimary[kk] + (hasSecondaryOrBackup ? '<sup>1</sup>' : ''));
 					}
 				}
 			}
