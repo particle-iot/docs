@@ -731,10 +731,10 @@ void loop() {
 ```
 
 {{#if has-wifi}}
-While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#off-).
+While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use `WiFi.off()`.
 {{/if}}
 {{#if has-cellular}}
-While this function will disconnect from the Cloud, it will keep the connection to the Cellular network. If you would like to completely deactivate the Cellular module, use [`Cellular.off()`](#off-).
+While this function will disconnect from the Cloud, it will keep the connection to the Cellular network. If you would like to completely deactivate the Cellular module, use `Cellular.off()`.
 {{/if}}
 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
@@ -2806,6 +2806,10 @@ Cellular.on();
 // SYNTAX
 Cellular.off();
 ```
+
+You must not turn off and on cellular more than every 10 minutes (6 times per hour). Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. 
+
+If you are manually managing the cellular connection in case of connection failures, you should wait at least 5 minutes before stopping the connection attempt. When retrying on failure, you should implement a back-off scheme waiting 5 minutes, 10 minutes, 15 minutes, 20 minutes, 30 minutes, then 60 minutes between retries. Repeated failures to connect can also result in your SIM being blocked.
 
 ### connect()
 
@@ -13977,7 +13981,7 @@ When the device awakens from deep sleep, it will reset and run all user code fro
 
 The standby mode is used to achieve the lowest power consumption.  After entering standby mode, the RAM and register contents are lost{{#if has-backup-ram}} except for retained memory{{/if}}.
 
-For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods of 5 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up, and supports sleeping for shorter intervals.
+For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods less than 10 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently.
 
 {{#if has-stm32}}
 The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the WKP pin. 
@@ -14041,7 +14045,7 @@ System.sleep(D1,RISING);
 {{#if has-cellular}}
 The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption during sleep. Roughly speaking, for sleep periods of less than 15 minutes, `SLEEP_NETWORK_STANDBY` uses less power.
 
-For sleep periods of less than 5 minutes you must use `SLEEP_NETWORK_STANDBY`. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up and prevents your SIM from being blocked.
+For sleep periods of less than 10 minutes you must use `SLEEP_NETWORK_STANDBY`. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up and prevents your SIM from being blocked.
 {{/if}}
 
 

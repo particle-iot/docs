@@ -738,6 +738,17 @@ Reset a device or multiple devices
 particle usb reset [devices...] [--all]
 ```
 
+### particle usb setup-done
+
+On the Argon and Boron, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).
+
+```
+particle usb setup-done [devices...] [--reset]
+```
+
+The `--reset` command clears the setup done flag, so the device will resume booting into listening mode.
+
+
 ### particle usb configure
 
 Install udev rules for Particle USB devices (Linux-only)
@@ -745,6 +756,7 @@ Install udev rules for Particle USB devices (Linux-only)
 ```
 particle usb configure
 ```
+
 
 ## particle update
 
