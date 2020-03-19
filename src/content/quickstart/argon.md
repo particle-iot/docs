@@ -106,12 +106,6 @@ Click the lightning bolt icon on the top left of your screen to flash your code 
 
 As soon as you click, the Particle Device cloud will compile the program source code to a binary file and send it over-the-air (OTA) to your Argon.
 
-{{box op="start"}}
-**NOTE:**
-
-You'll often see words like flashing and deploying used interchangeably.
-{{box op="end"}}
-
 ---
 
 For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/argon).

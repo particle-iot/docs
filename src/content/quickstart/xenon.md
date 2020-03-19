@@ -2,7 +2,7 @@
 title: Xenon
 layout: quickstart.hbs
 columns: two
-order: 5
+order: 6
 description: Getting started with your Particle Xenon, Gen 3 Particle Mesh and BLE device (discontinued)
 ---
 
@@ -106,11 +106,6 @@ Click the lightning bolt icon on the top left of your screen to flash your code 
 
 As soon as you click, the Particle Device cloud will compile the program source code to a binary file and send it over-the-air (OTA) to your Argon.
 
-{{box op="start"}}
-**NOTE:**
-
-You'll often see words like flashing and deploying used interchangeably.
-{{box op="end"}}
 
 ---
 
