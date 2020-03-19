@@ -147,9 +147,9 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 
 | Country | Carriers |
 | ------- | -------- |
-| United States | AT&T |
 | Canada | Roaming on Rogers, Telus & Bell |
 | Mexico | AT&T |
+| United States | AT&T |
 
 {{collapse op="end"}}
 
@@ -331,6 +331,521 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 
 {{collapse op="end"}}
 
+{{collapse op="start" simType="BoronAllNet"}}
+
+| Country | Carriers |
+| ------- | -------- |
+| United States | T-Mobile<sup>1</sup> |
+|   | Commnet Wireless<sup>2</sup> |
+|   | Viaero<sup>3</sup> |
+|   | Union Telephone Company<sup>3</sup> |
+|   | Manx NA<sup>3</sup> |
+|   | Bug Tussel Wireless<sup>3</sup> |
+|   | Immix<sup>3</sup> |
+|   | Cincinnati Bell<sup>3</sup> |
+|   | New Core<sup>3</sup> |
+|   | Alaskan Wireless Network (AWN)<sup>3</sup> |
+| Canada | Telus<sup>1</sup> |
+|   | Bell Mobility<sup>2</sup> |
+|   | Sasktel<sup>3</sup> |
+|   | Mobilicity<sup>3</sup> |
+|   | Videotron<sup>3</sup> |
+|   | Rogers Wireless<sup>3</sup> |
+| United Kingdom | Vodafone<sup>1</sup> |
+|   | T-Mobile<sup>2</sup> |
+|   | Everything Everywhere Orange<sup>2</sup> |
+|   | O2<sup>3</sup> |
+| Afghanistan | Roshan<sup>1</sup> |
+|   | AWCC<sup>2</sup> |
+|   | Etisalat<sup>3</sup> |
+| Albania | Vodafone<sup>1</sup> |
+|   | PLUS<sup>2</sup> |
+|   | Eagle<sup>3</sup> |
+| Anguilla | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Antarctica | Claro |
+| Antigua and Barbuda | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Argentina | Claro<sup>1</sup> |
+|   | Telecom Personal<sup>2</sup> |
+|   | Movistar<sup>3</sup> |
+| Armenia | VivaCell<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+|   | ArmenTel<sup>3</sup> |
+| Aruba | Digicel<sup>1</sup> |
+|   | Setar GSM<sup>2</sup> |
+| Australia | Vodafone<sup>1</sup> |
+|   | Optus<sup>2</sup> |
+| Austria | Mobilkom<sup>1</sup> |
+|   | T-Mobile<sup>2</sup> |
+|   | Orange<sup>3</sup> |
+| Azerbaijan | NAR Mobile<sup>1</sup> |
+|   | Bakcell<sup>2</sup> |
+|   | Azercell<sup>3</sup> |
+| Bahrain | Batelco<sup>1</sup> |
+|   | Zain BH<sup>2</sup> |
+|   | VIVA<sup>3</sup> |
+| Bangladesh | Robi<sup>1</sup> |
+|   | Orsacom<sup>2</sup> |
+|   | Warid<sup>3</sup> |
+|   | GrameenPhone<sup>3</sup> |
+| Barbados | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Belgium | Proximus<sup>1</sup> |
+|   | Base<sup>2</sup> |
+|   | Mobistar<sup>3</sup> |
+| Benin | Moov<sup>1</sup> |
+|   | Spacetel<sup>2</sup> |
+|   | GloMobile<sup>3</sup> |
+| Bermuda | CellOne<sup>1</sup> |
+|   | Digicel<sup>2</sup> |
+|   | Digicel<sup>3</sup> |
+| Brunei Darussalam | DST<sup>1</sup> |
+|   | B-Mobile<sup>2</sup> |
+| Bulgaria | M-Tel<sup>1</sup> |
+|   | Globul<sup>2</sup> |
+|   | Vivacom<sup>3</sup> |
+| Cambodia | Cellcard<sup>1</sup> |
+|   | SmartMobile<sup>2</sup> |
+|   | Beeline<sup>3</sup> |
+| Canada | Telus<sup>1</sup> |
+|   | Bell Mobility<sup>2</sup> |
+|   | Sasktel<sup>3</sup> |
+|   | Mobilicity<sup>3</sup> |
+|   | Videotron<sup>3</sup> |
+|   | Rogers Wireless<sup>3</sup> |
+| Cayman Islands | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Central African Republic | Moov |
+| Chad | Airtel<sup>1</sup> |
+|   | Tigo<sup>2</sup> |
+| Chile | Entel<sup>1</sup> |
+|   | Claro<sup>2</sup> |
+|   | Movistar<sup>3</sup> |
+| China | China Unicom<sup>1</sup> |
+|   | China Mobile<sup>2</sup> |
+| Colombia | Claro<sup>1</sup> |
+|   | Tigo<sup>2</sup> |
+|   | Movistar<sup>3</sup> |
+| Congo (Brazzaville) | CelTel |
+| Costa Rica | Claro<sup>1</sup> |
+|   | Movistar<sup>2</sup> |
+|   | I.C.E.<sup>3</sup> |
+| Croatia | VIPnet<sup>1</sup> |
+|   | Tele2<sup>2</sup> |
+|   | Croatian Telecom<sup>3</sup> |
+| Curaçao | Digicel |
+| Cyprus | Cytamobile-Vodafone<sup>1</sup> |
+|   | MTN<sup>2</sup> |
+| Czechia | Vodafone<sup>1</sup> |
+|   | T-Mobile<sup>2</sup> |
+|   | O2<sup>3</sup> |
+| Denmark | Telenor<sup>1</sup> |
+|   | TDC<sup>2</sup> |
+|   | Telia<sup>3</sup> |
+| Dominica | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Dominican Republic | Claro<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+|   | Trilogy<sup>3</sup> |
+| Ecuador | Conecel<sup>1</sup> |
+|   | Movistar<sup>2</sup> |
+| Egypt | Vodafone<sup>1</sup> |
+|   | Etisalat<sup>2</sup> |
+|   | MobiNil<sup>3</sup> |
+| El Salvador | Claro<sup>1</sup> |
+|   | Digicel<sup>2</sup> |
+| Estonia | Elisa<sup>1</sup> |
+|   | Tele2<sup>2</sup> |
+|   | EMT<sup>3</sup> |
+| Faroe Islands | Vodafone<sup>1</sup> |
+|   | Faroese Telecom<sup>2</sup> |
+| Fiji | Digicel<sup>1</sup> |
+|   | Vodafone<sup>2</sup> |
+| Finland | Elisa<sup>1</sup> |
+|   | Telia Sonera<sup>2</sup> |
+|   | Alands Mobiltelefon<sup>3</sup> |
+|   | DNA<sup>3</sup> |
+| France | SFR<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+|   | Bouygues<sup>3</sup> |
+| French Guiana | Digicel<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+| Gabon | Airtel<sup>1</sup> |
+|   | Moov<sup>2</sup> |
+| Georgia | Magticom<sup>1</sup> |
+|   | Beeline<sup>2</sup> |
+|   | Geocell<sup>3</sup> |
+| Germany | Vodafone<sup>1</sup> |
+|   | T-Mobile<sup>2</sup> |
+|   | O2<sup>3</sup> |
+|   | E-Plus<sup>3</sup> |
+| Ghana | Vodafone<sup>1</sup> |
+|   | Airtel<sup>2</sup> |
+|   | Globacom<sup>3</sup> |
+|   | Tigo<sup>3</sup> |
+|   | MTN<sup>3</sup> |
+| Gibraltar | Gibtel |
+| Greece | Vodafone<sup>1</sup> |
+|   | Cosmote<sup>2</sup> |
+|   | Wind<sup>3</sup> |
+| Grenada | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Guadeloupe | Digicel<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+| Guam | mPulse<sup>1</sup> |
+|   | Docomo Pacific<sup>2</sup> |
+| Guatemala | Claro<sup>1</sup> |
+|   | Tigo<sup>2</sup> |
+| Guernsey | Airtel-Vodafone<sup>1</sup> |
+|   | Jersey Telecom<sup>1</sup> |
+|   | Cable & Wireless<sup>2</sup> |
+| Guyana | Cellink Plus<sup>1</sup> |
+|   | Digicel<sup>2</sup> |
+| Haiti | Digicel<sup>1</sup> |
+|   | Natcom<sup>2</sup> |
+| Holy See (Vatican City) | Vodafone<sup>1</sup> |
+|   | Wind<sup>2</sup> |
+|   | TIM<sup>3</sup> |
+| Honduras | Digicel<sup>1</sup> |
+|   | Claro<sup>1</sup> |
+|   | Tigo<sup>2</sup> |
+| Hong Kong | Hutchison<sup>1</sup> |
+|   | 3<sup>1</sup> |
+|   | SmarTone<sup>2</sup> |
+|   | CSL<sup>3</sup> |
+|   | Peoples<sup>3</sup> |
+|   | PCCW Mobile<sup>3</sup> |
+| Hungary | Vodafone<sup>1</sup> |
+|   | Telenor<sup>2</sup> |
+|   | T-Mobile<sup>3</sup> |
+| Iceland | Vodafone<sup>1</sup> |
+|   | Nova<sup>2</sup> |
+|   | Siminn<sup>3</sup> |
+| India | Vodafone<sup>1</sup> |
+|   | Aircel<sup>2</sup> |
+|   | Reliance<sup>3</sup> |
+|   | MTNL Dolphin<sup>3</sup> |
+|   | Idea<sup>3</sup> |
+|   | AirTel<sup>3</sup> |
+|   | BSNL<sup>3</sup> |
+|   | Tata Docomo<sup>3</sup> |
+| Indonesia | Indosat<sup>1</sup> |
+|   | Telkomsel<sup>2</sup> |
+|   | Excelcom<sup>3</sup> |
+|   | 3<sup>3</sup> |
+| Iran | Rightel |
+| Ireland | Vodafone<sup>1</sup> |
+|   | O2<sup>2</sup> |
+| Isle of Man | Manx Telecom<sup>1</sup> |
+|   | Cable & Wireless<sup>2</sup> |
+| Israel | Pelephone<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+|   | Cellcom<sup>3</sup> |
+| Italy | Vodafone<sup>1</sup> |
+|   | Wind<sup>2</sup> |
+|   | TIM<sup>3</sup> |
+| Jamaica | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Japan | NTT DoCoMo<sup>1</sup> |
+|   | Softbank<sup>2</sup> |
+| Jersey | Jersey Telecom<sup>1</sup> |
+|   | Airtel-Vodafone<sup>1</sup> |
+|   | Cable & Wireless<sup>2</sup> |
+| Jordan | Umniah<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+|   | Zain<sup>3</sup> |
+| Kenya | Safaricom<sup>1</sup> |
+|   | Airtel<sup>2</sup> |
+| Korea | KT<sup>1</sup> |
+|   | SK Telecom<sup>2</sup> |
+| Kosovo | Mobitel |
+| Kuwait | Wataniya<sup>1</sup> |
+|   | Viva<sup>2</sup> |
+|   | Zain<sup>3</sup> |
+| Latvia | Bite Latvija<sup>1</sup> |
+|   | Tele2<sup>2</sup> |
+|   | LMT<sup>3</sup> |
+| Lesotho | VODACOM |
+| Liechtenstein | Mobilkom<sup>1</sup> |
+|   | Swisscom<sup>2</sup> |
+|   | Orange<sup>3</sup> |
+| Lithuania | Bite GSM<sup>1</sup> |
+|   | Tele 2<sup>2</sup> |
+|   | Omnitel<sup>3</sup> |
+| Luxembourg | Tango<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+|   | LUXGSM<sup>3</sup> |
+| Macau | SmarTone<sup>1</sup> |
+|   | 3<sup>2</sup> |
+|   | CTM<sup>3</sup> |
+| Macedonia | Vip operator<sup>1</sup> |
+|   | T-Mobile<sup>2</sup> |
+| Madagascar | Airtel<sup>1</sup> |
+|   | Telma Mobile<sup>2</sup> |
+| Malawi | Airtel<sup>1</sup> |
+|   | TNM<sup>2</sup> |
+| Malaysia | Celcom<sup>1</sup> |
+|   | Maxis Mobile<sup>2</sup> |
+|   | U-Mobile<sup>3</sup> |
+|   | DiGi<sup>3</sup> |
+| Malta | Vodafone<sup>1</sup> |
+|   | Melita Mobile Ltd.<sup>2</sup> |
+|   | go mobile<sup>3</sup> |
+| Martinique | Digicel<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+| Mayotte | SRR |
+| Mexico | Telcel<sup>1</sup> |
+|   | Movistar<sup>2</sup> |
+|   | IUSACell<sup>3</sup> |
+| Monaco | Orange<sup>1</sup> |
+|   | SFR<sup>2</sup> |
+|   | Monaco Telecom<sup>3</sup> |
+| Mongolia | Unitel<sup>1</sup> |
+|   | MobiCom<sup>2</sup> |
+| Montenegro | Mtel<sup>1</sup> |
+|   | Telenor<sup>2</sup> |
+|   | T-Mobile<sup>3</sup> |
+| Montserrat | Cable & Wireless |
+| Mozambique | Vodacom<sup>1</sup> |
+|   | mCel<sup>2</sup> |
+| Nauru | Digicel |
+| Netherlands | Vodafone |
+| New Zealand | Vodafone<sup>1</sup> |
+|   | Spark New Zealand<sup>2</sup> |
+| Nicaragua | Claro<sup>1</sup> |
+|   | Movistar<sup>2</sup> |
+| Niger | Airtel<sup>1</sup> |
+|   | Moov<sup>2</sup> |
+| Nigeria | Airtel<sup>1</sup> |
+|   | MTN<sup>2</sup> |
+|   | Glo Mobile<sup>3</sup> |
+|   | Etisalat<sup>3</sup> |
+| Norway | Telenor<sup>1</sup> |
+|   | Netcom<sup>2</sup> |
+|   | Network Norway<sup>2</sup> |
+| Pakistan | Mobilink<sup>1</sup> |
+|   | Warid<sup>2</sup> |
+|   | Ufone<sup>3</sup> |
+|   | Zong<sup>3</sup> |
+| Palestine, State of | Jawwal<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+|   | Cellcom<sup>3</sup> |
+|   | Wataniya<sup>3</sup> |
+| Panama | Claro<sup>1</sup> |
+|   | Cable & Wireless<sup>2</sup> |
+|   | Digicel<sup>3</sup> |
+|   | Movistar<sup>3</sup> |
+| Papua New Guinea | Digicel<sup>1</sup> |
+|   | bmobile<sup>2</sup> |
+| Paraguay | Claro<sup>1</sup> |
+|   | Airtel<sup>2</sup> |
+|   | Vox<sup>3</sup> |
+| Peru | Nextel<sup>1</sup> |
+|   | Claro<sup>2</sup> |
+|   | Movistar<sup>3</sup> |
+| Philippines | Sun Cellular<sup>1</sup> |
+|   | SMART Gold<sup>2</sup> |
+|   | Globe<sup>3</sup> |
+| Poland | Orange<sup>1</sup> |
+|   | Plus<sup>2</sup> |
+|   | Play<sup>3</sup> |
+|   | Era<sup>3</sup> |
+| Portugal | Vodafone<sup>1</sup> |
+|   | Optimus<sup>2</sup> |
+|   | TMN<sup>3</sup> |
+| Puerto Rico | AT&T<sup>1</sup> |
+|   | Claro<sup>2</sup> |
+|   | T-Mobile<sup>3</sup> |
+| Qatar | Vodafone<sup>1</sup> |
+|   | Q-Tel<sup>2</sup> |
+| Réunion | SRR<sup>1</sup> |
+|   | Outremer<sup>2</sup> |
+| Romania | Vodafone<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+|   | DigiMobil<sup>3</sup> |
+|   | Cosmote<sup>3</sup> |
+| Russia | MTS<sup>1</sup> |
+|   | Megafon<sup>2</sup> |
+|   | NCC<sup>3</sup> |
+|   | Rostelecom<sup>3</sup> |
+|   | Motiv<sup>3</sup> |
+| Rwanda | Airtel<sup>1</sup> |
+|   | Tigo<sup>2</sup> |
+| Saint Barthélemy | Digicel<sup>1</sup> |
+|   | UTS Setel<sup>2</sup> |
+|   | Orange<sup>3</sup> |
+| Saint Kitts and Nevis | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+|   | UTS Setel<sup>3</sup> |
+| Saint Lucia | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Saint Martin (French part) | Digicel<sup>1</sup> |
+|   | UTS Setel<sup>2</sup> |
+|   | Orange<sup>3</sup> |
+| Saint Vincent and the Grenadines | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+| Samoa | Digicel<sup>1</sup> |
+|   | Bluesky<sup>2</sup> |
+| San Marino | Vodafone<sup>1</sup> |
+|   | Wind<sup>2</sup> |
+|   | San Marino Telecom<sup>3</sup> |
+|   | TIM<sup>3</sup> |
+| Saudi Arabia | STC Al Jawal<sup>1</sup> |
+|   | Zain<sup>2</sup> |
+|   | Mobily<sup>3</sup> |
+| Senegal | Tigo<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+| Serbia | VIP<sup>1</sup> |
+|   | Telenor<sup>2</sup> |
+|   | mts<sup>3</sup> |
+| Seychelles | Airtel<sup>1</sup> |
+|   | Cable & Wireless<sup>2</sup> |
+| Singapore | M1<sup>1</sup> |
+|   | StarHub<sup>2</sup> |
+|   | SingTel<sup>3</sup> |
+| Slovakia | T-Mobile<sup>1</sup> |
+|   | Orange<sup>2</sup> |
+| Slovenia | SI Mobil<sup>1</sup> |
+|   | Mobitel<sup>2</sup> |
+|   | Tusmobil<sup>3</sup> |
+| Solomon Islands | BeMobile |
+| South Africa | Vodacom<sup>1</sup> |
+|   | MTN<sup>2</sup> |
+|   | Cell C<sup>3</sup> |
+|   | Telkom<sup>3</sup> |
+| South Sudan | Zain |
+| Spain | Vodafone<sup>1</sup> |
+|   | Movistar<sup>2</sup> |
+|   | Orange<sup>3</sup> |
+| Sri Lanka | Mobitel<sup>1</sup> |
+|   | Dialog<sup>2</sup> |
+|   | Etisalat<sup>3</sup> |
+|   | Hutch<sup>3</sup> |
+|   | Airtel<sup>3</sup> |
+| Suriname | Digicel<sup>1</sup> |
+|   | Telesur<sup>2</sup> |
+| Svalbard and Jan Mayen | Telenor |
+| Sweden | Telenor<sup>1</sup> |
+|   | Telenor (Net4Mobility)<sup>1</sup> |
+|   | Tele 2 (Net4Mobility)<sup>2</sup> |
+|   | Tele 2<sup>2</sup> |
+|   | TeliaSonera<sup>3</sup> |
+| Switzerland | Swisscom<sup>1</sup> |
+|   | Sunrise<sup>2</sup> |
+|   | Orange<sup>3</sup> |
+| Taiwan | Taiwan Mobile<sup>1</sup> |
+|   | Chunghwa<sup>2</sup> |
+|   | Far EasTone<sup>3</sup> |
+| Tanzania | Vodacom<sup>1</sup> |
+|   | Airtel<sup>2</sup> |
+|   | Tigo<sup>3</sup> |
+|   | Zamtel<sup>3</sup> |
+| Thailand | True Move<sup>1</sup> |
+|   | Real Future<sup>1</sup> |
+|   | AIS<sup>2</sup> |
+|   | AIS<sup>3</sup> |
+| Togo | Moov<sup>1</sup> |
+|   | Togo Cellulaire<sup>2</sup> |
+| Tonga | Digicel<sup>1</sup> |
+|   | U-call<sup>2</sup> |
+| Trinidad and Tobago | Digicel<sup>1</sup> |
+|   | TSTT<sup>2</sup> |
+| Turkey | Vodafone<sup>1</sup> |
+|   | AVEA<sup>2</sup> |
+| Turks and Caicos Islands | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+|   | Islandcom<sup>3</sup> |
+| Uganda | Warid<sup>1</sup> |
+|   | Airtel<sup>1</sup> |
+|   | MTN<sup>2</sup> |
+| Ukraine | MTS<sup>1</sup> |
+|   | Life<sup>2</sup> |
+|   | UKRTelecom<sup>3</sup> |
+| United Kingdom | Vodafone<sup>1</sup> |
+|   | T-Mobile<sup>2</sup> |
+|   | Everything Everywhere Orange<sup>2</sup> |
+|   | O2<sup>3</sup> |
+| United States | T-Mobile<sup>1</sup> |
+|   | Commnet Wireless<sup>2</sup> |
+|   | Viaero<sup>3</sup> |
+|   | Union Telephone Company<sup>3</sup> |
+|   | Manx NA<sup>3</sup> |
+|   | Bug Tussel Wireless<sup>3</sup> |
+|   | Immix<sup>3</sup> |
+|   | Cincinnati Bell<sup>3</sup> |
+|   | New Core<sup>3</sup> |
+|   | Alaskan Wireless Network (AWN)<sup>3</sup> |
+| Uruguay | Ancel<sup>1</sup> |
+|   | Claro<sup>2</sup> |
+|   | Movistar<sup>3</sup> |
+| Uzbekistan | UMS<sup>1</sup> |
+|   | Beeline<sup>2</sup> |
+|   | Coscom<sup>3</sup> |
+| Vanuatu | Digicel |
+| Venezuela | Movistar<sup>1</sup> |
+|   | Movilnet<sup>2</sup> |
+| Virgin Islands (British) | Digicel<sup>1</sup> |
+|   | Lime<sup>2</sup> |
+|   | CCT<sup>3</sup> |
+| Virgin Islands (U.S.) | AT&T |
+| Zambia | Airtel<sup>1</sup> |
+|   | Zamtel<sup>2</sup> |
+|   | MTN<sup>3</sup> |
+
+{{collapse op="end"}}
+
+{{collapse op="start" simType="B523"}}
+
+| Country | Carriers |
+| ------- | -------- |
+| Albania | Vodafone<sup>1</sup> |
+| Austria | Mobilkom<sup>1</sup> |
+| Belgium | Proximus<sup>1</sup> |
+| Bulgaria | M-Tel<sup>1</sup> |
+| Croatia | VIPnet<sup>1</sup> |
+| Czechia | Vodafone<sup>1</sup> |
+| Denmark | Telenor<sup>1</sup> |
+| Faroe Islands | Vodafone<sup>1</sup> |
+| Finland | Elisa<sup>1</sup> |
+| France | SFR<sup>1</sup> |
+| Germany | Vodafone<sup>1</sup> |
+| Gibraltar | Gibtel<sup>1</sup> |
+| Greece | Vodafone<sup>1</sup> |
+| Guernsey | Airtel-Vodafone<sup>1</sup> |
+|   | Jersey Telecom<sup>1</sup> |
+| Holy See (Vatican City) | Vodafone<sup>1</sup> |
+| Hungary | Vodafone<sup>1</sup> |
+| Iceland | Vodafone<sup>1</sup> |
+| Ireland | Vodafone<sup>1</sup> |
+| Isle of Man | Manx Telecom<sup>1</sup> |
+| Italy | Vodafone<sup>1</sup> |
+| Jersey | Jersey Telecom<sup>1</sup> |
+|   | Airtel-Vodafone<sup>1</sup> |
+| Kosovo | Mobitel<sup>1</sup> |
+| Liechtenstein | Mobilkom<sup>1</sup> |
+| Luxembourg | Tango<sup>1</sup> |
+| Macedonia | Vip operator<sup>1</sup> |
+| Malta | Vodafone<sup>1</sup> |
+| Monaco | Orange<sup>1</sup> |
+| Montenegro | Mtel<sup>1</sup> |
+| Netherlands | Vodafone<sup>1</sup> |
+| Norway | Telenor<sup>1</sup> |
+| Poland | Orange<sup>1</sup> |
+| Portugal | Vodafone<sup>1</sup> |
+| Romania | Vodafone<sup>1</sup> |
+| San Marino | Vodafone<sup>1</sup> |
+| Serbia | VIP<sup>1</sup> |
+| Slovakia | T-Mobile<sup>1</sup> |
+| Slovenia | SI Mobil<sup>1</sup> |
+| Spain | Vodafone<sup>1</sup> |
+| Sweden | Telenor<sup>1</sup> |
+|   | Telenor (Net4Mobility)<sup>1</sup> |
+| Switzerland | Swisscom<sup>1</sup> |
+| United Kingdom | Vodafone<sup>1</sup> |
+
+{{collapse op="end"}}
+
 {{!-- END do not edit content above, it is automatically generated by the CarrierList tool --}}
 
 {{collapse op="start" simType="Electron"}}
@@ -339,6 +854,15 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 - <sup>2</sup>2G is only available with a 3rd-party SIM card on the Electron.
 
 {{collapse op="end"}}
+
+
+{{collapse op="start" simType="BoronAllNet"}}
+- <sup>1</sup> Primary carrier(s)
+- <sup>2</sup> Secondary carrier(s)
+- <sup>3</sup> Backup carrier(s). Only used in certain areas if the primary or secondary carriers are not availalble.
+{{collapse op="end"}}
+
+
 
 
 
