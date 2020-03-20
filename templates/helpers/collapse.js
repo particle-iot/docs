@@ -44,7 +44,8 @@ var collapseConfig = {
 			{'title':'Electron 2G (G350), Electron 3G (U260/U270), or E Series 2G/3G (E310)', 'tag':'Electron'},
 			{'title':'E Series LTE (E402), Boron LTE, B Series B402 SoM, or Electron LTE (ELC402) (LTE Cat M1)', 'tag':'LTE'},
 			{'title':'B Series B523 SoM', 'tag':'B523'},
-			{'title':'Boron 2G/3G', 'tag':'Boron'}
+			{'title':'Boron 2G/3G', 'tag':'Boron'},
+			{'title':'Boron 2G/3G, E Series E313 (Enterprise Only Option)', 'tag':'BoronAllNet', 'hideWithoutOption':true}
 		]				
 	}
 };
@@ -88,17 +89,22 @@ module.exports = function(context) {
 		    	if (op === collapseConfig[key].op) {
 		    		var genericClass = collapseConfig[key].cssClass;
 
-		    		if (!context.hash.force) {
-			    		var id = crypto.randomBytes(12).toString("hex");
-	
+		    		if (!context.hash.force) {	
 			    		html += '</p><form><p>' + collapseConfig[key].prompt + '<br/>';
 	
 			    		
 			    		for(var ii = 0; ii < collapseConfig[key].options.length; ii++) {
 				    		var specificClass = genericClass + collapseConfig[key].options[ii].tag;
-				    		
-			    			html += '<span onclick="collapseSelector(\'' + genericClass + '\', \'' + collapseConfig[key].options[ii].tag + '\')">';
-			    			html += '<input type="radio" class="' + genericClass + ' ' + specificClass + '" id=" + id + ">'; 
+							
+							var id = crypto.randomBytes(12).toString("hex");
+
+							var hiddenExtra = '';
+							if (collapseConfig[key].options[ii].hideWithoutOption) {
+								hiddenExtra = 'style="display:none" class="' + genericClass + 'optionHide" ';
+							}
+
+			    			html += '<span onclick="collapseSelector(event, \'' + genericClass + '\', \'' + collapseConfig[key].options[ii].tag + '\')" ' + hiddenExtra + '>';
+			    			html += '<input type="radio" class="' + genericClass + ' ' + specificClass + '" id=" ' + id + '" >'; 
 			    			html += '<label for="' + id + '">' + collapseConfig[key].options[ii].title + '&nbsp;&nbsp;&nbsp;&nbsp;</label>';
 			    			html += '</span>';
 			    			
