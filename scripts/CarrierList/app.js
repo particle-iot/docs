@@ -231,15 +231,14 @@ function getFullData() {
 	    	const rank = record.get('Network rank');
 	    	const zone = parseInt(record.get('Partner zone'));
 			
-			sunset2g[countryName] = record.get('2G Sunset');
-			sunset3g[countryName] = record.get('3G Sunset');
-
 	    	const has2G = has2GMap[countryId];
 	    	const which3G = which3GMap[countryId];
 	    	
 			if (normalizeCountry[countryName]) {
 				countryName = normalizeCountry[countryName];
 			}
+			sunset2g[countryName + carrierName] = record.get('2G Sunset');
+			sunset3g[countryName + carrierName] = record.get('3G Sunset');
 
 			const mergedOffset = carrierName.indexOf('(Merged');
 			if (mergedOffset > 0) {
@@ -401,13 +400,21 @@ function generateMarkdown() {
 			simType = simType.substr(0, allNetIndex);
 		}
 
+		var sunsetMd1 = '';
+		var sunsetMd2 = '';
+
+		if (simType === 'Electron' || simType === 'Boron' || simType === 'BoronAllNet') {
+			sunsetMd1 = ' 2G Sunset | 3G Sunset | ';
+			sunsetMd2 = ' :-------: | :-------: | ';
+		}
+
 		if (simType === 'Electron') {
-			md += '| Country | Carriers | 2G | 3G |\n';
-			md += '| ------- | -------- | :---: | :---: |\n';
+			md += '| Country | Carriers | Model |' + sunsetMd1 + '\n';
+			md += '| ------- | -------- | :---: |' + sunsetMd2 + '\n';
 		}
 		else {
-			md += '| Country | Carriers |\n';
-			md += '| ------- | -------- |\n';			
+			md += '| Country | Carriers |' + sunsetMd1 + '\n';
+			md += '| ------- | -------- |' + sunsetMd2 + '\n';			
 		}
 		
 		var countryAdded = {};
@@ -428,14 +435,18 @@ function generateMarkdown() {
 			
 			if (simType === 'Electron') {
 				if (countryData[country].telefonicaCarriers) {
-					carrierArray.push(countryData[country].telefonicaCarriers);
+					for(var kk = 0; kk < countryData[country].telefonicaCarriers.length; kk++) {
+						carrierArray.push(countryData[country].telefonicaCarriers[kk]);
+					}
 				}
 			}
 			else
 			if (simType === 'LTE') {
 				// Dedupe the LTE list because it's short. Otherwise, United States shows up twice.
 				if (countryData[country].lteCarriers && !countryAdded[country]) {					
-					carrierArray.push(countryData[country].lteCarriers);
+					for(var kk = 0; kk < countryData[country].lteCarriers.length; kk++) {
+						carrierArray.push(countryData[country].lteCarriers[kk]);
+					}
 				}
 			}
 			else
@@ -484,13 +495,25 @@ function generateMarkdown() {
 					md += '|   | ';
 				}
 				md += carrierArray[kk] + ' |';
+
+				var carrierName = carrierArray[kk];
+				var supIndex = carrierName.indexOf('<sup>');
+				if (supIndex > 0) {
+					carrierName = carrierName.substr(0, supIndex);
+				}
 				
 				if (simType === 'Electron') {
-					md += countryData[country].has2g + ' | ' + countryData[country].has3g + ' |\n';					
+					// countryData[country].has2g + ' | '
+					md += countryData[country].has3g + ' |';					
 				}
-				else {
-					md += '\n';
+
+				if (sunsetMd1 != '') {
+					// Include 2G/3G sunset information
+					md += sunsetToMd(sunset2g[country + carrierName]) + ' | ' + 
+						sunsetToMd(sunset3g[country + carrierName]) + ' | ';
 				}
+
+				md += '\n';
 			}
 			
 			countryAdded[country] = true;
@@ -502,6 +525,14 @@ function generateMarkdown() {
 	// fs.writeFileSync(path.join(__dirname, 'carriers.md'), md);
 		
 	updateDocs(md);
+}
+
+function sunsetToMd(content) {
+	if (!content || content == '?' || content == 'NA') {
+		return '';
+	}
+
+	return content;
 }
 
 function updateDocs(md) {
