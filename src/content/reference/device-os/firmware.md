@@ -7158,10 +7158,27 @@ Wire.requestFrom(address, quantity, stop);
 Parameters:
 
 - `address`: the 7-bit address of the device to request bytes from
-- `quantity`: the number of bytes to request (Max. 32)
+- `quantity`: the number of bytes to request (maximum 32 unless acquireWireBuffer() is used, see below)
 - `stop`: boolean. `true` will send a stop message after the request, releasing the bus. `false` will continually send a restart after the request, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
 Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
+
+{{since when="1.5.0"}}
+
+Instead of passing address, quantity, and/or stop, a `WireTransmission` object can be passed to `Wire.requestFrom()` allowing the address and optional parameters such as a timeout to be set. `I2C_ADDRESS` is a constant specifying the Wire address (0-0x7e) for your specific I2C device. 
+
+```cpp
+// EXAMPLE
+Wire.requestFrom(WireTransmission(I2C_ADDRESS).quantity(requestedLength).timeout(100ms));
+
+// EXAMPLE
+Wire.requestFrom(WireTransmission(I2C_ADDRESS).quantity(requestedLength).stop(false));
+
+// EXAMPLE
+Wire.requestFrom(WireTransmission(I2C_ADDRESS).quantity(requestedLength).timeout(100ms).stop(false));
+
+```
+
 
 {{#if has-embedded}}
 
@@ -7185,6 +7202,18 @@ Wire.beginTransmission(address);
 ```
 
 Parameters: `address`: the 7-bit address of the device to transmit to.
+
+{{since when="1.5.0"}}
+
+Instead of passing only an address, a `WireTransmission` object can be passed to `Wire.beginTransmission()` allowing the address and optional parameters such as a timeout to be set. `I2C_ADDRESS` is a constant specifying the Wire address (0-0x7e) for your specific I2C device. 
+
+```cpp
+// EXAMPLE
+Wire.beginTransmission(WireTransmission(I2C_ADDRESS));
+
+// EXAMPLE WITH TIMEOUT
+Wire.beginTransmission(WireTransmission(I2C_ADDRESS).timeout(100ms));
+```
 
 ### endTransmission()
 
@@ -7399,6 +7428,29 @@ void loop() {
 }
 ```
 {{/if}} {{!-- has-i2c-slave --}}
+
+
+### acquireWireBuffer
+
+Creating a function `acquireWireBuffer()` that returns an `HAL_I2C_Config` struct allows custom buffer sizes to be used. If you do not include this function, the default behavior of 32 byte rx and tx buffers will be used.
+
+This example sets a 512 byte buffer size instead of the default 32 byte size.
+
+```
+constexpr size_t I2C_BUFFER_SIZE = 512;
+
+HAL_I2C_Config acquireWireBuffer() {
+    HAL_I2C_Config config = {
+        .size = sizeof(HAL_I2C_Config),
+        .version = HAL_I2C_CONFIG_VERSION_1,
+        .rx_buffer = new (std::nothrow) uint8_t[I2C_BUFFER_SIZE],
+        .rx_buffer_size = I2C_BUFFER_SIZE,
+        .tx_buffer = new (std::nothrow) uint8_t[I2C_BUFFER_SIZE],
+        .tx_buffer_size = I2C_BUFFER_SIZE
+    };
+    return config;
+}
+```
 
 {{/if}} {{!-- has-i2c --}}
 
