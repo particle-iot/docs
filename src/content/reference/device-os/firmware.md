@@ -4775,7 +4775,118 @@ void loop()
 
 {{#if has-pmic}}
 
+## Power Manager
+
+The Power Manager API provides a way to set PMIC (Power Management IC) settings such as input volage, input current limit, charge current, and charge termination voltage using a simple API. The Power Manager settings are persistent and saved in configuration flash so you can set them once and they will continue to be used.
+
+To set the Power Manager configuration, create a `SystemPowerConfiguration` object and use the methods below to adjust the settings:
+
+### powerSourceMaxCurrent
+
+Set maximum current the power source can provide. This applies only when powered through VIN. When powering by USB, the maximum current is negotiated with your computer or power adapter automatically.
+
+The default is 900 mA.
+
+### powerSourceMinVoltage
+
+Set minimum voltage required for VIN to be used. This applies only when powered through VIN. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts.
+
+The default is 3880 (3.88 volts).
+
+### batteryChargeCurrent
+
+Sets the battery charge current. The actual charge current is the lesser of powerSourceMaxCurrent and batteryChargeCurrent. The value is milliamps (mA).
+
+The default is 896 mA.
+
+### batteryChargeVoltage
+
+Sets the battery charge termination voltage. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts. When the battery reaches this voltage, charging is stopped.
+
+The default is 4112 (4.112V).
+
+### feature(SystemPowerFeature::PMIC_DETECTION)
+
+For devices with an external PMIC and Fuel Gauge like the B Series SoM, enables detection of the bq24195 PMIC connected by I2C to the primary I2C interface (Wire). Since this requires the use of I2C, you should not use pins D0 and D1 for GPIO when using PMIC_DETECTION.
+
+### feature(SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST)
+
+Normally, if a USB host is detected, the power limit settings will be determined by DPDM, the negotiation between the USB host and the PMIC to determine, for example, the maximum current available. If this feature is enabled, the VIN settings are used even when a USB host is detected. This is normally done if you are using USB for debugging but still have a power supply connected to VIN.
+
+### feature(SystemPowerFeature::DISABLE)
+
+Disables the system power management features. If you set this mode you must manually set the values in the PMIC directly.
+
+```cpp
+// EXAMPLE
+SerialLogHandler logHandler;
+
+void setup() {
+    // Apply a custom power configuration
+    SystemPowerConfiguration conf;
+    
+    conf.powerSourceMaxCurrent(550) 
+        .powerSourceMinVoltage(4300) 
+        .batteryChargeCurrent(850) 
+        .batteryChargeVoltage(4210);
+
+    int res = System.setPowerConfiguration(conf); 
+    Log.info("setPowerConfiguration=%d", res);
+    // returns SYSTEM_ERROR_NONE (0) in case of success
+
+    // Settings are persisted, you normally wouldn't do this on every startup.
+}
+
+void loop() {
+    {
+        PMIC power(true);
+        Log.info("Current PMIC settings:");
+        Log.info("VIN Vmin: %u", power.getInputVoltageLimit());
+        Log.info("VIN Imax: %u", power.getInputCurrentLimit());
+        Log.info("Ichg: %u", power.getChargeCurrentValue());
+        Log.info("Iterm: %u", power.getChargeVoltageValue());
+
+        int powerSource = System.powerSource();
+        int batteryState = System.batteryState();
+        float batterySoc = System.batteryCharge();
+        
+        constexpr char const* batteryStates[] = {
+            "unknown", "not charging", "charging",
+            "charged", "discharging", "fault", "disconnected"
+        };
+        constexpr char const* powerSources[] = {
+            "unknown", "vin", "usb host", "usb adapter",
+            "usb otg", "battery"
+        };
+
+        Log.info("Power source: %s", powerSources[std::max(0, powerSource)]);
+        Log.info("Battery state: %s", batteryStates[std::max(0, batteryState)]);
+        Log.info("Battery charge: %f", batterySoc);
+    }
+
+    delay(2000);
+}
+
+```
+
+---
+
+To reset all settings to the default values:
+
+```cpp
+// Reset power manager settings to default values
+
+void setup() {
+    // To restore the default configuration
+    System.setPowerConfiguration(SystemPowerConfiguration());
+}
+```
+
+
+
 ## PMIC (Power Management IC)
+
+You should generally set the PMIC settings such as input volage, input current limit, charge current, and charge termination voltage using the Power Manager API, above. If you directly set the PMIC, the settings will likely be overridden by the system.
 
 *Note*: This is advanced IO and for experienced users. This
 controls the LiPo battery management system and is handled automatically
