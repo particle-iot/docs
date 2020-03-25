@@ -101,51 +101,13 @@ void loop()
 }
 ```
 
-_Since 1.6.0:_ It is also possible to register a function as a cloud variable. Such a function should return a value of one of the supported variable types and take no arguments. The function will be called only when the value of the variable is requested.
-
-```cpp
-// EXAMPLE USAGE - registering functions as cloud variables
-
-bool flag() {
-  return false;
-}
-
-int analogvalue() {
-  // Read the analog value of the sensor (TMP36)
-  return analogRead(A0);
-}
-
-double tempC() {
-  // Convert the reading into degree Celsius
-  return (((analogvalue() * 3.3) / 4095) - 0.5) * 100;
-}
-
-String message() {
-  return "my name is particle";
-}
-
-void setup()
-{
-  Particle.variable("flag", flag);
-  Particle.variable("analogvalue", analogvalue);
-  Particle.variable("temp", tempC);
-  Particle.variable("mess", message);
-
-  pinMode(A0, INPUT);
-}
-
-void loop()
-{
-}
-```
-
 Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud variables must be registered in the `setup()` function. The information about registered variables will be sent to the cloud when the `setup()` function has finished its execution. In the [`SEMI_AUTOMATIC`](#semi-automatic-mode) and [`MANUAL`](#manual-mode) system modes, the variables must be registered before [`Particle.connect()`](#particle-connect-) is called.
 
-_Before 1.6.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud variables as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.variable()` after the registration information has been sent does not re-send the request and the variable will not work.
+_Before 1.5.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud variables as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.variable()` after the registration information has been sent does not re-send the request and the variable will not work.
 
 String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
@@ -196,6 +158,97 @@ my name is particle
 
 ```
 
+### Particle.variable() - calculated
+
+_Since 1.5.0:_ It is also possible to register a function to compute a cloud variable. This can be more efficient if the computation of a variable takes a lot of CPU or other resources. It can also be an alternative to using a Particle.function(). A function is limited to a single int (32-bit) return value, but you can return bool, double, int, String (up to 622 bytes) from a Particle.variable.
+
+Such a function should return a value of one of the supported variable types and take no arguments. The function will be called only when the value of the variable is requested.
+
+The callback function is called application loop thread context, between calls to loop(), and during Particle.process().
+
+```cpp
+// EXAMPLE USAGE - registering functions as cloud variables
+
+bool flag() {
+  return false;
+}
+
+int analogvalue() {
+  // Read the analog value of the sensor (TMP36)
+  return analogRead(A0);
+}
+
+double tempC() {
+  // Convert the reading into degree Celsius
+  return (((analogvalue() * 3.3) / 4095) - 0.5) * 100;
+}
+
+String message() {
+  return "my name is particle";
+}
+
+void setup()
+{
+  Particle.variable("flag", flag);
+  Particle.variable("analogvalue", analogvalue);
+  Particle.variable("temp", tempC);
+  Particle.variable("mess", message);
+
+  pinMode(A0, INPUT);
+}
+
+void loop()
+{
+}
+```
+
+---
+
+It is also possible to pass a `std::function`, allowing the calculation function to be a method of a class:
+
+```cpp
+// CALCULATED FUNCTION IN CLASS EXAMPLE
+class MyClass {
+public:
+    MyClass();
+    virtual ~MyClass();
+
+    void setup();
+
+    String calculateCounter();
+
+protected:
+    int counter = 0;
+};
+
+MyClass::MyClass() {
+
+}
+
+MyClass::~MyClass() {
+
+}
+
+void MyClass::setup() {
+    Particle.variable("counter", [this](){ return this->calculateCounter(); });
+}
+
+String MyClass::calculateCounter() {
+    return String::format("counter retrieved %d times", ++counter);
+}
+
+MyClass myClass;
+
+void setup() {
+    myClass.setup();
+}
+
+void loop() {
+}
+```
+
+
+
 
 ### Particle.function()
 
@@ -218,13 +271,15 @@ Up to 15 cloud functions may be registered and each function name is limited to 
 **Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 A function callback procedure needs to return as quickly as possible otherwise the cloud call will timeout.
 
+The callback function is called application loop thread context, between calls to loop(), and during Particle.process().
+
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The String is UTF-8 encoded.
 
 When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud functions must be registered in the `setup()` function. The information about registered functions will be sent to the cloud when the `setup()` function has finished its execution. In the [`SEMI_AUTOMATIC`](#semi-automatic-mode) and [`MANUAL`](#manual-mode) system modes, the functions must be registered before [`Particle.connect()`](#particle-connect-) is called.
 
-_Before 1.6.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud functions as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.function()` after the registration information has been sent does not re-send the request and the function will not work.
+_Before 1.5.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud functions as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.function()` after the registration information has been sent does not re-send the request and the function will not work.
 
 ```cpp
 // EXAMPLE USAGE
