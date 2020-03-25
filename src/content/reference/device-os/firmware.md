@@ -632,6 +632,10 @@ loop () {
 }
 ```
 
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Particle.publishVitals(1h)` for 1 hour.
+
 
 >_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
 
@@ -883,11 +887,20 @@ The keep-alive for cellular devices duration varies by mobile network operator. 
 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
+For Ethernet, you will probably want to set a keepAlive of 2 to 5 minutes.
+
 For the Xenon, you will need to match the keep-alive to the gateway. If your gateway, for example, is a Boron with a 3rd-party SIM card with a short keep-alive, you'll also need to set this short keep-alive on Xenon nodes. The reason is that each Xenon has its own cloud connection that needs to be kept alive.
 
 For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
 
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Particle.keepAlive(2min)` for 2 minutes.
+
+
 {{/if}} {{!-- has-udp-cloud --}}
+
 
 
 ### Particle.process()
@@ -1270,6 +1283,10 @@ void loop() {
 }
 ```
 
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Mesh.setListenTimeout(5min)` for 5 minutes.
+
 
 ### getListenTimeout()
 
@@ -1465,6 +1482,11 @@ void loop() {
   if (disableTimeout) Ethernet.setListenTimeout(0); // disables the listening mode timeout
 }
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Ethernet.setListenTimeout(5min)` for 5 minutes.
+
 
 
 ### getListenTimeout()
@@ -1741,6 +1763,11 @@ void loop() {
 }
 {{/if}}
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `WiFi.setListenTimeout(5min)` for 5 minutes.
+
 
 
 ### getListenTimeout()
@@ -3016,6 +3043,11 @@ void loop() {
   if (disableTimeout) Cellular.setListenTimeout(0); // disables the listening mode timeout
 }
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Cellular.setListenTimeout(5min)` for 5 minutes.
+
 
 
 ### getListenTimeout()
@@ -11893,6 +11925,12 @@ void loop()
 **NOTE:**
 the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
 
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `delay(2min)` for 2 minutes. However you should generally avoid long delays.
+
+
 ### delayMicroseconds()
 
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
@@ -11921,6 +11959,10 @@ void loop()
   delayMicroseconds(50);      // pauses for 50 microseconds
 }
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `delayMicroseconds(2ms)` for 2 milliseconds, but you should generally avoid using long delay values with delayMicroseconds.
 
 ### hour()
 
@@ -12333,6 +12375,55 @@ void loop()
 
 For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard library time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
 
+## Chrono Literals
+
+{{since when="1.5.0"}}
+
+A number of APIs have been modified to support chrono literals. For example, instead of having to use `2000` for 2 seconds in the delay(), you can use `2s` for 2 seconds.
+
+```cpp
+// EXAMPLE
+SerialLogHandler logHandler;
+
+void setup() {
+}
+
+void loop() {
+    Log.info("testing");
+    delay(2s);
+}
+```
+
+The available units are:
+
+| Literal | Unit |
+| :-----: | :--- |
+| us | microseconds |
+| ms | milliseconds |
+| s | seconds |
+| min | minutes |
+| h | hours |
+
+Individual APIs may have minimum unit limits. For example, delay() has a minimum unit of milliseconds, so you cannot specify a value in microseconds (us). If you attempt to do this, you will get a compile-time error:
+
+```html
+../wiring/inc/spark_wiring_ticks.h:47:20: note:   no known conversion for argument 1 from 'std::chrono::microseconds {aka std::chrono::duration<long long int, std::ratio<1ll, 1000000ll> >}' to 'std::chrono::milliseconds {aka std::chrono::duration<long long int, std::ratio<1ll, 1000ll> >}'
+```
+
+Some places where you can use them:
+
+- delay()
+- delayMicroseconds()
+- Particle.pubishVitals()
+- Particle.keepAlive()
+- System.sleep()
+- Timer::changePeriod()
+- Timer::changePeriodFromISR()
+- ApplicationWatchdog
+- Cellular.setListenTimeout()
+- Ethernet.setListenTimeout()
+- WiFi.setListenTimeout()
+
 {{#if has-interrupts}}
 
 ## Interrupts
@@ -12670,6 +12761,9 @@ timer.changePeriod(1000); // Reset period of timer to 1000ms.
 
 ```
 
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `timer.changePeriod(2min)` for 2 minutes. 
 
 ### reset()
 
@@ -12778,6 +12872,10 @@ You should generally not try to do anything other than call System.reset() or pe
 Calling these functions will likely cause the system to deadlock and not reset.
 
 Note: `waitFor` and `waitUntil` do not tickle the application watchdog. If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `ApplicationWatchdog wd(60s, System.reset)` for 60 seconds. 
 
 {{/if}} {{!-- has-application-watchdog --}}
 
@@ -14218,6 +14316,12 @@ System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
 
 Note: Be sure WKP is LOW before going into SLEEP_MODE_DEEP with a time interval! If WKP is high, even if it falls and rises again the device will not wake up. Additionally, the time limit will not wake the device either, and the device will stay in sleep mode until reset or power cycled.
 
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(SLEEP_MODE_DEEP, 2min)` for 2 minutes.
+
+
 {{/if}} {{!-- has-stm32 --}}
 
 {{#if has-nrf52}}
@@ -14440,6 +14544,11 @@ apply
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(D1, RISING, 2min)` for 2 minutes.
+
 {{since when="0.8.0"}}
 ```cpp
 // SYNTAX
@@ -14542,6 +14651,11 @@ System.sleep(long seconds);
 System.sleep(5);
 // The device LED will breathe white during sleep
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(2min)` for 2 minutes.
+
 
 {{/if}} {{!-- has-sleep --}}
 
