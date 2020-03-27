@@ -164,7 +164,7 @@ _Since 1.5.0:_ It is also possible to register a function to compute a cloud var
 
 Such a function should return a value of one of the supported variable types and take no arguments. The function will be called only when the value of the variable is requested.
 
-The callback function is called application loop thread context, between calls to loop(), and during Particle.process().
+The callback function is called application loop thread context, between calls to loop(), during Particle.process(), and delay().
 
 ```cpp
 // EXAMPLE USAGE - registering functions as cloud variables
@@ -271,7 +271,7 @@ Up to 15 cloud functions may be registered and each function name is limited to 
 **Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 A function callback procedure needs to return as quickly as possible otherwise the cloud call will timeout.
 
-The callback function is called application loop thread context, between calls to loop(), and during Particle.process().
+The callback function is called application loop thread context, between calls to loop(), during Particle.process(), and delay().
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
