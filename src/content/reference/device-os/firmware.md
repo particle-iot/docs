@@ -71,6 +71,7 @@ Particle.variable registers a variable, so its value can be retrieved from the c
 ```cpp
 // EXAMPLE USAGE
 
+bool flag = false;
 int analogvalue = 0;
 double tempC = 0;
 char *message = "my name is particle";
@@ -78,9 +79,10 @@ String aString;
 
 void setup()
 {
+  Particle.variable("flag", flag);
   Particle.variable("analogvalue", analogvalue);
   Particle.variable("temp", tempC);
-  if (Particle.variable("mess", message)==false)
+  if (Particle.variable("mess", message) == false)
   {
       // variable not registered!
   }
@@ -93,64 +95,159 @@ void loop()
 {
   // Read the analog value of the sensor (TMP36)
   analogvalue = analogRead(A0);
-  //Convert the reading into degree celcius
-  tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
+  // Convert the reading into degree Celsius
+  tempC = (((analogvalue * 3.3) / 4095) - 0.5) * 100;
   delay(200);
 }
 ```
 
-Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). 
+Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
+When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud variables must be registered in the `setup()` function. The information about registered variables will be sent to the cloud when the `setup()` function has finished its execution. In the [`SEMI_AUTOMATIC`](#semi-automatic-mode) and [`MANUAL`](#manual-mode) system modes, the variables must be registered before [`Particle.connect()`](#particle-connect-) is called.
 
-You will almost never call Particle.variable from loop() (or a function called from loop()).
+_Before 1.5.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud variables as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.variable()` after the registration information has been sent does not re-send the request and the variable will not work.
 
 String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
-Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
-to specify the data type of the variable. From 0.4.7 onward, the system can
-infer the type from the actual variable. Additionally, the variable address
-was passed via the address-of operator (`&`). With 0.4.7 and newer, this is no longer required.
+Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter to specify the data type of the variable. From 0.4.7 onward, the system can infer the type from the actual variable. Additionally, the variable address was passed via the address-of operator (`&`). With 0.4.7 and newer, this is no longer required.
 
-This is the pre-0.4.7 syntax:
+```cpp
+// EXAMPLE USAGE - pre-0.4.7 syntax
 
-```
+bool flag = false;
 int analogvalue = 0;
 double tempC = 0;
 char *message = "my name is particle";
 
 void setup()
 {
+  Particle.variable("flag", &flag, BOOLEAN);
   Particle.variable("analogvalue", &analogvalue, INT);
   Particle.variable("temp", &tempC, DOUBLE);
-  if (Particle.variable("mess", message, STRING)==false)
+  if (Particle.variable("mess", message, STRING) == false)
+  {
       // variable not registered!
+  }
   pinMode(A0, INPUT);
 }
 ```
 
-There are three supported data types:
+There are four supported data types:
 
+ * `BOOLEAN`
  * `INT`
  * `DOUBLE`
- * `STRING`   (maximum string length is 622 bytes)
+ * `STRING` (maximum string length is 622 bytes)
 
-```json
+```sh
 # EXAMPLE REQUEST IN TERMINAL
 # Device ID is 0123456789abcdef
 # Your access token is 123412341234
+curl "https://api.particle.io/v1/devices/0123456789abcdef/flag?access_token=123412341234"
 curl "https://api.particle.io/v1/devices/0123456789abcdef/analogvalue?access_token=123412341234"
 curl "https://api.particle.io/v1/devices/0123456789abcdef/temp?access_token=123412341234"
 curl "https://api.particle.io/v1/devices/0123456789abcdef/mess?access_token=123412341234"
 
 # In return you'll get something like this:
+false
 960
 27.44322344322344
 my name is particle
 
 ```
+
+### Particle.variable() - calculated
+
+_Since 1.5.0:_ It is also possible to register a function to compute a cloud variable. This can be more efficient if the computation of a variable takes a lot of CPU or other resources. It can also be an alternative to using a Particle.function(). A function is limited to a single int (32-bit) return value, but you can return bool, double, int, String (up to 622 bytes) from a Particle.variable.
+
+Such a function should return a value of one of the supported variable types and take no arguments. The function will be called only when the value of the variable is requested.
+
+The callback function is called application loop thread context, between calls to loop(), during Particle.process(), and delay().
+
+```cpp
+// EXAMPLE USAGE - registering functions as cloud variables
+
+bool flag() {
+  return false;
+}
+
+int analogvalue() {
+  // Read the analog value of the sensor (TMP36)
+  return analogRead(A0);
+}
+
+double tempC() {
+  // Convert the reading into degree Celsius
+  return (((analogvalue() * 3.3) / 4095) - 0.5) * 100;
+}
+
+String message() {
+  return "my name is particle";
+}
+
+void setup()
+{
+  Particle.variable("flag", flag);
+  Particle.variable("analogvalue", analogvalue);
+  Particle.variable("temp", tempC);
+  Particle.variable("mess", message);
+
+  pinMode(A0, INPUT);
+}
+
+void loop()
+{
+}
+```
+
+---
+
+It is also possible to pass a `std::function`, allowing the calculation function to be a method of a class:
+
+```cpp
+// CALCULATED FUNCTION IN CLASS EXAMPLE
+class MyClass {
+public:
+    MyClass();
+    virtual ~MyClass();
+
+    void setup();
+
+    String calculateCounter();
+
+protected:
+    int counter = 0;
+};
+
+MyClass::MyClass() {
+
+}
+
+MyClass::~MyClass() {
+
+}
+
+void MyClass::setup() {
+    Particle.variable("counter", [this](){ return this->calculateCounter(); });
+}
+
+String MyClass::calculateCounter() {
+    return String::format("counter retrieved %d times", ++counter);
+}
+
+MyClass myClass;
+
+void setup() {
+    myClass.setup();
+}
+
+void loop() {
+}
+```
+
+
 
 
 ### Particle.function()
@@ -174,11 +271,15 @@ Up to 15 cloud functions may be registered and each function name is limited to 
 **Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 A function callback procedure needs to return as quickly as possible otherwise the cloud call will timeout.
 
+The callback function is called application loop thread context, between calls to loop(), during Particle.process(), and delay().
+
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The String is UTF-8 encoded.
 
-When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
+When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud functions must be registered in the `setup()` function. The information about registered functions will be sent to the cloud when the `setup()` function has finished its execution. In the [`SEMI_AUTOMATIC`](#semi-automatic-mode) and [`MANUAL`](#manual-mode) system modes, the functions must be registered before [`Particle.connect()`](#particle-connect-) is called.
+
+_Before 1.5.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud functions as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.function()` after the registration information has been sent does not re-send the request and the function will not work.
 
 ```cpp
 // EXAMPLE USAGE
@@ -531,6 +632,10 @@ loop () {
 }
 ```
 
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Particle.publishVitals(1h)` for 1 hour.
+
 
 >_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
 
@@ -782,11 +887,20 @@ The keep-alive for cellular devices duration varies by mobile network operator. 
 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
+For Ethernet, you will probably want to set a keepAlive of 2 to 5 minutes.
+
 For the Xenon, you will need to match the keep-alive to the gateway. If your gateway, for example, is a Boron with a 3rd-party SIM card with a short keep-alive, you'll also need to set this short keep-alive on Xenon nodes. The reason is that each Xenon has its own cloud connection that needs to be kept alive.
 
 For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
 
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Particle.keepAlive(2min)` for 2 minutes.
+
+
 {{/if}} {{!-- has-udp-cloud --}}
+
 
 
 ### Particle.process()
@@ -1169,6 +1283,10 @@ void loop() {
 }
 ```
 
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Mesh.setListenTimeout(5min)` for 5 minutes.
+
 
 ### getListenTimeout()
 
@@ -1364,6 +1482,11 @@ void loop() {
   if (disableTimeout) Ethernet.setListenTimeout(0); // disables the listening mode timeout
 }
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Ethernet.setListenTimeout(5min)` for 5 minutes.
+
 
 
 ### getListenTimeout()
@@ -1640,6 +1763,11 @@ void loop() {
 }
 {{/if}}
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `WiFi.setListenTimeout(5min)` for 5 minutes.
+
 
 
 ### getListenTimeout()
@@ -2915,6 +3043,11 @@ void loop() {
   if (disableTimeout) Cellular.setListenTimeout(0); // disables the listening mode timeout
 }
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `Cellular.setListenTimeout(5min)` for 5 minutes.
+
 
 
 ### getListenTimeout()
@@ -4674,7 +4807,118 @@ void loop()
 
 {{#if has-pmic}}
 
+## Power Manager
+
+The Power Manager API provides a way to set PMIC (Power Management IC) settings such as input volage, input current limit, charge current, and charge termination voltage using a simple API. The Power Manager settings are persistent and saved in configuration flash so you can set them once and they will continue to be used.
+
+To set the Power Manager configuration, create a `SystemPowerConfiguration` object and use the methods below to adjust the settings:
+
+### powerSourceMaxCurrent
+
+Set maximum current the power source can provide. This applies only when powered through VIN. When powering by USB, the maximum current is negotiated with your computer or power adapter automatically.
+
+The default is 900 mA.
+
+### powerSourceMinVoltage
+
+Set minimum voltage required for VIN to be used. This applies only when powered through VIN. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts.
+
+The default is 3880 (3.88 volts).
+
+### batteryChargeCurrent
+
+Sets the battery charge current. The actual charge current is the lesser of powerSourceMaxCurrent and batteryChargeCurrent. The value is milliamps (mA).
+
+The default is 896 mA.
+
+### batteryChargeVoltage
+
+Sets the battery charge termination voltage. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts. When the battery reaches this voltage, charging is stopped.
+
+The default is 4112 (4.112V).
+
+### feature(SystemPowerFeature::PMIC_DETECTION)
+
+For devices with an external PMIC and Fuel Gauge like the B Series SoM, enables detection of the bq24195 PMIC connected by I2C to the primary I2C interface (Wire). Since this requires the use of I2C, you should not use pins D0 and D1 for GPIO when using PMIC_DETECTION.
+
+### feature(SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST)
+
+Normally, if a USB host is detected, the power limit settings will be determined by DPDM, the negotiation between the USB host and the PMIC to determine, for example, the maximum current available. If this feature is enabled, the VIN settings are used even when a USB host is detected. This is normally done if you are using USB for debugging but still have a power supply connected to VIN.
+
+### feature(SystemPowerFeature::DISABLE)
+
+Disables the system power management features. If you set this mode you must manually set the values in the PMIC directly.
+
+```cpp
+// EXAMPLE
+SerialLogHandler logHandler;
+
+void setup() {
+    // Apply a custom power configuration
+    SystemPowerConfiguration conf;
+    
+    conf.powerSourceMaxCurrent(550) 
+        .powerSourceMinVoltage(4300) 
+        .batteryChargeCurrent(850) 
+        .batteryChargeVoltage(4210);
+
+    int res = System.setPowerConfiguration(conf); 
+    Log.info("setPowerConfiguration=%d", res);
+    // returns SYSTEM_ERROR_NONE (0) in case of success
+
+    // Settings are persisted, you normally wouldn't do this on every startup.
+}
+
+void loop() {
+    {
+        PMIC power(true);
+        Log.info("Current PMIC settings:");
+        Log.info("VIN Vmin: %u", power.getInputVoltageLimit());
+        Log.info("VIN Imax: %u", power.getInputCurrentLimit());
+        Log.info("Ichg: %u", power.getChargeCurrentValue());
+        Log.info("Iterm: %u", power.getChargeVoltageValue());
+
+        int powerSource = System.powerSource();
+        int batteryState = System.batteryState();
+        float batterySoc = System.batteryCharge();
+        
+        constexpr char const* batteryStates[] = {
+            "unknown", "not charging", "charging",
+            "charged", "discharging", "fault", "disconnected"
+        };
+        constexpr char const* powerSources[] = {
+            "unknown", "vin", "usb host", "usb adapter",
+            "usb otg", "battery"
+        };
+
+        Log.info("Power source: %s", powerSources[std::max(0, powerSource)]);
+        Log.info("Battery state: %s", batteryStates[std::max(0, batteryState)]);
+        Log.info("Battery charge: %f", batterySoc);
+    }
+
+    delay(2000);
+}
+
+```
+
+---
+
+To reset all settings to the default values:
+
+```cpp
+// Reset power manager settings to default values
+
+void setup() {
+    // To restore the default configuration
+    System.setPowerConfiguration(SystemPowerConfiguration());
+}
+```
+
+
+
 ## PMIC (Power Management IC)
+
+You should generally set the PMIC settings such as input volage, input current limit, charge current, and charge termination voltage using the Power Manager API, above. If you directly set the PMIC, the settings will likely be overridden by the system.
 
 *Note*: This is advanced IO and for experienced users. This
 controls the LiPo battery management system and is handled automatically
@@ -7057,10 +7301,27 @@ Wire.requestFrom(address, quantity, stop);
 Parameters:
 
 - `address`: the 7-bit address of the device to request bytes from
-- `quantity`: the number of bytes to request (Max. 32)
+- `quantity`: the number of bytes to request (maximum 32 unless acquireWireBuffer() is used, see below)
 - `stop`: boolean. `true` will send a stop message after the request, releasing the bus. `false` will continually send a restart after the request, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
 Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
+
+{{since when="1.5.0"}}
+
+Instead of passing address, quantity, and/or stop, a `WireTransmission` object can be passed to `Wire.requestFrom()` allowing the address and optional parameters such as a timeout to be set. `I2C_ADDRESS` is a constant specifying the Wire address (0-0x7e) for your specific I2C device. 
+
+```cpp
+// EXAMPLE
+Wire.requestFrom(WireTransmission(I2C_ADDRESS).quantity(requestedLength).timeout(100ms));
+
+// EXAMPLE
+Wire.requestFrom(WireTransmission(I2C_ADDRESS).quantity(requestedLength).stop(false));
+
+// EXAMPLE
+Wire.requestFrom(WireTransmission(I2C_ADDRESS).quantity(requestedLength).timeout(100ms).stop(false));
+
+```
+
 
 {{#if has-embedded}}
 
@@ -7084,6 +7345,18 @@ Wire.beginTransmission(address);
 ```
 
 Parameters: `address`: the 7-bit address of the device to transmit to.
+
+{{since when="1.5.0"}}
+
+Instead of passing only an address, a `WireTransmission` object can be passed to `Wire.beginTransmission()` allowing the address and optional parameters such as a timeout to be set. `I2C_ADDRESS` is a constant specifying the Wire address (0-0x7e) for your specific I2C device. 
+
+```cpp
+// EXAMPLE
+Wire.beginTransmission(WireTransmission(I2C_ADDRESS));
+
+// EXAMPLE WITH TIMEOUT
+Wire.beginTransmission(WireTransmission(I2C_ADDRESS).timeout(100ms));
+```
 
 ### endTransmission()
 
@@ -7298,6 +7571,29 @@ void loop() {
 }
 ```
 {{/if}} {{!-- has-i2c-slave --}}
+
+
+### acquireWireBuffer
+
+Creating a function `acquireWireBuffer()` that returns an `HAL_I2C_Config` struct allows custom buffer sizes to be used. If you do not include this function, the default behavior of 32 byte rx and tx buffers will be used.
+
+This example sets a 512 byte buffer size instead of the default 32 byte size.
+
+```
+constexpr size_t I2C_BUFFER_SIZE = 512;
+
+HAL_I2C_Config acquireWireBuffer() {
+    HAL_I2C_Config config = {
+        .size = sizeof(HAL_I2C_Config),
+        .version = HAL_I2C_CONFIG_VERSION_1,
+        .rx_buffer = new (std::nothrow) uint8_t[I2C_BUFFER_SIZE],
+        .rx_buffer_size = I2C_BUFFER_SIZE,
+        .tx_buffer = new (std::nothrow) uint8_t[I2C_BUFFER_SIZE],
+        .tx_buffer_size = I2C_BUFFER_SIZE
+    };
+    return config;
+}
+```
 
 {{/if}} {{!-- has-i2c --}}
 
@@ -11629,6 +11925,12 @@ void loop()
 **NOTE:**
 the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
 
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `delay(2min)` for 2 minutes. However you should generally avoid long delays.
+
+
 ### delayMicroseconds()
 
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
@@ -11657,6 +11959,10 @@ void loop()
   delayMicroseconds(50);      // pauses for 50 microseconds
 }
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `delayMicroseconds(2ms)` for 2 milliseconds, but you should generally avoid using long delay values with delayMicroseconds.
 
 ### hour()
 
@@ -12069,6 +12375,55 @@ void loop()
 
 For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard library time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
 
+## Chrono Literals
+
+{{since when="1.5.0"}}
+
+A number of APIs have been modified to support chrono literals. For example, instead of having to use `2000` for 2 seconds in the delay(), you can use `2s` for 2 seconds.
+
+```cpp
+// EXAMPLE
+SerialLogHandler logHandler;
+
+void setup() {
+}
+
+void loop() {
+    Log.info("testing");
+    delay(2s);
+}
+```
+
+The available units are:
+
+| Literal | Unit |
+| :-----: | :--- |
+| us | microseconds |
+| ms | milliseconds |
+| s | seconds |
+| min | minutes |
+| h | hours |
+
+Individual APIs may have minimum unit limits. For example, delay() has a minimum unit of milliseconds, so you cannot specify a value in microseconds (us). If you attempt to do this, you will get a compile-time error:
+
+```html
+../wiring/inc/spark_wiring_ticks.h:47:20: note:   no known conversion for argument 1 from 'std::chrono::microseconds {aka std::chrono::duration<long long int, std::ratio<1ll, 1000000ll> >}' to 'std::chrono::milliseconds {aka std::chrono::duration<long long int, std::ratio<1ll, 1000ll> >}'
+```
+
+Some places where you can use them:
+
+- delay()
+- delayMicroseconds()
+- Particle.pubishVitals()
+- Particle.keepAlive()
+- System.sleep()
+- Timer::changePeriod()
+- Timer::changePeriodFromISR()
+- ApplicationWatchdog
+- Cellular.setListenTimeout()
+- Ethernet.setListenTimeout()
+- WiFi.setListenTimeout()
+
 {{#if has-interrupts}}
 
 ## Interrupts
@@ -12406,6 +12761,9 @@ timer.changePeriod(1000); // Reset period of timer to 1000ms.
 
 ```
 
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `timer.changePeriod(2min)` for 2 minutes. 
 
 ### reset()
 
@@ -12514,6 +12872,10 @@ You should generally not try to do anything other than call System.reset() or pe
 Calling these functions will likely cause the system to deadlock and not reset.
 
 Note: `waitFor` and `waitUntil` do not tickle the application watchdog. If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `ApplicationWatchdog wd(60s, System.reset)` for 60 seconds. 
 
 {{/if}} {{!-- has-application-watchdog --}}
 
@@ -13918,7 +14280,311 @@ Resets the device and restarts in safe mode.
 
 {{#if has-sleep}}
 
+
 ### sleep() [ Sleep ]
+
+{{since when="1.5.0"}}
+
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. This newer, more flexible sleep API is available in Device OS 1.5.0 and later. The older API is listed below in the [classic API](#sleep-classic-api-) section.
+
+The `SystemSleepConfiguration` class configures all of the sleep parameters and eliminates the numerous and confusing overloads of the `System.sleep()` function. You pass this object to `System.sleep()`.
+
+```cpp
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+#### SystemSleepConfiguration::mode()
+
+The are are two sleep modes:
+
+- `SystemSleepMode::STOP`
+- `SystemSleepMode::HIBERNATE`
+
+---
+
+```
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(WKP, RISING)
+      .duration(60s);
+System.sleep(config);
+```
+
+The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). In this mode:
+
+- Real-time clock (RTC) is kept running
+- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`
+- BLE is kept on if used as a wake-up source (Gen 3 devices only)
+- GPIO, UART, ADC are all kept on, so pin states remain constant even in sleep mode
+- Can wake from: Time, GPIO, or BLE
+
+| Wake Mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| GPIO | &check; | &check; |
+| Time (RTC) | &check; | &check; | 
+| BLE | | &check; |
+
+
+---
+
+```
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING);
+System.sleep(config);
+```
+
+
+The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. In this mode:
+
+| Wake Mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| GPIO | WKP RISING Only | &check; |
+| Time (RTC) | &check; | &nbsp; | 
+| BLE | &nbsp; | &nbsp; |
+
+These restrictions are the same as the classic API, but should be noted:
+
+- On Gen 2 (Photon, P1, Electron, and E Series) you can only wake on time or WKP RISING in HIBERNATE mode.
+- On Gen 3 (Argon, Boron, B Series SoM) you can only wake by pin, not by time, in HIBERNATE mode.
+- On Gen 3, you can now wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8.
+
+---
+
+#### SystemSleepConfiguration::duration()
+
+```c++
+// PROTOTYPES
+SystemSleepConfiguration& duration(system_tick_t ms)
+SystemSleepConfiguration& duration(std::chrono::milliseconds ms)
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING)
+      .duration(60s);
+```
+
+Specifies the sleep duration in milliseconds. Note that this is different than the classic API, which was in seconds.
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `.duration(2min)` for 2 minutes.
+
+On Gen 2 devices (Photon, P1, Electron, E Series) even though the parameter is in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
+
+On Gen 3 devices (Argon, Boron, B Series SoM), you cannot wake from HIBERNATE mode by time because the RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode.
+
+
+---
+
+#### SystemSleepConfiguration::gpio()
+
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& gpio(pin_t pin, InterruptMode mode) 
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING);
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+      .gpio(D3, FALLING);
+```
+
+Specifies wake on pin. The mode is:
+
+- RISING
+- FALLING
+- CHANGE
+
+Note: On Gen 2 devices (Photon, P1, Electron, E Series) you can only wake from HIBERNATE mode using WKP RISING. Do not attempt to enter sleep mode with WKP already high. Doing so will cause the device to never wake again, either by pin or time.
+
+---
+
+
+#### SystemSleepConfiguration::flag()
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& flag(particle::EnumFlags<SystemSleepFlag> f)
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .network(NETWORK_INTERFACE_CELLULAR)
+      .flag(SystemSleepFlag::WAIT_CLOUD)
+      .duration(2min);
+```
+
+The only supported flag is:
+
+- `SystemSleepFlag::WAIT_CLOUD`
+
+This will make sure all cloud messages have been acknowledged before going to sleep.
+
+---
+
+#### SystemSleepConfiguration::network()
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& network(network_interface_t netif)
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .duration(30s)
+      .network(NETWORK_INTERFACE_CELLULAR);
+```
+
+This option does not currently wake from network but does work similarly to `SLEEP_NETWORK_STANDBY` with some limitations:
+
+- Only works in STOP sleep mode
+- Only works on cellular devices
+- Keeps the cellular modem connected to the cellular network for fast reconnection
+- Works best for sleep periods less than 23 minutes
+
+In the future, this may support actual wake on network activity for devices that have hardware support for it.
+
+---
+
+#### SystemSleepConfiguration::ble()
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& ble()
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .duration(30s)
+      .ble();
+```
+
+Wake on Bluetooth LE data (BLE).
+
+
+### Sleep [Transitioning from Classic API]
+
+Some common sleep commands:
+
+- `SLEEP_MODE_DEEP` wake by `WKP`:
+
+```
+// CLASSIC
+System.sleep(SLEEP_MODE_DEEP);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- `SLEEP_MODE_DEEP` wake by `WKP` or time:
+
+```
+// CLASSIC
+System.sleep(SLEEP_MODE_DEEP, 60);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING)
+      .duration(60s);
+SystemSleepResult result = System.sleep(config);
+```
+---
+
+- `SLEEP_MODE_DEEP` wake by time only (disable WKP):
+
+```
+// CLASSIC
+System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .duration(60s);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- Stop mode sleep, pin D2 RISING
+
+```
+// CLASSIC
+System.sleep(D2, RISING);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- Stop mode sleep, pin D2 FALLING, or 30 seconds
+
+```
+// CLASSIC
+System.sleep(D2, FALLING, 30);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, FALLING)
+      .duration(30s);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- Stop mode sleep, pin D2 or D3 RISING
+
+```
+// CLASSIC
+System.sleep({D2, D3}, RISING);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+      .gpio(D3, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- Stop mode sleep, pin D2 rising, or 30 seconds with SLEEP_NETWORK_STANDBY
+
+```
+// CLASSIC
+System.sleep(D2, RISING, SLEEP_NETWORK_STANDBY);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING)
+      .duration(30s)
+      .network(NETWORK_INTERFACE_CELLULAR);
+SystemSleepResult result = System.sleep(config);
+```
+
+### sleep() [ Classic API ]
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
@@ -13953,6 +14619,12 @@ System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
 ```
 
 Note: Be sure WKP is LOW before going into SLEEP_MODE_DEEP with a time interval! If WKP is high, even if it falls and rises again the device will not wake up. Additionally, the time limit will not wake the device either, and the device will stay in sleep mode until reset or power cycled.
+
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(SLEEP_MODE_DEEP, 2min)` for 2 minutes.
+
 
 {{/if}} {{!-- has-stm32 --}}
 
@@ -14176,6 +14848,11 @@ apply
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(D1, RISING, 2min)` for 2 minutes.
+
 {{since when="0.8.0"}}
 ```cpp
 // SYNTAX
@@ -14278,6 +14955,11 @@ System.sleep(long seconds);
 System.sleep(5);
 // The device LED will breathe white during sleep
 ```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(2min)` for 2 minutes.
+
 
 {{/if}} {{!-- has-sleep --}}
 
