@@ -12835,20 +12835,28 @@ if (timer.isActive()) {
 
 The Application Watchdog is a software-implemented watchdog using a critical-priority thread that wakes up at a given timeout interval to see if the application has checked in.
 
-If the application has not exited loop, or called Particle.process() within the given timeout, or called `ApplicationWatchdog.checkin()`, the watchdog calls the given timeout function, which is typically `System.reset`.  This could also be a user defined function that takes care of critical tasks before finally calling `System.reset`.
+If the application has not exited loop, or called Particle.process() within the given timeout, or called `wd->checkin()`, the watchdog calls the given timeout function, which is typically `System.reset`.  This could also be a user defined function that takes care of critical tasks before finally calling `System.reset`.
 
 
 ```cpp
-// SYNTAX
-// declare a global watchdog instance
-ApplicationWatchdog wd(timeout_milli_seconds, timeout_function_to_call, stack_size);
+// PROTOTYPES
+ApplicationWatchdog(unsigned timeout_ms, 
+    std::function<void(void)> fn, 
+    unsigned stack_size=DEFAULT_STACK_SIZE);
 
-// default stack_size of 512 bytes is used
-ApplicationWatchdog wd(timeout_milli_seconds, timeout_function_to_call);
+ApplicationWatchdog(std::chrono::milliseconds ms, 
+    std::function<void(void)> fn, 
+    unsigned stack_size=DEFAULT_STACK_SIZE);
 
 // EXAMPLE USAGE
-// reset the system after 60 seconds if the application is unresponsive
-ApplicationWatchdog wd(60000, System.reset);
+// Global variable to hold the watchdog object pointer
+ApplicationWatchdog *wd;
+
+void setup() {
+  // Start watchdog. Reset the system after 60 seconds if 
+  // the application is unresponsive.
+  wd = new ApplicationWatchdog(60000, System.reset, 1536);
+}
 
 void loop() {
   while (some_long_process_within_loop) {
@@ -12858,11 +12866,17 @@ void loop() {
 // AWDT count reset automatically after loop() ends
 ```
 
-A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes.
-
-This is the amount of memory needed to support the thread and function that is called.  In practice, on the Photon (v0.5.0) calling the `System.reset` function requires approx. 170 bytes of memory. If not enough memory is allocated, the application will crash due to a Stack Overflow.  The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
+A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes. If not enough stack memory is allocated, the application will crash due to a Stack Overflow. The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
+
+---
+
+If you do create your own handler, it should have the prototype:
+
+```
+void myWatchdogHandler(void);
+```
 
 You should generally not try to do anything other than call System.reset() or perhaps set some retained variables in your application watchdog callback. In particular:
 
@@ -12875,7 +12889,7 @@ Note: `waitFor` and `waitUntil` do not tickle the application watchdog. If the c
 
 {{since when="1.5.0"}}
 
-You can also specify a value using [chrono literals](#chrono-literals), for example: `ApplicationWatchdog wd(60s, System.reset)` for 60 seconds. 
+You can also specify a value using [chrono literals](#chrono-literals), for example: `wd = new ApplicationWatchdog(60s, System.reset)` for 60 seconds. 
 
 {{/if}} {{!-- has-application-watchdog --}}
 
