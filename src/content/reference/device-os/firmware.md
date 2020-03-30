@@ -18730,6 +18730,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v1.5.x default releases|[v1.5.0](https://github.com/particle-iot/device-os/releases/tag/v1.5.0)|-|-|-|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.1)|[v1.5.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.2)|-|-|-|-|-|
 |v1.4.x default releases|[v1.4.0](https://github.com/particle-iot/device-os/releases/tag/v1.4.0)|[v1.4.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.1)|[v1.4.2](https://github.com/particle-iot/device-os/releases/tag/v1.4.2)|[v1.4.3](https://github.com/particle-iot/device-os/releases/tag/v1.4.3)|[v1.4.4](https://github.com/particle-iot/device-os/releases/tag/v1.4.4)|-|-|
 |v1.4.x prereleases|[v1.4.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.0-rc.1)|[v1.4.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.1-rc.1)|-|-|-|-|-|
@@ -18757,6 +18758,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v1.5.x default releases|[v1.5.0](/reference/device-os/firmware/photon/?fw_ver=1.5.0&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.5.0-rc.1&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.5.0-rc.2&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v1.4.x default releases|[v1.4.0](/reference/device-os/firmware/photon/?fw_ver=1.4.0&cli_ver=1.47.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.1](/reference/device-os/firmware/photon/?fw_ver=1.4.1&cli_ver=1.48.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.2](/reference/device-os/firmware/photon/?fw_ver=1.4.2&cli_ver=1.49.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.3](/reference/device-os/firmware/photon/?fw_ver=1.4.3&cli_ver=1.52.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.4](/reference/device-os/firmware/photon/?fw_ver=1.4.4&cli_ver=1.53.0&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v1.4.x prereleases|[v1.4.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.4.0-rc.1&cli_ver=1.43.3&electron_parts=3#programming-and-debugging-notes)|[v1.4.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.4.1-rc.1&cli_ver=1.47.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
@@ -18781,6 +18783,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v2.3.0  = 1.5.0
 v2.1.0  = 1.5.0-rc.1, 1.5.0-rc.2
 v1.53.0 = 1.4.4
 v1.52.0 = 1.4.3
@@ -18934,6 +18937,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.53.0endif
 ##### @CLI_VER@2.1.0if
 ##### @CLI_VER@2.1.0endif
+##### @CLI_VER@2.3.0if
+##### @CLI_VER@2.3.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
