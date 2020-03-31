@@ -38,7 +38,7 @@ Official libraries are libraries that were created _by members of the Particle t
 - `internetbutton` for the Internet Button, our kit for quickly prototyping simple IoT projects and experiences
 - `makerkit` for our Maker Kit, our kit for beginners to learn how to build IoT projects
 - `relayshield` for the Relay Shield, our shield for switching high and low voltage electronics.
-- `assettracker` for the Asset Tracker Shield, our kit for tracking and locating valuable possessions
+- `assettracker` for the Electron Asset Tracker Shield, our kit for tracking and locating valuable possessions
 
 All Particle libraries meet the same quality standards as [Verified](#verified-libraries) libraries, and appear in the library list with the Particle logo next to them.
 

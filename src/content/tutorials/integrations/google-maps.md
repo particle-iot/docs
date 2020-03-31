@@ -46,7 +46,7 @@ The Global Positioning System (GPS) is generally the most accurate and
 it can provide device location continuously. Under normal conditions,
 GPS can locate a device with an accuracy of ~4 meters.
 
-While very accurate, the disadvantage is that GPS requires additional hardware like the Particle [Asset Tracker module](https://www.particle.io/products/hardware/asset-tracker). It may also take some time to establish a satellite fix, and may have trouble establishing a location where the view is obstructed, such as downtown in cities.
+While very accurate, the disadvantage is that GPS requires additional hardware like the Particle [Electron Asset Tracker module](https://www.particle.io/products/hardware/asset-tracker). It may also take some time to establish a satellite fix, and may have trouble establishing a location where the view is obstructed, such as downtown in cities.
 
 The Particle + Google Maps integration does not use GPS, but rather
 cell towers or Wi-Fi networks to geolocate a device. Read on for a

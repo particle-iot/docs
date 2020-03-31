@@ -308,7 +308,7 @@ The short side (12-pin header on the top) has the pins arranged like this, left 
 
 #### Substituting for an Electron
 
-Take, for example, the AssetTracker V2 with an Electron:
+Take, for example, the Electron AssetTracker V2 with an Electron:
 
 ![AssetTracker with Electron](/assets/images/accessories/assettracker-electron.jpg)
 
@@ -316,7 +316,7 @@ To substitute a Boron, you'd use the classic adapter like this:
 
 ![AssetTracker with Electron](/assets/images/accessories/assettracker-classic.jpg)
 
-Note that you will not be able to use the LIS3DH accelerometer because it connects by SPI and the SPI pins are not mapped in a usable way with the classic adapter!
+Note that you will not be able to use the LIS3DH accelerometer because it connects by SPI and the SPI pins are not mapped in a usable way with the classic adapter! You will also need to connect pin D6 to GND, which will cause the GPS to always be powered on. The reason is that if you turn the GPS on in software, the rush of current into it causes the nRF52 MCU to brown out and reset. If you turn them both on at the same time, both will successful start up.
 
 #### Substituting for an Photon
 
