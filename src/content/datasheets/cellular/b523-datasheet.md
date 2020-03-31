@@ -134,7 +134,7 @@ The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 Pins SOM0 to SOM9 will vary across various SoM modules. For example, cellular-specific pins exists in this range. 
 
-Additionally there are reserved pins, whose functions vary depending on the SoM. For example, nRF52 MCU-based modules use some of these pins for additional ADC and GPIO.
+Additionally there are RESERVED<sup>3</sup> pins, whose functions vary depending on the SoM. For example, nRF52 MCU-based modules use some of these pins for additional ADC and GPIO. They are able to be used as described on the B523, but their function may be be different on future modules.
 
 For maximum cross-module flexibility, you should try to use only the common pins when possible.
 
@@ -214,7 +214,7 @@ For maximum cross-module flexibility, you should try to use only the common pins
 
 <sup>2</sup>A0-A7 are 12-bit Analog-to-Digital (A/D) inputs (0-4095).
 
-<sup>3</sup>SoM-specific and Reserved pins will vary depending on module.
+<sup>3</sup>SoM-specific and Reserved pins will vary depending on module. They are able to be used on the B523, but their function may be be different on future modules.
 
 <sup>4</sup>RI is available on the B523 (Quectel) but not on the B402 (u-blox LTE M1)
 
