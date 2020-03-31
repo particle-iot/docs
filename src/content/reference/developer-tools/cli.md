@@ -14,11 +14,15 @@ For information on how to install the Particle CLI, see the [CLI guide](/tutoria
 
 ## particle setup
 
-  Everything you need to get started using a Particle device from the command line. Create an account or log in, set up Wi-Fi to a device and claim the device to your Particle account.
+  Everything you need to get started using a Particle Photon or P1 device from the command line. Create an account or log in, set up Wi-Fi to a device and claim the device to your Particle account.
 
 ```sh
 $ particle setup
 ```
+
+To set up a cellular device (Electron, Boron, B Series SoM), go to [setup.particle.io](https://setup.particle.io) or use the mobile apps.
+
+To set up an Argon, see [particle serial wifi](#particle-serial-wifi) or use the mobile apps.
 
 ## particle login
 
@@ -231,11 +235,10 @@ $ particle flash --usb firmware.bin
   - core ('c')
   - electron ('e')
   - p1
-  - duo ('d')
-  - oak ('o')
-  - bluz ('b')
-  - bluz-gateway ('bg')
-  - bluz-beacon ('bb')
+  - argon
+  - boron
+  - bsom (B Series SoM)
+
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 
@@ -573,10 +576,10 @@ $ particle publish eventName someData --private
 
 ### particle serial wifi
 
-Configure Wi-Fi credentials over serial
+Configure Wi-Fi credentials over serial on the Photon, P1, and Argon.
 
 ```sh
-# Configure new Wi-Fi credentials for a Photon over a serial connection
+# Configure new Wi-Fi credentials for a Photon or Argon over a serial connection
 $ particle serial wifi
 ```
 

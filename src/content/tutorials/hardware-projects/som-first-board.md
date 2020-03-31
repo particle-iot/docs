@@ -48,11 +48,11 @@ The main part of the design includes the M.2 (NGFF) SoM connector, micro USB con
 
 ![Schematic Main](/assets/images/som-first-board/schematic-main.png)
 
-The rest of the design is the power supply. It uses a MP2122 dual voltage regulator to produce 3.3V (for the nRF52840) and 3.7V (for the u-blox modem). You can supply it with 3.6V to 6.0V from USB or an external power supply. You can also remove some jumpers to substitute a different power supply for testing.
+The rest of the design is the power supply. It uses a MP2122 dual voltage regulator to produce 3.3V (for the nRF52840) and 3.8V (for the cellular modem). You can supply it with 3.6V to 6.0V from USB or an external power supply. You can also remove some jumpers to substitute a different power supply for testing.
 
 ![Schematic Power](/assets/images/som-first-board/schematic-power.png)
 
-The MP2122 can supply 2A to satisfy all cellular modules, however the B302 global 2G/3G module may only work when powered by a tablet charger. A laptop, computer, or USB hub will likely only supply enough power for a B402 (LTE Cat M1), not the B302.
+The MP2122 can supply 2A to satisfy all current cellular modules. The B402 only requires 500 mA, but it's best to include enough power in case you want to switch modules in the future.
 
 This is the Eagle board design for the USB SoM base board:
 
@@ -154,7 +154,7 @@ Some of the pictures are taken using a 3mm hole for a M3 x 6mm screw and M3 nut.
 | :---: | --- | --- | ---: |
 | 3 | 1K resistor 0603 | [Panasonic ERJ-PB3D1001V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PB3D1001V/P20283CT-ND/6214538) | | 
 | 1 | 10K resistor 0603 | [Panasonic ERJ-PA3J103V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PA3J103V/P10KBZCT-ND/5036237) | |
-| 1 | 158K resistor 0603 1% | [Panasonic ERJ-3EKF1583V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF1583V/P158KHCT-ND/198182) | |
+| 1 | 150K resistor 0603 1% | [Panasonic ERJ-3EKF1503V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF1503V/P150KHCT-ND/198178) | |
 | 1 | 182K resistor 0603 1% | [Panasonic ERJ-3EKF1823V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF1823V/P182KHCT-ND/198208) | |
 | 2 | 806K resistor 0603 1% | [Panasonic ERJ-3EKF8063V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF8063V/P806KHCT-ND/198523) | |
 | 3 | 22 uF capacitor 0805 | [Murata GRM219R61A226MEA0D](https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM219R61A226MEA0D/490-9951-1-ND/5026414) | | 
@@ -212,7 +212,7 @@ The Sn42/Bi57/Ag1 low-temperature solder paste can be reflowed using Wave 1.
 
 There are three two-pin male headers on this board. These get soldered on by hand after the board is reflowed. They're cut from [breakable male header pin strips](https://www.digikey.com/product-detail/en/PRPC040SAAN-RC/S1011EC-40-ND/2775214).
 
-The 3V3 and 3V7 connectors will eventually get 2-pin jumpers, but not quite yet.
+The 3V3 and 3V8 connectors will eventually get 2-pin jumpers, but not quite yet.
 
 ## Testing
 
@@ -249,11 +249,11 @@ Be careful as even at a few amps, these small switching regulators can get hot e
 
 Assuming the board is not drawing more than 10 mA and does not seem to be catching on fire, on to check the voltage regulator.
 
-Check the voltage on the two indicated pins. The left should be 3.3V and the right should be approximately 3.7V.
+Check the voltage on the two indicated pins. The left should be 3.3V and the right should be approximately 3.875V.
 
 ![Test regulator](/assets/images/som-first-board/test-1.png)
 
-If that checks out, remove the power. Then add two jumpers on 3V3 and 3V7. 
+If that checks out, remove the power. Then add two jumpers on 3V3 and 3V8. 
 
 ![Add jumpers](/assets/images/som-first-board/test-2.png)
 
@@ -269,7 +269,7 @@ You can test the LED by connecting the R, G, and B pins to GND.
 
 ![Test LED](/assets/images/som-first-board/test-4.png)
 
-Test USB power. Remove the bench supply and connect the USB to a USB power supply or hub. Check 3V3 and 3V7 and make sure they're good.
+Test USB power. Remove the bench supply and connect the USB to a USB power supply or hub. Check 3V3 and 3V8 and make sure they're good.
 
 
 ### Test with the SoM
@@ -288,4 +288,18 @@ Try entering other modes like DFU mode (blinking yellow). With a computer, try l
 dfu-util -l
 ```
 
-Celebrate making your first working SoM base board!g
+Celebrate making your first working SoM base board!
+
+### Version History
+
+#### 2020-03-30 (v2)
+
+- Changed R8 from 158K to 150K to change 3V7 to 3V8. The voltage increase to 3.875V adds an extra safety margin for some modem modules.
+
+#### 2019-10-24
+
+- Updated M.2 standoff
+
+#### 2019-05-20
+
+- Initial version
