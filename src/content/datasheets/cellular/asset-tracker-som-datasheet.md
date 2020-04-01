@@ -204,9 +204,9 @@ This interface can be used to debug your code or reprogram your E402 bootloader,
 | 16 | CELL_D+ | USB D+ | CELL | Cellular modem USB interface D+. Optional. |
 | 17 | CELL-D- | USB D- | CELL | Cellular modem USB interface D-. Optional. |
 | 18 | NC SOM18 | | | Leave unconnected. |
-| 19 | NC SOM18 | | | Leave unconnected. |
-| 20 | NC SOM18 | | | Leave unconnected. |
-| 21 | NC SOM18 | | | Leave unconnected. |
+| 19 | NC SOM19 | | | Leave unconnected. |
+| 20 | NC SOM20 | | | Leave unconnected. |
+| 21 | NC SOM21 | | | Leave unconnected. |
 | 22 | SWDIO | JTAG | nRF52 | nRF52 MCU SWDIO |
 | 23 | SWDCLK | JTAG | nRF52 | nRF52 MCU SWDCLK |
 | 24 | SWO | JTAG | nRF52 | nRF52 MCU SWO |

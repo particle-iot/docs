@@ -12,7 +12,7 @@ description: Datasheet for the Particle Asset Tracker SoM evaluation board
 {{downloadButton url="/assets/pdfs/datasheets/asset-tracker-som-eval-board.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-This is a breakout board for Particle's Asset Tracker SoM. The Asset Tracker Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board or the carrier board.
+This is a breakout board for Particle's Asset Tracker SoM. The Asset Tracker Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board, or the carrier board.
 
 **TODO: Create repo and update URL**
 The Eagle CAD design files, Gerber files, and bill of materials can be found in the [SoM eval board Github repository](https://github.com/particle-iot/som-eval-board).
@@ -30,8 +30,6 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 <div align=center><img src="/assets/images/b-series/b-series-eval-labeled.png"></div>
 
 
-**TODO: New list**
-
 | Num | ID 					    | Description                                      |
 | :---: | :----------------------|:--------------------------------|
 |  1 | GNSS USB | u-blox GNSS USB connection | 
@@ -41,7 +39,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 |  5 | MODE | MODE button | 
 |  6 | RGB | RGB status LED |
 |  7 | RESET | RESET button |
-|  8 | MCU_USB | nRF52 MCU USB for debugging. Can also power the SoM. |
+|  8 | MCU USB | nRF52 MCU USB for debugging. Can also power the SoM. |
 |  9 | STAT LED | Charge status indicator. |
 | 10 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
 | 11 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
@@ -57,6 +55,26 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 | 21 | RTC battery | Optional battery |
 | 22 | J4 | CAN data connection and 3.3V power output |
 | 23 | J5 | JTAG power jumper. Install to allow the MCU to be powered by the JTAG port. |
+
+### Powering the Asset Tracker SoM Evaluation Board
+
+There are several options for powering the evaluation board:
+
+The **MCU USB** connector. If using a laptop with a 500 mA USB port, you should also use the LiPo battery. With a 2A tablet charger, you can power only by USB.
+
+The **VIN** connector (5-12 VDC). This is useful with an external power supply. 
+
+The **LiPo** connector. This is typically used with a LiPo battery.
+
+### USB connectors
+
+There are three USB connectors on the evaluation board, however you most commonly will only use the **MCU USB** connector.
+
+The **MCU USB** connector is connected to the nRF52 MCU and can be used for Serial debugging, flashing code, and setup by USB. It can also power the AssetTracker SoM. If using a laptop with a 500 mA USB port, you should also use the LiPo battery. With a 2A tablet charger, you can power only by USB.
+
+The **GNSS USB** connector is connected to the u-blox NEO-M8U GNSS. It can be used for firmware upgrades or with the u-blox u-center application.
+
+The **CELL USB** connector is connected to the Quectel cellular modem. It can be used for firmware upgrades.
 
 
 ### Expansion Connector
@@ -106,11 +124,9 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 
 The basic setup for the B series to be operational is shown below:
 
-- Plug the cellular antenna into the U.FL connector labeled **CELL** on the SoM. Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the u-blox module if no antenna is connected.
-- If you are going to use mobile app setup or BLE, connect the 2.4 GHz antenna (the smaller one) to the **BT** U.FL connector on the SoM.
-- Connect power the USB (3) or a LiPo battery (4).
-- Turn on the appropriate power switches (5).
-
+- Plug the cellular antenna into the U.FL connector labeled **CELL** on the SoM. Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the cellular module if no antenna is connected.
+- Connect power the **MCU USB** (8), **VIN** (13), or a LiPo battery (14).
+- Turn on the appropriate power switches (15 and/or 16).
 
 
 ## Evaluation Board Schematics
