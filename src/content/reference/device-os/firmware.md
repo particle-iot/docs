@@ -1121,7 +1121,7 @@ void setup() {
 {{#if has-mesh}}
 ## Mesh
 
-**The mesh networking features described in this section will be supported only through Device OS 1.6.x (March 2020).**
+**The mesh networking features described in this section will be supported only through Device OS 1.5.x (March 2020).**
 
 After that version, all of the features in the Mesh object will be removed from the Device OS API. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
