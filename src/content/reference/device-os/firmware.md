@@ -19,7 +19,7 @@ can be found in the Discontinued section.
 ## Cloud Functions
 
 {{#if has-cellular}}
-### Optimizing Cellular Data Use with Cloud connectivity on the {{device}}
+### Optimizing Cellular Data Use with Cloud connectivity
 
 {{since when="0.6.0"}}
 
@@ -254,7 +254,7 @@ void loop() {
 
 Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
-Particle.function allows code on the device to be run when requested from the cloud API. You typically do this when you want to control something on your {{device}}, say a LCD display or a buzzer, or control features in your firmware from the cloud.
+Particle.function allows code on the device to be run when requested from the cloud API. You typically do this when you want to control something on your device, say a LCD display or a buzzer, or control features in your firmware from the cloud.
 
 ```cpp
 // SYNTAX
@@ -978,7 +978,7 @@ void loop()
 {
   // Request time synchronization from the Particle Device Cloud
   Particle.syncTime();
-  // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
+  // Wait until the device receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
   waitUntil(Particle.syncTimeDone);
   // Print current time
   Serial.println(Time.timeStr());
@@ -1004,7 +1004,7 @@ void loop()
 {
   // Request time synchronization from the Particle Device Cloud
   Particle.syncTime();
-  // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
+  // Wait until the device receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
   while(Particle.syncTimePending())
   {
     //
@@ -1055,7 +1055,7 @@ void loop() {
     }
     // Request time synchronization from Particle Device Cloud
     Particle.syncTime();
-    // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
+    // Wait until the device receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
     waitUntil(Particle.syncTimeDone);
     // Check if synchronized successfully
     if (Particle.timeSyncedLast() >= cur)
@@ -2379,7 +2379,7 @@ Parameters:
 WiFi.setHostname("photon-123");
 ```
 
-By default the {{device}} uses its [device ID](#deviceid-) as hostname.
+By default the device uses its [device ID](#deviceid-) as hostname.
 
 The hostname is stored in persistent memory. In order to reset the hostname to its default value (device ID) `setHostname()` needs to be called with `hostname` argument set to `NULL`.
 
@@ -2404,7 +2404,7 @@ This function does not take any arguments and returns a `String`.
 String hostname = WiFi.hostname();
 ```
 
-By default the {{device}} uses its [device ID](#deviceid-) as hostname. See [WiFi.setHostname()](#sethostname-) for documentation on changing the hostname.
+By default the device uses its [device ID](#deviceid-) as hostname. See [WiFi.setHostname()](#sethostname-) for documentation on changing the hostname.
 
 {{/if}} {{!-- photon --}}
 
@@ -2941,7 +2941,7 @@ If you are manually managing the cellular connection in case of connection failu
 
 ### connect()
 
-Attempts to connect to the Cellular network. If there are no credentials entered, the default Particle APN for Particle SIM cards will be used.  If no SIM card is inserted, the {{device}} will enter listening mode. If a 3rd party APN is set, these credentials must match the inserted SIM card for the {{device}} to connect to the cellular network. When this function returns, the device may not have a local (private) IP address; use `Cellular.ready()` to determine the connection status.
+Attempts to connect to the Cellular network. If there are no credentials entered, the default Particle APN for Particle SIM cards will be used.  If no SIM card is inserted, the device will enter listening mode. If a 3rd party APN is set, these credentials must match the inserted SIM card for the device to connect to the cellular network. When this function returns, the device may not have a local (private) IP address; use `Cellular.ready()` to determine the connection status.
 
 ```cpp
 // SYNTAX
@@ -3008,7 +3008,7 @@ Cellular.listening();
 
 Without multithreading enabled, this command is not useful (always returning `false`) because listening mode blocks application code.
 
-This command becomes useful on the {{device}} when system code runs as a separate RTOS task from application code.
+This command becomes useful on the device when system code runs as a separate RTOS task from application code.
 
 Once system code does not block application code,
 `Cellular.listening()` will return `true` once `Cellular.listen()` has been called
@@ -3027,7 +3027,7 @@ Cellular.setListenTimeout(seconds);
 
 `Cellular.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Cellular devices have a 5 minute timeout set (seconds=300).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Cellular.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Cellular.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  **Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
 
-This setting is not persistent in memory if the {{device}} is rebooted.
+This setting is not persistent in memory if the device is rebooted.
 
 ```cpp
 // EXAMPLE
@@ -3106,7 +3106,7 @@ You may set credentials in 3 different ways:
 - USERNAME & PASSWORD only
 - APN, USERNAME & PASSWORD
 
-The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -3164,15 +3164,15 @@ Sets 3rd party credentials for the Cellular network from within the user applica
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your device over USB via the [Particle CLI](/tutorials/developer-tools/cli/).  With your device in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
-**Note**: Your {{device}} only uses one set of credentials, and they
+**Note**: Your device only uses one set of credentials, and they
 must be correctly matched to the SIM card that's used.  If using a
 Particle SIM, using `cellular_credentials_set()` is not necessary as the
 default APN of "spark.telefonica.com" with no username or password will
-be used by Device OS. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the {{device}} to remove the settings from the modem’s volatile memory.
+be used by Device OS. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the device to remove the settings from the modem’s volatile memory.
 
 ```cpp
 // SYNTAX
@@ -3208,7 +3208,7 @@ void loop() {
 
 ### setActiveSim()
 
-The {{device}} can use either the built-in MFF2 embedded Particle SIM card or an external nano SIM card in 
+The device can use either the built-in MFF2 embedded Particle SIM card or an external nano SIM card in 
 the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
 once. The setting will be preserved across reset, power down, and firmware upgrades.
 
@@ -3600,7 +3600,7 @@ else {
 {{since when="0.5.0"}}
 Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.
 
-**Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their {{device}}. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
+**Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their device. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
 
 - Make sure to set the `count` to the appropriate number of bands set in the CellularBand object before calling `setBandSelect()`.
 - Use the `.isBand(int)` helper function to determine if an integer value is a valid band.  It still may not be valid for the particular modem you are using, in which case `setBandSelect()` will return `false` and `.ok` will also be set to `false`.
@@ -3828,7 +3828,7 @@ There are 13 different enumerated AT command responses passed by the system into
 {{#if has-battery-voltage}}
 ## Battery Voltage
 
-The {{device}} does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
+This device does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
 
 ```cpp
 float voltage = analogRead(BATT) * 0.0011224;
@@ -5183,17 +5183,17 @@ Returns the charge voltage register. This is the direct register value from the 
 
 
 {{#if electron}}
-Used for communication between the {{device}} and a computer or other devices. The {{device}} has four hardware (USART) serial channels. 
+The Electron has four hardware (USART) serial channels. 
 {{/if}}
 
 {{#unless electron}}
 
 {{#if has-serial2}}
-Used for communication between the {{device}} and a computer or other devices. The {{device}} has two hardware (USART) serial channels. 
+This device has two hardware (USART) serial channels. 
 {{/if}}
 
 {{#unless has-serial2}}
-Used for communication between the {{device}} and a computer or other devices. The {{device}} has one hardware (USART) serial channel.
+This device has one hardware (USART) serial channel.
 {{/unless}} 
 
 {{/unless}} {{!-- electron --}} 
@@ -5217,7 +5217,7 @@ void setup()
 `Serial1:` This channel is available via the device's TX and RX pins.
 
 {{#if has-nrf52}}
-Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the {{device}}. 
+Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the Gen 3 devices. 
 {{/if}}
 
 {{#if has-serial2}}
@@ -5235,7 +5235,7 @@ If the user enables Serial2, they should also consider using RGB.onChange() to m
 {{/if}}
 
 {{#if xenon}}
-`Serial2:` This channel is optionally available on D4(TX) and D5(RX). Optional hardware flow control is available on D6(CTS) and D8(RTS) on the {{device}}. 
+`Serial2:` This channel is optionally available on D4(TX) and D5(RX). Optional hardware flow control is available on D6(CTS) and D8(RTS) on the Xenon. 
 {{/if}}
 
 To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
@@ -5285,9 +5285,9 @@ void setup()
 }
 ```
 
-To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has-serial4-5}}/4/5{{/if}}) to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your {{device}} to your device's ground.
+To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has-serial4-5}}/4/5{{/if}}) to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your device to your device's ground.
 
-**NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
+**NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the device.
 
 
 {{#if has-usb-serial1}}
@@ -5296,7 +5296,7 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 
 #### Connect to Serial with a computer
 
-For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). Plug your {{device}} into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
+For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). Plug your device into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
 
 - Baud rate: 9600
 - Data Bits: 8
@@ -5317,7 +5317,7 @@ On Linux, you can accomplish the same thing by using:
 
 and pressing tab to autocomplete.
 
-Now you are ready to read data sent by the {{device}} over Serial and send data back.
+Now you are ready to read data sent by the device over Serial and send data back.
 
 
 ### begin()
@@ -5365,11 +5365,11 @@ Parameters:
 - `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
 
 {{#if has-stm32f2}}
-Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, and 230400 on the {{device}}.
+Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, and 230400 on the Gen 2 devices.
 {{/if}}
 
 {{#if has-nrf52}}
-Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000 on the {{device}}.
+Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000 on the Gen 3 devices.
 {{/if}}
 
 
@@ -5444,7 +5444,7 @@ Parity:
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
 
-Other options, including odd parity, and 7 and 9 bit modes, are not available on the {{device}}. 
+Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B Series SoM). 
 
 {{/if}} {{!-- has-nrf52 --}}
 
@@ -5458,7 +5458,7 @@ On Gen 3 devices (Argon, Boron, Xenon), flow control is available on Serial1 D3(
 {{/if}}
 
 {{#if xenon}}
-On the {{device}} flow control is also available on Serial2 D6(CTS) and D8(RTS). 
+On the Xenon flow control is also available on Serial2 D6(CTS) and D8(RTS). 
 {{/if}}
 
 
@@ -6002,9 +6002,9 @@ void loop() {
 
 {{since when="0.6.0"}}
 
-This library allows {{device}} to act as a native USB HID Mouse.
+This library allows devices to act as a native USB HID Mouse.
 
-In terms of USB HID, {{device}} presents itself as two separate devices: Mouse (supporting relative movement) and Digitizer (supporting absolute movement).
+In terms of USB HID, the device presents itself as two separate devices: Mouse (supporting relative movement) and Digitizer (supporting absolute movement).
 
 Full capabilities include:
 - Relative XY movement [-32767, 32767]
@@ -6027,7 +6027,7 @@ Initializes Mouse library and enables USB HID stack.
 // Example
 STARTUP(Mouse.begin());
 void setup() {
-  // At this point {{device}} is already connected to Host with Mouse enabled
+  // At this point the device is already connected to Host with Mouse enabled
 }
 ```
 
@@ -6334,7 +6334,7 @@ void loop() {
 
 {{since when="0.6.0"}}
 
-This library allows {{device}} to act as a native USB HID Keyboard.
+This library allows your device to act as a native USB HID Keyboard.
 
 ### begin()
 
@@ -6349,7 +6349,7 @@ Initializes Keyboard library and enables USB HID stack.
 // Example
 STARTUP(Keyboard.begin());
 void setup() {
-  // At this point {{device}} is already connected to Host with Keyboard enabled
+  // At this point the device is already connected to Host with Keyboard enabled
 }
 ```
 
@@ -6551,10 +6551,10 @@ See [`Keyboard.write()`](#write--1) and [`Serial.printlnf()`](#printlnf-) docume
 {{#if has-spi}}
 SPI
 ----
-This library allows you to communicate with SPI devices, with the {{device}} as the master device.
+This library allows you to communicate with SPI devices, with the device as the master device.
 
 {{#if has-spi-slave}}
-{{#if has-stm32}}_Since 0.5.0_ {{/if}}The {{device}} can function as a SPI slave.
+{{#if has-stm32}}_Since 0.5.0_ {{/if}}This device can function as a SPI slave.
 {{/if}}
 
 
@@ -6669,7 +6669,7 @@ SPI2.begin(C0);
 
 {{since when="0.5.0"}}
 
-Initializes the {{device}} SPI peripheral in master or slave mode.
+Initializes the device SPI peripheral in master or slave mode.
 
 **Note:** MISO, MOSI and SCK idle in high-impedance state when SPI peripheral is configured in slave mode and the device is not selected.
 
@@ -10266,7 +10266,7 @@ void loop()
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+When using a Particle SIM with the device, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
@@ -10581,7 +10581,7 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+When using a Particle SIM with the device, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()
@@ -11259,7 +11259,7 @@ RGB.mirrorTo(A4, A5, A7, true);
 // Common-anode RGB LED connected to A4 (R), A5 (G), A7 (B)
 // Mirroring is enabled in firmware _and_ bootloader
 RGB.mirrorTo(A4, A5, A7, true, true);
-// Enable RGB LED mirroring as soon as {{device}} starts up
+// Enable RGB LED mirroring as soon as the device starts up
 STARTUP(RGB.mirrorTo(A4, A5, A7));
 ```
 
@@ -12349,7 +12349,7 @@ Used to check if current time is valid. This function will return `true` if:
 - Time has been successfully synchronized with the Particle Device Cloud. The device synchronizes time with the Particle Device Cloud during the handshake. The application may also manually synchronize time with Particle Device Cloud using [`Particle.syncTime()`](#particle-synctime-)
 - Correct time has been maintained by RTC.{{#if has-backup-ram}} See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.{{/if}}
 
-**NOTE:** When {{device}} is running in `AUTOMATIC` mode {{#if has-threading}}and threading is disabled {{/if}} this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once {{device}} synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
+**NOTE:** When the device is running in `AUTOMATIC` mode {{#if has-threading}}and threading is disabled {{/if}} this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once it synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
 
 ```cpp
 // Print true or false depending on whether current time is valid
@@ -12373,7 +12373,7 @@ void loop()
 
 ### Advanced
 
-For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard library time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
+For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the device](#other-functions) and the [description of the C standard library time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
 
 ## Chrono Literals
 
@@ -13181,7 +13181,7 @@ from the cloud, and setting the seed is left to up you.
 {{#if has-eeprom-file}}
 EEPROM emulation allows small amounts  of data to be stored and persisted even across reset, power down, and user and system firmware flash operations.
 
-On the {{device}} the EEPROM emulation is stored as a file on the flash file system. Since the data is spread across a large number of flash sectors, flash erase-write cycle limits should not be an issue in general.
+On this device the EEPROM emulation is stored as a file on the flash file system. Since the data is spread across a large number of flash sectors, flash erase-write cycle limits should not be an issue in general.
 
 {{else}}
 EEPROM emulation allocates a region of the device's built-in Flash memory to act as EEPROM.
@@ -13244,7 +13244,7 @@ EEPROM.put(addr, myObj);
 The object data is first compared to the data written in the EEPROM to avoid writing values that
 haven't changed.
 
-If the {{device}} loses power before the write finishes, the partially written data will be ignored.
+If the device loses power before the write finishes, the partially written data will be ignored.
 
 If you write several objects to EEPROM, make sure they don't overlap: the address of the second
 object must be larger than the address of the first object plus the size of the first object. You
@@ -13294,7 +13294,7 @@ if(myObj.version != 0) {
 ```
 
 The default value of bytes in the EEPROM is 255 (hexadecimal 0xFF) so reading an object on a new
-{{device}} will return an object filled with 0xFF. One trick to deal with default data is to include
+device will return an object filled with 0xFF. One trick to deal with default data is to include
 a version field that you can check to see if there was valid data written in the EEPROM.
 
 ### read()
@@ -14678,7 +14678,7 @@ Wake up by WKP pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to 
 {{#if has-fuel-gauge}}
 ---
 
-`System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`. This is also the same net result as used in the user-activated Soft Power Down feature when you double-tap the Mode button and the Electron powers down.
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`. This is also the same net result as used in the user-activated Soft Power Down feature when you double-tap the Mode button and the Electron powers down.
 
 ```cpp
 // SYNTAX
@@ -14697,7 +14697,7 @@ Also, the real-time-clock (Time class) will not be set when waking up from SLEEP
 {{#if has-fuel-gauge}}
 ---
 
-`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
 ```cpp
 // SYNTAX
 System.sleep(SLEEP_MODE_SOFTPOWEROFF);
@@ -14712,7 +14712,7 @@ System.sleep(SLEEP_MODE_SOFTPOWEROFF);
 
 `System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. 
 
-The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.
+The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.
 
 ```cpp
 // SYNTAX
@@ -14998,29 +14998,29 @@ Get the wake up reason.
 SleepResult result = System.sleepResult();
 switch (result.reason()) {
   case WAKEUP_REASON_NONE: {
-    Log.info("{{device}} did not wake up from sleep");
+    Log.info("did not wake up from sleep");
     break;
   }
   case WAKEUP_REASON_PIN: {
-    Log.info("{{device}} was woken up by a pin");
+    Log.info("was woken up by a pin");
     break;
   }
   case WAKEUP_REASON_RTC: {
-    Log.info("{{device}} was woken up by the RTC (after a specified number of seconds)");
+    Log.info("was woken up by the RTC (after a specified number of seconds)");
     break;
   }
   case WAKEUP_REASON_PIN_OR_RTC: {
-    Log.info("{{device}} was woken up by either a pin or the RTC (after a specified number of seconds)");
+    Log.info("was woken up by either a pin or the RTC (after a specified number of seconds)");
     break;
   }
 }
 ```
 
-Returns a code describing a reason {{device}} woke up from sleep. The following reasons are defined:
-- `WAKEUP_REASON_NONE`: {{device}} did not wake up from sleep
-- `WAKEUP_REASON_PIN`: {{device}} was woken up by an edge signal to a pin
-- `WAKEUP_REASON_RTC`: {{device}} was woken up by the RTC (after a specified number of seconds)
-- `WAKEUP_REASON_PIN_OR_RTC`: {{device}} was woken up either by an edge signal to a pin or by the RTC (after a specified number of seconds)
+Returns a code describing a reason the device woke up from sleep. The following reasons are defined:
+- `WAKEUP_REASON_NONE`: did not wake up from sleep
+- `WAKEUP_REASON_PIN`: was woken up by an edge signal to a pin
+- `WAKEUP_REASON_RTC`: was woken up by the RTC (after a specified number of seconds)
+- `WAKEUP_REASON_PIN_OR_RTC`: was woken up either by an edge signal to a pin or by the RTC (after a specified number of seconds)
 
 
 #### wokenUpByPin()
@@ -15033,15 +15033,15 @@ bool r = result.wokenUpByPin();
 // EXAMPLE
 SleepResult result = System.sleepResult();
 if (result.wokenUpByPin()) {
-  Log.info("{{device}} was woken up by a pin");
+  Log.info("was woken up by a pin");
 }
 ```
 
-Returns `true` when {{device}} was woken up by a pin.
+Returns `true` when the device was woken up by a pin.
 
 #### wokenUpByRtc()
 
-Returns `true` when {{device}} was woken up by the RTC (after a specified number of seconds).
+Returns `true` when the device was woken up by the RTC (after a specified number of seconds).
 
 ```cpp
 // SYNTAX
@@ -15051,7 +15051,7 @@ bool r = result.wokenUpByRtc();
 // EXAMPLE
 SleepResult result = System.sleepResult();
 if (result.wokenUpByRtc()) {
-  Log.info("{{device}} was woken up by the RTC (after a specified number of seconds)");
+  Log.info("was woken up by the RTC (after a specified number of seconds)");
 }
 ```
 
@@ -15070,7 +15070,7 @@ pin_t pin = result.pin();
 SleepResult result = System.sleepResult();
 pin_t pin = result.pin();
 if (result.wokenUpByPin()) {
-  Log.info("{{device}} was woken up by the pin number %d", pin);
+  Log.info("was woken up by the pin number %d", pin);
 }
 ```
 
@@ -15363,7 +15363,7 @@ NB: SysInterrupt_TIM3 and SysInterrupt_TIM4 are used by the system to provide `t
 
 {{#if has-stm32f2}}
 
-The {{device}} supports these additional interrupts:
+The device supports these additional interrupts:
 
 | Identifier | Description |
 | -----------|-------------|
@@ -15465,200 +15465,7 @@ Parameters:
 
 {{/if}} {{!-- has-interrupts --}}
 
-{{#if has-linux}}
 
-## Process Control
-
-You can call scripts and run other programs from the firmware. In Linux, a running program is called a process.
-
-*This interface is in beta. It might change in non-backwards compatible ways.*
-
-### run()
-
-Start running another program in the background. It returns a `Process` object so you can interact with the program while it running and after it has exited.
-
-The `command` argument should start with the name of a program or script (with or without path) and can contain other arguments separated by spaces.
-
-The command is executed through the shell: `/bin/sh -c <command>`
-
-```cpp
-// SYNTAX
-Process proc = Process::run(command)
-
-// EXAMPLE USAGE
-// Simple script and block it is finished
-Process proc = Process::run("/home/pi/script.sh");
-proc.wait();
-
-// Take a picture with a Pi camera
-Process proc = Process::run("raspistill -o /home/pi/photo.jpg");
-proc.wait();
-```
-
-It's important to call `wait()` to block the firmware until the program finishes running or call `exited()` until it returns true. Otherwise when the program completes the operating system will keep information about the process in memory forever, eventually making it impossible to start any new process on the entire device.
-
-### wait()
-
-Block the firmware until the program finishes. Returns immediately if the process has already finished.
-
-Returns the [exit code of the process](#exitcode-).
-
-```cpp
-// SYNTAX
-process.wait();
-
-// EXAMPLE USAGE
-// Run a Javascript program
-Process proc = Process::run("node /home/pi/update.js");
-proc.wait();
-```
-
-### exited()
-
-Returns true if the process has exited, false otherwise.
-
-A "blank" Process that was never started returns true for `exited()`.
-
-```cpp
-// SYNTAX
-bool done = process.exited();
-
-// EXAMPLE USAGE
-// Blink an LED during a long operation
-Process proc = Process::run("updatedb");
-pinMode(D7, OUTPUT);
-while (!proc.exited()) {
-  digitalWrite(D7, HIGH);
-  delay(100);
-  digitalWrite(D7, LOW);
-  delay(100);
-}
-
-// Restart a server when it crashes
-Process proc;
-
-void loop() {
-  if (proc.exited()) {
-    proc = Process::run("node /home/pi/server.js");
-  }
-}
-```
-
-### kill()
-
-Stop the process by sending a signal. Defaults to the `SIGTERM` signal which asks the program to quit. To force-quit an unresponsive process, use `SIGKILL`.
-
-```cpp
-// SYNTAX
-process.kill();
-process.kill(signal);
-
-// EXAMPLE USAGE
-// Stop a long operation early
-Process proc = Process::run("sleep 10");
-proc.kill();
-proc.wait();
-```
-
-`signal` is either a signal number or name. Here are the most useful signals.
-
-| Signal Name | Signal Number | Description |
-|-------------|---------------|-------------|
-| SIGINT | 2 | Interrupt from keyboard (Ctrl-C) |
-| SIGABRT | 6 | Abort. Usually from uncaught C++ exception |
-| SIGKILL | 9 | Force quit |
-| SIGSEGV | 11 | Bad memory operation (null pointer, bad pointer) |
-| SIGTERM | 15 | Graceful quit |
-
-It's important to still call `wait()` or `exited()` after `kill()` to ensure the process information is recycled by the operating system.
-
-### exitCode()
-
-If the process has exited, returns the integer exit code.
-
-```cpp
-// SYNTAX
-uint8_t code = proccess.exitCode();
-
-// EXAMPLE USAGE
-// Did the program finish sucessfully?
-Process proc = Process::run("/home/pi/script.sh");
-proc.wait();
-if (proc.exitCode() == 0) {
-  Serial.println("Success!");
-}
-
-// Did the program crash?
-Process proc = Process::run("my_program");
-proc.wait();
-uint8_t code = proc.exitCode();
-if (code >= 128) {
-  Serial.printlnf("my_program crashed with signal %d", code - 128);
-}
-```
-
-An exit code of 0 means success. The meaning of non-zero error codes are specific to each program.
-
-If a process exits because of a signal, for example it crashed with a bad pointer, the exit code will be 128 plus the signal value. See the table above for the signal values.
-
-### out()
-### err()
-
-The output generated by a program is available through the `out()` and `err()` Stream for standard output and standard error.
-
-```cpp
-// SYNTAX
-process.out();
-process.err();
-
-// EXAMPLE USAGE
-// Get entire output of program
-Process proc = Process::run("ls /home/pi");
-proc.wait();
-String filenames = proc.out().readString();
-
-// Get CPU temperature
-Process proc = Process::run("vcgencmd measure_temp");
-proc.wait();
-// The output is temp=43.5'C, so read past the = and parse the number
-proc.out().find("=");
-float cpuTemp = proc.out().parseFloat();
-```
-
-All the [Stream](#stream-class) functions are available like `readStringUntil('\n')` to read a line or `parseInt()` to turn the output into an integer.
-
-### in()
-
-To provide input to the program, print to `in()`.
-
-```cpp
-// SYNTAX
-process.in();
-
-// EXAMPLE USAGE
-// Run a calculation using the bc, a calculator program
-Process proc = Process::run("bc");
-proc.in().println("6 * 7");
-proc.in().close(); // <-- THIS IS IMPORTANT
-proc.wait();
-int result = proc.out().parseInt(); // 42
-```
-
-The same functions used to print to `Serial` like `println` and `printf` are available.
-
-**Note**: It is very important to close `in()` so the process knows that no further input is coming. If you don't do this, the process will hang forever waiting for more input.
-
-### Advanced Process Control
-
-Linux process control is a deep topic on its own. If the methods in `Process` don't work for what you're trying to accomplish, you can also use any Linux process control functions like `system`, `fork` and `execve` method directly in your firmware. See the [note about the standard library on the {{device}}](#other-functions).
-
-```cpp
-// Run a command using the Linux system() function instead of Process
-// The output won't be available
-system("my_command");
-```
-
-{{/if}} {{!-- has-linux --}}
 
 {{#if has-button-mirror}}
 ### buttonMirror()
@@ -18621,9 +18428,9 @@ This means that things like `new`, `malloc`, `strdup`, etc., will not throw an e
 ## Other Functions
 
 {{#if has-linux}}
-The C standard library and other Linux libraries are available on the {{device}}. See this [description of the standard library](https://en.wikipedia.org/wiki/C_standard_library).
+The C standard library and other Linux libraries are available on the device. See this [description of the standard library](https://en.wikipedia.org/wiki/C_standard_library).
 {{else}}
-The C standard library used on the {{device}} is called newlib and is described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html)
+The C standard library used on the device is called newlib and is described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html)
 {{/if}} {{!-- has-linux --}}
 
 For advanced use cases, those functions are available for use in addition to the functions outlined above.
