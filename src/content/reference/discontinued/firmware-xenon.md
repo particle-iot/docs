@@ -1,21 +1,16 @@
 ---
-title: Device OS API
+title: Device OS API - Xenon
 layout: reference.hbs
 columns: three
-devices: [boron,photon,electron,argon]
-order: 20
-description: Reference manual for the C++ API used by user firmware running on Particle IoT devices
+setdevice: xenon
+order: 19
+description: Reference manual for the C++ API used by user firmware running on Particle Xenon
 ---
 
 Device OS API - {{device}}
 ==========
 
-You are viewing the Device OS API documentation for the **{{device}}**. To view the documentation for other 
-devices, use the blue device selector below the Particle logo on the left side of the page.
-
-The Device OS API for discontinued devices such as the [Spark Core](/reference/discontinued/firmware-core/) and 
-[Xenon](/reference/discontinued/firmware-xenon/) 
-can be found in the Discontinued section.
+**This section is the Device OS API for the Xenon only. The last version of Device OS that can be used with the Xenon is 1.5.x.**
 
 ## Cloud Functions
 
@@ -889,6 +884,8 @@ The keep-alive for cellular devices duration varies by mobile network operator. 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
 For Ethernet, you will probably want to set a keepAlive of 2 to 5 minutes.
+
+For the Xenon, you will need to match the keep-alive to the gateway. If your gateway, for example, is a Boron with a 3rd-party SIM card with a short keep-alive, you'll also need to set this short keep-alive on Xenon nodes. The reason is that each Xenon has its own cloud connection that needs to be kept alive.
 
 For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
 

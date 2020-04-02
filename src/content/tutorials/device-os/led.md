@@ -10,7 +10,7 @@ description: Explanation of status LED codes and device modes for Particle IoT d
 # Status LED - {{device}}
 
 You are viewing the Status LED and Device Modes for the **{{device}}**. To view the documentation for other 
-devices, use the blue device selector below the Particle logo on the left side of the page.x
+devices, use the blue device selector below the Particle logo on the left side of the page.
 
 ## Standard Modes
 These modes are the typical behaviors you will see from your device on a regular basis. They are the light patterns of a healthy device.
