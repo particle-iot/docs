@@ -251,11 +251,9 @@ Replace photon with the type of device you have:
 
 - argon
 - boron
-- xenon
 - photon
 - p1
 - electron (also E series)
-- core (Spark Core, discontinued)
 
 
 Now that we have a valid program, let's flash it to our device!  We can use either the source code again, or we can send our binary.

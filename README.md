@@ -170,12 +170,6 @@ support for a device), you can also device-specific content by using:
 
 Prefer defining new feature names over using device-specific sections.
 
-You can also insert the selected device name into text like this:
-
-```none
-Without a doubt, the {{device}} rocks!
-```
-
 ### Adding a new device
 
 When the firmware is available on a new device, add that device to the docs in these places:

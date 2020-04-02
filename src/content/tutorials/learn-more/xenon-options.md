@@ -14,7 +14,7 @@ It is possible to continue to use your Particle Xenon, either as a standalone de
 
 ## Option 1: Continue to use your Xenon as a Particle Device
 
-If you wish, you can continue to use your Xenon as a part of a pre-existing Particle Mesh network, provided that your network was provisioned before the end of 2020 and is running as version of Device OS that supports Mesh (i.e. 1.6.x). Later versions do not support Particle Mesh and do not support the Xenon as a build target.
+If you wish, you can continue to use your Xenon as a part of a pre-existing Particle Mesh network, provided that your network was provisioned before the end of 2020 and is running as version of Device OS that supports Mesh (i.e. 1.5.x or older). Later versions do not support Particle Mesh and do not support the Xenon as a build target.
 
 *_Please note that this option, while available, is not supported by Particle for production use._*
 
@@ -32,4 +32,4 @@ These options will remove the Particle Device OS and bootloader, so the device w
 
 ## Option 3: Use your Xenon with the Ethernet FeatherWing
 
-Using Device OS 1.6.x you can continue to use a Xenon in the Ethernet FeatherWing. You can continue to do so after January 1, 2021, however you will only be able to claim a Xenon to your account using the Particle CLI as there will be no mobile app support at that time.
+Using Device OS 1.5.x you can continue to use a Xenon in the Ethernet FeatherWing. You can continue to do so after January 1, 2021, however you will only be able to claim a Xenon to your account using the Particle CLI as there will be no mobile app support at that time.

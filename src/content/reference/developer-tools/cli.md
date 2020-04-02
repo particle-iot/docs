@@ -300,6 +300,19 @@ flash myapp.ino for device <deviceid> against Device OS version 0.5.1.
 
 ```
 
+This is also useful for the Xenon, which requires 1.5.x or earlier:
+
+```sh
+$ particle compile xenon --target 1.5.0 my_project
+```
+
+Or the Spark Core, which requires 1.4.4 or earlier:
+
+```sh
+$ particle compile core --target 1.4.4 my_project
+```
+
+
 ## particle project
 
 Use the project structure when you want to use libraries or you want to organize your source code better.

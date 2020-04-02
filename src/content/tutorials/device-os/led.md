@@ -13,7 +13,7 @@ You are viewing the Status LED and Device Modes for the **{{device}}**. To view 
 devices, use the blue device selector below the Particle logo on the left side of the page.
 
 ## Standard Modes
-These modes are the typical behaviors you will see from your {{device}} on a regular basis. They are the light patterns of a healthy {{device}}.
+These modes are the typical behaviors you will see from your device on a regular basis. They are the light patterns of a healthy device.
 
 Here's the typical pattern of {{a-device}} after power up.
 
@@ -46,14 +46,14 @@ Here's the typical pattern of {{a-device}} after power up.
 
 {{device-animation device "breathe" "cyan" }}
 
-When it is breathing cyan, your {{device}} is happily connected to the Internet. When it is in this mode, you can call functions and flash code.
+When it is breathing cyan, your device is happily connected to the Internet. When it is in this mode, you can call functions and flash code.
 
 
 ### OTA Firmware Update
 
 {{device-animation device "blink" "magenta" }}
 
-If your {{device}} is blinking magenta (red and blue at the same time), it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from the Web IDE or Desktop IDE. You might see this mode when you connect your {{device}} to the cloud for the first time.
+If your device is blinking magenta (red and blue at the same time), it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from the Web IDE or Desktop IDE. You might see this mode when you connect your device to the cloud for the first time.
 
 Note that, if you enter this mode by holding `{{system-button}}` on boot, blinking magenta indicates that letting go of the `{{system-button}}` button will enter safe mode to connect to the cloud and not run application firmware.
 
@@ -62,20 +62,20 @@ Note that, if you enter this mode by holding `{{system-button}}` on boot, blinki
 {{device-animation device "blink" "lime" }}
 
 {{#if has-wifi}}
-If your {{device}} is blinking green, it is trying to connect to Wi-Fi.
+If your device is blinking green, it is trying to connect to Wi-Fi.
 
 {{collapse op="start" label="More information"}}
 
-If you are unable to get past blinking green, here are a few known working situations that the {{device}} is not compatible with:
+If you are unable to get past blinking green, here are a few known working situations that the device is not compatible with:
 
 {{#if photon}}
 - If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](https://support.particle.io/hc/en-us/articles/360039741153/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 {{/if}} 
 
 
-- If you are using a network that takes you to a web page where you need to either sign in or agree to terms and service when you first connect, using the {{device}} directly will be difficult or impossible. This is the case in some hotels and public Wi-Fi networks and is often referred to as Captive Portal.
+- If you are using a network that takes you to a web page where you need to either sign in or agree to terms and service when you first connect, using the device directly will be difficult or impossible. This is the case in some hotels and public Wi-Fi networks and is often referred to as Captive Portal.
 
-- If your Wi-Fi network uses 5 GHz only, instead of the more common 2.4 GHz, the {{device}} cannot be used. The Wi-Fi radio is only compatible with 2.4 GHz networks.
+- If your Wi-Fi network uses 5 GHz only, instead of the more common 2.4 GHz, the device cannot be used. The Wi-Fi radio is only compatible with 2.4 GHz networks.
 
 {{#if photon}}
 - If your Wi-Fi network uses 802.11n only mode (does not support 802.11b, 802.11g, or a combination of b, g, and n), it's not currently possible to connect a Photon or P1 to the network if the device is running Device OS 0.7.0 or later.
@@ -83,22 +83,22 @@ If you are unable to get past blinking green, here are a few known working situa
 
 For home users:
 
-- If your router uses WEP encryption, you should upgrade your router to something more secure. However it may be possible to connect your {{device}} with some difficulty by following the [WEP configuration instructions](http://rickkas7.github.io/wep/).
+- If your router uses WEP encryption, you should upgrade your router to something more secure. However it may be possible to connect your device with some difficulty by following the [WEP configuration instructions](http://rickkas7.github.io/wep/).
 
 And the less common situations:
 
 - If you get fast blinking green, especially in classroom and hack-a-thon type situations, it is possible that your network has run out of DHCP IP addresses.
 
-- If your Wi-Fi network does not support DHCP, and only uses static IP addresses, it is possible, though somewhat difficult, to set up a {{device}}. You will need to flash a program by USB to set the IP address.
+- If your Wi-Fi network does not support DHCP, and only uses static IP addresses, it is possible, though somewhat difficult, to set up a device. You will need to flash a program by USB to set the IP address.
 
-- If the Wi-Fi network restricts access to known device Ethernet MAC addresses, you'll need to determine the MAC address and give it to the network administrator. Put the {{device}} in listening mode (blinking dark blue) by holding down the {{system-button}} button, then use the Particle CLI command `particle serial mac`.
+- If the Wi-Fi network restricts access to known device Ethernet MAC addresses, you'll need to determine the MAC address and give it to the network administrator. Put the device in listening mode (blinking dark blue) by holding down the {{system-button}} button, then use the Particle CLI command `particle serial mac`.
 
 {{collapse op="end"}}
 
 {{/if}}
 
 {{#if has-cellular}}
-If your {{device}} is blinking green, it is trying to connect to cellular.
+If your device is blinking green, it is trying to connect to cellular.
 
 {{collapse op="start" label="More information"}}
 
@@ -194,14 +194,14 @@ Still having issues? [Write us an email](https://support.particle.io/hc/) and in
 
 {{device-animation device "blink" "cyan" }}
 
-When the {{device}} is in the process of connecting to the cloud, it will rapidly blink cyan. You often see this mode when you first connect your {{device}} to a network, after it has just blinked green.
+When the device is in the process of connecting to the cloud, it will rapidly blink cyan. You often see this mode when you first connect your device to a network, after it has just blinked green.
 
 ### Listening Mode
 
 {{device-animation device "blink" "blue" 300 300 }}
 
 {{#if electron}}
-The most common cause of blinking dark blue on a {{device}} is a loose SIM card.
+The most common cause of blinking dark blue on a device is a loose SIM card.
 
 {{collapse op="start" label="More information"}}
 
@@ -241,7 +241,7 @@ Still having issues? [Write us an email](https://support.particle.io/hc/) and in
 {{/if}}
 
 {{#if has-gen3}}
-When your {{device}} is in Listening Mode, it is waiting for you to configure your mesh network, or is waiting for configuration by USB serial.
+When your device is in Listening Mode, it is waiting for you to configure your mesh network, or is waiting for configuration by USB serial.
 
 Normally, when you've successfully configured your Gen 3 device using the mobile apps for iOS or Android, the setup complete flag is set and you will exit Listening Mode.
 
@@ -250,16 +250,16 @@ If you have reset your configuration or have set up using USB, you may need to m
 {{else}}
 
 {{#if has-cellular}}
-When your {{device}} is in Listening Mode, it either cannot find the SIM card, or is waiting for configuration by USB serial.
+When your device is in Listening Mode, it either cannot find the SIM card, or is waiting for configuration by USB serial.
 {{/if}}
 
 {{#if has-wifi}}
-When your {{device}} is in Listening Mode, it is waiting for your input to connect to Wi-Fi. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
+When your device is in Listening Mode, it is waiting for your input to connect to Wi-Fi. Your device needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 {{/if}}
 
 {{/if}} {{!-- has-gen3 --}}
 
-To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
+To put your device in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 
 
 
@@ -277,7 +277,7 @@ To put your {{device}} in Listening Mode, hold the `{{system-button}}` button fo
   "off 2000ms"
 }}
 
-Tapping the `{{system-button}}` button on your {{device}} will blink out the bars of signal strength. More blinks indicate a stronger signal.
+Tapping the `{{system-button}}` button on your device will blink out the bars of signal strength. More blinks indicate a stronger signal.
 
 {{/if}}
 
@@ -290,7 +290,7 @@ Tapping the `{{system-button}}` button on your {{device}} will blink out the bar
   "off 4000ms"
 }}
 
-Tapping the `{{system-button}}` button twice on your {{device}} enter soft power off mode. It is the lowest power consumption mode. 
+Tapping the `{{system-button}}` button twice on your device enter soft power off mode. It is the lowest power consumption mode. 
 
 {{/if}}
 
@@ -303,7 +303,7 @@ Tapping the `{{system-button}}` button twice on your {{device}} enter soft power
   "blink blue 50ms 50ms 20 times"
 }}
 
-To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+To erase the stored network settings on your device, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
 - For all Gen 3 devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
 - For the Argon it will also clear Wi-Fi settings.
@@ -318,7 +318,7 @@ To erase the stored network settings on your {{device}}, hold the `{{system-butt
 
 {{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}
 
-To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+To erase the stored Wi-Fi networks on your device, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
 {{/if}}
 
@@ -332,7 +332,7 @@ To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button
 
 {{device-animation device "breathe" "white" }}
 
-If your {{device}} is breathing white, the {{network-type}} module is off. You might see this mode if:
+If your device is breathing white, the {{network-type}} module is off. You might see this mode if:
 
 - You have set your module to `MANUAL` or `SEMI_AUTOMATIC` in your user firmware
 - You have called `Cellular.off()` or `WiFi.off()` in your user firmware
@@ -343,12 +343,12 @@ If your {{device}} is breathing white, the {{network-type}} module is off. You m
 
 {{device-animation device "breathe" "magenta" }}
 
-Safe mode, breathing magenta (red and blue at the same time), connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for
+Safe mode, breathing magenta (red and blue at the same time), connects the device to the cloud, but does not run any application firmware. This mode is one of the most useful for
 development or for troubleshooting. If something goes wrong with the app
 you loaded onto your device, you can set your device to Safe Mode. This
 runs the Device OS but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
 
-**The {{device}} indicates that it is in Safe Mode with the LED breathing magenta.**
+**The device indicates that it is in Safe Mode with the LED breathing magenta.**
 
 To put your device in Safe Mode:
 
@@ -357,7 +357,7 @@ To put your device in Safe Mode:
 3. Wait for the LED to start blinking magenta
 6. Release the `{{system-button}}` button
 
-Before entering safe mode, the {{device}} will proceed through the normal steps of connecting to the cloud; blinking green, blinking cyan, and fast blinking cyan. If you're unable to connect to the cloud, you won't actually end up with breathing magenta, but execution of application firmware will still be blocked - so you are in a "sort-of safe mode" (e.g. to enter "Safe Listening Mode").
+Before entering safe mode, the device will proceed through the normal steps of connecting to the cloud; blinking green, blinking cyan, and fast blinking cyan. If you're unable to connect to the cloud, you won't actually end up with breathing magenta, but execution of application firmware will still be blocked - so you are in a "sort-of safe mode" (e.g. to enter "Safe Listening Mode").
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
@@ -370,7 +370,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 {{device-animation device "blink" "yellow" }}
 
-If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](https://support.particle.io/hc/en-us/articles/360039251394/)
+If you wish to program your device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](https://support.particle.io/hc/en-us/articles/360039251394/)
 
 Installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
@@ -389,7 +389,7 @@ To enter DFU Mode:
 {{/if}}
 
 
-The {{device}} now is in the DFU mode.
+The device now is in the DFU mode.
 
 DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](https://support.particle.io/hc/en-us/articles/360039251394/).
 
@@ -399,7 +399,7 @@ Some users have reported issues with dfu-util on a USB3 ports (typically the blu
 ### Firmware Reset
 
 {{#if photon}}
-Firmware reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
+Firmware reset is not available on the device, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 The [Particle CLI](/tutorials/developer-tools/cli/) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
 
@@ -504,7 +504,7 @@ This will:
 
 {{else}}
 
-Factory reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
+Factory reset is not available on this device, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 {{#if photon}}
 You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
@@ -526,14 +526,14 @@ particle device doctor
 
 ## Troubleshooting Modes
 
-These modes let you know about more atypical issues your {{device}} might be exhibiting. Use this section to troubleshoot strange colors you might see from your {{device}}.
+These modes let you know about more atypical issues your device might be exhibiting. Use this section to troubleshoot strange colors you might see from your device.
 
 {{#if electron}}
 ### Cellular Module Not Connected
 
 {{device-animation device "breathe" "blue" }}
 
-If the Cellular module is on but not connected to a cellular tower, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
+If the Cellular module is on but not connected to a cellular tower, your device will be breathing blue. Note that this will be dark blue and not cyan.
 {{/if}}
 
 {{#if photon}}
@@ -541,7 +541,7 @@ If the Cellular module is on but not connected to a cellular tower, your {{devic
 
 {{device-animation device "breathe" "blue" }}
 
-If the Wi-Fi module is on but not connected to a network, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
+If the Wi-Fi module is on but not connected to a network, your device will be breathing blue. Note that this will be dark blue and not cyan.
 {{/if}}
 
 
@@ -549,17 +549,17 @@ If the Wi-Fi module is on but not connected to a network, your {{device}} will b
 
 {{device-animation device "breathe" "lime" }}
 
-When your {{device}} is connected to {{network-type}} but not to the cloud, it will be breathing green.
+When your device is connected to {{network-type}} but not to the cloud, it will be breathing green.
 
 {{collapse op="start" label="More information"}}
 
-#### I can't flash my {{device}} anymore
+#### I can't flash my device anymore
 
-Breathing green means that {{network-type}} is on, but you're not connected to the Particle cloud. Because of this, you cannot flash your {{device}} from the cloud. That includes Particle Build (Web IDE), Particle Workbench, and Particle CLI cloud-based flashing commands.
+Breathing green means that {{network-type}} is on, but you're not connected to the Particle cloud. Because of this, you cannot flash your device from the cloud. That includes Particle Build (Web IDE), Particle Workbench, and Particle CLI cloud-based flashing commands.
  
 Fortunately, you can usually get around this by entering safe mode, breathing magenta.
 
-Hold down {{reset-button}} and {{system-button}}, release {{reset-button}} and continue to hold down {{system-button}} until the {{device}} blinks magenta, then release {{system-button}}. The device will then go through the normal sequence of colors: blinking green, blinking cyan, fast blinking cyan, then breathing magenta. Once breathing magenta, you should be able to OTA flash again.
+Hold down {{reset-button}} and {{system-button}}, release {{reset-button}} and continue to hold down {{system-button}} until the device blinks magenta, then release {{system-button}}. The device will then go through the normal sequence of colors: blinking green, blinking cyan, fast blinking cyan, then breathing magenta. Once breathing magenta, you should be able to OTA flash again.
 
 But to get rid of the breathing green, you'll probably need to make some changes to your code.
 
@@ -664,7 +664,7 @@ While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
 
 Most keys related issues can be resolved using the [Particle CLI](/tutorials/developer-tools/cli/).
 
-Put the {{device}} into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
+Put the device into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
 
 ```
 particle identify
@@ -672,7 +672,7 @@ particle identify
 
 Save the Device ID; you’ll need it later.
 
-Then put the {{device}} in DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow and issue the commands below, in order.
+Then put the device in DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow and issue the commands below, in order.
 
 ```
 particle keys server
@@ -701,7 +701,7 @@ There are additional tips for a [missing openssl error on this page](https://git
 
 {{device-animation device "sos" }}
 
-Is your {{device}} blinking red? Oh no!
+Is your device blinking red? Oh no!
 
 A pattern of more than 10 red blinks is caused by the firmware crashing. The pattern is 3 short blinks, 3 long blinks, 3 short blinks (SOS pattern), followed by a number of blinks that depend on the error, then the SOS pattern again.
 
@@ -746,14 +746,14 @@ Some causes of hard fault include:
 
 {{device-animation device "sos" 8 }}
 
-If your {{device}} crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/tutorials/device-os/led/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
+If your device crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/tutorials/device-os/led/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
 
 ```
 particle flash <mydevice> tinker
 ```
 
 {{#if has-device-doctor}}
-If it's not possible to enter Safe Mode, your Device OS may be corrupted.  Use the Device Doctor feature of the CLI to put your {{device}} into a healthy state.
+If it's not possible to enter Safe Mode, your Device OS may be corrupted.  Use the Device Doctor feature of the CLI to put your device into a healthy state.
  
 ```
 particle device doctor
@@ -808,9 +808,9 @@ In most cases, solid colors are the side effect of a bug. If code crashes or inf
 ### No status LED
 
 {{#if has-stm32}}
-If you power up your {{device}} and the status LED never comes on and the small blue led next to pin D7 is on dimly, you have a missing or corrupted bootloader.
+If you power up your device and the status LED never comes on and the small blue led next to pin D7 is on dimly, you have a missing or corrupted bootloader.
 {{else}}
-If you power up your {{device}} and the status LED never comes on, you could have a missing or corrupted bootloader. 
+If you power up your device and the status LED never comes on, you could have a missing or corrupted bootloader. 
 
 - Unplug the USB (and battery, if you are using one)
 - Hold down the SETUP button while plugging in the USB power
