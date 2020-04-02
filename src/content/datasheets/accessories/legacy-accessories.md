@@ -677,9 +677,11 @@ Assembly:
 
 ![Asset Tracker with Electron](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-electron.png)
 
-The Asset Tracker is a cellular solution for tracking the location of just about anything! The included shield has a GPS module and an accelerometer, so you can make projects that use location, orientation, and movement. Report vibration as you drive around, save power by keeping the cell modem and GPS off if the device isn't moving, or track boxes. Also has a screw terminal for adding another power source and a connector for adding an external GPS antenna if it's going to be inside something. Designed by Adafruit!
+**The Electron AssetTracker has been deprecated. You can continue to use your Electron AssetTracker, but new units will not be manufactured and it will likely not have future software updates.**
 
-### Using the Asset Tracker
+The Electron Asset Tracker is a cellular solution for tracking the location of just about anything! The included shield has a GPS module and an accelerometer, so you can make projects that use location, orientation, and movement. Report vibration as you drive around, save power by keeping the cell modem and GPS off if the device isn't moving, or track boxes. Also has a screw terminal for adding another power source and a connector for adding an external GPS antenna if it's going to be inside something. Designed by Adafruit!
+
+### Using the Electron Asset Tracker
 
 ![Asset Tracker Description](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-descriptions.png)
 
@@ -764,7 +766,7 @@ Examples:
 | v002 | TBD | TBD | TBD  |
 | | | | | |
 
-### Know hardware issues
+### Known hardware issues
 
 | Revision | Date | Author | Comments |
 |:-:|:-:|:-:|:-|
@@ -775,9 +777,11 @@ Examples:
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset.png)
 
+**The Electron AssetTracker v2 has been deprecated. You can continue to use your Electron AssetTracker, but new units will not be manufactured and it will likely not have future software updates.**
+
 This new revision of the Electron Asset Tracker uses a u-blox M8 engine GNSS receiver. Unlike the v1, this module is capable of receiving 3 GNSS (GPS, Galileo, GLONASS, BeiDou) concurrently. We have also added a low noise amplifier and a band pass filter for improved performance with the on-board antenna.
 
-### Using the Asset Tracker
+### Using the Electron Asset Tracker
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-description.png)
 
@@ -817,7 +821,7 @@ You can choose to mount the asset tracker board inside the provided enclosure as
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-enclosure.png)
 
-### Asset Tracker Library
+### Electron Asset Tracker Library
 We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.10/tab/example/1_GPS_Features.ino) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:

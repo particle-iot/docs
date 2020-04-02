@@ -79,9 +79,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef01234567/brew \
 # LESSON: Protect your access token.
 ```
 
-Your access token can be found in the Particle Build web IDE on the 'Settings' page.
-
-[Particle Build >](https://build.particle.io)
+You can create an access token using [the Particle CLI](/reference/developer-tools/cli/#particle-token-create).
 
 When you connect your Particle device to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Particle device—using your access token.
@@ -224,7 +222,7 @@ we'll give you lots of notice and a clear upgrade path.
 
 ## Devices
 
-Note: The connected or online state of devices is not always accurate. When a Wi-Fi device is unplugged, for example, it may still be listed as online when not. For cellular (Electron, E Series) and Gen 3 (Argon or Boron) devices, the connected or online state is set to true on the first connection and never set to false again.
+Note: Cellular devices may indicate that the device is online for up to 46 minutes after the device has gone offline because it went out of range or was powered off. Wi-Fi devices will generally be accurate to within a few minutes. Online indications are should occur immediately if the device was previously offline for both cellular and Wi-Fi.
 
 {{> api group=apiGroups.Devices}}
 ## Remote Diagnostics

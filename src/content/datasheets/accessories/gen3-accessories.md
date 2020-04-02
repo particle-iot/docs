@@ -308,7 +308,7 @@ The short side (12-pin header on the top) has the pins arranged like this, left 
 
 #### Substituting for an Electron
 
-Take, for example, the AssetTracker V2 with an Electron:
+Take, for example, the Electron AssetTracker V2 with an Electron:
 
 ![AssetTracker with Electron](/assets/images/accessories/assettracker-electron.jpg)
 
@@ -316,7 +316,7 @@ To substitute a Boron, you'd use the classic adapter like this:
 
 ![AssetTracker with Electron](/assets/images/accessories/assettracker-classic.jpg)
 
-Note that you will not be able to use the LIS3DH accelerometer because it connects by SPI and the SPI pins are not mapped in a usable way with the classic adapter!
+Note that you will not be able to use the LIS3DH accelerometer because it connects by SPI and the SPI pins are not mapped in a usable way with the classic adapter! You will also need to connect pin D6 to GND, which will cause the GPS to always be powered on. The reason is that if you turn the GPS on in software, the rush of current into it causes the nRF52 MCU to brown out and reset. If you turn them both on at the same time, both will successful start up.
 
 #### Substituting for an Photon
 
@@ -410,7 +410,7 @@ It also provides a USB to TTL serial port. This requires no device drivers on Ma
 
 Comes with one JTAG ribbon cable.
 
-For more information about debugging see the [JTAG FAQ](/support/particle-tools-faq/jtag/). Future version of Particle Workbench will support the Particle Debugger as well. The design is open source and the design files are available [here](https://github.com/particle-iot/debugger).
+For more information about debugging see the [JTAG FAQ](https://support.particle.io/hc/en-us/articles/360039251414/). Future version of Particle Workbench will support the Particle Debugger as well. The design is open source and the design files are available [here](https://github.com/particle-iot/debugger).
 
 ### Debugging Gen 3 devices
 
@@ -434,6 +434,10 @@ With the debugger positioned like this, USB connector toward you and the headers
 | TX  | NC    |  
 | CTS | GND   | 
 | GND | VUSB  |
+
+The RX and TX pins are only available on the debugger header pins and are not connected to the Argon or Boron RX and TX pins.
+
+The RTS and CTS (hardware flow control pins) are not currently supported by the debugger firmware and cannot be used.
 
 In order to use SWD debugging you need to connect:
 

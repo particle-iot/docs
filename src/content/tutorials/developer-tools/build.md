@@ -46,7 +46,7 @@ At the bottom, there are four more buttons to navigate through the IDE:
 - **Library**: Explore libraries submitted by other users, and develop your own.
 - **Docs**: Brings you to the documentation for Particle.
 - **Devices**: Shows a list of your devices, so you can choose which to flash, and get more information on each device.
-- **Settings**: Change your password, log out, or get your access token for API calls.
+- **Settings**: Change your password or log out.
 
 Keyboard Shortcuts
 ---
@@ -165,8 +165,6 @@ Unclaiming a cellular device removes it from your account, but does not stop bil
 
 ![Particle Build](/assets/images/ide-settings.png)
 
-- **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Particle-powered projects!
-
 
 Using Libraries
 ---
@@ -240,7 +238,7 @@ Clicking the `Confirm` button will bring you back to your Particle project. The 
 Contribute a library
 ---
 
-This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/tutorials/device-os/libraries/#contributing-libraries) to find more about contributing a library.
+This functionality was moved to the Command Line Interface (CLI). You can follow [this link](/tutorials/device-os/libraries/#contributing-libraries) to find more about contributing a library.
 
 Checking code memory usage
 ---

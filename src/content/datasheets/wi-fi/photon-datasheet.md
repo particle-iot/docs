@@ -146,9 +146,9 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 ### External Coexistence Interface
 
-**Note:** Currently this interface is unsupported. If you need this feature for a product, please [contact Particle](/support/menu-base/).
+**Note:** This interface is not supported by the P0 module and cannot be used.
 
-The Photon supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
+There are three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
 
 <div align=center><img src="/assets/images/photon_bt_coex.png" width=400></div>
 
@@ -568,7 +568,8 @@ The Photon comes preprogrammed with a bootloader and a user application called T
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](/tutorials/developer-tools/cli/) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/particle-iot/device-os), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/tutorials/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
+
 
 ## Glossary
 
@@ -676,7 +677,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v013 | 7-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, more descriptive info about bottom side pads, known errata URL. Updated: BT COEX info, pin diagram, block diagram, operating conditions, pin descriptions, land-pattern image signal keepout note.
 | v014 | 13-September-2016 | BW | Updated Mating connectors section. |
 | v015 | 25-July-2017 | BW | Updated the Pin Description section and added high resolution pinout PDF, PWM notes and DCT layout, added warning to power section |
-| v016 | 31-May-2018 | BW | Updated External Coexistence Interface section (currently unsupported) |
+| v016 | 31-May-2018 | BW | Updated External Coexistence Interface section (unsupported) |
 
 ## Known Errata
 

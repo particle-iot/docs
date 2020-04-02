@@ -63,7 +63,7 @@ Particle's OTA updates have been built from the ground up to be reliable and res
 
 - **Automatic rollbacks**: If for some reason an OTA is interrupted (like a disruption in connectivity or a device losing power), the device will fail gracefully by automatically reverting to the previous version of working firmware.
 
-- **Minimal disruption**: A Particle device continues to run its current version of firmware while it receives an OTA update. After a brief reset, the device seamlessly begins running the new firmware.
+- **Minimal disruption**: A Particle device continues to run its current version of firmware while it receives an OTA update. After a brief reset, the device seamlessly begins running the new firmware. If at this point the version of Device OS running on the device is older than the minimum version of Device OS to run the user application, the device will enter safe mode and download the required Device OS. Once this is complete, the device will reset and begin running the new firmware on the updated Device OS.
 
 - **Application and Device OS version management**: Particle's OTA
 capabilities make it easy to manage _both_ the firmware applications
@@ -283,7 +283,10 @@ but we also recommend [**locking one or more devices**](/tutorials/device-cloud/
 to the newly updated firmware and ensure that it re-connects
 successfully to the cloud. This is because locking more closely
 represents a release action, with the specific firmware being delivered
-to a product device.
+to a product device. If you find a problem at this step, [delete the
+firmware version, recompile it and reupload it](/tutorials/device-cloud/console/#uploading-firmware).
+It is only possible to delete a firmware version before marking it as
+released.
 
 4. [**Mark the firmware as released**](/tutorials/device-cloud/console/#releasing-firmware). This will
 target product devices to automatically download and run the firmware.

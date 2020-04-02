@@ -186,6 +186,8 @@ list and select "Set data limit."
 <p class="caption">You can easily override the default data limit for an
 individual SIM using the Console</p>
 
+Cellular data usage can take 24 hours to be reported and in some cases longer. Your SIM may consume data in excess of the cap in this case.
+
 ## Monitoring your fleet
 
 Another major benefit of SIM management within a product is gaining

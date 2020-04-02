@@ -27,7 +27,12 @@ function collapseToggle(id) {
 	}
 }
 
-function collapseSelector(genericCssClass, switchTo) {
+function collapseSelector(event, genericCssClass, switchTo) {
+
+	if (event.altKey) {
+		$('span.' + genericCssClass + 'optionHide').show();			
+	}
+
 	$('div.' + genericCssClass).hide();
 	$('div.' + genericCssClass + switchTo).show();			
 

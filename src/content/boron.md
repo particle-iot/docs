@@ -4,11 +4,11 @@ layout: landing.hbs
 description: Particle Boron, Gen 3 cellular and BLE
 ---
 
-# Particle Boron: LTE + Bluetooth
+# Particle Boron: LTE Cat M1 + Bluetooth
 
 ![Image of the Boron Kit](/assets/images/boron-kit-docs-crop.jpg)
 
-The Boron LTE is a powerful LTE CAT-M1 enabled development kit for cellular networks.
+The Boron LTE is a powerful LTE Cat M1 enabled development kit for cellular networks.
 
 Equipped with the Nordic nRF52840 and u-blox SARA 410 processors, the Boron has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
 
@@ -25,7 +25,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 - [Quickstart with starter project](/quickstart/boron/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io/c/hardware)
-- [Support](/support/menu-base/)
+- [Support](https://support.particle.io/hc/)
   {{box op="switch"}}
   **Resources:**
 - [Hardware files](https://github.com/particle-iot/boron)
@@ -53,9 +53,9 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Cellular network coprocessor:
 
-**u-blox SARA R410 LTE modem**
+**u-blox SARA R410 LTE Cat M1 modem**
 
-- LTE CAT M1 module with global hardware support (MVNO support for US only)
+- LTE Cat M1 module with global hardware support (MVNO support for US only)
 - 3GPP Release 13 LTE Cat M1
 
 ### General specifications:

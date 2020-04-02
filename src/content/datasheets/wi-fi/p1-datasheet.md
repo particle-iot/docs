@@ -153,9 +153,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 ### External Coexistence Interface
 
-**Note:** Currently this interface is unsupported. If you need this feature for a product, please [contact Particle](/support/menu-base/).
-
-The P1 supports coexistence with Bluetooth and other external radios via three pins available on the P1 module.
+**Note:** This interface is not supported by the P1 module and cannot be used.
 
 When two radios occupying the same frequency band are used in the same system, such as Wi-Fi and Bluetooth, a coexistence interface can be used to coordinate transmit activity, to ensure optimal performance by arbitrating conflicts between the two radios.
 
@@ -565,7 +563,7 @@ The P1 module comes pre-programmed with a bootloader and a user application call
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://build.particle.io/) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](/tutorials/developer-tools/cli/) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC tool chain for ARM](https://github.com/particle-iot/device-os), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air). [Particle Workbench](/quickstart/workbench/) is a full-featured desktop IDE for Windows, Mac, and Linux based on VSCode and supports both cloud-based and local gcc-arm compiles. The [Particle CLI](/tutorials/developer-tools/cli/) provides a command-line interface for cloud-based compiles and flashing code over USB.
 
 ## Glossary
 
@@ -660,7 +658,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v007 | 20-September-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), can use now as P1S6 if enabled.  Updated Pinmap and added P1S6.  Updated Pin Description and Peripherals and GPIO. |
 | v008 | 25-July-2017 | BW | Added note to clarify MICRO_SPI1_SS label, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI and SPI1), updated the Pin Description section and added high resolution pinout PDF, updated PWM notes, JTAG_TDO pin number (54 -> 52), block diagram and DCT layout, added warning to power section |
 | v009 | 30-August-2017 | BW | Added part number for 1MB external SPI flash (MX25L8006E) |
-| v010 | 31-May-2018 | BW | Updated External Coexistence Interface section (currently unsupported) |
+| v010 | 31-May-2018 | BW | Updated External Coexistence Interface section (unsupported) |
 
 ## Known Errata
 

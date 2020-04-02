@@ -434,7 +434,7 @@ The [Adafruit Ultimate GPS FeatherWing](https://www.adafruit.com/product/3133) p
 
 The PA6H GPS chip connects to Serial1 (RX and TX). You can use either of these libraries (only include one):
 
-- The official "AssetTracker" library
+- The official Electron "AssetTracker" library
 - The "[AssetTrackerRK](https://github.com/rickkas7/AssetTrackerRK)" library
 
 Sample code for the GPS with LCD display can be [found here](https://go.particle.io/shared_apps/5c2f372ae71c123a8b00125e).

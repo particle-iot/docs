@@ -46,7 +46,7 @@ The Global Positioning System (GPS) is generally the most accurate and
 it can provide device location continuously. Under normal conditions,
 GPS can locate a device with an accuracy of ~4 meters.
 
-While very accurate, the disadvantage is that GPS requires additional hardware like the Particle [Asset Tracker module](https://www.particle.io/products/hardware/asset-tracker). It may also take some time to establish a satellite fix, and may have trouble establishing a location where the view is obstructed, such as downtown in cities.
+While very accurate, the disadvantage is that GPS requires additional hardware like the Particle [Electron Asset Tracker module](https://www.particle.io/products/hardware/asset-tracker). It may also take some time to establish a satellite fix, and may have trouble establishing a location where the view is obstructed, such as downtown in cities.
 
 The Particle + Google Maps integration does not use GPS, but rather
 cell towers or Wi-Fi networks to geolocate a device. Read on for a
@@ -310,15 +310,6 @@ particle flash --usb firmware.bin
 This will flash the firmware to your electron locally (over USB) to
 prevent consuming data from over-the-air firmware updates.
 
-### Using Particle Dev (Local IDE)
-
-It's also easy to open this example using Particle Dev (Local IDE).
-
-![Particle DEV](/assets/images/google-maps-18.png)
-
-Makes sure you have a recent version of Particle Dev, as older versions don't know how to automatically load libraries. 
-
-Also, you want to make sure you close all open windows, then open the .cpp file for the example you want to use. For example, the oled-locator.cpp file. You want to make sure that only a single project is visible in the left-hand folder navigation.
 
 ### Using Particle Build (Web IDE)
 

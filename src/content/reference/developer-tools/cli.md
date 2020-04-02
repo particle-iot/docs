@@ -14,11 +14,15 @@ For information on how to install the Particle CLI, see the [CLI guide](/tutoria
 
 ## particle setup
 
-  Everything you need to get started using a Particle device from the command line. Create an account or log in, set up Wi-Fi to a device and claim the device to your Particle account.
+  Everything you need to get started using a Particle Photon or P1 device from the command line. Create an account or log in, set up Wi-Fi to a device and claim the device to your Particle account.
 
 ```sh
 $ particle setup
 ```
+
+To set up a cellular device (Electron, Boron, B Series SoM), go to [setup.particle.io](https://setup.particle.io) or use the mobile apps.
+
+To set up an Argon, see [particle serial wifi](#particle-serial-wifi) or use the mobile apps.
 
 ## particle login
 
@@ -231,11 +235,10 @@ $ particle flash --usb firmware.bin
   - core ('c')
   - electron ('e')
   - p1
-  - duo ('d')
-  - oak ('o')
-  - bluz ('b')
-  - bluz-gateway ('bg')
-  - bluz-beacon ('bb')
+  - argon
+  - boron
+  - bsom (B Series SoM)
+
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 
@@ -296,6 +299,19 @@ $ `particle flash <deviceid> myapp.ino --target 0.5.1` would compile and
 flash myapp.ino for device <deviceid> against Device OS version 0.5.1.
 
 ```
+
+This is also useful for the Xenon, which requires 1.5.x or earlier:
+
+```sh
+$ particle compile xenon --target 1.5.0 my_project
+```
+
+Or the Spark Core, which requires 1.4.4 or earlier:
+
+```sh
+$ particle compile core --target 1.4.4 my_project
+```
+
 
 ## particle project
 
@@ -573,10 +589,10 @@ $ particle publish eventName someData --private
 
 ### particle serial wifi
 
-Configure Wi-Fi credentials over serial
+Configure Wi-Fi credentials over serial on the Photon, P1, and Argon.
 
 ```sh
-# Configure new Wi-Fi credentials for a Photon over a serial connection
+# Configure new Wi-Fi credentials for a Photon or Argon over a serial connection
 $ particle serial wifi
 ```
 
@@ -738,6 +754,17 @@ Reset a device or multiple devices
 particle usb reset [devices...] [--all]
 ```
 
+### particle usb setup-done
+
+On the Argon and Boron, the setup done flag indicates that mesh setup has been complete. This is set automatically by the mobile apps, however if you are setting up manually over USB, you will need to set the setup done flag, otherwise the device will always boot into listening mode (blinking dark blue).
+
+```
+particle usb setup-done [devices...] [--reset]
+```
+
+The `--reset` command clears the setup done flag, so the device will resume booting into listening mode.
+
+
 ### particle usb configure
 
 Install udev rules for Particle USB devices (Linux-only)
@@ -745,6 +772,7 @@ Install udev rules for Particle USB devices (Linux-only)
 ```
 particle usb configure
 ```
+
 
 ## particle update
 
@@ -970,7 +998,7 @@ New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
 		da39a3ee5e6b4b0d3255bfef95601890afd80709
 ```
 
-In order to change the duration a token is valid, use `--expires-in <seconds>` option.
+In order to change the duration a token is valid, use `--expires-in <seconds>` option. The default if not specified is 90 days.
 
 ```sh
 $ particle token create --expires-in 600

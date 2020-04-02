@@ -14,7 +14,7 @@ The Particle Boron is a cellular and Bluetooth development kit designed for buil
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/?family=mesh&device=boron"  target="_blank" class="button">SET UP YOUR BORON</a>
 </div>
 
 ### The Boron Kit comes with the following things:
@@ -37,7 +37,7 @@ The Particle Boron is a cellular and Bluetooth development kit designed for buil
 
 For a short (~4 min) overview of what the Boron setup process looks like, watch the video below.
 
-<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/ZpO0foGJ9Po" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/xymSayKBGbg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Once you're ready to proceed, use the online setup application to configure your new Boron. The process includes the following.
 
@@ -57,7 +57,7 @@ To begin setting up your Boron, click the button below and follow the onscreen i
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Boron, skip to Step #2.<br /><br />
-2.) We recommend setting up the Argon as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
+2.) We recommend setting up the Boron as stanadalone device, not as a part of a mesh network. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
 {{box op="end"}}
 
@@ -74,7 +74,7 @@ To program your Boron, open a new browser tab and go to the <a target="_blank" h
 
 The Web IDE is one of the ways you can write, compile, and deploy code to your Particle devices.
 
-If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench], a full toolchain integration with Microsoft Visual Studio Code.
+If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench](/tutorials/developer-tools/workbench/), a full toolchain integration with Microsoft Visual Studio Code.
 {{box op="end"}}
 
 ---
@@ -101,13 +101,8 @@ The Web IDE can be used with multiple devices. As such, when you go to compile s
 
 Click the lightning bolt icon on the top left of your screen to flash your code to your device.
 
-As soon as you click, the Particle Device cloud will compile the program source code to a binary file and send it over-the-air (OTA) to your Argon.
+As soon as you click, the Particle Device cloud will compile the program source code to a binary file and send it over-the-air (OTA) to your Boron.
 
-{{box op="start"}}
-**NOTE:**
-
-You'll often see words like flashing and deploying used interchangeably.
-{{box op="end"}}
 
 ---
 

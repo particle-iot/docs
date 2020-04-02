@@ -334,7 +334,7 @@ particle.getEventStream(options).then(function(stream) {
 Register an event stream in the Particle cloud with [`publishEvent`](#publishevent)
 
 ```javascript
-var publishEventPr = particle.publishEvent({ name: 'test', data: {}, auth: token });
+var publishEventPr = particle.publishEvent({ name: 'test', data: JSON.stringify({ ok: true }), auth: token });
 
 publishEventPr.then(
   function(data) {

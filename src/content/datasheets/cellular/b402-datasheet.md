@@ -1,12 +1,12 @@
 ---
-title: B Series datasheet
+title: B Series B402 datasheet
 layout: datasheet.hbs
 columns: two
 order: 2
-description: Datasheet for the Particle B Series SoM, Gen 3 cellular
+description: Datasheet for the Particle B Series B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B402 Datasheet <sup>(001)</sup>
+# B402 Datasheet <sup>(003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b-series-datasheet.pdf"}}
@@ -26,8 +26,8 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Features
 
- * u-blox SARA-R410-02B LTE modem (Boron LTE)
-  * LTE CAT M1 module with global hardware support (MVNO support for US only) 
+ * u-blox SARA-R410-02B LTE modem
+  * LTE Cat M1 module with global hardware support (MVNO support for US only) 
   * 3GPP Release 13 LTE Cat M1 
   * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
  * Nordic Semiconductor nRF52840 SoC 
@@ -129,7 +129,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 Pins SOM0 to SOM9 will vary across various SoM modules. For example, cellular-specific pins exists in this range. 
 
-Additionally there are reserved pins, whose functions vary depending on the SoM. For example, nRF52 MCU-based modules use some of these pins for additional ADC and GPIO.
+Additionally there are RESERVED<sup>3</sup> pins, whose functions vary depending on the SoM. For example, nRF52 MCU-based modules use some of these pins for additional ADC and GPIO. They are able to be used as described on the B402, but their function may be be different on future modules.
 
 For maximum cross-module flexibility, you should try to use only the common pins when possible.
 
@@ -209,7 +209,7 @@ For maximum cross-module flexibility, you should try to use only the common pins
 
 <sup>2</sup>A0-A7 are 12-bit Analog-to-Digital (A/D) inputs (0-4095).
 
-<sup>3</sup>SoM-specific and Reserved pins will vary depending on module.
+<sup>3</sup>SoM-specific and Reserved pins will vary depending on module. They are able to be used on the B402, but their function may be be different on future modules.
 
 ### LED status
 
@@ -385,7 +385,9 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 ![Bottom](/assets/images/b-series/b-series-screw-bottom.jpg)
 
-- As these parts may be difficult to source, for prototyping you can use a M3 screw, 6.5mm long, and a M3 nut. Use a 3mm non-plated hole in the base board. Note that a screw is required, as the M.2 connector does not self-lock.
+- An [alternative design](/tutorials/hardware-projects/som-first-board/#hold-down-screw) uses a [JAE SM3ZS067U410-NUT1-R1200](https://www.digikey.com/product-detail/en/jae-electronics/SM3ZS067U410-NUT1-R1200/670-2865-1-ND/5955849) standoff. It's reflow soldered to your base board and has a threaded hole for a M2*3 screw to hold down the SoM. This may be easier to obtain.
+
+- Note that a hold-down screw is required because the M.2 connector does not have integrated locks and the SoM will pop up if not attached to the base board.
 
 ### Design Considerations
 
@@ -401,7 +403,7 @@ The B series contains highly sensitive electronic circuitry and is an Electrosta
 
 ### Connectors
 
-The U.FL antenna connectors are a very fragile piece of hardware (and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the B series by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
+The U.FL antenna connector is not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used securely hold the plug in place.
 
 The M.2 edge connector is static sensitive and should be handled carefully. The M.2 connector is not designed for repeated removal and insertion of the module.
 
@@ -439,4 +441,5 @@ The bootloader allows you to easily update the user application via several diff
 |:---------|:-----|:-------|:---------|
 | 001      | 29 Apr 2019 | RK | Initial Release |
 | 002      | 03 Feb 2020 | RK | Fixed number of I2C, SPI, and PWM |
+| 003      | 18 Feb 2020 | RK | Keep-out diagram M.2 connector was upside-down |
 

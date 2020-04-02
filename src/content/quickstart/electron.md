@@ -2,7 +2,7 @@
 title: Electron
 layout: quickstart.hbs
 columns: two
-order: 7
+order: 9
 setdevice: electron
 description: Getting started with your Particle Electron, Gen 2 cellular device
 ---
@@ -15,7 +15,7 @@ description: Getting started with your Particle Electron, Gen 2 cellular device
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ELECTRON</a>
+<a href="https://setup.particle.io/?family=electroneseries&device=electron"  target="_blank" class="button">SET UP YOUR ELECTRON</a>
 </div>
 
 <h3 id="what-39-s-all-here-">What&apos;s all here?<a href="#what-39-s-all-here-" class="header-permalinks"><i class="ion-link"></i></a></h3><p><span class="popupLink"><strong>The Cellular Module.</strong><span class="popup"><img src="/assets/images/electronUblox.jpg" style="margin:auto; max-width:100%"></span></span>
@@ -58,7 +58,7 @@ There are several awesome buttons and LEDs on your Electron to make it easier to
 <ul>
 <li><strong>Software</strong><ul>
 <li>The <a href="http://build.particle.io" target="_blank" rel="noopener noreferrer">online IDE</a></li>
-<li>or the local <a href="http://particle.io/dev" target="_blank" rel="noopener noreferrer">Particle Dev</a></li>
+<li>or [Particle Workbench](/quickstart/workbench/)</li>
 </ul>
 </li>
 <li><strong>Experience</strong><ul>

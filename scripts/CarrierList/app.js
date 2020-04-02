@@ -38,6 +38,9 @@ var countryList = [];
 // Country data object. Key is the normalized country name.
 var countryData = {};
 
+// Country to region map. Key is the country record ID. Value is a region record ID.
+var countryRegionMap = {};
+
 // Map planName recordID to the plan name. Key is record ID.
 var planNameMap = {};
 
@@ -57,6 +60,16 @@ var has2GMap = {};
 
 // Map of SKU record ID to SKU name. Key is record ID.
 var skuNameMap = {};
+
+// Map of Region record ID to region name. Key is region record ID.
+var regionNameMap = {};
+
+// Map of Region record ID to region parent. Key is region record ID.
+var regionParentMap = {};
+
+// Sunset information
+var sunset2g = {};
+var sunset3g = {};
 
 // Start by getting the plans. The other operations are chained off the completion of that.
 getPlans();
@@ -82,7 +95,32 @@ function getPlans() {
 	}, function done(err) {
 	    if (err) { console.error(err); return; }
 	    
-	    getSKUs();
+	    getRegions();
+	});
+}
+
+function getRegions() {
+	base('Region').select({
+	    maxRecords: 100,
+	    fields: ['Name','Parent']
+	}).eachPage(function page(records, fetchNextPage) {
+	    // This function (`page`) will get called for each page of records.
+	
+	    records.forEach(function(record) {
+	        // console.log('Retrieved Region id=' + record.getId() + ' name=' + record.get('Name') + ' parent=' + record.get('Parent'));
+			regionNameMap[record.getId()] = record.get('Name');
+			regionParentMap[record.getId()] = record.get('Parent');
+	    });
+	
+	    // To fetch the next page of records, call `fetchNextPage`.
+	    // If there are more records, `page` will get called again.
+	    // If there are no more records, `done` will get called.
+	    fetchNextPage();
+	
+	}, function done(err) {
+	    if (err) { console.error(err); return; }
+	    
+	    getSKUs(); 
 	});
 }
 
@@ -111,7 +149,7 @@ function getSKUs() {
 function getCountries() {
 	base('Countries').select({
 	    maxRecords: 9999,
-	    fields: ['Country','SKUs']
+	    fields: ['Country','SKUs','Region']
 	}).eachPage(function page(records, fetchNextPage) {
 	    // This function (`page`) will get called for each page of records.
 
@@ -133,7 +171,9 @@ function getCountries() {
 				}
 	        });	  
 	        // console.log('Retrieved Country ' + record.getId() + ' ' + record.get('Country') + ' has2G=' + has2G + ' which3G=' + which3G);
-	        countryNameMap[record.getId()] = record.get('Country');
+			countryNameMap[record.getId()] = record.get('Country');
+			
+			countryRegionMap[record.getId()] = record.get('Region');
 
 	        if (which3G) {
 	        	which3GMap[record.getId()] = which3G;
@@ -176,26 +216,29 @@ function getCarriers() {
 function getFullData() {
 	base('Country-SIM-Carrier').select({
 	    maxRecords: 9999, // TEMPORARY set to 9999
-	    fields: ['Country', 'Carrier-link', 'Plan_Name-link', 'Network rank', 'Partner zone']
+	    fields: ['Country', 'Carrier-link', 'Plan_Name-link', 'Network rank', 'Partner zone', '2G Sunset', '3G Sunset']
 	}).eachPage(function page(records, fetchNextPage) {
 	    // This function (`page`) will get called for each page of records.
 
 	    records.forEach(function(record) {
 	        // console.log('Retrieved ' + record.get('ID'), record);
 	    	// console.log('record IDs: Country=' + record.get('Country') + ' Carrier-link=' + record.get('Carrier-link') + ' Plan_Name-link=' +record.get('Plan_Name-link'));
-	    	
-	    	let countryName = countryNameMap[record.get('Country')]; 
+			let countryId = record.get('Country');
+
+	    	let countryName = countryNameMap[countryId]; 
 	    	let carrierName = carrierNameMap[record.get('Carrier-link')];
 	    	const planName = planNameMap[record.get('Plan_Name-link')];
 	    	const rank = record.get('Network rank');
 	    	const zone = parseInt(record.get('Partner zone'));
-	    	
-	    	const has2G = has2GMap[record.get('Country')];
-	    	const which3G = which3GMap[record.get('Country')];
+			
+	    	const has2G = has2GMap[countryId];
+	    	const which3G = which3GMap[countryId];
 	    	
 			if (normalizeCountry[countryName]) {
 				countryName = normalizeCountry[countryName];
 			}
+			sunset2g[countryName + carrierName] = record.get('2G Sunset');
+			sunset3g[countryName + carrierName] = record.get('3G Sunset');
 
 			const mergedOffset = carrierName.indexOf('(Merged');
 			if (mergedOffset > 0) {
@@ -214,8 +257,7 @@ function getFullData() {
 	    		if (zone >= 6) {
 		    		// Zone 6 and higher is hidden for Telefonica, except for Korea and Taiwan
 		    		if (countryName == 'South Korea' || countryName === 'Taiwan') {
-		    			// OK
-		    			group = 'vodafoneCarrier';
+		    			// OK to show this plan
 		    		}
 		    		else {
 		    			// Hide plan
@@ -234,7 +276,7 @@ function getFullData() {
 	    		break;
 	    		
 	    	case 'All Net':
-    			showPlan = false;
+    			//showPlan = false;
 	    		break;
 	    		
     		default:
@@ -272,9 +314,13 @@ function getFullData() {
 	    		
 				addCountryData(countryName, 'has3g', which3G ? which3G : 'U270');							
 
+				var regionName = regionNameMap[countryRegionMap[countryId]];
+				var isEurope = regionName === 'Europe' || regionName === 'Baltics';
+				addCountryData(countryName, 'isEurope', isEurope);			
+				// console.log('countryName=' + countryName + ' isEurope=' + isEurope);				
 	    	}
 	    	else {
-		    	console.log('hidden: countryName=' + countryName + ' carrierName=' + carrierName + ' planName=' + planName + ' rank=' + rank + ' zone=' + zone);	    	
+		    	// console.log('hidden: countryName=' + countryName + ' carrierName=' + carrierName + ' planName=' + planName + ' rank=' + rank + ' zone=' + zone);	    	
 	    	} 
 	    		
 	    });
@@ -341,52 +387,76 @@ function addCountryDataArrayArray(country, key, value) {
 function generateMarkdown() {
 	var md = '';
 	
-	var simTypes = ['Electron', 'LTE', 'Boron'];
+	var simTypes = ['Electron', 'LTE', 'Boron', 'BoronAllNet', 'B523'];
 	
 	for(var jj = 0; jj < simTypes.length; jj++) {
 		var simType = simTypes[jj];
 		md += '{{collapse op="start" simType="' + simType + '"}}\n\n';
 
+		var isAllNet = false;
+		const allNetIndex = simType.indexOf('AllNet');
+		if (allNetIndex > 0) {
+			isAllNet = true;
+			simType = simType.substr(0, allNetIndex);
+		}
+
+		var sunsetMd1 = '';
+		var sunsetMd2 = '';
+
+		if (simType === 'Electron' || simType === 'Boron' || simType === 'BoronAllNet') {
+			sunsetMd1 = ' 2G Sunset | 3G Sunset | ';
+			sunsetMd2 = ' :-------: | :-------: | ';
+		}
+
 		if (simType === 'Electron') {
-			md += '| Country | Carriers | 2G | 3G |\n';
-			md += '| ------- | -------- | :---: | :---: |\n';
+			md += '| Country | Carriers | Model |' + sunsetMd1 + '\n';
+			md += '| ------- | -------- | :---: |' + sunsetMd2 + '\n';
 		}
 		else {
-			md += '| Country | Carriers |\n';
-			md += '| ------- | -------- |\n';			
+			md += '| Country | Carriers |' + sunsetMd1 + '\n';
+			md += '| ------- | -------- |' + sunsetMd2 + '\n';			
 		}
 		
 		var countryAdded = {};
-		
-		
-		for(var ii = 0; ii < countryList.length; ii++) {
+		var ii = 0;
+		if (simType == 'LTE' || simType == 'B523') {
+			// Don't include US, Canada, and UK at the stop for these short lists
+			ii += countryListTop.length;
+		}
+		for(; ii < countryList.length; ii++) {
 			var country = countryList[ii];
 
 			var carrierArray = [];
 			
 			if (!countryData[country]) {
-				console.log('missing data for ' + country);
+		 		console.log('missing data for ' + country);
 				continue;
 			}
 			
 			if (simType === 'Electron') {
 				if (countryData[country].telefonicaCarriers) {
-					carrierArray.push(countryData[country].telefonicaCarriers);
+					for(var kk = 0; kk < countryData[country].telefonicaCarriers.length; kk++) {
+						carrierArray.push(countryData[country].telefonicaCarriers[kk]);
+					}
 				}
 			}
 			else
 			if (simType === 'LTE') {
 				// Dedupe the LTE list because it's short. Otherwise, United States shows up twice.
 				if (countryData[country].lteCarriers && !countryAdded[country]) {					
-					carrierArray.push(countryData[country].lteCarriers);
+					for(var kk = 0; kk < countryData[country].lteCarriers.length; kk++) {
+						carrierArray.push(countryData[country].lteCarriers[kk]);
+					}
 				}
 			}
 			else
 			if (simType === 'Boron') {
 				var hasSecondaryOrBackup = countryData[country].vodafoneCarrierSecondary || countryData[country].vodafoneCarrierBackup;
 				
-				hasSecondaryOrBackup = false; // currently turned off because OneNet vs. AllNet is set to OneNet
-				
+				if (!isAllNet) {
+					hasSecondaryOrBackup = false; 
+				}
+
 				if (countryData[country].vodafoneCarrierPrimary) {
 					for(var kk = 0; kk < countryData[country].vodafoneCarrierPrimary.length; kk++) {
 						carrierArray.push(countryData[country].vodafoneCarrierPrimary[kk] + (hasSecondaryOrBackup ? '<sup>1</sup>' : ''));
@@ -403,6 +473,19 @@ function generateMarkdown() {
 					}
 				}
 			}
+			else
+			if (simType === 'B523') {
+				// Europe only
+				if (!countryData[country].isEurope) {
+					continue;
+				}
+				// Include Vodafone OneNet carriers
+				if (countryData[country].vodafoneCarrierPrimary) {
+					for(var kk = 0; kk < countryData[country].vodafoneCarrierPrimary.length; kk++) {
+						carrierArray.push(countryData[country].vodafoneCarrierPrimary[kk] + (hasSecondaryOrBackup ? '<sup>1</sup>' : ''));
+					}
+				}
+			}
 			
 			for(var kk = 0; kk < carrierArray.length; kk++) {
 				if (kk == 0) {
@@ -412,13 +495,25 @@ function generateMarkdown() {
 					md += '|   | ';
 				}
 				md += carrierArray[kk] + ' |';
+
+				var carrierName = carrierArray[kk];
+				var supIndex = carrierName.indexOf('<sup>');
+				if (supIndex > 0) {
+					carrierName = carrierName.substr(0, supIndex);
+				}
 				
 				if (simType === 'Electron') {
-					md += countryData[country].has2g + ' | ' + countryData[country].has3g + ' |\n';					
+					// countryData[country].has2g + ' | '
+					md += countryData[country].has3g + ' |';					
 				}
-				else {
-					md += '\n';
+
+				if (sunsetMd1 != '') {
+					// Include 2G/3G sunset information
+					md += sunsetToMd(sunset2g[country + carrierName]) + ' | ' + 
+						sunsetToMd(sunset3g[country + carrierName]) + ' | ';
 				}
+
+				md += '\n';
 			}
 			
 			countryAdded[country] = true;
@@ -430,6 +525,14 @@ function generateMarkdown() {
 	// fs.writeFileSync(path.join(__dirname, 'carriers.md'), md);
 		
 	updateDocs(md);
+}
+
+function sunsetToMd(content) {
+	if (!content || content == '?' || content == 'NA') {
+		return '';
+	}
+
+	return content;
 }
 
 function updateDocs(md) {

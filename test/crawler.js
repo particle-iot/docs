@@ -24,7 +24,7 @@ var ignoreHosts = [
   'www.st.com', // randomly returns 403 errors
   '192.168.0.1',
 ];
-var devices = ['photon', 'electron', 'argon', 'boron', 'xenon'];
+var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
 var stats = {
@@ -110,8 +110,8 @@ describe('Crawler', function() {
   it('should complete without error', function(done) {
     this.timeout(600000);
 
-    if (crawlerData.success && crawlerData.success >= Math.floor(Date.now() / 1000) - 3600) {
-      // We had a successful crawled in the last hour (3600 seconds), so skip crawling entirely!
+    if (crawlerData.success && crawlerData.success >= Math.floor(Date.now() / 1000) - (24 * 3600)) {
+      // We had a successful crawled in the 24 last hours (3600 * 24 seconds), so skip crawling entirely!
       // This dramatically speeds up pull request builds.
       var d = new Date(crawlerData.success * 1000);
       console.log('Skipping crawl, as it was last done ' + d.toUTCString());
@@ -354,6 +354,13 @@ describe('Crawler', function() {
       }
       if (queueItem.stateData.code === 403 && queueItem.url.indexOf('digikey.com') >= 0) {
     	  // DigiKey is randomly returning 403 errors as well. Treat as warning, not error.
+    	  isWarning = true;
+      }
+      if (queueItem.stateData.code === 403 && queueItem.url.indexOf('adafruit.com') >= 0) {
+    	  // DigiKey is randomly returning 403 errors as well. Treat as warning, not error.
+    	  isWarning = true;
+      }
+      if (queueItem.stateData.code === 408 && queueItem.url.indexOf('papertrailapp.com') >= 0) {
     	  isWarning = true;
       }
       

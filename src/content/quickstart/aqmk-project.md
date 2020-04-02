@@ -189,7 +189,7 @@ Now, let’s configure the Air Quality sensor. For this sensor, we’ll use a fi
 
 1. Open the command palette (`CMD/CTRL+SHIFT+P`), type "Particle" and select the "Install Library" option.
 
-2. In the textbox, type "Air_Quality_Sensor" and hit enter. The library will be installed into a `lib` directory at the same level as your project’s `src` directory.
+2. In the textbox, type "Grove_Air_quality_Sensor" and hit enter. The library will be installed into a `lib` directory at the same level as your project’s `src` directory.
 
 3. To use the library, start by adding an `include` statement to the top of your project, before the `#define` statements from the last section.
 
