@@ -3372,55 +3372,7 @@ Cellular.resetDataUsage();
 
 ### RSSI()
 
-`Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
-
-`CellularSignal`
-- `rssi`: (`int`) is the signal strength with range -113dBm to -51dBm (in 2dBm steps). This variable also doubles as an error response for the entire struct; positive return values indicate an error with:
-    - 1: indicating a Cellular module or time-out error
-    - 2: the module responded that the RSSI value is not known, not detectable or currently not available.
-- `qual`: (`int`) is a number in UMTS RAT indicating the Energy per Chip/Noise ratio in dB levels of the current cell. This value ranges from 0 to 49, higher numbers indicate higher signal quality.
-
-**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
-
-_Since 0.8.0_
-See additional documentation on [`CellularSignal`](#cellularsignal-class) class.
-
-```cpp
-// SYNTAX
-
-CellularSignal sig = Cellular.RSSI();
-Serial.println(sig.rssi);
-Serial.println(sig.qual);
-Serial.println(sig); // Complete structure also printable
-
-// Output
--95    // RSSI (-dBm)
-19     // QUAL (dB)
--95,19 // RSSI,QUAL
-
-// EXAMPLE
-uint32_t lastUpdate;
-#define now millis()
-
-void setup()
-{
-  Serial.begin(9600);
-  lastUpdate = now;
-}
-
-void loop()
-{
-  // Print two methods of signal strength and signal quality every 20 seconds
-  if (now - lastUpdate > 20000UL) {
-    lastUpdate = now;
-    CellularSignal sig = Cellular.RSSI();
-    String s = String(sig.rssi) + String(",") + String(sig.qual);
-    Serial.print(s);
-    Serial.print(" is the same as ");
-    Serial.println(sig);
-  }
-}
-```
+`Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that allows you to determine signal strength (RSSI) and signal quality of the currently connected Cellular network.
 
 ### CellularSignal Class
 
@@ -3474,6 +3426,8 @@ Log.info("Cellular signal quality: %.02f%%", sig.getQuality());
 
 Returns: `float`
 
+**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+
 #### getStrengthValue()
 
 ```cpp
@@ -3504,6 +3458,19 @@ Gets the raw signal quality value. This value is RAT-specific. See [`getAccessTe
 - UMTS RAT: Ec/Io (dB) [-24.5, 0], as specified in 3GPP TS 25.133 9.1.2.3.
 
 Returns: `float`
+
+**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+
+_Before 0.8.0:_
+
+Before Device OS 0.8.0, the `CellularSignal` class only had two member variables, `rssi`, and `qual`. These were similar to the values that are returned from `getStrengthValue()` and `getQualityValue()` now.
+
+```
+// Prior to 0.8.0:
+CellularSignal sig = Cellular.RSSI();
+Serial.println(sig.rssi);
+Serial.println(sig.qual);
+```
 
 ### getBandAvailable()
 
