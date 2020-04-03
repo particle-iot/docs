@@ -3835,6 +3835,10 @@ Note that in most cases, "fully charged" state (red charging LED goes off) will 
 
 In some cases you can [increase the charge voltage](#setchargevoltage-) to get a higher SoC, but there are limits, based on temperature.
 
+{{since when="1.5.0"}}
+
+It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of using `getSoC()`.
+
 ### getVersion()
 `int getVersion();`
 
@@ -4886,9 +4890,20 @@ void setup() {
 
 You should generally set the PMIC settings such as input volage, input current limit, charge current, and charge termination voltage using the Power Manager API, above. If you directly set the PMIC, the settings will likely be overridden by the system.
 
+To find out the current power source (battery, VIN, USB), see [`System.powerSource()`](#powersource-). To find out if the battery is charging, discharging, disconnected, etc., see [`System.batteryState()`](#batterystate-).
+
 *Note*: This is advanced IO and for experienced users. This
 controls the LiPo battery management system and is handled automatically
 by the Device OS.
+
+### PMIC() constructor
+
+```
+// PROTOTYPE
+PMIC(bool _lock=false);
+```
+
+You can declare the PMIC object either as a global variable, or a stack-allocated local variable. If you use a stack local, pass `true` as the parameter to the constructor. This will automatically call `lock()` from the constructor and `unlock()` from the destructor.
 
 ### begin()
 `bool begin();`
@@ -4901,6 +4916,17 @@ by the Device OS.
 
 ### getFault()
 `byte getFault();`
+
+
+### lock()
+`void lock();`
+
+You should always call `lock()` and `unlock()`, use `WITH_LOCK()`, or stack allocate a `PMIC` object nad pass `true` to the constructor.
+
+Since the PMIC can be accessed from both the system and user threads, locking it assures that a PMIC opertation will not be interrupted by another thread.
+
+### unlock()
+`void unlock();`
 
 ---
 
@@ -14257,6 +14283,87 @@ System.enterSafeMode();
 
 
 Resets the device and restarts in safe mode.
+
+{{#if has-pmic}}
+
+### powerSource()
+
+{{since when="1.5.0"}}
+
+Determines the power source, typically one of:
+
+- `POWER_SOURCE_VIN` Powered by VIN.
+- `POWER_SOURCE_USB_HOST` Powered by a computer that is acting as a USB host.
+- `POWER_SOURCE_USB_ADAPTER` Powered by a USB power adapter that supports DPDM but is not a USB host.
+- `POWER_SOURCE_BATTERY` Powered by battery connected to LiPo connector or Li+.
+
+```cpp
+// PROTOTYPE
+int powerSource() const;
+
+// CONSTANTS
+typedef enum {
+    POWER_SOURCE_UNKNOWN = 0,
+    POWER_SOURCE_VIN = 1,
+    POWER_SOURCE_USB_HOST = 2,
+    POWER_SOURCE_USB_ADAPTER = 3,
+    POWER_SOURCE_USB_OTG = 4,
+    POWER_SOURCE_BATTERY = 5
+} power_source_t;
+
+// EXAMPLE
+int powerSource = System.powerSource();
+if (powerSource == POWER_SOURCE_BATTERY) {
+  Log.info("running off battery");
+}
+```
+
+### batteryState()
+
+{{since when="1.5.0"}}
+
+Determines the state of battery charging.
+
+```cpp
+// PROTOTYPE
+int batteryState() const
+
+// CONSTANTS
+typedef enum {
+    BATTERY_STATE_UNKNOWN = 0,
+    BATTERY_STATE_NOT_CHARGING = 1,
+    BATTERY_STATE_CHARGING = 2,
+    BATTERY_STATE_CHARGED = 3,
+    BATTERY_STATE_DISCHARGING = 4,
+    BATTERY_STATE_FAULT = 5,
+    BATTERY_STATE_DISCONNECTED = 6
+} battery_state_t;
+
+// EXAMPLE
+int batteryState = System.batteryState();
+if (batteryState == BATTERY_STATE_CHARGING) {
+  Log.info("battery charging");
+}
+```
+
+### batteryCharge()
+
+{{since when="1.5.0"}}
+
+Determines the battery state of charge (SoC) as a percentage, as a floating point number.
+
+```cpp
+// PROTOTYPE
+float batteryCharge() const
+
+// EXAMPLE
+float batterySoc = System.batteryCharge();
+Log.info("soc=%.1f", batterySoc);
+```
+
+
+{{/if}}
+
 
 {{#if has-sleep}}
 
