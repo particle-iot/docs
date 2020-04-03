@@ -310,10 +310,6 @@ exports.compress = function (callback) {
     .concurrency(100)
     .source('../build')
     .destination('../build')
-    .use(compress({
-      src: ['search-index.json'],
-      overwrite: true
-    }))
     .build(callback);
 };
 
@@ -321,10 +317,6 @@ exports.build = function (callback) {
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     exports.metalsmith()
-      .use(compress({
-        src: ['search-index.json'],
-        overwrite: true
-      }))
       .build(function (err, files) {
         if (err) {
           throw err;
