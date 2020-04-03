@@ -13,7 +13,7 @@ layout: page-not-found.hbs
       <div class="search">
         <div class="search-input-wrapper">
           <i class="ion-search"></i>
-          <input class="search-box" type="text" placeholder="Search" value=""/>
+          <input class="st-default-search-input" type="text" placeholder="Search" value=""/>
         </div>
         <div class="search-results">
         </div>
