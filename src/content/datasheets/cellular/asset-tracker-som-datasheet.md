@@ -223,8 +223,8 @@ This interface can be used to debug your code or reprogram your E402 bootloader,
 | 35 | NC SOM35 | | | Leave unconnected. |
 | 36 | NC SOM36 | | | Leave unconnected. |
 | 37 | NC SOM37 | | | Leave unconnected. |
-| 38 | A7 | IO | nRF52 | A7, D7, Serial1 RTS |
-| 39 | A6 | IO | nRF52 | A6, D6, Serial1 CTS |
+| 38 | A7 | IO | nRF52 | A7, D7, SS, WKP |
+| 39 | A6 | IO | nRF52 | A6, D6, SPI SCK  |
 | 40 | A5 | IO | nRF52 | A5, D5, SPI MISO |
 | 41 | A4 | IO | nRF52 | A4, D4, SPI MOSI |
 | 42 | GND | POWER | | Ground |
@@ -244,8 +244,8 @@ This interface can be used to debug your code or reprogram your E402 bootloader,
 | 54 | GND | POWER | | Ground |
 | 55 | A0 | IO | nRF52 | A0 D0 Wire SDA |
 | 56 | A1 | IO | nRF52 | A1 D1 Wire SCL |
-| 57 | A2 | IO | nRF52 | A2 D2 SPI SS |
-| 58 | A3 | IO | nRF52 | A3 D3 SPI SCK |
+| 57 | A2 | IO | nRF52 | A2 D2 Serial1 CTS |
+| 58 | A3 | IO | nRF52 | A3 D3 Serial1 RTS |
 | 59 | NC SOM59 | | | Leave unconnected. |
 | 60 | NC SOM60 | | | Leave unconnected. |
 | 61 | NC SOM61 | | | Leave unconnected. |
@@ -285,33 +285,18 @@ This interface can be used to debug your code or reprogram your E402 bootloader,
 | 95 | GND | POWER | | Ground |
 
 
-```
-Not actually exposed on castellated pads, probably delete this section
-
-| 96 | MOSI1 | SPI | nRF52 | SPI MOSI |
-| 97 | MISO1 | SPI | nRF52 | SPI MISO |
-| 98 | CLK1 | SPI | nRF52 | SPI CLK |
-| 99 | Y5 | OUT | SN74LVC138 | SPI CS for user use on custom base board. |
-| 100 | Y1 | OUT | SN74LVC138 | SPI CS for user use on custom base board. |
-| 101 | SIM_VCC | SIM | CELL | SIM power for external SIM. Not supported. |
-| 102 | SIM_RST | SIM | CELL | SIM reset for external SIM. Not supported. |
-| 103 | SIM_DATA | SIM | CELL | SIM data for external SIM. Not supported. |
-| 104 | SIM_CLK | SIM | CELL | SIM clock for external SIM. Not supported. |
-
-```
-
 ### nRF52 pin assignments
 
 | SoM Pin | GPIO  | Analog | Other       | PWM     | nRF Pin |
 | :-----: | :---: | :----: | :---------: | :-----: | :-----: |
 | 55      | D0    | A0     | Wire SDA    | Group 0 | P0.03   |
 | 56      | D1    | A1     | Wire SCL    | Group 0 | P0.02   |
-| 57      | D2    | A2     | SPI SS, WKP | Group 0 | P0.28   |
-| 58      | D3    | A3     | SPI SCK     | Group 0 | P0.30   |
+| 57      | D2    | A2     | Serial1 CTS | Group 0 | P0.28   |
+| 58      | D3    | A3     | Serial1 RTS | Group 0 | P0.30   |
 | 41      | D4    | A4     | SPI MOSI    | Group 1 | P0.31   |
 | 40      | D5    | A5     | SPI MISO    | Group 1 | P0.29   |
-| 39      | D6    | A6     | Serial1 CTS | Group 1 | P0.04   |
-| 38      | D7    | A7     | Serial1 RTS | Group 1 | P0.05   |
+| 39      | D6    | A6     | SPI SCK     | Group 1 | P0.04   |
+| 38      | D7    | A7     | SPI SS, WKP | Group 1 | P0.05   |
 | 72      | D8    |        | Serial1 TX  | Group 2 | P0.06   |
 | 71      | D9    |        | Serial1 RX  | Group 2 | P0.08   |
 
@@ -327,7 +312,7 @@ Not actually exposed on castellated pads, probably delete this section
 | BGPWR | Cellular module power | P0.8 |
 | BGVINT | Cellular power on detect  | P1.14 |
 | BGDTR | Cellular module DTR | IOEX |
-| CAN_INT | CAN interrupt | P1,9 |
+| CAN_INT | CAN interrupt | P1.9 |
 | CAN_RST | CAN reset | IOEX |
 | CAN_PWR | 5V boost converter enable | IOEX |
 | CAN_STBY | CAN standby mode | IOEX |
@@ -345,61 +330,8 @@ Not actually exposed on castellated pads, probably delete this section
 | WIFI_BOOT | ESP32 boot mode | IOEX |
 
 
-```
-nRF52 pin assignments 
-Once everything is copied to another more useful table, delete this section
-
-P1.01 MISO1 (SPI1 for system peripherals)
-P1.02 MOSI1 (SPI1 for system peripherals)
-P1.03 RGBB (PWM3.3)
-P1.04 SCK1 (SPI1 for system peripherals)
-P1.05 RGBG (PWM3.2)
-P1.06 RGBR (PWM3.1)
-P1.07 SEN_INT (IMU interrupt)
-P0.09 NFC1 
-P0.10 NFC2 
-P1.10 SPI1_CS0 (connected to 3-8 expander) 
-P1.11 SPI1_CS1 
-P1.12 SPI1_CS2 
-P1.13 /MODE 
-P1.14 CELL_ON_DET 
-P1.15 ANT_SELECT 
-P0.03 A0 D0 SDA (PWM0.0)
-P0.02 A1 D1 SCL (PWM0.1)
-P0.28 A2 SS  (PWM0.2)
-P0.29 A5 MISO (PWM1.1)
-P0.30 A3 SCK (PWM0.3)
-P0.31 A4 MOSI (PWM1.0)
-P0.26 PMIC_INT (interrupt output from bq24195)
-P0.27 RTC_INT (interrupt from AM18X5)
-P0.04 A6 D6 CTS (PWM1.2)
-P0.05 A7 D7 RTS (PWM1.3)
-P0.06 TX D8 (PWM2.0)
-P0.07 NRF_BG_RST (what is this?)
-P0.08 RX D9 (PWM2.1)
-P1.08 NRF_CELL_PWR (what is this?)
-P1.09 /CAN_INT 
-P0.11 SDA1 (I2C Wire1 used by PMIC, Fuel Gauge, RTC)
-P0.12 SCL1 (I2C Wire1 used by PMIC, Fuel Gauge, RTC)
-P0.13 CTS1 (Serial to cellular modem)
-P0.14 RTS1 (Serial to cellular modem)
-P0.15 RX1  (Serial to cellular modem)
-P0.16 TX1  (Serial to cellular modem)
-P0.17 QSPI_CS (QSPI flash MX256435) 
-P0.8 /RESET /NRF_RST 
-P0.19 QSPI_CLK (QSPI flash MX256435) 
-P0.20 QSPI_D0 
-P0.21 QSPI_D1 
-P0.22 QSPI_D2 
-P0.23 QSPI_D3 
-P0.24 /IOEX_INT 
-P0.25 /IOEX_RST 
-P1.00 SWO 
-```
 
 ### LED status
-
-#### System RGB LED
 
 The Asset Tracker SoM does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of 
 your liking. This will allow greater flexibility in the end design of your products.
@@ -416,17 +348,32 @@ A detailed explanation of different color codes of the RGB system LED can be fou
 
 ### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
 
+| Parameter | Symbol | Min | Typ | Max | Unit |
+|:---|:---|:---:|:---:|:---:|:---:|
+| Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +17 | V |
+| Supply Output Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
+| Battery Input Voltage | V<sub>LiPo</sub> |  |  | +6 | V |
+| Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 800 | mA |
+| Storage Temperature | T<sub>stg</sub> | -30 |  | +75 | °C |
+| ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
+
+<sup>[1]</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
+only, and functional operation of the device at these or any other conditions beyond those indicated under recommended operating
+conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+
+
 #### Supply voltages
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:---|:---|:---:|:---:|:---:|:---:|
 | **Supply voltages** | | | | | |
-| Supply Input Voltage | VCC | -0.3 |  | +4.7 | V |
-| Supply Input Voltage | 3V3 | -0.3 |  | +3.9 | V |
+| Supply Input Voltage | VIN | 3.88 |  | 12 | V |
 | VBUS USB supply voltage | VUSB | -0.3 |  | +5.8 | V |
+| Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
+| Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
 | **I/O pin voltage** | | | | | | 
-| VI/O, VDD ≤ 3.6 V| IO | -0.3 |  | VDD + 0.3 | V |
-| VI/O, VDD > 3.6 V | IO | -0.3 |  | +3.9 | V |
+| VI/O | IO | -0.3 |  | +3.6 | V |
 | **NFC antenna pin current** | | | | | |
 | I<sub>NFC1/2</sub> | NFC1/NFC2 | | | 80 | mA |
 | **Radio**| | | | | |
@@ -445,8 +392,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | **Supply voltages** |
-| Supply Input Voltage | VCC | +3.6 | +3.8 | +4.3 | V |
-| Supply Input Voltage | 3V3 | +3.0 | +3.3 | +3.6 | V |
+| Supply Input Voltage | VIN | +3.8 |  | +12.0 | V |
 | VBUS USB supply voltage | VUSB | +4.35 | +5.0 | +5.5 | V |
 | **Environmental** |
 | Normal operating temperature<sup>1</sup> | | -20 | +25 | +75<sup>3</sup> | °C |
@@ -465,93 +411,121 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### GNSS specifications
 
-**TODO: Copy from u-blox NEO-M8U datasheet performance section 1.3**
-
-- u-blox NEO-M8U
+- u-blox NEO-M8U untethered dead reckoning module including 3D inertial sensors
 - SPI Interface 
-- Connected to SPI1 (MISO1, MOSI1, SCK1) 
-- Chip Select: GPS_CS (connected to SPI CS Multiplexer Y4)
+- Supports GPS L1C/A, SBAS L1C/A, QZSS L1C/A, QZSS L1-SAIF, GLONASS L1OF, BeiDou B1I, and Galileo E1B/C
 
-**TODO: Probably don't need this table**
+| Parameter | Specification |
+| :--- | :--- |
+| Dynamics operational limit<sup>1</sup> | &le; 4g | 
+| Altitude operational limit<sup>1</sup> | 50000 m | 
+| Velocity operational limit<sup>1</sup> | 500 m/s | 
+| Velocity accuracy<sup>2</sup> | 0.5 m/s |
+| Heading accuracy<sup>2</sup> | 1 degree |
+| Max navigation update rate<sup>3</sup> | 30 Hz |
+| Max navigation latency<sup>3</sup> | < 10 ms | 
 
-| # |	Pin	 | Function | Connected To |	Description |
-| :---: | :---: | :---: | :---: | --- |
-|  1 | SAFEBOOT_N | | |
-|  2 | D_SEL | | |
-|  3 | TIME_PULSE | | |
-|  4 | EXTINT | | |
-|  5 | USB_DM | | |
-|  6 | USB_DP | | |
-|  7 | USB_VDD | | |
-|  8 | RESET_N | | |
-|  9 | VCC_RF | | |
-| 10 | GND | | |
-| 11 | RF_IN | | |
-| 12 | GND | | |
-| 13 | GND | | |
-| 14 | LNA_EN | | |
-| 15 | RESERVED | | |
-| 16 | RESERVED | | |
-| 17 | RESERVED | | |
-| 18 | SPI_CS_N | | |
-| 18 | SPI_CLK | | |
-| 20 | SPI_MISO | | |
-| 21 | SPI_MOSI | | |
-| 22 | V_BCKP | | |
-| 23 | VCC | | GNSS Power |
-| 24 | GND | | Ground. |
+| Parameter |                                       | GPS & GLONASS | GPS      | GLONASS  | BeiDou   | Galileo  |
+| :--- | :---                                       | :---          | :---     | :---     | :---     | :---     |
+| Time-To-First Fix<sup>5</sup> | Cold start        | 26s           | 30s      | 31s      | 39s      | 57s      |
+|                               | Hot start         | 1.5s          | 1.5s     | 1.5s     | 15.s     | 1.5s     |
+|                  | Aided start<sup>6</sup>        | 3s            | 3s       | 3s       | 7s       | 7s       |
+| Sensitivity <sup>78</sup> | Tracking & Navigation | -160 dBm      | -160 dBm | -157 dBm | -160 dBm | -154 dBm |
+|                           | Reacquisiton          | -160 dBm      | -159 dBm | -156 dBm | -155 dBm | -152 dBm |
+|                           | Cold Start            | -148 dBm      | -147 dBm | -145 dBm | -143 dBm | -133 dBm |
+|                           | Hot Start             | -157 dBm      | -156 dBm | -155 dBm | -155 dBm | -151 dBm |
+| Horizontal positioning accuracy | Autonomous <sup>9</sup> | 2.5m  | 2.5m     | 4.0m     | 3.0m     | TBC<sup>10</sup> |
+|                         | With SBAS<sup>11</sup>  | 1.5m          | 1.5m     | -        | -        | -        |
+| Altitude accuracy       | With SBAS<sup>12</sup>  | 3.5m          | 3.0m     | 7.0m     | 5.0m     | -        |
 
- **TODO: Might want to remove the GND and reserved pins and just include the important ones**
+<sup>1</sup> Configured for Airborne < 4g platform
+<sup>2</sup> 50% at 30 m/s
+<sup>3</sup> High navigation rate mode
 
+<sup>5</sup> All satellites at -130 dBm, except Galileo at -127 dBm
+<sup>6</sup> Dependent on aiding data connection speed and latency
+<sup>7</sup> Demonstrated with a good external LNA
+<sup>8</sup> Configured min. CNO of 6 dB/Hz, limited by FW with min. CNO of 20 dB/Hz for best performance 
+<sup>9</sup> CEP, 50%, 24 hours static, -130 dBm, > 6 SVs
+<sup>10</sup> To be confirmed when Galileo reaches full operational capability
+<sup>11</sup> CEP, 50%, 24 hours static, -130 dBm, > 6 SVs
+<sup>12</sup> CEP, 50%, 24 hours static, -130 dBm, > 6 SVs
+
+GNSS GPIO:
+
+| Name | Description | Location | 
+| :---: | :--- | :---: |
+| GPS_PWR | u-blox GNSS power | IOEX | 
+| GPS_INT | u-blox GNSS interrupt | IOEX | 
+| GPS_BOOT | u-blox GNSS boot mode | IOEX | 
+| GPS_RST | u-blox GNSS reset | IOEX | 
 
 ### Other components
 
 #### CAN Bus
 
-**TODO: table of specs from datasheet**
+- Microchip MCP25625 CAN Controller with Integrated Transceiver
+- SPI Interface
+- Implements CAN2.0B (ISO11898-1)
+- Implements ISO-11898-2 and ISO-11898-5 standard physical layer requirements
+- Up to 1 Mb/sec operation
+- 3 transmit buffers with prioritization and abort features
+- 2 receive buffers
+- 6 filters and 2 masks with optional filtering on the first 2 data bytes
+- CAN bus pins are disconnected when device is unpowered
+- High-ESD protection on CANH and CANL, meets IEC61000-4-2 up to ±8 kV
+- Very low standby current, 10 uA, typical
+- 5V step-up converter (XCL9142F40CER), 0.8A
 
-```
-MCP25625T
-Connected to SCK1, MOSI1, MISO1
-CS: CAN_CS  (connected to SPI CS Multiplexer Y7)
-/CAN_RST
-CAN_STBY
-/CAN_INT 
 
-5V power supply
-XCL9142F40CER
-Step-up converter 0.8A 5V
-```
+CAN GPIO:
 
+| Name | Description | Location | 
+| :---: | :--- | :---: |
+| CAN_INT | CAN interrupt | P1.9 |
+| CAN_RST | CAN reset | IOEX |
+| CAN_PWR | 5V boost converter enable | IOEX |
+| CAN_STBY | CAN standby mode | IOEX |
+| CAN_RTS0 | CAB RTS0 | IOEX |
+| CAN_RTS1 | CAN RTS1 | IOEX |
+| CAN_RTS2 | CAN RTS2 | IOEX |
 
 #### IMU (Inertial Measurement Unit)
 
 - Bosch Sensortec BMI160
-- SPI Interface 
-- Connected to SPI1 (MISO1, MOSI1, SCK1) 
-- Chip Select: SEN_CS (connected to SPI CS Multiplexer Y2)
-- Interrupt: SEN_INT2 (nRF52 P1.07)
-- Can wake nRF52 MCU on movement
+- SPI Interface connected to SPI1 (MISO1, MOSI1, SCK1) 
+- Can wake nRF52 MCU on movement (SEN_INT2)
 
-**TODO: table of specs from datasheet**
+- 16 bit digital, triaxial accelerometer
+- 16 bit digital, triaxial gyroscope
+- Very low power consumption: typ. 925 μA (accelerometer and gyroscope in full operation)
+- Allocatable FIFO buffer of 1024 bytes (capable of handling external sensor data)
+- Hardware sensor time-stamps for accurate sensor data fusion
+- Integrated interrupts for enhanced autonomous motion detection
+
 
 
 #### PMIC
 
-- bq24195
-- I2C interface (address 0x6B)
-- Interrupt output connected to nRF52 P0.26. The INT pin sends active low, 256-us pulse Digital to host to report charger device status and fault.
-**TODO: table of specs from datasheet**
+- Texas Instruments bq24195
+- I2C interface (Wire1 address 0x6B)
+- Can interrupt nRF52 MCU on charge status and fault
 
-
+- Handles switching between USB, VIN, and battery power
+- Charge safety timer, thermal regulation, and thermal shutdown
+- Optional connection for battery thermistor
 
 #### Fuel Gauge
 
 - MAX17043
-- I2C interface (address 0x36)
-- Interrupt output connected to MCP23517 I/O Expander (GPA0)
+- I2C interface (Wire1 address 0x36)
+- Can interrupt nRF52 MCU on low battery
 
-**TODO: table of specs from datasheet**
+- Fuel-gauge systems for single cell lithium-ion (Li+) batteries
+- Precision Voltage Measurement ±12.5mV Accuracy to 5V
+- Accurate Relative Capacity (RSOC) Calculated from ModelGauge Algorithm
+- No Offset Accumulation on Measurement
+- No Full-to-Empty Battery Relearning Necessary
 
 
 #### RTC/Watchdog
@@ -559,7 +533,7 @@ Step-up converter 0.8A 5V
 - Ambiq Micro AM18X5 Real-Time Clock with Power Management
 - 55 nA power consumption
 - Crystal oscillator
-- I2C interface (address 0x68)
+- I2C interface (Wire1 address 0x68)
 - Can wake MCU at a specific time using `RTC_INT`.
 - Hardware watchdog functionality
 
@@ -568,7 +542,7 @@ Step-up converter 0.8A 5V
 #### Wi-Fi Geolocation
 
 The Wi-Fi module is intended for Wi-Fi geolocation only. It cannot be used as a network interface instead of using cellular. 
-An external service provider is required.
+An external service provider such as the Google Geolocation Service is required for mapping Wi-Fi networks to a location.
 
 - ESP32-D2WD
 - SPI Interface 
@@ -602,63 +576,6 @@ WIFI_TXD, WIFI_RXD (where do these go?)
 WIFI_BOOT is connecting to ESP32 GPIO0. 1 = SPI boot, 0 = Download boot
 WIFI_INT is ESP32 IO4. I think it's intended to be an output. Connected to IO expander GPA4.
 WIFI_EN is ESP32 CHIP_PU. HIGH = chip powered, LOW = power off ESP32. Default is powered off (100K pull-down).
-```
-
-
-#### SPI CS Multiplexer
-
-**TODO: I might delete this section as it's not really relevant to the use of the module**
-
-The Asset Tracker SoM includes a large number of SPI devices. As each SPI device requires a CS (chip select) line and they are mutually exclusive, a 
-SN74LVC138 3-to-8 multiplexer is used to minimize the number of nRF52 GPIO pins that are required. 
-
-| nRF52 Pin | Name |
-| :---: | :---: | 
-| P1.10 | SPI1_CS0 |
-| P1.11 | SPI1_CS1 |
-| P1.12 | SPI1_CS2 | 
-
-| Multiplexer Output | Name | Details |
-| :---: | :---: | :--- |
-| Y0 | unused | |
-| Y1 | Y1 | Not currently used |
-| Y2 | SEN_CS | Bosch BMI160 IMU |
-| Y3 | WIFI_CS | ESP32 Wi-Fi|
-| Y4 | GPS_CS | u-blox NEO-M8U GNSS |
-| Y5 | Y5 | Not currently used |
-| Y6 | IOEX_CS | MCP23517T I/O Expander |
-| Y7 | CAN_CS | MCP25625T CAN Controller | 
-
-The pins Y1 and Y5 available on the SoM pads and evaluation board so you can control additional SPI devices on your base board without having to use 
-nRF52 GPIO directly.
-
-#### I/O Expander
-
-**TODO: Maybe don't need to document this**
-
-```
-I/O Expander 
-MCP23517T-E 
-Connected to SCK1, MOSI1, MISO1 
-CS pin: IOEX_CS 
-INTA: IOEX_INT 
-
-GPA0 FUEL_INT 
-GPA1 RTC_WDI 
-GPA2 CAN_STBY 
-GPA3 WIFI_EN 
-GPA4 WIFI_INT 
-GPA5 WIFI_BOOT 
-GPA6 GPS_WR_EN 
-GPA7 GPS_INT 
-GPB0 GPS_BOOT 
-GPB1 /GPS_RST 
-GPB2 CAN_RTS1 
-GPB3 CAN_RTS2 
-GPB4 CAN_RTS0 
-GPB5 CELL_DTR_NR 
-GPB6 /CAN_RST 
-GPB7 CAN_VDD_EN 
 ```
 
 #### 3.3V Regulator
@@ -745,28 +662,20 @@ These specifications are based on the nRF52840 datasheet.
 
 ### Dimensions and Weight
 
+**TODO: Dimensions and weight**
+
 | Parameters | Value | Unit |
 | --- | --- | --- |
-| Width | 30 | mm |
-| Height | 42 | mm | 
-| Thickness | 5.5 | mm | 
-| Weight | 6.2 | grams |
+| Width |  | mm |
+| Height |  | mm | 
+| Thickness |  | mm | 
+| Weight |  | grams |
 
 ### Mechanical drawing
 
 **TODO: Mechanical drawing**
 
 Dimensions are in millimeters.
-
----
-
-### Mating connector and land pattern
-
-The mating connector is a an M.2 (NGFF) type 4. Note that there are several different key configurations for the M.2, and type 4 is different than is commonly used on SSDs.
-
-One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product-2199230-4.html). It is widely available including at suppliers such as [DigiKey](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230-4/A115904CT-ND/4208916).
-
-![Connector](/assets/images/b-series/b-series-connector.png)
 
 
 ## Product Handling

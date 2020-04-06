@@ -89,8 +89,8 @@ The **CELL USB** connector is connected to the Quectel cellular modem. It can be
 | Ground | GND | | GND | Ground |
 | A4, D4, SPI MOSI | A4 | | A0 | A0, D0, Wire SDA |
 | A5, D5, SPI MISO | A5 | | A1 | A1, D1, Wire SCL |
-| A6, D6, Serial1 CTS | A6 | | A2 | A2, D2, SPI SS |
-| A7, D7, Serial1 RTS | A7 | | A3 | A3, D3, SPI SCK |
+| A6, D6, SPI SCK | A6 | | A2 | A2, D2, Serial1 CTS |
+| A7, D7, SS, WKP | A7 | | A3 | A3, D3, Serial1 RTS |
 | Unused | SOM37 | | SOM59 | Unused |
 | Unused | SOM36 | | SOM60 | Unused |
 | Unused | SOM35 | | SOM61 | Unused |

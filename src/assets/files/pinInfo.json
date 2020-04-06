@@ -4969,7 +4969,7 @@
 					"num":38,
 					"name":"A7",
 					"altName":"D7",
-					"desc":"A7 Analog in, GPIO D7, PWM, Serial1 RTS",
+					"desc":"A7 Analog in, GPIO D7, PWM, SPI SS, WKP",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4987,7 +4987,7 @@
 					"num":39,
 					"name":"A6",
 					"altName":"D6",
-					"desc":"A6 Analog in, GPIO D6, PWM, Serial1 CTS",
+					"desc":"A6 Analog in, GPIO D6, PWM, SPI (SCK)",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4999,7 +4999,8 @@
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"hardwarePin":"P0.4",
 					"hardwareADC":"ADC?",
-					"hardwareTimer":"PWM1"
+					"hardwareTimer":"PWM1",
+					"spi":"SPI (SCK)|SCK. Use SPI object."
 				},
 				{
 					"num":40,
@@ -5125,7 +5126,7 @@
 					"num":57,
 					"name":"A2",
 					"altName":"D2",
-					"desc":"A2 Analog in, GPIO D2, PWM, SPI SS",
+					"desc":"A2 Analog in, GPIO D2, PWM, Serial1 CTS",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -5137,13 +5138,14 @@
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"hardwarePin":"P0.28",
 					"hardwareADC":"ADC?",
-					"hardwareTimer":"PWM0"
+					"hardwareTimer":"PWM0",
+					"serial":"Serial1 CTS"
 				},
 				{
 					"num":58,
 					"name":"A3",
 					"altName":"D3",
-					"desc":"A3 Analog in, GPIO D3, PWM, SPI SCL",
+					"desc":"A3 Analog in, GPIO D3, PWM, Serial1 RTS",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -5151,12 +5153,12 @@
 					"analogRead":true,
 					"analogWriteDAC":false,
 					"analogWritePWM":true,
-					"spi":"SPI (SCK)|SCK. Use SPI object.",
 					"tone":"A0, A1, A2, A3 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"hardwarePin":"P0.30",
 					"hardwareADC":"ADC?",
-					"hardwareTimer":"PWM0"
+					"hardwareTimer":"PWM0",
+					"serial":"Serial1 RTS"
 				},
 				{
 					"num":64,
