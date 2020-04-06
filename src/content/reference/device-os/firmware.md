@@ -3372,55 +3372,7 @@ Cellular.resetDataUsage();
 
 ### RSSI()
 
-`Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
-
-`CellularSignal`
-- `rssi`: (`int`) is the signal strength with range -113dBm to -51dBm (in 2dBm steps). This variable also doubles as an error response for the entire struct; positive return values indicate an error with:
-    - 1: indicating a Cellular module or time-out error
-    - 2: the module responded that the RSSI value is not known, not detectable or currently not available.
-- `qual`: (`int`) is a number in UMTS RAT indicating the Energy per Chip/Noise ratio in dB levels of the current cell. This value ranges from 0 to 49, higher numbers indicate higher signal quality.
-
-**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
-
-_Since 0.8.0_
-See additional documentation on [`CellularSignal`](#cellularsignal-class) class.
-
-```cpp
-// SYNTAX
-
-CellularSignal sig = Cellular.RSSI();
-Serial.println(sig.rssi);
-Serial.println(sig.qual);
-Serial.println(sig); // Complete structure also printable
-
-// Output
--95    // RSSI (-dBm)
-19     // QUAL (dB)
--95,19 // RSSI,QUAL
-
-// EXAMPLE
-uint32_t lastUpdate;
-#define now millis()
-
-void setup()
-{
-  Serial.begin(9600);
-  lastUpdate = now;
-}
-
-void loop()
-{
-  // Print two methods of signal strength and signal quality every 20 seconds
-  if (now - lastUpdate > 20000UL) {
-    lastUpdate = now;
-    CellularSignal sig = Cellular.RSSI();
-    String s = String(sig.rssi) + String(",") + String(sig.qual);
-    Serial.print(s);
-    Serial.print(" is the same as ");
-    Serial.println(sig);
-  }
-}
-```
+`Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that allows you to determine signal strength (RSSI) and signal quality of the currently connected Cellular network.
 
 ### CellularSignal Class
 
@@ -3474,6 +3426,8 @@ Log.info("Cellular signal quality: %.02f%%", sig.getQuality());
 
 Returns: `float`
 
+**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+
 #### getStrengthValue()
 
 ```cpp
@@ -3504,6 +3458,19 @@ Gets the raw signal quality value. This value is RAT-specific. See [`getAccessTe
 - UMTS RAT: Ec/Io (dB) [-24.5, 0], as specified in 3GPP TS 25.133 9.1.2.3.
 
 Returns: `float`
+
+**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+
+_Before 0.8.0:_
+
+Before Device OS 0.8.0, the `CellularSignal` class only had two member variables, `rssi`, and `qual`. These were similar to the values that are returned from `getStrengthValue()` and `getQualityValue()` now.
+
+```
+// Prior to 0.8.0:
+CellularSignal sig = Cellular.RSSI();
+Serial.println(sig.rssi);
+Serial.println(sig.qual);
+```
 
 ### getBandAvailable()
 
@@ -3867,6 +3834,10 @@ Serial.println( fuel.getSoC() );
 Note that in most cases, "fully charged" state (red charging LED goes off) will result in a SoC of 80%, not 100%. 
 
 In some cases you can [increase the charge voltage](#setchargevoltage-) to get a higher SoC, but there are limits, based on temperature.
+
+{{since when="1.5.0"}}
+
+It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of using `getSoC()`.
 
 ### getVersion()
 `int getVersion();`
@@ -4919,9 +4890,20 @@ void setup() {
 
 You should generally set the PMIC settings such as input volage, input current limit, charge current, and charge termination voltage using the Power Manager API, above. If you directly set the PMIC, the settings will likely be overridden by the system.
 
+To find out the current power source (battery, VIN, USB), see [`System.powerSource()`](#powersource-). To find out if the battery is charging, discharging, disconnected, etc., see [`System.batteryState()`](#batterystate-).
+
 *Note*: This is advanced IO and for experienced users. This
 controls the LiPo battery management system and is handled automatically
 by the Device OS.
+
+### PMIC() constructor
+
+```
+// PROTOTYPE
+PMIC(bool _lock=false);
+```
+
+You can declare the PMIC object either as a global variable, or a stack-allocated local variable. If you use a stack local, pass `true` as the parameter to the constructor. This will automatically call `lock()` from the constructor and `unlock()` from the destructor.
 
 ### begin()
 `bool begin();`
@@ -4934,6 +4916,17 @@ by the Device OS.
 
 ### getFault()
 `byte getFault();`
+
+
+### lock()
+`void lock();`
+
+You should always call `lock()` and `unlock()`, use `WITH_LOCK()`, or stack allocate a `PMIC` object nad pass `true` to the constructor.
+
+Since the PMIC can be accessed from both the system and user threads, locking it assures that a PMIC opertation will not be interrupted by another thread.
+
+### unlock()
+`void unlock();`
 
 ---
 
@@ -14290,6 +14283,87 @@ System.enterSafeMode();
 
 
 Resets the device and restarts in safe mode.
+
+{{#if has-pmic}}
+
+### powerSource()
+
+{{since when="1.5.0"}}
+
+Determines the power source, typically one of:
+
+- `POWER_SOURCE_VIN` Powered by VIN.
+- `POWER_SOURCE_USB_HOST` Powered by a computer that is acting as a USB host.
+- `POWER_SOURCE_USB_ADAPTER` Powered by a USB power adapter that supports DPDM but is not a USB host.
+- `POWER_SOURCE_BATTERY` Powered by battery connected to LiPo connector or Li+.
+
+```cpp
+// PROTOTYPE
+int powerSource() const;
+
+// CONSTANTS
+typedef enum {
+    POWER_SOURCE_UNKNOWN = 0,
+    POWER_SOURCE_VIN = 1,
+    POWER_SOURCE_USB_HOST = 2,
+    POWER_SOURCE_USB_ADAPTER = 3,
+    POWER_SOURCE_USB_OTG = 4,
+    POWER_SOURCE_BATTERY = 5
+} power_source_t;
+
+// EXAMPLE
+int powerSource = System.powerSource();
+if (powerSource == POWER_SOURCE_BATTERY) {
+  Log.info("running off battery");
+}
+```
+
+### batteryState()
+
+{{since when="1.5.0"}}
+
+Determines the state of battery charging.
+
+```cpp
+// PROTOTYPE
+int batteryState() const
+
+// CONSTANTS
+typedef enum {
+    BATTERY_STATE_UNKNOWN = 0,
+    BATTERY_STATE_NOT_CHARGING = 1,
+    BATTERY_STATE_CHARGING = 2,
+    BATTERY_STATE_CHARGED = 3,
+    BATTERY_STATE_DISCHARGING = 4,
+    BATTERY_STATE_FAULT = 5,
+    BATTERY_STATE_DISCONNECTED = 6
+} battery_state_t;
+
+// EXAMPLE
+int batteryState = System.batteryState();
+if (batteryState == BATTERY_STATE_CHARGING) {
+  Log.info("battery charging");
+}
+```
+
+### batteryCharge()
+
+{{since when="1.5.0"}}
+
+Determines the battery state of charge (SoC) as a percentage, as a floating point number.
+
+```cpp
+// PROTOTYPE
+float batteryCharge() const
+
+// EXAMPLE
+float batterySoc = System.batteryCharge();
+Log.info("soc=%.1f", batterySoc);
+```
+
+
+{{/if}}
+
 
 {{#if has-sleep}}
 

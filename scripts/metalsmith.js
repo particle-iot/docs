@@ -32,8 +32,6 @@ var fixLinks = require('./fixLinks');
 var inPlace = require('metalsmith-in-place');
 var watch = require('metalsmith-watch');
 var autotoc = require('metalsmith-autotoc');
-var lunr = require('metalsmith-lunr');
-var lunr_ = require('lunr');
 var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
 var precompile = require('./precompile');
@@ -61,9 +59,6 @@ var gitBranch;
 var generateSearch = process.env.SEARCH_INDEX !== '0';
 
 var noScripts = false;
-
-// Make Particle.function searchable with function only
-lunr_.tokenizer.separator = /[\s\-.]+/;
 
 exports.metalsmith = function () {
   function removeEmptyTokens(token) {
@@ -124,7 +119,7 @@ exports.metalsmith = function () {
     }))
     // Add properties to files that match the pattern
     .use(fileMetadata([
-      { pattern: 'content/**/*.md', metadata: { lunr: generateSearch, assets: '/assets', branch: gitBranch, noScripts: noScripts } }
+      { pattern: 'content/**/*.md', metadata: { assets: '/assets', branch: gitBranch, noScripts: noScripts } }
     ]))
     .use(msIf(
       environment === 'development',
@@ -295,18 +290,6 @@ exports.metalsmith = function () {
       selector: 'h2, h3',
       pattern: '**/**/*.md'
     }))
-    // Generate Lunr search index for all the files that have lunr: true
-    // This is slow. Use SEARCH_INDEX=0 in development to avoid creating this file
-    .use(lunr({
-      indexPath: 'search-index.json',
-      fields: {
-        contents: 1,
-        title: 10
-      },
-      pipelineFunctions: [
-        removeEmptyTokens
-      ]
-    }))
     // For files that have a template frontmatter key, look for that template file in the configured directory and
     // render that template using the Metalsmith file with all its keys as context
     .use(layouts({
@@ -327,10 +310,6 @@ exports.compress = function (callback) {
     .concurrency(100)
     .source('../build')
     .destination('../build')
-    .use(compress({
-      src: ['search-index.json'],
-      overwrite: true
-    }))
     .build(callback);
 };
 
@@ -338,10 +317,6 @@ exports.build = function (callback) {
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     exports.metalsmith()
-      .use(compress({
-        src: ['search-index.json'],
-        overwrite: true
-      }))
       .build(function (err, files) {
         if (err) {
           throw err;
