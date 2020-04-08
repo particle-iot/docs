@@ -20,14 +20,13 @@ alt="Particle Diagnostics -- Device Vitals"/>
 Device vitals are:
 - **Collected by every Particle device**: The device records information
 relevant to its ability to successfully connect and communicate with the
-Device Cloud. Cellular networking vitals<sup class="new">NEW</sup> are now
-available.
+Device Cloud. Cellular networking vitals are now available.
 - **Sent to the Device Cloud**: Vitals are automatically shared with the
 Device Cloud when starting a new secure session, and can be sent on a
-cadence using [`Particle.publishVitals()`](#particle-publishvitals-new)<sup class="new">NEW</sup>.
+cadence using [`Particle.publishVitals()`](#particle-publishvitals-new).
 - **Accessible via the Console or API**: The Console exposes a Vitals
-Dashboard <sup class="new">NEW</sup> as well as the last recorded
-vitals. This information can also be queried via Particle's Device Cloud API.
+Dashboard as well as the last recorded vitals. This information can also
+be queried via Particle's Device Cloud API.
 
 Device Vitals can be used in-tandem with [Fleet
 Health](/tutorials/diagnostics/fleet-health/) metrics for a bird's eye
@@ -76,7 +75,7 @@ network (Cellular or Wi-Fi), measured in decibels of received signal power.
 The strength of the signal is normalized as a percentage from 0-100 —
 the closer to 100, the stronger the signal. As a rule of thumb, the closer the
 device is to a tower or router, the better signal strength will be. The raw signal
-strength (RSSI) is visible by hovering over each vitals data point.
+strength is visible by hovering over each vitals data point.
 
 ### Signal Quality
 The quality of the device’s connection to the (Cellular or Wi-Fi) network is a measure of the relative noise, or likelihood of interference of the signal.
@@ -95,6 +94,11 @@ successfully respond to a CoAP message sent by the Particle Device Cloud.
 <img class="full-width" src="/assets/images/fleet-health/round-trip-time.png"/>
 
 A longer the round-trip time often correlates with poor signal strength or quality. Round trip time is displayed in seconds — the lower the reported time, the better the performance.
+
+Note that only messages sent by the Device Cloud to the device like
+event subscriptions, function calls and variable requests are counted in
+the round-trip time so if a device is only sending data to the cloud
+through event publishes the round-trip time won't update.
 
 ### Memory Usage
 The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
@@ -148,7 +152,7 @@ You can also click on the **Health Check** link to execute a real-time diagnosti
 test for the device. For more info on this, check out the [Health
 Check](#health-check) section.
 
-#### Cellular Vitals <sup class="new">NEW</sup>
+#### Cellular Vitals
 
 As of Device OS version 1.2.1, cellular devices (i.e. Boron, B SoM,
 Electron, etc.) will begin to collect and send new vitals specific to
@@ -171,15 +175,15 @@ cell tower the device is currently connected to, which combines MCC,
 MNC, LAC, and CI.
 
 In this case, the device is connected to an AT&T cell tower with CGI
-310-410-26507-21617 using LTE. Breaking down the CGI:
+310-410-45997-201601117 using 3G. Breaking down the CGI:
 - 310 is the _mobile country code_, or **MCC** associated with the
 United States of America.
 - 410 is the _mobile network code_, or **MNC**, associated with AT&T in
 the US. The combination of MCC and MNC tell you which carrier the device
 is using.
-- 26508 is the _location area code_ or **LAC**, which references a group of
+- 45997 is the _location area code_ or **LAC**, which references a group of
 cellular towers in a geographic area.
-- 21617 is the _cellular identity_, or **CI**, which is the specific identifier of a
+- 201601117 is the _cellular identity_, or **CI**, which is the specific identifier of a
 single cellular tower.
 
 This data is useful to get an understanding of how a device is
@@ -194,7 +198,7 @@ its vitals to the Device Cloud.
 1. **Starting a secure session**: When a device _handshakes_ with the
 Device Cloud, it will automatically collect and send its vitals recorded
 at startup.
-2. **Particle.publishVitals()**<sup class="new">NEW</sup>: An API in
+2. **Particle.publishVitals()**: An API in
 Device OS allows you to instruct a device to send its vitals in
 application firmware.
 3. **Refreshing from the Device Cloud**: Remotely trigger a device to
@@ -205,7 +209,7 @@ via the [`spark/device/diagnostics/update`](/reference/device-cloud/api/#device-
 system event. The device vitals event will include a data payload of the
 most recent readings the device collected.
 
-### Particle.publishVitals()<sup class="new">NEW</sup>
+### Particle.publishVitals()
 `Particle.publishVitals()` is a method exposed by Device OS as of
 version 1.2.1. It allows you to collect and send device vitals on a
 regular cadence as part of application firmware.
