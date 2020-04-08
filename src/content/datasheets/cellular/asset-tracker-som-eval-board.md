@@ -20,14 +20,16 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 ## Block Diagram
 
 **TODO: New block diagram**
-![Block Diagram](/assets/images/b-series/b-series-eval-block.png)
+<!-- ![Block Diagram](/assets/images/b-series/b-series-eval-block.png) -->
 
 
 ## Description
 
 **TODO: New graphic**
 
+<!-- 
 <div align=center><img src="/assets/images/b-series/b-series-eval-labeled.png"></div>
+-->
 
 
 | Num | ID 					    | Description                                      |
@@ -49,7 +51,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 | 15 | S4 | Battery switch |
 | 16 | S6 | SoM power switch |
 | 17 | | Expansion connector |
-| 18 | J10 | Grove connector (A0, A1) |
+| 18 | J10 | Grove connector (A0, A1 or I2C) |
 | 19 | J11 | Grove connector (A2, A3) |
 | 20 | S5 | RTC battery switch |
 | 21 | RTC battery | Optional battery |

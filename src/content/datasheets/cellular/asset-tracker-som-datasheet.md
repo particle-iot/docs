@@ -14,27 +14,34 @@ description: Datasheet for the Particle Asset Tracker SoM Cellular GNSS module
 
 **This is a preliminary datasheet and is subject to change**
 
-<div align=center><img src="/assets/images/b-series/b523-top.jpg" ></div>
+
+**TODO: Photo goes here**
+<!-- <div align=center><img src="/assets/images/b-series/b523-top.jpg" ></div> -->
 
 
 ## Functional description
 
 ### Overview
 
-The B Series System-on-a-Module (SoM) is a LTE Cat 1 cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 micro-controller.
+The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
-The B Series is designed to be integrated into your circuit board design, plugging a M.2 NGFF connector on your board, allowing the module to be changed or upgraded easily.
+- LTE Cat 1 (EMEA) or LTE Cat M1 (North America) cellular modem
+- GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and unteathered dead-reckoning 
+- Support for CAN bus
+- Castellated module can be reflow soldered to your base board, and is available on an evaluation board or carrier board
 
 ### Features
 
  * GNSS u-blox Neo M8U for GNSS with on-board dead-reckoning for up to 1.8m CEP50 GPS accuracy
   * Supports GPS L1C/A, SBAS L1C/A, QZSS L1C/A, QZSS L1-SAIF, GLONASS L1OF, BeiDou B1I, Galileo E1B/C
  * Quectel BG96-NA modem
-  * LTE Cat M1 module for North America (United States, Canada, and Mexico)
-  * **TODO: BG96 Specs Here**
+  * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
+  * 3GPP E-UTRA Release 13
+  * LTE FDD bands supported: 2, 4, 12, 13
+  * EGPRS 850, 1900
  * Quectel EG91-E modem
-  * LTE category 1 module for EMEA region 
-  * 3GPP E-UTRA Release 11 
+  * LTE Cat 1 module for EMEA region 
+  * 3GPP E-UTRA Release 13
   * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -48,19 +55,18 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * PMIC (Power Management IC) and Fuel Gauge
  * On-module additional 8MB SPI flash
  * CAN Bus: on-board, integrated CAN Bus controller and transceiver making it ideal for fleet and micromobility
- * I/O Expander: onboard devices use this where appropriate to leave 1 SPI, 1 I2C, 1 UART and up to 10 GPIO available for the user
  * RTC: Battery-backed external real-time clock
  * Watchdog Timer: integrated hardware WDT
- * 24 mixed signal GPIO (8 x Analog, 4 x PWM), UART, I2C, SPI **TODO: Adjust this for correct number of IO**
+ * 10 Mixed signal GPIO (8 x Analog, 10 x Digital), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
  * JTAG (SWD) pins
  * Support for external RGB status LED 
  * Support for external Reset and Mode buttons
  * On-module MFF2 Particle SIM 
  * Bluetooth chip antenna on module, switchable to use U.FL connector in software.
- * Two on-module U.FL connectors for external antennas **TODO: More connectors, determine exact number**
+ * Two on-module U.FL connectors for cellular, GNSS, BLE, Wi-Fi, and alternative GNSS.
  * Castellated module designed to be reflow soldered to your own custom base board, or pre-populated on a Particle Evaluation Board or Carrier Board.
- * FCC, IC, and CE certified **TODO: Which certs?**
+ * FCC, IC, and CE certified 
  * RoHS compliant (lead-free)
 
 
@@ -68,9 +74,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Block diagram
 
-**TODO: This is a temporary image from Eagle. Redraw in Illustrator**
-
-<div align=center> <a href="/assets/images/at-som/block-diagram.png" target="_blank"> <img src="/assets/images/at-som/block-diagram.png" ></a></div>
+<div align=center> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" ></a></div>
 
 ### Power
 The Asset Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
@@ -79,7 +83,7 @@ The Asset Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
 #### LiPo
-This pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the module since the PMIC by-passes the regulator and supplies power to the module via an internal FET leading to lower quiescent current.
+This pin serves two purposes. You can use this pin to connect a LiPo battery (either directly or using a JST connector), or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the module since the PMIC by-passes the regulator and supplies power to the module via an internal FET leading to lower quiescent current.
 
 When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the module is a Lithium-Ion Polymer battery rated at 3.7VDC 1,800mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.
 
@@ -90,16 +94,23 @@ The MAX17043 fuel gauge is only compatible with single cell lithium-ion batterie
 A battery temperature sensor can be added if desired. Connect a negative temperature coefficient thermistor to the TS pin and GND. Charge suspends when the TS pin is out of range. A 103AT-2 thermistor is recommended.
 
 #### VBUS
-This pin is internally connected to USB supply rail and will output 5V when the module is plugged into an USB port. It is intentionally left unpopulated. This pin will _NOT_ output any voltage when the module is powered via VIN and/or the LiPo battery.
 
-Most USB ports can supply only a maximum of 500mA, but the cellular module alone can consume a peak of 800mA to 1800mA (2G/3G) or 550 mA (LTE Cat M1) of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port for 2G/3G. The PMIC will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
+VBUS is connected to the USB detect pin of nRF52840 to enables the USB interface. The recommended input voltage range is between 4.35V to 5.5V DC. It is also connected to the bq24195 PMIC to allow for DPDM, detection of the power capacity of the USB port.
 
 #### 3V3 Pin
 This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source with a max load of 800mA. Unlike the Photon, this pin _CANNOT_ be used as an input to power the module.
 
 
 #### RTC_BAT
-This is the supply to the real-time clock battery backup. **TODO: specs**
+This is the supply to the real-time clock battery backup. 1.4 to 3.6V. 
+
+| Voltage | Typical Current | Maximum Current | Unit |
+| :---:   | ---:            | ---:            | :--- |
+| 3.0V    | 56              | 330             | nA   |
+| 1.8V    | 52              | 290             | nA   |
+
+#### GNSS_BAT
+This is the supply for maintaining the u-blox GNSS ephemeris and almanac data when removing power. This can use the same battery as RTC_BAT, can be a super-capacitor, or can be omitted. 1.5 to 3.6V. Typical current is 15 uA.
 
 #### PMID
 This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the module when powered by the battery alone.
@@ -113,6 +124,7 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 There are a number of U.FL antenna connectors on the Asset Tracker SoM:
 
 | Label | Purpose | 
+| :---: | :--- |
 | GNSS | u-blox GNSS antenna (GPS) |
 | CELL | Quectel cellular modem antenna |
 | WIFI | Wi-Fi antenna for Wi-Fi geolocation (optional)<sup>1</sup> |
@@ -120,6 +132,7 @@ There are a number of U.FL antenna connectors on the Asset Tracker SoM:
 | GNSS/DIV | Quectel GNSS antenna (optional)<sup>1</sup> |
 
 <sup>1</sup>Not supported in initial release.
+
 <sup>2</sup>There is a BLE chip antenna on the module, the external BLE antenna is optional.
 
 There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'll need to add an antenna or antenna connector on your base board.
@@ -139,9 +152,11 @@ There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'
 | SPI  | 1 | I/O |
 | I2C  | 1 | I/O |
 | USB  | 1 | I/O |
-| PWM  | 10 (max) | O |
+| PWM  | 10 (max)<sup>1</sup> | O |
 | NFC  | 1 | O |
-| CAN  | 1 | 0 | 
+| CAN  | 1 | I/O | 
+
+<sup>1</sup>PWM is divided into three PWM groups. Each group must share the same frequency, but can have different periods.
 
 **Note:** All GPIO are only rated at 3.3VDC max. CAN bus is rated at **TODO: CAN maximum voltage**.
 
@@ -155,7 +170,7 @@ The AssetTracker SoM exposes the nRF52 SWD interface on the following pins. The 
 | 23 | SWDCLK | JTAG | nRF52 | nRF52 MCU SWDCLK |
 | 24 | SWO | JTAG | nRF52 | nRF52 MCU SWO |
 
-This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. 
+This interface can be used to debug your code or reprogram your bootloader, device OS, or the user firmware. 
 
 ## Memory map
 
@@ -179,7 +194,7 @@ This interface can be used to debug your code or reprogram your E402 bootloader,
 ### Pinout diagram
 
 **TODO: Update this diagram**
-![Pinout](/assets/images/b-series/b523-pinout.png)
+<!--![Pinout](/assets/images/b-series/b523-pinout.png) -->
 
 ### SoM Pin description
 
@@ -272,14 +287,14 @@ This interface can be used to debug your code or reprogram your E402 bootloader,
 | 82 | NC SOM82 | | | Leave unconnected. |
 | 83 | CELL_GPS_TX | OUT | CELL | Cellular modem GPS serial TX data. |
 | 84 | CELL_GPS_RX | IN | CELL | Cellular modem GPS serial RX data. |
-| 85 | CELL_RI | OUT | CELL | Cellular modem ring indicator output. **TODO: Is this connected to anything else?** |
+| 85 | CELL_RI | OUT | CELL | Cellular modem ring indicator output. |
 | 86 | GND | POWER | | Ground |
 | 87 | CELL_GPS_RF | RF | CELL | Cellular modem GPS antenna. Optional. |
 | 88 | GND | POWER | | Ground |
 | 89 | GND | POWER | | Ground |
-| 90 | GNSS_BOOT |  | GNSS | **TODO: What does this do?** |
-| 91 | GNSS_ANT_PWR |  | GNSS | **TODO: What does this do?** |
-| 92 | GNSS_LNA_EN |  | GNSS | **TODO: What does this do?** |
+| 90 | GNSS_BOOT |  | GNSS | **TODO: Update description** |
+| 91 | GNSS_ANT_PWR |  | GNSS | **TODO: Update description** |
+| 92 | GNSS_LNA_EN |  | GNSS | **TODO: Update description** |
 | 93 | GND | POWER | | Ground |
 | 94 | GNSS_RF |  | GNSS | GNSS antenna. |
 | 95 | GND | POWER | | Ground |
@@ -331,7 +346,7 @@ This interface can be used to debug your code or reprogram your E402 bootloader,
 
 
 
-### LED status
+### Status LED
 
 The Asset Tracker SoM does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of 
 your liking. This will allow greater flexibility in the end design of your products.
@@ -477,7 +492,6 @@ GNSS GPIO:
 - Very low standby current, 10 uA, typical
 - 5V step-up converter (XCL9142F40CER), 0.8A
 
-
 CAN GPIO:
 
 | Name | Description | Location | 
@@ -486,9 +500,9 @@ CAN GPIO:
 | CAN_RST | CAN reset | IOEX |
 | CAN_PWR | 5V boost converter enable | IOEX |
 | CAN_STBY | CAN standby mode | IOEX |
-| CAN_RTS0 | CAB RTS0 | IOEX |
-| CAN_RTS1 | CAN RTS1 | IOEX |
-| CAN_RTS2 | CAN RTS2 | IOEX |
+| CAN_RTS0 | CAN Request to Send 0 | IOEX |
+| CAN_RTS1 | CAN Request to Send 1 | IOEX |
+| CAN_RTS2 | CAN Request to Send 2 | IOEX |
 
 #### IMU (Inertial Measurement Unit)
 
@@ -496,13 +510,11 @@ CAN GPIO:
 - SPI Interface connected to SPI1 (MISO1, MOSI1, SCK1) 
 - Can wake nRF52 MCU on movement (SEN_INT2)
 
-- 16 bit digital, triaxial accelerometer
-- 16 bit digital, triaxial gyroscope
-- Very low power consumption: typ. 925 μA (accelerometer and gyroscope in full operation)
+- 16 bit digital, triaxial accelerometer and triaxial gyroscope
+- Very low power consumption: typically 925 μA with accelerometer and gyroscope in full operation
 - Allocatable FIFO buffer of 1024 bytes (capable of handling external sensor data)
 - Hardware sensor time-stamps for accurate sensor data fusion
 - Integrated interrupts for enhanced autonomous motion detection
-
 
 
 #### PMIC
@@ -512,6 +524,7 @@ CAN GPIO:
 - Can interrupt nRF52 MCU on charge status and fault
 
 - Handles switching between USB, VIN, and battery power
+- LiPo battery charger
 - Charge safety timer, thermal regulation, and thermal shutdown
 - Optional connection for battery thermistor
 
@@ -521,11 +534,11 @@ CAN GPIO:
 - I2C interface (Wire1 address 0x36)
 - Can interrupt nRF52 MCU on low battery
 
-- Fuel-gauge systems for single cell lithium-ion (Li+) batteries
-- Precision Voltage Measurement ±12.5mV Accuracy to 5V
-- Accurate Relative Capacity (RSOC) Calculated from ModelGauge Algorithm
-- No Offset Accumulation on Measurement
-- No Full-to-Empty Battery Relearning Necessary
+- Fuel-gauge system for single cell lithium-ion (Li+) batteries
+- Precision voltage measurement ±12.5mV Accuracy to 5V
+- Accurate relative capacity (RSOC) Ccalculated from ModelGauge algorithm
+- No offset accumulation on measurement
+- No full-to-empty battery relearning necessary
 
 
 #### RTC/Watchdog
@@ -535,9 +548,9 @@ CAN GPIO:
 - Crystal oscillator
 - I2C interface (Wire1 address 0x68)
 - Can wake MCU at a specific time using `RTC_INT`.
-- Hardware watchdog functionality
+- Programmable hardware watchdog
+- RTC powered by XC6504 ultra-low consumption regulator so the main TPS62291 can be shut down from RTC
 
-**TODO: table of specs from datasheet**
 
 #### Wi-Fi Geolocation
 
@@ -565,28 +578,15 @@ connection, or in software from the MCP23517T I/0 Expander GPA3.
 The WIFI_BOOT pin enables programming mode. 
 
 
-
-```
-ESP32-D2WD
-Connected to MISO1, MOSI1, SCK1
-CS: WIFI_CS
-Other IO: WIFI_INT, WIFI_BOOT
-WIFI_TXD, WIFI_RXD (where do these go?)
-
-WIFI_BOOT is connecting to ESP32 GPIO0. 1 = SPI boot, 0 = Download boot
-WIFI_INT is ESP32 IO4. I think it's intended to be an output. Connected to IO expander GPA4.
-WIFI_EN is ESP32 CHIP_PU. HIGH = chip powered, LOW = power off ESP32. Default is powered off (100K pull-down).
-```
-
 #### 3.3V Regulator
 
 - Texas Instruments TPS62291
 - 1.0A at 3.3V
+- Powers nRF52840 MCU and ESP32 Wi-Fi module
+- Can be used by your base board to power 3.3V components
 - 3.3V supply can be powered down from the RTC/Watchdog
 
 ### Radio specifications
-
-Boron has two radio modules.
 
 #### nRF52840
 - Bluetooth® 5, 2.4 GHz
@@ -619,7 +619,27 @@ Boron has two radio modules.
 
 #### 4G LTE cellular characteristics for BG96-NA
 
-**TODO: This section**
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat M1 |
+|     | EGPRS |
+| LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 13 (700 MHz)  |
+| | Band 4 (1700 MHz)  |
+| | Band 2 (1900 MHz)  |
+| GSM Bands | EGSM850 (850 MHz) |
+| | DCS1900 (1900 MHz) |
+
+#### ESP32
+
+Espressif Systems ESP32 for Wi-Fi geolocation:
+
+| Feature | Description|
+| :-------|:-----------|
+| WLAN Standards | IEEE 802.11b/g/n |
+| Antenna Port | Single Antenna |
+| Frequency Band | 2412 to 2484 MHz |
 
 
 ### I/O Characteristics 
@@ -676,6 +696,12 @@ These specifications are based on the nRF52840 datasheet.
 **TODO: Mechanical drawing**
 
 Dimensions are in millimeters.
+
+### Layout Considerations
+
+**TODO: This section**
+
+Also the keep-out area around the BLE antenna.
 
 
 ## Product Handling

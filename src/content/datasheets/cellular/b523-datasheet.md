@@ -29,7 +29,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
  * Quectel EG91-E modem
   * LTE category 1 module for EMEA region 
-  * 3GPP E-UTRA Release 11 
+  * 3GPP E-UTRA Release 13 
   * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
