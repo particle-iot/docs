@@ -12852,7 +12852,7 @@ void setup() {
 
 void loop() {
   while (some_long_process_within_loop) {
-    wd.checkin(); // resets the AWDT count
+    wd->checkin(); // resets the AWDT count
   }
 }
 // AWDT count reset automatically after loop() ends
