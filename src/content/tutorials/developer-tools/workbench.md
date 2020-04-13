@@ -720,6 +720,32 @@ In the bottom status bar:
 
 If you are used to the editing keyboard shortcuts, you can install the Atom keymap. Open the Command Palette and select **Preferences: Keymaps**.
 
+## Working with Products
+
+When you are working on a product there are any number of possible scenarios, but this one is common and works well:
+
+- Each developer has their own Particle account and device on their desk for use with the product. This makes it easy to access the USB debug serial port, buttons, etc.. 
+- These developers are [team members](/tutorials/device-cloud/console/#adding-team-members) for the product, so they can access the product test fleet.
+- The developer's desktop device is claimed to the developer's account. 
+- This device uses the [Mark As Development Device](/tutorials/product-tools/development-devices/) feature. This allows it to be part of the product, but combined with being claimed to the developer's account, allows it to be flashed directly from Particle Workbench.
+
+The normal workflow is to use Particle Workbench to develop firmware. You can use any of the local or cloud compile options, and flash over USB or OTA as desired.
+
+Once the firmware is ready for larger testing:
+
+- The `PRODUCT_VERSION` is updated, if it has not already been updated.
+- A version of the firmware is built and downloaded, using the **Particle: Cloud Compile** or **Particle: Compile application (local)** option to create a firmware binary. The Particle CLI cloud compiler is another option.
+- This version is uploaded to the console as [product firmware](/tutorials/device-cloud/console/#rollout-firmware).
+
+You can then:
+
+- Lock and flash a single device in your product test fleet for further testing
+- Release the firmware to a device group, such as a beta test group.
+- Release the firmware to all devices.
+
+![Workflow](/assets/images/release-firmware-flow.png)
+
+
 ## Learn More
 
 Additional questions and answers are in the [FAQ](https://support.particle.io/hc/en-us/articles/360039251434/).
