@@ -96,7 +96,7 @@ describe('Crawler', function() {
   });
 
   after(function(done) {
-    this.timeout(60000);
+    this.timeout(120000);
 
     server.shutdown(function(err) {
       if (err) {
