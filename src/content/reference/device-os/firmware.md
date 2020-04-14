@@ -15050,11 +15050,69 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 {{/if}} {{!-- has-sleep --}}
 
+### SystemSleepResult Class
+
+{{since when="1.5.0"}}
+
+The `SystemSleepResult` class is a superset of the older `SleepResult` class and contains additional information when using `System.sleep()` with the newer API. 
+
+#### wakeupReason()
+
+```cpp
+// PROTOTYPE
+SystemSleepWakeupReason wakeupReason() const;
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, FALLING)
+      .duration(30s);
+SystemSleepResult result = System.sleep(config);
+if (result.wakeupReason() == SystemSleepWakeupReason::BY_GPIO) {
+  // Waken by pin 
+  pin_t whichPin = result.wakeupPin();
+}
+```
+
+Returns the reason for wake. Constants include:
+
+- `SystemSleepWakeupReason::UNKNOWN`
+- `SystemSleepWakeupReason::BY_GPIO` (pin wakeup)
+- `SystemSleepWakeupReason::BY_RTC` (time wakeup)
+
+#### wakeupPin()
+
+```cpp
+// PROTOTYPE
+pin_t wakeupPin() const;
+```
+
+If `wakeupReason()` is `SystemSleepWakeupReason::BY_GPIO` returns which pin caused the wake. See example under `wakeupReason()`, above.
+
+#### error()
+
+```cpp
+// PROTOTYPE
+system_error_t error() const;
+```
+
+If there was an error, returns the system error code. 0 is no error.
+
+#### toSleepResult()
+
+```cpp
+// PROTOTYPES
+SleepResult toSleepResult();
+operator SleepResult();
+```
+
+Returns the previous style of `SleepResult`. There is also an operator to automatically convert to a `SleepResult`.
+
 ### SleepResult Class
 
 {{since when="0.8.0"}}
 
-This class allows to query the information about the latest `System.sleep()`.
+This class allows to query the information about the most recent `System.sleep()`. It is only recommended for use in Device OS 0.8.0 - 1.4.4. There is a newer, more flexible class `SystemSleepResult` in 1.5.0 and later.
 
 #### reason()
 
