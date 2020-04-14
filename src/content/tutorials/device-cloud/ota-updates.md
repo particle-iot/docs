@@ -1,7 +1,7 @@
 ---
 word: OTA
 title: OTA Firmware Updates
-order: 1
+order: 30
 shared: true
 columns: two
 layout: tutorials.hbs

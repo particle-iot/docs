@@ -3,7 +3,7 @@ title: Web IDE (Build)
 layout: tutorials.hbs
 columns: two
 redirects: true
-order: 20
+order: 30
 description: Web-based IDE for programming your Particle IoT devices
 ---
 

@@ -38,23 +38,17 @@ Device OS supports a number of ways for devices to communicate with each other a
 
 [Particle.publish](/reference/device-os/firmware/#particle-publish-) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
 
-When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhooks](/reference/device-cloud/webhooks/) that makes a connection to an external service or web server.
+When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhook](/reference/device-cloud/webhooks/) that makes a connection to an external service or web server.
 
 Using publish and a webhook is particularly advantageous on cellular devices. It's possible to send an event securely in perhaps 200 bytes. Making a TLS/SSL connection to an external web service directly over cellular might use 5000 bytes of data per connection. That can add up quickly!
 
-For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+![Publish Flow](/assets/images/PublishFlow.png)
 
-#### Particle.subscribe
+For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the [Server-Sent-Events (SSE)](/reference/device-cloud/api/#product-event-stream) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
 
-[Particle.subscribe](/reference/device-os/firmware/#particle-subscribe-) allows a device to listen for an event from another device or the cloud.
+When using SSE, your server makes an outbound connection to the Particle cloud. This connection is TLS/SSL encrypted and authenticated with your Particle account access token. This connection is kept open, allowing events to be sent down the connection as them come in efficiently. This also allows your server to be on a private network behind a firewall, and does not require a static IP address, DNS, or a SSL certificate.
 
-Subscribing to private events is secure, as only devices in your account can send these events. Also, subscribe works across all connection types such as Wi-Fi and cellular, and does not require any firewall modifications for Wi-Fi networks.
-
-#### Particle.function
-
-[Particle.function](/reference/device-os/firmware/#particle-subscribe-) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
-
-There is no ability for devices to send function calls to other devices; publish and subscribe should be used instead.
+![SSE Flow](/assets/images/SSEFlow.png)
 
 #### Particle.variable
 
@@ -63,10 +57,25 @@ There is no ability for devices to send function calls to other devices; publish
 - For a publish, every time you publish, the data is sent up to the cloud.
 - For a variable, the current value is stored on the device, and is only sent when requested.
 
+![Variable Flow](/assets/images/VariableFlow.png)
+
+
 Depending on your situation, one or the other may be more efficient. Also note:
 
 - If you are querying a value from a large number of devices, it's almost always more efficient to use publish as you can hit the [API rate limits](/reference/device-cloud/api/#api-rate-limits) if you need to make a variable retrieval to hundreds or thousands of devices.
 - Variables cannot be queried if the device is offline, including in sleep mode. For those applications, you'll want to publish a value before sleep instead.
+
+#### Particle.subscribe
+
+[Particle.subscribe](/reference/device-os/firmware/#particle-subscribe-) allows a device to listen for an event from another device or the cloud.
+
+Subscribing to private events is secure, as only devices in your account can send these events. Also, subscribe works across all connection types such as Wi-Fi and cellular, and does not require any firewall modifications for Wi-Fi networks in most cases.
+
+#### Particle.function
+
+[Particle.function](/reference/device-os/firmware/#particle-subscribe-) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
+
+There is no ability for devices to send function calls to other devices; publish and subscribe should be used instead.
 
 #### TCP
 
