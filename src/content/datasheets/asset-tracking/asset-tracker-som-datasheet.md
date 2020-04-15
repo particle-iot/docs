@@ -25,7 +25,7 @@ description: Datasheet for the Particle Asset Tracker SoM Cellular GNSS module
 
 The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
-- LTE Cat 1 (EMEA) or LTE Cat M1 (North America) cellular modem
+- LTE Cat 1 (EMEAA) or LTE Cat M1 (North America) cellular modem
 - GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and unteathered dead-reckoning 
 - Support for CAN bus
 - Castellated module can be reflow soldered to your base board, and is available on an evaluation board or carrier board
@@ -40,9 +40,10 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * LTE FDD bands supported: 2, 4, 12, 13
   * EGPRS 850, 1900
  * Quectel EG91-E modem
-  * LTE Cat 1 module for EMEA region 
+  * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
   * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
+  * Support for Europe only at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM in SoC
