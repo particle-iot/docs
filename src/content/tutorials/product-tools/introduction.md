@@ -90,13 +90,13 @@ Claiming can only be done when the device is online (breathing cyan).
 
 This can be done using the [Particle Cloud API](/reference/device-cloud/api/#claim-a-device) after bringing the device online. 
 
-![Pre-claim Flow](/assets/images/PreClaimFlow.png)
+![Pre-claim Flow](/assets/images/PreclaimFlow.png)
 
 If you have your own server monitoring product events, you can do this from your server automatically when the device comes online the first time, allowing you to defer billing until the customer first turns on the device and allows it to connect to the cloud.
 
 If you do not have your own server infrastructure, it's possible to auto-claim a device with a [little bit of device firmware and two webhooks](https://github.com/rickkas7/DeviceClaimRK), as well.
 
-![Auto-claim Flow](/assets/images/AutoClaimFlow.png)
+![Auto-claim Flow](/assets/images/AutoclaimFlow.png)
 
 If you never need to send a private event to your product's devices, it's possible to leave them unclaimed, but we recommend claiming all devices.
 
