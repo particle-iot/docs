@@ -110,6 +110,13 @@ describe('Crawler', function() {
   it('should complete without error', function(done) {
     this.timeout(600000);
 
+    var isCron = process.env.TRAVIS_EVENT_TYPE === 'cron';
+    if (!isCron) {
+      console.log('Skipping crawl, not a cron build');
+      done();
+      return;
+    }
+
     if (crawlerData.success && crawlerData.success >= Math.floor(Date.now() / 1000) - (24 * 3600)) {
       // We had a successful crawled in the 24 last hours (3600 * 24 seconds), so skip crawling entirely!
       // This dramatically speeds up pull request builds.
