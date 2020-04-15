@@ -2,7 +2,7 @@
 title: Device OS API - Xenon
 layout: reference.hbs
 columns: three
-setdevice: xenon
+setdevice: Xenon
 order: 19
 description: Reference manual for the C++ API used by user firmware running on Particle Xenon
 ---

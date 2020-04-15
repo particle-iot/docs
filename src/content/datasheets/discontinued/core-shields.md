@@ -552,16 +552,7 @@ The RC car kit is a two-wheeled differentially driven platform that you can cont
 
 ### Kit Contents
 
-NOTE: This is no longer available for purchase through Spark, however, if you still want to build this, check out the links to the individual components below.
-
-- RC Car Chassis kit ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&path=37_111&product_id=65))
-- Motor Driver Shield ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&product_id=69))
-- Battery (NiCad, Alkaline, LiPo, Li Ion : 6V to 12V DC) ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&filter_name=battery&product_id=489))
-- Spark Shield Shield ([buy from Spark](https://store.particle.io/?product=shield-shield))
-- Spark Core ([buy from Spark](https://store.particle.io/?product=spark-core))
-
-Assemble the RC Car chassis as shown in the [tutorial here.](http://www.dfrobot.com/wiki/index.php/3PA_Assembly_Guide_%28SKU:ROB0005%29) (Without the electronics)
-
+NOTE: This is no longer available for purchase.
 
 <!--
 Put together the Shield Shield and the Motor Driver Shield as shown in the picture.
@@ -715,7 +706,3 @@ Example user code.
 Project ideas.
 -->
 
-### Datasheets
-
-- [L298 datasheet >](http://www.st.com/content/ccc/resource/technical/document/datasheet/82/cc/3f/39/0a/29/4d/f0/CD00000240.pdf/files/CD00000240.pdf/jcr:content/translations/en.CD00000240.pdf)
-- [Motor Driver Shield Manual >](http://www.dfrobot.com/wiki/index.php?title=Arduino_Motor_Shield_%28L298N%29_%28SKU:DRI0009%29)
