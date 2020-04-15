@@ -28,7 +28,7 @@ The Electron is a tiny development kit for creating 3G cellular-connected electr
 {{box op="switch"}}
 **Resources:**
 - [Hardware files](https://github.com/particle-iot/electron/)
-- [Datasheet](/datasheets/cellular/electron-datasheet/)
+- [Datasheet](/datasheets/electron/electron-datasheet/)
 - [Certification](/datasheets/certifications/certification)
 {{box op="end"}}
 

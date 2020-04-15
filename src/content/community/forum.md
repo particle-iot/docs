@@ -126,8 +126,8 @@ Stop by and join on of the best places online meet other people using Particle t
 
 - [Photon Datasheet](/datasheets/wi-fi/photon-datasheet/)
 - [P1 Datasheet](/datasheets/wi-fi/p1-datasheet/)
-- [Electron Datasheet](/datasheets/cellular/electron-datasheet/)
-- [E Series Datasheet](/datasheets/cellular/e-series-datasheet/)
+- [Electron Datasheet](/datasheets/electron/electron-datasheet/)
+- [E Series Datasheet](/datasheets/electron/e-series-datasheet/)
 
 # Popular Libraries
 
