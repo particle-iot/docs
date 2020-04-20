@@ -19,17 +19,13 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 
 ## Block Diagram
 
-**TODO: New block diagram**
-<!-- ![Block Diagram](/assets/images/b-series/b-series-eval-block.png) -->
-
+![Block Diagram](/assets/images/at-som/at-eval-block-diagram.png) 
 
 ## Description
 
-**TODO: New graphic**
+**TODO: Update board picture with new version**
 
-<!-- 
-<div align=center><img src="/assets/images/b-series/b-series-eval-labeled.png"></div>
--->
+<div align=center><img src="/assets/images/at-som/at-eval-labeled.png"></div>
 
 
 | Num | ID 					    | Description                                      |
@@ -64,9 +60,9 @@ There are several options for powering the evaluation board:
 
 The **MCU USB** connector. If using a laptop with a 500 mA USB port, you should also use the LiPo battery. With a 2A tablet charger, you can power only by USB.
 
-The **VIN** connector (5-12 VDC). This is useful with an external power supply. 
+The **VIN** connector (5-12 VDC). This is useful with an external power supply. Switch **S6** is the power switch.
 
-The **LiPo** connector. This is typically used with a LiPo battery.
+The **LiPo** connector. This is typically used with a LiPo battery. Use switch **S4** to enable the battery.
 
 ### USB connectors
 
@@ -78,6 +74,18 @@ The **GNSS USB** connector is connected to the u-blox NEO-M8U GNSS. It can be us
 
 The **CELL USB** connector is connected to the Quectel cellular modem. It can be used for firmware upgrades.
 
+### LED Indicators
+
+The **STAT** LED indicates the charge status:
+
+- Off: Not charging or no power
+- On: Charging
+- Blinking: Charge fault
+- Flickering: No battery
+
+Jumper **J9** disconnects the charge status LED.
+
+The **3V3** LED indicates that the 3.3V MCU power supply is enabled. Jumper **J8** disconnects the power LED.
 
 ### Expansion Connector
 
