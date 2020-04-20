@@ -476,9 +476,8 @@ GNSS GPIO:
 | GPS_BOOT | u-blox GNSS boot mode | IOEX | 
 | GPS_RST | u-blox GNSS reset | IOEX | 
 
-### Other components
 
-#### CAN Bus
+### CAN Specifications
 
 - Microchip MCP25625 CAN Controller with Integrated Transceiver
 - SPI Interface
@@ -504,6 +503,41 @@ CAN GPIO:
 | CAN_RTS0 | CAN Request to Send 0 | IOEX |
 | CAN_RTS1 | CAN Request to Send 1 | IOEX |
 | CAN_RTS2 | CAN Request to Send 2 | IOEX |
+
+CANH, CANL Absolute Maximum Ratings:
+
+| Parameter | Maximum |  
+| :--- | :--- | 
+| DC Voltage at CANH, CANL | -58V to +58V |
+| Transient Voltage on CANH, CANL (ISO-7637) | -150V to +100V |
+| ESD Protection on CANH and CANL Pins (IEC 61000-4-2) | ±8 kV |
+| ESD Protection on CANH and CANL Pins (IEC 801; Human Body Model) | ±8 kV |
+
+CAN Tranceiver Characteristics
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Conditions |
+|:---|:---|:---:|:---:|:---:|:---:| :--- |
+| Supply Input Voltage | V<sub>DDA</sub> |  | 5.0 |  | V | |
+| Supply Current | I<sub>DD</sub> | | 5 | 10 | mA | Recessive; V<sub>TXD</sub> = V<sub>DDA</sub> |
+| | | | 45 | 70 | mA | Dominant; V<sub>TXD</sub> = 0V |
+| Standby Current | I<sub>DDS</sub> | | 5 | 15 | µA |  Includes I<sub>IO</sub> |
+| CANH, CANL Recessive Bus Output Voltage | V<sub>O(R)</sub> | 2.0 | 2.5 | 3.0 | V | V<sub>TXD</sub> = V<sub>DDA</sub> |
+| CANH, CANL Bus Output Voltage in Standby | V<sub>O(S)</sub> | -0.1 | 0.0 | +0.1 | V | STBY = V<sub>TXD</sub> = V<sub>DDA</sub>; No load |
+| Recessive Output Current | I<sub>O(R)</sub> | -5 | | +5 | mA | -24V < V<sub>CAN</sub> < +24V |
+| CANH: Dominant Output Voltage | V<sub>O(D)</sub> | 2.75 | 3.5 | 4.5 | V | T<sub>XD</sub> =0; R<sub>L</sub> = 50 to 65&#8486; |
+| CANL: Dominant Output Voltage | V<sub>O(D)</sub> | 0.5 | 1.5 | 2.25 | V | R<sub>L</sub> = 50 to 65&#8486; |
+| Dominant: Differential Output Voltage | V<sub>O(DIFF)</sub> | 1.5 | 2.0 | 3.0 | V | T<sub>XD</sub> = V<sub>SS</sub>; R<sub>L</sub> =50 to 65&#8486; | 
+| Recessive: Differential Output Voltage | | -120 | 0 | 12 | mV | T<sub>XD</sub> = V<sub>DDA</sub>; R<sub>L</sub> =50 to 65&#8486; | 
+|  |  | -500 | 0 | 50 | mV | T<sub>XD</sub> = V<sub>DDA</sub>; No load | 
+| CANH: Short-Circuit Output Current | I<sub>O(SC)</sub> | -120 | 85 | | mA | V<sub>TXD</sub> = V<sub>SS</sub>; V<sub>CANH</sub> = 0V; CANL: floating |
+| CANL: Short-Circuit Output Current | | | 75 | 120 | mA | V<sub>TXD</sub> = V<sub>SS</sub>; V<sub>CANL</sub> = 18V; CANH: floating |
+| Recessive Differential Input Voltage | V<sub>DIFF(R)(I)</sub> | -1.0 | | +0.5 | V | Normal mode; -12V < V<sub>(CANH, CANL)</sub> < +12V| 
+|  | | -1.0 | | +0.4 | V | Standby mode; -12V < V<sub>(CANH, CANL)</sub> < +12V| 
+| Dominant Differential Input Voltage | V<sub>DIFF(D)(I)</sub> | 0.9 | | 5.0 | V | Normal mode; -12V < V<sub>(CANH, CANL)</sub> < +12V| 
+|  | | 1.0 | | 5.0 | V | Standby mode; -12V < V<sub>(CANH, CANL)</sub> < +12V| 
+
+
+### Other components
 
 #### IMU (Inertial Measurement Unit)
 
