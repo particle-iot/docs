@@ -159,7 +159,9 @@ There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'
 
 <sup>1</sup>PWM is divided into three PWM groups. Each group must share the same frequency, but can have different periods.
 
-**Note:** All GPIO are only rated at 3.3VDC max. CAN bus is rated at **TODO: CAN maximum voltage**.
+**Note:** All GPIO are only rated at 3.3VDC max. CAN bus has a [higher voltage rating](#can-specifications).
+
+
 
 ### JTAG (SWD) 
 
@@ -293,9 +295,9 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 | 87 | CELL_GPS_RF | RF | CELL | Cellular modem GPS antenna. Optional. |
 | 88 | GND | POWER | | Ground |
 | 89 | GND | POWER | | Ground |
-| 90 | GNSS_BOOT |  | GNSS | **TODO: Update description** |
-| 91 | GNSS_ANT_PWR |  | GNSS | **TODO: Update description** |
-| 92 | GNSS_LNA_EN |  | GNSS | **TODO: Update description** |
+| 90 | GNSS_BOOT |  | GNSS | u-blox GNSS boot mode |
+| 91 | GNSS_ANT_PWR |  | GNSS | u-blox GNSS antenna power |
+| 92 | GNSS_LNA_EN |  | GNSS | u-blox GNSS LNA enable or antenna switch |
 | 93 | GND | POWER | | Ground |
 | 94 | GNSS_RF |  | GNSS | GNSS antenna. |
 | 95 | GND | POWER | | Ground |
@@ -734,9 +736,7 @@ Dimensions are in millimeters.
 
 ### Layout Considerations
 
-**TODO: This section**
-
-Also the keep-out area around the BLE antenna.
+**TODO: keep-out area around the BLE antenna.**
 
 
 ## Product Handling
@@ -748,10 +748,6 @@ The Asset Tracker SoM contains highly sensitive electronic circuitry and is an E
 
 The U.FL antenna connectors are not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used securely hold the plug in place.
 
-
-## Schematics
-
-**TODO: Schematics**
 
 ## Default settings
 

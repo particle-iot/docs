@@ -62,15 +62,17 @@ The carrier board is a ready-to-go carrier board for the Particle Asset Tracker 
 | 1     | VIN (4.5 - 105VDC) | I |
 | 2     | GND | |
 | 3     | CAN 5V (800mA maximum) | O |
-| 4     | CAN+ | IO |
-| 5     | CAN- | IO |
+| 4     | CAN+ | IO<sup>2</sup> |
+| 5     | CAN- | IO<sup>2</sup> |
 | 6     | MCU TX/D9 | IO<sup>1</sup> |
 | 7     | MCU RX/D8 | IO<sup>1</sup> |
 | 8     | GPIO1/A3 | IO<sup>1</sup> |
 
+This connector attaches to the IP67 M8 connector, accessible from the outside of the enclosure.
+
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum
 
-This connector attaches to the IP67 M8 connector, accessible from the outside of the enclosure.
+<sup>2</sup>CAN Bus specifications can be found in the [Asset Tracker SoM datasheet](/datasheets/asset-tracking/asset-tracker-som-datasheet/#can-specifications).
 
 ### Additional Peripherals
 

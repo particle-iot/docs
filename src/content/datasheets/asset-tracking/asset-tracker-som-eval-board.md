@@ -132,7 +132,7 @@ The **3V3** LED indicates that the 3.3V MCU power supply is enabled. Jumper **J8
 
 **TODO: Update this as necessary**
 
-The basic setup for the B series to be operational is shown below:
+The basic setup for the Asset Tracker Eval Board to be operational is shown below:
 
 - Plug the cellular antenna into the U.FL connector labeled **CELL** on the SoM. Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the cellular module if no antenna is connected.
 - Connect power the **MCU USB** (8), **VIN** (13), or a LiPo battery (14).
