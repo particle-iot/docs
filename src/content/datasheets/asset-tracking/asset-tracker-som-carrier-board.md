@@ -78,11 +78,12 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 
 | Signal | Device OS | Description |
 | :---: | :---: | :---
+| THERM | A0 | NTC Thermistor |
+| USER | A1 | USER button | 
 | GPIO1 | A3 | GPIO on power and I/O connector |
+| FRAM_CS | A7 | Chip select for MB85RS256 SPI FRAM | 
 | MCU TX | TX | MCU serial TX or GPIO D9 | 
 | MCU RX | RX | MCU serial RX or GPIO D8 | 
-| USER | A1 | USER button | 
-| FRAM_CS | A7 | Chip select for MB85RS256 SPI FRAM | 
 
 
 ### Powering the Asset Tracker SoM Evaluation Board
@@ -112,18 +113,18 @@ The **CHRG** LED indicates the charge status:
 - Blinking: Charge fault
 - Flickering: No battery
 
-The **GNSS** LED indicates the GPS fix status:
+The **GNSS** LED indicates the GNSS fix status:
 
-**TODO: Fix status**
+- Blinking (1 Hz): Attempting to get a GNSS fix
+- Off: Has a GNSS fix, or GNSS is turned off.
 
 ## Basic Setup
 
-**TODO: Update this as necessary**
-
+Will be provided at a later date.
 
 ## Evaluation Board Schematics
 
-**TODO: Add schematics**
+Will be provided at a later date.
 
 ---
 
@@ -131,7 +132,7 @@ The **GNSS** LED indicates the GPS fix status:
 
 ### Dimensions and weight
 
-**TODO: Update this**
+Will be provided at a later date.
 
 | Parameter | Value |
 | --- | --- |
