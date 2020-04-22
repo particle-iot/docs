@@ -14,7 +14,7 @@ description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Ca
 
 **This is a preliminary datasheet and is subject to change**
 
-<div align=center><img src="/assets/images/b-series/b523-top.jpg" ></div>
+<div align=center><img src="/assets/images/b-series/b523-top.png" ></div>
 
 
 ## Functional description
