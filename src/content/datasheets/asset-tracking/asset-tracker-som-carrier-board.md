@@ -41,7 +41,7 @@ The carrier board is a ready-to-go carrier board for the Particle Asset Tracker 
 |  2 | | RTC Battery |
 |  3 | | LiPo Connector |
 |  4 | | MCU USB-C |
-|  5 | | RGB Status LED |
+|  5 | | RGB Status LED|
 |  6 | USER | User Button |
 |  7 | GNSS LED | GNSS Status LED |
 |  8 | RESET | RESET Button |
@@ -107,6 +107,15 @@ The **MCU USB** connector is connected to the nRF52 MCU and can be used for Seri
 The **GNSS USB** connector is connected to the u-blox NEO-M8U GNSS. It can be used for firmware upgrades or with the u-blox u-center application.
 
 ### LED Indicators
+
+The **RGB LED** default behavior is to display cellular signal quality: 
+
+- Red: poor cellular signal
+- Yellow: average cellular signal
+- Green: good cellular signal
+
+It will fast blink when connecting to the cellular network, and slow blink when connecting to the Particle cloud. This behavior can be overridden by custom application firmware.
+
 
 The **CHRG** LED indicates the charge status:
 
