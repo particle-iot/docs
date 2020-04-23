@@ -3696,9 +3696,9 @@ Another good resource is the <a href="https://www.u-blox.com/sites/default/files
 
 LTE Cat M1 devices (SARA-R410M-02B) have a slightly different AT command set in the <a href="https://www.u-blox.com/sites/default/files/SARA-R4_ATCommands_%28UBX-17003787%29.pdf" target="_blank">u-blox SARA-R4 AT Commands Manual</a>.
 
-The B Series B523 SoM and Asset Tracker SoM (EMEA) have a Quectel EG91-E, the AT commands can be found in the <a href="/assets/pdfs/Quectel_EG9x_AT_Commands_Manual_V1.1.pdf" target="_blank">Quectel EG9x AT Commands Manual (version 1.1).</a>.
+The B Series B523 SoM and Tracker T523 SoM (EMEA) have a Quectel EG91-E, the AT commands can be found in the <a href="/assets/pdfs/Quectel_EG9x_AT_Commands_Manual_V1.1.pdf" target="_blank">Quectel EG9x AT Commands Manual (version 1.1).</a>.
 
-The Asset Tracker SoM (North America) has a Quectel BG96-NA, the AT commands cann be found in the <a href="/assets/pdfs/Quectel_BG96_AT_Commands_Manual_V2.1.pdf" target="_blank">Quectel BG96 AT Commands Manual (version 2.1).</a>.
+The Tracker T402 SoM (North America) has a Quectel BG96-NA, the AT commands cann be found in the <a href="/assets/pdfs/Quectel_BG96_AT_Commands_Manual_V2.1.pdf" target="_blank">Quectel BG96 AT Commands Manual (version 2.1).</a>.
 
 The prototype definition is as follows:
 

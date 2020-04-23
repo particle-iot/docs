@@ -1,22 +1,21 @@
 ---
-title: Asset Tracker SoM datasheet
+title: Tracker SoM datasheet
 layout: datasheet.hbs
 columns: two
 order: 4
-description: Datasheet for the Particle Asset Tracker SoM Cellular GNSS module
+description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Asset Tracker SoM Datasheet <sup>(pre)</sup>
+# Tracker SoM Datasheet <sup>(pre)</sup>
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/asset-tracker-som-datasheet.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 **This is a preliminary datasheet and is subject to change**
 
 
-**TODO: Photo goes here**
-<!-- <div align=center><img src="/assets/images/b-series/b523-top.jpg" ></div> -->
+![SoM](/assets/images/at-som/at-som-bg96.png)
 
 
 ## Functional description
@@ -78,7 +77,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 <div align=center> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" ></a></div>
 
 ### Power
-The Asset Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
+The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
 
 #### VIN
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
@@ -122,7 +121,7 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 ### Antennas
 
-There are a number of U.FL antenna connectors on the Asset Tracker SoM:
+There are a number of U.FL antenna connectors on the Tracker SoM:
 
 | Label | Purpose | 
 | :---: | :--- |
@@ -194,10 +193,13 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 
 ## Pins and button definitions
 
+<!--
 ### Pinout diagram
 
 **TODO: Update this diagram**
-<!--![Pinout](/assets/images/b-series/b523-pinout.png) -->
+
+![Pinout](/assets/images/b-series/b523-pinout.png) 
+-->
 
 ### SoM Pin description
 
@@ -351,7 +353,7 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 
 ### Status LED
 
-The Asset Tracker SoM does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of 
+The Tracker SoM does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of 
 your liking. This will allow greater flexibility in the end design of your products.
 
 Device OS assumes a common anode RGB LED. One common LED that meets the requirements is the 
@@ -719,8 +721,6 @@ These specifications are based on the nRF52840 datasheet.
 
 ### Dimensions and Weight
 
-**TODO: Dimensions and weight**
-
 | Parameters | Value | Unit |
 | --- | --- | --- |
 | Width |  | mm |
@@ -728,21 +728,22 @@ These specifications are based on the nRF52840 datasheet.
 | Thickness |  | mm | 
 | Weight |  | grams |
 
+Will be provided at a later date.
+
 ### Mechanical drawing
 
-**TODO: Mechanical drawing**
+Will be provided at a later date.
 
 Dimensions are in millimeters.
 
 ### Layout Considerations
 
-**TODO: keep-out area around the BLE antenna.**
-
+Will be provided at a later date.
 
 ## Product Handling
 
 ### ESD Precautions
-The Asset Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
+The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
 ### Connectors
 
@@ -755,6 +756,19 @@ The AssetTracker SoM comes pre-programmed with a bootloader and a user applicati
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
+
+## Ordering Information
+
+| SKU  | Description | Packaging |
+| :--- | :--- | :--- |
+| | T523 Family (Europe) | |
+| T523MEA  | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Each |
+| T523MTY  | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Tray (50) |
+| T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] |	Each |
+| | T402 Family (North America) | |
+| T402MEA | Tracker SoM LTE M1/2G (NorAm), [x1]	| Each |
+| T402MTY | Tracker SoM LTE M1/2G (NorAm), Tray [x50]	| Tray (50) |
+| T402MKIT | Tracker SoM LTE M1/2G (NorAm) Evaluation Kit, [x1]	| Each |
 
 
 ## Revision history

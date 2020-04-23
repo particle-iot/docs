@@ -4786,7 +4786,7 @@
 		},
 		{
 			"id":26,
-			"name":"Asset Tracker SoM",
+			"name":"Tracker SoM",
 			"pins":[
 				{
 					"num":1,

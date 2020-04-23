@@ -134,7 +134,7 @@ Stop by and join on of the best places online meet other people using Particle t
 ## Particle Libraries
 
 - [Internet Button](https://github.com/particle-iot/InternetButton.git)
-- [Asset Tracker](https://github.com/particle-iot/AssetTracker.git)
+- [Electron Asset Tracker](https://github.com/particle-iot/AssetTracker.git)
 - [Power Shield](https://github.com/particle-iot/PowerShield.git)
 - [Relay Shield](https://build.particle.io/libs/RelayShield/0.0.6/tab/RelayShield.cpp)
 - [Maker Kit](https://github.com/particle-iot/makerkit.git)

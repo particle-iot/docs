@@ -1,21 +1,23 @@
 ---
-title: Asset Tracker SoM Evaluation Board
+title: Tracker SoM Evaluation Board
 layout: datasheet.hbs
 columns: two
 order: 5
-description: Datasheet for the Particle Asset Tracker SoM evaluation board
+description: Datasheet for the Particle Tracker SoM evaluation board
 ---
 
-# Asset Tracker SoM Evaluation Board
+# Tracker SoM Evaluation Board
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/asset-tracker-som-eval-board.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-This is a breakout board for Particle's Asset Tracker SoM. The Asset Tracker Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board, or the carrier board.
+This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board, or the carrier board.
 
+<!-- 
 **TODO: Create repo and update URL**
 The Eagle CAD design files, Gerber files, and bill of materials can be found in the [SoM eval board Github repository](https://github.com/particle-iot/som-eval-board).
+-->
 
 ## Block Diagram
 
@@ -23,7 +25,9 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 
 ## Description
 
+<!--
 **TODO: Update board picture with new version**
+-->
 
 <div align=center><img src="/assets/images/at-som/at-eval-labeled.png"></div>
 
@@ -54,7 +58,7 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 | 22 | J4 | CAN data connection and 3.3V power output |
 | 23 | J5 | JTAG power jumper. Install to allow the MCU to be powered by the JTAG port. |
 
-### Powering the Asset Tracker SoM Evaluation Board
+### Powering the Tracker SoM Evaluation Board
 
 There are several options for powering the evaluation board:
 
@@ -130,9 +134,7 @@ The **3V3** LED indicates that the 3.3V MCU power supply is enabled. Jumper **J8
 
 ## Basic Setup
 
-**TODO: Update this as necessary**
-
-The basic setup for the Asset Tracker Eval Board to be operational is shown below:
+The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 - Plug the cellular antenna into the U.FL connector labeled **CELL** on the SoM. Remember never to power up this board without the antenna being connected. There is potential to damage the transmitter of the cellular module if no antenna is connected.
 - Connect power the **MCU USB** (8), **VIN** (13), or a LiPo battery (14).
@@ -141,15 +143,17 @@ The basic setup for the Asset Tracker Eval Board to be operational is shown belo
 
 ## Evaluation Board Schematics
 
-**TODO: Add schematics**
+To be provided at a later date.
 
 ---
 
 ## Mechanical specifications
 
+To be provided at a later date.
+
 ### Dimensions and weight
 
-**TODO: Update this**
+To be provided at a later date.
 
 | Parameter | Value |
 | --- | --- |
