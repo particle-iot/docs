@@ -223,6 +223,8 @@ function getFullData() {
 	    records.forEach(function(record) {
 	        // console.log('Retrieved ' + record.get('ID'), record);
 	    	// console.log('record IDs: Country=' + record.get('Country') + ' Carrier-link=' + record.get('Carrier-link') + ' Plan_Name-link=' +record.get('Plan_Name-link'));
+			// const recordId = record.get('ID'); 
+			
 			let countryId = record.get('Country');
 
 	    	let countryName = countryNameMap[countryId]; 

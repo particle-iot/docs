@@ -191,17 +191,27 @@ This interface can be used to debug your code or reprogram your bootloader, devi
  - FAC (128KB, @0x00200000)
  - LittleFS (2M, @0x00000000)
 
-## Pins and button definitions
+## Pins and connectors
 
-<!--
-### Pinout diagram
+![SoM Labeled](/assets/images/at-som/at-som-labeled.png)
 
-**TODO: Update this diagram**
+Circular labels are as follows:
 
-![Pinout](/assets/images/b-series/b523-pinout.png) 
--->
+| Label | Purpose | 
+| :---: | :--- |
+|  1 | Quectel cellular modem antenna |
+|  2 | Wi-Fi antenna for Wi-Fi geolocation (optional) |
+|  3 | External Bluetooth (optional) |
+|  4 | Built-in Bluetooth chip antenna |
+|  5 | Quectel GNSS antenna (optional) |
+|  6 | u-blox GNSS antenna (GPS) |
+|  7 | u-blox Neo M8 GNSS (GPS) |
+|  8 | Quectel cellular modem |
+
 
 ### SoM Pin description
+
+Pin numbers match the triangular numbers in the graphic above.
 
 | # |	Pin	 | Function | Connected To |	Description |
 | :---: | :---: | :---: | :---: | --- |
