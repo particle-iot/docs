@@ -23,7 +23,7 @@ description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Ca
 
 The B Series System-on-a-Module (SoM) is a LTE Cat 1 cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 micro-controller.
 
-The B Series is designed to be integrated into your circuit board design, plugging a M.2 NGFF connector on your board, allowing the module to be changed or upgraded easily.
+The B Series is designed to be integrated into your circuit board design, plugging into a M.2 NGFF connector on your board, allowing the module to be changed or upgraded easily.
 
 ### Features
 

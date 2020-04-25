@@ -18,10 +18,10 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 - **Ready to go** with IP67 rated enclosure.
 - **GNSS Antenna Onboard:** convenient high-gain GNSS antenna for easy access to GNSS signals.
-- **Flexible Power Supply:** easily add asset tracking to most devices. 4.5-105V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. Switched LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC.
+- **Flexible Power Supply:** easily add asset tracking to most devices. 4.5-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. Switched LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC. Supports up to 105V when connecting directly to the carrier board.
 - **High-precision Thermistor** with accuracy to 1%.
 - **Extensible:** IP67-rated M8 connector includes CAN Bus, UART, GPIO ,and power for simple expansion.
-- **USB-C**for flashing, debugging and power with higher charging rates than micro-USB or for use without an internal battery.
+- **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB or for use without an internal battery.
 - **RGB LED** for use as both a user-configurable device as well as Particle status information.
 - **Backup Battery** for RTC and GNSS.
 - **32 Kbyte SPI FRAM:** MB85RS256 non-volatile ferroelectric RAM for data storage.

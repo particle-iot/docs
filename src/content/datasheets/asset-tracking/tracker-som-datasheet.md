@@ -38,10 +38,10 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * 3GPP E-UTRA Release 13
   * LTE FDD bands supported: 2, 4, 12, 13
   * EGPRS 850, 1900
- * Quectel EG91-E modem
+ * Quectel EG91-EX modem
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
-  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
+  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28
   * Support for Europe only at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -643,13 +643,13 @@ The WIFI_BOOT pin enables programming mode.
   - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
   - 20 to +8 dBm TX power, configurable in 4 dB steps
 
-#### 4G LTE cellular characteristics for EG91-E
+#### 4G LTE cellular characteristics for EG91-EX
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat 1 |
-| LTE FDD Bands | Band 28A (700 MHz) |
+| LTE FDD Bands | Band 28 (700 MHz) |
 | | Band 20 (800 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 3 (1800 MHz)  |
