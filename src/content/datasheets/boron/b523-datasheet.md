@@ -6,13 +6,11 @@ order: 3
 description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B523 Datasheet <sup>(pre)</sup>
+# B523 Datasheet <sup>001</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
-
-**This is a preliminary datasheet and is subject to change**
 
 <div align=center><img src="/assets/images/b-series/b523-top.png" ></div>
 
@@ -491,4 +489,4 @@ The bootloader allows you to easily update the user application via several diff
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 19 Mar 2020 | RK | Preview Release |
+| 001      | 27 Apr 2020 | RK | First Release |
