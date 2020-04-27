@@ -16,22 +16,17 @@ description: Datasheet for the Particle One Enclosure and Carrier Board
 
 The Tracker One is a ready-to-go Tracker SoM carrier board with optional weatherproof enclosure.
 
-- **Ready to go** with IP67 rated enclosure.
+- **Ready to go** with IP67-rated enclosure.
 - **GNSS Antenna Onboard:** convenient high-gain GNSS antenna for easy access to GNSS signals.
-- **Flexible Power Supply:** easily add asset tracking to most devices. 4.5-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. Switched LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC. Supports up to 105V when connecting directly to the carrier board.
+- **Flexible Power Supply:** easily add asset tracking to most devices. A wide 4.5-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC. Supports up to 105V when connecting directly to the carrier board.
 - **High-precision Thermistor** with accuracy to 1%.
-- **Extensible:** IP67-rated M8 connector includes CAN Bus, UART, GPIO ,and power for simple expansion.
+- **Extensible:** IP67-rated M8 connector includes CAN Bus, UART, GPIO, and power for simple expansion.
 - **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB or for use without an internal battery.
 - **RGB LED** for use as both a user-configurable device as well as Particle status information.
 - **Backup Battery** for RTC and GNSS.
-- **32 Kbyte SPI FRAM:** MB85RS256 non-volatile ferroelectric RAM for data storage.
+- **32 Kbyte SPI FRAM:** MB85RS256 ferroelectric RAM for non-volatile data storage.
 
-{{box op="start" cssClass="boxedSideBySide"}}
-![Open](/assets/images/at-som/at-enclosure-open.png)
-{{box op="switch"}}
-![Bottom](/assets/images/at-som/at-with-carrier-bottom.png)
-{{box op="end"}}
-
+![Top and Bottom](/assets/images/at-som/carrier-top-bottom.png)
 
 
 ## Block Diagram
@@ -39,10 +34,6 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 ![Block Diagram](/assets/images/at-som/at-carrier-block-diagram.png) 
 
 ## Description
-
-<!--
-**TODO: Update board picture with actual photo**
--->
 
 <div align=center><img src="/assets/images/at-som/at-som-carrier-labeled.png"></div>
 
@@ -61,7 +52,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 11 | | NFC |
 | 12 | | JTAG/SWD debugging connector for nRF52 MCU |
 | 13 | GNSS USB | u-blox GNSS USB connection (Micro USB) |
-| 14 | | GNS Antenna |
+| 14 | | GNSS Antenna |
 | 15 | | LiPo Battery |
 | 16 | | Tracker SoM (on back side) |
 
@@ -72,7 +63,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | :---: | :--- | :---: |
 | 1     | VIN (4.5 - 105 VDC)<sup>3</sup> | I |
 | 2     | GND | |
-| 3     | CAN 5V (800mA maximum) | O |
+| 3     | CAN 5V (500mA maximum) | O |
 | 4     | CAN+ | IO<sup>2</sup> |
 | 5     | CAN- | IO<sup>2</sup> |
 | 6     | MCU TX/D9 | IO<sup>1</sup> |
@@ -83,7 +74,7 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum
 
-<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications).
+<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). CAN Bus termination is provided on the carrier board.
 
 <sup>3</sup>4.5 to 30 VDC when using the M8 connector. 4.5 - 105 VDC when connecting directly to the board.
 
@@ -93,6 +84,7 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 | :---: | :---: | :---
 | THERM | A0 | NTC Thermistor |
 | USER | A1 | USER button | 
+| GNSS_LOCK | A2 | GNSS lock indicator |
 | GPIO1 | A3 | GPIO on power and I/O connector |
 | FRAM_CS | A7 | Chip select for MB85RS256 SPI FRAM | 
 | MCU TX | TX | MCU serial TX or GPIO D9 | 
@@ -105,7 +97,7 @@ There are several options for powering the evaluation board:
 
 The **MCU USB** connector (USB-C). If using a laptop with a 500 mA USB port, you should also use the LiPo battery. With a 2A tablet charger, you can power only by USB.
 
-The **VIN** connector (5-12 VDC). This is useful with an external power supply.
+The **VIN** connector (5-30 VDC). This is useful with an external power supply.
 
 The **LiPo** connector. This is typically used with a LiPo battery.
 
@@ -121,6 +113,7 @@ The **GNSS USB** connector is connected to the u-blox NEO-M8U GNSS. It can be us
 
 The **RGB LED** default behavior is to display cellular signal quality: 
 
+- Red blinking: Attempting to connect to the cellular network
 - Red: poor cellular signal
 - Yellow: average cellular signal
 - Green: good cellular signal
@@ -138,7 +131,7 @@ The **CHRG** LED indicates the charge status:
 The **GNSS** LED indicates the GNSS fix status:
 
 - Blinking (1 Hz): Attempting to get a GNSS fix
-- Off: Has a GNSS fix, or GNSS is turned off.
+- On: Has a GNSS fix.
 
 
 ## Basic Setup

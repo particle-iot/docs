@@ -25,14 +25,16 @@ description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 - LTE Cat 1 (EMEAA) or LTE Cat M1 (North America) cellular modem
-- GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and unteathered dead-reckoning 
-- Support for CAN bus
+- GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
+- Support for CAN bus and 5V power for CAN devices
+- Built-in Inertial Measurement Unit (IMU)
 - Castellated module can be reflow soldered to your base board, and is available on an evaluation board or carrier board
 
 ### Features
 
  * GNSS u-blox Neo M8U for GNSS with on-board dead-reckoning for up to 1.8m CEP50 GPS accuracy
   * Supports GPS L1C/A, SBAS L1C/A, QZSS L1C/A, QZSS L1-SAIF, GLONASS L1OF, BeiDou B1I, Galileo E1B/C
+  * Support for battery-backup for almanac and ephemeris data
  * Quectel BG96-NA modem
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
   * 3GPP E-UTRA Release 13
@@ -55,16 +57,17 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * PMIC (Power Management IC) and Fuel Gauge
  * On-module additional 8MB SPI flash
  * CAN Bus: on-board, integrated CAN Bus controller and transceiver making it ideal for fleet and micromobility
+ * Boost Converter to power 5V CAN devices from a 3.6V battery
  * RTC: Battery-backed external real-time clock
  * Watchdog Timer: integrated hardware WDT
- * 10 Mixed signal GPIO (8 x Analog, 10 x Digital), UART, I2C, SPI
+ * 10 Mixed signal GPIO (8 x Analog, 10 x Digital, UART, I2C, SPI)
  * USB 2.0 full speed (12 Mbps)
  * JTAG (SWD) pins
  * Support for external RGB status LED 
  * Support for external Reset and Mode buttons
  * On-module MFF2 Particle SIM 
  * Bluetooth chip antenna on module, switchable to use U.FL connector in software.
- * Two on-module U.FL connectors for cellular, GNSS, BLE, Wi-Fi, and alternative GNSS.
+ * Five on-module U.FL connectors for cellular, GNSS, BLE, Wi-Fi, and alternative GNSS.
  * Castellated module designed to be reflow soldered to your own custom base board, or pre-populated on a Particle Evaluation Board or Carrier Board.
  * FCC, IC, and CE certified 
  * RoHS compliant (lead-free)
@@ -85,9 +88,9 @@ The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the V
 #### LiPo
 This pin serves two purposes. You can use this pin to connect a LiPo battery (either directly or using a JST connector), or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the module since the PMIC bypasses the regulator and supplies power to the module via an internal FET leading to lower quiescent current.
 
-When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the module is a Lithium-Ion Polymer battery rated at 3.7VDC 1,800mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.
+When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the module is a Lithium-Ion Polymer battery rated at 3.7VDC 1,800mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector. A LiPo battery with internal protection circuits is recommended.
 
-Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
+Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA [this value may change] (powered from the battery alone).
 
 The MAX17043 fuel gauge is only compatible with single cell lithium-ion batteries. The state-of-charge (SoC) values will not be accurate with other battery chemistries.
 
@@ -108,6 +111,8 @@ This is the supply to the real-time clock battery backup. 1.4 to 3.6V.
 | :---:   | ---:            | ---:            | :--- |
 | 3.0V    | 56              | 330             | nA   |
 | 1.8V    | 52              | 290             | nA   |
+
+If the RTC battery is not used, connect RTC_BAT to ground.
 
 #### GNSS_BAT
 This is the supply for maintaining the u-blox GNSS ephemeris and almanac data when removing power. This can use the same battery as RTC_BAT, can be a super-capacitor, or can be omitted. 1.5 to 3.6V. Typical current is 15 uA.
@@ -144,17 +149,23 @@ There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'
 
 ### Peripherals and GPIO
 
-| Peripheral Type | Qty | Input(I) / Output(O) |
+There are 10 exposed GPIO lines labeled A0-A7, TX, and RX. These multi-function pins can be configured for use as GPIO or other interfaces like SPI and I2C.
+
+| Shared Peripherals | Qty | Input(I) / Output(O) |
 | :---:|:---:|:---:|
 | Digital | 10 (max) | I/O |
 | Analog (ADC) | 8 (max) | I |
 | UART | 1 | I/O |
 | SPI  | 1 | I/O |
 | I2C  | 1 | I/O |
-| USB  | 1 | I/O |
 | PWM  | 10 (max)<sup>1</sup> | O |
-| NFC  | 1 | O |
-| CAN  | 1 | I/O | 
+
+
+| Peripheral Type | Qty | Input(I) / Output(O) |
+| :---:|:---:|:---:|
+| USB  | 1 | I/O |
+| NFC Tag  | 1 | O |
+| CAN Bus | 1 | I/O | 
 
 <sup>1</sup>PWM is divided into three PWM groups. Each group must share the same frequency, but can have different periods.
 
@@ -185,11 +196,12 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 
 ### External SPI Flash Layout Overview (DFU offset: 0x80000000)
 
- - Reserved (4MB, @0x0040000) 
- - OTA (1500KB, @0x00289000)
- - Reserved (420KB, @0x00220000)
- - FAC (128KB, @0x00200000)
- - LittleFS (2M, @0x00000000)
+ - OTA (1500KB, @0x00689000)
+ - Reserved (420KB, @0x00620000)
+ - FAC (128KB, @0x00600000)
+ - Reserved (2MB @0x00400000)
+ - LittleFS (4MB, @0x00000000)
+
 
 ## Pins and connectors
 
@@ -210,8 +222,6 @@ Circular labels are as follows:
 
 
 ### SoM Pin description
-
-Pin numbers match the triangular numbers in the graphic above.
 
 | # |	Pin	 | Function | Connected To |	Description |
 | :---: | :---: | :---: | :---: | --- |
@@ -241,14 +251,14 @@ Pin numbers match the triangular numbers in the graphic above.
 | 23 | SWDCLK | JTAG | nRF52 | nRF52 MCU SWDCLK |
 | 24 | SWO | JTAG | nRF52 | nRF52 MCU SWO |
 | 25 | GND | POWER | | Ground |
-| 26 | NFC1 | NFC | nRF52 | nRF52 NFC antenna. Supports NFC tag mode only. Optional. |
-| 27 | NFC2 | NFC | nRF52 | nRF52 NFC antenna. Supports NFC tag mode only. Optional. |
+| 26 | NFC2 | NFC | nRF52 | nRF52 NFC antenna. Supports NFC tag mode only. Optional. |
+| 27 | NFC1 | NFC | nRF52 | nRF52 NFC antenna. Supports NFC tag mode only. Optional. |
 | 28 | RGB_BLUE | RGB LED | nRF52 | Common anode RGB status LED, blue. Optional. |
 | 29 | RGB_GREEN | RGB LED | nRF52 | Common anode RGB status LED, green. Optional. |
 | 30 | RGB_RED | RGB LED | nRF52 | Common anode RGB status LED, red. Optional. |
 | 31 | GND | POWER | | Ground |
-| 32 | MODE | INPUT | nRF52 | External MODE button input. Optional. |
-| 33 | RESET | INPUT | nRF52 | External RESET button input. Optional. |
+| 32 | MODE | INPUT | nRF52 | External MODE button input, active low. Optional. |
+| 33 | RESET | INPUT | nRF52 | External RESET button input, active low. Optional. |
 | 34 | NC SOM34 | | | Leave unconnected. |
 | 35 | NC SOM35 | | | Leave unconnected. |
 | 36 | NC SOM36 | | | Leave unconnected. |
@@ -266,7 +276,7 @@ Pin numbers match the triangular numbers in the graphic above.
 | 47 | PMID | POWER OUT | PMIC | PMIC power output in OTG mode. |
 | 48 | GND | POWER | | Ground |
 | 49 | VIN | POWER IN | PMIC | Power input 3.88VDC to 12VDC. |
-| 50 | STAT | OUT | PMIC | PMIC charge status. Can be connected to an LED. Optional. | 
+| 50 | STAT | OUT | PMIC | PMIC charge status. Can be connected to an LED. Active low. Optional. | 
 | 51 | VBUS | POWER IN | PMIC & nRF52 | nRF52 USB power input. Can be used as a power supply instead of VIN. |
 | 52 | GND | POWER | | Ground |
 | 53 | LI+ | POWER | PMIC | Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS. |
@@ -300,8 +310,8 @@ Pin numbers match the triangular numbers in the graphic above.
 | 80 | NC SOM80 | | | Leave unconnected. |
 | 81 | NC SOM81 | | | Leave unconnected. |
 | 82 | NC SOM82 | | | Leave unconnected. |
-| 83 | CELL_GPS_TX | OUT | CELL | Cellular modem GPS serial TX data. |
-| 84 | CELL_GPS_RX | IN | CELL | Cellular modem GPS serial RX data. |
+| 83 | CELL_GPS_RX | IN | CELL | Cellular modem GPS serial RX data. |
+| 84 | CELL_GPS_TX | OUT | CELL | Cellular modem GPS serial TX data. |
 | 85 | CELL_RI | OUT | CELL | Cellular modem ring indicator output. |
 | 86 | GND | POWER | | Ground |
 | 87 | CELL_GPS_RF | RF | CELL | Cellular modem GPS antenna. Optional. |
@@ -314,13 +324,15 @@ Pin numbers match the triangular numbers in the graphic above.
 | 94 | GNSS_RF |  | GNSS | GNSS antenna. |
 | 95 | GND | POWER | | Ground |
 
+Pin numbers match the triangular numbers in the graphic above.
+
 
 ### nRF52 pin assignments
 
 | SoM Pin | GPIO  | Analog | Other       | PWM     | nRF Pin |
 | :-----: | :---: | :----: | :---------: | :-----: | :-----: |
-| 55      | D0    | A0     | Wire SDA    | Group 0 | P0.03   |
-| 56      | D1    | A1     | Wire SCL    | Group 0 | P0.02   |
+| 55      | D0    | A0     | Wire SDA<sup>1</sup>    | Group 0 | P0.03   |
+| 56      | D1    | A1     | Wire SCL<sup>1</sup>    | Group 0 | P0.02   |
 | 57      | D2    | A2     | Serial1 CTS | Group 0 | P0.28   |
 | 58      | D3    | A3     | Serial1 RTS | Group 0 | P0.30   |
 | 41      | D4    | A4     | SPI MOSI    | Group 1 | P0.31   |
@@ -330,34 +342,36 @@ Pin numbers match the triangular numbers in the graphic above.
 | 72      | D8    |        | Serial1 TX  | Group 2 | P0.06   |
 | 71      | D9    |        | Serial1 RX  | Group 2 | P0.08   |
 
+<sup>1</sup>Pull-up resistors are not included. When using as an I2C port, external pull-up resistors are required.
+
 #### System peripheral GPIO
 
 | Name | Description | Location | 
 | :---: | :--- | :---: |
 | BTN | MODE Button | P1.13 | 
 | PMIC_INT | PMIC Interrupt | P0.26 | 
-| LOW_BAT_UC | Fuel Gauge Interrupt | IOEX |
+| LOW_BAT_UC | Fuel Gauge Interrupt | IOEX 0.0 |
 | RTC_INT | Real-time clock Interrupt | P0.27 |
 | BGRST | Cellular module reset | P0.7 |
 | BGPWR | Cellular module power | P0.8 |
 | BGVINT | Cellular power on detect  | P1.14 |
-| BGDTR | Cellular module DTR | IOEX |
+| BGDTR | Cellular module DTR | IOEX 1.5 |
 | CAN_INT | CAN interrupt | P1.9 |
-| CAN_RST | CAN reset | IOEX |
-| CAN_PWR | 5V boost converter enable | IOEX |
-| CAN_STBY | CAN standby mode | IOEX |
-| CAN_RTS0 | CAB RTS0 | IOEX |
-| CAN_RTS1 | CAN RTS1 | IOEX |
-| CAN_RTS2 | CAN RTS2 | IOEX |
+| CAN_RST | CAN reset | IOEX 1.6 |
+| CAN_PWR | 5V boost converter enable | IOEX 1.7 |
+| CAN_STBY | CAN standby mode | IOEX 0.2 |
+| CAN_RTS0 | CAB RTS0 | IOEX 1.4 |
+| CAN_RTS1 | CAN RTS1 | IOEX 1.2 |
+| CAN_RTS2 | CAN RTS2 | IOEX 1.3 |
 | SEN_INT | IMU interrupt | P1.7 |
 | ANT_SW1 | BLE antenna switch | P1.15 |
-| GPS_PWR | u-blox GNSS power | IOEX | 
-| GPS_INT | u-blox GNSS interrupt | IOEX | 
-| GPS_BOOT | u-blox GNSS boot mode | IOEX | 
-| GPS_RST | u-blox GNSS reset | IOEX | 
-| WIFI_EN | ESP32 enable | IOEX |
-| WIFI_INT | ESP32 interrupt | IOEX |
-| WIFI_BOOT | ESP32 boot mode | IOEX |
+| GPS_PWR | u-blox GNSS power | IOEX 0.6 | 
+| GPS_INT | u-blox GNSS interrupt | IOEX 0.7 | 
+| GPS_BOOT | u-blox GNSS boot mode | IOEX 1.0 | 
+| GPS_RST | u-blox GNSS reset | IOEX 1.1 | 
+| WIFI_EN | ESP32 enable | IOEX 0.3 |
+| WIFI_INT | ESP32 interrupt | IOEX 0.4 |
+| WIFI_BOOT | ESP32 boot mode | IOEX 0.5 |
 
 
 
@@ -368,9 +382,9 @@ your liking. This will allow greater flexibility in the end design of your produ
 
 Device OS assumes a common anode RGB LED. One common LED that meets the requirements is the 
 [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/9094273 CLMVC-FKA-CL1D1L71BB7C3C3) 
-which is inexpensive and easily procured. You need to add three current limiting resistors. With this LED, we typically use 1K current limiting resistors. 
+which is inexpensive and easily procured. You need to add three current limiting resistors. With this LED, we typically use 1K ohm current limiting resistors. 
 These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
-If you want maximum brightness you should use the calculated values, 33 ohm on red, and 66 ohm on green and blue.
+If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue.
 
 A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
 
@@ -381,13 +395,14 @@ A detailed explanation of different color codes of the RGB system LED can be fou
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:---|:---|:---:|:---:|:---:|:---:|
 | Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +17 | V |
-| Supply Output Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
+| Supply Input Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
 | Battery Input Voltage | V<sub>LiPo</sub> |  |  | +6 | V |
 | Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 800 | mA |
 | Storage Temperature | T<sub>stg</sub> | -30 |  | +75 | °C |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
+| CAN Supply Current | | | 500 | mA |
 
-<sup>[1]</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
+<sup>1</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
 only, and functional operation of the device at these or any other conditions beyond those indicated under recommended operating
 conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
 
@@ -402,6 +417,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
+| CAN Supply Voltage | | 5 | | V |
+| CAN Supply Current | | | 500 | mA |
 | **I/O pin voltage** | | | | | | 
 | VI/O | IO | -0.3 |  | +3.6 | V |
 | **NFC antenna pin current** | | | | | |
@@ -412,7 +429,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Storage  temperature | | -40 | | +85 |°C |
 
 
-<sup>[1]</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
+<sup>1</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
 only, and functional operation of the device at these or any other conditions beyond those indicated under recommended operating
 conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
 
@@ -469,26 +486,36 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Altitude accuracy       | With SBAS<sup>12</sup>  | 3.5m          | 3.0m     | 7.0m     | 5.0m     | -        |
 
 <sup>1</sup> Configured for Airborne < 4g platform
+
 <sup>2</sup> 50% at 30 m/s
+
 <sup>3</sup> High navigation rate mode
 
 <sup>5</sup> All satellites at -130 dBm, except Galileo at -127 dBm
+
 <sup>6</sup> Dependent on aiding data connection speed and latency
+
 <sup>7</sup> Demonstrated with a good external LNA
+
 <sup>8</sup> Configured min. CNO of 6 dB/Hz, limited by FW with min. CNO of 20 dB/Hz for best performance 
+
 <sup>9</sup> CEP, 50%, 24 hours static, -130 dBm, > 6 SVs
+
 <sup>10</sup> To be confirmed when Galileo reaches full operational capability
+
 <sup>11</sup> CEP, 50%, 24 hours static, -130 dBm, > 6 SVs
+
 <sup>12</sup> CEP, 50%, 24 hours static, -130 dBm, > 6 SVs
 
 GNSS GPIO:
 
 | Name | Description | Location | 
 | :---: | :--- | :---: |
-| GPS_PWR | u-blox GNSS power | IOEX | 
-| GPS_INT | u-blox GNSS interrupt | IOEX | 
-| GPS_BOOT | u-blox GNSS boot mode | IOEX | 
-| GPS_RST | u-blox GNSS reset | IOEX | 
+| GPS_PWR | u-blox GNSS power | IOEX 0.6 | 
+| GPS_INT | u-blox GNSS interrupt | IOEX 0.7 | 
+| GPS_BOOT | u-blox GNSS boot mode | IOEX 1.0 | 
+| GPS_RST | u-blox GNSS reset | IOEX 1.1 | 
+
 
 
 ### CAN Specifications
@@ -504,19 +531,21 @@ GNSS GPIO:
 - CAN bus pins are disconnected when device is unpowered
 - High-ESD protection on CANH and CANL, meets IEC61000-4-2 up to ±8 kV
 - Very low standby current, 10 uA, typical
-- 5V step-up converter (XCL9142F40CER), 0.8A
+- 5V step-up converter (XCL9142F40CER), 500 mA
+- CAN terminator resistor is not included
 
 CAN GPIO:
 
 | Name | Description | Location | 
 | :---: | :--- | :---: |
 | CAN_INT | CAN interrupt | P1.9 |
-| CAN_RST | CAN reset | IOEX |
-| CAN_PWR | 5V boost converter enable | IOEX |
-| CAN_STBY | CAN standby mode | IOEX |
-| CAN_RTS0 | CAN Request to Send 0 | IOEX |
-| CAN_RTS1 | CAN Request to Send 1 | IOEX |
-| CAN_RTS2 | CAN Request to Send 2 | IOEX |
+| CAN_RST | CAN reset | IOEX 1.6 |
+| CAN_PWR | 5V boost converter enable | IOEX 1.7 |
+| CAN_STBY | CAN standby mode | IOEX 0.2 |
+| CAN_RTS0 | CAB RTS0 | IOEX 1.4 |
+| CAN_RTS1 | CAN RTS1 | IOEX 1.2 |
+| CAN_RTS2 | CAN RTS2 | IOEX 1.3 |
+
 
 CANH, CANL Absolute Maximum Ratings:
 
@@ -557,7 +586,8 @@ CAN Tranceiver Characteristics
 
 - Bosch Sensortec BMI160
 - SPI Interface connected to SPI1 (MISO1, MOSI1, SCK1) 
-- Can wake nRF52 MCU on movement (SEN_INT2)
+- Chip Select: SEN_CS (connected to SN74LVC138 Y2)
+- Can wake nRF52 MCU on movement (SEN_INT1)
 
 - 16 bit digital, triaxial accelerometer and triaxial gyroscope
 - Very low power consumption: typically 925 μA with accelerometer and gyroscope in full operation
@@ -596,7 +626,7 @@ CAN Tranceiver Characteristics
 - 55 nA power consumption
 - Crystal oscillator
 - I2C interface (Wire1 address 0x68)
-- Can wake MCU at a specific time using `RTC_INT`.
+- Can wake MCU from hibernate (SLEEP_MODE_DEEP) at a specific time using `RTC_INT`.
 - Programmable hardware watchdog
 - RTC powered by XC6504 ultra-low consumption regulator so the main TPS62291 can be shut down from RTC
 
@@ -609,7 +639,7 @@ An external service provider such as the Google Geolocation Service is required 
 - ESP32-D2WD
 - SPI Interface 
 - Connected to SPI1 (MISO1, MOSI1, SCK1) 
-- Chip Select: WIFI_CS (connected to SPI CS Multiplexer Y3)
+- Chip Select: WIFI_CS (connected to SN74LVC138 Y3)
 - Interrupt: ESP32 IO4 is connected to MCP23517T I/0 Expander GPA4.
 
 The SoM connector has several pins dedicated to Wi-Fi:
@@ -622,7 +652,7 @@ The SoM connector has several pins dedicated to Wi-Fi:
 | 14 | WIFI_RXD | IN | WIFI | ESP32 serial TX |
 
 The WIFI_EN pin turns on the Wi-Fi module. LOW=Off, HIGH=On. The default is off (with a 100K weak pull-down). It can be turned on from Pin 11 on the SoM 
-connection, or in software from the MCP23517T I/0 Expander GPA3.
+connection, or in software from the MCP23S17 I/0 Expander 0.3.
 
 The WIFI_BOOT pin enables programming mode. 
 
