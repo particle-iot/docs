@@ -81,10 +81,40 @@ VBus is connected to the USB detect pin of nRF52840 to enables the USB interface
 
 There are two radios on the B523 module. A BLE radio (nRF52840) and a cellular radio (Quectel). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
 
+![B523 Connectors](/assets/images/b-series/b523-connectors.png)
+
+| Label | Purpose | 
+| :---: | :--- |
+|  1 | Bluetooth antenna (optional) |
+|  2 | Quectel cellular modem antenna |
+
+#### Certified Cellular Antenna
+
+| SKU  | Description |
+| :--- | :--- |
+| ANTCW2EA | Particle Cellular Flex Antenna 2G/3G/LTE [x1] |
+| ANTCW2TY | Particle Cellular Flex Antenna 2G/3G/LTE Tray of 50 [x50] |
+
+- Type: LTE Ultra Wide Band Flex Antenna
+- Frequency/band: 698 MHz-2690 MHz
+- RoHS Compliant
+- Mechanical Specs:
+  - Dimensions: 97 x 21 x 0.2 mm
+  - Mounting: 3M adhesive backed for application on non-metallic surfaces
+  - Connector type: FPC + IPEX connector
+  - Cable length: 210 mm
+  - Gain: 4.71 dBi
+
+
+#### General Antenna Guidance
+
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
 - For the BLE antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
  
+
+
+
 
 ### Peripherals and GPIO
 
@@ -109,6 +139,8 @@ There are some optional B523 module specific I/O:
 ### JTAG and SWD 
 
 The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+
+![Pogo Pins](/assets/images/b-series/pogo-pins.png)
 
 ## Memory map
 
