@@ -403,6 +403,10 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-62479 Test Report](/assets/pdfs/xenon-EN62479-test-report.pdf)
 - [RoHS 3.0 Test Report](/assets/pdfs/xenon-rohs.pdf)
 
+#### B Series SoM B523
+
+- Final certification reports are expected mid-May 2020.
+
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
@@ -485,6 +489,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/b402-rohs3.pdf)
 
+#### B Series SoM B523
+
+- Final certification reports are expected mid-May 2020.
+
 #### Argon
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/argon-rohs.pdf)
@@ -500,7 +508,6 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### Xenon
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/xenon-rohs.pdf)
-
 
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
