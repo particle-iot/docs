@@ -46,7 +46,7 @@ Using feature like Particle Publish allows data to be sent to external servers u
 
 When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhook](/reference/device-cloud/webhooks/) that makes a connection to an external service or web server efficiently.
 
-![Publish Flow](/assets/images/PublishFlow.png)
+<img src="/assets/images/PublishFlow.png" class="full-width"/>
 
 #### Particle.variable
 
@@ -55,8 +55,7 @@ When sent from the device to the cloud, publish can be used to send things like 
 - For a publish, every time you publish, the data is sent up to the cloud.
 - For a variable, the current value is stored on the device, and is only sent when requested.
 
-![Variable Flow](/assets/images/VariableFlow.png)
-
+<img src="/assets/images/VariableFlow.png" class="full-width"/>
 
 Depending on your situation, one or the other may be more efficient. Also note:
 

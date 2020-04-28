@@ -42,13 +42,14 @@ When sent from the device to the cloud, publish can be used to send things like 
 
 Using publish and a webhook is particularly advantageous on cellular devices. It's possible to send an event securely in perhaps 200 bytes. Making a TLS/SSL connection to an external web service directly over cellular might use 5000 bytes of data per connection. That can add up quickly!
 
-![Publish Flow](/assets/images/PublishFlow.png)
+<img src="/assets/images/PublishFlow.png" class="full-width"/>
 
 For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the [Server-Sent-Events (SSE)](/reference/device-cloud/api/#product-event-stream) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
 
 When using SSE, your server makes an outbound connection to the Particle cloud. This connection is TLS/SSL encrypted and authenticated with your Particle account access token. This connection is kept open, allowing events to be sent down the connection as them come in efficiently. This also allows your server to be on a private network behind a firewall, and does not require a static IP address, DNS, or a SSL certificate.
 
-![SSE Flow](/assets/images/SSEFlow.png)
+<img src="/assets/images/SSEFlow.png" class="full-width"/>
+
 
 #### Particle.variable
 
@@ -57,7 +58,7 @@ When using SSE, your server makes an outbound connection to the Particle cloud. 
 - For a publish, every time you publish, the data is sent up to the cloud.
 - For a variable, the current value is stored on the device, and is only sent when requested.
 
-![Variable Flow](/assets/images/VariableFlow.png)
+<img src="/assets/images/VariableFlow.png" class="full-width"/>
 
 
 Depending on your situation, one or the other may be more efficient. Also note:

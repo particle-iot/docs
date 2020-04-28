@@ -15,7 +15,7 @@ Integrations provide a way of easily and efficiently interacting with an Interne
 - They use significantly less data than connecting directly.
 - They often do not require external libraries, saving more code space for your application.
 
-![Publish Flow](/assets/images/PublishFlow.png)
+<img src="/assets/images/PublishFlow.png" class="full-width"/>
 
 The typical flow is for your device to do a [`Particle.publish()`](/reference/device-os/firmware/#particle-publish-). This triggers an integration such as a webhook or Google Cloud Integration. For example, you could use this integration to store data in a cloud-based database, or update values in a dashboard. 
 
@@ -32,7 +32,7 @@ For a webhook, when the triggering event is received, it makes an outgoing conne
 
 ### Server-Sent-Events (SSE)
 
-![SSE Flow](/assets/images/SSEFlow.png)
+<img src="/assets/images/SSEFlow.png" class="full-width"/>
 
 It's also possible to use the Server-Sent-Events (SSE) stream. Your server makes an outgoing encrypted TLS/SSL connection to the Particle cloud and keeps the connection open. The Particle cloud can then push events down this connection in near real time.
 
@@ -50,6 +50,7 @@ Your server can be implemented in any language that supports the SSE protocol, h
 
 The alternative is directly connecting to external services:
 
-![Direct Flow](/assets/images/DirectFlow.png)
+<img src="/assets/images/DirectFlow.png" class="full-width"/>
+
 
 The disadvantage of this approach is that you cannot leverage the Particle cloud authentication. You need to separately authenticate each transaction. While there are third-party libraries for using protocols like HTTP and TLS/SSL, these libraries are large and not official. Doing a https connection for each piece of data you want to upload might use 5K of data per connection! This is much less efficient than using an integration or SSE.
