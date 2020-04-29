@@ -6,11 +6,13 @@ order: 5
 description: Datasheet for the Particle Tracker SoM evaluation board
 ---
 
-# Tracker SoM Evaluation Board
+# Tracker SoM Evaluation Board<sup>(pre1)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/asset-tracker-som-eval-board.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
+
+**This is a preliminary datasheet and is subject to change**
 
 This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board, or the carrier board.
 
@@ -167,5 +169,5 @@ To be provided at a later date.
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 31 Mar 2020 | RK | Preview Release |
+| pre1     | 31 Mar 2020 | RK | Preview Release |
 

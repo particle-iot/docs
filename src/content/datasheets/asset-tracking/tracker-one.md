@@ -6,13 +6,15 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One
+# Tracker One<sup>(pre1)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-![Enclosure](/assets/images/at-som/at-encosure-plugged.png)
+**This is a preliminary datasheet and is subject to change**
+
+![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
 
 The Tracker One is a ready-to-go Tracker SoM carrier board with optional weatherproof enclosure.
 
@@ -170,5 +172,5 @@ Will be provided at a later date.
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre      | 20 Apr 2020 | RK | Preview Release |
+| pre1      | 20 Apr 2020 | RK | Preview Release1 |
 
