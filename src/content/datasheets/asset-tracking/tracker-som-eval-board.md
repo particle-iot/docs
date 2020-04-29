@@ -9,17 +9,12 @@ description: Datasheet for the Particle Tracker SoM evaluation board
 # Tracker SoM Evaluation Board<sup>(pre1)</sup>
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/asset-tracker-som-eval-board.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/tracker-som-eval-board.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 **This is a preliminary datasheet and is subject to change**
 
 This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board, or the carrier board.
-
-<!-- 
-**TODO: Create repo and update URL**
-The Eagle CAD design files, Gerber files, and bill of materials can be found in the [SoM eval board Github repository](https://github.com/particle-iot/som-eval-board).
--->
 
 ## Block Diagram
 
@@ -27,9 +22,6 @@ The Eagle CAD design files, Gerber files, and bill of materials can be found in 
 
 ## Description
 
-<!--
-**TODO: Update board picture with new version**
--->
 
 <div align=center><img src="/assets/images/at-som/at-eval-labeled.png"></div>
 
