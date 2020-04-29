@@ -113,7 +113,7 @@ updates without sacrificing fine-grained control.
 automatically sent to your fleet, with sensible safeguards to roll out
 an update responsibly and monitor fleet health for changes.
 - **Release by device groups**: Target a subset of your fleet to receive a new version of firmware. This is useful when your product has variants that require different device behaviors, or when wanting to phase out a single release over time to reduce risk.
-- **Intelligent firmware releases <sup>beta</sup>**: Instead of waiting for devices to re-connect to receive an update, push a fleet-wide update as quickly as possible while still allowing the device control over the appropriate time to update.
+- **Intelligent firmware releases: Instead of waiting for devices to re-connect to receive an update, push a fleet-wide update as quickly as possible while still allowing the device control over the appropriate time to update.
 
 ### The firmware "stack"
 
@@ -233,7 +233,7 @@ Standard Releases are the default mode of firmware releases, and
 delivery to all target devices is completed over an average period of about one week.
 
 **[Intelligent Firmware
-Releases](#intelligent-firmware-releases) <sup>beta</sup> are
+Releases](#intelligent-firmware-releases) are
 delivered based on individual device readiness**. It enables
 your team to predictably deliver fleet-wide firmware updates at _exactly_ the
 right time. Intelligent Releases add _context awareness_ to the
@@ -475,7 +475,7 @@ each device updating the next time it starts a new secure session with
 the Device Cloud. This is to ensure devices are not disrupted while in
 use as a result of the reset needed to begin running the new firmware.
 
-** Intelligent Firmware Releases** <sup>beta</sup> is a premium
+** Intelligent Firmware Releases** is a premium
 fleet-wide OTA mechanism that enables scaling customers
 to predictably deliver fleet-wide firmware updates at _exactly_ the
 right time.
@@ -487,7 +487,7 @@ as a result of context awareness (compared to ~1w with Standard Release)
 - **Maximum control**: Leverage flexible Device OS APIs and cloud-side
 controls to define the opportune time to deliver an update
 
-Intelligent Firmware Releases is currently in beta, and is available to
+Intelligent Firmware Releases is available to
 Enterprise customers. [Interested in Intelligent Firmware Releases?](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
 
 #### Context awareness to prevent disruption

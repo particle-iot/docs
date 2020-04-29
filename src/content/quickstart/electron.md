@@ -10,7 +10,7 @@ description: Getting started with your Particle Electron, Gen 2 cellular device
 <h1 id="getting-started">Getting Started<a href="#getting-started" class="header-permalinks"><i class="ion-link"></i></a></h1><h2 id="what-39-s-in-the-box-">What&apos;s in the Box?<a href="#what-39-s-in-the-box-" class="header-permalinks"><i class="ion-link"></i></a></h2><p><img src="/assets/images/electronItemBox.jpg" alt=""></p>
 <p class="caption">Introducing the Electron.</p>
 
-<p>Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different <a href="/datasheets/accessories/legacy-accessories/">kit addons</a> and check out the <a href="/datasheets/cellular/electron-datasheet/">Electron datasheet</a> if you like!</p>
+<p>Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different <a href="/datasheets/accessories/legacy-accessories/">kit addons</a> and check out the <a href="/datasheets/electron/electron-datasheet/">Electron datasheet</a> if you like!</p>
 <p>Let&apos;s quickly go over what you see.</p>
 
 <div  align="center">

@@ -1,35 +1,35 @@
 ---
-title: B Series B402 datasheet
+title: B Series B523 datasheet
 layout: datasheet.hbs
 columns: two
-order: 2
-description: Datasheet for the Particle B Series B402 SoM, Gen 3 cellular LTE Cat M1
+order: 3
+description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B402 Datasheet <sup>(003)</sup>
+# B523 Datasheet <sup>001</sup>
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/b-series-datasheet.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-<div align=center><img src="/assets/images/b-series/b-series-top.png" ></div>
-
+<div align=center><img src="/assets/images/b-series/b523-top.png" ></div>
 
 
 ## Functional description
 
 ### Overview
 
-The B Series System-on-a-Module (SoM) is a cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 micro-controller.
+The B Series System-on-a-Module (SoM) is a LTE Cat 1 cellular device with support for BLE (Bluetooth LE). It is based on the Nordic nRF52840 micro-controller.
 
-The B Series is designed to be integrated into your circuit board design, plugging a M.2 NGFF connector on your board, allowing the module to be changed or upgraded easily.
+The B Series is designed to be integrated into your circuit board design, plugging into a M.2 NGFF connector on your board, allowing the module to be changed or upgraded easily.
 
 ### Features
 
- * u-blox SARA-R410-02B LTE modem
-  * LTE Cat M1 module with global hardware support (MVNO support for US only) 
-  * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+ * Quectel EG91-E modem
+  * LTE category 1 module for EMEAA region 
+  * 3GPP E-UTRA Release 13 
+  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
+  * Support for Europe only at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -38,7 +38,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
- * On-module additional 4MB SPI flash
+ * On-module additional 8MB SPI flash
  * 24 mixed signal GPIO (8 x Analog, 4 x PWM), UART, I2C, SPI
  * USB 2.0 full speed (12 Mbps)
  * JTAG (SWD) pins
@@ -47,7 +47,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * On-module MFF2 Particle SIM 
  * Two on-module U.FL connectors for external antennas
  * M.2 interface
- * FCC and PTCRB certified
+ * CE certified
  * RoHS compliant (lead-free)
 
 
@@ -55,13 +55,15 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Block diagram
 
-<div align=center> <a href="/assets/images/b-series/b-series-block-diagram.png" target="_blank"> <img src="/assets/images/b-series/b-series-block-diagram.png" ></a></div>
+<div align=center> <a href="/assets/images/b-series/b523-block-diagram.png" target="_blank"> <img src="/assets/images/b-series/b523-block-diagram.png" ></a></div>
 
 ### Power
 
 #### VCC
 
-VCC is used to supply power to the u-blox SARA-R410M cellular module. The recommended input voltage range on this pin is between 3.6V to 4.2V DC. Make sure that the supply can handle currents of at least 2 A.
+VCC is used to supply power to the Quectel EG91-E cellular module. The recommended input voltage range on this pin is between 3.6V to 4.3V DC. Make sure that the supply can handle currents of at least 2 A.
+
+Note: The limit on the B402 (u-blox LTE Cat M1) is 4.2V, so you should limit VCC to 4.2V to preserve compatibility with both modules.
 
 #### 3V3
 
@@ -75,12 +77,42 @@ VBus is connected to the USB detect pin of nRF52840 to enables the USB interface
 
 ### Antenna
 
-There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular radio (u-blox). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
+There are two radios on the B523 module. A BLE radio (nRF52840) and a cellular radio (Quectel). We have provided two u.FL connectors to plug in the cellular and BLE antenna. These are required if you wish to use the cellular and BLE. If you do not need BLE, you do not need to connect the BLE antenna.
+
+![B523 Connectors](/assets/images/b-series/b523-connectors.png)
+
+| Label | Purpose | 
+| :---: | :--- |
+|  1 | Bluetooth antenna (optional) |
+|  2 | Quectel cellular modem antenna |
+
+#### Certified Cellular Antenna
+
+| SKU  | Description |
+| :--- | :--- |
+| ANTCW2EA | Particle Cellular Flex Antenna 2G/3G/LTE [x1] |
+| ANTCW2TY | Particle Cellular Flex Antenna 2G/3G/LTE Tray of 50 [x50] |
+
+- Type: LTE Ultra Wide Band Flex Antenna
+- Frequency/band: 698 MHz-2690 MHz
+- RoHS Compliant
+- Mechanical Specs:
+  - Dimensions: 97 x 21 x 0.2 mm
+  - Mounting: 3M adhesive backed for application on non-metallic surfaces
+  - Connector type: FPC + IPEX connector
+  - Cable length: 210 mm
+  - Gain: 4.71 dBi
+
+
+#### General Antenna Guidance
 
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
 - For the BLE antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
  
+
+
+
 
 ### Peripherals and GPIO
 
@@ -95,15 +127,18 @@ There are two radios on the B402 module. A BLE radio (nRF52840) and a cellular r
 | PWM  | 7 (max) | O |
 | NFC  | 1 | O |
 
-There are some optional B402 module specific I/O:
+There are some optional B523 module specific I/O:
 
-- u-blox USB and VBUS (for u-blox firmware upgrades)
+- Quectel USB and VBUS (for modem firmware upgrades)
+- Quectel Ring Indicator (RI) output 
 
 **Note:** All GPIOs are only rated at 3.3VDC max.
 
 ### JTAG and SWD 
 
-The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+
+![Pogo Pins](/assets/images/b-series/pogo-pins.png)
 
 ## Memory map
 
@@ -116,6 +151,7 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ### External SPI Flash Layout Overview (DFU offset: 0x80000000)
 
+ - Reserved (4MB, @0x0040000) 
  - OTA (1500KB, @0x00289000)
  - Reserved (420KB, @0x00220000)
  - FAC (128KB, @0x00200000)
@@ -125,11 +161,11 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ### Pinout diagram
 
-![Pinout](/assets/images/b-series/b-series-pinout.png)
+![Pinout](/assets/images/b-series/b523-pinout.png)
 
 Pins SOM0 to SOM9 will vary across various SoM modules. For example, cellular-specific pins exists in this range. 
 
-Additionally there are RESERVED<sup>3</sup> pins, whose functions vary depending on the SoM. For example, nRF52 MCU-based modules use some of these pins for additional ADC and GPIO. They are able to be used as described on the B402, but their function may be be different on future modules.
+Additionally there are RESERVED<sup>3</sup> pins, whose functions vary depending on the SoM. For example, nRF52 MCU-based modules use some of these pins for additional ADC and GPIO. They are able to be used as described on the B523, but their function may be be different on future modules.
 
 For maximum cross-module flexibility, you should try to use only the common pins when possible.
 
@@ -138,13 +174,13 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | # |	Pin	 | Common | Function | nRF52 |	Description |
 | :---: | :---: | :---: | :---: | :---: | --- |
 | 1 | GND | GND | POWER | | System ground. |
-| 2 | VCC	| VCC	| POWER |  | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+| 2 | VCC	| VCC<sup>5</sup>	| POWER |  | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. |
 | 3 | GND | GND | POWER | | System ground. |
-| 4 | VCC | VCC	| POWER | |	System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+| 4 | VCC | VCC	| POWER | |	System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. |
 | 5 | GND | GND | POWER | | System ground. |
-| 6	 | VCC | VCC	| POWER | | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+| 6	 | VCC | VCC	| POWER | | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. |
 | 7 | GND | GND | POWER | | System ground. |
-| 8 | VCC | VCC	| POWER | | System power in, connect to the +LiPo or supply a fixed 3.6-4.2v power. |
+| 8 | VCC | VCC	| POWER | | System power in, connect to the +LiPo or supply a fixed 3.6-4.3v power. |
 | 9 | GND | GND | POWER | | System ground. |
 | 10 | 3V3 | 3V3 |POWER | | System power in, supply a fixed 3.0-3.6v power.| 
 | 11 | USB D+	 | USB D+	 |IO | | Data+ pin of the NRF52840 USB port. |
@@ -172,9 +208,9 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 41 | A4 | RESERVED<sup>3</sup> |IO | P0.30 | Analog input ADC4<sup>2</sup>, and digital GPIO. |
 | 42 | D2 | RESERVED<sup>3</sup> |IO | P1.2 | UART flow control interface RTS, SDA1 (Wire1), SPI1 SCK, and digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | P0.31 | Analog input ADC5<sup>2</sup>, and digital GPIO.|
-| 44 | u-blox USB D+ | SOM0 | IO | | Data+ pin of the R410M USB port.|
+| 44 | Quectel USB D+ | SOM0 | IO | | Data+ pin of the R410M USB port.|
 | 45 | A6 | RESERVED<sup>3</sup> | IO | P0.5| Analog input ADC6<sup>2</sup>, and digital GPIO. |
-| 46 | u-blox USB D- | SOM1 | IO ||  Data- pin of the R410M USB port.|
+| 46 | Quectel USB D- | SOM1 | IO ||  Data- pin of the R410M USB port.|
 | 47 | A7 | RESERVED<sup>3</sup> | IO | P0.2 | Analog input ADC7<sup>2</sup>, and digital GPIO.|
 | 48 | D8 | CS | IO | P1.3 | SPI interface CS, and digital only GPIO. | 
 | 49 | AGND | AGND | POWER	| | System analog ground.|
@@ -202,20 +238,24 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
 | 72 | D7 | PWM3 | IO | P1.12| Digital only GPIO, and PWM3.|
 | 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up. |
-| 74 | u-blox VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for R410M. 5V on this pin enables the u-blox USB interface.|
-| 75 | NC | SOM9<sup>3</sup> | NC ||  Leave unconnected. |
+| 74 | Quectel VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for R410M. 5V on this pin enables the Quectel USB interface.|
+| 75 | Quectel RI | SOM9<sup>4</sup> | IO ||  Ring indicator |
 
 <sup>1</sup>These pins are connected to the internal MFF2 SIM and should be left open. 
 
 <sup>2</sup>A0-A7 are 12-bit Analog-to-Digital (A/D) inputs (0-4095).
 
-<sup>3</sup>SoM-specific and Reserved pins will vary depending on module. They are able to be used on the B402, but their function may be be different on future modules.
+<sup>3</sup>SoM-specific and Reserved pins will vary depending on module. They are able to be used on the B523, but their function may be be different on future modules.
+
+<sup>4</sup>RI is available on the B523 (Quectel) but not on the B402 (u-blox LTE M1)
+
+<sup>5</sup>The VCC maximum is 4.3V on the B523 (Quectel) but is 4.2V on the B402 (u-blox LTE M1). For compatibility across modules, limit this to 4.2V.
 
 ### LED status
 
 #### System RGB LED
 
-Unlike the Boron, the B402 module does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
+Unlike the Boron, the B523 module does not have an on-module RGB system status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
 
 A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
 
@@ -228,7 +268,7 @@ A detailed explanation of different color codes of the RGB system LED can be fou
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:---|:---|:---:|:---:|:---:|:---:|
 | **Supply voltages** | | | | | |
-| Supply Input Voltage | VCC | -0.3 |  | +6.0 | V |
+| Supply Input Voltage | VCC | -0.3 |  | +4.7 | V |
 | Supply Input Voltage | 3V3 | -0.3 |  | +3.9 | V |
 | VBUS USB supply voltage | VUSB | -0.3 |  | +5.8 | V |
 | **I/O pin voltage** | | | | | | 
@@ -252,11 +292,11 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | **Supply voltages** |
-| Supply Input Voltage | VCC | +3.6 | +3.8 | +4.2 | V |
+| Supply Input Voltage | VCC | +3.6 | +3.8 | +4.3 | V |
 | Supply Input Voltage | 3V3 | +3.0 | +3.3 | +3.6 | V |
 | VBUS USB supply voltage | VUSB | +4.35 | +5.0 | +5.5 | V |
 | **Environmental** |
-| Normal operating temperature<sup>1</sup> | | -20 | +25 | +65 | °C |
+| Normal operating temperature<sup>1</sup> | | -20 | +25 | +75<sup>3</sup> | °C |
 | Extended operating temperature<sup>2</sup> | | -40 |  | +85 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
@@ -265,6 +305,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 <sup>1</sup> Normal operating temperature range (fully functional and meet 3GPP specifications).
 
 <sup>2</sup> Extended operating temperature range (RF performance may be affected outside normal operating range, though module is fully functional)
+
+<sup>3</sup> The maximum operating temperature is 75°C on the B523 (Quectel) but is 65°C on the B402 (u-blox LTE M1). For compatibility across modules, limit this to 65°C. 
 
 ---
 
@@ -278,29 +320,28 @@ Boron has two radio modules.
   - 103 dBm sensitivity in 125 kbps Bluetooth® low energy mode (long range)
   - 20 to +8 dBm TX power, configurable in 4 dB steps
 
-#### u-blox SARA-R410M-02-B
+#### 4G LTE cellular characteristics for EG91-E
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
-| RAT | LTE Cat M1 Half-Duplex |
-| LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
-| | Band 28 (700 MHz)  |
-| | Band 13 (750 MHz)  |
+| RAT | LTE Cat 1 |
+| LTE FDD Bands | Band 28A (700 MHz) |
 | | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
-| | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
-| | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
-| | Band 2 (1900 MHz) |
-| | Band 25 (1900 MHz)  |
 | | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
-| Power class | Class 3 (23 dBm) |
+| | Band 7 (2600 MHz)  |
+| WCDMA Bands | Band 8 (900 MHz) | 
+| | Band 1 (2100) |
+| GSM Bands | EGSM900 (900 MHz) |
+| | DCS1800 (1800 MHz) |
+| Power class | Class 4 (33dBm ± 2dB) for EGSM900 |
+| | Class 1 (30dBm ± 2dB) for DCS1800 |
+| | Class E2 (27dBm ± 3dB) for EGSM900 8-PSK |
+| | Class E2 (26dBm ± 3dB) for DCS1800 8-PSK |
+| | Class 3 (24dBm ± 3dB) for WCDMA bands |
+| | Class 3 (23dBm ± 2dB) for LTE FDD bands |
 
 ---
 
@@ -411,21 +452,30 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 ### Microcontroller
 
-![Microcontroller](/assets/images/b-series/schematic-nrf.png)
+![Microcontroller](/assets/images/b-series/b523-schematic-microcontroller.png)
 
 
-### u-blox cellular modem
+### Quectel cellular modem
 
-![u-blox cellular modem](/assets/images/b-series/schematic-ublox.png)
+![Quectel cellular modem](/assets/images/b-series/b523-schematic-cellular.png)
 
 ### M.2 connector
 
-![Connector](/assets/images/b-series/schematic-conn.png)
+![Connector](/assets/images/b-series/b523-schematic-conn.png)
 
 
 ### SIM and Flash
 
-![SIM and Flash](/assets/images/b-series/schematic-sim.png)
+![SIM](/assets/images/b-series/b523-schematic-sim.png)
+
+![Flash](/assets/images/b-series/b523-schematic-flash.png)
+
+### Buffers
+
+![Misc 1](/assets/images/b-series/b523-schematic-misc1.png)
+
+![Misc 2](/assets/images/b-series/b523-schematic-misc2.png)
+
 
 ## Default settings
 
@@ -439,7 +489,4 @@ The bootloader allows you to easily update the user application via several diff
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| 001      | 29 Apr 2019 | RK | Initial Release |
-| 002      | 03 Feb 2020 | RK | Fixed number of I2C, SPI, and PWM |
-| 003      | 18 Feb 2020 | RK | Keep-out diagram M.2 connector was upside-down |
-
+| 001      | 27 Apr 2020 | RK | First Release |

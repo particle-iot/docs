@@ -2,7 +2,7 @@
 title: B Series Evaluation Board
 layout: datasheet.hbs
 columns: two
-order: 3
+order: 5
 description: Datasheet for the Particle B Series SoM evaluation board
 ---
 # B Series Evaluation Board

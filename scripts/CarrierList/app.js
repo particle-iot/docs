@@ -216,20 +216,25 @@ function getCarriers() {
 function getFullData() {
 	base('Country-SIM-Carrier').select({
 	    maxRecords: 9999, // TEMPORARY set to 9999
-	    fields: ['Country', 'Carrier-link', 'Plan_Name-link', 'Network rank', 'Partner zone', '2G Sunset', '3G Sunset']
+	    fields: ['Country', 'Carrier-link', 'Plan_Name-link', 'Technology-link', 'Network rank', 'Partner zone', '2G Sunset', '3G Sunset']
 	}).eachPage(function page(records, fetchNextPage) {
 	    // This function (`page`) will get called for each page of records.
 
 	    records.forEach(function(record) {
 	        // console.log('Retrieved ' + record.get('ID'), record);
 	    	// console.log('record IDs: Country=' + record.get('Country') + ' Carrier-link=' + record.get('Carrier-link') + ' Plan_Name-link=' +record.get('Plan_Name-link'));
+			// const recordId = record.get('ID'); 
+			
 			let countryId = record.get('Country');
 
 	    	let countryName = countryNameMap[countryId]; 
 	    	let carrierName = carrierNameMap[record.get('Carrier-link')];
 	    	const planName = planNameMap[record.get('Plan_Name-link')];
 	    	const rank = record.get('Network rank');
-	    	const zone = parseInt(record.get('Partner zone'));
+			const zone = parseInt(record.get('Partner zone'));
+			
+			// technology is an array of: '2G', '3G', '4G' (strings)
+			const technology = record.get('Technology-link');
 			
 	    	const has2G = has2GMap[countryId];
 	    	const which3G = which3GMap[countryId];
@@ -317,7 +322,12 @@ function getFullData() {
 				var regionName = regionNameMap[countryRegionMap[countryId]];
 				var isEurope = regionName === 'Europe' || regionName === 'Baltics';
 				addCountryData(countryName, 'isEurope', isEurope);			
-				// console.log('countryName=' + countryName + ' isEurope=' + isEurope);				
+				// console.log('countryName=' + countryName + ' isEurope=' + isEurope);			
+				
+				if (planName === 'One Net' && rank === 'Primary') {
+					addCountryData(countryName, 'oneNetTechnology', technology);
+					// console.log('technology ' + countryName, technology);
+				}
 	    	}
 	    	else {
 		    	// console.log('hidden: countryName=' + countryName + ' carrierName=' + carrierName + ' planName=' + planName + ' rank=' + rank + ' zone=' + zone);	    	
@@ -412,6 +422,11 @@ function generateMarkdown() {
 			md += '| Country | Carriers | Model |' + sunsetMd1 + '\n';
 			md += '| ------- | -------- | :---: |' + sunsetMd2 + '\n';
 		}
+		else
+		if (simType === 'B523') {
+			md += '| Country | Carriers | 2G    | 3G    | LTE   |\n';
+			md += '| ------- | -------- | :---: | :---: | :---: |\n';			
+		}
 		else {
 			md += '| Country | Carriers |' + sunsetMd1 + '\n';
 			md += '| ------- | -------- |' + sunsetMd2 + '\n';			
@@ -482,7 +497,7 @@ function generateMarkdown() {
 				// Include Vodafone OneNet carriers
 				if (countryData[country].vodafoneCarrierPrimary) {
 					for(var kk = 0; kk < countryData[country].vodafoneCarrierPrimary.length; kk++) {
-						carrierArray.push(countryData[country].vodafoneCarrierPrimary[kk] + (hasSecondaryOrBackup ? '<sup>1</sup>' : ''));
+						carrierArray.push(countryData[country].vodafoneCarrierPrimary[kk]);
 					}
 				}
 			}
@@ -513,6 +528,14 @@ function generateMarkdown() {
 						sunsetToMd(sunset3g[country + carrierName]) + ' | ';
 				}
 
+				if (simType === 'B523') {
+					const technology = countryData[country].oneNetTechnology;
+					// console.log('country=' + country, technology);
+					md += (isInArray('2G', technology) ? '&check;' : '&nbsp;') + '| ';
+					md += (isInArray('3G', technology) ? '&check;' : '&nbsp;') + '| ';
+					md += (isInArray('4G', technology) ? '&check;' : '&nbsp;') + '| ';
+				}
+
 				md += '\n';
 			}
 			
@@ -525,6 +548,15 @@ function generateMarkdown() {
 	// fs.writeFileSync(path.join(__dirname, 'carriers.md'), md);
 		
 	updateDocs(md);
+}
+
+function isInArray(value, array) {
+	for(var ii = 0; ii < array.length; ii++) {
+		if (array[ii] === value) {
+			return true;
+		}
+	}
+	return false;
 }
 
 function sunsetToMd(content) {

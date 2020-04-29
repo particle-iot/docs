@@ -238,7 +238,7 @@ The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100
 
 <div align=center><img src="/assets/images/accessories/classic-adapter.png" ></div>
 
-The Particle Classic Adapter lets you use your Asset Tracker, Relay Shield, or other third-party shields with our third generation developer kits. Plug your Argon or Boron into this adapter and continue development as usual!
+The Particle Classic Adapter lets you use your Electron Asset Tracker, Relay Shield, or other third-party shields with our third generation developer kits. Plug your Argon or Boron into this adapter and continue development as usual!
 
 The top of the adapter has female connectors for you to plug in the Particle Gen 3 device. The bottom has male header pins in the Particle legacy form-factor for devices such as the Electron, Photon, or the Core.
 

@@ -189,11 +189,13 @@ exports.metalsmith = function () {
         pattern: 'datasheets/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
+          'asset-tracking',
+          'boron',
+          'electron',
           'wi-fi',
-          'cellular',
           'certifications',
-          'accessories',
           'app-notes',
+          'accessories',
           'discontinued'
         ]
       },

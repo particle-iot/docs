@@ -805,52 +805,52 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 
 {{collapse op="start" simType="B523"}}
 
-| Country | Carriers |
-| ------- | -------- |
-| Albania | Vodafone<sup>1</sup> |
-| Austria | Mobilkom<sup>1</sup> |
-| Belgium | Proximus<sup>1</sup> |
-| Bulgaria | M-Tel<sup>1</sup> |
-| Croatia | VIPnet<sup>1</sup> |
-| Czechia | Vodafone<sup>1</sup> |
-| Denmark | Telenor<sup>1</sup> |
-| Faroe Islands | Vodafone<sup>1</sup> |
-| Finland | Elisa<sup>1</sup> |
-| France | SFR<sup>1</sup> |
-| Germany | Vodafone<sup>1</sup> |
-| Gibraltar | Gibtel<sup>1</sup> |
-| Greece | Vodafone<sup>1</sup> |
-| Guernsey | Airtel-Vodafone<sup>1</sup> |
-|   | Jersey Telecom<sup>1</sup> |
-| Holy See (Vatican City) | Vodafone<sup>1</sup> |
-| Hungary | Vodafone<sup>1</sup> |
-| Iceland | Vodafone<sup>1</sup> |
-| Ireland | Vodafone<sup>1</sup> |
-| Isle of Man | Manx Telecom<sup>1</sup> |
-| Italy | Vodafone<sup>1</sup> |
-| Jersey | Jersey Telecom<sup>1</sup> |
-|   | Airtel-Vodafone<sup>1</sup> |
-| Kosovo | Mobitel<sup>1</sup> |
-| Liechtenstein | Mobilkom<sup>1</sup> |
-| Luxembourg | Tango<sup>1</sup> |
-| Macedonia | Vip operator<sup>1</sup> |
-| Malta | Vodafone<sup>1</sup> |
-| Monaco | Orange<sup>1</sup> |
-| Montenegro | Mtel<sup>1</sup> |
-| Netherlands | Vodafone<sup>1</sup> |
-| Norway | Telenor<sup>1</sup> |
-| Poland | Orange<sup>1</sup> |
-| Portugal | Vodafone<sup>1</sup> |
-| Romania | Vodafone<sup>1</sup> |
-| San Marino | Vodafone<sup>1</sup> |
-| Serbia | VIP<sup>1</sup> |
-| Slovakia | T-Mobile<sup>1</sup> |
-| Slovenia | SI Mobil<sup>1</sup> |
-| Spain | Vodafone<sup>1</sup> |
-| Sweden | Telenor<sup>1</sup> |
-|   | Telenor (Net4Mobility)<sup>1</sup> |
-| Switzerland | Swisscom<sup>1</sup> |
-| United Kingdom | Vodafone<sup>1</sup> |
+| Country | Carriers | 2G    | 3G    | LTE   |
+| ------- | -------- | :---: | :---: | :---: |
+| Albania | Vodafone |&check;| &check;| &check;| 
+| Austria | Mobilkom |&check;| &check;| &check;| 
+| Belgium | Proximus |&check;| &check;| &check;| 
+| Bulgaria | M-Tel |&check;| &check;| &check;| 
+| Croatia | VIPnet |&check;| &check;| &check;| 
+| Czechia | Vodafone |&check;| &check;| &check;| 
+| Denmark | Telenor |&check;| &check;| &check;| 
+| Faroe Islands | Vodafone |&check;| &check;| &check;| 
+| Finland | Elisa |&check;| &check;| &check;| 
+| France | SFR |&check;| &check;| &check;| 
+| Germany | Vodafone |&check;| &check;| &check;| 
+| Gibraltar | Gibtel |&check;| &check;| &nbsp;| 
+| Greece | Vodafone |&check;| &check;| &check;| 
+| Guernsey | Airtel-Vodafone |&check;| &check;| &check;| 
+|   | Jersey Telecom |&check;| &check;| &check;| 
+| Holy See (Vatican City) | Vodafone |&check;| &check;| &check;| 
+| Hungary | Vodafone |&check;| &check;| &check;| 
+| Iceland | Vodafone |&check;| &check;| &check;| 
+| Ireland | Vodafone |&check;| &check;| &check;| 
+| Isle of Man | Manx Telecom |&check;| &check;| &check;| 
+| Italy | Vodafone |&check;| &check;| &check;| 
+| Jersey | Jersey Telecom |&check;| &check;| &check;| 
+|   | Airtel-Vodafone |&check;| &check;| &check;| 
+| Kosovo | Mobitel |&check;| &check;| &nbsp;| 
+| Liechtenstein | Mobilkom |&check;| &check;| &nbsp;| 
+| Luxembourg | Tango |&check;| &check;| &check;| 
+| Macedonia | Vip operator |&check;| &check;| &check;| 
+| Malta | Vodafone |&check;| &check;| &nbsp;| 
+| Monaco | Orange |&check;| &check;| &check;| 
+| Montenegro | Mtel |&check;| &check;| &nbsp;| 
+| Netherlands | Vodafone |&check;| &check;| &check;| 
+| Norway | Telenor |&check;| &check;| &check;| 
+| Poland | Orange |&check;| &check;| &check;| 
+| Portugal | Vodafone |&check;| &check;| &check;| 
+| Romania | Vodafone |&check;| &check;| &check;| 
+| San Marino | Vodafone |&check;| &check;| &check;| 
+| Serbia | VIP |&check;| &check;| &check;| 
+| Slovakia | T-Mobile |&check;| &check;| &nbsp;| 
+| Slovenia | SI Mobil |&check;| &check;| &check;| 
+| Spain | Vodafone |&check;| &check;| &check;| 
+| Sweden | Telenor |&check;| &check;| &check;| 
+|   | Telenor (Net4Mobility) |&check;| &check;| &check;| 
+| Switzerland | Swisscom |&check;| &check;| &check;| 
+| United Kingdom | Vodafone |&check;| &check;| &check;| 
 
 {{collapse op="end"}}
 
@@ -862,6 +862,16 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 - <sup>2</sup> Secondary carrier(s)
 - <sup>3</sup> Backup carrier(s). Only used in certain areas if the primary or secondary carriers are not availalble.
 {{collapse op="end"}}
+
+
+
+
+
+
+
+
+
+
 
 
 
