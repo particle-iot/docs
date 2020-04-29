@@ -77,7 +77,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 ### Block diagram
 
-<div align=center> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" ></a></div>
+<div align=center> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" ></a></div> 
 
 ### Power
 The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
