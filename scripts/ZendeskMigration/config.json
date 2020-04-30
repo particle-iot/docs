@@ -1059,6 +1059,22 @@
       "hash": "43b0ed574d7cd6633fe25b17185c57690b152cb7",
       "articleId": 360044252594,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044252594-Using-a-Xenon-with-the-Nordic-SDK"
+    },
+    "AN009-Firmware-Examples/README.md": {
+      "hash": "d169493e61818b1af5f6beb2e1ec82ff32b1a0c8",
+      "articleId": 360047014914,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360047014914-AN009-Firmware-Examples"
+    },
+    "AN010-Finite-State-Machines/README.md": {
+      "hash": "bbee0a71112fc4a3e078f54fdc20c002ae743776",
+      "articleId": 360047014934,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360047014934-AN010-Finite-State-Machines",
+      "attachments": {
+        "AN010-Finite-State-Machines/images/diagram.png": {
+          "attachmentId": 360069285113,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360069285113/diagram.png"
+        }
+      }
     }
   }
 }

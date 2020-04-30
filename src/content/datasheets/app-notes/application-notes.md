@@ -12,7 +12,6 @@ repository:
 
 [https://github.com/particle-iot/app-notes/](https://github.com/particle-iot/app-notes/)
 
-
 ## Highlighted App Notes
 
 ### Hardware Designs
@@ -22,6 +21,7 @@ Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. I
 USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 - [AN006 Vehicle Power](https://github.com/particle-iot/app-notes/tree/master/AN006-Vehicle-Power) provides sample designs for powering Particle devices in vehicles.
 
+
 ### Programming techniques
 
 - [AN002-Device-Powerdown](https://github.com/particle-iot/app-notes/tree/master/AN002-Device-Powerdown) shows how to 
@@ -30,6 +30,9 @@ then automatically power up when restored. This can be useful in automotive appl
 in mains power applications.
 - [AN005 Threading Explainer](https://github.com/particle-iot/app-notes/tree/master/AN005-Threading-Explainer) provides detailed information on using execution threads on Particle devices.
 - [AN008 Using a Xenon with the Nordic SDK](https://github.com/particle-iot/app-notes/tree/master/AN008-Xenon-Nordic-SDK)
+- [AN009 Firmware Examples](https://github.com/particle-iot/app-notes/tree/master/AN009-Firmware-Examples) provides some annotated code examples, including how to effective use sleep modes.
+- [AN010 Finite State Machines](https://github.com/particle-iot/app-notes/tree/master/AN010-Finite-State-Machines) shows some of the ways to effectively structure your code using finite state machines.
+
 
 ### Troubleshooting
 
@@ -37,6 +40,7 @@ in mains power applications.
 interpret cloud debugging logs to troubleshoot various common issues.
 - [AN004 Interpreting Cloud Debug-2](https://github.com/particle-iot/app-notes/tree/master/AN004-Interpreting-Cloud-Debug-2) is a deep dive into interpreting cloud debug logs and cross-referencing the AT command guide for the u-blox modem.
 - [AN007 Tower Info](https://github.com/particle-iot/app-notes/tree/master/AN007-Tower-Info) is a tool for location nearby cellular towers.
+
 
 ## Numerical List
 
@@ -48,3 +52,5 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN006 Vehicle Power](https://github.com/particle-iot/app-notes/tree/master/AN006-Vehicle-Power) provides sample designs for powering Particle devices in vehicles.
 - [AN007 Tower Info](https://github.com/particle-iot/app-notes/tree/master/AN007-Tower-Info) is a tool for location nearby cellular towers.
 - [AN008 Using a Xenon with the Nordic SDK](https://github.com/particle-iot/app-notes/tree/master/AN008-Xenon-Nordic-SDK)
+- [AN009 Firmware Examples](https://github.com/particle-iot/app-notes/tree/master/AN009-Firmware-Examples) provides some annotated code examples, including how to effective use sleep modes.
+- [AN010 Finite State Machines](https://github.com/particle-iot/app-notes/tree/master/AN010-Finite-State-Machines) shows some of the ways to effectively structure your code using finite state machines.
