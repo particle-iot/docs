@@ -68,7 +68,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 
 | Device | Model | Region | 
 | --- | :---: | :--- |
-| Tracker SoM 502 (LTE Cat M1 with 2G fallback) | T502 | North America |
+| Tracker SoM 502 (LTE Cat M1) | T502 | North America |
 | Tracker SoM 523 SoM (LTE Cat 1 with 2G/3G fallback) | T523 | EMEAA |
 
 
@@ -143,7 +143,7 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | Boron LTE  | BRN402 | &check; | &check; |
 | B Series B402 SoM (Cat M1) | B402 | &nbsp; | &check; |
 | B Series B523 SoM (Cat 1) | B523 | &nbsp; | &check; |
-| Tracker SoM (LTE Cat M1 and 2G) | T502 | &nbsp; | &check; |
+| Tracker SoM (LTE Cat M1) | T502 | &nbsp; | &check; |
 | Tracker SoM (LTE Cat 1 and 2G/3G) | T523 | &nbsp; | &check; |
 | Electron 2G | G350 | &check; | &nbsp; |
 | Electron 3G | U260 | &check; | &nbsp; |
@@ -161,18 +161,18 @@ Non-LTE Particle SIM cards support world-wide roaming. However there may be limi
 | Device | Model | Roaming | LTE | 3G | 2G | Bands |
 | --- | :--- |  --- | --- | --- | --- | --- |
 | Boron 2G/3G | BRN310 | World | | &check; | &check; | 850, 900, 1800, 1900, 2100 |
-| Boron LTE (Cat M1) | BRN402 | US, Canada, Mexico<sup>1</sup> | Cat M1 | | | LTE<sup>6</sup> |
-| B Series B402 SoM (LTE Cat M1) | B402 | US, Canada, Mexico<sup>5</sup> | Cat M1 | | | LTE<sup>6</sup> |
+| Boron LTE (Cat M1) | BRN402 | US, Canada, Mexico<sup>1</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
+| B Series B402 SoM (LTE Cat M1) | B402 | US, Canada, Mexico<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
 | B Series B523 SoM (LTE Cat 1) | B523 | Europe | Cat 1 | &check; |&check; | 700, 800, 900, 1800, 2100, 2600<sup>7</sup> |
-| Tracker SoM (LTE Cat M1/2G) | T502 | US, Canada, Mexico<sup>5</sup> | Cat M1 | | &check; | 850, 1900, LTE<sup>6</sup> |
+| Tracker SoM (LTE Cat M1) | T502 | US, Canada, Mexico<sup>5</sup> | Cat M1 | &nbsp; | &nbsp; | LTE Cat M1<sup>6</sup> |
 | Tracker SoM (LTE Cat 1/2G/3G) | T523 | Europe | Cat 1 | &check; | &check; | 700, 800, 900, 1800, 2100, 2600<sup>7</sup> |
 | Electron 2G | G350 | World<sup>2</sup> | | | &check; | 850, 900, 1800, 1900 |
 | Electron 3G | U260 | Americas, Australia, New Zealand<sup>3</sup> | | &check; | &check; | 850, 1900 |
 | Electron 3G | U270 | Europe, Asia, Africa<sup>4</sup> | | &check; | &check; | 900, 1800, 2100 |
 | Electron Global | ELC310 | World | | &check; | &check; | 850, 900, 1800, 1900, 2100 |
-| Electron LTE (Cat M1) | ELC402 | US, Canada, Mexico<sup>5</sup> | Cat M1 | | | LTE<sup>6</sup> |
+| Electron LTE (Cat M1) | ELC402 | US, Canada, Mexico<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
 | E Series 2G/3G | E310 | World | | &check; | &check;| 850, 900, 1800, 1900, 2100 |
-| E Series LTE (Cat M1) | E402 | US, Canada, Mexico<sup>5</sup> | Cat M1 | | | LTE<sup>6</sup> |
+| E Series LTE (Cat M1) | E402 | US, Canada, Mexico<sup>5</sup> | Cat M1 | | | LTE Cat M1<sup>6</sup> |
 
 
 <sup>1</sup>The Boron LTE can be used with a 3rd-party SIM card in areas outside of the United States, Canada, and Mexico at this time. This is not officially supported, but has been known to work.
@@ -191,7 +191,7 @@ In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the
 
 <sup>5</sup>The B Series B402, E Series LTE, and Electron LTE cannot be used outside of the United States, Canada, and Mexico at this time. 
 
-<sup>6</sup>The u-blox SARA-R410M-02B modem supports a number of bands, see [LTE Cat M1](#lte-cat-m1) below.
+<sup>6</sup>For LTE Cat M1 bands, see [LTE Cat M1](#lte-cat-m1) below.
 
 <sup>7</sup>The Quectel EG91-E modem supports European LTE bands (700, 700, 900, 1800, 2100, and 2600), as well as HSPA/WCDMA 3G (900, 2100) and GSM 2G (900, 1800). See [the datasheet](/datasheets/boron/b523-datasheet/#4g-lte-cellular-characteristics-for-eg91-e) for more information.
 
@@ -400,7 +400,7 @@ These countries cannot use the Electron 2G at all:
 | Boron LTE (Cat M1) | BRN402 | R410 | US, Canada, Mexico | &nbsp; | &nbsp; | Cat M1 | Gen3 |  Both | Feather | 
 | B Series SoM (LTE Cat M1) | B402 | R410 | US, Canada, Mexico | &nbsp; | &nbsp; | Cat M1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
 | B Series SoM (LTE Cat 1) | B523 | EG91-E | Europe | &nbsp; | &nbsp; | Cat 1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
-| Tracker SoM (LTE Cat M1/2G) | T502 | BG96-NA | US, Canada, Mexico<sup>5</sup> | &check; | &nbsp; | Cat M1 | Gen3 | MFF2<sup>1</sup> | SMD Module | 
+| Tracker SoM (LTE Cat M1/2G) | T502 | BG96-NA | US, Canada, Mexico<sup>5</sup> | &nbsp; | &nbsp; | Cat M1 | Gen3 | MFF2<sup>1</sup> | SMD Module | 
 | Tracker SoM (LTE Cat 1/2G/3G) | T523 | EG91-EX | EMEAA | &check; | &check; | Cat 1 | Gen3 | MFF2<sup>1</sup> | SMD Module |
 | Electron 2G | E350 | G350 | World| &check; | &nbsp; | &nbsp; | Gen2 | Card | Pins | 
 | Electron 3G | E260 | U260 | Americas| &check; | &check; | &nbsp; | Gen2 | Card |Pins | 

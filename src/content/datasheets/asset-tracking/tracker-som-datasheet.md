@@ -39,7 +39,6 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
   * 3GPP E-UTRA Release 13
   * LTE FDD bands supported: 2, 4, 12, 13
-  * EGPRS 850, 1900
  * Quectel EG91-EX modem
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
@@ -806,9 +805,9 @@ The bootloader allows you to easily update the user application via several diff
 | T523MTY  | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Tray (50) |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] |	Each |
 | | T402 Family (North America) | |
-| T402MEA | Tracker SoM LTE M1/2G (NorAm), [x1]	| Each |
-| T402MTY | Tracker SoM LTE M1/2G (NorAm), Tray [x50]	| Tray (50) |
-| T402MKIT | Tracker SoM LTE M1/2G (NorAm) Evaluation Kit, [x1]	| Each |
+| T402MEA | Tracker SoM LTE M1 (NorAm), [x1]	| Each |
+| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50]	| Tray (50) |
+| T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]	| Each |
 
 
 ## Revision history
