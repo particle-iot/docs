@@ -78,7 +78,7 @@ Additional information available [here.](http://wiki.seeedstudio.com/Grove-Rotar
 
 Ultrasonic ranger is a non-contact distance measurement module which works at 40KHz. When we provide a pulse trigger signal with more than 10uS through signal pin, the sensor will issue 8 cycles of 40kHz cycle level and detect the echo. The pulse width of the echo signal is proportional to the measured distance. Here is the formula: Distance = echo signal high time * Sound speed (340M/S)/2. The sensor's trig and echo signal share 1 SIG pin.
 
-The library is available in the Web IDE as [Grove_Ultrasonic_Ranger](https://build.particle.io/libs/Grove_Ultrasonic_Ranger/1.0.0/tab/Ultrasonic.cpp).
+The library is available in the Web IDE as [Grove_Ultrasonic_Ranger](https://build.particle.io/libs/Grove-Ultrasonic-Ranger/1.0.2/tab/Grove-Ultrasonic-Ranger.cpp).
 
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/)
 
