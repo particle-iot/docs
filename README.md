@@ -1,8 +1,6 @@
 Particle Documentation [![Build Status](https://travis-ci.org/particle-iot/docs.svg?branch=master)](https://travis-ci.org/particle-iot/docs)
 ======================
 
-**This repository is not currently used (archived). We bring it back when we want to work on documentation for new features that we don't want to expose on Github.**
-
 Here you'll find the documentation for the Particle platform, including
 the Particle Device Cloud, Photon, Electron, and Spark Core.
 
