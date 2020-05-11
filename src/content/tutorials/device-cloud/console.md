@@ -617,3 +617,46 @@ There are four main sections to the configuration page: *Overview*, *Working wit
 
 ![Configuration page](/assets/images/configure-page.png)
 <p class="caption">The configuration page will identify key decisions you will need to make before manufacturing</p>
+
+## Asset Tracker Features
+
+All Asset Tracker devices are intended to be used in a product, not as developer devices. This makes it easy to manage a fleet of asset trackers, allowing per-fleet and per-device configuration settings, and features like fleet mapping. The Product Features in the previous section also apply to Tracker devices.
+
+### Create Product
+
+When you create a product with **Asset Tracker (Cellular** as the type, the Asset Tracker features are enabled for the product. Even if you have an existing product, you'll need to create a new Asset Tracker product as products can only have  a single type of device. For example, a product cannot have both an Asset Tracker and a Boron in it.
+
+![Create Product](/assets/images/tracker/create-product.png)
+
+It's OK if you're starting out with a single Tracker; you can create a free prototyping level product that only has one device in it.
+
+### Map
+
+![Map View](/assets/images/tracker/map-view.png)
+
+The map view shows your fleet of devices or selected devices on a map.
+
+You can show a subset of your devices on the map by searching:
+
+- By Device ID
+- By Device Name
+- By Device Groups
+
+You can also search by the last known location, or within a certain time range.
+
+
+### Product Settings
+
+![Location Settings](/assets/images/tracker/settings-1.png)
+
+![Motion Settings](/assets/images/tracker/settings-2.png)
+
+![RGB LED Settings](/assets/images/tracker/settings-3.png)
+
+
+### Device Settings
+
+Normally, you will use the product settings across your fleet of Tracker devices. If you mark a device as a Development Device, you can change settings on a per-device basis within the Device Configuration.
+
+![Per-Device Settings](/assets/images/tracker/per-device.png)
+

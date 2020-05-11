@@ -59,26 +59,28 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 16 | | Tracker SoM (on back side) |
 
 
-### Power and I/O Connector
+### Power and I/O Connector (M8)
 
-| Pin   | Description | I/O |
-| :---: | :--- | :---: |
-| 1     | VIN (4.5 - 105 VDC)<sup>3</sup> | I |
-| 2     | GND | |
-| 3     | CAN 5V (500mA maximum) | O |
-| 4     | CAN+ | IO<sup>2</sup> |
-| 5     | CAN- | IO<sup>2</sup> |
-| 6     | MCU TX/D9 | IO<sup>1</sup> |
-| 7     | MCU RX/D8 | IO<sup>1</sup> |
-| 8     | GPIO1/A3 | IO<sup>1</sup> |
+| M8 Pin | Function   | Function  | Function  | I/O |
+| :----: | :-------   | :-------  | :-------  | :--- |
+| 1      | VIN<sup>3</sup> |      |           | I |
+| 2      | GND        |           |           |   |         
+| 3      | CAN 5V<sup>4</sup> |   | CAN_PWR   | O |
+| 4      | CAN+       |           |           | IO<sup>2</sup> |
+| 5      | CAN-       |           |           | IO<sup>2</sup> |
+| 6      | Serial1 TX | Wire2 SCL | GPIO D9   | IO<sup>1</sup> |
+| 7      | Serial1 RX | Wire2 SDA | GPIO D8   | IO<sup>1</sup> |
+| 8      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
 
 This connector attaches to the IP67 M8 connector, accessible from the outside of the enclosure.
 
-<sup>1</sup>MCU GPIO is limited to 3.3V maximum
+<sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
 <sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). CAN Bus termination is provided on the carrier board.
 
 <sup>3</sup>4.5 to 30 VDC when using the M8 connector. 4.5 - 105 VDC when connecting directly to the board.
+
+<sup>4</sup>5V, 500 mA maximum. Controlled by the CAN_PWR GPIO.
 
 ### Additional Peripherals
 
