@@ -23,6 +23,24 @@ module.exports = function(context) {
 		  return 'D0 - D7';
 	  }
   }
+  else
+  if (metadata.device === 'Tracker SoM') {
+	if (op === 'last-a') {
+		return 'A7';
+	}	  
+	else
+	if (op === 'last-d') {
+		return 'D9';
+	}	 
+	else
+	if (op === 'all-a') {
+		return 'A0 - A7';
+	}	  
+	else
+	if (op === 'all-d') {
+		return 'D0 - D9';
+	}	  
+  }
   else {
 	  if (op === 'last-a') {
 		  return 'A5';

@@ -25,6 +25,10 @@ module.exports = function(context) {
   if (device === 'Argon' || device === 'Boron' || device === 'Xenon') {
 	  platformMin = stringVerToNum('0.8.0');	  
   }
+  else
+  if (device === 'Tracker SoM') {
+	  platformMin = stringVerToNum('1.5.0');	  	  
+  }
   else {
 	  platformMin = stringVerToNum('0.0.0');	  
   }

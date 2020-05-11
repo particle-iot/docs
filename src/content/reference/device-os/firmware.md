@@ -2,7 +2,7 @@
 title: Device OS API
 layout: reference.hbs
 columns: three
-devices: [boron,photon,electron,argon]
+devices: [boron,photon,electron,argon,tracker-som]
 order: 20
 description: Reference manual for the C++ API used by user firmware running on Particle IoT devices
 ---
@@ -3877,6 +3877,25 @@ It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of u
 
 Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
 
+{{#if tracker-som}}
+The Tracker SoM shared A and D pins. In other words, pin A0 is the same physical pin as pin D0, and is also the SDA pin. The alternate naming is to simplify porting code from other device types.
+
+| Pin     | M8 Pin | Function    | Function    | Analog In | GPIO    | 
+| :-----: | :----: | :---------  | :---------  | :-------: | :-----: | 
+| A0 / D0 |        | Wire SDA    |             | &check;   | &check; | 
+| A1 / D1 |        | Wire SCL    |             | &check;   | &check; |
+| A2 / D2 |        | Serial1 CTS |             | &check;   | &check; |
+| A3 / D3 | 7      | Serial1 RTS |             | &check;   | &check; |
+| A4 / D4 |        | SPI MOSI    |             | &check;   | &check; |
+| A5 / D5 |        | SPI MISO    |             | &check;   | &check; |
+| A6 / D6 |        | SPI SCK     |             | &check;   | &check; |
+| A7 / D7 |        | SPI SS      | WKP         | &check;   | &check; |
+| TX / D8 | 5      | Serial1 TX  | Wire2 SCL   |           | &check; |
+| RX / D9 | 6      | Serial1 RX  | Wire2 SDA   |           | &check; |
+
+
+{{/if}} {{!-- tracker-som --}}
+
 ### pinMode()
 
 `pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
@@ -3934,6 +3953,10 @@ Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external de
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
 {{/if}}
 
+{{#if tracker-som}}
+When used as an INPUT or analog input, make sure the signal does not exceed 3.3V. Gen 3 devices (Tracker SoM as well as Argon, Boron, Xenon, and the B Series SoM) are not 5V tolerant!
+{{else}}
+
 {{#if has-nrf52}}
 When used as an INPUT or analog input, make sure the signal does not exceed 3.3V. Gen 3 devices (Argon, Boron, Xenon, and B Series SoM) are not 5V tolerant!
 
@@ -3951,7 +3974,6 @@ If you are using the Particle Ethernet FeatherWing you cannot use the pins for G
 When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
 
 When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
-{{/if}}
 
 {{#if xenon}}
 On the Xenon only, there is an optional second UART (serial) interface. If using Serial2, the following pins cannot be used as GPIO:
@@ -3963,6 +3985,11 @@ On the Xenon only, there is an optional second UART (serial) interface. If using
 
 As these pins overlap the Particle Ethernet FeatherWing, you cannot use Serial2 and the Ethernet FeatherWing at the same time.
 {{/if}}
+
+{{/if}} {{!-- has-nrf52 --}}
+
+{{/if}} {{!-- tracker-som --}}
+
 
 ### getPinMode(pin)
 
@@ -4015,7 +4042,9 @@ void loop()
 {{#if has-nrf52}}
 **Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
-**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
 
 {{/if}}
 
@@ -4061,6 +4090,8 @@ void loop()
 **Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 **Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
 
 {{/if}}
 
@@ -4144,6 +4175,14 @@ frequency and resolution, but individual pins in the group can have a different 
 - Group 2: Pins A0, A1, A6, and A7.
 - Group 1: Pins D4, D5, and D6.
 - Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
+On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are the same physical pin as D0 - D7. D8 is shared with TX (Serial1) and D9 is shared with RX (Serial1). When used for PWM, pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 3: RGB LED
+- Group 2: D8 (TX), D9 (RX)
+- Group 1: D4, D5, D6, D7
+- Group 1: D0, D1, D2, D3
 
 {{/if}}
 
@@ -4245,6 +4284,10 @@ The Gen 3 Feather devices (Argon, Boron, Xenon) have 6 channels (A0 to A5) with 
 The sample time to read one analog value is 10 microseconds.
 
 The Boron SoM has 8 channels, A0 to A7.
+
+The Tracker SoM has 8 channels, A0 to A7, however these pins are the same physical pins D0 to D7.
+
+The Tracker One only exposes one analog input, A3, on the external M8 connector. Pin A0 is connected to the NTC thermistor on the carrier board.
 {{/if}}
 
 ```cpp
@@ -4467,6 +4510,12 @@ On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins 
 - Group 2: Pins A0, A1, A6, and A7.
 - Group 1: Pins D4, D5, and D6.
 
+On the Tracker SoM, pins D0 - D9 can be used for PWM. Pins are assigned a PWM group. Pins are assigned a PWM group. Each group must share the same frequency. Pins D8 and D9 can only be used for PWM if not being used for Serial1.
+
+- Group 2: D8 (TX), D9 (RX)
+- Group 1: D4, D5, D6, D7
+- Group 1: D0, D1, D2, D3
+
 {{/if}}
 
 ```cpp
@@ -4564,6 +4613,21 @@ On the B Series SoM:
 | D4   | PWM1  |
 | D5   | PWM1  |
 | D6   | PWM1  | 
+
+On the Tracker SoM:
+
+| Pin  | Timer |
+| :--: | :---: |
+| D0   | PWM0  |  
+| D1   | PWM0  |
+| D2   | PWM0  |
+| D3   | PWM0  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+| D7   | PWM1  | 
+| D8 (TX)   | PWM2  | 
+| D9 (RX)   | PWM2  | 
 
 {{/if}}
 
@@ -5215,6 +5279,15 @@ void setup()
 Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the Gen 3 devices. 
 {{/if}}
 
+{{#if has-i2c-wire2}}
+
+This device can use the TX and RX pins as either `Wire2` or `Serial1`. If you use `Serial1.begin()` the pins will be used for UART serial. If you use `Wire2.begin()`, `RX` will be `SDA` and `TX` will be `SCL`. You cannot use `Wire2` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire2` at the same time, as there is only one I2C peripheral, just different pin mappings.
+
+This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire2.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
+
+{{/if}} {{!-- has-i2c-wire2 --}}
+
+
 {{#if has-serial2}}
 
 {{#if photon}}
@@ -5439,7 +5512,7 @@ Parity:
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
 
-Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B Series SoM). 
+Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). 
 
 {{/if}} {{!-- has-nrf52 --}}
 
@@ -6576,6 +6649,12 @@ On the B Series SoM:
 * `MISO` => `MISO (D11)`
 * `MOSI` => `MOSI (D12)`
 
+On the Tracker SoM:
+* `SS` => `A7`/`D7` (but can use any available GPIO)
+* `SCK` => `A6`/`D6`
+* `MISO` => `A5`/`D5`
+* `MOSI` => `A4`/`D4`
+
 {{/if}}
 
 {{#if has-multiple-spi}}
@@ -7193,17 +7272,27 @@ be used via the `Wire1` object. This alternate location is mapped as follows:
 * `SDA` => `C4`
 Note that you cannot use both Wire and Wire1. These are merely alternative pin locations for a 
 single hardware I2C port.
-{{/if}}
+{{/if}} {{!-- electron --}}
 {{#if has-nrf52}}
 Additionally, on the Argon and Xenon, there a second I2C port that can be used with the `Wire1` object:
 * `SCL` => `D3`
 * `SDA` => `D2` 
-{{/if}}
+{{/if}} {{!-- has-nrf52 --}}
 
 **Note**: Because there are multiple I2C locations available, be sure to use the same `Wire` or `Wire1` object with all associated functions. 
 For example, do not use `Wire.begin()` with `Wire1.write()`.
 
-{{/if}}
+{{/if}} {{!-- has-i2c-wire1 --}}
+
+
+{{#if has-i2c-wire2}}
+
+This device allows an alternate mapping of the `Wire` (I2C interface) from D0/D1 to RX/TX. The `Wire2` interface allows you to use RX as SDA and TX as SCL. You cannot use `Wire2` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire2` at the same time, as there is only one I2C peripheral, just different pin mappings.
+
+This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire2.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
+
+{{/if}} {{!-- has-i2c-wire2 --}}
+
 
 {{/if}} {{!-- has-embedded --}}
 
@@ -11009,6 +11098,7 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 - on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
 - on Gen 3 Argon, Boron, and Xenon devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for Servo.
 - On Gen 3 B Series SoM devices, pins A0, A1, A6, A7, D4, D5, and D6 can be used for Servo.
+- On Gen 3 Tracker SoM devices, pins D0 - D9 can be used for Servo.
 
 ```cpp
 // SYNTAX
@@ -14684,6 +14774,9 @@ Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later.
 On the Argon, Boron, and Xenon, WKP is pin D8.
 
 On the B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8.
+
+On the Tracker SoM WKP is pin A7/D7.
+
 {{/if}}
 
 ---
@@ -14733,7 +14826,7 @@ System.sleep(SLEEP_MODE_DEEP);
 // The device LED will shut off during deep sleep
 ```
 
-On the Boron and B Series SoM, it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
+On the Boron, B Series SoM, and Tracker SoM it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
 
 {{/if}} {{!-- has-nrf52 --}}
 
