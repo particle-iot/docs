@@ -91,17 +91,17 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 | GNSS_LOCK | A2 | GNSS lock indicator |
 | GPIO1 | A3 | GPIO on power and I/O connector |
 | FRAM_CS | A7 | Chip select for MB85RS256 SPI FRAM | 
-| MCU TX | TX | MCU serial TX or GPIO D9 | 
-| MCU RX | RX | MCU serial RX or GPIO D8 | 
+| MCU TX | TX | MCU serial TX, GPIO D9, Wire2 SCL | 
+| MCU RX | RX | MCU serial RX, GPIO D8, Wire2 SDA | 
 
 
 ### Powering the Tracker Carrier Board
 
-There are several options for powering the evaluation board:
+There are several options for powering the carrier board:
 
-The **MCU USB** connector (USB-C). If using a laptop with a 500 mA USB port, you should also use the LiPo battery. With a 2A tablet charger, you can power only by USB.
+The **MCU USB** connector (USB-C). If using a laptop with a USB-A to USB-C cable and a 500 mA USB port, you should also use the LiPo battery. With an true USB-C port and table, or a 2A tablet charger, you can power only by USB.
 
-The **VIN** connector (5-30 VDC). This is useful with an external power supply.
+The **VIN** connector (5-30 VDC). This is useful with an external power supply. VIN is also available on the M8 connector.
 
 The **LiPo** connector. This is typically used with a LiPo battery.
 

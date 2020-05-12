@@ -374,6 +374,101 @@ of the response back to your devices.
 
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
 
+## Asset Tracking Events
+
+### Tracker Location Events
+
+A location event typically has JSON that looks like this:
+
+```
+{
+	"cmd":"loc",
+	"time":1584484345,
+	"loc":{
+		"lck":1,
+		"time":1584484333,
+		"lat":37.295945,
+		"lon":-121.986830,
+		"alt":71.6,
+		"hd":46.16,
+		"h_acc":10.0,
+		"v_acc":2.57
+	},
+	"trig": ["radius", "imu_m"]
+}
+```
+
+#### cmd
+
+This currently always the string `loc`, indicating the payload contains the `loc` object.
+
+#### time
+
+Event time, from the device RTC. UTC time/date in 32-bit, signed, POSIX epoch format (seconds past January 1, 1970). This timestamp may be different than the timestamp in the event metadata, which is generated cloud-side when the event is received because of event queuing and retries due to connection failures. 
+
+#### loc.lck
+
+Lock or fix status. If 0, the GNSS has not locked yet. If non-zero, it has locked and the lat/lon are valid.
+
+#### loc.time
+
+GNSS timestamp. This may be different than the device and cloud times.
+
+#### loc.lat
+
+Latitude part of geographic coordinate in reference to WGS84 datum. It is floating point degrees in the range of -180.0 to +180.0.
+
+#### loc.lon
+
+Longitude part of geographic coordinate in reference to WGS84 datum. It is floating point degrees in the range of -90.0 to +90.0.
+
+#### loc.alt
+
+Altitude, in meters, part of geographic coordinate in reference to WGS84 datum.
+
+#### loc.hd
+
+Heading, in degrees, of perceived direction. It is floating point degrees in the range of -360.0 to +360.0.
+
+#### loc.h_acc
+
+Horizontal accuracy, in meters, of geographic latitude and longitude coordinates.
+
+#### loc.v_acc
+
+Vertical accuracy, in meters, of geographic altitude coordinates.
+
+#### loc.temp
+
+Device temperature, in degrees Celsius, if available.
+
+#### trig
+
+Reason for point location publish message, an array of causes enumeration strings:
+
+- `time` time-based (`interval_max`)
+- `radius` movement-based (`radius`)
+- `imu_m` IMU wake on motion
+- `imu_g` IMU wake on high-G acceleration
+
+{{!-- 
+- `imu_o` ???
+- `lock` ???
+- `unlock` ???
+- `temp_h` ???
+- `temp_l` ???
+- `user` ???
+--}}
+
+The JSON schema for location events can be found here. **TODO: Link to location for schema**
+
+
+### Tracker Configuration Events
+
+Tracker Configuration Events are sent to devices to change configuration parameters. You should not send these events directly by yourself, as configuration events are designed to be synchronized between the device and cloud, including getting configuration updates after waking up from sleep or going out of cellular range.
+
+The JSON schema for configuration events can be found here. **TODO: Link to location for schema**
+
 ## Firmware
 {{> api group=apiGroups.Firmware}}
 ## Product Firmware

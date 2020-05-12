@@ -634,25 +634,68 @@ It's OK if you're starting out with a single Tracker; you can create a free prot
 
 ![Map View](/assets/images/tracker/map-view.png)
 
-The map view shows your fleet of devices or selected devices on a map.
+The map view shows your fleet of devices or selected devices on a map. The Map view is available for Asset Tracker products in the **Maps** icon.
+
+![Map Icon](/assets/images/tracker/map-icon.png)
 
 You can show a subset of your devices on the map by searching:
 
 - By Device ID
 - By Device Name
-- By Device Groups
+- By [Device Groups](/tutorials/product-tools/device-groups/)
 
 You can also search by the last known location, or within a certain time range.
 
 
 ### Product Settings
 
+Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Settings** (gear) icon in the console.
+
+![Settings Icon](/assets/images/tracker/settings-icon.png)
+
+#### Location Settings
+
 ![Location Settings](/assets/images/tracker/settings-1.png)
+
+The Location settings include:
+
+- **Publish radius** in meters, floating point. When the current position's distance from the last publish exceeds this distance, the new position is published. 0.0 means do not use a publish radius. 
+- **Interval minimum** Wait at least this long in seconds after the last location publish before publishing again. 0 means do not use an interval minimum.
+- **Interval maximum** Publish location at least this often (in seconds) even if there is no movement. 0 means do not use an interval maximum.
+
+#### Motion Settings
 
 ![Motion Settings](/assets/images/tracker/settings-2.png)
 
+The motion settings determine how the IMU (inertial measurement unit, the accelerometer) is used to determine whether to publish a location. The **Interval minimum** also applies to motion events.
+
+- **Motion** publishes if the device moves, and has several sensitivity options:
+
+  - **Disable**: Do not use motion detection (the default).
+  - **Low** 
+  - **Medium**
+  - **High**
+
+- **High G** publishes if there is a High-G acceleration event.
+
+  - **Disable**: High-G events are not generated (the default).,
+  - **Enable**: High-G events are generated.
+
+#### RGB LED Settings
+
 ![RGB LED Settings](/assets/images/tracker/settings-3.png)
 
+The Tracker Firmware configures the RGB status LED. 
+
+The **Type** popup menu has the following options:
+
+- **none**:
+- **off**: 
+- **direct**: RGB level is set directly using the red, green, blue, and brightness options.
+- **default**:
+- **gradient**:
+
+When using **direct** mode you can specify the RGB color (0 - 255) as well as the brightness (0 - 255). For normal RGB colors leave the brightness at 255.
 
 ### Device Settings
 

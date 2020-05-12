@@ -231,7 +231,7 @@ Circular labels are as follows:
 | 4 | GNSS_VBUS | USB PWR | GNSS | GNSS USB power. Optional. |
 | 5 | GNSS_P | USB D+ | GNSS | GNSS USB interface D+. Optional. |
 | 6 | GNSS_N | USB D- | GNSS | GNSS USB interface D-. Optional. |
-| 7 | GNSS_PULSE | OUT | GNSS | GNSS time pulse output. Can be used for a GPS fix LED. |
+| 7 | GNSS_PULSE | OUT | GNSS | GNSS time pulse output. Can be used for a GNSS fix LED.<sup>2</sup> |
 | 8 | GND | POWER | | Ground |
 | 9 | NC |  | | Leave unconnected. |
 | 10 | GND | POWER | | Ground |
@@ -281,10 +281,10 @@ Circular labels are as follows:
 | 53 | LI+ | POWER | PMIC | Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS. |
 |   |   |  |  | Left Side |
 | 54 | GND | POWER | | Ground |
-| 55 | A0 | IO | nRF52 | A0 D0 Wire SDA |
-| 56 | A1 | IO | nRF52 | A1 D1 Wire SCL |
-| 57 | A2 | IO | nRF52 | A2 D2 Serial1 CTS |
-| 58 | A3 | IO | nRF52 | A3 D3 Serial1 RTS |
+| 55 | A0 | IO | nRF52 | A0, D0, Wire SDA, Thermistor<sup>1<sup> |
+| 56 | A1 | IO | nRF52 | A1, D1, Wire SCL, User button<sup>1<sup> |
+| 57 | A2 | IO | nRF52 | A2, D2, Serial1 CTS, GNSS lock indicator<sup>1<sup> |
+| 58 | A3 | IO | nRF52 | A3, D3, Serial1 RTS, M8 GPIO<sup>1<sup> |
 | 59 | NC SOM59 | | | Leave unconnected. |
 | 60 | NC SOM60 | | | Leave unconnected. |
 | 61 | NC SOM61 | | | Leave unconnected. |
@@ -297,8 +297,8 @@ Circular labels are as follows:
 | 68 | MCU-D- | USB D- | nRF52 | MCU USB interface D-. Optional. |
 | 69 | MCU_D+ | USB D+ | nRF52 | MCU USB interface D+. Optional. |
 | 70 | GND | POWER | | Ground |
-| 71 | MCU_RX | IO | nRF52 | Serial RX, GPIO D9 |
-| 72 | MCU_TX | IO | nRF52 | Serial TX, GPIO D8 |
+| 71 | MCU_RX | IO | nRF52 | Serial RX, GPIO D9, Wire2 SDA |
+| 72 | MCU_TX | IO | nRF52 | Serial TX, GPIO D8, Wire2 SCL |
 | 73 | RTC_BAT | POWER | AM18X5 | RTC/Watchdog battery +. Connect to GND if not using. |
 | 74 | RTC_BTN | IN | AM18X5 | RTC EXTI. Can use as a wake button. |
 | 75 | GND | POWER | | Ground |
@@ -325,6 +325,9 @@ Circular labels are as follows:
 
 Pin numbers match the triangular numbers in the graphic above.
 
+<sup>1</sup>Pin usage on the Tracker One.
+
+<sup>2</sup>The GNSS_PULSE pin can be used for a hardware GPS lock indicator, however the Tracker One controls the GNSS Lock indicator in software and connects the LED to pin A2.
 
 ### nRF52 pin assignments
 
@@ -338,8 +341,8 @@ Pin numbers match the triangular numbers in the graphic above.
 | 40      | D5    | A5     | SPI MISO    | Group 1 | P0.29   |
 | 39      | D6    | A6     | SPI SCK     | Group 1 | P0.04   |
 | 38      | D7    | A7     | SPI SS, WKP | Group 1 | P0.05   |
-| 72      | D8    |        | Serial1 TX  | Group 2 | P0.06   |
-| 71      | D9    |        | Serial1 RX  | Group 2 | P0.08   |
+| 72      | D8    |        | Serial1 TX, Wire2 SCL  | Group 2 | P0.06   |
+| 71      | D9    |        | Serial1 RX, Wire2 SDA  | Group 2 | P0.08   |
 
 <sup>1</sup>Pull-up resistors are not included. When using as an I2C port, external pull-up resistors are required.
 
