@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(pre1)</sup>
+# Tracker SoM Datasheet <sup>(pre2)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -76,7 +76,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 ### Block diagram
 
-<div align="center" class="full-width"> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" ></a></div> 
+<div align="center"> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" class="full-width"></a></div> 
 
 ### Power
 The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
@@ -760,14 +760,14 @@ These specifications are based on the nRF52840 datasheet.
 
 ### Dimensions and Weight
 
-| Parameters | Value | Unit |
-| --- | --- | --- |
-| Width |  | mm |
-| Height |  | mm | 
-| Thickness |  | mm | 
-| Weight |  | grams |
+| Parameter | Value | Units |
+| :-------- |  ---: | :---- |
+| Width     |    28 | mm    |
+| Length    |    93 | mm    |
+| Thickness |     4 | mm    |
+| Weight    |       | g     |
 
-Will be provided at a later date.
+Weight will be provided at a later date.
 
 ### Mechanical drawing
 
@@ -815,3 +815,4 @@ The bootloader allows you to easily update the user application via several diff
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre1     | 31 Mar 2020 | RK | Preview Release 1 |
+| pre2     | 12 May 2020 | RK | Added partial dimensions |

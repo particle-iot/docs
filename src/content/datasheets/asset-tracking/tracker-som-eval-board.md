@@ -6,7 +6,7 @@ order: 5
 description: Datasheet for the Particle Tracker SoM evaluation board
 ---
 
-# Tracker SoM Evaluation Board<sup>(pre1)</sup>
+# Tracker SoM Evaluation Board<sup>(pre2)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-eval-board.pdf"}}
@@ -147,14 +147,14 @@ To be provided at a later date.
 
 ### Dimensions and weight
 
-To be provided at a later date.
+| Parameter | Value | Units |
+| :-------- |  ---: | :---- |
+| Width     |    97 | mm    |
+| Length    |   164 | mm    |
+| Thickness |    14 | mm    |
+| Weight    |       | g     |
 
-| Parameter | Value |
-| --- | --- |
-| Width |  |
-| Length | |
-| Thickness | | 
-| Weight |  |
+Weight will be provided at a later date.
 
 
 ## Revision history
@@ -162,4 +162,5 @@ To be provided at a later date.
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | pre1     | 31 Mar 2020 | RK | Preview Release |
+| pre2     | 12 May 2020 | RK | Added partial dimensions |
 

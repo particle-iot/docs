@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(pre1)</sup>
+# Tracker One<sup>(pre2)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -152,14 +152,15 @@ Will be provided at a later date.
 
 ### Dimensions and weight
 
-Will be provided at a later date.
+| Parameter                        | Value | Units |
+| :------------------------------- | ----: | :---- |
+| Width                            |    88 | mm    |
+| Length (case only)               |   145 | mm    |
+| Length (including M8 connector)  |   154 | mm    |
+| Thickness                        |    36 | mm    |
+| Weight                           |       | g     |
 
-| Parameter | Value |
-| --- | --- |
-| Width |  |
-| Length | |
-| Thickness | | 
-| Weight |  |
+Weight will be provided at a later date.
 
 
 ## Ordering Information
@@ -174,5 +175,6 @@ Will be provided at a later date.
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre1      | 20 Apr 2020 | RK | Preview Release1 |
+| pre1     | 20 Apr 2020 | RK | Preview Release1 |
+| pre2     | 12 May 2020 | RK | Added partial dimensions |
 

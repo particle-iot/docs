@@ -510,7 +510,7 @@ The microcontroller communicates with the PMIC via an I2C interface (pins PC9 an
 
 <div align=center><img src="/assets/images/e-series/schematics/e0-micro-sch.png"></div>
 
-The E series uses ST Microelectronics's [STM32F205RGT6](http://www2.st.com/content/ccc/resource/technical/document/datasheet/bc/21/42/43/b0/f3/4d/d3/CD00237391.pdf/files/CD00237391.pdf/jcr:content/translations/en.CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
+The E series uses ST Microelectronics's STM32F205RGT6 ARM Cortex M3 microcontroller running at  120MHz.
 
 ---
 
