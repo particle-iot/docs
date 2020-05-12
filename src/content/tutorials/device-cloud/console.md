@@ -689,11 +689,11 @@ The Tracker Firmware configures the RGB status LED.
 
 The **Type** popup menu has the following options:
 
-- **none**:
-- **off**: 
+- **none**: 
+- **off**: The RGB LED is turned off (dark).
 - **direct**: RGB level is set directly using the red, green, blue, and brightness options.
-- **default**:
-- **gradient**:
+- **default**: Color indicates signal strength (red = low, yellow = moderate, green = good), blinking during connecting phase and on when connected.
+- **gradient**: Instead of yellow, use a gradient from red to yellow to green to indicate signal strength.
 
 When using **direct** mode you can specify the RGB color (0 - 255) as well as the brightness (0 - 255). For normal RGB colors leave the brightness at 255.
 
