@@ -26,7 +26,6 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 - **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB or for use without an internal battery.
 - **RGB LED** for use as both a user-configurable device as well as Particle status information.
 - **Backup Battery** for RTC and GNSS.
-- **32 Kbyte SPI FRAM:** MB85RS256 ferroelectric RAM for non-volatile data storage.
 
 ![Top and Bottom](/assets/images/at-som/carrier-top-bottom.png)
 
@@ -90,7 +89,6 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 | USER | A1 | USER button | 
 | GNSS_LOCK | A2 | GNSS lock indicator |
 | GPIO1 | A3 | GPIO on power and I/O connector |
-| FRAM_CS | A7 | Chip select for MB85RS256 SPI FRAM | 
 | MCU TX | TX | MCU serial TX or GPIO D9 | 
 | MCU RX | RX | MCU serial RX or GPIO D8 | 
 
