@@ -16868,6 +16868,1012 @@ Parameters:
 
 Returns: parsed float value (float). If no valid digits were read when the time-out occurs, 0 is returned.
 
+## JSON
+
+```json
+{
+   "a":123,
+   "b":"testing",
+   "c":
+       [
+           1,
+           2,
+           3
+       ],
+   "d":10.333,
+   "e":false,
+   "f":
+       {
+           "g":"Call me \"John\"",
+           "h":-0.78
+       }
+}
+```
+
+{{since when="0.6.1"}}
+
+[JSON](https://json.org) is a standard for transmitting data in a text-based format. It's often used on Particle devices for placing multiple pieces of data in a single publish, subscribe, or function call. It's more flexible than formats like comma-separated values and has well-defined methods for escaping characters safely.
+
+The Particle JSON library is based on [JSMN](https://github.com/zserge/jsmn) for parsing and also includes a JSON generator/writer. It's lightweight and efficient. The JSMN parser is built into Device OS so it doesn't take up additional application RAM, however the wrapper library is included within the user application firmware binary.
+
+- The JSON encoded data consists only of 7-bit ASCII characters. Control characters are escaped.
+- There are types of data for bool, int, double, string, object, and array.
+- Objects and arrays can contain nested objects and arrays, as well as primitive types (bool, int, double, string).
+- There is no binary blob in JSON, you need to encode the data in something like Base64, Base85, or hex encoding.
+- You can't encode circular structures with JSON.
+
+### JSONWriter
+
+The `JSONWriter` object creates JSON objects and arrays. While you can create JSON objects using things like `sprintf` the `JSONWriter` has a number of advantages:
+
+| Measure           | `sprintf`    | `JSONWriter` | JsonParserGeneratorRK | 
+| :---------------- | :----------: | :----------: | :-------------------- |
+| Code Size         | Small        | Fairly Small | Medium                |
+| Easy to Use       | Not really   | Yes          | Yes                   |
+| Escapes Strings   | No           | Yes          | Yes                   |
+| Converts UTF-8    | No           | No           | Yes                   |
+
+Using `sprintf` is tried-and-true, but the escaping of double quotes can get messy:
+
+```cpp
+int a = 123;
+bool b = true;
+const char *c = "testing";
+
+snprintf(buf, sizeof(buf), "{\"a\":%d,\"b\":%s,\"c\":\"%s\"}", 
+    a, 
+    b ? "true" : "false",
+    c);
+```
+
+That generates the string in `buf`: `{"a":123,"b":true,"c":"testing"}`.
+
+---
+
+Using `JSONWriter` the code is much easier to read:
+
+```cpp
+JSONBufferWriter writer(buf, sizeof(buf));
+writer.beginObject();
+    writer.name("a").value(a);
+    writer.name("b").value(b);
+    writer.name("c").value(c);
+writer.endObject();
+```
+
+The real place where this becomes important is for strings that contain special characters including:
+
+- Double quote
+- Backslash
+- Control characters (tab, CR, LF, and others)
+- Unicode characters
+
+If the `testing` string above contained a double quote the `sprintf` version would generate invalid JSON, but the `JSONWriter` version correctly escapes a double quote in a string.
+
+Note: `JSONWriter` does not handle Unicode characters. If you need to handle characters other than 7-bit ASCII, you should use [JsonParserGeneratorRK](https://github.com/rickkas7/JsonParserGeneratorRK) which handles UTF-8 to JSON Unicode (hex escaped UTF-16) conversion.
+
+You will not create a `JSONWriter` directly, as it's an abstract base class. Instead use `JSONBufferWriter` or `JSONStreamWriter`, or your own custom subclass.
+
+The sprintf-style code above created a 12,212 byte binary. The JSONWriter created a 12,452 byte binary, a difference of 240 bytes. However, as the data you are trying to encode becomes more complicated, the difference will likely become smaller.
+
+
+#### JSONWriter::beginArray()
+
+Creates an array. This can be a top-level array, or an array as a value with an object at a specific key.
+
+```cpp
+// PROTOTYPE
+JSONWriter& beginArray();
+
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginArray();
+writer.value(1);
+writer.value(2);
+writer.value(3);       
+writer.endArray();
+
+// RESULT
+[1,2,3]
+```
+
+---
+
+You can chain `JSONWriter` methods, fluent-style, if you prefer that style:
+
+```cpp
+writer.beginArray()
+  .value(1)
+  .value(2)
+  .value(3)       
+  .endArray();
+```
+
+---
+
+Example of using an array within a key/value pair of an object:
+
+```cpp
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+    writer.name("a").value(123);
+    writer.name("b").beginArray();
+        writer.value(1);
+        writer.value(2);
+        writer.value(3);       
+    writer.endArray();
+writer.endObject();
+
+// RESULT
+{"a":123,"b":[1,2,3]}
+```
+---
+
+#### JSONWriter::endArray()
+
+```cpp
+// PROTOTYPE
+JSONWriter& endArray();
+```
+
+Closes an array. You must always balance `beginArray()` with an `endArray()`.
+
+
+#### JSONWriter::beginObject()
+
+```cpp
+// PROTOTYPE
+JSONWriter& beginObject();
+
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+writer.name("a").value(123);
+writer.endObject();
+
+// RESULT
+{"a":123}
+```
+
+Begins a new object. The outermost object is not created automatically, so you almost always will start by using `beginObject()`, which must always be balanced with an `endObject()`.
+
+---
+
+#### JSONWriter::endObject()
+
+```cpp
+// PROTOTYPE
+JSONWriter& endObject();
+```
+
+Closes an object. You must always balance `beginObject()` with `endObject()`.
+
+---
+
+#### JSONWriter::name(const char *name)
+
+```cpp
+// PROTOTYPE
+JSONWriter& name(const char *name);
+
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+bool v1 = false;
+bool v2 = true;
+
+writer.beginObject();
+writer.name("v1").value(v1);
+writer.name("v2").value(v2);
+writer.endObject();
+
+// RESULT
+{"v":false,"v2":true}
+```
+
+When adding key/value pairs to an object, you call `name()` to add the key, then call `value()` to add the value. 
+
+This overload takes a `const char *`, a c-string, null terminated, that is not modified.
+
+The name is escaped so it can contain double quote, backslash, and other special JSON characters, but it must be 7-bit ASCII (not Unicode).
+
+---
+
+#### JSONWriter::name(const char *name, size_t size)
+
+```cpp
+// PROTOTYPE
+JSONWriter& name(const char *name, size_t size);
+```
+
+When adding key/value pairs to an object, you call `name()` to add the key, then call `value()` to add the value. 
+
+This overload takes a pointer to a string and a length, allowing it to be used with unterminated strings.
+
+The name is escaped so it can contain double quote, backslash, and other special JSON characters, but it must be 7-bit ASCII (not Unicode).
+
+---
+
+#### JSONWriter::name(const String &name)
+
+```cpp
+// PROTOTYPE
+JSONWriter& name(const String &name);
+```
+
+Sets the name of a key/value pair from a `String` object.
+
+---
+
+#### JsonWriter::value(bool val)
+
+```cpp
+// PROTOTYPE
+JSONWriter& value(bool val);
+
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+bool v1 = false;
+bool v2 = true;
+
+writer.beginObject();
+writer.name("v1").value(v1);
+writer.name("v2").value(v2);
+writer.endObject();
+
+// RESULT
+{"v":false,"v2":true}
+```
+
+Adds a boolean value to an object or array. 
+
+When adding to an object, you call `beginObject()` then pairs of `name()` and `value()` for each key/value pair, followed by `endObject()`.
+
+When adding to an array, you call `beginArray()` then call `value()` for each value, followed by `endArray()`. You can mix different types of values within an array (int, string, double, bool, etc.).
+
+---
+
+#### JsonWriter::value(int val)
+
+
+```cpp
+// PROTOTYPE
+JSONWriter& value(int val);
+
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+writer.name("a").value(123);
+writer.endObject();
+
+// RESULT
+{"a":123}
+```
+
+Adds a signed 32-bit integer value to an object or array. Since both `int` and `long` are 32-bits you can cast a `long` to an `int` and use this method.
+
+---
+
+#### JsonWriter::value(unsigned val)
+
+```cpp
+// PROTOTYPE
+JSONWriter& value(unsigned val);
+```
+
+Adds an unsigned 32-bit integer value to an object or array. 
+
+
+#### JsonWriter::value(double val, int precision)
+
+{{since when="1.5.0"}}
+
+```cpp
+// PROTOTYPE
+JSONWriter& value(double val, int precision);
+
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+writer.name("d").value(-5.3333333, 3);
+writer.endObject();
+
+// RESULT
+{"d":-5.333}
+```
+
+Adds a `double` or `float` value with a specific number of decimal points. Internally, this uses `sprintf` with the `%.*lf` formatting specifier. The precision option was added in Device OS 1.5.0.
+
+---
+
+#### JsonWriter::value(double val)
+
+```cpp
+// PROTOTYPE
+JSONWriter& value(double val);
+
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+writer.name("d").value(-5.3333333);
+writer.endObject();
+
+// RESULT
+{"d":-5.33333}
+```
+
+Adds a `double` or `float` value. Internally, this uses `sprintf` with the `%g` formatting specifier. The `%g` specifier uses the shorter of `%e` (Scientific notation, mantissa and exponent, using e character) and `%f`, decimal floating point.
+
+The default precision is 5 decimal places.
+
+---
+
+#### JsonWriter::value(const char *val)
+
+```cpp
+// PROTOTYPE
+JSONWriter& value(const char *val);
+```
+
+This overload add a `const char *`, a c-string, null terminated, that is not modified.
+
+The value is escaped so it can contain double quote, backslash, and other special JSON characters, but it must be 7-bit ASCII (not Unicode).
+
+#### JsonWriter::value(const char *val, size_t size)
+
+```cpp
+// PROTOTYPE
+JSONWriter& value(const char *val, size_t size);
+```
+
+This overload takes a pointer to a string and a length, allowing it to be used with unterminated strings.
+
+The value is escaped so it can contain double quote, backslash, and other special JSON characters, but it must be 7-bit ASCII (not Unicode).
+
+#### JsonWriter::value(const String &val)
+
+```cpp
+// PROTOTYPE
+JSONWriter& value(const String &val);
+```
+
+This overload takes a reference to a `String` object.
+
+The value is escaped so it can contain double quote, backslash, and other special JSON characters, but it must be 7-bit ASCII (not Unicode).
+
+
+#### JsonWriter::nullValue()
+
+```cpp
+// PROTOTYPE
+JSONWriter& nullValue();
+
+// EXAMPLE
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+writer.name("n").nullValue();
+writer.endObject();
+
+// RESULT
+{"n":null}
+```
+
+Adds a null value to an object. This is a special JSON value, and is not the same as 0 or false.
+
+---
+
+
+### JSONBufferWriter
+
+Writes a JSON object to a buffer in RAM. You must pre-allocate the buffer larger than the maximum size of the object you intend to create.
+
+#### JSONBufferWriter::JSONBufferWriter(char *buf, size_t size)
+
+```
+// PROTOTYPE
+JSONBufferWriter(char *buf, size_t size);
+
+// EXAMPLE - Clear Buffer
+memset(buf, 0, sizeof(buf));
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+writer.name("d").value(10.5);
+writer.endObject();
+```
+
+Construct a `JSONWriter` to write to a buffer in RAM.
+
+- `buf` A pointer to a buffer to store the data. Must be non-null.
+- `size` Size of the buffer in bytes. 
+
+The `buf` is not zereod out before use. 
+
+---
+
+```cpp
+// EXAMPLE - Null Terminate
+JSONBufferWriter writer(buf, sizeof(buf) - 1);
+
+writer.beginObject();
+writer.name("d").value(10.5);
+writer.endObject();
+writer.buffer()[std::min(writer.bufferSize(), writer.dataSize())] = 0;
+```
+
+Instead of of zeroing out the whole buffer, you can just add the null terminator. A few things:
+
+- Pass `sizeof(buf) - 1` to leave room for the null terminator.
+- You must use the expression `std::min(writer.bufferSize(), writer.dataSize())` for the location to put the null terminator.
+
+The reason is that `writer.dataSize()` is the size the data would be if it fit. It the data is truncated, then zeroing out at offset `writer.dataSize()` will write past the end of the buffer. 
+
+#### JSONBufferWriter::buffer()
+
+```
+// PROTOTYPE
+char* buffer() const;
+```
+
+Returns the buffer you passed into the constructor.
+
+#### JSONBufferWriter::bufferSize()
+
+```
+// PROTOTYPE
+size_t bufferSize() const;
+```
+
+Returns the buffer size passed into the constructor.
+
+#### JSONBufferWriter::dataSize()
+
+```
+// PROTOTYPE
+size_t dataSize() const;
+```
+
+Returns the actual data size, which may be buffer than `bufferSize()`. If the data is too large it is truncated, creating an invalid JSON object, but `dataSize()` will indicate the actual size, if the buffer had been big enough. 
+
+
+### JSONStreamWriter
+
+You can use `JSONStreamWriter` to write JSON directly to a `Stream` that implements the `Print` interface. 
+
+You can use this technique to write JSON directly to a `TCPClient` for example, without buffering in RAM. This is useful for very large objects, however it's generally more efficient to buffer reasonably-sized objects in RAM and write them in a single `write()` instead of byte-by-byte.
+
+
+#### JSONStreamWriter::JSONStreamWriter(Print &stream)
+
+```
+// PROTOTYPE
+JSONStreamWriter(Print &stream); 
+```
+
+Constructs a `JSONWriter` that writes to a `Print` interface.
+
+
+#### JSONStreamWriter::stream()
+
+```cpp
+// PROTOTYPE
+Print* stream() const;
+```
+
+Returns the stream you passed to the constructor.
+
+
+### Parsing
+
+There is also a JSON parser available. You can use it to parse JSON objects that you get from event subscriptions, Particle function calls, BLE, TCP, UDP, Serial, etc..
+
+There are some limitations to be aware of:
+
+- The entire object must be stored in RAM.
+- The parser modifies the buffer, so if you have a buffer that you cannot modify, it will need to be copied into RAM.
+- Grabbing values by key name or array elements by index is cumbersome.
+- Unicode strings are not supported. All strings must be 7-bit ASCII, but double quote, backslash, and control characters are unescaped.
+
+However, it is a fast and efficient parser, and since the JSMN parser is part of Device OS, it saves on code space.
+
+### JSONValue
+
+```cpp
+// EXAMPLE
+SerialLogHandler logHandler;
+
+void setup() {
+    Particle.subscribe("jsonTest", subscriptionHandler, MY_DEVICES);
+}
+
+void subscriptionHandler(const char *event, const char *data) {
+
+    JSONValue outerObj = JSONValue::parseCopy(data);
+
+    JSONObjectIterator iter(outerObj);
+    while(iter.next()) {
+        Log.info("key=%s value=%s", 
+          (const char *) iter.name(), 
+          (const char *) iter.value().toString());
+    }
+}
+
+// TEST EVENT
+$ particle publish jsonTest '{"a":123,"b":"testing"}'
+
+// LOG
+0000068831 [app] INFO: key=a value=123
+0000068831 [app] INFO: key=b value=testing
+```
+
+The `JSONValue` object is a container that holds one of: 
+
+- A value (bool, int, double, string, etc.) 
+- A JSON object
+- A JSON array
+
+If you have a buffer of data containing a JSON object or array, you pass it to one of the static `parse()` methods.
+
+In this example, `parseCopy()` is used because a subscription handler data must not be modified (it is `const`). It's a static method, so you always use it like `JSONValue::parseCopy(data)`.
+
+#### JSONValue::isNull()
+
+```cpp
+// PROTOTYPE
+bool isNull() const;
+```
+
+Returns true if the value is the JSON null value, like `{"value":null}`. This is different than just being 0 or false!
+
+
+#### JSONValue::isBool()
+
+```cpp
+// PROTOTYPE
+bool isBool() const;
+```
+
+Returns true if the value is the JSON boolean value, like `{"value":true}` or `{"value":false}`. This is different than just being 0 or 1!
+
+#### JSONValue::isNumber()
+
+```cpp
+// PROTOTYPE
+bool isNumber() const;
+```
+
+Returns true if the value is the JSON number value, either int or double, like `{"value":123}` or `{"value":-10.5}`.
+
+#### JSONValue::isString()
+
+```cpp
+// PROTOTYPE
+bool isString() const;
+```
+
+Returns true if the value is the JSON string value, like `{"value":"testing"}`.
+
+#### JSONValue::isArray()
+
+```cpp
+// PROTOTYPE
+bool isArray() const;
+```
+
+Returns true if the value is the JSON array value, like `[1,2,3]`.
+
+#### JSONValue::isObject()
+
+```cpp
+// PROTOTYPE
+bool isObject() const;
+```
+
+Returns true if the value is a JSON object, like `{"a":123,"b":"testing"}`.
+
+#### JSONValue::type()
+
+```cpp
+// PROTOTYPE
+JSONType type() const;
+
+// CONSTANTS
+enum JSONType {
+    JSON_TYPE_INVALID,
+    JSON_TYPE_NULL,
+    JSON_TYPE_BOOL,
+    JSON_TYPE_NUMBER,
+    JSON_TYPE_STRING,
+    JSON_TYPE_ARRAY,
+    JSON_TYPE_OBJECT
+};
+```
+
+Instead of using `isNumber()` for example, you can use `type()` and check it against `JSON_TYPE_NUMBER`.
+
+#### JSONValue::toBool()
+
+```
+// PROTOTYPE
+bool toBool() const;
+```
+
+Converts the value to a boolean. Some type conversion is done if necessary:
+
+| JSON Type          | Conversion |
+| :----------------- | :--- |
+| `JSON_TYPE_BOOL`   | true if begins with 't' (case-sensitive), otherwise false |
+| `JSON_TYPE_NUMBER` | false if 0 (integer) or 0.0 (double), otherwise true |
+| `JSON_TYPE_STRING` | false if empty, "false", "0", or "0.0", otherwise true | 
+
+#### JSONValue::toInt()
+
+```
+// PROTOTYPE
+int toInt() const;
+```
+
+Converts the value to a signed integer (32-bit). Some type conversion is done if necessary:
+
+| JSON Type          | Conversion |
+| :----------------- | :--- |
+| `JSON_TYPE_BOOL`   | 0 if false, 1 if true |
+| `JSON_TYPE_NUMBER` | as converted by `strtol` |
+| `JSON_TYPE_STRING` | as converted by `strtol` | 
+
+`strltol` parses:
+
+- An optional sign character (+ or -)
+- An optional prefix indicating octal ("0") or hexadecimal ("0x" or "0X")
+- A sequence of digits (octal, decimal, or hexadecimal)
+
+Beware of passing decimal values with leading zeros as they will be interpreted as octal when using `toInt()`!
+
+#### JSONValue::toDouble()
+
+```
+// PROTOTYPE
+double toDouble() const;
+```
+
+Converts the value to a floating point double (64-bit). Some type conversion is done if necessary:
+
+| JSON Type          | Conversion |
+| :----------------- | :--- |
+| `JSON_TYPE_BOOL`   | 0.0 if false, 1.0 if true |
+| `JSON_TYPE_NUMBER` | as converted by `strtod` |
+| `JSON_TYPE_STRING` | as converted by `strtod` | 
+
+`strtod` supports decimal numbers, and also scientific notation (using `e` as in `1.5e4`). 
+
+#### JSONValue::toString()
+
+```cpp
+// PROTOTYPE
+JSONString toString() const;
+```
+
+Converts a value to a `JSONString` object. This can only be used for primitive types (bool, int, number, string, null). It cannot be used to serialize an array or object. 
+
+Since the underlying JSON is always a string, this really just returns a reference to the underlying representation.
+
+A `JSONString` is only a reference to the underlying data, and does not copy it. 
+
+#### JSONValue::isValid()
+
+```cpp
+// PROTOTYPE
+bool isValid() const;
+```
+
+Returns true if the `JSONValue` is valid. If you parse an invalid object, `isValid()` will be false.
+
+### JSONString
+
+The `JSONString` object is used to represent string objects and is returned from methods like `toString()` in the `JSONValue` class. Note that this is merely a view into the parsed JSON object. It does not create a separate copy of the string! 
+
+
+
+#### JSONString::JSONString(const JSONValue &value);
+
+```cpp
+// PROTOTYPE
+explicit JSONString(const JSONValue &value);
+```
+
+Constructs a `JSONString` from a `JSONValue`. You will probably use the `toString()` method of `JSONValue` instead of manually constructing the object.
+
+#### JSONString::data()
+
+```cpp
+// PROTOTYPE
+const char* data() const; 
+```
+
+Returns a c-string (null-terminated). Note that only 7-bit ASCII characters are supported. This returns a pointer to the original parsed JSON data, not a copy.
+
+#### JSONString::operator const char *()
+
+```cpp
+// PROTOTYPE
+explicit operator const char*() const;
+```
+
+Returns a c-string (null-terminated). Note that only 7-bit ASCII characters are supported. This returns a pointer to the original parsed JSON data, not a copy. This is basically the same as `data()`.
+
+
+#### JSONString::operator String()
+
+```cpp
+// PROTOTYPE
+explicit operator String() const;
+```
+
+Returns a `String` object containing a copy of the string data. Note that only 7-bit ASCII characters are supported.
+
+#### JSONString::size()
+
+```cpp
+// PROTOTYPE
+size_t size() const;
+```
+
+Returns the size of the string in bytes, not including the null terminator. Since the data must be 7-bit ASCII characters (not Unicode), the number of bytes and the number of characters will be the same.
+
+The `size()` method is fast, <i>O</i>(1), as the length is stored in the parsed JSON tokens.
+
+#### JSONString::isEmpty()
+
+```cpp
+// PROTOTYPE
+bool isEmpty() const;
+```
+
+Returns true if the string is empty, false if not.
+
+#### JSONString::operator==()
+
+```cpp
+// PROTOTYPES
+bool operator==(const char *str) const;
+bool operator==(const String &str) const;
+bool operator==(const JSONString &str) const;
+```
+
+Tests for equality with another string. Uses `strncmp` internally.
+
+#### JSONString::operator!=()
+
+```cpp
+// PROTOTYPES
+bool operator!=(const char *str) const;
+bool operator!=(const String &str) const;
+bool operator!=(const JSONString &str) const;
+```
+
+Tests for inequality with another string.
+
+### JSONObjectIterator
+
+```cpp
+// EXAMPLE
+SerialLogHandler logHandler;
+
+void setup() {
+    Particle.subscribe("jsonTest", subscriptionHandler, MY_DEVICES);
+}
+
+void subscriptionHandler(const char *event, const char *data) {
+
+    JSONValue outerObj = JSONValue::parseCopy(data);
+
+    JSONObjectIterator iter(outerObj);
+    while(iter.next()) {
+        Log.info("key=%s value=%s", 
+          (const char *) iter.name(), 
+          (const char *) iter.value().toString());
+    }
+}
+
+// TEST EVENT
+$ particle publish jsonTest '{"a":123,"b":"testing"}'
+
+// LOG
+0000068831 [app] INFO: key=a value=123
+0000068831 [app] INFO: key=b value=testing
+```
+
+In order to access key/value pairs in a JSON object, you just create a `JSONObjectIterator` from the `JSONValue`.
+
+The basic flow is:
+
+- Create a `JSONObjectIterator` from a `JSONValue`.
+- Call `iter.next()`. This must be done before accessing the first value, and to access each subsequent value. When it returns false, there are no more elements. It's possible for `next()` return false on the first call for an empty object.
+- Use `iter.name()` and `iter.value()` to get the key name and value.
+
+---
+
+```cpp
+// EXAMPLE
+JSONValue outerObj = JSONValue::parseCopy(
+  "{\"a\":123,\"b\":\"test\",\"c\":true}");
+
+JSONObjectIterator iter(outerObj);
+while(iter.next()) {
+    if (iter.name() == "a") {
+        Log.trace("a=%d", 
+          iter.value().toInt());
+    }
+    else
+    if (iter.name() == "b") {
+        Log.trace("b=%s", 
+          (const char *) iter.value().toString());     
+    }
+    else
+    if (iter.name() == "c") {
+        Log.trace("c=%d", 
+          iter.value().toBool());
+    }
+    else {
+        Log.trace("unknown key %s", 
+          (const char *)iter.name());
+    }
+}
+
+// LOG
+0000242555 [app] TRACE: a=123
+0000242555 [app] TRACE: b=test
+0000242555 [app] TRACE: c=1
+```
+
+Since there is no way to find an element by its key name, you typically iterate the object and compare the name like this:
+
+You should not rely on the ordering of keys in a JSON object. While in this simple example, the keys will always be in the order a, b, c, when JSON objects are manipulated by server-based code, the keys can sometimes be reordered. The name-based check here assures compatibility even if reordered. Arrays will always stay in the same order.
+
+---
+
+#### JSONObjectIterator::JSONObjectIterator(const JSONValue &value)
+
+```cpp
+// PROTOTYPE
+explicit JSONObjectIterator(const JSONValue &value);
+```
+
+Construct an iterator from a `JSONValue`. This can be the whole object, or you can use it to iterate an object within the key of another object.
+
+#### JSONObjectIterator::next()
+
+```cpp
+// PROTOTYPE
+bool next();
+```
+
+Call `next()` before accessing `name()` and `value()`. Then each subsequent call will get the next pair. When it returns false, there are no elements left. It's possible for `next()` to return false on the first call if the object has no key/value pairs.
+
+There is no rewind function to go back to the beginning. To start over, construct a new `JSONObjectIterator` from the `JSONValue` again.
+
+#### JSONObjectIterator::name()
+
+```cpp
+// PROTOTYPE
+JSONString name() const;
+```
+
+Returns the name of the current name/value pair in the object. The name must be 7-bit ASCII but can contain characters that require escaping (like double quotes and backslash). To get a `const char *` you can use `iter.name().data()`.
+
+#### JSONObjectIterator::value()
+
+```cpp
+// PROTOTYPE
+JSONValue value() const;
+```
+
+Returns the current value of the name/value pair in the object. 
+
+You will typically use methods of `JSONValue` like `toInt()`, `toBool()`, `toDouble()`, and `toString()` to get useful values. For example:
+
+- `iter.value().toInt()`: Returns a signed 32-bit int.
+- `iter.value().toDouble()`: Returns a 64-bit double.
+- `iter.value().toString().data()`: Returns a `const char *`. You can assign this to a `String` to copy the value, if desired.
+
+#### JSONObjectIterator::count()
+
+```cpp
+// PROTOTYPE
+size_t count() const;
+```
+
+Returns the count of the number of remaining key/value pairs. As you call `next()` this value will decrease.
+
+
+### JSONArrayIterator
+
+```cpp
+// EXAMPLE
+JSONValue outerObj = JSONValue::parseCopy(
+  "[\"abc\",\"def\",\"xxx\"]");
+
+JSONArrayIterator iter(outerObj);
+for(size_t ii = 0; iter.next(); ii++) {
+    Log.info("%u: %s", ii, iter.value().toString().data());
+}
+
+// OUTPUT
+0000004723 [app] INFO: 0: abc
+0000004723 [app] INFO: 1: def
+0000004723 [app] INFO: 2: xxx
+```
+
+In order to access array elements, you must create a `JSONArrayIterator` object from a `JSONValue`.
+
+The basic flow is:
+
+- Create a `JSONArrayIterator` from a `JSONValue`. 
+- Call `iter.next()`. This must be done before accessing the first value, and to access each subsequent value. When it returns false, there are no more elements. It's possible for `next()` return false on the first call for an empty object.
+- Use `iter.name()` and `iter.value()` to get the key name and value.
+
+There is no method to find a value from its index; you must iterate the array to find it.
+
+#### JSONArrayIterator::JSONArrayIterator(const JSONValue &value)
+
+```cpp
+// PROTOTYPE
+explicit JSONArrayIterator(const JSONValue &value);
+```
+
+Construct an array iterator.
+
+#### JSONArrayIterator::next()
+
+```cpp
+// PROTOTYPE
+bool next();
+```
+
+Call `next()` before accessing `value()`. Then each subsequent call will get the value. When it returns false, there are no elements left. It's possible for `next()` to return false on the first call if the array is empty.
+
+There is no rewind function to go back to the beginning. To start over, construct a new `JSONArrayIterator` from the `JSONValue` again.
+
+#### JSONArrayIterator::value()
+
+```cpp
+// PROTOTYPE
+JSONValue value() const;
+```
+
+Returns the current value in the array. 
+
+You will typically use methods of `JSONValue` like `toInt()`, `toBool()`, `toDouble()`, and `toString()` to get useful values. For example:
+
+- `iter.value().toInt()`: Returns a signed 32-bit int.
+- `iter.value().toDouble()`: Returns a 64-bit double.
+- `iter.value().toString().data()`: Returns a `const char *`. You can assign this to a `String` to copy the value, if desired.
+
+#### JSONArrayIterator::count()
+```cpp
+// PROTOTYPE
+size_t count() const;
+```
+
+Returns the count of the number of remaining values. As you call `next()` this value will decrease.
 
 
 ## Logging
