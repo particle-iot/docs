@@ -71,7 +71,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 7      | Serial1 RX | Wire2 SDA | GPIO D8   | IO<sup>1</sup> |
 | 8      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
 
-This connector attaches to the IP67 M8 connector, accessible from the outside of the enclosure.
+This connector attaches to the IP67 M8 connector, accessible from the outside of the enclosure. The connector on the Tracker One enclosure has male pins and a barrel threaded on the outside.
 
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
@@ -80,6 +80,8 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 <sup>3</sup>4.5 to 30 VDC when using the M8 connector. 4.5 - 105 VDC when connecting directly to the board.
 
 <sup>4</sup>5V, 500 mA maximum. Controlled by the CAN_PWR GPIO.
+
+![M8 connector](/assets/images/at-som/M8-connector.png)
 
 ### Additional Peripherals
 
