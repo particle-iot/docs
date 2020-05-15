@@ -705,12 +705,9 @@ Is your device blinking red? Oh no!
 
 A pattern of more than 10 red blinks is caused by the firmware crashing. The pattern is 3 short blinks, 3 long blinks, 3 short blinks (SOS pattern), followed by a number of blinks that depend on the error, then the SOS pattern again.
 
-{{#if photon}}
-[Enter safe mode](#safe-mode), tweak your firmware and try again!
-{{/if}}
-{{#if electron}}
-[Enter safe mode](#safe-mode), tweak your firmware and try again!
-{{/if}}
+[Enter safe mode](#safe-mode), tweak your firmware and try again! 
+
+You can also reset your device to a known state by following [these instructions](https://support.particle.io/hc/en-us/articles/360046136473).
 
 
 There are a number of other red blink codes that may be expressed after the SOS blinks:
