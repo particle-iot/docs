@@ -248,7 +248,7 @@
     "spi",
     "i2c",
     "i2c-slave",
-    "i2c-wire2",
+    "i2c-wire3",
     "rgb",
     "pwm",
     "interrupts",

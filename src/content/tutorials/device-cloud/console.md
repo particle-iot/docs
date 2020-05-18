@@ -653,6 +653,8 @@ Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide 
 
 ![Settings Icon](/assets/images/tracker/settings-icon.png)
 
+Note that the settings are automatically synchronized with the device, even if the device is asleep or disconnected at the time the change is made. When the device connects to the cloud again, the checksum of the current device and cloud settings are compared, and if they are different, and updated configuration is sent to the device.
+
 #### Location Settings
 
 ![Location Settings](/assets/images/tracker/settings-1.png)
@@ -672,13 +674,13 @@ The motion settings determine how the IMU (inertial measurement unit, the accele
 - **Motion** publishes if the device moves, and has several sensitivity options:
 
   - **Disable**: Do not use motion detection (the default).
-  - **Low** 
+  - **Low**: Least sensitive, large motion is required to publish.
   - **Medium**
-  - **High**
+  - **High**: Most sensitive, even a small amount of motion will trigger publish.
 
-- **High G** publishes if there is a High-G acceleration event.
+- **High G** publishes if there is a High-G acceleration event, such as the device falling.
 
-  - **Disable**: High-G events are not generated (the default).,
+  - **Disable**: High-G events are not generated (the default).
   - **Enable**: High-G events are generated.
 
 #### RGB LED Settings
@@ -689,7 +691,7 @@ The Tracker Firmware configures the RGB status LED.
 
 The **Type** popup menu has the following options:
 
-- **none**: 
+- **none**: Use standard Particle colors like breathing cyan instead of tracker-style colors.
 - **off**: The RGB LED is turned off (dark).
 - **direct**: RGB level is set directly using the red, green, blue, and brightness options.
 - **default**: Color indicates signal strength (red = low, yellow = moderate, green = good), blinking during connecting phase and on when connected.

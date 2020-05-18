@@ -3890,8 +3890,8 @@ The Tracker SoM shared A and D pins. In other words, pin A0 is the same physical
 | A5 / D5 |        | SPI MISO    |             | &check;   | &check; |
 | A6 / D6 |        | SPI SCK     |             | &check;   | &check; |
 | A7 / D7 |        | SPI SS      | WKP         | &check;   | &check; |
-| TX / D8 | 5      | Serial1 TX  | Wire2 SCL   |           | &check; |
-| RX / D9 | 6      | Serial1 RX  | Wire2 SDA   |           | &check; |
+| TX / D8 | 5      | Serial1 TX  | Wire3 SCL   |           | &check; |
+| RX / D9 | 6      | Serial1 RX  | Wire3 SDA   |           | &check; |
 
 
 {{/if}} {{!-- tracker-som --}}
@@ -5279,13 +5279,13 @@ void setup()
 Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the Gen 3 devices. 
 {{/if}}
 
-{{#if has-i2c-wire2}}
+{{#if has-i2c-wire3}}
 
-This device can use the TX and RX pins as either `Wire2` or `Serial1`. If you use `Serial1.begin()` the pins will be used for UART serial. If you use `Wire2.begin()`, `RX` will be `SDA` and `TX` will be `SCL`. You cannot use `Wire2` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire2` at the same time, as there is only one I2C peripheral, just different pin mappings.
+This device can use the TX and RX pins as either `Wire3` or `Serial1`. If you use `Serial1.begin()` the pins will be used for UART serial. If you use `Wire3.begin()`, `RX` will be `SDA` and `TX` will be `SCL`. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings.
 
-This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire2.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
+This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
 
-{{/if}} {{!-- has-i2c-wire2 --}}
+{{/if}} {{!-- has-i2c-wire3 --}}
 
 
 {{#if has-serial2}}
@@ -7285,13 +7285,13 @@ For example, do not use `Wire.begin()` with `Wire1.write()`.
 {{/if}} {{!-- has-i2c-wire1 --}}
 
 
-{{#if has-i2c-wire2}}
+{{#if has-i2c-wire3}}
 
-This device allows an alternate mapping of the `Wire` (I2C interface) from D0/D1 to RX/TX. The `Wire2` interface allows you to use RX as SDA and TX as SCL. You cannot use `Wire2` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire2` at the same time, as there is only one I2C peripheral, just different pin mappings.
+This device allows an alternate mapping of the `Wire` (I2C interface) from D0/D1 to RX/TX. The `Wire3` interface allows you to use RX as SDA and TX as SCL. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings.
 
-This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire2.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
+This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
 
-{{/if}} {{!-- has-i2c-wire2 --}}
+{{/if}} {{!-- has-i2c-wire3 --}}
 
 
 {{/if}} {{!-- has-embedded --}}

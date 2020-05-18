@@ -36,7 +36,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 ## Description
 
-<div align=center><img src="/assets/images/at-som/at-som-carrier-labeled.png"></div>
+<div align="center"><img src="/assets/images/at-som/at-som-carrier-labeled.png" class="full-width" /></div>
 
 | Num | ID 					    | Description                                      |
 | :---: | :----------------------|:--------------------------------|
@@ -67,8 +67,8 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 3      | CAN 5V<sup>4</sup> |   | CAN_PWR   | O |
 | 4      | CAN+       |           |           | IO<sup>2</sup> |
 | 5      | CAN-       |           |           | IO<sup>2</sup> |
-| 6      | Serial1 TX | Wire2 SCL | GPIO D9   | IO<sup>1</sup> |
-| 7      | Serial1 RX | Wire2 SDA | GPIO D8   | IO<sup>1</sup> |
+| 6      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
+| 7      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
 | 8      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
 
 This connector attaches to the IP67 M8 connector, accessible from the outside of the enclosure. The connector on the Tracker One enclosure has male pins and a barrel threaded on the outside.
@@ -83,6 +83,9 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 
 ![M8 connector](/assets/images/at-som/M8-connector.png)
 
+The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
+
+
 ### Additional Peripherals
 
 | Signal | Device OS | Description |
@@ -91,8 +94,8 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 | USER | A1 | USER button | 
 | GNSS_LOCK | A2 | GNSS lock indicator |
 | GPIO1 | A3 | GPIO on power and I/O connector |
-| MCU TX | TX | MCU serial TX, GPIO D9, Wire2 SCL | 
-| MCU RX | RX | MCU serial RX, GPIO D8, Wire2 SDA | 
+| MCU TX | TX | MCU serial TX, GPIO D9, Wire3 SCL | 
+| MCU RX | RX | MCU serial RX, GPIO D8, Wire3 SDA | 
 
 
 ### Powering the Tracker Carrier Board

@@ -204,7 +204,7 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 
 ## Pins and connectors
 
-![SoM Labeled](/assets/images/at-som/at-som-labeled.png)
+<div align="center"> <a href="/assets/images/at-som/at-som-labeled.png" target="_blank"> <img src="/assets/images/at-som/at-som-labeled.png" class="full-width"></a></div> 
 
 Circular labels are as follows:
 
@@ -297,8 +297,8 @@ Circular labels are as follows:
 | 68 | MCU-D- | USB D- | nRF52 | MCU USB interface D-. Optional. |
 | 69 | MCU_D+ | USB D+ | nRF52 | MCU USB interface D+. Optional. |
 | 70 | GND | POWER | | Ground |
-| 71 | MCU_RX | IO | nRF52 | Serial RX, GPIO D9, Wire2 SDA |
-| 72 | MCU_TX | IO | nRF52 | Serial TX, GPIO D8, Wire2 SCL |
+| 71 | MCU_RX | IO | nRF52 | Serial RX, GPIO D9, Wire3 SDA |
+| 72 | MCU_TX | IO | nRF52 | Serial TX, GPIO D8, Wire3 SCL |
 | 73 | RTC_BAT | POWER | AM18X5 | RTC/Watchdog battery +. Connect to GND if not using. |
 | 74 | RTC_BTN | IN | AM18X5 | RTC EXTI. Can use as a wake button. |
 | 75 | GND | POWER | | Ground |
@@ -341,8 +341,8 @@ Pin numbers match the triangular numbers in the graphic above.
 | 40      | D5    | A5     | SPI MISO    | Group 1 | P0.29   |
 | 39      | D6    | A6     | SPI SCK     | Group 1 | P0.04   |
 | 38      | D7    | A7     | SPI SS, WKP | Group 1 | P0.05   |
-| 72      | D8    |        | Serial1 TX, Wire2 SCL  | Group 2 | P0.06   |
-| 71      | D9    |        | Serial1 RX, Wire2 SDA  | Group 2 | P0.08   |
+| 72      | D8    |        | Serial1 TX, Wire3 SCL  | Group 2 | P0.06   |
+| 71      | D9    |        | Serial1 RX, Wire3 SDA  | Group 2 | P0.08   |
 
 <sup>1</sup>Pull-up resistors are not included. When using as an I2C port, external pull-up resistors are required.
 
