@@ -125,7 +125,9 @@ The **RGB LED** default behavior is to display cellular signal quality:
 - Yellow: average cellular signal
 - Green: good cellular signal
 
-It will fast blink when connecting to the cellular network, and slow blink when connecting to the Particle cloud. This behavior can be overridden by custom application firmware.
+It will fast blink when connecting to the cellular network, and slow blink when connecting to the Particle cloud. 
+
+Alternatively the LED can be configured to the typical Particle color scheme (blinking green, blinking cyan, breathing cyan) via device or cloud configuration. Custom device firmware can provide other color schemes if desired.
 
 
 The **CHRG** LED indicates the charge status:

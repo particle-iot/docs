@@ -646,6 +646,8 @@ You can show a subset of your devices on the map by searching:
 
 You can also search by the last known location, or within a certain time range.
 
+![Map Search](/assets/images/tracker/map-search.png)
+
 
 ### Product Settings
 

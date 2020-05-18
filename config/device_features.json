@@ -271,6 +271,7 @@
     "eeprom-file",
     "udp-multicast",
     "ble",
-    "nfc-tag"
+    "nfc-tag",
+    "posix-filesystem"
   ]
 }

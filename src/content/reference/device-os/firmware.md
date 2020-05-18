@@ -15803,6 +15803,337 @@ void loop() {
 ```
 {{/if}} {{!-- has-powersave-clock --}}
 
+{{#if has-posix-filesystem}}
+
+## File System
+
+This device implements a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
+
+### File System open 
+
+```cpp
+// PROTOTYPE
+int _open(const char* pathname, int flags, ... /* arg */)
+```
+
+Open a file for reading or writing, depending on the flags.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `flags`:
+  These flags specify the read or write mode:
+  - `O_RDWR`: Read or write.
+  - `O_RDONLY`: Read only.
+  - `O_WRONLY`: Write only.
+
+  These optional flags can be logically ORed with the read/write mode:
+  - `O_CREAT`: The file is created if it does not exist (see also `O_EXCL`).
+  - `O_EXCL`: If `O_CREAT | O_EXCL` are set, then the file is created if it does not exist, but returns -1 and sets `errno` to `EEXIST` if file already exists.
+  - `O_TRUNC` If the file exists and is opened in mode `O_RDWR` or `O_WRONLY` it is truncated to zero length.
+  - `O_APPEND`: The file offset is set to the end of the file prior to each write.
+ 
+Returns: A file descriptor number (>= 3) or -1 if an error occurs.
+
+On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EINVAL` Pathname was NULL, invalid flags.
+- `ENOMEM` Out of memory.
+- `EEXIST` File already exists when using `O_CREAT | O_EXCL`.
+
+When you are doing accessing a file, be sure to call [`close`](#file-system-close) on the file descriptor.
+
+### File System write
+
+```cpp
+// PROTOTYPE
+int _write(int fd, const void* buf, size_t count)
+```
+
+Writes to a file. If the file was opened with flag `O_APPEND` then the file is appended to. Otherwise, writes occur at the current file position, see [`lseek`](#file-system-lseek).
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `buf`: Pointer to the buffer to write to the file.
+- `count`: Number of bytes to write to the file.
+
+
+Returns the number of bytes written, which is typically `count`
+
+On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EBADF` Bad `fd`.
+- `ENOSPC` There is no space on the file system.
+
+### File System read
+
+```cpp
+// PROTOTYPE
+int _read(int fd, void* buf, size_t count)
+```
+
+Reads from a file. Reads occur at the current file position, see [`lseek`](#file-system-lseek), and end at the current end-of-file.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `buf`: Pointer to the buffer to read data from the file into.
+- `count`: Number of bytes to read to the file.
+
+Returns the number of bytes read, which is typically `count` unless the end-of-file is reached, in which case the number of bytes actually read is returned. The number of bytes may be 0 if already at the end-of-file.
+
+On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EBADF` Bad `fd`
+
+### File System close
+
+```cpp
+// PROTOTYPE
+int _close(int fd)
+```
+
+Closes a file descriptor.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+### File System fsync
+
+```cpp
+// PROTOTYPE
+int _fsync(int fd) 
+```
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+
+Synchronizes the file data flash, for example writing out any cached data.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+
+### File System fstat
+
+```cpp
+// PROTOTYPE
+int _fstat(int fd, struct stat* buf)
+```
+
+Get information about a file that is open.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `buf`: Filled in with file information.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+Only a subset of the `struct stat` fields are filled in. In particular:
+
+- `st_size`: file size in bytes.
+- `st_mode`: 
+  - For files, the `S_IFREG` bit is set.
+  - For directories, the `S_IFDIR` bit is set.
+  - Be sure to check for the bit, not equality, as other bits may be set (like `S_IRWXU` | `S_IRWXG` | `S_IRWXO`) may be set.
+
+
+### File System lseek
+
+```cpp
+// PROTOTYPE
+off_t _lseek(int fd, off_t offset, int whence)
+```
+
+Seek to a position in a file. Affects where the next read or write will occur. Seeking past the end of the file does not immediately increase the size of the file, but will do so after the next write.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `offset`: Offset. The usage depends on `whence`. For `SEEK_SET` the offset must be >= 0. For `SEEK_CUR` it can be positive or negative to seek relative to the current position. Negative values used with `SEEK_END` move relative to the end-of-file.
+- `whence`:
+  - `SEEK_SET`: Seek to `offset` bytes from the beginning of the file.
+  - `SEEK_CUR`: Seek relative to the current file position.
+  - `SEEK_END`: Seek relative to the end of the file. `offset` of 0 means seek to the end of the file when using `SEEK_END`. 
+
+### File System stat
+
+```cpp
+// PROTOTYPE
+int stat(const char* pathname, struct stat* buf)
+```
+
+Get information about a file by pathname. The file can be open or closed.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `buf`: Filled in with file information
+
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+Only a subset of the `struct stat` fields are filled in. In particular:
+
+- `st_size`: file size in bytes.
+- `st_mode`: 
+  - For files, the `S_IFREG` bit is set.
+  - For directories, the `S_IFDIR` bit is set.
+  - Be sure to check for the bit, not equality, as other bits may be set (like `S_IRWXU | S_IRWXG | S_IRWXO`) may be set.
+
+
+### File System mkdir
+
+```cpp
+// PROTOTYPE
+int _mkdir(const char* pathname, mode_t mode)
+```
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `mode`: Mode of the file, currently ignored. For future compatibility, you may want to set this to `S_IRWXU | S_IRWXG | S_IRWXO` (or 0777).
+
+Create a directory on the file system. 
+
+Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EEXIST`: Directory already exists, or there is file that already exists with that name.
+- `ENOSPC`: No space left on the file system to create a directory.
+
+### File System rmdir
+
+```cpp
+// PROTOTYPE
+int rmdir(const char* pathname) 
+```
+
+Removes a directory from the file system. The directory must be empty to remove it.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+
+
+### File System unlink
+
+```cpp
+// PROTOTYPE
+int _unlink(const char* pathname)
+```
+
+Removes a file from the file system.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+
+Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EEXIST` or `ENOTEMPTY`: Directory is not empty.
+
+
+### File System rename
+
+```cpp
+// PROTOTYPE
+int _rename(const char* oldpath, const char* newpath)
+```
+
+Renames a file from the file system. Can also move a file to a different directory.
+
+- `oldpath`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `newpath`: The to rename to (Unix-style, with forward slash as the directory separator).
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+
+### File System opendir
+
+```cpp
+// PROTOTYPE
+DIR* _opendir(const char* pathname)
+```
+
+Open a directory stream to iterate the files in the directory. Be sure to close the directory when done using [`closedir`](#file-system-closedir). Do not attempt to free the returned `DIR*`, only use `closedir`.
+
+- `pathname`: The pathname to the directory (Unix-style, with forward slash as the directory separator).
+
+Returns `NULL` (0) on error, or a non-zero value for use with `readdir`.
+
+### File System readdir
+```cpp
+// PROTOTYPE
+struct dirent* _readdir(DIR* dirp) 
+```
+
+Reads the next entry from a directory. Used to find the names of all of the files and directories within a directory. See also [`readdir_r`](#file-system-readdir_r).
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+
+Returns a pointer to a `struct dirent` containing information about the next file in the directory.
+
+Not all fields of the `struct dirent` are filled in. You should only rely on:
+
+- `d_type`: Type of entry:
+  - `DT_REG`: File
+  - `DT_DIR`: Directory 
+- `d_name`: Name of the file or directory. Just the name, not the whole path.
+
+This structure is reused on subsequent calls to `readdir` so if you need to save the values, you'll need to copy them.
+
+### File System telldir
+
+```cpp
+// PROTOTYPE
+long _telldir(DIR* pdir)
+```
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+
+Returns a numeric value for the current position in the directory that can subsequently be used with [`seekdir`](#file-system-seekdir) to go back to that position.
+
+### File System seekdir
+
+```cpp
+// PROTOTYPE
+void _seekdir(DIR* pdir, long loc)
+```
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+- `loc`: The location previously saved by [`telldir`](#file-system-telldir).
+
+### File System rewinddir
+
+```cpp
+// PROTOTYPE
+void _rewinddir(DIR* pdir)
+```
+
+Starts scanning the directory from the beginning again.
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+
+
+### File System readdir_r
+
+```cpp
+// PROTOTYPE
+int _readdir_r(DIR* pdir, struct dirent* dentry, struct dirent** out_dirent)
+```
+
+Reads the next entry from a directory. Used to find the names of all of the files and directories within a directory. See also [`readdir`](#file-system-readdir).
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+- `dentry`: Pass in a pointer to a `struct dirent` to be filled in with the current directory entry.
+- `out_dirent`: If not `NULL`, filled in with `dentry` if a directory entry was retrieved, or `NULL` if at the end of the directory.
+
+Not all fields of `dentry` are filled in. You should only rely on:
+
+- `d_type`: Type of entry:
+  - `DT_REG`: File
+  - `DT_DIR`: Directory 
+- `d_name`: Name of the file or directory. Just the name, not the whole path.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+### File System closedir
+
+```cpp
+// PROTOTYPE
+int _closedir(DIR* dirp)
+```
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+
+{{/if}} {{!-- has-posix-filesystem --}}
+
 
 ## OTA Updates
 This section describes the Device OS APIs that control firmware updates
