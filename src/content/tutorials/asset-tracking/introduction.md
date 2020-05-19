@@ -47,24 +47,22 @@ One difference from other Particle devices is that the Tracker One firmware can 
 
 - Completely off-the-shelf. With its cloud-based configuration, you can use the firmware as-is with no modifications in some cases.
 - Semi-custom. The Tracker One firmware is customizable on-device making it possible to add new sensors and customize behavior while still making it easy to upgrade the base firmware.
-- Custom. The Tracker One firmware is open-source so you can duplicate and modify it ("fork") for completely custom applications.
+- Custom. The Tracker One firmware is open-source so you can duplicate and modify it ("fork") for completely custom applications. Or build your own completely from scratch.
 
 
-**TODO:** Something with these tables. Maybe don't include here, just leave in datasheet. Maybe combine in some way.
+## Models
 
 | SKU     | Description | Packaging |
 | :---    | :--- | :--- |
-| ONE402M | Tracker One LTE M1/2G (NorAm), [x1]	| Each |
+| | Tracker One 523 (Europe) | |
 | ONE523M | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Each |
-| TCAR	  | Tracker Carrier Board, [x1]	| Each |
-
-| SKU  | Description | Packaging |
-| :--- | :--- | :--- |
-| | T523 Family (Europe) | |
+| | Tracker One 402 (North America) | |
+| ONE402M | Tracker One LTE M1/2G (NorAm), [x1]	| Each |
+| | Tracker SoM T523 (Europe) | |
 | T523MEA  | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Each |
 | T523MTY  | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Tray (50) |
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] |	Each |
-| | T402 Family (North America) | |
+| | Tracker SoM T402 (North America) | |
 | T402MEA | Tracker SoM LTE M1 (NorAm), [x1]	| Each |
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50]	| Tray (50) |
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]	| Each |
