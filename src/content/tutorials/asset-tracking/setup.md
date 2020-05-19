@@ -34,7 +34,7 @@ When you create the product, be sure to select **Asset Tracker (Cellular** as th
 
 ![Create Product](/assets/images/tracker/create-product.png)
 
-You will probably also want to opt into the storage of geolocation data. In the **Setting** (gear) icon, check the box to enable it. The privacy policy can be found [here](https://www.particle.io/legal/privacy/).
+You will probably also want to opt into the storage of geolocation data. In the **Settings** (gear) icon, check the box to enable it. The privacy policy can be found [here](https://www.particle.io/legal/privacy/).
 
 ![Enable Storage](/assets/images/tracker/privacy-storage.png)
 
