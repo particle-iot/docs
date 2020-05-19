@@ -34,7 +34,10 @@ When you create the product, be sure to select **Asset Tracker (Cellular** as th
 
 ![Create Product](/assets/images/tracker/create-product.png)
 
-**TODO: Where is the option for opting into location storage?**
+You will probably also want to opt into the storage of geolocation data. In the **Setting** (gear) icon, check the box to enable it. The privacy policy can be found [here](https://www.particle.io/legal/privacy/).
+
+![Enable Storage](/assets/images/tracker/privacy-storage.png)
+
 
 ## Cloud Setup
 
@@ -56,13 +59,11 @@ Your system firmware version is 1.5.3
 
 ### Add device to product
 
-Select your Asset Tracker product and then the **Devices** icon. Click the **Add Devices** then **Add One Device**. Copy and paste the Device ID (24-character hex).
+Select your Asset Tracker product and then the **Devices** icon. Click the **Add Devices** then **Add One Device**. Copy and paste the Device ID (24-character hex). You could also type the serial number in this box.
+
+Adding the device to your product will automatically add the SIM card to the product as well.
 
 If you want to be able to flash the device directly from Workbench, CLI, or the Web IDE, you will want click the **...** button on the right edge of the device list for your device and select **Mark development device**.
-
-### Add SIM to product
-
-Select the **SIM Cards** icon in your product. Click the **Import SIM Cards** icon and **Type ICCDS**. Copy and paste the ICCID of your SIM card.
 
 ### Claim device
 

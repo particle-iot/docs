@@ -116,6 +116,12 @@ If the RTC battery is not used, connect RTC_BAT to ground.
 #### GNSS_BAT
 This is the supply for maintaining the u-blox GNSS ephemeris and almanac data when removing power. This can use the same battery as RTC_BAT, can be a super-capacitor, or can be omitted. 1.5 to 3.6V. Typical current is 15 uA.
 
+If you are not powering GNSS\_BAT with a battery or super-capacitor, connect GNSS\_BAT to 3V3.
+
+- Saving the ephemeris and almanac data can improve fix/lock time.
+- It won't make a difference on completely cold boot, where is no previously saved data.
+- It does not make a difference if the GNSS is constantly powered or is using a software power save mode.
+
 #### PMID
 This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the module when powered by the battery alone.
 
