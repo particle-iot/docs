@@ -15812,8 +15812,23 @@ This device implements a POSIX-style file system API to store files on the Littl
 ### File System open 
 
 ```cpp
+// INCLUDE
+#include <fcntl.h>
+
 // PROTOTYPE
-int _open(const char* pathname, int flags, ... /* arg */)
+int open(const char* pathname, int flags, ... /* arg */)
+
+// EXAMPLE
+int fd = open("/FileSystemTest/test1.txt", O_RDWR | O_CREAT | O_TRUNC);
+if (fd != -1) {
+    for(int ii = 0; ii < 100; ii++) {
+        String msg = String::format("testing %d\n", ii);
+
+        write(fd, msg.c_str(), msg.length());
+    }
+    close(fd);
+}
+
 ```
 
 Open a file for reading or writing, depending on the flags.
@@ -15845,7 +15860,7 @@ When you are doing accessing a file, be sure to call [`close`](#file-system-clos
 
 ```cpp
 // PROTOTYPE
-int _write(int fd, const void* buf, size_t count)
+int write(int fd, const void* buf, size_t count)
 ```
 
 Writes to a file. If the file was opened with flag `O_APPEND` then the file is appended to. Otherwise, writes occur at the current file position, see [`lseek`](#file-system-lseek).
@@ -15866,7 +15881,7 @@ On error, returns -1 and sets `errno`. Some possible `errno` values include:
 
 ```cpp
 // PROTOTYPE
-int _read(int fd, void* buf, size_t count)
+int read(int fd, void* buf, size_t count)
 ```
 
 Reads from a file. Reads occur at the current file position, see [`lseek`](#file-system-lseek), and end at the current end-of-file.
@@ -15881,11 +15896,27 @@ On error, returns -1 and sets `errno`. Some possible `errno` values include:
 
 - `EBADF` Bad `fd`
 
+### File System lseek
+
+```cpp
+// PROTOTYPE
+off_t lseek(int fd, off_t offset, int whence)
+```
+
+Seek to a position in a file. Affects where the next read or write will occur. Seeking past the end of the file does not immediately increase the size of the file, but will do so after the next write.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `offset`: Offset. The usage depends on `whence`. For `SEEK_SET` the offset must be >= 0. For `SEEK_CUR` it can be positive or negative to seek relative to the current position. Negative values used with `SEEK_END` move relative to the end-of-file.
+- `whence`:
+  - `SEEK_SET`: Seek to `offset` bytes from the beginning of the file.
+  - `SEEK_CUR`: Seek relative to the current file position.
+  - `SEEK_END`: Seek relative to the end of the file. `offset` of 0 means seek to the end of the file when using `SEEK_END`. 
+
 ### File System close
 
 ```cpp
 // PROTOTYPE
-int _close(int fd)
+int close(int fd)
 ```
 
 Closes a file descriptor.
@@ -15898,7 +15929,7 @@ Returns 0 on success. On error, returns -1 and sets `errno`.
 
 ```cpp
 // PROTOTYPE
-int _fsync(int fd) 
+int fsync(int fd) 
 ```
 
 - `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
@@ -15911,8 +15942,11 @@ Returns 0 on success. On error, returns -1 and sets `errno`.
 ### File System fstat
 
 ```cpp
+// INCLUDE
+#include <sys/stat.h>
+
 // PROTOTYPE
-int _fstat(int fd, struct stat* buf)
+int fstat(int fd, struct stat* buf)
 ```
 
 Get information about a file that is open.
@@ -15930,26 +15964,12 @@ Only a subset of the `struct stat` fields are filled in. In particular:
   - For directories, the `S_IFDIR` bit is set.
   - Be sure to check for the bit, not equality, as other bits may be set (like `S_IRWXU` | `S_IRWXG` | `S_IRWXO`) may be set.
 
-
-### File System lseek
-
-```cpp
-// PROTOTYPE
-off_t _lseek(int fd, off_t offset, int whence)
-```
-
-Seek to a position in a file. Affects where the next read or write will occur. Seeking past the end of the file does not immediately increase the size of the file, but will do so after the next write.
-
-- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
-- `offset`: Offset. The usage depends on `whence`. For `SEEK_SET` the offset must be >= 0. For `SEEK_CUR` it can be positive or negative to seek relative to the current position. Negative values used with `SEEK_END` move relative to the end-of-file.
-- `whence`:
-  - `SEEK_SET`: Seek to `offset` bytes from the beginning of the file.
-  - `SEEK_CUR`: Seek relative to the current file position.
-  - `SEEK_END`: Seek relative to the end of the file. `offset` of 0 means seek to the end of the file when using `SEEK_END`. 
-
 ### File System stat
 
 ```cpp
+// INCLUDE
+#include <sys/stat.h>
+
 // PROTOTYPE
 int stat(const char* pathname, struct stat* buf)
 ```
@@ -15959,8 +15979,10 @@ Get information about a file by pathname. The file can be open or closed.
 - `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
 - `buf`: Filled in with file information
 
+Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errno` values include:
 
-Returns 0 on success. On error, returns -1 and sets `errno`. 
+- `ENOENT`: File does not exist.
+- `ENOTDIR`: A directory component of the path is not a directory.
 
 Only a subset of the `struct stat` fields are filled in. In particular:
 
@@ -15970,12 +15992,49 @@ Only a subset of the `struct stat` fields are filled in. In particular:
   - For directories, the `S_IFDIR` bit is set.
   - Be sure to check for the bit, not equality, as other bits may be set (like `S_IRWXU | S_IRWXG | S_IRWXO`) may be set.
 
+The file system does not store file times (creation, modification, or access).
 
 ### File System mkdir
 
 ```cpp
 // PROTOTYPE
-int _mkdir(const char* pathname, mode_t mode)
+int mkdir(const char* pathname, mode_t mode)
+
+// EXAMPLE
+#include <sys/stat.h>
+
+bool createDirIfNecessary(const char *path) {
+    struct stat statbuf;
+
+    int result = stat(path, &statbuf);
+    if (result == 0) {
+        if ((statbuf.st_mode & S_IFDIR) != 0) {
+            Log.info("%s exists and is a directory", path);
+            return true;
+        }
+
+        Log.error("file in the way, deleting %s", path);
+        unlink(path);
+    }
+    else {
+        if (errno != ENOENT) {
+            // Error other than file does not exist
+            Log.error("stat filed errno=%d", errno);
+            return false;
+        }
+    }
+    
+    // File does not exist (errno == 2)
+    result = mkdir(path, 0777);
+    if (result == 0) {
+        Log.info("created dir %s", path);
+        return true;
+    }
+    else {
+        Log.error("mkdir failed errno=%d", errno);
+        return false;
+    }
+}
 ```
 
 - `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
@@ -15987,6 +16046,13 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 
 - `EEXIST`: Directory already exists, or there is file that already exists with that name.
 - `ENOSPC`: No space left on the file system to create a directory.
+
+The example code creates a directory if it does not already exists. It takes care of several things:
+
+- If there is a file with the same name as the directory, it deletes the file.
+- If the directory exists, it does not try to create it.
+- If the directory does not exist, it will be created.
+- It will only create the last directory in the path - it does not create a hierarchy of directories!
 
 ### File System rmdir
 
@@ -16004,7 +16070,7 @@ Removes a directory from the file system. The directory must be empty to remove 
 
 ```cpp
 // PROTOTYPE
-int _unlink(const char* pathname)
+int unlink(const char* pathname)
 ```
 
 Removes a file from the file system.
@@ -16020,7 +16086,7 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 
 ```cpp
 // PROTOTYPE
-int _rename(const char* oldpath, const char* newpath)
+int rename(const char* oldpath, const char* newpath)
 ```
 
 Renames a file from the file system. Can also move a file to a different directory.
@@ -16034,8 +16100,11 @@ Returns 0 on success. On error, returns -1 and sets `errno`.
 ### File System opendir
 
 ```cpp
+// INCLUDE
+#include <dirent.h>
+
 // PROTOTYPE
-DIR* _opendir(const char* pathname)
+DIR* opendir(const char* pathname)
 ```
 
 Open a directory stream to iterate the files in the directory. Be sure to close the directory when done using [`closedir`](#file-system-closedir). Do not attempt to free the returned `DIR*`, only use `closedir`.
@@ -16046,15 +16115,18 @@ Returns `NULL` (0) on error, or a non-zero value for use with `readdir`.
 
 ### File System readdir
 ```cpp
+// INCLUDE
+#include <dirent.h>
+
 // PROTOTYPE
-struct dirent* _readdir(DIR* dirp) 
+struct dirent* readdir(DIR* dirp) 
 ```
 
 Reads the next entry from a directory. Used to find the names of all of the files and directories within a directory. See also [`readdir_r`](#file-system-readdir_r).
 
 - `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
 
-Returns a pointer to a `struct dirent` containing information about the next file in the directory.
+Returns a pointer to a `struct dirent` containing information about the next file in the directory. Returns NULL when the end of the directory is reached. Returns NULL and sets `errno` if an error occurs.
 
 Not all fields of the `struct dirent` are filled in. You should only rely on:
 
@@ -16065,11 +16137,15 @@ Not all fields of the `struct dirent` are filled in. You should only rely on:
 
 This structure is reused on subsequent calls to `readdir` so if you need to save the values, you'll need to copy them.
 
+
 ### File System telldir
 
 ```cpp
+// INCLUDE
+#include <dirent.h>
+
 // PROTOTYPE
-long _telldir(DIR* pdir)
+long telldir(DIR* pdir)
 ```
 
 - `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
@@ -16079,8 +16155,11 @@ Returns a numeric value for the current position in the directory that can subse
 ### File System seekdir
 
 ```cpp
+// INCLUDE
+#include <dirent.h>
+
 // PROTOTYPE
-void _seekdir(DIR* pdir, long loc)
+void seekdir(DIR* pdir, long loc)
 ```
 
 - `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
@@ -16089,8 +16168,11 @@ void _seekdir(DIR* pdir, long loc)
 ### File System rewinddir
 
 ```cpp
+// INCLUDE
+#include <dirent.h>
+
 // PROTOTYPE
-void _rewinddir(DIR* pdir)
+void rewinddir(DIR* pdir)
 ```
 
 Starts scanning the directory from the beginning again.
@@ -16101,8 +16183,11 @@ Starts scanning the directory from the beginning again.
 ### File System readdir_r
 
 ```cpp
+// INCLUDE
+#include <dirent.h>
+
 // PROTOTYPE
-int _readdir_r(DIR* pdir, struct dirent* dentry, struct dirent** out_dirent)
+int readdir_r(DIR* pdir, struct dirent* dentry, struct dirent** out_dirent)
 ```
 
 Reads the next entry from a directory. Used to find the names of all of the files and directories within a directory. See also [`readdir`](#file-system-readdir).
@@ -16123,8 +16208,11 @@ Returns 0 on success. On error, returns -1 and sets `errno`.
 ### File System closedir
 
 ```cpp
+// INCLUDE
+#include <dirent.h>
+
 // PROTOTYPE
-int _closedir(DIR* dirp)
+int closedir(DIR* dirp)
 ```
 
 - `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
