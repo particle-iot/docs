@@ -784,6 +784,66 @@ Will be provided at a later date.
 
 Dimensions are in millimeters.
 
+### Schematics
+
+#### MCU
+
+<div align="center"> <a href="/assets/images/at-som/mcu.png" target="_blank"> <img src="/assets/images/at-som/mcu.png" class="full-width"></a></div> 
+
+#### Cellular
+
+<div align="center"> <a href="/assets/images/at-som/cell.png" target="_blank"> <img src="/assets/images/at-som/cell.png" class="full-width"></a></div> 
+
+#### GNSS
+
+<div align="center"> <a href="/assets/images/at-som/gnss.png" target="_blank"> <img src="/assets/images/at-som/gnss.png" class="full-width"></a></div> 
+
+#### Wi-Fi
+
+<div align="center"> <a href="/assets/images/at-som/wifi.png" target="_blank"> <img src="/assets/images/at-som/wifi.png" class="full-width"></a></div> 
+
+#### CAN
+
+<div align="center"> <a href="/assets/images/at-som/can.png" target="_blank"> <img src="/assets/images/at-som/can.png" class="full-width"></a></div> 
+
+#### User I/O
+
+<div align="center"> <a href="/assets/images/at-som/user-io.png" target="_blank"> <img src="/assets/images/at-som/user-io.png"></a></div> 
+
+
+#### PMIC
+
+<div align="center"> <a href="/assets/images/at-som/pmic.png" target="_blank"> <img src="/assets/images/at-som/pmic.png" class="full-width"></a></div> 
+
+#### Fuel Gauge
+
+<div align="center"> <a href="/assets/images/at-som/fuel.png" target="_blank"> <img src="/assets/images/at-som/fuel.png"></a></div> 
+
+#### Cell Control
+
+<div align="center"> <a href="/assets/images/at-som/cell-control.png" target="_blank"> <img src="/assets/images/at-som/cell-control.png"></a></div> 
+
+#### I/O Expander
+
+<div align="center"> <a href="/assets/images/at-som/ioex.png" target="_blank"> <img src="/assets/images/at-som/ioex.png"></a></div> 
+
+#### QSPI Flash
+
+<div align="center"> <a href="/assets/images/at-som/flash.png" target="_blank"> <img src="/assets/images/at-som/flash.png"></a></div> 
+
+#### RTC/Watchdog
+
+<div align="center"> <a href="/assets/images/at-som/rtc.png" target="_blank"> <img src="/assets/images/at-som/rtc.png"></a></div> 
+
+#### IMU
+
+<div align="center"> <a href="/assets/images/at-som/imu.png" target="_blank"> <img src="/assets/images/at-som/imu.png"></a></div> 
+
+#### 3V3 Regulator
+
+<div align="center"> <a href="/assets/images/at-som/3v3-regulator.png" target="_blank"> <img src="/assets/images/at-som/3v3-regulator.png"></a></div> 
+
+
 ### Layout Considerations
 
 Will be provided at a later date.
