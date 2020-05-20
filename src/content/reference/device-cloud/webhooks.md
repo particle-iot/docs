@@ -644,13 +644,17 @@ triggered by default. Therefore, ensure that the
 receiving server is capable of handling the request volume you are
 expecting to send.
 
-When a server receiving webhook requests fails, the Particle Device Cloud will
-throttle requests. Specifically, Particle uses an adaptive algorithm to
-throttle webhook attempts when more 4xx or 5xx HTTP status codes than 2xx
-HTTP status codes are returned by the receiving server.
-After a cooldown period of a few seconds, requests will be allowed to be made once again.
+When a server receiving webhook requests fails many times in rapid
+successions, the Particle Device Cloud will start to skip sending some
+events to lighten the load on the receiving server.  Specifically,
+Particle uses an adaptive algorithm to skip webhook attempts when
+more 4xx or 5xx HTTP status codes than 2xx HTTP status codes are
+returned by the receiving server.  After a cooldown period of a
+few seconds without errors, requests will be allowed to be made
+once again.  Events that were skipped will retried after 30
+seconds and 1 minute before being dropped.
 
-You will know that your webhook is being throttled if you see a
+You will know events are being skipped if you see a
 `hook-error` event in your event stream that reads "Sleeping, too many errors,
 please wait and try again" in the body.
 
