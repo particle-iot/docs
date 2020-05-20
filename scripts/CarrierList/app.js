@@ -28,15 +28,19 @@ var no2g = {
 		'United States':'<sup>1</sup>' 	// note 1: T-Mobile only
 };
 
+// Array of SIM types. These correspond to the radio button values in the web page
+// "LTE" is actually LTE Cat M1, but is left at LTE for historical reasons.
+const simTypes = ['Electron', 'LTE', 'Boron', 'BoronAllNet', 'B523'];
+
+// This is the data that is per SIM type, used to generate the Markdown
+// The key is an element in the simTypes array ('Electron', 'Boron, etc.)
+var perSimType = {};
 
 // These exceptions are listed at the top (and also duplicated at the normal alphabetical position)
 var countryListTop = ['United States', 'Canada', 'United Kingdom'];
 
-// Array of country names (unique). They are normalized using the normalizeCountry object.
-var countryList = [];
+// countryList and countryData used to be global, but now are elements on perSimType
 
-// Country data object. Key is the normalized country name.
-var countryData = {};
 
 // Country to region map. Key is the country record ID. Value is a region record ID.
 var countryRegionMap = {};
@@ -67,9 +71,28 @@ var regionNameMap = {};
 // Map of Region record ID to region parent. Key is region record ID.
 var regionParentMap = {};
 
-// Sunset information
-var sunset2g = {};
-var sunset3g = {};
+// Map of SIM Providers record ID to name. Key is record ID.
+var simProviderNameMap = {};
+
+// Basically the data from the country-sim-carrier table, indexed by Record ID. It's the 
+// data from Airtable mostly, so the data can be in one place and easily referenced.
+var countrySimCarrier = {};
+
+simTypes.forEach(function(simType) {
+	perSimType[simType] = {};
+	
+	// Array of country names (unique). They are normalized using the normalizeCountry object.
+	perSimType[simType].countryList = [];
+
+	// Country data object. Key is the normalized country name. Value is an array of record ID in countrySimCarrier
+	perSimType[simType].countryData = {};
+});
+
+// These SIM types don't get countryListTop added at the top 
+perSimType['B523'].noCountryListTop = true;
+perSimType['LTE'].noCountryListTop = true;
+
+
 
 // Start by getting the plans. The other operations are chained off the completion of that.
 getPlans();
@@ -208,130 +231,131 @@ function getCarriers() {
 	}, function done(err) {
 	    if (err) { console.error(err); return; }
 	    
+	    getSimProviders();
+	});
+
+}
+
+function getSimProviders() {
+	base('SIM Providers').select({
+	    maxRecords: 9999,
+	    fields: ['Name']
+	}).eachPage(function page(records, fetchNextPage) {
+	    // This function (`page`) will get called for each page of records.
+
+	    records.forEach(function(record) {
+			// console.log('Retrieved SIM provider ' + record.getId() + ' ' + record.get('Name'));
+			simProviderNameMap[record.getId()] = record.get('Name');
+	    });
+
+	    fetchNextPage();
+
+	}, function done(err) {
+		if (err) { console.error(err); return; }
+		
+		// console.log("simProviderNameMap", simProviderNameMap);
+	    
 	    getFullData();
 	});
 
 }
 
+
 function getFullData() {
 	base('Country-SIM-Carrier').select({
-	    maxRecords: 9999, // TEMPORARY set to 9999
-	    fields: ['Country', 'Carrier-link', 'Plan_Name-link', 'Technology-link', 'Network rank', 'Partner zone', '2G Sunset', '3G Sunset']
+	    maxRecords: 9999, 
+	    fields: ['ID', 'Country', 'SIM Provider', 'Carrier-link', 'Plan_Name-link', 'Technology-link', 'Network rank', 'Partner zone', '2G Sunset', '3G Sunset']
 	}).eachPage(function page(records, fetchNextPage) {
 	    // This function (`page`) will get called for each page of records.
 
 	    records.forEach(function(record) {
 	        // console.log('Retrieved ' + record.get('ID'), record);
 	    	// console.log('record IDs: Country=' + record.get('Country') + ' Carrier-link=' + record.get('Carrier-link') + ' Plan_Name-link=' +record.get('Plan_Name-link'));
-			// const recordId = record.get('ID'); 
 			
-			let countryId = record.get('Country');
-
+			const recordId = record.get('ID'); // Country-SIM-Carrier 
+			countrySimCarrier[recordId] = {};
+			
+			const countryId = record.get('Country');
+		
 	    	let countryName = countryNameMap[countryId]; 
-	    	let carrierName = carrierNameMap[record.get('Carrier-link')];
-	    	const planName = planNameMap[record.get('Plan_Name-link')];
-	    	const rank = record.get('Network rank');
-			const zone = parseInt(record.get('Partner zone'));
-			
-			// technology is an array of: '2G', '3G', '4G' (strings)
-			const technology = record.get('Technology-link');
-			
-	    	const has2G = has2GMap[countryId];
-	    	const which3G = which3GMap[countryId];
-	    	
 			if (normalizeCountry[countryName]) {
 				countryName = normalizeCountry[countryName];
 			}
-			sunset2g[countryName + carrierName] = record.get('2G Sunset');
-			sunset3g[countryName + carrierName] = record.get('3G Sunset');
+			countrySimCarrier[recordId].countryName = countryName;
+			
+			countrySimCarrier[recordId].simProviderName = simProviderNameMap[record.get('SIM Provider')];
 
+			// Some carriers have '(Merged with' strings appended to them, which are too long
+			// to fit in the table comfortably. Remove those strings.
+			var carrierName = carrierNameMap[record.get('Carrier-link')];
 			const mergedOffset = carrierName.indexOf('(Merged');
 			if (mergedOffset > 0) {
 				carrierName = carrierName.substring(0, mergedOffset).trim();
 			}
+			countrySimCarrier[recordId].carrierName = carrierName;
+			// console.log("countryName=" + countryName + " carrierName=" + carrierName + " recordId=" + recordId);
+		
+
+	    	countrySimCarrier[recordId].planName = planNameMap[record.get('Plan_Name-link')];
+	    	countrySimCarrier[recordId].rank = record.get('Network rank');
+			countrySimCarrier[recordId].zone = parseInt(record.get('Partner zone'));
 			
-	    	var showPlan = true;
-	    	var group;
+			// technology is an array of: '2G', '3G', '4G' (strings)
+			// It's only accurate for Kore. Most Telefonica entries are set to 3G even if they support 2G.
+			countrySimCarrier[recordId].technology = record.get('Technology-link');
+			
+			// I'm pretty sure this is no longer used, which would also allow has2GMap to be removed
+			countrySimCarrier[recordId].has2G = has2GMap[countryId];
+			
+			countrySimCarrier[recordId].which3G = which3GMap[countryId] || 'U270';
+			
 	    	
-	    	switch(planName) {
+			countrySimCarrier[recordId].sunset2G = record.get('2G Sunset');
+			countrySimCarrier[recordId].sunset3G = record.get('3G Sunset');
+
+
+			const regionName = regionNameMap[countryRegionMap[countryId]];
+			countrySimCarrier[recordId].regionName = regionName;
+			countrySimCarrier[recordId].isB523 = regionName === 'Europe' || regionName === 'Baltics';
+				
+
+	    	switch(countrySimCarrier[recordId].planName) {
 	    	case 'Original':
-    			showPlan = false;
 	    		break;
 	    		
 	    	case 'Bundled':
-	    		if (zone >= 6) {
-		    		// Zone 6 and higher is hidden for Telefonica, except for Korea and Taiwan
-		    		if (countryName == 'South Korea' || countryName === 'Taiwan') {
-		    			// OK to show this plan
-		    		}
-		    		else {
-		    			// Hide plan
-		    			showPlan = false;
-		    		}
-	    		}
-	    		group = 'telefonicaCarriers';
+				// Zone 6 and higher is hidden for Telefonica, except for Korea and Taiwan
+				countrySimCarrier[recordId].isTelefonica = (countrySimCarrier[recordId].zone < 6 || countryName == 'South Korea' || countryName === 'Taiwan');
+				if (countrySimCarrier[recordId].isTelefonica) {
+					addSimTypeCountryData('Electron', countryName, recordId);
+				}
+	    		
 	    		break;
 	    		
 	    	case 'LTE-M':
 	    	case 'NORAM':
-	    		group = 'lteCarriers';
+				addSimTypeCountryData('LTE', countryName, recordId);
 	    		break;
 	    			    		
 	    	case 'One Net':
-	    		break;
+				addSimTypeCountryData('Boron', countryName, recordId);
+				addSimTypeCountryData('BoronAllNet', countryName, recordId);
+
+				if (countrySimCarrier[recordId].isB523) {
+					addSimTypeCountryData('B523', countryName, recordId);
+				}
+ 	    		break;
 	    		
 	    	case 'All Net':
-    			//showPlan = false;
+				addSimTypeCountryData('BoronAllNet', countryName, recordId);
+				//console.log('adding BoronAllNet countryName=' + countryName + " recordId=" + recordId + " carrierName=" + carrierName + " rank=" + countrySimCarrier[recordId].rank );
 	    		break;
 	    		
     		default:
-    			console.log('unknown planName=' + planName);
-	    		showPlan = false;	
+    			console.log('unknown planName=' + planName);	
     			break;
 	    	}
 	    	
-	    	if (planName === 'One Net' || planName === 'All Net') {
-	    		switch(rank) {
-	    		default:
-	    		case 'Primary':
-		    		group = 'vodafoneCarrierPrimary';
-	    			break;
-	    			
-	    		case 'Secondary':
-	    			group = 'vodafoneCarrierSecondary';
-	    			break;
-	    			
-	    		case 'Backup':
-		    		group = 'vodafoneCarrierBackup';
-	    			break;
-	    		}
-	    	}
-	    	
-	    	if (showPlan) {
-		    	console.log('countryName=' + countryName + ' carrierName=' + carrierName + ' planName=' + planName + ' rank=' + rank + ' zone=' + zone);	    	
-	    		
-	    		addCountryDataArray(countryName, group, carrierName);
-	    		
-	    		// We get this from the array configured about instead of airtable. We should fix this to store the data there.
-				//addCountryData(countryName, 'has2g', has2G ? '' : '&#x2714;');
-				addCountryData(countryName, 'has2g', no2g[countryName] ? no2g[countryName] : '&#x2714;');
-
-	    		
-				addCountryData(countryName, 'has3g', which3G ? which3G : 'U270');							
-
-				var regionName = regionNameMap[countryRegionMap[countryId]];
-				var isEurope = regionName === 'Europe' || regionName === 'Baltics';
-				addCountryData(countryName, 'isEurope', isEurope);			
-				// console.log('countryName=' + countryName + ' isEurope=' + isEurope);			
-				
-				if (planName === 'One Net' && rank === 'Primary') {
-					addCountryData(countryName, 'oneNetTechnology', technology);
-					// console.log('technology ' + countryName, technology);
-				}
-	    	}
-	    	else {
-		    	// console.log('hidden: countryName=' + countryName + ' carrierName=' + carrierName + ' planName=' + planName + ' rank=' + rank + ' zone=' + zone);	    	
-	    	} 
 	    		
 	    });
 
@@ -339,76 +363,82 @@ function getFullData() {
 
 	}, function done(err) {
 	    if (err) { console.error(err); return; }
-	    
-		for(var country in countryData) {
-			countryList.push(country);
-		}
-		// Need to do a case-insensitive comparison because of eSwatini. 
-		countryList.sort(function(a, b) {
-			return a.localeCompare(b, undefined, { sensitivity: 'accent' });
-		});
 		
-		// Put commonly used countries at the top (but still leave them alphabetically below)
-		for(var ii = countryListTop.length - 1; ii >= 0; ii--) {
-			countryList.unshift(countryListTop[ii]);
-		}
+		simTypes.forEach(function(simType) {
+			for(var country in perSimType[simType].countryData) {
+				perSimType[simType].countryList.push(country);
+			}
+			// Need to do a case-insensitive comparison because of eSwatini. 
+			perSimType[simType].countryList.sort(function(a, b) {
+				return a.localeCompare(b, undefined, { sensitivity: 'accent' });
+			});
+			
+			// Put commonly used countries at the top (but still leave them alphabetically below)
+			// unless noCountryListTop is true (B523 and LTE).
+			if (!perSimType[simType].noCountryListTop) {
+				for(var ii = countryListTop.length - 1; ii >= 0; ii--) {
+					perSimType[simType].countryList.unshift(countryListTop[ii]);
+				}
+			}
+
+			// For Boron AllNet, fix the ordering of primary/secondary/backup
+			
+			if (simType === 'BoronAllNet') {
+				for(var country in perSimType[simType].countryData) {
+					perSimType[simType].countryData[country].sort(function(a, b) {
+						
+						const rankA = rankToNumber(countrySimCarrier[a].rank); 
+						const rankB = rankToNumber(countrySimCarrier[b].rank);
+						if (rankA != rankB) {
+							return rankA - rankB;
+						} 
+						// Rank is the same, compare by carrier name
+						const carrierNameA = countrySimCarrier[a].carrierName; 
+						const carrierNameB = countrySimCarrier[b].carrierName;
+						return carrierNameA.localeCompare(carrierNameB, undefined, { sensitivity: 'accent' });
+
+					});				
+				}
+			}
+			
+		});
+
 
 	    generateMarkdown();
 	});
 	
 }
 
-function addCountryData(country, key, value) {
-	if (!countryData[country]) {
-		countryData[country] = {};
-	} 
-	countryData[country][key] = value;
+function rankToNumber(rank) {
+	switch(rank) {
+		case 'Primary':
+			return 1;
+		case 'Secondary':
+			return 2;
+		case 'Backup':
+			return 3;
+		default:
+			return 4;
+	}
 }
 
-function addCountryDataArray(country, key, value) {	
-	if (!countryData[country]) {
-		countryData[country] = {};
+
+function addSimTypeCountryData(simType, country, value) {	
+	if (!perSimType[simType].countryData[country]) {
+		perSimType[simType].countryData[country] = [];
 	} 
-	if (!countryData[country][key]) {
-		countryData[country][key] = [];		
-	}
-	for(var ii = 0; ii < countryData[country][key].length; ii++) {
-		if (countryData[country][key][ii] == value) {
-			// Already in list
-			return;
-		}
-	}
 	
-	countryData[country][key].push(value);
-}
-
-function addCountryDataArrayArray(country, key, value) {	
-	if (Array.isArray(value)) {
-		for(var ii = 0; ii < value.length; ii++) {
-			addCountryDataArray(country, key, value[ii]);			
-		}
-	}
-	else {
-		addCountryDataArray(country, key, value);
-	}
+	perSimType[simType].countryData[country].push(value);
 }
 
 
 function generateMarkdown() {
 	var md = '';
 	
-	var simTypes = ['Electron', 'LTE', 'Boron', 'BoronAllNet', 'B523'];
 	
 	for(var jj = 0; jj < simTypes.length; jj++) {
 		var simType = simTypes[jj];
 		md += '{{collapse op="start" simType="' + simType + '"}}\n\n';
-
-		var isAllNet = false;
-		const allNetIndex = simType.indexOf('AllNet');
-		if (allNetIndex > 0) {
-			isAllNet = true;
-			simType = simType.substr(0, allNetIndex);
-		}
 
 		var sunsetMd1 = '';
 		var sunsetMd2 = '';
@@ -431,115 +461,59 @@ function generateMarkdown() {
 			md += '| Country | Carriers |' + sunsetMd1 + '\n';
 			md += '| ------- | -------- |' + sunsetMd2 + '\n';			
 		}
-		
-		var countryAdded = {};
-		var ii = 0;
-		if (simType == 'LTE' || simType == 'B523') {
-			// Don't include US, Canada, and UK at the stop for these short lists
-			ii += countryListTop.length;
-		}
-		for(; ii < countryList.length; ii++) {
-			var country = countryList[ii];
+	
+		for(var ii = 0; ii < perSimType[simType].countryList.length; ii++) {
+			var country = perSimType[simType].countryList[ii];
 
-			var carrierArray = [];
-			
-			if (!countryData[country]) {
-		 		console.log('missing data for ' + country);
-				continue;
-			}
-			
-			if (simType === 'Electron') {
-				if (countryData[country].telefonicaCarriers) {
-					for(var kk = 0; kk < countryData[country].telefonicaCarriers.length; kk++) {
-						carrierArray.push(countryData[country].telefonicaCarriers[kk]);
-					}
-				}
-			}
-			else
-			if (simType === 'LTE') {
-				// Dedupe the LTE list because it's short. Otherwise, United States shows up twice.
-				if (countryData[country].lteCarriers && !countryAdded[country]) {					
-					for(var kk = 0; kk < countryData[country].lteCarriers.length; kk++) {
-						carrierArray.push(countryData[country].lteCarriers[kk]);
-					}
-				}
-			}
-			else
-			if (simType === 'Boron') {
-				var hasSecondaryOrBackup = countryData[country].vodafoneCarrierSecondary || countryData[country].vodafoneCarrierBackup;
-				
-				if (!isAllNet) {
-					hasSecondaryOrBackup = false; 
-				}
+			var recordArray = perSimType[simType].countryData[country];
 
-				if (countryData[country].vodafoneCarrierPrimary) {
-					for(var kk = 0; kk < countryData[country].vodafoneCarrierPrimary.length; kk++) {
-						carrierArray.push(countryData[country].vodafoneCarrierPrimary[kk] + (hasSecondaryOrBackup ? '<sup>1</sup>' : ''));
-					}
-				}
-				if (hasSecondaryOrBackup && countryData[country].vodafoneCarrierSecondary) {
-					for(var kk = 0; kk < countryData[country].vodafoneCarrierSecondary.length; kk++) {
-						carrierArray.push(countryData[country].vodafoneCarrierSecondary[kk] + '<sup>2</sup>');
-					}
-				}
-				if (hasSecondaryOrBackup && countryData[country].vodafoneCarrierBackup) {
-					for(var kk = 0; kk < countryData[country].vodafoneCarrierBackup.length; kk++) {
-						carrierArray.push(countryData[country].vodafoneCarrierBackup[kk] + '<sup>3</sup>');
-					}
-				}
-			}
-			else
-			if (simType === 'B523') {
-				// Europe only
-				if (!countryData[country].isEurope) {
+			var carrierAdded = {};
+
+			for(var kk = 0; kk < recordArray.length; kk++) {
+				var recordId = recordArray[kk];
+				var carrierName = countrySimCarrier[recordId].carrierName;
+
+				if (carrierAdded[carrierName]) {
 					continue;
 				}
-				// Include Vodafone OneNet carriers
-				if (countryData[country].vodafoneCarrierPrimary) {
-					for(var kk = 0; kk < countryData[country].vodafoneCarrierPrimary.length; kk++) {
-						carrierArray.push(countryData[country].vodafoneCarrierPrimary[kk]);
-					}
-				}
-			}
-			
-			for(var kk = 0; kk < carrierArray.length; kk++) {
+
 				if (kk == 0) {
 					md += '| ' + country + ' | ';
 				}
 				else {
 					md += '|   | ';
 				}
-				md += carrierArray[kk] + ' |';
 
-				var carrierName = carrierArray[kk];
-				var supIndex = carrierName.indexOf('<sup>');
-				if (supIndex > 0) {
-					carrierName = carrierName.substr(0, supIndex);
+				var rankIndicator = '';
+				if (simType === 'BoronAllNet' && recordArray.length > 1) {
+					rankIndicator = '<sup>' + rankToNumber(countrySimCarrier[recordId].rank) + '</sup>';
 				}
+
+				md += carrierName + rankIndicator + ' |'; // TODO: Add a space here
 				
 				if (simType === 'Electron') {
-					// countryData[country].has2g + ' | '
-					md += countryData[country].has3g + ' |';					
+					md += countrySimCarrier[recordId].which3G + ' |';					
 				}
 
 				if (sunsetMd1 != '') {
 					// Include 2G/3G sunset information
-					md += sunsetToMd(sunset2g[country + carrierName]) + ' | ' + 
-						sunsetToMd(sunset3g[country + carrierName]) + ' | ';
+					md += sunsetToMd(countrySimCarrier[recordId].sunset2G) + ' | ' + 
+						sunsetToMd(countrySimCarrier[recordId].sunset3G) + ' | ';
 				}
 
 				if (simType === 'B523') {
-					const technology = countryData[country].oneNetTechnology;
+					const technology = countrySimCarrier[recordId].technology;
 					// console.log('country=' + country, technology);
 					md += (isInArray('2G', technology) ? '&check;' : '&nbsp;') + '| ';
 					md += (isInArray('3G', technology) ? '&check;' : '&nbsp;') + '| ';
 					md += (isInArray('4G', technology) ? '&check;' : '&nbsp;') + '| ';
 				}
 
+				carrierAdded[carrierName] = true;
+
 				md += '\n';
 			}
-			
-			countryAdded[country] = true;
+	
 		}
 		
 		md += '\n{{collapse op="end"}}\n\n';
