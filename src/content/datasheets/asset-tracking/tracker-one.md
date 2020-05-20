@@ -67,8 +67,8 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 3      | CAN 5V<sup>4</sup> |   | CAN_PWR   | O |
 | 4      | CAN+       |           |           | IO<sup>2</sup> |
 | 5      | CAN-       |           |           | IO<sup>2</sup> |
-| 6      | Serial1 TX | Wire2 SCL | GPIO D9   | IO<sup>1</sup> |
-| 7      | Serial1 RX | Wire2 SDA | GPIO D8   | IO<sup>1</sup> |
+| 6      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
+| 7      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
 | 8      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
 
 This connector attaches to the IP67 M8 connector, accessible from the outside of the enclosure. The connector on the Tracker One enclosure has male pins and a barrel threaded on the outside.
