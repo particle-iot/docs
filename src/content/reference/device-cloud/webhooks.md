@@ -543,8 +543,10 @@ integration to display its details.
 Scrolling down a bit, you'll see 2 sections, **History** and **Logs**.
 
 History will show you a graph of all attempts and their result over the
-last 30 days. Results will be broken down into _success_, _error_, and
-_sleep_ (throttling).
+last 30 days. Results will be broken down into _success_, _failure_, and
+_skipped_ (not sent because there were too many previous failures in
+rapid succession). Events that failed or were skipped are retried
+twice after 30 seconds and 1 minute, then dropped.
 
 ![Webhook History](/assets/images/webhooks/webhook-history.png)
 
