@@ -405,7 +405,18 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 #### B Series SoM B523
 
-- Final certification reports are expected mid-May 2020.
+- [Summary](/assets/pdfs/b523-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf)
+- [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf)
+- [RED Cellular Test Report](/assets/pdfs/b523-cellular-ce-test-report.pdf)
+- [EN 300 328 Test Report](/assets/pdfs/b523-EN300-328-test-report.pdf) (2.4 GHz ISM band)
+- [EN 300 330 Test Report](/assets/pdfs/b523-EN300-330-test-report.pdf) (NFC)
+- [EN 301 489 Test Report](/assets/pdfs/b523-EN301-489-test-report.pdf)
+- [EN 301 511 Test Report](/assets/pdfs/b523-EN301-511-test-report.pdf) (GSM)
+- [EN-62311 Test Report](/assets/pdfs/b523-EN62311-test-report.pdf)
+- [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950)
+- [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
+
 
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
@@ -491,7 +502,7 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 #### B Series SoM B523
 
-- Final certification reports are expected mid-May 2020.
+- [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
 
 #### Argon
 
