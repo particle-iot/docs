@@ -32,6 +32,9 @@ var no2g = {
 // "LTE" is actually LTE Cat M1, but is left at LTE for historical reasons.
 const simTypes = ['Electron', 'LTE', 'Boron', 'BoronAllNet', 'B523'];
 
+const regionB523 = ['Europe', 'Baltics'];
+//const regionT523 = ['Africa', 'Asia', 'Australia', 'Baltics', 'Commonwealth', 'Europe', 'Middle East', 'Oceania' ];
+
 // This is the data that is per SIM type, used to generate the Markdown
 // The key is an element in the simTypes array ('Electron', 'Boron, etc.)
 var perSimType = {};
@@ -316,8 +319,7 @@ function getFullData() {
 
 			const regionName = regionNameMap[countryRegionMap[countryId]];
 			countrySimCarrier[recordId].regionName = regionName;
-			countrySimCarrier[recordId].isB523 = regionName === 'Europe' || regionName === 'Baltics';
-				
+			countrySimCarrier[recordId].isB523 = isInArray(regionName, regionB523);	
 
 	    	switch(countrySimCarrier[recordId].planName) {
 	    	case 'Original':
