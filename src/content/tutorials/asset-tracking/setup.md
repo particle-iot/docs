@@ -32,6 +32,7 @@ description: Setting up your Particle Asset Tracer
 | 12 | J8 | 3V3 LED jumper. Normally installed, remove to disable 3V3 LED. | 
 | 13 | VIN | External power 5-12 VDC |
 | 14 | LiPo | JST-PH connector for LiPo battery |
+| 15 | S4 | Battery switch |
 | 16 | S6 | SoM power switch |
 | 17 | | Expansion connector |
 | 18 | J10 | Grove connector (A0, A1 or I2C) |

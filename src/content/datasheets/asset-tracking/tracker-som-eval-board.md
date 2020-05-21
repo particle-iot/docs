@@ -137,9 +137,27 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 ## Evaluation Board Schematics
 
-To be provided at a later date.
+#### Tracker SoM
 
----
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-2.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-2.png" class="full-width"></a></div> 
+
+#### USB
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-3.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-3.png" class="full-width"></a></div> 
+
+#### Power Switches
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-4.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-4.png" class="full-width"></a></div> 
+
+#### Expansion Connector
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-5.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-5.png" class="full-width"></a></div> 
+
+#### Misc
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-1.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-1.png" class="full-width"></a></div> 
+
+
 
 ## Mechanical specifications
 
