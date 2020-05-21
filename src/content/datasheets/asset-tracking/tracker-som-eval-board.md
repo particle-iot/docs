@@ -23,7 +23,7 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 ## Description
 
 
-<div align=center><img src="/assets/images/at-som/at-eval-labeled.png"></div>
+<div align="center"><img src="/assets/images/at-som/at-eval-labeled.png"></div>
 
 
 | Num | ID 					    | Description                                      |

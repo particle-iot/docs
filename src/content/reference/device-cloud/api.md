@@ -491,6 +491,15 @@ please see [the guide](/tutorials/product-tools/device-groups/).
 
 {{> api group=apiGroups.Groups}}
 
+## Asset Tracking
+
+### Location
+{{> api group=apiGroups.Location}}
+
+### Configuration
+{{> api group=apiGroups.Configuration}}
+
+
 ## Customers
 {{> api group=apiGroups.Customers}}
 

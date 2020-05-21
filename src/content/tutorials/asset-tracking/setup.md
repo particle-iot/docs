@@ -12,15 +12,78 @@ description: Setting up your Particle Asset Tracer
 
 ### Tracker Evaluation Board
 
+
+<div align="center"><img src="/assets/images/at-som/at-eval-labeled.png"></div>
+
+
+| Num | ID 					    | Description                                      |
+| :---: | :----------------------|:--------------------------------|
+|  1 | GNSS USB | u-blox GNSS USB connection | 
+|  2 | CELL USB | Quectel cellular modem USB connection |
+|  3 | JTAG | JTAG/SWD debugging connector for nRF52 MCU |
+|  4 | NFC | NFC antenna connection for NFC tag feature |
+|  5 | MODE | MODE button | 
+|  6 | RGB | RGB status LED |
+|  7 | RESET | RESET button |
+|  8 | MCU USB | nRF52 MCU USB for debugging. Can also power the SoM. |
+|  9 | STAT LED | Charge status indicator. |
+| 10 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
+| 11 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
+| 12 | J8 | 3V3 LED jumper. Normally installed, remove to disable 3V3 LED. | 
+| 13 | VIN | External power 5-12 VDC |
+| 14 | LiPo | JST-PH connector for LiPo battery |
+| 16 | S6 | SoM power switch |
+| 17 | | Expansion connector |
+| 18 | J10 | Grove connector (A0, A1 or I2C) |
+| 19 | J11 | Grove connector (A2, A3) |
+| 20 | S5 | RTC battery switch |
+| 21 | RTC battery | Optional battery |
+| 22 | J4 | CAN data connection and 3.3V power output |
+| 23 | J5 | JTAG power jumper. Install to allow the MCU to be powered by the JTAG port. |
+
+
 #### Powering
 
+- Connect the Tracker Evaluation board to your computer by USB. Use the included USB-C to USB-A cable, or a if your computer includes a USB-C port, your own USB-C to USB-C cable and connect to the **MCU_USB** connector (8).
+- Turn on the **SoM Power** (16) switch.
+- If powering by a 500 mA laptop USB-A port, you may want to connect a LiPo battery to the battery connector (14) and turn on the battery power switch (15).
+
 #### Status LEDs
+
+The **STAT** LED (9) indicates the charge status:
+
+- Off: Not charging or no power
+- On: Charging
+- Blinking: Charge fault
+- Flickering: No battery
+
+The **3V3** LED (11) indicates that the 3.3V MCU power supply is enabled. Jumper **J8** disconnects the power LED.
+
+The **RGB LED** (6) can be configured for the standard Particle color scheme (blinking green, blinking cyan, breathing cyan) or the color scheme used by the Tracker One.
+
+The standard LED pattern for Tracker One devices is:
+
+- Blinking red while trying to connect to cellular.
+- Once connected to cellular, will show relative signal strength of red (poor), yellow (moderate), or green (good). The product can also be configured for a gradient from red to yellow to green.
+- Blinking signal strength indicator while connecting to the cloud.
+- Solid signal strength indicator (red/yellow/green) once connected.
+
 
 ### Tracker One
 
 #### Powering
 
+- Connect the Tracker One to your computer by USB. Use the included USB-C to USB-A cable, or a if your computer includes a USB-C port, your own USB-C to USB-C cable and connect to the external USB C connector.
+- Connecting power to USB will take the device out of shipping mode. The shipping mode allows the device to be safely shipped with the battery attached and without discharging the battery. It can only be exited by supplying external power.
+
 #### Status LEDs
+
+The standard LED pattern for Tracker One devices is:
+
+- Blinking red while trying to connect to cellular.
+- Once connected to cellular, will show relative signal strength of red (poor), yellow (moderate), or green (good). The product can also be configured for a gradient from red to yellow to green.
+- Blinking signal strength indicator while connecting to the cloud.
+- Solid signal strength indicator (red/yellow/green) once connected.
 
 ## Create a product
 

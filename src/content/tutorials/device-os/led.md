@@ -28,7 +28,7 @@ The Tracker SoM and Tracker One status LED can be configured in several differen
 
 The standard LED pattern for Tracker devices is:
 
-- Blinking red while trying to connect to cellular
+- Blinking red while trying to connect to cellular.
 - Once connected to cellular, will show relative signal strength of red (poor), yellow (moderate), or green (good). The product can also be configured for a gradient from red to yellow to green.
 - Blinking signal strength indicator while connecting to the cloud.
 - Solid signal strength indicator (red/yellow/green) once connected.
