@@ -12,6 +12,7 @@ description: Command line interface for managing your devices for Windows, Mac O
 
 For information on how to install the Particle CLI, see the [CLI guide](/tutorials/developer-tools/cli/).
 
+
 ## particle setup
 
   Everything you need to get started using a Particle Photon or P1 device from the command line. Create an account or log in, set up Wi-Fi to a device and claim the device to your Particle account.
@@ -23,6 +24,7 @@ $ particle setup
 To set up a cellular device (Electron, Boron, B Series SoM), go to [setup.particle.io](https://setup.particle.io) or use the mobile apps.
 
 To set up an Argon, see [particle serial wifi](#particle-serial-wifi) or use the mobile apps.
+
 
 ## particle login
 
@@ -64,6 +66,7 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
+
 ## particle call
 
   Calls a function on one of your devices, use ```particle list``` to see which devices are online, and what functions are available.
@@ -73,6 +76,14 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 $ particle call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
 1
 ```
+
+To call a function on a product device, set the `--product` flag to your product's id.
+
+```sh
+# call the `brew` function on the device with id `0123456789abcdef01234567` within product `12345`
+$ particle call 0123456789abcdef01234567 brew --product 12345
+```
+
 
 ## particle get
 
@@ -84,8 +95,16 @@ $ particle get 0123456789ABCDEFGHI temperature
 72.1
 ```
 
+To get a variable from a product device, set the `--product` flag to your product's id.
+
+```sh
+# read the `temperature` variable from the device with id `0123456789abcdef01234567` within product `12345`
+$ particle get 0123456789abcdef01234567 temperature --product 12345
+```
+
 
 ## particle device
+
 
 ### particle device add
 
@@ -111,7 +130,6 @@ $ particle device rename 0123456789ABCDEFGHI "pirate frosting"
 ```
 
 
-
 ### particle device remove
 
   Removes a device from your account so someone else can claim it.
@@ -127,9 +145,10 @@ Okay!
 
 Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM to stop billing. If you plan on selling or giving away your device, you should both unclaim the device and release ownership of the SIM. That will allow it to be set up as if a new device later.
 
+
 ### particle device doctor
 
-Brings back a device with bad firmware, bad network settings or bad keys
+Brings back a Gen2 device (`photon`, `p1`, `electron`) with bad firmware, bad network settings or bad keys
 to health so it can connect to the Particle cloud.
 
 The Device Doctor will:
@@ -151,9 +170,13 @@ The Device Doctor will put your device back into a healthy state
 # follow the prompts to restore your device
 ```
 
+_NOTE: Currently, only Gen2 devices are supported_
+
+
 ## particle flash
 
   Sends a firmware binary, a source file, or a directory of source files, or a known app to your device.
+
 
 ### Flashing a directory
 
@@ -163,6 +186,7 @@ The Device Doctor will put your device back into a healthy state
 # how to compile and flash a directory of source code to your device
 $ particle flash 0123456789ABCDEFGHI my_project
 ```
+
 
 ### Flashing one or more source files
 
@@ -177,7 +201,6 @@ Note that the CLI since 1.9.0 has support for firmware libraries via the [partic
 commands.
 
 
-
 ### Target a specific firmware version for flashing
 
 You can compile and flash your application against a specific firmware version using the `--target` flag. If you don't specify `target` your code will compile against the latest released firmware.
@@ -190,6 +213,7 @@ version on your device or if you want to try a pre-release version.
 $ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
 ```
 
+
 ### Flashing a known app
 
 You can easily reset a device back to a previous existing app with a quick command. Two app names are reserved right now: "tinker" and "cc3000".  Tinker is the original firmware that ships with the device, and cc3000 will patch the wifi module on the Spark Core. 
@@ -199,7 +223,6 @@ $ particle flash deviceName tinker
 $ particle flash deviceName cc3000
 
 ```
-```
 
 You can also update the factory reset version using the `--factory` flag, over USB with `--usb`, or over serial using `--serial`.
 
@@ -208,6 +231,17 @@ $ particle flash --factory tinker
 $ particle flash --usb tinker
 $ particle flash --serial tinker
 ```
+
+
+### Flashing a product device
+
+To flash a product device, use the `particle cloud flash` command and set the `--product` flag to your product's id.
+
+```sh
+# Compile the source code in the current directory in the cloud and flash to device `0123456789abcdef01234567` within product `12345`
+$ particle cloud flash 0123456789abcdef01234567 --product 12345
+```
+
 
 ### Compiling remotely and flashing locally
 
@@ -284,6 +318,7 @@ $ particle compile photon
 $ particle compile photon app.ino library1.cpp library1.h
 ```
 
+
 ### Target a specific firmware version for compiling
 
 You can compile your application against a specific firmware version use the `--target` flag. If you don't specific `target` your code will compile against the latest released firmware.
@@ -317,6 +352,7 @@ $ particle compile core --target 1.4.4 my_project
 
 Use the project structure when you want to use libraries or you want to organize your source code better.
 
+
 ### creating a project
 
 You will be prompted to create the project in a default directory or in the current directory. The default directory for projects is your home directory
@@ -332,6 +368,7 @@ Initializing project in directory /home/user/Particle/projects/doorbell...
 
 The meta data about the project is stored in the `project.properties` file. It includes the project name and what libraries are used by the project.
 
+
 ### compiling a project
 
 Compile or flash a project like you would another directory.
@@ -343,9 +380,11 @@ $ particle compile photon
 $ particle flash my_device
 ```
 
+
 ## particle library
 
 The fantastic Particle community has created and ported many libraries to make it easier to get your project done fast. You can use those libraries in projects you compile through the command line.
+
 
 ### particle library list
 
@@ -355,6 +394,7 @@ Browse the list of all libraries to see what are the most popular libraries avai
 $ particle library list
 ```
 
+
 ### particle library search
 
 Find a specific library by name. The name is case insensitive.
@@ -363,6 +403,7 @@ Find a specific library by name. The name is case insensitive.
 # seach for the InternetButton library
 $ particle library search internet
 ```
+
 
 ### particle library add
 
@@ -378,6 +419,7 @@ $ particle library add internetbutton@0.1.10
 
 To upgrade to a newer version later, just do `particle library add` with the same name and the `project.properties` will be updated with the latest version of that library.
 
+
 ### particle library view
 
 See the source and examples of a library with `particle library view`.  It will download the library and tell you where it is on the local file system.
@@ -386,6 +428,7 @@ See the source and examples of a library with `particle library view`.  It will 
 # see the InternetButton library
 $ particle library view internetbutton
 ```
+
 
 ### particle library copy
 
@@ -399,6 +442,7 @@ $ particle library copy internetbutton
 
 If you previously had added the library with `particle library add` you should remove it from your `project.properties` to make sure you don't include 2 versions of the library: the published one and modified one.
 
+
 ### particle library create
 
 To make your own library you can use `particle library create` to get a folder structure with all the files you'll need and customize it from there.
@@ -408,6 +452,7 @@ $ mkdir mylib
 $ cd mylib
 $ particle library create
 ```
+
 
 ### particle library upload
 
@@ -422,6 +467,7 @@ You can upload the same private version several times until you have happy with 
 
 If you modified an existing library you have to modify the name of the library in `library.properties`.
 
+
 ### particle library publish
 
 When you're ready to make a new private library version available, you publish it.
@@ -433,7 +479,9 @@ $ particle library publish mylib
 
 Remember that it's necessary to publish every new version after uploading it before others can use it in their projects.
 
+
 ## particle webhook
+
 
 ### particle webhook create
 
@@ -471,6 +519,7 @@ $ particle webhook create webhook.json
 
 ```
 
+
 ### particle webhook list
 
 List all webhooks belonging to the authenticated user. This command is only available for user webhooks.
@@ -489,7 +538,6 @@ Found 2 hooks registered
         and sending to: https://google.com
         created at 2016-04-28T22:19:10.726Z
 ```
-
 
 
 ### particle webhook delete
@@ -512,6 +560,7 @@ deleting 58889c0af14a8228a3fe64c8
 deleting 58889c0ef14a8228a3fe64dd
 deleting 58889c1113e45f1b69be21b7
 ```
+
 
 ## particle monitor
 
@@ -545,6 +594,7 @@ $ particle identify --port /dev/cu.usbmodem12345
 $ particle identify 0123456789ABCDEFGHI
 ```
 
+
 ## particle subscribe
 
   Subscribes to published events on the cloud, and pipes them to the console.  Special device name "mine" will subscribe to events from just your devices.
@@ -568,6 +618,21 @@ $ particle subscribe mine deviceName
 $ particle subscribe mine 0123456789abcdef01234567
 ```
 
+To listen to a product's event stream, set the `--product` flag to your product's id.
+
+```sh
+# subscribe to all events published by devices within product `12345`
+$ particle subscribe --product 12345
+```
+
+Likewise, to listen to a product device's event stream, set the `--device` flag to your device's id and the `--product` flag to your product's id.
+
+```sh
+# subscribe to all events published by the device with id `0123456789abcdef01234567` within product `12345`
+$ particle subscribe --device 0123456789abcdef01234567 prod-01 --product 12345
+```
+
+
 ## particle publish
 
   Publishes events to the cloud via API, similar to running Particle.publish() on a Particle Device.
@@ -584,6 +649,13 @@ $ particle publish eventName --private
 $ particle publish eventName someData --private
 ```
 
+To send events to a product's event stream, set the `--product` flag to your product's id.
+
+```sh
+# publish a `temp` event with a value of `25.0` to your product `12345`'s event stream
+$ particle publish temp 25.0 --product 12345
+```
+
 
 ## particle serial
 
@@ -595,6 +667,7 @@ Configure Wi-Fi credentials over serial on the Photon, P1, and Argon.
 # Configure new Wi-Fi credentials for a Photon or Argon over a serial connection
 $ particle serial wifi
 ```
+
 
 ### particle serial list
 
@@ -618,6 +691,7 @@ $ particle serial monitor --port COM3
 $ particle serial monitor --port /dev/cu.usbmodem12345
 ```
 
+
 ### particle serial flash
 
 Flash a firmware binary over serial.
@@ -634,6 +708,7 @@ If you have Device OS firmware with debugging enabled (which is the default on t
 
 In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable way to flash your device over USB.
 
+
 ## particle mesh
 
 Mesh network management from the CLI.
@@ -646,6 +721,7 @@ _These commands require Device OS 0.9.0 or later._
 
 _On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
 
+
 ### particle mesh create
 
 Create a new network
@@ -653,6 +729,7 @@ Create a new network
 ```
 particle mesh create <network name> <device> [--channel=N] [--password=...] [--yes]
 ```
+
 
 ### particle mesh add
 
@@ -662,6 +739,7 @@ Add a device to the current network of an assisting device
 particle mesh add <new device> <assisting device> [--password=...] [--yes]
 ```
 
+
 ### particle mesh remove
 
 Remove a device from its current network
@@ -669,6 +747,7 @@ Remove a device from its current network
 ```
 particle mesh remove <device> [--yes]
 ```
+
 
 ### particle mesh list
 
@@ -678,6 +757,7 @@ List all registered networks and their devices
 particle mesh list [network] [--networks-only]
 ```
 
+
 ### particle mesh info
 
 Get the current device's network
@@ -685,6 +765,7 @@ Get the current device's network
 ```
 particle mesh info <device>
 ```
+
 
 ### particle mesh scan
 
@@ -694,11 +775,13 @@ Scan for networks
 particle mesh scan <device>
 ```
 
+
 ## particle usb
 
 Various commands to interact with a device connected through USB.
 
 _On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
+
 
 ### particle usb list
 
@@ -707,6 +790,7 @@ List Particle USB devices attached to the host
 ```
 particle usb list [--exclude-dfu] [--ids-only]
 ```
+
 
 ### particle usb start-listening
 
@@ -722,6 +806,7 @@ Also aliases to `usb listen`.
 particle usb listen [devices...] [--all]
 ```
 
+
 ### particle usb stop-listening
 
 Make a device or multiple devices exit the listening mode
@@ -729,6 +814,7 @@ Make a device or multiple devices exit the listening mode
 ```
 particle usb stop-listening [devices...] [--all]
 ```
+
 
 ### particle usb safe-mode
 
@@ -738,6 +824,7 @@ Put a device or multiple devices into the safe mode
 particle usb safe-mode [devices...] [--all]
 ```
 
+
 ### particle usb dfu
 
 Put a device or multiple devices into the DFU mode
@@ -746,6 +833,7 @@ Put a device or multiple devices into the DFU mode
 particle usb dfu [devices...] [--all]
 ```
 
+
 ### particle usb reset
 
 Reset a device or multiple devices
@@ -753,6 +841,7 @@ Reset a device or multiple devices
 ```
 particle usb reset [devices...] [--all]
 ```
+
 
 ### particle usb setup-done
 
@@ -789,7 +878,9 @@ $ particle update
 > Your device should now restart automatically.
 ```
 
+
 ## particle keys
+
 
 ### particle keys doctor
 
@@ -803,6 +894,7 @@ $ particle keys doctor 0123456789ABCDEFGHI
 ```
 
 See also [`particle device doctor`](#particle-device-doctor)
+
 
 ### particle keys new
 
@@ -824,6 +916,7 @@ running openssl rsa -in mykey.pem -outform DER -out mykey.der
 New Key Created!
 ```
 
+
 ### particle keys load
 
 Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
@@ -837,6 +930,7 @@ $ particle keys load device.der
 Saved!
 ```
 
+
 ### particle keys save
 
 Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
@@ -849,6 +943,7 @@ $ particle keys save device.der
 Saved!
 ```
 
+
 ### particle keys send
 
 Sends a device's public key to the cloud for use in opening an encrypted session with your device.  Please make sure your device has the corresponding private key loaded using the ```particle keys load``` command.
@@ -858,6 +953,7 @@ Sends a device's public key to the cloud for use in opening an encrypted session
 $ particle keys send 0123456789ABCDEFGHI device.pub.pem
 submitting public key succeeded!
 ```
+
 
 ### particle keys server
 
@@ -869,6 +965,7 @@ $ particle keys server my_server.der
 $ particle keys server my_server.der --protocol udp
 ```
 
+
 #### Encoding a server address and port
 
 When using the local cloud you can ask the CLI to encode the IP or dns address into your key to control where your device will connect. You may also specify a port number to be included.
@@ -879,6 +976,7 @@ $ particle keys server my_server.der 192.168.1.10 9000
 $ particle keys server my_server.der 192.168.1.10 9000 --protocol udp
 ```
 
+
 ### particle keys address
 
 Reads and displays the server address, port, and protocol from a device.
@@ -888,6 +986,7 @@ $ particle keys address
 
 tcp://device.spark.io:5683
 ```
+
 
 ### particle keys protocol
 
@@ -902,6 +1001,7 @@ $ particle keys protocol tcp
 $ particle keys protocol udp
 ```
 
+
 ## particle nyan
 
 That's weird, huh, I guess the description for this mysterious command is missing...
@@ -915,6 +1015,7 @@ $ particle cloud nyan all on
 $ particle cloud nyan [on/off]
 $ particle cloud nyan [device_id/all] [on/off]
 ```
+
 
 ### particle config
 
@@ -938,6 +1039,7 @@ Using API: https://api.particle.io
 Access token: 01234567890abcdef01234567890abcdef012345
 ```
 
+
 ### particle binary inspect file.bin
 
 Describe binary generated by compile.
@@ -951,7 +1053,9 @@ file.bin
  It depends on a system module number 1 at version 6
 ```
 
+
 ## particle token
+
 
 ### particle token list
 Retrieve all the access token under your Particle account.
@@ -987,6 +1091,7 @@ __PASSWORD_ONLY__ (active)
  Expires at: 2017-06-12T08:44:16.371Z
 ```
 
+
 ### particle token create
 Create a new access token under your Particle account.
 
@@ -1011,6 +1116,7 @@ To make a non-expiring token, use the `--never-expires` option. Short lived toke
 $ particle token create --never-expires
 ```
 
+
 ### particle token revoke
 Revoke an access token under your Particle account.
 
@@ -1022,3 +1128,37 @@ successfully deleted ACCESS_TOKEN
 ```
 
 The only available option is `--force` which is necessary if you want to delete the access token used by the CLI itself.
+
+
+## particle product [BETA]
+
+Access Particle Product functionality
+
+
+### particle product device add
+
+Adds one or more devices into a Product
+
+
+```sh
+# add device id `0123456789abcdef01234567` into product `12345`
+$ particle product device add 12345 0123456789abcdef01234567
+```
+
+...or upload a `.txt` file with a single column of device ids
+
+```sh
+# add a list of devices into product `12345`
+$ particle product device add 12345 --file ./path/to/device_ids.txt
+```
+
+
+### particle product device list
+
+List all devices that are part of a product
+
+
+```sh
+# lists devices in product `12345`
+$ particle product device list 12345
+```
