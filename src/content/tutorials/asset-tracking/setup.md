@@ -159,6 +159,7 @@ One difference between the Tracker One and other Particle devices is that the Tr
 
 The Tracker firmware is included on the device from the factory instead of Tinker. 
 
+Previously, product firmware needed to have the product ID embedded in the binary. As long as you add the Device ID of your Tracker SoM to the product first, this is no longer necessary. The factory binary can be used with your product without having to recompile.
 
 
 
