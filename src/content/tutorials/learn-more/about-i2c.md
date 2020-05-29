@@ -423,6 +423,27 @@ temp 22.500000C 72.500000F
 
 Important note: Even though there are two sets of pins, for all practical purposes you can't use both Wire and Wire1 at the same time. It's not like having two separate I2C interfaces, because they're connected to the same I2C block in the STM32F205 processor, I2C1, and if you try to initialize both, weird things happen. If you need to connect to multiple I2C buses, use a TCA9548A instead.
 
+## Sparkfun Qwiic
+
+[Sparkfun](https://www.sparkfun.com/search/results?term=Qwiic) has created a whole line of accessories including:
+
+- Environment sensors (pressure, temperature, humidity) like the BME280
+- Buttons and indicator buttons
+- Load cell adapter (weight sensor)
+- Distance and proximity sensors
+- Thermocouple adapters
+- Relays
+- Keypads
+- Small displays
+
+Each of the devices is a small board with two Qwiic connectors, tiny JST 1mm-pitch 4-pin connectors. The connector is keyed so you don't need to worry about connecting it backwards, and the devices can be daisy-chained, one after the other. 
+
+Here's a BME 280 temperature, humidity, and atmospheric pressure [sensor board](https://www.sparkfun.com/products/15440), pictured next to a US quarter coin:
+
+![BME280](/assets/images/qwiic/qwiic-bme280.jpg)
+
+You can find more on the [Qwiic community page](/community/qwiic/).
+
 ## NCD/Control Everything
 
 [NCD](https://ncd.io) makes a large number of sensors boards for the Photon and Electron. For I2C sensors, one of the nice things is that the boards connect with 4-conductor locking ribbon cables, so you can use them as-is in permanent installation.
