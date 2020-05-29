@@ -105,7 +105,14 @@ This metric aggregates all configured Integrations for your Product. For
 instance, if you have 2 Webhooks and an Azure Integration set up, the
 Integration Traffic metric will sum the performance of all three.
 
-An elevated error rate would suggest that events are being published
+Delivery of each event will be attempted 3 times. The Integration
+Traffic metric shows the final outcome so one failure means one event
+that was dropped without being delivered after 3 attemps. In cases where
+there are many failures in rapid succession, the Particle Cloud will
+skip sending some events to decrease the pressure on the receiving
+server.
+
+An elevated failure rate would suggest that events are being published
 successfully, but one or more Integrations are not accepting requests
 from the Particle Device Cloud. If you experience high error rates, you
 should examine each Integration's [history and logs](/reference/device-cloud/webhooks/#using-the-console) to
