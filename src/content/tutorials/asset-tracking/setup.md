@@ -162,4 +162,10 @@ The Tracker firmware is included on the device from the factory instead of Tinke
 Previously, product firmware needed to have the product ID embedded in the binary. As long as you add the Device ID of your Tracker SoM to the product first, this is no longer necessary. The factory binary can be used with your product without having to recompile.
 
 
+## Map View
+
+One good place to get started is [the map view in the console](/tutorials/device-cloud/console/#map).
+
+![Map View](/assets/images/tracker/map-view.png)
+
 
