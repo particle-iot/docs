@@ -652,7 +652,7 @@ uint32_t ieee11073_from_float(float temperature) {
 
 ### Heart rate central
 
-This example reads a BLE heart rate sensor (chest band). There are many of these, but I tested with [this one from Amazon](https://www.amazon.com/gp/product/B074CVB4W3/ref=ppx_yo_dt_b_asin_title_o07_s00), which cost around US$44.
+This example reads a BLE heart rate sensor (chest band). There are many of these, but I tested with [this one from Amazon](https://www.amazon.com/Wireless-Monitor-Fitness-Tracker-Bluetooth/dp/B07MC8FRLG/ref=sr_1_2), which cost around US$44.
 
 I also used and Adafruit FeatherWing OLED Display 128x32. You can purchase one from the [Particle Store](https://store.particle.io/collections/accessories) or from [Adafruit](https://www.adafruit.com/product/2900). You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).
 
