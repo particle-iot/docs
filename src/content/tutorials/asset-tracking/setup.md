@@ -88,6 +88,8 @@ The standard LED pattern for Tracker One devices is:
 
 ## Create a product
 
+**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
+
 All Asset Tracker devices are intended to be used in a product, not as developer devices. This makes it easy to manage a fleet of asset trackers, allowing per-fleet and per-device configuration settings, and features like fleet mapping. 
 
 It's OK if you're starting out with a single Tracker; you can create a free prototyping level product that only has one device in it. From the [console](https://console.particle.io), click on the **Products** icon (1) then **New Product** (2).
@@ -105,9 +107,13 @@ You will probably also want to opt into the storage of geolocation data. In the 
 
 ## Cloud Setup
 
+**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
+
 These setup steps are intended for setting up a few developer trackers. Fleet setup steps are slightly different and can more easily be automated. For example, when you make a tray order of devices from the wholesale store, you get an email with the serial numbers of the devices.
 
 ### Get the device information
+
+**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
 
 You can set up the device using the serial number on the sticker, it may be easier to just connect the device by USB and use the Particle CLI, which makes it easy to copy and paste instead of typing the serial number.
 
@@ -123,6 +129,8 @@ Your system firmware version is 1.5.3
 
 ### Add device to product
 
+**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
+
 Select your Asset Tracker product and then the **Devices** icon. Click the **Add Devices** then **Add One Device**. Copy and paste the Device ID (24-character hex). You could also type the serial number in this box.
 
 Adding the device to your product will automatically add the SIM card to the product as well.
@@ -130,6 +138,8 @@ Adding the device to your product will automatically add the SIM card to the pro
 If you want to be able to flash the device directly from Workbench, CLI, or the Web IDE, you will want click the **...** button on the right edge of the device list for your device and select **Mark development device**.
 
 ### Claim device
+
+**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
 
 When using fleets of devices, it's not necessary to claim your device to an account. You will want to claim your device if:
 
@@ -162,10 +172,14 @@ The Tracker firmware is included on the device from the factory instead of Tinke
 Previously, product firmware needed to have the product ID embedded in the binary. As long as you add the Device ID of your Tracker SoM to the product first, this is no longer necessary. The factory binary can be used with your product without having to recompile.
 
 
+
+
+
 ## Map View
 
 One good place to get started is [the map view in the console](/tutorials/device-cloud/console/#map).
 
 ![Map View](/assets/images/tracker/map-view.png)
+
 
 

@@ -85,6 +85,26 @@ Jumper **J9** disconnects the charge status LED.
 
 The **3V3** LED indicates that the 3.3V MCU power supply is enabled. Jumper **J8** disconnects the power LED.
 
+### CAN Connector
+
+The four-position screw terminal connector (J4) allows connection to CAN bus devices.
+
+| Pin   | Label   | Description |
+| :---: | :-----: | :--- |
+| 1     | CAN_H   | CAN Bus H or + |
+| 2     | CAN_L   | CAN Bus L or - |
+| 3     | GND     | Ground |
+| 4     | CAN_VCC | 3.3V or 5V |
+
+The CAN bus connection includes the 120 ohm termination resistor and ESD protection.
+
+The CAN_VCC jumper (J5) allows the selection of the voltage on the CAN connector.
+
+- Left position: 3.3V
+- Right position: 5V
+
+The 5V power supply is powered by a boost converter and can be turned on and off by software. 
+
 ### Expansion Connector
 
 | Left Description | Left |  | Right | Right Description |

@@ -519,11 +519,11 @@ GNSS GPIO:
 
 | Name | Description | Location | 
 | :---: | :--- | :---: |
-| GPS_PWR | u-blox GNSS power | IOEX 0.6 | 
-| GPS_INT | u-blox GNSS interrupt | IOEX 0.7 | 
+| GPS_PWR  | u-blox GNSS power | IOEX 0.6 | 
+| GPS_INT  | u-blox GNSS interrupt | IOEX 0.7 | 
 | GPS_BOOT | u-blox GNSS boot mode | IOEX 1.0 | 
-| GPS_RST | u-blox GNSS reset | IOEX 1.1 | 
-
+| GPS_RST  | u-blox GNSS reset | IOEX 1.1 | 
+| GPS_CS   | CAN SPI Chip Select | CS Decoder 4 | 
 
 
 ### CAN Specifications
@@ -553,6 +553,7 @@ CAN GPIO:
 | CAN_RTS0 | CAB RTS0 | IOEX 1.4 |
 | CAN_RTS1 | CAN RTS1 | IOEX 1.2 |
 | CAN_RTS2 | CAN RTS2 | IOEX 1.3 |
+| CAN_CS   | CAN SPI Chip Select | CS Decoder 7 | 
 
 
 CANH, CANL Absolute Maximum Ratings:
@@ -594,7 +595,7 @@ CAN Tranceiver Characteristics
 
 - Bosch Sensortec BMI160
 - SPI Interface connected to SPI1 (MISO1, MOSI1, SCK1) 
-- Chip Select: SEN_CS (connected to SN74LVC138 Y2)
+- Chip Select: SEN_CS (CS Decoder 2)
 - Can wake nRF52 MCU on movement (SEN_INT1)
 
 - 16 bit digital, triaxial accelerometer and triaxial gyroscope
@@ -647,7 +648,7 @@ An external service provider such as the Google Geolocation Service is required 
 - ESP32-D2WD
 - SPI Interface 
 - Connected to SPI1 (MISO1, MOSI1, SCK1) 
-- Chip Select: WIFI_CS (connected to SN74LVC138 Y3)
+- Chip Select: WIFI_CS (CS Decoder 3)
 - Interrupt: ESP32 IO4 is connected to MCP23517T I/0 Expander GPA4.
 
 The SoM connector has several pins dedicated to Wi-Fi:

@@ -13690,6 +13690,15 @@ PRODUCT_VERSION(1); // increment each time you upload to the console
 
 You can find more details about the product ID and how to get yours in the [_Console_ guide.](/tutorials/device-cloud/console#your-product-id)
 
+In Device OS 1.5.3 and later, you can also use a wildcard product ID. In order to take advantage of this feature you must pre-add the device IDs to your product as you cannot use quarantine with a wildcard product ID. Then use:
+
+```cpp
+PRODUCT_ID(PLATFORM_ID);
+PRODUCT_VERSION(1); // increment each time you upload to the console
+```
+
+This will allow the device to join the product it has been added to without hardcoding the product ID into the device firmware. This is used with the Tracker SoM to join the product it is assigned to with the factory firmware and not have to recompile and flash custom firmware. 
+
 ## System Events
 
 {{since when="0.4.9"}}
