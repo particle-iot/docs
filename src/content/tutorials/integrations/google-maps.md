@@ -151,7 +151,7 @@ collect and send network info to successfully fetch its location from
 Google Maps.
 
 
-#### Using Particle Build (Web IDE)
+#### Using the Particle Web IDE
 
 The quickest way to add the Google
 Maps firmware library is to start with the sample firmware application in the Web
@@ -311,9 +311,9 @@ This will flash the firmware to your electron locally (over USB) to
 prevent consuming data from over-the-air firmware updates.
 
 
-### Using Particle Build (Web IDE)
+### Using the Particle Web IDE
 
-If you want to use the examples in Particle Build (Web IDE), you need to copy and paste the example source into a new project and then add each of the libraries that it needs.
+If you want to use the examples in the Particle Web IDE, you need to copy and paste the example source into a new project and then add each of the libraries that it needs.
 
 For example, the oled-locator project has this project.properties.
 

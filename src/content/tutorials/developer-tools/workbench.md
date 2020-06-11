@@ -668,7 +668,7 @@ Shows who you are logged in as. A small popup window will display in the lower r
 
 {{!-- See ch25559 --}}
 
-### From Particle Web IDE (Build)
+### From the Particle Web IDE
 
 One big change from the Web IDE is the lack of the icon bar on the left. Most replacements are available from the Command Palette (`cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows).
 
