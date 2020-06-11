@@ -51,7 +51,18 @@ At the bottom, there are four more buttons to navigate through the IDE:
 Keyboard Shortcuts
 ---
 
-Missing your keyboard shortcuts? [This cheatsheet will help.](https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts)
+Here are the most useful keyboard shortcuts for the Web IDE.
+
+| Windows/Linux | Mac | Action |
+| --:|--:|--:|
+| Ctrl-F | Command-F | Find
+| Ctrl-K | Command-G | Find next
+| Ctrl-L | Command-L | Go to line
+| Ctrl-Z | Command-Z | Undo
+| Ctrl-Shift-Z | Command-Shift-Z | Redo
+| Ctrl-/ | Command-/ | Comment/uncomment selected lines
+
+Want to know all the keyboard shortcuts? [This cheatsheet will help.](https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts)
 
 Particle Apps and Libraries
 ---
