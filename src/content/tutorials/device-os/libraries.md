@@ -232,7 +232,7 @@ Thank you!
 
 On January 23, 2017, Particle introduced a new version of our firmware library manager, requiring that libraries be migrated from the old library structure (v1) to our new library structure (v2).
 
-With our original firmware library manager, libraries could only be contributed and consumed through our Web IDE (Build). We’ve now upgraded the library manager behind the Web IDE, and made those libraries accessible in Particle Workbench and the Particle CLI.
+With our original firmware library manager, libraries could only be contributed and consumed through our Web IDE. We’ve now upgraded the library manager behind the Web IDE, and made those libraries accessible in Particle Workbench and the Particle CLI.
 
 Libraries under the new library format have the following features:
 

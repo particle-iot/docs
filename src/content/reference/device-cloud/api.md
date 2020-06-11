@@ -140,7 +140,7 @@ curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55 \
 ## OAuth Clients
 
 An OAuth client generally represents an app.
-The Particle CLI is a client, as are Particle Build, the Particle iOS app, and
+The Particle CLI is a client, as are the Particle Web IDE, the Particle iOS app, and
 the Particle Android app. You too can create your own clients.
 You should create separate clients for each of your web and mobile apps that hit
 the Particle API.

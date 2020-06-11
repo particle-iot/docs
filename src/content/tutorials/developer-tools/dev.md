@@ -49,7 +49,7 @@ To show the palette press `Command`+`Shift`+`P` keys together on a Mac or `Contr
 
 **Tip**: you can change toolbar's position in settings.
 
-There's also a toolbar on left side of IDE which contains shortcuts to the most frequently used commands like compiling and flashing (looks a lot like the one from [Web IDE (Build)](https://build.particle.io/), doesn't it?).
+There's also a toolbar on left side of IDE which contains shortcuts to the most frequently used commands like compiling and flashing (looks a lot like the one from the [Web IDE](https://build.particle.io/), doesn't it?).
 
 ### Logging In
 
@@ -153,7 +153,7 @@ Particle libraries are hosted on GitHub, and can be easily accessed through thro
 
 To include a firmware library in your Particle project, open the library drawer in the Desktop IDE, search for the corresponding library for your sensor or actuator, click the `Use` button, then select `Add to current project`. Adding a library in your project will add the library dependency to the `project.properties` file that will be compiled with your project when it is verified or flashed to your target device.
 
-Read on for detailed instructions to include a firmware library in your Particle application with Build.
+Read on for detailed instructions to include a firmware library in your Particle application with the Web IDE.
 
 We have [a detailed reference guide about libraries](/tutorials/device-os/libraries/) but for now here's a step by step guide on how to include a library in our Desktop IDE.
 

@@ -1,5 +1,5 @@
 ---
-title: Web IDE (Build)
+title: Web IDE
 layout: tutorials.hbs
 columns: two
 redirects: true
@@ -7,32 +7,32 @@ order: 30
 description: Web-based IDE for programming your Particle IoT devices
 ---
 
-Flash Apps with Particle Build
+Flash Apps with the Particle Web IDE
 ===
 
 Logging In
 ---
 
-![Particle Build](/assets/images/ide-new-account.png)
+![Particle Web IDE](/assets/images/ide-new-account.png)
 
 When you're ready to reprogram your device, head over to our IDE:
 
-[Particle Build >](https://build.particle.io)
+[Particle Web IDE >](https://build.particle.io)
 
 Creating an account is a simple one-step process.  When presented with the login screen, click the "create account" text and fill out the form including your email address (careful!) and desired account password. That's it!
 
-![Particle Build](/assets/images/ide-login.png)
+![Particle Web IDE](/assets/images/ide-login.png)
 
-If you haven't logged into Particle Build before, click the "create account" text beneath the Log In button, and you'll be presented with a signup for existing users.  
+If you haven't logged into the Particle Web IDE before, click the "create account" text beneath the Log In button, and you'll be presented with a signup for existing users.  
 
 Web IDE
 ---
 
-![Particle Build](/assets/images/ide-main.png)
+![Particle Web IDE](/assets/images/ide-main.png)
 
-Particle Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
+The Particle Web IDE is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
 
-Particle Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
+The Particle Web IDE starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
 
 - **Flash**: Flashes the current code to the device. This initiates an *over-the-air firmware update* and loads the new software onto your device. **Note: Flashing OTA for the cellular devices uses data and should consider using flash over USB instead.**
 - **Verify**: This compiles your code without actually flashing it to the device; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
@@ -56,9 +56,9 @@ Missing your keyboard shortcuts? [This cheatsheet will help.](https://github.com
 Particle Apps and Libraries
 ---
 
-![Particle Build](/assets/images/ide-apps.png)
+![Particle Web IDE](/assets/images/ide-apps.png)
 
-The heart of Particle Build is the "Particle Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
+The heart of the Particle Web IDE is the "Particle Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
 
 The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this empty application has only one file, but firmware with associated libraries/multiple files are fully supported.
 
@@ -69,7 +69,7 @@ From this pane, you've got a lot of buttons and actions available to you that ca
 - **Delete**: Click the "Remove App" button to remove it forever from your Particle library.
 
 - **Rename**: You can rename your Particle App by simply double-clicking on the title of your app under the "Current App" header.  You can modify the "Optional description" field in the same way.
-- **My Apps**: Tired of working on your current project?  Select the name of another app under the "My apps" header to open it in a tab of the Particle Build editor.
+- **My Apps**: Tired of working on your current project?  Select the name of another app under the "My apps" header to open it in a tab of the Particle Web IDE editor.
 
 - **Files**: This header lists all known files associated with the open application.  Click on a supporting file in your application to open it as an active tab in the editor.
 
@@ -81,7 +81,7 @@ Flashing Your First App
 
 The best way to get started with the IDE is to start writing code:
 
-- **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
+- **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Web IDE editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Web IDE.
 
 **NOTE**: Each over *over-the-air firmware update* on cellular devices counts towards your data allowance. You can also flash the devices locally [using our CLI](/reference/developer-tools/cli/#compiling-remotely-and-flashing-locally) over USB.
 
@@ -101,7 +101,7 @@ void loop() {
 }
 ```
 
-![Particle Build](/assets/images/enew-ide.png)
+![Particle Web IDE](/assets/images/enew-ide.png)
 
 
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
@@ -118,7 +118,7 @@ void loop() {
 
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
 
-![Particle Build](/assets/images/ide-examples.png)
+![Particle Web IDE](/assets/images/ide-examples.png)
 
 - **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your devices.
 
@@ -129,7 +129,7 @@ Adding files to your app
 
 As your code base grows, you will naturally create libraries to better manage your firmware development. To add a file to your app, simply hit the "+" button located at the top right hand corner.
 
-![Particle Build](/assets/images/ide-add-files.png)
+![Particle Web IDE](/assets/images/ide-add-files.png)
 
 This will create two new tabs, one with `.h` and one with `.cpp` extension. You can read more about why we need both in [this C++ tutorial](http://www.learncpp.com/cpp-tutorial/19-header-files/).
 
@@ -153,9 +153,9 @@ When viewing a shared app you can either flash it to any of your devices or copy
 Account Information
 ---
 
-There are a couple of other neat bells and whistles in Particle Build.  The Particle Build IDE the best tool for viewing important information about your device, managing devices associated with your Particle account, and "unclaiming" them so they can be transferred to your friend.
+There are a couple of other neat bells and whistles in the Particle Web IDE.  The Particle Web IDE the best tool for viewing important information about your device, managing devices associated with your Particle account, and "unclaiming" them so they can be transferred to your friend.
 
-![Particle Build](/assets/images/ide-account.png)
+![Particle Web IDE](/assets/images/ide-account.png)
 
 - **Device ID**: You can view your device's ID by clicking on the "Device" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the device of interest.
 
@@ -163,7 +163,7 @@ There are a couple of other neat bells and whistles in Particle Build.  The Part
 
 Unclaiming a cellular device removes it from your account, but does not stop billing. As the claiming status and SIM are separate, you must also pause or release ownership of your SIM from the [console](https://console.particle.io) to stop billing.
 
-![Particle Build](/assets/images/ide-settings.png)
+![Particle Web IDE](/assets/images/ide-settings.png)
 
 
 Using Libraries
@@ -177,12 +177,12 @@ Particle libraries are hosted on GitHub, and can be easily accessed through thro
 
 To include a firmware library in your Particle project, open the library drawer, search for the corresponding library for your sensor or actuator, and click the `Include in Project` button. Including a library in your project will add the library dependency to the `project.properties` file that will be compiled with your project when it is verified or flashed to your target device.
 
-Read on for detailed instructions to include a firmware library in your Particle application with Build.
+Read on for detailed instructions to include a firmware library in your Particle application with the Web IDE.
 
 We have [a detailed reference guide about libraries](/tutorials/device-os/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
 
 ##### Step 1 - Go to the Libraries tab
-Click on the libraries bookmark icon on the left hand side of the Build interface.
+Click on the libraries bookmark icon on the left hand side of the Web IDE interface.
 
 ![Bookmark icon](/assets/images/libraries-guide-bookmarkicon.png)
 
@@ -276,7 +276,7 @@ Troubleshooting
 
 ![Clear cache](/assets/images/ide-clear-cache.png)
 
-Particle Build uses a local cache to improve its performance. In some cases this may cause errors or outdated information about libraries. If you encounter similar symptoms try clearing the cache by going to **Settings** and clicking **Clear cache** button.
+The Particle Web IDE uses a local cache to improve its performance. In some cases this may cause errors or outdated information about libraries. If you encounter similar symptoms try clearing the cache by going to **Settings** and clicking **Clear cache** button.
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
