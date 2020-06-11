@@ -61,11 +61,11 @@ To build this circuit, you'll need the following items:
 
   ![](/assets/images/workshops/photon-maker-kit/02/login.png)
 
-2.  Once you log-in, you may be directed to the Particle home page. If so, [click here to navigate](https://build.particle.io) back to Particle Build.
+2.  Once you log-in, you may be directed to the Particle home page. If so, [click here to navigate](https://build.particle.io) back to the Particle Web IDE.
 
   ![](/assets/images/workshops/photon-maker-kit/02/particle-home.png)
 
-3.  When navigating to the Web IDE (Build), the first thing you'll see is an empty editor window for a new project and a prompt to give that project a name.
+3.  When navigating to the Web IDE, the first thing you'll see is an empty editor window for a new project and a prompt to give that project a name.
 
   ![](/assets/images/workshops/photon-maker-kit/02/newproject.png)
 
@@ -93,7 +93,7 @@ The bulk of your program, from state management, handling user input, reading fr
 
 ## Install the Onewire library
 
-1. Before reading from the temp sensors, we need to install the onewire library. In the Build IDE, you can work with libraries by clicking on the icon that looks like a bookmark.
+1. Before reading from the temp sensors, we need to install the onewire library. In the Web IDE, you can work with libraries by clicking on the icon that looks like a bookmark.
 
   ![](/assets/images/workshops/photon-maker-kit/02/06-libraries-tab.png)
 

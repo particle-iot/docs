@@ -71,7 +71,7 @@ Note: To operate effectively, the dust sensor must be placed in a vertical orien
 
 ## Creating a new project
 
-Now, let’s create a new project for the application firmware. The steps below assume you’re using Particle Workbench, though you can do all of the following using Particle Build.
+Now, let’s create a new project for the application firmware. The steps below assume you’re using Particle Workbench, though you can do all of the following using the Particle Web IDE.
 
 1. Open Particle Workbench. 
 

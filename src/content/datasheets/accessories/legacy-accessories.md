@@ -633,7 +633,7 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C.
 
 **Sample code**
-- [Adafruit SSD1306 in the Particle Build Library](https://build.particle.io/libs/5397d8d028979ed3cc000731)
+- [Adafruit SSD1306 in the Particle Web IDE Library](https://build.particle.io/libs/5397d8d028979ed3cc000731)
 - https://github.com/pkourany/Adafruit_SSD1306
 
 **Specifications:**
@@ -722,7 +722,7 @@ The shield also has an on-board accelerometer, the LIS3DH. It's extremely low po
 The waterproof box includes two M4 screws for mounting the shield securely into the box. Screw the shield down in the enclosure, then plug the Electron into the shield with the USB connector facing inward. You can also look at the silkscreen Electron outline on the board for the correct orientation. The battery and antenna can be fixed in the box using the foam adhesive tape if you want to keep them from moving around.
 
 ### Asset tracker library
-We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.5/tab/example/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
+We've put together a great library for you to start building from! If you're already logged into the Web IDE then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.5/tab/example/1_GPS_Features.cpp) and you can always open the "Libraries" view in the Web IDE, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:
 1. __GPS Features__ - How to use the GPS efficiently, and some nice Electron functions
@@ -822,7 +822,7 @@ You can choose to mount the asset tracker board inside the provided enclosure as
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-enclosure.png)
 
 ### Electron Asset Tracker Library
-We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.10/tab/example/1_GPS_Features.ino) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
+We've put together a great library for you to start building from! If you're already logged into the Web IDE then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.10/tab/example/1_GPS_Features.ino) and you can always open the "Libraries" view in the Web IDE, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:
 

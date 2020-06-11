@@ -84,7 +84,7 @@ The last step is getting your Particle device to publish the `temp` event with s
 
 ### Webhook firmware
 
-To get started, go to [Particle Build](https://build.particle.io). Create a new app called "TempWebhook."
+To get started, go to the [Particle Web IDE](https://build.particle.io). Create a new app called "TempWebhook."
 
 Copy/paste the following into your application's code:
 
