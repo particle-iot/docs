@@ -16058,7 +16058,7 @@ You can find a complete list of platforms in [the source](https://github.com/par
 
 ## Arduino Compatibility
 
-All versions of Particle firmware to date have supported parts of the [Arduino API](https://www.arduino.cc/en/Reference/HomePage), such as `digitalRead`, `Serial` and `String`.
+All versions of Particle firmware to date have supported parts of the [Arduino API](https://www.arduino.cc/reference/en), such as `digitalRead`, `Serial` and `String`.
 
 From 0.6.2 onwards, the firmware API will continue to provide increasing levels of support for new Arduino APIs to make
 porting applications and libraries as straightforward as possible.
