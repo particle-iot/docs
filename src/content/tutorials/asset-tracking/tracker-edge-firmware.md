@@ -95,73 +95,86 @@ This doesn't look like much, but a lot of stuff happens behind the scenes and is
 
 Digging into this:
 
-
-**TODO: Additional Content **
-
-
-## Adding to the location event
+These are some standard Tracker include files that you will likely need:
 
 ```cpp
-
 #include "Particle.h"
 
+#include "asset_tracker_config.h"
 #include "tracker_core.h"
+```
 
+This is the recommended [threading](/reference/device-os/firmware/tracker-som/#system-thread) and [system mode](/reference/device-os/firmware/tracker-som/#system-modes) to use. 
+
+```cpp
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
+```
 
+Since all Tracker devices must belong to a product, you should set the product ID and version. You can either set the product ID to `AT_PRODUCT_ID` which means use the product that the device has been added to, or you can set the product ID to your actual product ID value. The version is arbitrary, though it should be sequential and can only have value from 1 to 65535.
+
+```cpp
 PRODUCT_ID(AT_PRODUCT_ID);
 PRODUCT_VERSION(AT_PRODUCT_VERSION);
+```
 
+This block is optional, but sets the logging level. It's sets it to TRACE by default, but sets a lower level of INFO for Device OS and tracker internal messages.
+
+```cpp
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
     { "app.tinygps++", LOG_LEVEL_INFO },
     { "app.ubloxgps",  LOG_LEVEL_INFO },
     { "ncp.at", LOG_LEVEL_INFO },
     { "net.ppp.client", LOG_LEVEL_INFO },
 });
+```
 
-// hook into the tracker application
+You must declare a `TrackerCore` object in your main source file. The definition is in the tracker_core.h file. Typically you make it a global variable.
+
+```cpp
 TrackerCore tracker;
+```
 
-// button stuff
-int32_t clicks_for_publish = 1;
-int button_triggers = 0;
+Setup calls `tracker.init()`. This is required! Since the sample uses `SYSTEM_MODE(SEMI_AUTOMATIC)` you should call `Particle.connect()` at the end of `setup()`.
 
-// a callback to add custom fields to output location publishes
-void loc_gen_cb(JSONWriter &writer, LocationPoint &point, const void *context)
-{
-    writer.name("button_triggers").value(button_triggers);
-}
+You can add your own code to `setup()` as well.
 
-// a callback for the system MODE button
-// WARNING - 2 clicks is defined in Device-OS as a soft power-off...
-void button_clicked(system_event_t event, int param)
-{
-    if(system_button_clicks(param) == clicks_for_publish)
-    {
-        button_triggers++;
-        tracker.location.triggerLocPub(true);
-    }
-}
-
+```
 void setup()
 {
     tracker.init();
 
-    tracker.location.regLocGenCallback(loc_gen_cb);
+    Particle.connect();
+}
+```
 
-    // WARNING - ConfigObject initialization will allocate dynamic memory and
-    // is not appropriate to perform in global scope. Should be local static or
-    // allocated at runtime.
-    static ConfigObject button_pub_desc(
-        "button_pub",
-        {
-            ConfigInt("clicks_for_publish", &clicks_for_publish, 0, 10),
-        }
-    );
-    tracker.configService.registerModule(button_pub_desc);
+The `loop()` function must always call `tracker.loop()`. You should do this on every loop.
 
-    System.on(button_click, button_clicked);
+You can add your own code to loop, however you should avoid using `delay()` or other functions that block. If you would like to publish your own events (separate from the location events), you can use the Tracker cloud service to publish safely without blocking the loop.
+
+```cpp
+void loop()
+{
+    tracker.loop();
+}
+```
+
+
+
+## Adding to the location event
+
+It's easy to add additional data to the location event. For example, if you wanted to include the speed in the location event, along with the GNSS position information, you could modify the sample above to be like this (beginning lines omitted in the code below but are still required):
+
+
+```cpp
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+
+TrackerCore tracker;
+
+void setup()
+{
+    tracker.init();
+    tracker.location.regLocGenCallback(locationGenerationCallback);
 
     Particle.connect();
 }
@@ -170,9 +183,74 @@ void loop()
 {
     tracker.loop();
 }
+
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+{
+    writer.name("speed").value(point.speed, 2);
+}
+
 ```
+
+Note the additions:
+
+- Calls `tracker.location.regLocGenCallback()` to register a location generation callback in `setup()`.
+- Adds a new function `locationGenerationCallback()`.
+- In the function adds a value to the loc object using the [JSON Writer API](/reference/device-os/firmware/tracker-som/#jsonwriter).
+
+If you look at the location event, you can see the new field for `speed` (in meters/second):
+
+```json
+{
+    "cmd":"loc"
+    "time":1592486562
+    "loc":{
+        "lck":1
+        "time":1592486563
+        "lat":42.469732
+        "lon":-75.064801
+        "alt":321.16
+        "hd":122.29
+        "h_acc":6.7
+        "v_acc":12
+        "speed":0.05
+    }
+    "trig":[
+        "time"
+    ]
+    "req_id":4
+}
+```
+
+You can add more than one value, and you can also add JSON objects and arrays.
+
+Initially this will not be shown in the map view, but is a possible future enhancement. It is stored, even though it's not visible on the map.
+
+To check the latest data on a device, you can query the Cloud API using the curl command. In order to do this you will need:
+
+- Your product ID. Replace `1234` in the command below with your product ID.
+- A product access token. Replace `903a7ab752f2dcf8ed8ffffffffffff24b467131` in the command below with your access token (see below). 
+- The device ID you want to query. Replace `e00fce68ffffffffff46f6` in the command below with the device ID (24-character hex).
+
+```bash
+curl "https://api.particle.io/v1/products/1234/locations/e00fce68ffffffffff46f6?access_token=903a7ab752f2dcf8ed8ffffffffffff24b467131"
+```
+
+This should return something like this. Note the addition of the `speed` data from our custom location event callback.
+
+```json
+{"location":{"device_id":"e00fce68ffffffffff46f6","geometry":{"type":"Point","coordinates":[-75.064801,42.469732,337.16]},"product_id":9754,"last_heard":"2020-06-18T14:04:43.000Z","gps_lock":true,"timestamps":["2020-06-18T14:04:43.000Z"],"properties":[{"hd":214.36,"h_acc":4.3,"v_acc":10,"speed":0.04}],"device_name":"Test-TrackerOne","groups":[]},"meta":{}}
+```
+
+One easy way to get a temporary access token is to:
+
+- Open the [console](https://console.particle.io).
+- Open your Tracker product.
+- Click on **Devices**.
+- Open your device.
+- In the **Events** tab, click on **View events from a terminal** (it's a button).
+- Copy and paste the access token from the end of the command that is displayed.
+- This token is invalidated when your close the console.
+
 
 
 **TODO: Additional Content **
-
-
