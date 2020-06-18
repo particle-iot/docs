@@ -48,8 +48,11 @@ The Electron comes in three different versions with different u-blox cellular mo
 * 3G for Europe, Asia, and Africa
 * 2G for global coverage
 {{box op="end"}}
+
 * u-blox SARA U-series (for 3G Electron versions)
 * u-blox SARA G-series (for 2G Electron versions)
+* For availability in specific countries, see the [cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/)
+
 
 ### General specification:
 * 36 pins total:
@@ -80,11 +83,6 @@ Device Cloud Features:
 
 - Integrations
 
-
-### Country compatibility:
-* North America
-* South America
-* Australia
 
 
 
