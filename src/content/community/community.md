@@ -56,19 +56,3 @@ library it needs. Code level is Java-8. It should be trivial to use Java-7 or lo
 ## Xamarin
 
 * [Particle Xamarin Cloud SDK](https://github.com/michael-watson/particle-xamarin) - Enables Xamarin mobile apps apps to interact with Particle-powered connected products.
-
-# Community Supported Tools
-
-Note that these tools have not been tested by
-Particle. If you develop an open-source tool that you would
-like to add to this page, please submit a pull request.
-
-## po-util
-
-* [po-util is tool created by Nathan Robinson to provide a local development workflow for Linux and macOS](https://nrobinson2000.github.io/po-util/).  It can be downloaded on macOS using [Homebrew](http://brew.sh/).
-
-```sh
-$ brew tap nrobinson2000/po
-$ brew install po
-$ po install
-```
