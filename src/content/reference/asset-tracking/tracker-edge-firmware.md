@@ -180,7 +180,6 @@ Since the Tracker One has a LiPo battery inside the case, and the case is screwe
 You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `tracking.shipping.enter();` to enter shipping mode locally.
 
 
-
 ### configService - TrackerCore
 
 ```
@@ -219,6 +218,23 @@ TrackerCoreRGB rgb;
 ```
 
 Use this to access the `TrackerCoreRGB` object. You will rarely need to do this because the RGB LED mode is normally controlled by the configuration service from the cloud. For example, the RGB LED can be set to Particle mode (breathing cyan, for example), or the Tracker mode (RGB LED shows cellular signal strength) but this setting is normally made from a configuration in the console, not from user firmware.
+
+## Tracker Functions
+
+There are also global functions available.
+
+### getTemperature()
+
+```cpp
+// INCLUDE
+#include "tracker_core.h"
+
+// PROTOTYPE
+float get_temperature();
+```
+
+On the Tracker One, returns the temperature using the thermistor on the Tracker Carrier board. Value is a floating point number in degrees Celsius.
+
 
 ## CloudService
 
@@ -302,6 +318,7 @@ enum CloudServiceStatus {
 };
 ```
 
+
 ## LocationService
 
 The `LocationService` is initialized by `TrackerCore` so you don't need to set it up, but you may want use it to find the GNSS information such as fix status and the most recent location data from user firmware.
@@ -334,16 +351,16 @@ struct LocationPoint {
 
 | Type | Field | Description |
 | :--- | :--- | :--- |
-| int | locked | Indication of GNSS locked status (1=lock/fix obtained) |
-| time_t | epochTime | Epoch time from device sources | 
-| LocationTimescale | timeScale | Epoch timescale |
-| float | latitude | Point latitude in degrees |
-| float | longitude | Point longitude in degrees |
-| float | altitude | Point altitude in meters |
-| float | speed | Point speed in meters per second |
-| float | heading | Point heading in degrees |
-| float | horizontalAccuracy | Point horizontal accuracy in meters |
-| float | verticalAccuracy | Point vertical accuracy in meters |
+| `int` | `locked` | Indication of GNSS locked status (1=lock/fix obtained) |
+| `time_t` | `epochTime` | Epoch time from device sources | 
+| `LocationTimescale` | `timeScale` | Epoch timescale |
+| `float` | `latitude` | Point latitude in degrees |
+| `float` | `longitude` | Point longitude in degrees |
+| `float` | `altitude` | Point altitude in meters |
+| `float` | `speed` | Point speed in meters per second |
+| `float` | `heading` | Point heading in degrees |
+| `float` | `horizontalAccuracy` | Point horizontal accuracy in meters |
+| `float` | `verticalAccuracy` | Point vertical accuracy in meters |
 
 
 ### LocationTimescale - LocationService 
@@ -367,12 +384,12 @@ if (locationPoint.timeScale == LocationTimescale::TIMESCALE_GPS) {
 
 | Enumeration | Description |
 | :--- | :--- | 
-| TIMESCALE_UTC | Coordinated Universal Time |
-| TIMESCALE_TAI | International Atomic Time |
-| TIMESCALE_GPS | Global Positioning System (United States) |
-| TIMESCALE_GLOSNASS | Global Navigation System (Russia) |
-| TIMESCALE_GS | Galileo System (European Union) |
-| TIMESCALE_BD | BeiDou (China) |
+| `TIMESCALE_UTC` | Coordinated Universal Time |
+| `TIMESCALE_TAI` | International Atomic Time |
+| `TIMESCALE_GPS` | Global Positioning System (United States) |
+| `TIMESCALE_GLOSNASS` | Global Navigation System (Russia) |
+| `TIMESCALE_GS` | Galileo System (European Union) |
+| `TIMESCALE_BD` | BeiDou (China) |
 
 
 ### getStatus() - LocationService 
@@ -397,12 +414,13 @@ struct LocationStatus {
     int powered;
     int locked; 
 };
-
 ```
 
 The `LocationStatus` struct is filled in by [`getStatus()`](/reference/asset-tracking/tracker-edge-firmware/#getstatus-locationservice). It has two fields that contain boolean values (0 = false, 1 = true):
 
-- `powered` The GNSS has power turned on
-- `locked` The GNSS has lock or fix on location
+| Field | Description |
+| :--- | :--- |
+| `powered` | The GNSS has power turned on (1) or off (0) |
+| `locked` | The GNSS has lock or fix (1) or not (0) | 
 
 
