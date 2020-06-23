@@ -53,7 +53,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Cellular network coprocessor:
 
-**u-blox SARA celluar modem**
+**u-blox SARA cellular modem**
 
 - LTE Cat M1 module with global hardware support (MVNO support for US, Canada, and Mexico only)
 - 2G/3G support world-wide
