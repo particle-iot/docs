@@ -71,7 +71,11 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 7      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
 | 8      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
 
-This connector attaches to the IP67 M8 connector, accessible from the outside of the enclosure. The connector on the Tracker One enclosure has male pins and a barrel threaded on the outside.
+The IP67 M8, 8-pin, male pins with threaded barrel connector is accessible from the outside of the enclosure. 
+
+![M8 connector](/assets/images/at-som/M8-connector.png)
+
+View as looking into the M8 connector on the outside of the enclosure.
 
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
@@ -80,8 +84,6 @@ This connector attaches to the IP67 M8 connector, accessible from the outside of
 <sup>3</sup>4.5 to 30 VDC when using the M8 connector. 4.5 - 105 VDC when connecting directly to the board.
 
 <sup>4</sup>5V, 500 mA maximum. Controlled by the CAN_PWR GPIO.
-
-![M8 connector](/assets/images/at-som/M8-connector.png)
 
 The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
 
@@ -102,7 +104,7 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 
 There are several options for powering the carrier board:
 
-The **MCU USB** connector (USB-C). If using a laptop with a USB-A to USB-C cable and a 500 mA USB port, you should also use the LiPo battery. With an true USB-C port and table, or a 2A tablet charger, you can power only by USB.
+The **MCU USB** connector (USB-C). If using a laptop with a USB-A to USB-C cable and a 500 mA USB port, you should also use the LiPo battery. With an true USB-C port and cable, or a 2A tablet charger, you can power only by USB.
 
 The **VIN** connector (5-30 VDC). This is useful with an external power supply. VIN is also available on the M8 connector.
 
@@ -143,15 +145,21 @@ The **GNSS** LED indicates the GNSS fix status:
 - On: Has a GNSS fix.
 
 
-## Basic Setup
-
-Will be provided at a later date.
-
-## Evaluation Board Schematics
+## Tracker One Schematics
 
 Will be provided at a later date.
 
 ---
+
+## Peripheral Details
+
+### Thermistor
+
+The Tracker Carrier Board contains a 100K NTC thermistor, connected to A0. It is a [Panasonic ERT-J1VR104FM](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERT-J1VR104FM/P122067CT-ND/7069667) connected high-side.
+
+![Thermistor](/assets/images/at-som/thermistor.png)
+
+It can be read using the [getTemperature()](/reference/asset-tracking/tracker-edge-firmware/#gettemperature-) API.
 
 ## Mechanical specifications
 
@@ -160,13 +168,26 @@ Will be provided at a later date.
 | Parameter                        | Value | Units |
 | :------------------------------- | ----: | :---- |
 | Width                            |    88 | mm    |
-| Length (case only)               |   145 | mm    |
+| Length (case only)               |   146 | mm    |
 | Length (including M8 connector)  |   154 | mm    |
-| Thickness                        |    36 | mm    |
+| Thickness                        |    33 | mm    |
 | Weight                           |       | g     |
 
 Weight will be provided at a later date.
 
+Case Dimensions (mm):
+
+![Case Dimensions](/assets/images/at-som/tracker-one-case-dimensions.png)
+
+Bottom:
+
+![Case Bottom](/assets/images/at-som/tracker-one-case-bottom.png)
+
+Maximum Carrier Board Dimensions (mm):
+
+![Carrier Board Dimensions](/assets/images/at-som/tracker-carrier-dimensions.png)
+
+Note: The Tracker Carrier Board has a smaller bottom tab to provide space for the M8 connector.
 
 ## Ordering Information
 

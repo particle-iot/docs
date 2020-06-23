@@ -18,4 +18,5 @@ There are other CAN-based protocols like [CANopen](https://en.wikipedia.org/wiki
 
 This tutorial shows how to use the CAN Bus feature of the Tracker SoM and integrate the data with your location publishing. In particular this example records the engine RPM (revolutions per minute) along with location information from the GNSS (GPS).
 
+**TODO: Content**
 
