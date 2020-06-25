@@ -8,7 +8,9 @@ description: Introduction to Particle Asset Tracking Solutions
 
 # Introduction to Asset Tracking
 
-The Particle Asset Tracking System is a customizable hardware, firmware, and cloud-based system with GNSS (GPS) and cellular connectivity.
+## Tracking System
+
+The Particle Asset Tracking System is an integrated, customizable, hardware, firmware, and cloud-based system with GNSS (GPS) and cellular connectivity.
 
 ### Hardware
 
@@ -18,7 +20,7 @@ The [Tracker One](/datasheets/asset-tracking/tracker-one/) is a complete system 
 
 The [Tracker SoM](/datasheets/asset-tracking/tracker-som-datasheet/) system-on-a-module is inside the Tracker One, but can also be purchased separately so you can reflow solder it to your own custom base board for the ultimate in flexibility.
 
-![SoM](/assets/images/at-som/at-som-bg96.png)
+![SoM](/assets/images/t523-som.svg)
 
 Features include:
 
@@ -56,7 +58,7 @@ One difference from other Particle devices is that the Tracker One firmware can 
 - Tracker One hardware is designed to be used without modification. It's fully assembled and ready to go.
 - Tracker Edge firmware on Tracker One can be used without modification. You can use the firmware off-the-shelf and customize it from the Particle console, with no writing of device firmware necessary at all.
 
-### Semi-custom firmware
+### Semi-custom Firmware
 
 - You can use the Particle Edge reference firmware as a base and add your own code to extend it quickly and easily.
 - Designed to make it easy to upgrade the base firmware while keeping your customizations in place.
@@ -73,6 +75,42 @@ One difference from other Particle devices is that the Tracker One firmware can 
 - Reflow solder the Tracker SoM onto your own custom base board with the features you need for your product.
 - Design your board and enclosure together to fit your needs.
 - Best option if you need external antennas for both cellular and GNSS.
+
+## Find Out More
+
+![Docs Menu](/assets/images/docs-menu.png)
+
+Most of the documentation can be found in the [Tutorials](/tutorials/asset-tracking/introduction/), [Reference](/reference/asset-tracking/tracker-edge-firmware/), and [Datasheets](/datasheets/asset-tracking/tracker-som-datasheet/) sections.
+
+### Tutorials
+
+- [Setup guide](/tutorials/asset-tracking/setup/) 
+- [Introduction to Tracker Edge firmware](/tutorials/asset-tracking/tracker-edge-firmware/)
+- [Expanding the Tracker One](/tutorials/asset-tracking/tracker-one-expansion/) using the external M8 connector
+- [Introduction to CAN Bus](/tutorials/asset-tracking/can-bus/)
+
+Want to add temperature, pressure, and humidity data to your location publishes using the Tracker Evaluation Board? Check out this example of using a BME280 temperature, pressure, and humidity sensor connected by I2C to [add data to location publishes](/tutorials/asset-tracking/tracker-one-expansion/#i2c-expansion-example).
+
+
+### Reference
+
+- The [Device OS Firmware API](/reference/device-os/firmware/tracker-som/) reference includes information specific to the Tracker SoM, such as the difference in [GPIO](/reference/device-os/firmware/tracker-som/#input-output). The new [POSIX Filesystem](/reference/device-os/firmware/tracker-som/#file-system) is documented there as well.
+- The **Cloud API Reference** includes information about [Tracking events](/reference/device-cloud/api/#asset-tracking-events) as well as a reference for the [Tracker Cloud API](/reference/device-cloud/api/#asset-tracking).
+- The [Tracker Edge Firmware Reference](/reference/asset-tracking/tracker-edge-firmware/) describes the Tracker Edge reference firmware API used to write device firmware. It allows for customizing the on-device code to access custom sensors and run your own code on the device.
+- The [Pin Info](/reference/hardware/pin-info/?m=table&sort=num) page includes more information on the available pins on the Tracker SoM.
+
+### Datasheets
+
+Here you'll find detailed technical specifications for the:
+
+- [Tracker SoM](/datasheets/asset-tracking/tracker-som-datasheet/)
+- [Tracker SoM Evaluation Board](/datasheets/asset-tracking/tracker-som-eval-board/), for getting started with the Tracker SoM
+- [Tracker One](/datasheets/asset-tracking/tracker-one/), ready-to-go and fully assembled with an IP67-rated enclosure
+
+### Support
+
+
+
 
 ## Models
 
