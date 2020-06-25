@@ -84,13 +84,21 @@ Most of the documentation can be found in the [Tutorials](/tutorials/asset-track
 
 ### Tutorials
 
+In the **Asset Tracking** section in Tutorials:
+
 - [Setup guide](/tutorials/asset-tracking/setup/) 
 - [Introduction to Tracker Edge firmware](/tutorials/asset-tracking/tracker-edge-firmware/)
+- [Evaluation Board Tutorials](/tutorials/asset-tracking/tracker-eval-tutorials/) 
 - [Expanding the Tracker One](/tutorials/asset-tracking/tracker-one-expansion/) using the external M8 connector
 - [Introduction to CAN Bus](/tutorials/asset-tracking/can-bus/)
 
-Want to add temperature, pressure, and humidity data to your location publishes using the Tracker Evaluation Board? Check out this example of using a BME280 temperature, pressure, and humidity sensor connected by I2C to [add data to location publishes](/tutorials/asset-tracking/tracker-one-expansion/#i2c-expansion-example).
+Want to add temperature, pressure, and humidity data to your location publishes using the Tracker Evaluation Board? Check out this example of using a BME280 temperature, pressure, and humidity sensor connected by I2C to [add data to location publishes](/tutorials/asset-tracking/tracker-eval-tutorials/#i2c-expansion-example).
 
+
+And other tutorial resources:
+
+- The map view and settings are described in the [Console Documentation](/tutorials/device-cloud/console/#asset-tracker-features).
+- Cellular carriers for the Tracker SoM can be found in the [Carrier List](/tutorials/cellular-connectivity/cellular-carriers/).
 
 ### Reference
 
@@ -106,6 +114,8 @@ Here you'll find detailed technical specifications for the:
 - [Tracker SoM](/datasheets/asset-tracking/tracker-som-datasheet/)
 - [Tracker SoM Evaluation Board](/datasheets/asset-tracking/tracker-som-eval-board/), for getting started with the Tracker SoM
 - [Tracker One](/datasheets/asset-tracking/tracker-one/), ready-to-go and fully assembled with an IP67-rated enclosure
+
+If you're building a carrier board you'll probably want to use the Eagle CAD Tracker SoM footprint in the [Hardware Libraries](https://github.com/particle-iot/hardware-libraries). You can also import this into other CAD programs.
 
 ### Support
 
