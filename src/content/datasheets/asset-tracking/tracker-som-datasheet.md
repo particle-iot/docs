@@ -15,7 +15,7 @@ description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 **This is a preliminary datasheet and is subject to change**
 
 
-![SoM](/assets/images/at-som/at-som-bg96.png)
+![SoM](/assets/images/t523-som.svg)
 
 
 ## Functional description
@@ -547,8 +547,8 @@ CAN GPIO:
 | Name | Description | Location | 
 | :---: | :--- | :---: |
 | CAN_INT | CAN interrupt | P1.9 |
-| CAN_RST | CAN reset | IOEX 1.6 |
-| CAN_PWR | 5V boost converter enable | IOEX 1.7 |
+| CAN_RST | CAN reset (LOW = reset for 100 milliseconds) | IOEX 1.6 |
+| CAN_PWR | 5V boost converter enable (HIGH = on) | IOEX 1.7 |
 | CAN_STBY | CAN standby mode | IOEX 0.2 |
 | CAN_RTS0 | CAB RTS0 | IOEX 1.4 |
 | CAN_RTS1 | CAN RTS1 | IOEX 1.2 |

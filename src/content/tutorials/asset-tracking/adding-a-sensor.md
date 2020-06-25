@@ -55,7 +55,7 @@ While the picture above includes both USB-C and M8 cables, it's also possible to
 
 ### Power (out) 
 
-There is an optional 5V 500 mA power output (`CAN 5V`) that is controlled by the `CAN_PWR` GPIO.
+There is an optional 5V 500 mA power output (`CAN 5V`) that is controlled by the `CAN_PWR` GPIO. It is available in all power modes (battery, USB, and VIN); there is an on-board boost converter to produce 5V from the 3.7V LiPo battery.
 
 If you are building an expansion device that is battery or USB powered, you can use `CAN 5V` to power your expansion device, eliminating the need to add a separate power supply. Note that this is limited to 500mA at 5V and the Tracker SoM GPIO are limited to 3.3V, so you may need to add a 3.3V regulator on your expansion board to convert `CAN 5V` to 3.3V.
 

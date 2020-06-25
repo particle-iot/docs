@@ -14,7 +14,7 @@ description: Datasheet for the Particle One Enclosure and Carrier Board
 
 **This is a preliminary datasheet and is subject to change**
 
-![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
+![Tracker One](/assets/images/t-one.svg)
 
 The Tracker One is a ready-to-go Tracker SoM carrier board with optional weatherproof enclosure.
 
@@ -26,6 +26,8 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 - **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB or for use without an internal battery.
 - **RGB LED** for use as both a user-configurable device as well as Particle status information.
 - **Backup Battery** for RTC and GNSS.
+
+![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
 
 ![Top and Bottom](/assets/images/at-som/carrier-top-bottom.png)
 

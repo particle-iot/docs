@@ -14,6 +14,8 @@ description: Datasheet for the Particle Tracker SoM evaluation board
 
 **This is a preliminary datasheet and is subject to change**
 
+![Evaluation Board](/assets/images/t523-som-eval.svg)
+
 This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board, or the carrier board.
 
 ## Block Diagram
@@ -35,11 +37,11 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 |  5 | MODE | MODE button | 
 |  6 | RGB | RGB status LED |
 |  7 | RESET | RESET button |
-|  8 | MCU USB | nRF52 MCU USB for debugging. Can also power the SoM. |
-|  9 | STAT LED | Charge status indicator. |
-| 10 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
-| 11 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
-| 12 | J8 | 3V3 LED jumper. Normally installed, remove to disable 3V3 LED. | 
+|  8 | MCU USB | nRF52 MCU USB-C for debugging or power. |
+|  9 | J8 | 3V3 LED jumper. Normally installed, remove to disable 3V3 LED. | 
+| 10 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
+| 11 | STAT LED | Charge status indicator. |
+| 12 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
 | 13 | VIN | External power 5-12 VDC |
 | 14 | LiPo | JST-PH connector for LiPo battery |
 | 15 | S4 | Battery switch |
@@ -50,7 +52,7 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 | 20 | S5 | RTC battery switch |
 | 21 | RTC battery | Optional battery |
 | 22 | J4 | CAN data connection and 3.3V power output |
-| 23 | J5 | JTAG power jumper. Install to allow the MCU to be powered by the JTAG port. |
+| 23 | J5 | CAN power jumper (selects 3.3V or 5V) |
 
 ### Powering the Tracker SoM Evaluation Board
 
