@@ -78,7 +78,7 @@ One difference from other Particle devices is that the Tracker One firmware can 
 
 ## Find Out More
 
-![Docs Menu](/assets/images/docs-menu.png)
+![Docs Menu](/assets/images/tracker/docs-menu.png)
 
 Most of the documentation can be found in the [Tutorials](/tutorials/asset-tracking/introduction/), [Reference](/reference/asset-tracking/tracker-edge-firmware/), and [Datasheets](/datasheets/asset-tracking/tracker-som-datasheet/) sections.
 
@@ -103,7 +103,7 @@ And other tutorial resources:
 ### Reference
 
 - The [Device OS Firmware API](/reference/device-os/firmware/tracker-som/) reference includes information specific to the Tracker SoM, such as the difference in [GPIO](/reference/device-os/firmware/tracker-som/#input-output). The new [POSIX Filesystem](/reference/device-os/firmware/tracker-som/#file-system) is documented there as well.
-- The **Cloud API Reference** includes information about [Tracking events](/reference/device-cloud/api/#asset-tracking-events) as well as a reference for the [Tracker Cloud API](/reference/device-cloud/api/#asset-tracking).
+- The [Particle Cloud API Reference](/reference/device-cloud/api/) includes information about [Tracking events](/reference/device-cloud/api/#asset-tracking-events) as well as a reference for the [Tracker Cloud API](/reference/device-cloud/api/#asset-tracking).
 - The [Tracker Edge Firmware Reference](/reference/asset-tracking/tracker-edge-firmware/) describes the Tracker Edge reference firmware API used to write device firmware. It allows for customizing the on-device code to access custom sensors and run your own code on the device.
 - The [Pin Info](/reference/hardware/pin-info/?m=table&sort=num) page includes more information on the available pins on the Tracker SoM.
 
