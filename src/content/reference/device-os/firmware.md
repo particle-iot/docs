@@ -1620,7 +1620,7 @@ WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
 {{#if has-gen3}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}`Cellular.on()`{{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
 {{/if}}
 
 ### disconnect()
@@ -2948,7 +2948,7 @@ Cellular.connect();
 ```
 
 {{#if has-gen3}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling {{#if has-wifi}}`WiFi.connect()`{{/if}}{{#if has-cellular}}`Cellular.connect()`{{/if}}.
 {{/if}}
 
 ### disconnect()
