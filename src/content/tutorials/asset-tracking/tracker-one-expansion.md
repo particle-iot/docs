@@ -42,13 +42,6 @@ The 8-pin connector has these signals:
 
 View as looking into the M8 connector on the outside of the enclosure.
 
-### M8 cable
-
-The M8 (8mm) 8-pin connector is standard, however it's not common. Some other connectors like M12 are more common, however, the 12mm connector would have required a taller enclosure to fit the larger connector. To simplify designs, Particle will provide a M8 female-to-wires cable, similar to this. This is for illustration only and the design may vary in the future.
-
-![M8 cable](/assets/images/at-som/M8-cable.jpg)
-
-The common use case will be to include a cable gland in your expansion enclosure, pass the wires through the gland, and terminate them on your custom expansion board.
 
 ## Interface Details
 
@@ -93,4 +86,20 @@ If you are in need of more ports, the best solution is to use the multi-function
 - FRAM non-volatile data storage
 
 Note that Serial, I2C, GPIO, and ADC on the Tracker SoM can only be used at 3.3V maximum. The inputs are not 5V tolerant!
+
+### Connecting Your Expansion Device
+
+The M8 (8mm) 8-pin connector is standard, however it's not common. Some other connectors like M12 are more common, however, the 12mm connector would have required a taller enclosure to fit the larger connector. To simplify designs, Particle will provide a M8 female-to-wires cable, similar to this. This is for illustration only and the design may vary in the future.
+
+![M8 cable](/assets/images/at-som/M8-cable.jpg)
+
+The common use case will be to include a cable gland in your expansion enclosure, pass the wires through the gland, and terminate them on your custom expansion board.
+
+You'd typically connect those wires to your custom expansion board using one of several methods:
+
+- Terminate with pins in a PHR-8 to mate with a B8B-PH on your expansion board
+- Terminate with screw terminals on your board
+- Terminate by soldering the wires to your board
+
+
 

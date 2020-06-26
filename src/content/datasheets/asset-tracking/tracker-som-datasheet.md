@@ -549,7 +549,7 @@ CAN GPIO:
 | CAN_INT | CAN interrupt | P1.9 |
 | CAN_RST | CAN reset (LOW = reset for 100 milliseconds) | IOEX 1.6 |
 | CAN_PWR | 5V boost converter enable (HIGH = on) | IOEX 1.7 |
-| CAN_STBY | CAN standby mode | IOEX 0.2 |
+| CAN_STBY | CAN standby mode (HIGH = standby) | IOEX 0.2 |
 | CAN_RTS0 | CAB RTS0 | IOEX 1.4 |
 | CAN_RTS1 | CAN RTS1 | IOEX 1.2 |
 | CAN_RTS2 | CAN RTS2 | IOEX 1.3 |
