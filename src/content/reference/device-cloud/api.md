@@ -451,23 +451,14 @@ Reason for point location publish message, an array of causes enumeration string
 - `imu_m` IMU wake on motion
 - `imu_g` IMU wake on high-G acceleration
 
-{{!-- 
-- `imu_o` ???
-- `lock` ???
-- `unlock` ???
-- `temp_h` ???
-- `temp_l` ???
-- `user` ???
---}}
-
-The JSON schema for location events can be found here. **TODO: Link to location for schema**
+The JSON schema for location events will be released soon.
 
 
 ### Tracker Configuration Events
 
 Tracker Configuration Events are sent to devices to change configuration parameters. You should not send these events directly by yourself, as configuration events are designed to be synchronized between the device and cloud, including getting configuration updates after waking up from sleep or going out of cellular range.
 
-The JSON schema for configuration events can be found here. **TODO: Link to location for schema**
+The JSON schema for configuration events will be released soon.
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}

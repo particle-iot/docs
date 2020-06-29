@@ -33,6 +33,8 @@ And you'll need a sensor, in this case a [SparkFun Atmospheric Sensor Breakout -
 | Red    | 3V3     | Power 3.3V |
 | Black  | GND     | Ground |
 
+![QWIIC Wiring](/assets/images/tracker/QWIIC-Wiring.png)
+
 ![BME280](/assets/images/tracker/bme280.jpg)
 
 Instead of using D0/D1 for I2C like on other Particle devices, in this case we'll be using the multi-function port pins `MCU_RX` and `MCU_TX` instead. On the Tracker SoM the TX and RX pins can be reconfigured to be `Wire3` instead of `Serial1`, allowing a single set of pins to be GPIO, serial, or I2C on the M8 connector.
@@ -60,8 +62,8 @@ PRODUCT_ID(PLATFORM_ID);
 PRODUCT_VERSION(1);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.tinygps++", LOG_LEVEL_INFO },
-    { "app.ubloxgps",  LOG_LEVEL_INFO },
+    { "app.gps.nmea", LOG_LEVEL_INFO },
+    { "app.gps.ubx",  LOG_LEVEL_INFO },
     { "ncp.at", LOG_LEVEL_INFO },
     { "net.ppp.client", LOG_LEVEL_INFO },
 });

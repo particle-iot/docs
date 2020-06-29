@@ -1,5 +1,5 @@
 ---
-title: Tracker Edge Firmware Reference
+title: Tracker Edge Firmware
 columns: three
 layout: reference.hbs
 order: 10
@@ -27,18 +27,18 @@ You typically instantiate the `TrackerCore` object as a global variable. You mus
 // EXAMPLE
 #include "Particle.h"
 
-#include "asset_tracker_config.h"
-#include "tracker_core.h"
+#include "tracker_config.h"
+#include "tracker.h"
 
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
-PRODUCT_ID(AT_PRODUCT_ID);
-PRODUCT_VERSION(AT_PRODUCT_VERSION);
+PRODUCT_ID(PLATFORM_ID);
+PRODUCT_VERSION(1);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.tinygps++", LOG_LEVEL_INFO },
-    { "app.ubloxgps",  LOG_LEVEL_INFO },
+    { "app.gps.nmea", LOG_LEVEL_INFO },
+    { "app.gps.ubx",  LOG_LEVEL_INFO },
     { "ncp.at", LOG_LEVEL_INFO },
     { "net.ppp.client", LOG_LEVEL_INFO },
 });

@@ -14,9 +14,4 @@ One common use is the vehicle [on-board diagnostics](https://en.wikipedia.org/wi
 
 There are other CAN-based protocols like [CANopen](https://en.wikipedia.org/wiki/CANopen) and [DeviceNet](https://en.wikipedia.org/wiki/DeviceNet) that could be implemented, but do not currently have software libraries available.
 
-## CAN with OBD-II
-
-This tutorial shows how to use the CAN Bus feature of the Tracker SoM and integrate the data with your location publishing. In particular this example records the engine RPM (revolutions per minute) along with location information from the GNSS (GPS).
-
-**TODO: Content**
-
+This section will be provided at a later date.

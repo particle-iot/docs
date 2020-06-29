@@ -14,6 +14,8 @@ One difference between the Tracker One and other Particle devices is that the Tr
 - Semi-custom. The Tracker One firmware is customizable on-device making it possible to add new sensors and customize behavior while still making it easy to upgrade the base firmware.
 - Custom. The Tracker One firmware is open-source so you can duplicate and modify it ("fork") for completely custom applications. Or build your own completely from scratch.
 
+The [Tracker Edge Firmware API Reference](/reference/asset-tracking/tracker-edge-firmware/) is also available.
+
 ### Using Device OS 1.5.3 in Workbench
 
 Tracker devices currently requires Device OS 1.5.3 or later, and version 1.5.3 is not available in the Web IDE or CLI compilers. If you would like to develop custom tracker firmware you will need to use Particle Workbench with the Device OS from source option.
@@ -55,18 +57,18 @@ A typical main source file looks like this:
 ```cpp
 #include "Particle.h"
 
-#include "asset_tracker_config.h"
-#include "tracker_core.h"
+#include "tracker_config.h"
+#include "tracker.h"
 
 SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 
-PRODUCT_ID(AT_PRODUCT_ID);
-PRODUCT_VERSION(AT_PRODUCT_VERSION);
+PRODUCT_ID(PLATFORM_ID);
+PRODUCT_VERSION(1);
 
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.tinygps++", LOG_LEVEL_INFO },
-    { "app.ubloxgps",  LOG_LEVEL_INFO },
+    { "app.gps.nmea", LOG_LEVEL_INFO },
+    { "app.gps.ubx",  LOG_LEVEL_INFO },
     { "ncp.at", LOG_LEVEL_INFO },
     { "net.ppp.client", LOG_LEVEL_INFO },
 });
@@ -100,8 +102,8 @@ These are some standard Tracker include files that you will likely need:
 ```cpp
 #include "Particle.h"
 
-#include "asset_tracker_config.h"
-#include "tracker_core.h"
+#include "tracker_config.h"
+#include "tracker.h"
 ```
 
 This is the recommended [threading](/reference/device-os/firmware/tracker-som/#system-thread) and [system mode](/reference/device-os/firmware/tracker-som/#system-modes) to use. 
@@ -111,19 +113,19 @@ SYSTEM_THREAD(ENABLED);
 SYSTEM_MODE(SEMI_AUTOMATIC);
 ```
 
-Since all Tracker devices must belong to a product, you should set the product ID and version. You can either set the product ID to `AT_PRODUCT_ID` which means use the product that the device has been added to, or you can set the product ID to your actual product ID value. The version is arbitrary, though it should be sequential and can only have value from 1 to 65535.
+Since all Tracker devices must belong to a product, you should set the product ID and version. You can either set the product ID to `PLATFORM_ID` which means use the product that the device has been added to, or you can set the product ID to your actual product ID value. The version is arbitrary, though it should be sequential and can only have value from 1 to 65535.
 
 ```cpp
-PRODUCT_ID(AT_PRODUCT_ID);
-PRODUCT_VERSION(AT_PRODUCT_VERSION);
+PRODUCT_ID(PLATFORM_ID);
+PRODUCT_VERSION(1);
 ```
 
 This block is optional, but sets the logging level. It's sets it to TRACE by default, but sets a lower level of INFO for Device OS and tracker internal messages.
 
 ```cpp
 SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.tinygps++", LOG_LEVEL_INFO },
-    { "app.ubloxgps",  LOG_LEVEL_INFO },
+    { "app.gps.nmea", LOG_LEVEL_INFO },
+    { "app.gps.ubx",  LOG_LEVEL_INFO },
     { "ncp.at", LOG_LEVEL_INFO },
     { "net.ppp.client", LOG_LEVEL_INFO },
 });
@@ -251,6 +253,34 @@ One easy way to get a temporary access token is to:
 - Copy and paste the access token from the end of the command that is displayed.
 - This token is invalidated when your close the console.
 
+## Multi-function pins
 
+The Tracker One has three multi-function pins on the M8 port:
 
-**TODO: Additional Content **
+| M8 Pin | Function   | Function  | Function  | 
+| :----: | :-------   | :-------  | :-------  | 
+| 6      | Serial1 TX | Wire3 SCL | GPIO D9   | 
+| 7      | Serial1 RX | Wire3 SDA | GPIO D8   | 
+| 8      | Analog A3  |           | GPIO D3   | 
+
+If you enable `Serial1` you cannot use the pins for I2C or GPIO.
+
+```cpp
+Serial1.begin(9600);
+```
+
+If you enable `Wire3` you cannot use the pins for Serial or GPIO.
+
+```cpp
+Wire3.begin();
+```
+
+This feature is also available on the Tracker SoM, however on the Tracker SoM you have access to `Wire` on pins D0 an D1, so there is less of a need to use `Wire3`. Note that they map to the same I2C peripheral so you cannot use `Wire` and `Wire3` at the same time!
+
+If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/reference/device-os/firmware/tracker-som/#pinmode-), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
+
+## Learn More 
+
+- The [Tracker Edge Firmware API Reference](/reference/asset-tracking/tracker-edge-firmware/) has more information on the available APIs.
+- The [Tracker Eval Board I2C Example](/tutorials/asset-tracking/tracker-eval-tutorials/#i2c-sensor-example) shows how to add I2C sensor data to your location publishes.
+

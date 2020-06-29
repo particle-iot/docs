@@ -15,23 +15,23 @@ devices, use the blue device selector below the Particle logo on the left side o
 {{#if tracker-som}}
 ## Tracker SoM Mode
 
-The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the Tracker One standard LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized.
+The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the Tracker One standard LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized. The Tracker SoM Evaluation Board defaults to the Particle color scheme.
 
 {{device-animation device "pattern"
   "off 1000ms"
   "on white 1000ms"
-  "blink red 16 times"
-  "blink green 1 times"
+  "breathe red 1000ms 4 times"
+  "breathe green 1 times"
   "on green 10000ms"
   "off 1000ms"
 }}
 
-The standard LED pattern for Tracker devices is:
+The standard LED pattern for Tracker One devices is:
 
-- Blinking red while trying to connect to cellular.
-- Once connected to cellular, will show relative signal strength of red (poor), yellow (moderate), or green (good). The product can also be configured for a gradient from red to yellow to green.
-- Blinking signal strength indicator while connecting to the cloud.
-- Solid signal strength indicator (red/yellow/green) once connected.
+- Fast breathing red while trying to connect to cellular.
+- Once connected to cellular, will show relative signal strength of yellow (weaker), or green (stronger). 
+- Breathing signal strength color indicator while connecting to the cloud (yellow or green)
+- Solid signal strength indicator (yellow/green) once connected.
 
 **The remainder of this page describes the status LED when using standard Particle LED scheme.**
 

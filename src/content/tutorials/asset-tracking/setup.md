@@ -45,9 +45,9 @@ description: Setting up your Particle Asset Tracer
 
 #### Powering
 
+- Connect the LiPo battery to the battery connector (14).
 - Connect the Tracker Evaluation board to your computer by USB. Use the included USB-C to USB-A cable, or a if your computer includes a USB-C port, your own USB-C to USB-C cable and connect to the **MCU_USB** connector (8).
-- Turn on the **SoM Power** (16) switch.
-- If powering by a 500 mA laptop USB-A port, you may want to connect a LiPo battery to the battery connector (14) and turn on the battery power switch (15).
+- Turn on the **SoM Power** (16) switch and the **Battery** switch (15).
 
 #### Status LEDs
 
@@ -62,12 +62,7 @@ The **3V3** LED (11) indicates that the 3.3V MCU power supply is enabled. Jumper
 
 The **RGB LED** (6) can be configured for the standard Particle color scheme (blinking green, blinking cyan, breathing cyan) or the color scheme used by the Tracker One.
 
-The standard LED pattern for Tracker One devices is:
-
-- Blinking red while trying to connect to cellular.
-- Once connected to cellular, will show relative signal strength of red (poor), yellow (moderate), or green (good). The product can also be configured for a gradient from red to yellow to green.
-- Blinking signal strength indicator while connecting to the cloud.
-- Solid signal strength indicator (red/yellow/green) once connected.
+The standard LED pattern for Tracker SoM Evaluation Boards devices is the standard Particle LED scheme (blinking green, breathing cyan). You can find more information [here](/tutorials/device-os/led/tracker-som/#standard-modes).
 
 
 ### Tracker One
@@ -81,14 +76,24 @@ The standard LED pattern for Tracker One devices is:
 
 The standard LED pattern for Tracker One devices is:
 
-- Blinking red while trying to connect to cellular.
-- Once connected to cellular, will show relative signal strength of red (poor), yellow (moderate), or green (good). The product can also be configured for a gradient from red to yellow to green.
-- Blinking signal strength indicator while connecting to the cloud.
-- Solid signal strength indicator (red/yellow/green) once connected.
+- Fast breathing red while trying to connect to cellular.
+- Once connected to cellular, will show relative signal strength of yellow (weaker), or green (stronger). 
+- Breathing signal strength color indicator while connecting to the cloud (yellow or green)
+- Solid signal strength indicator (yellow/green) once connected.
+
+You can find more information [here](/tutorials/device-os/led/tracker-som/).
+
+## Setup
+
+To set up your device, go to [https://setup.particle.io](https://setup.particle.io). This will guide you through the steps needed to activate your SIM and set up your device.
+
+![Setup](/assets/images/tracker/setup.png)
+
+If you prefer to manually set up your device, click on the triangle to open the manual setup instructions:
+
+{{collapse op="start" label="Manual Setup"}}
 
 ## Create a product
-
-**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
 
 All Asset Tracker devices are intended to be used in a product, not as developer devices. This makes it easy to manage a fleet of asset trackers, allowing per-fleet and per-device configuration settings, and features like fleet mapping. 
 
@@ -107,13 +112,9 @@ You will probably also want to opt into the storage of geolocation data. In the 
 
 ## Cloud Setup
 
-**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
-
 These setup steps are intended for setting up a few developer trackers. Fleet setup steps are slightly different and can more easily be automated. For example, when you make a tray order of devices from the wholesale store, you get an email with the serial numbers of the devices.
 
 ### Get the device information
-
-**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
 
 You can set up the device using the serial number on the sticker, it may be easier to just connect the device by USB and use the Particle CLI, which makes it easy to copy and paste instead of typing the serial number.
 
@@ -129,8 +130,6 @@ Your system firmware version is 1.5.3
 
 ### Add device to product
 
-**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
-
 Select your Asset Tracker product and then the **Devices** icon. Click the **Add Devices** then **Add One Device**. Copy and paste the Device ID (24-character hex). You could also type the serial number in this box.
 
 Adding the device to your product will automatically add the SIM card to the product as well.
@@ -138,8 +137,6 @@ Adding the device to your product will automatically add the SIM card to the pro
 If you want to be able to flash the device directly from Workbench, CLI, or the Web IDE, you will want click the **...** button on the right edge of the device list for your device and select **Mark development device**.
 
 ### Claim device
-
-**TODO: This section will be replaced with using [setup.particle.io](https://setup.particle.io) which will do this step automatically.**
 
 When using fleets of devices, it's not necessary to claim your device to an account. You will want to claim your device if:
 
@@ -158,6 +155,7 @@ You may also want to name your device:
 particle device rename <device-id> "Tracker-1"
 ```
 
+{{collapse op="end"}}
 
 ## Device Firmware
 
@@ -169,10 +167,7 @@ One difference between the Tracker One and other Particle devices is that the Tr
 
 The Tracker firmware is included on the device from the factory instead of Tinker. 
 
-Previously, product firmware needed to have the product ID embedded in the binary. As long as you add the Device ID of your Tracker SoM to the product first, this is no longer necessary. The factory binary can be used with your product without having to recompile.
-
-
-
+Previously, product firmware needed to have the product ID embedded in the binary. As long as you add the Device ID of your Tracker SoM to the product first, this is no longer necessary. The factory binary can be used with your product without having to recompile. Using setup.particle.io to set up your device will take care of this for you automatically.
 
 
 ## Map View

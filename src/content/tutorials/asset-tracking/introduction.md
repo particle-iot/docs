@@ -57,6 +57,7 @@ One difference from other Particle devices is that the Tracker One firmware can 
 
 - Tracker One hardware is designed to be used without modification. It's fully assembled and ready to go.
 - Tracker Edge firmware on Tracker One can be used without modification. You can use the firmware off-the-shelf and customize it from the Particle console, with no writing of device firmware necessary at all.
+- Easily upgrade to new versions of Tracker Edge firmware from the console and release it to your fleet with just a few clicks.
 
 ### Semi-custom Firmware
 
@@ -116,9 +117,6 @@ Here you'll find detailed technical specifications for the:
 - [Tracker One](/datasheets/asset-tracking/tracker-one/), ready-to-go and fully assembled with an IP67-rated enclosure
 
 If you're building a carrier board you'll probably want to use the Eagle CAD Tracker SoM footprint in the [Hardware Libraries](https://github.com/particle-iot/hardware-libraries). You can also import this into other CAD programs.
-
-### Support
-
 
 
 
