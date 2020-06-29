@@ -699,16 +699,6 @@ The motion settings determine how the IMU (inertial measurement unit, the accele
   - **Disable**: High-G events are not generated (the default).
   - **Enable**: High-G events are generated.
 
-#### Temperature Settings
-
-![Temperature Settings](/assets/images/tracker/settings-3.png)
-
-- **High temperature threshold** will publish when a temperature is exceeded if the **Enable high temperature monitoring** checkbox is also checked.
-
-- **Low temperature threshold** will publish when a temperature falls below the value if the **Enable low temperature monitoring** checkbox is also checked.
-
-Temperature events are enabled on the Tracker One as the Tracker Carrier board has a thermistor. The Tracker SoM and Tracker SoM evaluation board do not have a built-in temperature sensor.
-
 #### RGB LED Settings
 
 ![RGB LED Settings](/assets/images/tracker/settings-4.png)
