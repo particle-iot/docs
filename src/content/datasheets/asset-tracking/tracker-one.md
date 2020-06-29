@@ -57,6 +57,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 15 | | LiPo Battery |
 | 16 | | Tracker SoM (on back side) |
 
+---
 
 ### Power and I/O Connector (M8)
 
@@ -88,6 +89,8 @@ View as looking into the M8 connector on the outside of the enclosure.
 The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
 
 
+---
+
 ### Additional Peripherals
 
 | Signal | Device OS | Description |
@@ -99,6 +102,10 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | MCU TX | TX | MCU serial TX, GPIO D9, Wire3 SCL | 
 | MCU RX | RX | MCU serial RX, GPIO D8, Wire3 SDA | 
 
+Note: While the USER button exists inside the Tracker One, the Tracker One is a sealed unit and opening it will void the warranty and may affect certifications, thus it is not practical to use. It can be used with the Tracker Carrier Board.
+
+---
+
 
 ### Powering the Tracker Carrier Board
 
@@ -106,7 +113,7 @@ There are several options for powering the carrier board:
 
 The **MCU USB** connector (USB-C). If using a laptop with a USB-A to USB-C cable and a 500 mA USB port, you should also use the LiPo battery. With an true USB-C port and cable, or a 2A tablet charger, you can power only by USB.
 
-The **VIN** connector (5-30 VDC). This is useful with an external power supply. VIN is also available on the M8 connector.
+The **VIN** connector (5-30 VDC on the M8 connector, or 4.5 to 105 VDC to the B8B-PH connector on the board). This is useful with an external power supply.
 
 The **LiPo** connector. This is typically used with a LiPo battery.
 

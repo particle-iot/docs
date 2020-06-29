@@ -52,6 +52,8 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 | 22 | J4 | CAN data connection and 3.3V power output |
 | 23 | J5 | CAN power jumper (selects 3.3V or 5V) |
 
+---
+
 ### Powering the Tracker SoM Evaluation Board
 
 There are several options for powering the evaluation board:
@@ -85,6 +87,8 @@ Jumper **J9** disconnects the charge status LED.
 
 The **3V3** LED indicates that the 3.3V MCU power supply is enabled. Jumper **J8** disconnects the power LED.
 
+---
+
 ### CAN Connector
 
 The four-position screw terminal connector (J4) allows connection to CAN bus devices.
@@ -104,6 +108,8 @@ The CAN_VCC jumper (J5) allows the selection of the voltage on the CAN connector
 - Right position: 5V
 
 The 5V power supply is powered by a boost converter and can be turned on and off by software. 
+
+---
 
 ### Expansion Connector
 
@@ -165,6 +171,8 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 <div align="center"> <a href="/assets/images/at-som/eval-schematic-3.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-3.png" class="full-width"></a></div> 
 
+---
+
 #### Power Switches
 
 <div align="center"> <a href="/assets/images/at-som/eval-schematic-4.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-4.png" class="full-width"></a></div> 
@@ -173,11 +181,13 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 <div align="center"> <a href="/assets/images/at-som/eval-schematic-5.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-5.png" class="full-width"></a></div> 
 
+---
+
 #### Misc
 
 <div align="center"> <a href="/assets/images/at-som/eval-schematic-1.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-1.png" class="full-width"></a></div> 
 
-
+---
 
 ## Mechanical specifications
 

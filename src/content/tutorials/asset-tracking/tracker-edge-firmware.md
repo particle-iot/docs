@@ -41,7 +41,7 @@ git submodule init
 git submodule update --recursive
 ```
 
-Be sure to target 1.5.4-rc.1 for your build. Device OS 1.5.3 or later is required, only version 1.5.4-rc.1 and later are available in the full set of tools including Workbench, CLI, and Web IDE.
+Be sure to target 1.5.4-rc.1 or later for your build. Device OS 1.5.3 or later is required, only version 1.5.4-rc.1 and later are available in the full set of tools including Workbench, CLI, and Web IDE.
 
 ## Overview
 
