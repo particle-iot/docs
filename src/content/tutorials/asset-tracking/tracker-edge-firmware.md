@@ -26,34 +26,6 @@ Instead of having to manually upload firmware that you write, by default new rel
 
 Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added.
 
-### Using Device OS 1.5.3 in Workbench
-
-Tracker devices currently requires Device OS 1.5.3 or later, and version 1.5.3 is not available in the Web IDE or CLI compilers. If you would like to develop custom tracker firmware you will need to use Particle Workbench with the Device OS from source option.
-
-- Get the latest Device OS source from GitHub. You'll need to have the command line version of git available in order to retrieve the submodules.
-
-```
-git clone git@github.com:particle-iot/device-os.git
-cd ./device-os
-git checkout release/v1.5.3-tracker.1
-git submodule update --init --recursive
-```
-
-- Launch Visual Studio Code
-- Navigate to your Particle settings (docs) and set the Custom Device OS Location
-
-![Custom Device OS Settings](/assets/images/settings-custom-deviceos-location.png)
-
-- Enter the absolute path to your Device OS source code and reload when prompted
-- Open a Particle project and open a source file
-- Click on the Device OS entry in the status bar to display a list of available toolchains
-
-
-![Status Bar](/assets/images/statusbar-project-settings.png)
-
-- Select the deviceOS@source entry - it should be first in the list
-- Wait for the toolchain to install and activate
-
 
 ## Getting the Tracker Edge Firmware
 
@@ -68,6 +40,8 @@ cd tracker-edge
 git submodule init
 git submodule update --recursive
 ```
+
+Be sure to target 1.5.4-rc.1 for your build. Device OS 1.5.3 or later is required, only version 1.5.4-rc.1 and later are available in the full set of tools including Workbench, CLI, and Web IDE.
 
 ## Overview
 
