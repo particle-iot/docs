@@ -6,13 +6,11 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(pre2)</sup>
+# Tracker One<sup>(001)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
-
-**This is a preliminary datasheet and is subject to change**
 
 ![Tracker One](/assets/images/t-one.svg)
 
@@ -205,4 +203,4 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 |:---------|:-----|:-------|:---------|
 | pre1     | 20 Apr 2020 | RK | Preview Release1 |
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
-
+| 001      | 29 Jun 2020 | RK | First release |

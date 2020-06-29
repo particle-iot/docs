@@ -6,13 +6,11 @@ order: 5
 description: Datasheet for the Particle Tracker SoM evaluation board
 ---
 
-# Tracker SoM Evaluation Board<sup>(pre2)</sup>
+# Tracker SoM Evaluation Board<sup>(001)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-eval-board.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
-
-**This is a preliminary datasheet and is subject to change**
 
 ![Evaluation Board](/assets/images/t523-som-eval.svg)
 
@@ -203,4 +201,5 @@ Weight will be provided at a later date.
 |:---------|:-----|:-------|:---------|
 | pre1     | 31 Mar 2020 | RK | Preview Release |
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
+| 001      | 29 Jun 2020 | RK | First release |
 

@@ -6,13 +6,11 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(pre2)</sup>
+# Tracker SoM Datasheet <sup>(001)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
-
-**This is a preliminary datasheet and is subject to change**
 
 
 ![SoM](/assets/images/t523-som.svg)
@@ -888,3 +886,4 @@ The bootloader allows you to easily update the user application via several diff
 |:---------|:-----|:-------|:---------|
 | pre1     | 31 Mar 2020 | RK | Preview Release 1 |
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
+| 001      | 29 Jun 2020 | RK | First release |
