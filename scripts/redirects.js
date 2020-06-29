@@ -16,7 +16,7 @@ module.exports = function plugin(options) {
 		var redirectPlugin = redirect(redirectList);
 
 		var redirectsRE = /redirects *: *true/;
-		var allDevices = ['photon','electron','core','raspberry-pi','xenon','argon','boron'];
+		var allDevices = ['photon','electron','core','raspberry-pi','xenon','argon','boron','tracker-som'];
 		
 		// Auto-generate redirects for core, photon, electron, etc. if the destination specifies the device
 		var toAdd = [];

@@ -68,7 +68,19 @@ var DeviceAnimation = function(element, deviceType) {
           y: 38.5,
           radius: 10
         }
-     }
+     },
+     "Tracker SoM": {
+         image: "/assets/images/tracker-small-horiz.png",
+         zoom: 1,
+         width: 200,
+         height: 128,
+         rotate: 0,
+         led: {
+           x: 146,
+           y: 29,
+           radius: 10
+         }
+      }
   };
 
   var device = deviceSpecs[deviceType];

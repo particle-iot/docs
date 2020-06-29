@@ -5194,7 +5194,7 @@
 					"num":71,
 					"name":"RX",
 					"altName":"D9",
-					"desc":"Serial1 RX, GPIO D9, PWM",
+					"desc":"Serial1 RX, GPIO D9, PWM, Wire3 SDA",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -5202,6 +5202,7 @@
 					"analogRead":true,
 					"analogWriteDAC":false,
 					"analogWritePWM":true,
+					"i2c":"Wire3 (SDA)|SDA. Use Wire3 object.",
 					"serial":"UART1_RX|RX Use Serial1 object.",
 					"tone":"D8, D9 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
@@ -5212,7 +5213,7 @@
 					"num":72,
 					"name":"TX",
 					"altName":"D8",
-					"desc":"Serial1 TX, GPIO D8, PWM",
+					"desc":"Serial1 TX, GPIO D8, PWM, Wire3 SCL",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -5220,6 +5221,7 @@
 					"analogRead":true,
 					"analogWriteDAC":false,
 					"analogWritePWM":true,
+					"i2c":"Wire3 (SCL)|SCL. Use Wire3 object.",
 					"serial":"UART1_TX|TX Use Serial1 object.",
 					"tone":"D8, D9 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
@@ -5288,7 +5290,7 @@
 				}
 			],
 			"diagram":{
-				"columns":["num", "name", ["isPower", "hardwareADC", "jtag"], ["spi", "swd"], [], ["hardwareTimer"], ["serial", "i2c"], "hardwarePin"]
+				"columns":["num", "name", ["isPower", "hardwareADC", "jtag"], ["spi", "swd", "i2c"], ["hardwareTimer"], ["serial"], "hardwarePin"]
 			}
 		}
 	],

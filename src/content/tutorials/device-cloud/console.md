@@ -617,3 +617,116 @@ There are four main sections to the configuration page: *Overview*, *Working wit
 
 ![Configuration page](/assets/images/configure-page.png)
 <p class="caption">The configuration page will identify key decisions you will need to make before manufacturing</p>
+
+## Asset Tracker Features
+
+All Asset Tracker devices are intended to be used in a product, not as developer devices. This makes it easy to manage a fleet of asset trackers, allowing per-fleet and per-device configuration settings, and features like fleet mapping. The Product Features in the previous section also apply to Tracker devices.
+
+### Create Product
+
+When you create a product with **Asset Tracker (Cellular** as the type, the Asset Tracker features are enabled for the product. Even if you have an existing product, you'll need to create a new Asset Tracker product as products can only have  a single type of device. For example, a product cannot have both an Asset Tracker and a Boron in it. This is done automatically for you if you use [setup.particle.io](https://setup.particle.io).
+
+![Create Product](/assets/images/tracker/create-product.png)
+
+It's OK if you're starting out with a single Tracker; you can create a free prototyping level product that only has one device in it.
+
+### Map
+
+![Map View](/assets/images/tracker/map-view.png)
+
+The map view shows your fleet of devices or selected devices on a map. The Map view is available for Asset Tracker products in the **Maps** icon.
+
+![Map Icon](/assets/images/tracker/map-icon.png)
+
+You can show a subset of your devices on the map by searching:
+
+- By Device ID
+- By Device Name
+- By [Device Groups](/tutorials/product-tools/device-groups/)
+
+You can also search by the last known location, or within a certain time range.
+
+![Map Search](/assets/images/tracker/map-search.png)
+
+And view details about a specific device:
+
+![Details](/assets/images/tracker/details.png)
+
+
+### Using off-the-shelf releases
+
+To use off-the-shelf Tracker Edge firmware releases, click on the **Firmware** icon in your product in the console.
+
+![Releases](/assets/images/tracker/release.png)
+
+Instead of having to manually upload firmware that you write, by default new releases are automatically added to your firmware list. Just click the **Release Firmware** link to release a new version to your fleet.
+
+Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added automatically.
+
+### Product Settings
+
+Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Settings** (gear) icon in the console.
+
+![Settings Icon](/assets/images/tracker/settings-icon.png)
+
+Note that the settings are automatically synchronized with the device, even if the device is asleep or disconnected at the time the change is made. When the device connects to the cloud again, the checksum of the current device and cloud settings are compared, and if they are different, and updated configuration is sent to the device.
+
+#### Location Settings
+
+![Location Settings](/assets/images/tracker/settings-1.png)
+
+The Location settings include:
+
+- **Radius Trigger** in meters, floating point. When the current position's distance from the last publish exceeds this distance, the new position is published. 0.0 means do not use a publish radius. 
+- **Minimum Interval** Wait at least this long in seconds after the last location publish before publishing again. 0 means do not use an interval minimum.
+- **Maximum Interval** Publish location at least this often (in seconds) even if there is no movement. 0 means do not use an interval maximum.
+
+#### Motion Settings
+
+![Motion Settings](/assets/images/tracker/settings-2.png)
+
+The motion settings determine how the IMU (inertial measurement unit, the accelerometer) is used to determine whether to publish a location. The **Interval minimum** also applies to motion events.
+
+- **Movement** publishes if the device moves, and has several sensitivity options:
+
+  - **Disable**: Do not use motion detection (the default).
+  - **Low**: Least sensitive, large motion is required to publish.
+  - **Medium**
+  - **High**: Most sensitive, even a small amount of motion will trigger publish.
+
+- **High G** publishes if there is a High-G acceleration event, such as the device falling.
+
+  - **Disable**: High-G events are not generated (the default).
+  - **Enable**: High-G events are generated.
+
+#### Temperature Settings
+
+![Temperature Settings](/assets/images/tracker/settings-3.png)
+
+- **High temperature threshold** will publish when a temperature is exceeded if the **Enable high temperature monitoring** checkbox is also checked.
+
+- **Low temperature threshold** will publish when a temperature falls below the value if the **Enable low temperature monitoring** checkbox is also checked.
+
+Temperature events are enabled on the Tracker One as the Tracker Carrier board has a thermistor. The Tracker SoM and Tracker SoM evaluation board do not have a built-in temperature sensor.
+
+#### RGB LED Settings
+
+![RGB LED Settings](/assets/images/tracker/settings-4.png)
+
+The Tracker Firmware configures the RGB status LED. 
+
+The **Type** popup menu has the following options:
+
+- **off**: The RGB LED is turned off (dark).
+- **direct**: RGB level is set directly using the red, green, blue, and brightness options.
+- **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
+- **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
+
+When using **direct** mode you can specify the RGB color (0 - 255) as well as the brightness (0 - 255). For normal RGB colors leave the brightness at 255.
+
+### Device Settings
+
+Normally, you will use the product settings across your fleet of Tracker devices. If you mark a device as a Development Device, you can change settings on a per-device basis within the Device Configuration.
+
+![Per-Device Settings](/assets/images/tracker/per-device.png)
+

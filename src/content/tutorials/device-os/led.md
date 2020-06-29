@@ -2,7 +2,7 @@
 title: Status LED and Device Modes
 layout: tutorials.hbs
 columns: two
-devices: [ boron,photon,electron,argon,xenon ]
+devices: [ boron,photon,electron,argon,xenon,tracker-som ]
 order: 2 
 description: Explanation of status LED codes and device modes for Particle IoT devices
 ---
@@ -11,6 +11,31 @@ description: Explanation of status LED codes and device modes for Particle IoT d
 
 You are viewing the Status LED and Device Modes for the **{{device}}**. To view the documentation for other 
 devices, use the blue device selector below the Particle logo on the left side of the page.
+
+{{#if tracker-som}}
+## Tracker SoM Mode
+
+The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the Tracker One standard LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized. The Tracker SoM Evaluation Board defaults to the Particle color scheme.
+
+{{device-animation device "pattern"
+  "off 1000ms"
+  "on white 1000ms"
+  "breathe red 1000ms 4 times"
+  "breathe green 1 times"
+  "on green 10000ms"
+  "off 1000ms"
+}}
+
+The standard LED pattern for Tracker One devices is:
+
+- Fast breathing red while trying to connect to cellular.
+- Once connected to cellular, will show relative signal strength of yellow (weaker), or green (stronger). 
+- Breathing signal strength color indicator while connecting to the cloud (yellow or green)
+- Solid signal strength indicator (yellow/green) once connected.
+
+**The remainder of this page describes the status LED when using standard Particle LED scheme.**
+
+{{/if}} {{!-- tracker-som --}}
 
 ## Standard Modes
 These modes are the typical behaviors you will see from your device on a regular basis. They are the light patterns of a healthy device.
@@ -263,7 +288,7 @@ To put your device in Listening Mode, hold the `{{system-button}}` button for th
 
 
 
-{{#if has-cellular}}
+{{#if has-cellular-strength }}
 ### Cellular Signal Strength
 
 {{device-animation device "pattern"
@@ -279,7 +304,7 @@ To put your device in Listening Mode, hold the `{{system-button}}` button for th
 
 Tapping the `{{system-button}}` button on your device will blink out the bars of signal strength. More blinks indicate a stronger signal.
 
-{{/if}}
+{{/if}} {{!-- has-cellular-strength --}}
 
 {{#if electron}}
 ### Soft power off

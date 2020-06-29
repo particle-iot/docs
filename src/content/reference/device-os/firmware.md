@@ -2,7 +2,7 @@
 title: Device OS API
 layout: reference.hbs
 columns: three
-devices: [boron,photon,electron,argon]
+devices: [boron,photon,electron,argon,tracker-som]
 order: 20
 description: Reference manual for the C++ API used by user firmware running on Particle IoT devices
 ---
@@ -776,7 +776,7 @@ There is no function to unsubscribe a single event handler.
 `Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
 {{#if has-gen3}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling `Particle.connect()`.
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling `Particle.connect()`.
 {{/if}}
 
 ```cpp
@@ -1620,7 +1620,7 @@ WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
 {{#if has-gen3}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
 {{/if}}
 
 ### disconnect()
@@ -2948,7 +2948,7 @@ Cellular.connect();
 ```
 
 {{#if has-gen3}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling {{#if has-wifi}}`WiFi.connect()`{{/if}}{{#if has-cellular}}`Cellular.connect()`{{/if}}.
 {{/if}}
 
 ### disconnect()
@@ -3877,6 +3877,25 @@ It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of u
 
 Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
 
+{{#if tracker-som}}
+The Tracker SoM shared A and D pins. In other words, pin A0 is the same physical pin as pin D0, and is also the SDA pin. The alternate naming is to simplify porting code from other device types.
+
+| Pin     | M8 Pin | Function    | Function    | Analog In | GPIO    | 
+| :-----: | :----: | :---------  | :---------  | :-------: | :-----: | 
+| A0 / D0 |        | Wire SDA    |             | &check;   | &check; | 
+| A1 / D1 |        | Wire SCL    |             | &check;   | &check; |
+| A2 / D2 |        | Serial1 CTS |             | &check;   | &check; |
+| A3 / D3 | 7      | Serial1 RTS |             | &check;   | &check; |
+| A4 / D4 |        | SPI MOSI    |             | &check;   | &check; |
+| A5 / D5 |        | SPI MISO    |             | &check;   | &check; |
+| A6 / D6 |        | SPI SCK     |             | &check;   | &check; |
+| A7 / D7 |        | SPI SS      | WKP         | &check;   | &check; |
+| TX / D8 | 5      | Serial1 TX  | Wire3 SCL   |           | &check; |
+| RX / D9 | 6      | Serial1 RX  | Wire3 SDA   |           | &check; |
+
+
+{{/if}} {{!-- tracker-som --}}
+
 ### pinMode()
 
 `pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
@@ -3934,6 +3953,10 @@ Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external de
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
 {{/if}}
 
+{{#if tracker-som}}
+When used as an INPUT or analog input, make sure the signal does not exceed 3.3V. Gen 3 devices (Tracker SoM as well as Argon, Boron, Xenon, and the B Series SoM) are not 5V tolerant!
+{{else}}
+
 {{#if has-nrf52}}
 When used as an INPUT or analog input, make sure the signal does not exceed 3.3V. Gen 3 devices (Argon, Boron, Xenon, and B Series SoM) are not 5V tolerant!
 
@@ -3951,7 +3974,6 @@ If you are using the Particle Ethernet FeatherWing you cannot use the pins for G
 When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
 
 When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
-{{/if}}
 
 {{#if xenon}}
 On the Xenon only, there is an optional second UART (serial) interface. If using Serial2, the following pins cannot be used as GPIO:
@@ -3963,6 +3985,11 @@ On the Xenon only, there is an optional second UART (serial) interface. If using
 
 As these pins overlap the Particle Ethernet FeatherWing, you cannot use Serial2 and the Ethernet FeatherWing at the same time.
 {{/if}}
+
+{{/if}} {{!-- has-nrf52 --}}
+
+{{/if}} {{!-- tracker-som --}}
+
 
 ### getPinMode(pin)
 
@@ -4015,7 +4042,9 @@ void loop()
 {{#if has-nrf52}}
 **Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
-**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
 
 {{/if}}
 
@@ -4061,6 +4090,8 @@ void loop()
 **Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 **Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+**Note:** For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
 
 {{/if}}
 
@@ -4144,6 +4175,14 @@ frequency and resolution, but individual pins in the group can have a different 
 - Group 2: Pins A0, A1, A6, and A7.
 - Group 1: Pins D4, D5, and D6.
 - Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
+On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are the same physical pin as D0 - D7. D8 is shared with TX (Serial1) and D9 is shared with RX (Serial1). When used for PWM, pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 3: RGB LED
+- Group 2: D8 (TX), D9 (RX)
+- Group 1: D4, D5, D6, D7
+- Group 1: D0, D1, D2, D3
 
 {{/if}}
 
@@ -4245,6 +4284,10 @@ The Gen 3 Feather devices (Argon, Boron, Xenon) have 6 channels (A0 to A5) with 
 The sample time to read one analog value is 10 microseconds.
 
 The Boron SoM has 8 channels, A0 to A7.
+
+The Tracker SoM has 8 channels, A0 to A7, however these pins are the same physical pins D0 to D7.
+
+The Tracker One only exposes one analog input, A3, on the external M8 connector. Pin A0 is connected to the NTC thermistor on the carrier board.
 {{/if}}
 
 ```cpp
@@ -4467,6 +4510,12 @@ On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins 
 - Group 2: Pins A0, A1, A6, and A7.
 - Group 1: Pins D4, D5, and D6.
 
+On the Tracker SoM, pins D0 - D9 can be used for PWM. Pins are assigned a PWM group. Pins are assigned a PWM group. Each group must share the same frequency. Pins D8 and D9 can only be used for PWM if not being used for Serial1.
+
+- Group 2: D8 (TX), D9 (RX)
+- Group 1: D4, D5, D6, D7
+- Group 1: D0, D1, D2, D3
+
 {{/if}}
 
 ```cpp
@@ -4564,6 +4613,21 @@ On the B Series SoM:
 | D4   | PWM1  |
 | D5   | PWM1  |
 | D6   | PWM1  | 
+
+On the Tracker SoM:
+
+| Pin  | Timer |
+| :--: | :---: |
+| D0   | PWM0  |  
+| D1   | PWM0  |
+| D2   | PWM0  |
+| D3   | PWM0  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+| D7   | PWM1  | 
+| D8 (TX)   | PWM2  | 
+| D9 (RX)   | PWM2  | 
 
 {{/if}}
 
@@ -5215,6 +5279,15 @@ void setup()
 Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the Gen 3 devices. 
 {{/if}}
 
+{{#if has-i2c-wire3}}
+
+This device can use the TX and RX pins as either `Wire3` or `Serial1`. If you use `Serial1.begin()` the pins will be used for UART serial. If you use `Wire3.begin()`, `RX` will be `SDA` and `TX` will be `SCL`. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings.
+
+This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
+
+{{/if}} {{!-- has-i2c-wire3 --}}
+
+
 {{#if has-serial2}}
 
 {{#if photon}}
@@ -5439,7 +5512,7 @@ Parity:
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
 
-Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B Series SoM). 
+Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). 
 
 {{/if}} {{!-- has-nrf52 --}}
 
@@ -6576,6 +6649,12 @@ On the B Series SoM:
 * `MISO` => `MISO (D11)`
 * `MOSI` => `MOSI (D12)`
 
+On the Tracker SoM:
+* `SS` => `A7`/`D7` (but can use any available GPIO)
+* `SCK` => `A6`/`D6`
+* `MISO` => `A5`/`D5`
+* `MOSI` => `A4`/`D4`
+
 {{/if}}
 
 {{#if has-multiple-spi}}
@@ -7193,17 +7272,27 @@ be used via the `Wire1` object. This alternate location is mapped as follows:
 * `SDA` => `C4`
 Note that you cannot use both Wire and Wire1. These are merely alternative pin locations for a 
 single hardware I2C port.
-{{/if}}
+{{/if}} {{!-- electron --}}
 {{#if has-nrf52}}
 Additionally, on the Argon and Xenon, there a second I2C port that can be used with the `Wire1` object:
 * `SCL` => `D3`
 * `SDA` => `D2` 
-{{/if}}
+{{/if}} {{!-- has-nrf52 --}}
 
 **Note**: Because there are multiple I2C locations available, be sure to use the same `Wire` or `Wire1` object with all associated functions. 
 For example, do not use `Wire.begin()` with `Wire1.write()`.
 
-{{/if}}
+{{/if}} {{!-- has-i2c-wire1 --}}
+
+
+{{#if has-i2c-wire3}}
+
+This device allows an alternate mapping of the `Wire` (I2C interface) from D0/D1 to RX/TX. The `Wire3` interface allows you to use RX as SDA and TX as SCL. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings.
+
+This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
+
+{{/if}} {{!-- has-i2c-wire3 --}}
+
 
 {{/if}} {{!-- has-embedded --}}
 
@@ -11009,6 +11098,7 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 - on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
 - on Gen 3 Argon, Boron, and Xenon devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for Servo.
 - On Gen 3 B Series SoM devices, pins A0, A1, A6, A7, D4, D5, and D6 can be used for Servo.
+- On Gen 3 Tracker SoM devices, pins D0 - D9 can be used for Servo.
 
 ```cpp
 // SYNTAX
@@ -13600,6 +13690,15 @@ PRODUCT_VERSION(1); // increment each time you upload to the console
 
 You can find more details about the product ID and how to get yours in the [_Console_ guide.](/tutorials/device-cloud/console#your-product-id)
 
+In Device OS 1.5.3 and later, you can also use a wildcard product ID. In order to take advantage of this feature you must pre-add the device IDs to your product as you cannot use quarantine with a wildcard product ID. Then use:
+
+```cpp
+PRODUCT_ID(PLATFORM_ID);
+PRODUCT_VERSION(1); // increment each time you upload to the console
+```
+
+This will allow the device to join the product it has been added to without hardcoding the product ID into the device firmware. This is used with the Tracker SoM to join the product it is assigned to with the factory firmware and not have to recompile and flash custom firmware. 
+
 ## System Events
 
 {{since when="0.4.9"}}
@@ -14684,6 +14783,9 @@ Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later.
 On the Argon, Boron, and Xenon, WKP is pin D8.
 
 On the B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8.
+
+On the Tracker SoM WKP is pin A7/D7.
+
 {{/if}}
 
 ---
@@ -14733,7 +14835,7 @@ System.sleep(SLEEP_MODE_DEEP);
 // The device LED will shut off during deep sleep
 ```
 
-On the Boron and B Series SoM, it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
+On the Boron, B Series SoM, and Tracker SoM it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
 
 {{/if}} {{!-- has-nrf52 --}}
 
@@ -15709,6 +15811,425 @@ void loop() {
 }
 ```
 {{/if}} {{!-- has-powersave-clock --}}
+
+{{#if has-posix-filesystem}}
+
+## File System
+
+This device implements a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
+
+### File System open 
+
+```cpp
+// INCLUDE
+#include <fcntl.h>
+
+// PROTOTYPE
+int open(const char* pathname, int flags, ... /* arg */)
+
+// EXAMPLE
+int fd = open("/FileSystemTest/test1.txt", O_RDWR | O_CREAT | O_TRUNC);
+if (fd != -1) {
+    for(int ii = 0; ii < 100; ii++) {
+        String msg = String::format("testing %d\n", ii);
+
+        write(fd, msg.c_str(), msg.length());
+    }
+    close(fd);
+}
+
+```
+
+Open a file for reading or writing, depending on the flags.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `flags`:
+  These flags specify the read or write mode:
+  - `O_RDWR`: Read or write.
+  - `O_RDONLY`: Read only.
+  - `O_WRONLY`: Write only.
+
+  These optional flags can be logically ORed with the read/write mode:
+  - `O_CREAT`: The file is created if it does not exist (see also `O_EXCL`).
+  - `O_EXCL`: If `O_CREAT | O_EXCL` are set, then the file is created if it does not exist, but returns -1 and sets `errno` to `EEXIST` if file already exists.
+  - `O_TRUNC` If the file exists and is opened in mode `O_RDWR` or `O_WRONLY` it is truncated to zero length.
+  - `O_APPEND`: The file offset is set to the end of the file prior to each write.
+ 
+Returns: A file descriptor number (>= 3) or -1 if an error occurs.
+
+On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EINVAL` Pathname was NULL, invalid flags.
+- `ENOMEM` Out of memory.
+- `EEXIST` File already exists when using `O_CREAT | O_EXCL`.
+
+When you are doing accessing a file, be sure to call [`close`](#file-system-close) on the file descriptor.
+
+### File System write
+
+```cpp
+// PROTOTYPE
+int write(int fd, const void* buf, size_t count)
+```
+
+Writes to a file. If the file was opened with flag `O_APPEND` then the file is appended to. Otherwise, writes occur at the current file position, see [`lseek`](#file-system-lseek).
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `buf`: Pointer to the buffer to write to the file.
+- `count`: Number of bytes to write to the file.
+
+
+Returns the number of bytes written, which is typically `count`
+
+On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EBADF` Bad `fd`.
+- `ENOSPC` There is no space on the file system.
+
+### File System read
+
+```cpp
+// PROTOTYPE
+int read(int fd, void* buf, size_t count)
+```
+
+Reads from a file. Reads occur at the current file position, see [`lseek`](#file-system-lseek), and end at the current end-of-file.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `buf`: Pointer to the buffer to read data from the file into.
+- `count`: Number of bytes to read to the file.
+
+Returns the number of bytes read, which is typically `count` unless the end-of-file is reached, in which case the number of bytes actually read is returned. The number of bytes may be 0 if already at the end-of-file.
+
+On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EBADF` Bad `fd`
+
+### File System lseek
+
+```cpp
+// PROTOTYPE
+off_t lseek(int fd, off_t offset, int whence)
+```
+
+Seek to a position in a file. Affects where the next read or write will occur. Seeking past the end of the file does not immediately increase the size of the file, but will do so after the next write.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `offset`: Offset. The usage depends on `whence`. For `SEEK_SET` the offset must be >= 0. For `SEEK_CUR` it can be positive or negative to seek relative to the current position. Negative values used with `SEEK_END` move relative to the end-of-file.
+- `whence`:
+  - `SEEK_SET`: Seek to `offset` bytes from the beginning of the file.
+  - `SEEK_CUR`: Seek relative to the current file position.
+  - `SEEK_END`: Seek relative to the end of the file. `offset` of 0 means seek to the end of the file when using `SEEK_END`. 
+
+### File System close
+
+```cpp
+// PROTOTYPE
+int close(int fd)
+```
+
+Closes a file descriptor.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+### File System fsync
+
+```cpp
+// PROTOTYPE
+int fsync(int fd) 
+```
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+
+Synchronizes the file data flash, for example writing out any cached data.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+
+### File System fstat
+
+```cpp
+// INCLUDE
+#include <sys/stat.h>
+
+// PROTOTYPE
+int fstat(int fd, struct stat* buf)
+```
+
+Get information about a file that is open.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `buf`: Filled in with file information.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+Only a subset of the `struct stat` fields are filled in. In particular:
+
+- `st_size`: file size in bytes.
+- `st_mode`: 
+  - For files, the `S_IFREG` bit is set.
+  - For directories, the `S_IFDIR` bit is set.
+  - Be sure to check for the bit, not equality, as other bits may be set (like `S_IRWXU` | `S_IRWXG` | `S_IRWXO`) may be set.
+
+### File System stat
+
+```cpp
+// INCLUDE
+#include <sys/stat.h>
+
+// PROTOTYPE
+int stat(const char* pathname, struct stat* buf)
+```
+
+Get information about a file by pathname. The file can be open or closed.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `buf`: Filled in with file information
+
+Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `ENOENT`: File does not exist.
+- `ENOTDIR`: A directory component of the path is not a directory.
+
+Only a subset of the `struct stat` fields are filled in. In particular:
+
+- `st_size`: file size in bytes.
+- `st_mode`: 
+  - For files, the `S_IFREG` bit is set.
+  - For directories, the `S_IFDIR` bit is set.
+  - Be sure to check for the bit, not equality, as other bits may be set (like `S_IRWXU | S_IRWXG | S_IRWXO`) may be set.
+
+The file system does not store file times (creation, modification, or access).
+
+### File System mkdir
+
+```cpp
+// PROTOTYPE
+int mkdir(const char* pathname, mode_t mode)
+
+// EXAMPLE
+#include <sys/stat.h>
+
+bool createDirIfNecessary(const char *path) {
+    struct stat statbuf;
+
+    int result = stat(path, &statbuf);
+    if (result == 0) {
+        if ((statbuf.st_mode & S_IFDIR) != 0) {
+            Log.info("%s exists and is a directory", path);
+            return true;
+        }
+
+        Log.error("file in the way, deleting %s", path);
+        unlink(path);
+    }
+    else {
+        if (errno != ENOENT) {
+            // Error other than file does not exist
+            Log.error("stat filed errno=%d", errno);
+            return false;
+        }
+    }
+    
+    // File does not exist (errno == 2)
+    result = mkdir(path, 0777);
+    if (result == 0) {
+        Log.info("created dir %s", path);
+        return true;
+    }
+    else {
+        Log.error("mkdir failed errno=%d", errno);
+        return false;
+    }
+}
+```
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `mode`: Mode of the file, currently ignored. For future compatibility, you may want to set this to `S_IRWXU | S_IRWXG | S_IRWXO` (or 0777).
+
+Create a directory on the file system. 
+
+Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EEXIST`: Directory already exists, or there is file that already exists with that name.
+- `ENOSPC`: No space left on the file system to create a directory.
+
+The example code creates a directory if it does not already exists. It takes care of several things:
+
+- If there is a file with the same name as the directory, it deletes the file.
+- If the directory exists, it does not try to create it.
+- If the directory does not exist, it will be created.
+- It will only create the last directory in the path - it does not create a hierarchy of directories!
+
+### File System rmdir
+
+```cpp
+// PROTOTYPE
+int rmdir(const char* pathname) 
+```
+
+Removes a directory from the file system. The directory must be empty to remove it.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+
+
+### File System unlink
+
+```cpp
+// PROTOTYPE
+int unlink(const char* pathname)
+```
+
+Removes a file from the file system.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+
+Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `EEXIST` or `ENOTEMPTY`: Directory is not empty.
+
+
+### File System rename
+
+```cpp
+// PROTOTYPE
+int rename(const char* oldpath, const char* newpath)
+```
+
+Renames a file from the file system. Can also move a file to a different directory.
+
+- `oldpath`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `newpath`: The to rename to (Unix-style, with forward slash as the directory separator).
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+
+### File System opendir
+
+```cpp
+// INCLUDE
+#include <dirent.h>
+
+// PROTOTYPE
+DIR* opendir(const char* pathname)
+```
+
+Open a directory stream to iterate the files in the directory. Be sure to close the directory when done using [`closedir`](#file-system-closedir). Do not attempt to free the returned `DIR*`, only use `closedir`.
+
+- `pathname`: The pathname to the directory (Unix-style, with forward slash as the directory separator).
+
+Returns `NULL` (0) on error, or a non-zero value for use with `readdir`.
+
+### File System readdir
+```cpp
+// INCLUDE
+#include <dirent.h>
+
+// PROTOTYPE
+struct dirent* readdir(DIR* dirp) 
+```
+
+Reads the next entry from a directory. Used to find the names of all of the files and directories within a directory. See also [`readdir_r`](#file-system-readdir_r).
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+
+Returns a pointer to a `struct dirent` containing information about the next file in the directory. Returns NULL when the end of the directory is reached. Returns NULL and sets `errno` if an error occurs.
+
+Not all fields of the `struct dirent` are filled in. You should only rely on:
+
+- `d_type`: Type of entry:
+  - `DT_REG`: File
+  - `DT_DIR`: Directory 
+- `d_name`: Name of the file or directory. Just the name, not the whole path.
+
+This structure is reused on subsequent calls to `readdir` so if you need to save the values, you'll need to copy them.
+
+
+### File System telldir
+
+```cpp
+// INCLUDE
+#include <dirent.h>
+
+// PROTOTYPE
+long telldir(DIR* pdir)
+```
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+
+Returns a numeric value for the current position in the directory that can subsequently be used with [`seekdir`](#file-system-seekdir) to go back to that position.
+
+### File System seekdir
+
+```cpp
+// INCLUDE
+#include <dirent.h>
+
+// PROTOTYPE
+void seekdir(DIR* pdir, long loc)
+```
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+- `loc`: The location previously saved by [`telldir`](#file-system-telldir).
+
+### File System rewinddir
+
+```cpp
+// INCLUDE
+#include <dirent.h>
+
+// PROTOTYPE
+void rewinddir(DIR* pdir)
+```
+
+Starts scanning the directory from the beginning again.
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+
+
+### File System readdir_r
+
+```cpp
+// INCLUDE
+#include <dirent.h>
+
+// PROTOTYPE
+int readdir_r(DIR* pdir, struct dirent* dentry, struct dirent** out_dirent)
+```
+
+Reads the next entry from a directory. Used to find the names of all of the files and directories within a directory. See also [`readdir`](#file-system-readdir).
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+- `dentry`: Pass in a pointer to a `struct dirent` to be filled in with the current directory entry.
+- `out_dirent`: If not `NULL`, filled in with `dentry` if a directory entry was retrieved, or `NULL` if at the end of the directory.
+
+Not all fields of `dentry` are filled in. You should only rely on:
+
+- `d_type`: Type of entry:
+  - `DT_REG`: File
+  - `DT_DIR`: Directory 
+- `d_name`: Name of the file or directory. Just the name, not the whole path.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+### File System closedir
+
+```cpp
+// INCLUDE
+#include <dirent.h>
+
+// PROTOTYPE
+int closedir(DIR* dirp)
+```
+
+- `dirp`: The `DIR*` returned by [`opendir`](#file-system-opendir).
+
+Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+
+{{/if}} {{!-- has-posix-filesystem --}}
 
 
 ## OTA Updates

@@ -6,16 +6,14 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(pre2)</sup>
+# Tracker SoM Datasheet <sup>(001)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**This is a preliminary datasheet and is subject to change**
 
-
-![SoM](/assets/images/at-som/at-som-bg96.png)
+![SoM](/assets/images/t523-som.svg)
 
 
 ## Functional description
@@ -29,6 +27,8 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 - Support for CAN bus and 5V power for CAN devices
 - Built-in Inertial Measurement Unit (IMU)
 - Castellated module can be reflow soldered to your base board, and is available on an evaluation board or carrier board
+
+---
 
 ### Features
 
@@ -116,12 +116,18 @@ If the RTC battery is not used, connect RTC_BAT to ground.
 #### GNSS_BAT
 This is the supply for maintaining the u-blox GNSS ephemeris and almanac data when removing power. This can use the same battery as RTC_BAT, can be a super-capacitor, or can be omitted. 1.5 to 3.6V. Typical current is 15 uA.
 
+If you are not powering GNSS\_BAT with a battery or super-capacitor, connect GNSS\_BAT to 3V3.
+
+- Saving the ephemeris and almanac data can improve fix/lock time.
+- It won't make a difference on completely cold boot, where is no previously saved data.
+- It does not make a difference if the GNSS is constantly powered or is using a software power save mode.
+
+---
+
 #### PMID
 This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the module when powered by the battery alone.
 
 The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
-
----
 
 ### Antennas
 
@@ -145,6 +151,7 @@ There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'
 - Needs tuning with actual product enclosure and all components.
 - For the BLE antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
  
+---
 
 ### Peripherals and GPIO
 
@@ -204,7 +211,7 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 
 ## Pins and connectors
 
-![SoM Labeled](/assets/images/at-som/at-som-labeled.png)
+<div align="center"> <a href="/assets/images/at-som/at-som-labeled.png" target="_blank"> <img src="/assets/images/at-som/at-som-labeled.png" class="full-width"></a></div> 
 
 Circular labels are as follows:
 
@@ -219,6 +226,7 @@ Circular labels are as follows:
 |  7 | u-blox Neo M8 GNSS (GPS) |
 |  8 | Quectel cellular modem |
 
+---
 
 ### SoM Pin description
 
@@ -231,7 +239,7 @@ Circular labels are as follows:
 | 4 | GNSS_VBUS | USB PWR | GNSS | GNSS USB power. Optional. |
 | 5 | GNSS_P | USB D+ | GNSS | GNSS USB interface D+. Optional. |
 | 6 | GNSS_N | USB D- | GNSS | GNSS USB interface D-. Optional. |
-| 7 | GNSS_PULSE | OUT | GNSS | GNSS time pulse output. Can be used for a GPS fix LED. |
+| 7 | GNSS_PULSE | OUT | GNSS | GNSS time pulse output. Can be used for a GNSS fix LED.<sup>2</sup> |
 | 8 | GND | POWER | | Ground |
 | 9 | NC |  | | Leave unconnected. |
 | 10 | GND | POWER | | Ground |
@@ -281,10 +289,10 @@ Circular labels are as follows:
 | 53 | LI+ | POWER | PMIC | Connect to Li-Po battery. Can power the device or be recharged by VIN or VBUS. |
 |   |   |  |  | Left Side |
 | 54 | GND | POWER | | Ground |
-| 55 | A0 | IO | nRF52 | A0 D0 Wire SDA |
-| 56 | A1 | IO | nRF52 | A1 D1 Wire SCL |
-| 57 | A2 | IO | nRF52 | A2 D2 Serial1 CTS |
-| 58 | A3 | IO | nRF52 | A3 D3 Serial1 RTS |
+| 55 | A0 | IO | nRF52 | A0, D0, Wire SDA, Thermistor<sup>1<sup> |
+| 56 | A1 | IO | nRF52 | A1, D1, Wire SCL, User button<sup>1<sup> |
+| 57 | A2 | IO | nRF52 | A2, D2, Serial1 CTS, GNSS lock indicator<sup>1<sup> |
+| 58 | A3 | IO | nRF52 | A3, D3, Serial1 RTS, M8 GPIO<sup>1<sup> |
 | 59 | NC SOM59 | | | Leave unconnected. |
 | 60 | NC SOM60 | | | Leave unconnected. |
 | 61 | NC SOM61 | | | Leave unconnected. |
@@ -297,8 +305,8 @@ Circular labels are as follows:
 | 68 | MCU-D- | USB D- | nRF52 | MCU USB interface D-. Optional. |
 | 69 | MCU_D+ | USB D+ | nRF52 | MCU USB interface D+. Optional. |
 | 70 | GND | POWER | | Ground |
-| 71 | MCU_RX | IO | nRF52 | Serial RX, GPIO D9 |
-| 72 | MCU_TX | IO | nRF52 | Serial TX, GPIO D8 |
+| 71 | MCU_RX | IO | nRF52 | Serial RX, GPIO D9, Wire3 SDA |
+| 72 | MCU_TX | IO | nRF52 | Serial TX, GPIO D8, Wire3 SCL |
 | 73 | RTC_BAT | POWER | AM18X5 | RTC/Watchdog battery +. Connect to GND if not using. |
 | 74 | RTC_BTN | IN | AM18X5 | RTC EXTI. Can use as a wake button. |
 | 75 | GND | POWER | | Ground |
@@ -323,8 +331,13 @@ Circular labels are as follows:
 | 94 | GNSS_RF |  | GNSS | GNSS antenna. |
 | 95 | GND | POWER | | Ground |
 
+Note: All GPIO, ADC, and peripherals such as I2C, Serial, and SPI are 3.3V maximum and are **not** 5V tolerant.
+
 Pin numbers match the triangular numbers in the graphic above.
 
+<sup>1</sup>Pin usage on the Tracker One.
+
+<sup>2</sup>The GNSS_PULSE pin can be used for a hardware GPS lock indicator, however the Tracker One controls the GNSS Lock indicator in software and connects the LED to pin A2.
 
 ### nRF52 pin assignments
 
@@ -338,10 +351,12 @@ Pin numbers match the triangular numbers in the graphic above.
 | 40      | D5    | A5     | SPI MISO    | Group 1 | P0.29   |
 | 39      | D6    | A6     | SPI SCK     | Group 1 | P0.04   |
 | 38      | D7    | A7     | SPI SS, WKP | Group 1 | P0.05   |
-| 72      | D8    |        | Serial1 TX  | Group 2 | P0.06   |
-| 71      | D9    |        | Serial1 RX  | Group 2 | P0.08   |
+| 72      | D8    |        | Serial1 TX, Wire3 SCL  | Group 2 | P0.06   |
+| 71      | D9    |        | Serial1 RX, Wire3 SDA  | Group 2 | P0.08   |
 
 <sup>1</sup>Pull-up resistors are not included. When using as an I2C port, external pull-up resistors are required.
+
+---
 
 #### System peripheral GPIO
 
@@ -433,6 +448,8 @@ only, and functional operation of the device at these or any other conditions be
 conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
 
 
+---
+
 ### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
@@ -510,12 +527,14 @@ GNSS GPIO:
 
 | Name | Description | Location | 
 | :---: | :--- | :---: |
-| GPS_PWR | u-blox GNSS power | IOEX 0.6 | 
-| GPS_INT | u-blox GNSS interrupt | IOEX 0.7 | 
+| GPS_PWR  | u-blox GNSS power | IOEX 0.6 | 
+| GPS_INT  | u-blox GNSS interrupt | IOEX 0.7 | 
 | GPS_BOOT | u-blox GNSS boot mode | IOEX 1.0 | 
-| GPS_RST | u-blox GNSS reset | IOEX 1.1 | 
+| GPS_RST  | u-blox GNSS reset | IOEX 1.1 | 
+| GPS_CS   | CAN SPI Chip Select | CS Decoder 4 | 
 
 
+---
 
 ### CAN Specifications
 
@@ -538,12 +557,13 @@ CAN GPIO:
 | Name | Description | Location | 
 | :---: | :--- | :---: |
 | CAN_INT | CAN interrupt | P1.9 |
-| CAN_RST | CAN reset | IOEX 1.6 |
-| CAN_PWR | 5V boost converter enable | IOEX 1.7 |
-| CAN_STBY | CAN standby mode | IOEX 0.2 |
+| CAN_RST | CAN reset (LOW = reset for 100 milliseconds) | IOEX 1.6 |
+| CAN_PWR | 5V boost converter enable (HIGH = on) | IOEX 1.7 |
+| CAN_STBY | CAN standby mode (HIGH = standby) | IOEX 0.2 |
 | CAN_RTS0 | CAB RTS0 | IOEX 1.4 |
 | CAN_RTS1 | CAN RTS1 | IOEX 1.2 |
 | CAN_RTS2 | CAN RTS2 | IOEX 1.3 |
+| CAN_CS   | CAN SPI Chip Select | CS Decoder 7 | 
 
 
 CANH, CANL Absolute Maximum Ratings:
@@ -579,13 +599,15 @@ CAN Tranceiver Characteristics
 |  | | 1.0 | | 5.0 | V | Standby mode; -12V < V<sub>(CANH, CANL)</sub> < +12V| 
 
 
+---
+
 ### Other components
 
 #### IMU (Inertial Measurement Unit)
 
 - Bosch Sensortec BMI160
 - SPI Interface connected to SPI1 (MISO1, MOSI1, SCK1) 
-- Chip Select: SEN_CS (connected to SN74LVC138 Y2)
+- Chip Select: SEN_CS (CS Decoder 2)
 - Can wake nRF52 MCU on movement (SEN_INT1)
 
 - 16 bit digital, triaxial accelerometer and triaxial gyroscope
@@ -629,6 +651,7 @@ CAN Tranceiver Characteristics
 - Programmable hardware watchdog
 - RTC powered by XC6504 ultra-low consumption regulator so the main TPS62291 can be shut down from RTC
 
+---
 
 #### Wi-Fi Geolocation
 
@@ -638,7 +661,7 @@ An external service provider such as the Google Geolocation Service is required 
 - ESP32-D2WD
 - SPI Interface 
 - Connected to SPI1 (MISO1, MOSI1, SCK1) 
-- Chip Select: WIFI_CS (connected to SN74LVC138 Y3)
+- Chip Select: WIFI_CS (CS Decoder 3)
 - Interrupt: ESP32 IO4 is connected to MCP23517T I/0 Expander GPA4.
 
 The SoM connector has several pins dedicated to Wi-Fi:
@@ -719,6 +742,7 @@ Espressif Systems ESP32 for Wi-Fi geolocation:
 | Antenna Port | Single Antenna |
 | Frequency Band | 2412 to 2484 MHz |
 
+---
 
 ### I/O Characteristics 
 
@@ -775,9 +799,82 @@ Will be provided at a later date.
 
 Dimensions are in millimeters.
 
+---
+
+### Schematics
+
+#### MCU
+
+<div align="center"> <a href="/assets/images/at-som/mcu.png" target="_blank"> <img src="/assets/images/at-som/mcu.png" class="full-width"></a></div> 
+
+#### Cellular
+
+<div align="center"> <a href="/assets/images/at-som/cell.png" target="_blank"> <img src="/assets/images/at-som/cell.png" class="full-width"></a></div> 
+
+---
+
+#### GNSS
+
+<div align="center"> <a href="/assets/images/at-som/gnss.png" target="_blank"> <img src="/assets/images/at-som/gnss.png" class="full-width"></a></div> 
+
+#### Wi-Fi
+
+<div align="center"> <a href="/assets/images/at-som/wifi.png" target="_blank"> <img src="/assets/images/at-som/wifi.png" class="full-width"></a></div> 
+
+---
+
+#### CAN
+
+<div align="center"> <a href="/assets/images/at-som/can.png" target="_blank"> <img src="/assets/images/at-som/can.png" class="full-width"></a></div> 
+
+#### User I/O
+
+<div align="center"> <a href="/assets/images/at-som/user-io.png" target="_blank"> <img src="/assets/images/at-som/user-io.png"></a></div> 
+
+---
+
+#### PMIC
+
+<div align="center"> <a href="/assets/images/at-som/pmic.png" target="_blank"> <img src="/assets/images/at-som/pmic.png" class="full-width"></a></div> 
+
+#### Fuel Gauge
+
+<div align="center"> <a href="/assets/images/at-som/fuel.png" target="_blank"> <img src="/assets/images/at-som/fuel.png"></a></div> 
+
+#### Cell Control
+
+<div align="center"> <a href="/assets/images/at-som/cell-control.png" target="_blank"> <img src="/assets/images/at-som/cell-control.png"></a></div> 
+
+---
+
+#### I/O Expander
+
+<div align="center"> <a href="/assets/images/at-som/ioex.png" target="_blank"> <img src="/assets/images/at-som/ioex.png"></a></div> 
+
+#### QSPI Flash
+
+<div align="center"> <a href="/assets/images/at-som/flash.png" target="_blank"> <img src="/assets/images/at-som/flash.png"></a></div> 
+
+#### RTC/Watchdog
+
+<div align="center"> <a href="/assets/images/at-som/rtc.png" target="_blank"> <img src="/assets/images/at-som/rtc.png"></a></div> 
+
+---
+
+#### IMU
+
+<div align="center"> <a href="/assets/images/at-som/imu.png" target="_blank"> <img src="/assets/images/at-som/imu.png"></a></div> 
+
+#### 3V3 Regulator
+
+<div align="center"> <a href="/assets/images/at-som/3v3-regulator.png" target="_blank"> <img src="/assets/images/at-som/3v3-regulator.png"></a></div> 
+
+
 ### Layout Considerations
 
 Will be provided at a later date.
+
+---
 
 ## Product Handling
 
@@ -816,3 +913,4 @@ The bootloader allows you to easily update the user application via several diff
 |:---------|:-----|:-------|:---------|
 | pre1     | 31 Mar 2020 | RK | Preview Release 1 |
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
+| 001      | 29 Jun 2020 | RK | First release |

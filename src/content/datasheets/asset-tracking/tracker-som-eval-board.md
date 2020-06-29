@@ -6,13 +6,13 @@ order: 5
 description: Datasheet for the Particle Tracker SoM evaluation board
 ---
 
-# Tracker SoM Evaluation Board<sup>(pre2)</sup>
+# Tracker SoM Evaluation Board<sup>(001)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-eval-board.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
-**This is a preliminary datasheet and is subject to change**
+![Evaluation Board](/assets/images/t523-som-eval.svg)
 
 This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GNSS module is a castellated system-on-a-module that can either be reflow soldered to your own custom base board, or can be used in this evaluation board, or the carrier board.
 
@@ -23,7 +23,7 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 ## Description
 
 
-<div align=center><img src="/assets/images/at-som/at-eval-labeled.png"></div>
+<div align="center"><img src="/assets/images/at-som/at-eval-labeled.png"></div>
 
 
 | Num | ID 					    | Description                                      |
@@ -35,11 +35,11 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 |  5 | MODE | MODE button | 
 |  6 | RGB | RGB status LED |
 |  7 | RESET | RESET button |
-|  8 | MCU USB | nRF52 MCU USB for debugging. Can also power the SoM. |
-|  9 | STAT LED | Charge status indicator. |
-| 10 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
-| 11 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
-| 12 | J8 | 3V3 LED jumper. Normally installed, remove to disable 3V3 LED. | 
+|  8 | MCU USB | nRF52 MCU USB-C for debugging or power. |
+|  9 | J8 | 3V3 LED jumper. Normally installed, remove to disable 3V3 LED. | 
+| 10 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
+| 11 | STAT LED | Charge status indicator. |
+| 12 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
 | 13 | VIN | External power 5-12 VDC |
 | 14 | LiPo | JST-PH connector for LiPo battery |
 | 15 | S4 | Battery switch |
@@ -50,7 +50,9 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 | 20 | S5 | RTC battery switch |
 | 21 | RTC battery | Optional battery |
 | 22 | J4 | CAN data connection and 3.3V power output |
-| 23 | J5 | JTAG power jumper. Install to allow the MCU to be powered by the JTAG port. |
+| 23 | J5 | CAN power jumper (selects 3.3V or 5V) |
+
+---
 
 ### Powering the Tracker SoM Evaluation Board
 
@@ -84,6 +86,30 @@ The **STAT** LED indicates the charge status:
 Jumper **J9** disconnects the charge status LED.
 
 The **3V3** LED indicates that the 3.3V MCU power supply is enabled. Jumper **J8** disconnects the power LED.
+
+---
+
+### CAN Connector
+
+The four-position screw terminal connector (J4) allows connection to CAN bus devices.
+
+| Pin   | Label   | Description |
+| :---: | :-----: | :--- |
+| 1     | CAN_H   | CAN Bus H or + |
+| 2     | CAN_L   | CAN Bus L or - |
+| 3     | GND     | Ground |
+| 4     | CAN_VCC | 3.3V or 5V |
+
+The CAN bus connection includes the 120 ohm termination resistor and ESD protection.
+
+The CAN_VCC jumper (J5) allows the selection of the voltage on the CAN connector.
+
+- Left position: 3.3V
+- Right position: 5V
+
+The 5V power supply is powered by a boost converter and can be turned on and off by software. 
+
+---
 
 ### Expansion Connector
 
@@ -137,7 +163,29 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 ## Evaluation Board Schematics
 
-To be provided at a later date.
+#### Tracker SoM
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-2.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-2.png" class="full-width"></a></div> 
+
+#### USB
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-3.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-3.png" class="full-width"></a></div> 
+
+---
+
+#### Power Switches
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-4.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-4.png" class="full-width"></a></div> 
+
+#### Expansion Connector
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-5.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-5.png" class="full-width"></a></div> 
+
+---
+
+#### Misc
+
+<div align="center"> <a href="/assets/images/at-som/eval-schematic-1.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-1.png" class="full-width"></a></div> 
 
 ---
 
@@ -163,4 +211,5 @@ Weight will be provided at a later date.
 |:---------|:-----|:-------|:---------|
 | pre1     | 31 Mar 2020 | RK | Preview Release |
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
+| 001      | 29 Jun 2020 | RK | First release |
 

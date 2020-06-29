@@ -26,7 +26,7 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Australia | Telstra MobileNet |U260 |2016-12-31 | 2024-06-30 | 
 | Austria | T-Mobile Austria |U270 | |  | 
 | Azerbaijan | Azercell |U270 | |  | 
-| Bahrain | Batelco |U270 |No Plan | No Plan | 
+| Bahrain | Batelco |U270 | |  | 
 | Bangladesh | GrameenPhone |U270 | |  | 
 | Belarus | Velcom (Mobilkom) |U270 | |  | 
 | Belgium | Base (KPN) |U270 | |  | 
@@ -39,7 +39,7 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Cameroon | MTN Cameroon |U270 | |  | 
 | Canada | Rogers AT&T Wireless |U260 |2020-12-31 | 2025-12-31 | 
 | Chile | Movistar Chile |U260 | |  | 
-| China | China Mobile |U270 |No Plan | 2020-01-01 | 
+| China | China Mobile |U270 | | 2020-01-01 | 
 | Colombia | Colombia Telefonica |U260 | |  | 
 | Congo (Brazzaville) | MTN Congo |U270 | |  | 
 | Costa Rica | Telefonica Costa Rica |U260 | |  | 
@@ -76,7 +76,7 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Italy | Wind Italy |U270 | |  | 
 |   | Hutchison 3G Italy |U270 | |  | 
 | Jamaica | Digicel Caribbean |U260 | |  | 
-| Japan | NTT DoCoMo |U270 | | Late 2020s | 
+| Japan | NTT DoCoMo |U270 |2012-01-03 |  | 
 | Jersey | Jersey Telecoms UK |U270 | |  | 
 | Kazakhstan | K-Cell Kazakhstan |U270 | |  | 
 | Kenya | Celtel Kenia Ltd |U270 | |  | 
@@ -99,7 +99,7 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Mozambique | Vodacom Mozambique |U270 | |  | 
 | Netherlands | KPN B.V. |U270 | | 2022-01-01 | 
 | Netherlands Antilles | Digicel Curacao |U260 | |  | 
-| New Zealand | Spark New Zealand |U260 |2012-07-31 | No Plan | 
+| New Zealand | Spark New Zealand |U260 |2012-07-31 |  | 
 | Nicaragua | Telefonia Celular de Nicaragua |U260 | |  | 
 | Niger | Celtel Niger S.A. |U270 | |  | 
 | Nigeria | Celtel Nigeria |U270 | |  | 
@@ -199,7 +199,7 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Costa Rica | Claro | |  | 
 | Croatia | VIPnet |No Plan | 2025 | 
 | Curaçao | Digicel | |  | 
-| Cyprus | Cytamobile-Vodafone | |  | 
+| Cyprus | Cytamobile-Vodafone |2025 | 2025 | 
 | Czechia | Vodafone |2025 | 2021-12-31 | 
 | Denmark | Telenor | | 2021-12-31 | 
 | Dominica | Digicel | |  | 
@@ -317,7 +317,7 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Switzerland | Swisscom |2020-12-31 | 2022-12-31 | 
 | Taiwan | Taiwan Mobile |2017-06-30 | 2017-01-07 | 
 | Tanzania | Vodacom | |  | 
-| Thailand | True Move | |  | 
+| Thailand | True Move |2016-01-01 |  | 
 |   | Real Future |2016 |  | 
 | Togo | Moov | |  | 
 | Tonga | Digicel | |  | 
@@ -345,23 +345,23 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | ------- | -------- | :-------: | :-------: | 
 | United States | T-Mobile<sup>1</sup> |2020-12-31 |  | 
 |   | Commnet Wireless<sup>2</sup> | |  | 
-|   | Viaero<sup>3</sup> |2018-12 |  | 
-|   | Union Telephone Company<sup>3</sup> | |  | 
-|   | Manx NA<sup>3</sup> | |  | 
-|   | Bug Tussel Wireless<sup>3</sup> | |  | 
-|   | Immix<sup>3</sup> | |  | 
-|   | Cincinnati Bell<sup>3</sup> | |  | 
-|   | New Core<sup>3</sup> | |  | 
 |   | Alaskan Wireless Network (AWN)<sup>3</sup> |2017-09 |  | 
+|   | Bug Tussel Wireless<sup>3</sup> | |  | 
+|   | Cincinnati Bell<sup>3</sup> | |  | 
+|   | Immix<sup>3</sup> | |  | 
+|   | Manx NA<sup>3</sup> | |  | 
+|   | New Core<sup>3</sup> | |  | 
+|   | Union Telephone Company<sup>3</sup> | |  | 
+|   | Viaero<sup>3</sup> |2018-12 |  | 
 | Canada | Telus<sup>1</sup> |2017-05-31 | 2025-12-31 | 
 |   | Bell Mobility<sup>2</sup> |2018-01-06 | 2025-12-31 | 
-|   | Sasktel<sup>3</sup> |2017-07-31 |  | 
 |   | Mobilicity<sup>3</sup> | |  | 
+|   | Rogers Wireless<sup>3</sup> |2020-12-31 | 2025-12-31 | 
+|   | Sasktel<sup>3</sup> |2017-07-31 |  | 
 |   | Videotron<sup>3</sup> | |  | 
-|   | Rogers Wireless<sup>3</sup> | |  | 
 | United Kingdom | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
-|   | T-Mobile<sup>2</sup> | |  | 
 |   | Everything Everywhere Orange<sup>2</sup> | | 2022-12-31 | 
+|   | T-Mobile<sup>2</sup> | |  | 
 |   | O2<sup>3</sup> | |  | 
 | Afghanistan | Roshan<sup>1</sup> | |  | 
 |   | AWCC<sup>2</sup> | |  | 
@@ -395,8 +395,8 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | VIVA<sup>3</sup> | |  | 
 | Bangladesh | Robi<sup>1</sup> | |  | 
 |   | Orsacom<sup>2</sup> | |  | 
+|   | GrameenPhone<sup>3</sup> |After 2025 |  | 
 |   | Warid<sup>3</sup> | |  | 
-|   | GrameenPhone<sup>3</sup> | |  | 
 | Barbados | Digicel<sup>1</sup> | |  | 
 |   | Lime<sup>2</sup> | |  | 
 | Belgium | Proximus<sup>1</sup> | |  | 
@@ -406,7 +406,6 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Spacetel<sup>2</sup> | |  | 
 |   | GloMobile<sup>3</sup> | |  | 
 | Bermuda | CellOne<sup>1</sup> |2017-05 |  | 
-|   | Digicel<sup>2</sup> | |  | 
 |   | Digicel<sup>3</sup> | |  | 
 | Brunei Darussalam | DST<sup>1</sup> | | No Plan | 
 |   | B-Mobile<sup>2</sup> | | No Plan | 
@@ -418,10 +417,10 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Beeline<sup>3</sup> | |  | 
 | Canada | Telus<sup>1</sup> |2017-05-31 | 2025-12-31 | 
 |   | Bell Mobility<sup>2</sup> |2018-01-06 | 2025-12-31 | 
-|   | Sasktel<sup>3</sup> |2017-07-31 |  | 
 |   | Mobilicity<sup>3</sup> | |  | 
+|   | Rogers Wireless<sup>3</sup> |2020-12-31 | 2025-12-31 | 
+|   | Sasktel<sup>3</sup> |2017-07-31 |  | 
 |   | Videotron<sup>3</sup> | |  | 
-|   | Rogers Wireless<sup>3</sup> | |  | 
 | Cayman Islands | Digicel<sup>1</sup> | |  | 
 |   | Lime<sup>2</sup> | |  | 
 | Central African Republic | Moov | |  | 
@@ -443,7 +442,7 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Tele2<sup>2</sup> |No Plan | No Plan | 
 |   | Croatian Telecom<sup>3</sup> |No Plan | No Plan | 
 | Curaçao | Digicel | |  | 
-| Cyprus | Cytamobile-Vodafone<sup>1</sup> | |  | 
+| Cyprus | Cytamobile-Vodafone<sup>1</sup> |2025 | 2025 | 
 |   | MTN<sup>2</sup> |No Plan | No Plan | 
 | Czechia | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | T-Mobile<sup>2</sup> | |  | 
@@ -486,13 +485,13 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Geocell<sup>3</sup> | |  | 
 | Germany | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | T-Mobile<sup>2</sup> | |  | 
-|   | O2<sup>3</sup> | |  | 
 |   | E-Plus<sup>3</sup> | |  | 
+|   | O2<sup>3</sup> | |  | 
 | Ghana | Vodafone<sup>1</sup> |2025 | 2020 | 
 |   | Airtel<sup>2</sup> | |  | 
 |   | Globacom<sup>3</sup> | |  | 
-|   | Tigo<sup>3</sup> | |  | 
 |   | MTN<sup>3</sup> | |  | 
+|   | Tigo<sup>3</sup> | |  | 
 | Gibraltar | Gibtel | |  | 
 | Greece | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | Cosmote<sup>2</sup> | |  | 
@@ -515,15 +514,15 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Holy See (Vatican City) | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | Wind<sup>2</sup> | |  | 
 |   | TIM<sup>3</sup> | |  | 
-| Honduras | Digicel<sup>1</sup> | |  | 
-|   | Claro<sup>1</sup> | |  | 
+| Honduras | Claro<sup>1</sup> | |  | 
+|   | Digicel<sup>1</sup> | |  | 
 |   | Tigo<sup>2</sup> | |  | 
-| Hong Kong | Hutchison<sup>1</sup> |2016-12-31 |  | 
-|   | 3<sup>1</sup> | |  | 
+| Hong Kong | 3<sup>1</sup> | |  | 
+|   | Hutchison<sup>1</sup> |2016-12-31 |  | 
 |   | SmarTone<sup>2</sup> | |  | 
 |   | CSL<sup>3</sup> | |  | 
-|   | Peoples<sup>3</sup> | |  | 
 |   | PCCW Mobile<sup>3</sup> | |  | 
+|   | Peoples<sup>3</sup> | |  | 
 | Hungary | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | Telenor<sup>2</sup> | | 2020? | 
 |   | T-Mobile<sup>3</sup> | |  | 
@@ -532,16 +531,16 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Siminn<sup>3</sup> | |  | 
 | India | Vodafone<sup>1</sup> |2025 | 2020 | 
 |   | Aircel<sup>2</sup> | |  | 
-|   | Reliance<sup>3</sup> |2017-11-30 | 2017-11-30 | 
-|   | MTNL Dolphin<sup>3</sup> | |  | 
-|   | Idea<sup>3</sup> | |  | 
 |   | AirTel<sup>3</sup> |2019-12-31 | 2020-03-31 | 
 |   | BSNL<sup>3</sup> | |  | 
+|   | Idea<sup>3</sup> | |  | 
+|   | MTNL Dolphin<sup>3</sup> | |  | 
+|   | Reliance<sup>3</sup> |2017-11-30 | 2017-11-30 | 
 |   | Tata Docomo<sup>3</sup> | |  | 
 | Indonesia | Indosat<sup>1</sup> | |  | 
 |   | Telkomsel<sup>2</sup> | |  | 
-|   | Excelcom<sup>3</sup> | |  | 
 |   | 3<sup>3</sup> | |  | 
+|   | Excelcom<sup>3</sup> | |  | 
 | Iran | Rightel |2015 | No Plan | 
 | Ireland | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | O2<sup>2</sup> | |  | 
@@ -557,8 +556,8 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Lime<sup>2</sup> | |  | 
 | Japan | NTT DoCoMo<sup>1</sup> | | Late 2020s | 
 |   | Softbank<sup>2</sup> |2010-03-31 |  | 
-| Jersey | Jersey Telecom<sup>1</sup> | |  | 
-|   | Airtel-Vodafone<sup>1</sup> |2018 | 2020 | 
+| Jersey | Airtel-Vodafone<sup>1</sup> |2018 | 2020 | 
+|   | Jersey Telecom<sup>1</sup> | |  | 
 |   | Cable & Wireless<sup>2</sup> | |  | 
 | Jordan | Umniah<sup>1</sup> | |  | 
 |   | Orange<sup>2</sup> | |  | 
@@ -594,9 +593,9 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Malawi | Airtel<sup>1</sup> | |  | 
 |   | TNM<sup>2</sup> | |  | 
 | Malaysia | Celcom<sup>1</sup> |No Plan | No Plan | 
-|   | Maxis Mobile<sup>2</sup> | |  | 
-|   | U-Mobile<sup>3</sup> | | No Plan | 
+|   | Maxis Mobile<sup>2</sup> |No Plan | No Plan | 
 |   | DiGi<sup>3</sup> |After 2020 | After 2020 | 
+|   | U-Mobile<sup>3</sup> | | No Plan | 
 | Malta | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | Melita Mobile Ltd.<sup>2</sup> | |  | 
 |   | go mobile<sup>3</sup> | |  | 
@@ -627,8 +626,8 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Moov<sup>2</sup> | |  | 
 | Nigeria | Airtel<sup>1</sup> | |  | 
 |   | MTN<sup>2</sup> | |  | 
-|   | Glo Mobile<sup>3</sup> | |  | 
 |   | Etisalat<sup>3</sup> | |  | 
+|   | Glo Mobile<sup>3</sup> | |  | 
 | Norway | Telenor<sup>1</sup> |2025-12-31 | 2019-01-01 | 
 |   | Netcom<sup>2</sup> | |  | 
 |   | Network Norway<sup>2</sup> | |  | 
@@ -657,8 +656,8 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Globe<sup>3</sup> | |  | 
 | Poland | Orange<sup>1</sup> |No Plan | No Plan | 
 |   | Plus<sup>2</sup> | |  | 
-|   | Play<sup>3</sup> | |  | 
 |   | Era<sup>3</sup> | |  | 
+|   | Play<sup>3</sup> | |  | 
 | Portugal | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | Optimus<sup>2</sup> | |  | 
 |   | TMN<sup>3</sup> | |  | 
@@ -671,13 +670,13 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Outremer<sup>2</sup> |No Plan | No Plan | 
 | Romania | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
 |   | Orange<sup>2</sup> | |  | 
-|   | DigiMobil<sup>3</sup> | |  | 
 |   | Cosmote<sup>3</sup> | |  | 
+|   | DigiMobil<sup>3</sup> | |  | 
 | Russia | MTS<sup>1</sup> | |  | 
 |   | Megafon<sup>2</sup> | |  | 
+|   | Motiv<sup>3</sup> | |  | 
 |   | NCC<sup>3</sup> | |  | 
 |   | Rostelecom<sup>3</sup> | |  | 
-|   | Motiv<sup>3</sup> | |  | 
 | Rwanda | Airtel<sup>1</sup> | |  | 
 |   | Tigo<sup>2</sup> | |  | 
 | Saint Barthélemy | Digicel<sup>1</sup> | |  | 
@@ -728,16 +727,16 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Orange<sup>3</sup> | |  | 
 | Sri Lanka | Mobitel<sup>1</sup> | |  | 
 |   | Dialog<sup>2</sup> | |  | 
+|   | Airtel<sup>3</sup> | |  | 
 |   | Etisalat<sup>3</sup> | |  | 
 |   | Hutch<sup>3</sup> |No Plan | No Plan | 
-|   | Airtel<sup>3</sup> | |  | 
 | Suriname | Digicel<sup>1</sup> | |  | 
 |   | Telesur<sup>2</sup> | |  | 
 | Svalbard and Jan Mayen | Telenor | | 2020-12-31 | 
 | Sweden | Telenor<sup>1</sup> |No Plan | 2020-12-31 | 
 |   | Telenor (Net4Mobility)<sup>1</sup> | | 2020-12-31 | 
-|   | Tele 2 (Net4Mobility)<sup>2</sup> |No Plan |  | 
 |   | Tele 2<sup>2</sup> |No Plan |  | 
+|   | Tele 2 (Net4Mobility)<sup>2</sup> |No Plan |  | 
 |   | TeliaSonera<sup>3</sup> |No Plan |  | 
 | Switzerland | Swisscom<sup>1</sup> |2020-12-31 | 2022-12-31 | 
 |   | Sunrise<sup>2</sup> |2018-12-31 | 2024-12-31 | 
@@ -749,10 +748,9 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 |   | Airtel<sup>2</sup> | |  | 
 |   | Tigo<sup>3</sup> | |  | 
 |   | Zamtel<sup>3</sup> | |  | 
-| Thailand | True Move<sup>1</sup> | |  | 
-|   | Real Future<sup>1</sup> |2016 |  | 
+| Thailand | Real Future<sup>1</sup> |2016 |  | 
+|   | True Move<sup>1</sup> |2016-01-01 |  | 
 |   | AIS<sup>2</sup> |2016-01-01 |  | 
-|   | AIS<sup>3</sup> |2016-01-01 |  | 
 | Togo | Moov<sup>1</sup> | |  | 
 |   | Togo Cellulaire<sup>2</sup> | |  | 
 | Tonga | Digicel<sup>1</sup> | |  | 
@@ -764,26 +762,26 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 | Turks and Caicos Islands | Digicel<sup>1</sup> | |  | 
 |   | Lime<sup>2</sup> | |  | 
 |   | Islandcom<sup>3</sup> | |  | 
-| Uganda | Warid<sup>1</sup> | |  | 
-|   | Airtel<sup>1</sup> | |  | 
+| Uganda | Airtel<sup>1</sup> | |  | 
+|   | Warid<sup>1</sup> | |  | 
 |   | MTN<sup>2</sup> | |  | 
 | Ukraine | MTS<sup>1</sup> |No Plan | No Plan | 
 |   | Life<sup>2</sup> | |  | 
 |   | UKRTelecom<sup>3</sup> | |  | 
 | United Kingdom | Vodafone<sup>1</sup> |2025 | 2021-12-31 | 
-|   | T-Mobile<sup>2</sup> | |  | 
 |   | Everything Everywhere Orange<sup>2</sup> | | 2022-12-31 | 
+|   | T-Mobile<sup>2</sup> | |  | 
 |   | O2<sup>3</sup> | |  | 
 | United States | T-Mobile<sup>1</sup> |2020-12-31 |  | 
 |   | Commnet Wireless<sup>2</sup> | |  | 
-|   | Viaero<sup>3</sup> |2018-12 |  | 
-|   | Union Telephone Company<sup>3</sup> | |  | 
-|   | Manx NA<sup>3</sup> | |  | 
-|   | Bug Tussel Wireless<sup>3</sup> | |  | 
-|   | Immix<sup>3</sup> | |  | 
-|   | Cincinnati Bell<sup>3</sup> | |  | 
-|   | New Core<sup>3</sup> | |  | 
 |   | Alaskan Wireless Network (AWN)<sup>3</sup> |2017-09 |  | 
+|   | Bug Tussel Wireless<sup>3</sup> | |  | 
+|   | Cincinnati Bell<sup>3</sup> | |  | 
+|   | Immix<sup>3</sup> | |  | 
+|   | Manx NA<sup>3</sup> | |  | 
+|   | New Core<sup>3</sup> | |  | 
+|   | Union Telephone Company<sup>3</sup> | |  | 
+|   | Viaero<sup>3</sup> |2018-12 |  | 
 | Uruguay | Ancel<sup>1</sup> |No Plan | No Plan | 
 |   | Claro<sup>2</sup> | |  | 
 |   | Movistar<sup>3</sup> | |  | 
@@ -862,6 +860,28 @@ description: Cellular carriers for Particle cellular devices using the Particle 
 - <sup>2</sup> Secondary carrier(s)
 - <sup>3</sup> Backup carrier(s). Only used in certain areas if the primary or secondary carriers are not availalble.
 {{collapse op="end"}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

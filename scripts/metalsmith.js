@@ -165,6 +165,7 @@ exports.metalsmith = function () {
           'developer-tools',
           'device-cloud',
           'SDKs',
+          'asset-tracking',
           'hardware',
           'discontinued'
         ]
@@ -180,6 +181,7 @@ exports.metalsmith = function () {
           'diagnostics',
           'product-tools',
           'integrations',
+          'asset-tracking',
           'hardware-projects',
           'iot-rules-engine',
           'learn-more'
