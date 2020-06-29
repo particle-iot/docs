@@ -25,11 +25,11 @@ description: Setting up your Particle Asset Tracer
 |  5 | MODE | MODE button | 
 |  6 | RGB | RGB status LED |
 |  7 | RESET | RESET button |
-|  8 | MCU USB | nRF52 MCU USB for debugging. Can also power the SoM. |
-|  9 | STAT LED | Charge status indicator. |
-| 10 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
-| 11 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
-| 12 | J8 | 3V3 LED jumper. Normally installed, remove to disable 3V3 LED. | 
+|  8 | MCU USB | nRF52 MCU USB-C for debugging or power. |
+|  9 | J8 | 3V3 LED jumper. Normally installed, remove to disable 3V3 LED. | 
+| 10 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
+| 11 | STAT LED | Charge status indicator. |
+| 12 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
 | 13 | VIN | External power 5-12 VDC |
 | 14 | LiPo | JST-PH connector for LiPo battery |
 | 15 | S4 | Battery switch |
@@ -40,7 +40,7 @@ description: Setting up your Particle Asset Tracer
 | 20 | S5 | RTC battery switch |
 | 21 | RTC battery | Optional battery |
 | 22 | J4 | CAN data connection and 3.3V power output |
-| 23 | J5 | JTAG power jumper. Install to allow the MCU to be powered by the JTAG port. |
+| 23 | J5 | CAN power jumper (selects 3.3V or 5V) |
 
 
 #### Powering
@@ -70,7 +70,8 @@ The standard LED pattern for Tracker SoM Evaluation Boards devices is the standa
 #### Powering
 
 - Connect the Tracker One to your computer by USB. Use the included USB-C to USB-A cable, or a if your computer includes a USB-C port, your own USB-C to USB-C cable and connect to the external USB C connector.
-- Connecting power to USB will take the device out of shipping mode. The shipping mode allows the device to be safely shipped with the battery attached and without discharging the battery. It can only be exited by supplying external power.
+- Power by the M8 connector.
+- Connecting power will take the device out of shipping mode. The shipping mode allows the device to be safely shipped with the battery attached and without discharging the battery. It can only be exited by supplying external power.
 
 #### Status LEDs
 
@@ -175,6 +176,5 @@ Previously, product firmware needed to have the product ID embedded in the binar
 One good place to get started is [the map view in the console](/tutorials/device-cloud/console/#map).
 
 ![Map View](/assets/images/tracker/map-view.png)
-
 
 

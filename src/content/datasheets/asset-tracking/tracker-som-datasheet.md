@@ -329,6 +329,8 @@ Circular labels are as follows:
 | 94 | GNSS_RF |  | GNSS | GNSS antenna. |
 | 95 | GND | POWER | | Ground |
 
+Note: All GPIO, ADC, and peripherals such as I2C, Serial, and SPI are 3.3V maximum and are **not** 5V tolerant.
+
 Pin numbers match the triangular numbers in the graphic above.
 
 <sup>1</sup>Pin usage on the Tracker One.

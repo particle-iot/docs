@@ -69,7 +69,7 @@ One difference from other Particle devices is that the Tracker One firmware can 
 
 - The circuit board in the Tracker One will be available separately for semi-custom designs.
 - Use your own enclosure or modify the Tracker One enclosure to fit your needs. The Tracker One enclosure design is open-source.
-- Optionally an expansion daughter board using a JST PHR-8 for internal access to the same signals as the Tracker One M8 connector.
+- Optionally add an expansion daughter board using a JST PHR-8 for internal access to the same signals as the Tracker One M8 connector.
 
 ### Fully Custom
 
@@ -118,6 +118,9 @@ Here you'll find detailed technical specifications for the:
 
 If you're building a carrier board you'll probably want to use the Eagle CAD Tracker SoM footprint in the [Hardware Libraries](https://github.com/particle-iot/hardware-libraries). You can also import this into other CAD programs.
 
+### Known Issues and Errata
+
+- [Known Issues and Errata](https://support.particle.io/hc/en-us/articles/360050288874)
 
 
 ## Models

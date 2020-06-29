@@ -39,6 +39,8 @@ And you'll need a sensor, in this case a [SparkFun Atmospheric Sensor Breakout -
 
 Instead of using D0/D1 for I2C like on other Particle devices, in this case we'll be using the multi-function port pins `MCU_RX` and `MCU_TX` instead. On the Tracker SoM the TX and RX pins can be reconfigured to be `Wire3` instead of `Serial1`, allowing a single set of pins to be GPIO, serial, or I2C on the M8 connector.
 
+Note: All GPIO, ADC, and peripherals such as I2C, Serial, and SPI are 3.3V maximum and are **not** 5V tolerant. You must never use pull-ups to 5V on the I2C interface!
+
 - Start with the base Tracker Edge firmware
 - Add and copy the **Adafruit_BME280_RK** library into the project:
 
@@ -189,3 +191,4 @@ void locationGenerationCallback(JSONWriter &writer,
     "req_id":2
 }
 ```
+

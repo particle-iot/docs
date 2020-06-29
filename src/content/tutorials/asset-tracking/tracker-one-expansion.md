@@ -36,7 +36,7 @@ The 8-pin connector has these signals:
 
 <sup>3</sup>4.5 to 30 VDC when using the M8 connector. 4.5 - 105 VDC when connecting directly to the board.
 
-<sup>4</sup>5V, 500 mA maximum. Controlled by the CAN_PWR GPIO.
+<sup>4</sup>5V, 500 mA maximum. Controlled by the `CAN_PWR` GPIO.
 
 ![M8 connector](/assets/images/at-som/M8-connector.png)
 
@@ -69,11 +69,11 @@ There are three multi-function pins:
 | 7      | Serial1 RX | Wire3 SDA | GPIO D8   | 
 | 8      | Analog A3  |           | GPIO D3   | 
 
-For example: If you are using Serial, you cannot use Wire (I2C) and can only use one other GPIO (D3). 
+For example: If you are using `Serial1`, you cannot use `Wire3` (I2C) and can only use one other GPIO (`D3`). 
 
-If you are using Wire (I2C), you can't use Serial or D8 or D9.
+If you are using `Wire3` (I2C), you can't use `Serial1` or `D8` or `D9`.
 
-If you aren't using Wire or Serial, you can use all three pins as GPIO, or use D8 and D9 as GPIO and A3 as analog input (ADC).
+If you aren't using `Wire3` or `Serial1`, you can use all three pins as GPIO, or use `D8` and `D9` as GPIO and `A3` as analog input (ADC).
 
 If you are in need of more ports, the best solution is to use the multi-function pins as I2C, and include an I2C expander on your expansion board. Some things you can add using I2C:
 
@@ -85,7 +85,7 @@ If you are in need of more ports, the best solution is to use the multi-function
 - Serial UART (SC16IS740)
 - FRAM non-volatile data storage
 
-Note that Serial, I2C, GPIO, and ADC on the Tracker SoM can only be used at 3.3V maximum. The inputs are not 5V tolerant!
+Note that Serial, I2C, GPIO, and ADC on the Tracker SoM can only be used at 3.3V maximum. The pins are **not** 5V tolerant!
 
 ### Connecting Your Expansion Device
 

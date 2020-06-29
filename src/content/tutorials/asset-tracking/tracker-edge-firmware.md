@@ -16,6 +16,16 @@ One difference between the Tracker One and other Particle devices is that the Tr
 
 The [Tracker Edge Firmware API Reference](/reference/asset-tracking/tracker-edge-firmware/) is also available.
 
+## Using off-the-shelf releases
+
+In your product in the [console](https://console.particle.io), click on the **Firmware** icon.
+
+![Releases](/assets/images/tracker/release.png)
+
+Instead of having to manually upload firmware that you write, by default new releases are automatically added to your firmware list. Just click the **Release Firmware** link to release a new version to your fleet.
+
+Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added.
+
 ### Using Device OS 1.5.3 in Workbench
 
 Tracker devices currently requires Device OS 1.5.3 or later, and version 1.5.3 is not available in the Web IDE or CLI compilers. If you would like to develop custom tracker firmware you will need to use Particle Workbench with the Device OS from source option.
@@ -47,8 +57,17 @@ git submodule update --init --recursive
 
 ## Getting the Tracker Edge Firmware
 
-**TODO: To be determined**
+The Tracker Edge firmware can be downloaded from Github:
 
+[https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
+
+After downloading the source, you will need to fetch the library dependencies. This can be done from a command prompt or terminal window with the git command line tools installed:
+
+```
+cd tracker-edge
+git submodule init
+git submodule update --recursive
+```
 
 ## Overview
 
@@ -278,6 +297,8 @@ Wire3.begin();
 This feature is also available on the Tracker SoM, however on the Tracker SoM you have access to `Wire` on pins D0 an D1, so there is less of a need to use `Wire3`. Note that they map to the same I2C peripheral so you cannot use `Wire` and `Wire3` at the same time!
 
 If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/reference/device-os/firmware/tracker-som/#pinmode-), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
+
+These pins have a 3.3V maximum and are **not** 5V tolerant!
 
 ## Learn More 
 
