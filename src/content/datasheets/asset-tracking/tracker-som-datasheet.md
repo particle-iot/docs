@@ -549,7 +549,7 @@ GNSS GPIO:
 - CAN bus pins are disconnected when device is unpowered
 - High-ESD protection on CANH and CANL, meets IEC61000-4-2 up to ±8 kV
 - Very low standby current, 10 uA, typical
-- 5V step-up converter (XCL9142F40CER), 500 mA
+- 5V step-up converter (XCL9142F40CER), 400 mA maximum
 - CAN terminator resistor is not included
 
 CAN GPIO:

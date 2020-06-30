@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(001)</sup>
+# Tracker One<sup>(002)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -84,7 +84,7 @@ View as looking into the M8 connector on the outside of the enclosure.
 
 <sup>3</sup>4.5 to 30 VDC when using the M8 connector. 4.5 - 105 VDC when connecting directly to the board.
 
-<sup>4</sup>5V, 500 mA maximum. Controlled by the CAN_PWR GPIO.
+<sup>4</sup>5V, 400 mA maximum. Controlled by the CAN_PWR GPIO.
 
 The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
 
@@ -211,3 +211,4 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | pre1     | 20 Apr 2020 | RK | Preview Release1 |
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
 | 001      | 29 Jun 2020 | RK | First release |
+| 002      | 30 Jun 2020 | RK | CAN 5V is limited to 400 mA, not 500 mA |
