@@ -91,7 +91,7 @@ Note that Serial, I2C, GPIO, and ADC on the Tracker SoM can only be used at 3.3V
 
 The M8 (8mm) 8-pin connector is standard, however it's not common. Some other connectors like M12 are more common, however, the 12mm connector would have required a taller enclosure to fit the larger connector. To simplify designs, Particle will provide a M8 female-to-wires cable, similar to this. This is for illustration only and the design may vary in the future.
 
-![M8 cable](/assets/images/at-som/M8-cable.jpg)
+![M8 cable](/assets/images/at-som/m8-cable.jpg)
 
 The common use case will be to include a cable gland in your expansion enclosure, pass the wires through the gland, and terminate them on your custom expansion board.
 
