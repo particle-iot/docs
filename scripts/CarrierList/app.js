@@ -12,6 +12,10 @@ const base = require('airtable').base('appRCx9bhA5UCU4Gu');
 
 const fs = require('fs');
 const path = require('path');
+const { SSL_OP_NETSCAPE_CHALLENGE_BUG } = require('constants');
+
+// https://www.npmjs.com/package/yargs
+const argv = require('yargs').argv;
 
 var normalizeCountry = {
 		'United States of America':'United States'
@@ -26,6 +30,76 @@ var no2g = {
 		'Singapore':' ',
 		'Switzerland':'<sup>2</sup>', 	// note 2: Only with a 3rd-party SIM card
 		'United States':'<sup>1</sup>' 	// note 1: T-Mobile only
+};
+
+// This table is keyed by a frequency band number a string (like '1' for 'B1') and contains object. One
+// common use is the 'freq' key which will contain a frequency in MHz that this corresponds
+// to (B1 = 2100 MHz). It will also contain a key for the modems that support this frequency.
+// Currently limited to: 'eg91-e' and 'bg96-na'. These keys will be true if the band is 
+// supported or undefined if not.
+const bandFrequencies = {
+	'1':{'freq':2100,'eg91-e':true},
+	'2':{'freq':1900,'bg96-na':true},
+	'3':{'freq':1800,'eg91-e':true},
+	'4':{'freq':1700,'bg96-na':true},
+	'5':{'freq':850},
+	'7':{'freq':2600,'eg91-e':true},
+	'8':{'freq':900,'eg91-e':true},
+	'9':{'freq':1800},
+	'11':{'freq':1500},
+	'12':{'freq':700,'bg96-na':true},
+	'13':{'freq':700,'bg96-na':true},
+	'14':{'freq':700},
+	'17':{'freq':700},
+	'18':{'freq':850},
+	'19':{'freq':850},
+	'20':{'freq':800,'eg91-e':true},
+	'21':{'freq':1500},
+	'24':{'freq':1600},
+	'25':{'freq':1900},
+	'26':{'freq':850},
+	'28':{'freq':700,'eg91-e':true},
+	'29':{'freq':700},
+	'30':{'freq':2300},
+	'31':{'freq':450},
+	'32':{'freq':1500},
+	'34':{'freq':2000},
+	'37':{'freq':1900},
+	'38':{'freq':2600},
+	'39':{'freq':1900},
+	'40':{'freq':2300},
+	'41':{'freq':2500},
+	'42':{'freq':3500},
+	'43':{'freq':3700},
+	'44':{'freq':700},
+	'46':{'freq':5200},
+	'47':{'freq':5900},
+	'48':{'freq':3500},
+	'49':{'freq':3500},
+	'50':{'freq':1500},
+	'51':{'freq':1500},
+	'52':{'freq':3300},
+	'53':{'freq':2400},
+	'65':{'freq':2100},
+	'66':{'freq':1700},
+	'67':{'freq':700},
+	'68':{'freq':700},
+	'69':{'freq':2600},
+	'70':{'freq':1700},
+	'71':{'freq':600},
+	'72':{'freq':450},
+	'73':{'freq':450},
+	'74':{'freq':1500},
+	'75':{'freq':1500},
+	'76':{'freq':1500},
+	'85':{'freq':700},
+	'87':{'freq':410},
+	'88':{'freq':410},
+	// 2G frequencies don't have band numbers
+	'850':{'freq':850,'2g':true},
+	'900':{'freq':900,'2g':true,'eg91-e':true},
+	'1800':{'freq':1800,'2g':true,'eg91-e':true},
+	'1900':{'freq':1900,'2g':true},
 };
 
 // Array of SIM types. These correspond to the radio button values in the web page
@@ -70,6 +144,9 @@ var skuNameMap = {};
 
 // Map of Region record ID to region name. Key is region record ID.
 var regionNameMap = {};
+
+// Map of Region Name to record ID (opposite of regionNameMap)
+var regionRecordIdMap = {};
 
 // Map of Region record ID to region parent. Key is region record ID.
 var regionParentMap = {};
@@ -133,9 +210,13 @@ function getRegions() {
 	    // This function (`page`) will get called for each page of records.
 	
 	    records.forEach(function(record) {
-	        // console.log('Retrieved Region id=' + record.getId() + ' name=' + record.get('Name') + ' parent=' + record.get('Parent'));
-			regionNameMap[record.getId()] = record.get('Name');
-			regionParentMap[record.getId()] = record.get('Parent');
+			//console.log('Retrieved Region id=' + record.getId() + ' name=' + record.get('Name') + ' parent=' + record.get('Parent'));
+			const name = record.get('Name').trim();
+			const recordId = record.getId();
+			regionNameMap[recordId] = name;
+			regionRecordIdMap[name] = recordId;
+
+			regionParentMap[recordId] = record.get('Parent');
 	    });
 	
 	    // To fetch the next page of records, call `fetchNextPage`.
@@ -267,7 +348,7 @@ function getSimProviders() {
 function getFullData() {
 	base('Country-SIM-Carrier').select({
 	    maxRecords: 9999, 
-	    fields: ['ID', 'Country', 'SIM Provider', 'Carrier-link', 'Plan_Name-link', 'Technology-link', 'Network rank', 'Partner zone', '2G Sunset', '3G Sunset']
+	    fields: ['ID', 'Country', 'SIM Provider', 'Carrier-link', 'Plan_Name-link', 'Technology-link', 'Network rank', 'Partner zone', '2G Sunset', '3G Sunset', '2g bands', '3g bands', 'Cat-M LTE bands']
 	}).eachPage(function page(records, fetchNextPage) {
 	    // This function (`page`) will get called for each page of records.
 
@@ -279,6 +360,7 @@ function getFullData() {
 			countrySimCarrier[recordId] = {};
 			
 			const countryId = record.get('Country');
+			countrySimCarrier[recordId].countryId = countryId;
 		
 	    	let countryName = countryNameMap[countryId]; 
 			if (normalizeCountry[countryName]) {
@@ -316,10 +398,14 @@ function getFullData() {
 			countrySimCarrier[recordId].sunset2G = record.get('2G Sunset');
 			countrySimCarrier[recordId].sunset3G = record.get('3G Sunset');
 
+			countrySimCarrier[recordId].bands2G = record.get('2g bands');
+			countrySimCarrier[recordId].bands3G = record.get('3g bands');
+
+			countrySimCarrier[recordId].bandsLTE = record.get('Cat-M LTE bands');
 
 			const regionName = regionNameMap[countryRegionMap[countryId]];
 			countrySimCarrier[recordId].regionName = regionName;
-			countrySimCarrier[recordId].isB523 = isInArray(regionName, regionB523);	
+			countrySimCarrier[recordId].isB523 = regionB523.includes(regionName);	
 
 	    	switch(countrySimCarrier[recordId].planName) {
 	    	case 'Original':
@@ -365,7 +451,7 @@ function getFullData() {
 
 	}, function done(err) {
 	    if (err) { console.error(err); return; }
-		
+
 		simTypes.forEach(function(simType) {
 			for(var country in perSimType[simType].countryData) {
 				perSimType[simType].countryList.push(country);
@@ -405,11 +491,80 @@ function getFullData() {
 			
 		});
 
-
-	    generateMarkdown();
+		if (argv.b) {
+			generateBackup();
+		}
+		else
+		if (argv.r) {
+			generateRegionCountryList();
+		}
+		else {
+			generateMarkdown();
+		}
 	});
 	
 }
+
+// Parse either a comma-separated list of bands for 3G/LTE: B1,B2,B3
+// Or frequencies for 2G: 900,1800
+// Returned array will only be the numbers [1,2,3] or [900,1800] respectively
+function parseBandList(commaSeparatedList) {
+	var bands = [];
+
+	if (!commaSeparatedList || commaSeparatedList == 'n/a') {
+		return bands;
+	}
+
+	commaSeparatedList.split(',').forEach(function(band) {
+		band = band.trim();
+		if (band.startsWith('B')) {
+			const num = parseInt(band.substr(1));
+			if (num != 0) {
+				bands.push(num);
+			}
+			else {
+				console.log('unknown band name ' + band + ' in ' + commaSeparatedList);
+			}
+		}
+		else {
+			const num = parseInt(band);
+			if (num != 0) {
+				bands.push(num);
+			}
+			else {
+				console.log('unknown band name ' + band + ' in ' + commaSeparatedList);
+			}			
+		}
+	});
+
+	bands.sort();
+
+	return bands;
+}
+
+function updateAllBandsList(bandArray, allBands) {
+	bandArray.forEach(function(band) {
+		if (!allBands.includes(band)) {
+			allBands.push(band);
+		}
+	});
+	allBands.sort(function(a, b) {
+		if (a < 100 && b < 100) {
+			// Sort by band number
+			// First by frequency, then band number
+			var fa = bandFrequencies[a.toString()].freq;
+			var fb = bandFrequencies[b.toString()].freq;
+			if (fa != fb) {
+				return fa - fb;
+			}
+			return a - b;
+		}
+		else {
+			// Sort by actual frequency (2G)
+			return a - b;
+		}
+	});
+} 
 
 function rankToNumber(rank) {
 	switch(rank) {
@@ -506,9 +661,9 @@ function generateMarkdown() {
 				if (simType === 'B523') {
 					const technology = countrySimCarrier[recordId].technology;
 					// console.log('country=' + country, technology);
-					md += (isInArray('2G', technology) ? '&check;' : '&nbsp;') + '| ';
-					md += (isInArray('3G', technology) ? '&check;' : '&nbsp;') + '| ';
-					md += (isInArray('4G', technology) ? '&check;' : '&nbsp;') + '| ';
+					md += (technology.includes('2G') ? '&check;' : '&nbsp;') + '| ';
+					md += (technology.includes('3G') ? '&check;' : '&nbsp;') + '| ';
+					md += (technology.includes('4G') ? '&check;' : '&nbsp;') + '| ';
 				}
 
 				carrierAdded[carrierName] = true;
@@ -526,14 +681,6 @@ function generateMarkdown() {
 	updateDocs(md);
 }
 
-function isInArray(value, array) {
-	for(var ii = 0; ii < array.length; ii++) {
-		if (array[ii] === value) {
-			return true;
-		}
-	}
-	return false;
-}
 
 function sunsetToMd(content) {
 	if (!content || content == '?' || content == 'NA') {
@@ -582,6 +729,282 @@ function updateDocs(md) {
 }
 
 
+// -r option
+function generateRegionCountryList() {
 
+	// Sort by region
+	// Then within region by country
+	// Within each country list the OneNet carrier(s), then AllNet, each group alphabetically
+	// Horizontally: country, carrier, AllNet, 2G bands, 3G bands, LTE bands (for this region)
+	//
+	// For each band cell:
+	// blank           = band not used
+	// green checkmark = band used, band supported by EG91-E (U+2705)
+	// red X           = band used, but not supported by EG91-E (U+274C)
+	var output = '';
+
+	const headings = [
+		"Regions Currently Supported",
+		"Regions That Should Generally Work",
+		"Not recommended"
+	];
+	const regionGroups = [
+		// "Region Currently Supported"
+		[
+			'Europe',
+			'Baltics'
+		],
+		// "Region Should Generally Work"
+		[
+			'Australia',
+			'Asia',
+			'Middle East',
+			'Commonwealth',
+			'Africa',
+			'Oceania'
+		],
+		// Everything else goes into "Not recommended"
+		[
+			'United States of America',
+			'North America',
+			'Carribean',
+			'LATAM'
+		],
+		// These are omitted entirely 
+		[
+			'?',
+			'Americas',
+			'Global'
+		]
+	];
+
+
+	// console.log('allBandsInUse', allBandsInUse);
+
+	for(var headingIndex = 0; headingIndex < headings.length; headingIndex++) {
+
+		output += '\n## ' + headings[headingIndex] + '\n\n';
+
+		for(var regionIndex = 0; regionIndex < regionGroups[headingIndex].length; regionIndex++) {
+			const regionId = regionRecordIdMap[regionGroups[headingIndex][regionIndex]];
+			output += '\n### ' + regionNameMap[regionId] + '\n\n';
+
+			var regionData = [];
+			var bands2G = [];
+			var bands3G = [];
+			var bandsLTE = [];
+			var maxCountryLen = 0;
+			var maxCarrierNameLen = 0;
+
+			// Pass 1: Calculate all of the bands in this region
+			for(const countryId in countryRegionMap) {
+				//console.log('checking countryId=' + countryId + ' regionId=' + regionId + ' against=' + countryRegionMap[countryId]);
+				if (countryRegionMap[countryId] == regionId) {
+					for(const recordId in countrySimCarrier) {
+						if (countrySimCarrier[recordId].countryId == countryId) {
+							if (countrySimCarrier[recordId].planName == 'One Net' || countrySimCarrier[recordId].planName == 'All Net') {
+								// countryNames.push(countryNameMap[countryId] + ' (' + countrySimCarrier[recordId].carrierName + ')');
+								
+								// If none of the band fields are filled in, skip
+								if (countrySimCarrier[recordId].bands2G ||
+									countrySimCarrier[recordId].bands3G ||
+									countrySimCarrier[recordId].bandsLTE) {
+									// 
+									let obj = {};
+									obj.countryName = countryNameMap[countryId];
+									obj.planGroup = (countrySimCarrier[recordId].planName == 'One Net') ? 1 : 2;
+									obj.carrierName = countrySimCarrier[recordId].carrierName;
+									
+									obj.bands2G = parseBandList(countrySimCarrier[recordId].bands2G);
+									obj.bands3G = parseBandList(countrySimCarrier[recordId].bands3G);
+									obj.bandsLTE = parseBandList(countrySimCarrier[recordId].bandsLTE);
+
+									updateAllBandsList(obj.bands2G, bands2G);
+									updateAllBandsList(obj.bands3G, bands3G);
+									updateAllBandsList(obj.bandsLTE, bandsLTE);
+
+									regionData.push(obj);
+
+									if (obj.countryName.length > maxCountryLen) {
+										maxCountryLen = obj.countryName.length;
+									}
+									if (obj.carrierName.length > maxCarrierNameLen) {
+										maxCarrierNameLen = obj.carrierName.length;
+									}
+								}
+
+							}
+
+
+
+						}
+					}
+				}
+			}		
+
+			//console.log('bands2G', bands2G);
+			//console.log('bands3G', bands3G);
+			//console.log('bandsLTE', bandsLTE);
+
+			regionData.sort(function(a, b) {
+				let cmp = a.countryName.localeCompare(b.countryName);
+				if (cmp) {
+					return cmp;
+				}
+				cmp = a.planGroup - b.planGroup;
+				if (cmp) {
+					return cmp;
+				}
+				cmp = a.carrierName.localeCompare(b.carrierName);
+				if (cmp) {
+					return cmp;
+				}
+				return 0;
+			});
+
+			//console.log("regionData", regionData);
+
+			if (maxCountryLen < 8) {
+				maxCountryLen = 8;
+			}
+			if (maxCarrierNameLen < 8) {
+				maxCarrierNameLen = 8;
+			}
+
+			// Generate header
+			const spacePad = '                                       ';
+			var hdr1 = '';
+			var hdr2 = '';
+			var hdr3 = '';
+			var hdr4 = '';
+
+			hdr1 += '| Country ' + spacePad.substring(0, maxCountryLen - 8) + ' | Carrier ' + spacePad.substring(0, maxCarrierNameLen - 8) + ' | OneNet ';
+			hdr2 += '| :------ ' + spacePad.substring(0, maxCountryLen - 8) + ' | :------ ' + spacePad.substring(0, maxCarrierNameLen - 8) + ' | :----: '
+			hdr3 += '|         ' + spacePad.substring(0, maxCountryLen - 8) + ' |         ' + spacePad.substring(0, maxCarrierNameLen - 8) + ' |        '
+			hdr4 += '|         ' + spacePad.substring(0, maxCountryLen - 8) + ' |         ' + spacePad.substring(0, maxCarrierNameLen - 8) + ' |        '
+
+			for(var ii = 0; ii < bands2G.length; ii++) {
+				var s = bands2G[ii].toString();
+				hdr1 += '| ' + s + spacePad.substring(0, 6 - s.length);
+				hdr2 += '| :---: ';
+				hdr3 += '| 2G    ';
+				hdr4 += '| ' + s + spacePad.substring(0, 6 - s.length);
+			}
+			for(var ii = 0; ii < bands3G.length; ii++) {
+				var s = bands3G[ii].toString();
+				// console.log('s=' + s + ' bandFrequencies[s]=' + bandFrequencies[s]);
+				var s2 = bandFrequencies[s].freq.toString();
+				hdr1 += '| B' + s + spacePad.substring(0, 5 - s.length);
+				hdr2 += '| :---: ';
+				hdr3 += '| 3G    ';
+				hdr4 += '| ' +  s2 + spacePad.substring(0, 6 - s2.length);
+			}
+			for(var ii = 0; ii < bandsLTE.length; ii++) {
+				var s = bandsLTE[ii].toString();
+				// console.log('s=' + s + ' bandFrequencies[s]=' + bandFrequencies[s]);
+				var s2 = bandFrequencies[s].freq.toString();
+				hdr1 += '| B' + s + spacePad.substring(0, 5 - s.length);
+				hdr2 += '| :---: ';
+				hdr3 += '| LTE   ';
+				hdr4 += '| ' +  s2 + spacePad.substring(0, 6 - s2.length);
+			}
+			hdr1 += '|';
+			hdr2 += '|';
+			hdr3 += '|';
+			hdr4 += '|';
+			
+
+			output += hdr1 + '\n';
+			output += hdr2 + '\n';
+			output += hdr3 + '\n';
+			output += hdr4 + '\n';
+
+			// Pass 2: Generate Markdown 
+			regionData.forEach(function(obj) {
+				var row = '';
+
+				row += '| ' + obj.countryName + spacePad.substring(0, maxCountryLen - obj.countryName.length + 1);
+				row += '| ' + obj.carrierName + spacePad.substring(0, maxCarrierNameLen - obj.carrierName.length + 1);
+				row += '| ' + ((obj.planGroup == 1) ? '\u2714      ' : '       '); // One Net gets a checkmark
+
+				for(var ii = 0; ii < bands2G.length; ii++) {
+					if (obj.bands2G.includes(bands2G[ii])) {
+						// This band is used by this carrier
+						if (bandFrequencies[bands2G[ii]]['eg91-e']) {
+							row += '| \u2705     '; // Green box with with checkmark
+						}
+						else {
+							row += '| \u274C     '; // Red X
+						}
+					}
+					else {
+						row += '|       ';
+					}
+				}
+
+				for(var ii = 0; ii < bands3G.length; ii++) {
+					if (obj.bands3G.includes(bands3G[ii])) {
+						// This band is used by this carrier
+						if (bandFrequencies[bands3G[ii]]['eg91-e']) {
+							row += '| \u2705     '; // Green box with with checkmark
+						}
+						else {
+							row += '| \u274C     '; // Red X
+						}
+					}
+					else {
+						row += '|       ';
+					}
+				}
+
+				for(var ii = 0; ii < bandsLTE.length; ii++) {
+					if (obj.bandsLTE.includes(bandsLTE[ii])) {
+						// This band is used by this carrier
+						if (bandFrequencies[bandsLTE[ii]]['eg91-e']) {
+							row += '| \u2705     '; // Green box with with checkmark
+						}
+						else {
+							row += '| \u274C     '; // Red X
+						}
+					}
+					else {
+						row += '|       ';
+					}
+				}
+
+				row += '|';
+
+				output += row + '\n';
+			});
+
+		}
+	}
+
+	fs.writeFileSync(path.join(__dirname, 'eg91.md'), output);
+
+
+}
+
+
+
+// -b option
+function generateBackup() {
+	var backup = {};
+
+	backup.countryRegionMap = countryRegionMap;
+	backup.planNameMap = planNameMap;
+	backup.carrierNameMap = carrierNameMap;
+	backup.countryNameMap = countryNameMap;
+	backup.which3GMap = which3GMap;
+	backup.has2GMap = has2GMap;
+	backup.skuNameMap = skuNameMap;
+	backup.regionNameMap = regionNameMap;
+	backup.regionParentMap = regionParentMap;
+	backup.simProviderNameMap = simProviderNameMap;
+	backup.countrySimCarrier = countrySimCarrier;
+
+
+	fs.writeFileSync(path.join(__dirname, 'backup.json'), JSON.stringify(backup));
+}
 
 
