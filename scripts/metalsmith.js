@@ -183,7 +183,6 @@ exports.metalsmith = function () {
           'integrations',
           'asset-tracking',
           'hardware-projects',
-          'iot-rules-engine',
           'learn-more'
         ]
       },

@@ -1,0 +1,125 @@
+---
+title: Rules Engine
+layout: landing.hbs
+---
+
+# Rules Engine
+
+**The Rules Engine project has been discontinued.**
+
+## Introduction
+
+The Particle Rules Engine is a branded version of [Node-RED](https://nodered.org/), an open-source programming tool. As it's open source, even though the rules engine itself has been discontinued, you can still use the underlying Node-RED project.
+
+## Using a Cloud Service
+
+There are a number of cloud services that support Node-RED, however the most convenient is the IBM Cloud. There's built-in support for deploying Node-RED, and you can do so in the free tier for simple flows. 
+
+- [Official Node-RED Instructions](https://nodered.org/docs/getting-started/ibmcloud).
+- [A helpful article](https://hackernoon.com/how-to-securely-host-node-red-in-cloud-for-free-and-safely-expose-it-to-the-internet-over-https-hw5d3220).
+- Or, if you prefer: [AWS](https://nodered.org/docs/getting-started/aws) or [Microsoft Azure](https://nodered.org/docs/getting-started/azure)
+
+## Running Locally
+
+It's also possible to run Node-RED on your own computer, either natively or in a Docker container.
+
+- [Local installation](https://nodered.org/docs/getting-started/local)
+- [In a Docker container](https://nodered.org/docs/getting-started/docker)
+
+Using Docker is especially convenient since it's less likely to be affected by node.js versions and such. Once you've installed Docker, it can be as easy as:
+
+- Make a named data volume to hold the Node-RED data. The second command lists all volumes so you can verify that it was created. You should only do this once; you can create and destroy containers and keep your data volume, which contains your flows, so you won't lose those.
+
+```
+$ docker volume create --name node_red_user_data
+$ docker volume ls
+```
+
+And then build the container and run it:
+
+```
+$ docker run -it -p 1880:1880 -v node_red_user_data:/data --name mynodered nodered/node-red
+```
+
+And then open it in your browser: [http://127.0.0.1:1880/](http://127.0.0.1:1880/)!
+
+To detach the session from your terminal, type ctrl-p ctrl-q and the container will continue to run in the background.
+
+To reattach to the terminal run:
+
+```
+$ docker attach mynodered
+```
+
+If you need to restart the container, such as after a reboot or restart of the Docker daemon:
+
+```
+$ docker start mynodered
+```
+
+And stop it:
+
+```
+docker stop mynodered
+```
+
+
+## Migrating From the Particle Rules Engine
+
+### Nodes in Particle Rules Engine
+
+| Node | Description |
+| :--- | :--- |
+| node-red-contrib-particle | Particle Node |
+| [node-red-dashboard](https://flows.nodered.org/node/node-red-dashboard) | Dashboards |
+| Storage | |
+| [node-red-node-mongodb](https://flows.nodered.org/node/node-red-node-mongodb) | MongoDB |
+| [node-red-contrib-postgres](https://www.npmjs.com/package/node-red-contrib-postgres) | PostgreSQL |
+| [node-red-node-mysql](https://flows.nodered.org/node/node-red-node-mysql) | MySQL | 
+| [node-red-contrib-influxdb](https://flows.nodered.org/node/node-red-contrib-influxdb) | InfluxDB | 
+| Cloud Platforms | |
+| [node-red-contrib-salesforce](https://www.npmjs.com/package/node-red-contrib-salesforce) | Salesforce |
+| [node-red-contrib-aws](https://flows.nodered.org/node/node-red-contrib-aws) | Amazon AWS |
+| [NodeRedIoTHub](https://github.com/lcarli/NodeRedIoTHub) | Azure IoT Hub |
+| [node-red-contrib-ibm-watson-iot](https://flows.nodered.org/node/node-red-contrib-ibm-watson-iot) | IBM Watson Internet of Things Platform |
+| [node-red-contrib-google-pubsub](https://flows.nodered.org/node/node-red-contrib-google-pubsub) | Google Cloud Pubsub | 
+
+
+To add the nodes you need into your new Node-RED instance:
+
+![Rules Manage Palette](/assets/images/rules-manage-palette.png)
+
+
+In the **User Settings** window, select **Install** (1) then enter the name, like **node-red-contrib-particle** in the search box (2). Then add the node.
+
+![Rules Install](/assets/images/rules-install.png)
+
+
+### Exporting Your Rules
+
+To export your rules from the Particle Rules Engine:
+
+- Log into your Rules Engine instance.
+
+- Select the **Hamburger Menu** in the upper right corner of the window (1). Then **Export** (2). Then **Clipboard** (3).
+
+![Rules Export](/assets/images/rules-export.png)
+
+- From the **Export to nodes Clipboard** window, you'll probably want to select **All Flows**, or if you only want some, individually select and save the flows you want to keep.
+
+![Rules Export Clipboard](/assets/images/rules-export-clipboard.png)
+
+- Open your use Node-RED instance and select **Hamburger Menu** then **Import**. You can import directly from the clipboard or save to a file first.
+
+## Original Documentation
+
+Snapshots of the documentation that has been removed have been taken and saved as PDFs below, however the instructions may no longer work properly.
+
+- [Quickstart Guide](/assets/pdfs/rules-engine/QuickStart.pdf)
+- [Real-time Alerting](/assets/pdfs/rules-engine/Alerting.pdf)
+- [Device Command and Control](/assets/pdfs/rules-engine/DeviceCommand.pdf)
+- [Data Management](/assets/pdfs/rules-engine/DataManagement.pdf)
+- [Visualization and Analytics](/assets/pdfs/rules-engine/Visualization.pdf)
+- [Fleet-wide Remote Diagnostics](/assets/pdfs/rules-engine/RemoteDiagnostics.pdf)
+- [Dynamic Firmware Management](/assets/pdfs/rules-engine/DynamicFirmwareManagement.pdf)
+
