@@ -196,6 +196,17 @@ Maximum Carrier Board Dimensions (mm):
 
 Note: The Tracker Carrier Board has a smaller bottom tab to provide space for the M8 connector.
 
+---
+
+## Product Handling
+
+### ESD Precautions
+The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
+
+### Disposal
+
+![WEEE](/assets/images/weee.png)
+
 ## Ordering Information
 
 | SKU     | Description | Packaging |
@@ -203,6 +214,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | ONE402M | Tracker One LTE M1/2G (NorAm), [x1]	| Each |
 | ONE523M | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Each |
 | TCAR	  | Tracker Carrier Board, [x1]	| Each |
+
 
 ## Revision history
 

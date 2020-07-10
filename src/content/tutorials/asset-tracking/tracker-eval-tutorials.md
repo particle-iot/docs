@@ -166,22 +166,24 @@ void locationGenerationCallback(JSONWriter &writer,
 
 ```json
 {
-    "cmd":"loc"
-    "time":1593091308
+    "cmd":"loc",
+    "time":1593091308,
     "loc":
     {
-        "lck":1
-        "time":1593091309
-        "lat":42.469732
-        "lon":-75.064801
-        "alt":324.11
-        "hd":222.95
-        "h_acc":6.8
-        "v_acc":9.2
-        "cell":42.3
-        "batt":72.2
-        "temp":24.92
-        "pres":973.39
+        "lck":1,
+        "time":1593091309,
+        "lat":42.469732,
+        "lon":-75.064801,
+        "alt":324.11,
+        "hd":222.95,
+        "h_acc":6.8,
+        "v_acc":9.2,
+        "cell":42.3,
+        "batt":72.2,
+		"cell":37.1,
+		"batt":98.8,
+        "temp":24.92,
+        "pres":973.39,
         "hum":42.46
     },
     "trig":

@@ -421,9 +421,10 @@ DFU mode requires device drivers under Windows. These should automatically be in
 Some users have reported issues with dfu-util on a USB3 ports (typically the blue ones). Use a USB2 port if the USB3 port doesn't work.
 
 
-### Firmware Reset
 
 {{#if photon}}
+### Firmware Reset
+
 Firmware reset is not available on the device, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 The [Particle CLI](/tutorials/developer-tools/cli/) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
@@ -431,10 +432,33 @@ The [Particle CLI](/tutorials/developer-tools/cli/) can also restore the default
 ```
 particle flash --usb tinker
 ```
-
 {{/if}}
 
-{{#if has-gen3}}
+{{#if electron}}
+### Firmware Reset
+_Since 0.6.0_
+
+{{device-animation device "blink" "lime" }}
+
+The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
+
+A CLI installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
+
+And a usage guide [here.](/reference/developer-tools/cli/)
+
+To enter Firmware Reset Mode:
+
+1. Hold down BOTH buttons
+2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.
+3. Wait for the LED to start flashing green or white (it will flash magenta, then yellow first)
+4. Release the `{{system-button}}` button
+{{/if}} {{!-- electron --}}
+
+
+{{#if has-gen3-argon-boron-xenon}}
+
+### Firmware Reset
+
 Gen 3 devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
 
 To program your device with a backup copy of user firmware via USB, you'll need to put it in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run a command like one of the following:
@@ -472,35 +496,10 @@ Hold down the MODE button and tap RESET. The status LED will blink:
 }}
 
 Be sure to release the mode button as soon as you get to fast blinking yellow, otherwise you'll go one step farther and clear all of your settings as well.
-
  
-{{/if}}
-
-{{#if electron}}
-_Since 0.6.0_
-
-{{device-animation device "blink" "lime" }}
-
-The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
-
-A CLI installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
-
-And a usage guide [here.](/reference/developer-tools/cli/)
-
-To enter Firmware Reset Mode:
-
-1. Hold down BOTH buttons
-2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.
-3. Wait for the LED to start flashing green or white (it will flash magenta, then yellow first)
-4. Release the `{{system-button}}` button
-{{/if}}
-
 ### Factory Reset
 
-
-{{#if has-gen3}}
-
-Gen 3 (Argon, Boron, Xenon) devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
+Gen 3 (Argon, Boron) devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
 
 To factory reset, hold down the MODE button and tap RESET. The status LED will blink:
 
@@ -527,24 +526,7 @@ This will:
   "blink blue 50 times"
 }}
 
-{{else}}
-
-Factory reset is not available on this device, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
-
-{{#if photon}}
-You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
-{{/if}}
-
-{{#if has-device-doctor}}
-The [Particle CLI](/tutorials/developer-tools/cli/) can also reset the firmware using:
-
-```
-particle device doctor
-```
-{{/if}} {{!-- has-device-doctor --}}
-
-
-{{/if}} {{!-- has-gen3 --}}
+{{/if}} {{!-- has-gen3-argon-boron-xenon --}}
 
 
 

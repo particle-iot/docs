@@ -392,9 +392,12 @@ A location event typically has JSON that looks like this:
 		"alt":71.6,
 		"hd":46.16,
 		"h_acc":10.0,
-		"v_acc":2.57
+		"v_acc":2.57,
+		"cell":37.1,
+		"batt":98.8
 	},
-	"trig": ["radius", "imu_m"]
+	"trig": ["lock"],
+	"req_id":1
 }
 ```
 
@@ -438,6 +441,14 @@ Horizontal accuracy, in meters, of geographic latitude and longitude coordinates
 
 Vertical accuracy, in meters, of geographic altitude coordinates.
 
+#### loc.batt
+
+Battery level, in percentage (0-100.0) when available and valid.  This field will be omitted when no battery is connected.
+
+#### loc.cell
+
+Cellular signal strength/quality, in percentage (0-100.0).
+
 #### loc.temp
 
 Device temperature, in degrees Celsius, if available.
@@ -453,6 +464,9 @@ Reason for point location publish message, an array of causes enumeration string
 
 The JSON schema for location events will be released soon.
 
+#### req_id
+
+The request identifier, used to make sure the event was received.
 
 ### Tracker Configuration Events
 

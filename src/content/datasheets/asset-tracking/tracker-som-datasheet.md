@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(001)</sup>
+# Tracker SoM Datasheet <sup>(002)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -426,11 +426,11 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:---|:---|:---:|:---:|:---:|:---:|
 | **Supply voltages** | | | | | |
-| Supply Input Voltage | VIN | 3.88 |  | 12 | V |
+| Supply Input Voltage | VIN | -2.0 |  | +22.0 | V |
 | VBUS USB supply voltage | VUSB | -0.3 |  | +5.8 | V |
 | Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
-| LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
+| LiPo Battery Voltage | V<sub>LiPo</sub> | -0.5 |  | +6.0 | V |
 | CAN Supply Voltage | | 5 | | V |
 | CAN Supply Current | | | 500 | mA |
 | **I/O pin voltage** | | | | | | 
@@ -455,8 +455,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | **Supply voltages** |
-| Supply Input Voltage | VIN | +3.8 |  | +12.0 | V |
-| VBUS USB supply voltage | VUSB | +4.35 | +5.0 | +5.5 | V |
+| Supply Input Voltage | VIN | 3.9 |  | 17.0 | V |
+| VBUS USB supply voltage | VUSB | 4.35 | 5.0 | 5.5 | V |
+| LiPo Battery Voltage | V<sub>LiPo</sub> | 3.6 |  | 4.3 | V |
 | **Environmental** |
 | Normal operating temperature<sup>1</sup> | | -20 | +25 | +75<sup>3</sup> | °C |
 | Extended operating temperature<sup>2</sup> | | -40 |  | +85 | °C |
@@ -885,13 +886,16 @@ The Tracker SoM contains highly sensitive electronic circuitry and is an Electro
 
 The U.FL antenna connectors are not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used securely hold the plug in place.
 
+### Disposal
+
+![WEEE](/assets/images/weee.png)
+
 
 ## Default settings
 
 The AssetTracker SoM comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
-
 
 ## Ordering Information
 
@@ -906,7 +910,6 @@ The bootloader allows you to easily update the user application via several diff
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50]	| Tray (50) |
 | T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]	| Each |
 
-
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -914,3 +917,4 @@ The bootloader allows you to easily update the user application via several diff
 | pre1     | 31 Mar 2020 | RK | Preview Release 1 |
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
 | 001      | 29 Jun 2020 | RK | First release |
+| 002      | 10 Jul 2020 | RK | Updated absolute maximum ratings, schematics |

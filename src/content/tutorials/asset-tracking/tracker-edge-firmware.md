@@ -66,7 +66,7 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
     { "net.ppp.client", LOG_LEVEL_INFO },
 });
 
-TrackerCore tracker;
+Tracker tracker;
 
 void setup()
 {
@@ -124,10 +124,10 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
 });
 ```
 
-You must declare a `TrackerCore` object in your main source file. The definition is in the tracker_core.h file. Typically you make it a global variable.
+You must declare a `Tracker` object in your main source file. The definition is in the tracker_core.h file. Typically you make it a global variable.
 
 ```cpp
-TrackerCore tracker;
+Tracker tracker;
 ```
 
 Setup calls `tracker.init()`. This is required! Since the sample uses `SYSTEM_MODE(SEMI_AUTOMATIC)` you should call `Particle.connect()` at the end of `setup()`.
@@ -164,7 +164,7 @@ It's easy to add additional data to the location event. For example, if you want
 ```cpp
 void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
-TrackerCore tracker;
+Tracker tracker;
 
 void setup()
 {
@@ -196,22 +196,24 @@ If you look at the location event, you can see the new field for `speed` (in met
 
 ```json
 {
-    "cmd":"loc"
-    "time":1592486562
+    "cmd":"loc",
+    "time":1592486562,
     "loc":{
-        "lck":1
-        "time":1592486563
-        "lat":42.469732
-        "lon":-75.064801
-        "alt":321.16
-        "hd":122.29
-        "h_acc":6.7
-        "v_acc":12
+        "lck":1,
+        "time":1592486563,
+        "lat":42.469732,
+        "lon":-75.064801,
+        "alt":321.16,
+        "hd":122.29,
+        "h_acc":6.7,
+        "v_acc":12,
+		"cell":37.1,
+		"batt":98.8,
         "speed":0.05
-    }
+    },
     "trig":[
         "time"
-    ]
+    ],
     "req_id":4
 }
 ```

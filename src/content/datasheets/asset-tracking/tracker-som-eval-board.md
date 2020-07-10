@@ -204,6 +204,20 @@ To be provided at a later date.
 
 Weight will be provided at a later date.
 
+---
+
+## Product Handling
+
+### ESD Precautions
+The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
+
+### Connectors
+
+The U.FL antenna connectors are not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used securely hold the plug in place.
+
+### Disposal
+
+![WEEE](/assets/images/weee.png)
 
 ## Revision history
 

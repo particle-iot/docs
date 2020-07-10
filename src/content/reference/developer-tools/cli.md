@@ -668,6 +668,8 @@ Configure Wi-Fi credentials over serial on the Photon, P1, and Argon.
 $ particle serial wifi
 ```
 
+You will need to use this command to set up a device using WPA2 Enterprise and services like EduRoam that use it. See [this article](https://support.particle.io/hc/en-us/articles/360039741153) for more information.
+
 
 ### particle serial list
 

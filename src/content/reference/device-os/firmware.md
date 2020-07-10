@@ -1843,6 +1843,8 @@ WiFi.setCredentials(credentials);
 
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
 
+For information on setting up WPA2 Enterprise from the Particle CLI, see [this article](https://support.particle.io/hc/en-us/articles/360039741153).
+
 {{#if has-wpa-enterprise}}
 ```cpp
 // WPA2 Enterprise with EAP-TLS
