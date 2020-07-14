@@ -403,7 +403,7 @@ A location event typically has JSON that looks like this:
 
 #### cmd
 
-This currently always the string `loc`, indicating the payload contains the `loc` object.
+This currently always the string `loc`, indicating that the payload contains the `loc` object.
 
 #### time
 
@@ -460,7 +460,7 @@ Reason for point location publish message, an array of causes enumeration string
 - `time` time-based (`interval_max`)
 - `radius` movement-based (`radius`)
 - `imu_m` IMU wake on motion
-- `imu_g` IMU wake on high-G acceleration
+- `imu_g` IMU wake on high-G acceleration (4g for at least 2.5ms.)
 
 The JSON schema for location events will be released soon.
 

@@ -694,7 +694,7 @@ The motion settings determine how the IMU (inertial measurement unit, the accele
   - **Medium**
   - **High**: Most sensitive, even a small amount of motion will trigger publish.
 
-- **High G** publishes if there is a High-G acceleration event, such as the device falling.
+- **High G** publishes if there is a High-G acceleration event, such as the device falling. This is 4g for at least 2.5ms.
 
   - **Disable**: High-G events are not generated (the default).
   - **Enable**: High-G events are generated.
