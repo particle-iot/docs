@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(002)</sup>
+# Tracker One<sup>(003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -64,13 +64,13 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | M8 Pin | Function   | Function  | Function  | I/O |
 | :----: | :-------   | :-------  | :-------  | :--- |
 | 1      | VIN<sup>3</sup> |      |           | I |
-| 2      | GND        |           |           |   |         
-| 3      | CAN 5V<sup>4</sup> |   | CAN_PWR   | O |
-| 4      | CAN+       |           |           | IO<sup>2</sup> |
-| 5      | CAN-       |           |           | IO<sup>2</sup> |
-| 6      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
-| 7      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
-| 8      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
+| 2      | CAN_H      |           |           | IO<sup>2</sup> |
+| 3      | CAN_L      |           |           | IO<sup>2</sup> |
+| 4      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O |
+| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
+| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
+| 7      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
+| 8      | GND        |           |           |   |         
 
 The IP67 M8, 8-pin, male pins with threaded barrel connector is accessible from the outside of the enclosure. 
 
@@ -224,3 +224,4 @@ The Tracker SoM contains highly sensitive electronic circuitry and is an Electro
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
 | 001      | 29 Jun 2020 | RK | First release |
 | 002      | 30 Jun 2020 | RK | CAN 5V is limited to 400 mA, not 500 mA |
+| 003      | 16 Jul 2020 | RK | Corrected M8 pinouts |

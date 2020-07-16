@@ -254,9 +254,10 @@ The Tracker One has three multi-function pins on the M8 port:
 
 | M8 Pin | Function   | Function  | Function  | 
 | :----: | :-------   | :-------  | :-------  | 
-| 6      | Serial1 TX | Wire3 SCL | GPIO D9   | 
-| 7      | Serial1 RX | Wire3 SDA | GPIO D8   | 
-| 8      | Analog A3  |           | GPIO D3   | 
+| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | 
+| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | 
+| 7      | Analog A3  |           | GPIO D3   | 
+
 
 If you enable `Serial1` you cannot use the pins for I2C or GPIO.
 
