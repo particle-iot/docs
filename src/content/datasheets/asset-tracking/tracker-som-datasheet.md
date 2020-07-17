@@ -404,35 +404,20 @@ A detailed explanation of different color codes of the RGB system LED can be fou
 
 ## Technical specifications
 
-### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
+### Absolute maximum ratings
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:---|:---|:---:|:---:|:---:|:---:|
-| Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +17 | V |
-| Supply Input Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
-| Battery Input Voltage | V<sub>LiPo</sub> |  |  | +6 | V |
-| Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 800 | mA |
-| Storage Temperature | T<sub>stg</sub> | -30 |  | +75 | °C |
-| ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
-| CAN Supply Current | | | 500 | mA |
-
-<sup>1</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
-only, and functional operation of the device at these or any other conditions beyond those indicated under recommended operating
-conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
-
-
-#### Supply voltages
-
-| Parameter | Symbol | Min | Typ | Max | Unit |
-|:---|:---|:---:|:---:|:---:|:---:|
-| **Supply voltages** | | | | | |
+| **Supply** | | | | | |
 | Supply Input Voltage | VIN | -2.0 |  | +22.0 | V |
+| Supply Input Current | I<sub>IN-MAX-L</sub> |  |  | 1.5 | A |
 | VBUS USB supply voltage | VUSB | -0.3 |  | +5.8 | V |
 | Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 800 | mA |
 | LiPo Battery Voltage | V<sub>LiPo</sub> | -0.5 |  | +6.0 | V |
 | CAN Supply Voltage | | 5 | | V |
-| CAN Supply Current | | | 500 | mA |
+| CAN Supply Current | | | 400 | mA |
 | **I/O pin voltage** | | | | | | 
 | VI/O | IO | -0.3 |  | +3.6 | V |
 | **NFC antenna pin current** | | | | | |
@@ -441,9 +426,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | BT RF input level (52840)| | | | 10 | dBm |
 | **Environmental**| | | | | |
 | Storage  temperature | | -40 | | +85 |°C |
+| ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
-
-<sup>1</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
+Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
 only, and functional operation of the device at these or any other conditions beyond those indicated under recommended operating
 conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
 
@@ -890,6 +875,10 @@ The U.FL antenna connectors are not designed to be constantly plugged and unplug
 
 ![WEEE](/assets/images/weee.png)
 
+This device must be treated as Waste Electrical & Electronic Equipment (WEEE) when disposed of.
+
+Any WEEE marked waste products must not be mixed with general household waste, but kept separate for the treatment, recovery and recycling of the materials used. For proper treatment, recovery and recycling; please take all WEEE marked waste to your Local Authority Civic waste site, where it will be accepted free of charge. If all consumers dispose of Waste Electrical & Electronic Equipment correctly, they will be helping to save valuable resources and preventing any potential negative effects upon human health and the environment of any hazardous materials that the waste may contain.
+
 
 ## Default settings
 
@@ -918,3 +907,4 @@ The bootloader allows you to easily update the user application via several diff
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
 | 001      | 29 Jun 2020 | RK | First release |
 | 002      | 10 Jul 2020 | RK | Updated absolute maximum ratings, schematics |
+| 003      | 17 Jul 2020 | RK | Updated absolute maximum ratings |

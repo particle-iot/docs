@@ -207,6 +207,11 @@ The Tracker SoM contains highly sensitive electronic circuitry and is an Electro
 
 ![WEEE](/assets/images/weee.png)
 
+This device must be treated as Waste Electrical & Electronic Equipment (WEEE) when disposed of.
+
+Any WEEE marked waste products must not be mixed with general household waste, but kept separate for the treatment, recovery and recycling of the materials used. For proper treatment, recovery and recycling; please take all WEEE marked waste to your Local Authority Civic waste site, where it will be accepted free of charge. If all consumers dispose of Waste Electrical & Electronic Equipment correctly, they will be helping to save valuable resources and preventing any potential negative effects upon human health and the environment of any hazardous materials that the waste may contain.
+
+
 ## Ordering Information
 
 | SKU     | Description | Packaging |
