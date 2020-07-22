@@ -18,7 +18,7 @@ This reference guide describes the API for use with semi-custom and custom devic
 
 ## Tracker
 
-You typically instantiate the `Tracker` object as a global variable. You must call the `init()` method from `setup()` and the `loop()` method on every loop.
+The `Tracker` object is a singleton that you access using `Tracker::instance()`. You must call the `init()` method from `setup()` and the `loop()` method on every loop.
 
 ```
 // INCLUDE
@@ -43,18 +43,16 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
     { "net.ppp.client", LOG_LEVEL_INFO },
 });
 
-Tracker tracker;
-
 void setup()
 {
-    tracker.init();
+    Tracker::instance().init();
 
     Particle.connect();
 }
 
 void loop()
 {
-    tracker.loop();
+    Tracker::instance().loop();
 }
 
 ``` 
@@ -66,7 +64,7 @@ void loop()
 void Tracker::init();
 
 // EXAMPLE
-tracker.init();
+Tracker::instance().init();
 ```
 
 You must call the `init()` method from `setup()` in your main application file.
@@ -79,7 +77,7 @@ You must call the `init()` method from `setup()` in your main application file.
 void loop();
 
 // EXAMPLE
-tracker.loop()
+Tracker::instance().loop()
 ```
 
 You must call the `loop()` method from `loop()` in your main application file.
@@ -138,7 +136,7 @@ Use this to access the [`CloudService`](/reference/asset-tracking/tracker-edge-f
 TrackerLocation location;
 
 // EXAMPLE
-tracker.location.regLocGenCallback(locationGenerationCallback);
+Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
 ```
 
 Use this to access the [`TrackerLocation`](/reference/asset-tracking/tracker-edge-firmware/#Trackerlocation) object. Note that there are two different services, `LocationService` and `TrackerLocation`.
@@ -153,7 +151,7 @@ LocationService locationService;
 
 // EXAMPLE
 LocationStatus locationStatus;
-tracker.locationService.getStatus(locationStatus);
+Tracker::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 
@@ -170,7 +168,7 @@ You may want to use the `LocationService` directly to query GNSS status (fix or 
 TrackerShipping shipping;
 
 // EXAMPLE
-tracker.shipping.enter();
+Tracker::instance().shipping.enter();
 ```
 
 Use this to access the `TrackerShipping` object. You will rarely need to do this because shipping mode is typically managed from the console.
@@ -264,19 +262,17 @@ int regLocGenCallback(
 void locationGenerationCallback(JSONWriter &writer, 
     LocationPoint &point, const void *context); // Forward declaration
 
-Tracker tracker;
-
 void setup()
 {
-    tracker.init();
-    tracker.location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().init();
+    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
 
     Particle.connect();
 }
 
 void loop()
 {
-    tracker.loop();
+    Tracker::instance().loop();
 }
 
 void locationGenerationCallback(JSONWriter &writer, 
@@ -400,7 +396,7 @@ int getStatus(LocationStatus& status);
 
 // EXAMPLE
 LocationStatus locationStatus;
-tracker.locationService.getStatus(locationStatus);
+Tracker::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 

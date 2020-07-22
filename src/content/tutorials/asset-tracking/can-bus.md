@@ -14,4 +14,21 @@ One common use is the vehicle [on-board diagnostics](https://en.wikipedia.org/wi
 
 There are other CAN-based protocols like [CANopen](https://en.wikipedia.org/wiki/CANopen) and [DeviceNet](https://en.wikipedia.org/wiki/DeviceNet) that could be implemented, but do not currently have software libraries available.
 
-This section will be provided at a later date.
+## Tracker One CAN Application Notes
+
+The [AN017 Tracker CAN](https://github.com/particle-iot/app-notes/tree/master/AN017-Tracker-CAN) application note is a good place to start.
+
+This application note shows how to use the CAN bus for OBD-II to retrieve engine RPM:
+
+- Setup parameters for CAN bus
+- Requesting data via CAN bus
+- Parsing CAN response
+
+It also includes a number of techniques that will be useful in many more applications:
+
+- Adding data to location publishes.
+- Aggregating data that frequently changes, and upload minimum, average (mean), and maximum with location publishes.
+- Adjusting the location publish rate based on criterial (such as when the engine is running faster than idle).
+- Using cloud-configurable parameters. In this example, the engine idle speed and frequency to publish when engine is running fast.
+
+

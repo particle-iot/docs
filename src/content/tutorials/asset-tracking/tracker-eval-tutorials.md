@@ -72,7 +72,6 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
 
 #include "Adafruit_BME280.h"
 
-Tracker tracker;
 
 // Temperature, pressure, and humidity sensor
 Adafruit_BME280 bme(Wire3);
@@ -85,7 +84,7 @@ void setup()
     // waitFor(Serial.isConnected, 10000);
     // delay(2000);
 
-    tracker.init();
+    Tracker::instance().init();
 
     // Disable Serial1 and enable Wire3 (I2C) on the multi-function pins 
     Serial1.end();
@@ -95,7 +94,7 @@ void setup()
     hasSensor = bme.begin(0x77);
     Log.info("hasSensor=%d", hasSensor);
 
-    tracker.location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
 
 
     Particle.connect();
@@ -103,7 +102,7 @@ void setup()
 
 void loop()
 {
-    tracker.loop();
+    Tracker::instance().loop();
 }
 
 void locationGenerationCallback(JSONWriter &writer, 

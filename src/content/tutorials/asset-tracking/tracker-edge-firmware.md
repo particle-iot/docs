@@ -66,18 +66,16 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
     { "net.ppp.client", LOG_LEVEL_INFO },
 });
 
-Tracker tracker;
-
 void setup()
 {
-    tracker.init();
+    Tracker::instance().init();
 
     Particle.connect();
 }
 
 void loop()
 {
-    tracker.loop();
+    Tracker::instance().loop();
 }
 ```
 
@@ -124,33 +122,27 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
 });
 ```
 
-You must declare a `Tracker` object in your main source file. The definition is in the tracker_core.h file. Typically you make it a global variable.
-
-```cpp
-Tracker tracker;
-```
-
-Setup calls `tracker.init()`. This is required! Since the sample uses `SYSTEM_MODE(SEMI_AUTOMATIC)` you should call `Particle.connect()` at the end of `setup()`.
+Setup calls `Tracker::instance().init()`. This is required! Since the sample uses `SYSTEM_MODE(SEMI_AUTOMATIC)` you should call `Particle.connect()` at the end of `setup()`.
 
 You can add your own code to `setup()` as well.
 
 ```
 void setup()
 {
-    tracker.init();
+    Tracker::instance().init();
 
     Particle.connect();
 }
 ```
 
-The `loop()` function must always call `tracker.loop()`. You should do this on every loop.
+The `loop()` function must always call `Tracker::instance().loop()`. You should do this on every loop.
 
 You can add your own code to loop, however you should avoid using `delay()` or other functions that block. If you would like to publish your own events (separate from the location events), you can use the Tracker cloud service to publish safely without blocking the loop.
 
 ```cpp
 void loop()
 {
-    tracker.loop();
+    Tracker::instance().loop();
 }
 ```
 
@@ -164,19 +156,17 @@ It's easy to add additional data to the location event. For example, if you want
 ```cpp
 void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
 
-Tracker tracker;
-
 void setup()
 {
-    tracker.init();
-    tracker.location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().init();
+    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
 
     Particle.connect();
 }
 
 void loop()
 {
-    tracker.loop();
+    Tracker::instance().loop();
 }
 
 void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
@@ -188,7 +178,7 @@ void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const 
 
 Note the additions:
 
-- Calls `tracker.location.regLocGenCallback()` to register a location generation callback in `setup()`.
+- Calls `Tracker::instance().location.regLocGenCallback()` to register a location generation callback in `setup()`.
 - Adds a new function `locationGenerationCallback()`.
 - In the function adds a value to the loc object using the [JSON Writer API](/reference/device-os/firmware/tracker-som/#jsonwriter).
 
