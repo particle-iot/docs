@@ -10,11 +10,11 @@ description: Adding features to the Tracker Evaluation Board
 
 This section has information on prototyping with the Tracker Evaluation board experiment and add new features, with an eye toward being able to easily migrate to the Tracker One, Tracker Carrier Board, or Tracker SoM for production.
 
-## DHT22 Example
+## DHT11 Temperature and Humidity Example
 
 The Tracker SoM Evaluation Board comes with a Grove DHT11 temperature and humidity sensor and a short 4-pin cable.
 
-![DHT22](/assets/images/tracker/dht22.jpg)
+![DHT11 Sensor](/assets/images/tracker/dht11.jpg)
 
 ### Connect the sensor
 
@@ -246,7 +246,7 @@ If you open the event viewer, you can see the location events now have temp and 
 
 If you open the map view and then the device, the new fields will appear in the **Custom Data** section.
 
-![DHT22](/assets/images/tracker/dht22-custom.png)
+![Custom Data](/assets/images/tracker/dht11-custom.png)
 
 
 ---
