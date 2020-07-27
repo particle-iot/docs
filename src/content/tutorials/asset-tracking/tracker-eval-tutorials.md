@@ -10,6 +10,247 @@ description: Adding features to the Tracker Evaluation Board
 
 This section has information on prototyping with the Tracker Evaluation board experiment and add new features, with an eye toward being able to easily migrate to the Tracker One, Tracker Carrier Board, or Tracker SoM for production.
 
+## DHT22 Example
+
+The Tracker SoM Evaluation Board comes with a Grove DHT11 temperature and humidity sensor and a short 4-pin cable.
+
+![DHT22](/assets/images/tracker/dht22.jpg)
+
+### Connect the sensor
+
+Connect the sensor to the 4-pin ribbon cable and the other end to the evaluation board. Either port can be used but this example assumes J10, the outer connector, pin A0 and A1.
+
+### Getting the Tracker Edge Firmware
+
+The Tracker Edge firmware can be downloaded from Github:
+
+[https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
+
+After downloading the source, you will need to fetch the library dependencies. This can be done from a command prompt or terminal window with the git command line tools installed:
+
+``` 
+cd tracker-edge
+git submodule init
+git submodule update --recursive
+```
+
+Be sure to target 1.5.4-rc.1 or later for your build. Device OS 1.5.3 or later is required, only version 1.5.4-rc.1 and later are available in the full set of tools including Workbench, CLI, and Web IDE.
+
+### Add the libraries
+
+From the command palette in Workbench, **Particle: Install Library** then enter **Grove_Temperature_And_Humidity_Sensor**. Repeat for **TemperatureHumidityValidatorRK**. 
+
+If you prefer to edit project.properties directly, add these:
+
+```
+dependencies.Grove_Temperature_And_Humidity_Sensor=1.0.7
+dependencies.TemperatureHumidityValidatorRK=0.0.1
+```
+
+The first library is the interface for the temperature sensor. 
+
+Because the sensor has a tendency to return incorrect values but does not include a checksum or CRC to determine that this has happened, the second library filters the results by collecting the last 10 samples, selecting only the samples within 1 standard deviation of the mean, and taking the mean of these samples without the outliers.
+
+### The Full Source
+
+```cpp
+#include "Particle.h"
+
+#include "tracker_config.h"
+#include "tracker.h"
+
+#include "Grove_Temperature_And_Humidity_Sensor.h"
+#include "TemperatureHumidityValidatorRK.h"
+
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+PRODUCT_ID(TRACKER_PRODUCT_ID);
+PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
+
+SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
+    { "app.gps.nmea", LOG_LEVEL_INFO },
+    { "app.gps.ubx",  LOG_LEVEL_INFO },
+    { "ncp.at", LOG_LEVEL_INFO },
+    { "net.ppp.client", LOG_LEVEL_INFO },
+});
+
+// Library: Grove_Temperature_And_Humidity_Sensor
+DHT tempSensor(A1);
+
+// Library: TemperatureHumidityValidatorRK
+TemperatureHumidityValidator validator;
+
+// Sample the temperature sensor every 2 seconds. This is done so the outlier values can be filtered out easily.
+const unsigned long CHECK_PERIOD_MS = 2000;
+unsigned long lastCheck = 0;
+
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+
+
+void setup()
+{
+    Tracker::instance().init();
+    
+    // Callback to add key press information to the location publish
+    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+
+    // Initialize temperature sensor
+    tempSensor.begin();
+
+    Particle.connect();
+}
+
+void loop()
+{
+    Tracker::instance().loop();
+
+    if (millis() - lastCheck >= CHECK_PERIOD_MS) {
+        lastCheck = millis();
+
+        validator.addSample(tempSensor.getTempCelcius(), tempSensor.getHumidity());
+
+        // Log.info("tempC=%f tempF=%f humidity=%f", validator.getTemperatureC(), validator.getTemperatureF(), validator.getHumidity());
+    }
+}
+
+
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+{
+    float tempC = validator.getTemperatureC();
+    if (!isnan(tempC)) {
+        writer.name("temp").value(tempC, 2);
+    }
+
+    float hum = validator.getHumidity();
+    if (!isnan(hum)) {
+        writer.name("hum").value(hum, 1);
+    }
+
+}
+```
+
+### The Details
+
+```cpp
+#include "Grove_Temperature_And_Humidity_Sensor.h"
+#include "TemperatureHumidityValidatorRK.h"
+```
+
+These are the header files for the two libraries we use. Note that you must **Particle: Install Library** first; you can't only include the header file.
+
+```cpp
+DHT tempSensor(A1);
+TemperatureHumidityValidator validator;
+```
+
+These are the global variables for the two features we use. Note the use of `A1`. If you connected the sensor to the other Grove connector you'd use `A3` instead.
+
+```cpp
+// Sample the temperature sensor every 2 seconds. This is done so the outlier values can be filtered out easily.
+const unsigned long CHECK_PERIOD_MS = 2000;
+```
+
+Because we filter the temperature sensor results to remove the outliers, we sample the sensor every 2 seconds. That way, when a location event is generated, we don't have to wait for enough samples to return a value. 
+
+
+```cpp
+void setup()
+{
+    Tracker::instance().init();
+    
+    // Callback to add key press information to the location publish
+    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+
+    // Initialize temperature sensor
+    tempSensor.begin();
+
+    Particle.connect();
+}
+```
+
+In `setup()` we must do several things:
+
+- Initialize the Tracker Edge firmware
+- Register a location generation callback
+- Initialize the temperature sensor
+- Connect to the Particle cloud
+
+```cpp
+void loop()
+{
+    Tracker::instance().loop();
+
+
+    if (millis() - lastCheck >= CHECK_PERIOD_MS) {
+        lastCheck = millis();
+
+        validator.addSample(tempSensor.getTempCelcius(), tempSensor.getHumidity());
+    }
+}
+```
+
+In `loop()` we:
+
+- Call the Tracker Edge loop function
+- Periodically sample the temperature and humidity sensor and pass the values to the validator.
+
+
+```cpp
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+{
+    float tempC = validator.getTemperatureC();
+    if (!isnan(tempC)) {
+        writer.name("temp").value(tempC, 2);
+    }
+
+    float hum = validator.getHumidity();
+    if (!isnan(hum)) {
+        writer.name("hum").value(hum, 1);
+    }
+
+}
+```
+
+Finally, in the location generation callback, we add the temperature and humidity values if valid.
+
+
+### Results
+
+If you open the event viewer, you can see the location events now have temp and hum keys!
+
+```json
+{
+    "cmd":"loc",
+    "time":1595867181,
+    "loc":{
+        "lck":1,
+        "time":1595867182,
+        "lat":42.469732,
+        "lon":-75.064801,
+        "alt":348.621,
+        "hd":215.61,
+        "h_acc":9,
+        "v_acc":15,
+        "cell":42.3,
+        "batt":96.5,
+        "temp":29,
+        "hum":42
+    },
+    "trig":[
+        0:"lock"
+    ],
+    "req_id":2
+}
+```
+
+If you open the map view and then the device, the new fields will appear in the **Custom Data** section.
+
+![DHT22](/assets/images/tracker/dht22-custom.png)
+
+
+---
+
 ## I2C Sensor Example
 
 One of the best ways to expand the Tracker One is using I2C, since that interface makes it possible to add multiple external peripherals off the single M8 connector. You can use the same techniques on the Tracker SoM Evaluation Board and Tracker SoM.
