@@ -9,7 +9,7 @@ layout: landing.hbs
 
 ## Introduction
 
-The Particle Rules Engine is a branded version of [Node-RED](https://nodered.org/), an open-source programming tool. As it's open source, even though the rules engine itself has been discontinued, you can still use the underlying Node-RED project.
+The Particle Rules Engine is a branded version of [Node-RED](https://nodered.org/), an open-source visual programming tool. As it's open source, even though the rules engine itself has been discontinued, you can still use the underlying Node-RED project.
 
 ## Using a Cloud Service
 
@@ -70,7 +70,7 @@ docker stop mynodered
 
 | Node | Description |
 | :--- | :--- |
-| node-red-contrib-particle | Particle Node |
+| node-red-contrib-particle-official | Particle Node |
 | [node-red-dashboard](https://flows.nodered.org/node/node-red-dashboard) | Dashboards |
 | Storage | |
 | [node-red-node-mongodb](https://flows.nodered.org/node/node-red-node-mongodb) | MongoDB |
@@ -90,7 +90,7 @@ To add the nodes you need into your new Node-RED instance:
 ![Rules Manage Palette](/assets/images/rules-manage-palette.png)
 
 
-In the **User Settings** window, select **Install** (1) then enter the name, like **node-red-contrib-particle** in the search box (2). Then add the node.
+In the **User Settings** window, select **Install** (1) then enter the name, like **node-red-contrib-particle-official** in the search box (2). Then add the node.
 
 ![Rules Install](/assets/images/rules-install.png)
 
@@ -110,6 +110,8 @@ To export your rules from the Particle Rules Engine:
 ![Rules Export Clipboard](/assets/images/rules-export-clipboard.png)
 
 - Open your use Node-RED instance and select **Hamburger Menu** then **Import**. You can import directly from the clipboard or save to a file first.
+
+Note: The exported rules contain any passwords you saved when you configured your nodes. Keep this secure.
 
 ## Original Documentation
 
