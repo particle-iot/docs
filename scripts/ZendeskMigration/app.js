@@ -4,6 +4,7 @@
 // export ZENDESK_API_TOKEN=xxxx
 // node app.js support/general/pricing.md
 // node app.js support/particle-devices-faq/finding-device-id.md
+// node app.js -a   ## update app notes
 
 const path = require('path'); 
 const fs = require('fs');

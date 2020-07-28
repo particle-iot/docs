@@ -66,7 +66,7 @@ Particle's certifications will help you decrease the time and cost associated wi
   In this section, you will classify your device according to the definitions set out by the FCC. Included in this section are definitions for things like "intentional radiators", "kits", "test equipment", and "digital devices".
 
 - **PART B: Unintentional Radiators**  
-  This section covers devices whose purpose is not to produce radio waves, but which do anyway, including computers, voltage regulators, and oscillators/crystals.  It's likely that your end product contains unintentional radiators.  Part B allows for self-classication, which means that you don't have to get expensive test reports to demonstrate unintentional radiators in your product.
+  This section covers devices whose purpose is not to produce radio waves, but which do anyway, including computers, voltage regulators, and oscillators/crystals.  It's likely that your end product contains unintentional radiators.  Part B allows for self-classification, which means that you don't have to get expensive test reports to demonstrate unintentional radiators in your product.
 
 - **PART C: Intentional Radiators**  
   This section covers devices whose purpose is to produce coherent radio waves. The Photon/PØ/P1 modules are intentional radiators.  This is the most difficult part of FCC certification, and is where you can reuse Particle's hardware certifications to significantly simplify the application process. For instance, a from-scratch certification might cost $10-30K and take 4-8 weeks, while a verification of conformity might only cost $1-5K and take 2 weeks.
@@ -74,8 +74,11 @@ Particle's certifications will help you decrease the time and cost associated wi
 - **ADDITIONAL TESTING: Determined by device classification**  
   You'll also be responsible for any additional testing requirements defined by the FCC for your product. You can learn more about additional required testing for your product by visiting the FCC website, linked below.
 
-**MORE INFO** -
-[Electronic Code of Federal Regulation for Telecommunications, Part 15: Radio Frequencies Devices](http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&SID=a9f9d244cc20be8b56099003689d6cc3&rgn=div5&view=text&node=47:1.0.1.1.16&idno=47)
+**MORE INFO** 
+
+- [Electronic Code of Federal Regulation for Telecommunications, Part 15: Radio Frequencies Devices](http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&SID=a9f9d244cc20be8b56099003689d6cc3&rgn=div5&view=text&node=47:1.0.1.1.16&idno=47)
+- [Additional details about Part 15](https://www.fcc.gov/oet/ea/rfdevice)
+- [Additional guidance on types of certification you may need](https://apps.fcc.gov/kdb/GetAttachment.html?id=zVUUifMY6Doa%2BO3Sg0Nygw%3D%3D&desc=996369%20D04%20Module%20Integration%20Guide%20V01&tracking_number=44637)
 
 ### Documentation
 

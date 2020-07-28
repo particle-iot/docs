@@ -134,7 +134,7 @@ state in IoT Hub, stored as JSON. **Particle will use the twin in IoT Hub to
 sync a device's name in the Particle cloud with Azure**. Device name syncing happens once,
 at the time of creation in the IoT Hub device registry. If no name exists for
 the device at this time, this step will be skipped. Check out the section on
-[confirming date reaches Azure](#confirming-the-data-reaches-azure-iot-hub) for details
+[confirming data reaches Azure](#confirming-the-data-reaches-azure-iot-hub) for details
 on how to access the name from the device twin once it's synced.
 
 **Note:** Device name syncing with IoT Hub requires that you provide a

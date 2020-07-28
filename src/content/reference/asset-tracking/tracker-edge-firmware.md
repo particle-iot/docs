@@ -16,13 +16,13 @@ One difference between the Tracker One and other Particle devices is that the Tr
 
 This reference guide describes the API for use with semi-custom and custom device firmware.
 
-## TrackerCore
+## Tracker
 
-You typically instantiate the `TrackerCore` object as a global variable. You must call the `init()` method from `setup()` and the `loop()` method on every loop.
+The `Tracker` object is a singleton that you access using `Tracker::instance()`. You must call the `init()` method from `setup()` and the `loop()` method on every loop.
 
 ```
 // INCLUDE
-#include "tracker_core.h"
+#include "tracker.h"
 
 // EXAMPLE
 #include "Particle.h"
@@ -43,50 +43,48 @@ SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
     { "net.ppp.client", LOG_LEVEL_INFO },
 });
 
-TrackerCore tracker;
-
 void setup()
 {
-    tracker.init();
+    Tracker::instance().init();
 
     Particle.connect();
 }
 
 void loop()
 {
-    tracker.loop();
+    Tracker::instance().loop();
 }
 
 ``` 
 
-### init() - TrackerCore
+### init() - Tracker
 
 ```
 // PROTOTYPE 
-void TrackerCore::init();
+void Tracker::init();
 
 // EXAMPLE
-tracker.init();
+Tracker::instance().init();
 ```
 
 You must call the `init()` method from `setup()` in your main application file.
 
 
-### loop() - TrackerCore
+### loop() - Tracker
 
 ```
 // PROTOTYPE 
 void loop();
 
 // EXAMPLE
-tracker.loop()
+Tracker::instance().loop()
 ```
 
 You must call the `loop()` method from `loop()` in your main application file.
 
 You can add your own code to loop, however you should avoid using `delay()` or other functions that block. If you would like to publish your own events (separate from the location events), you can use the Tracker cloud service to publish safely without blocking the loop.
 
-### stop() - TrackerCore
+### stop() - Tracker
 
 ```
 // PROTOTYPE 
@@ -95,7 +93,7 @@ int stop();
 
 Stops the tracker location and motion services. If you do this, the device will no longer publish based on location change or motion events.
 
-### getModel() - TrackerCore
+### getModel() - Tracker
 
 ```
 // PROTOTYPE 
@@ -110,7 +108,7 @@ Gets the model of Tracker.
 | 0x0002     | Tracker One |
 | 0xFFFF     | Tracker SoM |
 
-### getVariant()  - TrackerCore
+### getVariant()  - Tracker
 
 ```
 // PROTOTYPE 
@@ -120,7 +118,7 @@ uint32_t getVariant();
 Gets the variant of the Tracker. This is current 0x0001 for all devices.
 
 
-### cloudService - TrackerCore
+### cloudService - Tracker
 
 ```
 // PROTOTYPE 
@@ -131,21 +129,21 @@ Use this to access the [`CloudService`](/reference/asset-tracking/tracker-edge-f
 
 
 
-### location - TrackerCore
+### location - Tracker
 
 ```
 // PROTOTYPE 
-TrackerCoreLocation location;
+TrackerLocation location;
 
 // EXAMPLE
-tracker.location.regLocGenCallback(locationGenerationCallback);
+Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
 ```
 
-Use this to access the [`TrackerCoreLocation`](/reference/asset-tracking/tracker-edge-firmware/#trackercorelocation) object. Note that there are two different services, `LocationService` and `TrackerCoreLocation`.
+Use this to access the [`TrackerLocation`](/reference/asset-tracking/tracker-edge-firmware/#Trackerlocation) object. Note that there are two different services, `LocationService` and `TrackerLocation`.
 
-The `TrackerCoreLocation` is typically used to register a location generation callback; this allows custom data to be added to the location publish.
+The `TrackerLocation` is typically used to register a location generation callback; this allows custom data to be added to the location publish.
 
-### locationService - TrackerCore
+### locationService - Tracker
 
 ```
 // PROTOTYPE 
@@ -153,34 +151,34 @@ LocationService locationService;
 
 // EXAMPLE
 LocationStatus locationStatus;
-tracker.locationService.getStatus(locationStatus);
+Tracker::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 
-Use this to access the [`LocationService`](/reference/asset-tracking/tracker-edge-firmware/#locationservice) object. Note that there are two different services, `LocationService` and `TrackerCoreLocation`.
+Use this to access the [`LocationService`](/reference/asset-tracking/tracker-edge-firmware/#locationservice) object. Note that there are two different services, `LocationService` and `TrackerLocation`.
 
 The `LocationService` is normally configured from the console to enable features like publish on movement outside radius. These settings are made in the console per-product, though they also can be overridden per-device from the cloud.
 
 You may want to use the `LocationService` directly to query GNSS status (fix or not) as well as the most recent location data from your user firmware.
 
-### shipping - TrackerCore
+### shipping - Tracker
 
 ```
 // PROTOTYPE 
-TrackerCoreShipping shipping;
+TrackerShipping shipping;
 
 // EXAMPLE
-tracker.shipping.enter();
+Tracker::instance().shipping.enter();
 ```
 
-Use this to access the `TrackerCoreShipping` object. You will rarely need to do this because shipping mode is typically managed from the console.
+Use this to access the `TrackerShipping` object. You will rarely need to do this because shipping mode is typically managed from the console.
 
 Since the Tracker One has a LiPo battery inside the case, and the case is screwed together, it's inconvenient to unplug the battery. Shipping mode puts the device in a very low power mode (even less than sleep mode) by using the power management controller (PMIC) to disconnect the battery. Shipping mode can be enabled from the console, so you don't need to have a custom firmware build to enter shipping mode. Note that you can only exit shipping mode by externally powering a Tracker One by USB or the M8 connector.
 
 You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `tracking.shipping.enter();` to enter shipping mode locally.
 
 
-### configService - TrackerCore
+### configService - Tracker
 
 ```
 // PROTOTYPE 
@@ -191,7 +189,7 @@ Use this to access the `ConfigService` object. You will rarely need to do this a
 
 
 
-### motionService - TrackerCore
+### motionService - Tracker
 
 ```
 // PROTOTYPE 
@@ -200,7 +198,7 @@ MotionService motionService;
 
 Use this to access the `MotionService` object. You will rarely need to do this because the motion detection mode is normally controlled by the configuration service from the cloud. For example, you can set the Tracker to publish on movement, but this setting is normally made from a configuration in the console, not from user firmware.
 
-### rtc - TrackerCore
+### rtc - Tracker
 
 ```
 // PROTOTYPE 
@@ -210,14 +208,14 @@ AM1805 rtc;
 Use this to access the `AM1805` (Real-Time Clock and Hardware Watchdog) object. This object can only be used for the watchdog; the rest of the RTC functions are managed by Device OS directly.
 
 
-### rgb - TrackerCore
+### rgb - Tracker
 
 ```
 // PROTOTYPE 
-TrackerCoreRGB rgb;
+TrackerRGB rgb;
 ```
 
-Use this to access the `TrackerCoreRGB` object. You will rarely need to do this because the RGB LED mode is normally controlled by the configuration service from the cloud. For example, the RGB LED can be set to Particle mode (breathing cyan, for example), or the Tracker mode (RGB LED shows cellular signal strength) but this setting is normally made from a configuration in the console, not from user firmware.
+Use this to access the `TrackerRGB` object. You will rarely need to do this because the RGB LED mode is normally controlled by the configuration service from the cloud. For example, the RGB LED can be set to Particle mode (breathing cyan, for example), or the Tracker mode (RGB LED shows cellular signal strength) but this setting is normally made from a configuration in the console, not from user firmware.
 
 ## Tracker Functions
 
@@ -238,14 +236,14 @@ On the Tracker One, returns the temperature using the thermistor on the Tracker 
 
 ## CloudService
 
-The `CloudService` is initialized by `TrackerCore` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code.
+The `CloudService` is initialized by `Tracker` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code.
 
 
-## TrackerCoreLocation
+## TrackerLocation
 
-The `TrackerCoreLocation` service is initialized by `TrackerCore` so you don't need to set it up, but you may want use the method for registering a callback to add custom data to location publishes.
+The `TrackerLocation` service is initialized by `Tracker` so you don't need to set it up, but you may want use the method for registering a callback to add custom data to location publishes.
 
-### regLocGenCallback() - TrackerCoreLocation 
+### regLocGenCallback() - TrackerLocation 
 
 ```cpp
 // PROTOTYPE
@@ -264,19 +262,17 @@ int regLocGenCallback(
 void locationGenerationCallback(JSONWriter &writer, 
     LocationPoint &point, const void *context); // Forward declaration
 
-TrackerCore tracker;
-
 void setup()
 {
-    tracker.init();
-    tracker.location.regLocGenCallback(locationGenerationCallback);
+    Tracker::instance().init();
+    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
 
     Particle.connect();
 }
 
 void loop()
 {
-    tracker.loop();
+    Tracker::instance().loop();
 }
 
 void locationGenerationCallback(JSONWriter &writer, 
@@ -288,7 +284,7 @@ void locationGenerationCallback(JSONWriter &writer,
 
 Registers a function or method to be called to add custom data to a location publish.
 
-### regLocPubCallback - TrackerCoreLocation
+### regLocPubCallback - TrackerLocation
 
 ```cpp
 // PROTOTYPE
@@ -321,7 +317,7 @@ enum CloudServiceStatus {
 
 ## LocationService
 
-The `LocationService` is initialized by `TrackerCore` so you don't need to set it up, but you may want use it to find the GNSS information such as fix status and the most recent location data from user firmware.
+The `LocationService` is initialized by `Tracker` so you don't need to set it up, but you may want use it to find the GNSS information such as fix status and the most recent location data from user firmware.
 
 
 ### getLocation() - LocationService
@@ -400,7 +396,7 @@ int getStatus(LocationStatus& status);
 
 // EXAMPLE
 LocationStatus locationStatus;
-tracker.locationService.getStatus(locationStatus);
+Tracker::instance().locationService.getStatus(locationStatus);
 Log.info("GPS lock=%d", locationStatus.locked);
 ```
 

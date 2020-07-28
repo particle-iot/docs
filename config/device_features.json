@@ -123,6 +123,7 @@
   ],
   "Argon": [
     "gen3",
+    "gen3-argon-boron-xenon",
     "nrf52",
     "nrf52840",
     "mesh",
@@ -161,6 +162,7 @@
   ],
   "Boron": [
     "gen3",
+    "gen3-argon-boron-xenon",
     "nrf52",
     "nrf52840",
     "mesh",
@@ -202,6 +204,7 @@
   ],
   "Xenon": [
     "gen3",
+    "gen3-argon-boron-xenon",
     "nrf52",
     "nrf52840",
     "mesh",

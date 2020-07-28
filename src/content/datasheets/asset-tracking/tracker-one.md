@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(002)</sup>
+# Tracker One<sup>(003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -64,13 +64,13 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | M8 Pin | Function   | Function  | Function  | I/O |
 | :----: | :-------   | :-------  | :-------  | :--- |
 | 1      | VIN<sup>3</sup> |      |           | I |
-| 2      | GND        |           |           |   |         
-| 3      | CAN 5V<sup>4</sup> |   | CAN_PWR   | O |
-| 4      | CAN+       |           |           | IO<sup>2</sup> |
-| 5      | CAN-       |           |           | IO<sup>2</sup> |
-| 6      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
-| 7      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
-| 8      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
+| 2      | CAN_H      |           |           | IO<sup>2</sup> |
+| 3      | CAN_L      |           |           | IO<sup>2</sup> |
+| 4      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O |
+| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
+| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
+| 7      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
+| 8      | GND        |           |           |   |         
 
 The IP67 M8, 8-pin, male pins with threaded barrel connector is accessible from the outside of the enclosure. 
 
@@ -196,6 +196,22 @@ Maximum Carrier Board Dimensions (mm):
 
 Note: The Tracker Carrier Board has a smaller bottom tab to provide space for the M8 connector.
 
+---
+
+## Product Handling
+
+### ESD Precautions
+The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
+
+### Disposal
+
+![WEEE](/assets/images/weee.png)
+
+This device must be treated as Waste Electrical & Electronic Equipment (WEEE) when disposed of.
+
+Any WEEE marked waste products must not be mixed with general household waste, but kept separate for the treatment, recovery and recycling of the materials used. For proper treatment, recovery and recycling; please take all WEEE marked waste to your Local Authority Civic waste site, where it will be accepted free of charge. If all consumers dispose of Waste Electrical & Electronic Equipment correctly, they will be helping to save valuable resources and preventing any potential negative effects upon human health and the environment of any hazardous materials that the waste may contain.
+
+
 ## Ordering Information
 
 | SKU     | Description | Packaging |
@@ -203,6 +219,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | ONE402M | Tracker One LTE M1/2G (NorAm), [x1]	| Each |
 | ONE523M | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Each |
 | TCAR	  | Tracker Carrier Board, [x1]	| Each |
+
 
 ## Revision history
 
@@ -212,3 +229,4 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
 | 001      | 29 Jun 2020 | RK | First release |
 | 002      | 30 Jun 2020 | RK | CAN 5V is limited to 400 mA, not 500 mA |
+| 003      | 16 Jul 2020 | RK | Corrected M8 pinouts |
