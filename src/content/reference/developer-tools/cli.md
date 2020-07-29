@@ -711,6 +711,46 @@ If you have Device OS firmware with debugging enabled (which is the default on t
 In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable way to flash your device over USB.
 
 
+### particle serial inspect
+
+Print information about the firmware modules on a device. The device must be in listening mode (blinking blue) and connected by USB to your computer.
+
+```sh
+$ particle serial inspect
+Platform: 6 - Photon
+Modules
+  Bootloader module #0 - version 502, main location, 16384 bytes max size
+    Integrity: PASS
+    Address Range: PASS
+    Platform: PASS
+    Dependencies: PASS
+  System module #1 - version 1512, main location, 262144 bytes max size
+    Integrity: PASS
+    Address Range: PASS
+    Platform: PASS
+    Dependencies: PASS
+      System module #2 - version 207
+  System module #2 - version 1512, main location, 262144 bytes max size
+    Integrity: PASS
+    Address Range: PASS
+    Platform: PASS
+    Dependencies: PASS
+      System module #1 - version 1512
+      Bootloader module #0 - version 400
+  User module #1 - version 3, main location, 131072 bytes max size
+    UUID: B3A6DCD529BE70FBE24EE959C7305D58E3BC9A04ACDCE8F093C7A1F759097D09
+    Integrity: PASS
+    Address Range: PASS
+    Platform: PASS
+    Dependencies: PASS
+      System module #2 - version 6
+```
+
+If you see any `FAIL` entries, there is likely a missing dependency, such as a bootloader that needs to be upgraded. Normally this will be corrected automatically over-the-air, but if you cannot connect to the cloud the dependency cannot be fixed OTA.
+
+The version numbers in the output can be mapped to common version numbers using [this table](https://github.com/particle-iot/device-os/blob/develop/system/system-versions.md). For example, system version 1512 is more commonly known as 1.5.2.
+
+
 ## particle mesh
 
 Mesh network management from the CLI.

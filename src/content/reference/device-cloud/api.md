@@ -401,6 +401,8 @@ A location event typically has JSON that looks like this:
 }
 ```
 
+To estimate the data usage for location events, see [this page](/tutorials/device-cloud/console/#data-usage).
+
 #### cmd
 
 This currently always the string `loc`, indicating that the payload contains the `loc` object.

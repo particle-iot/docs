@@ -13828,7 +13828,7 @@ void loop() {
 }
 ```
 
-- When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Device Cloud.
+- When the device starts up, it automatically tries to connect to Wi-Fi or Cellular and the Particle Device Cloud.
 - Once a connection with the Particle Device Cloud has been established, the user code starts running.
 - Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process-).
 - `Particle.process()` is also called during any delay() of at least 1 second.
@@ -13839,7 +13839,6 @@ void loop() {
 In automatic mode, the user can still call `Particle.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Particle.connect()`.
 
 ### Semi-automatic mode
-
 
 The semi-automatic mode will not attempt to connect the device to the Cloud automatically. However once the device is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
 
