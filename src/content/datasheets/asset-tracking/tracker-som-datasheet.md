@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(002)</sup>
+# Tracker SoM Datasheet <sup>(004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -140,10 +140,14 @@ There are a number of U.FL antenna connectors on the Tracker SoM:
 | WIFI | Wi-Fi antenna for Wi-Fi geolocation (optional)<sup>1</sup> |
 | BLE  | External Bluetooth (optional)<sup>2</sup> |
 | GNSS/DIV | Quectel GNSS antenna (optional)<sup>1</sup> |
+| DIV  | LTE cellular receive diversity antenna<sup>3</sup>  |
+
 
 <sup>1</sup>Not supported in initial release.
 
 <sup>2</sup>There is a BLE chip antenna on the module, the external BLE antenna is optional.
+
+<sup>3</sup>DIV is the connector for the LTE cellular receive diversity antenna (T523 only). A second cellular antenna can be connected to this connector to improve performance when the device will be moving at high speeds. It is only used for LTE Cat 1 connections and is not supported when in 2G or 3G mode. This antenna is not necessary in most cases and is not included in evaluation kits. The T402 does not have this connector as receive diversity is not supported in LTE Cat M1 mode.
 
 There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'll need to add an antenna or antenna connector on your base board.
 
@@ -908,3 +912,4 @@ The bootloader allows you to easily update the user application via several diff
 | 001      | 29 Jun 2020 | RK | First release |
 | 002      | 10 Jul 2020 | RK | Updated absolute maximum ratings, schematics |
 | 003      | 17 Jul 2020 | RK | Updated absolute maximum ratings |
+| 004      | 30 Jul 2020 | RK | Added explanation of DIV connector |

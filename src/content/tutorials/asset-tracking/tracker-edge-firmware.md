@@ -374,6 +374,23 @@ To summarize:
   - **Commit** marks all of the changes are ready to go as one package of changes
   - **Push** uploads the package of changes to GitHub
 
+## Sending commands
+
+When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
+
+<div align=center><img src="/assets/images/tracker/tracker-cmd.png" class="small"></div>
+
+Some commands you can enter into the box:
+
+| Command | Purpose |
+| :------ | :--- |
+| `{"cmd":"enter_shipping"}` | Enter shipping mode |
+| `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+
+Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
+
+It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/tracker-edge-firmware/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
+
 
 ## Learn More 
 

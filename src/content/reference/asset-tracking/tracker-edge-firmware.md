@@ -239,8 +239,48 @@ On the Tracker One, returns the temperature using the thermistor on the Tracker 
 
 ## CloudService
 
-The `CloudService` is initialized by `Tracker` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code.
+The `CloudService` is initialized by `Tracker` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code. You can also register a custom command handler:
 
+### regCommandCallback - CloudService
+
+```cpp
+// INCLUDE
+#include "cloud_service.h"
+
+// CALLBACK PROTOTYPE
+typedef std::function<int(CloudServiceStatus status, JSONValue *, const void *context)> cloud_service_cb_t;
+
+// PROTOTYPE
+int regCommandCallback(const char *name, cloud_service_cb_t cb, uint32_t req_id=0, uint32_t timeout_ms=0, const void *context=nullptr);
+
+template <typename T>
+int regCommandCallback(const char *name,
+    int (T::*cb)(CloudServiceStatus status, JSONValue *, const void *context),
+    T *instance,
+    uint32_t req_id=0,
+    uint32_t timeout_ms=0,
+    const void *context=nullptr);
+
+// STATUS CODES
+enum CloudServiceStatus {
+    SUCCESS = 0,
+    FAILURE, // publish to Particle cloud failed, etc
+    TIMEOUT, // waiting for application response, etc
+};
+```
+
+When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
+
+<div align=center><img src="/assets/images/tracker/tracker-cmd.png" class="small"></div>
+
+Some commands you can enter into the box:
+
+| Command | Purpose |
+| :------ | :--- |
+| `{"cmd":"enter_shipping"}` | Enter shipping mode |
+| `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+
+Using `regCommandCallback` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
 
 ## TrackerLocation
 

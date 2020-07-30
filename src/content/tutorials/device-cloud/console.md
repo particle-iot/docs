@@ -669,7 +669,7 @@ Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide 
 
 ![Settings Icon](/assets/images/tracker/settings-icon.png)
 
-Note that the settings are automatically synchronized with the device, even if the device is asleep or disconnected at the time the change is made. When the device connects to the cloud again, the checksum of the current device and cloud settings are compared, and if they are different, and updated configuration is sent to the device.
+Note that the settings are automatically synchronized with the device, even if the device is asleep or disconnected at the time the change is made. When the device connects to the cloud again, the checksum of the current device and cloud settings are compared, and if they are different, an updated configuration is sent to the device.
 
 #### Location Settings
 
@@ -792,7 +792,9 @@ Normally, you will use the product settings across your fleet of Tracker devices
 
 ### View Device
 
-When viewing a device in the console, in the functions and variables are on the right is the **cmd** box.
+#### Using the cmd box
+
+When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
 
 <div align=center><img src="/assets/images/tracker/tracker-cmd.png" class="small"></div>
 
@@ -805,4 +807,5 @@ Some commands you can enter into the box:
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
 
+It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/tracker-edge-firmware/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 

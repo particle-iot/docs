@@ -6,7 +6,7 @@ order: 3
 description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B523 Datasheet <sup>001</sup>
+# B523 Datasheet <sup>002</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -81,10 +81,13 @@ There are two radios on the B523 module. A BLE radio (nRF52840) and a cellular r
 
 ![B523 Connectors](/assets/images/b-series/b523-connectors.png)
 
-| Label | Purpose | 
-| :---: | :--- |
-|  1 | Bluetooth antenna (optional) |
-|  2 | Quectel cellular modem antenna |
+| Number | Label   | Purpose | 
+| :----: | :-----: | :--- |
+|  1     | BT      | Bluetooth antenna (optional) |
+|  2     | CELL    | Quectel cellular modem antenna |
+|  3     | ANT_DIV | LTE cellular receive diversity antenna  |
+
+The third connector is the LTE cellular receive diversity antenna. A second cellular antenna can be connected to this connector to improve performance when the device will be moving at high speeds. It is only used for LTE Cat 1 connections and is not supported when in 2G or 3G mode. This antenna is not necessary in most cases and is not included in evaluation kits. (The B402 does not have this connector as receive diversity is not supported in LTE Cat M1 mode.)
 
 #### Certified Cellular Antenna
 
@@ -490,3 +493,4 @@ The bootloader allows you to easily update the user application via several diff
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | 001      | 27 Apr 2020 | RK | First Release |
+| 002      | 30 Jul 2020 | RK | Added explanation of DIV connector |

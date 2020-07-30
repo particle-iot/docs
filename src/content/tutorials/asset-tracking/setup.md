@@ -84,6 +84,20 @@ The standard LED pattern for Tracker One devices is:
 
 You can find more information [here](/tutorials/device-os/led/tracker-som/).
 
+#### Powering Off
+
+The Tracker One does not have a power switch. You can turn it off from the cloud by using **Shipping Mode**. 
+
+When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
+
+<div align=center><img src="/assets/images/tracker/tracker-cmd.png" class="small"></div>
+
+In this box, enter `{"cmd":"enter_shipping"}` and click the **Call** button.
+
+Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. 
+
+In the future, it will also be possible to enter shipping mode by USB, but this command is not yet available in the Particle CLI.
+
 ## Setup
 
 To set up your device, go to [https://setup.particle.io](https://setup.particle.io). This will guide you through the steps needed to activate your SIM and set up your device.
