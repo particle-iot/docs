@@ -16,6 +16,9 @@ One difference between the Tracker One and other Particle devices is that the Tr
 
 This reference guide describes the API for use with semi-custom and custom device firmware.
 
+For an introduction to Tracker Edge Firmware, see the [Tracker Edge Tutorial](/tutorials/asset-tracking/tracker-edge-firmware/#using-github-with-tracker-edge).
+
+
 ## Tracker
 
 The `Tracker` object is a singleton that you access using `Tracker::instance()`. You must call the `init()` method from `setup()` and the `loop()` method on every loop.

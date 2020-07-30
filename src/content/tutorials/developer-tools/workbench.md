@@ -746,6 +746,142 @@ You can then:
 ![Workflow](/assets/images/release-firmware-flow.png)
 
 
+## Working with GitHub
+
+[GitHub](https://github.com/) is a tool for source code control, issue, and release management. It's great for managing Particle projects in Workbench. For many uses, it's free, too. There are many features, entire books, and tutorials about [Git](https://git-scm.com/) (the underlying source code control system) and GitHub (a service that allows you to store files in the cloud). This is just an overview.
+
+Source code control allows you to have a secure record of all of the changes you've made to the source over time. You can roll back to previous versions and compare versions. It also makes sure you have a copy of all of your source separate from your computer, in case something happens to it.
+
+Sign up for a [GitHub](https://github.com/) account if you have not already done so. You will select a username at this point, which will be your primary method of identification, not your email address. Your username will be shown publicly in many instances, so keep that in mind.
+
+Most operations are centered around a **repository**. In many cases, each repository will be a single project. However, in some cases you might want to store multiple Particle firmware projects in a single repository when they are related. For example, if you were writing Bluetooth LE (BLE) communication software, one firmware might be for the central role and one might be the peripheral role, but since they're both part of one project you'd store the source in a single repository.
+
+Each repository can be **public** or **private**. If you are creating an open-source project or library, **public** typically used. Using GitHub **teams** multiple users can access private repositories. Everyone working on a project should always have their own GitHub account; you should never share an account.
+
+While you can download code from the GitHub website, you will probably want to install a [desktop GitHub client](https://desktop.github.com/) on your computer. You should install both the graphical and command line options. 
+
+There is also support for GitHub built into Visual Studio Code (Particle Workbench), but it uses your computer's GitHub desktop installation so you still need to install a desktop client.
+
+### Creating a new project 
+
+If you are creating a new project, from the Command Palette in Workbench, you select **Particle: Create New Project**. Select the location and name for the project.
+
+![Source Control](/assets/images/workbench/github1.png)
+
+Click the **Source Control** icon in the left toolbar. Then click **Publish to GitHub**. This will create a private repository for the currently logged in user. 
+
+- Select the name (the default is the name of the project folder, which is usually a good choice)
+- Select the files you want to commit (the default is probably fine for personal projects)
+
+Now if you go to [GitHub](https://github.com/) you should see your project! It's currently private, but you can make it public later, if you want to.
+
+### Making a source code change
+
+![GitHub Stage and Commit](/assets/images/workbench/github-stage.png)
+
+Once you've made some source changes and tested them, you might want to **Commit** and **Push** these changes. 
+
+- Before you can commit you need to **Stage** your changes, which lets Git know you indeed want to upload all of these changes. The easiest way is to click on the **Stage All Changes** (1) + button. It's hidden by default but will appear if you hover over the spot.
+
+- Enter a commit message in the box (2). This can be a reminder of why you made the change.
+
+- Click the **Commit** icon (3) (check mark). This saves a record of the changes, but the changes still only live on your computer.
+
+For personal projects like this you will typically just push to master. This sends the data to the GitHub servers. For more complex projects with team members, code reviews, etc. you will likely use a more complex process of **Pull Requests** instead.
+
+- Click on the **...** (Views and More Actions) at the top of the Source Control tab. Select **Push**. 
+
+Now the changes should be visible on the GitHub web site. Also if other team members **Fetch** and **Pull** the project they'll get your latest changes.
+
+To summarize:
+
+  - **Stage** indicates this file should be committed
+  - **Commit** marks all of the changes are ready to go as one package of changes
+  - **Push** uploads the package of changes to GitHub
+
+### Making a copy of a project (Clone Repository)
+
+Often you will want to work on a project that has already been created on GitHub. The process of creating a working copy of a project is to **Clone** it. Cloning only makes a copy of it on your computer and doesn't affect the project that you are cloning at this stage. Feel free to clone all you want!
+
+![GitHub Clone](/assets/images/workbench/github-clone.png)
+
+- Open a new Workbench Windows or otherwise have a window with no project selected. Click on the **Source Controll** icon on the left side. Click the **Clone Repository** button.
+
+- Enter the GitHub Repository URL in the box. For example: [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
+
+- Select the parent directory of where you want the repository to be cloned to and click **Select Repository Location**.
+
+Now you have a clone of the repository. You can make all of the changes you want in your clone as long as you don't use things like Commit or Push. However you won't have the benefits of source control for your changes. To do that, you may want to **fork** or **mirror**.
+
+### Creating a fork
+
+The process of taking an existing project and duplicating it into your own GitHub where you can make changes with full source control is known as creating a **fork**. You might want to do this if you want to make changes to an existing library. Once caveat of fork: the visibility of a fork is always the same as the original. If the original was a public repository, your fork will be too.
+
+You can do this by going to the original repository in GitHub and clicking on the **Fork** button in the upper left.
+
+### Creating a mirror
+
+There is another option that is more common when working with Tracker Edge projects: **Mirror**. A mirror allows you to make a private copy of a repository and link the two, so you can later merge any changes in the original with your changes! This is a power user feature, so you'll need to use some command-line git commands to make it work.
+
+![Create repository](/assets/images/workbench/github-create-repo.png)
+
+Create a new Github repository in your account. In this case, I created **tracker-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
+
+```bash
+git clone --bare https://github.com/particle-iot/tracker-edge.git
+cd tracker-edge.git
+git push --mirror https://github.com/rickkas7/tracker-test1.git
+```
+
+Run the commands to mirror the changes into the repository you just created. Be sure to change the last URL to match the URL for your repository!
+
+At this point you can delete the tracker-edge.git directory as it's no longer needed.
+
+```bash
+git clone https://github.com/rickkas7/tracker-test1.git
+cd tracker-test1
+git submodule update --init --recursive
+```
+
+Make a clone of your repository and initialize the submodules.
+
+Open your project in Workbench:
+
+  - Open Particle Workbench.
+  - From the command palette, **Particle: Import Project**. Select the project.properties file in the tracker-test1 directory.
+  - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1 or later, Tracker, and your device.
+  - Run **Particle: Compile and Flash**.
+
+Now that you have a mirror, you're free to do things like update main.cpp and even edit the other Tracker source as desired. When you **Stage**, **Commit** and **Push**, the changes will be saved to your own GitHub private repository only.
+
+```bash
+cd tracker-test1
+git remote add official https://github.com/particle-iot/tracker-edge.git
+```
+
+Link the two repositories. This makes it possible to merge changes from the official version later on, when new versions of Tracker Edge are released. This merge is smart, so it won't overwrite your changes if there are no conflicts, but if both you and Particle changed the same lines of source, this may be flagged as a conflict and you will need to manually figure out which to keep. You only need to run this command once.
+
+```
+cd tracker-test1
+git pull official develop
+```
+
+This is how to merge updates from the official repository into yours. When a new version of Tracker Edge is released, you run a command to pull the changes from that release into your repository. You then resolve any conflicts and then push the changes to your repository. The steps are:
+
+- **Pull** the changes from the official repository
+- Resolve any conflicts
+- **Push** the merged changes to your repository.
+
+```
+cd tracker-test1
+git pull official release/v8
+```
+
+If you prefer, you can merge to a specific release instead of develop.
+
+
+
+
 ## Learn More
 
 Additional questions and answers are in the [FAQ](https://support.particle.io/hc/en-us/articles/360039251434/).
