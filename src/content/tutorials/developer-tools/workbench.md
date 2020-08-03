@@ -849,8 +849,10 @@ Open your project in Workbench:
 
   - Open Particle Workbench.
   - From the command palette, **Particle: Import Project**. Select the project.properties file in the tracker-test1 directory.
-  - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1 or later, Tracker, and your device.
+  - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, or 3.0.0 or later, Tracker, and your device.
   - Run **Particle: Compile and Flash**.
+
+Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS do not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
 
 Now that you have a mirror, you're free to do things like update main.cpp and even edit the other Tracker source as desired. When you **Stage**, **Commit** and **Push**, the changes will be saved to your own GitHub private repository only.
 
@@ -880,7 +882,77 @@ git pull official release/v8
 If you prefer, you can merge to a specific release instead of develop.
 
 
+## Developing Particle Libraries
 
+There is limited support for developing [Particle Libraries](/tutorials/device-os/libraries/) in Workbench. 
+
+### Create a project.properties file
+
+You will need to create a **project.properties** file in the top of your library source directory. The easiest way is to duplicate your **library.properties** file. You should have both files. 
+
+The **project.properties** file must contain a name and the name of the library, such as:
+
+```
+name=AMCLCD-RK
+```
+
+If you duplicated your  **library.properties** it should have a name already. The reason is that Workbench will not open a project directory that does not have a **project.properties** file.
+
+### Import Project
+
+From the Command Palette, select **Particle: Import Project**. Now that the directory contains a project.properties file, you will be able to import it. 
+
+Now the library will appears in your Workbench window and have Intellisense highlighting.
+
+### Building Examples - Using CLI
+
+The main caveat is that there is no built-in support for building library examples using local build. The easiest solution is to the Particle CLI cloud compiler manually.
+
+From the Command Palette, select **Particle: Launch CLI** to open a shell panel. 
+
+Use the [`particle compile`](/reference/developer-tools/cli/#particle-compile) to build the binary. For example:
+
+```bash
+particle compile boron examples/1-simple --saveTo firmware.bin
+```
+
+This compiles the example **1-simple** and saves the binary. 
+
+```bash
+particle flash test2 examples/1-simple 
+```
+
+This compiles and flashes the device named **test2** OTA with the example firmware.
+
+
+### Building Examples - Local Build
+
+If you really do need to do a local build, for example, if you need to use the debugger, the only solution is to temporarily copy the files from the example you want to build into the **src** directory. Don't forget to remove them before publishing the library!
+
+### Uploading and Publishing
+
+The easiest way to upload or publish your library is to select **Particle: Launch CLI** to open a shell panel. This will also set it up with the correct directory so you can:
+
+```bash
+particle library upload
+```
+
+This uploads the library as a private library so you can test it.
+
+```bash
+particle library publish
+```
+
+This publishes the library, making it public and visible to all other users.
+
+### Starting from Scratch
+
+If you are making a brand new library from scratch, you may want to use **Particle: Create New Project**. This will create the project.properties and src directories. Then you will want to:
+
+- Create the [**library.properties**](/tutorials/device-os/libraries/#library-properties-fields) file.
+- In the **src** directory, remove the *YourLibraryName*.ino file and instead create *YourLibraryName*.cpp and *YourLibraryName*.h.
+- Create the **examples** directory.
+- Create subdirectories in **examples** for each of your examples, with a main source file in each.
 
 ## Learn More
 

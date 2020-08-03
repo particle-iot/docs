@@ -26,10 +26,6 @@ The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 
-The Tracker Edge firmware can be downloaded from Github:
-
-[https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
-
 You will probably want to use the command line as there are additional commands you need to run after cloning the source:
 
 ```bash
@@ -40,10 +36,10 @@ git submodule update --init --recursive
 
 - Open Particle Workbench.
 - From the command palette, **Particle: Import Project**.
-- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1 or later, Tracker, and your device.
+- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, or 3.0.0 or later, Tracker, and your device.
 - Run **Particle: Compile and Flash**.
 
-Be sure to target 1.5.4-rc.1 or later for your build. Device OS 1.5.3 or later is required, only version 1.5.4-rc.1 and later are available in the full set of tools including Workbench, CLI, and Web IDE.
+Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS does not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
 
 ### Add the libraries
 
