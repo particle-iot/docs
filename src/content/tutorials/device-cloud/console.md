@@ -652,22 +652,11 @@ And view details about a specific device:
 
 ![Details](/assets/images/tracker/details.png)
 
-
-### Using off-the-shelf releases
-
-To use off-the-shelf Tracker Edge firmware releases, click on the **Firmware** icon in your product in the console.
-
-![Releases](/assets/images/tracker/release.png)
-
-Instead of having to manually upload firmware that you write, by default new releases are automatically added to your firmware list. Just click the **Release Firmware** link to release a new version to your fleet.
-
-Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added automatically.
-
 ### Product Settings
 
-Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Settings** (gear) icon in the console.
+Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
 
-![Settings Icon](/assets/images/tracker/settings-icon.png)
+![Settings Icon](/assets/images/tracker/map-settings.png)
 
 Note that the settings are automatically synchronized with the device, even if the device is asleep or disconnected at the time the change is made. When the device connects to the cloud again, the checksum of the current device and cloud settings are compared, and if they are different, an updated configuration is sent to the device.
 
@@ -680,7 +669,6 @@ The Location settings include:
 - **Radius Trigger** in meters, floating point. When the current position's distance from the last publish exceeds this distance, the new position is published. 0.0 means do not use a publish radius. 
 - **Minimum Interval** Wait at least this long in seconds after the last location publish before publishing again. 0 means do not use an interval minimum. The Minimum Interval prevents publishing too frequently.
 - **Maximum Interval** Publish location at least this often (in seconds) even if there is no movement. 0 means do not use an interval maximum. The maximum is used to make sure publishes occur this often, even if there are no other triggering events.
-
 
 #### Motion Settings
 
@@ -699,6 +687,26 @@ The motion settings determine how the IMU (inertial measurement unit, the accele
 
   - **Disable**: High-G events are not generated (the default).
   - **Enable**: High-G events are generated.
+
+
+
+<!-- 
+#### RGB LED Settings
+
+![RGB LED Settings](/assets/images/tracker/settings-4.png)
+
+The Tracker Firmware configures the RGB status LED. 
+
+The **Type** popup menu has the following options:
+
+- **off**: The RGB LED is turned off (dark).
+- **direct**: RGB level is set directly using the red, green, blue, and brightness options.
+- **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
+- **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
+
+When using **direct** mode you can specify the RGB color (0 - 255) as well as the brightness (0 - 255). For normal RGB colors leave the brightness at 255.
+
+-->
 
 #### Typical Settings
 
@@ -766,23 +774,6 @@ For time trigger, here are some general guidelines. These are just location publ
 
 (Assumes 30 days in a month on average.)
 
-<!-- 
-#### RGB LED Settings
-
-![RGB LED Settings](/assets/images/tracker/settings-4.png)
-
-The Tracker Firmware configures the RGB status LED. 
-
-The **Type** popup menu has the following options:
-
-- **off**: The RGB LED is turned off (dark).
-- **direct**: RGB level is set directly using the red, green, blue, and brightness options.
-- **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
-- **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
-
-When using **direct** mode you can specify the RGB color (0 - 255) as well as the brightness (0 - 255). For normal RGB colors leave the brightness at 255.
-
--->
 
 ### Device Settings
 
@@ -809,3 +800,14 @@ Shipping mode powers off the device by disconnecting the battery. This allows a 
 
 It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/tracker-edge-firmware/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 
+
+
+### Using off-the-shelf releases
+
+To use off-the-shelf Tracker Edge firmware releases, click on the **Firmware** icon in your product in the console.
+
+![Releases](/assets/images/tracker/release.png)
+
+Instead of having to manually upload firmware that you write, by default new releases are automatically added to your firmware list. Just click the **Release Firmware** link to release a new version to your fleet.
+
+Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added automatically.
