@@ -689,8 +689,6 @@ The motion settings determine how the IMU (inertial measurement unit, the accele
   - **Enable**: High-G events are generated.
 
 
-
-<!-- 
 #### RGB LED Settings
 
 ![RGB LED Settings](/assets/images/tracker/settings-4.png)
@@ -705,8 +703,6 @@ The **Type** popup menu has the following options:
 - **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
 
 When using **direct** mode you can specify the RGB color (0 - 255) as well as the brightness (0 - 255). For normal RGB colors leave the brightness at 255.
-
--->
 
 #### Typical Settings
 

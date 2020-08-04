@@ -15,8 +15,9 @@ devices, use the blue device selector below the Particle logo on the left side o
 {{#if tracker-som}}
 ## Tracker SoM Mode
 
-The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the Tracker One standard LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized. The Tracker SoM Evaluation Board defaults to the Particle color scheme.
+The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the **Tracker** LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized in the [Product Settings](/tutorials/device-cloud/console/#rgb-led-settings). The Tracker SoM Evaluation Board defaults to the Particle color scheme. 
 
+{{!--
 {{device-animation device "pattern"
   "off 1000ms"
   "on white 1000ms"
@@ -25,13 +26,48 @@ The Tracker SoM and Tracker One status LED can be configured in several differen
   "on green 10000ms"
   "off 1000ms"
 }}
+--}}
 
-The standard LED pattern for Tracker One devices is:
+The standard LED patterns for Tracker One devices are:
 
-- Fast breathing red while trying to connect to cellular.
-- Once connected to cellular, will show relative signal strength of yellow (weaker), or green (stronger). 
-- Breathing signal strength color indicator while connecting to the cloud (yellow or green)
-- Solid signal strength indicator (yellow/green) once connected.
+### Connecting to Cellular - Tracker
+
+The Tracker will fast breathe red while connecting to cellular.
+
+{{device-animation device "pattern"
+  "breathe red 500ms"
+}}
+
+### Connecting to the Cloud - Tracker
+
+While trying to connect to the cloud, the Tracker shows the relative signal strength as breathing yellow (weaker cellular signal):
+
+{{device-animation device "pattern"
+  "breathe yellow 1000ms"
+}}
+
+Or breathing green (stronger cellular signal):
+
+{{device-animation device "pattern"
+  "breathe green 1000ms"
+}}
+
+### Connected to Cellular - Tracker
+
+The Tracker shows the relative signal strength as solid yellow (weaker cellular signal):
+
+{{device-animation device "pattern"
+  "on yellow"
+}}
+
+Or solid green (stronger cellular signal):
+
+{{device-animation device "pattern"
+  "on green"
+}}
+
+Solid yellow or solid green indicates normal operation on the Tracker.
+
 
 **The remainder of this page describes the status LED when using standard Particle LED scheme.**
 
