@@ -271,7 +271,7 @@ enum CloudServiceStatus {
 
 When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
 
-<div align=center><img src="/assets/images/tracker/tracker-cmd.png" class="small"></div>
+<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
 
 Some commands you can enter into the box:
 

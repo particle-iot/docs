@@ -783,7 +783,7 @@ Normally, you will use the product settings across your fleet of Tracker devices
 
 When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
 
-<div align=center><img src="/assets/images/tracker/tracker-cmd.png" class="small"></div>
+<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
 
 Some commands you can enter into the box:
 
@@ -796,7 +796,7 @@ Shipping mode powers off the device by disconnecting the battery. This allows a 
 
 It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/tracker-edge-firmware/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 
-
+On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
 ### Using off-the-shelf releases
 

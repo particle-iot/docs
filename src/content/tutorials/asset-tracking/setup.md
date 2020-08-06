@@ -90,13 +90,27 @@ The Tracker One does not have a power switch. You can turn it off from the cloud
 
 When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
 
-<div align=center><img src="/assets/images/tracker/tracker-cmd.png" class="small"></div>
+<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
 
 In this box, enter `{"cmd":"enter_shipping"}` and click the **Call** button.
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. 
 
+On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. Be sure that you've included the surrounding curly brackets {} and the double quotes are the "straight quotes" not the “typographical quotes.”
+
 In the future, it will also be possible to enter shipping mode by USB, but this command is not yet available in the Particle CLI.
+
+#### Other Functions
+
+Other functions that would normally be performed by button presses can be done using the [Particle CLI](https://docs.particle.io/reference/developer-tools/cli/#particle-usb-safe-mode) when connected by USB. For example:
+
+```bash
+particle usb reset
+particle usb dfu
+particle usb safe-mode
+particle usb start-listening
+particle usb stop-listening
+```
 
 ## Setup
 
