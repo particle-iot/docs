@@ -3887,13 +3887,13 @@ The Tracker SoM shared A and D pins. In other words, pin A0 is the same physical
 | A0 / D0 |        | Wire SDA    |             | &check;   | &check; | 
 | A1 / D1 |        | Wire SCL    |             | &check;   | &check; |
 | A2 / D2 |        | Serial1 CTS |             | &check;   | &check; |
-| A3 / D3 | 7      | Serial1 RTS |             | &check;   | &check; |
+| A3 / D3 | 3      | Serial1 RTS |             | &check;   | &check; |
 | A4 / D4 |        | SPI MOSI    |             | &check;   | &check; |
 | A5 / D5 |        | SPI MISO    |             | &check;   | &check; |
 | A6 / D6 |        | SPI SCK     |             | &check;   | &check; |
 | A7 / D7 |        | SPI SS      | WKP         | &check;   | &check; |
 | TX / D8 | 5      | Serial1 TX  | Wire3 SCL   |           | &check; |
-| RX / D9 | 6      | Serial1 RX  | Wire3 SDA   |           | &check; |
+| RX / D9 | 4      | Serial1 RX  | Wire3 SDA   |           | &check; |
 
 
 {{/if}} {{!-- tracker-som --}}

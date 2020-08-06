@@ -19,16 +19,17 @@ This connector can be used while maintaining the IP67 rating.
 
 The 8-pin connector has these signals:
 
-| M8 Pin | Function   | Function  | Function  | I/O |
-| :----: | :-------   | :-------  | :-------  | :--- |
-| 1      | VIN<sup>3</sup> |      |           | I |
-| 2      | CAN_H      |           |           | IO<sup>2</sup> |
-| 3      | CAN_L      |           |           | IO<sup>2</sup> |
-| 4      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O |
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
-| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
-| 7      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
-| 8      | GND        |           |           |   |         
+| M8 Pin | Function   | Function  | Function  | I/O | Color |
+| :----: | :-------   | :-------  | :-------  | :--- | :--- |
+| 1      | CAN_P      |           |           | IO<sup>2</sup> | Yellow |
+| 2      | VIN<sup>3</sup> |      |           | I | Red |
+| 3      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> | White | 
+| 4      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> | Green |
+| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> | Brown |
+| 6      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O | Orange | 
+| 7      | CAN_N      |           |           | IO<sup>2</sup> | Blue |
+| 8      | GND        |           |           |   | Black | 
+    
 
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
@@ -65,9 +66,9 @@ There are three multi-function pins:
 
 | M8 Pin | Function   | Function  | Function  | 
 | :----: | :-------   | :-------  | :-------  | 
+| 3      | Analog A3  |           | GPIO D3   | 
+| 4      | Serial1 RX | Wire3 SDA | GPIO D8   | 
 | 5      | Serial1 TX | Wire3 SCL | GPIO D9   | 
-| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | 
-| 7      | Analog A3  |           | GPIO D3   | 
 
 For example: If you are using `Serial1`, you cannot use `Wire3` (I2C) and can only use one other GPIO (`D3`). 
 

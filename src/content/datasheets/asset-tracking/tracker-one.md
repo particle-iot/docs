@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(003)</sup>
+# Tracker One<sup>(004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -61,22 +61,25 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 ### Power and I/O Connector (M8)
 
-| M8 Pin | Function   | Function  | Function  | I/O |
-| :----: | :-------   | :-------  | :-------  | :--- |
-| 1      | VIN<sup>3</sup> |      |           | I |
-| 2      | CAN_H      |           |           | IO<sup>2</sup> |
-| 3      | CAN_L      |           |           | IO<sup>2</sup> |
-| 4      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O |
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
-| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
-| 7      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
-| 8      | GND        |           |           |   |         
+| M8 Pin | Function   | Function  | Function  | I/O | Color |
+| :----: | :-------   | :-------  | :-------  | :--- | :--- |
+| 1      | CAN_P      |           |           | IO<sup>2</sup> | Yellow |
+| 2      | VIN<sup>3</sup> |      |           | I | Red |
+| 3      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> | White | 
+| 4      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> | Green |
+| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> | Brown |
+| 6      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O | Orange | 
+| 7      | CAN_N      |           |           | IO<sup>2</sup> | Blue |
+| 8      | GND        |           |           |   | Black | 
+
 
 The IP67 M8, 8-pin, male pins with threaded barrel connector is accessible from the outside of the enclosure. 
 
 ![M8 connector](/assets/images/at-som/M8-connector.png)
 
 View as looking into the M8 connector on the outside of the enclosure.
+
+Note: Version 003 and earlier of this datasheet had a different pin numbering for M8 connector that didn't match the connector manufacturer's numbering. Only the numbering has changed; the function of the pin at a given location is unchanged and the change should not affect existing designs.
 
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
@@ -86,10 +89,21 @@ View as looking into the M8 connector on the outside of the enclosure.
 
 <sup>4</sup>5V, 400 mA maximum. Controlled by the CAN_PWR GPIO.
 
+---
+
 The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
 
+| PHR-8 Pin | M8 Pin | Function  | Color          | 
+| :-------: | :----: | :-------- | :------------- | 
+| 1         | 2      | VIN       | Red            | 
+| 2         | 1      | CAN_P     | Yellow         |  
+| 3         | 7      | CAN_N     | Blue           |  
+| 4         | 6      | CAN_5V    | Orange         |  
+| 5         | 5      | TX_SCL_D9 | Brown          |  
+| 6         | 4      | TX_SDA_D8 | Green          |  
+| 7         | 3      | A3        | White          |  
+| 8         | 8      | GND       | Black          |  
 
----
 
 ### Additional Peripherals
 
@@ -127,14 +141,13 @@ The **GNSS USB** connector is connected to the u-blox NEO-M8U GNSS. It can be us
 
 ### LED Indicators
 
-The **RGB LED** default behavior is to display cellular signal quality: 
+The **RGB LED** default behavior is:
 
-- Red blinking: Attempting to connect to the cellular network
-- Red: poor cellular signal
-- Yellow: average cellular signal
-- Green: good cellular signal
-
-It will fast blink when connecting to the cellular network, and slow blink when connecting to the Particle cloud. 
+- Red breathing: Attempting to connect to the cellular network
+- Yellow breathing: Connecting to the cloud, weaker cellular signal
+- Green breathing: Connecting to the cloud, good cellular signal
+- Yellow solid: Connected to the cloud, weaker cellular signal
+- Green solid: Connected to the cloud, good cellular signal
 
 Alternatively the LED can be configured to the typical Particle color scheme (blinking green, blinking cyan, breathing cyan) via device or cloud configuration. Custom device firmware can provide other color schemes if desired.
 
@@ -148,6 +161,7 @@ The **CHRG** LED indicates the charge status:
 
 The **GNSS** LED indicates the GNSS fix status:
 
+- Off: GNSS is powered off.
 - Blinking (1 Hz): Attempting to get a GNSS fix
 - On: Has a GNSS fix.
 
@@ -230,3 +244,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 001      | 29 Jun 2020 | RK | First release |
 | 002      | 30 Jun 2020 | RK | CAN 5V is limited to 400 mA, not 500 mA |
 | 003      | 16 Jul 2020 | RK | Corrected M8 pinouts |
+| 004      | 06 Aug 2020 | RK | Corrected M8 pin numbering |
