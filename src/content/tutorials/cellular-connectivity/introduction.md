@@ -400,7 +400,7 @@ These countries cannot use the Electron 2G at all:
 | Boron LTE (Cat M1) | BRN402 | R410 | US, Canada, Mexico | &nbsp; | &nbsp; | Cat M1 | Gen3 |  Both | Feather | 
 | B Series SoM (LTE Cat M1) | B402 | R410 | US, Canada, Mexico | &nbsp; | &nbsp; | Cat M1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
 | B Series SoM (LTE Cat 1) | B523 | EG91-E | Europe | &nbsp; | &nbsp; | Cat 1 | Gen3 | MFF2<sup>1</sup> | M.2 SoM | 
-| Tracker SoM (LTE Cat M1/2G) | T502 | BG96-NA | US, Canada, Mexico<sup>5</sup> | &nbsp; | &nbsp; | Cat M1 | Gen3 | MFF2<sup>1</sup> | SMD Module | 
+| Tracker SoM (LTE Cat M1/2G) | T502 | BG96-MC | US, Canada, Mexico<sup>5</sup> | &nbsp; | &nbsp; | Cat M1 | Gen3 | MFF2<sup>1</sup> | SMD Module | 
 | Tracker SoM (LTE Cat 1/2G/3G) | T523 | EG91-EX | EMEAA | &check; | &check; | Cat 1 | Gen3 | MFF2<sup>1</sup> | SMD Module |
 | Electron 2G | E350 | G350 | World| &check; | &nbsp; | &nbsp; | Gen2 | Card | Pins | 
 | Electron 3G | E260 | U260 | Americas| &check; | &check; | &nbsp; | Gen2 | Card |Pins | 
