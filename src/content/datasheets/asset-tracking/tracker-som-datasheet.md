@@ -79,7 +79,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 <div align="center"> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" class="full-width"></a></div> 
 
 ### Power
-The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
+The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery. 
 
 #### VIN
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
