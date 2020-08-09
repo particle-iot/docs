@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(004)</sup>
+# Tracker One<sup>(005)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -18,7 +18,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 - **Ready to go** with IP67-rated enclosure.
 - **GNSS Antenna Onboard:** convenient high-gain GNSS antenna for easy access to GNSS signals.
-- **Flexible Power Supply:** easily add asset tracking to most devices. A wide 4.5-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC. Supports up to 105V when connecting directly to the carrier board.
+- **Flexible Power Supply:** easily add asset tracking to most devices. A wide 6-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC. Supports up to 90V when connecting directly to the carrier board.
 - **High-precision Thermistor** with accuracy to 1%.
 - **Extensible:** IP67-rated M8 connector includes CAN Bus, UART, GPIO, and power for simple expansion.
 - **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB or for use without an internal battery.
@@ -85,7 +85,7 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 <sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). CAN Bus termination is provided on the carrier board.
 
-<sup>3</sup>4.5 to 30 VDC when using the M8 connector. 4.5 - 105 VDC when connecting directly to the board.
+<sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector. 6.0 - 90 VDC at 2A when connecting directly to the board.
 
 <sup>4</sup>5V, 400 mA maximum. Controlled by the CAN_PWR GPIO.
 
@@ -127,7 +127,7 @@ There are several options for powering the carrier board:
 
 The **MCU USB** connector (USB-C). If using a laptop with a USB-A to USB-C cable and a 500 mA USB port, you should also use the LiPo battery. With an true USB-C port and cable, or a 2A tablet charger, you can power only by USB.
 
-The **VIN** connector (5-30 VDC on the M8 connector, or 4.5 to 105 VDC to the B8B-PH connector on the board). This is useful with an external power supply.
+The **VIN** connector (6 to 30 VDC at 2A on the M8 connector, or 6 to 90 VDC at 2A to the B8B-PH connector on the board). This is useful with an external power supply.
 
 The **LiPo** connector. This is typically used with a LiPo battery.
 
@@ -245,3 +245,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 002      | 30 Jun 2020 | RK | CAN 5V is limited to 400 mA, not 500 mA |
 | 003      | 16 Jul 2020 | RK | Corrected M8 pinouts |
 | 004      | 06 Aug 2020 | RK | Corrected M8 pin numbering |
+| 005      | 09 Aug 2020 | RK | Updated VIN voltages |
