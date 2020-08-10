@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(005)</sup>
+# Tracker One<sup>(006)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -23,39 +23,54 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 - **Extensible:** IP67-rated M8 connector includes CAN Bus, UART, GPIO, and power for simple expansion.
 - **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB or for use without an internal battery.
 - **RGB LED** for use as both a user-configurable device as well as Particle status information.
-- **Backup Battery** for RTC and GNSS.
 
 ![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
-
-![Top and Bottom](/assets/images/at-som/carrier-top-bottom.png)
 
 
 ## Block Diagram
 
 ![Block Diagram](/assets/images/at-som/at-carrier-block-diagram.png) 
 
+---
+
 ## Description
 
-<div align="center"><img src="/assets/images/at-som/at-som-carrier-labeled.png" class="full-width" /></div>
+<div align="center"><img src="/assets/images/at-som/tracker-open-labeled.png" class="full-width" /></div>
+
+
 
 | Num | ID 					    | Description                                      |
 | :---: | :----------------------|:--------------------------------|
-|  1 | J1 | Power and I/O connector | 
-|  2 | | RTC Battery |
-|  3 | | LiPo Connector |
-|  4 | | MCU USB-C |
-|  5 | | RGB Status LED|
-|  6 | USER | User Button |
-|  7 | GNSS LED | GNSS Status LED |
-|  8 | RESET | RESET Button |
-|  9 | MODE | MODE button |
-| 10 | CHRG | LiPo charge status LED | 
-| 11 | | NFC |
-| 12 | | JTAG/SWD debugging connector for nRF52 MCU |
-| 13 | GNSS USB | u-blox GNSS USB connection (Micro USB) |
-| 14 | | GNSS Antenna |
-| 15 | | LiPo Battery |
-| 16 | | Tracker SoM (on back side) |
+|  1 | | GNSS Antenna |
+|  2 | | Wi-Fi Antenna (mounted on side of case) |
+|  3 | | NFC Antenna (mounted on lid) <sup>1</sup> |
+|  4 | | Power and I/O connector (B8B-PH) |  
+|  5 | | Wi-Fi Antenna (mounted on side of case) |
+|  6 | | LiPo Connector |
+|  7 | | M8 8-pin male connector (mounted on side of case) |
+|  8 | | USB-C<sup>2</sup> |
+|  9 | | NFC connector (connects to NFC antenna on lid) |
+| 10 | | RGB Status LED |
+| 11 | GNSS LED | GNSS Status LED |
+| 12 | CHRG | LiPo charge status LED | 
+| 13 | USER | User Button |
+| 14 | RESET | RESET Button |
+| 15 | MODE | MODE button |
+| 16 | | Cellular Antenna  (mounted on side of case) |
+| 17 | | USB-C switch<sup>3</sup> |
+| 18 | | Thermistor |
+| 19 | | JTAG connector (not populated)<sup>4</sup> |
+
+---
+
+<sup>1</sup>When disassembling the Tracker One, be careful when removing the lid. The NFC antenna and LiPo battery are mounted on the lid, and the NFC antenna cable is short. Carefully remove the NFC U.FL connector before fully removing the lid of the case. Reconnect to (9).
+
+<sup>2</sup>The USB-C connector is normally connected to the nRF52840 MCU. It can be connected to the GNSS module by using the USB-C switch (17).
+
+<sup>3</sup>All 6 switches should normally be in the OFF position. To connect the USB-C to the u-blox GNSS, flip all 6 switches to ON.
+
+<sup>4</sup>The JTAG connector is not populated at the factory. The connector is a [Samtec FTSH-105-01-F-DV-K](https://www.digikey.com/product-detail/en/FTSH-105-01-F-DV-K/SAM8796-ND/2649974) 10 position (2x5), 1.27mm pitch.
+
 
 ---
 
@@ -90,6 +105,8 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 <sup>4</sup>5V, 400 mA maximum. Controlled by the CAN_PWR GPIO.
 
 ---
+
+### Carrier Board Power and I/O Connector
 
 The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
 
@@ -246,3 +263,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 003      | 16 Jul 2020 | RK | Corrected M8 pinouts |
 | 004      | 06 Aug 2020 | RK | Corrected M8 pin numbering |
 | 005      | 09 Aug 2020 | RK | Updated VIN voltages |
+| 006      | 10 Aug 2020 | RK | Updated carrier board diagram |

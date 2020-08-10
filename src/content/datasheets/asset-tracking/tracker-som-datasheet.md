@@ -57,7 +57,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * On-module additional 8MB SPI flash
  * CAN Bus: on-board, integrated CAN Bus controller and transceiver making it ideal for fleet and micromobility
  * Boost Converter to power 5V CAN devices from a 3.6V battery
- * RTC: Battery-backed external real-time clock
+ * RTC: External real-time clock with support for an optional separate battery
  * Watchdog Timer: integrated hardware WDT
  * 10 Mixed signal GPIO (8 x Analog, 10 x Digital, UART, I2C, SPI)
  * USB 2.0 full speed (12 Mbps)
