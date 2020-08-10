@@ -67,7 +67,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 <sup>2</sup>The USB-C connector is normally connected to the nRF52840 MCU. It can be connected to the GNSS module by using the USB-C switch (17).
 
-<sup>3</sup>All 6 switches should normally be in the OFF position. To connect the USB-C to the u-blox GNSS, flip all 6 switches to ON.
+<sup>3</sup>The normal state is 1-4 OFF and 5-6 ON to connect the USB to the nRF52840. To connect the USB-C to the u-blox GNSS, turn 1-4 ON and 5-6 OFF.
 
 <sup>4</sup>The JTAG connector is not populated at the factory. The connector is a [Samtec FTSH-105-01-F-DV-K](https://www.digikey.com/product-detail/en/FTSH-105-01-F-DV-K/SAM8796-ND/2649974) 10 position (2x5), 1.27mm pitch.
 
