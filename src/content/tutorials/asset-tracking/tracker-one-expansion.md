@@ -48,7 +48,7 @@ View as looking into the M8 connector on the outside of the enclosure.
 
 ### Power (in)
 
-While the picture above includes both USB-C and M8 cables, it's also possible to power the Tracker One from the M8 connector. In this case, supply 4.5 to 30 VDC at 10 watts.
+While the picture above includes both USB-C and M8 cables, it's also possible to power the Tracker One from the M8 connector. In this case, supply 6.0 to 30 VDC at 2 A.
 
 ### Power (out) 
 
@@ -90,7 +90,7 @@ Note that Serial, I2C, GPIO, and ADC on the Tracker SoM can only be used at 3.3V
 
 ### Connecting Your Expansion Device
 
-The M8 (8mm) 8-pin connector is standard, however it's not common. Some other connectors like M12 are more common, however, the 12mm connector would have required a taller enclosure to fit the larger connector. To simplify designs, Particle will provide a M8 female-to-wires cable, similar to this. This is for illustration only and the design may vary in the future.
+The M8 (8mm) 8-pin connector is standard, however it's not common. Some other connectors like M12 are more common, however, the 12mm connector would have required a taller enclosure to fit the larger connector. To simplify designs, Particle will provide a M8 female-to-wires cable, similar to this. 
 
 ![M8 cable](/assets/images/at-som/m8-cable.jpg)
 
@@ -106,13 +106,30 @@ You'd typically connect those wires to your custom expansion board using one of 
 
 Inside the Tracker One is the Carrier Board. It can be purchased separately in case you want to use the Tracker One features in your own enclosure. The design for the Tracker One enclosure is open-source and can be modified to fit your needs. The Carrier Board has a B8B-PH 8-pin connector on the board, and a short cable that attaches to the M8 8-pin IP67 connector mounted on the side of the enclosure.
 
-![Carrier Board](/assets/images/at-som/carrier-b8b-ph.png)
+![Carrier Board](/assets/images/at-som/b8b-ph-labeled.png)
+
+| Label | Description |
+| :---: | :--- |
+| 1     | M8 Connector |
+| 2     | B8B-PH Connector |
 
 When expanding on the Tracker One Carrier Board, you may prefer to connect your expansion device to the B8B-PH connector on the board directly, especially if you are putting your expansion board an the enclosure with your Tracker One Carrier Board using a PHR-8 to PHR-8 cable. This can be easily assembled or purchased and is inexpensive.
 
 ![PHR-8 to PHR-8](/assets/images/at-som/phr-8.jpg)
 
 ## Application Notes
+
+| App Note | 3.3V  | Qwiic | GPIO  | 5V I2C | DAC   | ADC   | Boost | Description |
+| :------- | :---: | :---: | :---: | :---:  | :---: | :---: | :---: | :-----------|
+| [AN012](https://github.com/particle-iot/app-notes/tree/master/AN012-Tracker-1Wire) | &check; | &check; | &check; | | | | | 1-Wire (DS18B20) | 
+| [AN013](https://github.com/particle-iot/app-notes/tree/master/AN013-Tracker-GPIO) | &check; | &check; | &check; | | | | | GPIO (3.3v or 5V) | 
+| [AN015](https://github.com/particle-iot/app-notes/tree/master/AN015-Tracker-Breakout) | &check; | &check; | | | | | | Breakout Board |
+| [AN016](https://github.com/particle-iot/app-notes/tree/master/AN016-Tracker-Keypad-LCD) | &check; | | | &check; | &check; | | | Keypad and LEDs |
+| [AN018](https://github.com/particle-iot/app-notes/tree/master/AN018-Tracker-Level) | &check; | | &check; | | | &check; | &check; | Tank Level Sensor |
+| [AN020](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) | | | | | | | &check; | 4-20mA single |
+| [AN021](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) | &check; | | | | | &check; | &check; | 4-20mA quad |
+
+
 
 ### M8 Breakout Board
 
@@ -175,7 +192,20 @@ You probably won't want to build one of these as-is, but you may want to use som
 
 ![Keypad and LCD](/assets/images/tracker/keypad-lcd.jpg)
 
+### Thermocouple (prototype to making your own board)
 
+The [AN019 Tracker Prototype to Board](https://github.com/particle-iot/app-notes/tree/master/AN019-Tracker-Prototype) application note demonstrates how start prototyping with off-the-shelf I2C sensors and the Tracker SoM Evaluation Board and migrate to using a custom board for the Tracker One M8 Connector. While this specific example is for a thermocouple sensor, the techniques can be used with any sensor.
 
+![Thermocouple Board](/assets/images/tracker/thermocouple-board.png)
 
+### 4-20 mA
 
+These two app notes, [AN020 Tracker 4-20mA Sensor Single](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) and [AN021 Tracker 4-20mA Sensor Quad](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) show how to connect a 4-20 mA current loop sensor to the Tracker One M8 port.
+
+The single port design can be powered by the built-in LiPo battery or USB and uses the built-in ADC on the nRF52840, available on the M8 connector. It includes a boost converter to 24VDC for the 4-20mA current loop. It includes over-current protection, limiting the 4-20mA loop to 30 mA.
+
+![4-20mA Single](/assets/images/tracker/420mA-single.jpg)
+
+The quad port design requires an external 12V power supply, but this power supply can also power the Tracker One. It includes a boost converter to 24VDC for the 4-20mA current loop and separate current limiters for each current loop. It uses an external I2C ADC connected to the M8 connector.
+
+![4-20mA Quad](/assets/images/tracker/420mA-quad.jpg)
