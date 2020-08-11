@@ -196,13 +196,13 @@ You'll need to click the `Advanced Settings` area to fill out the custom `JSON` 
 
 ```json
 {
-  "event": "\{{PARTICLE_EVENT_NAME}}",
-  "data": \{{PARTICLE_EVENT_VALUE}},
-  "coreid": "\{{PARTICLE_DEVICE_ID}}",
-  "published_at": "\{{PARTICLE_PUBLISHED_AT}}",
-  "userid": "\{{PRODUCT_USER_ID}}",
-  "fw_version": "\{{PRODUCT_VERSION}}",
-  "public": "\{{PARTICLE_EVENT_PUBLIC}}",
+  "event": "\{{{PARTICLE_EVENT_NAME}}}",
+  "data": \{{{PARTICLE_EVENT_VALUE}}},
+  "coreid": "\{{{PARTICLE_DEVICE_ID}}}",
+  "published_at": "\{{{PARTICLE_PUBLISHED_AT}}}",
+  "userid": "\{{{PRODUCT_USER_ID}}}",
+  "fw_version": "\{{{PRODUCT_VERSION}}}",
+  "public": "\{{{PARTICLE_EVENT_PUBLIC}}}",
   "measurement": "<your measurement>",
   "influx_db": "influxdata_sensors"
 }

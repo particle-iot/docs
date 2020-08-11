@@ -198,7 +198,7 @@ The [AN019 Tracker Prototype to Board](https://github.com/particle-iot/app-notes
 
 ![Thermocouple Board](/assets/images/tracker/thermocouple-board.png)
 
-### 4-20 mA
+### 4-20 mA Current Loop Sensors
 
 These two app notes, [AN020 Tracker 4-20mA Sensor Single](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) and [AN021 Tracker 4-20mA Sensor Quad](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) show how to connect a 4-20 mA current loop sensor to the Tracker One M8 port.
 
