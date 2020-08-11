@@ -102,6 +102,30 @@ You'd typically connect those wires to your custom expansion board using one of 
 - Terminate with screw terminals on your board
 - Terminate by soldering the wires to your board
 
+The following cables will be available:
+
+| SKU          | Description |
+| :----------- | :--- |
+| ONEM8CABEA   | Tracker One M8 Accessory Cable (Straight), (x1) |
+| ONEM8CABTY   | Tracker One M8 Accessory Cable (Straight), (x40) |
+| ONEM8CABRAEA | Tracker One M8 Accessory Cable (Right Angle) |
+| ONEM8CABRATY | Tracker One M8 Accessory Cable (Right Angle), (x40) |
+| ONEM8CONNEA  | Tracker One M8 Connector (Straight) |
+| ONEM8CONNTY  | Tracker One M8 Connector (Straight), (x40) |
+
+The color code is as follows:
+
+| M8 Pin | Function  | Color          | 
+| :----: | :-------- | :------------- | 
+| 1      | CAN_P     | Yellow         |  
+| 2      | VIN       | Red            | 
+| 3      | A3        | White          |  
+| 4      | TX_SDA_D8 | Green          |  
+| 5      | TX_SCL_D9 | Brown          |  
+| 6      | CAN_5V    | Orange         |  
+| 7      | CAN_N     | Blue           |  
+| 8      | GND       | Black          |  
+
 ### With the Tracker One Carrier Board
 
 Inside the Tracker One is the Carrier Board. It can be purchased separately in case you want to use the Tracker One features in your own enclosure. The design for the Tracker One enclosure is open-source and can be modified to fit your needs. The Carrier Board has a B8B-PH 8-pin connector on the board, and a short cable that attaches to the M8 8-pin IP67 connector mounted on the side of the enclosure.
