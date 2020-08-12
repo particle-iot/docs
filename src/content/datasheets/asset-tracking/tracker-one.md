@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(003)</sup>
+# Tracker One<sup>(006)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -18,59 +18,75 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 - **Ready to go** with IP67-rated enclosure.
 - **GNSS Antenna Onboard:** convenient high-gain GNSS antenna for easy access to GNSS signals.
-- **Flexible Power Supply:** easily add asset tracking to most devices. A wide 4.5-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC. Supports up to 105V when connecting directly to the carrier board.
+- **Flexible Power Supply:** easily add asset tracking to most devices. A wide 6-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC. Supports up to 90V when connecting directly to the carrier board.
 - **High-precision Thermistor** with accuracy to 1%.
 - **Extensible:** IP67-rated M8 connector includes CAN Bus, UART, GPIO, and power for simple expansion.
 - **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB or for use without an internal battery.
 - **RGB LED** for use as both a user-configurable device as well as Particle status information.
-- **Backup Battery** for RTC and GNSS.
 
 ![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
-
-![Top and Bottom](/assets/images/at-som/carrier-top-bottom.png)
 
 
 ## Block Diagram
 
 ![Block Diagram](/assets/images/at-som/at-carrier-block-diagram.png) 
 
+---
+
 ## Description
 
-<div align="center"><img src="/assets/images/at-som/at-som-carrier-labeled.png" class="full-width" /></div>
+<div align="center"><img src="/assets/images/at-som/tracker-open-labeled.png" class="full-width" /></div>
+
+
 
 | Num | ID 					    | Description                                      |
 | :---: | :----------------------|:--------------------------------|
-|  1 | J1 | Power and I/O connector | 
-|  2 | | RTC Battery |
-|  3 | | LiPo Connector |
-|  4 | | MCU USB-C |
-|  5 | | RGB Status LED|
-|  6 | USER | User Button |
-|  7 | GNSS LED | GNSS Status LED |
-|  8 | RESET | RESET Button |
-|  9 | MODE | MODE button |
-| 10 | CHRG | LiPo charge status LED | 
-| 11 | | NFC |
-| 12 | | JTAG/SWD debugging connector for nRF52 MCU |
-| 13 | GNSS USB | u-blox GNSS USB connection (Micro USB) |
-| 14 | | GNSS Antenna |
-| 15 | | LiPo Battery |
-| 16 | | Tracker SoM (on back side) |
+|  1 | | GNSS Antenna |
+|  2 | | Wi-Fi Antenna (mounted on side of case) |
+|  3 | | NFC Antenna (mounted on lid) <sup>1</sup> |
+|  4 | | Power and I/O connector (B8B-PH) |  
+|  5 | | Wi-Fi Antenna (mounted on side of case) |
+|  6 | | LiPo Connector |
+|  7 | | M8 8-pin male connector (mounted on side of case) |
+|  8 | | USB-C<sup>2</sup> |
+|  9 | | NFC connector (connects to NFC antenna on lid) |
+| 10 | | RGB Status LED |
+| 11 | GNSS LED | GNSS Status LED |
+| 12 | CHRG | LiPo charge status LED | 
+| 13 | USER | User Button |
+| 14 | RESET | RESET Button |
+| 15 | MODE | MODE button |
+| 16 | | Cellular Antenna  (mounted on side of case) |
+| 17 | | USB-C switch<sup>3</sup> |
+| 18 | | Thermistor |
+| 19 | | JTAG connector (not populated)<sup>4</sup> |
+
+---
+
+<sup>1</sup>When disassembling the Tracker One, be careful when removing the lid. The NFC antenna and LiPo battery are mounted on the lid, and the NFC antenna cable is short. Carefully remove the NFC U.FL connector before fully removing the lid of the case. Reconnect to (9).
+
+<sup>2</sup>The USB-C connector is normally connected to the nRF52840 MCU. It can be connected to the GNSS module by using the USB-C switch (17).
+
+<sup>3</sup>The normal state is 1-4 OFF and 5-6 ON to connect the USB to the nRF52840. To connect the USB-C to the u-blox GNSS, turn 1-4 ON and 5-6 OFF. Disconnect the USB-C and the LiPo battery before changing the switch settings.
+
+<sup>4</sup>The JTAG connector is not populated at the factory. The connector is a [Samtec FTSH-105-01-F-DV-K](https://www.digikey.com/product-detail/en/FTSH-105-01-F-DV-K/SAM8796-ND/2649974) 10 position (2x5), 1.27mm pitch.
+
 
 ---
 
 ### Power and I/O Connector (M8)
 
-| M8 Pin | Function   | Function  | Function  | I/O |
-| :----: | :-------   | :-------  | :-------  | :--- |
-| 1      | VIN<sup>3</sup> |      |           | I |
-| 2      | CAN_H      |           |           | IO<sup>2</sup> |
-| 3      | CAN_L      |           |           | IO<sup>2</sup> |
-| 4      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O |
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> |
-| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> |
-| 7      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> |
-| 8      | GND        |           |           |   |         
+| M8 Pin | Function   | Function  | Function  | I/O | Color |
+| :----: | :-------   | :-------  | :-------  | :--- | :--- |
+| 1      | CAN_P      |           |           | IO<sup>2</sup> | Yellow |
+| 2      | VIN<sup>3</sup> |      |           | I | Red |
+| 3      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> | White | 
+| 4      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> | Green |
+| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> | Brown |
+| 6      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O | Orange | 
+| 7      | CAN_N      |           |           | IO<sup>2</sup> | Blue |
+| 8      | GND        |           |           |   | Black | 
+
 
 The IP67 M8, 8-pin, male pins with threaded barrel connector is accessible from the outside of the enclosure. 
 
@@ -78,18 +94,33 @@ The IP67 M8, 8-pin, male pins with threaded barrel connector is accessible from 
 
 View as looking into the M8 connector on the outside of the enclosure.
 
+Note: Version 003 and earlier of this datasheet had a different pin numbering for M8 connector that didn't match the connector manufacturer's numbering. Only the numbering has changed; the function of the pin at a given location is unchanged and the change should not affect existing designs.
+
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
 <sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). CAN Bus termination is provided on the carrier board.
 
-<sup>3</sup>4.5 to 30 VDC when using the M8 connector. 4.5 - 105 VDC when connecting directly to the board.
+<sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector. 6.0 - 90 VDC at 2A when connecting directly to the board.
 
 <sup>4</sup>5V, 400 mA maximum. Controlled by the CAN_PWR GPIO.
 
+---
+
+### Carrier Board Power and I/O Connector
+
 The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](https://www.digikey.com/product-detail/en/jst-sales-america-inc/B8B-PH-SM4-TB-LF-SN/455-1740-1-ND/926837), 8-position, 2mm pitch, male pins, shrouded. The mating connector is the [JST PHR-8](https://www.digikey.com/product-detail/en/jst-sales-america-inc/PHR-8/455-1189-ND/608630). The female sockets are available plain, with leads, and in pre-manufactured ribbon cable formats.
 
+| PHR-8 Pin | M8 Pin | Function  | Color          | 
+| :-------: | :----: | :-------- | :------------- | 
+| 1         | 2      | VIN       | Red            | 
+| 2         | 1      | CAN_P     | Yellow         |  
+| 3         | 7      | CAN_N     | Blue           |  
+| 4         | 6      | CAN_5V    | Orange         |  
+| 5         | 5      | TX_SCL_D9 | Brown          |  
+| 6         | 4      | TX_SDA_D8 | Green          |  
+| 7         | 3      | A3        | White          |  
+| 8         | 8      | GND       | Black          |  
 
----
 
 ### Additional Peripherals
 
@@ -113,7 +144,7 @@ There are several options for powering the carrier board:
 
 The **MCU USB** connector (USB-C). If using a laptop with a USB-A to USB-C cable and a 500 mA USB port, you should also use the LiPo battery. With an true USB-C port and cable, or a 2A tablet charger, you can power only by USB.
 
-The **VIN** connector (5-30 VDC on the M8 connector, or 4.5 to 105 VDC to the B8B-PH connector on the board). This is useful with an external power supply.
+The **VIN** connector (6 to 30 VDC at 2A on the M8 connector, or 6 to 90 VDC at 2A to the B8B-PH connector on the board). This is useful with an external power supply.
 
 The **LiPo** connector. This is typically used with a LiPo battery.
 
@@ -127,14 +158,13 @@ The **GNSS USB** connector is connected to the u-blox NEO-M8U GNSS. It can be us
 
 ### LED Indicators
 
-The **RGB LED** default behavior is to display cellular signal quality: 
+The **RGB LED** default behavior is:
 
-- Red blinking: Attempting to connect to the cellular network
-- Red: poor cellular signal
-- Yellow: average cellular signal
-- Green: good cellular signal
-
-It will fast blink when connecting to the cellular network, and slow blink when connecting to the Particle cloud. 
+- Red breathing: Attempting to connect to the cellular network
+- Yellow breathing: Connecting to the cloud, weaker cellular signal
+- Green breathing: Connecting to the cloud, good cellular signal
+- Yellow solid: Connected to the cloud, weaker cellular signal
+- Green solid: Connected to the cloud, good cellular signal
 
 Alternatively the LED can be configured to the typical Particle color scheme (blinking green, blinking cyan, breathing cyan) via device or cloud configuration. Custom device firmware can provide other color schemes if desired.
 
@@ -148,6 +178,7 @@ The **CHRG** LED indicates the charge status:
 
 The **GNSS** LED indicates the GNSS fix status:
 
+- Off: GNSS is powered off.
 - Blinking (1 Hz): Attempting to get a GNSS fix
 - On: Has a GNSS fix.
 
@@ -230,3 +261,6 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 001      | 29 Jun 2020 | RK | First release |
 | 002      | 30 Jun 2020 | RK | CAN 5V is limited to 400 mA, not 500 mA |
 | 003      | 16 Jul 2020 | RK | Corrected M8 pinouts |
+| 004      | 06 Aug 2020 | RK | Corrected M8 pin numbering |
+| 005      | 09 Aug 2020 | RK | Updated VIN voltages |
+| 006      | 10 Aug 2020 | RK | Updated carrier board diagram |

@@ -84,6 +84,34 @@ The standard LED pattern for Tracker One devices is:
 
 You can find more information [here](/tutorials/device-os/led/tracker-som/).
 
+#### Powering Off
+
+The Tracker One does not have a power switch. You can turn it off from the cloud by using **Shipping Mode**. 
+
+When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
+
+<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
+
+In this box, enter `{"cmd":"enter_shipping"}` and click the **Call** button.
+
+Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. 
+
+On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. Be sure that you've included the surrounding curly brackets {} and the double quotes are the "straight quotes" not the “typographical quotes.”
+
+In the future, it will also be possible to enter shipping mode by USB, but this command is not yet available in the Particle CLI.
+
+#### Other Functions
+
+Other functions that would normally be performed by button presses can be done using the [Particle CLI](https://docs.particle.io/reference/developer-tools/cli/#particle-usb-safe-mode) when connected by USB. For example:
+
+```bash
+particle usb reset
+particle usb dfu
+particle usb safe-mode
+particle usb start-listening
+particle usb stop-listening
+```
+
 ## Setup
 
 To set up your device, go to [https://setup.particle.io](https://setup.particle.io). This will guide you through the steps needed to activate your SIM and set up your device.
@@ -164,7 +192,7 @@ One difference between the Tracker One and other Particle devices is that the Tr
 
 - Completely off-the-shelf. With its cloud-based configuration, you can use the firmware as-is with no modifications in some cases.
 - Semi-custom. The Tracker One firmware is customizable on-device making it possible to add new sensors and customize behavior while still making it easy to upgrade the base firmware.
-- Custom. The Tracker One firmware is open-source so you can duplicate and modify it ("fork") for completely custom applications. Or build your own completely from scratch.
+- Custom. The Tracker One firmware is open-source so you can duplicate and modify it for completely custom applications. Or build your own completely from scratch.
 
 The Tracker firmware is included on the device from the factory instead of Tinker. 
 

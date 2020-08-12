@@ -26,22 +26,26 @@ Instead of having to manually upload firmware that you write, by default new rel
 
 Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added.
 
-
 ## Getting the Tracker Edge Firmware
 
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
 
-After downloading the source, you will need to fetch the library dependencies. This can be done from a command prompt or terminal window with the git command line tools installed:
+You will probably want to use the command line as there are additional commands you need to run after cloning the source:
 
-```
+```bash
+git clone git@github.com:particle-iot/tracker-edge.git 
 cd tracker-edge
-git submodule init
-git submodule update --recursive
+git submodule update --init --recursive
 ```
 
-Be sure to target 1.5.4-rc.1 or later for your build. Device OS 1.5.3 or later is required, only version 1.5.4-rc.1 and later are available in the full set of tools including Workbench, CLI, and Web IDE.
+- Open Particle Workbench.
+- From the command palette, **Particle: Import Project**.
+- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1 or 3.0.0 or later, Tracker, and your device.
+- Run **Particle: Compile and Flash**.
+
+Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS do not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
 
 ## Overview
 
@@ -238,6 +242,8 @@ One easy way to get a temporary access token is to:
 - Copy and paste the access token from the end of the command that is displayed.
 - This token is invalidated when your close the console.
 
+To estimate the data usage when adding additional fields, see [this page](/tutorials/device-cloud/console/#data-usage).
+
 ## Multi-function pins
 
 The Tracker One has three multi-function pins on the M8 port:
@@ -266,6 +272,127 @@ This feature is also available on the Tracker SoM, however on the Tracker SoM yo
 If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/reference/device-os/firmware/tracker-som/#pinmode-), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
 
 These pins have a 3.3V maximum and are **not** 5V tolerant!
+
+## Using GitHub with Tracker Edge
+
+[GitHub](https://github.com/) is a tool for source code control, issue, and release management. It's great for managing Particle projects in Workbench. For many uses, it's free, too. There are many features, entire books, and tutorials about [Git](https://git-scm.com/) (the underlying source code control system) and GitHub (a service that allows you to store files in the cloud). This is just an overview.
+
+Source code control allows you to have a secure record of all of the changes you've made to the source over time. You can roll back to previous versions and compare versions. It also makes sure you have a copy of all of your source separate from your computer, in case something happens to it.
+
+Sign up for a [GitHub](https://github.com/) account if you have not already done so. You will select a username at this point, which will be your primary method of identification, not your email address. Your username will be shown publicly in many instances, so keep that in mind.
+
+Most operations are centered around a **repository**. In many cases, each repository will be a single project. However, in some cases you might want to store multiple Particle firmware projects in a single repository when they are related. For example, if you were writing Bluetooth LE (BLE) communication software, one firmware might be for the central role and one might be the peripheral role, but since they're both part of one project you'd store the source in a single repository.
+
+Each repository can be **public** or **private**. If you are creating an open-source project or library, **public** typically used. Using GitHub **teams** multiple users can access private repositories. Everyone working on a project should always have their own GitHub account; you should never share an account.
+
+While you can download code from the GitHub website, you will probably want to install a [desktop GitHub client](https://desktop.github.com/) on your computer. You should install both the graphical and command line options. 
+
+There is also support for GitHub built into Visual Studio Code (Particle Workbench), but it uses your computer's GitHub desktop installation so you still need to install a desktop client.
+
+### Creating a mirror
+
+In the example above we just use **Clone** to make a private copy of the source on your computer. There is another option that is more common when working with Tracker Edge projects: **Mirror**. A mirror allows you to make a private copy of a repository and link the two, so you can later merge any changes in the original with your changes! This is a power user feature, so you'll need to use some command-line git commands to make it work.
+
+![Create repository](/assets/images/workbench/github-create-repo.png)
+
+Create a new Github repository in your account. In this case, I created **tracker-test1** and made it a private repository. Since we're going to mirror, it's not necessary to create a README or LICENSE.
+
+```bash
+git clone --bare https://github.com/particle-iot/tracker-edge.git
+cd tracker-edge.git
+git push --mirror https://github.com/rickkas7/tracker-test1.git
+```
+
+Run the commands to mirror the changes into the repository you just created. Be sure to change the last URL to match the URL for your repository!
+
+At this point you can delete the tracker-edge.git directory as it's no longer needed.
+
+```bash
+git clone https://github.com/rickkas7/tracker-test1.git
+cd tracker-test1
+git submodule update --init --recursive
+```
+
+Make a clone of your repository and initialize the submodules.
+
+Open your project in Workbench:
+
+  - Open Particle Workbench.
+  - From the command palette, **Particle: Import Project**. Select the project.properties file in the tracker-test1 directory.
+  - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, or 3.0.0 or later, Tracker, and your device.
+  - Run **Particle: Compile and Flash**.
+
+Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS do not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
+
+Now that you have a mirror, you're free to do things like update main.cpp and even edit the other Tracker source as desired. When you **Stage**, **Commit** and **Push**, the changes will be saved to your own GitHub private repository only.
+
+```bash
+cd tracker-test1
+git remote add official https://github.com/particle-iot/tracker-edge.git
+```
+
+Link the two repositories. This makes it possible to merge changes from the official version later on, when new versions of Tracker Edge are released. This merge is smart, so it won't overwrite your changes if there are no conflicts, but if both you and Particle changed the same lines of source, this may be flagged as a conflict and you will need to manually figure out which to keep. You only need to run this command once.
+
+```
+cd tracker-test1
+git pull official develop
+```
+
+This is how to merge updates from the official repository into yours. When a new version of Tracker Edge is released, you run a command to pull the changes from that release into your repository. You then resolve any conflicts and then push the changes to your repository. The steps are:
+
+- **Pull** the changes from the official repository
+- Resolve any conflicts
+- **Push** the merged changes to your repository.
+
+```
+cd tracker-test1
+git pull official release/v8
+```
+
+If you prefer, you can merge to a specific release instead of develop.
+
+### Making a source code change
+
+![GitHub Stage and Commit](/assets/images/workbench/github-stage.png)
+
+Once you've made some source changes and tested them, you might want to **Commit** and **Push** these changes. 
+
+- Before you can commit you need to **Stage** your changes, which lets Git know you indeed want to upload all of these changes. The easiest way is to click on the **Stage All Changes** (1) + button. It's hidden by default but will appear if you hover over the spot.
+
+- Enter a commit message in the box (2). This can be a reminder of why you made the change.
+
+- Click the **Commit** icon (3) (check mark). This saves a record of the changes, but the changes still only live on your computer.
+
+For personal projects like this you will typically just push to master. This sends the data to the GitHub servers. For more complex projects with team members, code reviews, etc. you will likely use a more complex process of **Pull Requests** instead.
+
+- Click on the **...** (Views and More Actions) at the top of the Source Control tab. Select **Push**. 
+
+Now the changes should be visible on the GitHub web site. Also if other team members **Fetch** and **Pull** the project they'll get your latest changes.
+
+To summarize:
+
+  - **Stage** indicates this file should be committed
+  - **Commit** marks all of the changes are ready to go as one package of changes
+  - **Push** uploads the package of changes to GitHub
+
+## Sending commands
+
+When viewing a device in the console, in the functions and variables area on the right, is the **cmd** box.
+
+<div align=center><img src="/assets/images/tracker/tracker-enter-shipping.png" class="small"></div>
+
+Some commands you can enter into the box:
+
+| Command | Purpose |
+| :------ | :--- |
+| `{"cmd":"enter_shipping"}` | Enter shipping mode |
+| `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+
+Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
+
+It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/tracker-edge-firmware/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
+
+On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
 ## Learn More 
 

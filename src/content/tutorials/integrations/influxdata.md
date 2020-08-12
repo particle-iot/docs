@@ -194,7 +194,19 @@ The next step is configuring the Webhook. Fill out the following fields:
 
 You'll need to click the `Advanced Settings` area to fill out the custom `JSON` format. You can fill this out as follows:
 
-<img src="/assets/images/influx-webhook3.png"/>
+```json
+{
+  "event": "\{{{PARTICLE_EVENT_NAME}}}",
+  "data": \{{{PARTICLE_EVENT_VALUE}}},
+  "coreid": "\{{{PARTICLE_DEVICE_ID}}}",
+  "published_at": "\{{{PARTICLE_PUBLISHED_AT}}}",
+  "userid": "\{{{PRODUCT_USER_ID}}}",
+  "fw_version": "\{{{PRODUCT_VERSION}}}",
+  "public": "\{{{PARTICLE_EVENT_PUBLIC}}}",
+  "measurement": "<your measurement>",
+  "influx_db": "influxdata_sensors"
+}
+```
 
 Note the entry for “data” is flagged as an error by the Particle Webhook edit screen as it is missing quotation marks around PARTICLE_EVENT_VALUE.  However, the current setup of Telegraf only works this way and the Particle Cloud integration will still accept the advanced settings.
 

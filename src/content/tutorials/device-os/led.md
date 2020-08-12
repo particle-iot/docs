@@ -15,8 +15,9 @@ devices, use the blue device selector below the Particle logo on the left side o
 {{#if tracker-som}}
 ## Tracker SoM Mode
 
-The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the Tracker One standard LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized. The Tracker SoM Evaluation Board defaults to the Particle color scheme.
+The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the **Tracker** LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized in the [Product Settings](/tutorials/device-cloud/console/#rgb-led-settings). The Tracker SoM Evaluation Board defaults to the Particle color scheme. 
 
+{{!--
 {{device-animation device "pattern"
   "off 1000ms"
   "on white 1000ms"
@@ -25,13 +26,48 @@ The Tracker SoM and Tracker One status LED can be configured in several differen
   "on green 10000ms"
   "off 1000ms"
 }}
+--}}
 
-The standard LED pattern for Tracker One devices is:
+The standard LED patterns for Tracker One devices are:
 
-- Fast breathing red while trying to connect to cellular.
-- Once connected to cellular, will show relative signal strength of yellow (weaker), or green (stronger). 
-- Breathing signal strength color indicator while connecting to the cloud (yellow or green)
-- Solid signal strength indicator (yellow/green) once connected.
+### Connecting to Cellular - Tracker
+
+The Tracker will fast breathe red while connecting to cellular.
+
+{{device-animation device "pattern"
+  "breathe red 500ms"
+}}
+
+### Connecting to the Cloud - Tracker
+
+While trying to connect to the cloud, the Tracker shows the relative signal strength as breathing yellow (weaker cellular signal):
+
+{{device-animation device "pattern"
+  "breathe yellow 1000ms"
+}}
+
+Or breathing green (stronger cellular signal):
+
+{{device-animation device "pattern"
+  "breathe green 1000ms"
+}}
+
+### Connected to Cellular - Tracker
+
+The Tracker shows the relative signal strength as solid yellow (weaker cellular signal):
+
+{{device-animation device "pattern"
+  "on yellow"
+}}
+
+Or solid green (stronger cellular signal):
+
+{{device-animation device "pattern"
+  "on green"
+}}
+
+Solid yellow or solid green indicates normal operation on the Tracker.
+
 
 **The remainder of this page describes the status LED when using standard Particle LED scheme.**
 
@@ -270,7 +306,7 @@ When your device is in Listening Mode, it is waiting for you to configure your m
 
 Normally, when you've successfully configured your Gen 3 device using the mobile apps for iOS or Android, the setup complete flag is set and you will exit Listening Mode.
 
-If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](https://support.particle.io/hc/en-us/articles/360039741133/#marking-setup-done) to exit listening mode.
+If you have reset your configuration or have set up using USB, you may need to manually set the configuration done flag using [these instructions](/reference/developer-tools/cli/#particle-usb-setup-done) to use the `particle usb setup-done` command.
 
 {{else}}
 
@@ -286,7 +322,7 @@ When your device is in Listening Mode, it is waiting for your input to connect t
 
 To put your device in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 
-
+You can also use [`particle usb start-listening`](/reference/developer-tools/cli/#particle-usb-start-listening) to enter listening mode.
 
 {{#if has-cellular-strength }}
 ### Cellular Signal Strength
@@ -386,10 +422,7 @@ Before entering safe mode, the device will proceed through the normal steps of c
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
-{{#if photon}}
-{{vine "https://vine.co/v/eZUF2ilvLxJ/embed/simple"}}
-{{/if}}
-
+You can also use the [`particle usb safe-mode`](/reference/developer-tools/cli/#particle-usb-safe-mode) command to enter safe mode. 
 
 ### DFU Mode (Device Firmware Upgrade)
 
@@ -409,17 +442,13 @@ To enter DFU Mode:
 3. Wait for the LED to start flashing yellow (it will flash magenta first)
 4. Release the `{{system-button}}` button
 
-{{#if photon}}
-{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}
-{{/if}}
-
-
 The device now is in the DFU mode.
 
 DFU mode requires device drivers under Windows. These should automatically be installed by the Particle CLI installer, but if you think you are having driver issues, there are [additional DFU troubleshooting tips here](https://support.particle.io/hc/en-us/articles/360039251394/).
 
 Some users have reported issues with dfu-util on a USB3 ports (typically the blue ones). Use a USB2 port if the USB3 port doesn't work.
 
+You can also use the [`particle usb dfu`](/reference/developer-tools/cli/#particle-usb-dfu) command to enter DFU mode.
 
 
 {{#if photon}}

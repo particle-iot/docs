@@ -70,15 +70,15 @@ var DeviceAnimation = function(element, deviceType) {
         }
      },
      "Tracker SoM": {
-         image: "/assets/images/tracker-small-horiz.png",
+         image: "/assets/images/tracker-small-horiz.jpg",
          zoom: 1,
-         width: 200,
-         height: 128,
+         width: 300,
+         height: 180,
          rotate: 0,
          led: {
-           x: 146,
-           y: 29,
-           radius: 10
+           x: 218,
+           y: 38,
+           radius: 14
          }
       }
   };

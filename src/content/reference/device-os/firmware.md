@@ -3465,7 +3465,7 @@ Returns: `float`
 
 _Before 0.8.0:_
 
-Before Device OS 0.8.0, the `CellularSignal` class only had two member variables, `rssi`, and `qual`. These were similar to the values that are returned from `getStrengthValue()` and `getQualityValue()` now.
+Before Device OS 0.8.0, the `CellularSignal` class only had two member variables, `rssi`, and `qual`. These will be removed in a future version of Device OS and you should use `getStrengthValue()` and `getQualityValue()` instead.
 
 ```
 // Prior to 0.8.0:
@@ -3700,7 +3700,7 @@ LTE Cat M1 devices (SARA-R410M-02B) have a slightly different AT command set in 
 
 The B Series B523 SoM and Tracker T523 SoM (EMEA) have a Quectel EG91-E, the AT commands can be found in the <a href="/assets/pdfs/Quectel_EG9x_AT_Commands_Manual_V1.1.pdf" target="_blank">Quectel EG9x AT Commands Manual (version 1.1).</a>.
 
-The Tracker T402 SoM (North America) has a Quectel BG96-NA, the AT commands cann be found in the <a href="/assets/pdfs/Quectel_BG96_AT_Commands_Manual_V2.1.pdf" target="_blank">Quectel BG96 AT Commands Manual (version 2.1).</a>.
+The Tracker T402 SoM (North America) has a Quectel BG96-MC, the AT commands cann be found in the <a href="/assets/pdfs/Quectel_BG96_AT_Commands_Manual_V2.1.pdf" target="_blank">Quectel BG96 AT Commands Manual (version 2.1).</a>.
 
 The prototype definition is as follows:
 
@@ -3887,13 +3887,13 @@ The Tracker SoM shared A and D pins. In other words, pin A0 is the same physical
 | A0 / D0 |        | Wire SDA    |             | &check;   | &check; | 
 | A1 / D1 |        | Wire SCL    |             | &check;   | &check; |
 | A2 / D2 |        | Serial1 CTS |             | &check;   | &check; |
-| A3 / D3 | 7      | Serial1 RTS |             | &check;   | &check; |
+| A3 / D3 | 3      | Serial1 RTS |             | &check;   | &check; |
 | A4 / D4 |        | SPI MOSI    |             | &check;   | &check; |
 | A5 / D5 |        | SPI MISO    |             | &check;   | &check; |
 | A6 / D6 |        | SPI SCK     |             | &check;   | &check; |
 | A7 / D7 |        | SPI SS      | WKP         | &check;   | &check; |
 | TX / D8 | 5      | Serial1 TX  | Wire3 SCL   |           | &check; |
-| RX / D9 | 6      | Serial1 RX  | Wire3 SDA   |           | &check; |
+| RX / D9 | 4      | Serial1 RX  | Wire3 SDA   |           | &check; |
 
 
 {{/if}} {{!-- tracker-som --}}
@@ -13828,7 +13828,7 @@ void loop() {
 }
 ```
 
-- When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Device Cloud.
+- When the device starts up, it automatically tries to connect to Wi-Fi or Cellular and the Particle Device Cloud.
 - Once a connection with the Particle Device Cloud has been established, the user code starts running.
 - Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process-).
 - `Particle.process()` is also called during any delay() of at least 1 second.
@@ -13839,7 +13839,6 @@ void loop() {
 In automatic mode, the user can still call `Particle.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Particle.connect()`.
 
 ### Semi-automatic mode
-
 
 The semi-automatic mode will not attempt to connect the device to the Cloud automatically. However once the device is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
 
@@ -20214,6 +20213,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v2.x prereleases|[v2.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.1)|-|-|-|-|-|-|
 |v1.5.x default releases|[v1.5.0](https://github.com/particle-iot/device-os/releases/tag/v1.5.0)|[v1.5.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1)|[v1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2)|-|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.1)|[v1.5.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.2)|[v1.5.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1-rc.1)|[v1.5.4-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.1)|-|-|-|
 |v1.4.x default releases|[v1.4.0](https://github.com/particle-iot/device-os/releases/tag/v1.4.0)|[v1.4.1](https://github.com/particle-iot/device-os/releases/tag/v1.4.1)|[v1.4.2](https://github.com/particle-iot/device-os/releases/tag/v1.4.2)|[v1.4.3](https://github.com/particle-iot/device-os/releases/tag/v1.4.3)|[v1.4.4](https://github.com/particle-iot/device-os/releases/tag/v1.4.4)|-|-|
@@ -20242,6 +20242,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v2.x prereleases|[v2.0.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=2.0.0-rc.1&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v1.5.x default releases|[v1.5.0](/reference/device-os/firmware/photon/?fw_ver=1.5.0&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1](/reference/device-os/firmware/photon/?fw_ver=1.5.1&cli_ver=2.5.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1](/reference/device-os/firmware/photon/?fw_ver=1.5.2&cli_ver=2.6.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.5.0-rc.1&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.5.0-rc.2&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.5.1-rc.1&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.4-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.5.4-rc.1&cli_ver=2.6.0&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v1.4.x default releases|[v1.4.0](/reference/device-os/firmware/photon/?fw_ver=1.4.0&cli_ver=1.47.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.1](/reference/device-os/firmware/photon/?fw_ver=1.4.1&cli_ver=1.48.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.2](/reference/device-os/firmware/photon/?fw_ver=1.4.2&cli_ver=1.49.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.3](/reference/device-os/firmware/photon/?fw_ver=1.4.3&cli_ver=1.52.0&electron_parts=3#programming-and-debugging-notes)|[v1.4.4](/reference/device-os/firmware/photon/?fw_ver=1.4.4&cli_ver=1.53.0&electron_parts=3#programming-and-debugging-notes)|-|-|
@@ -20267,6 +20268,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v2.7.2  = 2.0.0-rc.1
 v2.6.0  = 1.5.2, 1.5.4-rc.1
 v2.5.0  = 1.5.1
 v2.3.0  = 1.5.0, 1.5.1-rc.1
@@ -20361,6 +20363,8 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@1.5.2endif
 ##### @FW_VER@1.5.4if
 ##### @FW_VER@1.5.4endif
+##### @FW_VER@2.0.0if
+##### @FW_VER@2.0.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -20435,6 +20439,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@2.5.0endif
 ##### @CLI_VER@2.6.0if
 ##### @CLI_VER@2.6.0endif
+##### @CLI_VER@2.7.2if
+##### @CLI_VER@2.7.2endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if

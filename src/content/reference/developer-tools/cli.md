@@ -711,6 +711,46 @@ If you have Device OS firmware with debugging enabled (which is the default on t
 In general, using `--usb` mode in DFU mode (blinking yellow) is a more reliable way to flash your device over USB.
 
 
+### particle serial inspect
+
+Print information about the firmware modules on a device. The device must be in listening mode (blinking blue) and connected by USB to your computer.
+
+```sh
+$ particle serial inspect
+Platform: 6 - Photon
+Modules
+  Bootloader module #0 - version 502, main location, 16384 bytes max size
+    Integrity: PASS
+    Address Range: PASS
+    Platform: PASS
+    Dependencies: PASS
+  System module #1 - version 1512, main location, 262144 bytes max size
+    Integrity: PASS
+    Address Range: PASS
+    Platform: PASS
+    Dependencies: PASS
+      System module #2 - version 207
+  System module #2 - version 1512, main location, 262144 bytes max size
+    Integrity: PASS
+    Address Range: PASS
+    Platform: PASS
+    Dependencies: PASS
+      System module #1 - version 1512
+      Bootloader module #0 - version 400
+  User module #1 - version 3, main location, 131072 bytes max size
+    UUID: B3A6DCD529BE70FBE24EE959C7305D58E3BC9A04ACDCE8F093C7A1F759097D09
+    Integrity: PASS
+    Address Range: PASS
+    Platform: PASS
+    Dependencies: PASS
+      System module #2 - version 6
+```
+
+If you see any `FAIL` entries, there is likely a missing dependency, such as a bootloader that needs to be upgraded. Normally this will be corrected automatically over-the-air, but if you cannot connect to the cloud the dependency cannot be fixed OTA.
+
+The version numbers in the output can be mapped to common version numbers using [this table](https://github.com/particle-iot/device-os/blob/develop/system/system-versions.md). For example, system version 1512 is more commonly known as 1.5.2.
+
+
 ## particle mesh
 
 Mesh network management from the CLI.
@@ -719,7 +759,7 @@ Mesh network management from the CLI.
 
 See [mesh deprecation](/reference/discontinued/mesh/) for more information.
 
-_These commands require Device OS 0.9.0 or later._
+_These commands require Device OS 0.9.0 through 1.5.2. Versions older and newer than that do not include mesh support._
 
 _On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
 
@@ -784,6 +824,9 @@ Various commands to interact with a device connected through USB.
 
 _On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
 
+The Particle USB commands are only available in Device OS 0.9.0 (Gen 3, including Argon and Boron), and 1.0.0 (Gen 2, including Photon, P1, Electron, and E Series). These commands are not available on the Gen 1 (Spark Core).
+
+At this time it is possible that you can receive new devices from distributors or Particle that have an older version of Device OS than required to use these command. Doing a `particle update` will upgrade the devices to support these commands.
 
 ### particle usb list
 
@@ -792,7 +835,6 @@ List Particle USB devices attached to the host
 ```
 particle usb list [--exclude-dfu] [--ids-only]
 ```
-
 
 ### particle usb start-listening
 
@@ -808,6 +850,7 @@ Also aliases to `usb listen`.
 particle usb listen [devices...] [--all]
 ```
 
+Start listening can only be done from normal operating mode or safe mode.
 
 ### particle usb stop-listening
 
@@ -816,6 +859,8 @@ Make a device or multiple devices exit the listening mode
 ```
 particle usb stop-listening [devices...] [--all]
 ```
+
+Stop listening can only be done from listening mode (blinking dark blue).
 
 
 ### particle usb safe-mode
@@ -826,6 +871,8 @@ Put a device or multiple devices into the safe mode
 particle usb safe-mode [devices...] [--all]
 ```
 
+Safe mode can only be entered from normal operating mode (not DFU mode).
+
 
 ### particle usb dfu
 
@@ -835,6 +882,7 @@ Put a device or multiple devices into the DFU mode
 particle usb dfu [devices...] [--all]
 ```
 
+DFU mode can only be entered from normal operating mode or safe mode.
 
 ### particle usb reset
 
@@ -844,6 +892,7 @@ Reset a device or multiple devices
 particle usb reset [devices...] [--all]
 ```
 
+Reset can be used from normal operating mode, safe mode, or DFU mode.
 
 ### particle usb setup-done
 
@@ -854,6 +903,8 @@ particle usb setup-done [devices...] [--reset]
 ```
 
 The `--reset` command clears the setup done flag, so the device will resume booting into listening mode.
+
+Setup done can only be issued when in normal operating mode or safe mode. It is only applicable for Gen 3 devices (Argon, Boron).
 
 
 ### particle usb configure

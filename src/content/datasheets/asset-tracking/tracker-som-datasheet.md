@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(002)</sup>
+# Tracker SoM Datasheet <sup>(005)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -35,7 +35,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * GNSS u-blox Neo M8U for GNSS with on-board dead-reckoning for up to 1.8m CEP50 GPS accuracy
   * Supports GPS L1C/A, SBAS L1C/A, QZSS L1C/A, QZSS L1-SAIF, GLONASS L1OF, BeiDou B1I, Galileo E1B/C
   * Support for battery-backup for almanac and ephemeris data
- * Quectel BG96-NA modem
+ * Quectel BG96-MC modem
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
   * 3GPP E-UTRA Release 13
   * LTE FDD bands supported: 2, 4, 12, 13
@@ -57,7 +57,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * On-module additional 8MB SPI flash
  * CAN Bus: on-board, integrated CAN Bus controller and transceiver making it ideal for fleet and micromobility
  * Boost Converter to power 5V CAN devices from a 3.6V battery
- * RTC: Battery-backed external real-time clock
+ * RTC: External real-time clock with support for an optional separate battery
  * Watchdog Timer: integrated hardware WDT
  * 10 Mixed signal GPIO (8 x Analog, 10 x Digital, UART, I2C, SPI)
  * USB 2.0 full speed (12 Mbps)
@@ -79,7 +79,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 <div align="center"> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" class="full-width"></a></div> 
 
 ### Power
-The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
+The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery. 
 
 #### VIN
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
@@ -140,10 +140,14 @@ There are a number of U.FL antenna connectors on the Tracker SoM:
 | WIFI | Wi-Fi antenna for Wi-Fi geolocation (optional)<sup>1</sup> |
 | BLE  | External Bluetooth (optional)<sup>2</sup> |
 | GNSS/DIV | Quectel GNSS antenna (optional)<sup>1</sup> |
+| DIV  | LTE cellular receive diversity antenna<sup>3</sup>  |
+
 
 <sup>1</sup>Not supported in initial release.
 
 <sup>2</sup>There is a BLE chip antenna on the module, the external BLE antenna is optional.
+
+<sup>3</sup>DIV is the connector for the LTE cellular receive diversity antenna (T523 only). A second cellular antenna can be connected to this connector to improve performance when the device will be moving at high speeds. It is only used for LTE Cat 1 connections and is not supported when in 2G or 3G mode. This antenna is not necessary in most cases and is not included in evaluation kits. The T402 does not have this connector as receive diversity is not supported in LTE Cat M1 mode.
 
 There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'll need to add an antenna or antenna connector on your base board.
 
@@ -704,7 +708,7 @@ The WIFI_BOOT pin enables programming mode.
 | | Class 3 (24dBm ± 3dB) for WCDMA bands |
 | | Class 3 (23dBm ± 2dB) for LTE FDD bands |
 
-#### 4G LTE cellular characteristics for BG96-NA
+#### 4G LTE cellular characteristics for BG96-MC
 
 | Parameter | Value |
 | --- | --- |
@@ -862,6 +866,45 @@ Will be provided at a later date.
 
 ---
 
+## Certification
+
+### FCC
+
+**Warning:** Changes or modifications to this unit not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+
+NOTE: This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications.
+
+However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Consult the dealer or an experienced radio/TV technician for help.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+
+The device must not be co-located or operating in conjunction with any other antenna or transmitter.
+
+#### FCC RF Radiation Exposure Statement 
+
+Caution: To maintain compliance with the FCC's RF exposure guidelines, place the product at least 20cm from nearby persons. The module can be installed in mobile or fixed installations only, and it can not be installed in any portable installations.
+
+#### FCC Conditions
+
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
+
+1.This device may not cause harmful interference.
+2.This device must accept any interference received, including interference that may cause undesired operation.
+This device complies with Part 15, Part 15.247 of the FCC Rules. The FCC ID for this device is 2AEMI-T40X.
+
+If the FCC ID is not visible with the module is installed inside another device, then it must be still responsible for the FCC compliance requirement of the end product which referring to the enclosed module and it also must display a label, such as the following:
+
+Contains Transmitter module FCC ID: 2AEMI-T40X or contains FCC ID: 2AEMI-T40X The host product manufacturer is responsible for compliance to any other FCC rules that apply to the host not covered by the modular transmitter grant of certification. The final host product still requires Part 15 Subpart B compliance testing with the modular transmitter installed.
+
+The end user manual shall include all required regulatory information / warning as shown in this manual, include: This product must be installed and operated with a minimum distance of 20 cm between the radiator and user body.
+Radiation Exposure Statement:
+
+The product is a low power device and its output power is lower than FCC SAR exemption level.
+
+
 ## Product Handling
 
 ### ESD Precautions
@@ -908,3 +951,5 @@ The bootloader allows you to easily update the user application via several diff
 | 001      | 29 Jun 2020 | RK | First release |
 | 002      | 10 Jul 2020 | RK | Updated absolute maximum ratings, schematics |
 | 003      | 17 Jul 2020 | RK | Updated absolute maximum ratings |
+| 004      | 30 Jul 2020 | RK | Added explanation of DIV connector |
+| 005      | 06 Aug 2020 | RK | Added crystal to block diagram, added FCC information |

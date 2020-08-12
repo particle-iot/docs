@@ -1160,7 +1160,7 @@
       }
     },
     "AN012-Tracker-1Wire/README.md": {
-      "hash": "bb658d8c074d5378ac8ec09e45b77b03d4a2a7a7",
+      "hash": "ea05b88937925a746cdce6bb371c21384e4692c4",
       "articleId": 360052119273,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119273-AN012-Tracker-1-Wire",
       "attachments": {
@@ -1207,7 +1207,7 @@
       }
     },
     "AN013-Tracker-GPIO/README.md": {
-      "hash": "1841da311297c05dbc1f4f5b7c09866bae7a905c",
+      "hash": "c7c5f2204a4018a5b5f0c95de6fd85eae4369bfa",
       "articleId": 360052119293,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119293-AN013-Tracker-GPIO",
       "attachments": {
@@ -1258,7 +1258,7 @@
       }
     },
     "AN014-Tracker-i2c-scanner/README.md": {
-      "hash": "50cdb861adc9d4cceff7764e72c27680214b8045",
+      "hash": "ff9ad04cb7226b831121cad127893ddb42f6a853",
       "articleId": 360052119313,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119313-AN013-Tracker-I2C-Scanner"
     },
@@ -1310,7 +1310,7 @@
       }
     },
     "AN016-Tracker-Keypad-LCD/README.md": {
-      "hash": "57474ff4d74438c7ced42ff6583d90f2a171e04a",
+      "hash": "b7a9fc8eda072a511fc31c79ec092e57f84cd87e",
       "articleId": 360051358334,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051358334-AN015-Tracker-Keypad-LCD",
       "attachments": {
@@ -1353,12 +1353,12 @@
       }
     },
     "AN017-Tracker-CAN/README.md": {
-      "hash": "ee97f39469a893b38b2878de5862abdaff4605b3",
+      "hash": "99daa86e7a5c076bbd7b82df4f7d21c562b4c1df",
       "articleId": 360051358354,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051358354-AN017-Tracker-CAN"
     },
     "AN018-Tracker-Level/README.md": {
-      "hash": "645b8df9c9d7b35c564ae2fe03e791117b59a325",
+      "hash": "c9ef72f1f653a9d1bd5fedc78564ed671e2b0d77",
       "articleId": 360051358374,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051358374-AN018-Tracker-Tank-Level-Sensor",
       "attachments": {
@@ -1401,6 +1401,61 @@
         "AN018-Tracker-Level/images/level.png": {
           "attachmentId": 360081781533,
           "content_url": "https://particle.zendesk.com/hc/article_attachments/360081781533/level.png"
+        }
+      }
+    },
+    "AN019-Tracker-Prototype/README.md": {
+      "hash": "1da530af551ee31726b98ece32a239cf693c7c7b",
+      "articleId": 360051892774,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360051892774-AN019-Tracker-Prototype-to-Board",
+      "attachments": {
+        "AN019-Tracker-Prototype/images/qwiic-wires.jpg": {
+          "attachmentId": 360082881574,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360082881574/qwiic-wires.jpg"
+        },
+        "AN019-Tracker-Prototype/images/QWIIC-Wiring.png": {
+          "attachmentId": 360082881594,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360082881594/QWIIC-Wiring.png"
+        },
+        "AN019-Tracker-Prototype/images/eval-board.jpg": {
+          "attachmentId": 360084050433,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360084050433/eval-board.jpg"
+        },
+        "AN019-Tracker-Prototype/images/custom-data.png": {
+          "attachmentId": 360082881614,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360082881614/custom-data.png"
+        },
+        "AN019-Tracker-Prototype/images/m8-cable.jpg": {
+          "attachmentId": 360082881634,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360082881634/m8-cable.jpg"
+        },
+        "AN019-Tracker-Prototype/images/carrier-b8b-ph.png": {
+          "attachmentId": 360082881654,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360082881654/carrier-b8b-ph.png"
+        },
+        "AN019-Tracker-Prototype/images/board.png": {
+          "attachmentId": 360082881674,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360082881674/board.png"
+        },
+        "AN019-Tracker-Prototype/images/schematic.png": {
+          "attachmentId": 360082881694,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360082881694/schematic.png"
+        },
+        "AN019-Tracker-Prototype/images/board-layout.png": {
+          "attachmentId": 360082881714,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360082881714/board-layout.png"
+        },
+        "AN019-Tracker-Prototype/images/phr-8.jpg": {
+          "attachmentId": 360084050453,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360084050453/phr-8.jpg"
+        },
+        "AN019-Tracker-Prototype/images/m8-to-phr8.jpg": {
+          "attachmentId": 360084050473,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360084050473/m8-to-phr8.jpg"
+        },
+        "AN019-Tracker-Prototype/images/m8breakout-screw.jpg": {
+          "attachmentId": 360084050493,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360084050493/m8breakout-screw.jpg"
         }
       }
     }

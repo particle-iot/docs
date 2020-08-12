@@ -55,7 +55,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Block diagram
 
-<div align=center> <a href="/assets/images/b-series/b-series-block-diagram.png" target="_blank"> <img src="/assets/images/b-series/b-series-block-diagram.png" ></a></div>
+<div align=center> <a href="/assets/images/b-series/b-series-block-diagram.png" target="_blank"> <img src="/assets/images/b-series/b-series-block-diagram.png" ></a></div> 
 
 ### Power
 
