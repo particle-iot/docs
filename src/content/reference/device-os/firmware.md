@@ -3465,7 +3465,7 @@ Returns: `float`
 
 _Before 0.8.0:_
 
-Before Device OS 0.8.0, the `CellularSignal` class only had two member variables, `rssi`, and `qual`. These were similar to the values that are returned from `getStrengthValue()` and `getQualityValue()` now.
+Before Device OS 0.8.0, the `CellularSignal` class only had two member variables, `rssi`, and `qual`. These will be removed in a future version of Device OS and you should use `getStrengthValue()` and `getQualityValue()` instead.
 
 ```
 // Prior to 0.8.0:
