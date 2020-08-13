@@ -55,7 +55,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Block diagram
 
-<div align=center> <a href="/assets/images/b-series/b523-block-diagram.png" target="_blank"> <img src="/assets/images/b-series/b523-block-diagram.png" ></a></div> 
+{{imageOverlay src="/assets/images/b-series/b523-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
 ### Power
 
@@ -141,7 +141,7 @@ There are some optional B523 module specific I/O:
 
 The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
-![Pogo Pins](/assets/images/b-series/pogo-pins.png)
+{{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
 
 ## Memory map
 
@@ -164,7 +164,7 @@ The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 
 ### Pinout diagram
 
-![Pinout](/assets/images/b-series/b523-pinout.png)
+{{imageOverlay src="/assets/images/b-series/b523-pinout.png" alt="Pinout"}}
 
 Pins SOM0 to SOM9 will vary across various SoM modules. For example, cellular-specific pins exists in this range. 
 
@@ -397,7 +397,7 @@ These specifications are based on the nRF52840 datasheet.
 
 ### Mechanical drawing
 
-![Mechanical Drawing](/assets/images/b-series/b-series-mechanical.png)
+{{imageOverlay src="/assets/images/b-series/b-series-mechanical.png" alt="Mechanical Drawing"}}
 
 Dimensions are in millimeters.
 
@@ -409,7 +409,7 @@ The mating connector is a an M.2 (NGFF) type 4. Note that there are several diff
 
 One compatible connector is the [TE 2199230-4](https://www.te.com/usa-en/product-2199230-4.html). It is widely available including at suppliers such as [DigiKey](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2199230-4/A115904CT-ND/4208916).
 
-![Connector](/assets/images/b-series/b-series-connector.png)
+{{imageOverlay src="/assets/images/b-series/b-series-connector.png" alt="M.2 Connector" class="full-width"}}
 
 ---
 
@@ -437,8 +437,7 @@ We recommend this screw assembly to securely affix the B series SoM to your circ
 
 We strongly recommend against placing components under the SOM board because there is not enough height.
 
-![Keep-Out Area](/assets/images/b-series/b-series-keep-out.png)
-
+{{imageOverlay src="/assets/images/b-series/b-series-keep-out.png" alt="Keep-Out Area"}}
 
 ## Product Handling
 
@@ -455,29 +454,29 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 ### Microcontroller
 
-![Microcontroller](/assets/images/b-series/b523-schematic-microcontroller.png)
-
+{{imageOverlay src="/assets/images/b-series/b523-schematic-microcontroller.png" alt="Microcontroller" class="full-width"}}
 
 ### Quectel cellular modem
 
-![Quectel cellular modem](/assets/images/b-series/b523-schematic-cellular.png)
+{{imageOverlay src="/assets/images/b-series/b523-schematic-cellular.png" alt="Cellular Modem" class="full-width"}}
 
 ### M.2 connector
 
-![Connector](/assets/images/b-series/b523-schematic-conn.png)
+{{imageOverlay src="/assets/images/b-series/b523-schematic-conn.png" alt="M.2 connector"}}
 
 
 ### SIM and Flash
 
-![SIM](/assets/images/b-series/b523-schematic-sim.png)
+{{imageOverlay src="/assets/images/b-series/b523-schematic-sim.png" alt="SIM"}}
 
-![Flash](/assets/images/b-series/b523-schematic-flash.png)
+{{imageOverlay src="/assets/images/b-series/b523-schematic-flash.png" alt="Flash"}}
 
 ### Buffers
 
-![Misc 1](/assets/images/b-series/b523-schematic-misc1.png)
+{{imageOverlay src="/assets/images/b-series/b523-schematic-misc1.png" alt="Buffers"}}
 
-![Misc 2](/assets/images/b-series/b523-schematic-misc2.png)
+{{imageOverlay src="/assets/images/b-series/b523-schematic-misc2.png" alt="Buffers"}}
+
 
 
 ## Default settings

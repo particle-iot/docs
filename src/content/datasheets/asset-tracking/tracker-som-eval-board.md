@@ -18,12 +18,13 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 
 ## Block Diagram
 
-![Block Diagram](/assets/images/at-som/at-eval-block-diagram.png) 
+{{imageOverlay src="/assets/images/at-som/at-eval-block-diagram.png" alt="Block Diagram" class="full-width"}}
+
 
 ## Description
 
 
-<div align="center"><img src="/assets/images/at-som/at-eval-labeled.png"></div>
+{{imageOverlay src="/assets/images/at-som/at-eval-labeled.png" alt="Block Diagram" class="full-width"}}
 
 
 | Num | ID 					    | Description                                      |
@@ -165,27 +166,29 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 
 #### Tracker SoM
 
-<div align="center"> <a href="/assets/images/at-som/eval-schematic-2.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-2.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/eval-schematic-2.png" alt="Block Diagram" class="full-width"}}
+
 
 #### USB
 
-<div align="center"> <a href="/assets/images/at-som/eval-schematic-3.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-3.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/eval-schematic-3.png" alt="Block Diagram" class="full-width"}}
 
 ---
 
 #### Power Switches
 
-<div align="center"> <a href="/assets/images/at-som/eval-schematic-4.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-4.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/eval-schematic-4.png" alt="Block Diagram" class="full-width"}}
+
 
 #### Expansion Connector
 
-<div align="center"> <a href="/assets/images/at-som/eval-schematic-5.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-5.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/eval-schematic-5.png" alt="Block Diagram" class="full-width"}}
 
 ---
 
 #### Misc
 
-<div align="center"> <a href="/assets/images/at-som/eval-schematic-1.png" target="_blank"> <img src="/assets/images/at-som/eval-schematic-1.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/eval-schematic-1.png" alt="Block Diagram" class="full-width"}}
 
 ---
 
