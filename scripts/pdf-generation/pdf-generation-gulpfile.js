@@ -122,6 +122,7 @@ gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
     .pipe(replace(/^---$[^]*?^---$/m, '')) // strip frontmatter
     .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
 	.pipe(ignore.include(filterUnchanged))
+    .pipe(replace(/{{imageOverlay (.*)}}/g, '<img $1>')) // Convert imageOverlay to img tags
     .pipe(replace(/\/assets\//g, '../assets/')) // fix relative paths
     .pipe(replace(/{{assets}}/g, '../assets')) // fix relative paths
     .pipe(replace(/\]\(\//g, '](https://docs.particle.io/')) // point to website in non-assets cases

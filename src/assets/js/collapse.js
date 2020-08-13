@@ -71,3 +71,18 @@ function collapseDrag(ev, id) {
     ev.dataTransfer.setData("text", $('#' + id).text());
 }
 
+function showOverlay(imgPath) {
+	var html = '<img src="' + imgPath + '" onclick="hideOverlay()" class="imageOverlay" style="cursor:zoom-out"/>';
+
+	$('body').keydown(function(ev) {
+		hideOverlay();
+	});
+
+	$('#imageOverlay').html(html);
+	$('#imageOverlay').show();
+}
+
+function hideOverlay() {
+	$('body').off('keydown');
+	$('#imageOverlay').hide();
+}
