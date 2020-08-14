@@ -106,15 +106,6 @@ screen /dev/ttyACM0
 
 Screen allows you you both send characters to the Photon or Electron as well as receive them from the USB serial device.
 
-
-### Particle Dev (Atom IDE)
-
-Select **Show Serial Monitor** in the Particle menu if the Serial Monitor is not showing. Make sure you have the correct port select and click **Connect**.
-
-![Particle Dev Window](/assets/images/serial-faq-01particledev.png)
-
-Note that you can write stuff to the serial port in Particle Dev, but you must do so in the **Enter string to send box**, it's not like a regular terminal emulator where you type in the same place where stuff is being printed out.
-
 ### Arduino IDE
 
 Select the port from the **Port** hierarchical menu in the **Tools** menu.

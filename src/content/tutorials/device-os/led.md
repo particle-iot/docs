@@ -114,7 +114,7 @@ When it is breathing cyan, your device is happily connected to the Internet. Whe
 
 {{device-animation device "blink" "magenta" }}
 
-If your device is blinking magenta (red and blue at the same time), it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from the Web IDE or Desktop IDE. You might see this mode when you connect your device to the cloud for the first time.
+If your device is blinking magenta (red and blue at the same time), it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from the Web IDE, CLI, or Workbench. You might see this mode when you connect your device to the cloud for the first time.
 
 Note that, if you enter this mode by holding `{{system-button}}` on boot, blinking magenta indicates that letting go of the `{{system-button}}` button will enter safe mode to connect to the cloud and not run application firmware.
 

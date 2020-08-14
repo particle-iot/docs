@@ -386,10 +386,6 @@ will see the name of your app in the pane, along with a download icon
 ![Compile firmware](/assets/images/ide-compile.png)
 <p class="caption">Compile and download a product binary from the web IDE</p>
 
-
-![Compile firmware](/assets/images/particle-dev-icon.png)
-<p class="caption">Particle Dev will automatically add a compiled binary to your working directory after you compile</p>
-
 Once you have a binary ready to go, it's time to upload it to the Console!
 
 #### Uploading firmware
