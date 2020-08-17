@@ -19,12 +19,27 @@ There are a number of cloud services that support Node-RED, however the most con
 - [A helpful article](https://hackernoon.com/how-to-securely-host-node-red-in-cloud-for-free-and-safely-expose-it-to-the-internet-over-https-hw5d3220).
 - Or, if you prefer: [AWS](https://nodered.org/docs/getting-started/aws) or [Microsoft Azure](https://nodered.org/docs/getting-started/azure)
 
+### Using IBM Cloud
+
+The [official instructions](https://nodered.org/docs/getting-started/ibmcloud) are quite complete, but the basic process is:
+
+1. Sign up for a free [IBM Cloud](https://cloud.ibm.com) account if you do not already have one. No credit card is required to start.
+
+2. After signing in create a **New Resource**. Search for the node-red type and create a new instance.
+
+3. Create an API Key if needed.
+
+4. Deploy your instance. You don't need to add services to it first; the Node-RED app itself contains everything you need to run it.
+
 ## Running Locally
 
 It's also possible to run Node-RED on your own computer, either natively or in a Docker container.
 
-- [Local installation](https://nodered.org/docs/getting-started/local)
 - [In a Docker container](https://nodered.org/docs/getting-started/docker)
+- [Local installation](https://nodered.org/docs/getting-started/local)
+
+
+### Running Locally - Docker
 
 Using Docker is especially convenient since it's less likely to be affected by node.js versions and such. Once you've installed Docker, it can be as easy as:
 
@@ -63,6 +78,37 @@ And stop it:
 docker stop mynodered
 ```
 
+And delete it:
+
+```
+docker rm mynodered
+```
+
+### Running Locally - Native
+
+For Mac and Linux, it may be as easy as:
+
+```
+$ sudo npm install -g node-red
+```
+
+To start:
+
+```
+$ node-red
+```
+
+The data directory should be **.node-red** in your home directory.
+
+To connect to the server open it in your browser: [http://127.0.0.1:1880/](http://127.0.0.1:1880/).
+
+For Windows, the process is similar; just leave out the sudo.
+
+To uninstall:
+
+```
+$ sudo npm uninstall -g node-red
+```
 
 ## Migrating From the Particle Rules Engine
 
@@ -70,7 +116,7 @@ docker stop mynodered
 
 | Node | Description |
 | :--- | :--- |
-| node-red-contrib-particle-official | Particle Node |
+| [@particle/node-red-contrib-particle-official](https://flows.nodered.org/node/@particle/node-red-contrib-particle-official) | Particle Node |
 | [node-red-dashboard](https://flows.nodered.org/node/node-red-dashboard) | Dashboards |
 | Storage | |
 | [node-red-node-mongodb](https://flows.nodered.org/node/node-red-node-mongodb) | MongoDB |
@@ -85,12 +131,12 @@ docker stop mynodered
 | [node-red-contrib-google-pubsub](https://flows.nodered.org/node/node-red-contrib-google-pubsub) | Google Cloud Pubsub | 
 
 
-To add the nodes you need into your new Node-RED instance:
+To add the nodes you need into your new Node-RED instance, click the **hamburger icon** in the upper right (1), then select **Manage Palette** (2).
 
 ![Rules Manage Palette](/assets/images/rules-manage-palette.png)
 
 
-In the **User Settings** window, select **Install** (1) then enter the name, like **node-red-contrib-particle-official** in the search box (2). Then add the node.
+In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particlel** in the search box (2). Then add the **@particle/node-red-confib-particle-official** node by clicking **Install** (3).
 
 ![Rules Install](/assets/images/rules-install.png)
 
@@ -111,7 +157,7 @@ To export your rules from the Particle Rules Engine:
 
 - Open your use Node-RED instance and select **Hamburger Menu** then **Import**. You can import directly from the clipboard or save to a file first.
 
-Note: The exported rules contain any passwords you saved when you configured your nodes. Keep this secure.
+Note: The exported rules contain any passwords you saved when you configured your nodes, along with the secret for your Particle authentication. Keep this secure.
 
 ## Original Documentation
 
