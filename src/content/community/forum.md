@@ -58,7 +58,6 @@ Stop by and join on of the best places online meet other people using Particle t
 
 - [Particle Web IDE](https://build.particle.io)
 - [Particle Console](https://console.particle.io)
-- [Desktop IDE (Particle Dev)](/tutorials/developer-tools/dev/)
 - [Particle Mobile App](/tutorials/developer-tools/tinker/)
 - [Particle CLI](/tutorials/developer-tools/cli/)
 - [JavaScript SDK](/reference/SDKs/javascript/)

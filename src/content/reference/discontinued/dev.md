@@ -1,27 +1,29 @@
 ---
 word: Dev
 title: Desktop IDE (Dev)
-order: 31
+order: 12
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: reference.hbs
 description: Older desktop IDE for programming Particle devices for Windows and Mac OS (discontinued)
 ---
 
 # Desktop IDE (Dev)
 
-**Particle Dev** is a desktop application that allows you to work with
-local copies of your firmware files. However, **internet** access is
-required as the files are pushed to the Particle Device Cloud for compilation and returns a binary. i.e. This is not an offline development tool.
+**Particle Dev** (Desktop IDE) is discontinued.
 
 {{box op="start"}}
-Particle Dev cannot be used to program 3rd-generation devices (Argon and Boron). 
+Particle Dev cannot be used to program 3rd-generation devices (Argon, Boron, B Series SoM, or the Tracker products).
 
 You should instead use [**Particle Workbench**](/tutorials/developer-tools/workbench) powered by VS Code. Workbench provides an integrated development environment as well as cloud compiling, local compiling, and source-level debugging.
 {{box op="end"}}
 
 
 ## Download
+
+As Particle Dev is discontinued, we do not recommend downloading and using it. However, if for some reason you need the last released version, click the triangle for the download links.
+
+{{collapse op="start" label="Download"}}
 
 Head over and download latest release:
 
@@ -32,6 +34,8 @@ Head over and download latest release:
 [Download for Mac >](https://updates.particle.io/latest/mac)
 
 [Download for Linux >](https://github.com/particle-iot/particle-dev-app#linux)
+
+{{collapse op="end"}}
 
 ### Getting Started
 

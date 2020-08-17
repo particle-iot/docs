@@ -29,14 +29,13 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 ## Block Diagram
 
-![Block Diagram](/assets/images/at-som/at-carrier-block-diagram.png) 
+{{imageOverlay src="/assets/images/at-som/at-carrier-block-diagram.png" alt="Block Diagram" class="full-width"}}
 
 ---
 
 ## Description
 
-<div align="center"><img src="/assets/images/at-som/tracker-open-labeled.png" class="full-width" /></div>
-
+{{imageOverlay src="/assets/images/at-som/tracker-open-labeled.png" alt="Labeled Diagram" class="full-width"}}
 
 
 | Num | ID 					    | Description                                      |
@@ -215,15 +214,15 @@ Weight will be provided at a later date.
 
 Case Dimensions (mm):
 
-![Case Dimensions](/assets/images/at-som/tracker-one-case-dimensions.png)
+{{imageOverlay src="/assets/images/at-som/tracker-one-case-dimensions.png" alt="Case Dimensions"}}
 
 Bottom:
 
-![Case Bottom](/assets/images/at-som/tracker-one-case-bottom.png)
+{{imageOverlay src="/assets/images/at-som/tracker-one-case-bottom.png" alt="Case Bottom"}}
 
 Maximum Carrier Board Dimensions (mm):
 
-![Carrier Board Dimensions](/assets/images/at-som/tracker-carrier-dimensions.png)
+{{imageOverlay src="/assets/images/at-som/tracker-one-case-dimensions.png" alt="Carrier Board Dimensions"}}
 
 Note: The Tracker Carrier Board has a smaller bottom tab to provide space for the M8 connector.
 

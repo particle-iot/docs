@@ -76,7 +76,8 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 ### Block diagram
 
-<div align="center"> <a href="/assets/images/at-som/at-som-block-diagram.png" target="_blank"> <img src="/assets/images/at-som/at-som-block-diagram.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/at-som-block-diagram.png" alt="Block Diagram" class="full-width"}}
+
 
 ### Power
 The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery. 
@@ -215,7 +216,8 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 
 ## Pins and connectors
 
-<div align="center"> <a href="/assets/images/at-som/at-som-labeled.png" target="_blank"> <img src="/assets/images/at-som/at-som-labeled.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/at-som-labeled.png" alt="Block Diagram" class="full-width"}}
+
 
 Circular labels are as follows:
 
@@ -795,69 +797,75 @@ Dimensions are in millimeters.
 
 #### MCU
 
-<div align="center"> <a href="/assets/images/at-som/mcu.png" target="_blank"> <img src="/assets/images/at-som/mcu.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/mcu.png" alt="MCU Schematic" class="full-width"}}
+
 
 #### Cellular
 
-<div align="center"> <a href="/assets/images/at-som/cell.png" target="_blank"> <img src="/assets/images/at-som/cell.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/cell.png" alt="Cellular Schematic" class="full-width"}}
 
 ---
 
 #### GNSS
 
-<div align="center"> <a href="/assets/images/at-som/gnss.png" target="_blank"> <img src="/assets/images/at-som/gnss.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/gnss.png" alt="GNSS Schematic" class="full-width"}}
+
 
 #### Wi-Fi
 
-<div align="center"> <a href="/assets/images/at-som/wifi.png" target="_blank"> <img src="/assets/images/at-som/wifi.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/wifi.png" alt="Wi-Fi Schematic" class="full-width"}}
 
 ---
 
 #### CAN
 
-<div align="center"> <a href="/assets/images/at-som/can.png" target="_blank"> <img src="/assets/images/at-som/can.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/can.png" alt="CAN Schematic" class="full-width"}}
 
 #### User I/O
 
-<div align="center"> <a href="/assets/images/at-som/user-io.png" target="_blank"> <img src="/assets/images/at-som/user-io.png"></a></div> 
+{{imageOverlay src="/assets/images/at-som/user-io.png" alt="User I/O Schematic" class="full-width"}}
 
 ---
 
 #### PMIC
 
-<div align="center"> <a href="/assets/images/at-som/pmic.png" target="_blank"> <img src="/assets/images/at-som/pmic.png" class="full-width"></a></div> 
+{{imageOverlay src="/assets/images/at-som/pmic.png" alt="PMIC Schematic" class="full-width"}}
+
 
 #### Fuel Gauge
 
-<div align="center"> <a href="/assets/images/at-som/fuel.png" target="_blank"> <img src="/assets/images/at-som/fuel.png"></a></div> 
+{{imageOverlay src="/assets/images/at-som/fuel.png" alt="Fuel Gauge Schematic"}}
 
 #### Cell Control
 
-<div align="center"> <a href="/assets/images/at-som/cell-control.png" target="_blank"> <img src="/assets/images/at-som/cell-control.png"></a></div> 
+{{imageOverlay src="/assets/images/at-som/cell-control.png" alt="Cell Control Schematic"}}
 
 ---
 
 #### I/O Expander
 
-<div align="center"> <a href="/assets/images/at-som/ioex.png" target="_blank"> <img src="/assets/images/at-som/ioex.png"></a></div> 
+{{imageOverlay src="/assets/images/at-som/ioex.png" alt="I/O Expander Schematic"}}
+
 
 #### QSPI Flash
 
-<div align="center"> <a href="/assets/images/at-som/flash.png" target="_blank"> <img src="/assets/images/at-som/flash.png"></a></div> 
+{{imageOverlay src="/assets/images/at-som/flash.png" alt="QSPI Flash Memory Schematic"}}
+
 
 #### RTC/Watchdog
 
-<div align="center"> <a href="/assets/images/at-som/rtc.png" target="_blank"> <img src="/assets/images/at-som/rtc.png"></a></div> 
+{{imageOverlay src="/assets/images/at-som/rtc.png" alt="RTC/Watchdog Schematic" class="full-width"}}
 
 ---
 
 #### IMU
 
-<div align="center"> <a href="/assets/images/at-som/imu.png" target="_blank"> <img src="/assets/images/at-som/imu.png"></a></div> 
+{{imageOverlay src="/assets/images/at-som/imu.png" alt="IMU Schematic"}}
+
 
 #### 3V3 Regulator
 
-<div align="center"> <a href="/assets/images/at-som/3v3-regulator.png" target="_blank"> <img src="/assets/images/at-som/3v3-regulator.png"></a></div> 
+{{imageOverlay src="/assets/images/at-som/3v3-regulator.png" alt="3V3 Regulator Schematic"}}
 
 
 ### Layout Considerations

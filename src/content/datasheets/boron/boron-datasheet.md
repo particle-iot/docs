@@ -57,8 +57,8 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 ## Interfaces
 
 ### Block diagram
-
-<div align=center> <a href="/assets/images/boron/boron-block-diagram.png" target="_blank"> <img src="/assets/images/boron/boron-block-diagram.png" ></a></div>
+ 
+{{imageOverlay src="/assets/images/boron/boron-block-diagram.png" large="/assets/images/boron/boron-block-diagram-large.png" alt="Block Diagram" class="full-width"}}
 
 ### Power
 
@@ -160,7 +160,7 @@ The Boron has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 ### Pinout diagram
 
-<div align=center> <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/boron/boron-pinout.png" ></a></div>
+{{imageOverlay src="/assets/images/boron/boron-pinout.png" alt="Pinout" class="full-width"}}
 
 You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
 
@@ -313,32 +313,32 @@ The Boron can be directly soldered onto the PCB or be mounted with the above men
 The complete schematic and board files are open source and available on Particle's GitHub repository [here.](https://github.com/particle-iot/boron)
 
 ### Power
-
-<div align=center><img src="/assets/images/boron/schematic-power.png" ></div>
-
+ 
+{{imageOverlay src="/assets/images/boron/schematic-power.png" large="/assets/images/boron/schematic-power-large.png" alt="Power Schematic" class="full-width"}}
+ 
 ### nRF52840
 
-<div align=center><img src="/assets/images/boron/schematic-nrf52840.png" ></div>
+{{imageOverlay src="/assets/images/boron/schematic-nrf52840.png" large="/assets/images/boron/schematic-nrf52840-large.png" alt="nRF52 Schematic" class="full-width"}} 
 
 ### u-blox
 
-<div align=center><img src="/assets/images/boron/schematic-ublox.png" ></div>
+{{imageOverlay src="/assets/images/boron/schematic-ublox.png" large="/assets/images/boron/schematic-ublox-large.png" alt="u-blox Schematic" class="full-width"}}
 
 ### SIM
 
-<div align=center><img src="/assets/images/boron/schematic-sim.png" ></div>
+{{imageOverlay src="/assets/images/boron/schematic-sim.png" large="/assets/images/boron/schematic-sim-large.png" alt="SIM Schematic" }}
 
 ### SPI Flash
 
-<div align=center><img src="/assets/images/boron/schematic-spi-flash.png" ></div>
+{{imageOverlay src="/assets/images/boron/schematic-spi-flash.png" large="/assets/images/boron/schematic-spi-flash.png" alt="SPI Flash" }}
 
 ### Fuel Gauge
 
-<div align=center><img src="/assets/images/boron/schematic-fuelgauge.png" ></div>
+{{imageOverlay src="/assets/images/boron/schematic-fuelgauge.png" large="/assets/images/boron/schematic-fuelgauge.png" alt="Fuel Gauge" }}
 
 ### Interfaces
 
-<div align=center><img src="/assets/images/boron/schematic-interfaces.png" ></div>
+{{imageOverlay src="/assets/images/boron/schematic-interfaces.png" large="/assets/images/boron/schematic-interfaces.png" alt="Interfaces" }}
 
 <!---
 ## Bill of materials
