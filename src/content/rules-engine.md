@@ -11,35 +11,52 @@ layout: landing.hbs
 
 The Particle Rules Engine is a branded version of [Node-RED](https://nodered.org/), an open-source visual programming tool. As it's open source, even though the rules engine itself has been discontinued, you can still use the underlying Node-RED project.
 
+- [Using a Cloud Service](#using-a-cloud-service)
+- [Running Locally](#running-locally)
+- [Migrating From the Particle Rules Engine](#migrating-from-the-particle-rules-engine)
+- [Original Documentation](#original-documentation)
+
 ## Using a Cloud Service
 
 There are a number of cloud services that support Node-RED, however the most convenient is the IBM Cloud. There's built-in support for deploying Node-RED, and you can do so in the free tier for simple flows. 
 
-- [Official Node-RED Instructions](https://nodered.org/docs/getting-started/ibmcloud).
-- [A helpful article](https://hackernoon.com/how-to-securely-host-node-red-in-cloud-for-free-and-safely-expose-it-to-the-internet-over-https-hw5d3220).
-- Or, if you prefer: [AWS](https://nodered.org/docs/getting-started/aws) or [Microsoft Azure](https://nodered.org/docs/getting-started/azure)
+- [Official Node-RED Instructions](https://nodered.org/docs/getting-started/ibmcloud) for IBM Cloud.
+- [A helpful article](https://hackernoon.com/how-to-securely-host-node-red-in-cloud-for-free-and-safely-expose-it-to-the-internet-over-https-hw5d3220) about setting up IBM Cloud.
+- Or, if you prefer, instruction for using [AWS](https://nodered.org/docs/getting-started/aws) or [Microsoft Azure](https://nodered.org/docs/getting-started/azure).
 
 ### Using IBM Cloud
 
 The [official instructions](https://nodered.org/docs/getting-started/ibmcloud) are quite complete, but the basic process is:
 
-1. Sign up for a free [IBM Cloud](https://cloud.ibm.com) account if you do not already have one. No credit card is required to start.
+- Sign up for a free [IBM Cloud](https://cloud.ibm.com) account if you do not already have one. No credit card is required to start.
 
-2. After signing in create a **New Resource**. Search for the node-red type and create a new instance.
+- After signing in create a **Create Resource +**, the blue button in the upper-right corner of the window. 
 
-3. Create an API Key if needed.
+![Create Resource](/assets/images/rules-create-resource.png)
 
-4. Deploy your instance. You don't need to add services to it first; the Node-RED app itself contains everything you need to run it.
+- Search for **node-red**:
+
+![Create Resource](/assets/images/rules-search-node-red.png)
+
+- Select the **Node-RED App**:
+
+![Create Resource](/assets/images/rules-node-red-app.png)
+
+- Create an API Key if needed.
+
+- Deploy your instance. You don't need to add services to it first; the Node-RED app itself contains everything you need to run it.
 
 ## Running Locally
 
 It's also possible to run Node-RED on your own computer, either natively or in a Docker container.
 
-- [In a Docker container](https://nodered.org/docs/getting-started/docker)
-- [Local installation](https://nodered.org/docs/getting-started/local)
+- [In a Docker container](#running-locally-docker)
+- [Native installation](#running-locally-native)
 
 
 ### Running Locally - Docker
+
+[The Node-RED Docker instructions](https://nodered.org/docs/getting-started/docker) are a good place to start.
 
 Using Docker is especially convenient since it's less likely to be affected by node.js versions and such. Once you've installed Docker, it can be as easy as:
 
@@ -85,6 +102,8 @@ docker rm mynodered
 ```
 
 ### Running Locally - Native
+
+[The Node-RED local install documentation](https://nodered.org/docs/getting-started/local) is a good place to start.
 
 For Mac and Linux, it may be as easy as:
 
