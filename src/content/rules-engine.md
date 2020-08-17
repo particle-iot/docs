@@ -5,11 +5,15 @@ layout: landing.hbs
 
 # Rules Engine
 
-**The Rules Engine project has been discontinued.**
+{{box op="start"}}
+
+**The Particle-hosted IoT Rules Engine has been discontinued. However, the Particle node is now open-source, so you can continue to use its features locally-hosted or cloud-hosted, including the free tier of the IBM Cloud.**
+
+{{box op="end"}}
 
 ## Introduction
 
-The Particle Rules Engine is a branded version of [Node-RED](https://nodered.org/), an open-source visual programming tool. As it's open source, even though the rules engine itself has been discontinued, you can still use the underlying Node-RED project.
+The Particle IoT Rules Engine is a branded version of [Node-RED](https://nodered.org/), an open-source visual programming tool. As it's open source, even though the rules engine itself has been discontinued, you can still use the underlying Node-RED project and the [newly open-source Particle node](https://github.com/particle-iot/node-red-contrib-particle-official) to achieve similar functionality.
 
 - [Using a Cloud Service](#using-a-cloud-service)
 - [Running Locally](#running-locally)
@@ -42,7 +46,7 @@ The [official instructions](https://nodered.org/docs/getting-started/ibmcloud) a
 
 ![Create Resource](/assets/images/rules-node-red-app.png)
 
-- Create an API Key if needed.
+- Create an API Key if you don't already have one.
 
 - Deploy your instance. You don't need to add services to it first; the Node-RED app itself contains everything you need to run it.
 
