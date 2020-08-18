@@ -15,7 +15,7 @@ devices, use the blue device selector below the Particle logo on the left side o
 {{#if tracker-som}}
 ## Tracker SoM Mode
 
-The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the **Tracker** LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized in the [Product Settings](/tutorials/device-cloud/console/#rgb-led-settings). The Tracker SoM Evaluation Board defaults to the Particle color scheme. 
+The Tracker SoM and Tracker One status LED can be configured in several different ways. This section describes the **Tracker** LED mode. It can be configured to use the standard Particle LED scheme (blinking green, blinking cyan, breathing cyan), or can be completely customized in the [Device Fleet Settings](/tutorials/device-cloud/console/#rgb-led-settings). The Tracker SoM Evaluation Board defaults to the Particle color scheme. 
 
 {{!--
 {{device-animation device "pattern"

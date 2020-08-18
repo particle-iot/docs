@@ -648,7 +648,7 @@ And view details about a specific device:
 
 ![Details](/assets/images/tracker/details.png)
 
-### Product Settings
+### Device Fleet Settings
 
 Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
 
@@ -694,11 +694,18 @@ The Tracker Firmware configures the RGB status LED.
 The **Type** popup menu has the following options:
 
 - **off**: The RGB LED is turned off (dark).
-- **direct**: RGB level is set directly using the red, green, blue, and brightness options.
 - **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
 - **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
 
-When using **direct** mode you can specify the RGB color (0 - 255) as well as the brightness (0 - 255). For normal RGB colors leave the brightness at 255.
+#### Sleep Settings
+
+![Sleep Settings](/assets/images/tracker/settings-5.png)
+
+Sleep mode allows the device to enter a low-power state when idle, conserving battery power.
+
+**Post Publish Execution Time** is the minimum duration in seconds to stay awake after publishing before going to sleep.
+
+**Maximum Connecting Time** is the maximum duration, in seconds, to wait for being cellular-connected and to obtain a GNSS lock before publishing.
 
 #### Typical Settings
 
