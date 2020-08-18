@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(005)</sup>
+# Tracker SoM Datasheet <sup>(006)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -876,7 +876,7 @@ Will be provided at a later date.
 
 ## Certification
 
-### FCC
+### FCC (United States)
 
 **Warning:** Changes or modifications to this unit not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
@@ -912,6 +912,33 @@ Radiation Exposure Statement:
 
 The product is a low power device and its output power is lower than FCC SAR exemption level.
 
+### Industry Canada (IC)
+
+- This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
+  - this device may not cause interference.
+  - this device must accept any interference, including interference that may cause undesired operation of the device.
+- Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes:
+  - l'appareil ne doit pas produire de brouillage, et
+  - l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
+
+
+- This Class B digital apparatus complies with Canadian ICES-003.
+- Cet appareil numérique de la classe B est conforme à la norme NMB-003 du
+Canada.
+
+
+- This device and its antenna(s) must not be co-located or operating in conjunction with any other antenna or transmitter, except tested built-in radios.
+- Cet appareil et son antenne ne doivent pas être situés ou fonctionner en conjonction avec une autre antenne ou un autre émetteur, exception faites des radios intégrées qui ont été testées.
+
+
+- The County Code Selection feature is disabled for products marketed in the US/Canada.
+- La fonction de sélection de l'indicatif du pays est désactivée pour les produits commercialisés aux États-Unis et au Canada.
+
+**Radiation Exposure Statement:**
+This equipment complies with IC radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+
+**Déclaration d'exposition aux radiations:**
+Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
 
 ## Product Handling
 
@@ -961,3 +988,4 @@ The bootloader allows you to easily update the user application via several diff
 | 003      | 17 Jul 2020 | RK | Updated absolute maximum ratings |
 | 004      | 30 Jul 2020 | RK | Added explanation of DIV connector |
 | 005      | 06 Aug 2020 | RK | Added crystal to block diagram, added FCC information |
+| 006      | 18 Aug 2020 | RK | Added IC (Canada) information |
