@@ -26,7 +26,7 @@ There are a number of cloud services that support Node-RED, however the most con
 
 - [Official Node-RED Instructions](https://nodered.org/docs/getting-started/ibmcloud) for IBM Cloud.
 - [A helpful article](https://hackernoon.com/how-to-securely-host-node-red-in-cloud-for-free-and-safely-expose-it-to-the-internet-over-https-hw5d3220) about setting up IBM Cloud.
-- Or, if you prefer, instruction for using [AWS](https://nodered.org/docs/getting-started/aws) or [Microsoft Azure](https://nodered.org/docs/getting-started/azure).
+- Or, if you prefer, instructions for using [AWS](https://nodered.org/docs/getting-started/aws) or [Microsoft Azure](https://nodered.org/docs/getting-started/azure).
 
 ### Using IBM Cloud
 
