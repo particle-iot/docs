@@ -9,7 +9,11 @@ order: 16
 
 ## Introduction
 
-The **Particle IoT Rules Engine** was a branded version of [Node-RED](https://nodered.org/), an open-source visual programming tool. You can use Node-RED and the [newly open-source Particle Node](https://github.com/particle-iot/node-red-contrib-particle-official) to graphically build IoT workflows that interact with Particle devices quickly and easily.
+[Node-RED](https://nodered.org/) is an open-source visual programming tool. Particle created the **Particle IoT Rules Engine**, based on Node-RED, hosted on Particle's servers, and included the custom Particle node for interacting with the Particle Cloud API and devices.
+
+We've now [open-sourced the Particle node](https://github.com/particle-iot/node-red-contrib-particle-official) allowing anyone to use these features on their own cloud-hosted or locally-hosted Node-RED installation. 
+
+The Particle-hosted Rules Engine has been discontinued and the Particle node is now a community-supported project.
 
 - [Running Node-RED on a Cloud Service](#using-a-cloud-service)
 - [Running Node-RED Locally](#running-locally)
