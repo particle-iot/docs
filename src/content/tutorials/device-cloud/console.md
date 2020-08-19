@@ -697,6 +697,7 @@ The **Type** popup menu has the following options:
 - **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
 - **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
 
+{{!-- 
 #### Sleep Settings
 
 ![Sleep Settings](/assets/images/tracker/settings-5.png)
@@ -706,6 +707,8 @@ Sleep mode allows the device to enter a low-power state when idle, conserving ba
 **Post Publish Execution Time** is the minimum duration in seconds to stay awake after publishing before going to sleep.
 
 **Maximum Connecting Time** is the maximum duration, in seconds, to wait for being cellular-connected and to obtain a GNSS lock before publishing.
+
+--}}
 
 #### Typical Settings
 
