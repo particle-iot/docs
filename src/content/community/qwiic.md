@@ -36,6 +36,7 @@ These are some of the products and libraries available:
 | [Qwiic Pressure Sensor - LPS25HB](https://www.sparkfun.com/products/14767)| [SparkFun_LPS25HB_Arduino_Library](https://github.com/sparkfun/SparkFun_LPS25HB_Arduino_Library) |
 | [Qwiic Pressure/Humidity/Temp (PHT) Sensor - MS8607](https://www.sparkfun.com/products/16298)| [SparkFun_PHT_MS8607_Arduino_Library](https://github.com/sparkfun/SparkFun_PHT_MS8607_Arduino_Library) |
 | [Qwiic Step](https://www.sparkfun.com/products/15951)| [SparkFun_Qwiic_Step_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Step_Arduino_Library) |
+| [SparkFun 9DoF IMU Breakout - ICM-20948 (Qwiic)](https://www.sparkfun.com/products/15335) | [SparkFun_ICM-20948_ArduinoLibrary](https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary) | 
 | [SparkFun Ambient Light Sensor - VEML6030 (Qwiic)](https://www.sparkfun.com/products/15436)| [SparkFun_Ambient_Light_Sensor_Arduino_Library](https://github.com/sparkfun/SparkFun_Ambient_Light_Sensor_Arduino_Library) |
 | [SparkFun Atmospheric Sensor Breakout - BME280 (Qwiic)](https://www.sparkfun.com/products/15440)| [SparkFun_BME280_Arduino_Library](https://github.com/sparkfun/SparkFun_BME280_Arduino_Library) |
 | [SparkFun Clock Generator Breakout - 5P49V60 (Qwiic)](https://www.sparkfun.com/products/15734)| [SparkFun_Clock_5P49V60_Arduino_Library](https://github.com/sparkfun/SparkFun_Clock_5P49V60_Arduino_Library) |
@@ -66,6 +67,8 @@ These are some of the products and libraries available:
 | [SparkFun VR IMU Breakout - BNO080 (Qwiic)](https://www.sparkfun.com/products/14686)| [SparkFun_BNO080_Arduino_Library](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library) |
 
 While this is ideal for hobbyists and prototyping, the Sparkfun boards are open-source and you could easily adapt the design for your own custom circuit boards at scale. 
+
+https://github.com/sparkfun/SparkFun_ICM-20948_ArduinoLibrary
 
 You can learn more about I2C in the [I2C Tutorial](/tutorials/learn-more/about-i2c/).
 

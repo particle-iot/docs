@@ -1051,7 +1051,7 @@
       }
     },
     "AN007-Tower-Info/README.md": {
-      "hash": "cb492826692301f65ed40db8236d21e9fad6360e",
+      "hash": "db13846aca3b52effde12d92f9a89e0cbf6eccc4",
       "articleId": 360044776673,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044776673-AN007-Tower-Info"
     },
@@ -1263,7 +1263,7 @@
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119313-AN013-Tracker-I2C-Scanner"
     },
     "AN015-Tracker-Breakout/README.md": {
-      "hash": "71c6eba039215a78c9290ea6b38772ab8f504043",
+      "hash": "c469b0c2937fa23bab4babcba9f863b4b1f81188",
       "articleId": 360052119333,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119333-AN015-Tracker-Breakout",
       "attachments": {
@@ -1306,6 +1306,10 @@
         "AN015-Tracker-Breakout/images/regulator.png": {
           "attachmentId": 360080728554,
           "content_url": "https://particle.zendesk.com/hc/article_attachments/360080728554/regulator.png"
+        },
+        "AN015-Tracker-Breakout/images/M8-connector-wire-end.png": {
+          "attachmentId": 360085071034,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071034/M8-connector-wire-end.png"
         }
       }
     },
@@ -1456,6 +1460,99 @@
         "AN019-Tracker-Prototype/images/m8breakout-screw.jpg": {
           "attachmentId": 360084050493,
           "content_url": "https://particle.zendesk.com/hc/article_attachments/360084050493/m8breakout-screw.jpg"
+        }
+      }
+    },
+    "AN020-Tracker-4-20mA/README.md": {
+      "hash": "bf278d7ac4238c95244a6642f49ea11416bd0847",
+      "articleId": 360052431854,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360052431854-AN020-Tracker-4-20mA-Sensor",
+      "attachments": {
+        "AN020-Tracker-4-20mA/images/single.jpg": {
+          "attachmentId": 360086255093,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360086255093/single.jpg"
+        },
+        "AN020-Tracker-4-20mA/images/m8-cable.jpg": {
+          "attachmentId": 360085071094,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071094/m8-cable.jpg"
+        },
+        "AN020-Tracker-4-20mA/images/single-schematic.png": {
+          "attachmentId": 360085071114,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071114/single-schematic.png"
+        },
+        "AN020-Tracker-4-20mA/images/single-board.png": {
+          "attachmentId": 360086255133,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360086255133/single-board.png"
+        }
+      }
+    },
+    "AN021-Tracker-4-20mA-Quad/README.md": {
+      "hash": "0d2f19b7f339844b0cfa19991aba73a6f316f065",
+      "articleId": 360052431874,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360052431874-AN021-Tracker-4-20mA-Sensor-Quad",
+      "attachments": {
+        "AN021-Tracker-4-20mA-Quad/images/quad.jpg": {
+          "attachmentId": 360086255173,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360086255173/quad.jpg"
+        },
+        "AN021-Tracker-4-20mA-Quad/images/m8-cable.jpg": {
+          "attachmentId": 360085071194,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071194/m8-cable.jpg"
+        },
+        "AN021-Tracker-4-20mA-Quad/images/quad-schematic-1.png": {
+          "attachmentId": 360085071234,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071234/quad-schematic-1.png"
+        },
+        "AN021-Tracker-4-20mA-Quad/images/quad-schematic-2.png": {
+          "attachmentId": 360085071254,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071254/quad-schematic-2.png"
+        },
+        "AN021-Tracker-4-20mA-Quad/images/quad-board.png": {
+          "attachmentId": 360085071294,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071294/quad-board.png"
+        }
+      }
+    },
+    "AN022-Tracker-SHT3x-Temperature-Humidity/README.md": {
+      "hash": "f46fb52ada4dd15110680e6772a69374ecf1f751",
+      "articleId": 360052431894,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360052431894-AN022-Tracker-SHT3x-Temperature-Humidity",
+      "attachments": {
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/board-with-m8.jpg": {
+          "attachmentId": 360085071354,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071354/board-with-m8.jpg"
+        },
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/m8-cable.jpg": {
+          "attachmentId": 360086255213,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360086255213/m8-cable.jpg"
+        },
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/board.jpg": {
+          "attachmentId": 360086255253,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360086255253/board.jpg"
+        },
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/schematic.png": {
+          "attachmentId": 360085071374,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071374/schematic.png"
+        },
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/board-layout.png": {
+          "attachmentId": 360085071414,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071414/board-layout.png"
+        },
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/regulator.png": {
+          "attachmentId": 360085071434,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071434/regulator.png"
+        },
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/pca9306.png": {
+          "attachmentId": 360086255313,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360086255313/pca9306.png"
+        },
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/board-with-sensor.jpg": {
+          "attachmentId": 360085071454,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071454/board-with-sensor.jpg"
+        },
+        "AN022-Tracker-SHT3x-Temperature-Humidity/images/custom-data.png": {
+          "attachmentId": 360085071474,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071474/custom-data.png"
         }
       }
     }
