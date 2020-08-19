@@ -65,7 +65,7 @@ In this project, you are building two different subsystems — one that can dete
 As you might have guessed already, the two Xenons with the water sensors will make up the sensing portion of the leak detection system. And, the lone Argon in the kit will function as alarm subsystem and handle the mesh networking responsibility of a gateway. Combine all three devices and should a Xenon detect a few drops of water, a message will be sent over the local mesh network, and the Argon will sound the attached buzzer. 
 
 ### Programming the Xenons
-Each of the two Xenons in your leak detection system will use the same firmware. Click this link to access the code in the Web IDE. From there you'll be able to duplicate the project to your Particle account as well as flash each of your Xenons. 
+Each of the two Xenons in your leak detection system will use the same firmware. Click [this link](https://go.particle.io/shared_apps/5f3d116ce83d0200164689d0) to access the code in the Web IDE. From there you'll be able to duplicate the project to your Particle account as well as flash each of your Xenons. 
 
 
 ### Xenon firmware: basic configuration and `setup()`
@@ -167,7 +167,7 @@ bool checkSensor(bool digital){
 
 ### Programming the Argon
 
-Firmware for the Argon is accessible here and will open in the Web IDE. Once you're in the IDE, duplicate the project into your Particle account and flash it to you Argon.
+Firmware for the Argon is accessible [here](https://go.particle.io/shared_apps/5f3d1204e83d020008468734) and will open in the Web IDE. Once you're in the IDE, duplicate the project into your Particle account and flash it to you Argon.
 
 ### Argon firmware: basic configuration and `setup()`
 As with the Xenon firmware, you'll see the first portion of Argon firmware deals with the configuration and `setup()` function. Again, note the use of the `SYSTEM_THREAD(ENABLED);` to enable the mesh network to function independently of an internet connection. Enabling this feature will allow for your local network to continue to route messages even if your internet connection is down.
