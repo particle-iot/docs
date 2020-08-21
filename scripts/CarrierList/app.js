@@ -2,6 +2,8 @@
 
 // You must set your Airtable API key in an environment variable before calling this app
 // export AIRTABLE_API_KEY=YOUR_SECRET_API_KEY
+// node app.js
+//
 // The key is in the settings in Airtable. Keep this secret as it grants full access to your account.
 
 // The parameter to base is the app ID for "SKUs / Carriers / Plans"
@@ -262,21 +264,29 @@ function getCountries() {
 
 	    records.forEach(function(record) {	        
 	        let has2G = false;
-	        let which3G;
-	        record.get('SKUs').forEach(function(skuRecord) {
-	        	var sku = skuNameMap[skuRecord];
-	        	if (sku === 'E350') {
-	        		has2G = true;
-	        	}
-	        	else
-	        	if (sku === 'E260') {
-	        		which3G = 'U260';
-	        	}
-	        	else
-	        	if (sku === 'E270') {
-	        		which3G = 'U270';
-				}
-	        });	  
+			let which3G = 'U260';
+			if (!record) {
+				console.log('empty record?');
+				return;
+			}
+
+			let skus = record.get('SKUs');
+			if (skus) {
+				record.get('SKUs').forEach(function(skuRecord) {
+					var sku = skuNameMap[skuRecord];
+					if (sku === 'E350') {
+						has2G = true;
+					}
+					else
+					if (sku === 'E260') {
+						which3G = 'U260';
+					}
+					else
+					if (sku === 'E270') {
+						which3G = 'U270';
+					}
+				});	  
+			}
 	        // console.log('Retrieved Country ' + record.getId() + ' ' + record.get('Country') + ' has2G=' + has2G + ' which3G=' + which3G);
 			countryNameMap[record.getId()] = record.get('Country');
 			
@@ -356,6 +366,13 @@ function getFullData() {
 	        // console.log('Retrieved ' + record.get('ID'), record);
 	    	// console.log('record IDs: Country=' + record.get('Country') + ' Carrier-link=' + record.get('Carrier-link') + ' Plan_Name-link=' +record.get('Plan_Name-link'));
 			
+	    	const planName = planNameMap[record.get('Plan_Name-link')];
+			if (planName == 'Original') {
+				// Ignore the Telefonica Original plan, otherwise it will override things like
+				// Technology-Link which are less correct in the no-longer used Original plan.
+				return;
+			}
+
 			const recordId = record.get('ID'); // Country-SIM-Carrier 
 			countrySimCarrier[recordId] = {};
 			
@@ -381,12 +398,14 @@ function getFullData() {
 			// console.log("countryName=" + countryName + " carrierName=" + carrierName + " recordId=" + recordId);
 		
 
-	    	countrySimCarrier[recordId].planName = planNameMap[record.get('Plan_Name-link')];
+	    	countrySimCarrier[recordId].planName = planName;
 	    	countrySimCarrier[recordId].rank = record.get('Network rank');
 			countrySimCarrier[recordId].zone = parseInt(record.get('Partner zone'));
 			
 			// technology is an array of: '2G', '3G', '4G' (strings)
-			// It's only accurate for Kore. Most Telefonica entries are set to 3G even if they support 2G.
+			// It's now correct for all SIM providers
+			// Note that it's possible for bandLTE to be set (carrier supports 4G) but 4G to
+			// not be in the technology list because our plan does not support it.
 			countrySimCarrier[recordId].technology = record.get('Technology-link');
 			
 			// I'm pretty sure this is no longer used, which would also allow has2GMap to be removed
@@ -437,10 +456,13 @@ function getFullData() {
 	    	case 'All Net':
 				addSimTypeCountryData('BoronAllNet', countryName, recordId);
 				//console.log('adding BoronAllNet countryName=' + countryName + " recordId=" + recordId + " carrierName=" + carrierName + " rank=" + countrySimCarrier[recordId].rank );
-	    		break;
+				break;
+				
+			case 'SuperSIM':
+				break;
 	    		
     		default:
-    			console.log('unknown planName=' + planName);	
+    			console.log('unknown planName=' + countrySimCarrier[recordId].planName);	
     			break;
 	    	}
 	    	
@@ -601,8 +623,8 @@ function generateMarkdown() {
 		var sunsetMd2 = '';
 
 		if (simType === 'Electron' || simType === 'Boron' || simType === 'BoronAllNet') {
-			sunsetMd1 = ' 2G Sunset | 3G Sunset | ';
-			sunsetMd2 = ' :-------: | :-------: | ';
+			sunsetMd1 = ' 2G    | 3G    | 2G Sunset | 3G Sunset | ';
+			sunsetMd2 = ' :---: | :---: |:-------: | :-------: | ';
 		}
 
 		if (simType === 'Electron') {
@@ -652,14 +674,19 @@ function generateMarkdown() {
 					md += countrySimCarrier[recordId].which3G + ' |';					
 				}
 
+				const technology = countrySimCarrier[recordId].technology;
+
 				if (sunsetMd1 != '') {
+					// Include 2G/3G usage info
+					md += (technology.includes('2G') ? '&check;' : '&nbsp;') + '| ';
+					md += (technology.includes('3G') ? '&check;' : '&nbsp;') + '| ';
+
 					// Include 2G/3G sunset information
 					md += sunsetToMd(countrySimCarrier[recordId].sunset2G) + ' | ' + 
 						sunsetToMd(countrySimCarrier[recordId].sunset3G) + ' | ';
 				}
 
 				if (simType === 'B523') {
-					const technology = countrySimCarrier[recordId].technology;
 					// console.log('country=' + country, technology);
 					md += (technology.includes('2G') ? '&check;' : '&nbsp;') + '| ';
 					md += (technology.includes('3G') ? '&check;' : '&nbsp;') + '| ';
