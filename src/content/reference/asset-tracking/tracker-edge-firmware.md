@@ -180,6 +180,7 @@ Since the Tracker One has a LiPo battery inside the case, and the case is screwe
 
 You might want to use the API if you have a physical button to enter shipping mode on a custom device. You could have the button handler in your user firmware call `tracking.shipping.enter();` to enter shipping mode locally.
 
+Note: With Version 1.0 of the Tracker One (and Tracker Carrier Board), it's important to disconnect peripherals from the M8 connector before entering shipping mode. If there is current leakage through the GPIO/Serial/I2C pins when shipping mode is entered, the MCU can enter a state where it cannot be woken again unless the LiPo battery is first disconnected, which requires disassembling the Tracker One.
 
 ### configService - Tracker
 

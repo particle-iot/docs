@@ -804,6 +804,8 @@ It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/t
 
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
+Note: With Version 1.0 of the Tracker One (and Tracker Carrier Board), it's important to disconnect peripherals from the M8 connector before entering shipping mode. If there is current leakage through the GPIO/Serial/I2C pins when shipping mode is entered, the MCU can enter a state where it cannot be woken again unless the LiPo battery is first disconnected, which requires disassembling the Tracker One.
+
 ### Using off-the-shelf releases
 
 To use off-the-shelf Tracker Edge firmware releases, click on the **Firmware** icon in your product in the console.

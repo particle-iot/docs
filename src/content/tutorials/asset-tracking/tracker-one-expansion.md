@@ -115,16 +115,16 @@ The following cables will be available:
 
 The color code is as follows:
 
-| M8 Pin | Function  | Color          | 
-| :----: | :-------- | :------------- | 
-| 1      | CAN_P     | Yellow         |  
-| 2      | VIN       | Red            | 
-| 3      | A3        | White          |  
-| 4      | TX_SDA_D8 | Green          |  
-| 5      | TX_SCL_D9 | Brown          |  
-| 6      | CAN_5V    | Orange         |  
-| 7      | CAN_N     | Blue           |  
-| 8      | GND       | Black          |  
+| M8 Pin | Function  | Color          |
+| :----: | :-------- | :------------- |
+| 1      | CAN_P     | Yellow         | 
+| 2      | VIN       | Red            |
+| 3      | A3        | White          | 
+| 4      | TX_SDA_D8 | Green          | 
+| 5      | TX_SCL_D9 | Brown          | 
+| 6      | CAN_5V    | Orange         | 
+| 7      | CAN_N     | Blue           | 
+| 8      | GND       | Black          | 
 
 ### With the Tracker One Carrier Board
 
@@ -152,7 +152,7 @@ When expanding on the Tracker One Carrier Board, you may prefer to connect your 
 | [AN018](https://github.com/particle-iot/app-notes/tree/master/AN018-Tracker-Level) | &check; | | &check; | | | &check; | &check; | Tank Level Sensor |
 | [AN020](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) | | | | | | | &check; | 4-20mA single |
 | [AN021](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) | &check; | | | | | &check; | &check; | 4-20mA quad |
-
+| [AN022](https://github.com/particle-iot/app-notes/tree/master/AN022-Tracker-SHT3x-Temperature-Humidity) | &check; | | | &check; | | | | SHT3x Temperature/Humidity |
 
 
 ### M8 Breakout Board
@@ -233,3 +233,12 @@ The single port design can be powered by the built-in LiPo battery or USB and us
 The quad port design requires an external 12V power supply, but this power supply can also power the Tracker One. It includes a boost converter to 24VDC for the 4-20mA current loop and separate current limiters for each current loop. It uses an external I2C ADC connected to the M8 connector.
 
 ![4-20mA Quad](/assets/images/tracker/420mA-quad.jpg)
+
+### SHT3x Temperature and Humidity Sensor (5V I2C)
+
+[AN022 Tracker SHT3x Temperature/Humidity](https://github.com/particle-iot/app-notes/tree/master/AN022-Tracker-SHT3x-Temperature-Humidity) shows how to connect 5V I2C devices including the SHT30 and SHT31 temperature and humidity sensors to the Tracker One M8 connector and add data to location publishes. The board design should be compatible with all 5V I2C peripherals.
+
+![SHT30](/assets/images/tracker/SHT30.jpg)
+
+
+ 
