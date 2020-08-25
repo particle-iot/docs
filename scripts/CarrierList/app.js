@@ -6,6 +6,9 @@
 //
 // The key is in the settings in Airtable. Keep this secret as it grants full access to your account.
 
+// Generate a backup JSON file of the Airtable data
+// node app.js -b 
+
 // The parameter to base is the app ID for "SKUs / Carriers / Plans"
 const base = require('airtable').base('appRCx9bhA5UCU4Gu');
 
