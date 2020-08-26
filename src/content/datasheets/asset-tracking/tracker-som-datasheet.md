@@ -654,7 +654,7 @@ An external service provider such as the Google Geolocation Service is required 
 - SPI Interface 
 - Connected to SPI1 (MISO1, MOSI1, SCK1) 
 - Chip Select: WIFI_CS (CS Decoder 3)
-- Interrupt: ESP32 IO4 is connected to MCP23517T I/0 Expander GPA4.
+- Interrupt: ESP32 IO4 is connected to MCP23S17 I/0 Expander GPA4.
 
 The SoM connector has several pins dedicated to Wi-Fi:
 
