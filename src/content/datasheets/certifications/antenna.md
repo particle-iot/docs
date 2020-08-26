@@ -330,7 +330,7 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 
 ## GNSS (Satellite Navigation)
 
-The Tracker One includes a Cirocomm T0004 antenna on the Tracker Carrier Board.
+The Tracker One includes a [Cirocomm PA035AQ0004](http://www.cirocomm.com/en-global/products_ciro/detail/PA035AQ0004) (T0004, 35x35mm) GPS/GLOSNASS antenna on the Tracker Carrier Board.
 
 As the GNSS system is receive-only (no transmitter), you can use any GNSS compatible antenna without affecting the certification. Different GNSS systems use different frequencies. Many antennas are tuned to the United States GPS system, however you can also get multi-GNSS antennas that are compatible with other systems. All of these systems offer coverage world-wide.
 

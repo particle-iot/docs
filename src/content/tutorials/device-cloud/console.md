@@ -804,7 +804,7 @@ It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/t
 
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
 
-Note: With Version 1.0 of the Tracker One (and Tracker Carrier Board), it's important to disconnect peripherals from the M8 connector before entering shipping mode. If there is current leakage through the GPIO/Serial/I2C pins when shipping mode is entered, the MCU can enter a state where it cannot be woken again unless the LiPo battery is first disconnected, which requires disassembling the Tracker One.
+**Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](https://support.particle.io/hc/en-us/articles/360052713714).
 
 ### Using off-the-shelf releases
 
