@@ -1356,10 +1356,17 @@ Ethernet is available on the Argon and Boron when used with the [Ethernet Feathe
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
 
-It's also possible to enable Ethernet detection from code. This is saved in configuration flash so you don't need to call it every time.
+It's also possible to enable Ethernet detection from code. This is saved in configuration flash so you don't need to call it every time. 
 
-```
-STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION));
+You should call it from setup() but make sure you are using `SYSTEM_THREAD(ENABLED)` so it can be enabled before the connecting to the cloud. You should not call it from STARTUP().
+
+```cpp
+SYSTEM_THREAD(ENABLED);
+
+void setup() 
+{
+  System.enableFeature(FEATURE_ETHERNET_DETECTION));
+}
 ```
 
 If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
@@ -8787,6 +8794,20 @@ BLE.selectAntenna(BleAntennaType::INTERNAL);
 BLE.selectAntenna(BleAntennaType::EXTERNAL);
 ```
 
+If you get this error when using `BleAntennaType::EXTERNAL`:
+
+```
+Error: .../wiring/inc/spark_wiring_arduino_constants.h:44:21: expected unqualified-id before numeric constant
+```
+
+After all of your #include statements at the top of your source file, add:
+
+```
+#undef EXTERNAL
+```
+
+This occurs because the Arduino compatibility modules has a `#define` for `EXTERNAL` which breaks the `BleAntennaType` enumeration. This will only be necessary if a library you are using enables Arduino compatibility.
+
 ### BLE Services
 
 There isn't a separate class for configuring BLE Services. A service is identified by its UUID, and this UUID passed in when creating the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object(s) for the service. For example:
@@ -12922,7 +12943,7 @@ if (timer.isActive()) {
 
 The Application Watchdog is a software-implemented watchdog using a critical-priority thread that wakes up at a given timeout interval to see if the application has checked in.
 
-If the application has not exited loop, or called Particle.process() within the given timeout, or called `wd->checkin()`, the watchdog calls the given timeout function, which is typically `System.reset`.  This could also be a user defined function that takes care of critical tasks before finally calling `System.reset`.
+If the application has not exited loop, or called Particle.process() within the given timeout, or called `wd->checkin()`, the watchdog calls the given timeout function, which is typically a function that calls `System.reset`. 
 
 
 ```cpp
@@ -12939,10 +12960,20 @@ ApplicationWatchdog(std::chrono::milliseconds ms,
 // Global variable to hold the watchdog object pointer
 ApplicationWatchdog *wd;
 
+void watchdogHandler() {
+  // Do as little as possible in this function, preferably just
+  // calling System.reset().
+  // Do not attempt to Particle.publish(), use Cellular.command()
+  // or similar functions. You can save data to a retained variable
+  // here safetly so you know the watchdog triggered when you 
+  // restart.
+  System.reset();
+}
+
 void setup() {
   // Start watchdog. Reset the system after 60 seconds if 
   // the application is unresponsive.
-  wd = new ApplicationWatchdog(60000, System.reset, 1536);
+  wd = new ApplicationWatchdog(60000, watchdogHandler, 1536);
 }
 
 void loop() {
@@ -12959,13 +12990,13 @@ The application watchdog requires interrupts to be active in order to function. 
 
 ---
 
-If you do create your own handler, it should have the prototype:
+Your watchdog handler should have the prototype:
 
 ```
 void myWatchdogHandler(void);
 ```
 
-You should generally not try to do anything other than call System.reset() or perhaps set some retained variables in your application watchdog callback. In particular:
+You should generally not try to do anything other than call `System.reset()` or perhaps set some retained variables in your application watchdog callback. In particular:
 
 - Do not call any cloud functions like `Particle.publish()` or even `Particle.disconnect()`.
 - Do not call `Cellular.command()`.
@@ -13561,11 +13592,10 @@ can consider them simply as extra RAM to use.
 
 ```cpp
 // EXAMPLE USAGE
-STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
-
 retained int value = 10;
 
 void setup() {
+    System.enableFeature(FEATURE_RETAINED_MEMORY);
     Serial.begin(9600);
 }
 
@@ -13596,12 +13626,13 @@ Backup RAM is disabled by default, since it does require some maintenance power
 which may not be desired on some low-powered projects.  Backup RAM consumes roughly
 5uA or less on VIN and 9uA or less on VBAT.
 
-Backup RAM is enabled with this code (to be placed at the top of your application outside of any functions):
+Backup RAM is enabled with this code in setup():
 
 ```cpp
-
-STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
-
+void setup() 
+{
+  System.enableFeature(FEATURE_RETAINED_MEMORY));
+}
 ```
 
 ### Making changes to the layout or types of retained variables
@@ -15455,9 +15486,8 @@ The system can track the hardware and software resets of the device.
 ```
 // EXAMPLE
 // Restart in safe mode if the device previously reset due to a PANIC (SOS code)
-STARTUP(System.enableFeature(FEATURE_RESET_INFO));
-
 void setup() {
+   System.enableFeature(FEATURE_RESET_INFO);
    if (System.resetReason() == RESET_REASON_PANIC) {
        System.enterSafeMode();
    }
@@ -15468,9 +15498,10 @@ You can also pass in your own data as part of an application-initiated reset:
 
 ```cpp
 // EXAMPLE
-STARTUP(System.enableFeature(FEATURE_RESET_INFO));
 
 void setup() {
+    System.enableFeature(FEATURE_RESET_INFO);
+
     // Reset the device 3 times in a row
     if (System.resetReason() == RESET_REASON_USER) {
         uint32_t data = System.resetReasonData();

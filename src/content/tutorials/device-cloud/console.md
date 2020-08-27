@@ -378,6 +378,9 @@ void loop() {
 
 #### Compiling Binaries
 
+If you are using Particle Workbench, follow the instructions to use the [**Particle: Cloud Compile**](/tutorials/developer-tools/workbench/#particle-cloud-compile) or [**Particle: Compile Application (local)**](/tutorials/developer-tools/workbench/#particle-compile-application-local-) to create a firmware binary.
+
+
 If you are in the Web IDE, you can easily download a compiled binary by
 clicking the code icon (<i class="ion-code"></i>) in your sidebar. You
 will see the name of your app in the pane, along with a download icon

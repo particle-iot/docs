@@ -509,11 +509,13 @@ These are kept separate for each Device OS version, platform (Photon, P1, Electr
 
 ### Particle: Cloud Compile
 
-This option compiles in the cloud and downloads the binary to the top level of your project.
+This option compiles in the cloud and downloads the binary to the top level of your project. This can be useful for verifying that your source compiles and also for getting binaries to upload and product firmware.
 
 This is handy for quickly checking the syntax of your program, and also if you want to compile in the cloud and flash by USB to save on data for cellular devices like the Electron and Boron.
 
 The device type and Device OS version are selected with **Particle: Configure Workspace For Device**. 
+
+The filename will be of the form <i>platform</i>\_firmware\_<i>number</i>.bin. For example: boron_firmware_1598526579205.bin in the top level of your project directory.
 
 ### Particle: Cloud Flash
 
@@ -523,12 +525,13 @@ The device type, Device OS version, and device name are selected with **Particle
 
 ### Particle: Compile application (local)
 
-This option compiles your user firmware using the local compiler toolchain. It will create a firmware binary, but does not flash to the device.
+This option compiles your user firmware using the local compiler toolchain. It will create a firmware binary, but does not flash to the device. You may want to use this option to create a binary to upload as product firmware.
 
 When you first install a new compiler version, you should use the **Particle: Flash application & DeviceOS (local)** option at least once to make sure your device has the correct Device OS version installed.
 
 The device type and Device OS version are selected using **Particle: Install Local Compiler**.
 
+The resulting binary will be in the target directory. For example, if you are building the project **MyProject** for boron version 1.5.2, the resulting binary will be **target/1.5.2/boron/MyProject.bin**.
 
 ### Particle: Compile application & DeviceOS (local)
 

@@ -1,5 +1,6 @@
 {
     "/api": "/reference/device-cloud/api",
+    "/b402": "/reference/device-cloud/b-series",
     "/build": "/tutorials/developer-tools/build",
     "/cli": "/tutorials/developer-tools/cli",
     "/community": "/community/forum",
