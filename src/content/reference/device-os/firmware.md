@@ -649,18 +649,13 @@ Subscribe to events published by devices.
 This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
 
 ```cpp
+SerialLogHandler logHandler;
 int i = 0;
 
 void myHandler(const char *event, const char *data)
 {
   i++;
-  Serial.print(i);
-  Serial.print(event);
-  Serial.print(", data: ");
-  if (data)
-    Serial.println(data);
-  else
-    Serial.println("NULL");
+  Log.info("%d: event=%s data=%s", i, event, (data ? data : "NULL"));
 }
 
 void setup()
@@ -799,16 +794,17 @@ In most cases, you do not need to call `Particle.connect()`; it is called automa
 `Particle.disconnect()` disconnects the device from the Cloud.
 
 ```cpp
+SerialLogHandler logHandler;
 int counter = 10000;
 
 void doConnectedWork() {
   digitalWrite(D7, HIGH);
-  Serial.println("Working online");
+  Log.info("Working online");
 }
 
 void doOfflineWork() {
   digitalWrite(D7, LOW);
-  Serial.println("Working offline");
+  Log.info("Working offline");
 }
 
 bool needConnection() {
@@ -820,7 +816,6 @@ bool needConnection() {
 
 void setup() {
   pinMode(D7, OUTPUT);
-  Serial.begin(9600);
 }
 
 void loop() {
@@ -858,13 +853,14 @@ Particle.connected();
 
 
 // EXAMPLE USAGE
+SerialLogHandler logHandler;
+
 void setup() {
-  Serial.begin(9600);
 }
 
 void loop() {
   if (Particle.connected()) {
-    Serial.println("Connected!");
+    Log.info("Connected!");
   }
   delay(1000);
 }
@@ -916,6 +912,8 @@ Even in non-cloud-bound applications it can still be advisable to call `Particle
 {{/unless}}
 
 ```cpp
+SerialLogHandler logHandler;
+
 void setup() {
   Serial.begin(9600);
 }
@@ -929,7 +927,7 @@ void loop() {
 }
 
 void redundantLoop() {
-  Serial.println("Well that was unnecessary.");
+  Log.info("Well that was unnecessary.");
 }
 ```
 
@@ -972,6 +970,7 @@ Particle.syncTimeDone();
 
 
 // EXAMPLE
+SerialLogHandler logHandler;
 
 void loop()
 {
@@ -980,7 +979,7 @@ void loop()
   // Wait until the device receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
   waitUntil(Particle.syncTimeDone);
   // Print current time
-  Serial.println(Time.timeStr());
+  Log.info("Current time: %s", Time.timeStr().c_str());
 }
 ```
 
@@ -998,6 +997,7 @@ Particle.syncTimePending();
 
 
 // EXAMPLE
+SerialLogHandler logHandler;
 
 void loop()
 {
@@ -1013,7 +1013,7 @@ void loop()
     Particle.process();
   }
   // Print current time
-  Serial.println(Time.timeStr());
+  Log.info("Current time: %s", Time.timeStr().c_str());
 }
 ```
 
@@ -1039,6 +1039,8 @@ This function takes one optional argument:
 ```cpp
 // EXAMPLE
 
+SerialLogHandler logHandler;
+
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
 
 void loop() {
@@ -1046,11 +1048,10 @@ void loop() {
   unsigned long lastSync = Particle.timeSyncedLast(lastSyncTimestamp);
   if (millis() - lastSync > ONE_DAY_MILLIS) {
     unsigned long cur = millis();
-    Serial.printlnf("Time was last synchronized %lu milliseconds ago", millis() - lastSync);
+    Log.info("Time was last synchronized %lu milliseconds ago", millis() - lastSync);
     if (lastSyncTimestamp > 0)
     {
-      Serial.print("Time received from Particle Device Cloud was: ");
-      Serial.println(Time.timeStr(lastSyncTimestamp));
+      Log.info("Time received from Particle Device Cloud was: ", Time.timeStr(lastSyncTimestamp).c_str());
     }
     // Request time synchronization from Particle Device Cloud
     Particle.syncTime();
@@ -1060,7 +1061,7 @@ void loop() {
     if (Particle.timeSyncedLast() >= cur)
     {
       // Print current time
-      Serial.println(Time.timeStr());
+      Log.info("Current time: %s", Time.timeStr().c_str());
     }
   }
 }
@@ -1071,13 +1072,14 @@ void loop() {
 Using this feature, the device can programmatically know its own public IP address.
 
 ```cpp
+LogHandler logHandler;
+
 // Open a serial terminal and see the IP address printed out
 void handler(const char *topic, const char *data) {
-    Serial.println("received " + String(topic) + ": " + String(data));
+    Log.info("topic=%s data=%s", topic, data);
 }
 
 void setup() {
-    Serial.begin(115200);
     Particle.subscribe("particle/device/ip", handler, MY_DEVICES);
     Particle.publish("particle/device/ip", PRIVATE);
 }
@@ -1089,13 +1091,14 @@ void setup() {
 This gives you the device name that is stored in the cloud,
 
 ```cpp
+LogHandler logHandler;
+
 // Open a serial terminal and see the device name printed out
 void handler(const char *topic, const char *data) {
-    Serial.println("received " + String(topic) + ": " + String(data));
+    Log.info("topic=%s data=%s", topic, data);
 }
 
 void setup() {
-    Serial.begin(115200);
     Particle.subscribe("particle/device/name", handler);
     Particle.publish("particle/device/name");
 }
@@ -1106,8 +1109,10 @@ void setup() {
 Grab 40 bytes of randomness from the cloud and {e}n{c}r{y}p{t} away!
 
 ```cpp
+LogHandler logHandler;
+
 void handler(const char *topic, const char *data) {
-    Serial.println("received " + String(topic) + ": " + String(data));
+    Log.info("topic=%s data=%s", topic, data);
 }
 
 void setup() {
@@ -1160,15 +1165,15 @@ Note that the return value for Mesh.publish is 0 (`SYSTEM_ERROR_NONE`) for succe
 Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name. You can have up to 5 mesh subscription handlers.
 
 ```cpp
+LogHandler logHandler;
 
 void myHandler(const char *event, const char *data)
 {
-  Serial.printlnf("event=%s data=%s", event, data ? data : "NULL");
+  Log.info("topic=%s data=%s", event, data);
 }
 
 void setup()
 {
-  Serial.begin(9600);
   Mesh.subscribe("motion-sensor", myHandler);
 }
 ```
@@ -1296,14 +1301,6 @@ uint16_t seconds = Mesh.getListenTimeout();
 
 `Mesh.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Mesh devices do not have any timeout set (seconds=0).
 
-```cpp
-// EXAMPLE
-void setup() {
-  Serial.begin();
-  Serial.println(Mesh.getListenTimeout());
-}
-```
-
 ### localIP()
 
 
@@ -1311,9 +1308,10 @@ void setup() {
 
 ```cpp
 // EXAMPLE
+SerialLogHandler logHandler;
+
 void setup() {
-  Serial.begin();
-  Serial.printlnf("localIP: %s", Mesh.localIP().toString().c_str());
+  Log.info("localIP: %s", Mesh.localIP().toString().c_str());
 }
 ```
 
@@ -1504,14 +1502,6 @@ uint16_t seconds = Ethernet.getListenTimeout();
 
 `Ethernet.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Ethernet devices do not have any timeout set (seconds=0).
 
-```cpp
-// EXAMPLE
-void setup() {
-  Serial.begin();
-  Serial.println(Ethernet.getListenTimeout());
-}
-```
-
 
 ### macAddress()
 
@@ -1519,16 +1509,16 @@ void setup() {
 
 ```cpp
 // EXAMPLE
+SerialLogHandler logHandler;
+
 void setup() {
-  Serial.begin();
-  
   // Wait for a USB serial connection for up to 30 seconds
   waitFor(Serial.isConnected, 30000);
 
   uint8_t addr[6];
   Ethernet.macAddress(addr);
   
-  Serial.printlnf("mac: %02x-%02x-%02x-%02x-%02x-%02x", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+  Log.info("mac: %02x-%02x-%02x-%02x-%02x-%02x", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
 }
 ```
 
@@ -1538,13 +1528,13 @@ void setup() {
 
 ```cpp
 // EXAMPLE
-void setup() {
-  Serial.begin();
+SerialLogHandler logHandler;
 
+void setup() {
   // Wait for a USB serial connection for up to 30 seconds
   waitFor(Serial.isConnected, 30000);
 
-  Serial.printlnf("localIP: %s", Ethernet.localIP().toString().c_str());
+  Log.info("localIP: %s", Ethernet.localIP().toString().c_str());
 }
 ```
 
@@ -1553,14 +1543,14 @@ void setup() {
 `Ethernet.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
 
 ```cpp
+SerialLogHandler logHandler;
 
 void setup() {
-  Serial.begin(9600);
-  // Wait for a USB serial connection for up to 30 seconds
+ // Wait for a USB serial connection for up to 30 seconds
   waitFor(Serial.isConnected, 30000);
 
   // Prints out the subnet mask over Serial.
-  Serial.println(Ethernet.subnetMask());
+  Log.info(Ethernet.subnetMask());
 }
 ```
 
@@ -1569,6 +1559,7 @@ void setup() {
 `Ethernet.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
 
 ```cpp
+SerialLogHandler logHandler;
 
 void setup() {
   Serial.begin(9600);
@@ -1576,7 +1567,7 @@ void setup() {
   waitFor(Serial.isConnected, 30000);
 
   // Prints out the gateway IP over Serial.
-  Serial.println(Ethernet.gatewayIP());
+  Log.info(Ethernet.gatewayIP());
 }
 ```
 
@@ -1787,14 +1778,6 @@ uint16_t seconds = WiFi.getListenTimeout();
 
 `WiFi.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Wi-Fi devices do not have any timeout set (seconds=0).
 
-```cpp
-// EXAMPLE
-void setup() {
-  Serial.begin();
-  Serial.println(WiFi.getListenTimeout());
-}
-```
-
 
 ### setCredentials()
 
@@ -1927,18 +1910,30 @@ Note that this returns details about the Wi-Fi networks, but not the actual pass
 
 
 ```cpp
+// DEFINITION
+typedef struct WiFiAccessPoint {
+   size_t size;
+   char ssid[33];
+   uint8_t ssidLength;
+   uint8_t bssid[6];
+   WLanSecurityType security;
+   WLanSecurityCipher cipher;
+   uint8_t channel;
+   int maxDataRate;
+   int rssi; 
+} WiFiAccessPoint;
+
 // EXAMPLE
+LogHandler logHandler;
+
 WiFiAccessPoint ap[5];
 int found = WiFi.getCredentials(ap, 5);
 for (int i = 0; i < found; i++) {
-    Serial.print("ssid: ");
-    Serial.println(ap[i].ssid);
+    Log.info("ssid: %s", ap[i].ssid);
     // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2, WLAN_SEC_WPA_ENTERPRISE, WLAN_SEC_WPA2_ENTERPRISE
-    Serial.print("security: ");
-    Serial.println(ap[i].security);
+    Log.info("security: %d", (int) ap[i].security);
     // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP or WLAN_CIPHER_AES_TKIP
-    Serial.print("cipher: ");
-    Serial.println(ap[i].cipher);
+    Log.info("cipher: %d", (int) ap[i].cipher);
 }
 ```
 
@@ -1967,47 +1962,19 @@ WiFi.hasCredentials();
 
 ```cpp
 // EXAMPLE USAGE
-
+SerialLogHandler logHandler;
 byte mac[6];
 
 void setup() {
   WiFi.on();
-  Serial.begin(9600);
   // wait up to 10 seconds for USB host to connect
   // requires firmware >= 0.5.3
   waitFor(Serial.isConnected, 10000);
 
   WiFi.macAddress(mac);
 
-  for (int i=0; i<6; i++) {
-    Serial.printf("%02x%s", mac[i], i != 5 ? ":" : "");
-  }
+  Log.info("mac: %02x:%02x:%02x:%02x:%02x:%02x", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 }
-```
-
-```cpp
-// EXAMPLE USAGE
-
-
-byte mac[6];
-
-void setup() {
-  Serial.begin(9600);
-  // wait until a character sent from USB host
-  while (!Serial.available()) Spark.process();
-
-  WiFi.macAddress(mac);
-
-  for (int i=5; i>0; i--) {
-    Serial.print(mac[i]>>4,HEX);
-    Serial.print(mac[i]&0x0f,HEX);
-    if (i != 0) {
-      Serial.print(":");
-    }
-  }
-}
-
-void loop() {}
 ```
 
 ### SSID()
@@ -2019,6 +1986,7 @@ void loop() {}
 `WiFi.BSSID()` retrieves the 6-byte MAC address of the access point the device is currently connected to.
 
 ```cpp
+SerialLogHandler logHandler;
 byte bssid[6];
 
 void setup() {
@@ -2027,7 +1995,7 @@ void setup() {
   waitFor(Serial.isConnected, 30000);
 
   WiFi.BSSID(bssid);
-  Serial.printlnf("%02X:%02X:%02X:%02X:%02X:%02X", bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
+  Log.info("%02X:%02X:%02X:%02X:%02X:%02X", bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
 }
 ```
 
@@ -2053,7 +2021,7 @@ WiFiSignal sig = WiFi.RSSI();
 If you are passing the RSSI value as a variable argument, such as with Serial.printlnf, Log.info, snprintf, etc. make sure you add a cast:
 
 ```
-Serial.printlnf("RSSI=%d", (int8_t) WiFi.RSSI()).
+Log.info("RSSI=%d", (int8_t) WiFi.RSSI()).
 ```
 
 This is necessary for the compiler to correctly convert the WiFiSignal class into a number.
@@ -2137,19 +2105,13 @@ Returns the number of access points written to the array.
 
 ```cpp
 // EXAMPLE - retrieve up to 20 Wi-Fi APs
+SerialLogHandler logHandler;
 
 WiFiAccessPoint aps[20];
 int found = WiFi.scan(aps, 20);
 for (int i=0; i<found; i++) {
     WiFiAccessPoint& ap = aps[i];
-    Serial.print("SSID: ");
-    Serial.println(ap.ssid);
-    Serial.print("Security: ");
-    Serial.println(ap.security);
-    Serial.print("Channel: ");
-    Serial.println(ap.channel);
-    Serial.print("RSSI: ");
-    Serial.println(ap.rssi);
+    Log.info("ssid=%s security=%d channel=%d rssi=%d", ap.ssid, (int)ap.security, (int)ap.channel, ap.rssi);
 }
 ```
 
@@ -2161,21 +2123,13 @@ each scanned access point.
 void wifi_scan_callback(WiFiAccessPoint* wap, void* data)
 {
     WiFiAccessPoint& ap = *wap;
-    Serial.print("SSID: ");
-    Serial.println(ap.ssid);
-    Serial.print("Security: ");
-    Serial.println(ap.security);
-    Serial.print("Channel: ");
-    Serial.println(ap.channel);
-    Serial.print("RSSI: ");
-    Serial.println(ap.rssi);
+    Log.info("ssid=%s security=%d channel=%d rssi=%d", ap.ssid, (int)ap.security, (int)ap.channel, ap.rssi);
 }
 
 void loop()
 {
     int result_count = WiFi.scan(wifi_scan_callback);
-    Serial.print(result_count);
-    Serial.println(" APs scanned.");
+    Log.info("result_count=%d", result_count);
 }
 ```
 
@@ -2267,14 +2221,14 @@ void setup() {
 `WiFi.localIP()` returns the local IP address assigned to the device as an `IPAddress`.
 
 ```cpp
+SerialLogHandler logHandler;
 
 void setup() {
-  Serial.begin(9600);
   // Wait for a USB serial connection for up to 30 seconds
   waitFor(Serial.isConnected, 30000);
 
   // Prints out the local IP over Serial.
-  Serial.println(WiFi.localIP());
+  Log.info("ip address: %s", WiFi.localIP().toString().c_str());
 }
 ```
 
@@ -2283,14 +2237,14 @@ void setup() {
 `WiFi.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
 
 ```cpp
+SerialLogHandler logHandler;
 
 void setup() {
-  Serial.begin(9600);
   // Wait for a USB serial connection for up to 30 seconds
   waitFor(Serial.isConnected, 30000);
 
   // Prints out the subnet mask over Serial.
-  Serial.println(WiFi.subnetMask());
+  Log.info("subnet mask: %s" WiFi.subnetMask().toString().c_str());
 }
 ```
 
@@ -2299,14 +2253,14 @@ void setup() {
 `WiFi.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
 
 ```cpp
+SerialLogHandler logHandler;
 
 void setup() {
-  Serial.begin(9600);
   // Wait for a USB serial connection for up to 30 seconds
   waitFor(Serial.isConnected, 30000);
 
   // Prints out the gateway IP over Serial.
-  Serial.println(WiFi.gatewayIP());
+  Log.info("gateway: %s", WiFi.gatewayIP().toString().c_str());
 }
 ```
 
@@ -2878,10 +2832,10 @@ Page myPages[] = {
 
 void myPage(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, Writer* result, void* reserved)
 {
-    Serial.printlnf("handling page %s", url);
+    Log.info("handling page %s", url);
 
     if (strcmp(url,"/index")==0) {
-        Serial.println("sending redirect");
+        Log.info("sending redirect");
         Header h("Location: /index.html\r\n");
         cb(cbArg, 0, 301, "text/plain", &h);
         return;
@@ -3069,13 +3023,6 @@ uint16_t seconds = Cellular.getListenTimeout();
 
 `Cellular.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Cellular devices have a 5 minute timeout set (seconds=300).
 
-```cpp
-// EXAMPLE
-void setup() {
-  Serial.begin();
-  Serial.println(Cellular.getListenTimeout());
-}
-```
 
 ### lock()
 
@@ -3503,7 +3450,7 @@ CellularBand band_sel;
 band_sel.band[0] = BAND_850;
 band_sel.band[1] = BAND_1900;
 band_sel.count = 2;
-Serial.println(band_sel);
+Log.info(band_sel);
 
 // OUTPUT: band[0],band[1]
 850,1900
@@ -3680,11 +3627,11 @@ void setup() {
 
 ```cpp
 // EXAMPLE
-void setup() {
-  Serial.begin(9600);
+SerialLogHandler logHandler;
 
+void setup() {
   // Prints out the local (private) IP over Serial
-  Serial.println(Cellular.localIP());
+  Log.info("localIP: %s", Cellular.localIP().toString().c_str());
 }
 ```
 
@@ -3744,6 +3691,8 @@ int ret = Cellular.command(format);
 
 ```cpp
 // EXAMPLE - Get the ICCID number of the inserted SIM card
+SerialLogHandler logHandler;
+
 int callbackICCID(int type, const char* buf, int len, char* iccid)
 {
   if ((type == TYPE_PLUS) && iccid) {
@@ -3755,16 +3704,15 @@ int callbackICCID(int type, const char* buf, int len, char* iccid)
 
 void setup()
 {
-  Serial.begin(9600);
   char iccid[32] = "";
   if ((RESP_OK == Cellular.command(callbackICCID, iccid, 10000, "AT+CCID\r\n"))
     && (strcmp(iccid,"") != 0))
   {
-    Serial.printlnf("SIM ICCID = %s\r\n", iccid);
+    Log.info("SIM ICCID = %s\r\n", iccid);
   }
   else
   {
-    Serial.println("SIM ICCID NOT FOUND!");
+    Log.info("SIM ICCID NOT FOUND!");
   }
 }
 
@@ -4822,6 +4770,8 @@ pulseIn(pin, value)
 
 ```cpp
 // EXAMPLE
+SerialLogHandler logHandler;
+
 unsigned long duration;
 
 void setup()
@@ -4839,7 +4789,7 @@ void setup()
 void loop()
 {
     duration = pulseIn(D0, HIGH);
-    Serial.printlnf("%d us", duration);
+    Log.info("%d us", duration);
     delay(1000);
 }
 
@@ -5271,13 +5221,30 @@ It also has {{#if has-usb-serial1}}two{{else}}one{{/if}} USB serial channel{{#if
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
 
 ```cpp
-// EXAMPLE USAGE
+// EXAMPLE USAGE - NOT RECOMMENDED
 void setup()
 {
   Serial.begin();
   Serial.println("Hello World!");
 }
 ```
+
+---
+
+```cpp
+// EXAMPLE USAGE - PREFERRED
+SerialLogHandler logHandler;
+
+void setup()
+{
+  Log.info("Hello World!");
+}
+```
+
+Instead of using `Serial` directly, you should use it using the the `SerialLogHandler` if you are writing debugging messages. Using the `Log` method makes it easy to switch between `Serial` and `Serial1` (or both!) as well as providing thread-safety. It also allows log messages to be intercepted by code, and even saved to things like SD cards, with additional libraries. 
+
+You should also avoid mixing the use of `Serial.printlnf` and `Log.info` (and similar calls). Since `Serial.print` is not thread safe, it can interfere with the use of `Log` calls.
+
 {{#if has-usb-serial1}}
 `USBSerial1`: _Since 0.6.0_ This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default.
 {{/if}}
@@ -7043,6 +7010,8 @@ static uint8_t tx_buffer[64];
 static uint32_t select_state = 0x00;
 static uint32_t transfer_state = 0x00;
 
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
 void onTransferFinished() {
     transfer_state = 1;
 }
@@ -7071,12 +7040,8 @@ void loop() {
         SPI.transfer(tx_buffer, rx_buffer, sizeof(rx_buffer), onTransferFinished);
         while(transfer_state == 0);
         if (SPI.available() > 0) {
-            Serial.printf("Received %d bytes", SPI.available());
-            Serial.println();
-            for (int i = 0; i < SPI.available(); i++) {
-                Serial.printf("%02x ", rx_buffer[i]);
-            }
-            Serial.println();
+            Log.dump(LOG_LEVEL_TRACE, rx_buffer, SPI.available());
+            Log.info("Received %d bytes", SPI.available());
         }
     }
 }
@@ -7091,6 +7056,8 @@ static uint8_t tx_buffer[64];
 static uint32_t select_state = 0x00;
 static uint32_t transfer_state = 0x00;
 
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
 void onTransferFinished() {
     transfer_state = 1;
 }
@@ -7102,7 +7069,6 @@ void onSelect(uint8_t state) {
 
 /* executes once at startup */
 void setup() {
-    Serial.begin(9600);
     for (int i = 0; i < sizeof(tx_buffer); i++)
       tx_buffer[i] = (uint8_t)i;
     SPI1.onSelect(onSelect);
@@ -7119,12 +7085,8 @@ void loop() {
         SPI1.transfer(tx_buffer, rx_buffer, sizeof(rx_buffer), onTransferFinished);
         while(transfer_state == 0);
         if (SPI1.available() > 0) {
-            Serial.printf("Received %d bytes", SPI.available());
-            Serial.println();
-            for (int i = 0; i < SPI.available(); i++) {
-                Serial.printf("%02x ", rx_buffer[i]);
-            }
-            Serial.println();
+            Log.dump(LOG_LEVEL_TRACE, rx_buffer, SPI1.available());
+            Log.info("Received %d bytes", SPI1.available());
         }
     }
 }
@@ -7843,8 +7805,7 @@ Returns: boolean `true` if a message was received, `false` if the receive queue 
 CANChannel can(CAN_D1_D2);
 CANMessage message;
 if(can.receive(message)) {
-  Serial.println(message.id);
-  Serial.println(message.len);
+  Log.info("id=%lu len=%u", message.id, message.len);
 }
 ```
 
@@ -7945,7 +7906,7 @@ Returns: int `CAN_NO_ERROR` when everything is ok, `CAN_ERROR_PASSIVE` when not 
 // EXAMPLE
 CANChannel can(CAN_D1_D2);
 if(can.errorStatus() == CAN_BUS_OFF) {
-  Serial.println("Not properly connected to CAN bus");
+  Log.info("Not properly connected to CAN bus");
 }
 ```
 
@@ -7976,7 +7937,7 @@ The IPAddress also allows for comparisons.
 ```cpp
 if (IPfromInt == IPfromBytes)
 {
-  Serial.println("Same IP addresses");
+  Log.info("Same IP addresses");
 }
 ```
 
@@ -10170,10 +10131,10 @@ void setup()
   // Wait for a USB serial connection for up to 30 seconds
   waitFor(Serial.isConnected, 30000);
 
-  Serial.println(WiFi.localIP());
-  Serial.println(WiFi.subnetMask());
-  Serial.println(WiFi.gatewayIP());
-  Serial.println(WiFi.SSID());
+  Log.info("localIP=%s", WiFi.localIP().toString().c_str());
+  Log.info("subnetMask=%s", WiFi.subnetMask().toString().c_str());
+  Log.info("gatewayIP=%s", WiFi.gatewayIP().toString().c_str());
+  Log.info("SSID=%s", WiFi.SSID().toString().c_str());
 }
 
 void loop()
@@ -10561,7 +10522,7 @@ void loop()
         // find where the client's remote address
         IPAddress clientIP = client.remoteIP();
         // print the address to Serial
-        Serial.println(clientIP);
+        Log.info("remoteAddr=%s", clientIP.toString().c_str());
     }
 }
 ```
@@ -10629,6 +10590,7 @@ This class enables UDP messages to be sent and received.
 
 ```cpp
 // EXAMPLE USAGE
+SerialLogHandler logHandler;
 
 // UDP Port used for two way communication
 unsigned int localPort = 8888;
@@ -10642,7 +10604,7 @@ void setup() {
 
   // Print your device IP Address via serial
   Serial.begin(9600);
-  Serial.println(WiFi.localIP());
+  Log.info("localIP=%s", WiFi.localIP().toString().c_str());
 }
 
 void loop() {
@@ -10830,7 +10792,7 @@ if (count >= 0 && count < 128) {
   Udp.begin(port);
 }
 if (!rxError) {
-  Serial.println (message);
+  Log.info(message);
 }
 ```
 
@@ -11953,19 +11915,17 @@ Returns the number of milliseconds since the device began running the current pr
 
 ```cpp
 // EXAMPLE USAGE
-
-unsigned long time;
+SerialLogHandler logHandler;
 
 void setup()
 {
-  Serial.begin(9600);
 }
+
 void loop()
 {
-  Serial.print("Time: ");
-  time = millis();
+  unsigned long time = millis();
   //prints time since program started
-  Serial.println(time);
+  Log.info("millis=%lu", time);
   // wait a second so as not to send massive amounts of data
   delay(1000);
 }
@@ -11981,8 +11941,7 @@ Returns the number of microseconds since the device booted.
 
 ```cpp
 // EXAMPLE USAGE
-
-unsigned long time;
+SerialLogHandler logHandler;
 
 void setup()
 {
@@ -11990,10 +11949,9 @@ void setup()
 }
 void loop()
 {
-  Serial.print("Time: ");
-  time = micros();
+  unsigned long time = micros();
   //prints time since program started
-  Serial.println(time);
+  Log.info("micros=%lu", time);
   // wait a second so as not to send massive amounts of data
   delay(1000);
 }
@@ -12465,6 +12423,8 @@ Serial.print(Time.isValid());
 ```
 
 ```cpp
+SerialLogHandler logHandler;
+
 void setup()
 {
   // Wait for time to be synchronized with Particle Device Cloud (requires active connection)
@@ -12474,7 +12434,8 @@ void setup()
 void loop()
 {
   // Print current time
-  Serial.println(Time.timeStr());
+  Log.info("current time: %s", Time.timeStr().c_str());
+  delay(1000);
 }
 
 ```
@@ -12765,29 +12726,30 @@ Software Timers provide a way to have timed actions in your program.  FreeRTOS p
 
 ```cpp
 // EXAMPLE
+SerialLogHandler logHandler;
+
+Timer timer(1000, print_every_second);
 
 void print_every_second()
 {
     static int count = 0;
-    Serial.println(count++);
+    Log.info("count=%d", count++);
 }
-
-Timer timer(1000, print_every_second);
 
 void setup()
 {
-    Serial.begin(9600);
     timer.start();
 }
 ```
-
-(That is for illustration only. You should not call Serial.println from a software timer because Serial is not thread-safe. It's possible that text being written from the main loop thread would be inter-mixed with text from the timer.)
 
 Timers may be started, stopped, reset within a user program or an ISR.  They may also be "disposed", removing them from the (max. 10) active timer list.
 
 The timer callback is similar to an interrupt - it shouldn't block. However, it is less restrictive than an interrupt. If the code does block, the system will not crash - the only consequence is that other software timers that should have triggered will be delayed until the blocking timer callback function returns.
 
-You should not use functions like `Particle.publish` from a timer callback. 
+- You should not use functions like `Particle.publish` from a timer callback. 
+- Do not use `Serial.print` and its variations from a timer callback as writing to `Serial` is not thread safe. Use `Log.info` instead.
+- It is best to avoid using long `delay()` in a timer callback as it will delay other timers from running.
+- Avoid using functions that interact with the cellular modem like `Cellular.RSSI()` and `Cellular.command()`.
 
 Software timers run with a smaller stack (1024 bytes vs. 6144 bytes). This can limit the functions you use from the callback function.
 
@@ -13592,17 +13554,18 @@ can consider them simply as extra RAM to use.
 
 ```cpp
 // EXAMPLE USAGE
+SerialLogHandler logHandler;
+
 retained int value = 10;
 
 void setup() {
     System.enableFeature(FEATURE_RETAINED_MEMORY);
-    Serial.begin(9600);
 }
 
 void loop() {
-    Serial.println(value);
+    Log.info("value before=%s", value);
     value = 20;
-    Serial.println(value);
+    Log.info("value after=%s", value);
     delay(100); // Give the serial TX buffer a chance to empty
     System.sleep(SLEEP_MODE_DEEP, 10);
     // Or try a software reset
@@ -14222,7 +14185,7 @@ For example
 
 void setup()
 {
-   Serial.printlnf("System version: %s", System.version().c_str());
+   Log.info("System version: %s", System.version().c_str());
    // prints
    // System version: 0.4.7
 }
@@ -14328,7 +14291,7 @@ when converting between a number of ticks and time in microseconds.
     uint32_t end = System.ticks();
     uint32_t duration = (end-start)/System.ticksPerMicrosecond();
 
-    Serial.printlnf("The frobnicator took %d microseconds to start", duration);
+    Log.info("The frobnicator took %d microseconds to start", duration);
 
 ```
 
@@ -14400,7 +14363,7 @@ void setup()
 
   String myID = System.deviceID();
   // Prints out the device ID over Serial
-  Serial.println(myID);
+  Log.info("deviceID=%s", myID.c_str());
 }
 
 void loop() {}
@@ -16890,13 +16853,13 @@ The object also supports `operator const char *` so for things that specifically
 You would normally use c_str() if you need to pass the string to something like Serial.printlnf or Log.info where the conversion is ambiguous:
 
 ```cpp
-Serial.printlnf("the string is: %s", string.c_str());
+Log.info("the string is: %s", string.c_str());
 ```
 
 This is also helpful if you want to print out an IP address:
 
 ```cpp
-Serial.printlnf("ip addr: %s", WiFi.localIP().toString().c_str());
+Log.info("ip addr: %s", WiFi.localIP().toString().c_str());
 ```
 
 ### indexOf()
@@ -17001,6 +16964,7 @@ Returns: None
 
 ```cpp
 //EXAMPLE
+SerialLogHandler logHandler;
 
 String myString;
 
@@ -17017,7 +16981,7 @@ void setup() {
   myString += ", is that ok?";
 
   // print the String:
-  Serial.println(myString);
+  Log.info(myString);
 }
 
 void loop() {
@@ -20041,18 +20005,18 @@ In the code below, the asterisk after the datatype char "char*" indicates that t
 
 ```cpp
 //EXAMPLE
+SerialLogHandler logHandler;
 
 char* myStrings[] = {"This is string 1", "This is string 2",
 "This is string 3", "This is string 4", "This is string 5",
 "This is string 6"};
 
 void setup(){
-  Serial.begin(9600);
 }
 
 void loop(){
   for (int i = 0; i < 6; i++) {
-    Serial.println(myStrings[i]);
+    Log.info(myStrings[i]);
     delay(500);
   }
 }
@@ -20108,7 +20072,7 @@ Arrays are often manipulated inside `for` loops, where the loop counter is used 
 ```cpp
 int myPins[] = {2, 4, 8, 3, 6};
 for (int i = 0; i < arraySize(myPins); i++) {
-  Serial.println(myPins[i]);
+  Log.info(myPins[i]);
 }
 ```
 
