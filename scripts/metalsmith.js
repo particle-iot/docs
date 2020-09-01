@@ -40,6 +40,7 @@ var insertFragment = require('./insert_fragment');
 var javascriptDocsPreprocess = require('./javascript_docs_preprocess');
 var git = require('git-rev');
 var path = require('path');
+var fs = require('fs');
 var sitemap = require('./sitemap.js');
 
 var handlebars = require('handlebars');
@@ -59,6 +60,8 @@ var gitBranch;
 var generateSearch = process.env.SEARCH_INDEX !== '0';
 
 var noScripts = false; 
+
+var dnsTable = JSON.parse(fs.readFileSync(path.join(__dirname, '../config', 'dnsTable.json')));
 
 exports.metalsmith = function () {
   function removeEmptyTokens(token) {
@@ -120,6 +123,10 @@ exports.metalsmith = function () {
     // Add properties to files that match the pattern
     .use(fileMetadata([
       { pattern: 'content/**/*.md', metadata: { assets: '/assets', branch: gitBranch, noScripts: noScripts } }
+    ]))
+    // Inject the dnsTable into introduction.md so it can be used by the dnsTable helper
+    .use(fileMetadata([
+      { pattern: 'content/tutorials/device-cloud/introduction.md', metadata: { dnsTable: dnsTable } }
     ]))
     .use(msIf(
       environment === 'development',

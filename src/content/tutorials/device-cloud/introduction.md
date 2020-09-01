@@ -79,3 +79,41 @@ There is no ability for devices to send function calls to other devices; publish
 Updating your device firmware and Device OS can be done securely over the Particle cloud connection that's used for the other device cloud features.
 
 
+## Cloud Services and Firewalls
+
+The IP addresses used by the Particle cloud are subject to change without notice. Use the information here as a last resort if you have a network that restricts traffic and are unable to allow-list traffic by using techniques such as MAC address allow-lists.
+
+### Gen 3 and Gen 2 Cellular
+
+Gen 3 devices (Argon, Boron, B Series, Tracker SoM) and Gen 2 cellular devices (Electron, E Series) all use UDP port 5684, outbound. 
+
+While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/firmware/argon/#particle-keepalive-) to keep the cloud connection active.
+
+{{dnsTable key="udp"}}
+
+### Gen 2 and Gen 1 Wi-Fi
+
+The Photon, P1, and Spark Core connect to TCP Port 5683 (CoAP), outbound.
+
+If you are connecting from a restrictive network that does not allow outbound TCP access on Port 5683, you may need to allow-list these IP addresses or allow access based on the device's MAC address.
+
+{{dnsTable key="tcp"}}
+
+### Cloud API
+
+The devices themselves do not access the Particle Cloud using the API port, but if you are using the Tinker mobile app over Wi-Fi, curl commands, node.js scripts, etc. from a computer on the Wi-Fi or LAN, and you have a restrictive outbound network connection policy, you may need to allow-list **api.particle.io** port 443 (TLS/SSL), outbound, or as a last resort, these IP addresses (subject to change without notice):
+
+{{dnsTable key="api"}}
+
+### Other Services
+
+Other common services includes:
+
+- **console.particle.io** (device management)
+- **docs.particle.io** (documentation)
+- **build.particle.io** (Web IDE)
+- **support.particle.io** (support and knowledge base)
+
+If you are using network with restrictive outbound access policies, you may need to allow-list those DNS names for port 443 (TLS/SSL) outbound, or as a last resort, these IP addresses (subject to change without notice):
+
+{{dnsTable key="tools"}}
