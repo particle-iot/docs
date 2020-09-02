@@ -241,6 +241,7 @@
     "/support/support-and-fulfillment/shipping": "https://support.particle.io/hc/",
     "/support/troubleshooting/common-issues": "/tutorials/device-os/led",
     "/support/troubleshooting/common-issues/p1": "/tutorials/device-os/led/photon",
+    "/support/troubleshooting/common-issues/asset tracker": "/tutorials/device-os/led/tracker-som",
     "/support/troubleshooting/connecting-help": "/tutorials/device-os/led",
     "/support/troubleshooting/troubleshooting-support": "/tutorials/device-os/led",
     "/support/pricing/general-questions/": "https://support.particle.io/hc/",
