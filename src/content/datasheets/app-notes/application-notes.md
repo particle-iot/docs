@@ -27,6 +27,7 @@ USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 - [AN019 Tracker Prototype to Board](https://github.com/particle-iot/app-notes/tree/master/AN019-Tracker-Prototype) shows how start prototyping with off-the-shelf I2C sensors and the Tracker SoM Evaluation and migrate to using a custom board for the Tracker One M8 Connector.
 - [AN020 Tracker 4-20mA Sensor Single](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) shows how connect 4-20mA sensors to the Tracker One. Includes a 24V boost converter that can power from the LiPo battery and overcurrent protection.
 - [AN021 Tracker 4-20mA Sensor Quad](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) shows how connect up to four 4-20mA sensors to the Tracker One. Requires an external 12VDC power supply, but includes a boost converter to 24V and an I2C ADC (ADC1015).
+- [AN022 Tracker SHT3x Temperature/Humidity](https://github.com/particle-iot/app-notes/tree/master/AN022-Tracker-SHT3x-Temperature-Humidity) shows how to connect 5V I2C devices including the SHT30 and SHT31 temperature and humidity sensors to the Tracker One M8 connector and add data to location publishes.
 
 ### Programming techniques
 
@@ -58,6 +59,9 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN017 Tracker CAN](https://github.com/particle-iot/app-notes/tree/master/AN017-Tracker-CAN) shows how to use the CAN bus for OBD-II to retrieve engine RPM and other useful techniques you may want to use in your own projects.
 - [AN018 Tracker Tank Level Sensor](https://github.com/particle-iot/app-notes/tree/master/AN018-Tracker-Level) shows how to expand the Tracker One via the M8 connector including additional GPIO, ADC, a 240-33 ohm tank level sensor input, and a 12 VDC boost converter.
 - [AN019 Tracker Prototype to Board](https://github.com/particle-iot/app-notes/tree/master/AN019-Tracker-Prototype) shows how start prototyping with off-the-shelf I2C sensors and the Tracker SoM Evaluation and migrate to using a custom board for the Tracker One M8 Connector.
+- [AN020 Tracker 4-20mA Sensor Single](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) shows how connect 4-20mA sensors to the Tracker One. Includes a 24V boost converter that can power from the LiPo battery and overcurrent protection.
+- [AN021 Tracker 4-20mA Sensor Quad](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) shows how connect up to four 4-20mA sensors to the Tracker One. Requires an external 12VDC power supply, but includes a boost converter to 24V and an I2C ADC (ADC1015).
+- [AN022 Tracker SHT3x Temperature/Humidity](https://github.com/particle-iot/app-notes/tree/master/AN022-Tracker-SHT3x-Temperature-Humidity) shows how to connect 5V I2C devices including the SHT30 and SHT31 temperature and humidity sensors to the Tracker One M8 connector and add data to location publishes.
 
 
 ## Numerical List
@@ -83,5 +87,7 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN019 Tracker Prototype to Board](https://github.com/particle-iot/app-notes/tree/master/AN019-Tracker-Prototype) shows how start prototyping with off-the-shelf I2C sensors and the Tracker SoM Evaluation and migrate to using a custom board for the Tracker One M8 Connector.
 - [AN020 Tracker 4-20mA Sensor Single](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) shows how connect 4-20mA sensors to the Tracker One. Includes a 24V boost converter that can power from the LiPo battery and overcurrent protection.
 - [AN021 Tracker 4-20mA Sensor Quad](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) shows how connect up to four 4-20mA sensors to the Tracker One. Requires an external 12VDC power supply, but includes a boost converter to 24V and an I2C ADC (ADC1015).
+- [AN022 Tracker SHT3x Temperature/Humidity](https://github.com/particle-iot/app-notes/tree/master/AN022-Tracker-SHT3x-Temperature-Humidity) shows how to connect 5V I2C devices including the SHT30 and SHT31 temperature and humidity sensors to the Tracker One M8 connector and add data to location publishes.
+
 
 

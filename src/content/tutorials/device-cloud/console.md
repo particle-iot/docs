@@ -378,6 +378,9 @@ void loop() {
 
 #### Compiling Binaries
 
+If you are using Particle Workbench, follow the instructions to use the [**Particle: Cloud Compile**](/tutorials/developer-tools/workbench/#particle-cloud-compile) or [**Particle: Compile Application (local)**](/tutorials/developer-tools/workbench/#particle-compile-application-local-) to create a firmware binary.
+
+
 If you are in the Web IDE, you can easily download a compiled binary by
 clicking the code icon (<i class="ion-code"></i>) in your sidebar. You
 will see the name of your app in the pane, along with a download icon
@@ -648,7 +651,7 @@ And view details about a specific device:
 
 ![Details](/assets/images/tracker/details.png)
 
-### Product Settings
+### Device Fleet Settings
 
 Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
 
@@ -694,11 +697,21 @@ The Tracker Firmware configures the RGB status LED.
 The **Type** popup menu has the following options:
 
 - **off**: The RGB LED is turned off (dark).
-- **direct**: RGB level is set directly using the red, green, blue, and brightness options.
 - **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
 - **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
 
-When using **direct** mode you can specify the RGB color (0 - 255) as well as the brightness (0 - 255). For normal RGB colors leave the brightness at 255.
+{{!-- 
+#### Sleep Settings
+
+![Sleep Settings](/assets/images/tracker/settings-5.png)
+
+Sleep mode allows the device to enter a low-power state when idle, conserving battery power.
+
+**Post Publish Execution Time** is the minimum duration in seconds to stay awake after publishing before going to sleep.
+
+**Maximum Connecting Time** is the maximum duration, in seconds, to wait for being cellular-connected and to obtain a GNSS lock before publishing.
+
+--}}
 
 #### Typical Settings
 
@@ -793,6 +806,8 @@ Shipping mode powers off the device by disconnecting the battery. This allows a 
 It's also possible to [create custom `cmd` handlers](/reference/asset-tracking/tracker-edge-firmware/#regcommandcallback-cloudservice). These can be used instead of creating a custom Particle function handler and make it possible to add more than 12 handlers and automatically decode JSON arguments to the cmd handler.
 
 On a successful cmd request, the result is 0. A result of -22 indicates the JSON is invalid. 
+
+**Warning:** Particle has discovered an issue with GPIO current leakage through Tracker One's M8 connector that affects Tracker One v1.0 devices manufactured prior to August 31, 2020 and can adversely affect the use of shipping mode for devices that use the M8 connection to an external peripheral device. For more information see [TAN002 - Tracker One v1.0 Shipping Mode](https://support.particle.io/hc/en-us/articles/360052713714).
 
 ### Using off-the-shelf releases
 

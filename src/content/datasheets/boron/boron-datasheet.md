@@ -6,7 +6,7 @@ order: 1
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet <sup>(v002)</sup>
+# Boron Datasheet <sup>(v003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -87,6 +87,18 @@ For the Boron 2G/3G version, make sure that the external DC supply is able to su
 
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Xenon or the Argon, this pin _CANNOT_ be used to power the Boron.
+
+#### EN PIN
+
+The **EN** pin is not a power pin, per se, but it controls the 3V3 and cellular modem power via a load switch (XC8107, U2). The EN pin is pulled high by a 100K resistor to PMIC_SYS (3.8V), which is powered by VUSB, the micro USB connector, or the LiPo battery. Because the pull-up can result in voltages above 3.3V you should never directly connect EN to a 3.3V GPIO pin. Instead, you should only pull EN low, such as by using an N-channel MOSFET or other open-collector transistor.
+
+The EN pin can force the device into a deep power-down state where it uses very little power. It also can used to assure that the device is completely reset, similar to unplugging it, with one caveat:
+
+If using the EN pin to deeply reset the device, you must be careful not to allow leakage current back into the nRF52 MCU by GPIO or by pull-ups to 3V3. If you only power external devices by 3V3 you won't run into this, as 3V3 is de-powered when EN is low. 
+
+However, if you have circuitry that is powered by a separate, external power supply, you must be careful. An externally powered circuit that drives a nRF52 GPIO high when EN is low can provide enough current to keep the nRF52 from powering down and resetting. Likewise, a pull-up to an external power supply can do the same thing. Be sure that in no circumstances can power by supplied to the nRF52 when 3V3 is de-powered.
+
+[See the power supply schematic](#power-1), below, for more information.
 
 ---
 
@@ -465,8 +477,9 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| v001     | 26 Oct 2018 | MB | Initial release |
-| v002     | 21 Jan 2020 | RK | Remove mesh |
+| v001     | 2018 Oct 26 | MB | Initial release |
+| v002     | 2020 Jan 21 | RK | Remove mesh |
+| v003     | 2020 Sep 01 | RK | Add EN pin information |
 
 ## Known Errata
 

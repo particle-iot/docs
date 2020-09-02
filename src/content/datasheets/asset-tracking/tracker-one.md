@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(006)</sup>
+# Tracker One<sup>(007)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -44,7 +44,7 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 |  2 | | Wi-Fi Antenna (mounted on side of case) |
 |  3 | | NFC Antenna (mounted on lid) <sup>1</sup> |
 |  4 | | Power and I/O connector (B8B-PH) |  
-|  5 | | Wi-Fi Antenna (mounted on side of case) |
+|  5 | | BLE Antenna (mounted on side of case) |
 |  6 | | LiPo Connector |
 |  7 | | M8 8-pin male connector (mounted on side of case) |
 |  8 | | USB-C<sup>2</sup> |
@@ -181,7 +181,21 @@ The **GNSS** LED indicates the GNSS fix status:
 - Blinking (1 Hz): Attempting to get a GNSS fix
 - On: Has a GNSS fix.
 
+## Antennas
 
+| Antenna | Location |
+| :------ | :------- |
+| GNSS | Carrier Board (faces top of case) |
+| Wi-Fi | Left Side |
+| BLE | Left Side |
+| NFC | Top |
+| Cellular | Right Side |
+
+![Tracker One Antennas](/assets/images/at-som/tracker-one-antennas.png)
+
+As the GNSS antenna faces the top of the case, you also want the top of the case facing the sky to the greatest extent possible. You will likely be be unable to get a GNSS lock with the top facing down.
+
+---
 ## Tracker One Schematics
 
 Will be provided at a later date.
@@ -255,11 +269,12 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre1     | 20 Apr 2020 | RK | Preview Release1 |
-| pre2     | 12 May 2020 | RK | Added partial dimensions |
-| 001      | 29 Jun 2020 | RK | First release |
-| 002      | 30 Jun 2020 | RK | CAN 5V is limited to 400 mA, not 500 mA |
-| 003      | 16 Jul 2020 | RK | Corrected M8 pinouts |
-| 004      | 06 Aug 2020 | RK | Corrected M8 pin numbering |
-| 005      | 09 Aug 2020 | RK | Updated VIN voltages |
-| 006      | 10 Aug 2020 | RK | Updated carrier board diagram |
+| pre1     | 2020 Apr 20 | RK | Preview Release1 |
+| pre2     | 2020 May 12 | RK | Added partial dimensions |
+| 001      | 2020 Jun 29 | RK | First release |
+| 002      | 2020 Jun 30 | RK | CAN 5V is limited to 400 mA, not 500 mA |
+| 003      | 2020 Jul 16 | RK | Corrected M8 pinouts |
+| 004      | 2020 Aug 06 | RK | Corrected M8 pin numbering |
+| 005      | 2020 Aug 09 | RK | Updated VIN voltages |
+| 006      | 2020 Aug 10 | RK | Updated carrier board diagram |
+| 007      | 2020 Sep 01 | RK | Added antenna diagram |

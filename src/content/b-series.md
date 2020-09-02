@@ -1,20 +1,21 @@
 ---
-title: B Series B402 
+title: B Series SoM
 layout: landing.hbs
-description: Particle B Series B402 SoM, Gen 3 cellular and BLE mass-production module
+description: Particle B Series SoM, Gen 3 cellular and BLE mass-production module
 ---
 
-# Particle B Series B402
+# Particle B Series SoM
 
-**LTE Cat M1 + Bluetooth in a M.2 SoM**
+**Cellular + Bluetooth in a M.2 SoM**
 
-![Image of the Boron Kit](/assets/images/b-series/b-series-top.png)
+![Image of the B Series SoM](/assets/images/b-series/b-series-top.png)
 
-The B Series B402 is a powerful LTE Cat M1 enabled system-on-a-module (SoM) designed for mass-production. It includes the Nordic nRF52840 and u-blox SARA R410 processors with support for standalone cellular and Bluetooth LE.
+The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed for mass-production. It includes the Nordic nRF52840 and with support for cellular and Bluetooth LE.
 
 {{box op="start" cssClass="boxedSideBySide"}}
   **Resources:**
-- [Datasheet](/datasheets/boron/b402-datasheet/)
+- [B402 Datasheet](/datasheets/boron/b402-datasheet/)
+- [B523 Datasheet](/datasheets/boron/b523-datasheet/)
 - [Evaluation Board](/datasheets/boron/b-series-eval-board/)
 - [Certification](/datasheets/certifications/certification)
 {{box op="switch"}}
@@ -24,6 +25,18 @@ The B Series B402 is a powerful LTE Cat M1 enabled system-on-a-module (SoM) desi
 - [Community](https://community.particle.io/)
 - [Support](https://support.particle.io/hc/)
 {{box op="end"}}
+
+## Models
+
+| B402 | B523 |
+| :--- | :--- |
+| u-blox SARA R410M-02-B | Quectel EG91-E | 
+| LTE Cat M1 | LTE Cat 1 with 3G and 2G fallback |
+| 3GPP LTE Cat M1 Release 13 | 3GPP E-UTRA Release 13  |
+| LTE Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28 | LTE Cat 1 bands: 1, 3, 7, 8, 20, 28A |
+| Supported in the US, Canada, and Mexico only | Support for Europe only at this time |
+
+<center>[Cellular carrier list](/tutorials/cellular-connectivity/cellular-carriers/)</center>
 
 ## Hardware specifications:
 
@@ -41,13 +54,6 @@ The B Series B402 is a powerful LTE Cat M1 enabled system-on-a-module (SoM) desi
 - ARM TrustZone CryptoCell-310 Cryptographic and security module
 - Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
 - NFC-A radio
-
-### Cellular network coprocessor:
-
-**u-blox SARA R410M LTE Cat M1 modem**
-
-- LTE Cat M1 module with global hardware support (MVNO support for US, Canada, and Mexico only)
-- 3GPP Release 13 LTE Cat M1
 
 ### General specifications:
 
