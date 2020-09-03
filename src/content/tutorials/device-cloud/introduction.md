@@ -8,6 +8,8 @@ description: Introduction to the Particle Cloud for Particle IoT devices
 
 # Device Cloud Introduction
 
+## Device Cloud Features
+
 The Particle Device Cloud provides a secure, data-efficient way for your Particle devices to communicate.
 
 ### Secure
@@ -78,6 +80,58 @@ There is no ability for devices to send function calls to other devices; publish
 
 Updating your device firmware and Device OS can be done securely over the Particle cloud connection that's used for the other device cloud features.
 
+## Wi-Fi Support
+
+| Feature | Gen 2 | Gen 3 |
+| :------ | :---: | :---: |
+| Devices | [Photon](/datasheets/wi-fi/photon-datasheet/) & [P1](/datasheets/wi-fi/p1-datasheet/) | [Argon](/datasheets/wi-fi/argon-datasheet/) |
+| Particle mobile app supported | &check; | &check; |
+| [Mobile SDK](/reference/SDKs/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; |
+| USB configuration | &check; | &check; |
+| BLE configuration | &nbsp; | &check; |
+| [Soft AP](/reference/device-os/firmware/photon/#softap-http-pages) (configuration over Wi-Fi) | &check; | &nbsp; |
+| Static IP address support | &check; | &nbsp; |
+| WPA2 Enterprise support | &check; | &nbsp; |
+
+### WPA2 Enterprise
+
+WPA2 Enterprise is a variation of Wi-Fi sometimes used in corporate and educations environments. It's sometimes referred to as WPA Enterprise, and mentions of 802.1(x), RADIUS, or eduroam indicate that WPA2 Enterprise is being used.
+
+To configure a Photon or P1 using WPA2 Enterprise, follow the [WPA2 Enterprise Setup Instructions](https://support.particle.io/hc/en-us/articles/360039741153). Of note:
+
+- Setup can only be done over USB using the [Particle CLI](/tutorials/developer-tools/cli/) (no mobile app support).
+- Requires Device OS 0.7.0 for WPA2 Enterprise Support.
+- Device OS 1.5.4-rc.1 or 2.0.x or later is required if concatenated certificates (intermediate certificates) are required.
+- Only one set of WPA2 Enterprise Wi-Fi credentials can be stored.
+- The Argon does not have WPA2 Enterprise support.
+
+There are a variety of encryption protocols for WPA2 Enterprise, however only the following are supported on the Photon and P1:
+
+- EAP-TLS (certificate-based)
+- PEAPv0/EAP-MSCHAPv2 (username/password challenge/reponse)
+
+
+| Parameter | Options |
+| :--- | :--- |
+| Certificate type | RSA certificates only |
+| Certificate signature | SHA-1, SHA-256, SHA-384, or SHA-512 only |
+| Keyschemes | RSA and DH RSA only |
+| Ciphers | AES-128-CBC only |
+| MAC | SHA-1 and SHA-256 only |
+| TLS versions | TLS1.0 and TLS1.1 only |
+
+Support has been tested with Microsoft NPS, Cisco Secure ACS, and Cisco ISE. FreeRADIUS RADIUS implementations with have been tested with Ubiquiti, Cisco, and Aruba access points. Eduroam sometimes works, however it is dependent on the university's WPA2 Enterprise configuration; some use settings that do not correspond to the requirements above.
+
+### Special Wi-Fi Considerations
+
+The following features are **not supported**:
+
+- 5 GHz is not supported.
+- Captive portals (where you are redirected to a web page to agree to terms of service or enter an authorization code) are not supported. This is common in hotels and corporate public networks.
+- Wi-Fi networks that are 802.11 n only (do not support 802.11 b or g as well) are not supported on the Photon and P1.
+- Special configuration steps are necessary to [set up a Photon or P1 with WEP encryption](http://rickkas7.github.io/wep/). It is possible, but difficult, to set up and is not recommended as WEP is also not secure.
+- Networks without a DHCP server are not supported on the Argon as there is no static IP address support.
+- IPv6 is not supported.
 
 ## Cloud Services and Firewalls
 
