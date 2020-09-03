@@ -64,7 +64,7 @@ The USB port is the easiest way to power up the Argon. Please make sure that the
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.  This pin is also protected with an internal fuse rated at 1000mA.
 
 #### LiPo
-If you want to make your projects truly wireless, you can power the device with a single cell LiPo (3.7V). The Argon has an on board LiPo charger that will charge and power the device when USB source is plugged in, or power the device from the LiPo alone in the absence of the USB.
+If you want to make your projects truly wireless, you can power the device with a single cell LiPo (3.7V). The Argon has an on board LiPo charger that will charge and power the device when USB source is plugged in or power the device from the LiPo alone in the absence of the USB.
 
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTE:**
@@ -96,7 +96,7 @@ However, if you have circuitry that is powered by a separate, external power sup
 
 ### Antenna
 
-There are two radios on the Argon. A BLE radio (nRF52840) and a WiFi radio (ESP32). For the WiFi radio, we have provide a u.FL connector to plug in the WiFi antenna. This is required if you wish to use the WiFi connectivity. 
+There are two radios on the Argon. A BLE radio (nRF52840) and a WiFi radio (ESP32). For the WiFi radio, we have provided a u.FL connector to plug in the WiFi antenna. This is required if you wish to use the WiFi connectivity. 
 
 There are two options for the BLE antenna on the Argon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
@@ -338,7 +338,7 @@ The Argon contains highly sensitive electronic circuitry and is an Electrostatic
 
 ### Connectors
 
-There are four connectors on the Argon that will get damaged with improper usage. The JST connector on the circuit board, where you plug in the LiPo battery, is very durable but the connector on the battery itself is not. When unplugging the battery, take extra precaution to **NOT** pull the connector using the wires, but instead hold the plug at its base to avoid putting stress on the wires. This can be tricky with bare hands - nose pliers are your friend here.
+There are four connectors on the Argon that will get damaged with improper usage. The JST connector on the circuit board, where you plug in the LiPo battery, is very durable but the connector on the battery itself is not. When unplugging the battery, take extra precaution to **NOT** pull the connector using the wires, but instead hold the plug at its base to avoid putting stress on the wires. This can be tricky with bare hands - needle nose pliers are your friend here.
 
 <div align=center><img src="/assets/images/lipo-connection.png" ></div>
 
@@ -346,9 +346,9 @@ The micro B USB connector on the Argon is soldered on the PCB with large surface
 
 <div align=center><img src="/assets/images/proper-usb-connection.png" ></div>
 
-The U.FL antenna connector is not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used securely hold the plug in place.
+The U.FL antenna connector is not designed to be constantly plugged and unplugged. The antenna pin is static sensitive and you can destroy the radio with improper handling. A tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector can be used to securely hold the plug in place.
 
-The 10 pin SWD connector provides an easy in-system debugging access to the device. The pins on the connector can easily be damaged if the mating connector cable is inserted improperly. If you are trying to debug the device, you probably are not in a good mood to begin with. The last thing you want is to render the connector useless. Be nice, and be gentle on the connector. Good luck with the debugging!
+The 10 pin SWD connector provides an easy in-system debugging access to the device. The pins on the connector can easily be damaged if the mating connector cable is inserted improperly. If you are trying to debug the device, you probably are already not in a good mood. The last thing you want is to render the connector useless. Be nice and be gentle with the connector. Good luck with the debugging!
 
 ### Breadboarding
 
