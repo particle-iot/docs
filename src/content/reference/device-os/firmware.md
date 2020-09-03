@@ -6466,7 +6466,7 @@ Keyboard.click(key);
 Keyboard.click(key, modifiers);
 ```
 
-Momentarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
+Momentarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L405). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
 
 ```cpp
 // EXAMPLE USAGE
@@ -6481,7 +6481,7 @@ void setup() {
 *Parameters:*
 
 - `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L405) - `uint16_t`
 
 `click()` does not return anything.
 
@@ -6515,7 +6515,7 @@ void setup() {
 *Parameters:*
 
 - `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L405) - `uint16_t`
 
 `press()` does not return anything.
 
@@ -6546,7 +6546,7 @@ See [`Keyboard.click()`](#click--1) documentation for information about keycodes
 *Parameters:*
 
 - `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/device-os/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L405) - `uint16_t`
 
 `release()` does not return anything.
 
