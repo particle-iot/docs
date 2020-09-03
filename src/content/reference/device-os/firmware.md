@@ -17775,7 +17775,7 @@ Returns the buffer size passed into the constructor.
 size_t dataSize() const;
 ```
 
-Returns the actual data size, which may be buffer than `bufferSize()`. If the data is too large it is truncated, creating an invalid JSON object, but `dataSize()` will indicate the actual size, if the buffer had been big enough. 
+Returns the actual data size, which may be larger than `bufferSize()`. If the data is too large it is truncated, creating an invalid JSON object, but `dataSize()` will indicate the actual size, if the buffer had been big enough. 
 
 
 ### JSONStreamWriter
