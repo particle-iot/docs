@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(007)</sup>
+# Tracker One<sup>(008)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -147,13 +147,11 @@ The **VIN** connector (6 to 30 VDC at 2A on the M8 connector, or 6 to 90 VDC at 
 
 The **LiPo** connector. This is typically used with a LiPo battery.
 
-### USB connectors
+### USB connector
 
-There are two USB connectors on the carrier board, however you most commonly will only use the **MCU USB** connector.
+There is a single USB C connector on the carrier board. On the Tracker One, this exits the enclosure and is IP67 rated.
 
-The **MCU USB** connector is connected to the nRF52 MCU and can be used for Serial debugging, flashing code, and setup by USB. It can also power the AssetTracker SoM. If using a laptop with a 500 mA USB port, you should also use the LiPo battery. With a 2A tablet charger, you can power only by USB.
-
-The **GNSS USB** connector is connected to the u-blox NEO-M8U GNSS. It can be used for firmware upgrades or with the u-blox u-center application.
+A set of DIP switches on the carrier board allow this port to be connected to either the MCU (normal) or u-blox GNSS (for firmware updates). The normal state is 1-4 OFF and 5-6 ON to connect the USB to the nRF52840. To connect the USB-C to the u-blox GNSS, turn 1-4 ON and 5-6 OFF. Disconnect the USB-C and the LiPo battery before changing the switch settings.
 
 ### LED Indicators
 
@@ -278,3 +276,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 005      | 2020 Aug 09 | RK | Updated VIN voltages |
 | 006      | 2020 Aug 10 | RK | Updated carrier board diagram |
 | 007      | 2020 Sep 01 | RK | Added antenna diagram |
+| 008      | 2020 Sep 08 | RK | Corrected USB connector description |

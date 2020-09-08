@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(006)</sup>
+# Tracker SoM Datasheet <sup>(007)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -22,27 +22,33 @@ description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 
 The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
-- LTE Cat 1 (EMEAA) or LTE Cat M1 (North America) cellular modem
+- LTE Cat 1 (EMEAA, Europe only at this time) or LTE Cat M1 (North America) cellular modem
 - GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
 - Support for CAN bus and 5V power for CAN devices
 - Built-in Inertial Measurement Unit (IMU)
 - Castellated module can be reflow soldered to your base board, and is available on an evaluation board or carrier board
 
+| Model | Region |
+| :---- | :---   | 
+| T402 / T404 | North America |
+| T523 / T524 | Europe/Middle East/Africa/Asia; Europe only at this time |
+
 ---
 
 ### Features
 
+
  * GNSS u-blox Neo M8U for GNSS with on-board dead-reckoning for up to 1.8m CEP50 GPS accuracy
   * Supports GPS L1C/A, SBAS L1C/A, QZSS L1C/A, QZSS L1-SAIF, GLONASS L1OF, BeiDou B1I, Galileo E1B/C
   * Support for battery-backup for almanac and ephemeris data
- * Quectel BG96-MC modem
+ * Quectel BG96-MC modem (T402 / T404)
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
   * 3GPP E-UTRA Release 13
-  * LTE FDD bands supported: 2, 4, 12, 13
- * Quectel EG91-EX modem
+  * LTE FDD bands supported: B2，B4，B5, B12，B13, B14, B25，B26
+ * Quectel EG91-EX modem (T523 / T524)
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
-  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28
+  * Cat 1 bands supported: B1, B3, B7, B8, B20, B28
   * Support for Europe only at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -93,8 +99,6 @@ When powered from a LiPo battery alone, the power management IC switches off the
 Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA [this value may change] (powered from the battery alone).
 
 The MAX17043 fuel gauge is only compatible with single cell lithium-ion batteries. The state-of-charge (SoC) values will not be accurate with other battery chemistries.
-
-A battery temperature sensor can be added if desired. Connect a negative temperature coefficient thermistor to the TS pin and GND. Charge suspends when the TS pin is out of range. A 103AT-2 thermistor is recommended.
 
 #### VBUS
 
@@ -155,7 +159,78 @@ There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
 - For the BLE antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
- 
+
+---
+
+#### GNSS Antenna
+
+As the GNSS system is receive-only (no transmitter), you can use any GNSS compatible antenna without affecting the certification. Different GNSS systems use different frequencies. Many antennas are tuned to the United States GPS system, however you can also get multi-GNSS antennas that are compatible with other systems. All of these systems offer coverage world-wide.
+
+| System   | Owner | 
+| :------- | :--- |
+| GPS      | United States |
+| GLOSNASS | Russia |
+| BeiDou   | China |
+| Galileo  | European Space Agency |
+
+#### Cellular Antenna
+
+The Tracker SoM has been certified with the following antenna:
+
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
+
+
+| Band  | Frequency (MHz) | Peak Gain | Average Gain |
+| :---: | :-------------: | --------: | -----------: |
+| 700/850/900 | 698-960 | 1.42 dBi | -2.80 dB |
+| 1700/1800/1900 | 1710-1990 | 3.77 dBi | -1.90 dB | 
+| 2100 | 1755-2170 | 4.62 dBi | -2.65 dB 
+| 2400 | 2400-2500 | 4.71 dBi | -2.10 dB |
+| 2600 | 2500-2690 | 4.66 dBi | -2.20 dB |
+
+
+| Measurement | Value |
+| :--- | :--- |
+| Maximum power | 5W |
+| Impedance | 50&ohm; |
+| Size | 97.0 x 21.0 x 0.2 mm |
+
+---
+
+#### Wi-Fi Antenna
+
+The Tracker SoM has been certified with the following Wi-Fi antenna. Note: The same external antenna model is used for Wi-Fi and BLE.
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
+| Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
+
+| Measurement | Value |
+| :--- | :--- |
+| Peak gain | 2.0 dBi |
+| Frequency | 2400 - 2500 MHz |
+| Impedance | 50&ohm; |
+| Size | 45.1 x 7.4 x 1.0mm |
+
+#### BLE Antenna
+
+The Tracker SoM includes a built-in chip antenna for BLE with a peak gain of 0 dBi. It can also be used with the following external antenna, which is the same model as the Wi-Fi antenna, above.
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
+| Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
+
+| Measurement | Value |
+| :--- | :--- |
+| Peak gain | 2.0 dBi |
+| Frequency | 2400 - 2500 MHz |
+| Impedance | 50&ohm; |
+| Size | 45.1 x 7.4 x 1.0mm |
+
 ---
 
 ### Peripherals and GPIO
@@ -710,6 +785,7 @@ The WIFI_BOOT pin enables programming mode.
 | | Class 3 (24dBm ± 3dB) for WCDMA bands |
 | | Class 3 (23dBm ± 2dB) for LTE FDD bands |
 
+
 #### 4G LTE cellular characteristics for BG96-MC
 
 | Parameter | Value |
@@ -719,8 +795,12 @@ The WIFI_BOOT pin enables programming mode.
 |     | EGPRS |
 | LTE FDD Bands | Band 12 (700 MHz) |
 | | Band 13 (700 MHz)  |
+| | Band 14 (700 MHz)  |
+| | Band 5 (850 MHz)   |
+| | Band 26 (850 MHz)  |
 | | Band 4 (1700 MHz)  |
 | | Band 2 (1900 MHz)  |
+| | Band 25 (1900 MHz)  |
 | GSM Bands | EGSM850 (850 MHz) |
 | | DCS1900 (1900 MHz) |
 
@@ -908,11 +988,10 @@ If the FCC ID is not visible with the module is installed inside another device,
 Contains Transmitter module FCC ID: 2AEMI-T40X or contains FCC ID: 2AEMI-T40X The host product manufacturer is responsible for compliance to any other FCC rules that apply to the host not covered by the modular transmitter grant of certification. The final host product still requires Part 15 Subpart B compliance testing with the modular transmitter installed.
 
 The end user manual shall include all required regulatory information / warning as shown in this manual, include: This product must be installed and operated with a minimum distance of 20 cm between the radiator and user body.
-Radiation Exposure Statement:
-
-The product is a low power device and its output power is lower than FCC SAR exemption level.
 
 ### Industry Canada (IC)
+
+IC ID: 20127-T40X
 
 - This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
   - this device may not cause interference.
@@ -981,11 +1060,12 @@ The bootloader allows you to easily update the user application via several diff
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre1     | 31 Mar 2020 | RK | Preview Release 1 |
-| pre2     | 12 May 2020 | RK | Added partial dimensions |
-| 001      | 29 Jun 2020 | RK | First release |
-| 002      | 10 Jul 2020 | RK | Updated absolute maximum ratings, schematics |
-| 003      | 17 Jul 2020 | RK | Updated absolute maximum ratings |
-| 004      | 30 Jul 2020 | RK | Added explanation of DIV connector |
-| 005      | 06 Aug 2020 | RK | Added crystal to block diagram, added FCC information |
-| 006      | 18 Aug 2020 | RK | Added IC (Canada) information |
+| pre1     | 2020 Mar 31 | RK | Preview Release 1 |
+| pre2     | 2020 May 12 | RK | Added partial dimensions |
+| 001      | 2020 Jun 29 | RK | First release |
+| 002      | 2020 Jul 10 | RK | Updated absolute maximum ratings, schematics |
+| 003      | 2020 Jul 17 | RK | Updated absolute maximum ratings |
+| 004      | 2020 Jul 30 | RK | Added explanation of DIV connector |
+| 005      | 2020 Aug 06 | RK | Added crystal to block diagram, added FCC information |
+| 006      | 2020 Aug 18 | RK | Added IC (Canada) information |
+| 007      | 2020 Sep 08 | RK | Added IC (Canada) information |
