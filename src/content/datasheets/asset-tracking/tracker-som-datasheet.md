@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(007)</sup>
+# Tracker SoM Datasheet <sup>(008)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -43,7 +43,6 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * Support for battery-backup for almanac and ephemeris data
  * Quectel BG96-MC modem (T402 / T404)
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
-  * 3GPP E-UTRA Release 13
   * LTE FDD bands supported: B2，B4，B5, B12，B13, B14, B25，B26
  * Quectel EG91-EX modem (T523 / T524)
   * LTE Cat 1 module for EMEAA region 
@@ -1069,3 +1068,4 @@ The bootloader allows you to easily update the user application via several diff
 | 005      | 2020 Aug 06 | RK | Added crystal to block diagram, added FCC information |
 | 006      | 2020 Aug 18 | RK | Added IC (Canada) information |
 | 007      | 2020 Sep 08 | RK | Added IC (Canada) information |
+| 008      | 2020 Sep 09 | RK | Remove 3GPP E-UTRA from T402 |
