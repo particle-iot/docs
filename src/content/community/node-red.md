@@ -18,7 +18,7 @@ The Particle-hosted Rules Engine has been discontinued and the Particle node is 
 - [Running Node-RED on a Cloud Service](#using-a-cloud-service)
 - [Running Node-RED Locally](#running-locally)
 - [Getting Started with Node-RED](#getting-started-with-node-red)
-- [Using the Particle Nodes](/#the-particle-nodes)
+- [Using the Particle Nodes](#the-particle-nodes)
 - [Migrating From the Particle Rules Engine](#migrating-from-the-rules-engine)
 - [Original Documentation](#original-documentation)
 
