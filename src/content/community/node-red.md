@@ -424,7 +424,15 @@ The Particle Nodes include:
 - **function** - Make a function call on a specific device. Useful for affecting a change on one device.
 - **particle api** - Make any Particle API call.
 
-In order to use the Particle Nodes you will need to set up authentication.
+To add the nodes you need into your new Node-RED instance, click the **hamburger icon** in the upper right (1), then select **Manage Palette** (2).
+
+![Rules Manage Palette](/assets/images/rules-engine/manage-palette.png)
+
+In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particlel** in the search box (2). Then add the **@particle/node-red-confib-particle-official** node by clicking **Install** (3).
+
+![Rules Install](/assets/images/rules-engine/install.png)
+
+In order to use the Particle Nodes you will need to first set up authentication.
 
 ### Setting up Authentication
 
