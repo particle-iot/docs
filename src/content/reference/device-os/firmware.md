@@ -13695,6 +13695,1033 @@ PRODUCT_VERSION(1); // increment each time you upload to the console
 
 This will allow the device to join the product it has been added to without hardcoding the product ID into the device firmware. This is used with the Tracker SoM to join the product it is assigned to with the factory firmware and not have to recompile and flash custom firmware. 
 
+
+
+{{#if has-sleep}}
+
+## System Sleep
+
+Sleep modes can dramatically improve the battery life of your device. There are two sleep APIs, the API added in Device OS 1.5.0 described in this section, and the [classic API](#sleep-classic-api-) that preceeded it in the following section.
+
+### sleep() [ Sleep ]
+
+{{since when="1.5.0"}}
+
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. 
+
+The `SystemSleepConfiguration` class configures all of the sleep parameters and eliminates the previous numerous and confusing overloads of the `System.sleep()` function. You pass this object to `System.sleep()`.
+
+```cpp
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+#### SystemSleepConfiguration::mode()
+
+The are are three sleep modes:
+
+- `SystemSleepMode::STOP`
+- `SystemSleepMode::ULTRA_LOW_POWER` (in Device OS 2.0.0 and later)
+- `SystemSleepMode::HIBERNATE`
+
+---
+
+```
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(WKP, RISING)
+      .duration(60s);
+System.sleep(config);
+```
+
+The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). In this mode:
+
+- Real-time clock (RTC) is kept running
+- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`
+- BLE is kept on if used as a wake-up source (Gen 3 devices only)
+- GPIO, UART, ADC are all kept on, so pin states remain constant even in sleep mode
+- Can wake from: Time, GPIO, or BLE
+
+| Wake Mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| GPIO | &check; | &check; |
+| Time (RTC) | &check; | &check; | 
+| BLE | | &check; |
+| NFC | | &check; |
+| Cellular | &check; | &check; |
+| Wi-Fi | &nbsp; | &check; |
+
+---
+
+```
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::ULTRA_LOW_POWER)
+      .gpio(D2, FALLING);
+System.sleep(config);
+```
+
+The `SystemSleepMode::ULTRA_LOW_POWER` mode is similar to STOP mode however internal peripherals such as GPIO, UART, ADC, and DAC are turned off. Like STOP mode, the RTC continues to run but since many more peripherals are disabled, the current used is closer to HIBERNATE. It is available in Device OS 2.0.0 and later.
+
+In this mode:
+
+- Real-time clock (RTC) is kept running
+- Network is kept on if used as a wake-up source
+- BLE is kept on if used as a wake-up source (Gen 3 devices only)
+- GPIO, UART, ADC are only kept on if used as a wake-up source. OUTPUT GPIO are disabled in ultra-low power mode.
+- Can wake from: Time, GPIO, BLE, NFC, network.
+
+| Wake Mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| GPIO | &check; | &check; |
+| Time (RTC) | &check; | &check; | 
+| BLE | | &check; |
+| NFC | | &check; |
+| Cellular | &check; | &check; |
+| Wi-Fi | &nbsp; | &check; |
+
+
+---
+
+```
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING);
+System.sleep(config);
+```
+
+
+The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. In this mode:
+
+| Wake Mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| GPIO | WKP RISING Only | &check; |
+| Time (RTC) | &check; | &nbsp; | 
+| BLE | &nbsp; | &nbsp; |
+| NFC | &nbsp; | &check; |
+
+---
+
+{{note op="start" type="gen2"}}
+- On the Photon, P1, Electron, and E Series) you can only wake on time or WKP RISING in HIBERNATE mode.
+- Wake by BLE and NFC are not available on Gen 2 devices.
+{{note op="end"}}
+
+{{note op="start" type="gen3"}}
+- On the Argon, Boron, and B Series SoM you can only wake by pin, not by time, in HIBERNATE mode.
+
+- On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
+
+- You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later.
+
+- You can wake from HIBERNATE by NFC on Gen 3 devices with Device OS 2.0.0 and later.
+{{note op="end"}}
+
+{{note op="start" type="cellular"}}
+- On cellular devices, the cellular modem is turned off in HIBERNATE mode. This reduces current consumption but increases the time to reconnect. Also, you should avoid any HIBERNATE period of less than 10 minutes on cellular devices. Since the cellular modem needs to reconnect to the cellular network on wake, your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour.
+{{note op="end"}}
+---
+
+#### SystemSleepConfiguration::duration()
+
+```c++
+// PROTOTYPES
+SystemSleepConfiguration& duration(system_tick_t ms)
+SystemSleepConfiguration& duration(std::chrono::milliseconds ms)
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING)
+      .duration(60s);
+```
+
+Specifies the sleep duration in milliseconds. Note that this is different than the classic API, which was in seconds.
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `.duration(2min)` for 2 minutes.
+
+---
+
+{{note op="start" type="gen2"}}
+On the Photon, P1, Electron, and E Series even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
+{{note op="end"}}
+
+{{note op="start" type="gen3"}}
+On the Argon, Boron, B Series SoM, and Tracker SoM you cannot wake from HIBERNATE mode by time because the RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low-power (ULP) mode.
+{{note op="end"}}
+
+{{note op="start" type="cellular"}}
+On cellular devices, if you turn off the cellular modem, you should not wake with a period of less than 10 minutes on average. Your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour. You can wake your device frequently if you do not reconnect to cellular every time. For example, you can wake, sample a sensor and save the value, then go to sleep and only connect to cellular and upload the data every 10 minutes. Or you can use cellular standby so cellular stays connected through sleep cycles and then you can sleep for short durations.
+{{note op="end"}}
+
+---
+
+#### SystemSleepConfiguration::gpio()
+
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& gpio(pin_t pin, InterruptMode mode) 
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING);
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+      .gpio(D3, FALLING);
+```
+
+Specifies wake on pin. The mode is:
+
+- RISING
+- FALLING
+- CHANGE
+
+---
+
+{{note op="start" type="gen2"}}
+- On the Photon, P1, Electron, and E Series you can only wake from HIBERNATE mode using WKP RISING. 
+- Do not attempt to enter sleep mode with WKP already high. Doing so will cause the device to never wake again, either by pin or time.
+- `SLEEP_MODE_DEEP` in the classic API defaults to allowing wake by `WKP` rising. This is no longer automatic and you should specify it explicitly as in the example here if you want this behavior by adding `.gpio(WKP, RISING)`.
+{{note op="end"}}
+
+{{note op="start" type="gen3"}}
+On Gen 3 devices the location of the `WKP` pin varies, and it may make more sense to just use the actual pin name. You do not need to use `WKP` to wake from `HIBERNATE` on Gen 3 devices, and you can wake on either RISING, FALLING or CHANGE.
+
+- Argon, Boron, and Xenon, WKP is pin D8. 
+- B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8. 
+- Tracker SoM WKP is pin A7/D7.
+{{note op="end"}}
+
+---
+
+
+#### SystemSleepConfiguration::flag()
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& flag(particle::EnumFlags<SystemSleepFlag> f)
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .network(NETWORK_INTERFACE_CELLULAR)
+      .flag(SystemSleepFlag::WAIT_CLOUD)
+      .duration(2min);
+```
+
+The only supported flag is:
+
+- `SystemSleepFlag::WAIT_CLOUD`
+
+This will make sure all cloud messages have been acknowledged before going to sleep.
+
+---
+
+#### SystemSleepConfiguration::network()
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& network(network_interface_t netif)
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .duration(30s)
+      .network(NETWORK_INTERFACE_CELLULAR);
+```
+
+This option does not currently wake from network but does work similarly to `SLEEP_NETWORK_STANDBY` with some limitations:
+
+- Only works in STOP sleep mode
+- Only works on cellular devices
+- Keeps the cellular modem connected to the cellular network for fast reconnection
+- Works best for sleep periods less than 23 minutes
+
+In the future, this may support actual wake on network activity for devices that have hardware support for it.
+
+---
+
+#### SystemSleepConfiguration::ble()
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& ble()
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .duration(30s)
+      .ble();
+```
+
+Wake on Bluetooth LE data (BLE).
+
+### SystemSleepResult Class
+
+{{since when="1.5.0"}}
+
+The `SystemSleepResult` class is a superset of the older [`SleepResult`](#sleepresult-) class and contains additional information when using `System.sleep()` with the newer API. 
+
+#### wakeupReason()
+
+```cpp
+// PROTOTYPE
+SystemSleepWakeupReason wakeupReason() const;
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, FALLING)
+      .duration(30s);
+SystemSleepResult result = System.sleep(config);
+if (result.wakeupReason() == SystemSleepWakeupReason::BY_GPIO) {
+  // Waken by pin 
+  pin_t whichPin = result.wakeupPin();
+}
+```
+
+Returns the reason for wake. Constants include:
+
+- `SystemSleepWakeupReason::UNKNOWN`
+- `SystemSleepWakeupReason::BY_GPIO` (pin wakeup)
+- `SystemSleepWakeupReason::BY_RTC` (time wakeup)
+
+#### wakeupPin()
+
+```cpp
+// PROTOTYPE
+pin_t wakeupPin() const;
+```
+
+If `wakeupReason()` is `SystemSleepWakeupReason::BY_GPIO` returns which pin caused the wake. See example under `wakeupReason()`, above.
+
+#### error()
+
+```cpp
+// PROTOTYPE
+system_error_t error() const;
+```
+
+If there was an error, returns the system error code. 0 is no error.
+
+#### toSleepResult()
+
+```cpp
+// PROTOTYPES
+SleepResult toSleepResult();
+operator SleepResult();
+```
+
+Returns the previous style of [`SleepResult`](#sleepresult-). There is also an operator to automatically convert to a `SleepResult`.
+
+
+## System Sleep (Classic API)
+
+This API is the previous API for sleep and is less flexible. You should use the newer sleep APIs when possible.
+
+### sleep() [ Classic API ]
+
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
+
+{{#if has-nrf52}}
+Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
+
+On the Argon, Boron, and Xenon, WKP is pin D8.
+
+On the B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8.
+
+On the Tracker SoM WKP is pin A7/D7.
+
+{{/if}}
+
+---
+
+{{#if has-stm32}}
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
+
+```cpp
+// SYNTAX
+System.sleep(SLEEP_MODE_DEEP, long seconds);
+
+// EXAMPLE USAGE
+
+// Put the device into deep sleep for 60 seconds
+System.sleep(SLEEP_MODE_DEEP, 60);
+// The device LED will shut off during deep sleep
+
+// Since 0.8.0
+// Put the device into deep sleep for 60 seconds and disable WKP pin
+System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
+// The device LED will shut off during deep sleep
+// The device will not wake up if a rising edge signal is applied to WKP
+```
+
+Note: Be sure WKP is LOW before going into SLEEP_MODE_DEEP with a time interval! If WKP is high, even if it falls and rises again the device will not wake up. Additionally, the time limit will not wake the device either, and the device will stay in sleep mode until reset or power cycled.
+
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(SLEEP_MODE_DEEP, 2min)` for 2 minutes.
+
+
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+`System.sleep(SLEEP_MODE_DEEP)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
+
+
+```cpp
+// SYNTAX
+System.sleep(SLEEP_MODE_DEEP);
+
+// EXAMPLE USAGE
+
+// Put the device into deep sleep until wakened by D8.
+System.sleep(SLEEP_MODE_DEEP);
+// The device LED will shut off during deep sleep
+```
+
+On the Boron, B Series SoM, and Tracker SoM it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
+
+{{/if}} {{!-- has-nrf52 --}}
+
+In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a standby mode. 
+
+When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
+
+The standby mode is used to achieve the lowest power consumption.  After entering standby mode, the RAM and register contents are lost{{#if has-backup-ram}} except for retained memory{{/if}}.
+
+For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods less than 10 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently.
+
+{{#if has-stm32}}
+The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the WKP pin. 
+
+{{since when="0.8.0"}}
+Wake up by WKP pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
+
+{{#if has-fuel-gauge}}
+---
+
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`. This is also the same net result as used in the user-activated Soft Power Down feature when you double-tap the Mode button and the Electron powers down.
+
+```cpp
+// SYNTAX
+System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
+```
+{{/if}} {{!-- has-fuel-gauge --}}
+
+{{/if}} {{!-- has-stm32 --}}
+
+{{#if has-nrf52}}
+
+The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
+
+Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
+
+{{#if has-fuel-gauge}}
+---
+
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
+```cpp
+// SYNTAX
+System.sleep(SLEEP_MODE_SOFTPOWEROFF);
+```
+{{/if}} {{!-- has-fuel-gauge --}}
+
+
+{{/if}} {{!-- has-nrf52 --}}
+
+
+---
+
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. 
+
+The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.
+
+```cpp
+// SYNTAX
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
+{{#if has-cellular}}
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 pin
+System.sleep(D1,RISING);
+// The device LED will shut off during sleep
+```
+
+{{#if has-cellular}}
+The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption during sleep. Roughly speaking, for sleep periods of less than 15 minutes, `SLEEP_NETWORK_STANDBY` uses less power.
+
+For sleep periods of less than 10 minutes you must use `SLEEP_NETWORK_STANDBY`. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up and prevents your SIM from being blocked.
+{{/if}}
+
+
+*Parameters:*
+
+- `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+{{#if electron}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
+
+The device will automatically reconnect to the cloud if the cloud was connected when sleep was entered. If disconnected prior to sleep, it will stay disconnected on wake.
+
+{{since when="0.8.0"}}
+```cpp
+// SYNTAX
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount);
+{{#if has-cellular}}
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins
+// Specify the pins in-place (using std::initializer_list)
+System.sleep({D1, A4}, RISING);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin
+// Specify the pins and edge trigger mode in-place (using std::initializer_list)
+System.sleep({D1, A4}, {RISING, FALLING});
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins
+// Specify the pins in an array
+pin_t wakeUpPins[2] = {D1, A4};
+System.sleep(wakeUpPins, 2, RISING);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin
+// Specify the pins and edge trigger modes in an array
+pin_t wakeUpPins[2] = {D1, A4};
+InterruptMode edgeTriggerModes[2] = {RISING, FALLING};
+System.sleep(wakeUpPins, 2, edgeTriggerModes, 2);
+// The device LED will shut off during sleep
+```
+
+Multiple wakeup pins may be specified for this mode.
+
+*Parameters:*
+
+- `wakeUpPins`: a list of wakeup pins:
+    - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
+    - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+
+- `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `edgeTriggerModes`: defines when the interrupt should be triggered on a specific pin from `wakeUpPins` list:
+    - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
+    - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
+- `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
+{{#if electron}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
+
+```cpp
+// SYNTAX
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
+{{#if has-cellular}}
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 pin or wakeup after 60 seconds whichever comes first
+System.sleep(D1,RISING,60);
+// The device LED will shut off during sleep
+```
+
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.
+
+*Parameters:*
+
+- `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+apply
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
+{{#if has-cellular}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
+
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(D1, RISING, 2min)` for 2 minutes.
+
+{{since when="0.8.0"}}
+```cpp
+// SYNTAX
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, long seconds);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, long seconds);
+{{#if has-cellular}}
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+
+System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY, long seconds);
+System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY, long seconds);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins or wakeup after 60 seconds whichever comes first
+// Specify the pins in-place (using std::initializer_list)
+System.sleep({D1, A4}, RISING, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin or wakeup after 60 seconds whichever comes first
+// Specify the pins and edge trigger mode in-place (using std::initializer_list)
+System.sleep({D1, A4}, {RISING, FALLING}, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins or wakeup after 60 seconds whichever comes first
+// Specify the pins in an array
+pin_t wakeUpPins[2] = {D1, A4};
+System.sleep(wakeUpPins, 2, RISING, 60);
+// The device LED will shut off during sleep
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin or wakeup after 60 seconds whichever comes first
+// Specify the pins and edge trigger modes in an array
+pin_t wakeUpPins[2] = {D1, A4};
+InterruptMode edgeTriggerModes[2] = {RISING, FALLING};
+System.sleep(wakeUpPins, 2, edgeTriggerModes, 2, 60);
+// The device LED will shut off during sleep
+```
+
+Multiple wakeup pins may be specified for this mode.
+
+*Parameters:*
+
+- `wakeUpPins`: a list of wakeup pins:
+    - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
+    - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
+{{#if has-stm32}}
+    - supports external interrupts on the following pins:
+      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
+{{else}}
+    - all pins are allowed, but a maximum of 8 can be used at a time
+{{/if}}
+(#attachinterrupt-) apply
+- `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `edgeTriggerModes`: defines when the interrupt should be triggered on a specific pin from `wakeUpPins` list:
+    - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
+    - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
+- `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
+{{#if has-cellular}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
+{{/if}}
+
+_Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
+is automatically resumed on waking up.
+
+_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.
+
+_Since 0.8.0_ All `System.sleep()` variants return an instance of [`SleepResult`](#sleepresult-) class that can be queried on the result of `System.sleep()` execution.
+
+_Since 0.8.0_ An application may check the information about the latest sleep by using [`System.sleepResult()`](#sleepresult-) or additional accessor methods:
+- [`System.wakeUpReason()`](#wakeupreason-)
+- [`System.wokenUpByPin()`](#wokenupbypin--1)
+- [`System.wokenUpByRtc()`](#wokenupbyrtc--1)
+- [`System.wakeUpPin()`](#wakeuppin-)
+- [`System.sleepError()`](#sleeperror-)
+
+---
+
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in this mode.
+
+This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(MANUAL) instead.
+
+```cpp
+// SYNTAX
+System.sleep(long seconds);
+
+// EXAMPLE USAGE
+
+// Put the Wi-Fi module in standby (low power) for 5 seconds
+System.sleep(5);
+// The device LED will breathe white during sleep
+```
+
+{{since when="1.5.0"}}
+
+You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(2min)` for 2 minutes.
+
+
+### Sleep [Transitioning from Classic API]
+
+Some common sleep commands:
+
+- `SLEEP_MODE_DEEP` wake by `WKP`:
+
+```
+// CLASSIC
+System.sleep(SLEEP_MODE_DEEP);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- `SLEEP_MODE_DEEP` wake by `WKP` or time:
+
+```
+// CLASSIC
+System.sleep(SLEEP_MODE_DEEP, 60);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING)
+      .duration(60s);
+SystemSleepResult result = System.sleep(config);
+```
+---
+
+- `SLEEP_MODE_DEEP` wake by time only (disable WKP):
+
+```
+// CLASSIC
+System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .duration(60s);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- Stop mode sleep, pin D2 RISING
+
+```
+// CLASSIC
+System.sleep(D2, RISING);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- Stop mode sleep, pin D2 FALLING, or 30 seconds
+
+```
+// CLASSIC
+System.sleep(D2, FALLING, 30);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, FALLING)
+      .duration(30s);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- Stop mode sleep, pin D2 or D3 RISING
+
+```
+// CLASSIC
+System.sleep({D2, D3}, RISING);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+      .gpio(D3, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+---
+
+- Stop mode sleep, pin D2 rising, or 30 seconds with SLEEP_NETWORK_STANDBY
+
+```
+// CLASSIC
+System.sleep(D2, RISING, SLEEP_NETWORK_STANDBY);
+
+// NEW
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING)
+      .duration(30s)
+      .network(NETWORK_INTERFACE_CELLULAR);
+SystemSleepResult result = System.sleep(config);
+```
+
+
+### SleepResult Class
+
+{{since when="0.8.0"}}
+
+This class allows to query the information about the most recent `System.sleep()`. It is only recommended for use in Device OS 0.8.0 - 1.4.4. There is a newer, more flexible class `SystemSleepResult` in 1.5.0 and later.
+
+#### reason()
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+int reason = result.reason();
+```
+
+Get the wake up reason.
+
+```cpp
+// EXAMPLE
+SleepResult result = System.sleepResult();
+switch (result.reason()) {
+  case WAKEUP_REASON_NONE: {
+    Log.info("did not wake up from sleep");
+    break;
+  }
+  case WAKEUP_REASON_PIN: {
+    Log.info("was woken up by a pin");
+    break;
+  }
+  case WAKEUP_REASON_RTC: {
+    Log.info("was woken up by the RTC (after a specified number of seconds)");
+    break;
+  }
+  case WAKEUP_REASON_PIN_OR_RTC: {
+    Log.info("was woken up by either a pin or the RTC (after a specified number of seconds)");
+    break;
+  }
+}
+```
+
+Returns a code describing a reason the device woke up from sleep. The following reasons are defined:
+- `WAKEUP_REASON_NONE`: did not wake up from sleep
+- `WAKEUP_REASON_PIN`: was woken up by an edge signal to a pin
+- `WAKEUP_REASON_RTC`: was woken up by the RTC (after a specified number of seconds)
+- `WAKEUP_REASON_PIN_OR_RTC`: was woken up either by an edge signal to a pin or by the RTC (after a specified number of seconds)
+
+
+#### wokenUpByPin()
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+bool r = result.wokenUpByPin();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+if (result.wokenUpByPin()) {
+  Log.info("was woken up by a pin");
+}
+```
+
+Returns `true` when the device was woken up by a pin.
+
+#### wokenUpByRtc()
+
+Returns `true` when the device was woken up by the RTC (after a specified number of seconds).
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+bool r = result.wokenUpByRtc();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+if (result.wokenUpByRtc()) {
+  Log.info("was woken up by the RTC (after a specified number of seconds)");
+}
+```
+
+#### rtc()
+
+An alias to [`wokenUpByRtc()`](#wokenupbyrtc-).
+
+#### pin()
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+pin_t pin = result.pin();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+pin_t pin = result.pin();
+if (result.wokenUpByPin()) {
+  Log.info("was woken up by the pin number %d", pin);
+}
+```
+
+Returns: the number of the pin that woke the device.
+
+#### error()
+
+Get the error code of the latest sleep.
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+int err = result.error();
+```
+
+Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or a non-zero error code.
+
+### sleepResult()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+SleepResult result = System.sleepResult();
+```
+
+Retrieves the information about the latest sleep.
+
+Returns: an instance of [`SleepResult`](#sleepresult-) class.
+
+### wakeUpReason()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+int reason = System.wakeUpReason();
+```
+
+See [`SleepResult`](#reason-) documentation.
+
+### wokenUpByPin()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+bool result = System.wokenUpByPin();
+```
+
+See [`SleepResult`](#wokenupbypin-) documentation.
+
+### wokenUpByRtc()
+
+_Since 0.8.0_
+
+```cpp
+// SYNTAX
+bool result = System.wokenUpByRtc();
+```
+
+See [`SleepResult`](#wokenupbyrtc-) documentation.
+
+### wakeUpPin()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+pin_t pin = System.wakeUpPin();
+```
+
+See [`SleepResult`](#pin-) documentation.
+
+### sleepError()
+
+{{since when="0.8.0"}}
+
+```cpp
+// SYNTAX
+int err = System.sleepError();
+```
+
+See [`SleepResult`](#error-) documentation.
+
+### reset()
+
+Resets the device, just like hitting the reset button or powering down and back up.
+
+```cpp
+uint32_t lastReset = 0;
+
+void setup() {
+    lastReset = millis();
+}
+
+void loop() {
+  // Reset after 5 minutes of operation
+  // ==================================
+  if (millis() - lastReset > 5*60000UL) {
+    System.reset();
+  }
+}
+```
+
+{{/if}} {{!-- has-sleep --}}
+
+
 ## System Events
 
 {{since when="0.4.9"}}
@@ -14460,952 +15487,6 @@ Log.info("soc=%.1f", batterySoc);
 
 
 {{/if}}
-
-
-{{#if has-sleep}}
-
-
-### sleep() [ Sleep ]
-
-{{since when="1.5.0"}}
-
-`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. This newer, more flexible sleep API is available in Device OS 1.5.0 and later. The older API is listed below in the [classic API](#sleep-classic-api-) section.
-
-The `SystemSleepConfiguration` class configures all of the sleep parameters and eliminates the numerous and confusing overloads of the `System.sleep()` function. You pass this object to `System.sleep()`.
-
-```cpp
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(D2, RISING);
-SystemSleepResult result = System.sleep(config);
-```
-
-#### SystemSleepConfiguration::mode()
-
-The are are two sleep modes:
-
-- `SystemSleepMode::STOP`
-- `SystemSleepMode::HIBERNATE`
-
----
-
-```
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(WKP, RISING)
-      .duration(60s);
-System.sleep(config);
-```
-
-The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). In this mode:
-
-- Real-time clock (RTC) is kept running
-- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`
-- BLE is kept on if used as a wake-up source (Gen 3 devices only)
-- GPIO, UART, ADC are all kept on, so pin states remain constant even in sleep mode
-- Can wake from: Time, GPIO, or BLE
-
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | &check; | &check; |
-| Time (RTC) | &check; | &check; | 
-| BLE | | &check; |
-
-
----
-
-```
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::HIBERNATE)
-      .gpio(WKP, RISING);
-System.sleep(config);
-```
-
-
-The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. In this mode:
-
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | WKP RISING Only | &check; |
-| Time (RTC) | &check; | &nbsp; | 
-| BLE | &nbsp; | &nbsp; |
-
-These restrictions are the same as the classic API, but should be noted:
-
-- On Gen 2 (Photon, P1, Electron, and E Series) you can only wake on time or WKP RISING in HIBERNATE mode.
-- On Gen 3 (Argon, Boron, B Series SoM) you can only wake by pin, not by time, in HIBERNATE mode.
-- On Gen 3, you can now wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8.
-
----
-
-#### SystemSleepConfiguration::duration()
-
-```c++
-// PROTOTYPES
-SystemSleepConfiguration& duration(system_tick_t ms)
-SystemSleepConfiguration& duration(std::chrono::milliseconds ms)
-
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::HIBERNATE)
-      .gpio(WKP, RISING)
-      .duration(60s);
-```
-
-Specifies the sleep duration in milliseconds. Note that this is different than the classic API, which was in seconds.
-
-You can also specify a value using [chrono literals](#chrono-literals), for example: `.duration(2min)` for 2 minutes.
-
-On Gen 2 devices (Photon, P1, Electron, E Series) even though the parameter is in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
-
-On Gen 3 devices (Argon, Boron, B Series SoM), you cannot wake from HIBERNATE mode by time because the RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode.
-
-
----
-
-#### SystemSleepConfiguration::gpio()
-
-
-```c++
-// PROTOTYPE
-SystemSleepConfiguration& gpio(pin_t pin, InterruptMode mode) 
-
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::HIBERNATE)
-      .gpio(WKP, RISING);
-
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(D2, RISING);
-      .gpio(D3, FALLING);
-```
-
-Specifies wake on pin. The mode is:
-
-- RISING
-- FALLING
-- CHANGE
-
-Note: On Gen 2 devices (Photon, P1, Electron, E Series) you can only wake from HIBERNATE mode using WKP RISING. Do not attempt to enter sleep mode with WKP already high. Doing so will cause the device to never wake again, either by pin or time.
-
----
-
-
-#### SystemSleepConfiguration::flag()
-
-```c++
-// PROTOTYPE
-SystemSleepConfiguration& flag(particle::EnumFlags<SystemSleepFlag> f)
-
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .network(NETWORK_INTERFACE_CELLULAR)
-      .flag(SystemSleepFlag::WAIT_CLOUD)
-      .duration(2min);
-```
-
-The only supported flag is:
-
-- `SystemSleepFlag::WAIT_CLOUD`
-
-This will make sure all cloud messages have been acknowledged before going to sleep.
-
----
-
-#### SystemSleepConfiguration::network()
-
-```c++
-// PROTOTYPE
-SystemSleepConfiguration& network(network_interface_t netif)
-
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .duration(30s)
-      .network(NETWORK_INTERFACE_CELLULAR);
-```
-
-This option does not currently wake from network but does work similarly to `SLEEP_NETWORK_STANDBY` with some limitations:
-
-- Only works in STOP sleep mode
-- Only works on cellular devices
-- Keeps the cellular modem connected to the cellular network for fast reconnection
-- Works best for sleep periods less than 23 minutes
-
-In the future, this may support actual wake on network activity for devices that have hardware support for it.
-
----
-
-#### SystemSleepConfiguration::ble()
-
-```c++
-// PROTOTYPE
-SystemSleepConfiguration& ble()
-
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .duration(30s)
-      .ble();
-```
-
-Wake on Bluetooth LE data (BLE).
-
-
-### Sleep [Transitioning from Classic API]
-
-Some common sleep commands:
-
-- `SLEEP_MODE_DEEP` wake by `WKP`:
-
-```
-// CLASSIC
-System.sleep(SLEEP_MODE_DEEP);
-
-// NEW
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::HIBERNATE)
-      .gpio(WKP, RISING);
-SystemSleepResult result = System.sleep(config);
-```
-
----
-
-- `SLEEP_MODE_DEEP` wake by `WKP` or time:
-
-```
-// CLASSIC
-System.sleep(SLEEP_MODE_DEEP, 60);
-
-// NEW
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::HIBERNATE)
-      .gpio(WKP, RISING)
-      .duration(60s);
-SystemSleepResult result = System.sleep(config);
-```
----
-
-- `SLEEP_MODE_DEEP` wake by time only (disable WKP):
-
-```
-// CLASSIC
-System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
-
-// NEW
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::HIBERNATE)
-      .duration(60s);
-SystemSleepResult result = System.sleep(config);
-```
-
----
-
-- Stop mode sleep, pin D2 RISING
-
-```
-// CLASSIC
-System.sleep(D2, RISING);
-
-// NEW
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(D2, RISING);
-SystemSleepResult result = System.sleep(config);
-```
-
----
-
-- Stop mode sleep, pin D2 FALLING, or 30 seconds
-
-```
-// CLASSIC
-System.sleep(D2, FALLING, 30);
-
-// NEW
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(D2, FALLING)
-      .duration(30s);
-SystemSleepResult result = System.sleep(config);
-```
-
----
-
-- Stop mode sleep, pin D2 or D3 RISING
-
-```
-// CLASSIC
-System.sleep({D2, D3}, RISING);
-
-// NEW
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(D2, RISING);
-      .gpio(D3, RISING);
-SystemSleepResult result = System.sleep(config);
-```
-
----
-
-- Stop mode sleep, pin D2 rising, or 30 seconds with SLEEP_NETWORK_STANDBY
-
-```
-// CLASSIC
-System.sleep(D2, RISING, SLEEP_NETWORK_STANDBY);
-
-// NEW
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(D2, RISING)
-      .duration(30s)
-      .network(NETWORK_INTERFACE_CELLULAR);
-SystemSleepResult result = System.sleep(config);
-```
-
-### sleep() [ Classic API ]
-
-`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
-
-{{#if has-nrf52}}
-Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
-
-On the Argon, Boron, and Xenon, WKP is pin D8.
-
-On the B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8.
-
-On the Tracker SoM WKP is pin A7/D7.
-
-{{/if}}
-
----
-
-{{#if has-stm32}}
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
-
-```cpp
-// SYNTAX
-System.sleep(SLEEP_MODE_DEEP, long seconds);
-
-// EXAMPLE USAGE
-
-// Put the device into deep sleep for 60 seconds
-System.sleep(SLEEP_MODE_DEEP, 60);
-// The device LED will shut off during deep sleep
-
-// Since 0.8.0
-// Put the device into deep sleep for 60 seconds and disable WKP pin
-System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
-// The device LED will shut off during deep sleep
-// The device will not wake up if a rising edge signal is applied to WKP
-```
-
-Note: Be sure WKP is LOW before going into SLEEP_MODE_DEEP with a time interval! If WKP is high, even if it falls and rises again the device will not wake up. Additionally, the time limit will not wake the device either, and the device will stay in sleep mode until reset or power cycled.
-
-
-{{since when="1.5.0"}}
-
-You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(SLEEP_MODE_DEEP, 2min)` for 2 minutes.
-
-
-{{/if}} {{!-- has-stm32 --}}
-
-{{#if has-nrf52}}
-`System.sleep(SLEEP_MODE_DEEP)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
-
-
-```cpp
-// SYNTAX
-System.sleep(SLEEP_MODE_DEEP);
-
-// EXAMPLE USAGE
-
-// Put the device into deep sleep until wakened by D8.
-System.sleep(SLEEP_MODE_DEEP);
-// The device LED will shut off during deep sleep
-```
-
-On the Boron, B Series SoM, and Tracker SoM it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
-
-{{/if}} {{!-- has-nrf52 --}}
-
-In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a standby mode. 
-
-When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
-
-The standby mode is used to achieve the lowest power consumption.  After entering standby mode, the RAM and register contents are lost{{#if has-backup-ram}} except for retained memory{{/if}}.
-
-For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods less than 10 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently.
-
-{{#if has-stm32}}
-The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the WKP pin. 
-
-{{since when="0.8.0"}}
-Wake up by WKP pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
-
-{{#if has-fuel-gauge}}
----
-
-`System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`. This is also the same net result as used in the user-activated Soft Power Down feature when you double-tap the Mode button and the Electron powers down.
-
-```cpp
-// SYNTAX
-System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
-```
-{{/if}} {{!-- has-fuel-gauge --}}
-
-{{/if}} {{!-- has-stm32 --}}
-
-{{#if has-nrf52}}
-
-The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
-
-Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
-
-{{#if has-fuel-gauge}}
----
-
-`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
-```cpp
-// SYNTAX
-System.sleep(SLEEP_MODE_SOFTPOWEROFF);
-```
-{{/if}} {{!-- has-fuel-gauge --}}
-
-
-{{/if}} {{!-- has-nrf52 --}}
-
-
----
-
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. 
-
-The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.
-
-```cpp
-// SYNTAX
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
-{{#if has-cellular}}
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY);
-{{/if}}
-
-// EXAMPLE USAGE
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 pin
-System.sleep(D1,RISING);
-// The device LED will shut off during sleep
-```
-
-{{#if has-cellular}}
-The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption during sleep. Roughly speaking, for sleep periods of less than 15 minutes, `SLEEP_NETWORK_STANDBY` uses less power.
-
-For sleep periods of less than 10 minutes you must use `SLEEP_NETWORK_STANDBY`. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up and prevents your SIM from being blocked.
-{{/if}}
-
-
-*Parameters:*
-
-- `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-{{#if has-stm32}}
-    - supports external interrupts on the following pins:
-      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
-      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-{{else}}
-    - all pins are allowed, but a maximum of 8 can be used at a time
-{{/if}}
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
-    - CHANGE to trigger the interrupt whenever the pin changes value,
-    - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low.
-{{#if electron}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
-{{/if}}
-
-The device will automatically reconnect to the cloud if the cloud was connected when sleep was entered. If disconnected prior to sleep, it will stay disconnected on wake.
-
-{{since when="0.8.0"}}
-```cpp
-// SYNTAX
-System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode);
-System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode);
-
-System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes);
-System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount);
-{{#if has-cellular}}
-
-System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
-System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
-
-System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY);
-System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY);
-{{/if}}
-
-// EXAMPLE USAGE
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins
-// Specify the pins in-place (using std::initializer_list)
-System.sleep({D1, A4}, RISING);
-// The device LED will shut off during sleep
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin
-// Specify the pins and edge trigger mode in-place (using std::initializer_list)
-System.sleep({D1, A4}, {RISING, FALLING});
-// The device LED will shut off during sleep
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins
-// Specify the pins in an array
-pin_t wakeUpPins[2] = {D1, A4};
-System.sleep(wakeUpPins, 2, RISING);
-// The device LED will shut off during sleep
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin
-// Specify the pins and edge trigger modes in an array
-pin_t wakeUpPins[2] = {D1, A4};
-InterruptMode edgeTriggerModes[2] = {RISING, FALLING};
-System.sleep(wakeUpPins, 2, edgeTriggerModes, 2);
-// The device LED will shut off during sleep
-```
-
-Multiple wakeup pins may be specified for this mode.
-
-*Parameters:*
-
-- `wakeUpPins`: a list of wakeup pins:
-    - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
-    - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
-{{#if has-stm32}}
-    - supports external interrupts on the following pins:
-      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
-      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-{{else}}
-    - all pins are allowed, but a maximum of 8 can be used at a time
-{{/if}}
-
-- `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
-    - CHANGE to trigger the interrupt whenever the pin changes value,
-    - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low.
-- `edgeTriggerModes`: defines when the interrupt should be triggered on a specific pin from `wakeUpPins` list:
-    - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
-    - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
-- `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
-{{#if electron}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
-{{/if}}
-
-```cpp
-// SYNTAX
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
-{{#if has-cellular}}
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
-{{/if}}
-
-// EXAMPLE USAGE
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 pin or wakeup after 60 seconds whichever comes first
-System.sleep(D1,RISING,60);
-// The device LED will shut off during sleep
-```
-
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of RAM and registers.
-
-*Parameters:*
-
-- `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-{{#if has-stm32}}
-    - supports external interrupts on the following pins:
-      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
-      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-{{else}}
-    - all pins are allowed, but a maximum of 8 can be used at a time
-{{/if}}
-apply
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
-    - CHANGE to trigger the interrupt whenever the pin changes value,
-    - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
-{{#if has-cellular}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
-{{/if}}
-
-
-{{since when="1.5.0"}}
-
-You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(D1, RISING, 2min)` for 2 minutes.
-
-{{since when="0.8.0"}}
-```cpp
-// SYNTAX
-System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, long seconds);
-System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, long seconds);
-
-System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, long seconds);
-System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, long seconds);
-{{#if has-cellular}}
-
-System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
-System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
-
-System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY, long seconds);
-System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY, long seconds);
-{{/if}}
-
-// EXAMPLE USAGE
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins or wakeup after 60 seconds whichever comes first
-// Specify the pins in-place (using std::initializer_list)
-System.sleep({D1, A4}, RISING, 60);
-// The device LED will shut off during sleep
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin or wakeup after 60 seconds whichever comes first
-// Specify the pins and edge trigger mode in-place (using std::initializer_list)
-System.sleep({D1, A4}, {RISING, FALLING}, 60);
-// The device LED will shut off during sleep
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and A4 pins or wakeup after 60 seconds whichever comes first
-// Specify the pins in an array
-pin_t wakeUpPins[2] = {D1, A4};
-System.sleep(wakeUpPins, 2, RISING, 60);
-// The device LED will shut off during sleep
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D1 and FALLING edge interrupt on A4 pin or wakeup after 60 seconds whichever comes first
-// Specify the pins and edge trigger modes in an array
-pin_t wakeUpPins[2] = {D1, A4};
-InterruptMode edgeTriggerModes[2] = {RISING, FALLING};
-System.sleep(wakeUpPins, 2, edgeTriggerModes, 2, 60);
-// The device LED will shut off during sleep
-```
-
-Multiple wakeup pins may be specified for this mode.
-
-*Parameters:*
-
-- `wakeUpPins`: a list of wakeup pins:
-    - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
-    - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
-{{#if has-stm32}}
-    - supports external interrupts on the following pins:
-      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
-      - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-{{else}}
-    - all pins are allowed, but a maximum of 8 can be used at a time
-{{/if}}
-(#attachinterrupt-) apply
-- `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
-    - CHANGE to trigger the interrupt whenever the pin changes value,
-    - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low.
-- `edgeTriggerModes`: defines when the interrupt should be triggered on a specific pin from `wakeUpPins` list:
-    - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
-    - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
-- `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
-{{#if has-cellular}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
-{{/if}}
-
-_Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
-is automatically resumed on waking up.
-
-_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.
-
-_Since 0.8.0_ All `System.sleep()` variants return an instance of [`SleepResult`](#sleepresult-) class that can be queried on the result of `System.sleep()` execution.
-
-_Since 0.8.0_ An application may check the information about the latest sleep by using [`System.sleepResult()`](#sleepresult-) or additional accessor methods:
-- [`System.wakeUpReason()`](#wakeupreason-)
-- [`System.wokenUpByPin()`](#wokenupbypin--1)
-- [`System.wokenUpByRtc()`](#wokenupbyrtc--1)
-- [`System.wakeUpPin()`](#wakeuppin-)
-- [`System.sleepError()`](#sleeperror-)
-
----
-
-`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in this mode.
-
-This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(MANUAL) instead.
-
-```cpp
-// SYNTAX
-System.sleep(long seconds);
-
-// EXAMPLE USAGE
-
-// Put the Wi-Fi module in standby (low power) for 5 seconds
-System.sleep(5);
-// The device LED will breathe white during sleep
-```
-
-{{since when="1.5.0"}}
-
-You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(2min)` for 2 minutes.
-
-
-{{/if}} {{!-- has-sleep --}}
-
-### SystemSleepResult Class
-
-{{since when="1.5.0"}}
-
-The `SystemSleepResult` class is a superset of the older `SleepResult` class and contains additional information when using `System.sleep()` with the newer API. 
-
-#### wakeupReason()
-
-```cpp
-// PROTOTYPE
-SystemSleepWakeupReason wakeupReason() const;
-
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(D2, FALLING)
-      .duration(30s);
-SystemSleepResult result = System.sleep(config);
-if (result.wakeupReason() == SystemSleepWakeupReason::BY_GPIO) {
-  // Waken by pin 
-  pin_t whichPin = result.wakeupPin();
-}
-```
-
-Returns the reason for wake. Constants include:
-
-- `SystemSleepWakeupReason::UNKNOWN`
-- `SystemSleepWakeupReason::BY_GPIO` (pin wakeup)
-- `SystemSleepWakeupReason::BY_RTC` (time wakeup)
-
-#### wakeupPin()
-
-```cpp
-// PROTOTYPE
-pin_t wakeupPin() const;
-```
-
-If `wakeupReason()` is `SystemSleepWakeupReason::BY_GPIO` returns which pin caused the wake. See example under `wakeupReason()`, above.
-
-#### error()
-
-```cpp
-// PROTOTYPE
-system_error_t error() const;
-```
-
-If there was an error, returns the system error code. 0 is no error.
-
-#### toSleepResult()
-
-```cpp
-// PROTOTYPES
-SleepResult toSleepResult();
-operator SleepResult();
-```
-
-Returns the previous style of `SleepResult`. There is also an operator to automatically convert to a `SleepResult`.
-
-### SleepResult Class
-
-{{since when="0.8.0"}}
-
-This class allows to query the information about the most recent `System.sleep()`. It is only recommended for use in Device OS 0.8.0 - 1.4.4. There is a newer, more flexible class `SystemSleepResult` in 1.5.0 and later.
-
-#### reason()
-
-```cpp
-// SYNTAX
-SleepResult result = System.sleepResult();
-int reason = result.reason();
-```
-
-Get the wake up reason.
-
-```cpp
-// EXAMPLE
-SleepResult result = System.sleepResult();
-switch (result.reason()) {
-  case WAKEUP_REASON_NONE: {
-    Log.info("did not wake up from sleep");
-    break;
-  }
-  case WAKEUP_REASON_PIN: {
-    Log.info("was woken up by a pin");
-    break;
-  }
-  case WAKEUP_REASON_RTC: {
-    Log.info("was woken up by the RTC (after a specified number of seconds)");
-    break;
-  }
-  case WAKEUP_REASON_PIN_OR_RTC: {
-    Log.info("was woken up by either a pin or the RTC (after a specified number of seconds)");
-    break;
-  }
-}
-```
-
-Returns a code describing a reason the device woke up from sleep. The following reasons are defined:
-- `WAKEUP_REASON_NONE`: did not wake up from sleep
-- `WAKEUP_REASON_PIN`: was woken up by an edge signal to a pin
-- `WAKEUP_REASON_RTC`: was woken up by the RTC (after a specified number of seconds)
-- `WAKEUP_REASON_PIN_OR_RTC`: was woken up either by an edge signal to a pin or by the RTC (after a specified number of seconds)
-
-
-#### wokenUpByPin()
-
-```cpp
-// SYNTAX
-SleepResult result = System.sleepResult();
-bool r = result.wokenUpByPin();
-
-// EXAMPLE
-SleepResult result = System.sleepResult();
-if (result.wokenUpByPin()) {
-  Log.info("was woken up by a pin");
-}
-```
-
-Returns `true` when the device was woken up by a pin.
-
-#### wokenUpByRtc()
-
-Returns `true` when the device was woken up by the RTC (after a specified number of seconds).
-
-```cpp
-// SYNTAX
-SleepResult result = System.sleepResult();
-bool r = result.wokenUpByRtc();
-
-// EXAMPLE
-SleepResult result = System.sleepResult();
-if (result.wokenUpByRtc()) {
-  Log.info("was woken up by the RTC (after a specified number of seconds)");
-}
-```
-
-#### rtc()
-
-An alias to [`wokenUpByRtc()`](#wokenupbyrtc-).
-
-#### pin()
-
-```cpp
-// SYNTAX
-SleepResult result = System.sleepResult();
-pin_t pin = result.pin();
-
-// EXAMPLE
-SleepResult result = System.sleepResult();
-pin_t pin = result.pin();
-if (result.wokenUpByPin()) {
-  Log.info("was woken up by the pin number %d", pin);
-}
-```
-
-Returns: the number of the pin that woke the device.
-
-#### error()
-
-Get the error code of the latest sleep.
-
-```cpp
-// SYNTAX
-SleepResult result = System.sleepResult();
-int err = result.error();
-```
-
-Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or a non-zero error code.
-
-### sleepResult()
-
-{{since when="0.8.0"}}
-
-```cpp
-// SYNTAX
-SleepResult result = System.sleepResult();
-```
-
-Retrieves the information about the latest sleep.
-
-Returns: an instance of [`SleepResult`](#sleepresult-) class.
-
-### wakeUpReason()
-
-{{since when="0.8.0"}}
-
-```cpp
-// SYNTAX
-int reason = System.wakeUpReason();
-```
-
-See [`SleepResult`](#reason-) documentation.
-
-### wokenUpByPin()
-
-{{since when="0.8.0"}}
-
-```cpp
-// SYNTAX
-bool result = System.wokenUpByPin();
-```
-
-See [`SleepResult`](#wokenupbypin-) documentation.
-
-### wokenUpByRtc()
-
-_Since 0.8.0_
-
-```cpp
-// SYNTAX
-bool result = System.wokenUpByRtc();
-```
-
-See [`SleepResult`](#wokenupbyrtc-) documentation.
-
-### wakeUpPin()
-
-{{since when="0.8.0"}}
-
-```cpp
-// SYNTAX
-pin_t pin = System.wakeUpPin();
-```
-
-See [`SleepResult`](#pin-) documentation.
-
-### sleepError()
-
-{{since when="0.8.0"}}
-
-```cpp
-// SYNTAX
-int err = System.sleepError();
-```
-
-See [`SleepResult`](#error-) documentation.
-
-### reset()
-
-Resets the device, just like hitting the reset button or powering down and back up.
-
-```cpp
-uint32_t lastReset = 0;
-
-void setup() {
-    lastReset = millis();
-}
-
-void loop() {
-  // Reset after 5 minutes of operation
-  // ==================================
-  if (millis() - lastReset > 5*60000UL) {
-    System.reset();
-  }
-}
-```
 
 ### disableReset()
 
