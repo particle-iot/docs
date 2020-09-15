@@ -1021,21 +1021,6 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 ### Particle.timeSyncedLast()
 
-{{since when="0.6.1"}}
-
-Used to check when time was last synchronized with Particle Device Cloud.
-
-```cpp
-// SYNTAX
-Particle.timeSyncedLast();
-Particle.timeSyncedLast(timestamp);
-```
-
-Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Device Cloud was performed.
-
-This function takes one optional argument:
-- `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
-
 ```cpp
 // EXAMPLE
 
@@ -1066,6 +1051,27 @@ void loop() {
   }
 }
 ```
+
+{{since when="0.6.1"}}
+
+Used to check when time was last synchronized with Particle Device Cloud.
+
+```cpp
+// SYNTAX
+Particle.timeSyncedLast();
+Particle.timeSyncedLast(timestamp);
+```
+
+Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Device Cloud was performed.
+
+This function takes one optional argument:
+- `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
+
+{{since when="2.0.0"}}
+
+Starting with Device OS 2.0.0, gcc-arm 9.2.1 is used instead of gcc-arm 5.3.1. The standard libraries for gcc-arm 9.2 use a 64-bit time_t value that will not roll over in 2038. 
+
+User firmware targeting 1.5.4-rc.1 and earlier will continue to work with 32-bit time_t values, even when running on Device OS 2.0.0 or later.
 
 ### Get Public IP
 
@@ -11977,6 +11983,19 @@ This reduces the need for external libraries to manage dates and times.
 Before the device gets online and for short intervals, you can use the
 `millis()` and `micros()` functions.
 
+{{since when="2.0.0"}}
+
+Starting with Device OS 2.0.0, gcc-arm 9.2.1 is used instead of gcc-arm 5.3.1. The standard libraries for gcc-arm 9.2 use a 64-bit time_t value that will not roll over in 2038. 
+
+User firmware targeting 1.5.4-rc.1 and earlier will continue to work with 32-bit time_t values, even when running on Device OS 2.0.0 or later.
+
+| time_t | Prior to 2.0.0 | Since 2.0.0 |
+| :--- | :--- | :--- |
+| Size | 32-bit | 64-bit |
+| Type | long | long long |
+
+One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`, so beware when printing a time_t value. Until 2038 you can cast it as a long and use `%ld` to print the numeric value.
+
 ### millis()
 
 Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
@@ -12002,6 +12021,8 @@ void loop()
 ```
 **Note:**
 The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
+
+Instead of using `millis()`, you can instead use [`System.millis()`](#system-millis-) that returns a 64-bit value that will not roll over to 0 during the life of the device.
 
 ### micros()
 
@@ -12113,7 +12134,7 @@ Serial.print(Time.hour());
 Serial.print(Time.hour(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Integer 0-23
 
@@ -12132,7 +12153,7 @@ Serial.print(Time.hourFormat12());
 Serial.print(Time.hourFormat12(1400684400));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Integer 1-12
 
@@ -12150,7 +12171,7 @@ Serial.print(Time.isAM());
 Serial.print(Time.isAM(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
@@ -12168,7 +12189,7 @@ Serial.print(Time.isPM());
 Serial.print(Time.isPM(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
@@ -12187,7 +12208,7 @@ Serial.print(Time.minute());
 Serial.print(Time.minute(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Integer 0-59
 
@@ -12206,7 +12227,7 @@ Serial.print(Time.second());
 Serial.print(Time.second(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Integer 0-59
 
@@ -12224,7 +12245,7 @@ Serial.print(Time.day());
 Serial.print(Time.day(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Integer 1-31
 
@@ -12250,7 +12271,7 @@ Serial.print(Time.weekday());
 Serial.print(Time.weekday(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Integer 1-7
 
@@ -12269,7 +12290,7 @@ Serial.print(Time.month());
 Serial.print(Time.month(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Integer 1-12
 
@@ -12287,7 +12308,7 @@ Serial.print(Time.year());
 Serial.print(Time.year(1400647897));
 ```
 
-Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 Returns: Integer
 
@@ -12301,7 +12322,21 @@ Retrieve the current time as seconds since January 1, 1970 (commonly known as "U
 Serial.print(Time.now()); // 1400647897
 ```
 
-Returns: time_t (Unix timestamp), coordinated universal time (UTC), long integer (32-bit)
+Returns: time_t (Unix timestamp), coordinated universal time (UTC)
+
+| time_t | Prior to 2.0.0 | Since 2.0.0 |
+| :--- | :--- | :--- |
+| Size | 32-bit | 64-bit |
+| Type | long | long long |
+| Roll Over | 2038 | effectively never |
+
+{{since when="2.0.0"}}
+
+Starting with Device OS 2.0.0, gcc-arm 9.2.1 is used instead of gcc-arm 5.3.1. The standard libraries for gcc-arm 9.2 use a 64-bit time_t value that will not roll over in 2038. 
+
+User firmware targeting 1.5.4-rc.1 and earlier will continue to work with 32-bit time_t values, even when running on Device OS 2.0.0 or later.
+
+One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`, so beware when printing the value from `Time.now()`. Until 2038 you can cast it as a long and use `%ld` to print the numeric value.
 
 ### local()
 
@@ -12399,7 +12434,13 @@ Also see: [`Particle.syncTime()`](#particle-synctime-)
 Time.setTime(1413034662);
 ```
 
-Parameter: time_t (Unix timestamp), coordinated universal time (UTC), long integer
+Parameter: time_t (Unix timestamp), coordinated universal time (UTC)
+
+| time_t | Prior to 2.0.0 | Since 2.0.0 |
+| :--- | :--- | :--- |
+| Size | 32-bit | 64-bit |
+| Type | long | long long |
+
 
 ### timeStr()
 
@@ -15389,9 +15430,9 @@ Use [waitFor](#waitfor-) to delay the application only for a period of time or t
 
 Makes your application wait until/for something that the system is doing, such as waiting for Wi-Fi to be ready or the Cloud to be connected. **Note:** that conditions must be a function that takes a void argument `function(void)` with the `()` removed, e.g. `Particle.connected` instead of `Particle.connected()`.  Functions should return 0/false to indicate waiting, or non-zero/true to stop waiting.  `bool` or `int` are valid return types.  If a complex expression is required, a separate function should be created to evaluate that expression.
 
-#### waitUntil()
+---
 
-To delay the application indefinitely until the condition is met.
+#### waitUntil()
 
 ```
 // SYNTAX
@@ -15400,29 +15441,42 @@ waitUntil(condition);
 // Wait until the Cloud is connected to publish a critical event.
 waitUntil(Particle.connected);
 Particle.publish("weather", "sunny");
-```
 
-{{#if has-wifi}}`WiFi.ready` is another common event to wait until complete.
-
-```cpp
-// wait until Wi-Fi is ready
+// For Wi-Fi
 waitUntil(WiFi.ready);
-```
-{{/if}}
-{{#if has-cellular}}`Cellular.ready` is another common event to wait until complete.
 
-```cpp
-// wait until Cellular is ready
+// For Cellular
 waitUntil(Cellular.ready);
 ```
-{{/if}}
+
+To delay the application indefinitely until the condition is met.
 
 Note: `waitUntil` does not tickle the [application watchdog](/reference/device-os/firmware/#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
+---
+
+#### waitUntilNot()
+
+{{since when="2.0.0"}}
+
+
+```cpp
+// SYNTAX
+waitUntilNot(condition);
+
+// EXAMPLE
+Particle.disconnect();
+waitUntilNot(Particle.connected);
+Log.info("disconnected");
+```
+
+To delay the application indefinitely until the condition is not met (value of condition is false)
+
+Note: `waitUntilNot` does not tickle the [application watchdog](/reference/device-os/firmware/#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+
+---
 
 #### waitFor()
-
-To delay the application only for a period of time or the condition is met.
 
 ```cpp
 // SYNTAX
@@ -15435,15 +15489,38 @@ if (waitFor(Particle.connected, 10000)) {
 
 // wait up to 10 seconds for the cloud connection to be disconnected.
 // Here we have to add a function to invert the condition.
+// In Device OS 2.0.0 and later you can more easily use waitFotNot()
 bool notConnected() {
     return !Particle.connected();
 }
 if (waitFor(notConnected, 10000)) {
-    Particle.publish("weather", "sunny");
+    Log.info("not connected");
 }
 ```
 
+To delay the application only for a period of time or the condition is met.
+
 Note: `waitFor` does not tickle the [application watchdog](/reference/device-os/firmware/#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
+
+---
+
+#### waitForNot()
+
+```cpp
+// SYNTAX
+waitForNot(condition, timeout);
+
+// EXAMPLE
+if (waitForNot(Particle.connected, 10000)) {
+    Log.info("not connected");
+}
+```
+
+{{since when="2.0.0"}}
+
+To delay the application only for a period of time or the condition is not met (value of condition is false)
+
+Note: `waitForNot` does not tickle the [application watchdog](/reference/device-os/firmware/#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
 {{/if}} {{!-- has-threading --}}
@@ -15967,6 +16044,10 @@ _Since 0.8.0_
 #### System.millis()
 
 Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-) function but returns a 64-bit value.
+
+While the 32-bit `millis()` rolls over to 0 after approximately 49 days, the 64-bit `System.millis()` does not.
+
+One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
 
 #### System.uptime()
 
@@ -17225,14 +17306,20 @@ Returns:
 
 {{since when="0.4.6"}}
 
-Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
 
 ```cpp
-
+// EXAMPLE
 Particle.publish("startup", String::format("frobnicator started at %s", Time.timeStr().c_str()));
+
+// EXAMPLE
+int a = 123;
+Particle.publish("startup", String::format("{\"a\":%d}", a);
 
 ```
 
+Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
+
+Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
 
 ### getBytes()
 
@@ -18744,6 +18831,8 @@ Consider the following logging output as generated by the example application:
 `0000000149 [app] INFO: System version: 0.6.0`
 
 Here, each line starts with a timestamp (a number of milliseconds since the system startup), `app` is a default [logging category](#logging-categories), and `INFO`, `WARN` and `ERROR` are [logging levels](#logging-levels) of the respective log messages.
+
+All of the logging functions like `Log.info()` and `Log.error()` support sprintf-style argument formatting so you can use options like `%d` (integer), `%.2f` (2 decimal place floating point), or `%s` (c-string). Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
 
 ### Logging Levels
 
