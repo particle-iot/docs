@@ -158,7 +158,8 @@
     "eeprom-file",
     "udp-multicast",
     "ble",
-    "nfc-tag"
+    "nfc-tag",
+    "posix-filesystem"
   ],
   "Boron": [
     "gen3",
@@ -200,7 +201,8 @@
     "eeprom-file",
     "udp-multicast",
     "ble",
-    "nfc-tag"
+    "nfc-tag",
+    "posix-filesystem"
   ],
   "Xenon": [
     "gen3",

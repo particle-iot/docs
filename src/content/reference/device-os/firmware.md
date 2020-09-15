@@ -3835,7 +3835,7 @@ It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of u
 Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
 
 {{#if tracker-som}}
-The Tracker SoM shared A and D pins. In other words, pin A0 is the same physical pin as pin D0, and is also the SDA pin. The alternate naming is to simplify porting code from other device types.
+The Tracker SoM has shared A and D pins. In other words, pin A0 is the same physical pin as pin D0, and is also the SDA pin. The alternate naming is to simplify porting code from other device types.
 
 | Pin     | M8 Pin | Function    | Function    | Analog In | GPIO    | 
 | :-----: | :----: | :---------  | :---------  | :-------: | :-----: | 
@@ -3858,15 +3858,9 @@ The Tracker SoM shared A and D pins. In other words, pin A0 is the same physical
 `pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
 
 ```cpp
-// SYNTAX
-pinMode(pin,mode);
-```
+// PROTOTYPE
+void pinMode(uint16_t pin, PinMode mode)
 
-`pinMode()` takes two arguments, `pin`: the number of the pin whose mode you wish to set and `mode`: `INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT.`
-
-`pinMode()` does not return anything.
-
-```cpp
 // EXAMPLE USAGE
 int button = D0;                      // button is connected to D0
 int LED = D1;                         // LED is connected to D1
@@ -3889,33 +3883,28 @@ void loop()
 }
 ```
 
-- When using INPUT\_PULLDOWN make sure a high level signal does not exceed 3.3V.
+`pinMode()` takes two arguments: 
 
-{{#if has-stm32}}
-- INPUT\_PULLUP does not work as expected on TX on the P1, Electron, and  E Series and should not be used. 
-- INPUT\_PULLDOWN does not work as expected on D0 and D1 on the P1 because the P1 module has hardware pull-up resistors on these pins. 
+- `pin`: the pin you want to set the mode of (A0, A1, D0, D1, TX, RX, etc.). The type `pin_t` can be used instead of `uint16_t` to make it more obvious that the code accepts a pin number in your code.
 
-On Gen 2 devices (Photon, P1, Electron, and E Series), GPIO pins are 5V tolerant if all of these conditions are met:
-- Digital input mode (INPUT) (the ADC is not 5V tolerant)
-- Not using INPUT_PULLDOWN or INPUT_PULLUP (internal pull is not 5V tolerant)
-- Not using pins A3 or A6 (the DAC pins are not 5V tolerant, even in INPUT mode)
-- Not using pins D0 and D1 on the P1 only as there is a pull-up to 3V3 on the P1 module only
+- `mode`: the mode to set to pin to:
 
-Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external devices. After reset, these pins will be briefly taken over for JTAG/SWD, before being restored to the default high-impedance INPUT state during boot.
+  - `INPUT` digital input (the default at power-up)
+  - `INPUT_PULLUP` digital input with a pull-up resistor to 3V3
+  - `INPUT_PULLDOWN` digital input with a pull-down to GND
+  - `OUTPUT` an output (push-pull)
+  - `OUTPUT_OPEN_DRAIN` an open-drain or open-collector output. HIGH (1) leaves the output in high impedance state, LOW (0) pulls the output low. Typically used with an external pull-up resistor to allow any of multiple devices to set the value low safely.
 
-- D3, D5, and D7 are pulled high with a pull-up
-- D6 is pulled low with a pull-down
-- D4 is left floating
+You do not need to set the `pinMode()` to read an analog value using [`analogRead`](#analogread-adc-) as the pin will automatically be set to the correct mode when analogRead is called.
 
-The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
-{{/if}}
+When porting code from Arudino, pin numbers are numbered (0, 1, 2, ...) in Arduino code. Pin D0 has a value of 0, but it's best to use Particle pin names like D0 instead of just 0. This is especially true as the numeric value of A0 varies depending on the device and how many digital pins it has. For example, on the Argon, A0 is 19 but on the Photon it's 10. 
 
-{{#if tracker-som}}
-When used as an INPUT or analog input, make sure the signal does not exceed 3.3V. Gen 3 devices (Tracker SoM as well as Argon, Boron, Xenon, and the B Series SoM) are not 5V tolerant!
-{{else}}
+---
 
-{{#if has-nrf52}}
-When used as an INPUT or analog input, make sure the signal does not exceed 3.3V. Gen 3 devices (Argon, Boron, Xenon, and B Series SoM) are not 5V tolerant!
+{{note op="start" type="gen3"}}
+- Make sure the signal does not exceed 3.3V. Gen 3 devices (Tracker SoM as well as Argon, Boron, Xenon, and the B Series SoM) are not 5V tolerant in any mode (digital or analog).
+
+- `INPUT_PULLUP` and `INPUT_PULLDOWN` are approximately 13K on Gen 3 devices.
 
 If you are using the Particle Ethernet FeatherWing you cannot use the pins for GPIO as they are used for the Ethernet interface:
 
@@ -3932,20 +3921,30 @@ When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and
 
 When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
 
-{{#if xenon}}
-On the Xenon only, there is an optional second UART (serial) interface. If using Serial2, the following pins cannot be used as GPIO:
+{{note op="end"}}
 
-- D4 (TX for Serial2)
-- D5 (RX for Serial2)
-- D6 (CTS for Serial2)
-- D8 (RTS for Serial2)
+{{note op="start" type="gen2"}}
+- When using `INPUT_PULLUP` or `INPUT_PULLDOWN` make sure a high level signal does not exceed 3.3V.
+- `INPUT_PULLUP` does not work as expected on TX on the P1, Electron, and E Series and should not be used. 
+- `INPUT_PULLDOWN` does not work as expected on D0 and D1 on the P1 because the P1 module has hardware pull-up resistors on these pins. 
+- `INPUT_PULLUP` and `INPUT_PULLDOWN` are approximately 40K on Gen 2 devices
+- On the P1, D0 and D1 have 2.1K hardware pull-up resistors to 3V3.
 
-As these pins overlap the Particle Ethernet FeatherWing, you cannot use Serial2 and the Ethernet FeatherWing at the same time.
-{{/if}}
+On Gen 2 devices (Photon, P1, Electron, and E Series), GPIO pins are 5V tolerant if all of these conditions are met:
+- Digital input mode (INPUT) (the ADC is not 5V tolerant)
+- Not using INPUT_PULLDOWN or INPUT_PULLUP (internal pull is not 5V tolerant)
+- Not using pins A3 or A6 (the DAC pins are not 5V tolerant, even in INPUT mode)
+- Not using pins D0 and D1 on the P1 only as there is a pull-up to 3V3 on the P1 module only
 
-{{/if}} {{!-- has-nrf52 --}}
+Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external devices on Gen 2 devices. After reset, these pins will be briefly taken over for JTAG/SWD, before being restored to the default high-impedance INPUT state during boot.
 
-{{/if}} {{!-- tracker-som --}}
+- D3, D5, and D7 are pulled high with a pull-up
+- D6 is pulled low with a pull-down
+- D4 is left floating
+
+The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
+{{note op="end"}}
+
 
 
 ### getPinMode(pin)
@@ -3953,6 +3952,9 @@ As these pins overlap the Particle Ethernet FeatherWing, you cannot use Serial2 
 Retrieves the current pin mode.
 
 ```cpp
+// PROTOTYPE
+PinMode getPinMode(uint16_t pin)
+
 // EXAMPLE
 
 if (getPinMode(D0)==INPUT) {
@@ -3965,8 +3967,8 @@ if (getPinMode(D0)==INPUT) {
 Write a `HIGH` or a `LOW` value to a GPIO pin.
 
 ```cpp
-// SYNTAX
-digitalWrite(pin, value);
+// PROTOTYPE
+void digitalWrite(uint16_t pin, uint8_t value)
 ```
 
 If the pin has been configured as an `OUTPUT` with `pinMode()` or if previously used with `analogWrite()`, its voltage will be set to the corresponding value: 3.3V for HIGH, 0V (ground) for LOW.
@@ -3993,17 +3995,24 @@ void loop()
 }
 ```
 
-{{#if has-stm32}}
-**Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
-{{/if}}
-{{#if has-nrf52}}
-**Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+---
 
-**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+{{note op="start" type="gen3"}}
+- For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
-**Note:** For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
+- For the B Series SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
-{{/if}}
+- For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital output as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
+
+- The default drive strength on Gen 3 devices is 2 mA per pin. This can be changed to 9 mA using [`pinSetDriveStrength()`](/reference/device-os/firmware/boron/#pinsetdrivestrength-).
+{{note op="end"}}
+
+{{note op="start" type="gen2"}}
+- All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+- The drive current on Gen 2 devices is 25 mA per pin, with a maximum of 125 mA across all GPIO.
+{{note op="end"}}
+
 
 
 ### digitalRead()
@@ -4011,8 +4020,8 @@ void loop()
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
 
 ```cpp
-// SYNTAX
-digitalRead(pin);
+// PROTOTYPE
+int32_t digitalRead(uint16_t pin)
 ```
 
 `digitalRead()` takes one argument, `pin`: the number of the digital pin you want to read.
@@ -4039,18 +4048,57 @@ void loop()
 
 ```
 
-{{#if has-stm32}}
-**Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
-{{/if}}
+---
+
+{{note op="start" type="gen3"}}
+- For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+- For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
+- For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
+
+- GPIO are **not** 5V tolerant on Gen 3 devices. Be sure the input voltage does not exceed 3.3V (typical) or 3.6V (absolute maximum).
+{{note op="end"}}
+
+{{note op="start" type="gen2"}}
+- All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+- On the Photon, Electron, and E Series, all GPIO pins **except** A3 and A6 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs.
+- On the P1, all GPIO pins **except** A3, A6, D0 and D1 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs. 
+- On the P1 there are 2.1K hardware pull-up resistors to 3V3 on D0 and D1. 
+{{note op="end"}}
 
 {{#if has-nrf52}}
-**Note:** For all Feather Gen 3 devices (Argon, Boron, Xenon) all GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+### pinSetDriveStrength()
 
-**Note:** For the Boron SoM all GPIO pins (`A0`..`A7`, `D0`..`D13`, `D22`, `D23`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+{{since when="2.0.0"}}
 
-**Note:** For the Tracker SoM all GPIO pins (`A0`..`A7`, `D0`..`D9`) can be used for digital input as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). Note that on the Tracker SoM pins A0 - A7 and the same physical pins as D0 - D7 and are just alternate names for the same pins.
+```cpp
+// PROTOTYPE
+int pinSetDriveStrength(pin_t pin, DriveStrength drive);
+```
+
+Sets the pin drive strength on Gen 3 devices with Device OS 2.0.0 and later.
+
+`DriveStrength` is one of:
+
+- `DriveStrength::DEFAULT` (`STANDARD`)
+- `DriveStrength::STANDARD`
+- `DriveStrength::HIGH`
+
+Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero system error code on error.
+
+The drive strength is typically 2 mA in standard drive mode (the default), and 9 mA in high drive mode.
+
+| Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
+| :---------|:-------|:----------:|:---:|:---:|:---:|:---: |
+|Current at GND+0.4 V, output set low, high drive|I<sub>OL,HDL</sub> |V<sub>3V3</sub> >= 2.7V|6|10|15|mA|
+|Current at V<sub>3V3</sub>-0.4 V, output set high, high drive|I<sub>OH,HDH</sub>|V<sub>3V3</sub> >= 2.7V|6|9|14|mA|
+|Current at GND+0.4 V, output set low, standard drive|I<sub>OL,SD</sub> |V<sub>3V3</sub> >= 2.7V|1|2|4|mA|
+|Current at V<sub>3V3</sub>-0.4 V, output set high, standard drive|I<sub>OH,SD</sub>|V<sub>3V3</sub> >= 2.7V|1|2|4|mA|
+
 
 {{/if}}
+
 
 {{#if has-pwm}}
 
@@ -4103,27 +4151,19 @@ void loop()
 }
 ```
 
-{{#if has-stm32}}
-- On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
-- Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
-- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
+**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
 
-The PWM frequency must be the same for pins in the same timer group.
+Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/hardware/pin-info).
 
-- On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
-- On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX/P1S6.
-- On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
-{{/if}}
-{{#if has-nrf52}}
+---
+
+{{note op="start" type="gen3"}}
 On Gen 3 Feather devices (Argon, Boron), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 3: Pins D2, D3, A4, and A5.
-
 - Group 2: Pins A0, A1, A2, and A3.
-
 - Group 1: Pins D4, D5, D6, and D8.
-
 - Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
 
 On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
@@ -4133,20 +4173,28 @@ frequency and resolution, but individual pins in the group can have a different 
 - Group 1: Pins D4, D5, and D6.
 - Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
 
-On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are the same physical pin as D0 - D7. D8 is shared with TX (Serial1) and D9 is shared with RX (Serial1). When used for PWM, pins are assigned a PWM group. Each group must share the same 
-frequency and resolution, but individual pins in the group can have a different duty cycle.
+On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are the same physical pin as D0 - D7. D8 is shared with TX (Serial1) and D9 is shared with RX (Serial1). When used for PWM, pins are assigned a PWM group. Each group must share the same frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 3: RGB LED
 - Group 2: D8 (TX), D9 (RX)
 - Group 1: D4, D5, D6, D7
 - Group 1: D0, D1, D2, D3
 
-{{/if}}
+{{note op="end"}}
 
 
-**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
+{{note op="start" type="gen2"}}
+- On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+- Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
+- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
 
-Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/hardware/pin-info).
+The PWM frequency must be the same for pins in the same timer group.
+
+- On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
+- On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX/P1S6.
+- On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
+{{note op="end"}}
+
 
 {{/if}} {{!-- has-pwm --}}
 
@@ -4225,38 +4273,10 @@ analogWrite(DAC1, 1024);
 
 ### analogRead() (ADC)
 
-Reads the value from the specified analog pin. 
-
-{{#if has-stm32}}
-The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
-
-_Before 0.5.3_ **Note**: do *not* set the pinMode() with `analogRead()`. The pinMode() is automatically set to AN_INPUT the first time analogRead() is called for a particular analog pin. If you explicitly set a pin to INPUT or OUTPUT after that first use of analogRead(), it will not attempt to switch it back to AN_INPUT the next time you call analogRead() for the same analog pin. This will create incorrect analog readings.
-
-_Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). The pinMode() is automatically set to AN_INPUT any time analogRead() is called for a particular analog pin, if that pin is set to a pinMode other than AN_INPUT.  If you explicitly set a pin to INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT before using analogRead(), it will switch it back to AN_INPUT before taking the reading.  If you use digitalRead() afterwards, it will automatically switch the pinMode back to whatever you originally explicitly set it to.
-{{/if}}
-
-{{#if has-nrf52}}
-The Gen 3 Feather devices (Argon, Boron, Xenon) have 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
-
-The sample time to read one analog value is 10 microseconds.
-
-The Boron SoM has 8 channels, A0 to A7.
-
-The Tracker SoM has 8 channels, A0 to A7, however these pins are the same physical pins D0 to D7.
-
-The Tracker One only exposes one analog input, A3, on the external M8 connector. Pin A0 is connected to the NTC thermistor on the carrier board.
-{{/if}}
-
 ```cpp
 // SYNTAX
 analogRead(pin);
-```
 
-`analogRead()` takes one argument `pin`: the number of the analog input pin to read from ({{pins op='all-a'}})
-
-`analogRead()` returns an integer value ranging from 0 to 4095.
-
-```cpp
 // EXAMPLE USAGE
 int ledPin = D1;                // LED connected to digital pin D1
 int analogPin = A0;             // potentiometer connected to analog pin A0
@@ -4277,13 +4297,43 @@ void loop()
 }
 ```
 
+Reads the value from the specified analog pin. 
+
+`analogRead()` takes one argument `pin`: the number of the analog input pin to read from, such as A0 or A1.
+
+`analogRead()` returns an integer value ranging from 0 to 4095 (12-bit).
+
+---
+
+{{note op="start" type="gen3"}}
+The Gen 3 Feather devices (Argon, Boron, Xenon) have 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+
+The sample time to read one analog value is 10 microseconds.
+
+The Boron SoM has 8 channels, A0 to A7.
+
+The Tracker SoM has 8 channels, A0 to A7, however these pins are the same physical pins D0 to D7.
+
+The Tracker One only exposes one analog input, A3, on the external M8 connector. Pin A0 is connected to the NTC thermistor on the carrier board.
+{{note op="end"}}
+
+
+{{note op="start" type="gen2"}}
+The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+
+_Before 0.5.3_ **Note**: do *not* set the pinMode() with `analogRead()`. The pinMode() is automatically set to AN_INPUT the first time analogRead() is called for a particular analog pin. If you explicitly set a pin to INPUT or OUTPUT after that first use of analogRead(), it will not attempt to switch it back to AN_INPUT the next time you call analogRead() for the same analog pin. This will create incorrect analog readings.
+
+_Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). The pinMode() is automatically set to AN_INPUT any time analogRead() is called for a particular analog pin, if that pin is set to a pinMode other than AN_INPUT.  If you explicitly set a pin to INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT before using analogRead(), it will switch it back to AN_INPUT before taking the reading.  If you use digitalRead() afterwards, it will automatically switch the pinMode back to whatever you originally explicitly set it to.
+{{note op="end"}}
+
+
 {{#if has-adc-sample-time}}
 
 ### setADCSampleTime()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
- On the Photon and Electron, this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
+ On the Photon, P1, Electron, and E Series this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
 
  * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles, 100ns
  * ADC_SampleTime_15Cycles: Sample time equal to 15 cycles, 500ns
@@ -4292,7 +4342,7 @@ The function `setADCSampleTime(duration)` is used to change the default sample t
  * ADC_SampleTime_84Cycles: Sample time equal to 84 cycles, 2.80us
  * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles, 3.73us
  * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles, 4.80us
- * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles, 16.0us
+ * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles, 16.0us (default)
 
 The default is ADC_SampleTime_480Cycles. This means that the ADC is sampled for 16 us which can provide a more accurate reading, at the expense of taking longer than using a shorter ADC sample time. If you are measuring a high frequency signal, such as audio, you will almost certainly want to reduce the ADC sample time.
  
@@ -7112,22 +7162,29 @@ Returns the number of bytes available.
 
 {{since when="0.6.2"}}
 
-The `__SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and can replace separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
+The `SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and can replace separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
 
-**Note:** Either `SPISettings()` (_Since 0.6.1_) or `__SPISettings()` (_Since 0.6.2_) may be used **with** `#include "Arduino.h"`
-`__SPISettings()` should be used **without** `#include "Arduino.h"`
+| | SPISettings | __SPISettings |
+| :--- | :--- | :--- |
+| Available in Device OS | 0.6.1 | 0.6.2 | 
+| Requires `#include "Arduino.h` | 0.6.2 - 1.5.2 | No |
+| Available in 2.0.0 and later | &check; | &check; |
+
+You should use `SPISettings()` with 2.0.0 and later, with or without `#include "Arduino.h`. 
+
+`__SPISettings()` can be used in 0.6.2 and later for backward compatibility with those versions of Device OS, but is unnecessary for 2.0.0 and later.
 
 ```cpp
 // SYNTAX
-SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
-// Pre-declared __SPISettings object
-__SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
+SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared SPISettings object
+SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
 SPI.beginTransaction(settings);
 
 {{#if has-multiple-spi}}
-SPI1.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
 {{#if electron}}
-SPI2.beginTransaction(__SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 {{/if}}
 {{/if}}
 ```
@@ -7157,14 +7214,14 @@ You must not use `beginTransaction()` within a `SINGLE_THREADED_BLOCK` as deadlo
 
 ```cpp
 // SYNTAX
-SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
-// Pre-declared __SPISettings object
+SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared SPISettings object
 SPI.beginTransaction(settings);
 
 {{#if has-multiple-spi}}
-SPI1.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
 {{#if electron}}
-SPI2.beginTransaction(__SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 {{/if}}
 {{/if}}
 ```
@@ -10770,9 +10827,11 @@ Returns:
 
 ### receivePacket()
 
-Checks for the presence of a UDP packet and returns the size. Note that it is possible to receive a valid packet of zero bytes, this will still return the sender's address and port after the call to receivePacket().
-
 ```cpp
+// PROTOTYPES
+int receivePacket(uint8_t* buffer, size_t buf_size, system_tick_t timeout = 0)
+int receivePacket(char* buffer, size_t buf_size, system_tick_t timeout = 0)
+
 // SYNTAX
 size = Udp.receivePacket(buffer, size);
 // EXAMPLE USAGE - get a string without buffer copy
@@ -10796,24 +10855,35 @@ if (!rxError) {
 }
 ```
 
+Checks for the presence of a UDP packet and returns the size. Note that it is possible to receive a valid packet of zero bytes, this will still return the sender's address and port after the call to receivePacket().
+
 Parameters:
  - `buffer`: the buffer to hold any received bytes (uint8_t).
- - `size`: the size of the buffer.
+ - `buf_size`: the size of the buffer.
+ - `timeout`: The timeout to wait for data in milliseconds, or 0 to not block in Device OS 2.0.0 and later. Prior to 2.0.0 this function did not block.
 
 Returns:
 
  - `int`: on success the size (greater then or equal to zero) of a received UDP packet. On failure the internal error code.
 
+
 ### parsePacket()
 
 Checks for the presence of a UDP packet, and reports the size. `parsePacket()` must be called before reading the buffer with `UDP.read()`.
 
+It's usually more efficient to use `receivePacket()` instead of `parsePacket()` and `read()`.
+
 ```cpp
+// PROTOTYPE
+int parsePacket(system_tick_t timeout = 0);
+
 // SYNTAX
 size = Udp.parsePacket();
 ```
 
-Parameters: NONE
+Parameters: 
+
+- `timeout`: The timeout to wait for data in milliseconds, or 0 to not block in Device OS 2.0.0 and later. Prior to 2.0.0 this function did not block
 
 Returns:
 
@@ -12929,7 +12999,8 @@ void watchdogHandler() {
   // or similar functions. You can save data to a retained variable
   // here safetly so you know the watchdog triggered when you 
   // restart.
-  System.reset();
+  // In 2.0.0 and later, RESET_NO_WAIT prevents notifying the cloud of a pending reset
+  System.reset(RESET_NO_WAIT);
 }
 
 void setup() {
@@ -13820,7 +13891,7 @@ Typical power consumption in hibernate sleep mode, based on the wakeup source:
 
 - On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
 
-- You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later.
+- You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later, on Gen 3 devices.
 {{note op="end"}}
 
 {{note op="start" type="cellular"}}
@@ -13914,8 +13985,8 @@ In this mode:
 | :--- | :---: | :---: |
 | GPIO | &check; | &check; |
 | Time (RTC) | &check; | &check; | 
-| Analog | &check; | &check; | 
-| Serial | &check; | &check; | 
+| Analog | | &check; | 
+| Serial | | &check; | 
 | BLE | | &check; |
 | Cellular | &check; | &check; |
 | Wi-Fi | &nbsp; | &check; |
@@ -13946,7 +14017,7 @@ The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_
 
 - On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
 
-- You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later.
+- You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later on Gen 3 devices.
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
@@ -14083,6 +14154,62 @@ This option does not currently wake from network but does work similarly to `SLE
 
 In the future, this may support actual wake on network activity for devices that have hardware support for it.
 
+| Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) |
+| :--- | :---: | :---: | :---: |
+| Wake from STOP sleep | | &check; | &check; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; |
+
+
+#### SystemSleepConfiguration::analog()
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& analog(pin_t pin, uint16_t voltage, AnalogInterruptMode trig) 
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .analog(A2, 1500, AnalogInterruptMode::BELOW);
+```
+
+Wake on an analog voltage compared to a reference value specified in **millivolts**. Can only be used on analog pins. Voltage is a maximum of 3.3V (3300 mV).
+
+The `AnalogInterruptMode` is one of:
+
+- AnalogInterruptMode::ABOVE - Voltage rises above the threshold `voltage`.
+- AnalogInterruptMode::BELOW - Voltage falls below the threshold `voltage`.
+- AnalogInterruptMode::CROSS - Voltage crosses the threshold `volage` in either direction.
+
+| Analog Wake Support | Gen 2 | Gen 3|
+| :--- | :---: | :---: |
+| Wake from STOP sleep | &check; | &check; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp;  |
+
+
+#### SystemSleepConfiguration::usart
+
+```c++
+// PROTOTYPE
+SystemSleepConfiguration& usart(const USARTSerial& serial)
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .usart(Serial1);
+```
+
+Wake from a hardware UART (USART). This can only be done with a hardware serial port; you cannot wake from the USB virtual serial port (Serial).
+
+Note: Keeping the USART active in ultra-low power mode significanly increases the current used while sleeping.
+
+| USART Wake Support | Gen 2 | Gen 3|
+| :--- | :---: | :---: |
+| Wake from STOP sleep | &check; | &check; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
+
 ---
 
 #### SystemSleepConfiguration::ble()
@@ -14099,6 +14226,19 @@ config.mode(SystemSleepMode::STOP)
 ```
 
 Wake on Bluetooth LE data (BLE). Only available on Gen 3 platforms (Argon, Boron, B Series SoM, and Tracker SoM).
+
+In addition to Wake on BLE, this keeps the BLE subsystem activated so the nRF52 MCU can wake up briefly to:
+
+- Advertise when in BLE central mode. This allows the MCU to wake when a connection is attempted.
+- Keep a connection alive when in BLE peripheral mode. This allows the MCU to wake when data arrives on the connection.
+
+| BLE Wake Support | Gen 2 | Gen 3|
+| :--- | :---: | :---: |
+| Wake from STOP sleep | &nbsp; | &check; |
+| Wake from ULTRA_LOW_POWER sleep | | &check; |
+| Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
+
+
 
 ### SystemSleepResult Class
 
@@ -14834,26 +14974,6 @@ int err = System.sleepError();
 
 See [`SleepResult`](#error-) documentation.
 
-### reset()
-
-Resets the device, just like hitting the reset button or powering down and back up.
-
-```cpp
-uint32_t lastReset = 0;
-
-void setup() {
-    lastReset = millis();
-}
-
-void loop() {
-  // Reset after 5 minutes of operation
-  // ==================================
-  if (millis() - lastReset > 5*60000UL) {
-    System.reset();
-  }
-}
-```
-
 {{/if}} {{!-- has-sleep --}}
 
 
@@ -15490,23 +15610,95 @@ Serial.print("free memory: ");
 Serial.println(freemem);
 ```
 
+### reset()
+
+```cpp
+// PROTOTYPES
+void reset();
+void reset(SystemResetFlags flags);
+void reset(uint32_t data, SystemResetFlags flags = SystemResetFlags());
+
+
+// EXAMPLE
+uint32_t lastReset = 0;
+
+void setup() {
+    lastReset = millis();
+}
+
+void loop() {
+  // Reset after 5 minutes of operation
+  // ==================================
+  if (millis() - lastReset > 5*60000UL) {
+    System.reset();
+  }
+}
+```
+
+Resets the device, just like hitting the reset button or powering down and back up.
+
+- If the `data` parameter is present, this is included in the [reset reason](#reset-reason) as the user data parameter for `RESET_REASON_USER`.
+
+{{since when="2.0.0"}}
+
+- `SystemResetFlags` can be specified in Device OS 2.0.0 and later. There is currently only one applicable flag:
+  
+  - `RESET_NO_WAIT` reset immediately and do not attempt to notify the cloud that a reset is about to occur.
+
+In Device OS 2.0.0 and later, a call to `System.reset()` defaults to notifying the cloud of a pending reset and waiting for an acknowledgement. To prevent this, use the `RESET_NO_WAIT` flag.
+
 
 ### dfu()
 
+```cpp
+// PROTOTYPES
+void dfu(SystemResetFlags flags = SystemResetFlags());
+void dfu(bool persist);
+```
+
 The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
+
 - flashing firmware to the device using dfu-util, specifying the `:leave` option, or
 - a system reset
 
-```cpp
-System.dfu()
-```
+{{since when="2.0.0"}}
 
-To make DFU mode permanent - so that it continues to enter DFU mode even after a reset until
-new firmware is flashed, pass `true` to the `dfu()` function.
+- `SystemResetFlags` can be specified in Device OS 2.0.0 and later. There is currently two applicable flags:
+  
+  - `RESET_NO_WAIT` reset immediately and do not attempt to notify the cloud that a reset is about to occur.
+  - `RESET_PERSIST_DFU` re-enter DFU mode even after reset until firmware is flashed.
+
+In Device OS 2.0.0 and later, a call to `System.dfu()` defaults to notifying the cloud of a pending reset and waiting for an acknowledgement. To prevent this, use the `RESET_NO_WAIT` flag.
+
+---
 
 ```cpp
 System.dfu(true);   // persistent DFU mode - will enter DFU after a reset until firmware is flashed.
 ```
+
+To make DFU mode permanent - so that it continues to enter DFU mode even after a reset until
+new firmware is flashed, pass `true` for the `persist` flag.
+
+### enterSafeMode()
+
+```cpp
+// PROTOTYPE
+void enterSafeMode(SystemResetFlags flags = SystemResetFlags())
+```
+
+{{since when="0.4.6"}}
+
+Resets the device and restarts in safe mode (blinking green, blinking cyan, followed by breathing magenta). Note that the device must be able to connect to the cloud in order to successfully enter safe mode.
+
+In safe mode, the device is running Device OS and is able to receive OTA firmware updates from the cloud, but does not run the user firmware.
+
+{{since when="2.0.0"}}
+
+- `SystemResetFlags` can be specified in Device OS 2.0.0 and later. There is currently only one applicable flag:
+  
+  - `RESET_NO_WAIT` reset immediately and do not attempt to notify the cloud that a reset is about to occur.
+
+In Device OS 2.0.0 and later, a call to `System.dfu()` defaults to notifying the cloud of a pending reset and waiting for an acknowledgement. To prevent this, use the `RESET_NO_WAIT` flag.
 
 
 ### deviceID()
@@ -15531,17 +15723,6 @@ void setup()
 void loop() {}
 ```
 
-### enterSafeMode()
-
-{{since when="0.4.6"}}
-
-```cpp
-// SYNTAX
-System.enterSafeMode();
-```
-
-
-Resets the device and restarts in safe mode.
 
 {{#if has-pmic}}
 
@@ -16029,6 +16210,13 @@ void loop() {
 
 This device implements a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
 
+| Device | Since Device OS | Size |
+| :--- | :--- | :--- |
+| Tracker SoM | 1.5.4-rc.1 | 4 MB |
+| Argon, Boron, B Series SoM | 2.0.0-rc.1 | 2 MB |
+
+The file system is not available on Gen 2 devices.
+
 ### File System open 
 
 ```cpp
@@ -16074,7 +16262,9 @@ On error, returns -1 and sets `errno`. Some possible `errno` values include:
 - `ENOMEM` Out of memory.
 - `EEXIST` File already exists when using `O_CREAT | O_EXCL`.
 
-When you are doing accessing a file, be sure to call [`close`](#file-system-close) on the file descriptor.
+When you are done accessing a file, be sure to call [`close`](#file-system-close) on the file descriptor.
+
+Opening the same path again without closing opens up a new file descriptor each time, as is the case in UNIX.
 
 ### File System write
 

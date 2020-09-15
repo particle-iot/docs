@@ -358,8 +358,9 @@ These specifications are based on the nRF52840 datasheet.
 | CPAD_NFC | Pad capacitance on NFC pads  |  | 4 |  | pF | 
 | INFC_LEAK | Leakage current between NFC pads when driven to different states |  | 1 | 10 | μA |  
 
+- Rise and fall times based on simulations
 
-<sup>1</sup>Rise and fall times based on simulations
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/boron/#pinsetdrivestrength-) function.
 
 ## Mechanical specifications
 

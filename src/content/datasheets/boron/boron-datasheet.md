@@ -289,9 +289,12 @@ These specifications are based on the nRF52840 datasheet.
 |Input low voltage | V<sub>IL</sub> | | 0 | | 0.3*3.3 | V |
 |Current at GND+0.4 V, output set low, high drive|I<sub>OL,HDL</sub> |V<sub>3V3</sub> >= 2.7V|6|10|15|mA|
 |Current at V<sub>3V3</sub>-0.4 V, output set high, high drive|I<sub>OH,HDH</sub>|V<sub>3V3</sub> >= 2.7V|6|9|14|mA|
+|Current at GND+0.4 V, output set low, standard drive|I<sub>OL,SD</sub> |V<sub>3V3</sub> >= 2.7V|1|2|4|mA|
+|Current at V<sub>3V3</sub>-0.4 V, output set high, standard drive|I<sub>OH,SD</sub>|V<sub>3V3</sub> >= 2.7V|1|2|4|mA|
 | Pull-up resistance | R<sub>PU</sub> | | 11 |13 | 16 | kΩ |
 | Pull-down resistance | R<sub>PD</sub> | | 11 |13 | 16 | kΩ |
 
+GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/boron/#pinsetdrivestrength-) function.
 
 ## Mechanical specifications
 
