@@ -13703,6 +13703,133 @@ This will allow the device to join the product it has been added to without hard
 
 Sleep modes can dramatically improve the battery life of your device. There are two sleep APIs, the API added in Device OS 1.5.0 described in this section, and the [classic API](#sleep-classic-api-) that preceeded it in the following section.
 
+### Sleep Modes
+
+The are are three sleep modes:
+
+- `SystemSleepMode::STOP`
+- `SystemSleepMode::ULTRA_LOW_POWER` (in Device OS 2.0.0 and later)
+- `SystemSleepMode::HIBERNATE`
+
+#### SystemSleepMode::STOP
+
+The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). In this mode:
+
+- Real-time clock (RTC) is kept running.
+- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`.
+- BLE is kept on if used as a wake-up source (Gen 3 devices only).
+- GPIO, UART, ADC are all kept on, so pin states remain constant even in sleep mode.
+- Can wake from: Time, GPIO, BLE, or Wi-Fi (Gen 3).
+
+| Wake Mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| GPIO | &check; | &check; |
+| Time (RTC) | &check; | &check; | 
+| Analog | &check; | &check; | 
+| Serial | &check; | &check; | 
+| BLE | | &check; |
+| Cellular | &check; | &check; |
+| Wi-Fi | &nbsp; | &check; |
+
+
+Typical power consumption in STOP sleep mode, based on the wakeup source:
+
+| Device      | GPIO      | RTC       | Analog    | Serial    | BLE       | Network   |
+| :---------- | --------: | --------: | --------: | --------: | --------: | --------: |
+| T523 Eval   |    872 uA |    873 uA |    852 uA |    840 uA |    919 uA |   21.5 mA |
+| T402 Eval   |    807 uA |    835 uA |    831 uA |    798 uA |    858 uA |   17.2 mA |
+| Boron 2G/3G |    631 uA |    607 uA |    585 uA |    606 uA |    907 uA |   15.6 mA |
+| Boron LTE   |    575 uA |    584 uA |    577 uA |    587 uA |    885 uA |   12.1 mA |
+| B402 SoM    |    555 uA |    556 uA |    557 uA |    556 uA |    631 uA |    9.7 mA |
+| B523 SoM    |    538 uA |    537 uA |    537 uA |    537 uA |    604 uA |   23.1 mA |
+| Argon       |    396 uA |    398 uA |    398 uA |    397 uA |    441 uA |   22.2 mA |
+| Electron    |   2.40 mA |   2.53 mA |   6.03 mA |   13.1 mA |       n/a |   28.1 mA |  
+| Photon      |   2.75 mA |   2.82 mA |   7.56 mA |   18.2 mA |       n/a |       n/a |
+
+#### SystemSleepMode::ULTRA_LOW_POWER
+
+The `SystemSleepMode::ULTRA_LOW_POWER` mode is similar to STOP mode however internal peripherals such as GPIO, UART, ADC, and DAC are turned off. Like STOP mode, the RTC continues to run but since many more peripherals are disabled, the current used is closer to HIBERNATE. It is available in Device OS 2.0.0 and later.
+
+In this mode:
+
+- Real-time clock (RTC) is kept running.
+- Network is kept on if used as a wake-up source.
+- BLE is kept on if used as a wake-up source (Gen 3 devices only).
+- GPIO, UART, ADC are only kept on if used as a wake-up source. 
+- OUTPUT GPIO are disabled in ultra-low power mode.
+- Can wake from: Time, GPIO. On Gen 3 also analog, serial, BLE, and network.
+
+
+| Wake Mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| GPIO | &check; | &check; |
+| Time (RTC) | &check; | &check; | 
+| Analog | &check; | &check; | 
+| Serial | &check; | &check; | 
+| BLE | | &check; |
+| Cellular | &check; | &check; |
+| Wi-Fi | &nbsp; | &check; |
+
+
+Typical power consumption in ultra-low power (ULP) sleep mode, based on the wakeup source:
+
+| Device      | GPIO      | RTC       | Analog    | Serial    | BLE       | Network   |
+| :---------- | --------: | --------: | --------: | --------: | --------: | --------: |
+| T523 Eval   |    139 uA |    139 uA |    140 uA |    564 uA |    214 uA |   21.7 mA |
+| T402 Eval   |    114 uA |    114 uA |    117 uA |    530 uA |    186 uA |   16.9 mA |
+| Boron 2G/3G |    171 uA |    174 uA |    178 uA |    610 uA |    494 uA |   16.4 mA |
+| Boron LTE   |    127 uA |    128 uA |    130 uA |    584 uA |    442 uA |   14.2 mA |
+| B402 SoM    |     48 uA |     47 uA |     48 uA |    557 uA |    130 uA |    9.5 mA |
+| B523 SoM    |     54 uA |     55 uA |     56 uA |    537 uA |    139 uA |   22.8 mA |
+| Argon       |     82 uA |     81 uA |     82 uA |    520 uA |    141 uA |   21.3 mA |
+| Electron    |   2.42 mA |   2.55 mA |       n/a |       n/a |       n/a |       n/a |  
+| Photon      |   2.76 mA |   2.83 mA |       n/a |       n/a |       n/a |       n/a |
+
+
+#### SystemSleepMode::HIBERNATE
+
+The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. In this mode:
+
+| Wake Mode | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| GPIO | WKP RISING Only | &check; |
+| Time (RTC) | &check; | &nbsp; | 
+
+Typical power consumption in hibernate sleep mode, based on the wakeup source:
+
+| Device      | GPIO      | RTC       |
+| :---------- | --------: | --------: |
+| T523 Eval   |    103 uA |     95 uA |
+| T402 Eval   |    103 uA |     95 uA |
+| Boron 2G/3G |    146 uA |       n/a |
+| Boron LTE   |    106 uA |       n/a |
+| B402 SoM    |     26 uA |       n/a |
+| B523 SoM    |     30 uA |       n/a |
+| Argon       |     65 uA |       n/a |
+| Electron    |    114 uA |    114 uA |
+| Photon      |    114 uA |    114 uA |
+
+---
+
+{{note op="start" type="gen2"}}
+- On the Photon, P1, Electron, and E Series) you can only wake on time or WKP RISING in HIBERNATE mode.
+{{note op="end"}}
+
+{{note op="start" type="gen3"}}
+- On the Argon, Boron, and B Series SoM you can only wake by pin, not by time, in HIBERNATE mode.
+
+- On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
+
+- You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later.
+{{note op="end"}}
+
+{{note op="start" type="cellular"}}
+- On cellular devices, the cellular modem is turned off in HIBERNATE mode. This reduces current consumption but increases the time to reconnect. Also, you should avoid any HIBERNATE period of less than 10 minutes on cellular devices. Since the cellular modem needs to reconnect to the cellular network on wake, your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour.
+{{note op="end"}}
+
+---
+
+
 ### sleep() [ Sleep ]
 
 {{since when="1.5.0"}}
@@ -13735,22 +13862,30 @@ config.mode(SystemSleepMode::STOP)
       .gpio(WKP, RISING)
       .duration(60s);
 System.sleep(config);
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .network(NETWORK_INTERFACE_CELLULAR)
+      .flag(SystemSleepFlag::WAIT_CLOUD)
+      .duration(2min);
 ```
 
 The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). In this mode:
 
-- Real-time clock (RTC) is kept running
-- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`
-- BLE is kept on if used as a wake-up source (Gen 3 devices only)
-- GPIO, UART, ADC are all kept on, so pin states remain constant even in sleep mode
-- Can wake from: Time, GPIO, or BLE
+- Real-time clock (RTC) is kept running.
+- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`.
+- BLE is kept on if used as a wake-up source (Gen 3 devices only).
+- GPIO, UART, ADC are all kept on, so pin states remain constant even in sleep mode.
+- Can wake from: Time, GPIO, BLE, or Wi-Fi (Gen 3).
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
 | GPIO | &check; | &check; |
 | Time (RTC) | &check; | &check; | 
+| Analog | &check; | &check; | 
+| Serial | &check; | &check; | 
 | BLE | | &check; |
-| NFC | | &check; |
 | Cellular | &check; | &check; |
 | Wi-Fi | &nbsp; | &check; |
 
@@ -13768,21 +13903,22 @@ The `SystemSleepMode::ULTRA_LOW_POWER` mode is similar to STOP mode however inte
 
 In this mode:
 
-- Real-time clock (RTC) is kept running
-- Network is kept on if used as a wake-up source
-- BLE is kept on if used as a wake-up source (Gen 3 devices only)
-- GPIO, UART, ADC are only kept on if used as a wake-up source. OUTPUT GPIO are disabled in ultra-low power mode.
-- Can wake from: Time, GPIO, BLE, NFC, network.
+- Real-time clock (RTC) is kept running.
+- Network is kept on if used as a wake-up source.
+- BLE is kept on if used as a wake-up source (Gen 3 devices only).
+- GPIO, UART, ADC are only kept on if used as a wake-up source. 
+- OUTPUT GPIO are disabled in ultra-low power mode.
+- Can wake from: Time, GPIO. On Gen 3 also analog, serial, BLE, and network.
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
 | GPIO | &check; | &check; |
 | Time (RTC) | &check; | &check; | 
+| Analog | &check; | &check; | 
+| Serial | &check; | &check; | 
 | BLE | | &check; |
-| NFC | | &check; |
 | Cellular | &check; | &check; |
 | Wi-Fi | &nbsp; | &check; |
-
 
 ---
 
@@ -13801,15 +13937,9 @@ The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_
 | :--- | :---: | :---: |
 | GPIO | WKP RISING Only | &check; |
 | Time (RTC) | &check; | &nbsp; | 
-| BLE | &nbsp; | &nbsp; |
-| NFC | &nbsp; | &check; |
+
 
 ---
-
-{{note op="start" type="gen2"}}
-- On the Photon, P1, Electron, and E Series) you can only wake on time or WKP RISING in HIBERNATE mode.
-- Wake by BLE and NFC are not available on Gen 2 devices.
-{{note op="end"}}
 
 {{note op="start" type="gen3"}}
 - On the Argon, Boron, and B Series SoM you can only wake by pin, not by time, in HIBERNATE mode.
@@ -13817,13 +13947,17 @@ The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_
 - On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
 
 - You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later.
+{{note op="end"}}
 
-- You can wake from HIBERNATE by NFC on Gen 3 devices with Device OS 2.0.0 and later.
+{{note op="start" type="gen2"}}
+- On the Photon, P1, Electron, and E Series you can only wake on time or WKP RISING in HIBERNATE mode.
+- Wake by BLE is not available on Gen 2 devices.
 {{note op="end"}}
 
 {{note op="start" type="cellular"}}
 - On cellular devices, the cellular modem is turned off in HIBERNATE mode. This reduces current consumption but increases the time to reconnect. Also, you should avoid any HIBERNATE period of less than 10 minutes on cellular devices. Since the cellular modem needs to reconnect to the cellular network on wake, your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour.
 {{note op="end"}}
+
 ---
 
 #### SystemSleepConfiguration::duration()
@@ -13846,17 +13980,18 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ---
 
-{{note op="start" type="gen2"}}
-On the Photon, P1, Electron, and E Series even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
-{{note op="end"}}
-
 {{note op="start" type="gen3"}}
 On the Argon, Boron, B Series SoM, and Tracker SoM you cannot wake from HIBERNATE mode by time because the RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low-power (ULP) mode.
+{{note op="end"}}
+
+{{note op="start" type="gen2"}}
+On the Photon, P1, Electron, and E Series even though the parameter can be in milliseconds, the resolution is only in seconds, and the minimum sleep time is 1000 milliseconds.
 {{note op="end"}}
 
 {{note op="start" type="cellular"}}
 On cellular devices, if you turn off the cellular modem, you should not wake with a period of less than 10 minutes on average. Your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour. You can wake your device frequently if you do not reconnect to cellular every time. For example, you can wake, sample a sensor and save the value, then go to sleep and only connect to cellular and upload the data every 10 minutes. Or you can use cellular standby so cellular stays connected through sleep cycles and then you can sleep for short durations.
 {{note op="end"}}
+
 
 ---
 
@@ -13887,18 +14022,18 @@ Specifies wake on pin. The mode is:
 
 ---
 
-{{note op="start" type="gen2"}}
-- On the Photon, P1, Electron, and E Series you can only wake from HIBERNATE mode using WKP RISING. 
-- Do not attempt to enter sleep mode with WKP already high. Doing so will cause the device to never wake again, either by pin or time.
-- `SLEEP_MODE_DEEP` in the classic API defaults to allowing wake by `WKP` rising. This is no longer automatic and you should specify it explicitly as in the example here if you want this behavior by adding `.gpio(WKP, RISING)`.
-{{note op="end"}}
-
 {{note op="start" type="gen3"}}
 On Gen 3 devices the location of the `WKP` pin varies, and it may make more sense to just use the actual pin name. You do not need to use `WKP` to wake from `HIBERNATE` on Gen 3 devices, and you can wake on either RISING, FALLING or CHANGE.
 
 - Argon, Boron, and Xenon, WKP is pin D8. 
 - B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8. 
 - Tracker SoM WKP is pin A7/D7.
+{{note op="end"}}
+
+{{note op="start" type="gen2"}}
+- On the Photon, P1, Electron, and E Series you can only wake from HIBERNATE mode using WKP RISING. 
+- Do not attempt to enter sleep mode with WKP already high. Doing so will cause the device to never wake again, either by pin or time.
+- `SLEEP_MODE_DEEP` in the classic API defaults to allowing wake by `WKP` rising. This is no longer automatic and you should specify it explicitly as in the example here if you want this behavior by adding `.gpio(WKP, RISING)`.
 {{note op="end"}}
 
 ---
@@ -13963,7 +14098,7 @@ config.mode(SystemSleepMode::STOP)
       .ble();
 ```
 
-Wake on Bluetooth LE data (BLE).
+Wake on Bluetooth LE data (BLE). Only available on Gen 3 platforms (Argon, Boron, B Series SoM, and Tracker SoM).
 
 ### SystemSleepResult Class
 
