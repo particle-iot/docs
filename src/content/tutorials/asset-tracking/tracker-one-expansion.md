@@ -94,6 +94,8 @@ The M8 (8mm) 8-pin connector is standard, however it's not common. Some other co
 
 ![M8 cable](/assets/images/at-som/m8-cable.jpg)
 
+Additional information can be found in the [M8 Accessories Datasheet](/datasheets/asset-tracking/tracker-m8-accessories/).
+
 The common use case will be to include a cable gland in your expansion enclosure, pass the wires through the gland, and terminate them on your custom expansion board.
 
 You'd typically connect those wires to your custom expansion board using one of several methods:

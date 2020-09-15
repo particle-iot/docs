@@ -103,6 +103,8 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 <sup>4</sup>5V, 400 mA maximum. Controlled by the CAN_PWR GPIO.
 
+Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/datasheets/asset-tracking/tracker-m8-accessories/).
+
 ---
 
 ### Carrier Board Power and I/O Connector
