@@ -3220,7 +3220,7 @@ A software implementation of Data Usage that pulls sent and received session and
 
 **Note**: The internal modem counters are typically reset when the modem is power cycled (complete power removal, soft power down or Cellular.off()) or if the PDP context is deactivated and reactivated which can happen asynchronously during runtime. If the Cellular.getDataUsage() API has been read, reset or set, and then the modem's counters are reset for any reason, the next call to Cellular.getDataUsage() for a read will detect that the new reading would be less than the previous reading.  When this is detected, the current reading will remain the same, and the now lower modem count will be used as the new baseline.  Because of this mechanism, it is generally more accurate to read the getDataUsage() count often. This catches the instances when the modem count is reset, before the count starts to increase again.
 
-**Note**: LTE Cat M1 devices (SARA-R410M-02B) do not support data usage APIs.
+**Note**: LTE Cat M1 devices (SARA-R410M-02B), Quectel EG91-E (B Series SoM B523), Quectel EG-91EX (Tracker SoM T523), and Quectel BG96-MC (TrackerSoM T502) do not support data usage APIs.
 
 To use the data usage API, an instance of the `CellularData` type needs to be created to read or set counters.  All data usage API functions and the CellularData object itself return `bool` - `true` indicating the last operation was successful and the CellularData object was updated. For set and get functions, `CellularData` is passed by reference `Cellular.dataUsage(CellularData&);` and updated by the function.  There are 5 integers and 1 boolean within the CellularData object:
 
@@ -3780,30 +3780,49 @@ FuelGauge fuel;
 ```
 
 ### getVCell()
-Returns the battery voltage as a `float`.
 
 ```cpp
+// PROTOTYPE
+float getVCell();
+
 // EXAMPLE
 FuelGauge fuel;
-Serial.println( fuel.getVCell() );
+Log.info( "voltage=%.2f", fuel.getVCell() );
 ```
+
+Returns the battery voltage as a `float`. Returns -1.0 if the fuel gauge cannot be read.
 
 ### getSoC()
-Returns the State of Charge in percentage from 0-100% as a `float`.
 
 ```cpp
+// PROTOTYPE
+float getSoC() 
+
 // EXAMPLE
 FuelGauge fuel;
-Serial.println( fuel.getSoC() );
+Log.info( "SoC=%.2f", fuel.getSoC() );
 ```
 
-Note that in most cases, "fully charged" state (red charging LED goes off) will result in a SoC of 80%, not 100%. 
+Returns the State of Charge in percentage from 0-100% as a `float`. Returns -1.0 if the fuel gauge cannot be read.
+
+Note that in most cases, "fully charged" state (red charging LED goes off) will result in a SoC of 80%, not 100%. Using `getNormalizedSoC()` normalizes the value based on the charge voltage so the SoC will be 100% when the charge LED goes off.
 
 In some cases you can [increase the charge voltage](#setchargevoltage-) to get a higher SoC, but there are limits, based on temperature.
 
 {{since when="1.5.0"}}
 
-It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of using `getSoC()`.
+It may be preferable to use [`System.batteryCharge()`](#batterycharge-) instead of using `getSoC()`, which uses the value in device diagnostics, which eventually uses `getNormalizedSoC()`.
+
+### getNormalizedSoC()
+
+```cpp
+// PROTOTYPE
+float getNormalizedSoC()
+```
+
+Returns the State of Charge in percentage from 0-100% as a `float`, normalized based on the charge voltage. Returns -1.0 if the fuel gauge cannot be read.
+
+It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of using `getNormalizedSoC()` directly. `System.batteryCharge()` uses the value in device diagnostics, which eventually uses `getNormalizedSoC()`.
 
 ### getVersion()
 `int getVersion();`
@@ -11216,6 +11235,10 @@ Detach the Servo variable from its pin.
 servo.detach()
 ```
 
+{{since when="2.0.0"}}
+
+In Device OS 2.0.0 and later, the destructor for Servo will detach from the pin allowing it to be used as a regular GPIO again.
+
 ### setTrim()
 
 Sets a trim value that allows minute timing adjustments to correctly
@@ -12315,12 +12338,15 @@ Returns: Integer
 
 ### now()
 
-Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting, it's coordinated universal time (UTC).
-
 ```cpp
 // Print the current Unix timestamp
-Serial.print(Time.now()); // 1400647897
+Serial.print((int) Time.now()); // 1400647897
+
+// Print using loggging
+Log.info("time is: %d", (int) Time.now());
 ```
+
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting, it's coordinated universal time (UTC).
 
 Returns: time_t (Unix timestamp), coordinated universal time (UTC)
 
@@ -12336,7 +12362,7 @@ Starting with Device OS 2.0.0, gcc-arm 9.2.1 is used instead of gcc-arm 5.3.1. T
 
 User firmware targeting 1.5.4-rc.1 and earlier will continue to work with 32-bit time_t values, even when running on Device OS 2.0.0 or later.
 
-One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`, so beware when printing the value from `Time.now()`. Until 2038 you can cast it as a long and use `%ld` to print the numeric value.
+One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`, so beware when printing the value from `Time.now()`. Until 2038 you can cast it as a int and use `%d` to print the numeric value.
 
 ### local()
 
