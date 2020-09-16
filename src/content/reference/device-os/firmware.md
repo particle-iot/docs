@@ -13852,27 +13852,64 @@ This will allow the device to join the product it has been added to without hard
 
 {{#if has-sleep}}
 
-## System Sleep
+## Sleep
 
-Sleep modes can dramatically improve the battery life of your device. There are two sleep APIs, the API added in Device OS 1.5.0 described in this section, and the [classic API](#sleep-classic-api-) that preceeded it in the following section.
 
-### Sleep Modes
+### sleep() [ Sleep ]
+
+```cpp
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(D2, RISING);
+SystemSleepResult result = System.sleep(config);
+```
+
+
+{{since when="1.5.0"}}
+
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. 
+
+The `SystemSleepConfiguration` class configures all of the sleep parameters and eliminates the previous numerous and confusing overloads of the `System.sleep()` function. You pass this object to `System.sleep()`.
+
+For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
+
+#### SystemSleepConfiguration::mode()
 
 The are are three sleep modes:
 
-- `SystemSleepMode::STOP`
-- `SystemSleepMode::ULTRA_LOW_POWER` (in Device OS 2.0.0 and later)
-- `SystemSleepMode::HIBERNATE`
+- STOP
+- ULTRA_LOW_POWER
+- HIBERNATE
 
-#### SystemSleepMode::STOP
+---
 
-The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). In this mode:
+##### SystemSleepMode::STOP
+
+```cpp
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .gpio(WKP, RISING)
+      .duration(60s);
+System.sleep(config);
+
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::STOP)
+      .network(NETWORK_INTERFACE_CELLULAR)
+      .flag(SystemSleepFlag::WAIT_CLOUD)
+      .duration(2min);
+```
+
+The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). 
 
 - Real-time clock (RTC) is kept running.
 - Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`.
+- On the Argon, network can optionally be kept running for Wi-Fi.
 - BLE is kept on if used as a wake-up source (Gen 3 devices only).
-- GPIO, UART, ADC are all kept on, so pin states remain constant even in sleep mode.
-- Can wake from: Time, GPIO, BLE, or Wi-Fi (Gen 3).
+- UART, ADC are only kept on if used as a wake-up source. 
+- GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
+- Can wake from: Time, GPIO, analog, serial, and cellular. On Gen 3 also BLE and Wi-Fi.
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
@@ -13880,10 +13917,9 @@ The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin
 | Time (RTC) | &check; | &check; | 
 | Analog | &check; | &check; | 
 | Serial | &check; | &check; | 
-| BLE | | &check; |
+| BLE | &nbsp; | &check; |
 | Cellular | &check; | &check; |
 | Wi-Fi | &nbsp; | &check; |
-
 
 Typical power consumption in STOP sleep mode, based on the wakeup source:
 
@@ -13899,28 +13935,47 @@ Typical power consumption in STOP sleep mode, based on the wakeup source:
 | Electron    |   2.40 mA |   2.53 mA |   6.03 mA |   13.1 mA |       n/a |   28.1 mA |  
 | Photon      |   2.75 mA |   2.82 mA |   7.56 mA |   18.2 mA |       n/a |       n/a |
 
-#### SystemSleepMode::ULTRA_LOW_POWER
+---
+
+{{note op="start" type="cellular"}}
+- On cellular devices, wake-on network can be enabled in STOP mode. This is recommended for any sleep duration of less than 10 minutes as it keeps the modem active while in sleep mode.
+
+- You should avoid powering off and on the cellular modem in periods of less than 10 minutes. Since the cellular modem needs to reconnect to the cellular network on wake, your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour.
+{{note op="end"}}
+
+---
+
+##### SystemSleepMode::ULTRA_LOW_POWER
+
+```cpp
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::ULTRA_LOW_POWER)
+      .gpio(D2, FALLING);
+System.sleep(config);
+```
+
+{{since when="2.0.0"}}
 
 The `SystemSleepMode::ULTRA_LOW_POWER` mode is similar to STOP mode however internal peripherals such as GPIO, UART, ADC, and DAC are turned off. Like STOP mode, the RTC continues to run but since many more peripherals are disabled, the current used is closer to HIBERNATE. It is available in Device OS 2.0.0 and later.
 
 In this mode:
 
 - Real-time clock (RTC) is kept running.
-- Network is kept on if used as a wake-up source.
+- Network is kept on if used as a wake-up source (Gen 3 devices only).
 - BLE is kept on if used as a wake-up source (Gen 3 devices only).
 - GPIO, UART, ADC are only kept on if used as a wake-up source. 
 - OUTPUT GPIO are disabled in ultra-low power mode.
-- Can wake from: Time, GPIO. On Gen 3 also analog, serial, BLE, and network.
-
+- Can wake from: Time or GPIO. On Gen 3 also analog, serial, BLE, and network.
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
 | GPIO | &check; | &check; |
 | Time (RTC) | &check; | &check; | 
-| Analog | &check; | &check; | 
-| Serial | &check; | &check; | 
-| BLE | | &check; |
-| Cellular | &check; | &check; |
+| Analog | &nbsp; | &check; | 
+| Serial | &nbsp; | &check; | 
+| BLE | &nbsp; | &check; |
+| Cellular | &nbsp; | &check; |
 | Wi-Fi | &nbsp; | &check; |
 
 
@@ -13938,10 +13993,27 @@ Typical power consumption in ultra-low power (ULP) sleep mode, based on the wake
 | Electron    |   2.42 mA |   2.55 mA |       n/a |       n/a |       n/a |       n/a |  
 | Photon      |   2.76 mA |   2.83 mA |       n/a |       n/a |       n/a |       n/a |
 
+---
 
-#### SystemSleepMode::HIBERNATE
+{{note op="start" type="cellular"}}
+- On Gen 3 cellular devices, wake-on network can be enabled in ultra-low power mode. This is recommended for any sleep duration of less than 10 minutes as it keeps the modem active while in sleep mode.
 
-The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. In this mode:
+- You should avoid powering off and on the cellular modem in periods of less than 10 minutes. Since the cellular modem needs to reconnect to the cellular network on wake, your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour.
+{{note op="end"}}
+
+---
+
+##### SystemSleepMode::HIBERNATE
+
+```
+// EXAMPLE
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::HIBERNATE)
+      .gpio(WKP, RISING);
+System.sleep(config);
+```
+
+The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. It is the lowest power mode, however there are limited ways you can wake:
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
@@ -13962,135 +14034,6 @@ Typical power consumption in hibernate sleep mode, based on the wakeup source:
 | Electron    |    114 uA |    114 uA |
 | Photon      |    114 uA |    114 uA |
 
----
-
-{{note op="start" type="gen2"}}
-- On the Photon, P1, Electron, and E Series) you can only wake on time or WKP RISING in HIBERNATE mode.
-{{note op="end"}}
-
-{{note op="start" type="gen3"}}
-- On the Argon, Boron, and B Series SoM you can only wake by pin, not by time, in HIBERNATE mode.
-
-- On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
-
-- You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later, on Gen 3 devices.
-{{note op="end"}}
-
-{{note op="start" type="cellular"}}
-- On cellular devices, the cellular modem is turned off in HIBERNATE mode. This reduces current consumption but increases the time to reconnect. Also, you should avoid any HIBERNATE period of less than 10 minutes on cellular devices. Since the cellular modem needs to reconnect to the cellular network on wake, your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour.
-{{note op="end"}}
-
----
-
-
-### sleep() [ Sleep ]
-
-{{since when="1.5.0"}}
-
-`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. 
-
-The `SystemSleepConfiguration` class configures all of the sleep parameters and eliminates the previous numerous and confusing overloads of the `System.sleep()` function. You pass this object to `System.sleep()`.
-
-```cpp
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(D2, RISING);
-SystemSleepResult result = System.sleep(config);
-```
-
-#### SystemSleepConfiguration::mode()
-
-The are are three sleep modes:
-
-- `SystemSleepMode::STOP`
-- `SystemSleepMode::ULTRA_LOW_POWER` (in Device OS 2.0.0 and later)
-- `SystemSleepMode::HIBERNATE`
-
----
-
-```
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .gpio(WKP, RISING)
-      .duration(60s);
-System.sleep(config);
-
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::STOP)
-      .network(NETWORK_INTERFACE_CELLULAR)
-      .flag(SystemSleepFlag::WAIT_CLOUD)
-      .duration(2min);
-```
-
-The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). In this mode:
-
-- Real-time clock (RTC) is kept running.
-- Network is optionally kept running for cellular, similar to  `SLEEP_NETWORK_STANDBY`.
-- BLE is kept on if used as a wake-up source (Gen 3 devices only).
-- GPIO, UART, ADC are all kept on, so pin states remain constant even in sleep mode.
-- Can wake from: Time, GPIO, BLE, or Wi-Fi (Gen 3).
-
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | &check; | &check; |
-| Time (RTC) | &check; | &check; | 
-| Analog | &check; | &check; | 
-| Serial | &check; | &check; | 
-| BLE | | &check; |
-| Cellular | &check; | &check; |
-| Wi-Fi | &nbsp; | &check; |
-
----
-
-```
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::ULTRA_LOW_POWER)
-      .gpio(D2, FALLING);
-System.sleep(config);
-```
-
-The `SystemSleepMode::ULTRA_LOW_POWER` mode is similar to STOP mode however internal peripherals such as GPIO, UART, ADC, and DAC are turned off. Like STOP mode, the RTC continues to run but since many more peripherals are disabled, the current used is closer to HIBERNATE. It is available in Device OS 2.0.0 and later.
-
-In this mode:
-
-- Real-time clock (RTC) is kept running.
-- Network is kept on if used as a wake-up source.
-- BLE is kept on if used as a wake-up source (Gen 3 devices only).
-- GPIO, UART, ADC are only kept on if used as a wake-up source. 
-- OUTPUT GPIO are disabled in ultra-low power mode.
-- Can wake from: Time, GPIO. On Gen 3 also analog, serial, BLE, and network.
-
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | &check; | &check; |
-| Time (RTC) | &check; | &check; | 
-| Analog | | &check; | 
-| Serial | | &check; | 
-| BLE | | &check; |
-| Cellular | &check; | &check; |
-| Wi-Fi | &nbsp; | &check; |
-
----
-
-```
-// EXAMPLE
-SystemSleepConfiguration config;
-config.mode(SystemSleepMode::HIBERNATE)
-      .gpio(WKP, RISING);
-System.sleep(config);
-```
-
-
-The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_DEEP`. In this mode:
-
-| Wake Mode | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| GPIO | WKP RISING Only | &check; |
-| Time (RTC) | &check; | &nbsp; | 
-
 
 ---
 
@@ -14100,11 +14043,12 @@ The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_
 - On the Tracker SoM you can wake by time from HIBERNATE mode using the hardware RTC (AM1805).
 
 - You can wake from HIBERNATE (SLEEP_MODE_DEEP) on any GPIO pin, on RISING, FALLING, or CHANGE, not just WKP/D8 with Device OS 2.0.0 and later on Gen 3 devices.
+
+- Since the difference in current consumption is so small between HIBERNATE and ULTRA_LOW_POWER, using ULTRA_LOW_POWER is a good alternative if you wish to wake based on time on Gen 3 devices. The difference is 106 uA vs. 127 uA on the Boron LTE, for example.
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
 - On the Photon, P1, Electron, and E Series you can only wake on time or WKP RISING in HIBERNATE mode.
-- Wake by BLE is not available on Gen 2 devices.
 {{note op="end"}}
 
 {{note op="start" type="cellular"}}
@@ -14134,7 +14078,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 ---
 
 {{note op="start" type="gen3"}}
-On the Argon, Boron, B Series SoM, and Tracker SoM you cannot wake from HIBERNATE mode by time because the RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low-power (ULP) mode.
+On the Argon, Boron, B Series SoM, and Tracker SoM you cannot wake from HIBERNATE mode by time because the RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low power (ULP) mode.
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
@@ -14173,22 +14117,25 @@ Specifies wake on pin. The mode is:
 - FALLING
 - CHANGE
 
+You can use `.gpio()` multiple times to wake on any of multiple pins, with the limitations below.
+
 ---
 
 {{note op="start" type="gen3"}}
-On Gen 3 devices the location of the `WKP` pin varies, and it may make more sense to just use the actual pin name. You do not need to use `WKP` to wake from `HIBERNATE` on Gen 3 devices, and you can wake on either RISING, FALLING or CHANGE.
+- You can wake on any pins on Gen 3 devices, however there is as limit of 8 total pins for wake.
 
+On Gen 3 devices the location of the `WKP` pin varies, and it may make more sense to just use the actual pin name. You do not need to use `WKP` to wake from `HIBERNATE` on Gen 3 devices, and you can wake on either RISING, FALLING or CHANGE.
 - Argon, Boron, and Xenon, WKP is pin D8. 
 - B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8. 
 - Tracker SoM WKP is pin A7/D7.
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
+- You can only wake on external interrupt-supported pins on Gen 2 devices. See the list in [`attachInterrupt`](#attachinterrupt-).
 - On the Photon, P1, Electron, and E Series you can only wake from HIBERNATE mode using WKP RISING. 
 - Do not attempt to enter sleep mode with WKP already high. Doing so will cause the device to never wake again, either by pin or time.
 - `SLEEP_MODE_DEEP` in the classic API defaults to allowing wake by `WKP` rising. This is no longer automatic and you should specify it explicitly as in the example here if you want this behavior by adding `.gpio(WKP, RISING)`.
 {{note op="end"}}
-
 ---
 
 
@@ -14227,7 +14174,7 @@ config.mode(SystemSleepMode::STOP)
       .network(NETWORK_INTERFACE_CELLULAR);
 ```
 
-This option not only allows wake from network activity, but also keeps the network connected, making resume from sleep significantly faster. This is a superset of the `SLEEP_NETWORK_STANDBY` feature.
+This option not only allows wake from network activity, but also keeps the network connected, making resume from sleep significantly faster. This is a superset of the `SLEEP_NETWORK_STANDBY` feature. This should also be used with cellular devices with sleep periods of less than 10 minutes to prevent your SIM from being banned for aggressively reconnecting to the cellular network.
 
 | Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) |
 | :--- | :---: | :---: | :---: |
@@ -14235,9 +14182,6 @@ This option not only allows wake from network activity, but also keeps the netwo
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; |
 
-{{note op="start" type="cellular"}}
-On cellular devices, if you turn off the cellular modem, you should not wake with a period of less than 10 minutes on average. Your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour. Using `.network(NETWORK_INTERFACE_CELLULAR)` keeps the cellular modem connected which eliminates reconnection issues and makes it possible to use short sleep times, even down to seconds. Since the cellular network stays connected, it eliminates the blinking green phase.
-{{note op="end"}}
 
 
 #### SystemSleepConfiguration::analog()
@@ -14347,9 +14291,17 @@ if (result.wakeupReason() == SystemSleepWakeupReason::BY_GPIO) {
 
 Returns the reason for wake. Constants include:
 
-- `SystemSleepWakeupReason::UNKNOWN`
-- `SystemSleepWakeupReason::BY_GPIO` (pin wakeup)
-- `SystemSleepWakeupReason::BY_RTC` (time wakeup)
+| Constant | Purpose |
+| :--- | :--- |
+| `SystemSleepWakeupReason::UNKNOWN` | Unknown reason |
+| `SystemSleepWakeupReason::BY_GPIO` | GPIO pin |
+| `SystemSleepWakeupReason::BY_RTC` | Time-based |
+| `SystemSleepWakeupReason::BY_LPCOMP` | Analog value |
+| `SystemSleepWakeupReason::BY_USART` | Serial |
+| `SystemSleepWakeupReason::BY_CAN` | CAN bus |
+| `SystemSleepWakeupReason::BY_BLE` | BLE |
+| `SystemSleepWakeupReason::BY_NETWORK` | Network (cellular or Wi-Fi) |
+
 
 #### wakeupPin()
 
@@ -14380,9 +14332,9 @@ operator SleepResult();
 Returns the previous style of [`SleepResult`](#sleepresult-). There is also an operator to automatically convert to a `SleepResult`.
 
 
-## System Sleep (Classic API)
+## Sleep (Classic API)
 
-This API is the previous API for sleep and is less flexible. You should use the newer sleep APIs when possible.
+This API is the previous API for sleep and is less flexible. You should use the [newer sleep APIs](#sleep-sleep-) with Device OS 1.5.0 and later.
 
 ### sleep() [ Classic API ]
 
