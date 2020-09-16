@@ -8,7 +8,7 @@ description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 
 {{#unless pdf-generation}}
 
-# Photon Datasheet <sup>(v016)</sup>
+# Photon Datasheet <sup>(v017)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -333,6 +333,27 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 
 <sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
+---
+### Power consumption
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 53.3 | 54.6 | 55.7 | mA |
+| Operating Current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 32.1 | 60.4 | 302 | mA |
+| Operating Current (uC on, Wi-Fi connecting to ap) | I<sub>wifi_conn_ap</sub> | 88.3 | 103 | 308 | mA |
+| Operating Current (uC on, Wi-Fi connecting to cloud) | I<sub>wifi_conn_cloud</sub> | 79.8 | 94.5 | 270 | mA |
+| Operating Current (uC on, Wi-Fi connected but idle) | I<sub>wifi_cloud_idle</sub> | 89.9 | 106 | 296 | mA |
+| Operating Current (uC on, Wi-Fi connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 80.2 | 107 | 294 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 2.15 | 2.75 | 3.26 | mA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 6.66 | 7.56 | 8.45 | mA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> |  2.11 | 2.82 | 3.39 | mA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 16.7 | 18.2 | 21.6 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 2.14 | 2.76 | 3.24 | mA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 2.11 | 2.83 | 3.33 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 45.0 | 114 | 319 | uA |
+| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_rtc</sub> | 44.7 | 114 | 319 | uA |
+
+
 ### Wi-Fi Specifications
 
 | Feature | Description| |
@@ -355,6 +376,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 | RF Average Output Power, 802.11n OFDM Mode | MCS0 | - | +/- 1.5 | dBm |
 | <sub></sub> | MCS7 | - | +/- 1.5 | dBm |
 
+---
 
 ### I/O Characteristics
 
@@ -678,6 +700,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v014 | 13-September-2016 | BW | Updated Mating connectors section. |
 | v015 | 25-July-2017 | BW | Updated the Pin Description section and added high resolution pinout PDF, PWM notes and DCT layout, added warning to power section |
 | v016 | 31-May-2018 | BW | Updated External Coexistence Interface section (unsupported) |
+| v017 | 16-Sep-2020 | RK | Added power consumption information |
 
 ## Known Errata
 

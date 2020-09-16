@@ -6,7 +6,7 @@ order: 1
 description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 
-# Argon Datasheet <sup>(v003)</sup>
+# Argon Datasheet <sup>(v004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
@@ -222,13 +222,35 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.3 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
-| Operating Current (uC on, Radio ON) | I<sub>Li+ avg</sub> |  | 8 | 240 | mA |
-| Operating Current (EN pin = LOW) | I<sub>disable</sub> |  | 20 | 30 | uA |
-| Operating Current (uC on, Radio OFF) | I<sub>Li+ avg</sub> |  | TBD | TBD | mA |
-| Sleep Current (4.2V LiPo, Radio OFF)| I<sub>Qs</sub> |  | TBD | TBD | mA |
-| Deep Sleep Current (4.2V LiPo, Radio OFF) | I<sub>Qds</sub> |  | TBD | TBD | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
+
+---
+
+### Power consumption
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.1 | 3.52 | 3.58 | mA |
+| Operating Current (uC on, radio connected but idle) | I<sub>wifi_cloud_idle</sub> | 20.5 | 25.8 | 219 | mA |
+| Operating Current (uC on, radio connected and transmitting) | I<sub>wifi_cloud_tx</sub> | 20.1 | 31.7 | 261 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 350 | 396 | 459 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 349 | 398 | 456 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 340 | 398 | 461 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | 340 | 442 | 3420 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 102 | 435 | 1970 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 348 | 397 | 449 | uA |
+| STOP mode sleep, Wi-Fi wake-up | I<sub>stop_wifi</sub> | 15.3 | 22.2 | 110 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | | 81.7 | 169 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | | 81.1 | 174 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> |  | 80.7 | 168 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> | | 141 | 3280 | uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> |  | 138 | 1870 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 476 | 520 | 569 | uA |
+| ULP mode sleep, Wi-Fi wake-up | I<sub>ulp_wifi</sub> |  16.3 | 21.3 | 105 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 64.7 | 161 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 65.0 | 159 | uA |
+| Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 20 | 30 | uA |
 
 
 ### Radio specifications
@@ -254,6 +276,8 @@ Espressif Systems ESP32 for WiFi
 
 
 **Note:** Bluetooth features of the ESP32 are not exposed.
+
+---
 
 ### I/O Characteristics 
 
@@ -431,6 +455,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v001     | 2018 Oct 26 | MB | Initial release |
 | v002     | 2020 Jan 21 | RK | Remove mesh |
 | v003     | 2020 Sep 01 | RK | Add EN pin information |
+| v004     | 16-Sep-2020 | RK | Added power consumption information |
 
 ## Known Errata
 

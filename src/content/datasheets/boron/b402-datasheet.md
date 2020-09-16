@@ -6,7 +6,7 @@ order: 2
 description: Datasheet for the Particle B Series B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B402 Datasheet <sup>(003)</sup>
+# B402 Datasheet <sup>(004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -287,6 +287,36 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>2</sup> Extended operating temperature range (RF performance may be affected outside normal operating range, though module is fully functional)
 
+--- 
+
+### Power consumption
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 4.48 | 4.71 | 5.17 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | TBD | TBD | TBD| mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | TBD | TBD | TBD | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | TBD | TBD | TBD | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | TBD | TBD | TBD | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | TBD | TBD | TBD | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 552 | 555 | 559 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 554 | 557 | 559 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 553 | 556 | 558 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | | 631 | 2650 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 47.3 | 630 | 1540 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 553 | 556 | 558 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 8.87 | 9.65 | 63.6 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 44.7 | 47.6 | 49.6 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | 45.0 | 47.8 | 49.5 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 43.4 | 46.4 | 47.9 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> | | 130 | 2560| uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> | | 121 | 1010 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 554 | 557 | 559 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 0.37 | 9.47 | 53.7 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 23.6 | 26.0 | 29.7 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 23.9 | 26.5 | 30.5 | uA |
+
+
 ---
 
 ### Radio specifications
@@ -466,4 +496,4 @@ The bootloader allows you to easily update the user application via several diff
 | 001      | 29 Apr 2019 | RK | Initial Release |
 | 002      | 03 Feb 2020 | RK | Fixed number of I2C, SPI, and PWM |
 | 003      | 18 Feb 2020 | RK | Keep-out diagram M.2 connector was upside-down |
-
+| 004      | 16-Sep-2020 | RK | Added power consumption information |

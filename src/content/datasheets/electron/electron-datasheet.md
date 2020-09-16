@@ -7,7 +7,7 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 ---
 
 
-# Electron Datasheet <sup>(v006)</sup>
+# Electron Datasheet <sup>(v007)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
@@ -351,6 +351,29 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 <sup>[2]</sup> 3G operation
 
 <sup>[3]</sup> 2G operation
+
+---
+
+### Power consumption
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 29.5 | 33.3 | 34.6 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 26.8 | 42.6 | 786 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 59.7 | 103 | 592| mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 54.0 | 106 | 897 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 30.8 | 37.0 | 114 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 49.9 | 114 | 914 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 1.72 | 2.40 | 3.14 | mA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 5.48 | 6.03 | 6.69 | mA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 1.92 | 2.53 | 3.12 | mA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 12.5 | 13.1 | 13.9 | mA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 23.8 | 28.1 | 93.0 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 1.91 | 2.42 | 2.99| mA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 1.94 | 2.55 | 3.21 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 108 | 114 | 121 | uA |
+| HIBERNATE mode sleep, RTC wake-up | I<sub>hib_rtc</sub> | 108 | 114 | 120 | uA |
+
 
 ---
 
@@ -726,6 +749,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v004 | 27-Oct-2016 | BW | Replaced one STM32F205RGY6 with STM32F205RGT6, and replaced all STM32 mentions with full part number STM32F205RGT6 |
 | v005 | 14-Aug-2017 | BW | Updated DCD layout and Memory Map, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI, SPI1 and SPI2), updated the Pin Description section and added high resolution pinout PDF, updated LED Status section, VBAT info, added Power the Electron without a battery section |
 | v006     | 31-Jul-2019   | RK     |  Added LTE information |
+| v017 | 16-Sep-2020 | RK | Added power consumption information |
 
 ## Known Errata
 

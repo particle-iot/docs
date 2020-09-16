@@ -843,6 +843,7 @@ While this function will disconnect from the Cloud, it will keep the connection 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. 
 Safe mode can be used to reconnect to the cloud.*
 
+
 ### Particle.connected()
 
 Returns `true` when connected to the Cloud, and `false` when disconnected from the Cloud.
@@ -865,6 +866,20 @@ void loop() {
   delay(1000);
 }
 ```
+
+### Particle.setDisconnectOptions()
+
+{{since when="2.0.0"}}
+
+```cpp
+// EXAMPLE
+Particle.setDisconnectOptions(CloudDisconnectOptions().graceful(true).timeout(5000));
+
+// EXAMPLE
+Particle.setDisconnectOptions(CloudDisconnectOptions().graceful(true).timeout(5s));
+```
+
+Sets the options for when disconnecting from the cloud, such as from `Particle.disconnect()`. The default is to abruptly disconnect, however, you can use graceful disconnect mode to make sure pending events have been sent and the cloud notified that a disconnect is about to occur. Since this could take some time if there is poor cellular connectivity, a timeout can also be provided in milliseconds or using chrono literals. This setting will be used for future disconnects until the system is reset.
 
 {{#if has-udp-cloud}}
 ### Particle.keepAlive()
@@ -14212,20 +14227,17 @@ config.mode(SystemSleepMode::STOP)
       .network(NETWORK_INTERFACE_CELLULAR);
 ```
 
-This option does not currently wake from network but does work similarly to `SLEEP_NETWORK_STANDBY` with some limitations:
-
-- Only works in STOP sleep mode
-- Only works on cellular devices
-- Keeps the cellular modem connected to the cellular network for fast reconnection
-- Works best for sleep periods less than 23 minutes
-
-In the future, this may support actual wake on network activity for devices that have hardware support for it.
+This option not only allows wake from network activity, but also keeps the network connected, making resume from sleep significantly faster. This is a superset of the `SLEEP_NETWORK_STANDBY` feature.
 
 | Network Wake Support | Gen 2 Wi-Fi | Gen 2 Cellular | Gen 3 (any) |
 | :--- | :---: | :---: | :---: |
 | Wake from STOP sleep | | &check; | &check; |
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; |
+
+{{note op="start" type="cellular"}}
+On cellular devices, if you turn off the cellular modem, you should not wake with a period of less than 10 minutes on average. Your mobile carrier may ban your SIM card from the network for aggressive reconnection if you reconnect more than approximately 6 times per hour. Using `.network(NETWORK_INTERFACE_CELLULAR)` keeps the cellular modem connected which eliminates reconnection issues and makes it possible to use short sleep times, even down to seconds. Since the cellular network stays connected, it eliminates the blinking green phase.
+{{note op="end"}}
 
 
 #### SystemSleepConfiguration::analog()
@@ -14297,12 +14309,14 @@ Wake on Bluetooth LE data (BLE). Only available on Gen 3 platforms (Argon, Boron
 In addition to Wake on BLE, this keeps the BLE subsystem activated so the nRF52 MCU can wake up briefly to:
 
 - Advertise when in BLE central mode. This allows the MCU to wake when a connection is attempted.
-- Keep a connection alive when in BLE peripheral mode. This allows the MCU to wake when data arrives on the connection.
+- Keep an already open connection alive, in both central and peripheral mode. This allows the MCU to wake when data arrives on the connection.
 
-| BLE Wake Support | Gen 2 | Gen 3|
+This brief wake-up only services the radio. User firmware and Device OS do not resume execution if waking only to service the radio. If the radio receives incoming data or connection attempt packets, then the MCU completely wakes up in order to handle those events.
+
+| BLE Wake Support | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
 | Wake from STOP sleep | &nbsp; | &check; |
-| Wake from ULTRA_LOW_POWER sleep | | &check; |
+| Wake from ULTRA_LOW_POWER sleep | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; |
 
 
