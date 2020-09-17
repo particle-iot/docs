@@ -367,10 +367,6 @@ This feature allows the device to generate an event based on a condition. For ex
 
 Particle.publish pushes the value out of the device at a time controlled by the device firmware. Particle.variable allows the value to be pulled from the device when requested from the cloud side.
 
-{{#if has-mesh}}
-Mesh devices support Particle.publish as well as Mesh.publish, which allows publishing to devices on your local mesh network only. 
-{{/if}}
-
 Cloud events have the following properties:
 
 * name (1–64 ASCII characters)
@@ -1142,231 +1138,6 @@ void setup() {
     Particle.publish("particle/device/random");
 }
 ```
-
-{{#if has-mesh}}
-## Mesh
-
-**The mesh networking features described in this section will be supported only through Device OS 1.5.x (March 2020).**
-
-After that version, all of the features in the Mesh object will be removed from the Device OS API. See [mesh deprecation](/reference/discontinued/mesh/) for more information.
-
-### publish()
-
-On Mesh devices, there are two publish options: Particle.publish and Mesh.publish:
-
-- Particle.publish communicates by the cloud. It's used when interacting with an external web service (webhooks, server-sent-events, or rules engine), a classic device (Photon or Electron), or across different mesh networks.
-- Mesh.publish communicates locally within a Mesh network. It is faster and does not send data across the Internet, but can only communicate between Mesh devices (Argon, Boron, Xenon) that are on the same Mesh network in the same location. 
-
-The publish function takes two parameters:
-
-* name (1–63 ASCII characters)
-
-**Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
-
-* optional data (up to 255 bytes)
-
-
-```cpp
-// SYNTAX
-Mesh.publish(const char *name, const char *data);
-```
-
-**Returns:**
-An `int` indicating the result. (0 = success, non-zero = system error code)
-
-```cpp
-// EXAMPLE USAGE
-Mesh.publish("motion-sensor", "living room");
-```
-
-Note that the return value for Mesh.publish is 0 (`SYSTEM_ERROR_NONE`) for success, where the return value for Particle.publish is true (1) for success.
-
-### subscribe()
-
-Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name. You can have up to 5 mesh subscription handlers.
-
-```cpp
-LogHandler logHandler;
-
-void myHandler(const char *event, const char *data)
-{
-  Log.info("topic=%s data=%s", event, data);
-}
-
-void setup()
-{
-  Mesh.subscribe("motion-sensor", myHandler);
-}
-```
-
-The return value is an int (integer), `SYSTEM_ERROR_NONE` if successful or `SYSTEM_ERROR_NO_MEMORY` if there are no slots left. This is different from Particle.subscribe which returns a bool (boolean).
-
-
-### on()
-
-`Mesh.on()` turns on the Mesh module. Useful when you've turned it off, and you changed your mind.
-
-Note that `Mesh.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Mesh module off.
-
-### off()
-
-`Mesh.off()` turns off the Mesh module. 
- 
-### connect()
-
-Attempts to connect to the Mesh network. If there are no credentials stored, this will enter listening mode. When this function returns, the device may not have an IP address on the LAN; use `Mesh.ready()` to determine the connection status.
-
-```cpp
-// SYNTAX
-Mesh.connect();
-```
-
-### disconnect()
-
-Disconnects from the Mesh network, but leaves the Mesh module on.
-
-```cpp
-// SYNTAX
-Mesh.disconnect();
-```
-
-### connecting()
-
-This function will return `true` once the device is attempting to connect using stored credentials, and will return `false` once the device has successfully connected to the Mesh network.
-
-```cpp
-// SYNTAX
-Mesh.connecting();
-```
-
-### ready()
-
-This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
-
-```cpp
-// SYNTAX
-Mesh.ready();
-```
-
-### listen()
-
-This will enter or exit listening mode, which opens a Serial connection to get Mesh credentials over USB, and also listens for credentials over
-Bluetooth.
-
-```cpp
-// SYNTAX - enter listening mode
-Mesh.listen();
-```
-
-Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
-have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
-mode, such as after a timeout. Listening mode is stopped using this syntax:
-
-```cpp
-
-// SYNTAX - exit listening mode
-Mesh.listen(false);
-
-```
-
-
-
-### listening()
-
-```cpp
-// SYNTAX
-Mesh.listening();
-```
-
-This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
-With a dedicated system thread though `Mesh.listening()` will return `true` once `Mesh.listen()` has been called
-or the {{system-button}} button has been held for 3 seconds, when the RGB LED should be blinking blue.
-It will return `false` when the device is not in listening mode.
-
-### setListenTimeout()
-
-```cpp
-// SYNTAX
-Mesh.setListenTimeout(seconds);
-```
-
-`Mesh.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Mesh devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Mesh.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Mesh.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  
-**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
-
-```cpp
-// EXAMPLE
-// If desired, use the STARTUP() macro to set the timeout value at boot time.
-STARTUP(Mesh.setListenTimeout(60)); // set listening mode timeout to 60 seconds
-
-void setup() {
-  // your setup code
-}
-
-void loop() {
-  // update the timeout later in code based on an expression
-  if (disableTimeout) Mesh.setListenTimeout(0); // disables the listening mode timeout
-}
-```
-
-{{since when="1.5.0"}}
-
-You can also specify a value using [chrono literals](#chrono-literals), for example: `Mesh.setListenTimeout(5min)` for 5 minutes.
-
-
-### getListenTimeout()
-
-```cpp
-// SYNTAX
-uint16_t seconds = Mesh.getListenTimeout();
-```
-
-`Mesh.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Mesh devices do not have any timeout set (seconds=0).
-
-### localIP()
-
-
-`Mesh.localIP()` is used to get the ML-EID (Mesh-Local EID) IP address of the mesh node. This is an IPv6 address.
-
-```cpp
-// EXAMPLE
-SerialLogHandler logHandler;
-
-void setup() {
-  Log.info("localIP: %s", Mesh.localIP().toString().c_str());
-}
-```
-
-### selectAntenna()
-
-{{since when="1.5.0"}}
-
-Selects which antenna is used by the mesh radio stack. This is a persistent setting.
-
-**Note:** On Gen 3 devices (Argon, Boron, Xenon), the mesh and BLE radio stacks share the same antenna and changing the antenna via `Mesh.selectAntenna()` also changes the antenna used by the BLE stack. SoM devices do not have an internal antenna.
-
-```cpp
-// Select the internal antenna
-Mesh.selectAntenna(MeshAntennaType::INTERNAL);
-// Select the external antenna
-Mesh.selectAntenna(MeshAntennaType::EXTERNAL);
-```
-
-The following function can be used to select the external antenna in older versions of Device OS. Note that, in this case, the setting is not saved, and the Device OS will select the default internal antenna after a reset.
-
-```cpp
-void selectExternalMeshAntenna() {
-#if (PLATFORM_ID == PLATFORM_ARGON)
-    digitalWrite(ANTSW1, 1);
-    digitalWrite(ANTSW2, 0);
-#elif (PLATFORM_ID == PLATFORM_BORON)
-    digitalWrite(ANTSW1, 0);
-#elif (PLATFORM_ID == PLATFORM_XENON)
-    digitalWrite(ANTSW1, 0);
-    digitalWrite(ANTSW2, 1);
-#endif
-}
-```
-{{/if}}
 
 {{#if has-ethernet}}
 ## Ethernet
@@ -8080,9 +7851,9 @@ Gen 3 devices (Argon, Boron, and Xenon) support Bluetooth LE (BLE) in both perip
 
 BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
 
-The BLE protocol shares the same antenna as the mesh radio, and can use the built-in chip or trace antenna, or an external antenna if you have installed and [configured](#ble-selectantenna-) one.
+The BLE radio can use the built-in chip or trace antenna, or an external antenna if you have installed and [configured](#ble-selectantenna-) one.
 
-The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
+The B Series  SoM (system-on-a-module) requires the external BLE antenna connected to the **BT** connector. The SoMs do not have built-in antennas.
 
 BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. Some differences between 1.3.0 and 1.3.1 include:
 
@@ -8218,8 +7989,6 @@ int setAdvertisingInterval(uint16_t interval) const;
 // Set advertising interval to 500 milliseconds
 BLE.setAdvertisingInterval(800);
 ```
-
-BLE and Thread Mesh use the same radio, and time-slice the use of the radio. BLE has priority over Thread Mesh, so using very short advertising intervals may affect the performance of mesh. It's best to stay at 100 milliseconds or higher when using BLE and Thread Mesh at the same time.
 
 #### BLE.setAdvertisingTimeout()
 
@@ -8396,8 +8165,6 @@ The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described
 - `advertisingData` The advertising data sent by the device
 - `scanData` The scan data (optional)
 - `rssi` The signal strength of the advertising message.
-
-BLE and Thread Mesh use the same radio, and time-slice the use of the radio. BLE has priority over Thread Mesh. Scanning takes many radio time slices and may affect Thread Mesh performance due to the reduced availability of radio time for Thread Mesh.
 
 #### BLE.scan(Vector)
 
@@ -8843,7 +8610,7 @@ See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more informati
 
 Selects which antenna is used by the BLE radio stack. This is a persistent setting.
 
-**Note:** On Gen 3 devices (Argon, Boron, Xenon), the mesh and BLE radio stacks share the same antenna and changing the antenna via `BLE.selectAntenna()` also changes the antenna used by the mesh stack. SoM devices do not have an internal antenna.
+**Note:** B Series SoM devices do not have an internal (chip) antenna and require an external antenna to use BLE. It's not necessary to select the external antenna on the B Series SoM as there is no internal option.
 
 ```cpp
 // Select the internal antenna
@@ -10194,22 +9961,25 @@ Returns the number of bytes added (`numBytes`).
 {{/if}} {{!-- has-nfc-tag --}}
 
 
-{{#if has-tcpserver}}
+{{#if has-cellular}}
 ## TCPServer
 
-Create a server that listens for incoming connections on the specified port.
-
-{{#if has-mesh}}
-The TCPServer can only be used on a Wi-Fi or Ethernet mesh gateway, including the Argon and the Xenon when used in an Ethernet shield. 
-The Thread mesh network does not support TCP across the mesh network; it only supports UDP from nodes that are only on mesh. 
+Cellular devices (Boron, B Series SoM, Tracker SoM, Electron, E Series) do not support TCPServer. The cellular modem does not support it, and also the mobile carriers do not support it. You can only make outgoing TCP connections (TCPClient) on cellular devices.
 {{/if}}
+
+{{#if has-tcpserver}}
+## TCPServer
 
 ```cpp
 // SYNTAX
 TCPServer server = TCPServer(port);
 ```
 
+Create a server that listens for incoming connections on the specified port.
+
 Parameters: `port`: the port to listen on (`int`)
+
+---
 
 ```cpp
 // EXAMPLE USAGE
@@ -10371,11 +10141,6 @@ Clears the error code of the most recent [`write()`](#write--3) operation settin
 (inherits from [`Stream`](#stream-class) via `Client`)
 
 Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
-
-{{#if has-mesh}}
-The TCPClient can only be used on mesh gateway, including the Argon, Boron, and the Xenon when used in an Ethernet shield. 
-The Thread mesh network does not support TCP across the mesh network; it only supports UDP from nodes that are only on mesh. 
-{{/if}}
 
 ```cpp
 // SYNTAX
@@ -11180,7 +10945,7 @@ void loop()
 **NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
 
 {{#if has-nrf52}}
-**NOTE:** Servo is only supported on mesh devices in Device OS 0.8.0-rc.26 and later.
+**NOTE:** Servo is only supported on Gen 3 devices in Device OS 0.8.0-rc.26 and later.
 {{/if}}
 
 
@@ -12663,7 +12428,7 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
 {{#if has-nrf52}}
-All A and D pins (including TX, RX, and SPI) on Gen 3 (mesh) devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
+All A and D pins (including TX, RX, and SPI) on Gen 3 devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
 {{/if}}
 
 {{#if has-stm32}}
@@ -14341,7 +14106,7 @@ This API is the previous API for sleep and is less flexible. You should use the 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
 {{#if has-nrf52}}
-Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for mesh devices.
+Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for Gen 3 devices.
 
 On the Argon, Boron, and Xenon, WKP is pin D8.
 
@@ -16999,7 +16764,6 @@ Some commonly used features include:
 - Wiring_Ethernet
 - Wiring_IPv6
 - Wiring_Keyboard
-- Wiring_Mesh
 - Wiring_Mouse
 - Wiring_Serial2
 - Wiring_Serial3
@@ -20676,6 +20440,13 @@ The available stack depends on the environment:
 - Software timer callbacks: 1024 bytes
 
 The stack size cannot be changed as it's allocated by the Device OS before the user firmware is loaded. 
+
+{{/if}}
+
+{{#if has-mesh}}
+## Mesh
+
+The mesh networking features are only available in Device OS 0.9.0 - 1.5.4 and have been discontinued. See [mesh deprecation](/reference/discontinued/mesh/) for more information. The [mesh API](/reference/discontinued/firmware-mesh/) reference is still available for compatible versions of Device OS.
 
 {{/if}}
 
