@@ -6,7 +6,7 @@ order: 3
 description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B523 Datasheet <sup>002</sup>
+# B523 Datasheet <sup>003</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -313,6 +313,36 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ---
 
+### Power consumption
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 4.47 | 4.48 | 4.51 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 17.5 | 34.2 | 744 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 17.9 | 72.3 | 711 | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 23.0 | 93.6 | 669 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 22.9 | 26.8 | 149 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 113 | 139 | 519 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 323 | 538 | 916 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 272 | 537 | 948 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 264 | 537 | 947 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | | 604 | 2260 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | | 619 | 1700 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 327 | 537 | 912 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 18.7 | 23.1 | 140 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | | 53.6 | 446 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | | 55.8 | 420 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | | 54.8 | 444 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> |  | 139 | 2430 | uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> | | 162 | 1090 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 317 | 537 | 938 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 18.4 | 22.8 | 149 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 29.7 | 430 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 30.8 | 441 | uA |
+
+
+---
+
 ### Radio specifications
 
 Boron has two radio modules.
@@ -382,7 +412,9 @@ These specifications are based on the nRF52840 datasheet.
 | INFC_LEAK | Leakage current between NFC pads when driven to different states |  | 1 | 10 | μA |  
 
 
-<sup>1</sup>Rise and fall times based on simulations
+- Rise and fall times based on simulations
+
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/boron/#pinsetdrivestrength-) function.
 
 ## Mechanical specifications
 
@@ -493,3 +525,4 @@ The bootloader allows you to easily update the user application via several diff
 |:---------|:-----|:-------|:---------|
 | 001      | 27 Apr 2020 | RK | First Release |
 | 002      | 30 Jul 2020 | RK | Added explanation of DIV connector |
+| 003      | 16-Sep-2020 | RK | Added power consumption information |

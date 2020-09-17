@@ -103,6 +103,12 @@ The M8 cables provide a convenient way to connect external devices to the Tracke
 | Outer Diameter | 5.0 mm |
 | Approvals | UL2464, RoHS |
 
+### Orientation - M8 Cables
+
+The key on the M8 panel connector is at 3 o'clock (right side, nearest to the USB connector), when facing the connectors, as in the diagram above. When using the right-angle M8 cable, the cable will face away from the USB connector.
+
+![Cable Orientation](/assets/images/at-som/tracker-one-iso-closed-plugged.jpg)
+
 ### SKUs - M8 Cables
 
 | SKU  | Description |

@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(008)</sup>
+# Tracker SoM Datasheet <sup>(009)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -538,6 +538,83 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ---
 
+### Power consumption (T402)
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.35 | 3.38 | 4.39 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | | 21.3 | 277 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 16.8 | 56.7 | 329 | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 19.1 | 53.3 | 292 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 19.2 | 21.2 | 97.1 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 19.5 | 63.6 | 280 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 556 | 806 | 1170 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 588 | 831 | 1230 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 593 | 835 | 1240 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | | 858 | 2330 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | | 875 | 1600 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 577 | 798 | 90.1 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 7.66 | 17.2 | 90.1 | mA |
+| STOP mode sleep, IMU wake-up | I<sub>stop_imu</sub> | 548 | 834 | 1250 | uA |
+| STOP mode sleep, CAN wake-up | I<sub>stop_can</sub> | 605 | 817 | 1210 | uA |
+| STOP mode sleep, GPS wake-up | I<sub>stop_gps</sub> | 23.7 | 31.1 | 46.3 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | | 114 | 479 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | | 117 | 508 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | | 114 | 509 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> |  | 186 | 2200 | uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> | | 203 | 1070 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 287 | 530 | 934 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 3.06 | 16.9 | 83.4 | mA |
+| ULP mode sleep, IMU wake-up | I<sub>imu_imu</sub> | | 175 | 616 | uA |
+| ULP mode sleep, CAN wake-up | I<sub>can_can</sub> | | 142 | 528 | uA |
+| ULP mode sleep, GPS wake-up | I<sub>ulp_gps</sub> | 23.6 | 30.9 | 45.7 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 103 | 503 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 100 | 493 | uA |
+| HIBERNATE mode sleep, external RTC wake-up | I<sub>hib_extrtc</sub> | | 94.3 | 590 | uA |
+| HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 151 | 590 | uA |
+| HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 121 | 477 | uA |
+
+---
+
+### Power consumption (T523)
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.22 | 3.24 | 3.26 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 18.9 | 22.0 | 136 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 35.5 | 106 | 726| mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 38.0 | 137 | 553 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 19.2 | 21.2 | 97.1 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 117 | 145 | 787 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 625 | 872 | 1270 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 655 | 853 | 1210 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 632 | 873 | 1260 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | | 919 | 2700 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 421 | 901 | 1680 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 613 | 840 | 1240 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 19.2 | 21.5 | 149 | mA |
+| STOP mode sleep, IMU wake-up | I<sub>stop_imu</sub> | 584 | 858 | 1250 | uA |
+| STOP mode sleep, CAN wake-up | I<sub>stop_can</sub> | 622 | 869 | 1280 | uA |
+| STOP mode sleep, GPS wake-up | I<sub>stop_gps</sub> | 23.8 | 30.8 | 44.7 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 130 | 139 | 540 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | 132  | 140 | 542 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 131 | 139 | 531 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> | 132 | 214 | 2240| uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> || 230 | 1110 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 366 | 564 | 933 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 18.9 | 21.7 | 210 | mA |
+| ULP mode sleep, IMU wake-up | I<sub>imu_imu</sub> || 172 | 580 | uA |
+| ULP mode sleep, CAN wake-up | I<sub>can_can</sub> | | 162 | 513 | uA |
+| ULP mode sleep, GPS wake-up | I<sub>ulp_gps</sub> | 23.1 | 30.2 | 44.6 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 111 | 474 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 114 | 521 | uA |
+| HIBERNATE mode sleep, external RTC wake-up | I<sub>hib_extrtc</sub> | | 111 | 478 | uA |
+| HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 144 | 580 | uA |
+| HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | 8.76 | 133 | 386 | uA |
+
+
+---
+
 ### GNSS specifications
 
 - u-blox NEO-M8U untethered dead reckoning module including 3D inertial sensors
@@ -848,8 +925,10 @@ These specifications are based on the nRF52840 datasheet.
 | CPAD_NFC | Pad capacitance on NFC pads  |  | 4 |  | pF | 
 | INFC_LEAK | Leakage current between NFC pads when driven to different states |  | 1 | 10 | μA |  
 
+- Rise and fall times based on simulations
 
-<sup>1</sup>Rise and fall times based on simulations
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/tracker-som/#pinsetdrivestrength-) function.
+
 
 ## Mechanical specifications
 
@@ -1069,3 +1148,4 @@ The bootloader allows you to easily update the user application via several diff
 | 006      | 2020 Aug 18 | RK | Added IC (Canada) information |
 | 007      | 2020 Sep 08 | RK | Added IC (Canada) information |
 | 008      | 2020 Sep 09 | RK | Remove 3GPP E-UTRA from T402 |
+| 009      | 2020 Sep 16 | RK | Added power consumption information |

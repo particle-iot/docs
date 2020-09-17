@@ -1163,3 +1163,45 @@ img.imageOverlay {
   height: 100%; 
   width: 100%;
 }
+
+// 
+// Colors and styles for the note helper
+//
+@note-gen2: @NC_CYAN;
+@note-gen3: @NC_NAVY_HOVER;
+@note-wifi: @NC_EMERALD;
+@note-cellular: @NC_EMERALD_DARK;
+@note-note: @NC_MACARONI;
+@note-warning: @NC_WARNING; 
+
+span.note-prefix {
+  font-size: small;
+  font-weight: bold;
+}
+
+.note-common {
+  margin: 8px 0px 4px 8px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-left-style: solid;
+  border-width: 4px;
+}
+
+.note-gen2 {
+  border-color: @note-gen2;
+}
+.note-gen3 {
+  border-color: @note-gen3;
+}
+.note-wifi {
+  border-color: @note-wifi;
+}
+.note-cellular {
+  border-color: @note-cellular;
+}
+.note-note {
+  border-color: @note-note;
+}
+.note-warning {
+  border-color: @note-warning;
+}
