@@ -226,6 +226,22 @@ NFC certification:
 - [Test report FCC Part 24](/assets/pdfs/b402-fcc-part24.pdf)
 - [Test report FCC Part 27](/assets/pdfs/b402-fcc-part27.pdf)
 
+#### Tracker SoM T402
+
+- FCC ID: 2AEMI-T40X
+- [Grant of equipment authorization (DTS)](/assets/pdfs/t402-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/t402-fcc-pcb.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/t402-fcc-part15c.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247, Wi-Fi](/assets/pdfs/t402-fcc-wifi-part15c.pdf)
+- [RF exposure report FCC Part 2, Section 2.1091](/assets/pdfs/t402-fcc-part2.pdf)
+- [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/t402-fcc-part15b.pdf)
+- [Test report FCC Part 15 Subpart B, Class B (sDoC)](/assets/pdfs/t402-fcc-part15b-test.pdf)
+- [EMC Test report FCC Part 15 Subpart B, Class B (sDoC)](/assets/pdfs/t402-fcc-emc-part15b.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/t402-fcc-part15c.pdf)
+- [Test report FCC Part 22](/assets/pdfs/t402-fcc-part22.pdf)
+- [Test report FCC Part 24](/assets/pdfs/t402-fcc-part24.pdf)
+- [Test report FCC Part 27](/assets/pdfs/t402-fcc-part27.pdf)
+
 
 ## IC<img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
@@ -523,6 +539,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/xenon-rohs.pdf)
 
+#### Tracker SoM T402
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/t402-rohs.pdf)
+
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
 ### Description
@@ -604,6 +624,11 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 #### B Series B402 SoM (R410M modem)
 
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=43054)
+
+#### Tracker SoM T402
+
+- [Certificate of Conformity](/assets/pdfs/t402-ptcrb.pdf
+)
 
 
 ## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>

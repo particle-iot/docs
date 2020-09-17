@@ -14,6 +14,6 @@ To save time at the actual workshop, the following steps should ideally be compl
 <br /><br />
 2. Create a [Particle account](https://login.particle.io/signup) if you do not already have one.
 <br /><br />
-3. Install the Particle [iOS](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App.
+3. Install the Particle [iOS](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App.
 
 **All done?** Now you are ready to dive in to the workshop.

@@ -58,7 +58,7 @@ You typically connect the cable to your custom external interface device by rout
 - Terminate with screw terminals on your board
 - Terminate by soldering the wires to your board
 
-For more information on expanding your Tracker One using the M8 connector, see the [Tracker One Expansion Tutorials](/tutorials/tracker-one-expansion/).
+For more information on expanding your Tracker One using the M8 connector, see the [Tracker One Expansion Tutorials](/tutorials/asset-tracking/tracker-one-expansion/).
 
 ## M8 Cables
 

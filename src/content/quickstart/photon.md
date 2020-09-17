@@ -43,7 +43,7 @@ The SETUP button is on the left and the RESET button is on the right. You can us
 The RGB LED is in the center of your Photon, above the module. The color of the RGB LED tells you what mode your Photon is currently in.
 The D7 LED is next to the D7 pin on your Photon, on the upper right quadrant. This LED will turn on when the D7 pin is set to HIGH.
 * **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054?mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * Particle Mobile App - [iPhone](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!

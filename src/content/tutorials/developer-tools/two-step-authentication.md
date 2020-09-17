@@ -23,7 +23,7 @@ If your password was stolen, it wouldn't be of any use without your phone. And t
 Particle two-step authentication uses an [Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator) app on your mobile phone. You can use any compatible Authenticator app, but two we recommend are:
 
 - Google Authenticator (for [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605) or [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2))
-- Authy (for [iOS](https://itunes.apple.com/us/app/authy/id494168017) or [Android](https://play.google.com/store/apps/details?id=com.authy.authy))
+- Authy (for [iOS](https://apps.apple.com/us/app/authy/id494168017) or [Android](https://play.google.com/store/apps/details?id=com.authy.authy))
 
 You only need to install one of them.
 
