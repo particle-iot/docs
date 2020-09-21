@@ -929,7 +929,7 @@
       "html_url": "https://support.particle.io/hc/en-us/articles/360044252554-AN002-Device-Powerdown"
     },
     "AN003-Interpreting-Cloud-Debug/README.md": {
-      "hash": "6d0d093ba94d2ab80ade72dde497b7d016880a44",
+      "hash": "736cac6b8e45841fa57b53b53c381967ff3d5a86",
       "articleId": 360044776613,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044776613-AN003-Interpreting-Cloud-Debug-Logs",
       "attachments": {
@@ -1357,7 +1357,7 @@
       }
     },
     "AN017-Tracker-CAN/README.md": {
-      "hash": "99daa86e7a5c076bbd7b82df4f7d21c562b4c1df",
+      "hash": "e632447efd5120d8814b5d97608f7cd270f35d12",
       "articleId": 360051358354,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051358354-AN017-Tracker-CAN"
     },

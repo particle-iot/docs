@@ -13646,6 +13646,13 @@ The are are three sleep modes:
 - ULTRA_LOW_POWER
 - HIBERNATE
 
+| | STOP | ULTRA_LOW_POWER | HIBERNATE |
+| :--- | :---: | :---: | :---: |
+| Relative power consumption | Low | Lower | Lowest |
+| Relative wake options | Most | Some | Fewest |
+| Execution continues with variables intact | &check; | &check; | &nbsp; |
+
+
 ---
 
 ##### SystemSleepMode::STOP
@@ -13675,6 +13682,7 @@ The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin
 - UART, ADC are only kept on if used as a wake-up source. 
 - GPIO are kept on; OUTPUT pins retain their HIGH or LOW voltage level during sleep.
 - Can wake from: Time, GPIO, analog, serial, and cellular. On Gen 3 also BLE and Wi-Fi.
+- On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
@@ -13732,6 +13740,7 @@ In this mode:
 - GPIO, UART, ADC are only kept on if used as a wake-up source. 
 - OUTPUT GPIO are disabled in ultra-low power mode.
 - Can wake from: Time or GPIO. On Gen 3 also analog, serial, BLE, and network.
+- On wake, execution continues after the the `System.sleep()` command with all local and global variables intact.
 
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
@@ -13783,7 +13792,10 @@ The `SystemSleepMode::HIBERNATE` mode is the similar to the classic `SLEEP_MODE_
 | Wake Mode | Gen 2 | Gen 3 |
 | :--- | :---: | :---: |
 | GPIO | WKP RISING Only | &check; |
-| Time (RTC) | &check; | &nbsp; | 
+| Time (RTC) | &check; | <sup>1</sup> | 
+| Analog | &nbsp; | &check; | 
+
+<sup>1</sup>Tracker SoM can wake from RTC in HIBERNATE mode. Other Gen 3 devices cannot.
 
 Typical power consumption in hibernate sleep mode, based on the wakeup source:
 
@@ -13798,6 +13810,12 @@ Typical power consumption in hibernate sleep mode, based on the wakeup source:
 | Argon       |     65 uA |       n/a |
 | Electron    |    114 uA |    114 uA |
 | Photon      |    114 uA |    114 uA |
+
+In this mode:
+
+- Real-time clock (RTC) stops (Argon, Boron, B Series SoM).
+- Can wake from: Time or GPIO. On Gen 3 also analog.
+- On wake, device is reset, running setup() again.
 
 
 ---
@@ -14017,8 +14035,8 @@ Wake on Bluetooth LE data (BLE). Only available on Gen 3 platforms (Argon, Boron
 
 In addition to Wake on BLE, this keeps the BLE subsystem activated so the nRF52 MCU can wake up briefly to:
 
-- Advertise when in BLE central mode. This allows the MCU to wake when a connection is attempted.
-- Keep an already open connection alive, in both central and peripheral mode. This allows the MCU to wake when data arrives on the connection.
+- Advertise when in BLE peripheral mode. This allows the MCU to wake when a connection is attempted.
+- Keep an already open connection alive, in both central and peripheral mode. This allows the MCU to wake when data arrives on the connection or when the connection is lost.
 
 This brief wake-up only services the radio. User firmware and Device OS do not resume execution if waking only to service the radio. If the radio receives incoming data or connection attempt packets, then the MCU completely wakes up in order to handle those events.
 
