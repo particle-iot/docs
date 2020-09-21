@@ -437,6 +437,16 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
 
 
+#### Tracker SoM T523
+
+- [Summary](/assets/pdfs/t523-ce-summary.pdf)
+- [EN 300 328 Test Report](/assets/pdfs/t523-EN300-328-test-report.pdf) (2.4 GHz ISM band)
+- [EN 300 330 Test Report](/assets/pdfs/t523-EN300-330-test-report.pdf) (NFC)
+- [EN 303 413 Test Report](/assets/pdfs/t523-EN303-413-test-report.pdf)
+- [RoHS 3.0 Test Reports](/assets/pdfs/t523-rohs.pdf)
+
+
+
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
@@ -542,6 +552,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### Tracker SoM T402
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/t402-rohs.pdf)
+
+#### Tracker SoM T523
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/t523-rohs.pdf)
 
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
