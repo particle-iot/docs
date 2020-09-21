@@ -440,12 +440,18 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 #### Tracker SoM T523
 
 - [Summary](/assets/pdfs/t523-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/t523-ce-emc-test-report.pdf)
 - [EN 300 328 Test Report](/assets/pdfs/t523-EN300-328-test-report.pdf) (2.4 GHz ISM band)
 - [EN 300 330 Test Report](/assets/pdfs/t523-EN300-330-test-report.pdf) (NFC)
 - [EN 303 413 Test Report](/assets/pdfs/t523-EN303-413-test-report.pdf)
+- [EN 301 489 Test Report](/assets/pdfs/t523-EN301-489-test-report.pdf)
+- [EN 301 511 Test Report](/assets/pdfs/t523-EN301-511-test-report.pdf) (GSM)
+- [EN 301 908 Test Report](/assets/pdfs/t523-EN301-908-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/t523-EN62311-test-report.pdf)
+- [EN-62311 EN-50665 Test Report](/assets/pdfs/t523-EN50665-test-report.pdf)
+- [EN-62368 Test Report](/assets/pdfs/t523-EN62368-test-report.pdf)
+- [EN-62479 EN-50663 Test Report](/assets/pdfs/t523-EN62479-test-report.pdf)
 - [RoHS 3.0 Test Reports](/assets/pdfs/t523-rohs.pdf)
-
-
 
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
@@ -664,6 +670,11 @@ The GCF is a certification partnership between European network operators, mobil
 
 The Boron LTE (BRN402), E Series LTE (E402), and B Series SoM (B402) are certified for use on the AT&T LTE Cat M1 network. From the [AT&T Certified Devices page](https://iotdevices.att.com/certified-devices.aspx) search for "Particle".
 
+## Bluetooth
+
+- [Summary](/assets/pdfs/bluetooth-summary.pdf)
+- [Tracker SoM 402](/assets/pdfs/t402-bluetooth.pdf)
+- [Tracker SoM 523](/assets/pdfs/t523-bluetooth.pdf)
 
 
 ## Battery Certifications
