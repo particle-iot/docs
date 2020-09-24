@@ -89,9 +89,10 @@ Now, let’s create a new project for the application firmware. The steps below 
 
 Now that we have everything set-up, let’s connect the Dust sensor. The Grove Dust sensor is a Shinyei PPD42 device that uses Static light scattering with a red LED, a photodiode, and an infrared LED to measure the amount of dust particles in the air. It’s a clever little digital device, and is easy to set-up if you have a few formulas in hand.
 
-1. In the project you just created, add a couple #define directives at the top of your firmware, before the `setup` and `loop`. The first is for the digital pin of your dust sensor, and the second is the number of milliseconds that we want to elapse between sensor readings.
+1. In the project you just created, we need to add some items at the top of your firmware, before the `setup` and `loop`. First, add a reference to use the newlib Math functions by including the Math.h header file. This lets us use the pow() function with our first sensor. Next, add a couple #define directives.  The first is for the digital pin of your dust sensor, and the second is the number of milliseconds that we want to elapse between sensor readings.
 
   ```cpp
+  #include <math.h>
   #define DUST_SENSOR_PIN D4
   #define SENSOR_READING_INTERVAL 30000
   ```
@@ -275,7 +276,7 @@ Now, let’s configure the temperature, humidity, and pressure sensor. Like the 
 3. To use the library, start by adding an `include` statement to the top of your project, just after the air quality include statement.
 
   ```cpp
-  #include "Air_Quality_Sensor.h"
+#include "Adafruit_BME280.h"
   ``` 
 4. Now, just below the `aqSensor` global object, declare an object for the temp sensor.
 
