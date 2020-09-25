@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(008)</sup>
+# Tracker One<sup>(009)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -18,10 +18,10 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 
 - **Ready to go** with IP67-rated enclosure.
 - **GNSS Antenna Onboard:** convenient high-gain GNSS antenna for easy access to GNSS signals.
-- **Flexible Power Supply:** easily add asset tracking to most devices. A wide 6-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. LiPo battery connector, charge LED, backup battery for GPS and battery-backed RTC. Supports up to 90V when connecting directly to the carrier board.
+- **Flexible Power Supply:** easily add asset tracking to most devices. A wide 6-30V power supply copes with most power delivery systems. Also accepts 5V supply via USB-C. LiPo battery connector with charge LED. Supports up to 90V when connecting directly to the carrier board.
 - **High-precision Thermistor** with accuracy to 1%.
 - **Extensible:** IP67-rated M8 connector includes CAN Bus, UART, GPIO, and power for simple expansion.
-- **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB or for use without an internal battery.
+- **USB-C** for flashing, debugging and power with higher charging rates than Micro-USB.
 - **RGB LED** for use as both a user-configurable device as well as Particle status information.
 
 ![Enclosure](/assets/images/at-som/at-encosure-plugged.jpg)
@@ -247,6 +247,13 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 ### ESD Precautions
 The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
+### Battery Warning
+
+**CAUTION**
+
+RISK OF EXPLOSION IF BATTERY IS REPLACED BY AN INCORRECT TYPE.
+DISPOSE OF USED BATTERIES ACCORDING TO THE INSTRUCTIONS.
+
 ### Disposal
 
 ![WEEE](/assets/images/weee.png)
@@ -279,3 +286,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 006      | 2020 Aug 10 | RK | Updated carrier board diagram |
 | 007      | 2020 Sep 01 | RK | Added antenna diagram |
 | 008      | 2020 Sep 08 | RK | Corrected USB connector description |
+| 009      | 2020 Sep 25 | RK | Add battery warning |

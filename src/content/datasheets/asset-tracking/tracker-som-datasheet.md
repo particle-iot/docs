@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(009)</sup>
+# Tracker SoM Datasheet <sup>(010)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -553,7 +553,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 593 | 835 | 1240 | uA |
 | STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | | 858 | 2330 | uA |
 | STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | | 875 | 1600 | uA |
-| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 577 | 798 | 90.1 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 577 | 798 | 1210 | uA |
 | STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 7.66 | 17.2 | 90.1 | mA |
 | STOP mode sleep, IMU wake-up | I<sub>stop_imu</sub> | 548 | 834 | 1250 | uA |
 | STOP mode sleep, CAN wake-up | I<sub>stop_can</sub> | 605 | 817 | 1210 | uA |
@@ -1149,3 +1149,4 @@ The bootloader allows you to easily update the user application via several diff
 | 007      | 2020 Sep 08 | RK | Added IC (Canada) information |
 | 008      | 2020 Sep 09 | RK | Remove 3GPP E-UTRA from T402 |
 | 009      | 2020 Sep 16 | RK | Added power consumption information |
+| 010      | 2002 Sep 25 | RK | Fixed typo in Istop_usart maximum current |
