@@ -267,7 +267,7 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 
 | SKU     | Description | Packaging |
 | :---    | :--- | :--- |
-| ONE402M | Tracker One LTE M1/2G (NorAm), [x1]	| Each |
+| ONE402M | Tracker One LTE M1 (NorAm), [x1]	| Each |
 | ONE523M | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Each |
 | TCAR	  | Tracker Carrier Board, [x1]	| Each |
 

@@ -130,7 +130,7 @@ If you're building a carrier board you'll probably want to use the Eagle CAD Tra
 | | Tracker One 523 (Europe) | |
 | ONE523M | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Each |
 | | Tracker One 402 (North America) | |
-| ONE402M | Tracker One LTE M1/2G (NorAm), [x1]	| Each |
+| ONE402M | Tracker One LTE M1 (NorAm), [x1]	| Each |
 | | Tracker SoM T523 (Europe) | |
 | T523MEA  | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Each |
 | T523MTY  | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Tray (50) |
