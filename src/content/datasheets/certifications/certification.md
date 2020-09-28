@@ -329,6 +329,19 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron402-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
 
+#### TrackerSoM T402
+
+- IC ID: **20127-T40X**.
+- [Certificate of Conformity](/assets/pdfs/t402-ic-certificate.pdf)
+- [Test Report BLE](/assets/pdfs/t402-ic-ble-test-report.pdf)
+- [Test Report Wi-Fi](/assets/pdfs/t402-ic-wifi-test-report.pdf)
+- [Test Report RS-133](/assets/pdfs/t402-ic-rs130.pdf)
+- [Test Report RS-133](/assets/pdfs/t402-ic-rs132.pdf)
+- [Test Report RS-133](/assets/pdfs/t402-ic-rs133.pdf)
+- [Test Report RS-133](/assets/pdfs/t402-ic-rs139.pdf)
+- [RF Exposure Report](/assets/pdfs/t402-ic-rf-exposure.pdf)
+- [ISED RF Exposure Report](/assets/pdfs/t402-ic-ised-rf-exposure.pdf)
+- [ICES-003 Issue 6:2016](/assets/pdfs/t402-ic-ices003.pdf)
 
 
 ## CE<img class="inline-header-image" src="/assets/images/logo-ce.png"/>
