@@ -212,6 +212,13 @@ The Tracker Carrier Board contains a 100K NTC thermistor, connected to A0. It is
 
 It can be read using the [getTemperature()](/reference/asset-tracking/tracker-edge-firmware/#gettemperature-) API.
 
+## Design Files
+
+The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD design files are available in Github:
+
+[https://github.com/particle-iot/tracker-hardware](https://github.com/particle-iot/tracker-hardware)
+
+
 ## Mechanical specifications
 
 ### Dimensions and weight

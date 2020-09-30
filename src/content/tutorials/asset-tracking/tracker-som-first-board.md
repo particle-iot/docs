@@ -340,3 +340,7 @@ With this, I connected the power to a bench supply and it booted up! Now add the
 That should be it!
 
 A future update to this tutorial will include some power and antenna options.
+
+## Other Designs
+
+The Tracker SoM Evaluation board and Carrier Board (the board in the Tracker One) are open-source and the Eagle CAD design files are available in the [Tracker Hardware Github repository](https://github.com/particle-iot/tracker-hardware).
