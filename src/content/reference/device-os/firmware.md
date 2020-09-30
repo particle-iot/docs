@@ -827,6 +827,20 @@ void loop() {
 }
 ```
 
+{{since when="2.0.0"}}
+
+When disconnecting from the Cloud, by default, the system does not wait for any pending messages, such as cloud events, to be actually sent to acknowledged by the Cloud. This behavior can be changed either globally via [`Particle.setDisconnectOptions()`](#particle-setdisconnectoptions-) or by passing an options object to `Particle.disconnect()`. The timeout parameter controls how long the system can wait for the pending messages to be acknowledged by the Cloud.
+
+```cpp
+// EXAMPLE - disconnecting from the Cloud gracefully
+Particle.disconnect(CloudDisconnectOptions().graceful(true).timeout(5000));
+
+// EXAMPLE - using chrono literals to specify a timeout
+Particle.disconnect(CloudDisconnectOptions().graceful(true).timeout(5s));
+```
+
+Note that the actual disconnection happens asynchronously. If necessary, `waitUntil(Particle.disconnected)` can be used to wait until the device has disconnected from the Cloud.
+
 {{#if has-wifi}}
 While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use `WiFi.off()`.
 {{/if}}
@@ -863,6 +877,10 @@ void loop() {
 }
 ```
 
+### Particle.disconnected()
+
+Returns `true` when disconnected from the Cloud, and `false` when connected to Cloud.
+
 ### Particle.setDisconnectOptions()
 
 {{since when="2.0.0"}}
@@ -876,6 +894,8 @@ Particle.setDisconnectOptions(CloudDisconnectOptions().graceful(true).timeout(5s
 ```
 
 Sets the options for when disconnecting from the cloud, such as from `Particle.disconnect()`. The default is to abruptly disconnect, however, you can use graceful disconnect mode to make sure pending events have been sent and the cloud notified that a disconnect is about to occur. Since this could take some time if there is poor cellular connectivity, a timeout can also be provided in milliseconds or using chrono literals. This setting will be used for future disconnects until the system is reset.
+
+**Note:** This method sets the disconnection options globally, meaning that any method that causes the device to disconnect from the Cloud, such as `System.reset()`, will do so gracefully.
 
 {{#if has-udp-cloud}}
 ### Particle.keepAlive()
