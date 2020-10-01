@@ -651,6 +651,8 @@ And view details about a specific device:
 
 ![Details](/assets/images/tracker/details.png)
 
+On the Tracker One the temperature ("temp") is shown in degrees Celsius. This is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
+
 ### Device Fleet Settings
 
 Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.

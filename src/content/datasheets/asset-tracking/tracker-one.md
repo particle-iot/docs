@@ -210,7 +210,7 @@ The Tracker Carrier Board contains a 100K NTC thermistor, connected to A0. It is
 
 ![Thermistor](/assets/images/at-som/thermistor.png)
 
-It can be read using the [getTemperature()](/reference/asset-tracking/tracker-edge-firmware/#gettemperature-) API.
+It can be read using the [getTemperature()](/reference/asset-tracking/tracker-edge-firmware/#gettemperature-) API. Note that this is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
 
 ## Design Files
 

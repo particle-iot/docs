@@ -237,6 +237,8 @@ float get_temperature();
 
 On the Tracker One, returns the temperature using the thermistor on the Tracker Carrier board. Value is a floating point number in degrees Celsius.
 
+ Note that this is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
+
 
 ## CloudService
 

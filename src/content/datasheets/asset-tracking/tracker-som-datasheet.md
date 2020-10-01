@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(010)</sup>
+# Tracker SoM Datasheet <sup>(011)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -85,10 +85,10 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 
 ### Power
-The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery. 
+The Tracker SoM can be powered via the VIN (3.9V-17VDC) pin, over USB, or a LiPo battery. 
 
 #### VIN
-The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
+The input voltage range on VIN pin is 3.9VDC to 17VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
 #### LiPo
 This pin serves two purposes. You can use this pin to connect a LiPo battery (either directly or using a JST connector), or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the module since the PMIC bypasses the regulator and supplies power to the module via an internal FET leading to lower quiescent current.
@@ -362,7 +362,7 @@ Circular labels are as follows:
 | 46 | TS | IN | PMIC | Battery temperature sensor |
 | 47 | PMID | POWER OUT | PMIC | PMIC power output in OTG mode. |
 | 48 | GND | POWER | | Ground |
-| 49 | VIN | POWER IN | PMIC | Power input 3.88VDC to 12VDC. |
+| 49 | VIN | POWER IN | PMIC | Power input 3.9VDC to 17VDC. |
 | 50 | STAT | OUT | PMIC | PMIC charge status. Can be connected to an LED. Active low. Optional. | 
 | 51 | VBUS | POWER IN | PMIC & nRF52 | nRF52 USB power input. Can be used as a power supply instead of VIN. |
 | 52 | GND | POWER | | Ground |
@@ -769,7 +769,6 @@ CAN Tranceiver Characteristics
 - Handles switching between USB, VIN, and battery power
 - LiPo battery charger
 - Charge safety timer, thermal regulation, and thermal shutdown
-- Optional connection for battery thermistor
 
 #### Fuel Gauge
 
@@ -1150,3 +1149,4 @@ The bootloader allows you to easily update the user application via several diff
 | 008      | 2020 Sep 09 | RK | Remove 3GPP E-UTRA from T402 |
 | 009      | 2020 Sep 16 | RK | Added power consumption information |
 | 010      | 2002 Sep 25 | RK | Fixed typo in Istop_usart maximum current |
+| 011      | 2002 Oct 01 | RK | Fixed VIN maximum voltage in text (is 17V not 12V) |
