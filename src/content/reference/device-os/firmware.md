@@ -13437,7 +13437,7 @@ Power Conditions and how they relate to Backup RAM initialization and data reten
 {{#if has-nrf52}}
 A 3068 bytes section of backup RAM is provided for storing values that are maintained across system reset and hibernate sleep mode. Unlike EEPROM emulation, the backup RAM can be accessed at the same speed as regular RAM and does not have any wear limitations.
 
-On Gen 3 devices (Argon, Boron, B Series SoM), retained memory is only initialized in Device OS 1.5.0 and later. In preior versions, retained memory would always be uninitialized on first power-up.
+On Gen 3 devices (Argon, Boron, B Series SoM), retained memory is only initialized in Device OS 1.5.0 and later. In prior versions, retained memory would always be uninitialized on first power-up.
 {{/if}}
 
 ### Storing data in Backup RAM (SRAM)
