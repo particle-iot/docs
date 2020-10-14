@@ -374,8 +374,6 @@ Cloud events have the following properties:
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 * PUBLIC/PRIVATE (the default is PUBLIC but PRIVATE is advisable)
-* ttl (time to live, 0–16777215 seconds, default 60)
-  !! **NOTE:** TTL is not implemented, hence the ttl value has no effect. Events must be caught immediately; once sent they will be gone *immediately*.
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).
 
 Anyone may subscribe to public events; think of them like tweets.
@@ -399,7 +397,7 @@ String variables must be UTF-8 encoded. You cannot send arbitrary binary data or
 
 ---
 
-Publish a private event with the given name, no data, and the default TTL of 60 seconds.
+Publish a private event with the given name and no data.
 
 ```cpp
 // SYNTAX
@@ -421,7 +419,7 @@ if (!success) {
 
 ---
 
-Publish a private event with the given name and data, with the default TTL of 60 seconds.
+Publish a private event with the given name and data.
 
 ```cpp
 // SYNTAX
@@ -434,31 +432,7 @@ Particle.publish("temperature", "19 F", PRIVATE);
 
 ---
 
-Publish a private event with the given name, data, and TTL.
-
-```cpp
-// SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
-Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
-
-// EXAMPLE USAGE
-Particle.publish("lake-depth/1", "28m", 21600, PRIVATE);
-```
-
----
-
-Publish a private event with the given name, data, and TTL.
-
-```cpp
-// SYNTAX
-Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
-Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
-
-// EXAMPLE USAGE
-Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
-```
-
-Publish a public event with the given name.
+Publish a public event with the given name. 
 
 ```cpp
 // SYNTAX
@@ -501,7 +475,6 @@ For example, the `NO_ACK` flag could be useful when many events are sent (such a
 float temperature = sensor.readTemperature();  // by way of example, not part of the API
 Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
 Particle.publish("t", String::format("%.2f",temperature), PRIVATE, NO_ACK);
-Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 ```
 
 {{/if}} {{!-- electron --}}
@@ -518,7 +491,6 @@ This flag causes `Particle.publish()` to return only after receiving an acknowle
 
 Particle.publish("motion-detected", NULL, WITH_ACK);
 Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
-Particle.publish("motion-detected", NULL, ttl, PRIVATE, WITH_ACK);
 ```
 
 ---
@@ -533,7 +505,7 @@ Particle.publish("motion-detected", NULL, ttl, PRIVATE, WITH_ACK);
 Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 ```
 
-If you wish to send a public event, you should specify PUBLIC explictly. This will be required in the future, but is optional in 0.7.0.
+If you wish to send a public event, you should specify PUBLIC explicitly. This will be required in the future, but is optional in 0.7.0.
 
 ```cpp
 Particle.publish("motion-detected", PUBLIC);
@@ -547,6 +519,16 @@ Unlike functions and variables, you typically call Particle.publish from loop() 
 
 For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
 
+---
+
+Previously, there were overloads with a `ttl` (time-to-live) value. These have been deprecated as the ttl has never been supported by the Particle cloud. All events expire immediately if not subscribed to or exported from the Particle cloud using a webhook, integration like Google cloud, or the server-sent-events (SSE) stream. 
+
+```cpp
+// SYNTAX - DEPRECATED
+Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
+Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
+-depth/1", "28m", 21600, PRIVATE);
+```
 
 ### Particle.publishVitals()
 
@@ -931,8 +913,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### Particle.process()
 
-Runs the background loop. This is the public API for the former internal function
-`SPARK_WLAN_Loop()`.
+Runs the background loop. 
 
 {{#unless has-linux}}
 `Particle.process()` checks the {{network-type}} module for incoming messages from the Cloud,
@@ -962,7 +943,7 @@ void redundantLoop() {
 }
 ```
 
-`Particle.process()` is a blocking call, and blocks for a few milliseconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the Wi-Fi module's buffer will overrun.
+`Particle.process()` is a blocking call, and blocks for a few milliseconds to several seconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the Wi-Fi module's buffer will overrun.
 
 ### Particle.syncTime()
 
@@ -3737,7 +3718,7 @@ When porting code from Arudino, pin numbers are numbered (0, 1, 2, ...) in Ardui
 
 - `INPUT_PULLUP` and `INPUT_PULLDOWN` are approximately 13K on Gen 3 devices.
 
-If you are using the Particle Ethernet FeatherWing you cannot use the pins for GPIO as they are used for the Ethernet interface:
+If you are using the **Particle Ethernet FeatherWing** you cannot use the pins for GPIO as they are used for the Ethernet interface:
 
 | Argon, Boron, Xenon| B Series SoM | Ethernet FeatherWing Pin  |
 |:------:|:------------:|:--------------------------|
@@ -3751,6 +3732,18 @@ If you are using the Particle Ethernet FeatherWing you cannot use the pins for G
 When using the FeatherWing Gen 3 devices (Argon, Boron, Xenon), pins D3, D4, and D5 are reserved for Ethernet control pins (reset, interrupt, and chip select).
 
 When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for the Ethernet control pins (reset, interrupt, and chip select).
+
+By default, on the **B Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
+
+```
+System.setPowerConfiguration(SystemPowerConfiguration());
+```
+
+| B Series SoM | Power Manager Usage  |
+|:-----------: | :------|
+| D0           | I2C SDA |
+| D1           | I2C SCL |
+| A6           | PM_INT (power manager interrupt) |
 
 {{note op="end"}}
 
@@ -3895,7 +3888,7 @@ void loop()
 - All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 - On the Photon, Electron, and E Series, all GPIO pins **except** A3 and A6 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs.
 - On the P1, all GPIO pins **except** A3, A6, D0 and D1 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs. 
-- On the P1 there are 2.1K hardware pull-up resistors to 3V3 on D0 and D1. 
+- On the P1 there are 2.1K hardware pull-up resistors to 3V3 on D0 and D1 and are not 5V tolerant.
 {{note op="end"}}
 
 {{#if has-nrf52}}
@@ -4791,6 +4784,19 @@ void setup() {
 }
 ```
 
+### B Series SoM
+
+By default, on the **B Series SoM**, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
+
+```
+System.setPowerConfiguration(SystemPowerConfiguration());
+```
+
+| B Series SoM | Power Manager Usage  |
+|:-----------: | :------|
+| D0           | I2C SDA |
+| D1           | I2C SCL |
+| A6           | PM_INT (power manager interrupt) |
 
 
 ## PMIC (Power Management IC)
@@ -5079,6 +5085,12 @@ Returns the charge voltage register. This is the direct register value from the 
 
 ## Serial
 (inherits from [`Stream`](#stream-class))
+
+| Interface | Maximum Speed (Gen2) | Maximum Speed (Gen 3) | Maximum Peripheral Devices |
+| :--- | :--- | :--- | :--- |
+| UART Serial | 230 Kbit/sec | 1 Mbit/sec | 1 (point-to-point) |
+| I2C | 400 Kbit/sec | 400 Kbit/sec | Many (limited by addresses) |
+| SPI | 60 Mbit/sec | 32 Mbit/sec | Many (limited by CS GPIO pins) |
 
 
 {{#if electron}}
@@ -6476,23 +6488,49 @@ See [`Keyboard.write()`](#write--1) and [`Serial.printlnf()`](#printlnf-) docume
 {{#if has-spi}}
 SPI
 ----
-This library allows you to communicate with SPI devices, with the device as the master device.
+This library allows you to communicate with SPI ("Serial Peripheral Interface") devices, with the device as the master device. 
+
+| Interface | Maximum Speed (Gen2) | Maximum Speed (Gen 3) | Maximum Peripheral Devices |
+| :--- | :--- | :--- | :--- |
+| UART Serial | 230 Kbit/sec | 1 Mbit/sec | 1 (point-to-point) |
+| I2C | 400 Kbit/sec | 400 Kbit/sec | Many (limited by addresses) |
+| SPI | 60 Mbit/sec | 32 Mbit/sec | Many (limited by CS GPIO pins) |
+
+
 
 {{#if has-spi-slave}}
 {{#if has-stm32}}_Since 0.5.0_ {{/if}}This device can function as a SPI slave.
-{{/if}}
-
-
-{{#if has-embedded}}
+{{/if}} {{!-- has-spi-slave --}}
 
 The hardware SPI pin functions, which can
 be used via the `SPI` object, are mapped as follows:
+
 {{#if has-stm32}}
 * `SS` => `A2` (default)
 * `SCK` => `A3`
 * `MISO` => `A4`
 * `MOSI` => `A5`
-{{/if}}
+
+{{#if has-multiple-spi}}
+There is a second hardware SPI interface available, which can
+be used via the `SPI1` object. This second port is mapped as follows:
+* `SS` => `D5` (default)
+* `SCK` => `D4`
+* `MISO` => `D3`
+* `MOSI` => `D2`
+{{/if}} {{!-- has-multiple-spi --}}
+
+{{#if electron}}
+Additionally on the Electron, there is an alternate pin location for the second SPI interface, which can
+be used via the `SPI2` object. This alternate location is mapped as follows:
+* `SS` => `D5` (default)
+* `SCK` => `C3`
+* `MISO` => `C2`
+* `MOSI` => `C1`
+{{/if}} {{!-- electron --}}
+
+{{/if}} {{!-- has-stm32 --}}
+
 {{#if has-nrf52}}
 On the Argon, Boron, and Xenon:
 * `SS` => `A5 (D14)` (but can use any available GPIO)
@@ -6512,45 +6550,19 @@ On the Tracker SoM:
 * `MISO` => `A5`/`D5`
 * `MOSI` => `A4`/`D4`
 
-{{/if}}
-
 {{#if has-multiple-spi}}
 There is a second hardware SPI interface available, which can
 be used via the `SPI1` object. This second port is mapped as follows:
-{{#if has-stm32}}
-* `SS` => `D5` (default)
-* `SCK` => `D4`
-* `MISO` => `D3`
-* `MOSI` => `D2`
-{{/if}}
-{{#if has-nrf52}}
+
 * `SCK` => `D2`
 * `MOSI` => `D3`
 * `MISO` => `D4`
 
 Note: On Gen 3 devices, the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a Gen 3 device with the classic adapter.
-{{/if}}
-{{/if}}
 
-{{#if electron}}
-Additionally on the Electron, there is an alternate pin location for the second SPI interface, which can
-be used via the `SPI2` object. This alternate location is mapped as follows:
-* `SS` => `D5` (default)
-* `SCK` => `C3`
-* `MISO` => `C2`
-* `MOSI` => `C1`
-{{/if}}
+{{/if}} {{!-- has-multiple-spi --}}
 
-{{#if has-multiple-spi}}
-**Note**: Because there are multiple SPI peripherals available, be sure to use the same `SPI`,`SPI1`{{#if electron}},`SPI2`{{/if}} object with all associated functions. I.e.,
-
-Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
-
-**Do** use **SPI**.begin() with **SPI**.transfer();
-{{/if}}
-
-{{/if}} {{!-- has-embedded --}}
-
+{{/if}} {{!-- has-nrf52 --}}
 
 ### begin()
 
@@ -6565,8 +6577,11 @@ SPI.begin(ss);
 SPI1.begin(ss);
 {{#if electron}}
 SPI2.begin(ss);
-{{/if}}
-{{/if}}
+{{/if}} {{!-- electron --}}
+{{/if}} {{!-- has-multiple-spi --}}
+
+// Example with no SS pin configured:
+SPI.begin(PIN_INVALID);
 ```
 
 Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is:
@@ -6578,7 +6593,6 @@ For `SPI1`, the default `ss` pin is `D5`.
 {{#if electron}}
 For `SPI2`, the default `ss` pin is also `D5`.
 {{/if}} {{!-- electron --}}
-{{/if}} {{!-- has-multiple-spi --}}
 
 ```cpp
 // Example using SPI1, with D5 as the SS pin:
@@ -6591,8 +6605,9 @@ SPI1.begin(D5);
 // Example using SPI2, with C0 as the SS pin:
 SPI2.begin(C0);
 ```
-{{/if}}
-{{/if}}
+{{/if}} {{!-- electron --}}
+
+{{/if}} {{!-- has-multiple-spi --}}
 
 {{#if has-spi-slave}}
 
@@ -6615,7 +6630,9 @@ Parameters:
 For `SPI1`, the default `ss` pin is `D5`.
 {{#if electron}}
 For `SPI2`, the default `ss` pin is also `D5`.
-{{/if}}
+{{/if}} {{!-- electron --}}
+{{/if}} {{!-- has-multiple-spi --}}
+
 
 ```cpp
 // Example using SPI in master mode, with the default SS pin:
@@ -6626,13 +6643,13 @@ SPI1.begin(SPI_MODE_SLAVE, D5);
 {{#if electron}}
 // Example using SPI2 in slave mode, with C0 as the SS pin
 SPI2.begin(SPI_MODE_SLAVE, C0);
-{{/if}}
-{{/if}}
+{{/if}} {{!-- electron --}}
+{{/if}} {{!-- has-multiple-spi --}}
 ```
 
 {{#if has-nrf52}}
 Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. It is not supported on SPI. The maximum speed is 8 MHz on SPI1.
-{{/if}}
+{{/if}} {{!-- has-nrf52 --}}
 
 {{/if}} {{!-- has-spi-slave --}}
 
@@ -6643,13 +6660,9 @@ Disables the SPI bus (leaving pin modes unchanged).
 ```cpp
 // SYNTAX
 SPI.end();
-{{#if has-multiple-spi}}
-SPI1.end();
-{{#if electron}}
-SPI2.end();
-{{/if}}
-{{/if}}
 ```
+
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.end()`.
 
 ### setBitOrder()
 
@@ -6658,37 +6671,22 @@ Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST 
 ```cpp
 // SYNTAX
 SPI.setBitOrder(order);
-{{#if has-multiple-spi}}
-SPI1.setBitOrder(order);
-{{#if electron}}
-SPI2.setBitOrder(order);
-{{/if}}
-{{/if}}
 ```
 
 Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`.
+
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setBitOrder()`.
 
 ### setClockSpeed
 
 Sets the SPI clock speed. The value can be specified as a direct value, or as
 as a value plus a multiplier.
 
-
 ```cpp
 // SYNTAX
 SPI.setClockSpeed(value, scale);
 SPI.setClockSpeed(frequency);
-{{#if has-multiple-spi}}
-SPI1.setClockSpeed(value, scale);
-SPI1.setClockSpeed(frequency);
-{{#if electron}}
-SPI2.setClockSpeed(value, scale);
-SPI2.setClockSpeed(frequency);
-{{/if}}
-{{/if}}
-```
 
-```
 // EXAMPLE
 // Set the clock speed as close to 15MHz (but not over)
 SPI.setClockSpeed(15, MHZ);
@@ -6702,6 +6700,8 @@ than the one specified.
 This method can make writing portable code easier, since it specifies the clock speed
 absolutely, giving comparable results across devices. In contrast, specifying
 the clock speed using dividers is typically not portable since is dependent upon the system clock speed.
+
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockSpeed()`.
 
 {{#if has-nrf52}}
 Gen 3 devices (Argon, Boron, and Xenon) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
@@ -6743,6 +6743,7 @@ On the Photon and Electron, the system clock speeds are:
 On Gen 3 devices (Argon, Boron, Xenon), system clock speed is 64 MHz.
 {{/if}} {{!-- has-nrf52 --}}
 
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockDividerReference()`.
 
 
 ### setClockDivider()
@@ -6752,12 +6753,6 @@ Sets the SPI clock divider relative to the selected clock reference. The availab
 ```cpp
 // SYNTAX
 SPI.setClockDivider(divider);
-{{#if has-multiple-spi}}
-SPI1.setClockDivider(divider);
-{{#if electron}}
-SPI2.setClockDivider(divider);
-{{/if}}
-{{/if}}
 ```
 Where the parameter, `divider` can be:
 
@@ -6779,6 +6774,7 @@ On the Photon and Electron, the clock reference is 120 MHz.
 On Gen 3 devices (Argon, Boron, Xenon), the clock reference is 64 MHz.
 {{/if}} {{!-- has-nrf52 --}}
 
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockDivider()`.
 
 
 
@@ -6789,12 +6785,6 @@ Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia ar
 ```cpp
 // SYNTAX
 SPI.setDataMode(mode);
-{{#if has-multiple-spi}}
-SPI1.setDataMode(mode);
-{{#if electron}}
-SPI2.setDataMode(mode);
-{{/if}}
-{{/if}}
 ```
 Where the parameter, `mode` can be:
 
@@ -6819,6 +6809,8 @@ SPI2.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setDataMode()`.
+
 
 ### transfer(void\*, void\*, size_t, std::function)
 
@@ -6829,12 +6821,6 @@ For transferring a large number of bytes, this form of transfer() uses DMA to sp
 ```cpp
 // SYNTAX
 SPI.transfer(tx_buffer, rx_buffer, length, myFunction);
-{{#if has-multiple-spi}}
-SPI1.transfer(tx_buffer, rx_buffer, length, myFunction);
-{{#if electron}}
-SPI2.transfer(tx_buffer, rx_buffer, length, myFunction);
-{{/if}}
-{{/if}}
 ```
 
 Parameters:
@@ -6847,6 +6833,8 @@ Parameters:
 NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
 
 _Since 0.5.0_ When SPI peripheral is configured in slave mode, the transfer will be canceled when the master deselects this slave device. The user application can check the actual number of bytes received/transmitted by calling `available()`.
+
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.transfer()`.
 
 ### transferCancel()
 
@@ -6869,12 +6857,6 @@ On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
 ```cpp
 // SYNTAX
 SPI.onSelect(myFunction);
-{{#if has-multiple-spi}}
-SPI1.onSelect(myFunction);
-{{#if electron}}
-SPI2.onSelect(myFunction);
-{{/if}}
-{{/if}}
 
 void myFunction(uint8_t state) {
   // called when selected or deselected
@@ -6974,6 +6956,8 @@ void loop() {
 ```
 {{/if}} {{!-- has-nrf52 --}}
 
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.onSelect()`.
+
 ### available()
 
 {{since when="0.5.0"}}
@@ -7011,13 +6995,6 @@ SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
 // Pre-declared SPISettings object
 SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
 SPI.beginTransaction(settings);
-
-{{#if has-multiple-spi}}
-SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
-{{#if electron}}
-SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
-{{/if}}
-{{/if}}
 ```
 
 Parameters:
@@ -7048,13 +7025,6 @@ You must not use `beginTransaction()` within a `SINGLE_THREADED_BLOCK` as deadlo
 SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
 // Pre-declared SPISettings object
 SPI.beginTransaction(settings);
-
-{{#if has-multiple-spi}}
-SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
-{{#if electron}}
-SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
-{{/if}}
-{{/if}}
 ```
 
 Parameters:
@@ -7063,6 +7033,8 @@ Parameters:
 Returns: Negative integer in case of an error.
 
 You should set your SPI CS/SS pin between the calls to `beginTransaction()` and `endTransaction()`. You typically use `pinResetFast()` right after `beginTransaction()` and `pinSetFast()` right before `endTransaction()`.
+
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.beginTransaction()`.
 
 ### endTransaction()
 
@@ -7079,15 +7051,11 @@ This function releases the SPI peripheral lock, allowing other threads to use it
 ```cpp
 // SYNTAX
 SPI.endTransaction();
-{{#if has-multiple-spi}}
-SPI1.endTransaction();
-{{#if electron}}
-SPI2.endTransaction();
-{{/if}}
-{{/if}}
 ```
 
 Returns: Negative integer in case of an error.
+
+Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.endTransaction()`.
 
 {{/if}} {{!-- has-spi-settings --}}
 
@@ -7099,8 +7067,27 @@ Wire (I2C)
 ---
 (inherits from [`Stream`](#stream-class))
 
+This library allows you to communicate with I2C / TWI (Two Wire Interface) devices. For an in-depth tutorial on I2C, see [learn more about I2C](/tutorials/learn-more/about-i2c/).
 
-This library allows you to communicate with I2C / TWI (Two Wire Interface) devices.
+| Interface | Maximum Speed (Gen2) | Maximum Speed (Gen 3) | Maximum Peripheral Devices |
+| :--- | :--- | :--- | :--- |
+| UART Serial | 230 Kbit/sec | 1 Mbit/sec | 1 (point-to-point) |
+| I2C | 400 Kbit/sec | 400 Kbit/sec | Many (limited by addresses) |
+| SPI | 60 Mbit/sec | 32 Mbit/sec | Many (limited by CS GPIO pins) |
+
+### Pull-up resistors (I2C)
+
+The I2C bus must have pull-up resistors, one on the SDA line and one on the SCL line. They're typically 4.7K or 10K ohm, but should be in the range of 2K to 10K.
+
+Many of the breakout boards you can buy at Adafruit or SparkFun already have the pull-up resistors on them, typically 10K but sometimes 4.7K. If you buy a bare chip that's a sensor, it typically won't have a built-in pull-up resistors so you'll need to add the external resistors.
+
+On the Photon and Electron, a 40K weak pull-up is added on SDA/SCL (D0/D1) when in I2C mode, but this is not sufficient for most purposes and you should add external pull-up resistors.
+
+On the P1, there are 2.1K hardware pull-up resistors inside the P1 module. You should not add external pull-ups on the P1.
+
+On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), a 13K pull-up is added on I2C interfaces. This will sometimes work, but is still too large of a pull-up to be reliable so you should add external pull-ups as well.
+
+### Pins (I2C)
 
 {{#if has-embedded}}
 
@@ -8448,7 +8435,7 @@ Note that the timeout is the timeout after the connection is established, to det
 
 #### BLE.connected()
 
-Returns `true` (1) if a connected to a device or `false` (0) if not.
+Returns `true` (1) if a connected to a device or `false` (0) if not. 
 
 ```cpp
 // PROTOTYPE
@@ -8535,7 +8522,7 @@ Returns 0 on success, or a non-zero error code.
 
 #### BLE.onConnected()
 
-Registers a callback function that is called when a connection is established.
+Registers a callback function that is called when a connection is established. This is only called for peripheral devices. On central devices, `BLE.connect()` is synchronous.
 
 You can use this method, or you can simply monitor `BLE.connected()` (for peripheral devices) or `peer.connected()` for central devices.
 
@@ -13421,10 +13408,11 @@ pause any time `put()` or `write()` is called.
 {{#if has-backup-ram}}
 ## Backup RAM (SRAM)
 
+{{#if has-stm32}}
 The STM32F2xx features 4KB of backup RAM (3068 bytes for Device OS
 version v0.6.0 and later) of which is available to the user. Unlike the regular RAM memory, the backup RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that the data in backup RAM is retained when:
 
-- the device goes into deep sleep mode
+- the device goes into deep sleep mode (SLEEP_MODE_DEEP or HIBERNATE)
 - the device is hardware or software reset (while maintaining power)
 - power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
 
@@ -13444,6 +13432,13 @@ Power Conditions and how they relate to Backup RAM initialization and data reten
 | Hard reset | Boot after hard reset | Yes | Yes/No | No | Yes |
 
 <sup>[1]</sup> Note: If VBAT is floating when powering up for the first time, SRAM remains uninitialized.  When using this feature for Backup RAM, it is recommended to have VBAT connected to a 3V3 or a known good power source on system first boot.  When using this feature for Extra RAM, it is recommended to jumper VBAT to GND to ensure it always initializes on system first boot.
+{{/if}}
+
+{{#if has-nrf52}}
+A 3068 bytes section of backup RAM is provided for storing values that are maintained across system reset and hibernate sleep mode. Unlike EEPROM emulation, the backup RAM can be accessed at the same speed as regular RAM and does not have any wear limitations.
+
+On Gen 3 devices (Argon, Boron, B Series SoM), retained memory is only initialized in Device OS 1.5.0 and later. In preior versions, retained memory would always be uninitialized on first power-up.
+{{/if}}
 
 ### Storing data in Backup RAM (SRAM)
 
@@ -13637,10 +13632,7 @@ This will allow the device to join the product it has been added to without hard
 
 {{#if has-sleep}}
 
-## Sleep
-
-
-### sleep() [ Sleep ]
+## sleep() [ Sleep ]
 
 ```cpp
 SystemSleepConfiguration config;
@@ -13658,7 +13650,7 @@ The `SystemSleepConfiguration` class configures all of the sleep parameters and 
 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
 
-#### SystemSleepConfiguration::mode()
+### mode() (SystemSleepConfiguration)
 
 The are are three sleep modes:
 
@@ -13675,7 +13667,7 @@ The are are three sleep modes:
 
 ---
 
-##### SystemSleepMode::STOP
+### STOP (SystemSleepMode)
 
 ```cpp
 // EXAMPLE
@@ -13738,7 +13730,7 @@ Typical power consumption in STOP sleep mode, based on the wakeup source:
 
 ---
 
-##### SystemSleepMode::ULTRA_LOW_POWER
+### ULTRA_LOW_POWER (SystemSleepMode)
 
 ```cpp
 // EXAMPLE
@@ -13797,7 +13789,7 @@ Typical power consumption in ultra-low power (ULP) sleep mode, based on the wake
 
 ---
 
-##### SystemSleepMode::HIBERNATE
+### HIBERNATE (SystemSleepMode)
 
 ```
 // EXAMPLE
@@ -13860,7 +13852,7 @@ In this mode:
 
 ---
 
-#### SystemSleepConfiguration::duration()
+### duration() (SystemSleepConfiguration)
 
 ```c++
 // PROTOTYPES
@@ -13895,7 +13887,7 @@ On cellular devices, if you turn off the cellular modem, you should not wake wit
 
 ---
 
-#### SystemSleepConfiguration::gpio()
+### gpio() (SystemSleepConfiguration)
 
 
 ```c++
@@ -13942,7 +13934,7 @@ On Gen 3 devices the location of the `WKP` pin varies, and it may make more sens
 ---
 
 
-#### SystemSleepConfiguration::flag()
+### flag() (SystemSleepConfiguration)
 
 ```c++
 // PROTOTYPE
@@ -13964,7 +13956,7 @@ This will make sure all cloud messages have been acknowledged before going to sl
 
 ---
 
-#### SystemSleepConfiguration::network()
+### network() (SystemSleepConfiguration)
 
 ```c++
 // PROTOTYPE
@@ -13987,7 +13979,7 @@ This option not only allows wake from network activity, but also keeps the netwo
 
 
 
-#### SystemSleepConfiguration::analog()
+### analog() (SystemSleepConfiguration)
 
 ```c++
 // PROTOTYPE
@@ -14014,7 +14006,7 @@ The `AnalogInterruptMode` is one of:
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp;  |
 
 
-#### SystemSleepConfiguration::usart
+### usart (SystemSleepConfiguration)
 
 ```c++
 // PROTOTYPE
@@ -14038,7 +14030,7 @@ Note: Keeping the USART active in ultra-low power mode significanly increases th
 
 ---
 
-#### SystemSleepConfiguration::ble()
+### ble() (SystemSleepConfiguration)
 
 ```c++
 // PROTOTYPE
@@ -14068,13 +14060,13 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 
 
 
-### SystemSleepResult Class
+## SystemSleepResult Class
 
 {{since when="1.5.0"}}
 
 The `SystemSleepResult` class is a superset of the older [`SleepResult`](#sleepresult-) class and contains additional information when using `System.sleep()` with the newer API. 
 
-#### wakeupReason()
+### wakeupReason() (SystemSleepResult)
 
 ```cpp
 // PROTOTYPE
@@ -14106,7 +14098,7 @@ Returns the reason for wake. Constants include:
 | `SystemSleepWakeupReason::BY_NETWORK` | Network (cellular or Wi-Fi) |
 
 
-#### wakeupPin()
+### wakeupPin() (SystemSleepResult)
 
 ```cpp
 // PROTOTYPE
@@ -14115,7 +14107,7 @@ pin_t wakeupPin() const;
 
 If `wakeupReason()` is `SystemSleepWakeupReason::BY_GPIO` returns which pin caused the wake. See example under `wakeupReason()`, above.
 
-#### error()
+### error() (SystemSleepResult)
 
 ```cpp
 // PROTOTYPE
@@ -14124,7 +14116,7 @@ system_error_t error() const;
 
 If there was an error, returns the system error code. 0 is no error.
 
-#### toSleepResult()
+### toSleepResult() (SystemSleepResult)
 
 ```cpp
 // PROTOTYPES
@@ -14135,11 +14127,9 @@ operator SleepResult();
 Returns the previous style of [`SleepResult`](#sleepresult-). There is also an operator to automatically convert to a `SleepResult`.
 
 
-## Sleep (Classic API)
+## sleep() [ Classic API ]
 
 This API is the previous API for sleep and is less flexible. You should use the [newer sleep APIs](#sleep-sleep-) with Device OS 1.5.0 and later.
-
-### sleep() [ Classic API ]
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
@@ -15596,6 +15586,23 @@ void loop() {}
 ```
 
 
+### System.millis()
+
+{{since when="0.8.0"}}
+
+Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-) function but returns a 64-bit value.
+
+While the 32-bit `millis()` rolls over to 0 after approximately 49 days, the 64-bit `System.millis()` does not.
+
+One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
+
+### System.uptime()
+
+{{since when="0.8.0"}}
+
+Returns the number of seconds passed since the device was last reset.
+
+
 {{#if has-pmic}}
 
 ### powerSource()
@@ -15831,22 +15838,6 @@ Disables the system flag.
 `System.enabled(system_flag_t flag)`
 
 Returns `true` if the system flag is enabled.
-
-### System Uptime
-
-_Since 0.8.0_
-
-#### System.millis()
-
-Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-) function but returns a 64-bit value.
-
-While the 32-bit `millis()` rolls over to 0 after approximately 49 days, the 64-bit `System.millis()` does not.
-
-One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
-
-#### System.uptime()
-
-Returns the number of seconds passed since the device was last reset.
 
 {{#if has-interrupts}}
 

@@ -254,6 +254,12 @@ For maximum cross-module flexibility, you should try to use only the common pins
 
 <sup>5</sup>The VCC maximum is 4.3V on the B523 (Quectel) but is 4.2V on the B402 (u-blox LTE M1). For compatibility across modules, limit this to 4.2V.
 
+By default, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
+
+```
+System.setPowerConfiguration(SystemPowerConfiguration());
+```
+
 ### LED status
 
 #### System RGB LED

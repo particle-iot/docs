@@ -1183,6 +1183,10 @@ function generateCarrierComparison() {
 					carrierInfo[carrierName] = {};
 				}	
 
+				if (countrySimCarrier[recordId].isB523) {
+					countryCoverage[countryName].isB523 = true;
+				}
+
 				switch(countrySimCarrier[recordId].planName) {
 					case 'Original':
 						break;
@@ -1217,7 +1221,7 @@ function generateCarrierComparison() {
 						break;
 						
 					case 'All Net':
-						carrierInfo[carrierName].koreall = true;	
+						carrierInfo[carrierName].koreall = rankToNumber(countrySimCarrier[recordId].rank);	
 						countryCoverage[countryName].koreall = true;
 						break;
 						
@@ -1243,11 +1247,14 @@ function generateCarrierComparison() {
 		});
 	
 		countryCoverage[countryName].carriersInCountry = carriersInCountry;
+		countryCoverage[countryName].carrierInfo = carrierInfo;
 
+		/*
 		if (lastLetter != countryName.charAt(0)) {
 			lastLetter = countryName.charAt(0);
 			output += labelRow + spacerRow;
 		}
+		*/
 
 		for(let jj = 0; jj < carriersInCountry.length; jj++) {
 			// console.log("  " + carriersInCountry[jj]);
@@ -1257,7 +1264,20 @@ function generateCarrierComparison() {
 
 			simTypeNames.forEach(function(simType) {
 				if (carrierInfo[carrierName][simType]) {
-					output += ' | &check; ';
+					if (simType != 'koreall') {
+						output += ' | &check; ';
+					}
+					else {
+						if (carrierInfo[carrierName][simType] == 2) {
+							output += ' | <sup>2</sup> ';
+						}
+						else if (carrierInfo[carrierName][simType] == 3) {
+							output += ' | <sup>3</sup> ';
+						}
+						else {
+							output += ' | &check; ';
+						}
+					}
 				}
 				else {
 					output += ' | &nbsp; ';
@@ -1271,6 +1291,59 @@ function generateCarrierComparison() {
 
 
 	}
+
+
+	//
+	//
+	//
+	output += '\n';
+	output += 'European Kore AllNet to SuperSIM\n';
+	output += 'Affected SKUs: Boron 2G/3G, B Series B523, E Series E313, Tracker SoM T523\n';
+	output += '\n';
+
+	output += '| Country | Carrier | Kore AllNet | SuperSIM |\n';
+	output += '| :--- | :--- | :---: | :---: |\n';
+	for(let ii = 0; ii < countryNames.length; ii++) {
+		const countryName = countryNames[ii];
+		const carriersInCountry = countryCoverage[countryName].carriersInCountry;
+		const carrierInfo = countryCoverage[countryName].carrierInfo;
+
+		if (!countryCoverage[countryName].isB523) {
+			continue;
+		}
+
+		for(let jj = 0; jj < carriersInCountry.length; jj++) {
+			const carrierName = carriersInCountry[jj];
+		
+			output += '| ' + countryName + ' | ' + carrierName + ' | ';
+
+			if (carrierInfo[carrierName]['koreall']) {
+				if (carrierInfo[carrierName]['koreall'] == 2) {
+					output += ' <sup>2</sup> | ';
+				}
+				else if (carrierInfo[carrierName]['koreall'] == 3) {
+					output += ' <sup>3</sup> | ';
+				}
+				else {
+					output += ' &check; | ';
+				}
+			}
+			else {
+				output += ' &nbsp; | ';
+			}
+
+			if (carrierInfo[carrierName]['supersim']) {
+				output += ' &check; | ';
+			}
+			else {
+				output += ' &nbsp; | ';
+			}
+			output += '\n';
+		}
+
+		output += '| &nbsp; | &nbsp; | &nbsp; | &nbsp; |\n';
+	}
+
 
 	//
 	//
@@ -1346,6 +1419,8 @@ function generateCarrierComparison() {
 			output += '| ' + countryName + '| \u2705  |\n'; // Green box with with checkmark
 		}
 	}
+
+
 
 
 	fs.writeFileSync(path.join(__dirname, 'carrierComparison.md'), output);

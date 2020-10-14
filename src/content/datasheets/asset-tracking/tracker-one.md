@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(009)</sup>
+# Tracker One<sup>(010)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -221,6 +221,14 @@ The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD de
 
 ## Mechanical specifications
 
+### Operating Temperature
+
+| Parameter                        | Minimum | Maximum | Units |
+| :------------------------------- | ---: | ---: | :---- |
+| Operating temperature | -10 | 60 | &deg;C |
+| Battery charging enabled | 0 | 50 | &deg;C |
+
+
 ### Dimensions and weight
 
 | Parameter                        | Value | Units |
@@ -229,9 +237,7 @@ The Tracker Carrier Board in the Tracker One is open-source and the Eagle CAD de
 | Length (case only)               |   146 | mm    |
 | Length (including M8 connector)  |   154 | mm    |
 | Thickness                        |    33 | mm    |
-| Weight                           |       | g     |
-
-Weight will be provided at a later date.
+| Weight                           |   290 | g     |
 
 Case Dimensions (mm):
 
@@ -294,3 +300,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 007      | 2020 Sep 01 | RK | Added antenna diagram |
 | 008      | 2020 Sep 08 | RK | Corrected USB connector description |
 | 009      | 2020 Sep 25 | RK | Add battery warning |
+| 010      | 2020 Oct 14 | RK | Add temperature range |

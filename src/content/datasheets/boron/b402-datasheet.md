@@ -232,6 +232,12 @@ For maximum cross-module flexibility, you should try to use only the common pins
 
 <sup>3</sup>SoM-specific and Reserved pins will vary depending on module. They are able to be used on the B402, but their function may be be different on future modules.
 
+By default, the Tinker application firmware enables the use of the bq24195 PMIC and MAX17043 fuel gauge. This in turn uses I2C (D0 and D1) and pin A6 (PM_INT). If you are not using the PMIC and fuel gauge and with to use these pins for other purposes, be sure to disable system power configuration. This setting is persistent, so you may want to disable it with your manufacturing firmware only.
+
+```
+System.setPowerConfiguration(SystemPowerConfiguration());
+```
+
 ### LED status
 
 #### System RGB LED
