@@ -155,9 +155,7 @@ If you are connecting from a restrictive network that does not allow outbound TC
 
 ### Cloud API
 
-The devices themselves do not access the Particle Cloud using the API port, but if you are using the Tinker mobile app over Wi-Fi, curl commands, node.js scripts, etc. from a computer on the Wi-Fi or LAN, and you have a restrictive outbound network connection policy, you may need to allow-list **api.particle.io** port 443 (TLS/SSL), outbound, or as a last resort, these IP addresses (subject to change without notice):
-
-{{dnsTable key="api"}}
+The devices themselves do not access the Particle Cloud using the API port, but if you are using the Tinker mobile app over Wi-Fi, curl commands, node.js scripts, etc. from a computer on the Wi-Fi or LAN, and you have a restrictive outbound network connection policy, you may need to allow-list **api.particle.io** port 443 (TLS/SSL), outbound.
 
 ### Other Services
 
@@ -168,6 +166,4 @@ Other common services includes:
 - **build.particle.io** (Web IDE)
 - **support.particle.io** (support and knowledge base)
 
-If you are using network with restrictive outbound access policies, you may need to allow-list those DNS names for port 443 (TLS/SSL) outbound, or as a last resort, these IP addresses (subject to change without notice):
-
-{{dnsTable key="tools"}}
+If you are using network with restrictive outbound access policies, you may need to allow-list those DNS names for port 443 (TLS/SSL) outbound.
