@@ -10045,11 +10045,7 @@ Gets a client that is connected to the server and has data available for reading
 
 Write data to the last client that connected to a server. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
 
-_Since 0.7.0_
-{{#if photon}}
-
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
-{{/if}}
 
 The application code may additionally check if an error occurred during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
 
@@ -10058,10 +10054,8 @@ The application code may additionally check if an error occurred during the last
 // SYNTAX
 server.write(val);
 server.write(buf, len);
-{{#if photon}}
 server.write(val, timeout);
 server.write(buf, len, timeout);
-{{/if}}
 ```
 
 Parameters:
@@ -10069,13 +10063,9 @@ Parameters:
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
-{{#if photon}}
 - `timeout`: timeout in milliseconds (`0` - non-blocking mode)
-{{/if}}
 
 Returns: `size_t`: the number of bytes written
-
-**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use [`getWriteError()`](#getwriteerror-) to check for write errors.
 
 ### print()
 
@@ -10112,11 +10102,11 @@ Parameters:
 
 ### getWriteError()
 
-Get the error code of the most recent [`write()`](#write--3) operation.
+Get the error code of the most recent `write()` operation.
 
 Returns: int `0` when everything is ok, a non-zero error code in case of an error.
 
-This value is updated every after every call to [`write()`](#write--3) or can be manually cleared by  [`clearWriteError()`](#clearwriteerror-)
+This value is updated every after every call to `write()` or can be manually cleared by  [`clearWriteError()`](#clearwriteerror-)
 
 ```cpp
 // SYNTAX
@@ -10136,7 +10126,7 @@ if (err != 0) {
 
 ### clearWriteError()
 
-Clears the error code of the most recent [`write()`](#write--3) operation setting it to `0`. This function is automatically called by [`write()`](#write--3).
+Clears the error code of the most recent `write()` operation setting it to `0`. This function is automatically called by `write()`.
 
 `clearWriteError()` does not return anything.
 
@@ -10251,11 +10241,7 @@ Returns true if the connection succeeds, false if not.
 
 Write data to the server the client is connected to. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
 
-_Since 0.7.0_
-{{#if photon}}
-
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
-{{/if}}
 
 The application code may additionally check if an error occurred during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
 
@@ -10264,10 +10250,8 @@ The application code may additionally check if an error occurred during the last
 // SYNTAX
 client.write(val);
 client.write(buf, len);
-{{#if photon}}
 client.write(val, timeout);
 client.write(buf, len, timeout);
-{{/if}}
 ```
 
 Parameters:
@@ -10275,13 +10259,9 @@ Parameters:
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
-{{#if photon}}
 - `timeout`: timeout in milliseconds (`0` - non-blocking mode)
-{{/if}}
 
 Returns: `size_t`: `write()` returns the number of bytes written.
-
-**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} to check for write errors.
 
 ### print()
 
@@ -10421,12 +10401,12 @@ client.stop();
 
 ### getWriteError()
 
-Get the error code of the most recent [`write()`](#write--4) operation.
+Get the error code of the most recent `write()` operation.
 
 Returns: int `0` when everything is ok, a non-zero error code in case of an error.
 
 
-This value is updated every after every call to [`write()`](#write--4) or can be manually cleared by {{#if has-tcpserver}}[`clearWriteError()`](#clearwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`clearWriteError()`](#clearwriteerror-){{/if}}
+This value is updated every after every call to #write--4 or can be manually cleared by {{#if has-tcpserver}}[`clearWriteError()`](#clearwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`clearWriteError()`](#clearwriteerror-){{/if}}
 
 
 ```cpp
@@ -10447,7 +10427,7 @@ if (err != 0) {
 
 ### clearWriteError()
 
-Clears the error code of the most recent [`write()`](#write--4) operation setting it to `0`. This function is automatically called by [`write()`](#write--4).
+Clears the error code of the most recent `write()` operation setting it to `0`. This function is automatically called by `write()`.
 
 `clearWriteError()` does not return anything.
 {{/if}}
