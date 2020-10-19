@@ -921,15 +921,15 @@
           "content_url": "https://particle.zendesk.com/hc/article_attachments/360060132574/sch4.png"
         }
       },
-      "hash": "be0eb13bae6129739651fca4776b9c1bddf7fe45"
+      "hash": "2a70fa0bfd7705b21d347a3dcd27e9cc35321497"
     },
     "AN002-Device-Powerdown/README.md": {
-      "hash": "82335cc8740c6b33d7dd66e8a63f7b1aa6fe2325",
+      "hash": "49ac201df73f168f0d2e8df4e09794a7c3b6e2ae",
       "articleId": 360044252554,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044252554-AN002-Device-Powerdown"
     },
     "AN003-Interpreting-Cloud-Debug/README.md": {
-      "hash": "736cac6b8e45841fa57b53b53c381967ff3d5a86",
+      "hash": "1c4e36ac3aeb06694bff59912ef76c9ef72a622c",
       "articleId": 360044776613,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044776613-AN003-Interpreting-Cloud-Debug-Logs",
       "attachments": {
@@ -940,7 +940,7 @@
       }
     },
     "AN004-Interpreting-Cloud-Debug-2/README.md": {
-      "hash": "c844a21f94b8aa87b09c1dcfdc281fcd4806b7ff",
+      "hash": "1ec7d55c1837542776c425523359b794b897f9c0",
       "articleId": 360044776633,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044776633-AN004-Interpreting-Cloud-Debug-Logs-2",
       "attachments": {
@@ -995,12 +995,12 @@
       }
     },
     "AN005-Threading-Explainer/README.md": {
-      "hash": "2b0373e6a67735918d35000ff79509867e296dee",
+      "hash": "faae6810e685029b253e0eced857544416860140",
       "articleId": 360044776653,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044776653-AN005-Threading-Explainer"
     },
     "AN006-Vehicle-Power/README.md": {
-      "hash": "9234e636c24da9681e7a30d01b1d46033792bbda",
+      "hash": "beff50b2fb09eaf9670a697807ffbf2ef4795097",
       "articleId": 360044252574,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044252574-AN006-Vehicle-Power",
       "attachments": {
@@ -1051,22 +1051,22 @@
       }
     },
     "AN007-Tower-Info/README.md": {
-      "hash": "db13846aca3b52effde12d92f9a89e0cbf6eccc4",
+      "hash": "26320b5bb84165a822684d736dba4063da1f9c0e",
       "articleId": 360044776673,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044776673-AN007-Tower-Info"
     },
     "AN008-Xenon-Nordic-SDK/README.md": {
-      "hash": "43b0ed574d7cd6633fe25b17185c57690b152cb7",
+      "hash": "4c1d039ed98b4d7683ec515da09d831c45a9490d",
       "articleId": 360044252594,
       "html_url": "https://support.particle.io/hc/en-us/articles/360044252594-Using-a-Xenon-with-the-Nordic-SDK"
     },
     "AN009-Firmware-Examples/README.md": {
-      "hash": "d37a0a5eb0078f459d60f731379e9693701ded24",
+      "hash": "18edaafa430bf475e91c6282af36cb1999d420d8",
       "articleId": 360047014914,
       "html_url": "https://support.particle.io/hc/en-us/articles/360047014914-AN009-Firmware-Examples"
     },
     "AN010-Finite-State-Machines/README.md": {
-      "hash": "280f85cba85081bd769c51a4b9b24d875db02a2f",
+      "hash": "a54f946561e0bf37df3976098de5ba255be269ea",
       "articleId": 360047014934,
       "html_url": "https://support.particle.io/hc/en-us/articles/360047014934-AN010-Finite-State-Machines",
       "attachments": {
@@ -1077,7 +1077,7 @@
       }
     },
     "AN011-Publish-to-Google-Sheets/README.md": {
-      "hash": "d451ff94c5fa0a00eddb0be86e95e466a808b88b",
+      "hash": "b5ab9f544f43487344539d6d3a2235d0b76fad6b",
       "articleId": 360051358314,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051358314-AN011-Publish-to-Google-Sheets",
       "attachments": {
@@ -1160,7 +1160,7 @@
       }
     },
     "AN012-Tracker-1Wire/README.md": {
-      "hash": "ea05b88937925a746cdce6bb371c21384e4692c4",
+      "hash": "f589407c50b7944d9b1c62e4d3e014e92abcc4fe",
       "articleId": 360052119273,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119273-AN012-Tracker-1-Wire",
       "attachments": {
@@ -1207,7 +1207,7 @@
       }
     },
     "AN013-Tracker-GPIO/README.md": {
-      "hash": "c7c5f2204a4018a5b5f0c95de6fd85eae4369bfa",
+      "hash": "40bc3b0223317d6cc465e1d3e27e49fe0c8703ef",
       "articleId": 360052119293,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119293-AN013-Tracker-GPIO",
       "attachments": {
@@ -1258,12 +1258,12 @@
       }
     },
     "AN014-Tracker-i2c-scanner/README.md": {
-      "hash": "ff9ad04cb7226b831121cad127893ddb42f6a853",
+      "hash": "3deeecc55c0f043412078b956282e7c4b777e1c5",
       "articleId": 360052119313,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119313-AN013-Tracker-I2C-Scanner"
     },
     "AN015-Tracker-Breakout/README.md": {
-      "hash": "c469b0c2937fa23bab4babcba9f863b4b1f81188",
+      "hash": "7b83da54f78e9363b7944ff3bafad3c58054ece1",
       "articleId": 360052119333,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052119333-AN015-Tracker-Breakout",
       "attachments": {
@@ -1314,7 +1314,7 @@
       }
     },
     "AN016-Tracker-Keypad-LCD/README.md": {
-      "hash": "b7a9fc8eda072a511fc31c79ec092e57f84cd87e",
+      "hash": "9e720d32a9180dc867962fe98323940d0149d331",
       "articleId": 360051358334,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051358334-AN015-Tracker-Keypad-LCD",
       "attachments": {
@@ -1357,12 +1357,12 @@
       }
     },
     "AN017-Tracker-CAN/README.md": {
-      "hash": "e632447efd5120d8814b5d97608f7cd270f35d12",
+      "hash": "ec09dfedba89bdce3bd9a5786af5f0b5bd870b3e",
       "articleId": 360051358354,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051358354-AN017-Tracker-CAN"
     },
     "AN018-Tracker-Level/README.md": {
-      "hash": "c9ef72f1f653a9d1bd5fedc78564ed671e2b0d77",
+      "hash": "0e16e1dc8bbb60205ef2ff014f51611435f3f76d",
       "articleId": 360051358374,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051358374-AN018-Tracker-Tank-Level-Sensor",
       "attachments": {
@@ -1409,7 +1409,7 @@
       }
     },
     "AN019-Tracker-Prototype/README.md": {
-      "hash": "1da530af551ee31726b98ece32a239cf693c7c7b",
+      "hash": "70f601ece50cc7cee9f1f3ea1a2b388c385a6a55",
       "articleId": 360051892774,
       "html_url": "https://support.particle.io/hc/en-us/articles/360051892774-AN019-Tracker-Prototype-to-Board",
       "attachments": {
@@ -1464,7 +1464,7 @@
       }
     },
     "AN020-Tracker-4-20mA/README.md": {
-      "hash": "bf278d7ac4238c95244a6642f49ea11416bd0847",
+      "hash": "339dffb28e4e23074cd1dc30367e52f1d2cfa7bb",
       "articleId": 360052431854,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052431854-AN020-Tracker-4-20mA-Sensor",
       "attachments": {
@@ -1487,7 +1487,7 @@
       }
     },
     "AN021-Tracker-4-20mA-Quad/README.md": {
-      "hash": "0d2f19b7f339844b0cfa19991aba73a6f316f065",
+      "hash": "361c36b4fcc87ab6d12f393956a1b2a752f48f0e",
       "articleId": 360052431874,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052431874-AN021-Tracker-4-20mA-Sensor-Quad",
       "attachments": {
@@ -1514,7 +1514,7 @@
       }
     },
     "AN022-Tracker-SHT3x-Temperature-Humidity/README.md": {
-      "hash": "f46fb52ada4dd15110680e6772a69374ecf1f751",
+      "hash": "32d8b0bffe796e1a237e6ec563138286925fd5c8",
       "articleId": 360052431894,
       "html_url": "https://support.particle.io/hc/en-us/articles/360052431894-AN022-Tracker-SHT3x-Temperature-Humidity",
       "attachments": {
@@ -1555,6 +1555,81 @@
           "content_url": "https://particle.zendesk.com/hc/article_attachments/360085071474/custom-data.png"
         }
       }
+    },
+    "AN024-Tracker-Relay/README.md": {
+      "hash": "e25652b715740c83f236fc45489f4eb7cecdd87c",
+      "articleId": 360057937753,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360057937753-AN024-Tracker-Relay",
+      "attachments": {
+        "AN024-Tracker-Relay/images/m8-cable.jpg": {
+          "attachmentId": 360095149574,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095149574/m8-cable.jpg"
+        },
+        "AN024-Tracker-Relay/images/regulator.png": {
+          "attachmentId": 360097443633,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443633/regulator.png"
+        },
+        "AN024-Tracker-Relay/images/gpio-expander.png": {
+          "attachmentId": 360095149594,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095149594/gpio-expander.png"
+        },
+        "AN024-Tracker-Relay/images/quad-pic.jpg": {
+          "attachmentId": 360095149614,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095149614/quad-pic.jpg"
+        },
+        "AN024-Tracker-Relay/images/quad-schematic.png": {
+          "attachmentId": 360097443653,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443653/quad-schematic.png"
+        },
+        "AN024-Tracker-Relay/images/quad-board.png": {
+          "attachmentId": 360097443673,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443673/quad-board.png"
+        },
+        "AN024-Tracker-Relay/images/relay.png": {
+          "attachmentId": 360097443693,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443693/relay.png"
+        },
+        "AN024-Tracker-Relay/images/latching-pic.jpg": {
+          "attachmentId": 360097443713,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443713/latching-pic.jpg"
+        },
+        "AN024-Tracker-Relay/images/latching-schematic.png": {
+          "attachmentId": 360095149654,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095149654/latching-schematic.png"
+        },
+        "AN024-Tracker-Relay/images/latching-board.png": {
+          "attachmentId": 360095149674,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095149674/latching-board.png"
+        },
+        "AN024-Tracker-Relay/images/latching-relay.png": {
+          "attachmentId": 360097443733,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443733/latching-relay.png"
+        }
+      }
+    },
+    "AN025-Tracker-SoM-First-Board/README.md": {
+      "hash": "31a4ccb02aad92a05d34e038a68c6b9425fb865f",
+      "articleId": 360056096654,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360056096654-AN025-Tracker-SoM-First-Board",
+      "attachments": {
+        "AN025-Tracker-SoM-First-Board/images/fb-labeled.png": {
+          "attachmentId": 360097443753,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443753/fb-labeled.png"
+        },
+        "AN025-Tracker-SoM-First-Board/images/fb-enclosure.jpg": {
+          "attachmentId": 360097443793,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443793/fb-enclosure.jpg"
+        },
+        "AN025-Tracker-SoM-First-Board/images/fb-with-mez.jpg": {
+          "attachmentId": 360097443833,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097443833/fb-with-mez.jpg"
+        }
+      }
+    },
+    "AN026-Tracker-Current-Solutions-Accelerator/README.md": {
+      "hash": "11782236350fb80f8fd5e1d5c8d1fdcbc2588bdb",
+      "articleId": 360056096674,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360056096674-AN026-Tracker-Current-Solutions-Accelerator"
     }
   }
 }
