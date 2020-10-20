@@ -10,14 +10,15 @@ const lookupArray = [
         "key":"udp",
         "hosts":[
             "eks-udp-device-service-blue-static.us-east-1.eks-production-gotham.particle.io",
-            "eks-udp-device-service-green-static.us-east-1.eks-production-gotham.particle.io"       
+            "eks-udp-device-service-green-static.us-east-1.eks-production-gotham.particle.io",
+            "eks-udp-device-service-red-static.us-east-1.eks-production-gotham.particle.io"       
         ]
     },
     {
         "key":"tcp",
         "hosts":[
+            "eks-tcp-device-service-blue-static.us-east-1.eks-production-gotham.particle.io",
             "eks-tcp-device-service-green-static.us-east-1.eks-production-gotham.particle.io",
-            "eks-udp-device-service-green-static.us-east-1.eks-production-gotham.particle.io"       
         ]
     },
     {
