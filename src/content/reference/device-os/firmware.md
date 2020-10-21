@@ -12807,10 +12807,11 @@ if (timer.isActive()) {
 
 {{since when="0.5.0"}}
 
-The Application Watchdog is a software-implemented watchdog using a critical-priority thread that wakes up at a given timeout interval to see if the application has checked in.
+A **Watchdog Timer** is designed to rescue your device should an unexpected problem prevent code from running. This could be the device locking or or freezing due to a bug in code, accessing a shared resource incorrectly, corrupting memory, and other causes.
 
-If the application has not exited loop, or called Particle.process() within the given timeout, or called `wd->checkin()`, the watchdog calls the given timeout function, which is typically a function that calls `System.reset`. 
+Device OS includes a software-based watchdog, [ApplicationWatchdog](https://docs.particle.io/reference/device-os/firmware/#application-watchdog), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
 
+The application note [AN023 Watchdog Timers](https://github.com/particle-iot/app-notes/tree/master/AN023-Watchdog-Timers) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
 ```cpp
 // PROTOTYPES

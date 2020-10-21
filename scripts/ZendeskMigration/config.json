@@ -1630,6 +1630,77 @@
       "hash": "11782236350fb80f8fd5e1d5c8d1fdcbc2588bdb",
       "articleId": 360056096674,
       "html_url": "https://support.particle.io/hc/en-us/articles/360056096674-AN026-Tracker-Current-Solutions-Accelerator"
+    },
+    "AN023-Watchdog-Timers/README.md": {
+      "hash": "188da55d9ccc2a5a91155e1cc932bd8f73ab4c52",
+      "articleId": 360056193174,
+      "html_url": "https://support.particle.io/hc/en-us/articles/360056193174-AN023-Watchdog-Timers",
+      "attachments": {
+        "AN023-Watchdog-Timers/images/tpl5010-top.jpg": {
+          "attachmentId": 360095385914,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095385914/tpl5010-top.jpg"
+        },
+        "AN023-Watchdog-Timers/images/tpl5010-schematic.png": {
+          "attachmentId": 360097680053,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680053/tpl5010-schematic.png"
+        },
+        "AN023-Watchdog-Timers/images/tpl5010-board-layout.png": {
+          "attachmentId": 360097680073,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680073/tpl5010-board-layout.png"
+        },
+        "AN023-Watchdog-Timers/images/tpl5010-timing.png": {
+          "attachmentId": 360097680093,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680093/tpl5010-timing.png"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-connections.png": {
+          "attachmentId": 360097680113,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680113/ab1805-connections.png"
+        },
+        "AN023-Watchdog-Timers/images/boron-schematic.png": {
+          "attachmentId": 360097680133,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680133/boron-schematic.png"
+        },
+        "AN023-Watchdog-Timers/images/sleep-reset.png": {
+          "attachmentId": 360097680153,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680153/sleep-reset.png"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-li-top.jpg": {
+          "attachmentId": 360097680173,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680173/ab1805-li-top.jpg"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-li-bottom.jpg": {
+          "attachmentId": 360095385934,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095385934/ab1805-li-bottom.jpg"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-li-schematic.png": {
+          "attachmentId": 360095385954,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095385954/ab1805-li-schematic.png"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-li-board.png": {
+          "attachmentId": 360095385974,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360095385974/ab1805-li-board.png"
+        },
+        "AN023-Watchdog-Timers/images/xc6215.png": {
+          "attachmentId": 360097680193,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680193/xc6215.png"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-sc-top.jpg": {
+          "attachmentId": 360097680213,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680213/ab1805-sc-top.jpg"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-sc-bottom.jpg": {
+          "attachmentId": 360097680233,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680233/ab1805-sc-bottom.jpg"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-sc-schematic.png": {
+          "attachmentId": 360097680253,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680253/ab1805-sc-schematic.png"
+        },
+        "AN023-Watchdog-Timers/images/ab1805-sc-board.png": {
+          "attachmentId": 360097680273,
+          "content_url": "https://particle.zendesk.com/hc/article_attachments/360097680273/ab1805-sc-board.png"
+        }
+      }
     }
   }
 }
