@@ -298,7 +298,7 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 ### Debugging (3rd-generation)
 
-_Note: There are a handful of limitation around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
+_Note: There are a handful of limitations around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
 
 For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](https://support.particle.io/hc/en-us/articles/360039741253/). As you'll see, this is way easier in Workbench! 
 
