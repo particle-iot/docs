@@ -58,7 +58,7 @@ This is the Eagle board design for the USB SoM base board:
 
 ![Board Design](/assets/images/som-first-board/board-design.png)
 
-It's a two-layer board so it easy and inexpensive to manufacture, and you can work with it on the free version of Eagle CAD.
+It's a two-layer board so it is easy and inexpensive to manufacture, and you can work with it on the free version of Eagle CAD.
 
 The Eagle CAD design files can be downloaded from: 
 
