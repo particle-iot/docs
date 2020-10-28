@@ -1079,12 +1079,6 @@ Returns the number of milliseconds since the device began running the current pr
 This function takes one optional argument:
 - `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
 
-{{since when="2.0.0"}}
-
-Starting with Device OS 2.0.0, gcc-arm 9.2.1 is used instead of gcc-arm 5.3.1. The standard libraries for gcc-arm 9.2 use a 64-bit time_t value that will not roll over in 2038. 
-
-User firmware targeting 1.5.4-rc.1 and earlier will continue to work with 32-bit time_t values, even when running on Device OS 2.0.0 or later.
-
 ### Get Public IP
 
 Using this feature, the device can programmatically know its own public IP address.
@@ -11773,19 +11767,6 @@ This reduces the need for external libraries to manage dates and times.
 Before the device gets online and for short intervals, you can use the
 `millis()` and `micros()` functions.
 
-{{since when="2.0.0"}}
-
-Starting with Device OS 2.0.0, gcc-arm 9.2.1 is used instead of gcc-arm 5.3.1. The standard libraries for gcc-arm 9.2 use a 64-bit time_t value that will not roll over in 2038. 
-
-User firmware targeting 1.5.4-rc.1 and earlier will continue to work with 32-bit time_t values, even when running on Device OS 2.0.0 or later.
-
-| time_t | Prior to 2.0.0 | Since 2.0.0 |
-| :--- | :--- | :--- |
-| Size | 32-bit | 64-bit |
-| Type | long | long long |
-
-One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`, so beware when printing a time_t value. Until 2038 you can cast it as a long and use `%ld` to print the numeric value.
-
 ### millis()
 
 Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
@@ -12115,21 +12096,7 @@ Log.info("time is: %d", (int) Time.now());
 
 Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting, it's coordinated universal time (UTC).
 
-Returns: time_t (Unix timestamp), coordinated universal time (UTC)
-
-| time_t | Prior to 2.0.0 | Since 2.0.0 |
-| :--- | :--- | :--- |
-| Size | 32-bit | 64-bit |
-| Type | long | long long |
-| Roll Over | 2038 | effectively never |
-
-{{since when="2.0.0"}}
-
-Starting with Device OS 2.0.0, gcc-arm 9.2.1 is used instead of gcc-arm 5.3.1. The standard libraries for gcc-arm 9.2 use a 64-bit time_t value that will not roll over in 2038. 
-
-User firmware targeting 1.5.4-rc.1 and earlier will continue to work with 32-bit time_t values, even when running on Device OS 2.0.0 or later.
-
-One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`, so beware when printing the value from `Time.now()`. Until 2038 you can cast it as a int and use `%d` to print the numeric value.
+Returns: time_t (Unix timestamp), coordinated universal time (UTC), `long` integer.
 
 ### local()
 
@@ -12228,11 +12195,6 @@ Time.setTime(1413034662);
 ```
 
 Parameter: time_t (Unix timestamp), coordinated universal time (UTC)
-
-| time_t | Prior to 2.0.0 | Since 2.0.0 |
-| :--- | :--- | :--- |
-| Size | 32-bit | 64-bit |
-| Type | long | long long |
 
 
 ### timeStr()
@@ -16195,6 +16157,40 @@ int fsync(int fd)
 Synchronizes the file data flash, for example writing out any cached data.
 
 Returns 0 on success. On error, returns -1 and sets `errno`. 
+
+### File System truncate
+
+```cpp
+// PROTOTYPE
+int truncate(const char* pathname, off_t length)
+```
+
+Truncate a file to a given length.
+
+- `pathname`: The pathname to the file (Unix-style, with forward slash as the directory separator).
+- `length`: length in bytes.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `ENOENT`: File does not exist.
+- `ENOSPC` There is no space on the file system.
+
+### File System ftruncate
+
+```cpp
+// PROTOTYPE
+int ftruncate(int fd, off_t length)
+```
+
+Truncate an open file to a given length.
+
+- `fd`: The file descriptor for the file, return from the [`open`](#file-system-open) call.
+- `length`: length in bytes.
+
+Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errno` values include:
+
+- `ENOENT`: File does not exist.
+- `ENOSPC` There is no space on the file system.
 
 
 ### File System fstat
