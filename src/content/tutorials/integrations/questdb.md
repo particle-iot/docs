@@ -28,8 +28,8 @@ from your Particle devices via the Particle Device Cloud.
 
 QuestDB is an extremely small, but very powerful time series database that is simple to set up and run with minimal configuration.
 
-- [Set up using Docker](https://questdb.io/docs/packages/docker)
-- [Install using Homebrew](https://questdb.io/docs/packages/homebrew)
+- [Set up using Docker](https://questdb.io/docs/get-started/docker)
+- [Install using Homebrew](https://questdb.io/docs/get-started/homebrew)
 - [Install using the binaries](https://questdb.io/docs/packages/binaries)
 
 Once installed, you can check your installation by going to the built-in [console](http://localhost:9000) on your local machine. It should look something like this:
