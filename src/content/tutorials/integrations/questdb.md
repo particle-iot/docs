@@ -30,7 +30,7 @@ QuestDB is an extremely small, but very powerful time series database that is si
 
 - [Set up using Docker](https://questdb.io/docs/get-started/docker)
 - [Install using Homebrew](https://questdb.io/docs/get-started/homebrew)
-- [Install using the binaries](https://questdb.io/docs/packages/binaries)
+- [Install using the binaries](https://questdb.io/docs/get-started/binaries)
 
 Once installed, you can check your installation by going to the built-in [console](http://localhost:9000) on your local machine. It should look something like this:
 
