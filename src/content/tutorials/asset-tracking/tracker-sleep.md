@@ -93,3 +93,116 @@ This configuration uses the IMU (inerial measurement unit) to detect motion to w
 The maximum interval determines how often to wake up if there is no movement.
 
 ### Frequent short wake with less frequent publish
+
+This example illustrates using a short wake cycle.
+
+| Parameter | Value | Details
+| :--- | :--- | :--- | 
+| Radius Trigger | 0.0 | Disabled |
+| Minimum Interval | 900 seconds | 15 minutes |
+| Maximum Interval | 900 seconds | 15 minutes |
+| Movement | Disabled | | 
+| Sleep Mode | Enable | |
+
+Normally the wake time is determined by the minimum and maximum publish interval in the [cloud configuration](/tutorials/device-cloud/console/#location-settings). This is the full wake period, where a connection to the cloud is made and the location published.
+
+It's also possible do a short wake between these times. This example illustrates waking up every 5 minutes to read the temperature and go back to sleep. This short wake does not turn on the cellular modem and takes only a few seconds and uses little battery power.
+
+On the full wake cycle (every 15 minutes), the previously saved temperature values are published along with the location and current temperature data.
+
+```cpp
+#include "Particle.h"
+
+#include "tracker_config.h"
+
+#include "tracker.h"
+
+#include <vector>
+
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+PRODUCT_ID(TRACKER_PRODUCT_ID);
+PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
+
+SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
+    { "app.gps.nmea", LOG_LEVEL_INFO },
+    { "app.gps.ubx",  LOG_LEVEL_INFO },
+    { "ncp.at", LOG_LEVEL_INFO },
+    { "net.ppp.client", LOG_LEVEL_INFO },
+});
+
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context);
+void prepareSleepCallback(TrackerSleepContext context);
+void wakeCallback(TrackerSleepContext context);
+
+std::vector<float> temps;
+
+void setup()
+{
+    Tracker::instance().init();
+
+    // Register callbacks
+    TrackerLocation::instance().regLocGenCallback(locationGenerationCallback);
+    TrackerSleep::instance().registerSleepPrepare(prepareSleepCallback);
+    TrackerSleep::instance().registerWake(wakeCallback);
+}
+
+void loop()
+{
+     Tracker::instance().loop();
+}
+
+
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+{
+    // Called when we're generating a location
+    if (!temps.empty()) {
+        // If we have saved temperatures, add them to the location
+        // publish as an array.
+        writer.name("temps").beginArray();
+
+        for(auto it = temps.begin(); it != temps.end(); it++) {
+            writer.value(*it, 2);
+        }
+
+        writer.endArray();
+
+        temps.clear();
+    }
+
+}
+
+void prepareSleepCallback(TrackerSleepContext context)
+{
+    // Called before we go to sleep. Adjust the time so we do a short wake 
+    // every 5 minutes to get temperature data. 
+    // 5 minutes = 300 seconds = 300000 milliseconds
+    Log.info("adjusting sleep time");
+    TrackerSleep::instance().wakeAtMilliseconds(System.millis() + 300000);
+}
+
+
+void wakeCallback(TrackerSleepContext context)
+{
+    // Called when we wake from sleep
+
+    if (!TrackerSleep::instance().isFullWakeCycle()) {
+        // On short wake cycles the modem is not on and we can't publish
+        // but we can do some quick calculations before going back to sleep
+        float tempC = get_temperature();
+        Log.info("saving tempC=%f", tempC);
+        temps.push_back(tempC);
+    }
+    else {
+        // No need to capture temperature on long wake cycles because it's
+        // already in the location publish
+    }
+}
+
+```
+
+In the console event view you can see these additional temperature values:
+
+![Temperature Array](/assets/images/tracker/temps-array.png)
+

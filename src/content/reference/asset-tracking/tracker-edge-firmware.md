@@ -705,13 +705,13 @@ TrackerSleep::instance().wakeAtMilliseconds(System.millis() + 60000);
 
 Normally the wake time is determined by the maximum publish interval in the [cloud configuration](/tutorials/device-cloud/console/#location-settings). You can adjust this from code using the variations of `wakeAt()`.
 
-The next wake time is always calculated using `System.millis()`. This does not rely on the system real-time clock being set, and is not affected by daylight saving time, timezones. It is a 64-bit time values that will effectively not roll over to 0.
+The next wake time is always calculated using `System.millis()`. This does not rely on the system real-time clock being set, and is not affected by daylight saving time, timezones. It is a 64-bit time millisecond values that will effectively never roll over to 0. Since sleep mode uses ULTRA_LOW_POWER mode, the `System.millis()` counter continues to increment while in sleep. The `System.millis()` value does reset to 0 on reset or cold boot, but the sleep cycles also reset in that condition.
 
 If you have other wake sources such as movement (IMU), GPIO, BLE, network, etc. you can still wake earlier than this time. 
 
 If you schedule a wake before the minimum publish interval, the wake will be a short wake cycle, where only the device wakes and a cellular connection is enabled. You can override this during your short wake by using [`forceFullWakeCycle()`](#forcefullwakecycle-trackersleep).
 
-You may want to use this feature to take the value of a more complicated sensor that requires external power, or uses I2C or SPI. You can frequently wake using `wakeAt()` but only turn on cellular and publish at the minimum publish interval. This of course requires that you store these values for later publishing.
+You may want to use this feature to take the value of a more complicated sensor that requires external power, or uses I2C or SPI. You can frequently wake using `wakeAt()` but only turn on cellular and publish at the minimum publish interval. This of course requires that you store these values for later publishing. An example of this can be found in the [short wake with less frequent publish example](/tutorials/asset-tracking/tracker-sleep/#frequent-short-wake-with-less-frequent-publish).
 
 Returns:
 
@@ -777,7 +777,9 @@ Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
 If you have have external hardware you want to power down in sleep mode, for example, this callback is a good place to do it. You should turn it back on in both the sleep cancel and wake callbacks.
 
-Any lengthy operations should be done in the `registerSleepPrepare` callback instead of the `registerSleep` callback. The reason is that the sleep duration is calculated after sleep prepare, so preparation steps will not cause the sleep time to drift.
+Any lengthy operations should be done in the `registerSleepPrepare` callback instead of the `registerSleep` callback. The reason is that the sleep duration is calculated after sleep prepare, so preparation steps will not cause the sleep time to drift. 
+
+If you wish to update the sleep duration to allow for a short wake cycle, you should do it from the sleep prepare callback. You cannot set the sleep duration from the final sleep callback. An example of this can be found in the [short wake with less frequent publish example](/tutorials/asset-tracking/tracker-sleep/#frequent-short-wake-with-less-frequent-publish).
 
 ---
 
