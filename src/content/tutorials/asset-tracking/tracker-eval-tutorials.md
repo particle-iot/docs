@@ -36,10 +36,8 @@ git submodule update --init --recursive
 
 - Open Particle Workbench.
 - From the command palette, **Particle: Import Project**.
-- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, or 3.0.0 or later, Tracker, and your device.
+- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
 - Run **Particle: Compile and Flash**.
-
-Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS do not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
 
 ### Add the libraries
 
