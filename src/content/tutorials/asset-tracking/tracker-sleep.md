@@ -55,7 +55,7 @@ The Location settings include:
 
   When using sleep modes, this also controls how often to connect to the cellular network. A maximum location update frequency value of 10 minutes (600 seconds) or larger is recommended. Setting a very short maximum location update frequency with sleep mode can cause your SIM card to be banned for excessive reconnection to the cellular network by your mobile carrier. 
 
-- **Minimum location update frequency** in seconds. Publish location this often (in seconds) even if there is no movement or other wake trigger. 0 means do not use an minimum update frequency; only publish location information when there is another trigger, such as movement. Including a minimum location update frequency of 8 hours (28800 seconds) or 24 hours (86400) can be helpful to make sure the device is still responding and report its battery level.
+- **Minimum location update frequency** in seconds. Publish location this often (in seconds) even if there is no movement or other wake trigger. 0 means do not use an minimum update frequency; only publish location information when there is another trigger, such as movement. Including a minimum location update frequency of 8 hours (28800 seconds) or 24 hours (86400) can be helpful to make sure the device is still responding and reporting its battery level.
 
 In some cases, you will want to set the maximum and minimum to the same value. This is common if you are not using a trigger like movement and instead always want to publish at a fixed frequency.
 
