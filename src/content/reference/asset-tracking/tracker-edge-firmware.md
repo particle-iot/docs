@@ -797,11 +797,9 @@ Register a callback to be called while preparing for sleep. You can register the
 
 Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
-If you have have external hardware you want to power down in sleep mode, for example, this callback is a good place to do it. You should turn it back on in both the sleep cancel and wake callbacks.
-
 Any lengthy operations should be done in the `registerSleepPrepare` callback instead of the `registerSleep` callback. The reason is that the sleep duration is calculated after sleep prepare, so preparation steps will not cause the sleep time to drift. 
 
-If you wish to update the sleep duration to allow for a short wake cycle, you should do it from the sleep prepare callback. You cannot set the sleep duration from the final sleep callback. An example of this can be found in the [short wake with less frequent publish example](/tutorials/asset-tracking/tracker-sleep/#frequent-short-wake-with-less-frequent-publish).
+If you wish to update the sleep duration to allow for a short wake cycle, you must do it from the sleep prepare callback. You cannot set the sleep duration from the final sleep callback. An example of this can be found in the [short wake with less frequent publish example](/tutorials/asset-tracking/tracker-sleep/#frequent-short-wake-with-less-frequent-publish).
 
 ---
 
@@ -811,6 +809,11 @@ TrackerSleep::instance().updateNextWake(0);
 ```
 
 From the sleep prepare callback, call `updateNextWake(0)` to cancel this sleep and stay awake instead. The sleep cancel callback will be called.
+
+If you are powering down external hardware, and the operation is fast, you may want to use `registerSleep` so you don't have to worry about canceling. 
+
+If you have a graceful shutdown process that takes more than a hundred milliseconds or so, you should use `registerSleepPrepare`. You need to handle both the `registerSleepWake` and `registerSleepCancel` to turn your external peripheral back on if you use `registerSleepPrepare`.
+
 
 ### registerSleepCancel - TrackerSleep
 
@@ -844,6 +847,8 @@ Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
 You should avoid doing any lengthy operations in the `registerSleep` callback. You cannot cancel sleep from this callback, and you cannot change the sleep duration from this callback.
 
+If you are powering down an external peripheral and the operation is fast, such as changing a GPIO that controls a MOSFET or load switch, you can do that safely from the `registerSleep` callback.
+
 ### registerWake - TrackerSleep
 
 ```cpp
@@ -858,7 +863,9 @@ Register a callback to be called immediately after waking from sleep.
 
 Returns `SYSTEM_ERROR_NONE` (0) on success, or a non-zero error code.
 
-If you powered down external hardware in the `registerSleepPrepare` callback, you should undo that operation here and power it back on. Tracker sleep uses `ULTRA_LOW_POWER` mode, so execution continues after sleep with variables intact. It does not run `setup()` again.
+If you powered down external hardware in the `registerSleepPrepare` or `registerSleep` callback, you should undo that operation here and power it back on. 
+
+Tracker sleep uses `ULTRA_LOW_POWER` mode, so execution continues after sleep with variables intact. It does not run `setup()` again.
 
 ### registerStateChange - TrackerSleep
 
