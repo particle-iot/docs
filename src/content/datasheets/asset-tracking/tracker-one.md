@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(010)</sup>
+# Tracker One<sup>(011)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -255,6 +255,80 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 
 ---
 
+### Power consumption (Tracker One 402)
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>startup</sub> |  |  |  | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> |  |  |  | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cloud_idle</sub> | | | | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cloud_pub</sub> |  |  |  | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 911 | 1140 | 1530 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 920 | 1120 | 1480 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 919 | 1130 | 1500 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | 136 | 1190 | 2880 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 772 | 1180 | 1790 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 993 | 1120 | 1510 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 11.2 | 17.3 | 116 | mA |
+| STOP mode sleep, IMU wake-up | I<sub>stop_imu</sub> | 850 | 1150 | 1590 | uA |
+| STOP mode sleep, CAN wake-up | I<sub>stop_can</sub> | 981 | 1200 | 1600 | uA |
+| STOP mode sleep, GPS wake-up | I<sub>stop_gps</sub> | 29.3 | 36.1 | 50.2 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> |  | 201 | 552 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> |  | 190 | 593 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> |  | 188 | 558 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> | | 270 | 2150 | uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> | | 258 | 990 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 638 | 842 | 1200 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 13.9 | 16.9 | 86.0 | mA |
+| ULP mode sleep, IMU wake-up | I<sub>imu_imu</sub> | | 225 | 642 | uA |
+| ULP mode sleep, CAN wake-up | I<sub>can_can</sub> | 75.3 | 270 | 631 | uA |
+| ULP mode sleep, GPS wake-up | I<sub>ulp_gps</sub> | 28.0 | 35.3 | 49.5 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 161 | 564 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 151 | 557  | uA |
+| HIBERNATE mode sleep, external RTC wake-up | I<sub>hib_extrtc</sub> | | 151 | 562 | uA |
+| HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 185 | 669 | uA |
+| HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 230 | 636 | uA |
+
+---
+
+### Power consumption (Tracker One 523)
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>startup</sub> | 24.2 | 132 | 689 | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 51.2 | 112 | 594 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cloud_idle</sub> |  50.9 | 60.2 | 197 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cloud_pub</sub> | 57.2 | 173 | 702  | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 778 | 1010 | 1390 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 740 | 995 | 1390 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 758 | 993 | 1420 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | | 1050 | 2500 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 521 | 1050 | 1920 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 729 | 995 | 1390 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 19.2 | 21.5 | 151 | mA |
+| STOP mode sleep, IMU wake-up | I<sub>stop_imu</sub> | 741 | 1020 | 1460 | uA |
+| STOP mode sleep, CAN wake-up | I<sub>stop_can</sub> | 884 | 1080 | 1490 | uA |
+| STOP mode sleep, GPS wake-up | I<sub>stop_gps</sub> | 28.0 | 34.8 | 49.0 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> |  | 172 | 556 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> |  | 165 | 526 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> |  | 164 | 561 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> |  | 228 | 1810 | uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> | | 231 | 1100 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 503 | 731 | 1169 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 18.6 | 20.9 | 212 | mA |
+| ULP mode sleep, IMU wake-up | I<sub>imu_imu</sub> | | 194 | 534 | uA |
+| ULP mode sleep, CAN wake-up | I<sub>can_can</sub> | 45.1 | 247 | 609 | uA |
+| ULP mode sleep, GPS wake-up | I<sub>ulp_gps</sub> | 27.4 | 33.9 | 48.0 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 148 | 519 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 141 | 515  | uA |
+| HIBERNATE mode sleep, external RTC wake-up | I<sub>hib_extrtc</sub> | | 140 | 525 | uA |
+| HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 178 | 544  | uA |
+| HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 222 | 608  | uA |
+
+
+
+---
+
 ## Product Handling
 
 ### ESD Precautions
@@ -301,3 +375,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 008      | 2020 Sep 08 | RK | Corrected USB connector description |
 | 009      | 2020 Sep 25 | RK | Add battery warning |
 | 010      | 2020 Oct 14 | RK | Add temperature range |
+| 011      | 2020 Nov 05 | RK | Add power usage |

@@ -13593,6 +13593,8 @@ The `SystemSleepConfiguration` class configures all of the sleep parameters and 
 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
 
+The Tracker One and Tracker SoM have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/) and [TrackerSleep API Reference](/reference/asset-tracking/tracker-edge-firmware/#trackersleep).
+
 ### mode() (SystemSleepConfiguration)
 
 The are are three sleep modes:
@@ -13895,7 +13897,7 @@ The only supported flag is:
 
 - `SystemSleepFlag::WAIT_CLOUD`
 
-This will make sure all cloud messages have been acknowledged before going to sleep.
+This will make sure all cloud messages have been acknowledged before going to sleep. Another way to accomplish this is to use [graceful disconnect mode](#particle-setdisconnectoptions-).
 
 ---
 
@@ -13903,13 +13905,20 @@ This will make sure all cloud messages have been acknowledged before going to sl
 
 ```c++
 // PROTOTYPE
-SystemSleepConfiguration& network(network_interface_t netif)
+SystemSleepConfiguration& network(network_interface_t netif, EnumFlags<SystemSleepNetworkFlag> flags = SystemSleepNetworkFlag::NONE)
 
-// EXAMPLE
+// EXAMPLE 1
 SystemSleepConfiguration config;
 config.mode(SystemSleepMode::STOP)
       .duration(30s)
       .network(NETWORK_INTERFACE_CELLULAR);
+
+// EXAMPLE 2
+SystemSleepConfiguration config;
+config.mode(SystemSleepMode::ULTRA_LOW_POWER)
+      .duration(30s)
+      .network(NETWORK_INTERFACE_CELLULAR, SystemSleepNetworkFlag::INACTIVE_STANDBY);
+
 ```
 
 This option not only allows wake from network activity, but also keeps the network connected, making resume from sleep significantly faster. This is a superset of the `SLEEP_NETWORK_STANDBY` feature. This should also be used with cellular devices with sleep periods of less than 10 minutes to prevent your SIM from being banned for aggressively reconnecting to the cellular network.
@@ -13920,7 +13929,9 @@ This option not only allows wake from network activity, but also keeps the netwo
 | Wake from ULTRA_LOW_POWER sleep | &nbsp; | &nbsp; | &check; |
 | Wake from HIBERNATE sleep | &nbsp; | &nbsp; | &nbsp; |
 
+The first example configures the cellular modem to both stay awake and for the network to be a wake source. If incoming data, from a function call, variable request, subscribed event, or OTA request arrives, the device will wake from sleep mode.
 
+The second example adds the `SystemSleepNetworkFlag::INACTIVE_STANDBY` flag which keeps the cellular modem powered, but does not wake the MCU for received data. This is most similar to `SLEEP_NETWORK_STANDBY`.
 
 ### analog() (SystemSleepConfiguration)
 
@@ -14559,10 +14570,9 @@ SystemSleepConfiguration config;
 config.mode(SystemSleepMode::STOP)
       .gpio(D2, RISING)
       .duration(30s)
-      .network(NETWORK_INTERFACE_CELLULAR);
+      .network(NETWORK_INTERFACE_CELLULAR, SystemSleepNetworkFlag::INACTIVE_STANDBY);
 SystemSleepResult result = System.sleep(config);
 ```
-
 
 ### SleepResult Class
 
