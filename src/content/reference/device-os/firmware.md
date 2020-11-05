@@ -13593,6 +13593,8 @@ The `SystemSleepConfiguration` class configures all of the sleep parameters and 
 
 For earlier versions of Device OS you can use the [classic API](#sleep-classic-api-).
 
+The Tracker One and Tracker SoM have an additional layer of sleep functionality. You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/) and [TrackerSleep API Reference](/reference/asset-tracking/tracker-edge-firmware/#trackersleep).
+
 ### mode() (SystemSleepConfiguration)
 
 The are are three sleep modes:
