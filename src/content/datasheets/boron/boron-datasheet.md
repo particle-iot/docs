@@ -63,7 +63,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 ### Power
 
 #### USB PORT
-The USB port is the easiest way to power up the Boron. Please make sure that the USB port is able to provided at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
+The USB port is the easiest way to power up the Boron. Please make sure that the USB port is able to provide at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
 
 For powering the Boron 2G/3G version, you'll either need a USB port that is able support 2A current, or have the LiPo battery plugged in when powering over USB. This is because the on-board u-blox modem can consumes up to 1.8A peak current when operating in 2G mode. The Boron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
