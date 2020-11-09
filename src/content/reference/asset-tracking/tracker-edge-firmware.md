@@ -642,9 +642,9 @@ int pauseSleep();
 TrackerSleep::instance().pauseSleep();
 ```
 
-Normally, the [post publish execution time](/tutorials/device-cloud/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use `pauseSleep()`. To resume allowing sleep to occur again, call [`resumeSleep()`](#resumeSleep-trackersleep).
+Normally, the [post publish execution time](/tutorials/device-cloud/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use `pauseSleep()`. To resume allowing sleep to occur again, call [`resumeSleep()`](#resumesleep-trackersleep).
 
-To prevent sleep for an additional number of seconds, you can use [`extendExecution()`](#extendExecution-trackersleep).
+To prevent sleep for an additional number of seconds, you can use [`extendExecution()`](#extendexecution-trackersleep).
 
 ### resumeSleep() - TrackerSleep
 
@@ -656,7 +656,7 @@ int resumeSleep();
 TrackerSleep::instance().resumeSleep();
 ```
 
-Normally, the [post-publish execution time](/tutorials/device-cloud/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use [`pauseSleep()`](#pauseSleep-trackersleep). 
+Normally, the [post-publish execution time](/tutorials/device-cloud/console/#sleep-settings) determines how long to stay awake. If you want to force the device to stay awake, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep). 
 
 To resume allowing sleep to occur again, call `resumeSleep()`. If the post-publish execution time has not been met yet, resume sleep only allows it to occur when the time is met. It does not force an immediate sleep.
 
@@ -672,7 +672,7 @@ TrackerSleep::instance().extendExecution(10);
 
 Normally, the [post-publish execution time](/tutorials/device-cloud/console/#sleep-settings) determines how long to stay awake. If you want to add additional time to this period, you can use `extendExecution(). This only affects this sleep cycle. On the next sleep - wake cycle the default will be restored from the cloud. You can only make the period longer, not shorter, with this call.
 
-If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pauseSleep-trackersleep) and [`resumeSleep()`](#resumeSleep-trackersleep). If you want to extend execution for a certain number of seconds from now, use [`extendExecutionFromNow`](#extendExecutionFromNow-trackersleep).
+If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep) and [`resumeSleep()`](#resumesleep-trackersleep). If you want to extend execution for a certain number of seconds from now, use [`extendExecutionFromNow`](#extendexecutionfromnow-trackersleep).
 
 ### extendExecutionFromNow - TrackerSleep
 
@@ -697,7 +697,7 @@ TrackerSleep::instance().extendExecutionFromNow(2, true);
 
 If you want to set the execution time, with the possibility of shortening the post-publish execution time, pass `true` for the `force` parameter.
 
-If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pauseSleep-trackersleep) and [`resumeSleep()`](#resumeSleep-trackersleep). If you want to extend execution for a certain number of seconds, use [`extendExecution`](#extendExecution-trackersleep).
+If you want to control staying awake from code instead of by time, your firmware can use [`pauseSleep()`](#pausesleep-trackersleep) and [`resumeSleep()`](#resumesleep-trackersleep). If you want to extend execution for a certain number of seconds, use [`extendExecution`](#extendexecution-trackersleep).
 
 ### wakeAt() - TrackerSleep
 
