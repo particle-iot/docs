@@ -6805,6 +6805,10 @@ Where the parameter `val`, can is the byte to send out over the SPI bus.
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setDataMode()`.
 
+{{#if has-threading}}
+`transfer()` acquires the SPI peripheral lock before sending a byte, blocking other threads from using the selected SPI peripheral during the transmission. If you call `transfer` in a loop, call [`beginTransaction()`](#begintransaction-) function before the loop and [`endTransaction()`](#endtransaction-) after the loop, to avoid the overhead of acquiring and releasing the lock over and over.
+
+{{/if}} {{!-- has-threading --}}
 
 ### transfer(void\*, void\*, size_t, std::function)
 
