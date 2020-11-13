@@ -62,6 +62,8 @@ void setup() {
 | Publish/Subscribe Event Name | 64 | 64 | |
 | Publish/Subscribe Event Data | 255 | 622 |  |
 
+Limits are in bytes of UTF-8 encoded characters.
+
 ### Particle.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
@@ -146,7 +148,7 @@ There are four supported data types:
  * `BOOLEAN`
  * `INT`
  * `DOUBLE`
- * `STRING` (maximum string length is 622 bytes)
+ * `STRING` (maximum string length is 622 bytes of UTF-8 encoded characters)
 
 ```sh
 # EXAMPLE REQUEST IN TERMINAL
@@ -167,7 +169,7 @@ my name is particle
 
 ### Particle.variable() - calculated
 
-_Since 1.5.0:_ It is also possible to register a function to compute a cloud variable. This can be more efficient if the computation of a variable takes a lot of CPU or other resources. It can also be an alternative to using a Particle.function(). A function is limited to a single int (32-bit) return value, but you can return bool, double, int, String (up to 622 bytes) from a Particle.variable.
+_Since 1.5.0:_ It is also possible to register a function to compute a cloud variable. This can be more efficient if the computation of a variable takes a lot of CPU or other resources. It can also be an alternative to using a Particle.function(). A function is limited to a single int (32-bit) return value, but you can return bool, double, int, String (up to 622 bytes of UTF-8 encoded characters) from a Particle.variable.
 
 Such a function should return a value of one of the supported variable types and take no arguments. The function will be called only when the value of the variable is requested.
 
@@ -282,7 +284,7 @@ The callback function is called application loop thread context, between calls t
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
-A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The String is UTF-8 encoded.
+A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a maximum of 622 bytes of UTF-8 encoded characters. (Limited to 63 bytes prior to Device OS 0.8.0.)
 
 Functions can only be triggered using the Particle API, or tools that use the API, like the console, CLI, and mobile apps. It's not possible to directly call a function from another device, even on the same account. Publish and subscribe can be used if you need device-to-device communication.
 
@@ -385,21 +387,20 @@ Cloud events have the following properties:
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-* optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).
+* optional data, up to 622 bytes of UTF-8 encoded characters. (Limited to 255 bytes prior to Device OS 0.8.0.)
 
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
 
-Calling `Particle.publish()` when the cloud connection has been turned off will not publish an event. This is indicated by the return success code
-of `false`.
+Calling `Particle.publish()` when the cloud connection has been turned off will not publish an event. This is indicated by the return success code of `false`. 
 
-If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, Particle.publish may block for 20 seconds to 5 minutes. Checking `Particle.connected()` can prevent this.
+If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, `Particle.publish()` may block for up to 20 seconds (normal conditions) to 10 minutes (unusual conditions). Checking `Particle.connected()` can before calling `Particle.publish()` can help prevent this.
 
 String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
 **NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
 
-**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 **NOTE 3:** Public events are not supported by the cloud as of August 2020. Specifying PUBLIC or leaving out the publish scope essentially results in a private event. 
 
@@ -548,7 +549,9 @@ bool success = Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
 
 {{since when="0.6.1"}}
 
-This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
+This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud. 
+
+If you do not use `WITH_ACK` then the request is still acknowledged internally, and retransmission attempted up to 3 times, but `Particle.publish()` will return more quickly.
 
 ---
 
@@ -577,6 +580,128 @@ Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 Previously, there were overloads with a `ttl` (time-to-live) value. These have been deprecated as the ttl has never been supported by the Particle cloud. All events expire immediately if not subscribed to or exported from the Particle cloud using a webhook, integration like Google cloud, or the server-sent-events (SSE) stream. 
 
+
+
+### Particle.subscribe()
+
+Subscribe to events published by devices.
+
+This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
+
+```cpp
+SerialLogHandler logHandler;
+int i = 0;
+
+void myHandler(const char *event, const char *data)
+{
+  i++;
+  Log.info("%d: event=%s data=%s", i, event, (data ? data : "NULL"));
+}
+
+void setup()
+{
+  Particle.subscribe("temperature", myHandler);
+}
+```
+
+To use `Particle.subscribe()`, define a handler function and register it, typically in `setup()`.
+
+---
+
+You can register a method in a C++ object as a subscription handler.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+class MyClass {
+public:
+	MyClass();
+	virtual ~MyClass();
+
+	void setup();
+
+	void subscriptionHandler(const char *eventName, const char *data);
+};
+
+MyClass::MyClass() {
+}
+
+MyClass::~MyClass() {
+}
+
+void MyClass::setup() {
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this);
+}
+
+void MyClass::subscriptionHandler(const char *eventName, const char *data) {
+	Log.info("eventName=%s data=%s", eventName, data);
+}
+
+// In this example, MyClass is a globally constructed object.
+MyClass myClass;
+
+void setup() {
+	myClass.setup();
+}
+
+void loop() {
+
+}
+```
+
+You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
+
+---
+
+A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans". The maximum length of the subscribe prefix is 64 characters.
+
+Received events will be passed to a handler function similar to `Particle.function()`.
+A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
+
+- The first argument is the full name of the published event.
+- The second argument (which may be NULL) is any data that came along with the event.
+
+`Particle.subscribe()` returns a `bool` indicating success. It is OK to register a subscription when
+the device is not connected to the cloud - the subscription is automatically registered
+with the cloud next time the device connects.
+
+**NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
+
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
+
+Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once.
+
+---
+
+Prior to August 2020, you could subscribe to the public event stream using `ALL_DEVICES`. This is no longer possible as the public event stream no longer exists. Likewise, `MY_DEVICES` is no longer necessary as that is the only option now.
+
+```cpp
+// This syntax is no longer necessary
+Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
+Particle.subscribe("the_event_prefix", theHandler, ALL_DEVICES);
+```
+
+---
+
+Only devices that are claimed to an account can subscribe to events. 
+
+- Unclaimed devices can only be used in a product.
+- Unclaimed devices can send product events.
+- Unclaimed devices cannot receive events using Particle.subscribe.
+- Unclaimed devices can receive function calls and variable requests from the product.
+
+### Particle.unsubscribe()
+
+Removes all subscription handlers previously registered with `Particle.subscribe()`.
+
+```cpp
+// SYNTAX
+Particle.unsubscribe();
+```
+
+There is no function to unsubscribe a single event handler. 
 
 
 ### Particle.publishVitals()
@@ -668,119 +793,6 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 >_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
 
 <div style="margin-left:35px;"><img src="/assets/images/diagnostic-events.png"/></div>
-
-### Particle.subscribe()
-
-Subscribe to events published by devices.
-
-This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
-
-```cpp
-SerialLogHandler logHandler;
-int i = 0;
-
-void myHandler(const char *event, const char *data)
-{
-  i++;
-  Log.info("%d: event=%s data=%s", i, event, (data ? data : "NULL"));
-}
-
-void setup()
-{
-  Particle.subscribe("temperature", myHandler);
-}
-```
-
-To use `Particle.subscribe()`, define a handler function and register it in `setup()`.
-
----
-
-You can register a method in a C++ object as a subscription handler.
-
-```cpp
-#include "Particle.h"
-
-SerialLogHandler logHandler;
-
-class MyClass {
-public:
-	MyClass();
-	virtual ~MyClass();
-
-	void setup();
-
-	void subscriptionHandler(const char *eventName, const char *data);
-};
-
-MyClass::MyClass() {
-}
-
-MyClass::~MyClass() {
-}
-
-void MyClass::setup() {
-	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this);
-}
-
-void MyClass::subscriptionHandler(const char *eventName, const char *data) {
-	Log.info("eventName=%s data=%s", eventName, data);
-}
-
-// In this example, MyClass is a globally constructed object.
-MyClass myClass;
-
-void setup() {
-	myClass.setup();
-}
-
-void loop() {
-
-}
-```
-
-You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
-
----
-
-A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans". The maximum length of the subscribe prefix is 64 characters.
-
-Received events will be passed to a handler function similar to `Particle.function()`.
-A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
-
-- The first argument is the full name of the published event.
-- The second argument (which may be NULL) is any data that came along with the event.
-
-`Particle.subscribe()` returns a `bool` indicating success. It is OK to register a subscription when
-the device is not connected to the cloud - the subscription is automatically registered
-with the cloud next time the device connects.
-
-**NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
-
-
-**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
-
-Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once.
-
----
-
-Prior to August 2020, you could subscribe to the public event stream using `ALL_DEVICES`. This is no longer possible as the public event stream no longer exists. Likewise, `MY_DEVICES` is no longer necessary as that is the only option now.
-
-```cpp
-// This syntax is no longer necessary
-Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
-Particle.subscribe("the_event_prefix", theHandler, ALL_DEVICES);
-```
-
-### Particle.unsubscribe()
-
-Removes all subscription handlers previously registered with `Particle.subscribe()`.
-
-```cpp
-// SYNTAX
-Particle.unsubscribe();
-```
-
-There is no function to unsubscribe a single event handler. 
 
 ### Particle.connect()
 
