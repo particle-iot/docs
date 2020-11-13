@@ -361,14 +361,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   To use `Particle.subscribe()`, define a handler function and register it in `setup()`.
 
   ---
-
-  You can listen to events published only by your own Cores by adding a `MY_DEVICES` constant.
-
-  ```cpp
-  // only events from my Cores
-  Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
-  ```
-
+  
   Complete documentation on using [Particle.subscribe() is here.](/reference/device-os/firmware/#particle-subscribe-)
 
 #### Action fields
@@ -382,7 +375,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   **The event includes (Data):** *Optional* The data that comes along with the event - a temperature value or sensor measurement for example.
 
-  **is this a public or private event?** Select either private or public.
+  **is this a public or private event?** Select either private or public. As of August 2020 there are no public events available, so either setting will create a private event.
 
 
 ### Call a function

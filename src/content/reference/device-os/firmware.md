@@ -106,6 +106,12 @@ Up to 20 cloud variables may be registered and each variable name is limited to 
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
+Variables can only be read using the Particle API, or tools that use the API, like the console, CLI, and mobile apps. It's not possible to directly read a variable from another device, even on the same account. Publish and subscribe can be used if you need device-to-device communication.
+
+For non-product devices, only the account that has claimed the device can read variable values from it.
+
+For product devices, if the device is claimed, the device owner's account can read variable values from it. Additionally, the product owner can read variable values whether the device is claimed or not.
+
 When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud variables must be registered in the `setup()` function. The information about registered variables will be sent to the cloud when the `setup()` function has finished its execution. In the [`SEMI_AUTOMATIC`](#semi-automatic-mode) and [`MANUAL`](#manual-mode) system modes, the variables must be registered before [`Particle.connect()`](#particle-connect-) is called.
 
 _Before 1.5.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud variables as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.variable()` after the registration information has been sent does not re-send the request and the variable will not work.
@@ -278,6 +284,12 @@ In order to register a cloud  function, the user provides the `funcKey`, which i
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The String is UTF-8 encoded.
 
+Functions can only be triggered using the Particle API, or tools that use the API, like the console, CLI, and mobile apps. It's not possible to directly call a function from another device, even on the same account. Publish and subscribe can be used if you need device-to-device communication.
+
+For non-product devices, only the account that has claimed the device can call a function on it.
+
+For product devices, if the device is claimed, the device owner's account can call a function on it. Additionally, the product owner can call a function whether the device is claimed or not.
+
 When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud functions must be registered in the `setup()` function. The information about registered functions will be sent to the cloud when the `setup()` function has finished its execution. In the [`SEMI_AUTOMATIC`](#semi-automatic-mode) and [`MANUAL`](#manual-mode) system modes, the functions must be registered before [`Particle.connect()`](#particle-connect-) is called.
 
 _Before 1.5.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud functions as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.function()` after the registration information has been sent does not re-send the request and the function will not work.
@@ -373,11 +385,7 @@ Cloud events have the following properties:
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-* PUBLIC/PRIVATE (the default is PUBLIC but PRIVATE is advisable)
 * optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).
-
-Anyone may subscribe to public events; think of them like tweets.
-Only the owner of the device will be able to subscribe to private events.
 
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
@@ -387,17 +395,35 @@ of `false`.
 
 If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, Particle.publish may block for 20 seconds to 5 minutes. Checking `Particle.connected()` can prevent this.
 
-For the time being there exists no way to access a previously published but TTL-unexpired event.
-
 String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
 **NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
+**NOTE 3:** Public events are not supported by the cloud as of August 2020. Specifying PUBLIC or leaving out the publish scope essentially results in a private event. 
+
+For non-product devices, events published by a device can be subscribed to:
+
+- By other devices claimed to the same account
+- By webhooks for the user the device is claimed to
+- By the SSE event stream for the user the device is claimed to
+
+For product devices, events published by a device can be subscribed to:
+
+- By other devices claimed to the same account, if the device is claimed
+- By webhooks for the user the device is claimed to, if the device is claimed
+- By the SSE event stream for the user the device is claimed to, if the device is claimed
+- By product webhooks for the product the device is associated with, whether or not the device is claimed
+- By the SSE event stream for the product the device is associated with, whether or not the device is claimed
+
+Public events could previously be received by anyone on the Internet, and anyone could generate events to send to your devices. This did not turn out to a common use-case, and the ease at which you could accidentally use this mode, creating a security hole, caused it to be removed.
+
+
+
 ---
 
-Publish a private event with the given name and no data.
+Publish an event with the given name and no data. 
 
 ```cpp
 // SYNTAX
@@ -411,6 +437,14 @@ A `bool` indicating success: (true or false)
 ```cpp
 // EXAMPLE USAGE
 bool success;
+success = Particle.publish("motion-detected");
+if (!success) {
+  // get here if event publish did not work
+}
+
+// EXAMPLE USAGE - This format is no longer necessary
+// PRIVATE is the default and only option now
+bool success;
 success = Particle.publish("motion-detected", PRIVATE);
 if (!success) {
   // get here if event publish did not work
@@ -419,30 +453,47 @@ if (!success) {
 
 ---
 
-Publish a private event with the given name and data.
-
 ```cpp
-// SYNTAX
-Particle.publish(const char *eventName, const char *data, PublishFlags flags);
-Particle.publish(String eventName, String data, PublishFlags flags);
+// PROTOTYPES
+particle::Future<bool> publish(const char* name);
+particle::Future<bool> publish(const char* name, const char* data);
 
-// EXAMPLE USAGE
-Particle.publish("temperature", "19 F", PRIVATE);
+// EXAMPLE USAGE 1
+Particle.publish("temperature", "19");
+
+// EXAMPLE USAGE 2
+int temp = 19;
+Particle.publish("temperature", String(temp));
+
+// EXAMPLE USAGE 3
+float temp = 19.5;
+Particle.publish("temperature", String::format("%.1f", temp);
 ```
+
+Publish an event with the given name and data. 
+
+The data must be a string in the ASCII or UTF-8 character set. If you have an integer or floating point value, you'll need to convert it to a string first.
+
+You cannot publish binary data with Particle.publish. To send binary data, convert it to a string using hex, Base 64, or Base 85 encoding.
 
 ---
 
-Publish a public event with the given name. 
-
 ```cpp
-// SYNTAX
-Particle.publish(const char *eventName, PublishFlags flags);
-Particle.publish(String eventName, PublishFlags flags);
+// EXAMPLE - Check if event was queued for publishing successfully
+float temp = 19.5;
+bool success = Particle.publish("temperature", String::format("%.1f", temp);
 
-// EXAMPLE USAGE
-Particle.publish("front-door-unlocked", PRIVATE);
+// EXAMPLE - Check if event was queued for publishing successfully
+float temp = 19.5;
+bool success = Particle.publish("temperature", String::format("%.1f", temp);
+
 ```
 
+Normally, you store or test the result of Particle.publish in a `bool` variable that indicates that the event was queued for publishing successfully, or reached the cloud, when used with `WITH_ACK`.
+
+But what is the `particle::Future<bool>` in the prototype above? See the application note [AN009 Firmware Examples](https://github.com/particle-iot/app-notes/tree/master/AN009-Firmware-Examples/Stop-Sleep-Cellular#the-future) for how to use a Future to make the otherwise synchronous Particle.publish() call asynchronous. 
+
+---
 
 ```json
 COMPLEMENTARY API CALL
@@ -457,8 +508,20 @@ event: motion-detected
 data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
 ```
 
+
 {{#if has-udp-cloud}}
 ---
+
+```cpp
+// PROTOTYPES
+particle::Future<bool> publish(const char* name, PublishFlags flags1, PublishFlags flags2 = PublishFlags());
+particle::Future<bool> publish(const char* name, const char* data, PublishFlags flags1, PublishFlags flags2 = PublishFlags());
+
+// SYNTAX
+
+float temperature = sensor.readTemperature();  // by way of example, not part of the API
+Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
+```
 
 *`NO_ACK` flag*
 
@@ -469,16 +532,17 @@ The `NO_ACK` flag disables this acknowledge/retry behavior and sends the event o
 
 For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occasional lost event can be tolerated.
 
+{{/if}} {{!-- has-udp-cloud --}}
+---
+
+
 ```cpp
 // SYNTAX
+bool success = Particle.publish("motion-detected", NULL, WITH_ACK);
 
-float temperature = sensor.readTemperature();  // by way of example, not part of the API
-Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
-Particle.publish("t", String::format("%.2f",temperature), PRIVATE, NO_ACK);
+// No longer necessary, PRIVATE is always used even when not specified
+bool success = Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
 ```
-
-{{/if}} {{!-- electron --}}
----
 
 *`WITH_ACK` flag*
 
@@ -486,49 +550,34 @@ Particle.publish("t", String::format("%.2f",temperature), PRIVATE, NO_ACK);
 
 This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
 
-```cpp
-// SYNTAX
-
-Particle.publish("motion-detected", NULL, WITH_ACK);
-Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
-```
-
 ---
 
 {{since when="0.7.0"}}
 
-`Particle.publish()` flags can be combined using a regular syntax with OR operator (`|`).
-
 ```cpp
 // EXAMPLE - combining Particle.publish() flags
-
+// No longer necessary, PRIVATE is always used even when not specified
 Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 ```
 
-If you wish to send a public event, you should specify PUBLIC explicitly. This will be required in the future, but is optional in 0.7.0.
+`Particle.publish()` flags can be combined using a regular syntax with OR operator (`|`).
 
-```cpp
-Particle.publish("motion-detected", PUBLIC);
-```
-
-PUBLIC and PRIVATE are mutually exclusive.
-
-Unlike functions and variables, you typically call Particle.publish from loop() (or a function called from loop). 
 
 ---
 
-For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the Server-Sent-Events (SSE) data stream. This allows events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
 
 ---
-
-Previously, there were overloads with a `ttl` (time-to-live) value. These have been deprecated as the ttl has never been supported by the Particle cloud. All events expire immediately if not subscribed to or exported from the Particle cloud using a webhook, integration like Google cloud, or the server-sent-events (SSE) stream. 
 
 ```cpp
 // SYNTAX - DEPRECATED
 Particle.publish(const char *eventName, const char *data, int ttl, PublishFlags flags);
 Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
--depth/1", "28m", 21600, PRIVATE);
 ```
+
+Previously, there were overloads with a `ttl` (time-to-live) value. These have been deprecated as the ttl has never been supported by the Particle cloud. All events expire immediately if not subscribed to or exported from the Particle cloud using a webhook, integration like Google cloud, or the server-sent-events (SSE) stream. 
+
+
 
 ### Particle.publishVitals()
 
@@ -638,32 +687,11 @@ void myHandler(const char *event, const char *data)
 
 void setup()
 {
-  Particle.subscribe("temperature", myHandler, ALL_DEVICES);
-  Serial.begin(9600);
+  Particle.subscribe("temperature", myHandler);
 }
 ```
 
 To use `Particle.subscribe()`, define a handler function and register it in `setup()`.
-
-
----
-
-You can listen to events published only by your own devices by adding a `MY_DEVICES` constant. 
-
-```cpp
-// only events from my devices
-Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
-```
-
-- Specifying MY\_DEVICES only receives PRIVATE events. 
-- Specifying ALL\_DEVICES or omitting the third parameter only receives PUBLIC events.
-
-| flags | subscribe ALL\_DEVICES | subscribe MY\_DEVICES | subscribe default |
-| --- | --- | --- | --- | --- |
-| publish PUBLIC | Y | - | Y |
-| publish PRIVATE | - | Y | - |
-| publish default | Y | - | Y |
-
 
 ---
 
@@ -691,7 +719,7 @@ MyClass::~MyClass() {
 }
 
 void MyClass::setup() {
-	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this);
 }
 
 void MyClass::subscriptionHandler(const char *eventName, const char *data) {
@@ -732,6 +760,16 @@ with the cloud next time the device connects.
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once.
+
+---
+
+Prior to August 2020, you could subscribe to the public event stream using `ALL_DEVICES`. This is no longer possible as the public event stream no longer exists. Likewise, `MY_DEVICES` is no longer necessary as that is the only option now.
+
+```cpp
+// This syntax is no longer necessary
+Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
+Particle.subscribe("the_event_prefix", theHandler, ALL_DEVICES);
+```
 
 ### Particle.unsubscribe()
 
@@ -1092,8 +1130,8 @@ void handler(const char *topic, const char *data) {
 }
 
 void setup() {
-    Particle.subscribe("particle/device/ip", handler, MY_DEVICES);
-    Particle.publish("particle/device/ip", PRIVATE);
+    Particle.subscribe("particle/device/ip", handler);
+    Particle.publish("particle/device/ip");
 }
 ```
 
@@ -18090,7 +18128,7 @@ However, it is a fast and efficient parser, and since the JSMN parser is part of
 SerialLogHandler logHandler;
 
 void setup() {
-    Particle.subscribe("jsonTest", subscriptionHandler, MY_DEVICES);
+    Particle.subscribe("jsonTest", subscriptionHandler);
 }
 
 void subscriptionHandler(const char *event, const char *data) {
@@ -18367,7 +18405,7 @@ Tests for inequality with another string.
 SerialLogHandler logHandler;
 
 void setup() {
-    Particle.subscribe("jsonTest", subscriptionHandler, MY_DEVICES);
+    Particle.subscribe("jsonTest", subscriptionHandler);
 }
 
 void subscriptionHandler(const char *event, const char *data) {
@@ -18937,7 +18975,7 @@ public:
 
 MyClass::MyClass() {
 	// This is generally a bad idea. You should avoid doing this from a constructor.
-	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this);
 }
 
 MyClass::~MyClass() {
@@ -18996,7 +19034,7 @@ MyClass::~MyClass() {
 }
 
 void MyClass::setup() {
-	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this);
 }
 
 void MyClass::subscriptionHandler(const char *eventName, const char *data) {
@@ -19034,7 +19072,7 @@ public:
 
 MyClass::MyClass() {
 	// This is OK as long as MyClass is allocated with new from setup
-	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this, MY_DEVICES);
+	Particle.subscribe("myEvent", &MyClass::subscriptionHandler, this);
 }
 
 MyClass::~MyClass() {

@@ -98,7 +98,7 @@ If you do not have your own server infrastructure, it's possible to auto-claim a
 
 ![Auto-claim Flow](/assets/images/AutoclaimFlow.png)
 
-If you never need to send a private event to your product's devices, it's possible to leave them unclaimed, but we recommend claiming all devices.
+If you never need to send an event to your product's devices, it's possible to leave them unclaimed.
 
 For Wi-Fi devices, you will typically need to use a mobile app and the [Photon/P1 Setup Library](/reference/SDKs/ios/) to set the Wi-Fi credentials, and this provides a convenient way to claim devices at the same time.
 

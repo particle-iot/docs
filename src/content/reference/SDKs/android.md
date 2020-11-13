@@ -251,7 +251,7 @@ Events can be filtered by name using the optional `eventNamePrefix` param.  When
 
 #### Subscribe to events
 
-Subscribe to all events, public and private, published by all the devices the user owns:
+Subscribe to all events published by all the devices the user owns:
 
 ```java
 long subscriptionId;  // save this for later, for unsubscribing
@@ -269,7 +269,7 @@ subscriptionId = ParticleCloudSDK.getCloud().subscribeToMyDevicesEvents(
 ```
 ---
 
-Subscribe to events from one specific device.  If the API user owns the device, they'll receive all events published by that device, both public and private.  If the user does not own the device, only public events will be received.
+Subscribe to events from one specific device. This requires that the device be claimed to the same account that the subscription request is made from.
 
 ```java
 long subscriptionId;  // save this for later, for unsubscribing
