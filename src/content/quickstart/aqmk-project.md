@@ -170,6 +170,8 @@ Now that we have everything set-up, let’s connect the Dust sensor. The Grove D
   concentration = 1.1 * pow(ratio, 3) - 3.8 * pow(ratio, 2) + 520 * ratio + 0.62;
   ```
 
+Further information on the formula for calculating the ratio and concentration can be found in Chris Nafis' 2012 **Air Quality Monitoring Project** at [http://www.howmuchsnow.com/arduino/airquality/grovedust/](http://www.howmuchsnow.com/arduino/airquality/grovedust/).
+
 10. Finally, add a few lines to the bottom of this function to print the values out to the Serial terminal.
 
   ```cpp
