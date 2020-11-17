@@ -689,8 +689,8 @@ Only devices that are claimed to an account can subscribe to events.
 
 - Unclaimed devices can only be used in a product.
 - Unclaimed devices can send product events.
-- Unclaimed devices cannot receive events using Particle.subscribe.
 - Unclaimed devices can receive function calls and variable requests from the product.
+- Unclaimed devices cannot receive events using Particle.subscribe.
 
 ### Particle.unsubscribe()
 
