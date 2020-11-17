@@ -265,6 +265,8 @@ Particle.publish pushes the value out of the device at a time controlled by the 
 Mesh devices support Particle.publish as well as Mesh.publish, which allows publishing to devices on your local mesh network only. 
 {{/if}}
 
+**Note:** Public events are not supported by the cloud as of August 2020. Specifying PUBLIC will essentially result in a PRIVATE event being sent or subscribed to.
+
 Cloud events have the following properties:
 
 * name (1–64 ASCII characters)
@@ -575,6 +577,8 @@ To use `Particle.subscribe()`, define a handler function and register it in `set
 
 
 ---
+
+**Note:** Public events are not supported by the cloud as of August 2020. Specifying MY_DEVICES or not will subscribe to events associated with the account the device is claimed to.
 
 You can listen to events published only by your own devices by adding a `MY_DEVICES` constant. 
 
