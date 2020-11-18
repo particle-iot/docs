@@ -76,6 +76,12 @@ Subscribing to private events is secure, as only devices in your account can sen
 
 There is no ability for devices to send function calls to other devices; publish and subscribe should be used instead.
 
+#### Public Events
+
+Prior to August 2020, a feature existed for public publish and subscribe. This allowed an event to be published and viewed by anyone on the Internet who subscribed to it. This was envisioned as been similar to public tweets on Twitter.
+
+In practice, this feature was vary rarely intentionally used and frequently unintentionally used, creating security issues. Not only would the data be viewable by the public, but when used for controlling things, anyone could send control messages. To eliminate this problem, public event support has been removed. 
+
 #### OTA Firmware Updates
 
 Updating your device firmware and Device OS can be done securely over the Particle cloud connection that's used for the other device cloud features.
