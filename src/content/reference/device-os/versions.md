@@ -15,13 +15,13 @@ Most applications consist of two parts: Device OS ("system firmware") and the us
 
 Separating the two makes upgrading the smaller user firmware quick and easy allowing for rapid test and debug cycles, even when programming firmware over cellular networks.
 
-Unlike general-purposes computers, Particle devices only run a single user application at a time. Programing new user firmware replaces the previous user firmware.
+Unlike desktop and laptop computers, Particle devices only run a single user application at a time. Programing new user firmware replaces the previous user firmware.
 
 Each user firmware binary specifies the minimum version of Device OS that it is compatible with, referred to as the target version. For example, if your user firmware targets 1.5.0, it will work not only on 1.5.0, but also 1.5.2, and 2.0.0-rc.4.
 
 If you flash user firmware that requires a newer version of Device OS than is currently installed on the device, the device will automatically upgrade. For example, if the device has 1.5.2 and you target your user firmware for 2.0.0-rc.4, the user firmware would not initially be able to run because the Device OS version is too old. However, at boot, the device will discover this and go into safe mode (breathing magenta), and the cloud will send down the missing binaries. This normally requires a few reboot cycles that happen automatically.
 
-Unlike general purpose operating systems like Windows, Mac, or Linux, Device OS will never be automatically updated under your application. You must manually opt into each update, and updates are generally not required. Because of the more limited function set and smaller attack surface, recommended updates for security reasons are rare.
+Unlike computer operating systems like Windows or Mac, Device OS will never be automatically updated under your application. You must manually opt into each update, and updates are generally not required. Because of the more limited function set and smaller attack surface, recommended updates for security reasons are rare.
 
 ## Version Numbering
 
@@ -353,9 +353,10 @@ The downgrade process is generally the reverse of the upgrade process, however w
 
 For example: Say you have an Electron running 1.5.2 and you want to downgrade it to 0.6.2 OTA. We don't actually recommend doing that, but if for some reason you had to, you would first need to downgrade to 1.2.1. Once that was completed, you would downgrade to 0.7.0. Then 0.6.4. Then finally 0.6.2, your desired target.
 
-- For each Device OS downgrade, download the binaries from the [Device OS releases](https://github.com/particle-iot/device-os/releases) page. As a general rule, we recommend using the latest in a patch line. For example, even if you previously used 1.4.2, you may want to consider using 1.4.4 instead. See the list of versions in the previous section for links to those releases.
+- For each required Device OS downgrade, download the binaries from the [Device OS releases](https://github.com/particle-iot/device-os/releases) page. 
 
 - Flash the system parts in reverse order. Wait not only for the command to complete, but also for the device to come back online again. Using the Events page in the [console](https://console.particle.io) can be helpful for this.
+
 
 #### Example: Downgrade Electron OTA
 
