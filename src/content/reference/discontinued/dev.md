@@ -1,7 +1,7 @@
 ---
 word: Dev
 title: Desktop IDE (Dev)
-order: 12
+order: 30
 shared: true
 columns: two
 layout: reference.hbs
@@ -27,13 +27,13 @@ As Particle Dev is discontinued, we do not recommend downloading and using it. H
 
 Head over and download latest release:
 
-[Download for Windows >](https://updates.particle.io/latest/windows)
+[Download for Windows >](https://github.com/particle-iot-archived/particle-dev-app/releases/download/v1.19.0/ParticleDevSetup.exe)
 
-[Download for Windows X64 >](https://updates.particle.io/latest/windows-x64)
+[Download for Windows X64 >](https://github.com/particle-iot-archived/particle-dev-app/releases/download/v1.19.0/ParticleDevSetup-x64.exe)
 
-[Download for Mac >](https://updates.particle.io/latest/mac)
+[Download for Mac >](https://github.com/particle-iot-archived/particle-dev-app/releases/download/v1.19.0/particle-dev-mac-1.19.0.zip)
 
-[Download for Linux >](https://github.com/particle-iot/particle-dev-app#linux)
+[Download for Linux >](https://github.com/particle-iot-archived/particle-dev-app/#linux)
 
 {{collapse op="end"}}
 

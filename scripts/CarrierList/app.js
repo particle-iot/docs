@@ -23,7 +23,8 @@ const { SSL_OP_NETSCAPE_CHALLENGE_BUG } = require('constants');
 const argv = require('yargs').argv;
 
 var normalizeCountry = {
-		'United States of America':'United States'
+		'United States of America':'United States',
+		'South Korea':'Korea'
 };
 
 // This is currently handled manually. We should probably move this into airtable
@@ -41,15 +42,15 @@ var no2g = {
 // common use is the 'freq' key which will contain a frequency in MHz that this corresponds
 // to (B1 = 2100 MHz). It will also contain a key for the modems that support this frequency.
 // Currently limited to: 'eg91-e' and 'bg96-na'. These keys will be true if the band is 
-// supported or undefined if not.
+// supported or undefined if not. And also 'u201', 'u260', 'u270' for 3G only.
 const bandFrequencies = {
-	'1':{'freq':2100,'eg91-e':true},
-	'2':{'freq':1900,'bg96-na':true},
+	'1':{'freq':2100,'eg91-e':true, 'u201':true, 'u270':true},
+	'2':{'freq':1900,'bg96-na':true, 'u201':true, 'u260':true},
 	'3':{'freq':1800,'eg91-e':true},
 	'4':{'freq':1700,'bg96-na':true},
-	'5':{'freq':850},
+	'5':{'freq':850, 'u201':true, 'u260':true},
 	'7':{'freq':2600,'eg91-e':true},
-	'8':{'freq':900,'eg91-e':true},
+	'8':{'freq':900,'eg91-e':true, 'u201':true, 'u270':true},
 	'9':{'freq':1800},
 	'11':{'freq':1500},
 	'12':{'freq':700,'bg96-na':true},
@@ -101,10 +102,10 @@ const bandFrequencies = {
 	'87':{'freq':410},
 	'88':{'freq':410},
 	// 2G frequencies don't have band numbers
-	'850':{'freq':850,'2g':true},
-	'900':{'freq':900,'2g':true,'eg91-e':true},
-	'1800':{'freq':1800,'2g':true,'eg91-e':true},
-	'1900':{'freq':1900,'2g':true},
+	'850':{'freq':850,'2g':true, 'u201':true, 'u260':true},
+	'900':{'freq':900,'2g':true,'eg91-e':true, 'u201':true, 'u270':true},
+	'1800':{'freq':1800,'2g':true,'eg91-e':true, 'u201':true, 'u270':true},
+	'1900':{'freq':1900,'2g':true, 'u201':true, 'u260':true},
 };
 
 // Array of SIM types. These correspond to the radio button values in the web page
@@ -516,6 +517,10 @@ function getFullData() {
 			
 		});
 
+		if (argv.c) {
+			generateCarrierComparison();
+		}
+		else 
 		if (argv.b) {
 			generateBackup();
 		}
@@ -1037,4 +1042,387 @@ function generateBackup() {
 	fs.writeFileSync(path.join(__dirname, 'backup.json'), JSON.stringify(backup));
 }
 
+function bandsToModel3G(bands) {
+	if (bands.includes('B2') || bands.includes('B5')) {
+		return 'U260';
+	}
+	else {
+		return 'U270';
+	}
+}
 
+// -c option
+function generateCarrierComparison() {
+
+	// Columns:
+	// Country
+	// Telefonica (Bundle)
+	// Kore/AT&T (LTE Cat M1)
+	// Kore/Vodfone (OneNet, AllNet)
+	// Twilio SuperSIM
+
+	// Build a list sorted by normalized country name (alphabetical)
+	let countryNames = [];
+
+	for(let recordId in countrySimCarrier) {
+		if (!countryNames.includes(countrySimCarrier[recordId].countryName)) {
+			countryNames.push(countrySimCarrier[recordId].countryName);
+		}
+	}
+
+	countryNames.sort(function(a, b) {
+		return a.localeCompare(b);
+	});
+
+	const simTypeNames = ['telefonica', 'korelte', 'koreone', 'koreall', 'supersim'];
+
+	const remapCarrierName = {
+		'Roshan (TDAC)':'Roshan',
+		'Movistar Argentina':'Movistar',
+		'Setar GSM':'Setar',
+		'T-Mobile Austria':'T-Mobile',
+		'Base (KPN)':'Base',
+		'Etisalat Benin (Moov)':'Moov',
+		'Vivacom (Vivatel)':'Vivacom',
+		'Rogers AT&T Wireless':'Rogers Wireless',
+		'Movistar Chile':'Movistar',
+		'VipNet (Mobilkom)':'VIPnet',
+		'Telefonica (O2) Czech Republic':'O2',
+		'Telenor AS':'Telenor',
+		'TeleTwo Estonia':'Tele2',
+		'Faroese Telecom Faroe Islands':'Faroese Telecom',
+		'Digicel Fiji':'Digicel',
+		'TeliaSonera Finland':'Telia Sonera',
+		'Bouygues Telecom France':'Bouygues',
+		'Airtel (Zain) Gabon':'Airtel',
+		'Geocell Georgia':'Geocell',
+		'Telefonica O2 Germany':'O2',
+		'Telekom Deutschland GmbH':'Telekom',
+		'Vodafone D2 GmbH':'Vodafone',
+		'Vodafone Ghana (ONEtouch)':'Vodafone',
+		'Wind Hellas':'Wind',
+		'GNBSB-Spacetel MTN Guinea Bissau':'Spacetel',
+		'Digicel Guyana':'Digicel',
+		'Claro (Sercom Honduras)':'Claro',
+		'CSL Ltd':'CSL',
+		'Telenor Hungary':'Telenor',
+		'Siminn (On-Waves)':'Siminn',
+		'Telkomsel Indonesia':'Telkomsel',
+		'Digicel Caribbean':'Digicel',
+		'Movistar Uruguay':'Movistar',
+		'Telefonica Moviles Venezuela':'Movistar',
+		'Dialog Telekom Ltd':'Dialog',
+		'Telefonica Moviles España':'Telefonica',
+		'Telefonica O2 Slovakia':'O2',
+		'StarHub Mobile Pte Ltd.':'StarHub',
+		'Africell Sierra Leone':'Africell',
+		'Airtel (Seychelles)':'Airtel',
+		'Telenor Serbia':'Telenor',
+		'STC Al Jawal':'Al Jawal',
+		'Cable & Wireless St Kitts & Nevis':'Cable & Wireless',
+		'Orange Romania SA':'Orange',
+		'Q-TEL Qartar':'Q-Tel',
+		'TMN Portugal':'TMN',
+		'Globe Telecom Philippines':'Globe',
+		'Telefonica Moviles Peru':'Movistar',
+		'Telefonica Moviles Panama S.A.':'Movistar',
+		'Vodacom Mozambique':'Vodacom',
+		'Cable & Wireless Montserrat':'Cable & Wireless',
+		'Telenor Montenegro':'Telenor',
+		'Unitel Mongolia':'Unitel',
+		'Telefonica Moviles Mexico':'Movistar',
+		'Go Mobile Malta':'go mobile',
+		'Digi Telecom Malaysia':'DiGi',
+		'TANGO Mobile SA':'Tango',
+		'Tele 2':'Tele2',
+		'Mobilkom Liechtenstein':'Mobilkom',
+		'TELE2 Latvia':'Tele2',
+		'Jersey Telecoms UK':'Jersey Telecom',
+		'Partner Communication Israel':'Partner',
+		'Telefonica Moviles El Salvador':'Telefonica',
+		'Otecel S.A. Ecuador':'Otecel',
+		'Telefonica Costa Rica':'Movistar',
+		'Colombia Telefonica':'Movistar',
+		'Airtel Burkina Faso (Celtel Zain)':'Airtel'
+	};
+
+	let output = '';
+
+	const labelRow = '| Country | Carrier | Telefonica | Kore LTE-M1 | Kore OneNet | Kore AllNet | SuperSIM |\n';
+	const spacerRow = '| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |\n';
+
+	output += labelRow;
+	output += '| :--- | :--- | :---: | :---: | :---: | :---: | :---: |\n';
+
+
+
+	let countryCoverage = {};
+
+	let lastLetter = 'A';
+
+	for(let ii = 0; ii < countryNames.length; ii++) {
+		const countryName = countryNames[ii];
+		// console.log(countryName);
+
+		countryCoverage[countryName] = {};
+
+		// Build a list of carriers for this country
+		let carriersInCountry = [];
+
+		let carrierInfo = {};
+
+		for(let recordId in countrySimCarrier) {
+			if (countrySimCarrier[recordId].countryName === countryName) {
+				let carrierName = countrySimCarrier[recordId].carrierName;
+				if (remapCarrierName[carrierName]) {
+					carrierName = remapCarrierName[carrierName];
+				}
+
+				if (!carriersInCountry.includes(carrierName)) {
+					carriersInCountry.push(carrierName);
+					carrierInfo[carrierName] = {};
+				}	
+
+				if (countrySimCarrier[recordId].isB523) {
+					countryCoverage[countryName].isB523 = true;
+				}
+
+				switch(countrySimCarrier[recordId].planName) {
+					case 'Original':
+						break;
+						
+					case 'Bundled':
+						// Zone 6 and higher is hidden for Telefonica, except for Korea and Taiwan
+						if (countrySimCarrier[recordId].zone < 6 || countryName == 'South Korea' || countryName === 'Taiwan') {
+							carrierInfo[carrierName].telefonica = true;	
+							countryCoverage[countryName].telefonica = true;
+
+							if (!countryCoverage[countryName].telfonicaBands3G) {
+								countryCoverage[countryName].telfonicaBands3G = bandsToModel3G(countrySimCarrier[recordId].bands3G);
+							}
+							else 
+							if (countryCoverage[countryName].telfonicaBands3G != bandsToModel3G(countrySimCarrier[recordId].bands3G)) {
+								countryCoverage[countryName].telfonicaBands3G += ' ' + bandsToModel3G(countrySimCarrier[recordId].bands3G);
+							}
+						}
+						break;
+						
+					case 'LTE-M':
+					case 'NORAM':
+						carrierInfo[carrierName].korelte = true;	
+						countryCoverage[countryName].korelte = true;
+						break;
+										
+					case 'One Net':
+						carrierInfo[carrierName].koreone = true;	
+						carrierInfo[carrierName].koreall = true;	
+						countryCoverage[countryName].koreone = true;
+						countryCoverage[countryName].koreall = true;
+						break;
+						
+					case 'All Net':
+						carrierInfo[carrierName].koreall = rankToNumber(countrySimCarrier[recordId].rank);	
+						countryCoverage[countryName].koreall = true;
+						break;
+						
+					case 'SuperSIM':
+						carrierInfo[carrierName].supersim = true;	
+						countryCoverage[countryName].supersim = true;
+
+						if (!countryCoverage[countryName].supersimBands3G) {
+							countryCoverage[countryName].supersimBands3G = bandsToModel3G(countrySimCarrier[recordId].bands3G);
+						}
+						else 
+						if (countryCoverage[countryName].supersimBands3G != bandsToModel3G(countrySimCarrier[recordId].bands3G)) {
+							countryCoverage[countryName].supersimBands3G += ' ' + bandsToModel3G(countrySimCarrier[recordId].bands3G);
+						}
+						break;
+				}
+
+			}
+		}
+
+		carriersInCountry.sort(function(a, b) {
+			return a.localeCompare(b);
+		});
+	
+		countryCoverage[countryName].carriersInCountry = carriersInCountry;
+		countryCoverage[countryName].carrierInfo = carrierInfo;
+
+		/*
+		if (lastLetter != countryName.charAt(0)) {
+			lastLetter = countryName.charAt(0);
+			output += labelRow + spacerRow;
+		}
+		*/
+
+		for(let jj = 0; jj < carriersInCountry.length; jj++) {
+			// console.log("  " + carriersInCountry[jj]);
+			const carrierName = carriersInCountry[jj];
+
+			output += '| ' + countryName + ' | ' + carrierName;
+
+			simTypeNames.forEach(function(simType) {
+				if (carrierInfo[carrierName][simType]) {
+					if (simType != 'koreall') {
+						output += ' | &check; ';
+					}
+					else {
+						if (carrierInfo[carrierName][simType] == 2) {
+							output += ' | <sup>2</sup> ';
+						}
+						else if (carrierInfo[carrierName][simType] == 3) {
+							output += ' | <sup>3</sup> ';
+						}
+						else {
+							output += ' | &check; ';
+						}
+					}
+				}
+				else {
+					output += ' | &nbsp; ';
+				}
+			});
+
+			output += '| \n';
+		}
+
+		output += spacerRow;
+
+
+	}
+
+
+	//
+	//
+	//
+	output += '\n';
+	output += 'European Kore AllNet to SuperSIM\n';
+	output += 'Affected SKUs: Boron 2G/3G, B Series B523, E Series E313, Tracker SoM T523\n';
+	output += '\n';
+
+	output += '| Country | Carrier | Kore AllNet | SuperSIM |\n';
+	output += '| :--- | :--- | :---: | :---: |\n';
+	for(let ii = 0; ii < countryNames.length; ii++) {
+		const countryName = countryNames[ii];
+		const carriersInCountry = countryCoverage[countryName].carriersInCountry;
+		const carrierInfo = countryCoverage[countryName].carrierInfo;
+
+		if (!countryCoverage[countryName].isB523) {
+			continue;
+		}
+
+		for(let jj = 0; jj < carriersInCountry.length; jj++) {
+			const carrierName = carriersInCountry[jj];
+		
+			output += '| ' + countryName + ' | ' + carrierName + ' | ';
+
+			if (carrierInfo[carrierName]['koreall']) {
+				if (carrierInfo[carrierName]['koreall'] == 2) {
+					output += ' <sup>2</sup> | ';
+				}
+				else if (carrierInfo[carrierName]['koreall'] == 3) {
+					output += ' <sup>3</sup> | ';
+				}
+				else {
+					output += ' &check; | ';
+				}
+			}
+			else {
+				output += ' &nbsp; | ';
+			}
+
+			if (carrierInfo[carrierName]['supersim']) {
+				output += ' &check; | ';
+			}
+			else {
+				output += ' &nbsp; | ';
+			}
+			output += '\n';
+		}
+
+		output += '| &nbsp; | &nbsp; | &nbsp; | &nbsp; |\n';
+	}
+
+
+	//
+	//
+	//
+	output += '\n';
+	output += 'Telefonica to SuperSIM: Countries gaining or losing coverage\n';
+	output += 'Affected SKUs: Electron (G350, U260, U270), E Series E310\n';
+	output += '\n';
+
+	output += '| Country | Coverage Change |\n';
+	output += "| :--- | :---: |\n";
+
+	for(let ii = 0; ii < countryNames.length; ii++) {
+		const countryName = countryNames[ii];
+		
+		if (countryCoverage[countryName].telefonica && !countryCoverage[countryName].supersim) {
+			// Losing coverage
+			output += '| ' + countryName + '| \u274C |\n'; // Red X
+		}
+		else
+		if (!countryCoverage[countryName].telefonica && countryCoverage[countryName].supersim) {
+			// Gaining coverage
+			output += '| ' + countryName + '| \u2705  |\n'; // Green box with with checkmark
+		}
+	}
+
+	//
+	//
+	//
+	/*
+	output += '\n';
+	output += 'Telefonica to SuperSIM: Countries with different 3G Electron due to carrier change\n';
+	output += '\n';
+	
+	for(let ii = 0; ii < countryNames.length; ii++) {
+		const countryName = countryNames[ii];
+
+
+		if (countryCoverage[countryName].telefonica && countryCoverage[countryName].supersim) {
+
+			if (countryCoverage[countryName].telfonicaBands3G != countryCoverage[countryName].supersimBands3G) {
+				output += '| ' + countryName + ' | ' + countryCoverage[countryName].telfonicaBands3G + 
+					' | ' + countryCoverage[countryName].supersimBands3G + ' |\n';
+			}
+		}
+
+	}
+	*/
+
+
+	//
+	//
+	//
+	output += '\n';
+	output += 'Kore (OneNet) to SuperSIM: Countries gaining or losing coverage\n';
+	output += 'Affected SKUs: Boron 2G/3G, B Series B523, E Series E313, Tracker SoM T523\n';
+	output += '\n';
+
+
+	output += '| Country | Coverage Change |\n';
+	output += "| :--- | :---: |\n";
+
+	for(let ii = 0; ii < countryNames.length; ii++) {
+		const countryName = countryNames[ii];
+		
+		if (countryCoverage[countryName].koreone && !countryCoverage[countryName].supersim) {
+			// Losing coverage
+			output += '| ' + countryName + '| \u274C |\n'; // Red X
+		}
+		else
+		if (!countryCoverage[countryName].koreone && countryCoverage[countryName].supersim) {
+			// Gaining coverage
+			output += '| ' + countryName + '| \u2705  |\n'; // Green box with with checkmark
+		}
+	}
+
+
+
+
+	fs.writeFileSync(path.join(__dirname, 'carrierComparison.md'), output);
+
+}

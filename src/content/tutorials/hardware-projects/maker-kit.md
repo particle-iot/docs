@@ -151,7 +151,7 @@ You can also do other fun things using IFTTT without the Do Button, such as turn
 8. Enter "**alarm**" in the input field (the code makes it ring three times instead of one)
 9. Click **Next**, then click **Finish** to finish the process
 
-Discover more projects at [particle.hackster.io](http://particle.hackster.io), and join our community at [community.particle.io](https://community.particle.io).
+Discover more projects at [particle.hackster.io](https://particle.hackster.io), and join our community at [community.particle.io](https://community.particle.io).
 
 ### Troubleshooting
 

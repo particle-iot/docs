@@ -36,10 +36,8 @@ git submodule update --init --recursive
 
 - Open Particle Workbench.
 - From the command palette, **Particle: Import Project**.
-- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, or 3.0.0 or later, Tracker, and your device.
+- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
 - Run **Particle: Compile and Flash**.
-
-Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS do not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
 
 ### Add the libraries
 
@@ -442,3 +440,8 @@ void locationGenerationCallback(JSONWriter &writer,
 ### M8 Evaluation Board Adapter
 
 If you are interested in prototyping designs intended to connect to the Tracker One M8 connector, but want to do it using the Tracker SoM Evaluation Board, you may be interested in [this project](https://github.com/rickkas7/M8-Eval-Adapter). It's only a set of design files, BoM, etc. and you'd need to fabricate the board and build it yourself; it's not available as a finished product. It also explains a bit more about how the M8 connector can be used.
+
+### Design Files
+
+The Tracker SoM Evaluation board is open-source and the Eagle CAD design files are available in the 
+[Tracker Hardware Github repository](https://github.com/particle-iot/tracker-hardware).

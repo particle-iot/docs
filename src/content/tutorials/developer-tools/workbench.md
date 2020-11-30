@@ -298,7 +298,7 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 ### Debugging (3rd-generation)
 
-_Note: There are a handful of limitation around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
+_Note: There are a handful of limitations around debugging 3rd-generation hardware. Please [see below](#disabling-mesh-networking-and-bluetooth) for details._
 
 For this tutorial, you'll use the [TinkerBreak source](/assets/files/eclipse-debug/tinkerbreak.cpp). This is the same application used in the [Eclipse Debug Tutorial](https://support.particle.io/hc/en-us/articles/360039741253/). As you'll see, this is way easier in Workbench! 
 
@@ -852,10 +852,8 @@ Open your project in Workbench:
 
   - Open Particle Workbench.
   - From the command palette, **Particle: Import Project**. Select the project.properties file in the tracker-test1 directory.
-  - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, or 3.0.0 or later, Tracker, and your device.
+  - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
   - Run **Particle: Compile and Flash**.
-
-Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS do not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
 
 Now that you have a mirror, you're free to do things like update main.cpp and even edit the other Tracker source as desired. When you **Stage**, **Commit** and **Push**, the changes will be saved to your own GitHub private repository only.
 

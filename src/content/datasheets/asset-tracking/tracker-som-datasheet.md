@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(006)</sup>
+# Tracker SoM Datasheet <sup>(011)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -22,27 +22,32 @@ description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 
 The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
-- LTE Cat 1 (EMEAA) or LTE Cat M1 (North America) cellular modem
+- LTE Cat 1 (EMEAA, Europe only at this time) or LTE Cat M1 (North America) cellular modem
 - GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
 - Support for CAN bus and 5V power for CAN devices
 - Built-in Inertial Measurement Unit (IMU)
 - Castellated module can be reflow soldered to your base board, and is available on an evaluation board or carrier board
 
+| Model | Region |
+| :---- | :---   | 
+| T402 / T404 | North America |
+| T523 / T524 | Europe/Middle East/Africa/Asia; Europe only at this time |
+
 ---
 
 ### Features
 
+
  * GNSS u-blox Neo M8U for GNSS with on-board dead-reckoning for up to 1.8m CEP50 GPS accuracy
   * Supports GPS L1C/A, SBAS L1C/A, QZSS L1C/A, QZSS L1-SAIF, GLONASS L1OF, BeiDou B1I, Galileo E1B/C
   * Support for battery-backup for almanac and ephemeris data
- * Quectel BG96-MC modem
+ * Quectel BG96-MC modem (T402 / T404)
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
-  * 3GPP E-UTRA Release 13
-  * LTE FDD bands supported: 2, 4, 12, 13
- * Quectel EG91-EX modem
+  * LTE FDD bands supported: B2，B4，B5, B12，B13, B14, B25，B26
+ * Quectel EG91-EX modem (T523 / T524)
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
-  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28
+  * Cat 1 bands supported: B1, B3, B7, B8, B20, B28
   * Support for Europe only at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
@@ -80,10 +85,10 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
 
 ### Power
-The Tracker SoM can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery. 
+The Tracker SoM can be powered via the VIN (3.9V-17VDC) pin, over USB, or a LiPo battery. 
 
 #### VIN
-The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
+The input voltage range on VIN pin is 3.9VDC to 17VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
 #### LiPo
 This pin serves two purposes. You can use this pin to connect a LiPo battery (either directly or using a JST connector), or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the module since the PMIC bypasses the regulator and supplies power to the module via an internal FET leading to lower quiescent current.
@@ -93,8 +98,6 @@ When powered from a LiPo battery alone, the power management IC switches off the
 Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA [this value may change] (powered from the battery alone).
 
 The MAX17043 fuel gauge is only compatible with single cell lithium-ion batteries. The state-of-charge (SoC) values will not be accurate with other battery chemistries.
-
-A battery temperature sensor can be added if desired. Connect a negative temperature coefficient thermistor to the TS pin and GND. Charge suspends when the TS pin is out of range. A 103AT-2 thermistor is recommended.
 
 #### VBUS
 
@@ -155,7 +158,78 @@ There is no U.FL connector for NFC. If you wish to use the NFC tag feature, you'
 - The antenna placement needs to follow some basic rules, as any antenna is sensitive to its environment. Mount the antenna at least 10mm from metal components or surfaces, ideally 20mm for best radiation efficiency, and try to maintain a minimum of three directions free from obstructions to be able to operate effectively.
 - Needs tuning with actual product enclosure and all components.
 - For the BLE antenna, it is recommended to use a 2.4 GHz single-frequency antenna and not a 2.4 GHz + 5 GHz antenna, so as to avoid large gain at the frequency twice of 2.4 GHz which can cause the second harmonic radiation of 2.4 GHz to exceed standards.
- 
+
+---
+
+#### GNSS Antenna
+
+As the GNSS system is receive-only (no transmitter), you can use any GNSS compatible antenna without affecting the certification. Different GNSS systems use different frequencies. Many antennas are tuned to the United States GPS system, however you can also get multi-GNSS antennas that are compatible with other systems. All of these systems offer coverage world-wide.
+
+| System   | Owner | 
+| :------- | :--- |
+| GPS      | United States |
+| GLOSNASS | Russia |
+| BeiDou   | China |
+| Galileo  | European Space Agency |
+
+#### Cellular Antenna
+
+The Tracker SoM has been certified with the following antenna:
+
+| Antenna | SKU | Details | Links |
+| :----- | :--- | :------ | :---- |
+| Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x1]| ANTCW2EA | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-lte-4-7dbi) |
+
+
+| Band  | Frequency (MHz) | Peak Gain | Average Gain |
+| :---: | :-------------: | --------: | -----------: |
+| 700/850/900 | 698-960 | 1.42 dBi | -2.80 dB |
+| 1700/1800/1900 | 1710-1990 | 3.77 dBi | -1.90 dB | 
+| 2100 | 1755-2170 | 4.62 dBi | -2.65 dB 
+| 2400 | 2400-2500 | 4.71 dBi | -2.10 dB |
+| 2600 | 2500-2690 | 4.66 dBi | -2.20 dB |
+
+
+| Measurement | Value |
+| :--- | :--- |
+| Maximum power | 5W |
+| Impedance | 50&ohm; |
+| Size | 97.0 x 21.0 x 0.2 mm |
+
+---
+
+#### Wi-Fi Antenna
+
+The Tracker SoM has been certified with the following Wi-Fi antenna. Note: The same external antenna model is used for Wi-Fi and BLE.
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
+| Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
+
+| Measurement | Value |
+| :--- | :--- |
+| Peak gain | 2.0 dBi |
+| Frequency | 2400 - 2500 MHz |
+| Impedance | 50&ohm; |
+| Size | 45.1 x 7.4 x 1.0mm |
+
+#### BLE Antenna
+
+The Tracker SoM includes a built-in chip antenna for BLE with a peak gain of 0 dBi. It can also be used with the following external antenna, which is the same model as the Wi-Fi antenna, above.
+
+| Antenna | SKU  | Links |
+| :------ | :--- | :---- |
+| Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
+| Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
+
+| Measurement | Value |
+| :--- | :--- |
+| Peak gain | 2.0 dBi |
+| Frequency | 2400 - 2500 MHz |
+| Impedance | 50&ohm; |
+| Size | 45.1 x 7.4 x 1.0mm |
+
 ---
 
 ### Peripherals and GPIO
@@ -288,7 +362,7 @@ Circular labels are as follows:
 | 46 | TS | IN | PMIC | Battery temperature sensor |
 | 47 | PMID | POWER OUT | PMIC | PMIC power output in OTG mode. |
 | 48 | GND | POWER | | Ground |
-| 49 | VIN | POWER IN | PMIC | Power input 3.88VDC to 12VDC. |
+| 49 | VIN | POWER IN | PMIC | Power input 3.9VDC to 17VDC. |
 | 50 | STAT | OUT | PMIC | PMIC charge status. Can be connected to an LED. Active low. Optional. | 
 | 51 | VBUS | POWER IN | PMIC & nRF52 | nRF52 USB power input. Can be used as a power supply instead of VIN. |
 | 52 | GND | POWER | | Ground |
@@ -464,6 +538,83 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ---
 
+### Power consumption (T402)
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.35 | 3.38 | 4.39 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | | 21.3 | 277 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 16.8 | 56.7 | 329 | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 19.1 | 53.3 | 292 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 19.2 | 21.2 | 97.1 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 19.5 | 63.6 | 280 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 556 | 806 | 1170 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 588 | 831 | 1230 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 593 | 835 | 1240 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | | 858 | 2330 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | | 875 | 1600 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 577 | 798 | 1210 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 7.66 | 17.2 | 90.1 | mA |
+| STOP mode sleep, IMU wake-up | I<sub>stop_imu</sub> | 548 | 834 | 1250 | uA |
+| STOP mode sleep, CAN wake-up | I<sub>stop_can</sub> | 605 | 817 | 1210 | uA |
+| STOP mode sleep, GPS wake-up | I<sub>stop_gps</sub> | 23.7 | 31.1 | 46.3 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | | 114 | 479 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | | 117 | 508 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | | 114 | 509 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> |  | 186 | 2200 | uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> | | 203 | 1070 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 287 | 530 | 934 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 3.06 | 16.9 | 83.4 | mA |
+| ULP mode sleep, IMU wake-up | I<sub>imu_imu</sub> | | 175 | 616 | uA |
+| ULP mode sleep, CAN wake-up | I<sub>can_can</sub> | | 142 | 528 | uA |
+| ULP mode sleep, GPS wake-up | I<sub>ulp_gps</sub> | 23.6 | 30.9 | 45.7 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 103 | 503 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 100 | 493 | uA |
+| HIBERNATE mode sleep, external RTC wake-up | I<sub>hib_extrtc</sub> | | 94.3 | 590 | uA |
+| HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 151 | 590 | uA |
+| HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 121 | 477 | uA |
+
+---
+
+### Power consumption (T523)
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.22 | 3.24 | 3.26 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 18.9 | 22.0 | 136 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 35.5 | 106 | 726| mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 38.0 | 137 | 553 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 19.2 | 21.2 | 97.1 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 117 | 145 | 787 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 625 | 872 | 1270 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 655 | 853 | 1210 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 632 | 873 | 1260 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | | 919 | 2700 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 421 | 901 | 1680 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 613 | 840 | 1240 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 19.2 | 21.5 | 149 | mA |
+| STOP mode sleep, IMU wake-up | I<sub>stop_imu</sub> | 584 | 858 | 1250 | uA |
+| STOP mode sleep, CAN wake-up | I<sub>stop_can</sub> | 622 | 869 | 1280 | uA |
+| STOP mode sleep, GPS wake-up | I<sub>stop_gps</sub> | 23.8 | 30.8 | 44.7 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 130 | 139 | 540 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | 132  | 140 | 542 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 131 | 139 | 531 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> | 132 | 214 | 2240| uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> || 230 | 1110 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 366 | 564 | 933 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 18.9 | 21.7 | 210 | mA |
+| ULP mode sleep, IMU wake-up | I<sub>imu_imu</sub> || 172 | 580 | uA |
+| ULP mode sleep, CAN wake-up | I<sub>can_can</sub> | | 162 | 513 | uA |
+| ULP mode sleep, GPS wake-up | I<sub>ulp_gps</sub> | 23.1 | 30.2 | 44.6 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 111 | 474 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 114 | 521 | uA |
+| HIBERNATE mode sleep, external RTC wake-up | I<sub>hib_extrtc</sub> | | 111 | 478 | uA |
+| HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 144 | 580 | uA |
+| HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | 8.76 | 133 | 386 | uA |
+
+
+---
+
 ### GNSS specifications
 
 - u-blox NEO-M8U untethered dead reckoning module including 3D inertial sensors
@@ -618,7 +769,6 @@ CAN Tranceiver Characteristics
 - Handles switching between USB, VIN, and battery power
 - LiPo battery charger
 - Charge safety timer, thermal regulation, and thermal shutdown
-- Optional connection for battery thermistor
 
 #### Fuel Gauge
 
@@ -710,6 +860,7 @@ The WIFI_BOOT pin enables programming mode.
 | | Class 3 (24dBm ± 3dB) for WCDMA bands |
 | | Class 3 (23dBm ± 2dB) for LTE FDD bands |
 
+
 #### 4G LTE cellular characteristics for BG96-MC
 
 | Parameter | Value |
@@ -719,8 +870,12 @@ The WIFI_BOOT pin enables programming mode.
 |     | EGPRS |
 | LTE FDD Bands | Band 12 (700 MHz) |
 | | Band 13 (700 MHz)  |
+| | Band 14 (700 MHz)  |
+| | Band 5 (850 MHz)   |
+| | Band 26 (850 MHz)  |
 | | Band 4 (1700 MHz)  |
 | | Band 2 (1900 MHz)  |
+| | Band 25 (1900 MHz)  |
 | GSM Bands | EGSM850 (850 MHz) |
 | | DCS1900 (1900 MHz) |
 
@@ -769,8 +924,10 @@ These specifications are based on the nRF52840 datasheet.
 | CPAD_NFC | Pad capacitance on NFC pads  |  | 4 |  | pF | 
 | INFC_LEAK | Leakage current between NFC pads when driven to different states |  | 1 | 10 | μA |  
 
+- Rise and fall times based on simulations
 
-<sup>1</sup>Rise and fall times based on simulations
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/tracker-som/#pinsetdrivestrength-) function.
+
 
 ## Mechanical specifications
 
@@ -908,11 +1065,10 @@ If the FCC ID is not visible with the module is installed inside another device,
 Contains Transmitter module FCC ID: 2AEMI-T40X or contains FCC ID: 2AEMI-T40X The host product manufacturer is responsible for compliance to any other FCC rules that apply to the host not covered by the modular transmitter grant of certification. The final host product still requires Part 15 Subpart B compliance testing with the modular transmitter installed.
 
 The end user manual shall include all required regulatory information / warning as shown in this manual, include: This product must be installed and operated with a minimum distance of 20 cm between the radiator and user body.
-Radiation Exposure Statement:
-
-The product is a low power device and its output power is lower than FCC SAR exemption level.
 
 ### Industry Canada (IC)
+
+IC ID: 20127-T40X
 
 - This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
   - this device may not cause interference.
@@ -981,11 +1137,16 @@ The bootloader allows you to easily update the user application via several diff
 
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
-| pre1     | 31 Mar 2020 | RK | Preview Release 1 |
-| pre2     | 12 May 2020 | RK | Added partial dimensions |
-| 001      | 29 Jun 2020 | RK | First release |
-| 002      | 10 Jul 2020 | RK | Updated absolute maximum ratings, schematics |
-| 003      | 17 Jul 2020 | RK | Updated absolute maximum ratings |
-| 004      | 30 Jul 2020 | RK | Added explanation of DIV connector |
-| 005      | 06 Aug 2020 | RK | Added crystal to block diagram, added FCC information |
-| 006      | 18 Aug 2020 | RK | Added IC (Canada) information |
+| pre1     | 2020 Mar 31 | RK | Preview Release 1 |
+| pre2     | 2020 May 12 | RK | Added partial dimensions |
+| 001      | 2020 Jun 29 | RK | First release |
+| 002      | 2020 Jul 10 | RK | Updated absolute maximum ratings, schematics |
+| 003      | 2020 Jul 17 | RK | Updated absolute maximum ratings |
+| 004      | 2020 Jul 30 | RK | Added explanation of DIV connector |
+| 005      | 2020 Aug 06 | RK | Added crystal to block diagram, added FCC information |
+| 006      | 2020 Aug 18 | RK | Added IC (Canada) information |
+| 007      | 2020 Sep 08 | RK | Added IC (Canada) information |
+| 008      | 2020 Sep 09 | RK | Remove 3GPP E-UTRA from T402 |
+| 009      | 2020 Sep 16 | RK | Added power consumption information |
+| 010      | 2002 Sep 25 | RK | Fixed typo in Istop_usart maximum current |
+| 011      | 2002 Oct 01 | RK | Fixed VIN maximum voltage in text (is 17V not 12V) |

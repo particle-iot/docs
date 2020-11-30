@@ -597,59 +597,83 @@ $ particle identify 0123456789ABCDEFGHI
 
 ## particle subscribe
 
-  Subscribes to published events on the cloud, and pipes them to the console.  Special device name "mine" will subscribe to events from just your devices.
+Subscribes to published events on the cloud, and pipes them to the console.  
 
+Remember that the eventName is a prefix, so if you subscribe to "test" you'll also get events "testing" and "test1234".
 
 ```sh
 # opens a connection to the API so you can stream events coming from your devices
 $ particle subscribe
-$ particle subscribe mine
 $ particle subscribe eventName
-$ particle subscribe eventName mine
 $ particle subscribe eventName CoreName
 $ particle subscribe eventName 0123456789ABCDEFGHI
 ```
 
-It's also possible to subscribe to events from a specific device
+---
 
 ```sh
 # subscribe to all events for a particular device
-$ particle subscribe mine deviceName
-$ particle subscribe mine 0123456789abcdef01234567
+$ particle subscribe --device deviceName
+$ particle subscribe --device 0123456789abcdef01234567
 ```
 
-To listen to a product's event stream, set the `--product` flag to your product's id.
+It's also possible to subscribe to all events from a specific device in your account. 
+
+---
 
 ```sh
 # subscribe to all events published by devices within product `12345`
 $ particle subscribe --product 12345
 ```
 
-Likewise, to listen to a product device's event stream, set the `--device` flag to your device's id and the `--product` flag to your product's id.
+To listen to a product's event stream, set the `--product` flag to your product's id.
+
+---
 
 ```sh
 # subscribe to all events published by the device with id `0123456789abcdef01234567` within product `12345`
 $ particle subscribe --device 0123456789abcdef01234567 prod-01 --product 12345
 ```
 
+Likewise, to listen to a product device's event stream, set the `--device` flag to your device's id and the `--product` flag to your product's id.
+
+---
+
+```sh
+# No longer necessary to use "mine" as this is the only option 
+# when subscribing to events from your devices
+$ particle subscribe mine
+$ particle subscribe eventName mine
+$ particle subscribe mine deviceName
+```
+
+Prior to August 2020, you could subscribe to the public event stream, but the public event stream is no longer available. Thus specifying special device name "mine" is no longer necessary as you only will ever receive events for your account and devices now.
+
+
 
 ## particle publish
 
-  Publishes events to the cloud via API, similar to running Particle.publish() on a Particle Device.
+Publishes events to the cloud via API, similar to running Particle.publish() on a Particle Device.
 
 ```sh
 $ particle publish eventName
 $ particle publish eventName data
+$ particle publish eventName "some data with spaces"
 ```
 
-There is a `--private` flag that allows you to `publish` events to devices subscribing to events with the `MY_DEVICES` option.
+---
+
+Prior to August 2020, there were both public and private event streams. The public event stream no longer exists, thus you do not need to explicitly specify the `--private` flag. All events are private, and will be received whether `MY_DEVICES` is specified or not when subscribing on a device.
 
 ```sh
 $ particle publish eventName --private
 $ particle publish eventName someData --private
 ```
 
-To send events to a product's event stream, set the `--product` flag to your product's id.
+---
+
+To send events to a product's event stream, set the `--product` flag to your product's id. Note that the product event stream cannot be received by devices - it can only be used for product webhooks and the product SSE event stream.
+
 
 ```sh
 # publish a `temp` event with a value of `25.0` to your product `12345`'s event stream

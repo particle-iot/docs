@@ -700,7 +700,7 @@ Now you can turn your LED on and off and see the values at A0 change based on th
 
 What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Particle.publish`.
 
-`Particle.publish` sends a message to the cloud saying that some event has occured. We're allowed to name that event, set the privacy of that event, and add a little bit of info to go along with the event.
+`Particle.publish` sends a message to the cloud saying that some event has occurred. We're allowed to name that event, set the privacy of that event, and add a little bit of info to go along with the event.
 
 In this example, we've created a system where you turn your LED and photo sensor to face each other, making a beam of light that can be broken by the motion of your finger. Every time the beam is broken or reconnected, your device will send a `Particle.publish` to the cloud letting it know the state of the beam. Basically, a tripwire!
 
@@ -726,25 +726,15 @@ The setup for your breadboard is the same as in the last example.
 // Publish and Subscribe with photoresistors or phototransistors
 /* -------------------------------------------------------------
 
-Go find a buddy who also has a Particle device.
-Each of you will pick a unique event name
-   (make it weird so that no one else will have it)
-   (no more that 63 ASCII characters, and no spaces)
+This example requires two Particle devices claimed to the same account.
 
-In the following code, replace "your_unique_event_name" with your chosen name.
-Replace "buddy_unique_event_name" with your buddy's chosen name.
-
-Have your buddy do the same on his or her IDE.
-
-Then, each of you should flash the code to your device.
+Each of you should flash the code to your device.
 
 Breaking the beam on one device will turn on the D7 LED on the second device.
 
 But how does this magic work? Through the miracle of publish and subscribe.
 
-We are going to Particle.publish a public event to the cloud.
-That means that everyone can see you event and anyone can subscribe to it.
-You and your buddy will both publish an event, and listen for each others events.
+We are going to Particle.publish an event to the cloud.
 
 ------------------------------------------*/
 
@@ -768,11 +758,9 @@ void setup() {
 	pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
 	pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
 
-	// Here we are going to subscribe to your buddy's event using Particle.subscribe
-	Particle.subscribe("buddy_unique_event_name", myHandler);
-	// Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
-	// (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
-	// myHandler() is declared later in this app.
+	// Here we are going to subscribe to "beamStatus" events
+	Particle.subscribe("beamStatus", myHandler);
+	// Subscribe will listen for the event beamStatus and, when it finds it, will run the function myHandler()
 
 	// Since everyone sets up their LEDs differently, we are also going to start by calibrating our photosensor.
 	// This one is going to require some input from the user!
@@ -840,10 +828,8 @@ void loop() {
 	// This loop sends a publish when the beam is broken.
 	if (analogRead(photosensor)>beamThreshold) {
 		if (beamBroken==true) {
-			Particle.publish("your_unique_event_name", "intact", PUBLIC);
-			// publish this public event
-			// rename your_unique_event_name with your actual unique event name. No spaces, 63 ASCII characters.
-			// give your event name to your buddy and have them put it in their app.
+			Particle.publish("beamStatus", "intact");
+			// publish this event
 
 			// Set the flag to reflect the current status of the beam.
 			beamBroken=false;
@@ -860,12 +846,12 @@ void loop() {
 }
 
 
-// Now for the myHandler function, which is called when the cloud tells us that our buddy's event is published.
+// Now for the myHandler function, which is called when the cloud tells us that an event is published.
 void myHandler(const char *event, const char *data)
 {
 	/* Particle.subscribe handlers are void functions, which means they don't return anything.
 	  They take two variables-- the name of your event, and any data that goes along with your event.
-	  In this case, the event will be "buddy_unique_event_name" and the data will be "intact" or "broken"
+	  In this case, the event will be "beamStatus" and the data will be "intact" or "broken"
 
 	  Since the input here is a char, we can't do
 		 data=="intact"
@@ -877,11 +863,11 @@ void myHandler(const char *event, const char *data)
 	 */
 
 	if (strcmp(data,"intact")==0) {
-		// if your buddy's beam is intact, then turn your board LED off
+		// if the beam is intact, then turn your board LED off
 		digitalWrite(boardLed,LOW);
 	}
 	else if (strcmp(data,"broken")==0) {
-		// if your buddy's beam is broken, turn your board LED on
+		// if the beam is broken, turn your board LED on
 		digitalWrite(boardLed,HIGH);
 	}
 	else {
@@ -898,19 +884,9 @@ void myHandler(const char *event, const char *data)
 
 ### Intro
 
-In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
-
-Go find a buddy who has a Photon, or Electron. Your buddy does not have to be next to you--she or he can be across the world if you like! All you need is a connection.
-
-Connect your device and copy the firmware on the right into a new app. Pick a weird name for your event. {{#unless electron}}If your device were named `starfish` for example, you could make your event name something like `starfish_special_event_20150515`. Have your buddy pick a name for their event as well. No more than 63 ASCII characters, and no spaces!{{/unless}}{{#if electron}}Keep it short for data efficiency, but unique so no one else will be using it.{{/if}}
-
-Now replace `your_unique_event_name` with your actual event name and `buddy_unique_event_name` with your buddy's unique event name.
-
-Have your buddy do the same thing, only with their event name and yours (swap 'em).
+This example uses two devices claimed to the same account. When the beam is broken on either device, both D7 blue LEDs will light up; when the beam is intact again, both will turn off.
 
 Flash the firmware to your devices. Calibrate your device when it comes online (same as in the previous example).
-
-When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code... though if one of you is using an Electron, you should be restrained.
 
 ### Setup
 The setup for your breadboard is the same as in the last example. 
@@ -924,25 +900,13 @@ The setup for your breadboard is the same as in the last example.
 // Publish and Subscribe with photoresistors or phototransistors
 /* -------------------------------------------------------------
 
-Go find a buddy who also has a Particle device.
-Each of you will pick a unique event name
-   (make it weird so that no one else will have it)
-   (no more that 63 ASCII characters, and no spaces)
-
-In the following code, replace "your_unique_event_name" with your chosen name.
-Replace "buddy_unique_event_name" with your buddy's chosen name.
-
-Have your buddy do the same on his or her IDE.
-
-Then, each of you should flash the code to your device.
+Flash this code to two devices claimed to the same Particle account.
 
 Breaking the beam on one device will turn on the D7 LED on the second device.
 
 But how does this magic work? Through the miracle of publish and subscribe.
 
-We are going to Particle.publish a public event to the cloud.
-That means that everyone can see you event and anyone can subscribe to it.
-You and your buddy will both publish an event, and listen for each others events.
+We are going to Particle.publish an event to the cloud.
 
 ------------------------------------------*/
 
@@ -964,11 +928,9 @@ void setup() {
 	pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
 	pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
 
-	// Here we are going to subscribe to your buddy's event using Particle.subscribe
-	Particle.subscribe("buddy_unique_event_name", myHandler);
-	// Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
-	// (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
-	// myHandler() is declared later in this app.
+	// Here we are going to subscribe to the "beamStatus" event using Particle.subscribe
+	Particle.subscribe("beamStatus", myHandler);
+	// Subscribe will listen for the event "beamStatus" and, when it finds it, will run the function myHandler()
 
 	// Since everyone sets up their LEDs differently, we are also going to start by calibrating our photosensor.
 	// This one is going to require some input from the user!
@@ -1036,10 +998,8 @@ void loop() {
 	// This loop sends a publish when the beam is broken.
 	if (analogRead(photosensor)>beamThreshold) {
 		if (beamBroken==true) {
-			Particle.publish("your_unique_event_name","intact");
-			// publish this public event
-			// rename your_unique_event_name with your actual unique event name. No spaces, 63 ASCII characters.
-			// give your event name to your buddy and have them put it in their app.
+			Particle.publish("beamStatus","intact");
+			// publish this event
 
 			// Set the flag to reflect the current status of the beam.
 			beamBroken=false;
@@ -1049,19 +1009,19 @@ void loop() {
 	else {
 		if (beamBroken==false) {
 			// Same deal as before...
-			Particle.publish("your_unique_event_name","broken");
+			Particle.publish("beamStatus","broken");
 			beamBroken=true;
 		}
 	}
 }
 
 
-// Now for the myHandler function, which is called when the cloud tells us that our buddy's event is published.
+// Now for the myHandler function, which is called when the cloud tells us that the event is published.
 void myHandler(const char *event, const char *data)
 {
 	/* Particle.subscribe handlers are void functions, which means they don't return anything.
 	  They take two variables-- the name of your event, and any data that goes along with your event.
-	  In this case, the event will be "buddy_unique_event_name" and the data will be "intact" or "broken"
+	  In this case, the event will be "beamStatus" and the data will be "intact" or "broken"
 	
 	  Since the input here is a char, we can't do
 		 data=="intact"
@@ -1073,11 +1033,11 @@ void myHandler(const char *event, const char *data)
 	 */
 
 	if (strcmp(data,"intact")==0) {
-		// if your buddy's beam is intact, then turn your board LED off
+		// if the beam is intact, then turn your board LED off
 		digitalWrite(boardLed,LOW);
 	}
 	else if (strcmp(data,"broken")==0) {
-		// if your buddy's beam is broken, turn your board LED on
+		// if the beam is broken, turn your board LED on
 		digitalWrite(boardLed,HIGH);
 	}
 	else {
@@ -1184,17 +1144,10 @@ int subscribeData[5];
 
 void setup() {
 
-    // if you are subscribing to a private event published with the syntax
-    //    Particle.publish("event-name", event-data,time-to-live,PRIVATE);
-    // you should use:
-    Particle.subscribe("L",myHandler,MY_DEVICES);
-
-    // Otherwise, for a public event published with the syntax
-    //    Particle.publish("event-name", event-data);
-    // you should use:
     Particle.subscribe("L",myHandler);
-    // Note that this will subscribe to all public events with the name "L".
 
+    // Note that this will subscribe to all events beginning with the name "L" 
+    // for devices claimed to the same account.
 }
 
 void loop() {

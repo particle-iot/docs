@@ -226,6 +226,22 @@ NFC certification:
 - [Test report FCC Part 24](/assets/pdfs/b402-fcc-part24.pdf)
 - [Test report FCC Part 27](/assets/pdfs/b402-fcc-part27.pdf)
 
+#### Tracker SoM T402
+
+- FCC ID: 2AEMI-T40X
+- [Grant of equipment authorization (DTS)](/assets/pdfs/t402-fcc-dts.pdf)
+- [Grant of equipment authorization (PCB)](/assets/pdfs/t402-fcc-pcb.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/t402-fcc-part15c.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247, Wi-Fi](/assets/pdfs/t402-fcc-wifi-part15c.pdf)
+- [RF exposure report FCC Part 2, Section 2.1091](/assets/pdfs/t402-fcc-part2.pdf)
+- [Attestation 15 Subpart B, Class B (sDoC)](/assets/pdfs/t402-fcc-part15b.pdf)
+- [Test report FCC Part 15 Subpart B, Class B (sDoC)](/assets/pdfs/t402-fcc-part15b-test.pdf)
+- [EMC Test report FCC Part 15 Subpart B, Class B (sDoC)](/assets/pdfs/t402-fcc-emc-part15b.pdf)
+- [Test report FCC Part 15 Subpart C, Section 15.247](/assets/pdfs/t402-fcc-part15c.pdf)
+- [Test report FCC Part 22](/assets/pdfs/t402-fcc-part22.pdf)
+- [Test report FCC Part 24](/assets/pdfs/t402-fcc-part24.pdf)
+- [Test report FCC Part 27](/assets/pdfs/t402-fcc-part27.pdf)
+
 
 ## IC<img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
@@ -313,6 +329,19 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron402-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
 
+#### TrackerSoM T402
+
+- IC ID: **20127-T40X**.
+- [Certificate of Conformity](/assets/pdfs/t402-ic-certificate.pdf)
+- [Test Report BLE](/assets/pdfs/t402-ic-ble-test-report.pdf)
+- [Test Report Wi-Fi](/assets/pdfs/t402-ic-wifi-test-report.pdf)
+- [Test Report RS-133](/assets/pdfs/t402-ic-rs130.pdf)
+- [Test Report RS-133](/assets/pdfs/t402-ic-rs132.pdf)
+- [Test Report RS-133](/assets/pdfs/t402-ic-rs133.pdf)
+- [Test Report RS-133](/assets/pdfs/t402-ic-rs139.pdf)
+- [RF Exposure Report](/assets/pdfs/t402-ic-rf-exposure.pdf)
+- [ISED RF Exposure Report](/assets/pdfs/t402-ic-ised-rf-exposure.pdf)
+- [ICES-003 Issue 6:2016](/assets/pdfs/t402-ic-ices003.pdf)
 
 
 ## CE<img class="inline-header-image" src="/assets/images/logo-ce.png"/>
@@ -421,6 +450,22 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
 
 
+#### Tracker SoM T523
+
+- [Summary](/assets/pdfs/t523-ce-summary.pdf)
+- [EMC Test Report](/assets/pdfs/t523-ce-emc-test-report.pdf)
+- [EN 300 328 Test Report](/assets/pdfs/t523-EN300-328-test-report.pdf) (2.4 GHz ISM band)
+- [EN 300 330 Test Report](/assets/pdfs/t523-EN300-330-test-report.pdf) (NFC)
+- [EN 303 413 Test Report](/assets/pdfs/t523-EN303-413-test-report.pdf)
+- [EN 301 489 Test Report](/assets/pdfs/t523-EN301-489-test-report.pdf)
+- [EN 301 511 Test Report](/assets/pdfs/t523-EN301-511-test-report.pdf) (GSM)
+- [EN 301 908 Test Report](/assets/pdfs/t523-EN301-908-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/t523-EN62311-test-report.pdf)
+- [EN-62311 EN-50665 Test Report](/assets/pdfs/t523-EN50665-test-report.pdf)
+- [EN-62368 Test Report](/assets/pdfs/t523-EN62368-test-report.pdf)
+- [EN-62479 EN-50663 Test Report](/assets/pdfs/t523-EN62479-test-report.pdf)
+- [RoHS 3.0 Test Reports](/assets/pdfs/t523-rohs.pdf)
+
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
@@ -523,6 +568,14 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/xenon-rohs.pdf)
 
+#### Tracker SoM T402
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/t402-rohs.pdf)
+
+#### Tracker SoM T523
+
+- [RoHS 3.0 Test Reports](/assets/pdfs/t523-rohs.pdf)
+
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
 ### Description
@@ -605,6 +658,11 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=43054)
 
+#### Tracker SoM T402
+
+- [Certificate of Conformity](/assets/pdfs/t402-ptcrb.pdf
+)
+
 
 ## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>
 ### Description
@@ -625,6 +683,11 @@ The GCF is a certification partnership between European network operators, mobil
 
 The Boron LTE (BRN402), E Series LTE (E402), and B Series SoM (B402) are certified for use on the AT&T LTE Cat M1 network. From the [AT&T Certified Devices page](https://iotdevices.att.com/certified-devices.aspx) search for "Particle".
 
+## Bluetooth
+
+- [Summary](/assets/pdfs/bluetooth-summary.pdf)
+- [Tracker SoM 402](/assets/pdfs/t402-bluetooth.pdf)
+- [Tracker SoM 523](/assets/pdfs/t523-bluetooth.pdf)
 
 
 ## Battery Certifications

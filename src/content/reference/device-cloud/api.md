@@ -258,7 +258,7 @@ When your device starts ("online") or stops ("offline") a session with the cloud
 
 For cellular devices (Electron, E Series) and Gen 3 devices (Argon, Boron, and Xenon), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular or Gen 3 devices.
 
-For Wi-Fi devices (Photon, P1, Core), online events occur on every connection to the cloud and after any length of sleep. If you abruptly power off the device and offline event may take some time to occur.
+For Wi-Fi devices (Photon, P1, Core), online events occur on every connection to the cloud and after any length of sleep. If you abruptly power off the device an offline event may take some time to occur.
 
 If your device is a packaged product, you may see an "auto-update" event from time to time.  This is the cloud 
 signaling that a new version of firmware is available for your product from your manufacturer, and an update is 
@@ -355,7 +355,7 @@ has sent a request to your server.
 
 ```
 
-If the hook got an error back from your server, it'll publish a hook-error event with the contents of the error. See
+If the hook got an error back from your server, it'll publish a hook-error event with the contents of the error.
 
 ```
 # hook-error

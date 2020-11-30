@@ -44,7 +44,7 @@ Using publish and a webhook is particularly advantageous on cellular devices. It
 
 <img src="/assets/images/PublishFlow.png" class="full-width"/>
 
-For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the [Server-Sent-Events (SSE)](/reference/device-cloud/api/#product-event-stream) data stream. This allows PRIVATE events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
+For [products](/tutorials/device-cloud/console/#product-tools), it's possible receive product events sent by devices using webhooks or the [Server-Sent-Events (SSE)](/reference/device-cloud/api/#product-event-stream) data stream. This allows  events sent from devices to be received by the product even if the devices are claimed to different accounts. Note that the product event stream is unidirectional from device to the cloud. It's not possible to subscribe to product events on a device.
 
 When using SSE, your server makes an outbound connection to the Particle cloud. This connection is TLS/SSL encrypted and authenticated with your Particle account access token. This connection is kept open, allowing events to be sent down the connection as them come in efficiently. This also allows your server to be on a private network behind a firewall, and does not require a static IP address, DNS, or a SSL certificate.
 

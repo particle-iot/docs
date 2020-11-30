@@ -18,6 +18,7 @@ var ignoreHosts = [
   'www.mouser.com',
   'www.oracle.com',
   'datasheets.maximintegrated.com',
+  'apps.apple.com', // this always returns a 301 even when using the resulting link
   // Broken webserver that returns 404 not found for regular pages
   'www.emaxmodel.com',
   'mingw.org', // seems to be a temporary server problem, will check back later

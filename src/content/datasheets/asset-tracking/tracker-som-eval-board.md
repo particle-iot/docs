@@ -41,7 +41,7 @@ This is a breakout board for Particle's Tracker SoM. The Tracker SoM Cellular GN
 | 10 | 3V3 LED | Power LED, indicates 3.3V supply is enabled. |
 | 11 | STAT LED | Charge status indicator. |
 | 12 | J9 | STAT LED jumper. Normally installed, remove to disable STAT LED. |
-| 13 | VIN | External power 5-12 VDC |
+| 13 | VIN | External power 3.9-17 VDC |
 | 14 | LiPo | JST-PH connector for LiPo battery |
 | 15 | S4 | Battery switch |
 | 16 | S6 | SoM power switch |
@@ -61,7 +61,7 @@ There are several options for powering the evaluation board:
 
 The **MCU USB** connector. If using a laptop with a 500 mA USB port, you should also use the LiPo battery. With a 2A tablet charger, you can power only by USB.
 
-The **VIN** connector (5-12 VDC). This is useful with an external power supply. Switch **S6** is the power switch.
+The **VIN** connector (3.9 to 17 VDC). This is useful with an external power supply. Switch **S6** is the power switch.
 
 The **LiPo** connector. This is typically used with a LiPo battery. Use switch **S4** to enable the battery.
 
@@ -120,7 +120,7 @@ The 5V power supply is powered by a boost converter and can be turned on and off
 | PMIC power out | PMID | | LI+ | LiPo battery |
 | PMIC thermistor | TS | | VBUS | nRF52 USB power |
 | 3.3V Out | 3V3 | | STAT | PMIC charge status |
-| Unused | SOM44 | | VIN | Power input 5-12V |
+| Unused | SOM44 | | VIN | Power input 3.9 - 17 VDC |
 | Ground | GND | | GND | Ground |
 | A4, D4, SPI MOSI | A4 | | A0 | A0, D0, Wire SDA |
 | A5, D5, SPI MISO | A5 | | A1 | A1, D1, Wire SCL |
@@ -191,6 +191,13 @@ The basic setup for the Tracker SoM Eval Board to be operational is shown below:
 {{imageOverlay src="/assets/images/at-som/eval-schematic-1.png" alt="Block Diagram" class="full-width"}}
 
 ---
+
+## Design Files
+
+The Tracker SoM Evaluation board is open-source and the Eagle CAD design files are available in Github:
+
+[https://github.com/particle-iot/tracker-hardware](https://github.com/particle-iot/tracker-hardware)
+
 
 ## Mechanical specifications
 

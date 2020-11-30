@@ -141,6 +141,7 @@
     "rgb",
     "pwm",
     "interrupts",
+    "backup-ram",
     "application-watchdog",
     "battery",
     "threading",
@@ -158,7 +159,8 @@
     "eeprom-file",
     "udp-multicast",
     "ble",
-    "nfc-tag"
+    "nfc-tag",
+    "posix-filesystem"
   ],
   "Boron": [
     "gen3",
@@ -180,6 +182,7 @@
     "rgb",
     "pwm",
     "interrupts",
+    "backup-ram",
     "application-watchdog",
     "battery",
     "fuel-gauge",
@@ -200,7 +203,8 @@
     "eeprom-file",
     "udp-multicast",
     "ble",
-    "nfc-tag"
+    "nfc-tag",
+    "posix-filesystem"
   ],
   "Xenon": [
     "gen3",
@@ -222,6 +226,7 @@
     "pwm",
     "serial2",
     "interrupts",
+    "backup-ram",
     "application-watchdog",
     "battery",
     "threading",
@@ -257,6 +262,7 @@
     "rgb",
     "pwm",
     "interrupts",
+    "backup-ram",
     "application-watchdog",
     "battery",
     "fuel-gauge",

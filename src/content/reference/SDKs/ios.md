@@ -346,53 +346,7 @@ You can make an API call that will open a stream of [Server-Sent Events (SSEs)](
 
 #### Subscribe to events
 
-Subscribe to the firehose of public events with name that starts with "temp", plus the private events published by devices one owns:
-
-_Starting SDK version 0.8.0_
-
-Public event stream **no longer accepts*** nil or empty string as the eventNamePrefix
-
-**Objective-C**
-```objc
-// The event handler:
-ParticleEventHandler handler = ^(ParticleEvent *event, NSError *error) {
-        if (!error)
-        {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"Got Event %@ with data: %@",event.event,event.data);
-            });
-        }
-        else
-        {
-            NSLog(@"Error occured: %@",error.localizedDescription);
-        }
-
-    };
-
-// This line actually subscribes to the event stream:
-id eventListenerID = [[ParticleCloud sharedInstance] subscribeToAllEventsWithPrefix:@"temp" handler:handler];
-```
----
-
-**Swift**
-```swift
-var handler : Any?
-handler = ParticleCloud.sharedInstance().subscribeToAllEvents(withPrefix: "temp", handler: { (event :ParticleEvent?, error : Error?) in
-    if let _ = error {
-        print ("could not subscribe to events")
-    } else {
-        DispatchQueue.main.async(execute: {
-            print("got event with data \(event?.data)")
-        })
-    }
-})
-```
----
-
-*Note:* You can have multiple handlers per event name and/or same handler per multiple events names.
-
-
-Subscribe to all events, public and private, published by devices the user owns (`handler` is a Obj-C block or Swift closure:
+Subscribe to all events published by devices the user owns (`handler` is a Obj-C block or Swift closure:
 
 **Objective-C**
 
@@ -409,7 +363,7 @@ eventListenerID = ParticleCloud.sharedInstance().subscribeToMyDevicesEvents(with
 ```
 ---
 
-Subscribe to events from one specific device (by deviceID, second parameter). If the API user owns the device, then he will receive all events, public and private, published by that device. If the API user does not own the device he will only receive public events.
+Subscribe to events from one specific device (by deviceID, second parameter). Events can only be received from a device that is claimed to the same account the subscription request is made from.
 
 **Objective-C**
 

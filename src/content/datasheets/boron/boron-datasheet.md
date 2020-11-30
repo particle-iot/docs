@@ -6,7 +6,7 @@ order: 1
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet <sup>(v003)</sup>
+# Boron Datasheet <sup>(v004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -63,7 +63,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 ### Power
 
 #### USB PORT
-The USB port is the easiest way to power up the Boron. Please make sure that the USB port is able to provided at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
+The USB port is the easiest way to power up the Boron. Please make sure that the USB port is able to provide at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
 
 For powering the Boron 2G/3G version, you'll either need a USB port that is able support 2A current, or have the LiPo battery plugged in when powering over USB. This is because the on-board u-blox modem can consumes up to 1.8A peak current when operating in 2G mode. The Boron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
@@ -242,21 +242,73 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.3 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
-| Operating Current (uC on, Radio ON) | I<sub>Li+ avg</sub> |  | 100 | 200 | mA |
-| Peak Current (Boron LTE) | I<sub>Li+ pk</sub> | 120 |  | 490 | mA |
-| Peak Current (Boron 2G/3G) | I<sub>Li+ pk</sub> | 800<sup>[1]</sup> |  | 1800<sup>[2]</sup> | mA |
-| Operating Current (uC on, Radio OFF) | I<sub>Li+ avg</sub> |  | 6 | 60 | mA |
-| Operating Current (EN pin = LOW) | I<sub>disable</sub> |  | 70 | 75 | uA |
-| Sleep Current (4.2V LiPo, Radio OFF)| I<sub>Qs</sub> |  | TBD | TBD | mA |
-| Deep Sleep Current (4.2V LiPo, Radio OFF) | I<sub>Qds</sub> |  | TBD | TBD | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-**Notes:**
+---
 
-<sup>[1]</sup> 3G operation
+### Power consumption (Boron 2G/3G)
 
-<sup>[2]</sup> 2G operation
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Peak Current, 2G | I<sub>Li+ pk</sub> | | | 800 | mA |
+| Peak Current, 3G | I<sub>Li+ pk</sub> | | | 1800 | mA |
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.76 | 3.77 | 3.79 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 3.84 | 25.2 | 901 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 11.6 | 56.9 | 579 | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 22.4 | 97.9 | 957 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 15.6 | 18.7 | 84.7 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 19.5 | 86.1 | 981 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 594 | 631 | 665 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 579 | 585 | 591 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 589 | 607 | 630 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | 17.0 | 907 | 2400 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 443 | 906 | 1540 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 589 | 606 | 627 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | 6.49 | 15.6 | 81.0 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | 160 | 171 | 182 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | 166 | 178 | 188 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 163 | 174 | 185 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> |  | 494 | 2100 | uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> |  55.9 | 515 | 1090 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 590 | 610 | 634 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> | 6.96 | 16.4 | 81.1 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 139 | 146 | 162 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 139 | 147 | 163 | uA |
+| Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 70 | 75 | uA |
+
+---
+
+### Power consumption (Boron LTE)
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:
+| Peak Current | I<sub>Li+ pk</sub> | 120 |  | 490 | mA |
+| Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.89 | 3.90 | 3.92 | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | | 5.78 | 16.9 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 14.7 | 58.9 | 178 | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 14.6 | 53.4 | 207 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | | 17.9 | 108 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | | 63.9 | 184 | mA |
+| STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 565 | 575 | 590 | uA |
+| STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 565 | 577 | 593 | uA |
+| STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 568 | 584 | 602 | uA |
+| STOP mode sleep, BLE wake-up, advertising | I<sub>stop_ble_adv</sub> | 91.6 | 885 | 2210 | uA |
+| STOP mode sleep, BLE wake-up, connected | I<sub>stop_ble_conn</sub> | 486 | 866 | 1440 | uA |
+| STOP mode sleep, serial wake-up | I<sub>stop_usart</sub> | 569 | 587 | 612 | uA |
+| STOP mode sleep, cellular wake-up | I<sub>stop_cell</sub> | | 12.2 | 104 | mA |
+| ULP mode sleep, GPIO wake-up | I<sub>ulp_gpio</sub> | | 127 | 137 | uA |
+| ULP mode sleep, analog wake-up | I<sub>ulp_analog</sub> | | 130 | 141 | uA |
+| ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> |  | 128 | 138 | uA |
+| ULP mode sleep, BLE wake-up, advertising | I<sub>ulp_ble_adv</sub> | | 442 | 2120 | uA |
+| ULP mode sleep, BLE wake-up, connected | I<sub>ulp_ble_conn</sub> |  | 438 | 1050 | uA |
+| ULP mode sleep, serial wake-up | I<sub>ulp_usart</sub> | 568 | 584 | 601 | uA |
+| ULP mode sleep, cellular wake-up | I<sub>ulp_cell</sub> |  | 14.2 | 112 | mA |
+| HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 98.7 | 106 | 118 | uA |
+| HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 99.4 | 106 | 120 | uA |
+| Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 70 | 75 | uA |
+
+---
 
 ### Radio specifications
 
@@ -289,9 +341,12 @@ These specifications are based on the nRF52840 datasheet.
 |Input low voltage | V<sub>IL</sub> | | 0 | | 0.3*3.3 | V |
 |Current at GND+0.4 V, output set low, high drive|I<sub>OL,HDL</sub> |V<sub>3V3</sub> >= 2.7V|6|10|15|mA|
 |Current at V<sub>3V3</sub>-0.4 V, output set high, high drive|I<sub>OH,HDH</sub>|V<sub>3V3</sub> >= 2.7V|6|9|14|mA|
+|Current at GND+0.4 V, output set low, standard drive|I<sub>OL,SD</sub> |V<sub>3V3</sub> >= 2.7V|1|2|4|mA|
+|Current at V<sub>3V3</sub>-0.4 V, output set high, standard drive|I<sub>OH,SD</sub>|V<sub>3V3</sub> >= 2.7V|1|2|4|mA|
 | Pull-up resistance | R<sub>PU</sub> | | 11 |13 | 16 | kΩ |
 | Pull-down resistance | R<sub>PD</sub> | | 11 |13 | 16 | kΩ |
 
+GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/boron/#pinsetdrivestrength-) function.
 
 ## Mechanical specifications
 
@@ -480,6 +535,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v001     | 2018 Oct 26 | MB | Initial release |
 | v002     | 2020 Jan 21 | RK | Remove mesh |
 | v003     | 2020 Sep 01 | RK | Add EN pin information |
+| v004     | 16-Sep-2020 | RK | Added power consumption information |
 
 ## Known Errata
 

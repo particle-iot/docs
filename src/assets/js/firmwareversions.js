@@ -4,6 +4,17 @@
     return;
   }
 
+  // This is used to remap page hashes when the page sections are changed
+  const hashMap = {
+    "foo":"sleep-sleep-"
+  };
+  if (window.location.hash) {
+    if (hashMap[window.location.hash.substr(1)]) {
+      window.location.hash = '#' + hashMap[window.location.hash.substr(1)];
+      return;
+    }
+  }
+
   var delimiter1 = "#release-notes-wrapper";
   var delimiter2 = "#release-notes-wrapper-1";
   var id = "programming-and-debugging-notes";

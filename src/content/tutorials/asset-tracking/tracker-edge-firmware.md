@@ -35,17 +35,15 @@ The Tracker Edge firmware can be downloaded from Github:
 You will probably want to use the command line as there are additional commands you need to run after cloning the source:
 
 ```bash
-git clone git@github.com:particle-iot/tracker-edge.git 
+git clone https://github.com/particle-iot/tracker-edge 
 cd tracker-edge
 git submodule update --init --recursive
 ```
 
 - Open Particle Workbench.
 - From the command palette, **Particle: Import Project**.
-- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1 or 3.0.0 or later, Tracker, and your device.
-- Run **Particle: Compile and Flash**.
-
-Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS do not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
+- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
+- Run **Particle: Flash application (local)**.
 
 ## Overview
 
@@ -319,10 +317,8 @@ Open your project in Workbench:
 
   - Open Particle Workbench.
   - From the command palette, **Particle: Import Project**. Select the project.properties file in the tracker-test1 directory.
-  - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, or 3.0.0 or later, Tracker, and your device.
+  - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
   - Run **Particle: Compile and Flash**.
-
-Be sure to target 1.5.4-rc.1, or 3.0.0 or later, for your build. The 2.0.x LTS versions of Device OS do not have Tracker support. There will be versions of 3.0.x released concurrently with 2.0.x releases. 
 
 Now that you have a mirror, you're free to do things like update main.cpp and even edit the other Tracker source as desired. When you **Stage**, **Commit** and **Push**, the changes will be saved to your own GitHub private repository only.
 

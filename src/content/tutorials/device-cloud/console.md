@@ -651,6 +651,8 @@ And view details about a specific device:
 
 ![Details](/assets/images/tracker/details.png)
 
+On the Tracker One the temperature ("temp") is shown in degrees Celsius. This is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
+
 ### Device Fleet Settings
 
 Your Tracker devices can be configured fleet-wide, or by device. The fleet-wide settings are in the **Map View**. Click **Gear** icon in the upper-left corner of the map to update Tracker Settings.
@@ -665,15 +667,44 @@ Note that the settings are automatically synchronized with the device, even if t
 
 The Location settings include:
 
-- **Radius Trigger** in meters, floating point. When the current position's distance from the last publish exceeds this distance, the new position is published. 0.0 means do not use a publish radius. 
-- **Minimum Interval** Wait at least this long in seconds after the last location publish before publishing again. 0 means do not use an interval minimum. The Minimum Interval prevents publishing too frequently.
-- **Maximum Interval** Publish location at least this often (in seconds) even if there is no movement. 0 means do not use an interval maximum. The maximum is used to make sure publishes occur this often, even if there are no other triggering events.
+- **Radius Trigger** in meters, floating point. When the current position's distance from the last publish exceeds this distance, the new position is published. 0.0 means do not use a publish radius. The GNSS is not monitored during sleep mode, and the radius will only be checked when otherwise waking from sleep. The maximum location update frequency still limits how frequently publishes occur even if if the radius trigger is reached.
+
+| US Units | Meters |
+| :--- | :--- |
+| 1 yard (3 feet) | 0.91 meters (approximately 1 meter) |
+| 100 feet | 30.5 meters |
+| 100 yards (length of American football field) | 91.4 meters |
+| 1/4 mile | 402 meters |
+| 1/2 mile | 805 meters |
+| 1 mile | 1609 meters |
+
+- **Maximum location update frequency** in seconds. Wait at least this long in seconds after the last location publish before publishing again. 0 means do not limit. The maximum location update frequency prevents publishing too frequently, which can use excessive amounts of data. 
+
+  When using sleep modes, this also controls how often to connect to the cellular network. A maximum location update frequency value of 10 minutes (600 seconds) or larger is recommended. Setting a very short maximum location update frequency with sleep mode can cause your SIM card to be banned for excessive reconnection to the cellular network by your mobile carrier. 
+
+- **Minimum location update frequency** in seconds. Publish location this often (in seconds) even if there is no movement or other wake trigger. 0 means do not use an minimum update frequency; only publish location information when there is another trigger, such as movement. Including a minimum location update frequency of 8 hours (28800 seconds) or 24 hours (86400) can be helpful to make sure the device is still responding and report its battery level.
+
+In some cases, you will want to set the maximum and minimum to the same value. This is common if you are not using a trigger like movement and instead always want to publish at a fixed frequency.
+
+| Common Unit | Seconds |
+| :--- | ---: |
+| 1 minute | 60 |
+| 5 minutes | 300 |
+| 10 minutes | 600 |
+| 15 minutes | 900 |
+| 30 minutes | 1800 |
+| 1 hour | 3600 |
+| 2 hours | 7200 |
+| 4 hours | 14400 |
+| 8 hours | 28800 |
+| 24 hours | 86400 |
+
 
 #### Motion Settings
 
 ![Motion Settings](/assets/images/tracker/settings-2.png)
 
-The motion settings determine how the IMU (inertial measurement unit, the accelerometer) is used to determine whether to publish a location. The **Interval minimum** also applies to motion events.
+The motion settings determine how the IMU (inertial measurement unit, the accelerometer) is used to determine whether to publish a location. The **Interval minimum** also applies to motion events. Movement events can occur while the device is awake, also also wake a device from sleep mode.
 
 - **Movement** publishes if the device moves, and has several sensitivity options:
 
@@ -700,50 +731,65 @@ The **Type** popup menu has the following options:
 - **tracker**: Color indicates signal strength (yellow = lower signal strength, green = higher signal strength). Fast breathing red while connecting to cellular.
 - **particle**: Use standard Particle colors like breathing cyan instead of tracker-style colors. Default for Tracker SoM Evaluation Board.
 
-{{!-- 
 #### Sleep Settings
 
 ![Sleep Settings](/assets/images/tracker/settings-5.png)
 
-Sleep mode allows the device to enter a low-power state when idle, conserving battery power.
+Sleep mode allows the device to enter a low-power state when idle, conserving battery power. Sleep requires Tracker Edge v10 and Device OS 2.0.0-rc.3 or later. There are additional details in the [Tracker Sleep](/tutorials/asset-tracking/tracker-sleep/) page.
 
-**Post Publish Execution Time** is the minimum duration in seconds to stay awake after publishing before going to sleep.
+**Sleep Mode** can be set to **enable** or **disable**. 
 
-**Maximum Connecting Time** is the maximum duration, in seconds, to wait for being cellular-connected and to obtain a GNSS lock before publishing.
+**Post Publish Execution Time** is the minimum duration in seconds to stay awake after publishing before going to sleep. The default is 10 seconds. This provides enough time to make sure a software update can be started when waking up from sleep.
 
---}}
+**Maximum Connecting Time** is the maximum duration, in seconds, to wait for being cellular-connected and to obtain a GNSS lock before publishing. If connecting takes too long, then the device will go back to sleep instead of continuously attempting to connect. The default is 90 seconds.
+
+You can find out more in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/).
 
 #### Typical Settings
 
 Typical settings in common scenarios:
 
-- **Vehicle (detailed information)**
+**Vehicle (detailed information)**
 
   - Radius Trigger: 151 meters (500 feet)
-  - Minimum Interval: 30 seconds
-  - Maximum Interval: 900 seconds (15 minutes)
+  - Maximum location update frequency: 30 seconds
+  - Minimum location update frequency: 900 seconds (15 minutes)
+  - Sleep: disabled
 
-  This will get detailed location information, but limits the data to at most once every 30 seconds. If the vehicle is moving 24 hours a day you will exceed your 25 MB data quota, but as long as it's in movement less than half of the time you'll be within the limit. The maximum interval assures that events will be published periodically when stationary, so the cellular signal and battery strength will be known.
+  This will get detailed location information, but limits the data to at most once every 30 seconds. If the vehicle is moving 24 hours a day you will exceed your 25 MB data quota, but as long as it's in movement less than half of the time you'll be within the limit. The minimum location update frequency assures that events will be published periodically when stationary, so the cellular signal and battery strength will be known.
 
-- **Vehicle (less detail)**
+**Vehicle (less detail)**
 
   - Radius Trigger: 1600 meters (1 mile)
-  - Minimum Interval: 300 seconds (5 minutes)
-  - Maximum Interval: 900 seconds (15 minutes)
+  - Maximum location update frequency: 300 seconds (5 minutes)
+  - Minimum location update frequency: 900 seconds (15 minutes)
+  - Sleep: disabled
 
-  This will provide an approximate location while using less data, for example if you are looking for the general area of the vehicle. The maximum interval assures that events will be published periodically when stationary, so the cellular signal and battery strength will be known.
+  This will provide an approximate location while using less data, for example if you are looking for the general area of the vehicle. The minimum location update frequency assures that events will be published periodically when stationary, so the cellular signal and battery strength will be known.
 
-- **Tracking an item for location and theft prevention**
+**Tracking an item for location and theft prevention with external power**
 
   - Movement: Medium
-  - Minimum Interval: 30 seconds
-  - Maximum Interval: 3600 seconds (1 hour)
+  - Maximum location update frequency: 30 seconds
+  - Minimum location update frequency: 3600 seconds (1 hour)
+  - Sleep: disabled
   
   If the item is moving, the location will be published every 30 seconds. This should not be used if the item will be in movement 24 hours a day, as you will exceed the 25 MB data limit. However, if it's typically not moving this will be fine. It also updates the location information every hour even when not moving.
 
-- **Periodically sending information**
+**Tracking an item - battery only**
 
-  - Maximum Interval: 120 seconds (2 minutes)
+  - Movement: Medium
+  - Maximum location update frequency: 900 seconds (15 minutes)
+  - Minimum location update frequency: 28800 seconds (8 hours)
+  - Sleep: enabled
+  
+  If the item is moving, the location will be published every 15 minutes, otherwise the device will be in sleep mode to conserve battery power. It will also update location every 8 hours even when not moving. More sleep-related examples can be found in the [Tracker Sleep Tutorial](/tutorials/asset-tracking/tracker-sleep/#common-scenarios).
+
+**Periodically sending information**
+
+  - Maximum location update frequency: 120 seconds (2 minutes)
+  - Minimum location update frequency: 120 seconds (2 minutes)
+  - Sleep: disabled
 
   If you have additional sensors that you are monitoring, and you want to continuously send samples at set time intervals, just set the maximum.
 
