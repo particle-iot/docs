@@ -2883,13 +2883,45 @@ Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlo
 
 Unlocks the `Cellular` mutex. See `lock()`.
 
-{{#if has-set-credentials}}
 
 ### setCredentials()
 
 Sets 3rd party SIM credentials for the Cellular network from within the user application. 
 
-These credentials added to the device's non-volatile memory and only need to be set once. The setting will be preserved across reset, power down, and firmware upgrades. 
+Only a subset of Particle cellular devices are able to use a plastic 4FF nano SIM card from a 3rd-party carrier. [This table](/tutorials/cellular-connectivity/introduction/#sim-cards) lists external SIM capability and includes the Electron and Boron only. There are also limits on the number of devices with 3rd-party SIM cards in an account. For more information, see the [3rd-party SIM guide](https://support.particle.io/hc/en-us/articles/360039741113).
+
+| Device | Internal SIM | SIM Card Slot | APN Saved |
+| :--- | :---: | :---: | :---: |
+| Boron 2G/3G (BRN310) | &check; | &check; | &check; |
+| Boron LTE (BRN402) | &check; | &check; | &check; |
+| Electron 3G Americas (E260) | &nbsp; | &check; | &nbsp; |
+| Electron 3G Europe/Asia/Africa (E270) | &nbsp; | &check; | &nbsp; |
+| Electron 2G (E350) | &nbsp; | &check; | &nbsp; |
+| Electron LTE (ELC402) | &check; | &nbsp; | n/a |
+
+---
+
+{{note op="start" type="gen3"}}
+Gen 3 devices (Boron 2G/3G, Boron LTE) have both an internal (MFF2 SMD) SIM and an external 4FF nano SIM card slot that can be used for a plastic nano SIM card.
+
+- You must select which SIM to use in software, it does not automatically switch on Gen 3 devices.
+- The APN is saved in configuration flash and you only need to set it once.
+- The keep-alive is not saved so you will need to set that from your user firmware.
+- On the Boron LTE you must also remove the external SIM card when switching to the internal SIM in software.
+{{note op="end"}}
+
+{{note op="start" type="gen2"}}
+On Gen 2 devices (Electron), there is only a 4FF nano SIM card slot. There is no internal SIM so you must always have a SIM card in the SIM card holder on the bottom of the device for normal operation.
+
+- The APN must be set in all user firmware as it is only saved in the modem memory and the setting is erased when powered down.
+- The keep-alive must be set from your user firmware.
+- The Electron LTE (ELC402) does not have a SIM card slot and cannot be used with a 3rd-party SIM card.
+{{note op="end"}}
+
+
+{{#if has-set-credentials}}
+
+On Gen 3 devices, cellular credentials added to the device's non-volatile memory and only need to be set once. The setting will be preserved across reset, power down, and firmware upgrades. 
 This is different than the Electron and E series where you must call `cellular_credentials_set()` from all user firmware.
 
 You may set credentials in 3 different ways:
@@ -2944,11 +2976,7 @@ SIM card, you can restore the use of the Particle SIM by using
 
 {{#unless has-set-credentials}} {{!-- Electron and E series that don't save credentials in non-volatile memory --}}
 
-### setCredentials()
-
-**Note**: `Cellular.setCredentials()` is not currently enabled, however read on to find out how to use the cellular_hal to do the same thing with `cellular_credentials_set()`.
-
-Sets 3rd party credentials for the Cellular network from within the user application. These credentials are currently not added to the device's non-volatile memory and need to be set every time from the user application.  You may set credentials in 3 different ways:
+On Gen 2 devices (Electron), cellular credentials are not added to the device's non-volatile memory and need to be set every time from the user application.  You may set credentials in 3 different ways:
 
 - APN only
 - USERNAME & PASSWORD only
@@ -2964,7 +2992,7 @@ The following examples can be copied to a file called `setcreds.ino` and compile
 must be correctly matched to the SIM card that's used.  If using a
 Particle SIM, using `cellular_credentials_set()` is not necessary as the
 default APN of "spark.telefonica.com" with no username or password will
-be used by Device OS. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the device to remove the settings from the modem’s volatile memory.
+be used by Device OS. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then disconnect the battery and external power (such as USB) for 20 seconds to remove the settings from the modem’s volatile memory.
 
 ```cpp
 // SYNTAX
