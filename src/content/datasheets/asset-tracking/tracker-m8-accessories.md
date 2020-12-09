@@ -46,7 +46,7 @@ The 8-pin connector has these signals:
     
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
-<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). CAN Bus termination is provided on the carrier board.
+<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). 
 
 <sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector.
 

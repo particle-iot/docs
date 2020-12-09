@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(011)</sup>
+# Tracker One<sup>(012)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -97,7 +97,7 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 <sup>1</sup>MCU GPIO is limited to 3.3V maximum.
 
-<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). CAN Bus termination is provided on the carrier board.
+<sup>2</sup>CAN Bus specifications can be found in the [Tracker SoM datasheet](/datasheets/asset-tracking/tracker-som-datasheet/#can-specifications). 
 
 <sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector. 6.0 - 90 VDC at 2A when connecting directly to the board.
 
@@ -376,3 +376,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 009      | 2020 Sep 25 | RK | Add battery warning |
 | 010      | 2020 Oct 14 | RK | Add temperature range |
 | 011      | 2020 Nov 05 | RK | Add power usage |
+| 012      | 2020 Dec 09 | RK | CAN termination resistor is not present |

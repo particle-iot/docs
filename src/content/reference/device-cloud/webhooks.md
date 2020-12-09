@@ -661,6 +661,8 @@ please wait and try again" in the body.
 We remind you to be a good Internet citizen and only send webhook
 requests to target sites that you have permission to send traffic.
 
+Servers must return a response within the timeout period of 20 seconds. A server that does not respond within the timeout period will also count as a failed request, which could result in throttling of the traffic to that server. This is intended to prevent further overloading and overloaded server. 
+
 ## Examples
 
 ### Sending Simple Data
