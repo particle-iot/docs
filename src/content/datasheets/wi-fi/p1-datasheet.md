@@ -8,7 +8,7 @@ description: Datasheet for the Particle P1, Gen 2 Wi-Fi mass-production module
 
 {{#unless pdf-generation}}
 
-# P1 Datasheet <sup>(v010)</sup>
+# P1 Datasheet <sup>(v011)</sup>
 
 {{downloadButton url="/assets/pdfs/datasheets/p1-datasheet.pdf"}}
 
@@ -32,9 +32,7 @@ microcontroller. The P1 comes preloaded with Particle firmware
 libraries, just like our dev kits, and it's designed to simplify your
 transition from prototype to production. The P1 is the PØ's big brother;
 it's a bit bigger and a tad more expensive, but it includes some extra
-flash and an antenna and U.FL connector on board.  Particle provides
-free access to Particle Device Cloud for prototyping. Paid tiers of
-Particle Device Cloud start when you create a product with more than 100 devices.
+flash and an antenna and U.FL connector on board.  
 
 ### Features
 
@@ -659,6 +657,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v008 | 25-July-2017 | BW | Added note to clarify MICRO_SPI1_SS label, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI and SPI1), updated the Pin Description section and added high resolution pinout PDF, updated PWM notes, JTAG_TDO pin number (54 -> 52), block diagram and DCT layout, added warning to power section |
 | v009 | 30-August-2017 | BW | Added part number for 1MB external SPI flash (MX25L8006E) |
 | v010 | 31-May-2018 | BW | Updated External Coexistence Interface section (unsupported) |
+| v011 | 09-Dec-2020 | RK | Remove paid tiers limit |
 
 ## Known Errata
 
