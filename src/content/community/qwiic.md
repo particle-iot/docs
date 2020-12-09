@@ -27,6 +27,8 @@ Here's a BME 280 temperature, humidity, and atmospheric pressure [sensor board](
 
 ![BME280](/assets/images/qwiic/qwiic-bme280.jpg)
 
+Additionally, the [Adafruit STEMMA QT](https://learn.adafruit.com/introducing-adafruit-stemma-qt/what-is-stemma-qt) line of sensors is compatible with Qwiic! Makes sure you have a STEMMA QT sensor (4-pin 1mm JST connector) as the non-QT STEMMA sensors are different.
+
 These are some of the products and libraries available:
 
 | Product | Library |
@@ -51,6 +53,7 @@ These are some of the products and libraries available:
 | [SparkFun Proximity Sensor Breakout - 20cm, VCNL4040 (Qwiic)](https://www.sparkfun.com/products/15177)| [SparkFun_VCNL4040_Arduino_Library](https://github.com/sparkfun/SparkFun_VCNL4040_Arduino_Library) |
 | [SparkFun Qwiic 12 Bit ADC - 4 Channel (ADS1015)](https://www.sparkfun.com/products/15334)| [SparkFun_ADS1015_Arduino_Library](https://github.com/sparkfun/SparkFun_ADS1015_Arduino_Library) |
 | [SparkFun Qwiic Button - Red LED](https://sparkfun.com/products/15584)| [SparkFun_Qwiic_Button_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Button_Arduino_Library) |
+| [SparkFun Qwiic GPIO TCA9534](https://www.sparkfun.com/products/17047) | [SparkFun_Qwiic_GPIO_Library](https://github.com/sparkfun/SparkFun_Qwiic_GPIO_Library) | 
 | [SparkFun Qwiic Joystick](https://www.sparkfun.com/products/15168)| [SparkFun_Qwiic_Joystick_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Joystick_Arduino_Library) |
 | [SparkFun Qwiic Keypad - 12 Button](https://www.sparkfun.com/products/15290)| [SparkFun_Qwiic_Keypad_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_Keypad_Arduino_Library) |
 | [SparkFun Qwiic MP3 Trigger](https://www.sparkfun.com/products/15165)| [SparkFun_Qwiic_MP3_Trigger_Arduino_Library](https://github.com/sparkfun/SparkFun_Qwiic_MP3_Trigger_Arduino_Library) |
@@ -65,6 +68,7 @@ These are some of the products and libraries available:
 | [SparkFun Triple Axis Accelerometer Breakout - MMA8452Q (Qwiic)](https://www.sparkfun.com/products/14587)| [SparkFun_MMA8452Q_Arduino_Library](https://github.com/sparkfun/SparkFun_MMA8452Q_Arduino_Library) |
 | [SparkFun UV Light Sensor Breakout - VEML6075 (Qwiic)](https://www.sparkfun.com/products/15089)| [SparkFun_VEML6075_Arduino_Library](https://github.com/sparkfun/SparkFun_VEML6075_Arduino_Library) |
 | [SparkFun VR IMU Breakout - BNO080 (Qwiic)](https://www.sparkfun.com/products/14686)| [SparkFun_BNO080_Arduino_Library](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library) |
+
 
 While this is ideal for hobbyists and prototyping, the Sparkfun boards are open-source and you could easily adapt the design for your own custom circuit boards at scale. 
 

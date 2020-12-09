@@ -2807,24 +2807,7 @@ It will return `false` when the device is not in listening mode.
 Cellular.setListenTimeout(seconds);
 ```
 
-`Cellular.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Cellular devices have a 5 minute timeout set (seconds=300).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Cellular.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Cellular.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  **Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
-
-This setting is not persistent in memory if the device is rebooted.
-
-```cpp
-// EXAMPLE
-// If desired, use the STARTUP() macro to set the timeout value at boot time.
-STARTUP(Cellular.setListenTimeout(60)); // set listening mode timeout to 60 seconds
-
-void setup() {
-  // your setup code
-}
-
-void loop() {
-  // update the timeout later in code based on an expression
-  if (disableTimeout) Cellular.setListenTimeout(0); // disables the listening mode timeout
-}
-```
+`Cellular.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode. This is rarely needed on cellular devices as cellular devices do not enter listening mode by default.
 
 {{since when="1.5.0"}}
 
@@ -11265,7 +11248,7 @@ Parameters:
   - `ping`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `pinb`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `invert` (optional): `true` if the connected RGB LED is common-anode, `false` if common-cathode (default).
-  - `bootloader` (optional): if `true`, the RGB mirroring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirroring only works while the firmware is running (default).
+  - `bootloader` (optional): if `true`, the RGB mirroring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirroring only works while the firmware is running (default). Do not use the `true` option for `bootloader` from `STARTUP()`.
 
 ### mirrorDisable()
 
@@ -13585,14 +13568,6 @@ when new `retained` variables are added to the end of the list, or when they are
 
 ### STARTUP()
 
-{{since when="0.4.5"}}
-
-Typically an application will have its initialization code in the `setup()` function.
-This works well if a delay of a few seconds from power on/reset is acceptable.
-
-In other cases, the application wants to have code run as early as possible, before the cloud or network connection
-are initialized. The `STARTUP()` function instructs the system to execute the code early on in startup.
-
 ```cpp
 void setup_the_fundulating_conbobulator()
 {
@@ -13604,18 +13579,45 @@ void setup_the_fundulating_conbobulator()
 // What goes inside is any valid code that can be executed. Here, we use a function call.
 // Using a single function is preferable to having several `STARTUP()` calls.
 STARTUP( setup_the_fundulating_conbobulator() );
-
 ```
+
+Typically an application will have its initialization code in the `setup()` function. Using `SYSTEM_THREAD(ENABLED)` reduces the amount of time before setup is called to milliseconds and is the recommended method of calling code early.
+
+The `STARTUP()` function instructs the system to execute the code even earlier, however there are limitations:
+
+- STARTUP should only be used for things like setting GPIO state very early.
+- Avoid using most system calls except as listed below. For example, you cannot use System.sleep(), any Particle calls like Particle.publish(), etc.
+- Avoid using I2C (Wire) and SPI from STARTUP.
+- The order of globally constructed objects is unpredictable and you should not rely on global variables being fully initialized.
 
 The code referenced by `STARTUP()` is executed very early in the startup sequence, so it's best suited
 to initializing digital I/O and peripherals. Networking setup code should still be placed in `setup()`.
 {{#if has-wifi-antenna-switch}}
-Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made.
+Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made on the Photon and P1.
 {{/if}}
 
-_Note that when startup code performs digital I/O, there will still be a period of at least few hundred milliseconds
+Note that when startup code performs digital I/O, there will still be a period of at least few hundred milliseconds
 where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
-in mind, using pullup/pulldown resistors as appropriate._
+in mind, using pullup/pulldown resistors as appropriate. For Gen 2 devices, see note below about JTAG/SWD as well.
+
+---
+
+{{note op="start" type="gen2"}}
+Some acceptable calls to make from `STARTUP()` on Gen 2 devices (Photon, P1, Electron, E Series) include:
+
+- `cellular_credentials_set()`
+- `WiFi.selectAntenna()`
+- `Mouse.begin()`
+- `Keyboard.begin()`
+
+On Gen 2 devices, beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external devices on Gen 2 devices. After reset, these pins will be briefly taken over for JTAG/SWD, before being restored to the default high-impedance INPUT state during boot.
+
+- D3, D5, and D7 are pulled high with a pull-up
+- D6 is pulled low with a pull-down
+- D4 is left floating
+
+The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. Using STARTUP will not prevent this!
+{{note op="end"}}
 
 ### PRODUCT_ID()
 

@@ -43,6 +43,27 @@ description: Setting up your Particle Asset Tracer
 | 23 | J5 | CAN power jumper (selects 3.3V or 5V) |
 
 
+#### Antennas
+
+The Tracker SoM Evaluation board requires several external antennas that connect to the Tracker SoM directly:
+
+- Cellular antenna (1)
+- GNSS antenna (6)
+- Wi-Fi antenna (2) (optional, needed for Wi-Fi geolocation)
+
+{{imageOverlay src="/assets/images/at-som/at-som-labeled.png" alt="Block Diagram" class="full-width"}}
+
+| Label | Purpose | 
+| :---: | :--- |
+|  1 | Quectel cellular modem antenna |
+|  2 | Wi-Fi antenna for Wi-Fi geolocation (optional) |
+|  3 | External Bluetooth (optional) |
+|  4 | Built-in Bluetooth chip antenna |
+|  5 | Quectel GNSS antenna (optional) |
+|  6 | u-blox GNSS antenna (GPS) |
+|  7 | u-blox Neo M8 GNSS (GPS) |
+|  8 | Quectel cellular modem |
+
 #### Powering
 
 - Connect the LiPo battery to the battery connector (14).
