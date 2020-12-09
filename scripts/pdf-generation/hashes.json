@@ -7,8 +7,8 @@
   "asset-tracking/asset-tracker-som-carrier-board.md": "83b27f65e7ecb580b5a8b3d9b0ffd8f1",
   "asset-tracking/asset-tracker-som-datasheet.md": "a623d61d679f7bc7af60eea5cfb7af13",
   "asset-tracking/asset-tracker-som-eval-board.md": "8bfeae568583a64c9f5e0d83d0bc6d40",
-  "asset-tracking/tracker-m8-accessories.md": "f76fc0213fa8fea4554a4bc45ac9fee3",
-  "asset-tracking/tracker-one.md": "338f455aecd3a5eb29b6d5c9e1908167",
+  "asset-tracking/tracker-m8-accessories.md": "530eb9c1b56b4c2181d964a1d6a3b7c3",
+  "asset-tracking/tracker-one.md": "1ea5a334ebf4580df63be003bfb7d3b2",
   "asset-tracking/tracker-som-datasheet.md": "bb208267ce6272d2e397eb97ba4bc962",
   "asset-tracking/tracker-som-eval-board.md": "8f335da34ee12c5c08e48387e10238c1",
   "boron/b-series-eval-board.md": "4ccef9dbd5d85db6664494c104a08f21",
@@ -37,6 +37,6 @@
   "electron/electron-datasheet.md": "edbd79c0dd14f6e6bb75e52df2a76d26",
   "mesh/xenon-datasheet.md": "ec03d8fee7e3e45e55f1293b610642c5",
   "wi-fi/argon-datasheet.md": "083adec48ea1de60271db0a5fb0ac77a",
-  "wi-fi/p1-datasheet.md": "b5b5a5c6be89d53903aec12c9e52e870",
+  "wi-fi/p1-datasheet.md": "f3bd520d7b0bdd5ffa0f6cb37393d443",
   "wi-fi/photon-datasheet.md": "970445b8c8491365ebba75fbe242f026"
 }

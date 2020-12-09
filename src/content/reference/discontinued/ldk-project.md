@@ -1,10 +1,13 @@
 ---
 title: Leak Detection Kit
-layout: quickstart.hbs
+layout: reference.hbs
 columns: two
-order: 21
+order: 50
 ---
 ## Getting started with leak detection
+
+**Note:** The leak detection kit has been discontinued. If using a kit you have already purchased, be sure to select Device OS 1.5.2 or earlier when building. Later versions of Device OS do not support the Xenon.
+
 Water might be the source of all life, but it can also be the source of a lot of discomfort if it gets to places it shouldn’t. A flooded basement, mold growth, damaged floors and ceilings, are all expensive problems that can result from leaks.
 
 In the Particle Leak Detection Kit, you'll learn how to build a local network that distributes the tasks of alerting and monitoring between three different devices. You'll first create a small Particle Mesh network using the Particle Argon and two Xenons. The Argon will function as the gateway of the mesh network and facilitate communication from other mesh devices — like the two Xenons — as well as connect to the Particle Device Cloud. 
