@@ -17,7 +17,7 @@ Low-power, cheap, and Mesh-capable Xenons will be used with water sensors to det
 
 - **[Particle Argon](/argon/)**  
 - **[Particle Xenon](/xenon/)** (2)
-- **[LiPo battery](https://store.particle.io/collections/accessories/products/li-po-battery)** (3)
+- **LiPo battery** (3)
 - **[2.4Ghz antenna](/datasheets/wi-fi/argon-datasheet/#antenna)
 - **Micro-USB cable** (3)
 - **Grove FeatherWing Adapter** (3)

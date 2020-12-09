@@ -24,6 +24,7 @@ var ignoreHosts = [
   'mingw.org', // seems to be a temporary server problem, will check back later
   'www.st.com', // randomly returns 403 errors
   'www.ecfr.gov', // sometimes returns 403 errors
+  'particle.hackster.io', // randomly 404s
   '192.168.0.1',
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
