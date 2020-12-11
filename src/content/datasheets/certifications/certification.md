@@ -329,6 +329,13 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron402-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
 
+
+#### B Series SoM B402
+
+- IC ID: **20127-B402**
+- [Certificate of Conformity](/assets/pdfs/b402-ic.pdf)
+
+
 #### TrackerSoM T402
 
 - IC ID: **20127-T40X**.
