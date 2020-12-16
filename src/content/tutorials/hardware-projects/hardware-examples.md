@@ -1187,7 +1187,7 @@ void myHandler(const char *event, const char *data) {
 
 {{/if}} {{!-- electron --}}
 
-<div style="display: none;" id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with"></div>
+<div style="display: none;" id="annotated-tinker-firmware" data-firmware-example-url="https://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with"></div>
 
 ## Tinker
 
