@@ -316,12 +316,12 @@ As a quick reference, these are the pre-defined webhook variables available for 
 - `\{{{PARTICLE_PUBLISHED_AT}}}`: When the webhook was sent
 
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+**Also**, check out and join our [community forums](https://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
 {{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
 {{/if}}
 
 {{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
 {{/if}}

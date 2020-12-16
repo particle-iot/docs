@@ -855,11 +855,11 @@ Below are a few community-written webhook examples. They have been sorted by wha
 
 ### Saving data in Firebase
 
-- [Firebase tutorial](https://github.com/rickkas7/firebase_tutorial) by [rickkas7](http://community.particle.io/users/rickkas7/activity)
+- [Firebase tutorial](https://github.com/rickkas7/firebase_tutorial) by [rickkas7](https://community.particle.io/users/rickkas7/activity)
 
 ### Sending Data to Influx Cloud
 
 - [InfluxData Cloud 2 tutorial](https://github.com/davidgs/ParticleInflux) by [davidgs](https://community.particle.io/u/davidgs/activity)
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+**Also**, check out and join our [community forums](https://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 

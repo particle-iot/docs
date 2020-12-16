@@ -11,7 +11,7 @@ Particle is an open-source platform. You might find something you'd like changed
 
 ## Open-Source Repos
 
-Go to http://github.com/particle-iot to see all the available repositories. There are quite a few! Here's a guide to the most popular repos.
+Go to https://github.com/particle-iot to see all the available repositories. There are quite a few! Here's a guide to the most popular repos.
 
 
 ### Style guides
@@ -96,12 +96,12 @@ If you prefer the command line, here's an [extra fast tutorial](http://rogerdudl
 
 If you have your own favorite tutorials on how to `git`, make a pull request on this documentation to add them!
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+**Also**, check out and join our [community forums](https://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
 {{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
 {{/if}}
 
 {{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
 {{/if}}

@@ -203,7 +203,7 @@ The E Series E402 (LTE Cat M1) and Boron LTE can be used only powered by USB.
 In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io) or the mobile apps. Follow the on-screen prompts to complete device setup and SIM activation.
 
 #### 5) Are you using a 3rd party (non-Particle) SIM?
-If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  To connect the Electron with a 3rd party SIM, visit our [setup page](http://setup.particle.io), choose  "Setup an Electron with SIM card" and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
+If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  To connect the Electron with a 3rd party SIM, visit our [setup page](https://setup.particle.io), choose  "Setup an Electron with SIM card" and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
@@ -237,7 +237,7 @@ If you've been using your Electron successfully for a while and it's now just st
 If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
 
 #### 10) Are Particle's mobile carriers experiencing issues?
-Check out [our status page](http://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
+Check out [our status page](https://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
 
 #### 11) Contact Particle
 Still having issues? [Write us an email](https://support.particle.io/hc/) and include the following to help us with troubleshooting:

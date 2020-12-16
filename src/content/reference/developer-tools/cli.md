@@ -274,7 +274,7 @@ $ particle flash --usb firmware.bin
   - bsom (B Series SoM)
 
 
-  **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
+  **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](https://support.particle.io/hc/en-us/articles/204952620).
 
 ```bash
 $ particle compile photon myapp.ino

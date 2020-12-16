@@ -296,7 +296,7 @@ This version of the Core comes with an on board chip antenna that gives a signal
 
 ### uFL Connector
 
-If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are Wi-Fi rated will do the job. You can also make your own [cantenna](https://community.particle.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
+If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](https://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are Wi-Fi rated will do the job. You can also make your own [cantenna](https://community.particle.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
 
 
 ## Physical layout

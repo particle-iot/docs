@@ -290,6 +290,6 @@ Troubleshooting
 The Particle Web IDE uses a local cache to improve its performance. In some cases this may cause errors or outdated information about libraries. If you encounter similar symptoms try clearing the cache by going to **Settings** and clicking **Clear cache** button.
 
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+**Also**, check out and join our [community forums](https://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
