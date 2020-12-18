@@ -153,6 +153,10 @@ The [Node-RED IBM Cloud Instructions](https://nodered.org/docs/getting-started/i
 
 ![Create Progress](/assets/images/rules-engine/create-deploy-app.png)
 
+- Select **Cloud Foundry** as the Deployment target if not already selected.
+
+![Deployment Target](/assets/images/rules-engine/deployment-target.png)
+
 - Create an API Key using the **New** button. The rest of the setting defaults are usually fine. Click **Next**.
 
 ![Create API Key](/assets/images/rules-engine/create-api-key.png)
