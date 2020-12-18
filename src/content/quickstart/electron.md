@@ -57,7 +57,7 @@ There are several awesome buttons and LEDs on your Electron to make it easier to
 <p>All of the example circuits are based on the reference card that came along with your Electron kit. If you have misplaced yours, download it <a href="/assets/images/electron/illustrations/electron-card.pdf">here!</a></p>
 <ul>
 <li><strong>Software</strong><ul>
-<li>The <a href="http://build.particle.io" target="_blank" rel="noopener noreferrer">online IDE</a></li>
+<li>The <a href="https://build.particle.io" target="_blank" rel="noopener noreferrer">online IDE</a></li>
 <li>or [Particle Workbench](/quickstart/workbench/)</li>
 </ul>
 </li>

@@ -17,9 +17,9 @@ Separating the two makes upgrading the smaller user firmware quick and easy allo
 
 Unlike desktop and laptop computers, Particle devices only run a single user application at a time. Programing new user firmware replaces the previous user firmware.
 
-Each user firmware binary specifies the minimum version of Device OS that it is compatible with, referred to as the target version. For example, if your user firmware targets 1.5.0, it will work not only on 1.5.0, but also 1.5.2, and 2.0.0-rc.4.
+Each user firmware binary specifies the minimum version of Device OS that it is compatible with, referred to as the target version. For example, if your user firmware targets 1.5.0, it will work not only on 1.5.0, but also 1.5.2, and 2.0.0.
 
-If you flash user firmware that requires a newer version of Device OS than is currently installed on the device, the device will automatically upgrade. For example, if the device has 1.5.2 and you target your user firmware for 2.0.0-rc.4, the user firmware would not initially be able to run because the Device OS version is too old. However, at boot, the device will discover this and go into safe mode (breathing magenta), and the cloud will send down the missing binaries. This normally requires a few reboot cycles that happen automatically.
+If you flash user firmware that requires a newer version of Device OS than is currently installed on the device, the device will automatically upgrade. For example, if the device has 1.5.2 and you target your user firmware for 2.0.0, the user firmware would not initially be able to run because the Device OS version is too old. However, at boot, the device will discover this and go into safe mode (breathing magenta), and the cloud will send down the missing binaries. This normally requires a few reboot cycles that happen automatically.
 
 Unlike computer operating systems like Windows or Mac, Device OS will never be automatically updated under your application. You must manually opt into each update, and updates are generally not required. Because of the more limited function set and smaller attack surface, recommended updates for security reasons are rare.
 
@@ -45,7 +45,7 @@ LTS release lines have even major version numbers (2.0.x, 4.0.x, etc.). After 2.
 
 ### OTA (over-the-air)
 
-In general, flashing a version of your user firmware will automatically update the version of Device OS automatically over-the-air when necessary. Note this will only ever upgrade. If you have Device OS 2.0.0-rc.4 on your device and flash user firmware targeting 1.5.2 Device OS will not be downgraded! However, your firmware should still run because the target version is the minimum compatible version.
+In general, flashing a version of your user firmware will automatically update the version of Device OS automatically over-the-air when necessary. Note this will only ever upgrade. If you have Device OS 2.0.0 on your device and flash user firmware targeting 1.5.2 Device OS will not be downgraded! However, your firmware should still run because the target version is the minimum compatible version.
 
 ### particle update (USB)
 
@@ -105,9 +105,9 @@ Some components require DFU mode (`--usb`), blinking yellow. Some require listen
 
 <sup>1</sup>In the initial batch of Gen 3 devices with 0.8.0-rc, you can only upgrade Device OS in DFU mode. After you've updated to 0.9.0 or later, both DFU and listening mode are supported. 
 
-#### Example: Upgrading a Boron to 2.0.0-rc.4 by USB
+#### Example: Upgrading a Boron to 2.0.0 by USB
 
-- Download the binaries from the [Device OS Release Page](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.4).
+- Download the binaries from the [Device OS Release Page](https://github.com/particle-iot/device-os/releases/tag/v2.0.0).
 
 - Put the device in DFU mode (blinking yellow) by holding down the MODE button and tapping RESET. Continue to hold down MODE while the device blinks magenta (red and blue at the same time) until it blinks yellow, then release. Or use the CLI:
 
@@ -118,7 +118,7 @@ particle usb dfu
 - Flash system part 1:
 
 ```
-particle flash --usb boron-system-part1@2.0.0-rc.4.bin
+particle flash --usb boron-system-part1@2.0.0.bin
 ```
 
 - Tap the reset button, then put the device in listening mode (blinking dark blue) by holding down the MODE button.
@@ -126,7 +126,7 @@ particle flash --usb boron-system-part1@2.0.0-rc.4.bin
 - Flash the bootloader:
 
 ```
-particle flash --serial boron-bootloader@2.0.0-rc.4.bin
+particle flash --serial boron-bootloader@2.0.0.bin
 ```
 
 - Put the device back in listening mode (blinking dark blue) by holding down the MODE button.
@@ -134,7 +134,7 @@ particle flash --serial boron-bootloader@2.0.0-rc.4.bin
 - Flash the SoftDevice if necessary. This is only ever required and Gen 3, and often is not required as it does not change on every version.
 
 ```
-particle flash --serial boron-softdevice@2.0.0-rc.4.bin
+particle flash --serial boron-softdevice@2.0.0.bin
 ```
 
 
@@ -259,7 +259,7 @@ The process to downgrade by USB is:
 | [0.6.4](https://github.com/particle-iot/device-os/releases/tag/v0.6.4) | Useful in specific Photon/P1 applications |
 | [0.5.5](https://github.com/particle-iot/device-os/releases/tag/v0.5.5) | Oldest recommended Gen 2 version | 
 
-Say you wanted to downgrade a Boron from 2.0.0-rc.4 back to 1.4.4:
+Say you wanted to downgrade a Boron from 2.0.0 back to 1.4.4:
 
 - Put the device in DFU mode (blinking yellow) by holding down the MODE button and tapping RESET. Continue to hold down MODE while the device blinks magenta (red and blue at the same time) until it blinks yellow, then release. Or use the CLI:
 
@@ -360,7 +360,7 @@ For example: Say you have an Electron running 1.5.2 and you want to downgrade it
 
 #### Example: Downgrade Electron OTA
 
-For example, say you want to downgrade device named "electron7" from 2.0.0-rc.4 to 1.5.2 OTA:
+For example, say you want to downgrade device named "electron7" from 2.0.0 to 1.5.2 OTA:
 
 - Flash your application targeting the older version of Device OS, or Tinker:
 

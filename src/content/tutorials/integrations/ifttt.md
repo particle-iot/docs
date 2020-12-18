@@ -45,7 +45,7 @@ Other IFTTT channels will provide (and sometimes automatically insert) their own
 
 **But what if I want to try this without writing firmware?** We recommend starting with the Monitor a Device Status Trigger. You can use this Trigger with the firmware that came with your device.
 
-**Okay, I'm ready to build my own firmware. Where do I start?** Get to know [the web IDE](http://build.particle.io/) and explore the Particle [community site](http://community.particle.io/) for great tutorials, examples and advice on projects.
+**Okay, I'm ready to build my own firmware. Where do I start?** Get to know [the web IDE](https://build.particle.io/) and explore the Particle [community site](https://community.particle.io/) for great tutorials, examples and advice on projects.
 
 ## Triggers
 
@@ -418,12 +418,12 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   Try just once more, and make sure that you're typing your username and password exactly how you entered it when creating your account.  The build site is a little more forgiving than others at the moment.
 
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+**Also**, check out and join our [community forums](https://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
 {{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
 {{/if}}
 
 {{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+[Go to Community Forums >](https://community.particle.io/c/troubleshooting)
 {{/if}}

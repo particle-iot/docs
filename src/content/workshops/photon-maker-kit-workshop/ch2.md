@@ -57,7 +57,7 @@ To build this circuit, you'll need the following items:
 
 ## Create a new project in the Web IDE
 
-1.  Navigate to [build.particle.io](http://build.particle.io). You may need to log-in, if prompted.
+1.  Navigate to [build.particle.io](https://build.particle.io). You may need to log-in, if prompted.
 
   ![](/assets/images/workshops/photon-maker-kit/02/login.png)
 

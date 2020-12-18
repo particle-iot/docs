@@ -11,7 +11,7 @@ description: Command line interface for managing your Particle devices for Windo
 # Particle CLI
 
 The Particle CLI is a powerful tool for interacting with your devices
-and the Particle Device Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, macOS (OS X), and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
+and the Particle Device Cloud.  The CLI uses [Node.js](https://nodejs.org/) and can easily run on Windows, macOS (OS X), and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
 ## Installing
 
@@ -74,7 +74,7 @@ Here are some great tutorials on the community for full installs:
 
 [Installing on Ubuntu 14.04](https://community.particle.io/t/how-to-install-the-spark-toolchain-in-ubuntu-14-04/4139)
 
-[Installing on Mac](http://community.particle.io/t/tutorial-particle-cli-on-mac-osx-07-jun-2015/5225)
+[Installing on Mac](https://community.particle.io/t/tutorial-particle-cli-on-mac-osx-07-jun-2015/5225)
 
 
 ### Upgrading to the latest version
@@ -485,5 +485,5 @@ and subsequent publish.
 For more info on CLI commands, go [here](/reference/developer-tools/cli/).
 
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+**Also**, check out and join our [community forums](https://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
