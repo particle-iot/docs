@@ -15,12 +15,7 @@ We've now [open-sourced the Particle node](https://github.com/particle-iot/node-
 
 The Particle-hosted Rules Engine has been discontinued and the Particle node is now a community-supported project.
 
-- [Running Node-RED on a Cloud Service](#using-a-cloud-service)
-- [Running Node-RED Locally](#running-locally)
-- [Getting Started with Node-RED](#getting-started-with-node-red)
-- [Using the Particle Nodes](#the-particle-nodes)
-- [Migrating From the Particle Rules Engine](#migrating-from-the-rules-engine)
-- [Original Documentation](#original-documentation)
+---
 
 The Node-RED is an **IF**/**THEN** workflow builder specifically
 designed for IoT data. It lets anyone on your team easily create conditional
@@ -432,7 +427,7 @@ To add the nodes you need into your new Node-RED instance, click the **hamburger
 
 ![Rules Manage Palette](/assets/images/rules-engine/manage-palette.png)
 
-In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particlel** in the search box (2). Then add the **@particle/node-red-confib-particle-official** node by clicking **Install** (3).
+In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particle** in the search box (2). Then add the **@particle/node-red-confib-particle-official** node by clicking **Install** (3).
 
 ![Rules Install](/assets/images/rules-engine/install.png)
 
