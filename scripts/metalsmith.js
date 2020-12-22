@@ -34,6 +34,7 @@ var watch = require('metalsmith-watch');
 var autotoc = require('metalsmith-autotoc');
 var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
+var canonical = require('metalsmith-canonical');
 var precompile = require('./precompile');
 var apidoc = require('./apidoc');
 var insertFragment = require('./insert_fragment');
@@ -278,6 +279,12 @@ exports.metalsmith = function () {
     // Create HTML pages with meta http-equiv='refresh' redirects
     .use(redirects({
       config: '../config/redirects.json'
+    }))
+    .use(canonical({
+      hostname: 'https://docs.particle.io',
+      pattern: '**/*.md',
+      omitExtensions: ['.md'],
+      omitTrailingSlashes: false
     }))
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
