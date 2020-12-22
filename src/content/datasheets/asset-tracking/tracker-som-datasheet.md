@@ -475,7 +475,7 @@ The Tracker SoM does not have an on-module RGB system status LED. We have provid
 your liking. This will allow greater flexibility in the end design of your products.
 
 Device OS assumes a common anode RGB LED. One common LED that meets the requirements is the 
-[Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/9094273 CLMVC-FKA-CL1D1L71BB7C3C3) 
+[Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) 
 which is inexpensive and easily procured. You need to add three current limiting resistors. With this LED, we typically use 1K ohm current limiting resistors. 
 These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
 If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue.

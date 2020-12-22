@@ -113,7 +113,7 @@ The Eagle CAD files can be found in the [Github repository](https://github.com/p
 | 1 | J8 | TERM BLOCK 2POS 45DEG 3.5MM PCB | [Phoenix Contact 1988956](https://www.digikey.com/product-detail/en/phoenix-contact/1988956/277-1779-ND/950907) | $0.48 | 
 | 2 | JP1, JP2 | CONN HDR 10POS 0.1 TIN PCB | [Sullins PPTC101LFBN-RC](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC101LFBN-RC/S7008-ND/810149) | $0.65 |
 | 1 | JP3 | Male header pins 0.1" | [Sullins PRPC040SAAN-RC](https://www.digikey.com/product-detail/en/PRPC040SAAN-RC/S1011EC-40-ND/2775214) | | 
-| 1 | LED1 | RGB LED 4PLCC | [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/9094273 CLMVC-FKA-CL1D1L71BB7C3C3) | $0.19 |
+| 1 | LED1 | RGB LED 4PLCC | [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) | $0.19 |
 | 3 | R1 - R3 | RES SMD 1K OHM 0.5% 1/5W 0603  | [Panasonic ERJ-PB3D1001V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PB3D1001V/P20283CT-ND/6214538) | | 
 | 1 | R4 | RES SMD 10K OHM 5% 1/4W 0603 | [Panasonic ERJ-PA3J103V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PA3J103V/P10KBZCT-ND/5036237) | |
 | 1 | R5 | RES SMD 270 OHM 5% 1/10W 0603 | [Panasonic ERJ-3GEYJ271V](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3GEYJ271V/P270GCT-ND/134766) | |
@@ -122,7 +122,7 @@ The Eagle CAD files can be found in the [Github repository](https://github.com/p
 | 1 | R8 | RES SMD 100K OHM 1% 1/10W 0603 | [Panasonic](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF1003V/P100KHCT-ND/198110) | | 
 | 1 | R9 | THERM NTC 100KOHM 4200K 0603 | [Panasonic ERT-J1VR104FM](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERT-J1VR104FM/P122067CT-ND/7069667) | | 
 | 3 | S1 - S3 | 4.5mm tactile switch | [E-Switch TL3305AF160QG](https://www.digikey.com/product-detail/en/e-switch/TL3305AF160QG/EG5350CT-ND/5816195) | $0.20 |
-| 1 | S4 | SWITCH ROCKER DIP DPDT 150MA 30V| [Grayhill 76SD01T](https://www.digikey.com/product-detail/en/grayhill-inc/76SD01T/GH7719-ND/2680736) | $3.84 |
+| 1 | S4 | SWITCH ROCKER DIP DPDT 150MA 30V| [Grayhill 76SD01T](https://www.digikey.com/en/products/detail/grayhill-inc/76SD01T/2680736) | $3.84 |
 | 1 | U1 | Tracker SoM T402 or T523 | | |
 | 1 | U2 | IC FRAM 256K SPI 33MHZ 8SOP | [Fujitsu MB85RS256BPNF-G-JNERE1](https://www.digikey.com/product-detail/en/fujitsu-electronics-america-inc/MB85RS256BPNF-G-JNERE1/865-1251-1-ND/4022686) | $3.75 |
 | 1 | U$4 | BATTERY HOLDER COIN 12.5MM SMD | [Keystone 1056TR ](https://www.digikey.com/product-detail/en/keystone-electronics/1056/36-1056-ND/2020198) | $1.09 |
@@ -146,7 +146,7 @@ For the M8 connection, you can choose one (or none) of the following:
 
 We recommend including the RGB status LED as it is very difficult to see what the device is doing without it. 
 
-Device OS assumes a common anode RGB LED. This design uses a [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/9094273 CLMVC-FKA-CL1D1L71BB7C3C3) which is inexpensive and easily procured.
+Device OS assumes a common anode RGB LED. This design uses a [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) which is inexpensive and easily procured.
 
 This design includes 1K current limiting resistors. These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. If you want maximum brightness you should use the calculated values, 33 ohm on red, and 66 ohm on green and blue.
 

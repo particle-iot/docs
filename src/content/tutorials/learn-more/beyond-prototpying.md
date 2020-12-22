@@ -62,7 +62,7 @@ Resist the temptation to solder your device in place. Always use sockets, otherw
 
 - Gen 3 feather (Argon and Boron): 1x [12-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231), 1x [16-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC161LFBN-RC/S7014-ND/810154)
 - Photon: 2x [12-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231)
-- Electron: 2x [18-pin](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC181LFBN-RC/S7016-ND/810156)
+- Electron: 2x [18-pin](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC181LFBN-RC/810156)
 
 Note that you should use these headers or ones like them. The spacing between rows is not the same as most IC sockets. Plus, the pins on Particle devices are square, not the flat like IC chip leads, and wouldn't fit securely in an IC socket.
 
@@ -222,7 +222,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 
 ### Electron (Gen 2 cellular)
 
-The Electron board is nearly identical to the Photon, except it has [18-pin headers](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC181LFBN-RC/S7016-ND/810156) instead of 12-pin. In fact, you can plug in a Photon into the Electron board if you align the pins on the left, leaving the unused socket pins on the right closest to the switch.
+The Electron board is nearly identical to the Photon, except it has [18-pin headers](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC181LFBN-RC/810156) instead of 12-pin. In fact, you can plug in a Photon into the Electron board if you align the pins on the left, leaving the unused socket pins on the right closest to the switch.
 
 ![Electron](/assets/images/beyond-prototyping/electron.png)
 
@@ -234,7 +234,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 | :--: | :--- | :--- | ---: |
 | 1 | LED tactile button | [SparkFun](https://www.sparkfun.com/products/10440) | $2.10 |
 | 1 | RGB LED | [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/9094273) | $0.19 |
-| 2 | 18-pin header | [Sullins](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC181LFBN-RC/S7016-ND/810156) | $1.10 |
+| 2 | 18-pin header | [Sullins](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC181LFBN-RC/810156) | $1.10 |
 | 2 | 33 ohm resistor 0603 | [Panasonic](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF33R0V/P33.0HCT-ND/1746765) | | 
 | 2 | 68 ohm resistor 0603 | [Panasonic](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF68R0V/P68.0HCT-ND/1746805) | |
 
