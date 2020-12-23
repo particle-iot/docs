@@ -273,7 +273,6 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 #### P1 Module
 - IC ID: **10293A-WMNB11**.
 - [Certificate of Conformity](/assets/pdfs/p1-ic-certificate.pdf)
-- [Test Report](/assets/pdfs/p1-ic-test-report.pdf)
 
 #### Electron U260 - (Updated 4/19/17)
 - IC ID: **8595A-SARAU260**.
