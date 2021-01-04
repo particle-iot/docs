@@ -6,7 +6,7 @@ order: 3
 description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B523 Datasheet <sup>003</sup>
+# B523 Datasheet <sup>004</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -532,3 +532,4 @@ The bootloader allows you to easily update the user application via several diff
 | 001      | 27 Apr 2020 | RK | First Release |
 | 002      | 30 Jul 2020 | RK | Added explanation of DIV connector |
 | 003      | 16-Sep-2020 | RK | Added power consumption information |
+| 004      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
