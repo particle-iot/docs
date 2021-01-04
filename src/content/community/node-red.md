@@ -247,6 +247,8 @@ docker rm mynodered
 
 ### Running Locally - Native
 
+This method is also a good way to run Node-RED on a **Raspberry Pi**, allowing you to use an inexpensive Raspberry Pi as your Node-RED server!
+
 [The Node-RED local install documentation](https://nodered.org/docs/getting-started/local) is a good place to start.
 
 For Mac and Linux, it may be as easy as:
