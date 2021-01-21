@@ -1240,7 +1240,7 @@ By default, Ethernet detection is not done because it will toggle GPIO that may 
 It's also possible to enable Ethernet detection from code. This is saved in configuration flash so you don't need to call it every time.
 
 ```
-STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION));
+STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION);
 ```
 
 If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.

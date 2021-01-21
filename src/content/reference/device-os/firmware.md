@@ -1200,7 +1200,7 @@ SYSTEM_THREAD(ENABLED);
 
 void setup() 
 {
-  System.enableFeature(FEATURE_ETHERNET_DETECTION));
+  System.enableFeature(FEATURE_ETHERNET_DETECTION);
 }
 ```
 
