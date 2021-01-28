@@ -468,9 +468,7 @@ fleet, using [device
 groups](/tutorials/product-tools/device-groups/). For more
 information on fine-grained firmware management, please check out
 [the guide](/tutorials/product-tools/device-groups/) on device
-groups. Note that this is a feature currently only available to
-enterprise customers. Please [contact us](https://particle.io/sales) for
-access to this feature.
+groups.
 
 #### Locking firmware
 
