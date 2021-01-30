@@ -5374,6 +5374,8 @@ Pre-defined Serial configurations available:
 
 {{#if has-stm32f2}}
 
+**NOTE:** SERIAL_7N1 or (SERIAL_DATA_BITS_7 | SERIAL_PARITY_NO | SERIAL_STOP_BITS_1) is NOT supported
+
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
 - `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
