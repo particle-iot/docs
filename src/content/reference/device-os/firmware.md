@@ -1200,7 +1200,7 @@ SYSTEM_THREAD(ENABLED);
 
 void setup() 
 {
-  System.enableFeature(FEATURE_ETHERNET_DETECTION));
+  System.enableFeature(FEATURE_ETHERNET_DETECTION);
 }
 ```
 
@@ -1309,26 +1309,9 @@ Ethernet.setListenTimeout(seconds);
 `Ethernet.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Ethernet devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Ethernet.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Ethernet.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  
 **Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
 
-```cpp
-// EXAMPLE
-// If desired, use the STARTUP() macro to set the timeout value at boot time.
-STARTUP(Ethernet.setListenTimeout(60)); // set listening mode timeout to 60 seconds
-
-void setup() {
-  // your setup code
-}
-
-void loop() {
-  // update the timeout later in code based on an expression
-  if (disableTimeout) Ethernet.setListenTimeout(0); // disables the listening mode timeout
-}
-```
-
 {{since when="1.5.0"}}
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `Ethernet.setListenTimeout(5min)` for 5 minutes.
-
-
 
 ### getListenTimeout()
 
@@ -2824,24 +2807,7 @@ It will return `false` when the device is not in listening mode.
 Cellular.setListenTimeout(seconds);
 ```
 
-`Cellular.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Cellular devices have a 5 minute timeout set (seconds=300).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Cellular.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Cellular.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  **Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
-
-This setting is not persistent in memory if the device is rebooted.
-
-```cpp
-// EXAMPLE
-// If desired, use the STARTUP() macro to set the timeout value at boot time.
-STARTUP(Cellular.setListenTimeout(60)); // set listening mode timeout to 60 seconds
-
-void setup() {
-  // your setup code
-}
-
-void loop() {
-  // update the timeout later in code based on an expression
-  if (disableTimeout) Cellular.setListenTimeout(0); // disables the listening mode timeout
-}
-```
+`Cellular.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode. This is rarely needed on cellular devices as cellular devices do not enter listening mode by default.
 
 {{since when="1.5.0"}}
 
@@ -5407,6 +5373,8 @@ When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, 
 Pre-defined Serial configurations available:
 
 {{#if has-stm32f2}}
+
+**NOTE:** SERIAL_7N1 or (SERIAL_DATA_BITS_7 | SERIAL_PARITY_NO | SERIAL_STOP_BITS_1) is NOT supported
 
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
@@ -8311,6 +8279,8 @@ The callback version of scan does not return until the scan has reached the end 
 - You can stop scanning when the desired device is found instead of waiting until the timeout.
 
 The default is 5 seconds, however you can change it using `setScanTimeout()`.
+
+Note: You cannot call `BLE.connect()` from a `BLE.scan()` callback! If you want to scan then connect, you must save the `BleAddress` and then do the connect after `BLE.scan()` returns.
 
 ```cpp
 // PROTOTYPE
@@ -11280,7 +11250,7 @@ Parameters:
   - `ping`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `pinb`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `invert` (optional): `true` if the connected RGB LED is common-anode, `false` if common-cathode (default).
-  - `bootloader` (optional): if `true`, the RGB mirroring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirroring only works while the firmware is running (default).
+  - `bootloader` (optional): if `true`, the RGB mirroring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirroring only works while the firmware is running (default). Do not use the `true` option for `bootloader` from `STARTUP()`.
 
 ### mirrorDisable()
 
@@ -13600,14 +13570,6 @@ when new `retained` variables are added to the end of the list, or when they are
 
 ### STARTUP()
 
-{{since when="0.4.5"}}
-
-Typically an application will have its initialization code in the `setup()` function.
-This works well if a delay of a few seconds from power on/reset is acceptable.
-
-In other cases, the application wants to have code run as early as possible, before the cloud or network connection
-are initialized. The `STARTUP()` function instructs the system to execute the code early on in startup.
-
 ```cpp
 void setup_the_fundulating_conbobulator()
 {
@@ -13619,18 +13581,45 @@ void setup_the_fundulating_conbobulator()
 // What goes inside is any valid code that can be executed. Here, we use a function call.
 // Using a single function is preferable to having several `STARTUP()` calls.
 STARTUP( setup_the_fundulating_conbobulator() );
-
 ```
+
+Typically an application will have its initialization code in the `setup()` function. Using `SYSTEM_THREAD(ENABLED)` reduces the amount of time before setup is called to milliseconds and is the recommended method of calling code early.
+
+The `STARTUP()` function instructs the system to execute the code even earlier, however there are limitations:
+
+- STARTUP should only be used for things like setting GPIO state very early.
+- Avoid using most system calls except as listed below. For example, you cannot use System.sleep(), any Particle calls like Particle.publish(), etc.
+- Avoid using I2C (Wire) and SPI from STARTUP.
+- The order of globally constructed objects is unpredictable and you should not rely on global variables being fully initialized.
 
 The code referenced by `STARTUP()` is executed very early in the startup sequence, so it's best suited
 to initializing digital I/O and peripherals. Networking setup code should still be placed in `setup()`.
 {{#if has-wifi-antenna-switch}}
-Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made.
+Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made on the Photon and P1.
 {{/if}}
 
-_Note that when startup code performs digital I/O, there will still be a period of at least few hundred milliseconds
+Note that when startup code performs digital I/O, there will still be a period of at least few hundred milliseconds
 where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
-in mind, using pullup/pulldown resistors as appropriate._
+in mind, using pullup/pulldown resistors as appropriate. For Gen 2 devices, see note below about JTAG/SWD as well.
+
+---
+
+{{note op="start" type="gen2"}}
+Some acceptable calls to make from `STARTUP()` on Gen 2 devices (Photon, P1, Electron, E Series) include:
+
+- `cellular_credentials_set()`
+- `WiFi.selectAntenna()`
+- `Mouse.begin()`
+- `Keyboard.begin()`
+
+On Gen 2 devices, beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external devices on Gen 2 devices. After reset, these pins will be briefly taken over for JTAG/SWD, before being restored to the default high-impedance INPUT state during boot.
+
+- D3, D5, and D7 are pulled high with a pull-up
+- D6 is pulled low with a pull-down
+- D4 is left floating
+
+The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. Using STARTUP will not prevent this!
+{{note op="end"}}
 
 ### PRODUCT_ID()
 
@@ -13701,7 +13690,7 @@ The are are three sleep modes:
 SystemSleepConfiguration config;
 config.mode(SystemSleepMode::STOP)
       .gpio(WKP, RISING)
-      .duration(60s);
+      .duration(15min);
 System.sleep(config);
 
 // EXAMPLE
@@ -13709,7 +13698,7 @@ SystemSleepConfiguration config;
 config.mode(SystemSleepMode::STOP)
       .network(NETWORK_INTERFACE_CELLULAR)
       .flag(SystemSleepFlag::WAIT_CLOUD)
-      .duration(2min);
+      .duration(15min);
 ```
 
 The `SystemSleepMode::STOP` mode is the same as the classic stop sleep mode (pin or pin + time). 
@@ -13890,12 +13879,12 @@ SystemSleepConfiguration& duration(std::chrono::milliseconds ms)
 SystemSleepConfiguration config;
 config.mode(SystemSleepMode::HIBERNATE)
       .gpio(WKP, RISING)
-      .duration(60s);
+      .duration(15min);
 ```
 
 Specifies the sleep duration in milliseconds. Note that this is different than the classic API, which was in seconds.
 
-You can also specify a value using [chrono literals](#chrono-literals), for example: `.duration(2min)` for 2 minutes.
+You can also specify a value using [chrono literals](#chrono-literals), for example: `.duration(15min)` for 15 minutes.
 
 ---
 
@@ -13992,13 +13981,13 @@ SystemSleepConfiguration& network(network_interface_t netif, EnumFlags<SystemSle
 // EXAMPLE 1
 SystemSleepConfiguration config;
 config.mode(SystemSleepMode::STOP)
-      .duration(30s)
+      .duration(15min)
       .network(NETWORK_INTERFACE_CELLULAR);
 
 // EXAMPLE 2
 SystemSleepConfiguration config;
 config.mode(SystemSleepMode::ULTRA_LOW_POWER)
-      .duration(30s)
+      .duration(15min)
       .network(NETWORK_INTERFACE_CELLULAR, SystemSleepNetworkFlag::INACTIVE_STANDBY);
 
 ```
@@ -14014,6 +14003,8 @@ This option not only allows wake from network activity, but also keeps the netwo
 The first example configures the cellular modem to both stay awake and for the network to be a wake source. If incoming data, from a function call, variable request, subscribed event, or OTA request arrives, the device will wake from sleep mode.
 
 The second example adds the `SystemSleepNetworkFlag::INACTIVE_STANDBY` flag which keeps the cellular modem powered, but does not wake the MCU for received data. This is most similar to `SLEEP_NETWORK_STANDBY`.
+
+Note: You must not sleep longer than the keep-alive value, which by default is 23 minutes in order to wake on data received by cellular. The reason is that if data is not transmitted by the device before the keep-alive expires, the mobile network will remove the channel back to the device, so it can no longer receive data from the cloud. Fortunately in network sleep mode you can wake, transmit data, and go back to sleep in a very short period of time, under 2 seconds, to keep the connection alive without using significanly more battery power.
 
 ### analog() (SystemSleepConfiguration)
 
@@ -14075,7 +14066,7 @@ SystemSleepConfiguration& ble()
 // EXAMPLE
 SystemSleepConfiguration config;
 config.mode(SystemSleepMode::STOP)
-      .duration(30s)
+      .duration(15min)
       .ble();
 ```
 
@@ -14112,7 +14103,7 @@ SystemSleepWakeupReason wakeupReason() const;
 SystemSleepConfiguration config;
 config.mode(SystemSleepMode::STOP)
       .gpio(D2, FALLING)
-      .duration(30s);
+      .duration(15min);
 SystemSleepResult result = System.sleep(config);
 if (result.wakeupReason() == SystemSleepWakeupReason::BY_GPIO) {
   // Waken by pin 
@@ -15630,6 +15621,8 @@ Returns the number of milliseconds passed since the device was last reset. This 
 While the 32-bit `millis()` rolls over to 0 after approximately 49 days, the 64-bit `System.millis()` does not.
 
 One caveat is that sprintf-style formatting, including `snprintf()`, `Log.info()`, `Serial.printf()`, `String::format()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
+
+As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
 
 ### System.uptime()
 
@@ -18686,7 +18679,14 @@ Consider the following logging output as generated by the example application:
 
 Here, each line starts with a timestamp (a number of milliseconds since the system startup), `app` is a default [logging category](#logging-categories), and `INFO`, `WARN` and `ERROR` are [logging levels](#logging-levels) of the respective log messages.
 
-All of the logging functions like `Log.info()` and `Log.error()` support sprintf-style argument formatting so you can use options like `%d` (integer), `%.2f` (2 decimal place floating point), or `%s` (c-string). Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
+All of the logging functions like `Log.info()` and `Log.error()` support sprintf-style argument formatting so you can use options like `%d` (integer), `%.2f` (2 decimal place floating point), or `%s` (c-string). 
+
+Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
+
+```cpp
+// Using the Print64 firmware library to format a 64-bit integer (uint64_t)
+Log.info("millis=%s", toString(System.millis()).c_str());
+```
 
 ### Logging Levels
 
@@ -20441,6 +20441,140 @@ The C standard library used on the device is called newlib and is described at [
 
 For advanced use cases, those functions are available for use in addition to the functions outlined above.
 
+### sprintf
+
+One commonly used function in the standard C library is `sprintf()`, which is used to format a string with variables. This also includes variations like `snprintf()` and also functions that call `snprintf()` internally, like `Log.info()` and `String::format()`.
+
+This example shows several common formatting techiques along with the expected output.
+
+```cpp
+#include "Particle.h"
+
+SerialLogHandler logHandler;
+
+int counter = 0;
+const std::chrono::milliseconds testPeriod = 30s;
+unsigned long lastTest = 0;
+
+void runTest();
+
+void setup() {
+}
+
+void loop() {
+    if (millis() - lastTest >= testPeriod.count()) {
+        lastTest = millis();
+
+        runTest();
+    }
+}
+
+void runTest() {
+    Log.info("staring test millis=%lu", millis());
+    // 0000068727 [app] INFO: staring test millis=68727
+
+    // To print an int as decimal, use %d
+    Log.info("counter=%d", ++counter);
+    // 0000068728 [app] INFO: counter=1
+
+    // To print an int as hexadecimal, use %x
+    int value1 = 1234;
+    Log.info("value1=%d value1=%x (hex)", value1, value1);
+    // 0000068728 [app] INFO: value1=1234 value1=4d2 (hex)
+
+    // To print a string, use %s
+    const char *testStr1 = "testing 1, 2, 3";
+    Log.info("value1=%d testStr=%s", value1, testStr1);
+    // 0000068728 [app] INFO: value1=1234 testStr=testing 1, 2, 3
+
+    // To print a long integer, use %ld, %lx, etc.
+    long value2 = 123456789;
+    Log.info("value2=%ld value2=%lx (hex)", value2, value2);
+    // 0000068729 [app] INFO: value2=123456789 value2=75bcd15 (hex)
+
+    // To print to a fixed number of places with leading zeros:
+    Log.info("value2=%08lx (hex, 8 digits, with leading zeros)", value2);
+    // 0000068729 [app] INFO: value2=075bcd15 (hex, 8 digits, with leading zeros)
+
+    // To print an unsigned long integer (uint32_t), use %lu or %lx
+    uint32_t value3 = 0xaabbccdd;
+    Log.info("value3=%lu value3=%lx (hex)", value3, value3);
+    // 0000068730 [app] INFO: value3=2864434397 value3=aabbccdd (hex)
+
+    // To print a floating point number, use %f
+    float value4 = 1234.5;
+    Log.info("value4=%f", value4);
+    // 0000068730 [app] INFO: value4=1234.500000
+
+    // To print a double floating point, use %lf
+    double value5 = 1234.333;
+    Log.info("value5=%lf", value5);
+    //  0000068731 [app] INFO: value5=1234.333000
+
+    // To limit the number of decimal places:
+    Log.info("value5=%.2lf (to two decimal places)", value5);
+    // 0000068732 [app] INFO: value5=1234.33 (to two decimal places)
+
+    // To print to a character buffer
+    {
+        char buf[32];
+        snprintf(buf, sizeof(buf), "%.3lf", value5);
+
+        Log.info("buf=%s (3 decimal places)", buf);
+        // 0000068733 [app] INFO: buf=1234.333 (3 decimal places)
+
+        Particle.publish("testing", buf);
+    }
+
+    // To print JSON to a buffer
+    {
+        char buf[256];
+        
+        snprintf(buf, sizeof(buf), "{\"value2\":%ld,\"value5\":%.2lf}", value2, value5);
+        Log.info(buf);
+        // 0000068734 [app] INFO: {"value2":123456789,"value5":1234.33}
+
+        Particle.publish("testing", buf);
+    }
+
+    // Using String::format
+    Particle.publish("testing", String::format("{\"value1\":%d,\"testStr1\":\"%s\"}", value1, testStr1).c_str());
+}
+
+```
+
+One caveat is that sprintf-style formatting does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`.  
+
+As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/).
+
+| Variation | Supported | Purpose |
+| :--- | :---: | :--- |
+| `sprintf()` | &check; | Prints to a buffer, but `snprintf` is recommended to prevent overflowing the buffer. |
+| `snprintf()` | &check; | Prints to a buffer, recommended method. |
+| `vsprintf()` | &check; | Prints to a buffer, using va_list variable arguments. |
+| `vsnprintf()` | &check; | Prints to a buffer, using va_list variable arguments and buffer size. |
+| `printf()` | &nbsp; | Prints to standard output, use `Log.info()` instead. |
+| `vprintf()` | &nbsp; | Prints to standard output, using va_list variable arguments. Not supported. |
+| `fprintf()` | &nbsp; | Prints to a file system file. Not supported. |
+| `vfprintf()` | &nbsp; | Prints to a file system file, using va_list variable arguments. Not supported. |
+
+
+### sscanf
+
+The opposite of `sprintf()` is `sscanf()`, which reads a string and allows for simple parsing of strings. It's a little tricky to use so you may need to seearch for some examples online. 
+
+Note: `sscanf()` does not support the `%f` scanning option to scan for floating point numbers! You must instead use `atof()` to convert an ASCII decimal floating point number to a `float`.
+
+| Variation | Supported | Purpose |
+| :--- | :---: | :--- |
+| `sscanf()` | &check; | Scan a buffer of characters. |
+| `vsscanf()` | &check; | Scan a buffer of characters, using va_list variable arguments. |
+| `scanf()` | &nbsp; | Scan characters from standard input. Not supported. |
+| `vscanf()` | &nbsp; | Scan characters from standard input, using va_list variable arguments.. Not supported. |
+| `fscanf()` | &nbsp; | Scan characters from a file. Not supported. |
+| `vfscanf()` | &nbsp; | Scan characters from a file, using va_list variable arguments.. Not supported. |
+
+
 ## Preprocessor
 
 When you are using the Particle Device Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
@@ -20564,7 +20698,8 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|-|-||-|-|-|
+|v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|-|-|-|-|-|
+|v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|-||-|-|-|
 |v2.0.x prereleases|[v2.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.1)|[v2.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.2)|[v2.0.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.3)|[v2.0.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.4)|-|-|-|
 |v1.5.x default releases|[v1.5.0](https://github.com/particle-iot/device-os/releases/tag/v1.5.0)|[v1.5.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1)|[v1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2)|-|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.1)|[v1.5.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.2)|[v1.5.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1-rc.1)|[v1.5.4-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.1)|[v1.5.4-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.2)|-|-|
@@ -20594,7 +20729,8 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/photon/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/photon/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/photon/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.1](/reference/device-os/firmware/photon/?fw_ver=2.0.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v2.0.x prereleases|[v2.0.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=2.0.0-rc.1&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=2.0.0-rc.2&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=2.0.0-rc.3&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=2.0.0-rc.4&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v1.5.x default releases|[v1.5.0](/reference/device-os/firmware/photon/?fw_ver=1.5.0&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1](/reference/device-os/firmware/photon/?fw_ver=1.5.1&cli_ver=2.5.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1](/reference/device-os/firmware/photon/?fw_ver=1.5.2&cli_ver=2.6.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.5.0-rc.1&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.5.0-rc.2&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.5.1-rc.1&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.4-rc.1](/reference/device-os/firmware/photon/?fw_ver=1.5.4-rc.1&cli_ver=2.6.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.4-rc.2](/reference/device-os/firmware/photon/?fw_ver=1.5.4-rc.2&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|-|
@@ -20621,6 +20757,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v2.10.0 = 2.0.1 3.0.0-beta.1 3.0.0-rc.1
 v2.9.0  = 2.0.0
 v2.8.1  = 1.5.4-rc.2, 2.0.0-rc.3, 2.0.0-rc.4
 v2.7.2  = 2.0.0-rc.1, 2.0.0-rc.2
@@ -20720,6 +20857,10 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@1.5.4endif
 ##### @FW_VER@2.0.0if
 ##### @FW_VER@2.0.0endif
+##### @FW_VER@2.1.0if
+##### @FW_VER@2.1.0endif
+##### @FW_VER@3.0.0if
+##### @FW_VER@3.0.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -20800,6 +20941,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@2.8.1endif
 ##### @CLI_VER@2.9.0if
 ##### @CLI_VER@2.9.0endif
+##### @CLI_VER@2.10.0if
+##### @CLI_VER@2.10.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if

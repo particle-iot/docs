@@ -274,7 +274,7 @@ $ particle flash --usb firmware.bin
   - bsom (B Series SoM)
 
 
-  **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
+  **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](https://support.particle.io/hc/en-us/articles/204952620).
 
 ```bash
 $ particle compile photon myapp.ino
@@ -1081,16 +1081,16 @@ $ particle keys protocol udp
 
 ## particle nyan
 
-Make your device shout rainbows
+Make your device shout rainbows. Useful in a hackerspace-type setting to easily identify a specific device, or to verify that your device can receive commands from the cloud.
 
 ```sh
 # Activates the "shouting rainbow LED" sequence
-$ particle cloud nyan
-$ particle cloud nyan my_device_id on
-$ particle cloud nyan my_device_id off
-$ particle cloud nyan all on
-$ particle cloud nyan [on/off]
-$ particle cloud nyan [device_id/all] [on/off]
+$ particle nyan
+$ particle nyan my_device_id on
+$ particle nyan my_device_id off
+$ particle nyan all on
+$ particle nyan [on/off]
+$ particle nyan [device_id/all] [on/off]
 ```
 
 
@@ -1191,7 +1191,7 @@ In order to change the duration a token is valid, use `--expires-in <seconds>` o
 $ particle token create --expires-in 600
 ```
 
-To make a non-expiring token, use the `--never-expires` option. Short lived token are better for security. Reserve non-expiring tokens for hosted web application that need to access the Particle API reliability over an indefinite period of time.
+To make a non-expiring token, use the `--never-expires` option. Short lived tokens are better for security. Reserve non-expiring tokens for hosted web applications that need to access the Particle API reliably over an indefinite period of time.
 
 
 ```sh

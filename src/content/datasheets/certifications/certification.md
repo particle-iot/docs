@@ -273,7 +273,6 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 #### P1 Module
 - IC ID: **10293A-WMNB11**.
 - [Certificate of Conformity](/assets/pdfs/p1-ic-certificate.pdf)
-- [Test Report](/assets/pdfs/p1-ic-test-report.pdf)
 
 #### Electron U260 - (Updated 4/19/17)
 - IC ID: **8595A-SARAU260**.
@@ -328,6 +327,13 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/boron402-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/boron402-fcc-part15b-test-report.pdf)
+
+
+#### B Series SoM B402
+
+- IC ID: **20127-B402**
+- [Certificate of Conformity](/assets/pdfs/b402-ic.pdf)
+
 
 #### TrackerSoM T402
 

@@ -34,6 +34,7 @@
         "md5": "^2.2.1",
         "metalsmith": "^2.3.0",
         "metalsmith-autotoc": "git://github.com/particle-iot/metalsmith-autotoc",
+        "metalsmith-canonical": "^1.2.0",
         "metalsmith-clean-css": "^5.0.1",
         "metalsmith-collections": "git://github.com/particle-iot/metalsmith-collections#dynamic-collections",
         "metalsmith-copy": "git://github.com/particle-iot/metalsmith-copy#improved-ci",

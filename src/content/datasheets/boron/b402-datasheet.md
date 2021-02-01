@@ -6,7 +6,7 @@ order: 2
 description: Datasheet for the Particle B Series B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B402 Datasheet <sup>(004)</sup>
+# B402 Datasheet <sup>(006)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -300,11 +300,11 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 4.48 | 4.71 | 5.17 | mA |
-| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | TBD | TBD | TBD| mA |
-| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | TBD | TBD | TBD | mA |
-| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | TBD | TBD | TBD | mA |
-| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | TBD | TBD | TBD | mA |
-| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | TBD | TBD | TBD | mA |
+| Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 5.1 | 45.2 | 166 | mA |
+| Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 13.7 | 56.0 | 192 | mA |
+| Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> |  | 63.2 | 185 | mA |
+| Operating Current (uC on, cellular connected but idle) | I<sub>cell_cloud_idle</sub> | 13.4 | 15.5 | 98.3 | mA |
+| Operating Current (uC on, cellular connected and transmitting) | I<sub>cell_cloud_tx</sub> | 9.47 | 66.3 | 192 | mA |
 | STOP mode sleep, GPIO wake-up | I<sub>stop_gpio</sub> | 552 | 555 | 559 | uA |
 | STOP mode sleep, analog wake-up | I<sub>stop_analog</sub> | 554 | 557 | 559 | uA |
 | STOP mode sleep, RTC wake-up | I<sub>stop_intrtc</sub> | 553 | 556 | 558 | uA |
@@ -503,3 +503,5 @@ The bootloader allows you to easily update the user application via several diff
 | 002      | 03 Feb 2020 | RK | Fixed number of I2C, SPI, and PWM |
 | 003      | 18 Feb 2020 | RK | Keep-out diagram M.2 connector was upside-down |
 | 004      | 16-Sep-2020 | RK | Added power consumption information |
+| 005      | 16-Dec-2020 | RK | Added missing TBD power consumption values |
+| 006      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |

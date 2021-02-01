@@ -8,7 +8,7 @@ description: Tutorials for the Photon Maker Kit, a collection of sensors and acc
 
 # {{title}}
 
-This section provides tutorials for new users of the [Photon Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit. These tutorials assume you’ve gone through the getting started guide and have set up your Photon. You'll also need to know how to use the [Particle Web IDE](http://build.particle.io).
+This section provides tutorials for new users of the [Photon Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit. These tutorials assume you’ve gone through the getting started guide and have set up your Photon. You'll also need to know how to use the [Particle Web IDE](https://build.particle.io).
 
 ![Photon Maker Kit](/assets/images/maker-kit-box.jpg)
 
@@ -502,7 +502,7 @@ Scroll down to **Integration Settings** and give your webhook a descriptive labe
 ### Create a Particle webhook
 Many Slack integrations require dedicated web servers running PHP scripts to process information to and from Slack. However, in our case we can just use a Particle webhook to tell the Slack webhook whether the conference room is available. Easy!
 
-Go to the [Particle Console](http://console.particle.io) and click the **Integrations** tab, then click **New Integration**.
+Go to the [Particle Console](https://console.particle.io) and click the **Integrations** tab, then click **New Integration**.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook0.png)
 
 Click **Webhook** to start the Webhook Builder.
