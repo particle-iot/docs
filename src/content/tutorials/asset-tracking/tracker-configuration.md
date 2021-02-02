@@ -11,7 +11,7 @@ description: Particle Tracker Configuration
 The Tracker provides a customizable configuration system:
 
 - **Standard configuration** allows features like publish intervals, sleep settings, etc. to be configured from [the console](https://console.particle.io).
-- **Customized configuration** makes it possible to extend this to your own custom parameters!
+- **Customized configuration** makes it possible to extend this to your own custom parameters and custom tabs in the console!
 
 ![](/assets/images/tracker/settings-engine2.png)
 
@@ -275,7 +275,7 @@ static ConfigObject engineDesc("engine", {
     ConfigInt("idle", &idleRPM, 0, 10000),
     ConfigInt("fastpub", &fastPublishPeriod, 0, 3600000),
 });
-Tracker::instance().configService.registerModule(engineDesc);
+ConfigService::instance().registerModule(engineDesc);
 ```
 
 In setup(), associate the variables with the location in the configuration schema. While just a couple lines of code, this automatically takes care of:
@@ -357,7 +357,7 @@ Here's the whole schema:
 
 {{codebox content="/assets/files/tracker/test-schema.json" format="json" height="300"}}
 
-You can set it using curl or other tool to call the API:
+You can set it using curl or another tool to call the API:
 
 ```
 curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @test-schema.json
@@ -365,6 +365,8 @@ curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=
 
 - `:productId` with your product ID
 - `:accessToken` with a product access token, described above.
+
+Be sure to use the full schema, not just the part with "Mine" as a custom schema replaces the default schema!
 
 ### Console - Example
 
@@ -392,15 +394,20 @@ git submodule update --init --recursive
 
 #### main.cpp
 
+This is the Tracker Edge main source file. There are only three lines (all containing "MyConfig") added to the default main.cpp.
+
 {{codebox content="/assets/files/tracker/example/main.cpp" format="cpp" height="300"}}
 
-Really there are just three lines (all containing "MyConfig") added to the default main.cpp.
 
 #### MyConfig.h
+
+The C++ header file for the custom configuration class.
 
 {{codebox content="/assets/files/tracker/example/MyConfig.h" format="cpp" height="300"}}
 
 #### MyConfig.cpp
+
+The C++ implementation file for the custom configuration class.
 
 {{codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
 
@@ -584,7 +591,45 @@ ConfigString("message",
 
 You need to also provide a getter and setter for String variables so save the data in the underlying class. In this case, we use a `String` object so it's easy, but you can also use a pre-allocated buffer.
 
+#### Singleton
 
+The `MyConfig` class is modeled after the Tracker Edge classes that are a Singleton: there is only one instance of the class per application.
 
+```cpp
+MyConfig::instance().init();
+```
 
+To use it, you get an instance of it using `MyConfig::instance()` and call the method you want to use, in this case `init()`.
+
+Like other Tracker Edge classes, you call:
+
+| Method | Call it from |
+| :--- | :--- |
+| `MyConfig::instance().init()` | `setup()` |
+| `MyConfig::instance().loop()` | `loop()` |
+
+In the C++ class, the variable to hold the instance is declared like this:
+
+```cpp
+static MyConfig *_instance;
+```
+
+And there's an implementation of it at the top of the MyConfig.cpp file:
+
+```cpp
+MyConfig *MyConfig::_instance;
+```
+
+Since it's a static class member, which is essentially a global variable, it's always initialized to 0 at startup.
+
+```cpp
+MyConfig &MyConfig::instance() {
+    if (!_instance) {
+        _instance = new MyConfig();
+    }
+    return *_instance;
+}
+```
+
+The function to get the instance checks to see if it has been allocated. If it has not been allocated, it will be allocated using `new`. This should happen during `setup()`. In either case, the instance is returned.
 
