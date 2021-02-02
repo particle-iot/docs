@@ -18,13 +18,8 @@ Additionally:
 - **Devices that are currently online** receive the configuration updates immediately.
 - **Devices that are offline**, because of poor cellular coverage or use of sleep modes, receive a configuration update when they reconnect to the Particle cloud.
 
-Finally, you can configure:
 
-- **Fleet-wide settings** so all devices in your product have a common setting.
-- **Per-device settings** that override settings for a specific device in your product (when marked as a development device).
-
-
-## Getting and setting configuration
+## Configuration
 
 In addition to setting values directly from [the console](https://console.particle.io), you can get and set values from the [Particle Cloud API](/reference/device-cloud/api/#configuration).
 
@@ -48,13 +43,10 @@ The configuration is hierarchical:
   - conn max
   - ...
 
-Using a custom schema, you can add additional configuration elements, either to an existing group (location, sleep, etc.) or to a new custom group for your product (recommended).
+Configuration is scoped so you can have:
 
-
-## Getting and setting the schema
-
-At this time, the schema can only be set using the Particle Cloud API. Examples are provided using `curl`, a common command-line program for making API calls.
-
+- **Fleet-wide configuration** so all devices in your product have a common setting.
+- **Per-device configuration** that override settings for a specific device in your product (when marked as a development device).
 
 ## Schemas
 
@@ -66,9 +58,11 @@ The schema serves several purposes:
 - Instructing the console how to display the options
 - Validating the configuration
 
-## Console
+Using a custom schema, you can add additional configuration elements, either to an existing group (location, sleep, etc.) or to a new custom group for your product (recommended).
 
-The settings panels in the fleet configuration and device configuration, including all of the built-in settings, are defined using the configuration schema:
+### Console
+
+The settings panels in the fleet configuration and device configuration, including all of the built-in settings, are defined using the configuration schema.
 
 ![](/assets/images/tracker/settings-1.png)
 
@@ -78,9 +72,9 @@ This picture shows how elements in the schema directly map to what you can see i
 
 ![](/assets/images/tracker/tracker-schema-ui.png)
 
-It should be noted that setting a custom schema replaces the existing schema. This means that as new features are added to Tracker Edge you will want to periodically merge your changes into the latest schema so you will get any new options.
+**A custom schema replaces the existing schema.** This means that as new features are added to Tracker Edge you will want to periodically merge your changes into the latest schema so you will get any new options.
 
-## Default Schema
+### Default Schema
 
 This is the full schema for Tracker Edge, as of version 11. You won't need to understand the whole thing yet, but this is what it looks like:
 
@@ -100,8 +94,6 @@ The schema and support in Tracker Edge can include standard JSON data types, inc
 
 There is a limit to the size of the data, as it needs to fit in a 622-byte publish. You should keep the data of a reasonable size and avoid overly lengthy JSON key names for this reason.
 
-## Setting the Schema
-
 ### Getting an access token
 
 One easy way to get a temporary access token is to:
@@ -117,6 +109,8 @@ One easy way to get a temporary access token is to:
 You can also generate a token using oAuth client credentials. You can adjust the expiration time using this method, including making it non-expiring.
 
 ### Backing up the schema
+
+At this time, the schema can only be set using the Particle Cloud API. Examples are provided using `curl`, a common command-line program for making API calls.
 
 It's a good idea to make a backup copy of the schema before you modify it. The feature to delete the custom schema and revert to the factory default is planned but not currently implemented. 
 
@@ -140,95 +134,61 @@ curl -X GET 'https://api.particle.io/v1/products/:productId/config/:deviceId?acc
 - `:accessToken` with a product access token, described above.
 
 
-## Adding to the schema
+### Adding to the schema
 
 ```json
-{
-    "$schema": "https://particle.io/draft-07/schema#",
-    "$id": "https://github.com/particle-iot/tracker-edge/releases/tag/v11",
+"engine": {
+    "$id": "#/properties/engine",
     "type": "object",
-    "title": "Configuration schema for the Tracker Edge firmware from Particle",
-    "$comment": "the $id field doesn't strictly mean that this schema only works with that release of tracker-edge, rather, this means that the schema here was created for that version of tracker-edge, and will work on earlier and later versions until a new schema is required.  This means that schema v10 will work with firmware v11, as long as there's no added features in v11 not already mentioned here",
-    "description": "",
-    "required": [
-        "location"
-    ],
+    "title": "Engine",
+    "description": "CAN demo engine settings",
+    "default": {},
     "properties": {
-        "location": {
-            "$id": "#/properties/location",
-            
-            [... content omitted for readability ...]
-
+        "idle": {
+            "$id": "#/properties/engine/properties/idle",
+            "type": "integer",
+            "title": "Idle RPM speed",
+            "description": "If engine RPM is less than this value, the engine will be considered to be idling",
+            "default": 1600,
+            "examples": [
+            ],
+            "minimum":0,
+            "maximum":10000
         },
-        "tracker": {
-            "$id": "#/properties/tracker",
-            "type": "object",
-            "title": "Tracker",
-            "description": "Configuration for Tracker specific settings",
-            "default": {},
-            "properties": {
-                "usb_cmd": {
-                    "$id": "#/properties/tracker/properties/usb_cmd",
-                    "type": "boolean",
-                    "title": "USB Command Enable",
-                    "description": "If enabled, device will parse incoming commands on USB.",
-                    "default": true,
-                    "examples": [
-                        false
-                    ]
-                }
-            }
-        },
-        "engine": {
-            "$id": "#/properties/engine",
-            "type": "object",
-            "title": "Engine",
-            "description": "CAN demo engine settings",
-            "default": {},
-            "properties": {
-                "idle": {
-                    "$id": "#/properties/engine/properties/idle",
-                    "type": "integer",
-                    "title": "Idle RPM speed",
-                    "description": "If engine RPM is less than this value, the engine will be considered to be idling",
-                    "default": 1600,
-                    "examples": [
-                    ],
-                    "minimum":0,
-                    "maximum":10000
-                },
-                "fastpub": {
-                    "$id": "#/properties/engine/properties/fastpub",
-                    "type": "integer",
-                    "title": "Publish period when running (milliseconds)",
-                    "description": "Publish period when engine is not off or idling in milliseconds (0 = use default)",
-                    "default": 0,
-                    "examples": [
-                    ],
-                    "minimum":0,
-                    "maximum":3600000
-                }
-            }
+        "fastpub": {
+            "$id": "#/properties/engine/properties/fastpub",
+            "type": "integer",
+            "title": "Publish period when running (milliseconds)",
+            "description": "Publish period when engine is not off or idling in milliseconds (0 = use default)",
+            "default": 0,
+            "examples": [
+            ],
+            "minimum":0,
+            "maximum":3600000
         }
-    },
-    "additionalProperties": false
-}            
+    }
+}
 ```
 
 Here's an example of adding a new **Engine** panel. Of note:
 
-- Since adding a custom schema replaces the default schema, you must include all of the elements from the default schema. It does not merge the two automatically for you.
+- Since adding a custom schema replaces the default schema, you must include all of the elements from the default schema. It does not merge the two automatically for you. The whole file is included below.
 - The new **engine** block goes directly in line and below the **tracker** block, which is the last configuration block (at the time of writing).
-- The new engine configuration includes two elements: Idle RPM speed and Publish period when running (milliseconds); both are integers:
+- The new engine configuration includes two elements: Idle RPM speed and Publish period when running (milliseconds); both are integers.
+
+Here's the whole file so you can see exactly where the data goes when merged with the default schema.
+
+{{codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300"}}
+
 
 ### Setting a custom schema
 
-A full example schema for the engine configuration above can be found [here](https://github.com/particle-iot/app-notes/blob/master/AN017-Tracker-CAN/testengine.json). Download this file and save it as testengine.json.
+The full example code for the engine configuration above can be found in the [AN017 Tracker CAN](https://github.com/particle-iot/app-notes/blob/master/AN017-Tracker-CAN/) application note.
 
 There is no UI for setting the configuration schema, you will need to set it using curl:
 
 ```
-curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @testengine.json
+curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
 ```
 
 - `:productId` with your product ID
@@ -240,7 +200,7 @@ To restore the normal behavior, instead of using @testengine.json, use the backu
 Or, for product-wide configuration:
 
 ```
-curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @testengine.json
+curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
 ```
 
 - `:productId` with your product ID
@@ -254,7 +214,7 @@ This is what it looks like in the [console](https://console.particle.io):
 ![Engine Settings](/assets/images/tracker/settings-engine.png)
 
 
-### Setting values using the API
+### Setting configuration
 
 You can also set the values using the API directly, such as by using curl:
 
@@ -279,8 +239,22 @@ This sets this configuration object:
 }
 ```
 
+Unlike the schema, you only need to set values that you are changing.
 
-## Firmware
+### Getting configuration
+
+```
+curl -X GET 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H "Accept: application/json" 
+```
+
+Be sure to update:
+
+- `:productId` with your product ID
+- `:deviceId` with your Device ID that is set as a development device. If you want to change the setting across your whole product leave off the slash and device ID.
+- `:accessToken` with a product access token, described above.
+
+
+### Firmware
 
 And finally, this is how you access the data from your application firmware:
 
@@ -309,5 +283,292 @@ In setup(), associate the variables with the location in the configuration schem
 
 
 For the full example, see the [AN017 Tracker CAN](https://github.com/particle-iot/app-notes/tree/master/AN017-Tracker-CAN), the CAN bus application note.
+
+## Example
+
+Here's an example of how you set up a custom schema and use it from firmware.
+
+### Schema - Example
+
+```json
+    "mine": {
+		"$id": "#/properties/mine",
+		"type": "object",
+		"title": "Mine",
+		"description": "My custom settings",
+		"default": {},
+		"properties": {
+		  "contrast": {
+			"$id": "#/properties/mine/properties/contrast",
+			"type": "integer",
+			"title": "Contrast",
+			"description": "Display contrast 0 - 255",
+			"default": 24,
+			"examples": [
+			  10
+			],
+			"minimum": 0,
+			"maximum": 255
+		  },
+		  "tempLow": {
+			"$id": "#/properties/mine/properties/tempLow",
+			"type": "number",
+			"title": "Low Temp",
+			"description": "Low temperature setting, degrees C",
+			"default": 0,
+			"minimum": -100,
+			"maximum": 200
+		  },
+		  "fruit": {
+			"$id": "#/properties/rgb/properties/fruit",
+			"type": "string",
+			"title": "Fruit",
+			"description": "Preferred fruit",
+			"default": "apple",
+			"enum": [
+			  "apple",
+			  "grape",
+			  "orange",
+			  "pear"
+			]
+		  },
+		  "message": {
+			"$id": "#/properties/rgb/properties/message",
+			"type": "string",
+			"title": "Message",
+			"description": "Custom display message",
+			"default": ""
+		  },
+		  "thing": {
+			"$id": "#/properties/mine/properties/thing",
+			"type": "boolean",
+			"title": "Enable Thing",
+			"description": "Using a boolean to enable or disable a thing",
+			"default": true
+		  }
+		}
+	  }
+	}
+```
+
+Here's the whole schema:
+
+{{codebox content="/assets/files/tracker/test-schema.json" format="json" height="300"}}
+
+You can set it using curl or other tool to call the API:
+
+```
+curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @test-schema.json
+```
+
+- `:productId` with your product ID
+- `:accessToken` with a product access token, described above.
+
+### Console - Example
+
+And this is what it looks like in the console. 
+
+![](/assets/images/tracker/settings-example.png)
+
+### Firmware - Example
+
+## Getting the Tracker Edge Firmware
+
+The Tracker Edge firmware can be downloaded from Github:
+
+[https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
+
+You will probably want to use the command line as there are additional commands you need to run after cloning the source:
+
+```bash
+git clone https://github.com/particle-iot/tracker-edge 
+cd tracker-edge
+git submodule update --init --recursive
+```
+
+- Open Particle Workbench.
+- From the command palette, **Particle: Import Project**.
+- Run **Particle: Configure Workspace for Device**, select version 2.0.1, or later, Tracker, and your device.
+
+### main.cpp
+
+{{codebox content="/assets/files/tracker/example/main.cpp" format="cpp" height="300"}}
+
+Really there are just three lines (all containing "MyConfig") added to the default main.cpp.
+
+### MyConfig.h
+
+{{codebox content="/assets/files/tracker/example/MyConfig.h" format="cpp" height="300"}}
+
+### MyConfig.cpp
+
+{{codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
+
+### Digging In
+
+```cpp
+int32_t contrast = 12;
+double tempLow = 0.0;
+int32_t fruit = (int32_t) Fruits::APPLE;
+String message;
+bool thing = false;
+```
+
+The settings that you can configure in the console are all added as member variables in the MyConfig class.
+
+```cpp
+int32_t contrast = MyConfig::instance().getContrast();
+```
+
+To access configuration settings, get the `MyConfig` instance, and call the accessor method `getContrast()`. There are accessors for all of the variables above.
+
+```cpp
+enum class Fruits : int32_t {
+    APPLE = 0,
+    GRAPE,
+    ORANGE,
+    PEAR
+};
+```
+
+The `Fruits` example is a bit more complicated. It's an enumeration. In the console, this shows up as a popup menu (combo box) with a pre-selected list of options. The data sent back and forth between the cloud and device and saved on the cloud side is a string.
+
+However, in device firmware, it's sometimes easier to work with numeric constants instead of strings. The `ConfigStringEnum` takes care of mapping between numeric and string enumerations. It's optional - you can work directly with the strings if you prefer.
+
+The declaration above creates a Fruits enumeration. `MyConfig::Fruits::APPLE` has a value of 0 as in `int32_t`. `GRAPE` is 1, and so on.
+
+---
+
+```cpp
+void MyConfig::init() {
+    static ConfigObject mineDesc("mine", {
+        ConfigInt("contrast", &contrast, 0, 255),
+        ConfigFloat("tempLow", &tempLow, -100.0, 200.0),
+        ConfigStringEnum(
+            "fruit",
+            {
+                {"apple",  (int32_t) Fruits::APPLE},
+                {"grape",  (int32_t) Fruits::GRAPE},
+                {"orange", (int32_t) Fruits::ORANGE},
+                {"pear",   (int32_t) Fruits::PEAR}
+            },
+            [this](int32_t &value, const void *context) {
+                // Get fruit from class
+                value = this->fruit;
+                return 0;
+            },
+            [this](int32_t value, const void *context) {
+                // Set fruit in class
+                this->fruit = value;
+                return 0;
+            }
+        ),
+        ConfigString("message", 
+            [this](const char * &value, const void *context) {
+                // Get message from class
+                value = message.c_str();
+                return 0;
+            },
+            [this](const char * value, const void *context) {
+                // Set message in class
+                this->message = value;
+                Log.info("set message to %s", value);
+                return 0;
+            }
+        ),
+        ConfigBool("thing", 
+            [this](bool &value, const void *context) {
+                // Get thing from class
+                value = this->thing;
+                return 0;
+            },
+            [this](bool value, const void *context) {
+                // Set thing in class
+                this->thing = value;
+                Log.info("set thing to %s", value ? "true" : "false");
+                return 0;
+            }
+        )
+    });
+    ConfigService::instance().registerModule(mineDesc);
+
+    logSettings();
+}
+```
+
+The `init()` method maps between the member variables and the configuration data. It also registers the module, which also:
+
+- Loads the configuration from the flash memory file system at startup, so the previously configured values are available even before the cloud has connected.
+- Upon connecting to the cloud, checks to see if there are configuration updates.
+- While connected, if the configuration changes, immediately updates the location configuration and saved data in the file system.
+
+---
+
+```cpp
+ConfigInt("contrast", &contrast, 0, 255),
+ConfigFloat("tempLow", &tempLow, -100.0, 200.0),
+```
+
+Some of these are very straightforward. These map the keys to the variables that hold the configuration data.
+
+---
+
+```cpp
+ConfigStringEnum(
+    "fruit",
+    {
+        {"apple",  (int32_t) Fruits::APPLE},
+        {"grape",  (int32_t) Fruits::GRAPE},
+        {"orange", (int32_t) Fruits::ORANGE},
+        {"pear",   (int32_t) Fruits::PEAR}
+    },
+    [this](int32_t &value, const void *context) {
+        // Get fruit from class
+        value = this->fruit;
+        return 0;
+    },
+    [this](int32_t value, const void *context) {
+        // Set fruit in class
+        this->fruit = value;
+        return 0;
+    }
+),
+```
+
+This is how the string enum is mapped to the actual enumeration contents. The last two items get and set the value in the class based on the string converted into an `int32_t` (integer) value. That is C++11 lambda syntax which allows you to define the function inline; the body of the function gets executed later.
+
+```cpp
+[this](int32_t value, const void *context) {
+    // Set fruit in class
+    this->fruit = value;
+    Log.info("fruit updated to %ld!", value);
+    return 0;
+}
+```
+
+One handy trick is that you can add more code to the setter so you will know when the value is updated by the cloud. In the contrast and lowTemp examples above the underlying value changes, but your code is not notified. Using a custom setter makes it easy to notify your code when a configuration change occurs.
+
+---
+
+```cpp
+ConfigString("message", 
+    [this](const char * &value, const void *context) {
+        // Get message from class
+        value = message.c_str();
+        return 0;
+    },
+    [this](const char * value, const void *context) {
+        // Set message in class
+        this->message = value;
+        Log.info("set message to %s", value);
+        return 0;
+    }
+),
+```
+
+You need to also provide a getter and setter for String variables so save the data in the underlying class. In this case, we use a `String` object so it's easy, but you can also use a pre-allocated buffer.
+
+
+
 
 
