@@ -42,7 +42,7 @@ git submodule update --init --recursive
 
 - Open Particle Workbench.
 - From the command palette, **Particle: Import Project**.
-- Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
+- Run **Particle: Configure Workspace for Device**, select version 2.0.1, or later, Tracker, and your device.
 - Run **Particle: Flash application (local)**.
 
 ## Overview

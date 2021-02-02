@@ -14,6 +14,21 @@ $(document).ready(function() {
 
     	collapseSelector(genericCssClass, defaultValue);
 	});
+
+	$('code.codebox').each(function(index) {
+		var content = $(this).attr('data-content');
+
+		var elem = $(this);
+
+		$.ajax({url:content, dataType:'text'})
+  			.done(function(data) {
+				elem.text(data);
+				elem.removeClass('prettyprinted');
+				if (prettyPrint) {
+					prettyPrint();
+				}
+			})
+		});
 });
 
 function collapseToggle(id) {	 
@@ -85,4 +100,22 @@ function showOverlay(imgPath) {
 function hideOverlay() {
 	$('body').off('keydown');
 	$('#imageOverlay').hide();
+}
+
+function codeboxDownload(url) {
+	var a = document.createElement('a');
+	a.href = url;
+	a.download = url.split('/').pop();
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
+}
+
+function codeboxCopy(id) {	
+	var t = document.createElement('textarea');
+	document.body.appendChild(t);
+	$(t).text($('#' + id).text());
+	t.select();
+	document.execCommand("copy");
+	document.body.removeChild(t);
 }
