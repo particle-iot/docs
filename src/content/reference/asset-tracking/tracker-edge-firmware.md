@@ -196,7 +196,7 @@ You can create a custom configuration that includes:
 - Viewing and editing settings in the [console](https://console.particle.io)
 - Saving the configuration in the flash memory file system so it's available at startup before the cloud is connected
 - Synchronizing your custom configuration between the device and cloud
-- Saving data in easy-to-use variables in your code.
+- Saving data in easy-to-use variables in your code
 
 See the [Tracker Configuration Tutorial](/tutorials/asset-tracking/tracker-configuration) for how all of these pieces fit together.
 

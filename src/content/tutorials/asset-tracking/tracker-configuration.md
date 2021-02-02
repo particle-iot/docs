@@ -13,13 +13,20 @@ The Tracker provides a customizable configuration system:
 - **Standard configuration** allows features like publish intervals, sleep settings, etc. to be configured from [the console](https://console.particle.io).
 - **Customized configuration** makes it possible to extend this to your own custom parameters!
 
+![](/assets/images/tracker/settings-engine2.png)
+
 Additionally:
 
 - **Devices that are currently online** receive the configuration updates immediately.
-- **Devices that are offline**, because of poor cellular coverage or use of sleep modes, receive a configuration update when they reconnect to the Particle cloud.
-
+- **Devices that are offline**, because of poor cellular coverage or use of sleep modes, receive configuration updates when they reconnect to the Particle cloud, if there were changes.
+- **On device, the configuration is cached** on the flash file system, so the last known configuration can be used before connecting to the cloud again.
 
 ## Configuration
+
+Configuration is scoped so you can have:
+
+- **Fleet-wide configuration** so all devices in your product have a common setting.
+- **Per-device configuration** that override settings for a specific device in your product (when marked as a development device).
 
 In addition to setting values directly from [the console](https://console.particle.io), you can get and set values from the [Particle Cloud API](/reference/device-cloud/api/#configuration).
 
@@ -43,10 +50,6 @@ The configuration is hierarchical:
   - conn max
   - ...
 
-Configuration is scoped so you can have:
-
-- **Fleet-wide configuration** so all devices in your product have a common setting.
-- **Per-device configuration** that override settings for a specific device in your product (when marked as a development device).
 
 ## Schemas
 
@@ -58,7 +61,7 @@ The schema serves several purposes:
 - Instructing the console how to display the options
 - Validating the configuration
 
-Using a custom schema, you can add additional configuration elements, either to an existing group (location, sleep, etc.) or to a new custom group for your product (recommended).
+Using a custom schema, you can add additional configuration elements, either to an existing group (location, sleep, etc.) or to a new custom group for your product (recommended). The new tabs or options are presented to all team members who have access to the product.
 
 ### Console
 
@@ -115,18 +118,18 @@ At this time, the schema can only be set using the Particle Cloud API. Examples 
 It's a good idea to make a backup copy of the schema before you modify it. The feature to delete the custom schema and revert to the factory default is planned but not currently implemented. 
 
 ```
-curl -X GET 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H 'Accept: application/schema+json'
+curl -X GET 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H 'Accept: application/schema+json' -o backup-schema.json
 ```
 
 - `:productId` with your product ID
 - `:accessToken` with a product access token, described above.
 
-This will return a big block of JSON data. Copy and paste this into a file for future use, if necessary.
+This will return a big block of JSON data and save it in the file backup-schema.json.
 
 Or, the device-specific schema for a development device:
 
 ```
-curl -X GET 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H 'Accept: application/schema+json'
+curl -X GET 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H 'Accept: application/schema+json' -o backup-schema.json
 ```
 
 - `:productId` with your product ID
@@ -185,7 +188,7 @@ Here's the whole file so you can see exactly where the data goes when merged wit
 
 The full example code for the engine configuration above can be found in the [AN017 Tracker CAN](https://github.com/particle-iot/app-notes/blob/master/AN017-Tracker-CAN/) application note.
 
-There is no UI for setting the configuration schema, you will need to set it using curl:
+There is no UI for setting the configuration schema yet, you will need to set it using curl:
 
 ```
 curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
@@ -195,7 +198,7 @@ curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?acc
 - `:deviceId` with your Device ID that is set as a development device. 
 - `:accessToken` with a product access token, described above.
 
-To restore the normal behavior, instead of using @testengine.json, use the backup schema you saved in the previous step.
+To restore the normal behavior, instead of using `@engine-schema.json`, use `@backup-schema.json` you saved in the previous step.
 
 Or, for product-wide configuration:
 
@@ -277,16 +280,15 @@ Tracker::instance().configService.registerModule(engineDesc);
 
 In setup(), associate the variables with the location in the configuration schema. While just a couple lines of code, this automatically takes care of:
 
-- Loading the saved configuration from the file system at boot, in case the device is offline.
+- Loading the saved configuration from the file system during setup(), in case the device is offline.
 - When the device comes online, getting any updates that occurred while offline.
 - If the device is already online and the settings are changed, they are pushed to the device automatically.
-
 
 For the full example, see the [AN017 Tracker CAN](https://github.com/particle-iot/app-notes/tree/master/AN017-Tracker-CAN), the CAN bus application note.
 
 ## Example
 
-Here's an example of how you set up a custom schema and use it from firmware.
+Here's an example of how you set up a custom schema and use it from firmware. It includes many of the available types of data.
 
 ### Schema - Example
 
@@ -366,13 +368,11 @@ curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=
 
 ### Console - Example
 
-And this is what it looks like in the console. 
+This is what it looks like in the console. 
 
 ![](/assets/images/tracker/settings-example.png)
 
-### Firmware - Example
-
-## Getting the Tracker Edge Firmware
+### Getting the Tracker Edge Firmware
 
 The Tracker Edge firmware can be downloaded from Github:
 
@@ -390,21 +390,23 @@ git submodule update --init --recursive
 - From the command palette, **Particle: Import Project**.
 - Run **Particle: Configure Workspace for Device**, select version 2.0.1, or later, Tracker, and your device.
 
-### main.cpp
+#### main.cpp
 
 {{codebox content="/assets/files/tracker/example/main.cpp" format="cpp" height="300"}}
 
 Really there are just three lines (all containing "MyConfig") added to the default main.cpp.
 
-### MyConfig.h
+#### MyConfig.h
 
 {{codebox content="/assets/files/tracker/example/MyConfig.h" format="cpp" height="300"}}
 
-### MyConfig.cpp
+#### MyConfig.cpp
 
 {{codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
 
-### Digging In
+### Digging In - Example
+
+#### Member variables in the C++ class
 
 ```cpp
 int32_t contrast = 12;
@@ -416,11 +418,25 @@ bool thing = false;
 
 The settings that you can configure in the console are all added as member variables in the MyConfig class.
 
+#### Accessing member variables
+
 ```cpp
 int32_t contrast = MyConfig::instance().getContrast();
 ```
 
 To access configuration settings, get the `MyConfig` instance, and call the accessor method `getContrast()`. There are accessors for all of the variables above.
+
+```cpp
+int32_t getContrast() const { return contrast; };
+double getTempLow() const { return tempLow; };
+Fruits getFruit() const { return (Fruits)fruit; };
+const char *getMessage() const { return message; };
+bool getThing() const { return thing; };
+```
+
+C++ getter functions are provided for convenience in the .h file.
+
+#### Defining an enumeration
 
 ```cpp
 enum class Fruits : int32_t {
@@ -437,7 +453,7 @@ However, in device firmware, it's sometimes easier to work with numeric constant
 
 The declaration above creates a Fruits enumeration. `MyConfig::Fruits::APPLE` has a value of 0 as in `int32_t`. `GRAPE` is 1, and so on.
 
----
+#### init() function
 
 ```cpp
 void MyConfig::init() {
@@ -502,7 +518,7 @@ The `init()` method maps between the member variables and the configuration data
 - Upon connecting to the cloud, checks to see if there are configuration updates.
 - While connected, if the configuration changes, immediately updates the location configuration and saved data in the file system.
 
----
+#### Simple mappings
 
 ```cpp
 ConfigInt("contrast", &contrast, 0, 255),
@@ -511,7 +527,7 @@ ConfigFloat("tempLow", &tempLow, -100.0, 200.0),
 
 Some of these are very straightforward. These map the keys to the variables that hold the configuration data.
 
----
+#### ConfigStringEnum
 
 ```cpp
 ConfigStringEnum(
@@ -548,7 +564,7 @@ This is how the string enum is mapped to the actual enumeration contents. The la
 
 One handy trick is that you can add more code to the setter so you will know when the value is updated by the cloud. In the contrast and lowTemp examples above the underlying value changes, but your code is not notified. Using a custom setter makes it easy to notify your code when a configuration change occurs.
 
----
+#### ConfigString
 
 ```cpp
 ConfigString("message", 
