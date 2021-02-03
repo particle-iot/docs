@@ -195,6 +195,9 @@ It's also possible to run Node-RED on your own computer, either natively or in a
 - [In a Docker container](#running-locally-docker)
 - [Native installation](#running-locally-native)
 
+If you are running Node-RED locally, you generally do not need to open firewall ports. The Particle cloud connection for subscribe is outgoing TLS/SSL (port 443), which allows the cloud to send data to Node-RED without firewall modifications. 
+
+If you want to access the Node-RED flow editor (port 1880) or dashboard from outside your local network you would need to configure port forwarding for most home networks. However, be sure to require logging in if you enable access!
 
 ### Running Locally - Docker
 

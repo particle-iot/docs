@@ -256,7 +256,7 @@ Left Connector:
 | :--- | :--- |
 | TX | Serial TX, Wire3 SCL, or GPIO D8 |
 | RX | Serial RX, Wire3 SDA, or GPIO D9 |
-| CAN_5V | 5V 400 mA, controlled by CAN_PWR |
+| CAN_5V | 5V 370 mA, controlled by CAN_PWR |
 | CAN_P | CAN+, CANP, or CANH |
 | CAN_N | CAN-, CANN, or CANL |
 | NC | |

@@ -342,7 +342,7 @@ and
 
 `particle call device_name led off`
 
-Remember to replace `device_name` with either your device ID or the nickname you made for your device when you set it up.
+Remember to replace `device_name` with either your device ID or the nickname you made for your device when you set it up. If you get an "The access token was not found" error, use `particle login` to log into your Particle account first.
 
 This does the same thing as our HTML page, but with a more slick interface.
 
@@ -663,7 +663,7 @@ and
 
 `particle call device_name led off`
 
-where device_name is your device ID or device name.
+where device_name is your device ID or device name. If you get an "The access token was not found" error, use `particle login` to log into your Particle account first.
 
 
 As for your Particle.variable, the API request will look something like this:

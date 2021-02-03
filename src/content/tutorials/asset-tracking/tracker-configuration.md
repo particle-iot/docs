@@ -81,7 +81,7 @@ This picture shows how elements in the schema directly map to what you can see i
 
 This is the full schema for Tracker Edge, as of version 11. You won't need to understand the whole thing yet, but this is what it looks like:
 
-{{codebox content="/assets/files/tracker/tracker-schema.json" format="json" height="300"}}
+{{codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
 
 
 ### Data types

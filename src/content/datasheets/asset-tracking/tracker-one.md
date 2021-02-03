@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(012)</sup>
+# Tracker One<sup>(013)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -101,7 +101,7 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 <sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector. 6.0 - 90 VDC at 2A when connecting directly to the board.
 
-<sup>4</sup>5V, 400 mA maximum. Controlled by the CAN_PWR GPIO.
+<sup>4</sup>5V, 370 mA maximum. Controlled by the CAN_PWR GPIO.
 
 Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/datasheets/asset-tracking/tracker-m8-accessories/).
 
@@ -377,3 +377,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 010      | 2020 Oct 14 | RK | Add temperature range |
 | 011      | 2020 Nov 05 | RK | Add power usage |
 | 012      | 2020 Dec 09 | RK | CAN termination resistor is not present |
+| 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |

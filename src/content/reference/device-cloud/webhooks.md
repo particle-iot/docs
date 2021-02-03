@@ -40,8 +40,6 @@ An event will trigger a webhook if:
 - The event name starts with the webhook `eventName`.
 - The device that published the event matches the webhook `deviceID` or all devices you own if `deviceID` is omitted.
 
-Note: events can be published publicly or privately from the firmware. Webhooks can trigger on either type of event as long as it is published by one of your devices.
-
 ## Webhook properties
 
 Webhook are created by specifying several properties in a configuration file in [JSON format](http://www.w3schools.com/js/js_json_intro.asp).
@@ -500,13 +498,26 @@ Explanation:
 - The second line (`hook-sent`) acknowledges that the Particle cloud forwarded your event to your webhook URL.
 - The third line (`hook-response`) contains the response received from your webhook URL. Large responses will generate multiple response events. Your device can subscribe to these events with `Particle.subscribe()` to receive the data.
 
-The response is cut into some number of chunks of about 512 bytes, and sent back to your device at a rate of one per 250ms, or about 4 per second.
-
 The event name will use the triggering event, not the webhook hook name filter.
 
 If your hook captures everything starting with `my-hooks`, but you published `my-hooks/get_weather`, then your response event name would be `hook-response/my-hooks/get_weather`.  Each packet event name includes the index of the packet in the response.
 
 The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
+
+### Multipart responses
+
+A response larger than 512 bytes will be split into multiple parts of 512 bytes. The events are of the form:
+
+- hook-response/name_of_my_event/0
+- hook-response/name_of_my_event/1
+- hook-response/name_of_my_event/2
+- ...
+
+All parts except the last will be exactly 512 bytes.
+
+The parts may arrive out of order. This has always been the case if retransmission occurred, but as of late 2020, it will happen regularly. The reason is that events now flow through multiple redundant servers for fault tolerance and performance, but this also means that events may arrive in a different order.
+
+There is no express indication of how many parts there are. Any part less than 512 bytes is the last part, however if the data is a multiple of 512 bytes, then it will be impossible to tell. Some formats like JSON will only be parsable after all parts have been received.
 
 ### Errors
 
@@ -525,6 +536,14 @@ Too many errors from a receiving server can result in [webhook
 throttling](#limits).
 
 The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
+
+### Ordering and Duplicates
+
+Events, and therefore webhooks, do not have guaranteed end-to-end delivery. If you need to guarantee delivery of events, you should send a separate acknowledgement to the device from your server.
+
+Events are not guaranteed to be delivered in the order they were sent. They typically will, and the longer you wait between them, the more likely they will arrive in order, but it is possible in the case of retransmission for events to arrive out-of-order.
+
+Likewise, events are delivered at least once. In the case of a lost acknowledgement, the device may retransmit the event, which would cause your webhook to execute twice for the same event. You should make sure your server code is aware of this possibility. 
 
 ## Using the Console
 

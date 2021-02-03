@@ -9877,6 +9877,7 @@ int setText(const char* text, const char* encoding)
 
 Note that all of the set options are mutually exclusive. Calling `NFC.setText()` will clear any `NFC.setUri()`, `NFC.setLaunchApp()`, etc..
 
+The maximum size is 988 bytes for a single text record. Adding multiple records will add some additional overhead for each NDEF message, 2 - 4 bytes, plus the length of the data.
 
 ### NFC.setUri()
 
@@ -9935,6 +9936,8 @@ The following NfcUriTypes are defined:
 
 Note that all of the set options are mutually exclusive. Calling `NFC.setUri()` will clear any setText, setLaunchApp, etc..
 
+The maximum size is 988 bytes for a single record. Adding multiple records will add some additional overhead for each NDEF message, 2 - 4 bytes, plus the length of the data.
+
 
 ### NFC.setLaunchApp()
 
@@ -9959,6 +9962,8 @@ int setCustomData(Record& record)
 ```
 
 Note that all of the set options are mutually exclusive. Calling `NFC.setCustomData()` will clear any `NFC.setText()`, `NFC.setUri()`, etc..
+
+The maximum size is 988 bytes for a single record. Adding multiple records will add some additional overhead for each NDEF message, 2 - 4 bytes, plus the length of the data.
 
 ### Record (NFC)
 
@@ -10831,7 +10836,7 @@ else
 // EXAMPLE USAGE - application-provided buffer
 UDP Udp;
 
-char appBuffer[800];
+uint8_t appBuffer[800];
 Udp.setBuffer(800, appBuffer);
 ```
 
@@ -14005,6 +14010,10 @@ The first example configures the cellular modem to both stay awake and for the n
 The second example adds the `SystemSleepNetworkFlag::INACTIVE_STANDBY` flag which keeps the cellular modem powered, but does not wake the MCU for received data. This is most similar to `SLEEP_NETWORK_STANDBY`.
 
 Note: You must not sleep longer than the keep-alive value, which by default is 23 minutes in order to wake on data received by cellular. The reason is that if data is not transmitted by the device before the keep-alive expires, the mobile network will remove the channel back to the device, so it can no longer receive data from the cloud. Fortunately in network sleep mode you can wake, transmit data, and go back to sleep in a very short period of time, under 2 seconds, to keep the connection alive without using significanly more battery power.
+
+If you use `NETWORK_INTERFACE_CELLULAR` without `INACTIVE_STANDBY`, then data from the cloud to the device (function, variable, subscribe, OTA) will wake the device from sleep. However if you sleep for less than the keep-alive length, you can wake up with zero additional overhead. This is offers the fastest wake time with the least data usage.
+
+If you use `INACTIVE_STANDBY`, the modem is kept powered, but the cloud is disconnected. This eliminates the need to go through a reconnection process to the cellular tower (blinking green) and prevents problems with aggressive reconnection. The device will not wake from sleep on functions, variables, or OTA. However, it also will cause the cloud to disconnect. The device will be marked offline in the console, and will go through a cloud session resumption on wake. This will result in the normal session negotiation and device vitals events at wake that are normally part of the blinking cyan phase.
 
 ### analog() (SystemSleepConfiguration)
 

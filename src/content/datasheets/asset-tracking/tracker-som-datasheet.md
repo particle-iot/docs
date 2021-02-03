@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(011)</sup>
+# Tracker SoM Datasheet <sup>(012)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -497,7 +497,7 @@ A detailed explanation of different color codes of the RGB system LED can be fou
 | Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 800 | mA |
 | LiPo Battery Voltage | V<sub>LiPo</sub> | -0.5 |  | +6.0 | V |
 | CAN Supply Voltage | | 5 | | V |
-| CAN Supply Current | | | 400 | mA |
+| CAN Supply Current | | | 370 | mA |
 | **I/O pin voltage** | | | | | | 
 | VI/O | IO | -0.3 |  | +3.6 | V |
 | **NFC antenna pin current** | | | | | |
@@ -692,7 +692,7 @@ GNSS GPIO:
 - CAN bus pins are disconnected when device is unpowered
 - High-ESD protection on CANH and CANL, meets IEC61000-4-2 up to ±8 kV
 - Very low standby current, 10 uA, typical
-- 5V step-up converter (XCL9142F40CER), 400 mA maximum
+- 5V step-up converter (XCL9142F40CER), 370 mA maximum
 - CAN terminator resistor is not included
 
 CAN GPIO:
@@ -1150,3 +1150,4 @@ The bootloader allows you to easily update the user application via several diff
 | 009      | 2020 Sep 16 | RK | Added power consumption information |
 | 010      | 2002 Sep 25 | RK | Fixed typo in Istop_usart maximum current |
 | 011      | 2002 Oct 01 | RK | Fixed VIN maximum voltage in text (is 17V not 12V) |
+| 012      | 2021 Feb 03 | RK | Change CAN output current to 370 mA |

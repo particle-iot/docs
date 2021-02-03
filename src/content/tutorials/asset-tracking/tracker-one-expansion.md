@@ -37,7 +37,7 @@ The 8-pin connector has these signals:
 
 <sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector. 6.0 - 90 VDC at 2A when connecting directly to the board.
 
-<sup>4</sup>5V, 400 mA maximum. Controlled by the `CAN_PWR` GPIO.
+<sup>4</sup>5V, 370 mA maximum. Controlled by the `CAN_PWR` GPIO.
 
 ![M8 connector](/assets/images/at-som/M8-connector.png)
 
@@ -52,9 +52,9 @@ While the picture above includes both USB-C and M8 cables, it's also possible to
 
 ### Power (out) 
 
-There is an optional 5V 400 mA power output (`CAN 5V`) that is controlled by the `CAN_PWR` GPIO. It is available in all power modes (battery, USB, and VIN); there is an on-board boost converter to produce 5V from the 3.7V LiPo battery.
+There is an optional 5V 370 mA power output (`CAN 5V`) that is controlled by the `CAN_PWR` GPIO. It is available in all power modes (battery, USB, and VIN); there is an on-board boost converter to produce 5V from the 3.7V LiPo battery.
 
-If you are building an expansion device that is battery or USB powered, you can use `CAN 5V` to power your expansion device, eliminating the need to add a separate power supply. Note that this is limited to 400 mA at 5V and the Tracker SoM GPIO are limited to 3.3V, so you may need to add a 3.3V regulator on your expansion board to convert `CAN 5V` to 3.3V.
+If you are building an expansion device that is battery or USB powered, you can use `CAN 5V` to power your expansion device, eliminating the need to add a separate power supply. Note that this is limited to 370 mA at 5V and the Tracker SoM GPIO are limited to 3.3V, so you may need to add a 3.3V regulator on your expansion board to convert `CAN 5V` to 3.3V.
 
 ### CAN
 

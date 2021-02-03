@@ -6,7 +6,7 @@ order: 2
 description: Datasheet for the Particle B Series B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B402 Datasheet <sup>(006)</sup>
+# B402 Datasheet <sup>(007)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -487,6 +487,13 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 {{imageOverlay src="/assets/images/b-series/schematic-sim.png" alt="SIM and Flash" class="full-width"}}
 
+
+---
+
+### Buffers
+
+{{imageOverlay src="/assets/images/b-series/schematic-buffers.png" alt="Buffers"}}
+
 ## Default settings
 
 The B series comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
@@ -505,3 +512,4 @@ The bootloader allows you to easily update the user application via several diff
 | 004      | 16-Sep-2020 | RK | Added power consumption information |
 | 005      | 16-Dec-2020 | RK | Added missing TBD power consumption values |
 | 006      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
+| 007      | 03-Feb-2021 | RK | Split u-blox schematics into two images |

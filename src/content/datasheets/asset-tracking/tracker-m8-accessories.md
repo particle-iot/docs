@@ -6,7 +6,7 @@ order: 20
 description: Datasheet for Tracker One M8 connector accessories
 ---
 
-# Tracker M8 Accessories<sup>(001)</sup>
+# Tracker M8 Accessories<sup>(002)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-m8-accessories.pdf"}}
@@ -50,7 +50,7 @@ The 8-pin connector has these signals:
 
 <sup>3</sup>6.0 to 30 VDC at 2A when using the M8 connector.
 
-<sup>4</sup>5V, 400 mA maximum. Controlled by the `CAN_PWR` GPIO.
+<sup>4</sup>5V, 370 mA maximum. Controlled by the `CAN_PWR` GPIO.
 
 You typically connect the cable to your custom external interface device by routing the cable through a cable gland in your enclosure and to your custom board and:
 
@@ -139,4 +139,4 @@ This connector has the same pinouts as the cable above, but without the cable, s
 | Revision | Date | Author | Comments |
 |:---------|:-----|:-------|:---------|
 | 001      | 2020 Sep 15 | RK | First release |
-
+| 002      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
