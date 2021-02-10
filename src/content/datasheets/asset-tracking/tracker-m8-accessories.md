@@ -6,7 +6,7 @@ order: 20
 description: Datasheet for Tracker One M8 connector accessories
 ---
 
-# Tracker M8 Accessories<sup>(002)</sup>
+# Tracker M8 Accessories<sup>(003)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-m8-accessories.pdf"}}
@@ -122,7 +122,11 @@ The key on the M8 panel connector is at 3 o'clock (right side, nearest to the US
 
 ## M8 Connector 
 
-![M8 Connector](/assets/images/at-som/at-m8-connector-straight-iso.png)
+The ONEM8CONN is a connector similar to the M8 connector on the straight ONEM8CAB. It's intended for building your own M8 cable assembly and is the female side of the connector that mates with the Tracker One M8 connector. It is a bare connector and does not include a shroud. It is intended that your cable manufacturer will add an overmould to seal your cable to the connector.
+
+![M8 Connector](/assets/images/at-som/at-m8-connector1.png)
+![M8 Connector](/assets/images/at-som/at-m8-connector2.png)
+
 
 ### SKUs - M8 Connector
 
@@ -140,3 +144,4 @@ This connector has the same pinouts as the cable above, but without the cable, s
 |:---------|:-----|:-------|:---------|
 | 001      | 2020 Sep 15 | RK | First release |
 | 002      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
+| 003      | 2021 Feb 10 | RK | Update picture of ONEM8CONN |
