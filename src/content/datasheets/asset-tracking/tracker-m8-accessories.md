@@ -6,7 +6,7 @@ order: 20
 description: Datasheet for Tracker One M8 connector accessories
 ---
 
-# Tracker M8 Accessories<sup>(003)</sup>
+# Tracker M8 Accessories<sup>(004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-m8-accessories.pdf"}}
@@ -59,6 +59,8 @@ You typically connect the cable to your custom external interface device by rout
 - Terminate by soldering the wires to your board
 
 For more information on expanding your Tracker One using the M8 connector, see the [Tracker One Expansion Tutorials](/tutorials/asset-tracking/tracker-one-expansion/).
+
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/RX/SDA, D9/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
 ## M8 Cables
 
@@ -145,3 +147,4 @@ This connector has the same pinouts as the cable above, but without the cable, s
 | 001      | 2020 Sep 15 | RK | First release |
 | 002      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
 | 003      | 2021 Feb 10 | RK | Update picture of ONEM8CONN |
+| 004      | 2021 Feb 17 | RK | Add note about Tracker One M8 GPIO requiring CAN_5V |

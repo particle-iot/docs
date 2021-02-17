@@ -70,6 +70,8 @@ There are three multi-function pins:
 | 4      | Serial1 RX | Wire3 SDA | GPIO D8   | 
 | 5      | Serial1 TX | Wire3 SCL | GPIO D9   | 
 
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/RX/SDA, D9/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+
 For example: If you are using `Serial1`, you cannot use `Wire3` (I2C) and can only use one other GPIO (`D3`). 
 
 If you are using `Wire3` (I2C), you can't use `Serial1` or `D8` or `D9`.
@@ -87,6 +89,7 @@ If you are in need of more ports, the best solution is to use the multi-function
 - FRAM non-volatile data storage
 
 Note that Serial, I2C, GPIO, and ADC on the Tracker SoM can only be used at 3.3V maximum. The pins are **not** 5V tolerant!
+
 
 ### Connecting Your Expansion Device
 

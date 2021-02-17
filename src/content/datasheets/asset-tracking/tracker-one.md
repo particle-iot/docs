@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(013)</sup>
+# Tracker One<sup>(014)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -105,6 +105,8 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/datasheets/asset-tracking/tracker-m8-accessories/).
 
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/RX/SDA, D9/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+
 ---
 
 ### Carrier Board Power and I/O Connector
@@ -198,7 +200,13 @@ As the GNSS antenna faces the top of the case, you also want the top of the case
 ---
 ## Tracker One Schematics
 
-Will be provided at a later date.
+{{imageOverlay src="/assets/images/tracker/trackerone-sch1.png" alt="Schematic 1" class="full-width"}}
+
+{{imageOverlay src="/assets/images/tracker/trackerone-sch2.png" alt="Schematic 2" class="full-width"}}
+
+{{imageOverlay src="/assets/images/tracker/trackerone-sch3.png" alt="Schematic 3" class="full-width"}}
+
+{{imageOverlay src="/assets/images/tracker/trackerone-sch4.png" alt="Schematic 4" class="full-width"}}
 
 ---
 
@@ -378,3 +386,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 011      | 2020 Nov 05 | RK | Add power usage |
 | 012      | 2020 Dec 09 | RK | CAN termination resistor is not present |
 | 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
+| 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
