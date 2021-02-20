@@ -8403,6 +8403,17 @@ int setScanParameters(const BleScanParams* params) const;
 
 See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more information.
 
+#### BLE.setScanCoded()
+
+Sets the physical layer used in scanning. If called with the argument "true", scanning will respond only to advertisements in Coded Phy, 125 MBPS format. If called with the argument "false", scanning will respond only to advertisements in the standard 1 MBPS format. (Note that these are mutually exclusive.)
+
+Coded Phy is a new feature in BLE 5 that employs redundancy and error-correction, trading off speed in favor of noise immunity. In theory it could double the range achievable, but in practice you may expect closer to a 50% increase in range. 
+
+```cpp
+// PROTOTYPE
+int setScanCoded(bool use_coded) const;
+```
+
 #### BLE.connect()
 
 In a central device the logic typically involves:
