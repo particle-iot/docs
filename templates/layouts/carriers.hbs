@@ -1,0 +1,140 @@
+<!doctype html>
+<html class="{{columns}}-columns">
+<head>
+  {{> head sectionTitle='Tutorials'}}
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+     <script src="/assets/js/datastore.js"></script>
+     <script src="/assets/js/dataui.js"></script>
+     <script src="/assets/js/carriers.js"></script>
+</head>
+<body>
+  <div id="docs" data-level>
+    {{> header}}
+
+    <div class='content-root'>
+      <div class='menubar'>
+
+      <ul class="nav guide-menu" data-swiftype-index="false">
+        {{#each reference}}
+        <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
+          <h3 class="guide-section-titles" >{{{titleize section}}}</h3>
+            <ul type="1">
+              {{#each this}}
+                <li class="top-level {{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
+                  {{#page-equal ../../path.href ../../path.name path.href path.name}}
+                    <span>{{{title}}}</span>
+                    {{#if ../../../toc}}
+                      <i id="toggle-in-page-nav" class="ion-minus"></i>
+                    {{/if}}
+                  {{else}}
+                    <a href="{{path.href}}{{path.name}}">{{title}}</a>
+                  {{/page-equal}}
+                </li>
+                {{#page-equal ../../path.href ../../path.name path.href path.name}}
+                  {{#if ../../../toc}}
+                    <div class="in-page-toc-container">
+                      <ul class="nav in-page-toc show">
+                        {{#each ../../../../toc}}
+                        <li class="middle-level" data-nav="">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
+                          {{#if children}}
+                            <ul class="nav secondary-in-page-toc">
+                              {{#each children}}
+                                <li data-secondary-nav=""><a href="#{{id}}">{{{text}}}</a></li>
+                              {{/each}}
+                            </ul>
+                          {{/if}}
+                        {{/each}}
+                      </ul>
+                    </div>
+                  {{/if}}
+                {{/page-equal}}
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+
+      </div>
+      <div class="page-body">
+        <div class='content-inner'>
+          <div class="content api-docs">
+            {{{contents}}}
+
+<div id="mainDiv">
+
+<div id="carrierTabs">
+    <a class="nav active" id="carrierTabByDevice">By Device</a>
+    <a class="nav" id="carrierTabFindDevice">Find Device</a>
+</div> <!-- carrierTabs -->
+
+
+<div id="carrierByDeviceDiv">
+
+    <form>
+        <table>
+            <tr>
+                <td class="carrierFormLabel">Device:</td>
+                <td><select id="deviceList"></select></td>
+            </tr>
+            <tr>
+                <td class="carrierFormLabel">Region:</td>
+                <td><select id="regionList"></select></td>
+            </tr>
+        </table>
+    </form>
+        
+    <div>
+        <table id="countryCarrierTable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div> <!-- carrierByDeviceDiv -->
+
+<div id="carrierFindDeviceDiv" style="display: none;">
+    <p>&nbsp;</p>
+    <form>
+        <div>
+        <input type="radio" id="country2RegionRadio" name="country2Radio" value="region">
+        <label for="country2RegionRadio">Region <select id="country2RegionSel">
+        </select></label>
+        
+        <input type="radio" id="country2CountryRadio" name="country2Radio" value="country">
+        <label for="country2CountryRadio">Country <input type="text" size="30" id="country2Text" autocomplete="off"/></label>
+        </div>
+        
+        <div id="country2Popup" class="countryPopup">
+        <table id="country2CountryList" class="countryPopup">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+        </div>
+
+        <div>
+        <input type="checkbox" id="country2ShowCarriers" checked="checked" />
+        <label for="country2ShowCarriers">Show carriers</label>
+        </div>
+
+        <div>
+            <input type="checkbox" id="country2ShowNRND" />
+            <label for="country2ShowNRND">Show devices not recommended for new designs (NRND)</label>
+        </div>
+        
+    </form>
+        
+    <div id="recDiv">
+    </div>
+</div> <!-- carrierFindDeviceDiv -->
+
+
+</div> <!-- mainDiv -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> scripts}}
+</body>
+</html>
