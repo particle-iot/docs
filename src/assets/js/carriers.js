@@ -122,22 +122,6 @@ carriers2.init = function(options, callback) {
     callback();
 };
 
-const carrierSelectTabs = ['ByDevice', 'FindDevice'];
-
-function carrierSelectTab(which) {
-
-    carrierSelectTabs.forEach(function(tab) {
-        if (which == tab) {
-            $('#carrierTab' + tab).addClass('active');
-            $('#carrier' + tab + 'Div').show();
-        }
-        else {
-            $('#carrierTab' + tab).removeClass('active');
-            $('#carrier' + tab + 'Div').hide();
-        }
-    });
-}
-
 
 // 
 // Find Device
@@ -452,12 +436,121 @@ rec2.init = function(options, callback) {
     callback();
 };
 
+//
+// Family Map
+//
+const mapsApiKey = 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY';
 
+let familyMap = {};
+
+familyMap.drawMap = function() {
+    const family = $('#' + familyMap.options.familySelect).val();
+
+    const skuFamilyObj = datastore.findSkuFamily(family);
+
+    let models = [];
+    skuFamilyObj.group.forEach(function(obj) {
+        if (obj.lifecycle == 'GA') {
+            models.push(obj);
+        }
+    });
+
+    let countryModelArray = [['Country', 'Model']];
+
+    datastore.data.countries.forEach(function(countryObj) {
+
+        let foundModel;
+
+        datastore.data.countryModemSim.forEach(function(cmsObj) {
+            if (countryObj.name != cmsObj.country || cmsObj.recommendation != 'YES') {
+                return;
+            }
+
+            models.forEach(function(modelObj, modelIndex) {
+                if (modelObj.sim == cmsObj.sim && modelObj.modem == cmsObj.modem) {
+                    foundModel = modelIndex;
+                }
+            });
+        });    
+        if (foundModel != undefined) {
+            countryModelArray.push([countryObj.isoCode, foundModel]);
+        }
+    });
+
+    var data = google.visualization.arrayToDataTable(countryModelArray);
+
+    var options = {
+        colorAxis: {colors: ['86E2D5', '00AEEF']}, // teal to cyan
+        legend: 'none',
+        tooltip: {trigger: 'none'}
+    };
+
+    var chart = new google.visualization.GeoChart(document.getElementById(familyMap.options.mapDiv));
+
+    chart.draw(data, options);
+
+    // 
+    {
+        let html = '<div><table><thead><tr><th></th><th>SKU</th><th>Description</th></tr></thead><tbody>';
+
+        models.forEach(function(skuFamilyObj, modelIndex) {
+            const style = 'background-color:#' + options.colorAxis.colors[modelIndex];
+
+            datastore.data.skus.forEach(function(skuObj) {
+                if (skuObj.sim != skuFamilyObj.sim || skuObj.modem != skuFamilyObj.modem || skuObj.family != family) {
+                    return;
+                }
+                
+                html += '<tr><td style="' + style + '">&nbsp;&nbsp;</td><td>' + skuObj.name + '</td><td>' + skuObj.desc + '</td></tr>';
+            });
+        });
+        html += '</tbody></table></div>';
+
+        $('#' + familyMap.options.skusDiv).html(html);
+    }
+
+}
+
+familyMap.init = function(options, callback) {
+    // options: 
+    // mapDiv - ID for map div
+    // familySelect - ID for family select element
+    familyMap.options = options;
+
+    google.charts.load('current', {
+        'packages':['geochart'],
+        'mapsApiKey': mapsApiKey
+    });
+    google.charts.setOnLoadCallback(familyMap.drawMap);
+    
+
+    $('#' + familyMap.options.familySelect).on('change', familyMap.drawMap);
+
+    callback();
+};
 
 
 //
 // Initialization
 //
+const carrierSelectTabs = ['ByDevice', 'FindDevice', 'ModelMap'];
+
+function carrierSelectTab(which) {
+
+    carrierSelectTabs.forEach(function(tab) {
+        if (which == tab) {
+            $('#carrierTab' + tab).addClass('active');
+            $('#carrier' + tab + 'Div').show();
+        }
+        else {
+            $('#carrierTab' + tab).removeClass('active');
+            $('#carrier' + tab + 'Div').hide();
+        }
+    });
+}
+
+
+
 $(document).ready(function() {
     carrierSelectTabs.forEach(function(tab) {
         $('#carrierTab' + tab).on('click', function() {
@@ -481,7 +574,15 @@ $(document).ready(function() {
                 resultDiv:'recDiv'
             },
             function() {
-    
+                familyMap.init({
+                    mapDiv:'familyMapDiv',
+                    familySelect:'familyMapSelect',
+                    skusDiv:'familyMapSkusDiv'
+                },
+                function() {
+        
+                });   
+        
             });   
 
         });   

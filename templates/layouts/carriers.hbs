@@ -6,6 +6,7 @@
      <script src="/assets/js/datastore.js"></script>
      <script src="/assets/js/dataui.js"></script>
      <script src="/assets/js/carriers.js"></script>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
   <div id="docs" data-level>
@@ -65,6 +66,7 @@
 <div id="carrierTabs">
     <a class="nav active" id="carrierTabByDevice">By Device</a>
     <a class="nav" id="carrierTabFindDevice">Find Device</a>
+    <a class="nav" id="carrierTabModelMap">Model Map</a>
 </div> <!-- carrierTabs -->
 
 
@@ -126,6 +128,31 @@
     <div id="recDiv">
     </div>
 </div> <!-- carrierFindDeviceDiv -->
+
+<div id="carrierModelMapDiv">
+
+  <form>
+      <table>
+          <tr>
+              <td class="carrierFormLabel">Device Family:</td>
+              <td>
+                  <select id="familyMapSelect">
+                      <option value="tracker">Tracker</option>
+                      <option value="b series">B Series SoM</option>
+                      <option value="boron">Boron</option>
+                      <option value="e series">E Series</option>
+                      <option value="electron">Electron</option>
+                  </select>
+              </td>
+          </tr>
+      </table>
+  </form>
+      
+  <div id="familyMapDiv" style="width: 900px; height: 500px;"></div>
+
+  <div id="familyMapSkusDiv"></div>
+
+</div> <!-- carrierModelMapDiv -->
 
 
 </div> <!-- mainDiv -->

@@ -117,6 +117,17 @@ datastore.findSkusWithSameSimAndModem = function(name, lifecycles) {
     return results;
 };
 
+datastore.findSkuFamily = function(family) {
+    for(let ii = 0; ii < datastore.data.skuFamily.length; ii++) {
+        const obj = datastore.data.skuFamily[ii];
+        if (obj.family == family) {
+            return obj;
+        }
+    }
+
+    return null;
+};
+
 datastore.findTechnologiesForModems = function(modemsOpt) {
     let results = [];
     if (!modemsOpt) {

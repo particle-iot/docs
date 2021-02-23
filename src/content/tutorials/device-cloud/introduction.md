@@ -86,6 +86,72 @@ In practice, this feature was vary rarely intentionally used and frequently unin
 
 Updating your device firmware and Device OS can be done securely over the Particle cloud connection that's used for the other device cloud features.
 
+
+## Pricing
+
+### Pricing Tiers
+
+#### Free Tier
+
+Cellular, Tracker, and Wi-Fi devices can be free to use!
+
+- Up to 100 devices, any mix of cellular and Wi-Fi
+- 85,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- No credit card required
+- Products can be prototyped in the free tier
+- Device communication is paused when the monthly limit is reached
+- Community support
+
+#### Growth Tier
+
+- A block includes 250,000 data operations per month and up to 100 devices
+- Add as many blocks as you need for more data operations or more devices
+- No limit to the number of blocks you can purchase self-service
+- Up to 125 MB of cellular data per month, pooled across all devices, for each block purchased
+- Email support
+- Available in June 2021
+
+#### Enterprise Tier
+
+- Enterprise tier depends on number of data operations and number of devices
+- Discounts for higher enterprise tier commitments
+- [Contact sales](https://particle.io/sales/) for more information
+
+### Data Operations
+
+- Each publish, subscribe, function, or variable consumes one data operation regardless of size (currently limited to 622 bytes per operation)
+- Stored data, such as Tracker geolocation data, consume one data operation per location point saved
+- Each user-initiated device ping consumes one data operation
+
+The following do **not** count against your data operations limit:
+
+- Over-the-air firmware updates do not count against your data operations limit
+- Acknowledgements, session negotiation, device vitals, keep-alives etc. do not count against your data operations limit
+- Webhooks and server-sent-events (SSE) do not count against your data operations limit
+- Particle cloud API calls do not count against your data operations limit
+
+
+### Blocks
+
+Blocks are a maximum number of data operations and devices per month in the growth tier:
+
+- Up to 250,000 data operations
+- Up to 100 devices
+- Up to 125 MB of cellular data per month, pooled across all devices
+- Price varies for Wi-Fi, Cellular, and Tracker
+- Add as many blocks are you need
+
+For example, if you have 150 devices you will need 2 blocks, even if your data operations do not yet exceed 250,000. 
+
+Likewise, if you are using 400,000 data operations per month, you will need 2 blocks, even of you have fewer than 100 devices.
+
+### Non-Particle cloud traffic
+
+For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
+
+For cellular devices, there is a data limit depending on your tier. For the free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including data operations, OTA code flash, overhead, and 3rd-party services.
+
 ## Wi-Fi Support
 
 | Feature | Gen 2 | Gen 3 |
