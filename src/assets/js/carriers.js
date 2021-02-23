@@ -430,8 +430,24 @@ rec2.init = function(options, callback) {
     rec2.regionSel = {};
     dataui.setupRegionCountrySelector(rec2.regionSel, rec2.options.idBase, rec2.selectMenu);
 
-    $('#' + rec2.options.idBase + 'ShowCarriers').on('change', rec2.selectMenu);
-    $('#' + rec2.options.idBase + 'ShowNRND').on('change', rec2.selectMenu);
+    $('#' + rec2.options.idBase + 'ShowCarriers').on('change', function() {
+        if ($(this).attr('checked') == 'checked') {
+            $(this).removeAttr('checked');
+        }
+        else {
+            $(this).attr('checked','checked');
+        }
+        rec2.selectMenu();
+    });
+    $('#' + rec2.options.idBase + 'ShowNRND').on('change', function() {
+        if ($(this).attr('checked') == 'checked') {
+            $(this).removeAttr('checked');
+        }
+        else {
+            $(this).attr('checked','checked');
+        }
+        rec2.selectMenu();
+    });
 
     callback();
 };
