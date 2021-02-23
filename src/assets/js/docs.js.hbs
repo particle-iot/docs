@@ -290,7 +290,7 @@ Created by Zach Supalla.
 
   Docs.catchRedirectLinks = function() {
     $(document).on('click', 'a', function (e) {
-      var components = $(this).attr('href').split("#");
+      var components = ($(this).attr('href')||'').split("#");
       var href = components[0].replace(/\/$/, '');
       var hash = components[1];
       var redirect = applyRedirect(href);
