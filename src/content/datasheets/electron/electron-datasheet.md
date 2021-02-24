@@ -623,6 +623,190 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | 1   | RESISTOR   | 5.49K, 1/16W, 1%| 0402| R18| Fenghua| RC-02W5491FT|
 | 2   | SWITCH     | 160gF|3.6mm x 3.1mm| MODE, RESET| Haoyu| TS-1185A-C|
 
+---
+
+
+## Country compatibility
+
+{{!-- BEGIN do not edit content below, it is automatically generated 0ca3e34e-76e2-11eb-9439-0242ac130002 --}}
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Afghanistan | ELC314 | 2G, 3G | Etisalat |
+| Albania | ELC314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
+| Algeria | ELC314 | 2G, 3G | Mobilis, Ooredoo |
+| Angola | ELC314 | 2G, 3G | Unitel |
+| Anguilla | ELC314 | 2G, 3G | Flow |
+| Antigua and Barbuda | ELC314 | 2G, 3G | Flow |
+| Argentina | ELC314 | 2G, 3G | Claro, Movistar, Personal |
+| Armenia | ELC314 | 2G, 3G | Beeline |
+| Australia | ELC314 | 3G | Optus, Telstra, Vodafone |
+| Austria | ELC314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
+| Azerbaijan | ELC314 | 2G, 3G | NAR Mobile |
+| Bahamas | ELC314 | 2G, 3G | Aliv |
+| Bahrain | ELC314 | 2G, 3G | Zain |
+| Bangladesh | ELC314 | 2G, 3G | Bangalink, GrameenPhone |
+| Barbados | ELC314 | 2G, 3G | Flow |
+| Belarus | ELC314 | 2G, 3G | A1, MTS |
+| Belgium | ELC314 | 2G, 3G | Base, Orange, Proximus |
+| Belize | ELC314 | 2G, 3G | DigiCell, Smart |
+| Benin | ELC314 | 2G, 3G | Moov |
+| Bolivia | ELC314 | 2G, 3G | NuevaTel |
+| Bonaire | ELC314 | 2G, 3G | Digicel |
+| Bosnia and Herzegovina | ELC314 | 2G, 3G | BH Telecom |
+| Brazil | ELC314 | 2G, 3G | TIM, Vivo |
+| Brunei | ELC314 | 2G, 3G | DST, Progresif |
+| Bulgaria | ELC314 | 2G, 3G | A1, Telenor, Vivacom |
+| Burkina Faso | ELC314 | 2G, 3G | Orange |
+| Burundi | ELC314 | 2G, 3G | Smart |
+| Cambodia | ELC314 | 2G, 3G | Metfone |
+| Cameroon | ELC314 | 2G, 3G | MTN |
+| Canada | ELC404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Cayman Islands | ELC314 | 2G, 3G | Flow |
+| Chad | ELC314 | 2G, 3G | Airtel, Tigo |
+| Chile | ELC314 | 2G, 3G | Claro, Entel, Movistar |
+| Colombia | ELC314 | 2G, 3G | Claro, Tigo |
+| Congo (Brazzaville) | ELC314 | 2G, 3G | Airtel |
+| Congo (Kinshasa) | ELC314 | 2G, 3G | Africell, Airtel, Vodacom |
+| Costa Rica | ELC314 | 2G, 3G | ICE, Movistar |
+| Côte d'Ivoire | ELC314 | 2G, 3G | MTN |
+| Croatia | ELC314 | 2G, 3G | Hrvatski Telekom, Tele2 |
+| Cyprus | ELC314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
+| Czechia | ELC314 | 2G, 3G | O2, T-Mobile, Vodafone |
+| Denmark | ELC314 | 2G, 3G | 3 (Tre), TDC, Telenor, Telia |
+| Dominica | ELC314 | 2G, 3G | Flow |
+| Dominican Republic | ELC314 | 2G, 3G | Altice Dominicana, Claro, Viva |
+| Ecuador | ELC314 | 2G, 3G | Claro, Movistar |
+| Egypt | ELC314 | 2G, 3G | Orange, Vodafone |
+| El Salvador | ELC314 | 2G, 3G | Claro, Telefonica |
+| Equatorial Guinea | ELC314 | 2G, 3G | Muni |
+| Estonia | ELC314 | 2G, 3G | Elisa, Tele2, Telia |
+| eSwatini | ELC314 | 2G, 3G | MTN |
+| Ethiopia | ELC314 | 2G, 3G | Ethio Telecom |
+| Faroe Islands | ELC314 | 2G, 3G | Vodafone |
+| Fiji | ELC314 | 2G, 3G | Digicel |
+| Finland | ELC314 | 2G, 3G | DNA, Elisa, Telia |
+| France | ELC314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
+| French Guiana | ELC314 | 2G, 3G | Digicel |
+| Gabon | ELC314 | 2G, 3G | Airtel |
+| Gambia | ELC314 | 2G, 3G | Africell, Qcell |
+| Georgia | ELC314 | 2G, 3G | Beeline, Geocell |
+| Germany | ELC314 | 2G, 3G | O2, Telekom, Vodafone |
+| Ghana | ELC314 | 2G, 3G | AirtelTigo, Vodafone |
+| Gibraltar | ELC314 | 2G, 3G | Gibtel |
+| Greece | ELC314 | 2G, 3G | Cosmote, Vodafone, Wind |
+| Greenland | ELC314 | 2G, 3G | Tele |
+| Grenada | ELC314 | 2G, 3G | Flow |
+| Guadeloupe | ELC314 | 2G, 3G | Orange |
+| Guam | ELC314 | 2G, 3G | IT&E |
+| Guatemala | ELC314 | 2G, 3G | Claro, Movistar |
+| Guinea | ELC314 | 2G, 3G | MTN |
+| Guinea-Bissau | ELC314 | 2G, 3G | MTN |
+| Guyana | ELC314 | 2G, 3G | Digicel |
+| Haiti | ELC314 | 2G, 3G | Digicel |
+| Honduras | ELC314 | 2G, 3G | Tigo |
+| Hong Kong | ELC314 | 2G, 3G | 3, CMHK, CSL, PCCW Mobile, SmarTone |
+| Hungary | ELC314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
+| Iceland | ELC314 | 2G, 3G | Nova, Siminn, Vodafone |
+| India | ELC314 | 2G, 3G | Airtel, Jio, VI |
+| Indonesia | ELC314 | 2G, 3G | 3, Indosat, Telkomsel, XL Axiata |
+| Iran | ELC314 | 2G, 3G | O2 |
+| Ireland | ELC314 | 2G, 3G | 3 (Tre), Meteor, Vodafone |
+| Israel | ELC314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
+| Italy | ELC314 | 2G, 3G | TIM, Vodafone, Wind |
+| Jamaica | ELC314 | 2G, 3G | Digicel, Flow |
+| Japan | ELC314 | 3G | NTT DoCoMo, Softbank |
+| Jordan | ELC314 | 2G, 3G | Orange, Zain |
+| Kazakhstan | ELC314 | 2G, 3G | Beeline, K-Cell, MTS |
+| Kenya | ELC314 | 2G, 3G | Airtel, Safaricom |
+| Kiribati | ELC314 | 2G, 3G | ATHKL |
+| Kosovo | ELC314 | 2G, 3G | Monaco Telecom |
+| Kuwait | ELC314 | 2G, 3G | Viva, Zain |
+| Kyrgyzstan | ELC314 | 2G, 3G | Beeline |
+| Latvia | ELC314 | 2G, 3G | Bite, LMT, Tele2 |
+| Lesotho | ELC314 | 2G, 3G | Econet Telecom |
+| Liechtenstein | ELC314 | 2G, 3G | Orange |
+| Lithuania | ELC314 | 2G, 3G | Bite, Omnitel, Tele2 |
+| Luxembourg | ELC314 | 2G, 3G | Orange, POST, Tango |
+| Malawi | ELC314 | 2G, 3G | Airtel |
+| Malaysia | ELC314 | 2G, 3G | Celcom, DiGi, Maxis |
+| Mali | ELC314 | 2G, 3G | Orange |
+| Malta | ELC314 | 2G, 3G | Go Mobile, Vodafone |
+| Mexico | ELC404 | M1 | AT&T |
+| Moldova | ELC314 | 2G, 3G | Moldcell |
+| Monaco | ELC314 | 2G, 3G | Monaco Telecom |
+| Mongolia | ELC314 | 2G, 3G | Mobicom, Unitel |
+| Montenegro | ELC314 | 2G, 3G | Telenor |
+| Montserrat | ELC314 | 2G, 3G | Flow |
+| Mozambique | ELC314 | 2G, 3G | Movitel, Vodacom |
+| Myanmar | ELC314 | 2G, 3G | MPT, Ooredoo, Telenor |
+| Namibia | ELC314 | 2G, 3G | Telecom Namibia |
+| Nepal | ELC314 | 2G, 3G | Nepal Telecom |
+| Netherlands | ELC314 | 2G, 3G | KPN, T-Mobile, Vodafone |
+| New Zealand | ELC314 | 2G, 3G | 2degrees, Spark, Vodafone |
+| Nicaragua | ELC314 | 2G, 3G | Movistar |
+| Niger | ELC314 | 2G, 3G | Orange |
+| Nigeria | ELC314 | 2G, 3G | 9mobile, Airtel, Glo, MTN, Nitel |
+| Norway | ELC314 | 2G, 3G | TDC, Telenor, Telia |
+| Oman | ELC314 | 2G, 3G | Omantel |
+| Pakistan | ELC314 | 2G, 3G | Mobilink, Telenor, Warid |
+| Palestine | ELC314 | 2G, 3G | Jawwal |
+| Panama | ELC314 | 2G, 3G | Digicel, Movistar |
+| Papua New Guinea | ELC314 | 2G, 3G | Digicel |
+| Paraguay | ELC314 | 2G, 3G | Claro, Personal, Vox |
+| Peru | ELC314 | 2G, 3G | Claro, Entel, Movistar |
+| Philippines | ELC314 | 2G, 3G | Globe, Smart |
+| Poland | ELC314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
+| Portugal | ELC314 | 2G, 3G | NOS, TMN, Vodafone |
+| Puerto Rico | ELC314 | 2G, 3G | Claro |
+| Qatar | ELC314 | 2G, 3G | Vodafone |
+| Romania | ELC314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Russia | ELC314 | 2G, 3G | Beeline, MTS, Tele2 |
+| Rwanda | ELC314 | 2G, 3G | MTN |
+| Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
+| Saint Lucia | ELC314 | 2G, 3G | Flow |
+| Saint Vincent and the Grenadines | ELC314 | 2G, 3G | Flow |
+| Samoa | ELC314 | 2G, 3G | Digicel |
+| Saudi Arabia | ELC314 | 2G, 3G | STC, Zain |
+| Serbia | ELC314 | 2G, 3G | Telenor |
+| Singapore | ELC314 | 3G | SingTel, StarHub |
+| Sint Maarten | ELC314 | 2G, 3G | TelCell |
+| Slovakia | ELC314 | 2G, 3G | O2, Orange, Telekom |
+| Slovenia | ELC314 | 2G, 3G | A1, Mobitel |
+| Somalia | ELC314 | 2G, 3G | Telesom |
+| South Africa | ELC314 | 2G, 3G | Cell C, MTN, Telkom, Vodacom |
+| South Korea | ELC314 | 3G | KT, SK Telecom |
+| South Sudan | ELC314 | 2G, 3G | MTN |
+| Spain | ELC314 | 2G, 3G | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | ELC314 | 2G, 3G | Dialog, Hutch |
+| Suriname | ELC314 | 2G, 3G | Telesur |
+| Sweden | ELC314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | ELC314 | 2G, 3G | Salt, Swisscom |
+| Taiwan | ELC314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tajikistan | ELC314 | 2G, 3G | Beeline |
+| Tanzania | ELC314 | 2G, 3G | Airtel, Smart, Viettel |
+| Thailand | ELC314 | 2G, 3G | AIS, DTAC, True Move |
+| Tonga | ELC314 | 2G, 3G | Digicel |
+| Trinidad and Tobago | ELC314 | 2G, 3G | Digicel |
+| Tunisia | ELC314 | 2G, 3G | Ooredoo |
+| Turkey | ELC314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
+| Turks and Caicos Islands | ELC314 | 2G, 3G | Flow |
+| Uganda | ELC314 | 2G, 3G | Africell, Airtel, MTN, Uganda Telecom |
+| Ukraine | ELC314 | 2G, 3G | Kyivstar, Life |
+| United Arab Emirates | ELC314 | 2G, 3G | du, Etisalat |
+| United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Vodafone |
+| United States | ELC404 | M1 | AT&T |
+| Uruguay | ELC314 | 2G, 3G | Antel, Claro, Movistar |
+| Uzbekistan | ELC314 | 2G, 3G | Beeline |
+| Vanuatu | ELC314 | 2G, 3G | Digicel |
+| Venezuela | ELC314 | 2G, 3G | Movistar |
+| Vietnam | ELC314 | 2G, 3G | MobiFone, Viettel |
+| Virgin Islands (British) | ELC314 | 2G, 3G | CCT, Flow |
+| Zambia | ELC314 | 2G, 3G | Airtel, Zamtel |
+| Zimbabwe | ELC314 | 2G, 3G | Econet, Telecel |
+
+{{!-- END do not edit content above, it is automatically generated 0ca3e34e-76e2-11eb-9439-0242ac130002 --}}
+
+---
 ## Ordering information
 
 Electrons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G, and 3G versions.
@@ -796,28 +980,3 @@ We are tracking [known errata with this datasheet here](https://github.com/parti
 **Email**
 
 [https://support.particle.io](https://support.particle.io)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

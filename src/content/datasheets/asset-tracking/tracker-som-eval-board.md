@@ -214,6 +214,8 @@ To be provided at a later date.
 
 Weight will be provided at a later date.
 
+---
+
 ## Ordering Information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 698155b6-76d7-11eb-9439-0242ac130002 --}}
@@ -254,5 +256,3 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | pre1     | 31 Mar 2020 | RK | Preview Release |
 | pre2     | 12 May 2020 | RK | Added partial dimensions |
 | 001      | 29 Jun 2020 | RK | First release |
-
-

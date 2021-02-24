@@ -334,6 +334,82 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 222 | 608  | uA |
 
 
+---
+
+
+## Country compatibility
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2f3d1a14-76de-11eb-9439-0242ac130002 --}}
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Albania | T524/ONE404 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Austria | T524/ONE404 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Belarus | T524/ONE404 | 2G, 3G, Cat1 | A1, MTS |
+| Belgium | T524/ONE404 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Bosnia and Herzegovina | T524/ONE404 | 2G, 3G, Cat1 | BH Telecom |
+| Bulgaria | T524/ONE404 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Canada | T404/ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Croatia | T524/ONE404 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Czechia | T524/ONE404 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Denmark | T524/ONE404 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Estonia | T524/ONE404 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| Faroe Islands | T524/ONE404 | 2G, 3G, Cat1 | Vodafone |
+| Finland | T524/ONE404 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| France | T524/ONE404 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| Germany | T524/ONE404 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Gibraltar | T524/ONE404 | 2G, 3G, Cat1 | Gibtel |
+| Greece | T524/ONE404 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Hungary | T524/ONE404 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
+| Iceland | T524/ONE404 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Ireland | T524/ONE404 | 2G, 3G, Cat1 | 3 (Tre), Meteor, Vodafone |
+| Italy | T524/ONE404 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Kosovo | T524/ONE404 | 2G, 3G, Cat1 | Monaco Telecom |
+| Latvia | T524/ONE404 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
+| Liechtenstein | T524/ONE404 | 2G, 3G, Cat1 | Orange |
+| Lithuania | T524/ONE404 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
+| Luxembourg | T524/ONE404 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Malta | T524/ONE404 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Mexico | T404/ONE404 | M1 | AT&T |
+| Moldova | T524/ONE404 | 2G, 3G, Cat1 | Moldcell |
+| Monaco | T524/ONE404 | 2G, 3G, Cat1 | Monaco Telecom |
+| Montenegro | T524/ONE404 | 2G, 3G, Cat1 | Telenor |
+| Netherlands | T524/ONE404 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| Norway | T524/ONE404 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Poland | T524/ONE404 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
+| Portugal | T524/ONE404 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Romania | T524/ONE404 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Serbia | T524/ONE404 | 2G, 3G, Cat1 | Telenor |
+| Slovakia | T524/ONE404 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovenia | T524/ONE404 | 2G, 3G, Cat1 | A1, Mobitel |
+| Spain | T524/ONE404 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sweden | T524/ONE404 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | T524/ONE404 | 2G, 3G, Cat1 | Salt, Swisscom |
+| United Kingdom | T524/ONE404 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Vodafone |
+| United States | T404/ONE404 | M1 | AT&T |
+
+{{!-- END do not edit content above, it is automatically generated 2f3d1a14-76de-11eb-9439-0242ac130002 --}}
+
+---
+
+## Ordering Information
+
+{{!-- BEGIN do not edit content below, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
+| SKU | Description | Region | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :--- | :--- | :--- | :--- |
+| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
+| ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | GA | |
+| ONE404MTY-NB | Tracker One LTE M1 (NorAm), no battery, Bulk [x40] | NORAM | BG96-MC | GA | |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | GA | |
+| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), no battery, Bulk [x40] | EMEAA | EG91-EX | GA | |
+| ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | ONE404MEA|
+| ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | NRND | ONE404MTY|
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | ONE524MEA|
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | NRND | ONE524MTY|
+
+{{!-- END do not edit content above, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
+
+
 
 ---
 
@@ -358,25 +434,6 @@ This device must be treated as Waste Electrical & Electronic Equipment (WEEE) wh
 Any WEEE marked waste products must not be mixed with general household waste, but kept separate for the treatment, recovery and recycling of the materials used. For proper treatment, recovery and recycling; please take all WEEE marked waste to your Local Authority Civic waste site, where it will be accepted free of charge. If all consumers dispose of Waste Electrical & Electronic Equipment correctly, they will be helping to save valuable resources and preventing any potential negative effects upon human health and the environment of any hazardous materials that the waste may contain.
 
 
-## Ordering Information
-
-{{!-- BEGIN do not edit content below, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
-| SKU | Description | Region | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
-| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
-| ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | GA | |
-| ONE404MTY-NB | Tracker One LTE M1 (NorAm), no battery, Bulk [x40] | NORAM | BG96-MC | GA | |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | GA | |
-| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), no battery, Bulk [x40] | EMEAA | EG91-EX | GA | |
-| ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | ONE404MEA|
-| ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | NRND | ONE404MTY|
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | ONE524MEA|
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | NRND | ONE524MTY|
-
-{{!-- END do not edit content above, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
-
-
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -397,6 +454,3 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 012      | 2020 Dec 09 | RK | CAN termination resistor is not present |
 | 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
 | 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
-
-
-

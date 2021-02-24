@@ -17,6 +17,12 @@ const docsToUpdate = [
                 generatorFn:function() {
                     return generateFamilySkus('electron'); 
                 } 
+            },
+            {
+                guid:'0ca3e34e-76e2-11eb-9439-0242ac130002',
+                generatorFn:function() {
+                    return generateCountryList('electron'); 
+                } 
             }
         ]
     },
@@ -27,6 +33,12 @@ const docsToUpdate = [
                 guid:'26c8707c-76ca-11eb-9439-0242ac130002', 
                 generatorFn:function() {
                     return generateFamilySkus('e series'); 
+                } 
+            },
+            {
+                guid:'2445e222-76e2-11eb-9439-0242ac130002',
+                generatorFn:function() {
+                    return generateCountryList('e series'); 
                 } 
             }
         ]
@@ -75,6 +87,16 @@ const docsToUpdate = [
                         }        
                     }); 
                 } 
+            },
+            {
+                guid:'c9241a2c-76e0-11eb-9439-0242ac130002',
+                generatorFn:function() {
+                    return generateCountryList('b series', {
+                        groupFn:function(groupObj) {
+                            return groupObj.modem != 'R410';
+                        }
+                    }); 
+                } 
             }
         ]
     },
@@ -88,6 +110,16 @@ const docsToUpdate = [
                         filterFn:function(skuObj) {
                             return skuObj.skuRegion != 'emeaa';
                         }        
+                    }); 
+                } 
+            },
+            {
+                guid:'99975710-76e0-11eb-9439-0242ac130002',
+                generatorFn:function() {
+                    return generateCountryList('b series', {
+                        groupFn:function(groupObj) {
+                            return groupObj.modem != 'EG91-E';
+                        }
                     }); 
                 } 
             }
@@ -105,6 +137,12 @@ const docsToUpdate = [
                         }        
                     }); 
                 } 
+            },
+            {
+                guid:'2f3d1a14-76de-11eb-9439-0242ac130002',
+                generatorFn:function() {
+                    return generateCountryList('tracker'); 
+                } 
             }
         ]
     },
@@ -119,6 +157,12 @@ const docsToUpdate = [
                             return !skuObj.name.startsWith('T') || skuObj.skuClass == 'eval';
                         }        
                     }); 
+                } 
+            },
+            {
+                guid:'8e7b0446-76de-11eb-9439-0242ac130002',
+                generatorFn:function() {
+                    return generateCountryList('tracker'); 
                 } 
             }
         ]
@@ -175,44 +219,92 @@ function generateCountryList(skuFamily, options) {
         options = {};
     }
 
+    let modems = [];
+    let shortModelForModem = {};
+
+    datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+        if (skuFamilyObj.family != skuFamily) {
+            return;
+        }
+        skuFamilyObj.group.forEach(function(groupObj) {
+            if (groupObj.sim != 4) {
+                return;
+            }
+            if (options.groupFn && options.groupFn(groupObj)) {
+                return;
+            }
+            modems.push(groupObj.modem);
+            shortModelForModem[groupObj.modem] = groupObj.short;
+        });
+    });
+
     // Filter
-    let countries = [];
+    let countryModemSimFiltered = [];
 
     datastore.data.countryModemSim.forEach(function(cmsObj) {
         if (cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
             // Wrong SIM or not recommended, skip
             return;
         }
-
-        if (!countries.includes(cmsObj.country)) {
-            // Add if not already added
-            countries.push(cmsObj.country);
+        if (!modems.includes(cmsObj.modem)) {
+            return;
         }
+
+        countryModemSimFiltered.push(cmsObj);
     });
 
     // Render
     let md = '';
 
-    // Country 2G 3G Cat1 M1 Model
+    // Country 2G 3G Cat1 M1 Model Carriers?
+    md += '| Country | Model | Technologies | Carriers |\n';
+    md += '| :--- | :--- | :--- | :--- |\n';
 
-    return md;
+    technologies = ['2G', '3G', 'Cat1', 'M1'];
 
-    /*
-    datastore.data.skuFamily.forEach(function(skuFamilyObj) {
-        if (skuObj.family != skuFamily) {
-            return;
-        }
-        // skuFamilyObj.name (human readable family name)
+    countryModemSimFiltered.forEach(function(cmsObj) {
+        let showTechnologies = [];
+        let carriers = [];
 
-        skuFamilyObj.group.forEach(function(groupObj) {
-            // name, region, lifecycle, sim, simPlan, modem
-            if (groupObj.sim != 4) {
+        const modemObj = datastore.findModemByModel(cmsObj.modem);
+
+        datastore.data.countryCarrier.forEach(function(ccObj) {
+            if (ccObj.country != cmsObj.country) {
                 return;
             }
-            
+            if (!ccObj.supersim || ccObj.supersim.prohibited) {
+                return;
+            }   
+            let hasTech = false;
+
+            technologies.forEach(function(tech) {
+                if (!modemObj.technologies.includes(tech)) {
+                    return;
+                }
+                if (!ccObj.supersim['allow' + tech]) {
+                    return;
+                }
+                if (!showTechnologies.includes(tech)) {
+                    showTechnologies.push(tech);
+                }
+                hasTech = true;
+            });
+            if (!hasTech) {
+                return;
+            }
+            carriers.push(ccObj.carrier);
         });
+
+
+        showTechnologies.sort();
+
+
+        md += '| ' + cmsObj.country + ' | ' + shortModelForModem[cmsObj.modem] + ' | ' + showTechnologies.join(', ');
+        md += ' | ' + carriers.join(', ') + ' |\n';
+
     });
-    */
+
+    return md;
 
 };
 
@@ -311,6 +403,16 @@ function updateDocs(docsPath, guid, md) {
 		}
 		
 	});
+
+    // Make postData end with exactly one \n, otherwise it keeps getting one added on each run
+    let len = postData.length;
+    while(len > 0 && postData.charAt(len - 1) == '\n') {
+        len--;
+    }
+    if ((len + 1) < postData.length) {
+        postData = postData.substr(0, len + 1);
+    }
+
 	
     if (preData != '' && postData != '') {
         var newDocsData = preData + md + '\n' + postData;
