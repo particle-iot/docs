@@ -16,7 +16,7 @@ Particle provides a number of devices with cellular connectivity including the T
 - 85,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to 45 MB of cellular data per month, pooled across all devices, at no charge
 - No credit card required
-- Products can be prototyped in the free tier
+- Products can be prototyped in the Free tier
 - Device communication is paused when the monthly limit is reached
 - Community support
 
@@ -35,9 +35,9 @@ The following do **not** count against your data operations limit:
 - Webhooks and server-sent-events (SSE) do not count against your data operations limit
 - Particle cloud API calls do not count against your data operations limit
 
-### Cellular data limit
+### Cellular Data Limit
 
-For cellular devices, there is a data limit depending on your tier. For the free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including data operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of data operations, so you probably won't need to worry about the exact number of bytes for each operation.
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including data operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of data operations, so you probably won't need to worry about the exact number of bytes for each operation.
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 

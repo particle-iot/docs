@@ -99,7 +99,7 @@ Cellular, Tracker, and Wi-Fi devices can be free to use!
 - 85,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to 45 MB of cellular data per month, pooled across all devices, at no charge
 - No credit card required
-- Products can be prototyped in the free tier
+- Products can be prototyped in the Free tier
 - Device communication is paused when the monthly limit is reached
 - Community support
 
@@ -114,8 +114,9 @@ Cellular, Tracker, and Wi-Fi devices can be free to use!
 
 #### Enterprise Tier
 
-- Enterprise tier depends on number of data operations and number of devices
-- Discounts for higher enterprise tier commitments
+- Enterprise tiers include a maximum number of devices, data operations, storage, and cellular data
+- Data operations and cellular data are pooled across all devices annually
+- Discounts for higher Enterprise tier commitments
 - [Contact sales](https://particle.io/sales/) for more information
 
 ### Data Operations
@@ -131,10 +132,9 @@ The following do **not** count against your data operations limit:
 - Webhooks and server-sent-events (SSE) do not count against your data operations limit
 - Particle cloud API calls do not count against your data operations limit
 
-
 ### Blocks
 
-Blocks are a maximum number of data operations and devices per month in the growth tier:
+Blocks are a maximum number of data operations and devices per month in the Growth tier:
 
 - Up to 250,000 data operations
 - Up to 100 devices
@@ -150,7 +150,52 @@ Likewise, if you are using 400,000 data operations per month, you will need 2 bl
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
-For cellular devices, there is a data limit depending on your tier. For the free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including data operations, OTA code flash, overhead, and 3rd-party services.
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including data operations, OTA code flash, overhead, and 3rd-party services.
+
+### Limits
+
+#### Where can I check my usage limits?
+
+The [Particle Console](https://console.particle.io) lists the three limits you will most likely encounter:
+
+- The number of devices (both cellular and Wi-Fi)
+- The number of data operations consumed this billing month
+- The number of MB of cellular usage this billing month
+
+Note that the cellular data usage is not real-time. It can take at least 24 hours, and in some cases may lag several days behind actual usage.
+
+#### What happens if I need more than 100 devices?
+
+You cannot add more than 100 devices to the Free tier. You instead will need to upgrade to the Growth tier. 
+
+You can have any number of devices in the Growth tier, but you will need to purchase another block for each group of 100 devices. It's not possible to purchase a fractional block for devices only; each block includes a maximum number of devices, data operations, and cellular data usage, and exceeding any one limit will require purchasing an additional block.
+
+There is no limit to the number of blocks you can purchase in the Growth tier, however upgrading to an enterprise contract can reduce the cost.
+
+#### What happens if I exceed the number of data operations?
+
+In the Free tier, if you need more data operations you will need to upgrade to the Growth tier. You cannot add more data operations to the Free tier. When you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed.
+
+In the Growth tier, if you need more than 250,000 data operations across your fleet of devices per month, you will need to add another block.
+
+In the Enterprise tier, the number of data operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
+
+#### What happens if I exceed the cellular data quota?
+
+In the Free tier, if you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the Free tier.
+
+In the Growth tier, if you exceed the pooled monthly data quota, you can add an additional block to add more data.
+
+In the Enterprise tier, the amount of cellular data is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
+
+#### What is the maximum rate I can send data?
+
+[Publishes from a device](/reference/device-os/firmware/#particle-publish-) a limited to 1 per second, at the maximum publish payload size of 622 UTF-8 characters.
+
+There are no additional limits placed on webhooks. However, if the server you are sending to cannot process the data within 20 seconds or returns an error because it is overloaded, traffic to the server will be throttled, and the [events will be discarded](http://localhost:8080/reference/device-cloud/webhooks/#limits).
+
+While there is no specific rate limit on variables and functions, there are practical limits on how fast the device can return data. The device can only process one function or variable at a time. Additionally, if you have more than a few devices you will instead [run into API rate limits](/reference/device-cloud/api/#api-rate-limits) which limit how fast you can make requests to the Particle cloud APIs. You should avoid polling your entire device fleet frequently using functions or variables, as this is likely to cause scalability issues.
+
 
 ## Wi-Fi Support
 
