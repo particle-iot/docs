@@ -375,8 +375,6 @@ exports.server = function (callback) {
           '${source}/assets/less/*.less': 'assets/less/*.less',
           '../templates/layouts/reference.hbs': 'content/reference/*.md',
           '../templates/layouts/datasheet.hbs': 'content/datasheets/**/*.md',
-          '../templates/layouts/support.hbs': 'content/support/**/*.md',
-          '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
           '../templates/layouts/community.hbs': 'content/community/*.md',
           '../templates/layouts/workshops.hbs': 'content/workshops/**/*.md',
