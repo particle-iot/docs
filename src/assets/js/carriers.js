@@ -575,7 +575,7 @@ $(document).ready(function() {
     });
 
 
-    datastore.init(function() {
+    datastore.init({path:'/assets/files/carriers.json'}, function() {
         dataui.populateRegionSelectors();
 
         carriers2.init({

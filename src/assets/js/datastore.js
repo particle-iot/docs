@@ -3,8 +3,10 @@ let datastore = {};
 
 datastore.data = {};
 
-datastore.init = function(callback) {
-    $.getJSON('/assets/files/carriers.json', function(data) {
+datastore.init = function(options, callback) {
+    datastore.options = options;
+    
+    $.getJSON(datastore.options.path, function(data) {
         datastore.data = data;
 
         if (callback) {
