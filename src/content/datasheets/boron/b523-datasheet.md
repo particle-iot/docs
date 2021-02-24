@@ -523,6 +523,18 @@ The B series comes pre-programmed with a bootloader and a user application calle
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
+## Ordering information
+
+{{!-- BEGIN do not edit content below, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
+| SKU | Description | Region | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :--- | :--- | :--- | :--- |
+| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | GA | |
+| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | GA | |
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | NRND | B524MEA|
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | NRND | B524MTY|
+
+{{!-- END do not edit content above, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
+
 
 
 ## Revision history
@@ -533,3 +545,5 @@ The bootloader allows you to easily update the user application via several diff
 | 002      | 30 Jul 2020 | RK | Added explanation of DIV connector |
 | 003      | 16-Sep-2020 | RK | Added power consumption information |
 | 004      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
+
+

@@ -7,7 +7,7 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 ---
 
 
-# Electron Datasheet <sup>(v007)</sup>
+# Electron Datasheet <sup>(v008)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
@@ -26,7 +26,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Features
 
- * U-blox SARA-U260/U270 (3G with 2G fallback), G350 (2G), or R410M (LTE Cat M1) cellular module
+ * U-blox SARA-U201/U260/U270 (3G with 2G fallback), G350 (2G), or R410M (LTE Cat M1) cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
@@ -37,7 +37,7 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Real-time operation system (RTOS)
  * FCC, CE and IC certified
 
-<sup>[1]</sup>The LTE model uses a MFF2 SMD Particle SIM instead of a physical SIM card. The Electron LTE is only available to existing enterprise customers who have deployed an Electron 2G/3G solution and would like to upgrade to LTE. It is only available in tray quantities. New designs should use the Boron LTE or B Series B402 SoM. It can only be used in the United States, Canada, and Mexico at this time.
+<sup>[1]</sup>The LTE model uses a MFF2 SMD Particle SIM instead of a physical SIM card. The Electron LTE is only available to existing enterprise customers who have deployed an Electron 2G/3G solution and would like to upgrade to LTE. It is only available in tray quantities. New designs should use the Boron LTE or B Series B404 SoM. It can only be used in the United States, Canada, and Mexico at this time.
 
 ## Interfaces
 
@@ -54,7 +54,7 @@ Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on 
 #### VIN
 The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
-The Electron LTE (ELC402, LTE Cat 1) can be powered with as little as 550 mA at 5V.
+The Electron LTE (ELC404 & ELC402, LTE Cat 1) can be powered with as little as 550 mA at 5V.
 
 #### LiPo Battery
 When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 1,800mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.
@@ -389,6 +389,7 @@ Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobil
 
 | Electron 3G Module  | Compatible Countries |
 | :------------------ |:---|
+| U201 | Global |
 | U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, New Zealand, Nicaragua, Panama, Paraguay, Peru, Venezuela |
 | U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
 | R410M | United States, Canada, Mexico |
@@ -396,21 +397,30 @@ Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobil
 
 Please be sure to order a board that works in the country where you want to deploy your project.
 
-#### 2G cellular characteristics for G350, U260, and U270 modules:
-|Parameter | SARA-U260 | SARA-U270 | SARA-G350 |
-|:---|:---|:---|:---|
-|Protocol stack| 3GPP Release 7 | 3GPP Release 7 | 3GPP Release 99 |
-|MS Class | Class B | Class B | Class B |
-|Bands | GSM 850 MHz PCS 1900 MHz | E-GSM 900 MHz DCS 1800 MHz| GSM 850 MHz E-GSM 900 MHz DCS 1800 MHz PCS 1900 MHz|
-|Power Class | Class 4 (33 dBm) for 850 band Class 1 (30 dBm) for 1900 band|Class 4 (33 dBm) for 900 band Class 1 (30 dBm) for 1800 band|Class 4 (33 dBm) for 850/900 bands Class 1 (30 dBm) for 1800/1900 bands|
+#### 2G cellular characteristics for G350, U201, U260, and U270 modules:
+|Parameter | SARA-U201 | SARA-U260 | SARA-U270 | SARA-G350 |
+|:---|:---|:---|:---|:---|
+|Protocol stack| 3GPP Release 7 | GPP Release 7 | 3GPP Release 7 | 3GPP Release 99 |
+|MS Class | Class B | Class B | Class B | Class B |
+| GSM 850 MHz Band | &check; | &check; | &nbsp; | &check; |
+| E-GSM 900 MHz Band | &check; | &nbsp; | &check; | &check; |
+| DSC 1800 MHz Band | &check; | &nbsp; | &check; | &check; |
+| PCS 1900 MHz Band | &check; | &check; | &nbsp; | &check; |
+| Power Class 850/900 | Class 4 (33 dBm)  | Class 4 (33 dBm) | Class 4 (33 dBm) | Class 4 (33 dBm) |
+| Power Class 1800/1900 | Class 1 (30 dBm) | Class 1 (30 dBm) | Class 1 (30 dBm) | Class 1 (30 dBm) | 
 
-#### 3G cellular characteristics for U260, and U270 modules:
-|Parameter | SARA-U260 | SARA-U270 |
-|:---|:---|:---|
-|Protocol stack| 3GPP Release 7 | 3GPP Release 7 |
-|UE Class| Class A | Class A|
-|Bands | Band V (850 MHz) Band II (1900 MHz)| Band VIII (900 MHz) Band I (2100 MHz) |
-|Power Class | Class 3 (24 dBm) for all bands| Class 3 (24 dBm) for all bands |
+#### 3G cellular characteristics for U201, U260, and U270 modules:
+|Parameter | SARA-U201 | SARA-U260 | SARA-U270 |
+|:---|:---|:---|:---|
+|Protocol stack| 3GPP Release 7 | 3GPP Release 7 | 3GPP Release 7 |
+|UE Class| Class A | Class A | Class A|
+| Band 5 (850 MHz) | &check; | &check; | &nbsp; |
+| Band 8 (900 MHz) | &check; | &nbsp; | &check; |
+| Band 1 (2100 MHz) | &check; | &nbsp; | &check; |
+| Band 2 (1900 MHz) | &check; | &check; | &nbsp; |
+|Power Class | Class 3 (24 dBm) |Class 3 (24 dBm) | Class 3 (24 dBm) |
+
+
 
 #### LTE cellular characteristics for the SARA-R410M-02-B module
 
@@ -617,6 +627,22 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 
 Electrons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G, and 3G versions.
 
+{{!-- BEGIN do not edit content below, it is automatically generated ab31991a-76c5-11eb-9439-0242ac130002 --}}
+| SKU | Description | Region | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :--- | :--- | :--- | :--- |
+| ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | GA | |
+| ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
+| E260KIT | Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | Americas | U260 | NRND | ELC314TY|
+| E260TRAY50 | Electron 2G/3G (Americas/Aus), Tray [x50] | Americas | U260 | NRND | ELC314TY|
+| E270KIT | Electron 2G/3G (EMEA) Starter Kit, [x1] | EMEAA | U270 | NRND | ELC314TY|
+| E270TRAY50 | Electron 2G/3G (EMEA), Tray [x50] | EMEAA | U270 | NRND | ELC314TY|
+| E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | NRND | ELC314TY|
+| ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | ELC404EA|
+| ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | ELC404TY|
+
+{{!-- END do not edit content above, it is automatically generated ab31991a-76c5-11eb-9439-0242ac130002 --}}
+
+
 ## Product Handling
 
 ### ESD Precautions
@@ -697,6 +723,7 @@ The final end product must be labeled in a visible area with the following:
 > Contains FCC ID:
 
  * XPYSARAG350 (For 2G Electron using the G350 module)
+ * XPYSARAU201 (For 3G Electron using the U201 module)
  * XPYSARAU260 (For 3G Electron using the U260 module)
  * XPYSARAU270 (For 3G Electron using the U270 module)
  * XPY2AGQN4NNN (For LTE Electron module using the R410 module)
@@ -749,7 +776,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v004 | 27-Oct-2016 | BW | Replaced one STM32F205RGY6 with STM32F205RGT6, and replaced all STM32 mentions with full part number STM32F205RGT6 |
 | v005 | 14-Aug-2017 | BW | Updated DCD layout and Memory Map, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI, SPI1 and SPI2), updated the Pin Description section and added high resolution pinout PDF, updated LED Status section, VBAT info, added Power the Electron without a battery section |
 | v006     | 31-Jul-2019   | RK     |  Added LTE information |
-| v017 | 16-Sep-2020 | RK | Added power consumption information |
+| v007 | 16-Sep-2020 | RK | Added power consumption information |
+| v008 | 24-Feb-2021 | RK | Added ELC314 information |
 
 ## Known Errata
 
@@ -768,3 +796,23 @@ We are tracking [known errata with this datasheet here](https://github.com/parti
 **Email**
 
 [https://support.particle.io](https://support.particle.io)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

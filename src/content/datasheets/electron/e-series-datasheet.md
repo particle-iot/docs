@@ -387,7 +387,7 @@ Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobil
 
 For a complete list of carriers and supported countries, see the [carrier guide](/tutorials/cellular-connectivity/cellular-carriers/).
 
-#### 2G cellular characteristics E310:
+#### 2G cellular characteristics E314 & E310:
 |Parameter | SARA-U201 | 
 |:---|:---|
 |Protocol stack| 3GPP Release 7 | 
@@ -399,7 +399,7 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 |Power Class | Class 4 (33 dBm) for 850/900 bands |
 | | Class 1 (30 dBm) for 1800/1900 bands|
 
-#### 3G cellular characteristics E310:
+#### 3G cellular characteristics E314 & E310:
 |Parameter | SARA-U201
 |:---|:---|
 |Protocol stack| 3GPP Release 7 | 
@@ -412,7 +412,7 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 
 ---
 
-#### LTE cellular characteristics E402
+#### LTE cellular characteristics E404 & E402
 
 | Parameter | Value |
 | --- | --- |
@@ -536,6 +536,38 @@ The output (3.8V net) of the PMIC is fed directly to the u-blox cellular module 
 
 The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/MAX17043-MAX17044.pdf) fuel gauge to monitor the LiPo battery voltage and it's state of charge. The microcontroller communicates with it over an I2C interface (same channel as the PMIC).
 
+## Product Variants
+
+|Name|Connectivity                   |Geography             |u-blox variant|Band Support|
+|:---|:------------------------------|:---------------------|:-------------|:-----------|
+|E314|3G with 2G fallback (EtherSIM) |Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
+|E310|3G with 2G fallback (pre-2021) |Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
+|E404|LTE M1 only (EtherSIM) |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
+|E402|LTE M1 only (pre-2021) |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
+
+## Ordering information
+
+{{!-- BEGIN do not edit content below, it is automatically generated 26c8707c-76ca-11eb-9439-0242ac130002 --}}
+| SKU | Description | Region | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :--- | :--- | :--- | :--- |
+| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | GA | |
+| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | GA | |
+| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | GA | |
+| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | GA | |
+| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
+| E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 | NRND-US | |
+| E313TY | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 | NRND-US | |
+| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 | NRND | E314KIT|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 | NRND | E314MOD1|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | NRND | E404KIT|
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | E404MOD1|
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | E404TRAY50|
+| E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 | Discontinued | |
+
+{{!-- END do not edit content above, it is automatically generated 26c8707c-76ca-11eb-9439-0242ac130002 --}}
+
+
 ## Product Handling
 
 ### ESD Precautions
@@ -579,12 +611,6 @@ You may use the [Particle Web IDE](https://build.particle.io) to code, compile a
 |OTA | Over The Air; describing how firmware is transferred to the device. |
 |uC  | Microcontroller |
 
-## Product Variants
-
-|Name|Connectivity       |Geography             |u-blox variant|Band Support|
-|:---|:------------------|:---------------------|:-------------|:-----------|
-|E310|3G with 2G fallback|Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
-|E402|LTE M1 only        |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
@@ -677,3 +703,14 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 **Email**
 
 [https://support.particle.io](https://support.particle.io)
+
+
+
+
+
+
+
+
+
+
+

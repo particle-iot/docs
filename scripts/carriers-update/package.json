@@ -1,0 +1,18 @@
+{
+  "name": "carriers-update",
+  "description": "Tool to update docs Markdown when carriers.json is updated",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "author": "rick@particle.io",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {}
+}
