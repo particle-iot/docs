@@ -414,6 +414,7 @@ The complete schematic and board files are open source and available on Particle
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+
 {{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
 
 
@@ -575,6 +576,16 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 **Email**
 
 [https://support.particle.io](https://support.particle.io)
+
+
+
+
+
+
+
+
+
+
 
 
 

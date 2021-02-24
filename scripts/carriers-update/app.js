@@ -92,7 +92,54 @@ const docsToUpdate = [
                 } 
             }
         ]
+    },
+    {
+        path:'/datasheets/asset-tracking/tracker-one.md', 
+        updates:[
+            {
+                guid:'9aef0d9c-76d6-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateFamilySkus('tracker', {
+                        filterFn:function(skuObj) {
+                            return !skuObj.name.startsWith('ONE');
+                        }        
+                    }); 
+                } 
+            }
+        ]
+    },
+    {
+        path:'/datasheets/asset-tracking/tracker-som-datasheet.md', 
+        updates:[
+            {
+                guid:'04ad48d4-76d7-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateFamilySkus('tracker', {
+                        filterFn:function(skuObj) {
+                            return !skuObj.name.startsWith('T') || skuObj.skuClass == 'eval';
+                        }        
+                    }); 
+                } 
+            }
+        ]
+    },
+    {
+        path:'/datasheets/asset-tracking/tracker-som-eval-board.md', 
+        updates:[
+            {
+                guid:'698155b6-76d7-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateFamilySkus('tracker', {
+                        filterFn:function(skuObj) {
+                            return !skuObj.name.startsWith('T') || skuObj.skuClass != 'eval';
+                        }        
+                    }); 
+                } 
+            }
+        ]
     }
+
+    
 
 ];
 
@@ -124,7 +171,30 @@ function doUpdate() {
 };
 
 function generateCountryList(skuFamily, options) {
+    if (!options) {
+        options = {};
+    }
 
+    // Filter
+    let countries = [];
+
+    datastore.data.countryModemSim.forEach(function(cmsObj) {
+        if (cmsObj.sim != 4 || cmsObj.recommendation != 'YES') {
+            // Wrong SIM or not recommended, skip
+            return;
+        }
+        if (countries.includes(cmsObj.country)) {
+            return;
+        }
+        countries.push(cmsObj.country);
+    });
+
+    // Render
+    let md = '';
+
+    return md;
+
+    /*
     datastore.data.skuFamily.forEach(function(skuFamilyObj) {
         if (skuObj.family != skuFamily) {
             return;
@@ -139,6 +209,7 @@ function generateCountryList(skuFamily, options) {
             
         });
     });
+    */
 
 };
 

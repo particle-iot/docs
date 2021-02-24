@@ -547,3 +547,8 @@ The bootloader allows you to easily update the user application via several diff
 | 004      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
 
 
+
+
+
+
+

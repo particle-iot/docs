@@ -1122,16 +1122,20 @@ The bootloader allows you to easily update the user application via several diff
 
 ## Ordering Information
 
-| SKU  | Description | Packaging |
-| :--- | :--- | :--- |
-| | T523 Family (Europe) | |
-| T523MEA  | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Each |
-| T523MTY  | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Tray (50) |
-| T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] |	Each |
-| | T402 Family (North America) | |
-| T402MEA | Tracker SoM LTE M1 (NorAm), [x1]	| Each |
-| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50]	| Tray (50) |
-| T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]	| Each |
+{{!-- BEGIN do not edit content below, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
+| SKU | Description | Region | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :--- | :--- | :--- | :--- |
+| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | GA | |
+| T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | T404MEA|
+| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | NRND | T404MTY|
+| T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | T524MEA|
+| T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | NRND | T524MTY|
+
+{{!-- END do not edit content above, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
+
 
 ## Revision history
 
@@ -1151,3 +1155,6 @@ The bootloader allows you to easily update the user application via several diff
 | 010      | 2002 Sep 25 | RK | Fixed typo in Istop_usart maximum current |
 | 011      | 2002 Oct 01 | RK | Fixed VIN maximum voltage in text (is 17V not 12V) |
 | 012      | 2021 Feb 03 | RK | Change CAN output current to 370 mA |
+
+
+
