@@ -251,8 +251,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
-| Peak Current, 2G | I<sub>Li+ pk</sub> | | | 800 | mA |
-| Peak Current, 3G | I<sub>Li+ pk</sub> | | | 1800 | mA |
+| Peak Current, 3G | I<sub>Li+ pk</sub> | | | 800 | mA |
+| Peak Current, 2G | I<sub>Li+ pk</sub> | | | 1800 | mA |
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.76 | 3.77 | 3.79 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 3.84 | 25.2 | 901 | mA |
 | Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 11.6 | 56.9 | 579 | mA |
@@ -410,6 +410,12 @@ The complete schematic and board files are open source and available on Particle
 <!---
 ## Bill of materials
 -->
+
+## Country compatibility
+
+{{!-- BEGIN do not edit content below, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+{{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+
 
 ## Ordering information
 

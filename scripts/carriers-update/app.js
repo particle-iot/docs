@@ -54,6 +54,12 @@ const docsToUpdate = [
                 generatorFn:function() {
                     return generateFamilySkus('boron'); 
                 } 
+            },
+            {
+                guid:'945c4c4c-76d1-11eb-9439-0242ac130002',
+                generatorFn:function() {
+                    return generateCountryList('boron'); 
+                } 
             }
         ]
     },
@@ -117,6 +123,24 @@ function doUpdate() {
     })
 };
 
+function generateCountryList(skuFamily, options) {
+
+    datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+        if (skuObj.family != skuFamily) {
+            return;
+        }
+        // skuFamilyObj.name (human readable family name)
+
+        skuFamilyObj.group.forEach(function(groupObj) {
+            // name, region, lifecycle, sim, simPlan, modem
+            if (groupObj.sim != 4) {
+                return;
+            }
+            
+        });
+    });
+
+};
 
 function generateFamilySkus(skuFamily, options) {
     let skus = [];
