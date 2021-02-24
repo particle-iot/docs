@@ -132,6 +132,9 @@ The following do **not** count against your data operations limit:
 - Webhooks and server-sent-events (SSE) do not count against your data operations limit
 - Particle cloud API calls do not count against your data operations limit
 
+
+{{> dataoperationscalc}}
+
 ### Blocks
 
 Blocks are a maximum number of data operations and devices per month in the Growth tier:

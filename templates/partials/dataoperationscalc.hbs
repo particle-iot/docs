@@ -1,0 +1,108 @@
+
+<form>
+    <table>
+        <thead></thead>
+        <tbody>
+            <tr><td style="vertical-align: middle !important">Number of devices</td><td><input id="dataUnitCalcNumDevicesInput" type="text" value="5" size="5"/></td></tr>
+            <tr><td style="vertical-align: middle !important">Publish every</td><td><input id="dataUnitCalcPeriodInput" type="text" value="15" size="5"/>
+                <select id="dataUnitCalcPeriodSelect" style="height:22px !important">
+                    <option value="1">seconds</option>
+                    <option value="60" selected="selected">minutes</option>
+                    <option value="3600">hours</option>
+                    <option value="86400">days</option>
+                </select>
+                </td></tr>
+            <tr><td id="dataUnitCalcResult1" colspan="2"></td></tr>
+            <tr><td id="dataUnitCalcResult2" colspan="2"></td></tr>
+        </tbody>
+    </table>
+</form>
+
+<div id="dataUnitCalcResults"></div>
+
+
+<script>
+var dataUnitCalc = {};
+
+dataUnitCalc.commaValue = function(value) {
+    let result = '';
+
+    const s = value.toString();
+    const fullTriples = Math.floor(s.length / 3);
+    const remainder = s.length - fullTriples * 3;
+
+    let ii = 0;
+    if (remainder) {
+        result = s.substr(0, remainder);
+        ii += remainder;
+    }
+    while(ii < s.length) {
+        if (ii > 0) {
+            result += ',';
+        }
+        result += s.substr(ii, 3);
+        ii += 3;
+    }
+
+    return result;
+};
+
+dataUnitCalc.update = function() {
+    let res1 = '';
+    let res2 = '';
+
+    const numDevices = parseInt($('#dataUnitCalcNumDevicesInput').val());
+    
+    const periodValue = parseInt($('#dataUnitCalcPeriodInput').val());
+
+    const periodSecs = parseInt($('#dataUnitCalcPeriodSelect').val());
+
+    if (numDevices != 0 && periodValue != 0 && !isNaN(numDevices) && !isNaN(periodValue)) {
+
+        const timesPerMonth = Math.floor((86400 * 31) / (periodValue * periodSecs)) + 1;
+
+        console.log('timesPerMonth=' + timesPerMonth);
+
+        const dataOperations = timesPerMonth * numDevices;
+
+        console.log('dataOperations=' + dataOperations);
+
+        if (dataOperations <= 85000 && numDevices <= 100) {
+            // Can use free
+            res1 = 'Can use the free tier!'
+        }
+        else {
+            const minBlocksOperations = Math.floor(dataOperations / 250000) + 1;
+            const minBlocksDevices = Math.floor(numDevices / 100) + 1;
+
+            const blocks = Math.max(minBlocksOperations, minBlocksDevices);
+
+            res1 = 'Requires growth tier with ' + blocks + ' blocks.'
+        }
+
+        res2 = dataUnitCalc.commaValue(dataOperations) + ' data operations per month.';
+    }
+
+    $('#dataUnitCalcResult1').html(res1);
+    $('#dataUnitCalcResult2').html(res2);
+}
+
+dataUnitCalc.init = function(options, callback) {
+    dataUnitCalc.options = options || {};
+
+    $('#dataUnitCalcNumDevicesInput').on('input', dataUnitCalc.update);
+    $('#dataUnitCalcPeriodInput').on('input', dataUnitCalc.update);
+    $('#dataUnitCalcPeriodSelect').on('change', dataUnitCalc.update);
+
+    dataUnitCalc.update();
+
+    if (callback) {
+        callback();        
+    }
+}
+
+$(document).ready(function() {
+    dataUnitCalc.init();
+});
+</script>        
+
