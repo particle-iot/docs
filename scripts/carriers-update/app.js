@@ -183,14 +183,17 @@ function generateCountryList(skuFamily, options) {
             // Wrong SIM or not recommended, skip
             return;
         }
-        if (countries.includes(cmsObj.country)) {
-            return;
+
+        if (!countries.includes(cmsObj.country)) {
+            // Add if not already added
+            countries.push(cmsObj.country);
         }
-        countries.push(cmsObj.country);
     });
 
     // Render
     let md = '';
+
+    // Country 2G 3G Cat1 M1 Model
 
     return md;
 
