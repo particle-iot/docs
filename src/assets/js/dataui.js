@@ -118,8 +118,7 @@ dataui.setupRegionCountrySelector = function (regionSel, idBase, listChangeHandl
     regionSel.countries = {};
 
     regionSel.focusRegion = function(ev) {
-        $('#' + regionSel.idBase + 'RegionRadio').attr('checked', 'checked');
-        $('#' + regionSel.idBase + 'CountryRadio').removeAttr('checked');
+        $('#' + regionSel.idBase + 'RegionRadio').prop('checked', true);
     
         $('#' + regionSel.idBase + 'RegionSel').show();
         $('#' + regionSel.idBase + 'Text').hide();     
@@ -128,8 +127,7 @@ dataui.setupRegionCountrySelector = function (regionSel, idBase, listChangeHandl
     };
     
     regionSel.focusCountries = function(ev) {
-        $('#' + regionSel.idBase + 'CountryRadio').attr('checked', 'checked');
-        $('#' + regionSel.idBase + 'RegionRadio').removeAttr('checked');
+        $('#' + regionSel.idBase + 'CountryRadio').prop('checked', true);
     
         $('#' + regionSel.idBase + 'RegionSel').hide();
         $('#' + regionSel.idBase + 'Text').show();
@@ -148,7 +146,7 @@ dataui.setupRegionCountrySelector = function (regionSel, idBase, listChangeHandl
 
         let newCountryList = [];
 
-        if ($('#' + regionSel.idBase + 'RegionRadio').attr('checked') == 'checked') {
+        if ($('#' + regionSel.idBase + 'RegionRadio').prop('checked')) {
             // Region selected
             const region = $('#' + regionSel.idBase + 'RegionSel').val();
             
@@ -583,25 +581,25 @@ dataui.defaultSkuSelector = function() {
 dataui.readSkuSelector = function(name) {
     let result = dataui.defaultSkuSelector();
 
-    result.gen2 = $('#' + name + 'Gen2').attr('checked');
-    result.gen3 = $('#' + name + 'Gen3').attr('checked');
+    result.gen2 = $('#' + name + 'Gen2').prop('checked');
+    result.gen3 = $('#' + name + 'Gen3').prop('checked');
 
-    result.prototyping = $('#' + name + 'Prototyping').attr('checked');
-    result.production = $('#' + name + 'Production').attr('checked');
-    result.kit = $('#' + name + 'Kit').attr('checked');
-    result.eval = $('#' + name + 'ProdEvaluction').attr('checked');
+    result.prototyping = $('#' + name + 'Prototyping').prop('checked');
+    result.production = $('#' + name + 'Production').prop('checked');
+    result.kit = $('#' + name + 'Kit').prop('checked');
+    result.eval = $('#' + name + 'ProdEvaluction').prop('checked');
     
     result.region = $('input[name=' + name + 'Region]:checked').val();
 
-    result.mvnoV2 = $('#' + name + 'MvnoV2').attr('checked');
-    result.sim4FF = $('#' + name + 'Sim4FF').attr('checked');
-    result.lte = $('#' + name + 'LTE').attr('checked');
+    result.mvnoV2 = $('#' + name + 'MvnoV2').prop('checked');
+    result.sim4FF = $('#' + name + 'Sim4FF').prop('checked');
+    result.lte = $('#' + name + 'LTE').prop('checked');
 
-    result.nrnd = $('#' + name + 'NRND').attr('checked') ;
-    result.discontinued = $('#' + name + 'Discontinued').attr('checked');
-    result.beta = $('#' + name + 'Beta').attr('checked') ;
+    result.nrnd = $('#' + name + 'NRND').prop('checked');
+    result.discontinued = $('#' + name + 'Discontinued').prop('checked');
+    result.beta = $('#' + name + 'Beta').prop('checked') ;
 
-    result.multi = $('#' + name + 'Multi').attr('checked');
+    result.multi = $('#' + name + 'Multi').prop('checked');
 
     result.text = $('#' + name + 'Text').val();
 

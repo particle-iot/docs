@@ -131,9 +131,14 @@ let rec2 = {};
 
 
 rec2.selectMenu = function() {
-    const showCarriers = $('#' + rec2.options.idBase+ 'ShowCarriers').attr('checked') == 'checked';
 
-    const showNRND = $('#' + rec2.options.idBase+ 'ShowNRND').attr('checked') == 'checked';
+    if (!rec2.regionSel) {
+        return;
+    }
+    
+    const showCarriers = $('#' + rec2.options.idBase+ 'ShowCarriers').prop('checked');
+
+    const showNRND = $('#' + rec2.options.idBase+ 'ShowNRND').prop('checked');
 
     const etherSimId = 4;
 
@@ -145,7 +150,6 @@ rec2.selectMenu = function() {
 
     
     rec2.regionSel.countryList.forEach(function(countryObj) {
-
         datastore.data.countryModemSim.forEach(function(cmsObj) {
 
             if (cmsObj.country != countryObj.name) {
@@ -381,8 +385,8 @@ rec2.selectMenu = function() {
         }
         html += '<h3>' + skuFamilyObj.name + '</h3>';
 
-        const isRegion = $('#' + rec2.options.idBase+ 'RegionRadio').attr('checked') == 'checked';
-        
+        const isRegion = $('#' + rec2.options.idBase+ 'RegionRadio').prop('checked');
+
         generateSideBySideSkuTables('For use in', recs.YES.skuFamily[skuFamilyObj.family], showCarriers, isRegion);
 
     });
@@ -427,30 +431,20 @@ rec2.init = function(options, callback) {
     // resultDiv - ID for results div
     rec2.options = options;
 
+    dataui.populateRegionSelectors();
+
     rec2.regionSel = {};
     dataui.setupRegionCountrySelector(rec2.regionSel, rec2.options.idBase, rec2.selectMenu);
 
-    $('#' + rec2.options.idBase + 'ShowCarriers').on('change', function() {
-        if ($(this).attr('checked') == 'checked') {
-            $(this).removeAttr('checked');
-        }
-        else {
-            $(this).attr('checked','checked');
-        }
-        rec2.selectMenu();
-    });
-    $('#' + rec2.options.idBase + 'ShowNRND').on('change', function() {
-        if ($(this).attr('checked') == 'checked') {
-            $(this).removeAttr('checked');
-        }
-        else {
-            $(this).attr('checked','checked');
-        }
-        rec2.selectMenu();
-    });
+    $('#' + rec2.options.idBase + 'ShowCarriers').on('change', rec2.selectMenu);
+    $('#' + rec2.options.idBase + 'ShowNRND').on('change', rec2.selectMenu);
 
     callback();
 };
+
+
+
+
 
 //
 // Family Map
