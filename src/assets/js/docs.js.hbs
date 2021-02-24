@@ -184,7 +184,7 @@ Created by Zach Supalla.
 
   Docs.scrollToInternalLinks = function() {
     var $internalLinks = $('.menubar a[href^="#"], a.header-permalinks');
-    $internalLinks.click(function() {
+    $internalLinks.on('click', function() {
       var href = $(this).attr('href');
       if (window.history) {
         history.pushState({hash: href}, 'New Hash', href);
@@ -201,14 +201,14 @@ Created by Zach Supalla.
   Docs.inPageTOCExpanded = false;
 
   Docs.watchToggleInPageNav = function() {
-    $('li.top-level.active').click(function() {
+    $('li.top-level.active').on('click', function() {
       $('ul.in-page-toc').toggleClass('show hide');
       $(this).find('#toggle-in-page-nav').toggleClass('ion-plus ion-minus');
     });
   };
 
   Docs.watchToggleSecondaryInPageNav = function() {
-    $('.toggle-secondary-toc').click(function() {
+    $('.toggle-secondary-toc').on('click', function() {
       var $this = $(this);
       var $parent = $this.parent();
       if ($this.hasClass('ion-arrow-down-b')) {
@@ -231,10 +231,10 @@ Created by Zach Supalla.
 
   Docs.buildSearch = function() {
 
-    $('body').click(function() {
+    $('body').on('click', function() {
       $('.search-results').hide();
     });
-    $('.search-results').click(function(e) {
+    $('.search-results').on('click', function(e) {
       e.stopPropagation();
     });
   };
@@ -259,7 +259,7 @@ Created by Zach Supalla.
 
   Docs.toggleNav = function() {
     var $root = $(".content-root");
-    $('.toggle-navigation').click(function(e) {
+    $('.toggle-navigation').on('click', function(e) {
       e.preventDefault();
       toggleNav();
       updateBackdrop();

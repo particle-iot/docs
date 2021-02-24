@@ -61,11 +61,7 @@ dataUnitCalc.update = function() {
 
         const timesPerMonth = Math.floor((86400 * 31) / (periodValue * periodSecs)) + 1;
 
-        console.log('timesPerMonth=' + timesPerMonth);
-
         const dataOperations = timesPerMonth * numDevices;
-
-        console.log('dataOperations=' + dataOperations);
 
         if (dataOperations <= 85000 && numDevices <= 100) {
             // Can use free

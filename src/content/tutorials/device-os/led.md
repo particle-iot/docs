@@ -377,8 +377,6 @@ To erase the stored network settings on your device, hold the `{{system-button}}
 
 ### Wi-Fi Network Reset
 
-{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}
-
 To erase the stored Wi-Fi networks on your device, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
 {{/if}}

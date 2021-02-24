@@ -177,9 +177,9 @@ There is no limit to the number of blocks you can purchase in the Growth tier, h
 
 #### What happens if I exceed the number of data operations?
 
-In the Free tier, if you need more data operations you will need to upgrade to the Growth tier. You cannot add more data operations to the Free tier. When you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed.
+In the Free tier, if you need more data operations you will need to upgrade to the Growth tier. When you exceed 85,000 data operations, all data operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more data operations to the Free tier. 
 
-In the Growth tier, if you need more than 250,000 data operations across your fleet of devices per month, you will need to add another block.
+In the Growth tier, if you need more than 250,000 data operations across your fleet of devices per month, you can add another block.
 
 In the Enterprise tier, the number of data operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
 
