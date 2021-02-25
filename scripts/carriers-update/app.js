@@ -533,8 +533,8 @@ function generateAntCell(options) {
     // Render
     let md = '';
 
-    md += '| Device | SKU  | Included | Antenna | Alternate |\n';
-    md += '| :----- | :--- | :--------: | :------: | :--------: |\n'; 
+    md += '| Device | SKU  | Included | Antenna | Alternate | Lifecycle |\n';
+    md += '| :----- | :--- | :--------: | :------: | :--------: | :-------: |\n'; 
     
 
     skus.forEach(function(skuObj) {
@@ -544,6 +544,8 @@ function generateAntCell(options) {
 
         md += ' | ' + skuObj.cellAnt;
         md += ' | ' + (skuObj.cellAntAlt ? skuObj.cellAntAlt + '<sup>2</sup>' : '&nbsp;');
+
+        md += ' | ' + skuObj.lifecycle;
 
         md += '|\n';
         
@@ -587,8 +589,8 @@ function generateAntWiFi(options) {
     // Render
     let md = '';
 
-    md += '| Device | SKU  | Built-In Antenna | External Compatible | External Included |\n';
-    md += '| :----- | :--- | :--------: | :------: | :------: |\n';
+    md += '| Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |\n';
+    md += '| :----- | :--- | :--------: | :------: | :------: | :-------: |\n';
 
 
     skus.forEach(function(skuObj) {
@@ -597,6 +599,7 @@ function generateAntWiFi(options) {
         md += ' | ' + (skuObj.wifiAntInt ? skuObj.wifiAntInt : '&nbsp;');
         md += ' | ' + (skuObj.wifiAntExt ? skuObj.wifiAntExt : '&nbsp;');
         md += ' | ' + (skuObj.wifiAntExtInc ? '&check;' : '&nbsp;');
+        md += ' | ' + skuObj.lifecycle;
 
         md += '|\n';
         
@@ -640,8 +643,8 @@ function generateAntBle(options) {
     // Render
     let md = '';
 
-    md += '| Device | SKU  | Built-In Antenna | External Compatible | External Included |\n';
-    md += '| :----- | :--- | :--------: | :------: | :------: |\n';
+    md += '| Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |\n';
+    md += '| :----- | :--- | :--------: | :------: | :------: | :-------: |\n';
 
 
     skus.forEach(function(skuObj) {
@@ -650,6 +653,7 @@ function generateAntBle(options) {
         md += ' | ' + (skuObj.bleAntInt ? '&check;' : '&nbsp;');
         md += ' | ' + (skuObj.bleAntExt ? skuObj.bleAntExt : '&nbsp;');
         md += ' | ' + (skuObj.bleAntExtInc ? '&check;' : '&nbsp;');
+        md += ' | ' + skuObj.lifecycle;
 
         md += '|\n';
         
@@ -694,8 +698,8 @@ function generateAntNfc(options) {
 
 
 
-    md += '| Device | SKU  | Compatible | Included |\n';
-    md += '| :----- | :--- | :--------: | :------: |\n';
+    md += '| Device | SKU  | Compatible | Included | Lifecycle |\n';
+    md += '| :----- | :--- | :--------: | :------: | :-------: |\n';
 
 
     skus.forEach(function(skuObj) {
@@ -703,6 +707,7 @@ function generateAntNfc(options) {
         
         md += ' | ' + (skuObj.nfcAntExt ? '&check;': '&nbsp;');
         md += ' | ' + (skuObj.nfcAntExtInc ? '&check;' : '&nbsp;');
+        md += ' | ' + skuObj.lifecycle;
 
         md += '|\n';
         
@@ -748,8 +753,8 @@ function generateAntGnss(options) {
 
 
 
-    md += '| Device | SKU  | Compatible | Included |\n';
-    md += '| :----- | :--- | :--------: | :------: |\n';
+    md += '| Device | SKU  | Compatible | Included | Lifecycle |\n';
+    md += '| :----- | :--- | :--------: | :------: | :-------: |\n';
 
 
     skus.forEach(function(skuObj) {
@@ -757,6 +762,7 @@ function generateAntGnss(options) {
         
         md += ' | ' + ((skuObj.gnssAntInt || skuObj.gnssAntExt)  ? '&check;' : '&nbsp;');
         md += ' | ' + ((skuObj.gnssAntIntInc || skuObj.gnssAntExtInc)  ? '&check;' : '&nbsp;');
+        md += ' | ' + skuObj.lifecycle;
 
         md += '|\n';
         
