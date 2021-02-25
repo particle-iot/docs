@@ -399,7 +399,7 @@ Please be sure to order a board that works in the country where you want to depl
 
 #### 2G cellular characteristics for G350, U201, U260, and U270 modules:
 |Parameter | SARA-U201 | SARA-U260 | SARA-U270 | SARA-G350 |
-|:---|:---|:---|:---|:---|
+|:---|:---:|:---:|:---:|:---:|
 |Protocol stack| 3GPP Release 7 | GPP Release 7 | 3GPP Release 7 | 3GPP Release 99 |
 |MS Class | Class B | Class B | Class B | Class B |
 | GSM 850 MHz Band | &check; | &check; | &nbsp; | &check; |
@@ -411,7 +411,7 @@ Please be sure to order a board that works in the country where you want to depl
 
 #### 3G cellular characteristics for U201, U260, and U270 modules:
 |Parameter | SARA-U201 | SARA-U260 | SARA-U270 |
-|:---|:---|:---|:---|
+|:---|:---:|:---:|:---:|
 |Protocol stack| 3GPP Release 7 | 3GPP Release 7 | 3GPP Release 7 |
 |UE Class| Class A | Class A | Class A|
 | Band 5 (850 MHz) | &check; | &check; | &nbsp; |

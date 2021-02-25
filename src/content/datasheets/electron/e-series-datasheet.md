@@ -404,10 +404,10 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 |:---|:---|
 |Protocol stack| 3GPP Release 7 | 
 |UE Class| Class A | 
-|Bands | Band V (850 MHz)|
-| | Band VIII (900 MHz) |
-| | Band II (1900 MHz) |
-| |  Band I (2100 MHz) |
+|Bands | Band 5 (850 MHz)|
+| | Band 8 (900 MHz) |
+| | Band 2 (1900 MHz) |
+| |  Band 1 (2100 MHz) |
 |Power Class | Class 3 (24 dBm) for all bands| 
 
 ---
