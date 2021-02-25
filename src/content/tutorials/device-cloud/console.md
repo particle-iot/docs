@@ -191,7 +191,9 @@ Photon, and Electron, could be used inside a Product, but it's important to note
 
 **Customers** own a device, and have permissions to control
 their device. You will define the extent of their access to the device when you
-configure your Product.
+configure your Product. 
+
+For cellular devices, it is also common to have all devices claimed to a single account, rather than using individual customer accounts. It is also possible to use unclaimed product devices.
 
 Your Product also has **team members** with access to the Console.
 
@@ -552,9 +554,14 @@ There are three ways you can authenticate your customers:
 - **Two-legged authentication**. Your customers will create an account on your servers using your own authentication system, and your web servers will create an account with Particle for each customer that is paired to that customer. Your servers will request a scoped access token for each customer to interact with their device. This is a completely white-labeled solution.
 - **Login with Particle**. Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. Unlike the other authentication options, this option will showcase Particle branding. This is most useful when the customer is aware of Particle and may be using Particle's development tools with the product.
 
-When you create your Product in the Console, you will be asked which authentication method you want to use. Implementation of these methods are covered in detail in the [How to build a web app](/tutorials/device-cloud/authentication/) section of this guide.
+As customers are created for your product, they will begin to appear on your Customers (<i class="ion-user"></i>) page. For each customer, you will be able to see their username and associated device ID. Note that the device ID column will not be populated until the customer goes through the claiming process with their device. Customers are commonly used for Wi-Fi products because you will often need a mobile app to configure Wi-Fi network credentials. Creating a customer associates a user with their device or devices, and allows a mobile app to communicate directly with the Particle cloud API on behalf of only that user.
 
-As customers are created for your product, they will begin to appear on your Customers (<i class="ion-user"></i>) page. For each customer, you will be able to see their username and associated device ID. Note that the device ID column will not be populated until the customer goes through the claiming process with their device.
+For cellular devices, you can use customer accounts as well. However, it is common to use two other methods:
+
+Single account claiming claims all devices to a single account owned by the product creator. Cellular apps often use a web app, which does not need to have Particle API access per-user. Instead, they can handle this in the back-end. Even cellular products that have a mobile app may prefer to implement them using a mobile framework and communicate from the app to their own back-end using standard web technologies instead of the Particle API. This makes it easier to find app developers, since they don't need to know about the Particle platform.
+
+Unclaimed product devices eliminate the claiming step entirely. This simplifies device setup. However, there is an important limitation: unclaimed product devices cannot subscribe to events. They can, however, receive OTA updates, and handle Particle functions and variables. The Asset Tracker Tracker Edge firmware typically operates using unclaimed product devices.
+
 
 ### Monitoring Event Logs
 
@@ -566,20 +573,37 @@ To see all billing related information, you can click on the billing icon in you
 
 ### How billing works
 
-#### Product owners 
-Each Product has one primary administrator, the product owner. The owner manages the payment options, the pricing tier, and what billing interval the Product is on. This owner is the account that created the Product in the first place. 
+#### Free tier
 
-#### Devices
+- Up to 100 devices, any mix of cellular and Wi-Fi
+- 85,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- No credit card required
+- Device communication is paused when the monthly limit is reached
 
-Devices are any physical device that uses the Particle Device Cloud- Photons, Electrons, P1s, P0s, etc. The only devices that count toward your pricing tier are those in a single Product fleet, so you could have many “loose” devices in your personal account without them adding to the number of devices in one of your Products. 
+For more information see [Device Cloud - Introduction - Pricing](/tutorials/device-cloud/introduction/#pricing).
 
-Your personal account’s devices (as well as new, unclaimed devices) are added to a Product when you want to use them as a group for data reporting, firmware updates, and collaboration with coworkers or friends. Only when they’ve been intentionally added to a Product will they count towards that total. 
+#### Free tier products
 
-#### Billing periods 
+Products can be prototyped in the Free tier at no charge. However, there is a limit of 250 devices for Free tier products. 
 
-Products in the Console are billed separately, so if you have more than one they can be on different pricing tiers and have different billing dates. Each Product will have its own billing period that is anchored to when it was created. 
+If all of the devices are claimed to your account you will be further limited to the maximum number of devices in a Free tier account, which is 100 devices, however if devices are claimed to multiple accounts the limit of 250 applies.
 
-Your payment method will be charged 1 week after the billing period closes at which point you’ll receive an invoice with the details of your bill. You’ll pay for the following month or year and can later cancel for a prorated remainder.
+#### Growth tier
+
+- A block includes 250,000 data operations per month and up to 100 devices
+- Add as many blocks as you need for more data operations or more devices
+- No limit to the number of blocks you can purchase self-service
+- Up to 125 MB of cellular data per month, pooled across all devices, for each block purchased
+- Email support
+- Available in June 2021
+
+In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of data operations, available devices, or cellular data.
+
+In the Growth and Enterprise tiers, you will also have access to an **Organization**, which allows finer access control to multiple products. 
+
+The number of devices is limited by the number of blocks you have purchased, 100 devices per block. You can purchase as many blocks as necessary to support number of devices you need.
+
 
 ### Status
 It’s easy to find out the status of your Product’s metrics. Visit [console.particle.io/billing](https://console.particle.io/billing) and you’ll see an up-to-date list of each Product you own, how many outbound events they’ve used that billing cycle, number of devices in each, and how many team members they have. The renewal date for each Product plan is also shown, so you know when the next bill is coming up.
@@ -596,24 +620,25 @@ You can update your credit card from the billing page by clicking on the "UPDATE
 
 If we attempt to charge your credit card and it fails, we do not immediately prevent you or your team from accessing your Device Management Console. We will continue to retry charging your card once every few days <strong>for a maximum of 3 retries</strong>. You will receive an email notification each time an attempt is made and fails. When you receive this notification, the best thing to avoid any interruption in service is to <a href="#updating-your-credit-card">update your credit card</a>.
 
-After we have unsuccessfully tried to charge your card 3 times, your Console account will be locked. <strong>Your Products and all data will not be deleted</strong>. After re-activating your account, you will be able to access your Console once again.
-
 ### Configuring Your Product
 
-As a product creator, there are some key decisions you will need to make before devices are shipped to customers. Your configuration page will walk you through key questions that you should be thinking about during the development process. **You don't need to know the answers to all of these questions right now.** You are always able to return to your Configuration page to answer outstanding questions, or change your answers. However, you **should** answer all questions before you can start manufacturing.
+In the **Settings** (gear) icon for your product, the following options are available:
 
-It's also worth mentioning that some of the questions asked on the configuration page have tangible impacts on how your product will function within the Particle ecosystem, and others are simply educational to encourage you to be thinking strategically about what needs to happen before your product goes to manufacturing.
+![Configuration page](/assets/images/product-settings.png)
 
-There are four main sections to the configuration page: *Overview*, *Working with Particle*, *Customers*, and *Firmware*. A few questions to highlight here:
+There are several ways new product devices can be handled:
 
-* **Authentication/Logging in with Particle**: Thinking about how you would like to handle authentication is one of the earlier decisions you should be make as a product creator. There are three options for authentication: *simple auth*, *two-legged auth*, and *login with Particle (OAuth)*. Each option is explained in detail [later](#managing-customers). Picking an authentication method will likely depend on whether/how much you would like Particle to be hidden from your customers, as well as your development's team appetite for complexity.
+- The best option is to pre-add all device IDs to your product at manufacturing time, and use the **Quarantine** option.
 
-* **Private Beta**: Do you only want a select group of people to use your product, inviting them as part of a private beta? This is likely a good idea if you would like to run a controlled test for your product. As a manager of a private beta, you will import a list of customers you would like to participate, and each one will be assigned a 4-character activation code that they will need to claim their device during setup.
+  - If you purchase devices in tray or reel quantities, you will be emailed a list of device IDs that can be imported into the console
+  - In smaller quantities, you can capture the device IDs when you initially set up your devices and add them individually
+  - If you wish to use [wildcard PRODUCT_IDs](/reference/device-os/firmware/boron/#product_id-) you must pre-add Device IDs to your product.
 
-* **Programming the product during manufacturing**: You can either program each device while they are on the manufacturing line, or send an OTA update to the device on customer setup. The main advantage of programming on the line is that the device will function immediately, instead of requiring the customer to be in range of Wi-Fi when they unbox the device. However, programming on the line will require your binary to be locked down and finalized before manufacturing begins. Programming the device on setup will allow you to continue developing the firmware for your product in between manufacturing and customer unboxing, providing additional flexibility. But, the device will not function properly until the customer connects the device to the internet and receives the OTA.
+- If you do not pre-add the device IDs, you will need to approve each device as it comes online when using **Quarantine** mode.
 
-![Configuration page](/assets/images/configure-page.png)
-<p class="caption">The configuration page will identify key decisions you will need to make before manufacturing</p>
+- If you use the **Auto Approve** mode, then anyone who flashes firmware to their device that contains your product ID will join your product without any other authorization. 
+
+
 
 ## Asset Tracker Features
 
