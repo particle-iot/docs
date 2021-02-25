@@ -9,6 +9,9 @@ carriers2.buildMenu = function() {
         // Device Popup
         let html = '';
         datastore.data.skuFamily.forEach(function(obj, index1) {
+            if (obj.wifi) {
+                return;
+            }
             html += '<optgroup label="' + obj.name + '">';
 
             obj.group.forEach(function(obj2, index2) {
@@ -189,6 +192,10 @@ rec2.selectMenu = function() {
             datastore.data.skuFamily.forEach(function(skuFamilyObj) {
                 // skuFamilyObj.family = 'tracker', 'b series', ...
                 let skusForModemSimFamily = [];
+
+                if (skuFamilyObj.wifi) {
+                    return;
+                }
 
                 datastore.data.skus.forEach(function(skuObj) {
                     if (skuObj.family == skuFamilyObj.family && 
@@ -380,6 +387,9 @@ rec2.selectMenu = function() {
 
 
     datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+        if (skuFamilyObj.wifi) {
+            return;
+        }
         if (!recs.YES || !recs.YES.skuFamily[skuFamilyObj.family]) {
             return;
         }
@@ -397,6 +407,9 @@ rec2.selectMenu = function() {
         html += '<h2>Not recommended for new designs (NRND)</h2>';
 
         datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+            if (skuFamilyObj.wifi) {
+                return;
+            }
             if (!recs.NRND || !recs.NRND.skuFamily[skuFamilyObj.family]) {
                 return;
             }
@@ -410,6 +423,9 @@ rec2.selectMenu = function() {
     html += '<h2>Not recommended</h2>';
 
     datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+        if (skuFamilyObj.wifi) {
+            return;
+        }
         if (!recs.NR || !recs.NR.skuFamily[skuFamilyObj.family]) {
             return;
         }

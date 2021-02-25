@@ -218,8 +218,75 @@ const docsToUpdate = [
                 } 
             }
         ]
+    },
+    {
+        path:'/datasheets/certifications/antenna.md', 
+        updates:[
+            {
+                guid:'95bdb290-775f-11eb-9439-0242ac130002', 
+                generatorFn:generateAntCell
+            },
+            {
+                guid:'04ed49fe-7766-11eb-9439-0242ac130002', 
+                generatorFn:generateAntWiFi
+            },
+            {
+                guid:'54f1ecbe-7768-11eb-9439-0242ac130002', 
+                generatorFn:generateAntBle
+            },
+            {
+                guid:'2b1c34c8-776b-11eb-9439-0242ac130002', 
+                generatorFn:generateAntNfc
+            },
+            {
+                guid:'dd897350-776b-11eb-9439-0242ac130002', 
+                generatorFn:generateAntGnss
+            },
+            {
+                guid:'57d69268-776d-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateNotCompatible({
+                        filterFn:function(skuObj) {
+                            return !!skuObj.cellAnt;
+                        }        
+                    });
+                }
+            },
+            {
+                guid:'cee24faa-776d-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateNotCompatible({
+                        filterFn:function(skuObj) {
+                            return !!skuObj.wifiAntInt || !!skuObj.wifiAntExt;
+                        }        
+                    });
+                }
+            },
+            {
+                guid:'2cf3e112-776e-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateNotCompatible({
+                        filterFn:function(skuObj) {
+                            return !!skuObj.bleAntInt || !!skuObj.bleAntExt;
+                        }        
+                    });
+                }
+            },
+            {
+                guid:'6b9301fa-776e-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateNotCompatible({
+                        filterFn:function(skuObj) {
+                            return !!skuObj.nfcAntExt;
+                        }        
+                    });
+                }
+            }
+        ]
     }
 ];
+
+
 
 
 
@@ -414,6 +481,327 @@ function generateFamilySkus(skuFamily, options) {
 }
 
 
+function generateAntCell(options) {
+    let skus = [];
+
+    if (!options) {
+        options = {};
+    }
+
+    // Filter
+    datastore.data.skus.forEach(function(skuObj) {
+        if (!skuObj.cellAnt) {
+            return;
+        }
+        if (skuObj.lifecycle == 'Discontinued') {
+            return;
+        }
+
+        if (options.filterFn) {
+            if (options.filterFn(skuObj)) {
+                return;
+            }
+        }
+
+        skus.push(skuObj);
+    });
+
+    // Sort
+    skus.sort(function(a, b) {
+        return a.desc.localeCompare(b.desc);
+    });
+
+    // Render
+    let md = '';
+
+    md += '| Device | SKU  | Included | Antenna | Alternate |\n';
+    md += '| :----- | :--- | :--------: | :------: | :--------: |\n'; 
+    
+
+    skus.forEach(function(skuObj) {
+        md += '| ' + skuObj.desc + ' | ' + skuObj.name;
+        
+        md += ' | ' + (skuObj.cellAntInc ? '&check;' : '&nbsp;');
+
+        md += ' | ' + skuObj.cellAnt;
+        md += ' | ' + (skuObj.cellAntAlt ? skuObj.cellAntAlt + '<sup>2</sup>' : '&nbsp;');
+
+        md += '|\n';
+        
+    });
+
+    return md;    
+};
+
+
+
+function generateAntWiFi(options) {
+    let skus = [];
+
+    if (!options) {
+        options = {};
+    }
+
+    // Filter
+    datastore.data.skus.forEach(function(skuObj) {
+        if (!skuObj.wifiAntInt && !skuObj.wifiAntExt) {
+            return;
+        }
+        if (skuObj.lifecycle == 'Discontinued') {
+            return;
+        }
+
+        if (options.filterFn) {
+            if (options.filterFn(skuObj)) {
+                return;
+            }
+        }
+
+        skus.push(skuObj);
+    });
+
+    // Sort
+    skus.sort(function(a, b) {
+        return a.desc.localeCompare(b.desc);
+    });
+
+    // Render
+    let md = '';
+
+    md += '| Device | SKU  | Built-In Antenna | External Compatible | External Included |\n';
+    md += '| :----- | :--- | :--------: | :------: | :------: |\n';
+
+
+    skus.forEach(function(skuObj) {
+        md += '| ' + skuObj.desc + ' | ' + skuObj.name;
+        
+        md += ' | ' + (skuObj.wifiAntInt ? skuObj.wifiAntInt : '&nbsp;');
+        md += ' | ' + (skuObj.wifiAntExt ? skuObj.wifiAntExt : '&nbsp;');
+        md += ' | ' + (skuObj.wifiAntExtInc ? '&check;' : '&nbsp;');
+
+        md += '|\n';
+        
+    });
+
+    return md;    
+};
+
+
+
+function generateAntBle(options) {
+    let skus = [];
+
+    if (!options) {
+        options = {};
+    }
+
+    // Filter
+    datastore.data.skus.forEach(function(skuObj) {
+        if (!skuObj.bleAntInt && !skuObj.bleAntExt) {
+            return;
+        }
+        if (skuObj.lifecycle == 'Discontinued') {
+            return;
+        }
+
+        if (options.filterFn) {
+            if (options.filterFn(skuObj)) {
+                return;
+            }
+        }
+
+        skus.push(skuObj);
+    });
+
+    // Sort
+    skus.sort(function(a, b) {
+        return a.desc.localeCompare(b.desc);
+    });
+
+    // Render
+    let md = '';
+
+    md += '| Device | SKU  | Built-In Antenna | External Compatible | External Included |\n';
+    md += '| :----- | :--- | :--------: | :------: | :------: |\n';
+
+
+    skus.forEach(function(skuObj) {
+        md += '| ' + skuObj.desc + ' | ' + skuObj.name;
+        
+        md += ' | ' + (skuObj.bleAntInt ? '&check;' : '&nbsp;');
+        md += ' | ' + (skuObj.bleAntExt ? skuObj.bleAntExt : '&nbsp;');
+        md += ' | ' + (skuObj.bleAntExtInc ? '&check;' : '&nbsp;');
+
+        md += '|\n';
+        
+    });
+
+    return md;    
+};
+
+
+function generateAntNfc(options) {
+    let skus = [];
+
+    if (!options) {
+        options = {};
+    }
+
+    // Filter
+    datastore.data.skus.forEach(function(skuObj) {
+        if (!skuObj.nfcAntExt) {
+            return;
+        }
+        if (skuObj.lifecycle == 'Discontinued') {
+            return;
+        }
+
+        if (options.filterFn) {
+            if (options.filterFn(skuObj)) {
+                return;
+            }
+        }
+
+        skus.push(skuObj);
+    });
+
+    // Sort
+    skus.sort(function(a, b) {
+        return a.desc.localeCompare(b.desc);
+    });
+
+    // Render
+    let md = '';
+
+
+
+    md += '| Device | SKU  | Compatible | Included |\n';
+    md += '| :----- | :--- | :--------: | :------: |\n';
+
+
+    skus.forEach(function(skuObj) {
+        md += '| ' + skuObj.desc + ' | ' + skuObj.name;
+        
+        md += ' | ' + (skuObj.nfcAntExt ? '&check;': '&nbsp;');
+        md += ' | ' + (skuObj.nfcAntExtInc ? '&check;' : '&nbsp;');
+
+        md += '|\n';
+        
+    });
+
+    return md;    
+};
+
+
+
+function generateAntGnss(options) {
+    let skus = [];
+
+    if (!options) {
+        options = {};
+    }
+
+    // Filter
+    datastore.data.skus.forEach(function(skuObj) {
+        if (!skuObj.gnssAntInt && !skuObj.gnssAntExt) {
+            return;
+        }
+        if (skuObj.lifecycle == 'Discontinued') {
+            return;
+        }
+
+        if (options.filterFn) {
+            if (options.filterFn(skuObj)) {
+                return;
+            }
+        }
+
+        skus.push(skuObj);
+    });
+
+    // Sort
+    skus.sort(function(a, b) {
+        return a.desc.localeCompare(b.desc);
+    });
+
+    // Render
+    let md = '';
+
+
+
+    md += '| Device | SKU  | Compatible | Included |\n';
+    md += '| :----- | :--- | :--------: | :------: |\n';
+
+
+    skus.forEach(function(skuObj) {
+        md += '| ' + skuObj.desc + ' | ' + skuObj.name;
+        
+        md += ' | ' + ((skuObj.gnssAntInt || skuObj.gnssAntExt)  ? '&check;' : '&nbsp;');
+        md += ' | ' + ((skuObj.gnssAntIntInc || skuObj.gnssAntExtInc)  ? '&check;' : '&nbsp;');
+
+        md += '|\n';
+        
+    });
+
+    return md;    
+};
+
+
+
+function generateNotCompatible(options) {
+    let skus = [];
+
+    if (!options) {
+        options = {};
+    }
+
+    // Filter
+    datastore.data.skus.forEach(function(skuObj) {
+        if (skuObj.lifecycle == 'Discontinued') {
+            return;
+        }
+
+        if (options.filterFn) {
+            if (options.filterFn(skuObj)) {
+                return;
+            }
+        }
+
+        skus.push(skuObj);
+    });
+
+    // Sort
+    skus.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+    });
+
+    // Render
+    let md = '';
+
+    md += '| Family | SKUs |\n';
+    md += '| :----- | :--- |\n';
+
+    datastore.data.skuFamily.forEach(function(skuFamilyObj) {
+        let familySkuNames = [];
+
+        skus.forEach(function(skuObj) {
+            if (skuObj.family != skuFamilyObj.family) {
+                return;
+            }
+            familySkuNames.push(skuObj.name);
+        });
+
+        if (familySkuNames.length > 0) {
+            md += '| ' + skuFamilyObj.name + ' | ';
+
+            md += familySkuNames.join(', ');
+
+            md += '|\n'
+        }
+    });
+
+    return md;    
+};
 function updateDocs(docsPath, guid, md) {
     // path: path to md, relative to content. For example: /tutorials/cellular-connectivity/cellular-carriers.md
     // guid: the ID for the block to replace (typically a GUID)

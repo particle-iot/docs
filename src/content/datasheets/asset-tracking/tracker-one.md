@@ -402,10 +402,10 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | GA | ONE524MTY|
 | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | Beta | |
 | ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | Beta | |
-| ONE404MTY-NB | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | Beta | |
+| ONE404MTY-NB | Tracker One LTE M1 (NorAm), no battery, Bulk [x40] | NORAM | BG96-MC | Beta | |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | Beta | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | Beta | |
-| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | Beta | |
+| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), no battery, Bulk [x40] | EMEAA | EG91-EX | Beta | |
 
 {{!-- END do not edit content above, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
 
