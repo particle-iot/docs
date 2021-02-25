@@ -291,7 +291,21 @@ const docsToUpdate = [
                 }
             }
         ]
+    },
+    {
+        path:'/tutorials/asset-tracking/introduction.md', 
+        updates:[
+            {
+                guid:'e6d392c0-777e-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateFamilySkus('tracker'); 
+                } 
+            }
+        ]
+
     }
+
+    
 ];
 
 

@@ -19,39 +19,7 @@ can be found in the Discontinued section.
 
 ## Cloud Functions
 
-{{#if has-cellular}}
-### Optimizing Cellular Data Use with Cloud connectivity
-
-{{since when="0.6.0"}}
-
-When the device first connects to the cloud, it establishes a secure channel
-and informs the cloud of the registered functions, variables and subscriptions. This uses 4400 bytes of data, plus additional data for each function, variable and subscription.
-
-Subsequent reconnections to the cloud while the device is still powered does not resend this data. Instead, a small reconnection message is sent to the cloud, which uses 135 bytes.
-
-Prior to 0.6.0, when the device was reset or woken from deep sleep, the cloud connection would be fully reinitialized, which meant resending the 4400 bytes of data. From 0.6.0, the device determines that a full reinitialization isn't needed and reuses the existing session (providing it still exists and is usable - see [`Particle.keepAlive()`](#particle-keepalive-)), after validating that the local state matches what was last communicated to the cloud. Connecting to the cloud after reset or wake-up sends just a reconnect message, using 135 bytes of data. A key requirement for the device to be able to determine that the existing session can be reused is that the functions, variables and subscriptions are registered BEFORE connecting to the cloud.
-
-One way to make sure of that is registering functions and variables before connecting to the cloud is easily done using `SEMI_AUTOMATIC` mode:
-
-```cpp
-// EXAMPLE USAGE
-// Using SEMI_AUTOMATIC mode to get the lowest possible data usage by
-// registering functions and variables BEFORE connecting to the cloud.
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-void setup() {
-    // register cloudy things
-    Particle.function(....);
-    Particle.variable(....);
-    Particle.subscribe(....);
-    // etc...
-    // then connect
-    Particle.connect();
-}
-```
-{{/if}} {{!-- has-cellular --}}
-
-**Overview of API field limits**
+### Overview of API field limits
 
 | API Field | Prior to 0.8.0 | Since 0.8.0 | Comment |
 |--:|--:|--:|:--|
