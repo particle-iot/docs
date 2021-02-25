@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(014)</sup>
+# Tracker One<sup>(015)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -394,18 +394,18 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 ## Ordering Information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
-| SKU | Description | Region | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
-| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
-| ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | GA | |
-| ONE404MTY-NB | Tracker One LTE M1 (NorAm), no battery, Bulk [x40] | NORAM | BG96-MC | GA | |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | GA | |
-| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), no battery, Bulk [x40] | EMEAA | EG91-EX | GA | |
-| ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | ONE404MEA|
-| ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | NRND | ONE404MTY|
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | ONE524MEA|
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | NRND | ONE524MTY|
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | ONE404MEA|
+| ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | GA | ONE404MTY|
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | ONE524MEA|
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | GA | ONE524MTY|
+| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | Beta | |
+| ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | Beta | |
+| ONE404MTY-NB | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | Beta | |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | Beta | |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | Beta | |
+| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | Beta | |
 
 {{!-- END do not edit content above, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
 
@@ -454,3 +454,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 012      | 2020 Dec 09 | RK | CAN termination resistor is not present |
 | 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
 | 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
+| 015      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |

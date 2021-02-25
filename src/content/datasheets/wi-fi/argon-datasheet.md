@@ -6,7 +6,7 @@ order: 1
 description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 
-# Argon Datasheet <sup>(v004)</sup>
+# Argon Datasheet <sup>(v005)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
@@ -348,6 +348,18 @@ The complete schematic and board files are open source and available on Particle
 
 Argon are available from [store.particle.io](https://store.particle.io/) in single quantities.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 81ddccf2-774f-11eb-9439-0242ac130002 --}}
+| SKU | Description | Region | Lifecycle | Replacement |
+| :--- | | :--- | :--- | :--- | :--- | :--- |
+| ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | GA | |
+| ARG-STRTKT | Argon Starter Kit [x1] | Global | GA | |
+| ARGN-H | Argon [x1] | Global | GA | |
+| ARGNKIT | Argon, Starter Kit  [x1] | Global | GA | |
+| ARGNTRAY50 | Argon, Tray [x50] | Global | GA | |
+
+{{!-- END do not edit content above, it is automatically generated 81ddccf2-774f-11eb-9439-0242ac130002 --}}
+
+
 ## Qualification and approvals
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
@@ -456,6 +468,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v002     | 2020 Jan 21 | RK | Remove mesh |
 | v003     | 2020 Sep 01 | RK | Add EN pin information |
 | v004     | 16-Sep-2020 | RK | Added power consumption information |
+| v005     | 15-Mar-2021 | RK | Updated ordering information |
 
 ## Known Errata
 

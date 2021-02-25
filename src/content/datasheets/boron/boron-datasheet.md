@@ -6,7 +6,7 @@ order: 1
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet <sup>(v004)</sup>
+# Boron Datasheet <sup>(v005)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -597,18 +597,18 @@ The complete schematic and board files are open source and available on Particle
 Borons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G/3G and LTE Cat M1 versions.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
-| SKU | Description | Region | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | GA | |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | GA | |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | GA | |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | GA | BRN314KIT|
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | BRN404|
+| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | GA | BRN404KIT|
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | BRN404TRAY50|
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | Beta | |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | Beta | |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | Beta | |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | Beta | |
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | Beta | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | NRND-US | BRN314TRAY50|
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | NRND | BRN314KIT|
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | BRN404|
-| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | NRND | BRN404KIT|
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | BRN404TRAY50|
 
 {{!-- END do not edit content above, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
 
@@ -734,6 +734,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v002     | 2020 Jan 21 | RK | Remove mesh |
 | v003     | 2020 Sep 01 | RK | Add EN pin information |
 | v004     | 16-Sep-2020 | RK | Added power consumption information |
+| v005     | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
 
 ## Known Errata
 

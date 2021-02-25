@@ -181,10 +181,44 @@ const docsToUpdate = [
                 } 
             }
         ]
+    },
+    {
+        path:'/datasheets/wi-fi/argon-datasheet.md', 
+        updates:[
+            {
+                guid:'81ddccf2-774f-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateFamilySkus('argon'); 
+                } 
+            }
+        ]
+    },
+    {
+        path:'/datasheets/wi-fi/p1-datasheet.md', 
+        updates:[
+            {
+                guid:'797577ac-7751-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateFamilySkus('p series', {
+                        filterFn:function(skuObj) {
+                            return !skuObj.name.startsWith('P1');
+                        }        
+                    }); 
+                } 
+            }
+        ]
+    },
+    {
+        path:'/datasheets/wi-fi/photon-datasheet.md', 
+        updates:[
+            {
+                guid:'c9a47b1a-7751-11eb-9439-0242ac130002', 
+                generatorFn:function() {
+                    return generateFamilySkus('photon'); 
+                } 
+            }
+        ]
     }
-
-    
-
 ];
 
 
@@ -351,13 +385,29 @@ function generateFamilySkus(skuFamily, options) {
     // Render
     let md = '';
 
-    md += '| SKU | Description | Region | Modem | Lifecycle | Replacement |\n';
-    md += '| :--- | | :--- | :--- | :--- | :--- | :--- |\n';
+    const skuFamilyObj = datastore.findSkuFamily(skuFamily);
+
+    md += '| SKU | Description | Region ';
+    if (!skuFamilyObj.wifi) {
+        md += ' | Modem ';
+    }
+    md += '| Lifecycle | Replacement |\n';
+
+    //
+    md += '| :--- | | :--- | :--- ';
+    if (!skuFamilyObj.wifi) {
+        md += ' | :--- ';
+    }
+    md += '| :--- | :--- | :--- |\n';
 
     skus.forEach(function(skuObj) {
-        md += '| ' + skuObj.name + ' | ' + skuObj.desc + ' | ' + skuRegionReadable[skuObj.skuRegion] + ' | ' + skuObj.modem + ' | ';
-        
-        md += skuObj.lifecycle + ' | ' + (skuObj.replacement ? skuObj.replacement : '') + '|\n'; 
+        md += '| ' + skuObj.name + ' | ' + skuObj.desc + ' | ' + skuRegionReadable[skuObj.skuRegion];
+
+        if (!skuFamilyObj.wifi) {
+            md += ' | ' + skuObj.modem;
+        }
+
+        md += ' | ' + skuObj.lifecycle + ' | ' + (skuObj.replacement ? skuObj.replacement : '') + '|\n'; 
     });
 
     return md;

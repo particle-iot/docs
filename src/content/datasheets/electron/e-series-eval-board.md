@@ -104,10 +104,10 @@ That's it! The rest of the development process should be similar to that of the 
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 89806642-76cb-11eb-9439-0242ac130002 --}}
-| SKU | Description | Region | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
-| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | GA | |
-| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | GA | |
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | NRND | E404KIT|
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | GA | E404KIT|
+| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | Beta | |
+| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | Beta | |
 
 {{!-- END do not edit content above, it is automatically generated 89806642-76cb-11eb-9439-0242ac130002 --}}

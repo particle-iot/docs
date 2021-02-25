@@ -6,7 +6,7 @@ order: 2
 description: Datasheet for the Particle B Series B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B402 Datasheet <sup>(007)</sup>
+# B402 Datasheet <sup>(008)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -520,12 +520,12 @@ The bootloader allows you to easily update the user application via several diff
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
-| SKU | Description | Region | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
-| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
-| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | B404MEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | B404MTY|
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | B404MEA|
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | B404MTY|
+| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | Beta | |
+| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | Beta | |
 
 {{!-- END do not edit content above, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
 
@@ -541,3 +541,4 @@ The bootloader allows you to easily update the user application via several diff
 | 005      | 16-Dec-2020 | RK | Added missing TBD power consumption values |
 | 006      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
 | 007      | 03-Feb-2021 | RK | Split u-blox schematics into two images |
+| 008      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |

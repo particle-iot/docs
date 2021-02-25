@@ -6,7 +6,7 @@ order: 3
 description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B523 Datasheet <sup>004</sup>
+# B523 Datasheet <sup>005</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -581,12 +581,12 @@ The bootloader allows you to easily update the user application via several diff
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
-| SKU | Description | Region | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | GA | |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | GA | |
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | NRND | B524MEA|
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | NRND | B524MTY|
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | GA | B524MEA|
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | GA | B524MTY|
+| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | Beta | |
+| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | Beta | |
 
 {{!-- END do not edit content above, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
 
@@ -600,3 +600,4 @@ The bootloader allows you to easily update the user application via several diff
 | 002      | 30 Jul 2020 | RK | Added explanation of DIV connector |
 | 003      | 16-Sep-2020 | RK | Added power consumption information |
 | 004      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
+| 005      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |

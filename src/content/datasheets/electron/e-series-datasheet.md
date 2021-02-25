@@ -733,21 +733,21 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 26c8707c-76ca-11eb-9439-0242ac130002 --}}
-| SKU | Description | Region | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
-| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | GA | |
-| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | GA | |
-| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | GA | |
-| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | GA | |
-| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
-| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 | GA | E314KIT|
+| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 | GA | E314MOD1|
+| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | GA | E404KIT|
+| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | E404MOD1|
+| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | E404TRAY50|
+| E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | Beta | |
+| E314MOD1 | E Series 2G/3G (Global - E314), [x1] | Global | U201 | Beta | |
+| E314TRAY50 | E Series 2G/3G (Global - E314), Tray [x50] | Global | U201 | Beta | |
+| E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | Beta | |
+| E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | Beta | |
+| E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | Beta | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 | NRND-US | |
 | E313TY | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 | NRND-US | |
-| E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 | NRND | E314KIT|
-| E310MOD1 | E Series 2G/3G (Global - E310), [x1] | Global | U201 | NRND | E314MOD1|
-| E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | NRND | E404KIT|
-| E402MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | E404MOD1|
-| E402TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | E404TRAY50|
 | E313EA | E Series 2G/3G (Global - E313), [x1] | Global | U201 | Discontinued | |
 
 {{!-- END do not edit content above, it is automatically generated 26c8707c-76ca-11eb-9439-0242ac130002 --}}
