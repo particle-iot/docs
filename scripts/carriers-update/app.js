@@ -141,7 +141,11 @@ const docsToUpdate = [
             {
                 guid:'2f3d1a14-76de-11eb-9439-0242ac130002',
                 generatorFn:function() {
-                    return generateCountryList('tracker'); 
+                    return generateCountryList('tracker', {
+                        modelFilterFn:function(model) {
+                            return !model.startsWith('ONE');
+                        }
+                    }); 
                 } 
             }
         ]
@@ -162,7 +166,11 @@ const docsToUpdate = [
             {
                 guid:'8e7b0446-76de-11eb-9439-0242ac130002',
                 generatorFn:function() {
-                    return generateCountryList('tracker'); 
+                    return generateCountryList('tracker', {
+                        modelFilterFn:function(model) {
+                            return !model.startsWith('T');
+                        }
+                    }); 
                 } 
             }
         ]
@@ -335,7 +343,18 @@ function generateCountryList(skuFamily, options) {
                 return;
             }
             modems.push(groupObj.modem);
-            shortModelForModem[groupObj.modem] = groupObj.short;
+
+            let models = [];
+            groupObj.short.forEach(function(model) {
+                if (options.modelFilterFn) {
+                    if (options.modelFilterFn(model)) {
+                        return;
+                    }
+                }
+                models.push(model);
+            });
+
+            shortModelForModem[groupObj.modem] = models.join(', ');
         });
     });
 

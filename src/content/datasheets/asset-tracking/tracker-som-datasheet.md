@@ -1103,50 +1103,50 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 {{!-- BEGIN do not edit content below, it is automatically generated 8e7b0446-76de-11eb-9439-0242ac130002 --}}
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
-| Albania | T524/ONE404 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
-| Austria | T524/ONE404 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Belarus | T524/ONE404 | 2G, 3G, Cat1 | A1, MTS |
-| Belgium | T524/ONE404 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | T524/ONE404 | 2G, 3G, Cat1 | BH Telecom |
-| Bulgaria | T524/ONE404 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
-| Canada | T404/ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Croatia | T524/ONE404 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
-| Czechia | T524/ONE404 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
-| Denmark | T524/ONE404 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
-| Estonia | T524/ONE404 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | T524/ONE404 | 2G, 3G, Cat1 | Vodafone |
-| Finland | T524/ONE404 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
-| France | T524/ONE404 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
-| Germany | T524/ONE404 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
-| Gibraltar | T524/ONE404 | 2G, 3G, Cat1 | Gibtel |
-| Greece | T524/ONE404 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
-| Hungary | T524/ONE404 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
-| Iceland | T524/ONE404 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
-| Ireland | T524/ONE404 | 2G, 3G, Cat1 | 3 (Tre), Meteor, Vodafone |
-| Italy | T524/ONE404 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
-| Kosovo | T524/ONE404 | 2G, 3G, Cat1 | Monaco Telecom |
-| Latvia | T524/ONE404 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
-| Liechtenstein | T524/ONE404 | 2G, 3G, Cat1 | Orange |
-| Lithuania | T524/ONE404 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
-| Luxembourg | T524/ONE404 | 2G, 3G, Cat1 | Orange, POST, Tango |
-| Malta | T524/ONE404 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
-| Mexico | T404/ONE404 | M1 | AT&T |
-| Moldova | T524/ONE404 | 2G, 3G, Cat1 | Moldcell |
-| Monaco | T524/ONE404 | 2G, 3G, Cat1 | Monaco Telecom |
-| Montenegro | T524/ONE404 | 2G, 3G, Cat1 | Telenor |
-| Netherlands | T524/ONE404 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
-| Norway | T524/ONE404 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
-| Poland | T524/ONE404 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
-| Portugal | T524/ONE404 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
-| Romania | T524/ONE404 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Serbia | T524/ONE404 | 2G, 3G, Cat1 | Telenor |
-| Slovakia | T524/ONE404 | 2G, 3G, Cat1 | O2, Orange, Telekom |
-| Slovenia | T524/ONE404 | 2G, 3G, Cat1 | A1, Mobitel |
-| Spain | T524/ONE404 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
-| Sweden | T524/ONE404 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | T524/ONE404 | 2G, 3G, Cat1 | Salt, Swisscom |
-| United Kingdom | T524/ONE404 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Vodafone |
-| United States | T404/ONE404 | M1 | AT&T |
+| Albania | T524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Belarus | T524 | 2G, 3G, Cat1 | A1, MTS |
+| Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom |
+| Bulgaria | T524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Canada | T404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Croatia | T524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Czechia | T524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Denmark | T524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Estonia | T524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| Faroe Islands | T524 | 2G, 3G, Cat1 | Vodafone |
+| Finland | T524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| France | T524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| Germany | T524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Gibraltar | T524 | 2G, 3G, Cat1 | Gibtel |
+| Greece | T524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Hungary | T524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
+| Iceland | T524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Ireland | T524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, Vodafone |
+| Italy | T524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Kosovo | T524 | 2G, 3G, Cat1 | Monaco Telecom |
+| Latvia | T524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
+| Liechtenstein | T524 | 2G, 3G, Cat1 | Orange |
+| Lithuania | T524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
+| Luxembourg | T524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Malta | T524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Mexico | T404 | M1 | AT&T |
+| Moldova | T524 | 2G, 3G, Cat1 | Moldcell |
+| Monaco | T524 | 2G, 3G, Cat1 | Monaco Telecom |
+| Montenegro | T524 | 2G, 3G, Cat1 | Telenor |
+| Netherlands | T524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| Norway | T524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Poland | T524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
+| Portugal | T524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Romania | T524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Serbia | T524 | 2G, 3G, Cat1 | Telenor |
+| Slovakia | T524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovenia | T524 | 2G, 3G, Cat1 | A1, Mobitel |
+| Spain | T524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sweden | T524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | T524 | 2G, 3G, Cat1 | Salt, Swisscom |
+| United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Vodafone |
+| United States | T404 | M1 | AT&T |
 
 {{!-- END do not edit content above, it is automatically generated 8e7b0446-76de-11eb-9439-0242ac130002 --}}
 
