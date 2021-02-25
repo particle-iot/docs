@@ -608,10 +608,6 @@ The number of devices is limited by the number of blocks you have purchased, 100
 ### Status
 It’s easy to find out the status of your Product’s metrics. Visit [console.particle.io/billing](https://console.particle.io/billing) and you’ll see an up-to-date list of each Product you own, how many outbound events they’ve used that billing cycle, number of devices in each, and how many team members they have. The renewal date for each Product plan is also shown, so you know when the next bill is coming up.
 
-### Changing Plans 
-
-The self-service plan covers up to 250 devices in your product. For larger numbers of devices, service-level agreements (SLAs), and priority support you should [contact sales](https://particle.io/sales/).
-
 ### Updating your credit card
 
 You can update your credit card from the billing page by clicking on the "UPDATE" button next to the credit card on file. Whenever your credit card on file expires or no longer is valid, be sure to update your credit card info here to avoid any disruptions in your service.
