@@ -583,10 +583,10 @@ The bootloader allows you to easily update the user application via several diff
 {{!-- BEGIN do not edit content below, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | GA | B524MEA|
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | GA | B524MTY|
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | Beta | |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | Beta | |
+| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | GA | |
+| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | GA | |
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | NRND | B524MEA|
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | NRND | B524MTY|
 
 {{!-- END do not edit content above, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
 
