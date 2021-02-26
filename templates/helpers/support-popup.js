@@ -14,6 +14,5 @@ module.exports = function(link, type, args) {
 			+ args
 			+ '</span></span>';
 	}
-
     return r;
 }
