@@ -372,6 +372,20 @@ of the response back to your devices.
 {"name":"hook-response/your_published_event_topic/0","data":"your server response...","ttl":"60","published_at":"2016-02-09T15:23:23.047Z","coreid":"particle-internal"}
 ```
 
+A response larger than 512 bytes will be split into multiple parts of 512 bytes. The events are of the form:
+
+- hook-response/name_of_my_event/0
+- hook-response/name_of_my_event/1
+- hook-response/name_of_my_event/2
+- ...
+
+All parts except the last will be exactly 512 bytes.
+
+The parts may arrive out of order. This has always been the case if retransmission occurred, but as of late 2020, it will happen regularly. The reason is that events now flow through multiple redundant servers for fault tolerance and performance, but this also means that events may arrive in a different order.
+
+There is no express indication of how many parts there are. Any part less than 512 bytes is the last part, however if the data is a multiple of 512 bytes, then it will be impossible to tell. Some formats like JSON will only be parsable after all parts have been received.
+
+
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
 
 ## Asset Tracking Events
