@@ -14,12 +14,5 @@ module.exports = function(link, type, args) {
 			+ args
 			+ '</span></span>';
 	}
-	else if (type == 'vine') {
-		var r = '<span class="popupLink">'
-		    + link
-		    + '<span class = "popup"><iframe src="'
-		    + args
-		    + '" width="320" height="320" frameborder="0"></iframe></span></span>';
-	}
     return r;
 }
