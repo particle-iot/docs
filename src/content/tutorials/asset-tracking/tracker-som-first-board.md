@@ -2,7 +2,7 @@
 title: Tracker SoM First Board
 columns: two
 layout: tutorials.hbs
-order: 45
+order: 70
 description: A simple demonstration board for the Tracker SoM
 ---
 

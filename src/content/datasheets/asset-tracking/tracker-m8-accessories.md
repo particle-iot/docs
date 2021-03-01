@@ -1,12 +1,12 @@
 ---
-title: Tracker M8 Accessories
+title: M8 Accessories
 layout: datasheet.hbs
 columns: two
 order: 20
 description: Datasheet for Tracker One M8 connector accessories
 ---
 
-# Tracker M8 Accessories<sup>(004)</sup>
+# M8 Accessories<sup>(004)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-m8-accessories.pdf"}}
@@ -138,6 +138,17 @@ The ONEM8CONN is a connector similar to the M8 connector on the straight ONEM8CA
 | ONEM8CONNTY | Tracker One M8 Connector (Straight), (x40) |
 
 This connector has the same pinouts as the cable above, but without the cable, so you can substitute your own cable of the desired length.
+
+
+## Other Sensors
+
+### M8 Temperature/Humidity
+
+![M8 Sensor Temperature/Humidity](/assets/images/tracker/m8-temp-humidity.png)
+
+- [M8 Temperature/Humidity Datasheet](/datasheets/asset-tracking/m8-temperature-humidity/)
+- [M8 Temperature/Humidity Tutorial](/tutorials/asset-tracking/m8-temperature-humidity/)
+
 
 
 ## Revision history

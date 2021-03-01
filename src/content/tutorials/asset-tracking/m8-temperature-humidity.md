@@ -1,0 +1,202 @@
+---
+title: M8 Temperature/Humidity
+columns: two
+layout: tutorials.hbs
+order: 42
+description: M8 Temperature/Humidity Tutorial
+---
+
+# M8 Temperature/Humidity Tutorial
+
+## Introduction
+
+![M8 Sensor Temperature/Humidity](/assets/images/tracker/m8-temp-humidity.png)
+
+This tutorial illustrates:
+
+- Using the using the Particle M8 temperature and humidity sensor
+- Adding custom data to your location publishes
+
+The sensor cable features:
+
+- IP 67 waterproof rating
+- Durable, weatherproof, metal casing
+- ±0.5°C temperature accuracy
+- ±2% relative humidity accuracy
+- Temperature range -22°C to 80°C
+- 120 cm. (47.25 inch) cable
+
+While the Tracker One board contains a precision thermistor, the sensor shown here is good for measuring temperature in locations separate from the Tracker, for example outside, in a refrigeration unit, etc..
+
+The M8 Temperature/Humidity sensor connects to the M8 connector on the outside of the Tracker One enclosure. The Tracker One maintains its IP67 waterproof rating with the M8 connector in use.
+
+The [M8 Temperature/Humidity Sensor Datasheet](/datasheets/asset-tracking/m8-temperature-humidity) includes additional information about the sensor cable.
+
+
+## Firmware
+
+### Getting the Tracker Edge Firmware
+
+The Tracker Edge firmware can be downloaded from Github:
+
+[https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
+
+You will probably want to use the command line as there are additional commands you need to run after cloning the source:
+
+```bash
+git clone https://github.com/particle-iot/tracker-edge 
+cd tracker-edge
+git submodule update --init --recursive
+```
+
+- Open Particle Workbench.
+- From the command palette, **Particle: Import Project**.
+- Run **Particle: Configure Workspace for Device**, select version 2.0.1, or later, Tracker, and your device.
+- Run **Particle: Flash application (local)**.
+
+### Add the sht3x-i2c library
+
+From the command palette in Workbench, **Particle: Install Library** then enter **sht3x-i2c**.
+
+The documentation for the library can be found [here](https://github.com/particle-iot/sht3x-i2c).
+
+### Customize main.cpp
+
+```cpp
+#include "Particle.h"
+
+#include "tracker_config.h"
+#include "tracker.h"
+#include "sht3x-i2c.h"
+
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+PRODUCT_ID(TRACKER_PRODUCT_ID);
+PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
+
+SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
+    { "app.gps.nmea", LOG_LEVEL_INFO },
+    { "app.gps.ubx",  LOG_LEVEL_INFO },
+    { "ncp.at", LOG_LEVEL_INFO },
+    { "net.ppp.client", LOG_LEVEL_INFO },
+});
+
+Sht3xi2c sensor(Wire3, 0x44);
+
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
+
+void setup()
+{
+    Tracker::instance().init();
+
+    // Register a location callback so we can add temperature and humidity information
+    // to location publishes
+    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+    
+    // Turn on 5V output on M8 connector
+    pinMode(CAN_PWR, OUTPUT);
+    digitalWrite(CAN_PWR, HIGH);
+    delay(500);
+
+    sensor.begin(CLOCK_SPEED_400KHZ);
+    sensor.start_periodic();
+
+    Particle.connect();
+}
+
+void loop()
+{
+    Tracker::instance().loop();
+}
+
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+{
+    double temp, humid;
+
+    int err = sensor.get_reading(&temp, &humid);
+    if (err == 0)
+    {
+        writer.name("sh31_temp").value(temp);
+        writer.name("sh31_humid").value(humid);
+
+        Log.info("temp=%.2lf hum=%.2lf", temp, humid);
+    }
+    else {
+        Log.info("no sensor err=%d", err);
+    }
+}
+
+```
+
+### Digging In
+
+```cpp
+Sht3xi2c sensor(Wire3, 0x44);
+```
+
+Note that the M8 I2C interface is `Wire3` not `Wire` as you might be used to on other Particle devices where `Wire` is on pins D0 and D1. On the Tracker M8 connector, `Wire3` is on the same physical pins as `Serial1` so you can only use one port or the other.
+
+
+```cpp
+Tracker::instance().init();
+
+// Register a location callback so we can add temperature and humidity information
+// to location publishes
+Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
+```
+
+In `setup()` initialize the Tracker firmware and add a callback for when the location publishes occur.
+
+```cpp
+// Turn on 5V output on M8 connector
+pinMode(CAN_PWR, OUTPUT);
+digitalWrite(CAN_PWR, HIGH);
+delay(500);
+
+sensor.begin(CLOCK_SPEED_400KHZ);
+sensor.start_periodic();
+```
+
+The on `CAN_PWR` to power the regulator, level-shifter, and sensor. Then initialize the sensor.
+
+```cpp
+Particle.connect();
+```
+
+Finally connect to the Particle cloud at the end of setup.
+
+```cpp
+Tracker::instance().loop();
+```
+
+Make sure you give the Tracker edge firmware processor time on every call to `loop()`.
+
+```cpp
+void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
+{
+    double temp, humid;
+
+    int err = sensor.get_reading(&temp, &humid);
+    if (err == 0)
+    {
+        writer.name("sh31_temp").value(temp);
+        writer.name("sh31_humid").value(humid);
+
+        Log.info("temp=%.2lf hum=%.2lf", temp, humid);
+    }
+    else {
+        Log.info("no sensor err=%d", err);
+    }
+}
+```
+
+Finally, when there is a location publish, add the sensor data to it.
+
+
+## Cloud Data
+
+In the map view in the [console](https://console.particle.io), you should be able to see the additional custom data:
+
+![Custom Data](/assets/images/tracker/m8-temp-humidity-data.png)
+

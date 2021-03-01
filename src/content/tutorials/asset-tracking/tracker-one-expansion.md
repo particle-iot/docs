@@ -2,7 +2,7 @@
 title: Tracker One Expansion
 columns: two
 layout: tutorials.hbs
-order: 45
+order: 40
 description: Adding features to the Tracker One
 ---
 
