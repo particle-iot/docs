@@ -719,6 +719,23 @@ In some cases, you will want to set the maximum and minimum to the same value. T
 | 24 hours | 86400 |
 
 
+- **Minimize Data**. If checked, only only latitude and longitude data is sent on each location publish. If unchecked (the default), additional information such as speed and heading are sent.
+
+- **Publish on GPS lock**. If checked, publish location when GNSS lock is obtained, even if the device has not reached the radius trigger or maximum location update frequency yet. The minimum location update frequency is still obeyed.
+
+- **Acknowledge location publishes**. If checked, the device will expect cloud acknowledgement of location publishes and retry failed transmissions. If unchecked, one attempt will be made to send, which may or may not succeed. If you are publishing frequently, it may be preferable to lose some points, rather than record delayed information.
+
+- **Enhanced location**. If checked, the Particle cloud will process location fusion, enhanced geolocation using Wi-Fi access points and cellular tower information.
+
+- **Publish cellular tower data**. If checked, the Tracker will include information about nearby cellular towers with location events.
+
+- **Publish GNSS data**. If checked, the Tracker will use the GNSS (GPS) module for geolocation.
+
+- **Publish Wi-Fi access point data**. If checked, the Tracker will include nearby Wi-Fi access points in location publishes. The Wi-Fi access points are not connected to; most Wi-Fi access points periodically broadcast their presence to allow Wi-Fi devices to find them. This public information is used by the Wi-Fi geolocation service.
+
+- **Callback to device with enhanced location data**. If checked, the Particle cloud will send back enhanced geolocation data obtained from Wi-Fi or cellular tower information back to the device. This is useful if your device firmware wants to process this information on device. If you're only tracking location from the cloud, it's not necessary to enable this option.
+
+
 #### Motion Settings
 
 ![Motion Settings](/assets/images/tracker/settings-2.png)
