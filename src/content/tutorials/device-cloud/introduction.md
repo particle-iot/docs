@@ -96,7 +96,7 @@ Updating your device firmware and Device OS can be done securely over the Partic
 Cellular, Tracker, and Wi-Fi devices can be free to use!
 
 - Up to 100 devices, any mix of cellular and Wi-Fi
-- 85,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
+- 100,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to 45 MB of cellular data per month, pooled across all devices, at no charge
 - No credit card required
 - Products can be prototyped in the Free tier
@@ -177,7 +177,7 @@ There is no limit to the number of blocks you can purchase in the Growth tier, h
 
 #### What happens if I exceed the number of data operations?
 
-In the Free tier, if you need more data operations you will need to upgrade to the Growth tier. When you exceed 85,000 data operations, all data operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more data operations to the Free tier. 
+In the Free tier, if you need more data operations you will need to upgrade to the Growth tier. When you exceed 100,000 data operations, all data operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more data operations to the Free tier. 
 
 In the Growth tier, if you need more than 250,000 data operations across your fleet of devices per month, you can add another block.
 

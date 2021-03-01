@@ -576,18 +576,18 @@ To see all billing related information, you can click on the billing icon in you
 #### Free tier
 
 - Up to 100 devices, any mix of cellular and Wi-Fi
-- 85,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
+- 100,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to 45 MB of cellular data per month, pooled across all devices, at no charge
 - No credit card required
-- Device communication is paused when the monthly limit is reached
+- Device communication is paused when the monthly limit is reached<sup>1</sup>
 
 For more information see [Device Cloud - Introduction - Pricing](/tutorials/device-cloud/introduction/#pricing).
 
+<sup>1</sup>During the transition period, a warning will be sent but communication will not be immediately paused.
+
 #### Free tier products
 
-Products can be prototyped in the Free tier at no charge. However, there is a limit of 250 devices for Free tier products. 
-
-If all of the devices are claimed to your account you will be further limited to the maximum number of devices in a Free tier account, which is 100 devices, however if devices are claimed to multiple accounts the limit of 250 applies.
+Products can be prototyped in the Free tier at no charge. However, there is a limit of 100 devices for Free tier products. 
 
 #### Growth tier
 

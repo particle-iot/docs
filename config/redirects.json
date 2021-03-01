@@ -252,6 +252,8 @@
     "/troubleshooting": "/tutorials/device-os/led",
     "/tutorials": "/tutorials/device-os/device-os",
     "/tutorials/asset-tracking/":"/tutorials/asset-tracking/introduction",
+    "/tutorials/cellular-connectivity/billing/":"/tutorials/cellular-connectivity/data",
+    "/tutorials/cellular-connectivity/sim-management/":"/tutorials/cellular-connectivity/data",
     "/tutorials/developer-tools/dev/":"/reference/discontinued/dev",
     "/tutorials/hardware-projects": "/tutorials/hardware-projects/hardware-examples",
     "/tutorials/hardware-projects/hardware-examples/raspberry-pi": "/raspberry-pi",

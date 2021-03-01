@@ -13,19 +13,21 @@ Particle provides a number of devices with cellular connectivity including the T
 ### Free Tier
 
 - Up to 100 devices, any mix of cellular and Wi-Fi
-- 85,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
+- 100,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to 45 MB of cellular data per month, pooled across all devices, at no charge
 - No credit card required
 - Products can be prototyped in the Free tier
-- Device communication is paused when the monthly limit is reached
+- Device communication is paused<sup>1</sup> when the monthly limit is reached
 - Community support
+
+<sup>1</sup>During the transition period, a warning will be sent but communication will not be immediately paused.
 
 ### Data Operations
 
 The central billing element for both cellular and Wi-Fi is the data operation:
 
 - Each publish, subscribe, function, or variable consumes one data operation regardless of size (currently limited to 622 bytes per operation)
-- Stored data, such as Tracker geolocation data, consume one data operation per location point saved
+- Stored data, such as Tracker geolocation data, consume one data operation per location point saved<sup>1</sup>
 - Each user-initiated device ping consumes one data operation
 
 The following do **not** count against your data operations limit:
@@ -34,6 +36,8 @@ The following do **not** count against your data operations limit:
 - Acknowledgements, session negotiation, device vitals, keep-alives etc. do not count against your data operations limit
 - Webhooks and server-sent-events (SSE) do not count against your data operations limit
 - Particle cloud API calls do not count against your data operations limit
+
+<sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
 
 ### Cellular Data Limit
 
