@@ -68,8 +68,10 @@ carriers2.selectMenu = function() {
 
     $('#' + carriers2.options.table + ' > tbody').html('');
 
+    let countryHasSecondaryOrBackup = {};
+    let countryCarrierFiltered = [];
+
     datastore.data.countryCarrier.forEach(function(ccObj) {
-        let html = '';
 
         if (!ccObj[countryCarrierKey] || ccObj[countryCarrierKey].prohibited) {
             return;
@@ -83,7 +85,30 @@ carriers2.selectMenu = function() {
             return;
         }
 
-        html += '<tr><td>' + ccObj.country + '</td><td>' + ccObj.carrier + '</td>';
+        if (ccObj[countryCarrierKey].rank == 'Secondary' || ccObj[countryCarrierKey].rank == 'Backup') {
+            countryHasSecondaryOrBackup[ccObj.country] = true;
+        }
+
+        countryCarrierFiltered.push(ccObj);
+    });
+
+
+    countryCarrierFiltered.forEach(function(ccObj) {
+        let html = '';
+
+        html += '<tr><td>' + ccObj.country + '</td><td>' + ccObj.carrier;
+        
+        if (countryHasSecondaryOrBackup[ccObj.country]) {
+            if (ccObj[countryCarrierKey].rank == 'Secondary') {
+                html += '<sup>2</sup>';
+            }
+            else if (ccObj[countryCarrierKey].rank == 'Backup') {
+                html += '<sup>3</sup>';
+            }
+
+        }
+        
+        html += '</td>';
 
         let allow = false;
         technologies.forEach(function(tech) {
