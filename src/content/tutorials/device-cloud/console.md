@@ -569,7 +569,7 @@ The Logs page (<i class="icon-terminal"></i>) is also available to product creat
 
 ### Managing your billing
 
-To see all billing related information, you can click on the billing icon in your Product's sidebar (<i class="ion-card"></i>). This is the hub for all billing-related information and actions. For more specifics about the pricing tiers and frequently asked questions, [go check out the Pricing page](https://www.particle.io/pricing).
+To see all billing related information, you can click on the billing icon in the sidebar (<i class="ion-card"></i>). This is the hub for all billing-related information and actions. For more specifics about the pricing tiers and frequently asked questions, [go check out the Pricing page](https://www.particle.io/pricing).
 
 ### How billing works
 
