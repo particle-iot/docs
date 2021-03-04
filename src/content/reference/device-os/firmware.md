@@ -8394,7 +8394,7 @@ See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more inf
 
 #### BLE.setScanParameters()
 
-Sets the parameters used for scanning. Typically you will only ever need to change the scan timeout, but if you need finer control you can use this function.
+Sets the parameters used for scanning. Typically you will only ever need to change the scan timeout, but if you need finer control you can use this function. Also used to set up scanning for devices advertising in BLE 5 Coded Phy mode.
 
 ```cpp
 // PROTOTYPE
@@ -8402,17 +8402,6 @@ int setScanParameters(const BleScanParams* params) const;
 ```
 
 See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more information.
-
-#### BLE.setScanCoded()
-
-Controls coding in the physical layer used during scanning. If called with the argument "true", scanning will respond only to advertisements in PHY_CODED format. If called with the argument "false", scanning will respond only to advertisements in the standard PHY_1MBPS format. Note that these are mutually exclusive; advertisements in the unselected format will not be detected. Before the API is called, the default mode is standard PHY_1MBPS format. 
-
-PHY_CODED is a new feature in BLE 5 that employs redundancy and error-correction, trading off speed in favor of noise immunity. In theory it could double the range achievable, but in practice you may expect closer to a 50% increase in range. 
-
-```cpp
-// PROTOTYPE
-int setScanCoded(bool use_coded) const;
-```
 
 #### BLE.connect()
 
@@ -9673,6 +9662,7 @@ uint16_t timeout;
 hal_ble_adv_evt_type_t type; 
 uint8_t filter_policy;
 uint8_t inc_tx_power;
+uint8_t primary_phy;
 uint8_t reserved;
 
 // EXAMPLE
@@ -9688,6 +9678,7 @@ int res = BLE.getAdvertisingParameters(&param);
 - `timeout` Advertising timeout in 10 ms units. Default is 0.
 - `type` See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeventtype). Default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
 - `filter_policy` Default is 0.
+- `primary_phy` Default is BLE_PHY_1MBPS (standard). Set to BLE_PHY_CODED for BLE 5 Coded Phy (long range).
 - `inc_tx_power` Default is 0.
 
 ### BleScanParams
@@ -9702,6 +9693,7 @@ uint16_t interval;
 uint16_t window;
 uint16_t timeout; uint8_t active;
 uint8_t filter_policy;
+uint8_t scan_phys;
 
 // EXAMPLE
 BleScanParams scanParams;
@@ -9717,6 +9709,7 @@ int res = BLE.getScanParameters(&scanParams);
 - `timeout` Scan timeout in 10 ms units. Default value is 500.
 - `active` Boolean value, typically 1.
 - `filter_policy` Default is 0.
+- `scan_phys` Default is BLE_PHYS_1MBPS. Use BLE_PHYS_CODED to scan for Coded Phy, or (BLE_PHYS_1MBPS | BLE_PHYS_CODED) to scan for both.
 
 ### iBeacon
 
