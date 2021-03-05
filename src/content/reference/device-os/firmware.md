@@ -2681,6 +2681,8 @@ STARTUP(softap_set_application_page_handler(myPage, nullptr));
 
 ### on()
 
+{{api name1="Cellular.on" name2="on"}}
+
 `Cellular.on()` turns on the Cellular module. Useful when you've turned it off, and you changed your mind.
 
 Note that `Cellular.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Cellular module off.  When turning on the Cellular module, it will go through a full re-connect to the Cellular network which will take anywhere from 30 to 60 seconds in most situations.
@@ -2691,6 +2693,8 @@ Cellular.on();
 ```
 
 ### off()
+
+{{api name1="Cellular.off" name2="off"}}
 
 `Cellular.off()` turns off the Cellular module. Useful for saving power, since most of the power draw of the device is the Cellular module.  Note: turning off the Cellular module will force it to go through a full re-connect to the Cellular network the next time it is turned on.
 
@@ -2833,6 +2837,8 @@ Unlocks the `Cellular` mutex. See `lock()`.
 
 
 ### setCredentials()
+
+{{api name1="Cellular.setCredentials" name2="setCredentials"}}
 
 Sets 3rd party SIM credentials for the Cellular network from within the user application. 
 

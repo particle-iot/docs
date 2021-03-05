@@ -120,7 +120,7 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | 3         | 7      | CAN_N     | Blue           |  
 | 4         | 6      | CAN_5V    | Orange         |  
 | 5         | 5      | TX_SCL_D9 | Brown          |  
-| 6         | 4      | TX_SDA_D8 | Green          |  
+| 6         | 4      | RX_SDA_D8 | Green          |  
 | 7         | 3      | A3        | White          |  
 | 8         | 8      | GND       | Black          |  
 
@@ -454,4 +454,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 012      | 2020 Dec 09 | RK | CAN termination resistor is not present |
 | 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
 | 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
-| 015      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
+| 015      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
