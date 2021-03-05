@@ -120,7 +120,7 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | 3         | 7      | CAN_N     | Blue           |  
 | 4         | 6      | CAN_5V    | Orange         |  
 | 5         | 5      | TX_SCL_D9 | Brown          |  
-| 6         | 4      | TX_SDA_D8 | Green          |  
+| 6         | 4      | RX_SDA_D8 | Green          |  
 | 7         | 3      | A3        | White          |  
 | 8         | 8      | GND       | Black          |  
 
