@@ -123,6 +123,8 @@ To compile and flash locally, use the Command Palette and select one of the loca
 
 ![Flash Local](/assets/images/workbench/local-3.png)
 
+For devices that are in a product make sure you've used the [**Mark As Development Device**](/tutorials/product-tools/development-devices/) option for your device in your product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed. All Tracker (Tracker SoM, evaluation board, and Tracker One) devices are in a product, even single devices.
+
 In order to use the Flash options, the device must be connected by USB. The device will be placed into DFU mode (blinking yellow) automatically. If for some reason you need to enter DFU manually, you can do so by holding down the MODE (or SETUP) button while tapping RESET. Continue to hold down MODE (or SETUP) while the status LED blinks magenta (red and blue at the same time), until it blinks yellow, then release.
 
 There are also compile options, which compile the code and download a binary:
