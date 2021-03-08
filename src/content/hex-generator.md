@@ -6,16 +6,16 @@ description: Hex File Generator
 
 # Hex File Generator
 
-This tool makes it easy to create custom Intel hex files for flashing new devices. This is handy if you will be flashing many devices, or your contract manufacturer will be flashing your devices for you. The .hex file is self-contained and contains the bootloader, 
+This tool makes it easy to create custom Intel hex files for flashing new devices. This is handy if you will be flashing many devices, or your contract manufacturer will be flashing your devices for you. The .hex file contains: 
 
-- On Gen 3 devices the Bootloader, Soft Device, UICR bytes, Device OS, and user firmware are included
-- On Gen 2 devices the Bootloader, Device OS, and user firmware are included.
+- On Gen 3 devices the Bootloader, Soft Device, UICR bytes, Device OS, and user firmware
+- On Gen 2 devices the Bootloader, Device OS, and user firmware
 
 Any of the technique in the [JTAG Reference](/reference/developer-tools/jtag/) can be used, such as the Particle Debugger, ST-LINK/v2 (for Gen 2), or Segger J-Link, to flash hex files to your devices.
 
 This tool takes the [restore binaries](/reference/developer-tools/jtag/#restore-binaries) and replaces Tinker with your user firmware binary.
 
-- Select the Device platform and version to base your image on:
+- Select the device platform and version to base your image on:
 
 {{device-restore mode="radio"}}
 

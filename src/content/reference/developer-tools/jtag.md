@@ -128,7 +128,7 @@ With the debugger positioned as in the picture above (USB connector toward you):
 
 Note: Hardware flow control is not supported, so RTS and CTS are essentially NC.
 
-In order to use SWD debugging you need to connect:
+In order to use SWD you need to connect:
 
 | Device Pin | SWD   |
 | :--------: | :---: |
@@ -217,8 +217,8 @@ You can try the [experimental web browser based Particle debugger interface](/de
 - This tool is experimental, and may not work properly. It could leave your device in a bad state (but you can fix it with one of the other techniques if it happens).
 - You must [upgrade the firmware on your Particle Debugger](/datasheets/accessories/debugger/#upgrading-the-debugger) as the version from the factory does not have this functionality.
 - There is limited browser support on desktop: Chrome, Edge, and Opera. It does not work with Firefox or Safari. 
-- It should work on Mac, Windows, Linux, and Chromebook on supported browsers.
-- It should work on some Android phones that support USB OTG when using Chrome or Opera browsers.
+- It should work on Mac, Windows, Linux, and Chromebook on supported browsers that support WebUSB.
+- It should work on some Android phones that support USB OTG when using Chrome or Opera browsers that support WebUSB.
 - It does not work on iOS (iPhone or iPad) as the hardware does not support USB OTG.
 - It is only recommended for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It does not work reliably on Gen 2.
 - It takes about 3 minutes to restore a device.
@@ -293,9 +293,9 @@ However because it runs on Windows and accepts an easy to use .hex file, some co
 With the ST-LINK positioned as the picture above (ST logo right-side-up) and the notch at the bottom of the 20-pin header:
 
 <table>
-<tr><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td><td>20</td></tr>
-<tr><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td><td>11</td><td>13</td><td>15</td><td>17</td><td>19</td></tr>
-<tr><td></td><td></td><td></td><td></td><td colspan="2">notch</td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:center; width:15px;">2</td><td style="text-align:center; width:15px;">4</td><td style="text-align:center; width:15px;">6</td><td style="text-align:center; width:15px;">8</td><td style="text-align:center; width:15px;">10</td><td style="text-align:center; width:15px;">12</td><td style="text-align:center; width:15px;">14</td><td style="text-align:center; width:15px;">16</td><td style="text-align:center; width:15px;">18</td><td style="text-align:center; width:15px;">20</td></tr>
+<tr><td style="text-align:center;">1</td><td style="text-align:center;">3</td><td style="text-align:center;">5</td><td style="text-align:center;">7</td><td style="text-align:center;">9</td><td style="text-align:center;">11</td><td style="text-align:center;">13</td><td style="text-align:center;">15</td><td style="text-align:center;">17</td><td style="text-align:center;">19</td></tr>
+<tr><td></td><td></td><td></td><td></td><td colspan="2" style="text-align:center;">notch</td><td></td><td></td><td></td><td></td></tr>
 </table>
 
 
@@ -313,6 +313,14 @@ Note that you must connect VCC to 3V3 with the real ST-LINK because it uses that
 ![ST-LINK Mini](/assets/images/jtag-07mini.jpg)
 
 The ST-LINK can only be used with Gen 2 devices (Photon, P1, Electron, and E Series) that use a STM32 processor.
+
+In order to use SWD you need to connect:
+
+| Device Pin | SWD   |
+| :--------: | :---: |
+| D7         | SWDIO |
+| D6         | SWCLK |
+| GND        | GND   |
 
 [Find your openocd binary for Workbench](#find-openocd) or a [standalone install](#particle-debugger-with-openocd-standalone-).
 
