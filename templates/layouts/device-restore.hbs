@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="one-column">
+<head>
+  {{> headNoSection}}
+  <script type="text/javascript" src="/assets/js/dap.umd.js"></script>
+</head>
+<body>
+  <div id="docs" data-level>
+    {{> header}}
+
+    <div class='content-root'>
+        <div class='content-inner'>
+          <div class="content" >
+            {{{contents}}}
+
+            <div id="errorDiv"></div>
+
+            <div id="progressDiv">
+                <label for="progressBar">Flash progress:</label>
+                <progress id="progressBar" value="0" max="100"></progress>
+            </div>
+          </div>
+        </div>
+    </div>
+    {{> scripts}}
+    <script type="text/javascript" src="/assets/js/device-restore.js"></script>
+</body>
+</html>
