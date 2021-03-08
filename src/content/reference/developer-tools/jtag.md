@@ -223,7 +223,7 @@ You can try the [experimental web browser based Particle debugger interface](/de
 - It is only recommended for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It does not work reliably on Gen 2.
 - It takes about 3 minutes to restore a device.
 
-<a href="/device-restor/" class="button">Web Browser Device Restore</a>
+<a href="/device-restore/" class="button">Web Browser Device Restore</a>
 
 
 ## Particle debugger with OpenOCD (standalone)
