@@ -2,7 +2,7 @@
 title: Gen 3 Accessories
 layout: datasheet.hbs
 columns: two
-order: 20
+order: 22
 description: Accessories for Particle Gen 3 devices including the Argon and Boron, and other Adafruit FeatherWing accessories.
 ---
 
@@ -400,50 +400,7 @@ The Gen 3 devices do not support DAC or CAN, so those classic devices using thos
 
 ## Debugger
 
-<div align=center><img src="/assets/images/accessories/debugger.png" ></div>
-
-The Particle Debugger gives you the power of professional debugging at a fraction of the cost. Using this accessory, you’ll be able to program Particle Gen 3 hardware over common interfaces like JTAG and SWD, using open source tools like GDB and openocd.
-
-Supports the open source [CMSIS-DAP specification](https://os.mbed.com/handbook/DAPLink) and DAPLink firmware developed by ARM. On Mac, Linux, and Windows it requires no additional device drivers. 
-
-It also provides a USB to TTL serial port. This requires no device drivers on Mac, Linux, or Windows 10 or later, but you may need to install a device driver from the CMSIS-DAP specification page, above, for earlier versions of Windows to use the serial port feature.
-
-Comes with one JTAG ribbon cable.
-
-For more information about debugging see the [JTAG FAQ](https://support.particle.io/hc/en-us/articles/360039251414/). Future version of Particle Workbench will support the Particle Debugger as well. The design is open source and the design files are available [here](https://github.com/particle-iot/debugger).
-
-### Debugging Gen 3 devices
-
-Connecting a Argon or Boron to the debugger is as easy as connecting the included ribbon cable, as pictured below. It's keyed so it will only go in one way. The devices ship with a small plastic protective plug in the debugging connector; make sure you remove that first.
-
-![Debugger](/assets/images/debugger2.jpg)
-
-### Debugging legacy platforms
-
-Using the headers on the Particle Debugger you can attach it to other ARM processor devices like the STM32 in the Particle Photon, P1, Electron, and E Series for SWD (serial wire debug).
-
-With the debugger positioned like this, USB connector toward you and the headers facing up:
-
-![Debugger](/assets/images/debugger1.jpg)
-
-| Left Header | Right Header |
-| --- | ----- |
-| VDD | SWCLK |
-| RTS | SWDIO |
-| RX  | NC    |
-| TX  | NC    |  
-| CTS | GND   | 
-| GND | VUSB  |
-
-The RX and TX pins are only available on the debugger header pins and are not connected to the Argon or Boron RX and TX pins.
-
-The RTS and CTS (hardware flow control pins) are not currently supported by the debugger firmware and cannot be used.
-
-In order to use SWD debugging you need to connect:
-
-- D7: SWDIO
-- D6: SWCLK
-- GND
+The [Particle Debugger](/datasheets/accessories/debugger/) is now on its own page.
 
 ## FeatherWing Tripler
 
