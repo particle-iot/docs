@@ -53,16 +53,16 @@ Using the [Hex File Generator](/hex-generator/), you can take one of the base re
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 
 
-## Particle debugger with OpenOCD (via Particle Workbench)
+## Particle Debugger with OpenOCD (via Particle Workbench)
 
-Installing [Particle Workbench](/tutorials/developer-tools/workbench/) installs a copy of OpenOCD ("on-chip-debugger") which works well with the Particle Debugger as well as the ST-LINK/v2 and clones on both Gen 2 and Gen 3. It does not require updating the Particle debugger firmware.
+Installing [Particle Workbench](/tutorials/developer-tools/workbench/) installs a copy of OpenOCD ("on-chip-Debugger") which works well with the Particle Debugger as well as the ST-LINK/v2 and clones on both Gen 2 and Gen 3. It does not require updating the Particle Debugger firmware.
 
 The only catch is that it's command line, and the commands are very long and somewhat complicated.
 
 - Download a .hex file above.
 - Connect the Particle device by USB to your computer, USB power supply, or battery.
-- Connect the Particle device to the debugger with the included 10-pin ribbon cable.
-- Connect the Particle debugger to your computer via another USB port.
+- Connect the Particle device to the Debugger with the included 10-pin ribbon cable.
+- Connect the Particle Debugger to your computer via another USB port.
 - Put the Particle device in DFU mode (blinking yellow).
 - Run one of the commands below.
 
@@ -115,7 +115,7 @@ What this does:
 
 ![Particle Debugger Gen 2](/assets/images/debugger1.jpg)
 
-With the debugger positioned as in the picture above (USB connector toward you):
+With the Debugger positioned as in the picture above (USB connector toward you):
 
 | Left Header | Right Header |
 | :---------: | :---: |
@@ -188,13 +188,13 @@ What this does:
 After setting the RDP level you will have to flash the firmware restore above, as well as reset the device keys. The easiest way to do that is to use [`particle keys doctor`](/reference/developer-tools/cli/#particle-keys-doctor).
 
 
-## Particle debugger with drag-and-drop
+## Particle Debugger with drag-and-drop
 
 With the Particle Debugger (CMSIS-DAP), it can expose what looks like a USB thumb drive volume on your computer. This can be used to program Particle Gen 3 devices. It requires no extra software on Windows, Mac, or Linux! 
 
 The caveats are: 
 
-- You must first [upgrade the Particle debugger firmware](/datasheets/accessories/debugger/#upgrading-the-debugger) .
+- You must first [upgrade the Particle Debugger firmware](/datasheets/accessories/debugger/#upgrading-the-debugger) .
 - You should only use it with Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) as drag-and-drop does not operate reliably with Gen 2 devices.
 - It takes about 1 minute to restore a device.
 
@@ -202,17 +202,17 @@ All you need to do is:
 
 - Download a .hex restore file or custom firmware binary, above.
 - Connect the Particle device by USB to your computer, USB power supply, or battery.
-- Connect the Particle device to the debugger with the included 10-pin ribbon cable.
-- Connect the Particle debugger to your computer via another USB port.
+- Connect the Particle device to the Debugger with the included 10-pin ribbon cable.
+- Connect the Particle Debugger to your computer via another USB port.
 - Put the Particle device in DFU mode (blinking yellow).
-- Drag the .hex file on the **DAPLINK** volume created by the debugger.
+- Drag the .hex file on the **DAPLINK** volume created by the Debugger.
 
 
 ## Particle Debugger with Web-browser flash
 
 ![Particle Debugger](/assets/images/accessories/debugger.png)
 
-You can try the [experimental web browser based Particle debugger interface](/device-restore/). This experimental feature has numerous caveats, but it's pretty neat.
+You can try the [experimental web browser based Particle Debugger interface](/device-restore/). This experimental feature has numerous caveats, but it's pretty neat.
 
 - This tool is experimental, and may not work properly. It could leave your device in a bad state (but you can fix it with one of the other techniques if it happens).
 - You must [upgrade the firmware on your Particle Debugger](/datasheets/accessories/debugger/#upgrading-the-debugger) as the version from the factory does not have this functionality.
@@ -226,7 +226,7 @@ You can try the [experimental web browser based Particle debugger interface](/de
 <a href="/device-restore/" class="button">Web Browser Device Restore</a>
 
 
-## Particle debugger with OpenOCD (standalone)
+## Particle Debugger with OpenOCD (standalone)
 
 It's also possible to install [OpenOCD standalone](http://openocd.org/getting-openocd/), without Particle Workbench. This is useful if you have a contract manufacturer or your own manufacturing station that you don't want to or can't install the entire Particle Workbench tool chain on.
 
