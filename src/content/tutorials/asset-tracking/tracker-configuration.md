@@ -284,7 +284,7 @@ In setup(), associate the variables with the location in the configuration schem
 - When the device comes online, getting any updates that occurred while offline.
 - If the device is already online and the settings are changed, they are pushed to the device automatically.
 
-For the full example, see the [AN017 Tracker CAN](https://github.com/particle-iot/app-notes/tree/master/AN017-Tracker-CAN), the CAN bus application note.
+For the full example, see the [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can), the CAN bus application note.
 
 ## Example
 

@@ -29,6 +29,7 @@
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.6.1",
         "handlebars": "^3.0.1",
+        "jszip": "^3.6.0",
         "lodash": "^4.17.4",
         "marked": "^0.3.6",
         "md5": "^2.2.1",

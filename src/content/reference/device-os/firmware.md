@@ -464,7 +464,7 @@ bool success = Particle.publish("temperature", String::format("%.1f", temp);
 
 Normally, you store or test the result of Particle.publish in a `bool` variable that indicates that the event was queued for publishing successfully, or reached the cloud, when used with `WITH_ACK`.
 
-But what is the `particle::Future<bool>` in the prototype above? See the application note [AN009 Firmware Examples](https://github.com/particle-iot/app-notes/tree/master/AN009-Firmware-Examples/Stop-Sleep-Cellular#the-future) for how to use a Future to make the otherwise synchronous Particle.publish() call asynchronous. 
+But what is the `particle::Future<bool>` in the prototype above? See the application note [AN009 Firmware Examples](/datasheets/app-notes/an028-stop-sleep-cellular/#the-future) for how to use a Future to make the otherwise synchronous Particle.publish() call asynchronous. 
 
 ---
 
@@ -12823,7 +12823,7 @@ A **Watchdog Timer** is designed to rescue your device should an unexpected prob
 
 Device OS includes a software-based watchdog, [ApplicationWatchdog](https://docs.particle.io/reference/device-os/firmware/#application-watchdog), that is based on a FreeRTOS thread. It theoretically can help when user application enters an infinite loop. However, it does not guard against the more problematic things like deadlock caused by accessing a mutex from multiple threads with thread swapping disabled, infinite loop with interrupts disabled, or an unpredictable hang caused by memory corruption. Only a hardware watchdog can handle those situations.
 
-The application note [AN023 Watchdog Timers](https://github.com/particle-iot/app-notes/tree/master/AN023-Watchdog-Timers) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
+The application note [AN023 Watchdog Timers](/datasheets/app-notes/an023-watchdog-timers) has information about hardware watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 
 ```cpp
 // PROTOTYPES

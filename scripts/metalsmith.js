@@ -43,6 +43,7 @@ var git = require('git-rev');
 var path = require('path');
 var fs = require('fs');
 var sitemap = require('./sitemap.js');
+var buildZip = require('./buildZip.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -87,6 +88,9 @@ exports.metalsmith = function () {
       'content/languages/**/*',
       'assets/images/**/*.ai'
     ]))
+    .use(buildZip({
+      dir: '../src/assets/files/app-notes/'
+    }))
     // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
@@ -203,8 +207,8 @@ exports.metalsmith = function () {
           'electron',
           'wi-fi',
           'certifications',
-          'app-notes',
           'accessories',
+          'app-notes',
           'discontinued'
         ]
       },

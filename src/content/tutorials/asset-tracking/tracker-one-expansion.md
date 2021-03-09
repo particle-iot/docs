@@ -150,25 +150,25 @@ When expanding on the Tracker One Carrier Board, you may prefer to connect your 
 
 | App Note | 3.3V  | Qwiic | GPIO  | 5V I2C | DAC   | ADC   | Boost | Description |
 | :------- | :---: | :---: | :---: | :---:  | :---: | :---: | :---: | :-----------|
-| [AN012](https://github.com/particle-iot/app-notes/tree/master/AN012-Tracker-1Wire) | &check; | &check; | &check; | | | | | 1-Wire (DS18B20) | 
-| [AN013](https://github.com/particle-iot/app-notes/tree/master/AN013-Tracker-GPIO) | &check; | &check; | &check; | | | | | GPIO (3.3v or 5V) | 
-| [AN015](https://github.com/particle-iot/app-notes/tree/master/AN015-Tracker-Breakout) | &check; | &check; | | | | | | Breakout Board |
-| [AN016](https://github.com/particle-iot/app-notes/tree/master/AN016-Tracker-Keypad-LCD) | &check; | | | &check; | &check; | | | Keypad and LEDs |
-| [AN018](https://github.com/particle-iot/app-notes/tree/master/AN018-Tracker-Level) | &check; | | &check; | | | &check; | &check; | Tank Level Sensor |
-| [AN020](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) | | | | | | | &check; | 4-20mA single |
-| [AN021](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) | &check; | | | | | &check; | &check; | 4-20mA quad |
-| [AN022](https://github.com/particle-iot/app-notes/tree/master/AN022-Tracker-SHT3x-Temperature-Humidity) | &check; | | | &check; | | | | SHT3x Temperature/Humidity |
+| [AN012](/datasheets/app-notes/an012-tracker-1wire) | &check; | &check; | &check; | | | | | 1-Wire (DS18B20) | 
+| [AN013](/datasheets/app-notes/an013-tracker-gpio) | &check; | &check; | &check; | | | | | GPIO (3.3v or 5V) | 
+| [AN015](/datasheets/app-notes/an015-tracker-breakout) | &check; | &check; | | | | | | Breakout Board |
+| [AN016](/datasheets/app-notes/an016-tracker-keypad-lcd) | &check; | | | &check; | &check; | | | Keypad and LEDs |
+| [AN018](/datasheets/app-notes/an018-tracker-level) | &check; | | &check; | | | &check; | &check; | Tank Level Sensor |
+| [AN020](/datasheets/app-notes/an020-tracker-4-20ma) | | | | | | | &check; | 4-20mA single |
+| [AN021](/datasheets/app-notes/an021-tracker-4-20ma-quad)) | &check; | | | | | &check; | &check; | 4-20mA quad |
+| [AN022](/datasheets/app-notes/an022-tracker-sht3x-temperature-humidity) | &check; | | | &check; | | | | SHT3x Temperature/Humidity |
 
 
 ### M8 Breakout Board
 
-The [AN015 Tracker Breakout](https://github.com/particle-iot/app-notes/tree/master/AN015-Tracker-Breakout) application note shows how to build a simple breakout board to help prototype using the Tracker One M8 connector.
+The [AN015 Tracker Breakout](/datasheets/app-notes/an015-tracker-breakout) application note shows how to build a simple breakout board to help prototype using the Tracker One M8 connector.
 
 ![M8 breakout board](/assets/images/tracker/m8-breakout.jpg)
 
 ### Adding GPIO using the M8
 
-The [AN013 Tracker GPIO](https://github.com/particle-iot/app-notes/tree/master/AN013-Tracker-GPIO) shows:
+The [AN013 Tracker GPIO](/datasheets/app-notes/an013-tracker-gpio) shows:
 
 - Expanding the Tracker One using the M8 connector.
 - Interfacing with 5V I2C devices (optional).
@@ -184,7 +184,7 @@ The MCP23008 allows the pins to be configured for input, input pull-up, or outpu
 
 ### 1-Wire (DS18B20) and using 5V I2C
 
-The [AN012 Tracker 1-Wire](https://github.com/particle-iot/app-notes/tree/master/AN012-Tracker-1Wire) shows:
+The [AN012 Tracker 1-Wire](/datasheets/app-notes/an012-tracker-1wire) shows:
 
 - Expanding the Tracker One using the M8 connector
 - Interfacing with 5V I2C devices
@@ -196,7 +196,7 @@ The [AN012 Tracker 1-Wire](https://github.com/particle-iot/app-notes/tree/master
 
 ### Tank Level Sensor
 
-The [AN018 Tracker Tank Level Sensor](https://github.com/particle-iot/app-notes/tree/master/AN018-Tracker-Level) shows:
+The [AN018 Tracker Tank Level Sensor](/datasheets/app-notes/an018-tracker-level) shows:
 
 - Adding additional GPIO (adds 3 ports of 3.3V GPIO using a MCP23008)
 - Adding additional ADC (adds 3 ADC inputs, 3.3V using an ADS1015 12-bit ADC)
@@ -207,7 +207,7 @@ The [AN018 Tracker Tank Level Sensor](https://github.com/particle-iot/app-notes/
 
 ### Keypad and LCD
 
-The [AN016 Tracker Keypad LCD](https://github.com/particle-iot/app-notes/tree/master/AN016-Tracker-Keypad-LCD) shows:
+The [AN016 Tracker Keypad LCD](/datasheets/app-notes/an016-tracker-keypad-lcd) shows:
 
 - Using a MAX7360 to read matrix keypads and drive LEDs
 - Using a character LCD display with an I2C interface
@@ -223,13 +223,13 @@ You probably won't want to build one of these as-is, but you may want to use som
 
 ### Thermocouple (prototype to making your own board)
 
-The [AN019 Tracker Prototype to Board](https://github.com/particle-iot/app-notes/tree/master/AN019-Tracker-Prototype) application note demonstrates how start prototyping with off-the-shelf I2C sensors and the Tracker SoM Evaluation Board and migrate to using a custom board for the Tracker One M8 Connector. While this specific example is for a thermocouple sensor, the techniques can be used with any sensor.
+The [AN019 Tracker Prototype to Board](/datasheets/app-notes/an019-tracker-prototype) application note demonstrates how start prototyping with off-the-shelf I2C sensors and the Tracker SoM Evaluation Board and migrate to using a custom board for the Tracker One M8 Connector. While this specific example is for a thermocouple sensor, the techniques can be used with any sensor.
 
 ![Thermocouple Board](/assets/images/tracker/thermocouple-board.png)
 
 ### 4-20 mA Current Loop Sensors
 
-These two app notes, [AN020 Tracker 4-20mA Sensor Single](https://github.com/particle-iot/app-notes/tree/master/AN020-Tracker-4-20mA) and [AN021 Tracker 4-20mA Sensor Quad](https://github.com/particle-iot/app-notes/tree/master/AN021-Tracker-4-20mA-Quad) show how to connect a 4-20 mA current loop sensor to the Tracker One M8 port.
+These two app notes, [AN020 Tracker 4-20mA Sensor Single](/datasheets/app-notes/an020-tracker-4-20ma) and [AN021 Tracker 4-20mA Sensor Quad](/datasheets/app-notes/an021-tracker-4-20ma-quad) show how to connect a 4-20 mA current loop sensor to the Tracker One M8 port.
 
 The single port design can be powered by the built-in LiPo battery or USB and uses the built-in ADC on the nRF52840, available on the M8 connector. It includes a boost converter to 24VDC for the 4-20mA current loop. It includes over-current protection, limiting the 4-20mA loop to 30 mA.
 
@@ -241,7 +241,7 @@ The quad port design requires an external 12V power supply, but this power suppl
 
 ### SHT3x Temperature and Humidity Sensor (5V I2C)
 
-[AN022 Tracker SHT3x Temperature/Humidity](https://github.com/particle-iot/app-notes/tree/master/AN022-Tracker-SHT3x-Temperature-Humidity) shows how to connect 5V I2C devices including the SHT30 and SHT31 temperature and humidity sensors to the Tracker One M8 connector and add data to location publishes. The board design should be compatible with all 5V I2C peripherals.
+[AN022 Tracker SHT3x Temperature/Humidity](/datasheets/app-notes/an022-tracker-sht3x-temperature-humidity) shows how to connect 5V I2C devices including the SHT30 and SHT31 temperature and humidity sensors to the Tracker One M8 connector and add data to location publishes. The board design should be compatible with all 5V I2C peripherals.
 
 ![SHT30](/assets/images/tracker/SHT30.jpg)
 
