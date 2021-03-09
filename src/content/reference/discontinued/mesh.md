@@ -36,7 +36,7 @@ After 2020 the mobile app support for creating mesh networks will be removed, so
 - Xenons run in standalone mode to use BLE will continue to work running Device OS 1.5.x or older. You will need to program standalone Xenons over USB, not OTA.
 - Already set up mesh networks will continue to work until a breaking change occurs in the cloud. We do not anticipate there being one, but cannot guarantee how long the network will continue to function. You will need to keep the Xenon running 1.5.x.
 - Xenons can be reprogrammed to run [CircuitPython in standalone (no network) mode](/tutorials/learn-more/xenon-circuit-python/).
-- Xenons can be reprogrammed to be a standard nRF52840 board [using the nRD52 SDK](https://github.com/particle-iot/app-notes/tree/master/AN008-Xenon-Nordic-SDK). It can use a native Thread Mesh network in this mode, but will lose all Particle functionality.
+- Xenons can be reprogrammed to be a standard nRF52840 board [using the nRD52 SDK](/datasheets/app-notes/an008-xenon-nordic-sdk). It can use a native Thread Mesh network in this mode, but will lose all Particle functionality.
 
 #### What happens after Device OS 1.5.x?
 
