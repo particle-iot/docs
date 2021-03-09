@@ -18,8 +18,8 @@ Author: Rick
 
 In order to decode the u-blox AT commands you'll probably need to use the (somewhat confusing) AT Commands Manual. There are two different versions:
 
-- [2G and 3G](/assets/pdfs/SARA-R4-SARA-N4_ATCommands_(UBX-17003787).pdf)
-- [LTE](/assets/pdfs/u-blox-ATCommands_Manual_(UBX-13002752).pdf)
+- [2G and 3G](/assets/pdfs/ublox-sara-at.pdf)
+- [LTE](/assets/pdfs/ublox-sara-r4-at.pdf)
 
 A typical transaction looks lie this for the Network registration status (AT+CREG) command:
 

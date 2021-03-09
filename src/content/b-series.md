@@ -21,7 +21,7 @@ The B Series is a powerful cellular-enabled system-on-a-module (SoM) designed fo
 {{box op="switch"}}
 **Learn more:**
 - [Making your first SoM board](/tutorials/hardware-projects/som-first-board/)
-- [More advanced SoM board](https://docs.particle.io/datasheets/app-notes/an001-basic-som-design/)
+- [More advanced SoM board](/datasheets/app-notes/an001-basic-som-design/)
 - [Community](https://community.particle.io/)
 - [Support](https://support.particle.io/hc/)
 {{box op="end"}}

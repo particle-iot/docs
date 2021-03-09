@@ -6,7 +6,7 @@ order: 105
 ---
 # AN005 Threading Explainer
 
-[Threads](https://en.wikipedia.org/wiki/Thread_(computing)) allow concurrent execution of multiple bits of code. They're popular in desktop operating systems like Windows and in languages like Java. Threads have limited support in the Particle platform, but exist.
+Threads allow concurrent execution of multiple bits of code. They're popular in desktop operating systems like Windows and in languages like Java. Threads have limited support in the Particle platform, but exist.
 
 Though the semantics are a bit different, you might use threads in the same way you would use separate processes in Unix as well.
 

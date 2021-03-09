@@ -17,16 +17,6 @@ If you're like to learn more about Google Apps Script, these two resources are a
 - [Overview of Apps Script](https://developers.google.com/apps-script/overview)
 - [Codelab Tutorial](https://codelabs.developers.google.com/codelabs/apps-script-fundamentals-1/index.html)
 
-
-Sections:
-
-- [Getting Started](#getting-started)
-- [One Sheet Per Device](#one-sheet-per-device)
-- [Mapping Device IDs to Names (manually)](#mapping-device-ids-to-names-manually)
-- [Mapping Device IDs to Names (Using Particle Cloud API)](#mapping-device-ids-to-names-using-particle-cloud-api)
-- [Separate Spreadsheets by Device ID](#separate-spreadsheets-by-device-id)
-- [Setting Columns by Key](#setting-columns-by-key)
-
 Author: Rick
 
 ## Getting Started
