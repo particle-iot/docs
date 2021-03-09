@@ -349,6 +349,7 @@ The complete schematic and board files are open source and available on Particle
 Argon are available from [store.particle.io](https://store.particle.io/) in single quantities.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 81ddccf2-774f-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region | Lifecycle | Replacement |
 | :--- | | :--- | :--- | :--- | :--- | :--- |
 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | GA | |

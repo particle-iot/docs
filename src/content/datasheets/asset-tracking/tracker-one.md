@@ -340,6 +340,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2f3d1a14-76de-11eb-9439-0242ac130002 --}}
+
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Albania | ONE524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
@@ -394,6 +395,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 ## Ordering Information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |

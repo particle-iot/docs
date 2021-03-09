@@ -1101,6 +1101,7 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated 8e7b0446-76de-11eb-9439-0242ac130002 --}}
+
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Albania | T524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
@@ -1156,6 +1157,7 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 ## Ordering Information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |

@@ -552,6 +552,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2445e222-76e2-11eb-9439-0242ac130002 --}}
+
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Afghanistan | E314 | 2G, 3G | Etisalat |
@@ -733,6 +734,7 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 26c8707c-76ca-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | GA | |

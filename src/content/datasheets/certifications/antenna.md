@@ -32,6 +32,7 @@ The following cellular antennas are available:
 The following devices have a cellular modem. The Tracker One includes a cellular antenna within the enclosure. All other devices require an antenna connected to the U.FL connector on the module.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 95bdb290-775f-11eb-9439-0242ac130002 --}}
+
 | Device | SKU  | Included | Antenna | Alternate | Lifecycle |
 | :----- | :--- | :--------: | :------: | :--------: | :-------: |
 | B Series LTE CAT-1/3G/2G (Europe) [x1] | B523MEA | &check; | ANTCW2EA | &nbsp; | NRND|
@@ -109,6 +110,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 These devices do not have a cellular modem and therefore do not need a cellular antenna.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 57d69268-776d-11eb-9439-0242ac130002 --}}
+
 | Family | SKUs |
 | :----- | :--- |
 | Argon | ARG-AQKT, ARG-STRTKT, ARGN-H, ARGNKIT, ARGNTRAY50|
@@ -170,6 +172,7 @@ The Particle 2.4 GHz W-Fi antenna is available in the [retail](https://store.par
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 04ed49fe-7766-11eb-9439-0242ac130002 --}}
+
 | Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :------: | :-------: |
 | Argon [x1] | ARGN-H | &nbsp; | ANT-FLXV2 | &check; | GA|
@@ -225,6 +228,7 @@ The Particle 2.4 GHz W-Fi antenna is available in the [retail](https://store.par
 These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenna.
 
 {{!-- BEGIN do not edit content below, it is automatically generated cee24faa-776d-11eb-9439-0242ac130002 --}}
+
 | Family | SKUs |
 | :----- | :--- |
 | B Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B523MEA, B523MTY, B524MEA, B524MTY|
@@ -256,6 +260,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 54f1ecbe-7768-11eb-9439-0242ac130002 --}}
+
 | Device | SKU  | Built-In Antenna | External Compatible | External Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :------: | :-------: |
 | Argon [x1] | ARGN-H | &check; | ANT-FLXV2 | &nbsp; | GA|
@@ -314,6 +319,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 These devices do not have a BLE radio and therefore do not need a BLE antenna.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2cf3e112-776e-11eb-9439-0242ac130002 --}}
+
 | Family | SKUs |
 | :----- | :--- |
 | E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
@@ -342,6 +348,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated 2b1c34c8-776b-11eb-9439-0242ac130002 --}}
+
 | Device | SKU  | Compatible | Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :-------: |
 | Argon [x1] | ARGN-H | &check; | &nbsp; | GA|
@@ -400,6 +407,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 These devices do not have an NFC radio and therefore do not need a NFC antenna.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 6b9301fa-776e-11eb-9439-0242ac130002 --}}
+
 | Family | SKUs |
 | :----- | :--- |
 | E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
@@ -428,6 +436,7 @@ Some antenna options include from Adafruit [this antenna](https://www.adafruit.c
 The following devices have GNSS capabilities:
 
 {{!-- BEGIN do not edit content below, it is automatically generated dd897350-776b-11eb-9439-0242ac130002 --}}
+
 | Device | SKU  | Compatible | Included | Lifecycle |
 | :----- | :--- | :--------: | :------: | :-------: |
 | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | ONE523MTY | &check; | &check; | NRND|

@@ -414,6 +414,7 @@ The complete schematic and board files are open source and available on Particle
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Afghanistan | BRN314 | 2G, 3G | Etisalat |
@@ -597,6 +598,7 @@ The complete schematic and board files are open source and available on Particle
 Borons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G/3G and LTE Cat M1 versions.
 
 {{!-- BEGIN do not edit content below, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | GA | |

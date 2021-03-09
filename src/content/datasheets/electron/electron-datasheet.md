@@ -629,6 +629,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0ca3e34e-76e2-11eb-9439-0242ac130002 --}}
+
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Afghanistan | ELC314 | 2G, 3G | Etisalat |
@@ -812,6 +813,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 Electrons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G, and 3G versions.
 
 {{!-- BEGIN do not edit content below, it is automatically generated ab31991a-76c5-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | GA | |

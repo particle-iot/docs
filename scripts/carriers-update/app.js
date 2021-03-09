@@ -866,11 +866,11 @@ function updateDocs(docsPath, guid, md) {
 			if (line.startsWith(replacePrefixBegin + guid)) {
 				state = 1;
 			}
-			preData += line + '\n';
+			preData += line + '\n\n';
 			break;
 		case 1:
 			if (line.startsWith(replacePrefixEnd + guid)) {
-				postData += line + '\n';
+				postData += '\n' + line + '\n';
 				state = 2;
 			}
 			break;

@@ -104,6 +104,7 @@ That's it! The rest of the development process should be similar to that of the 
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 89806642-76cb-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | E314KIT | E Series 2G/3G (Global - E314) Evaluation Kit, [x1] | Global | U201 | GA | |

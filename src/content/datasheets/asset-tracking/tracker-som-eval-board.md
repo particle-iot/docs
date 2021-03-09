@@ -219,6 +219,7 @@ Weight will be provided at a later date.
 ## Ordering Information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 698155b6-76d7-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | T404MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1] | NORAM | BG96-MC | GA | |

@@ -14,7 +14,7 @@ description: Datasheet for Tracker One M8 Temperature/Humidity Sensor
 
 ![M8 Sensor Temperature/Humidity](/assets/images/tracker/m8-temp-humidity.png)
 
-The M8 Sensor Temperature/Humidity provides an easy way to measure temperature and humidity with the Tracker One. It connects to the M8 connector on the outside of the Tracker One.
+The M8 Temperature/Humidity sensor provides an easy way to measure temperature and humidity with the Tracker One. It connects to the M8 connector on the outside of the Tracker One.
 
 - IP 67 waterproof rating
 - Durable, weatherproof, metal casing

@@ -530,6 +530,7 @@ The bootloader allows you to easily update the user application via several diff
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated 99975710-76e0-11eb-9439-0242ac130002 --}}
+
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Albania | B524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |

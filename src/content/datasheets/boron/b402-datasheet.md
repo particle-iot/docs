@@ -507,6 +507,7 @@ The bootloader allows you to easily update the user application via several diff
 ## Country compatibility
 
 {{!-- BEGIN do not edit content below, it is automatically generated c9241a2c-76e0-11eb-9439-0242ac130002 --}}
+
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Canada | B404 | M1 | Bell Mobility, Rogers Wireless, Telus |
@@ -520,6 +521,7 @@ The bootloader allows you to easily update the user application via several diff
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |

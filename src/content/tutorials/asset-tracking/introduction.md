@@ -127,6 +127,7 @@ If you're building a carrier board you'll probably want to use the Eagle CAD Tra
 
 
 {{!-- BEGIN do not edit content below, it is automatically generated e6d392c0-777e-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
