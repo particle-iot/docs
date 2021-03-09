@@ -40,11 +40,16 @@ then automatically power up when restored. This can be useful in automotive appl
 in mains power applications.
 - [AN005 Threading Explainer](/datasheets/app-notes/an005-threading-explainer) provides detailed information on using execution threads on Particle devices.
 - [AN008 Using a Xenon with the Nordic SDK](/datasheets/app-notes/an008-xenon-nordic-sdk)
-- [AN009 Firmware Examples](/datasheets/app-notes/an009-firmware-examples) provides some annotated code examples, including how to effective use sleep modes.
 - [AN010 Finite State Machines](/datasheets/app-notes/an010-finite-state-machines) shows some of the ways to effectively structure your code using finite state machines.
 - [AN011 Publish to Google Sheets](/datasheets/app-notes/an011-publish-to-google-sheets) shows how you can publish directly to Google G Suite spreadsheets using webhooks.
 - [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can) shows how to use the CAN bus for OBD-II to retrieve engine RPM and other useful techniques you may want to use in your own projects.
 - [AN023 Watchdog Timers](/datasheets/app-notes/an023-watchdog-timers) has information about watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
+
+### Firmware examples
+
+- [AN028 Stop mode sleep for cellular devices](/datasheets/app-notes/an028-stop-sleep-cellular) provides an annotated code example for using stop mode sleep with cellular devices.
+- [AN029 Wake, publish, then sleep for cellular devices](/datasheets/app-notes/an029-wake-publish-sleep-cellular)  provides an annotated code example for doing wake, publish, then sleep cycles with cellular devices.
+- [AN030 Saving samples in EEPROM](/datasheets/app-notes/an030-eeprom-samples) provides an annotated code example for using saving samples in EEPROM and publishing them when connected.
 
 
 ### Troubleshooting
@@ -101,4 +106,8 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN025 Tracker SoM First Board](/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 - [AN026 Tracker Current Solutions Accelerator](/datasheets/app-notes/an026-tracker-current-solutions-accelerator) shows how to measure AC current using the Tracker One via the M8 connector.
 - [AN027 Tracker Button and LEDs](/datasheets/app-notes/an027-tracker-buttons-leds) shows how to connect add a push button, two LEDs, a buzzer, and a 5V I2C port for the SHT30 temperature and humidity sensor to the Tracker One using the M8 connector.
+- [AN028 Stop mode sleep for cellular devices](/datasheets/app-notes/an028-stop-sleep-cellular) provides an annotated code example for using stop mode sleep with cellular devices.
+- [AN029 Wake, publish, then sleep for cellular devices](/datasheets/app-notes/an029-wake-publish-sleep-cellular)  provides an annotated code example for doing wake, publish, then sleep cycles with cellular devices.
+- [AN030 Saving samples in EEPROM](/datasheets/app-notes/an030-eeprom-samples) provides an annotated code example for using saving samples in EEPROM and publishing them when connected.
+
 

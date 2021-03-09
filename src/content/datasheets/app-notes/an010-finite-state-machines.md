@@ -6,8 +6,6 @@ order: 110
 ---
 # AN010 - Finite State Machines
 
-The full code examples for this application note can be found in the [Github repository](https://github.com/particle-iot/app-notes/tree/master/AN010-Finite-State-Machines) for this project.
-
 Finite State Machines (FSM) are a great way to organize your code on embedded devices. The basic concepts are:
 
 - Each step is organized into a state, with defined exit conditions that cause it to transfer to other state(s).

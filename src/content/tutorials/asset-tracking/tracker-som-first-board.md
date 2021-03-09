@@ -85,7 +85,7 @@ With mezzanine expansion board installed:
 
 {{imageOverlay src="/assets/images/at-som/fb-board-layout.png" alt="Board Layout" class="full-width"}}
 
-The Eagle CAD files can be found in the [Github repository](https://github.com/particle-iot/app-notes/tree/master/AN025-Tracker-SoM-First-Board) for this project. The eagle directory contains:
+The Eagle CAD files can be found in [this zip file](/assets/files/app-notes/AN025.zip).
 
 | Filename | Contents |
 | :--- | :--- |

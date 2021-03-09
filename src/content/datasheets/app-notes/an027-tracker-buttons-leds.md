@@ -101,7 +101,7 @@ The buzzer is connected to GP3. In practice, this is more of a gentle chime than
 
 ![MCP23008](/assets/images/app-notes/AN027/sch2.png)
 
-The MCP23008 is the I2C to GPIO interface chip. It can be run at 3.3V or 5V. This design uses the smaller 20-QFN-EP package running at 3.3V. There is a larger 18-SOIC version that may be easier to solder in the [Tracker GPIO](https://github.com/particle-iot/app-notes/tree/master/AN013-Tracker-GPIO) application note.
+The MCP23008 is the I2C to GPIO interface chip. It can be run at 3.3V or 5V. This design uses the smaller 20-QFN-EP package running at 3.3V. There is a larger 18-SOIC version that may be easier to solder in the [Tracker GPIO](/datasheets/app-notes/an013-tracker-gpio) application note.
 
 
 ### PCA9306
@@ -116,7 +116,7 @@ To get around this issue, we use a PCA9306 I2C level-shifter. This converts betw
 
 Note that I2C requires pull-up resistors, and this design includes two sets, one to 3.3V and one to 5V, on either side of the PCA9306.
 
-More information on using the SHT30 temperature and humidity sensor can be found in [AN022 Tracker SHT3x Temperature/Humidity](https://github.com/particle-iot/app-notes/tree/master/AN022-Tracker-SHT3x-Temperature-Humidity).
+More information on using the SHT30 temperature and humidity sensor can be found in [AN022 Tracker SHT3x Temperature/Humidity](/datasheets/app-notes/an022-tracker-sht3x-temperature-humidity).
 
 ### Regulator and M8 Connector
 

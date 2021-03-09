@@ -3,7 +3,7 @@
 // This can be useful in automotive applications or devices powered by a switch in mains
 // power applications.
 
-// Repository: https://github.com/particle-iot/app-notes/tree/master/AN002-Device-Powerdown
+// Documentation: https://docs.particle.io/datasheets/app-notes/an002-device-powerdown/
 // License: Apache (free for use in open or closed-source projects)
 
 #include "Particle.h"

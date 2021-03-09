@@ -6,7 +6,7 @@ order: 111
 ---
 # AN011 - Publish to Google Sheets
 
-The full code examples for this application note can be found in the [Github repository](https://github.com/particle-iot/app-notes/tree/master/AN011-Publish-to-Google-Sheets) for this project.
+You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN011.zip).
 
 If you have relatively small amounts of data to store, and don't want to implement a more complex database scheme, using a Google G Suite spreadsheet might be a good solution. For more complex or large amounts of data using [Google Cloud Datastore or Firebase](https://github.com/rickkas7/sse-examples) might be more appropriate. It's also possible to use a third-party service like IFTTT to save to Google Sheets, but this technique is faster and more reliable.
 

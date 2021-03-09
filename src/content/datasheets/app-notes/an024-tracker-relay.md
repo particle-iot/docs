@@ -54,7 +54,7 @@ The XCL224 is a tiny and does not require an external inductor. It only requires
 
 By using the I2C interface on the M8 connector you can easily add additional ports to your expansion device.
 
-This design includes a [Microchip MCP23008T-E/ML](https://www.digikey.com/product-detail/en/microchip-technology/MCP23008T-E-ML/MCP23008T-E-MLCT-ND/7916525) in a tiny 20-QFN-EP package. The [AN013 Tracker GPIO](https://github.com/particle-iot/app-notes/tree/master/AN013-Tracker-GPIO) example uses the much larger (but easier to solder) 18-SOIC package. The software is the same for both chip packages. The MCP23008 adds 8 GPIO pins via the I2C interface. This design uses it at 3.3V. The pins can be used as input, input pull-up, or output modes. 
+This design includes a [Microchip MCP23008T-E/ML](https://www.digikey.com/product-detail/en/microchip-technology/MCP23008T-E-ML/MCP23008T-E-MLCT-ND/7916525) in a tiny 20-QFN-EP package. The [AN013 Tracker GPIO](/datasheets/app-notes/an013-tracker-gpio) example uses the much larger (but easier to solder) 18-SOIC package. The software is the same for both chip packages. The MCP23008 adds 8 GPIO pins via the I2C interface. This design uses it at 3.3V. The pins can be used as input, input pull-up, or output modes. 
 
 Only 4 of the 8 GPIO are used in this project, however since the MCP23008T-E/ML is so small an inexpensive it's not really worthwhile to source a separate 4-port GPIO expander.
 

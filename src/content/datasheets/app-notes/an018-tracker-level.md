@@ -68,7 +68,7 @@ The XCL224 is a tiny and does not require an external inductor. It only requires
 
 By using the I2C interface on the M8 connector you can easily add additional ports to your expansion device.
 
-This design includes a [Microchip MCP23008T-E/ML](https://www.digikey.com/product-detail/en/microchip-technology/MCP23008T-E-ML/MCP23008T-E-MLCT-ND/7916525) in a tiny 20-QFN-EP package. The [AN013 Tracker GPIO](https://github.com/particle-iot/app-notes/tree/master/AN013-Tracker-GPIO) example uses the much larger (but easier to solder) 18-SOIC package. The software is the same for both chip packages. The MCP23008 adds 8 GPIO pins via the I2C interface. This design uses it at 3.3V. The pins can be used as input, input pull-up, or output modes. 
+This design includes a [Microchip MCP23008T-E/ML](https://www.digikey.com/product-detail/en/microchip-technology/MCP23008T-E-ML/MCP23008T-E-MLCT-ND/7916525) in a tiny 20-QFN-EP package. The [AN013 Tracker GPIO](/datasheets/app-notes/an013-tracker-gpio) example uses the much larger (but easier to solder) 18-SOIC package. The software is the same for both chip packages. The MCP23008 adds 8 GPIO pins via the I2C interface. This design uses it at 3.3V. The pins can be used as input, input pull-up, or output modes. 
 
 GP0, GP1, and GP2 are present on the expansion connector. GP3 is used to control the 12V boost converter.
 
@@ -80,7 +80,7 @@ GP4 - GP7 are not connected in this design.
 
 While pin A3 on the M8 connector is available for ADC use, this design includes a ADS1015 I2C ADC to allow for additional analog-to-digital input channels.
 
-While this design runs the ADC at 3.3V, it can be used with the technique in the [AN013 Tracker GPIO](https://github.com/particle-iot/app-notes/tree/master/AN013-Tracker-GPIO) application note use an I2C level shifter and run the ADC at 5V, allowing full 5V analog inputs.
+While this design runs the ADC at 3.3V, it can be used with the technique in the [AN013 Tracker GPIO](/datasheets/app-notes/an013-tracker-gpio) application note use an I2C level shifter and run the ADC at 5V, allowing full 5V analog inputs.
 
 AIN0, AIN1, and AIN2 are available on the expansion connector. AIN3 is connected to the tank level sensor.
 
