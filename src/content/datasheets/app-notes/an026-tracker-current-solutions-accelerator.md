@@ -20,7 +20,7 @@ This Solutions Accelerator uses:
 * 5V to 3.3V converter (https://www.adafruit.com/product/4683)
 * Analog AC current sensor (https://www.dfrobot.com/product-1486.html)
 
-<img src="images/current_sensor.png" alt="Circuit" width="600"/>
+![](/assets/images/app-notes/AN026/current_sensor.png)
 
 The current sensor boards converts the output of the sensor probe into an analog output. That output is connected to pin 3 of the M8 connector, which is analog input A3 for the Tracker One.
 

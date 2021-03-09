@@ -1,10 +1,10 @@
 ---
-title: AN005 - Threading Explainer
+title: AN005 Threading Explainer
 layout: datasheet.hbs
 columns: two
 order: 105
 ---
-# AN005 - Threading Explainer
+# AN005 Threading Explainer
 
 [Threads](https://en.wikipedia.org/wiki/Thread_(computing)) allow concurrent execution of multiple bits of code. They're popular in desktop operating systems like Windows and in languages like Java. Threads have limited support in the Particle platform, but exist.
 
@@ -14,7 +14,7 @@ Particle devices (Gen 2 and Gen 3, including the Photon, P1, Electron, E Series,
 
 Author: Rick
 
-### Say no to threads
+**Say no to threads**
 
 While this is a threads explainer, in most cases you can get by without threads, and not using threads will make your life easier.
 
@@ -29,13 +29,13 @@ In Windows or Java, there is virtual memory so each thread can be allocated a 1 
 
 Finally, it's really a pain to debug unsafe thread code. It's unpredictable and timing-sensitive. When you look for the bug it can stop happening.
 
-### Say yes to finite state machines
+**Say yes to finite state machines**
 
 [Finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine) are a much better paradigm for memory and processor constrained devices like the Particle devices. There's only one stack, and no need to worry about thread concurrency.
 
 Platforms like node.js work in a single-threaded environment using finite state machines or chained callbacks. This is a better model and even though the Particle platform is C++ instead of Javascript, the model works the same way.
 
-### But I really want to use threads
+**But I really want to use threads**
 
 OK. You've been warned. Here we go. This information is subject to change.
 

@@ -1,10 +1,10 @@
 ---
-title: EEPROM samples example
+title: AN030 EEPROM samples example
 layout: datasheet.hbs
 columns: two
 order: 130
 ---
-# EEPROM samples example
+# AN030 EEPROM samples example
 
 This example illustrates several useful techniques:
 
@@ -18,6 +18,10 @@ This example illustrates several useful techniques:
 The main difference from **Stop-Sleep-Cellular** is that it shows how to store data in EEPROM so they won't be lost when unable to connect. It also shows how to take samples, even if the device is having trouble connecting to cellular, and also do so without drifting so samples are taken at specific intervals.
 
 In terms of power usage it's nearly identical to the **Stop-Sleep-Cellular** example; the graphs and power usage in that example apply here as well.
+
+You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN030.zip).
+
+{{codebox content="/assets/files/app-notes/AN030/firmware/src/EEPROM-Samples.cpp" format="cpp" height="500"}}
 
 
 ## Code Walk-Through

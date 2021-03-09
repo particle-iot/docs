@@ -1,10 +1,10 @@
 ---
-title: Wake publish sleep example
+title: AN029 Wake publish sleep example
 layout: datasheet.hbs
 columns: two
 order: 129
 ---
-# Wake publish sleep firmware example
+# AN029 Wake publish sleep firmware example
 
 This example illustrates:
 
@@ -13,6 +13,8 @@ This example illustrates:
 - Hour sleep, uses hibernate mode (`SLEEP_MODE_DEEP`)
 - Use SEMI_AUTOMATIC mode
 - Stay awake for firmware updates (optional)
+
+You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN029.zip).
 
 The hibernate mode uses the lowest power, however there is a trade-off. For sleep periods less than 15 minutes, you'll use less power by using stop mode sleep (pin + time) with `SLEEP_NETWORK_STANDBY`. This is because connecting to cellular uses a significant amount of power, more than is saved by turning off the modem completely. 
 
@@ -78,6 +80,11 @@ const std::chrono::milliseconds connectMaxTime = 6min;
 ```
 
 Other parameters are listed in the comments in the source and in the code walk-through below.
+
+## The Code
+
+{{codebox content="/assets/files/app-notes/AN029/firmware/src/Wake-Publish-Sleep-Cellular.cpp" format="cpp" height="500"}}
+
 
 ## Code walk-through
 

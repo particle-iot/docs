@@ -1,10 +1,10 @@
 ---
-title: Stop sleep cellular example
+title: AN028 Stop sleep cellular example
 layout: datasheet.hbs
 columns: two
 order: 128
 ---
-# Stop sleep cellular example
+# AN028 Stop sleep cellular example
 
 This example illustrates:
 
@@ -15,6 +15,8 @@ This example illustrates:
 - Customizable software update behavior
 
 For any sleep period under 15 minutes you will probably want to use stop mode sleep with network standby as it will likely use less power than hibernate mode (`SLEEP_MODE_DEEP`). For sleep periods under 10 minutes you must use network standby or your SIM could be blocked your mobile carrier for aggressive reconnection.
+
+You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN028.zip).
 
 ### E Series LTE Comparison
 
@@ -114,6 +116,10 @@ if (publishFuture.isDone()) {
         state = STATE_SLEEP;
     }
 ```
+
+## The Code
+
+{{codebox content="/assets/files/app-notes/AN028/firmware/src/Stop-Sleep-Cellular.cpp" format="cpp" height="500"}}
 
 ## Code Walk-Through
 
