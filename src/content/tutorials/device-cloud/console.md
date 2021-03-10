@@ -612,25 +612,6 @@ You can update your credit card from the billing page by clicking on the "UPDATE
 
 If we attempt to charge your credit card and it fails, we do not immediately prevent you or your team from accessing your Device Management Console. We will continue to retry charging your card once every few days <strong>for a maximum of 3 retries</strong>. You will receive an email notification each time an attempt is made and fails. When you receive this notification, the best thing to avoid any interruption in service is to <a href="#updating-your-credit-card">update your credit card</a>.
 
-### Configuring Your Product
-
-In the **Settings** (gear) icon for your product, the following options are available:
-
-![Configuration page](/assets/images/product-settings.png)
-
-There are several ways new product devices can be handled:
-
-- The best option is to pre-add all device IDs to your product at manufacturing time, and use the **Quarantine** option.
-
-  - If you purchase devices in tray or reel quantities, you will be emailed a list of device IDs that can be imported into the console
-  - In smaller quantities, you can capture the device IDs when you initially set up your devices and add them individually
-  - If you wish to use [wildcard PRODUCT_IDs](/reference/device-os/firmware/boron/#product_id-) you must pre-add Device IDs to your product.
-
-- If you do not pre-add the device IDs, you will need to approve each device as it comes online when using **Quarantine** mode.
-
-- If you use the **Auto Approve** mode, then anyone who flashes firmware to their device that contains your product ID will join your product without any other authorization. 
-
-
 
 ## Asset Tracker Features
 
