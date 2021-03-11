@@ -14,19 +14,13 @@ Particle devices (Gen 2 and Gen 3, including the Photon, P1, Electron, E Series,
 
 Author: Rick
 
-**Say no to threads**
-
 The threading system in Device OS is stable, and threads are used by the system internally and can be used judiciously.
 
 Because Particle Devices have limited RAM and no virtual memory it's impractical to use a large number of threads. You should not expect to start dozens of threads as you might in a Java application, for example.
 
 As with threaded programs on all platforms, you have to be careful with thread safety across API calls, preventing simultaneous access to resources by using a lock, and preventing deadlock.
 
-It's really a pain to debug unsafe thread code. It's unpredictable and timing-sensitive. When you look for the bug it can stop happening. However, if you are experienced in thread-safe programming, it is safe to use threads.
-
-[Finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine) are a much better paradigm for memory and processor constrained devices like the Particle devices. There's only one stack, and no need to worry about thread concurrency.
-
-Platforms like node.js work in a single-threaded environment using finite state machines or chained callbacks. This is a better model and even though the Particle platform is C++ instead of Javascript, the model works the same way.
+Threads are an advanced programming feature and very powerful when used correctly. Used incorrectly they can introduce new and novel issues into your code that are often more difficult to debug than single-threaded code. Exercise caution and consider alternate designs such as finite state machines when your requirements allow.
 
 ## Using Threads
 
