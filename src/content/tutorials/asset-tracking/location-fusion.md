@@ -12,7 +12,7 @@ The Particle Tracker provides three methods of geolocation:
 
 - GNSS (GPS) is the primary method of geolocation, and uses a set of satellites to accurately obtain position and elevation information, up to 1.8 meter precision.
 - Wi-Fi geolocation uses nearby Wi-Fi access points to determine location. This is especially helpful indoors and outdoors in "urban canyons" in downtown areas where building block views of the GNSS satellites, but there are many nearby Wi-Fi networks.
-- Cell tower location uses a database of cellular tower identifiers to locate the tower you are connected to. This has the lowest resolution, and can be as inaccurate as 
+- Cell tower location uses a database of cellular tower identifiers to locate the tower you are connected to. This has the lowest resolution.
 
 The last two are used in the location fusion feature, new in Device OS 3.0 and Tracker Edge v12. A geolocation service is used by the Particle cloud to provide these additional location services when the GNSS does not have a good location available. The geolocation service is included with your Tracker, and you only need to have it enabled to use it; there is no additional charge and no need to sign up for additional services.
 
