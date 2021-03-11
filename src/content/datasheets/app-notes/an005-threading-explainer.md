@@ -16,7 +16,7 @@ Author: Rick
 
 **Say no to threads**
 
-The threading system in Device OS is stable, and threads are used by the system internally and can be used safely, with limitations.
+The threading system in Device OS is stable, and threads are used by the system internally and can be used judiciously.
 
 Because Particle Devices have limited RAM and no virtual memory it's impractical to use a large number of threads. You should not expect to start dozens of threads as you might in a Java application, for example.
 
