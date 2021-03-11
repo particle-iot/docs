@@ -23,6 +23,8 @@ This application note illustrates several hardware and software techniques:
 
 While the Tracker One board contains a precision thermistor, the sensor shown here is good for measuring temperature in locations separate from the Tracker, for example outside, in a refrigeration unit, etc..
 
+Instead of building your own board, you can also buy a [pre-made M8 sensor cable](https://store.particle.io/collections/particle-tracking-system-1/products/m8-sensor-temperature-humidity-straight-x1). This cable includes the necessary voltage regulator inside the molded cable relief. While the software for both is the same, there is [another tutorial](/tutorials/asset-tracking/m8-temperature-humidity/) available for the sensor cable as well.
+
 ## Connecting
 
 The M8 (8mm) 8-pin connector on the Tracker One is standard, however it's not common. Some other connectors like M12 are more common, however, the 12mm connector would have required a taller enclosure to fit the larger connector. To simplify designs, Particle will provide a M8 female-to-wires cable, similar to this. This is for illustration only and the design may vary in the future.
