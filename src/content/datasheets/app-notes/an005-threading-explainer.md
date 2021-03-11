@@ -16,28 +16,17 @@ Author: Rick
 
 **Say no to threads**
 
-While this is a threads explainer, in most cases you can get by without threads, and not using threads will make your life easier.
+The threading system in Device OS is stable, and threads are used by the system internally and can be used safely, with limitations.
 
-- Most APIs are not thread safe
-- Limited memory and no virtual memory makes using large numbers of threads impractical
+Because Particle Devices have limited RAM and no virtual memory it's impractical to use a large number of threads. You should not expect to start dozens of threads as you might in a Java application, for example.
 
-If you look through the Windows or Java APIs, it's abundantly clear which API calls are thread-safe, because they are listed as MT-safe or not. The Particle APIs are generally not safe, but there's no single reference as to what is safe. 
+As with threaded programs on all platforms, you have to be careful with thread safety across API calls, preventing simultaneous access to resources by using a lock, and preventing deadlock.
 
-Every thread must have its own stack; that's how threads work. The problem is that there is only about 60 KB of free memory on most devices. The stack is normally 6 KB. Having more than a few threads will eat up your memory in no time! 
-
-In Windows or Java, there is virtual memory so each thread can be allocated a 1 MB stack and not have to worry about running out of memory, even with a large number of threads.
-
-Finally, it's really a pain to debug unsafe thread code. It's unpredictable and timing-sensitive. When you look for the bug it can stop happening.
-
-**Say yes to finite state machines**
+It's really a pain to debug unsafe thread code. It's unpredictable and timing-sensitive. When you look for the bug it can stop happening. However, if you are experienced in thread-safe programming, it is safe to use threads.
 
 [Finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine) are a much better paradigm for memory and processor constrained devices like the Particle devices. There's only one stack, and no need to worry about thread concurrency.
 
 Platforms like node.js work in a single-threaded environment using finite state machines or chained callbacks. This is a better model and even though the Particle platform is C++ instead of Javascript, the model works the same way.
-
-**But I really want to use threads**
-
-OK. You've been warned. Here we go. This information is subject to change.
 
 ## Using Threads
 
@@ -46,7 +35,6 @@ A bit of background:
 - Threads are based on FreeRTOS (currently) but there is abstraction layer over it in case this changes.
 - Threads are preemptively scheduled.
 - A thread that yields will be called up to 1000 times per second (1 millisecond interval).
-- Most API calls are not thread safe. 
 - Basic synchronization capabilities exist, including mutex, recursive mutex, and queues.
 - Most threads calls are not safe to use in an interrupt service routine. However you can use `os_queue_put` from an ISR.
 - The default worker thread stack size is 3K. (Main loop is 6K bytes, and software timers are 1K).
