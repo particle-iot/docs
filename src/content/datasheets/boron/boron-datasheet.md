@@ -86,7 +86,7 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 For the Boron 2G/3G version, make sure that the external DC supply is able to support 2A peak current requirements.
 
 #### 3V3 PIN
-This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Xenon or the Argon, this pin _CANNOT_ be used to power the Boron.
+This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Photon, this pin _CANNOT_ be used to power the Boron.
 
 #### EN PIN
 

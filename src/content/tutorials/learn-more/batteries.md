@@ -13,11 +13,11 @@ A number of Particle devices can use a [Lithium Ion Polymer battery](https://en.
 
 - Argon (Gen 3 Wi-Fi)
 - Boron (Gen 3 Cellular)
-- Xenon (Gen 3 Mesh)
+- Xenon (Gen 3 Mesh) (discontinued)
 - B Series SoM (Gen 3 Cellular, if you include the connector on your board)
 - Electron (Gen 2 Cellular)
 - E Series (Gen 2 Cellular, if you include the connector on your board)
-- Photon Power Shield (adapter for Gen 2 Wi-Fi Photon)
+- Photon Power Shield (adapter for Gen 2 Wi-Fi Photon) (discontinued)
 
 The Particle 1,800mAh lithium-polymer (Li-Po) battery is compliant with all international safety and transportation standards.
 

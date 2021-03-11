@@ -188,6 +188,7 @@
     "/photon/webhooks": "/tutorials/device-os/webhooks",
     "/quickstart": "/quickstart/boron",
     "/quickstart/ldk-project": "/reference/discontinued/ldk-project",
+    "/quickstart/xenon": "/xenon",
     "/reference": "/reference/device-os/firmware",
     "/reference/asset-tracking":"/reference/asset-tracking/tracker-edge-firmware",
     "/reference/android": "/reference/SDKs/android",
