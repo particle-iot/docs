@@ -524,7 +524,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | VBUS USB supply voltage | VUSB | 4.35 | 5.0 | 5.5 | V |
 | LiPo Battery Voltage | V<sub>LiPo</sub> | 3.6 |  | 4.3 | V |
 | **Environmental** |
-| Normal operating temperature<sup>1</sup> | | -20 | +25 | +75<sup>3</sup> | °C |
+| Normal operating temperature<sup>1</sup> | | -20 | +25 | +75 | °C |
 | Extended operating temperature<sup>2</sup> | | -40 |  | +85 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
@@ -533,8 +533,6 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 <sup>1</sup> Normal operating temperature range (fully functional and meet 3GPP specifications).
 
 <sup>2</sup> Extended operating temperature range (RF performance may be affected outside normal operating range, though module is fully functional)
-
-<sup>3</sup> The maximum operating temperature is 75°C on the B523 (Quectel) but is 65°C on the B402 (u-blox LTE M1). For compatibility across modules, limit this to 65°C. 
 
 ---
 
