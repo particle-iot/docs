@@ -72,7 +72,7 @@ void loop()
 }
 ```
 
-Each variable retrieval uses one data operation from your monthly or yearly quota. Setting the variable does not use data operations.
+Each variable retrieval uses one data operation from your monthly or yearly quota. Setting the variable does not use Data Operations.
 
 Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).
 
@@ -226,7 +226,7 @@ void loop() {
 }
 ```
 
-Each variable retrieval uses one data operation from your monthly or yearly quota. Setting the variable does not use data operations.
+Each variable retrieval uses one data operation from your monthly or yearly quota. Setting the variable does not use Data Operations.
 
 
 ### Particle.function()
@@ -245,7 +245,7 @@ int funcName(String extra) {
 }
 ```
 
-Each function call request and response uses one data operation from your monthly or yearly quota. Setting up function calls does not use data operations.
+Each function call request and response uses one data operation from your monthly or yearly quota. Setting up function calls does not use Data Operations.
 
 Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). 
 
@@ -625,7 +625,9 @@ void loop() {
 
 You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
 
-Each event delivered to a subscription handler uses one data operation from your monthly or yearly quota. Setting up the subscription does not use a data operations. You should take advantage of the event prefix to avoid delivering events that you do not need.
+Each event delivery attempt to a subscription handler uses one data operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
+
+If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/device-cloud/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
 
 ---
 
@@ -763,7 +765,7 @@ loop () {
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `Particle.publishVitals(1h)` for 1 hour.
 
-Sending device vitals does not consume data operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary vitals transmission can lead to increased data usage, which could result in hitting the monthly data limit for your account.
+Sending device vitals does not consume Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary vitals transmission can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
 
 >_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
@@ -930,7 +932,7 @@ For Ethernet, you will probably want to set a keepAlive of 2 to 5 minutes.
 
 For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
 
-Keep-alives do not use data operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so setting it to a very small value can cause increased data usage, which could result in hitting the monthly data limit for your account.
+Keep-alives do not use Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so setting it to a very small value can cause increased data usage, which could result in hitting the monthly data limit for your account.
 
 {{since when="1.5.0"}}
 
@@ -1000,7 +1002,7 @@ The time on the device will not be synchronized until some milliseconds later
 when the Cloud responds with the current time between calls to your loop.
 See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedLast()`](#particle-timesyncedlast-), [`Time.isValid()`](#isvalid-) and [`Particle.syncTimePending()`](#particle-synctimepending-) for information on how to wait for request to be finished.
 
-Synchronizing time does not consume data operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary time synchronization can lead to increased data usage, which could result in hitting the monthly data limit for your account.
+Synchronizing time does not consume Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary time synchronization can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
 ### Particle.syncTimeDone()
 
@@ -10235,7 +10237,7 @@ void loop()
 
 When using a Particle SIM with the device, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
 
-Direct TCP, UDP, and DNS do not consume data operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
+Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
@@ -10543,7 +10545,7 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 
 When using a Particle SIM with the device, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
 
-Direct TCP, UDP, and DNS do not consume data operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
+Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()

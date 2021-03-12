@@ -13,7 +13,7 @@ Particle provides a number of devices with cellular connectivity including the T
 ### Free Tier
 
 - Up to 100 devices, any mix of cellular and Wi-Fi
-- 100,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
+- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to 45 MB of cellular data per month, pooled across all devices, at no charge
 - No credit card required
 - Products can be prototyped in the Free tier
@@ -29,19 +29,41 @@ The central billing element for both cellular and Wi-Fi is the data operation:
 - Each publish, subscribe, function, or variable consumes one data operation regardless of size (currently limited to 622 bytes per operation)
 - Stored data, such as Tracker geolocation data, consume one data operation per location point saved<sup>1</sup>
 - Each user-initiated device ping consumes one data operation
-
-The following do **not** count against your data operations limit:
-
-- Over-the-air firmware updates do not count against your data operations limit
-- Acknowledgements, session negotiation, device vitals, keep-alives etc. do not count against your data operations limit
-- Webhooks and server-sent-events (SSE) do not count against your data operations limit
-- Particle cloud API calls do not count against your data operations limit
+- Certain retransmissions, as described below
 
 <sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
 
+The following do **not** count against your Data Operations limit:
+
+- Over-the-air firmware updates do not count against your Data Operations limit
+- Internal events such as device vitals (beginning with "particle" or "spark") do not count against your Data Operations limit
+- Acknowledgements, session negotiation, keep-alives etc. do not count against your Data Operations limit
+- Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
+- Particle cloud API calls do not count against your Data Operations limit
+
+#### Webhooks and other integrations
+
+When a device sends an event that triggers a webhook or other integration, that will consume one data operation.
+
+If the webhook response is not subscribed to by the device, that will be the only data operation.
+
+If the webhook response is subscribed to by the device, it will use one data operation for each 512-byte segment of a response. Retransmissions could also increase the number of Data Operations, as described below.
+
+#### Retransmissions
+
+When a device must retransmit data that does not reach the cloud, for example because of poor cellular connectivity, it does not count as a Data Operations. If it retransmits the data because the acknowledgement was lost, that could cause an additional data operation as the data was actually received by the cloud twice.
+
+When transmitting from the cloud to a device, such as for a function, variable, or subscription:
+
+If the device is marked as offline, no data transmission will be attempted and no Data Operations will be incurred.
+
+If the device is believed to be online, an attempt will be made, which will consume a data operation.
+
+If the transmission is not acknowledged, it is possible that up to two more attempts will be made, each adding a data operation. If all three attempts fail, the device will then be marked as offline.
+
 ### Cellular Data Limit
 
-For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including data operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of data operations, so you probably won't need to worry about the exact number of bytes for each operation.
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 

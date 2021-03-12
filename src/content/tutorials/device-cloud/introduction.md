@@ -96,7 +96,7 @@ Updating your device firmware and Device OS can be done securely over the Partic
 Cellular, Tracker, and Wi-Fi devices can be free to use!
 
 - Up to 100 devices, any mix of cellular and Wi-Fi
-- 100,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
+- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to 45 MB of cellular data per month, pooled across all devices, at no charge
 - No credit card required
 - Products can be prototyped in the Free tier
@@ -105,8 +105,8 @@ Cellular, Tracker, and Wi-Fi devices can be free to use!
 
 #### Growth Tier
 
-- A block includes 250,000 data operations per month and up to 100 devices
-- Add as many blocks as you need for more data operations or more devices
+- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
 - Up to 125 MB of cellular data per month, pooled across all devices, for each block purchased
 - Email support
@@ -114,46 +114,51 @@ Cellular, Tracker, and Wi-Fi devices can be free to use!
 
 #### Enterprise Tier
 
-- Enterprise tiers include a maximum number of devices, data operations, storage, and cellular data
-- Data operations and cellular data are pooled across all devices annually
+- Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
+- Data Operations and cellular data are pooled across all devices annually
 - Discounts for higher Enterprise tier commitments
 - [Contact sales](https://particle.io/sales/) for more information
 
 ### Data Operations
 
+The central billing element for both cellular and Wi-Fi is the data operation:
+
 - Each publish, subscribe, function, or variable consumes one data operation regardless of size (currently limited to 622 bytes per operation)
-- Stored data, such as Tracker geolocation data, consume one data operation per location point saved
+- Stored data, such as Tracker geolocation data, consume one data operation per location point saved<sup>1</sup>
 - Each user-initiated device ping consumes one data operation
+- Certain retransmissions, as described below
 
-The following do **not** count against your data operations limit:
+<sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
 
-- Over-the-air firmware updates do not count against your data operations limit
-- Acknowledgements, session negotiation, device vitals, keep-alives etc. do not count against your data operations limit
-- Webhooks and server-sent-events (SSE) do not count against your data operations limit
-- Particle cloud API calls do not count against your data operations limit
+The following do **not** count against your Data Operations limit:
 
+- Over-the-air firmware updates do not count against your Data Operations limit
+- Internal events such as device vitals (beginning with "particle" or "spark") do not count against your Data Operations limit
+- Acknowledgements, session negotiation, keep-alives etc. do not count against your Data Operations limit
+- Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
+- Particle cloud API calls do not count against your Data Operations limit
 
 {{> dataoperationscalc}}
 
 ### Blocks
 
-Blocks are a maximum number of data operations and devices per month in the Growth tier:
+Blocks are a maximum number of Data Operations and devices per month in the Growth tier:
 
-- Up to 250,000 data operations
+- Up to 720K Data Operations (720,000)
 - Up to 100 devices
 - Up to 125 MB of cellular data per month, pooled across all devices
 - Price varies for Wi-Fi, Cellular, and Tracker
 - Add as many blocks are you need
 
-For example, if you have 150 devices you will need 2 blocks, even if your data operations do not yet exceed 250,000. 
+For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed 720K. 
 
-Likewise, if you are using 400,000 data operations per month, you will need 2 blocks, even of you have fewer than 100 devices.
+Likewise, if you are using a million Data Operations per month, you will need 2 blocks, even of you have fewer than 100 devices.
 
 ### Non-Particle cloud traffic
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
-For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including data operations, OTA code flash, overhead, and 3rd-party services.
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
 
 ### Limits
 
@@ -162,7 +167,7 @@ For cellular devices, there is a data limit depending on your tier. For the Free
 The [Particle Console](https://console.particle.io) lists the three limits you will most likely encounter:
 
 - The number of devices (both cellular and Wi-Fi)
-- The number of data operations consumed this billing month
+- The number of Data Operations consumed this billing month
 - The number of MB of cellular usage this billing month
 
 Note that the cellular data usage is not real-time. It can take at least 24 hours, and in some cases may lag several days behind actual usage.
@@ -171,17 +176,17 @@ Note that the cellular data usage is not real-time. It can take at least 24 hour
 
 You cannot add more than 100 devices to the Free tier. You instead will need to upgrade to the Growth tier. 
 
-You can have any number of devices in the Growth tier, but you will need to purchase another block for each group of 100 devices. It's not possible to purchase a fractional block for devices only; each block includes a maximum number of devices, data operations, and cellular data usage, and exceeding any one limit will require purchasing an additional block.
+You can have any number of devices in the Growth tier, but you will need to purchase another block for each group of 100 devices. It's not possible to purchase a fractional block for devices only; each block includes a maximum number of devices, Data Operations, and cellular data usage, and exceeding any one limit will require purchasing an additional block.
 
 There is no limit to the number of blocks you can purchase in the Growth tier, however upgrading to an enterprise contract can reduce the cost.
 
-#### What happens if I exceed the number of data operations?
+#### What happens if I exceed the number of Data Operations?
 
-In the Free tier, if you need more data operations you will need to upgrade to the Growth tier. When you exceed 100,000 data operations, all data operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more data operations to the Free tier. 
+In the Free tier, if you need more Data Operations you will need to upgrade to the Growth tier. When you exceed 100K Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free tier. 
 
-In the Growth tier, if you need more than 250,000 data operations across your fleet of devices per month, you can add another block.
+In the Growth tier, if you need more than 720K Data Operations across your fleet of devices per month, you can add another block.
 
-In the Enterprise tier, the number of data operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
+In the Enterprise tier, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
 
 #### What happens if I exceed the cellular data quota?
 

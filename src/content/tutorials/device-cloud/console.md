@@ -576,7 +576,7 @@ To see all billing related information, you can click on the billing icon in the
 #### Free tier
 
 - Up to 100 devices, any mix of cellular and Wi-Fi
-- 100,000 data operations per month, for both cellular and Wi-Fi, pooled across all devices
+- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to 45 MB of cellular data per month, pooled across all devices, at no charge
 - No credit card required
 - Device communication is paused when the monthly limit is reached<sup>1</sup>
@@ -591,14 +591,14 @@ Products can be prototyped in the Free tier at no charge. However, there is a li
 
 #### Growth tier
 
-- A block includes 250,000 data operations per month and up to 100 devices
-- Add as many blocks as you need for more data operations or more devices
+- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
 - Up to 125 MB of cellular data per month, pooled across all devices, for each block purchased
 - Email support
 - Available in June 2021
 
-In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of data operations, available devices, or cellular data.
+In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data.
 
 In the Growth and Enterprise tiers, you will also have access to an **Organization**, which allows finer access control to multiple products. 
 
