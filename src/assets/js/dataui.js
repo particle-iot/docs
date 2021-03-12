@@ -102,7 +102,181 @@ dataui.selectCountries = function(config) {
     return results;
 }
 
+dataui.countrySelector = function(options) {
+    let countrySel = {};
 
+    countrySel.options = options;
+
+    // textFieldId:'country3Text',
+    // popupDivId:'country3PopupDiv'
+
+
+    countrySel.popupClickHandler = function(ev) {
+
+        const elem = $('#' + countrySel.options.textFieldId);
+        const text = elem.val();
+
+        if (ev.target.tagName.toLowerCase() == 'td') {
+            const clickText = ev.target.innerText;
+
+            elem.focus();
+            elem.val(clickText);
+            elem[0].setSelectionRange(0, clickText.length);    
+        }
+
+        $('div.countryPopup').css('visibility', 'hidden');
+
+        countrySel.updateHandler();
+    };
+
+    countrySel.updateHandler = function() {
+        if ($('div.countryPopup').css('visibility') == 'visible') {
+            // If the popup selector is visible don't refresh the contents as the
+            // user may be scrolling through the options using the arrows
+            return;
+        }
+
+        const text = $('#' + countrySel.options.textFieldId).val();
+        const countryObj = datastore.findCountryByName(text);
+        if (countryObj) {
+            if (countrySel.onCountrySelected) {
+                countrySel.onCountrySelected(countryObj.name);
+            }
+        }
+    };
+
+    countrySel.keyHandler = function(ev) {
+        
+        if ($('div.countryPopup').css('visibility') != 'visible') {
+
+            // Don't submit 
+            switch (ev.key) {
+            case 'Enter':
+                ev.preventDefault();
+                break;
+            }
+
+            return;
+        }
+
+        let update = false;
+
+        switch (ev.key) {
+            case 'Down':
+            case 'ArrowDown':
+                // 
+                if ((countrySel.curAutoCompleteIndex + 1) < countrySel.countries.possible.length) {
+                    countrySel.curAutoCompleteIndex++;
+                    update = true;
+                }
+                break;
+
+            case 'Up':
+            case 'ArrowUp':
+                //
+                if (countrySel.curAutoCompleteIndex > 0) {
+                    countrySel.curAutoCompleteIndex--;
+                    update = true;
+                }
+                break;
+
+            case 'Enter':
+            case 'Tab':
+                if (countrySel.countries.possible.length == 1) {
+                    countrySel.curAutoCompleteIndex = 0;
+                    update = true;    
+                }
+                
+                // Fall through to still hide the popup
+            case 'Esc':
+            case 'Escape':
+                // Hide popup
+                $('div.countryPopup').css('visibility', 'hidden');
+                countrySel.updateHandler();
+                break;
+
+            case 'Home':
+                countrySel.curAutoCompleteIndex = 0;
+                update = true;
+                break;
+
+            case 'End':
+                countrySel.curAutoCompleteIndex = countrySel.countries.possible.length - 1;
+                update = true;
+                break;
+
+
+            default:
+                return;
+        }  
+
+        if (update) {
+            const autoCompleteText = countrySel.countries.possible[countrySel.curAutoCompleteIndex].name ;
+
+            $('#' + countrySel.options.textFieldId).val(autoCompleteText);
+            $('#' + countrySel.options.textFieldId)[0].setSelectionRange(0, autoCompleteText.length);
+
+            countrySel.updateHandler();
+        }
+
+        ev.preventDefault();
+
+    };
+
+
+    countrySel.textHandler = function() {
+        const text = $('#' + countrySel.options.textFieldId).val();
+
+        countrySel.countries = dataui.filterCountries(text);
+
+        let showPopup = false;
+
+        $('#' + countrySel.options.popupDivId).html('');
+        let html = '<table class="countryPopup"><tbody>';
+
+        if (countrySel.countries.exact) {
+            const selStart = $('#' + countrySel.options.textFieldId)[0].selectionStart;
+            $('#' + countrySel.options.textFieldId).val(countrySel.countries.exact.name);
+            $('#' + countrySel.options.textFieldId)[0].setSelectionRange(selStart, countrySel.countries.exact.name.length);
+        }
+        else {
+            countrySel.countries.possible.forEach(function(obj) {
+                html += '<tr><td class="countryPopup">' + obj.name + '</td></tr>';
+                showPopup = true;
+                countrySel.curAutoCompleteIndex = -1;
+            });
+        }
+
+        html += '</tbody></table>';
+        $('#' + countrySel.options.popupDivId).html(html);
+
+        if (showPopup) {
+            $('div.countryPopup').css('left', $('#' + countrySel.options.textFieldId).position().left + 'px');
+            $('div.countryPopup').css('top', $('#' + countrySel.options.textFieldId).position().bottom + 'px');
+            $('div.countryPopup').css('width', $('#' + countrySel.options.textFieldId).width() + 'px');
+            $('div.countryPopup').css('visibility', 'visible');
+        }
+        else {
+            $('div.countryPopup').css('visibility', 'hidden');
+            countrySel.updateHandler();
+        }
+
+    };
+
+    countrySel.init = function() {
+        $('#' + countrySel.options.popupDivId).css('visibility', 'hidden');
+
+        $('#' + countrySel.options.popupDivId).on('click', countrySel.popupClickHandler);
+
+        $('#' + countrySel.options.textFieldId).on('keydown', countrySel.keyHandler);
+
+        $('#' + countrySel.options.textFieldId).on('input', countrySel.textHandler);
+
+        return countrySel;
+    };
+
+    return countrySel;
+}
 
 // Returns a regionCountry selector object initialized to the set of HTML
 // elements whose name begins with 'idBase' and follows the region country
@@ -716,7 +890,6 @@ dataui.generateSkuTable = function(modemSimObj, options) {
     });
     html += '</tbody></table>';
 
-    // console.log(html, modemSimObj);
     return html;
 };
 

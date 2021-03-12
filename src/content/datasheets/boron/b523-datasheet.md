@@ -534,16 +534,17 @@ The bootloader allows you to easily update the user application via several diff
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Albania | B524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Australia | B524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | B524 | 2G, 3G, Cat1 | A1, MTS |
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | B524 | 2G, 3G, Cat1 | BH Telecom |
+| Bosnia and Herzegovina | B524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
 | Bulgaria | B524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
 | Croatia | B524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | B524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | B524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | B524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | B524 | 2G, 3G, Cat1 | Vodafone |
+| Faroe Islands | B524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
 | Finland | B524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | B524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
@@ -551,29 +552,31 @@ The bootloader allows you to easily update the user application via several diff
 | Greece | B524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
 | Hungary | B524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
 | Iceland | B524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
-| Ireland | B524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, Vodafone |
+| Ireland | B524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
 | Italy | B524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
-| Kosovo | B524 | 2G, 3G, Cat1 | Monaco Telecom |
+| Kosovo | B524 |  |  |
 | Latvia | B524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
-| Liechtenstein | B524 | 2G, 3G, Cat1 | Orange |
+| Liechtenstein | B524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | B524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | B524 | 2G, 3G, Cat1 | Orange, POST, Tango |
 | Malta | B524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
-| Moldova | B524 | 2G, 3G, Cat1 | Moldcell |
+| Moldova | B524 | 2G, 3G, Cat1 | Moldcell, Orange |
 | Monaco | B524 | 2G, 3G, Cat1 | Monaco Telecom |
-| Montenegro | B524 | 2G, 3G, Cat1 | Telenor |
+| Montenegro | B524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Netherlands | B524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| New Zealand | B524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
 | Norway | B524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
 | Poland | B524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
 | Portugal | B524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Romania | B524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Serbia | B524 | 2G, 3G, Cat1 | Telenor |
+| Serbia | B524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Slovakia | B524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
 | Slovenia | B524 | 2G, 3G, Cat1 | A1, Mobitel |
 | Spain | B524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sweden | B524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | B524 | 2G, 3G, Cat1 | Salt, Swisscom |
-| United Kingdom | B524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Vodafone |
+| Switzerland | B524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| United Kingdom | B524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+
 
 {{!-- END do not edit content above, it is automatically generated 99975710-76e0-11eb-9439-0242ac130002 --}}
 
@@ -582,12 +585,14 @@ The bootloader allows you to easily update the user application via several diff
 ## Ordering information
 
 {{!-- BEGIN do not edit content below, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
+
 | SKU | Description | Region  | Modem | Lifecycle | Replacement |
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | GA | |
 | B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | GA | |
 | B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | NRND | B524MEA|
 | B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | NRND | B524MTY|
+
 
 {{!-- END do not edit content above, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
 

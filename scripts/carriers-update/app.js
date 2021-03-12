@@ -866,11 +866,11 @@ function updateDocs(docsPath, guid, md) {
 			if (line.startsWith(replacePrefixBegin + guid)) {
 				state = 1;
 			}
-			preData += line + '\n\n';
+			preData += line + '\n';
 			break;
 		case 1:
 			if (line.startsWith(replacePrefixEnd + guid)) {
-				postData += '\n' + line + '\n';
+				postData += line + '\n';
 				state = 2;
 			}
 			break;
@@ -892,7 +892,7 @@ function updateDocs(docsPath, guid, md) {
 
 	
     if (preData != '' && postData != '') {
-        var newDocsData = preData + md + '\n' + postData;
+        var newDocsData = preData + '\n' + md + '\n\n' + postData;
 	
         fs.writeFileSync(pathPrefix + docsPath, newDocsData);	    
     }

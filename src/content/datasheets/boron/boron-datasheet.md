@@ -417,43 +417,42 @@ The complete schematic and board files are open source and available on Particle
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
-| Afghanistan | BRN314 | 2G, 3G | Etisalat |
+| Afghanistan | BRN314 | 2G, 3G | MTN |
 | Albania | BRN314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
 | Algeria | BRN314 | 2G, 3G | Mobilis, Ooredoo |
-| Angola | BRN314 | 2G, 3G | Unitel |
+| Angola | BRN314 |  |  |
 | Anguilla | BRN314 | 2G, 3G | Flow |
 | Antigua and Barbuda | BRN314 | 2G, 3G | Flow |
 | Argentina | BRN314 | 2G, 3G | Claro, Movistar, Personal |
-| Armenia | BRN314 | 2G, 3G | Beeline |
+| Armenia | BRN314 | 2G, 3G | Beeline, Ucom |
 | Australia | BRN314 | 3G | Optus, Telstra, Vodafone |
 | Austria | BRN314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
-| Azerbaijan | BRN314 | 2G, 3G | NAR Mobile |
-| Bahamas | BRN314 | 2G, 3G | Aliv |
+| Azerbaijan | BRN314 | 2G, 3G | Bakcell, NAR Mobile |
+| Bahamas | BRN314 | 2G, 3G | Aliv, BTC Bahamas |
 | Bahrain | BRN314 | 2G, 3G | Zain |
 | Bangladesh | BRN314 | 2G, 3G | Bangalink, GrameenPhone |
 | Barbados | BRN314 | 2G, 3G | Flow |
 | Belarus | BRN314 | 2G, 3G | A1, MTS |
 | Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
-| Belize | BRN314 | 2G, 3G | DigiCell, Smart |
-| Benin | BRN314 | 2G, 3G | Moov |
+| Belize | BRN314 | 2G, 3G | Smart |
+| Benin | BRN314 |  |  |
 | Bolivia | BRN314 | 2G, 3G | NuevaTel |
-| Bonaire | BRN314 | 2G, 3G | Digicel |
-| Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom |
-| Brazil | BRN314 | 2G, 3G | TIM, Vivo |
-| Brunei | BRN314 | 2G, 3G | DST, Progresif |
+| Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
+| Brazil | BRN314 | 2G, 3G | Claro, TIM, Vivo |
+| Brunei | BRN314 | 2G, 3G | DST |
 | Bulgaria | BRN314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | BRN314 | 2G, 3G | Orange |
-| Burundi | BRN314 | 2G, 3G | Smart |
+| Burundi | BRN314 |  |  |
 | Cambodia | BRN314 | 2G, 3G | Metfone |
 | Cameroon | BRN314 | 2G, 3G | MTN |
 | Canada | BRN404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Cayman Islands | BRN314 | 2G, 3G | Flow |
-| Chad | BRN314 | 2G, 3G | Airtel, Tigo |
+| Chad | BRN314 | 2G, 3G | Airtel |
 | Chile | BRN314 | 2G, 3G | Claro, Entel, Movistar |
-| Colombia | BRN314 | 2G, 3G | Claro, Tigo |
+| Colombia | BRN314 | 2G, 3G | Movistar, Tigo |
 | Congo (Brazzaville) | BRN314 | 2G, 3G | Airtel |
-| Congo (Kinshasa) | BRN314 | 2G, 3G | Africell, Airtel, Vodacom |
-| Costa Rica | BRN314 | 2G, 3G | ICE, Movistar |
+| Congo (Kinshasa) | BRN314 | 2G, 3G | Airtel |
+| Costa Rica | BRN314 | 2G, 3G | Movistar |
 | Côte d'Ivoire | BRN314 | 2G, 3G | MTN |
 | Croatia | BRN314 | 2G, 3G | Hrvatski Telekom, Tele2 |
 | Cyprus | BRN314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
@@ -462,133 +461,129 @@ The complete schematic and board files are open source and available on Particle
 | Dominica | BRN314 | 2G, 3G | Flow |
 | Dominican Republic | BRN314 | 2G, 3G | Altice Dominicana, Claro, Viva |
 | Ecuador | BRN314 | 2G, 3G | Claro, Movistar |
-| Egypt | BRN314 | 2G, 3G | Orange, Vodafone |
+| Egypt | BRN314 | 2G, 3G | Etisalat, Orange |
 | El Salvador | BRN314 | 2G, 3G | Claro, Telefonica |
-| Equatorial Guinea | BRN314 | 2G, 3G | Muni |
+| Equatorial Guinea | BRN314 |  |  |
 | Estonia | BRN314 | 2G, 3G | Elisa, Tele2, Telia |
 | eSwatini | BRN314 | 2G, 3G | MTN |
 | Ethiopia | BRN314 | 2G, 3G | Ethio Telecom |
-| Faroe Islands | BRN314 | 2G, 3G | Vodafone |
-| Fiji | BRN314 | 2G, 3G | Digicel |
+| Faroe Islands | BRN314 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | BRN314 | 2G, 3G | DNA, Elisa, Telia |
 | France | BRN314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | BRN314 | 2G, 3G | Digicel |
 | Gabon | BRN314 | 2G, 3G | Airtel |
-| Gambia | BRN314 | 2G, 3G | Africell, Qcell |
+| Gambia | BRN314 |  |  |
 | Georgia | BRN314 | 2G, 3G | Beeline, Geocell |
 | Germany | BRN314 | 2G, 3G | O2, Telekom, Vodafone |
-| Ghana | BRN314 | 2G, 3G | AirtelTigo, Vodafone |
+| Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | BRN314 | 2G, 3G | Gibtel |
 | Greece | BRN314 | 2G, 3G | Cosmote, Vodafone, Wind |
 | Greenland | BRN314 | 2G, 3G | Tele |
 | Grenada | BRN314 | 2G, 3G | Flow |
 | Guadeloupe | BRN314 | 2G, 3G | Orange |
-| Guam | BRN314 | 2G, 3G | IT&E |
+| Guam | BRN314 |  |  |
 | Guatemala | BRN314 | 2G, 3G | Claro, Movistar |
 | Guinea | BRN314 | 2G, 3G | MTN |
 | Guinea-Bissau | BRN314 | 2G, 3G | MTN |
 | Guyana | BRN314 | 2G, 3G | Digicel |
 | Haiti | BRN314 | 2G, 3G | Digicel |
-| Honduras | BRN314 | 2G, 3G | Tigo |
-| Hong Kong | BRN314 | 2G, 3G | 3, CMHK, CSL, PCCW Mobile, SmarTone |
+| Honduras | BRN314 | 2G, 3G | Claro, Tigo |
+| Hong Kong | BRN314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | BRN314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | BRN314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | BRN314 | 2G, 3G | Airtel, Jio, VI |
-| Indonesia | BRN314 | 2G, 3G | 3, Indosat, Telkomsel, XL Axiata |
-| Iran | BRN314 | 2G, 3G | O2 |
-| Ireland | BRN314 | 2G, 3G | 3 (Tre), Meteor, Vodafone |
+| India | BRN314 | 2G, 3G | Airtel, Idea, Jio |
+| Indonesia | BRN314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
+| Ireland | BRN314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | BRN314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
 | Italy | BRN314 | 2G, 3G | TIM, Vodafone, Wind |
 | Jamaica | BRN314 | 2G, 3G | Digicel, Flow |
 | Japan | BRN314 | 3G | NTT DoCoMo, Softbank |
-| Jordan | BRN314 | 2G, 3G | Orange, Zain |
-| Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell, MTS |
-| Kenya | BRN314 | 2G, 3G | Airtel, Safaricom |
-| Kiribati | BRN314 | 2G, 3G | ATHKL |
-| Kosovo | BRN314 | 2G, 3G | Monaco Telecom |
-| Kuwait | BRN314 | 2G, 3G | Viva, Zain |
+| Jordan | BRN314 | 2G, 3G | Zain |
+| Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell |
+| Kenya | BRN314 | 2G, 3G | Airtel |
+| Kiribati | BRN314 |  |  |
+| Kosovo | BRN314 |  |  |
+| Kuwait | BRN314 | 2G, 3G | Ooredoo, Viva, Zain |
 | Kyrgyzstan | BRN314 | 2G, 3G | Beeline |
 | Latvia | BRN314 | 2G, 3G | Bite, LMT, Tele2 |
-| Lesotho | BRN314 | 2G, 3G | Econet Telecom |
-| Liechtenstein | BRN314 | 2G, 3G | Orange |
+| Lesotho | BRN314 |  |  |
+| Liechtenstein | BRN314 | 2G, 3G | Mobilkom, Orange |
 | Lithuania | BRN314 | 2G, 3G | Bite, Omnitel, Tele2 |
 | Luxembourg | BRN314 | 2G, 3G | Orange, POST, Tango |
 | Malawi | BRN314 | 2G, 3G | Airtel |
 | Malaysia | BRN314 | 2G, 3G | Celcom, DiGi, Maxis |
-| Mali | BRN314 | 2G, 3G | Orange |
+| Mali | BRN314 |  |  |
 | Malta | BRN314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | BRN404 | M1 | AT&T |
-| Moldova | BRN314 | 2G, 3G | Moldcell |
+| Moldova | BRN314 | 2G, 3G | Moldcell, Orange |
 | Monaco | BRN314 | 2G, 3G | Monaco Telecom |
 | Mongolia | BRN314 | 2G, 3G | Mobicom, Unitel |
-| Montenegro | BRN314 | 2G, 3G | Telenor |
+| Montenegro | BRN314 | 2G, 3G | Mtel, T-Mobile, Telenor |
 | Montserrat | BRN314 | 2G, 3G | Flow |
-| Mozambique | BRN314 | 2G, 3G | Movitel, Vodacom |
-| Myanmar | BRN314 | 2G, 3G | MPT, Ooredoo, Telenor |
+| Mozambique | BRN314 | 2G, 3G | Vodacom |
+| Myanmar | BRN314 | 2G, 3G | MPT, Telenor |
 | Namibia | BRN314 | 2G, 3G | Telecom Namibia |
 | Nepal | BRN314 | 2G, 3G | Nepal Telecom |
 | Netherlands | BRN314 | 2G, 3G | KPN, T-Mobile, Vodafone |
 | New Zealand | BRN314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | BRN314 | 2G, 3G | Movistar |
-| Niger | BRN314 | 2G, 3G | Orange |
-| Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo, MTN, Nitel |
+| Niger | BRN314 |  |  |
+| Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | BRN314 | 2G, 3G | TDC, Telenor, Telia |
-| Oman | BRN314 | 2G, 3G | Omantel |
-| Pakistan | BRN314 | 2G, 3G | Mobilink, Telenor, Warid |
+| Oman | BRN314 | 2G, 3G | Omantel, Ooredoo |
+| Pakistan | BRN314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | BRN314 | 2G, 3G | Jawwal |
 | Panama | BRN314 | 2G, 3G | Digicel, Movistar |
-| Papua New Guinea | BRN314 | 2G, 3G | Digicel |
-| Paraguay | BRN314 | 2G, 3G | Claro, Personal, Vox |
+| Papua New Guinea | BRN314 | 2G, 3G | bmobile |
+| Paraguay | BRN314 | 2G, 3G | Claro, Personal, Tigo, Vox |
 | Peru | BRN314 | 2G, 3G | Claro, Entel, Movistar |
 | Philippines | BRN314 | 2G, 3G | Globe, Smart |
 | Poland | BRN314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
 | Portugal | BRN314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | BRN314 | 2G, 3G | Claro |
-| Qatar | BRN314 | 2G, 3G | Vodafone |
+| Qatar | BRN314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | BRN314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Russia | BRN314 | 2G, 3G | Beeline, MTS, Tele2 |
-| Rwanda | BRN314 | 2G, 3G | MTN |
+| Russia | BRN314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
+| Rwanda | BRN314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | BRN314 | 2G, 3G | Flow |
 | Saint Lucia | BRN314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | BRN314 | 2G, 3G | Flow |
-| Samoa | BRN314 | 2G, 3G | Digicel |
-| Saudi Arabia | BRN314 | 2G, 3G | STC, Zain |
-| Serbia | BRN314 | 2G, 3G | Telenor |
+| Saudi Arabia | BRN314 | 2G, 3G | Mobily, STC, Zain |
+| Serbia | BRN314 | 2G, 3G | Telenor, VIP |
 | Singapore | BRN314 | 3G | SingTel, StarHub |
 | Sint Maarten | BRN314 | 2G, 3G | TelCell |
 | Slovakia | BRN314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | BRN314 | 2G, 3G | A1, Mobitel |
-| Somalia | BRN314 | 2G, 3G | Telesom |
-| South Africa | BRN314 | 2G, 3G | Cell C, MTN, Telkom, Vodacom |
+| Somalia | BRN314 |  |  |
+| South Africa | BRN314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | BRN314 | 3G | KT, SK Telecom |
 | South Sudan | BRN314 | 2G, 3G | MTN |
 | Spain | BRN314 | 2G, 3G | Orange, Telefonica, Vodafone, Yoigo |
-| Sri Lanka | BRN314 | 2G, 3G | Dialog, Hutch |
+| Sri Lanka | BRN314 | 2G, 3G | Dialog, Mobitel |
 | Suriname | BRN314 | 2G, 3G | Telesur |
 | Sweden | BRN314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | BRN314 | 2G, 3G | Salt, Swisscom |
+| Switzerland | BRN314 | 2G, 3G | Salt, Sunrise, Swisscom |
 | Taiwan | BRN314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
-| Tajikistan | BRN314 | 2G, 3G | Beeline |
-| Tanzania | BRN314 | 2G, 3G | Airtel, Smart, Viettel |
+| Tajikistan | BRN314 | 2G, 3G | Beeline, Tcell |
+| Tanzania | BRN314 | 2G, 3G | Airtel |
 | Thailand | BRN314 | 2G, 3G | AIS, DTAC, True Move |
-| Tonga | BRN314 | 2G, 3G | Digicel |
-| Trinidad and Tobago | BRN314 | 2G, 3G | Digicel |
-| Tunisia | BRN314 | 2G, 3G | Ooredoo |
+| Trinidad and Tobago | BRN314 | 2G, 3G | Digicel, TSTT |
+| Tunisia | BRN314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
 | Turkey | BRN314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
 | Turks and Caicos Islands | BRN314 | 2G, 3G | Flow |
-| Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN, Uganda Telecom |
-| Ukraine | BRN314 | 2G, 3G | Kyivstar, Life |
+| Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN |
+| Ukraine | BRN314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Arab Emirates | BRN314 | 2G, 3G | du, Etisalat |
-| United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Vodafone |
+| United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | BRN404 | M1 | AT&T |
 | Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | BRN314 | 2G, 3G | Beeline |
-| Vanuatu | BRN314 | 2G, 3G | Digicel |
 | Venezuela | BRN314 | 2G, 3G | Movistar |
-| Vietnam | BRN314 | 2G, 3G | MobiFone, Viettel |
+| Vietnam | BRN314 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Virgin Islands (British) | BRN314 | 2G, 3G | CCT, Flow |
-| Zambia | BRN314 | 2G, 3G | Airtel, Zamtel |
-| Zimbabwe | BRN314 | 2G, 3G | Econet, Telecel |
+| Zambia | BRN314 | 2G, 3G | Airtel |
+| Zimbabwe | BRN314 |  |  |
+
 
 {{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
 
@@ -611,6 +606,7 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | BRN404|
 | BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | NRND | BRN404KIT|
 | BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | BRN404TRAY50|
+
 
 {{!-- END do not edit content above, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
 

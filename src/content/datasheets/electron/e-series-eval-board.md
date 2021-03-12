@@ -111,4 +111,5 @@ That's it! The rest of the development process should be similar to that of the 
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | GA | |
 | E402KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | NRND | E404KIT|
 
+
 {{!-- END do not edit content above, it is automatically generated 89806642-76cb-11eb-9439-0242ac130002 --}}

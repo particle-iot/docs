@@ -153,4 +153,5 @@ If you're building a carrier board you'll probably want to use the Eagle CAD Tra
 | T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] | EMEAA | EG91-EX | NRND | T524MKIT|
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | NRND | T524MTY|
 
+
 {{!-- END do not edit content above, it is automatically generated e6d392c0-777e-11eb-9439-0242ac130002 --}}

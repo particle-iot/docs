@@ -514,6 +514,7 @@ The bootloader allows you to easily update the user application via several diff
 | Mexico | B404 | M1 | AT&T |
 | United States | B404 | M1 | AT&T |
 
+
 {{!-- END do not edit content above, it is automatically generated c9241a2c-76e0-11eb-9439-0242ac130002 --}}
 
 
@@ -528,6 +529,7 @@ The bootloader allows you to easily update the user application via several diff
 | B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | B404MEA|
 | B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | B404MTY|
+
 
 {{!-- END do not edit content above, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
 

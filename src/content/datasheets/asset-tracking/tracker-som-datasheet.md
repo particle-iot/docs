@@ -1103,17 +1103,18 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
 | Albania | T524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Australia | T524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | T524 | 2G, 3G, Cat1 | A1, MTS |
 | Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom |
+| Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
 | Bulgaria | T524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
 | Canada | T404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Croatia | T524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | T524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | T524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | T524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | T524 | 2G, 3G, Cat1 | Vodafone |
+| Faroe Islands | T524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
 | Finland | T524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | T524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | T524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
@@ -1121,31 +1122,33 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Greece | T524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
 | Hungary | T524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
 | Iceland | T524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
-| Ireland | T524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, Vodafone |
+| Ireland | T524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
 | Italy | T524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
-| Kosovo | T524 | 2G, 3G, Cat1 | Monaco Telecom |
+| Kosovo | T524 |  |  |
 | Latvia | T524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
-| Liechtenstein | T524 | 2G, 3G, Cat1 | Orange |
+| Liechtenstein | T524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | T524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
 | Luxembourg | T524 | 2G, 3G, Cat1 | Orange, POST, Tango |
 | Malta | T524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Mexico | T404 | M1 | AT&T |
-| Moldova | T524 | 2G, 3G, Cat1 | Moldcell |
+| Moldova | T524 | 2G, 3G, Cat1 | Moldcell, Orange |
 | Monaco | T524 | 2G, 3G, Cat1 | Monaco Telecom |
-| Montenegro | T524 | 2G, 3G, Cat1 | Telenor |
+| Montenegro | T524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Netherlands | T524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| New Zealand | T524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
 | Norway | T524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
 | Poland | T524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
 | Portugal | T524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
 | Romania | T524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Serbia | T524 | 2G, 3G, Cat1 | Telenor |
+| Serbia | T524 | 2G, 3G, Cat1 | Telenor, VIP |
 | Slovakia | T524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
 | Slovenia | T524 | 2G, 3G, Cat1 | A1, Mobitel |
 | Spain | T524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
 | Sweden | T524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
-| Switzerland | T524 | 2G, 3G, Cat1 | Salt, Swisscom |
-| United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Vodafone |
+| Switzerland | T524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | T404 | M1 | AT&T |
+
 
 {{!-- END do not edit content above, it is automatically generated 8e7b0446-76de-11eb-9439-0242ac130002 --}}
 
@@ -1166,6 +1169,7 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | NRND | T404MTY|
 | T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | T524MEA|
 | T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | NRND | T524MTY|
+
 
 {{!-- END do not edit content above, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
 

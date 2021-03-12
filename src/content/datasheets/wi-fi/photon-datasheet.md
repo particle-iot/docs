@@ -554,6 +554,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 | PHOTONH | Photon with Headers, [x1] | Global | GA | |
 | PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Global | Discontinued | |
 
+
 {{!-- END do not edit content above, it is automatically generated c9a47b1a-7751-11eb-9439-0242ac130002 --}}
 
 ## Qualification and approvals

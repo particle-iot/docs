@@ -98,6 +98,7 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &nbsp; | ANTCW2EA | &nbsp; | NRND|
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &nbsp; | ANTCW2EA | &nbsp; | GA|
 
+
 {{!-- END do not edit content above, it is automatically generated 95bdb290-775f-11eb-9439-0242ac130002 --}}
 
 <sup>1</sup>The Tracker One includes a custom antenna designed for optimal performance with the Tracker One. 
@@ -116,6 +117,7 @@ These devices do not have a cellular modem and therefore do not need a cellular 
 | Argon | ARG-AQKT, ARG-STRTKT, ARGN-H, ARGNKIT, ARGNTRAY50|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH|
 | P Series | P0REEL, P1MOD10, P1REEL|
+
 
 {{!-- END do not edit content above, it is automatically generated 57d69268-776d-11eb-9439-0242ac130002 --}}
 
@@ -209,6 +211,7 @@ The Particle 2.4 GHz W-Fi antenna is available in the [retail](https://store.par
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &nbsp; | ANT-FLXV2 | &nbsp; | NRND|
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &nbsp; | ANT-FLXV2 | &nbsp; | GA|
 
+
 {{!-- END do not edit content above, it is automatically generated 04ed49fe-7766-11eb-9439-0242ac130002 --}}
 
 <sup>1</sup>The Tracker One includes a Wi-Fi antenna inside the case, however it's a different antenna than the Particle 2.4 GHz Antenna. Note that the Wi-Fi on the Tracker One is only for Wi-Fi geolocation and cannot be used for data communication.
@@ -235,6 +238,7 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 | Boron | BRN310KIT, BRN310TRAY50, BRN314KIT, BRN314TRAY50, BRN402, BRN402KIT, BRN402TRAY50, BRN404, BRN404KIT, BRN404TRAY50|
 | E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
 | Electron | E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
+
 
 {{!-- END do not edit content above, it is automatically generated cee24faa-776d-11eb-9439-0242ac130002 --}}
 
@@ -309,6 +313,7 @@ These devices include Bluetooth LE (BLE) capabilities.
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | ANT-FLXV2 | &nbsp; | NRND|
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &check; | ANT-FLXV2 | &nbsp; | GA|
 
+
 {{!-- END do not edit content above, it is automatically generated 54f1ecbe-7768-11eb-9439-0242ac130002 --}}
 
 	
@@ -326,6 +331,7 @@ These devices do not have a BLE radio and therefore do not need a BLE antenna.
 | Electron | E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH|
 | P Series | P0REEL, P1MOD10, P1REEL|
+
 
 {{!-- END do not edit content above, it is automatically generated 2cf3e112-776e-11eb-9439-0242ac130002 --}}
 
@@ -397,6 +403,7 @@ These devices have NFC tag capabilities. Only the Tracker One has a built-in NFC
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | &nbsp; | NRND|
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &check; | &nbsp; | GA|
 
+
 {{!-- END do not edit content above, it is automatically generated 2b1c34c8-776b-11eb-9439-0242ac130002 --}}
 
 <sup>1</sup>The Tracker One includes an NFC antenna inside the case, however it's a different antenna than the Particle NFC Antenna (ANT-NFC).
@@ -414,6 +421,7 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 | Electron | E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH|
 | P Series | P0REEL, P1MOD10, P1REEL|
+
 
 {{!-- END do not edit content above, it is automatically generated 6b9301fa-776e-11eb-9439-0242ac130002 --}}
 
@@ -461,6 +469,7 @@ The following devices have GNSS capabilities:
 | Tracker SoM LTE M1 (NorAm), [x1] | T404MEA | &check; | &nbsp; | GA|
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T402MTY | &check; | &nbsp; | NRND|
 | Tracker SoM LTE M1 (NorAm), Tray [x50] | T404MTY | &check; | &nbsp; | GA|
+
 
 {{!-- END do not edit content above, it is automatically generated dd897350-776b-11eb-9439-0242ac130002 --}}
 

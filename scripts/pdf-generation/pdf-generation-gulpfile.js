@@ -45,7 +45,11 @@ const paths = {
 function filterUnchanged(vf) {
 	// Passed to ignore.include (gulp-ignore)
 	// https://www.npmjs.com/package/gulp-ignore
-		
+
+    if (vf.relative.startsWith('app-notes')) { 
+        return false;
+    }
+
 	var md = md5(vf.contents);
 	
 	var hashes = {};
