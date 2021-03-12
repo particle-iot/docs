@@ -66,6 +66,7 @@
     <a class="nav active" id="carrierTabByDevice">By Device</a>
     <a class="nav" id="carrierTabFindDevice">By Region</a>
     <a class="nav" id="carrierTabModelMap">Coverage Map</a>
+    <a class="nav" id="carrierTabCountryDetails">Country Details</a>
 </div> <!-- carrierTabs -->
 
 
@@ -103,13 +104,6 @@
         
         <input type="radio" id="country2CountryRadio" name="country2Radio" value="country">
         <label for="country2CountryRadio">Country <input type="text" size="30" id="country2Text" autocomplete="off"/></label>
-        </div>
-        
-        <div id="country2Popup" class="countryPopup">
-        <table id="country2CountryList" class="countryPopup">
-            <thead></thead>
-            <tbody></tbody>
-        </table>
         </div>
 
         <div>
@@ -153,6 +147,27 @@
 
 </div> <!-- carrierModelMapDiv -->
 
+<div id="carrierCountryDetailsDiv" style="display: none;">
+    <p></p>
+    <form>
+      <table>
+        <tr>
+          <td class="carrierFormLabel">Device:</td>
+          <td><select id="countryDetailDeviceList"></select></td>
+        </tr>
+        <tr>
+          <td class="carrierFormLabel">Country:</td>
+          <td><input type="text" size="30" id="countryDetailText" autocomplete="off"/></td>            
+        </tr>        
+      </table>
+    </form>
+
+    <div id="countryDetailsResultsDiv"></div>
+
+    <div id="countryDetailsFootnotesDiv"></div>
+
+</div> <!-- carrierCountryDetailsDiv -->
+
 
 </div> <!-- mainDiv -->
 
@@ -161,6 +176,7 @@
         </div>
       </div>
     </div>
+    <div id="countryPopup" class="countryPopup"></div>
     {{> scripts}}
 </body>
 </html>

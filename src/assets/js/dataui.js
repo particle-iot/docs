@@ -107,10 +107,6 @@ dataui.countrySelector = function(options) {
 
     countrySel.options = options;
 
-    // textFieldId:'country3Text',
-    // popupDivId:'country3PopupDiv'
-
-
     countrySel.popupClickHandler = function(ev) {
 
         const elem = $('#' + countrySel.options.textFieldId);
@@ -135,6 +131,7 @@ dataui.countrySelector = function(options) {
             // user may be scrolling through the options using the arrows
             return;
         }
+        $('div.' + countrySel.options.popupClass).html('');
 
         const text = $('#' + countrySel.options.textFieldId).val();
         const countryObj = datastore.findCountryByName(text);
@@ -231,7 +228,7 @@ dataui.countrySelector = function(options) {
 
         let showPopup = false;
 
-        $('#' + countrySel.options.popupDivId).html('');
+        $('div.' + countrySel.options.popupClass).html('');
         let html = '<table class="countryPopup"><tbody>';
 
         if (countrySel.countries.exact) {
@@ -248,25 +245,28 @@ dataui.countrySelector = function(options) {
         }
 
         html += '</tbody></table>';
-        $('#' + countrySel.options.popupDivId).html(html);
+        $('div.' + countrySel.options.popupClass).html(html);
 
+        const popupElem = $('div.' + countrySel.options.popupClass);
         if (showPopup) {
-            $('div.countryPopup').css('left', $('#' + countrySel.options.textFieldId).position().left + 'px');
-            $('div.countryPopup').css('top', $('#' + countrySel.options.textFieldId).position().bottom + 'px');
-            $('div.countryPopup').css('width', $('#' + countrySel.options.textFieldId).width() + 'px');
-            $('div.countryPopup').css('visibility', 'visible');
+            const textElem = $('#' + countrySel.options.textFieldId);
+
+            popupElem.css('left', textElem.offset().left + 4);
+            popupElem.css('top', textElem.offset().top + textElem.height() + 6);
+            popupElem.css('width', textElem.width());
+            popupElem.css('visibility', 'visible');
         }
         else {
-            $('div.countryPopup').css('visibility', 'hidden');
+            popupElem.css('visibility', 'hidden');
             countrySel.updateHandler();
         }
 
     };
 
     countrySel.init = function() {
-        $('#' + countrySel.options.popupDivId).css('visibility', 'hidden');
+        $('div.' + countrySel.options.popupClass).css('visibility', 'hidden');
 
-        $('#' + countrySel.options.popupDivId).on('click', countrySel.popupClickHandler);
+        $('div.' + countrySel.options.popupClass).on('click', countrySel.popupClickHandler);
 
         $('#' + countrySel.options.textFieldId).on('keydown', countrySel.keyHandler);
 
@@ -511,8 +511,10 @@ dataui.setupRegionCountrySelector = function (regionSel, idBase, listChangeHandl
 
         regionSel.fields = dataui.divideIntoFields(text);
         
-        $('#country2CountryList > tbody').html('');
+        $('div.countryPopup').html('');
         let showPopup = false;
+
+        let html = '<table class="countryPopup">';
 
         regionSel.fields.forEach(function(obj, index) {
             if (selectionStart >= obj.start && selectionStart <= obj.end) {
@@ -526,8 +528,7 @@ dataui.setupRegionCountrySelector = function (regionSel, idBase, listChangeHandl
                 }
                 else {
                     regionSel.countries.possible.forEach(function(obj) {
-                        let html = '<tr><td class="countryPopup">' + obj.name + '</td></tr>';
-                        $('#country2CountryList > tbody').append(html);
+                        html += '<tr><td class="countryPopup">' + obj.name + '</td></tr>';
                         showPopup = true;
                         regionSel.curAutoCompleteIndex = -1;
                     });
@@ -535,16 +536,24 @@ dataui.setupRegionCountrySelector = function (regionSel, idBase, listChangeHandl
             
             }
         });
+        html += '</table>';
+        $('div.countryPopup').html(html);
 
+
+        const popupElem = $('div.countryPopup');
         if (showPopup) {
-            $('div.countryPopup').css('left', $('#' + regionSel.idBase + 'Text').position().left + 'px');
-            $('div.countryPopup').css('width', $('#' + regionSel.idBase + 'Text').width() + 'px');
-            $('div.countryPopup').css('visibility', 'visible');
+            const textElem = $('#' + regionSel.idBase + 'Text');
+
+            popupElem.css('left', textElem.offset().left + 4);
+            popupElem.css('top', textElem.offset().top + textElem.height() + 6);
+            popupElem.css('width', textElem.width());
+            popupElem.css('visibility', 'visible');
         }
         else {
-            $('div.countryPopup').css('visibility', 'hidden');
+            popupElem.css('visibility', 'hidden');
             regionSel.updateHandler();
         }
+
 
     };
 
@@ -1069,8 +1078,11 @@ dataui.bandToFrequency = function(band) {
 
 
 
-dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem) {
-                
+dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, options) {
+    if (!options) {
+        options = {};
+    }
+
     // Make a map of all of the countries in the countryList by name
     let countryInCountryList = {};
     countryList.forEach(function(obj2) {
@@ -1120,6 +1132,7 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem) {
 
     {
         // Table body
+        const showFootnotes = {};
 
         let lastCountry = '';
         let evenOdd = false;
@@ -1156,11 +1169,30 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem) {
                         // This carrier uses the tag (2G, 3G, LTE) and band, and is allowed by plan
 
                         if (modem.bands.includes(tagBand)) {
-                            cellContents = '\u2705'; // Green Check
+                            if (tag == 'M1') {
+                                const countryObj = datastore.findCountryByName(obj.country);
+                                if (countryObj.m1recommended) {
+                                    cellContents = '\u2705'; // Green Check
+                                }
+                                else {
+                                    cellContents = '\u2753'; // Red question
+                                    if (options.footnotes && options.footnotes['warnM1']) {
+                                        cellContents += '<sup>' + options.footnotes['warnM1'] + '</sup>';
+                                        showFootnotes.warnM1 = true;
+                                    }
+                                }
+                            }
+                            else {
+                                cellContents = '\u2705'; // Green Check
+                            }
                         }
                         else {
                             cellContents = '\u274C'; // Red X
                             tooltip = 'band not supported by modem';
+                            if (options.footnotes && options.footnotes['noBand']) {
+                                cellContents += '<sup>' + options.footnotes['noBand'] + '</sup>';
+                                showFootnotes.noBand = true;
+                            }
                         }
                     }
                     else {
@@ -1174,11 +1206,19 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem) {
                         // This carrier uses the tag (2G, 3G, LTE) and band, show red X
                         if (modem.bands.includes(tagBand)) {
                             cellContents = '\u274C'; // Red X
-                            tooltip = 'band not supported by modem or carrier plan';
+                            tooltip = 'not available on carrier plan';
+                            if (options.footnotes && options.footnotes['noPlan']) {
+                                cellContents += '<sup>' + options.footnotes['noPlan'] + '</sup>';
+                                showFootnotes.noPlan = true;
+                            }
                         }
                         else {
                             cellContents = '\u274C'; // Red X
-                            tooltip = 'not available on carrier plan';
+                            tooltip = 'band not supported by modem or carrier plan';
+                            if (options.footnotes && options.footnotes['noBandNoPlan']) {
+                                cellContents += '<sup>' + options.footnotes['noBandNoPlan'] + '</sup>';
+                                showFootnotes.noBandNoPlan = true;
+                            }
                         }
                     }
                     else {
@@ -1205,6 +1245,37 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem) {
             let html = '<tr><td>No coverage</td></tr>\n';
             $('#' + tableId + ' > tbody').append(html);
         }
+
+        if (Object.keys(showFootnotes).length && options.footnotesDiv) {
+            let html = '';
+
+            html += '<table>';
+
+            if (showFootnotes.noBand) {
+                html += '<tr><td><sup>' + options.footnotes.noBand + '</sup></td><td>Cellular modem does not support this band</td></tr>';
+
+            }
+            if (showFootnotes.noPlan) {
+                html += '<tr><td><sup>' + options.footnotes.noPlan + '</sup></td><td>Carrier does not support this band</td></tr>';
+            }
+            
+            if (showFootnotes.noBandNoPlan) {
+                html += '<tr><td><sup>' + options.footnotes.noBandNoPlan + '</sup></td><td>No modem or carrier support</td></tr>';
+            }
+
+            if (showFootnotes.warnM1) {
+                html += '<tr><td><sup>' + options.footnotes.warnM1 + '</sup></td><td>LTE Cat M1 not recommended outside of NORAM</td></tr>';
+                            
+            }
+            
+            html += '</table>\n';
+    
+            $('#' + options.footnotesDiv).html(html);
+        }
+        else if (options.footnotesDiv) {
+            $('#' + options.footnotesDiv).html('');
+        }
+
     }
 
 

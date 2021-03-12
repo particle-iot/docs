@@ -693,7 +693,8 @@
           "lon": -52.3231981
         }
       },
-      "iso3": "CAN"
+      "iso3": "CAN",
+      "m1recommended": true
     },
     {
       "name": "Cayman Islands",
@@ -2417,7 +2418,8 @@
           "lon": -86.493266
         }
       },
-      "iso3": "MEX"
+      "iso3": "MEX",
+      "m1recommended": true
     },
     {
       "name": "Moldova",
@@ -3930,7 +3932,8 @@
           "lon": -66.9326
         }
       },
-      "iso3": "USA"
+      "iso3": "USA",
+      "m1recommended": true
     },
     {
       "name": "Uruguay",
@@ -24693,7 +24696,7 @@
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "May work with partial band supoort on TIM and Vivo"
+      "reason": "May work with partial band support on TIM and Vivo"
     },
     {
       "country": "Brazil",
