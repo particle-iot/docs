@@ -108,8 +108,7 @@ Cellular, Tracker, and Wi-Fi devices can be free to use!
 - A block includes 720K Data Operations (720,000) per month and up to 100 devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to 125 MB of cellular data per month, pooled across all devices, for each block purchased
-- Email support
+- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased- Email support
 - Available in June 2021
 
 #### Enterprise Tier
@@ -145,8 +144,7 @@ Blocks are a maximum number of Data Operations and devices per month in the Grow
 
 - Up to 720K Data Operations (720,000)
 - Up to 100 devices
-- Up to 125 MB of cellular data per month, pooled across all devices
-- Price varies for Wi-Fi, Cellular, and Tracker
+- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased- Price varies for Wi-Fi, Cellular, and Tracker
 - Add as many blocks are you need
 
 For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed 720K. 

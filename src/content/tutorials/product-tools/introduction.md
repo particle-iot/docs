@@ -49,7 +49,7 @@ Products group devices with similar firmware and usage. You can use products wit
 - A block includes 720K Data Operations (720,000) per month and up to 100 devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to 125 MB of cellular data per month, pooled across all devices, for each block purchased
+- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
 - Email support
 
 Products allow a number of additional features over developer devices:
