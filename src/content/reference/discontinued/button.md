@@ -1,14 +1,16 @@
 ---
 title: Internet Button
-layout: quickstart.hbs
+layout: reference.hbs
 columns: two
-order: 31
+order: 52
 ---
 
 # The Internet Button
 
 {{#unless photon}}
-**_Note_**: The internet button is only compatible with the Photon. It cannot be used with the Electron, Argon or Boron.
+**_Note_**: The internet button is only compatible with the Photon. It cannot be used with the Electron, Argon or Boron. 
+
+It is discontinued and is no longer available for sale, but previously purchased Internet Buttons will continue to work at this time.
 {{/unless}}
 
 ![](/assets/images/internet-button-cover.jpg)
