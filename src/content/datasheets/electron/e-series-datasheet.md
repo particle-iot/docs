@@ -558,7 +558,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Afghanistan | E314 | 2G, 3G | MTN |
 | Albania | E314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
 | Algeria | E314 | 2G, 3G | Mobilis, Ooredoo |
-| Angola | E314 |  |  |
 | Anguilla | E314 | 2G, 3G | Flow |
 | Antigua and Barbuda | E314 | 2G, 3G | Flow |
 | Argentina | E314 | 2G, 3G | Claro, Movistar, Personal |
@@ -573,14 +572,12 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Belarus | E314 | 2G, 3G | A1, MTS |
 | Belgium | E314 | 2G, 3G | Base, Orange, Proximus |
 | Belize | E314 | 2G, 3G | Smart |
-| Benin | E314 |  |  |
 | Bolivia | E314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | E314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brazil | E314 | 2G, 3G | Claro, TIM, Vivo |
 | Brunei | E314 | 2G, 3G | DST |
 | Bulgaria | E314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | E314 | 2G, 3G | Orange |
-| Burundi | E314 |  |  |
 | Cambodia | E314 | 2G, 3G | Metfone |
 | Cameroon | E314 | 2G, 3G | MTN |
 | Canada | E404 | M1 | Bell Mobility, Rogers Wireless, Telus |
@@ -601,7 +598,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Ecuador | E314 | 2G, 3G | Claro, Movistar |
 | Egypt | E314 | 2G, 3G | Etisalat, Orange |
 | El Salvador | E314 | 2G, 3G | Claro, Telefonica |
-| Equatorial Guinea | E314 |  |  |
 | Estonia | E314 | 2G, 3G | Elisa, Tele2, Telia |
 | eSwatini | E314 | 2G, 3G | MTN |
 | Ethiopia | E314 | 2G, 3G | Ethio Telecom |
@@ -610,7 +606,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | France | E314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | E314 | 2G, 3G | Digicel |
 | Gabon | E314 | 2G, 3G | Airtel |
-| Gambia | E314 |  |  |
 | Georgia | E314 | 2G, 3G | Beeline, Geocell |
 | Germany | E314 | 2G, 3G | O2, Telekom, Vodafone |
 | Ghana | E314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
@@ -619,7 +614,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Greenland | E314 | 2G, 3G | Tele |
 | Grenada | E314 | 2G, 3G | Flow |
 | Guadeloupe | E314 | 2G, 3G | Orange |
-| Guam | E314 |  |  |
 | Guatemala | E314 | 2G, 3G | Claro, Movistar |
 | Guinea | E314 | 2G, 3G | MTN |
 | Guinea-Bissau | E314 | 2G, 3G | MTN |
@@ -639,18 +633,14 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Jordan | E314 | 2G, 3G | Zain |
 | Kazakhstan | E314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | E314 | 2G, 3G | Airtel |
-| Kiribati | E314 |  |  |
-| Kosovo | E314 |  |  |
 | Kuwait | E314 | 2G, 3G | Ooredoo, Viva, Zain |
 | Kyrgyzstan | E314 | 2G, 3G | Beeline |
 | Latvia | E314 | 2G, 3G | Bite, LMT, Tele2 |
-| Lesotho | E314 |  |  |
 | Liechtenstein | E314 | 2G, 3G | Mobilkom, Orange |
 | Lithuania | E314 | 2G, 3G | Bite, Omnitel, Tele2 |
 | Luxembourg | E314 | 2G, 3G | Orange, POST, Tango |
 | Malawi | E314 | 2G, 3G | Airtel |
 | Malaysia | E314 | 2G, 3G | Celcom, DiGi, Maxis |
-| Mali | E314 |  |  |
 | Malta | E314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | E404 | M1 | AT&T |
 | Moldova | E314 | 2G, 3G | Moldcell, Orange |
@@ -665,7 +655,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Netherlands | E314 | 2G, 3G | KPN, T-Mobile, Vodafone |
 | New Zealand | E314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | E314 | 2G, 3G | Movistar |
-| Niger | E314 |  |  |
 | Nigeria | E314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | E314 | 2G, 3G | TDC, Telenor, Telia |
 | Oman | E314 | 2G, 3G | Omantel, Ooredoo |
@@ -692,7 +681,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Sint Maarten | E314 | 2G, 3G | TelCell |
 | Slovakia | E314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | E314 | 2G, 3G | A1, Mobitel |
-| Somalia | E314 |  |  |
 | South Africa | E314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | E314 | 3G | KT, SK Telecom |
 | South Sudan | E314 | 2G, 3G | MTN |
@@ -720,7 +708,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Vietnam | E314 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Virgin Islands (British) | E314 | 2G, 3G | CCT, Flow |
 | Zambia | E314 | 2G, 3G | Airtel |
-| Zimbabwe | E314 |  |  |
 
 
 {{!-- END do not edit content above, it is automatically generated 2445e222-76e2-11eb-9439-0242ac130002 --}}

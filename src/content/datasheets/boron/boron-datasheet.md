@@ -420,7 +420,6 @@ The complete schematic and board files are open source and available on Particle
 | Afghanistan | BRN314 | 2G, 3G | MTN |
 | Albania | BRN314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
 | Algeria | BRN314 | 2G, 3G | Mobilis, Ooredoo |
-| Angola | BRN314 |  |  |
 | Anguilla | BRN314 | 2G, 3G | Flow |
 | Antigua and Barbuda | BRN314 | 2G, 3G | Flow |
 | Argentina | BRN314 | 2G, 3G | Claro, Movistar, Personal |
@@ -435,14 +434,12 @@ The complete schematic and board files are open source and available on Particle
 | Belarus | BRN314 | 2G, 3G | A1, MTS |
 | Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
 | Belize | BRN314 | 2G, 3G | Smart |
-| Benin | BRN314 |  |  |
 | Bolivia | BRN314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brazil | BRN314 | 2G, 3G | Claro, TIM, Vivo |
 | Brunei | BRN314 | 2G, 3G | DST |
 | Bulgaria | BRN314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | BRN314 | 2G, 3G | Orange |
-| Burundi | BRN314 |  |  |
 | Cambodia | BRN314 | 2G, 3G | Metfone |
 | Cameroon | BRN314 | 2G, 3G | MTN |
 | Canada | BRN404 | M1 | Bell Mobility, Rogers Wireless, Telus |
@@ -463,7 +460,6 @@ The complete schematic and board files are open source and available on Particle
 | Ecuador | BRN314 | 2G, 3G | Claro, Movistar |
 | Egypt | BRN314 | 2G, 3G | Etisalat, Orange |
 | El Salvador | BRN314 | 2G, 3G | Claro, Telefonica |
-| Equatorial Guinea | BRN314 |  |  |
 | Estonia | BRN314 | 2G, 3G | Elisa, Tele2, Telia |
 | eSwatini | BRN314 | 2G, 3G | MTN |
 | Ethiopia | BRN314 | 2G, 3G | Ethio Telecom |
@@ -472,7 +468,6 @@ The complete schematic and board files are open source and available on Particle
 | France | BRN314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | BRN314 | 2G, 3G | Digicel |
 | Gabon | BRN314 | 2G, 3G | Airtel |
-| Gambia | BRN314 |  |  |
 | Georgia | BRN314 | 2G, 3G | Beeline, Geocell |
 | Germany | BRN314 | 2G, 3G | O2, Telekom, Vodafone |
 | Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
@@ -481,7 +476,6 @@ The complete schematic and board files are open source and available on Particle
 | Greenland | BRN314 | 2G, 3G | Tele |
 | Grenada | BRN314 | 2G, 3G | Flow |
 | Guadeloupe | BRN314 | 2G, 3G | Orange |
-| Guam | BRN314 |  |  |
 | Guatemala | BRN314 | 2G, 3G | Claro, Movistar |
 | Guinea | BRN314 | 2G, 3G | MTN |
 | Guinea-Bissau | BRN314 | 2G, 3G | MTN |
@@ -501,18 +495,14 @@ The complete schematic and board files are open source and available on Particle
 | Jordan | BRN314 | 2G, 3G | Zain |
 | Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell |
 | Kenya | BRN314 | 2G, 3G | Airtel |
-| Kiribati | BRN314 |  |  |
-| Kosovo | BRN314 |  |  |
 | Kuwait | BRN314 | 2G, 3G | Ooredoo, Viva, Zain |
 | Kyrgyzstan | BRN314 | 2G, 3G | Beeline |
 | Latvia | BRN314 | 2G, 3G | Bite, LMT, Tele2 |
-| Lesotho | BRN314 |  |  |
 | Liechtenstein | BRN314 | 2G, 3G | Mobilkom, Orange |
 | Lithuania | BRN314 | 2G, 3G | Bite, Omnitel, Tele2 |
 | Luxembourg | BRN314 | 2G, 3G | Orange, POST, Tango |
 | Malawi | BRN314 | 2G, 3G | Airtel |
 | Malaysia | BRN314 | 2G, 3G | Celcom, DiGi, Maxis |
-| Mali | BRN314 |  |  |
 | Malta | BRN314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | BRN404 | M1 | AT&T |
 | Moldova | BRN314 | 2G, 3G | Moldcell, Orange |
@@ -527,7 +517,6 @@ The complete schematic and board files are open source and available on Particle
 | Netherlands | BRN314 | 2G, 3G | KPN, T-Mobile, Vodafone |
 | New Zealand | BRN314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | BRN314 | 2G, 3G | Movistar |
-| Niger | BRN314 |  |  |
 | Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | BRN314 | 2G, 3G | TDC, Telenor, Telia |
 | Oman | BRN314 | 2G, 3G | Omantel, Ooredoo |
@@ -554,7 +543,6 @@ The complete schematic and board files are open source and available on Particle
 | Sint Maarten | BRN314 | 2G, 3G | TelCell |
 | Slovakia | BRN314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | BRN314 | 2G, 3G | A1, Mobitel |
-| Somalia | BRN314 |  |  |
 | South Africa | BRN314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | BRN314 | 3G | KT, SK Telecom |
 | South Sudan | BRN314 | 2G, 3G | MTN |
@@ -582,7 +570,6 @@ The complete schematic and board files are open source and available on Particle
 | Vietnam | BRN314 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Virgin Islands (British) | BRN314 | 2G, 3G | CCT, Flow |
 | Zambia | BRN314 | 2G, 3G | Airtel |
-| Zimbabwe | BRN314 |  |  |
 
 
 {{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}

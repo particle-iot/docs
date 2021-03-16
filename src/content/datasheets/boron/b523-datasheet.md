@@ -554,7 +554,6 @@ The bootloader allows you to easily update the user application via several diff
 | Iceland | B524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
 | Ireland | B524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
 | Italy | B524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
-| Kosovo | B524 |  |  |
 | Latvia | B524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
 | Liechtenstein | B524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | B524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |

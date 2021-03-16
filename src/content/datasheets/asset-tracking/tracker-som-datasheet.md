@@ -1124,7 +1124,6 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Iceland | T524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
 | Ireland | T524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
 | Italy | T524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
-| Kosovo | T524 |  |  |
 | Latvia | T524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
 | Liechtenstein | T524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | T524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |

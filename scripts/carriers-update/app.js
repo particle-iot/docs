@@ -469,6 +469,9 @@ function generateCountryList(skuFamily, options) {
             carriers.push(ccObj.carrier);
         });
 
+        if (carriers.length == 0) {
+            return; 
+        }
 
         showTechnologies.sort();
 

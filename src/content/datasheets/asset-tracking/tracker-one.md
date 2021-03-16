@@ -365,7 +365,6 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | Iceland | ONE524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
 | Ireland | ONE524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
 | Italy | ONE524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
-| Kosovo | ONE524 |  |  |
 | Latvia | ONE524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
 | Liechtenstein | ONE524 | 2G, 3G, Cat1 | Mobilkom, Orange |
 | Lithuania | ONE524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
