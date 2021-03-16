@@ -121,11 +121,11 @@ Cellular, Tracker, and Wi-Fi devices can be free to use!
 
 ### Data Operations
 
-The central billing element for both cellular and Wi-Fi is the data operation:
+The central billing element for both cellular and Wi-Fi is the Data Operation:
 
-- Each publish, subscribe, function, or variable consumes one data operation regardless of size (currently limited to 622 bytes per operation)
-- Stored data, such as Tracker geolocation data, consume one data operation per location point saved<sup>1</sup>
-- Each user-initiated device ping consumes one data operation
+- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size (currently limited to 622 bytes per operation)
+- Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
+- Each user-initiated device ping consumes one Data Operation
 - Certain retransmissions, as described below
 
 <sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
@@ -262,7 +262,7 @@ WPA2 Enterprise is a variation of Wi-Fi sometimes used in corporate and educatio
 To configure a Photon or P1 using WPA2 Enterprise, follow the [WPA2 Enterprise Setup Instructions](https://support.particle.io/hc/en-us/articles/360039741153). Of note:
 
 - Setup can only be done over USB using the [Particle CLI](/tutorials/developer-tools/cli/) (no mobile app support).
-- Requires Device OS 0.7.0 for WPA2 Enterprise Support.
+- Requires Device OS 0.7.0 or later for WPA2 Enterprise Support.
 - Device OS 1.5.4-rc.1 or 2.0.x or later is required if concatenated certificates (intermediate certificates) are required.
 - Only one set of WPA2 Enterprise Wi-Fi credentials can be stored.
 - The Argon does not have WPA2 Enterprise support.

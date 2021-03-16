@@ -658,11 +658,11 @@ See the [API reference](/reference/device-cloud/api/#webhooks) for details on th
 
 ## Data Operations
 
-When a device sends an event that triggers a webhook or other integration, that will consume one data operation.
+When a device sends an event that triggers a webhook or other integration, that will consume one Data Operation.
 
-If the webhook response is not subscribed to by the device, that will be the only data operation.
+If the webhook response is not subscribed to by the device, that will be the only Data Operation.
 
-If the webhook response is subscribed to by the device, it will use one data operation for each 512-byte segment of a response. Retransmissions could also increase the number of Data Operations, as described [here](/tutorials/cellular-connectivity/data/#retransmissions).
+If the webhook response is subscribed to by the device, it will use one Data Operation for each 512-byte segment of a response. Retransmissions could also increase the number of Data Operations, as described [here](/tutorials/cellular-connectivity/data/#retransmissions).
 
 If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/device-cloud/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
 

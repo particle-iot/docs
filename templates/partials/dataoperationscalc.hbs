@@ -22,6 +22,11 @@
 
 
 <script>
+const freeMaxDevices = 100;
+const freeDataOperations = 100000;
+const devicesPerBlock = 100;
+const dataOperationsPerBlock = 720000;
+
 var dataUnitCalc = {};
 
 dataUnitCalc.commaValue = function(value) {
@@ -59,17 +64,17 @@ dataUnitCalc.update = function() {
 
     if (numDevices != 0 && periodValue != 0 && !isNaN(numDevices) && !isNaN(periodValue)) {
 
-        const timesPerMonth = Math.floor((86400 * 31) / (periodValue * periodSecs)) + 1;
+        const timesPerMonth = Math.floor((freeDataOperations * 31) / (periodValue * periodSecs)) + 1;
 
         const dataOperations = timesPerMonth * numDevices;
 
-        if (dataOperations <= 85000 && numDevices <= 100) {
+        if (dataOperations <= freeDataOperations && numDevices <= freeMaxDevices) {
             // Can use free
             res1 = 'Can use the free tier!'
         }
         else {
-            const minBlocksOperations = Math.floor(dataOperations / 250000) + 1;
-            const minBlocksDevices = Math.floor(numDevices / 100) + 1;
+            const minBlocksOperations = Math.floor(dataOperations / dataOperationsPerBlock) + 1;
+            const minBlocksDevices = Math.floor(numDevices / devicesPerBlock) + 1;
 
             const blocks = Math.max(minBlocksOperations, minBlocksDevices);
 

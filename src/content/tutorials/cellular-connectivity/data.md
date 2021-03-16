@@ -24,11 +24,11 @@ Particle provides a number of devices with cellular connectivity including the T
 
 ### Data Operations
 
-The central billing element for both cellular and Wi-Fi is the data operation:
+The central billing element for both cellular and Wi-Fi is the Data Operation:
 
-- Each publish, subscribe, function, or variable consumes one data operation regardless of size (currently limited to 622 bytes per operation)
-- Stored data, such as Tracker geolocation data, consume one data operation per location point saved<sup>1</sup>
-- Each user-initiated device ping consumes one data operation
+- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size (currently limited to 622 bytes per operation)
+- Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
+- Each user-initiated device ping consumes one Data Operation
 - Certain retransmissions, as described below
 
 <sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
@@ -43,23 +43,23 @@ The following do **not** count against your Data Operations limit:
 
 #### Webhooks and other integrations
 
-When a device sends an event that triggers a webhook or other integration, that will consume one data operation.
+When a device sends an event that triggers a webhook or other integration, that will consume one Data Operation.
 
-If the webhook response is not subscribed to by the device, that will be the only data operation.
+If the webhook response is not subscribed to by the device, that will be the only Data Operation.
 
-If the webhook response is subscribed to by the device, it will use one data operation for each 512-byte segment of a response. Retransmissions could also increase the number of Data Operations, as described below.
+If the webhook response is subscribed to by the device, it will use one Data Operation for each 512-byte segment of a response. Retransmissions could also increase the number of Data Operations, as described below.
 
 #### Retransmissions
 
-When a device must retransmit data that does not reach the cloud, for example because of poor cellular connectivity, it does not count as a Data Operations. If it retransmits the data because the acknowledgement was lost, that could cause an additional data operation as the data was actually received by the cloud twice.
+When a device must retransmit data that does not reach the cloud, for example because of poor cellular connectivity, it does not count as additional Data Operations. If it retransmits the data because the acknowledgement was lost, that could count as additional Data Operation as the data was actually received by the cloud twice.
 
 When transmitting from the cloud to a device, such as for a function, variable, or subscription:
 
 If the device is marked as offline, no data transmission will be attempted and no Data Operations will be incurred.
 
-If the device is believed to be online, an attempt will be made, which will consume a data operation.
+If the device is believed to be online, an attempt will be made, which will consume a Data Operation.
 
-If the transmission is not acknowledged, it is possible that up to two more attempts will be made, each adding a data operation. If all three attempts fail, the device will then be marked as offline.
+If the transmission is not acknowledged, it is possible that up to two more attempts will be made, each adding a Data Operation. If all three attempts fail, the device will then be marked as offline.
 
 ### Cellular Data Limit
 

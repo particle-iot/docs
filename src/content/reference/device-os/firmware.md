@@ -72,7 +72,7 @@ void loop()
 }
 ```
 
-Each variable retrieval uses one data operation from your monthly or yearly quota. Setting the variable does not use Data Operations.
+Each variable retrieval uses one Data Operation from your monthly or yearly quota. Setting the variable does not use Data Operations.
 
 Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).
 
@@ -226,7 +226,7 @@ void loop() {
 }
 ```
 
-Each variable retrieval uses one data operation from your monthly or yearly quota. Setting the variable does not use Data Operations.
+Each variable retrieval uses one Data Operation from your monthly or yearly quota. Setting the variable does not use Data Operations.
 
 
 ### Particle.function()
@@ -245,7 +245,7 @@ int funcName(String extra) {
 }
 ```
 
-Each function call request and response uses one data operation from your monthly or yearly quota. Setting up function calls does not use Data Operations.
+Each function call request and response uses one Data Operation from your monthly or yearly quota. Setting up function calls does not use Data Operations.
 
 Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). 
 
@@ -392,7 +392,7 @@ For product devices, events published by a device can be subscribed to:
 
 Public events could previously be received by anyone on the Internet, and anyone could generate events to send to your devices. This did not turn out to a common use-case, and the ease at which you could accidentally use this mode, creating a security hole, caused it to be removed.
 
-Each publish uses one data operation from your monthly or yearly quota. This is true for both WITH_ACK and NO_ACK modes.
+Each publish uses one Data Operation from your monthly or yearly quota. This is true for both WITH_ACK and NO_ACK modes.
 
 ---
 
@@ -625,7 +625,7 @@ void loop() {
 
 You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
 
-Each event delivery attempt to a subscription handler uses one data operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
+Each event delivery attempt to a subscription handler uses one Data Operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
 
 If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/device-cloud/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
 
@@ -794,7 +794,7 @@ After you call `Particle.connect()`, your loop will not be called again until th
 
 In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect-) or when you change the [system mode](#system-modes).
 
-Connecting to the cloud does not use data operation from your monthly or yearly quota. However, for cellular devices it does use cellular data, so unnecessary connection and disconnection can lead to increased data usage, which could result in hitting the monthly data limit for your account.
+Connecting to the cloud does not use Data Operation from your monthly or yearly quota. However, for cellular devices it does use cellular data, so unnecessary connection and disconnection can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
 ### Particle.disconnect()
 
