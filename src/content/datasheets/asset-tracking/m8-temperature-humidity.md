@@ -9,7 +9,7 @@ description: Datasheet for Tracker One M8 Temperature/Humidity Sensor
 # Tracker M8 Temperature/Humidity<sup>(001)</sup>
 
 {{#unless pdf-generation}}
-{{downloadButton url="/assets/pdfs/datasheets/tracker-m8-sensor-temperature-humidity.pdf"}}
+{{downloadButton url="/assets/pdfs/datasheets/m8-temperature-humidity.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
 
 ![M8 Sensor Temperature/Humidity](/assets/images/tracker/m8-temp-humidity.png)
