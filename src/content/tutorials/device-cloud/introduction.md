@@ -125,7 +125,6 @@ The central billing element for both cellular and Wi-Fi is the Data Operation:
 
 - Each publish, subscribe, function, or variable consumes one Data Operation regardless of size (currently limited to 622 bytes per operation)
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
-- Each user-initiated device ping consumes one Data Operation
 - Certain retransmissions, as described below
 
 <sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
