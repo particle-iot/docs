@@ -160,6 +160,43 @@ For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP da
 
 For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
 
+### Minimizing Data Operations
+
+There are many possible steps for minimizing the number of Data Operations that you use, and will tend to be specific to your use case. Some options to consider:
+
+#### Combine fields
+
+Rather than publish several independent variables, publish several related variables at once in a single publish. Some common methods include:
+
+- Comma-separated values
+- JSON
+
+You're still limited to the 622 character maximum of a publish, but you can still store many values in a single publish.
+
+#### Aggregate data by time
+
+If you need a time series of data, but latency is acceptable, you can aggregate data by time.
+
+Instead of publishing once per second, you could accumulate 10 samples and send 10 every 10 seconds, reducing the number of publishes. 
+
+#### Only transmit changed data
+
+In some cases, you may want to only publish data when it changes. 
+
+Or, if it changes by a significantly large amount for analog-like data using a change threshold (value differs by more than x).
+
+Or keep a mean value of samples and publish when the current sample deviates from the mean. This can be helpful if the value tends to creep up or down slowly and wouldn't trigger a change threshold, but accumulates over time.
+
+#### Use TCP
+
+For Wi-Fi devices in particular, large data transfers can be done using TCP to an external service.
+
+This also works over cellular, however you can still run into the cellular data cap if TCP is used extensively on cellular devices.
+
+#### Use UDP (on Wi-Fi)
+
+For a group of devices on a Wi-Fi LAN that need to communicate with each other, UDP or UDP multicast are good options. These provide a high data rate with a low latency, as the packets stay on the local LAN and do not have to go to the cloud. 
+
 ### Limits
 
 #### Where can I check my usage limits?
