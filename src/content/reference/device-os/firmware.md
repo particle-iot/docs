@@ -13174,6 +13174,19 @@ In the example, the seed is simply ignored, so the system will continue using
 whatever seed was previously set. In this case, the random seed will not be set
 from the cloud, and setting the seed is left to up you.
 
+### HAL_RNG_GetRandomNumber()
+
+```cpp
+// PROTOTYPE
+uint32_t HAL_RNG_GetRandomNumber(void);
+```
+
+Gets a cryptographic random number (32-bit) from the hardware random number generator.
+
+Note: The hardware random number generator has a limit to the number of random values it can produce in a given timeframe. If there aren't enough random numbers available at this time, this function may be block until there are. If you need a large number of random values you can use this function to seed a pseudo-random number generator (PRNG).
+
+Note: Only available on Gen 2 (Photon, P1, Electron, E Series), and Gen 3 (Argon, Boron, B Series SoM, Tracker SoM). Not available on the Spark Core.
+
 {{#if has-eeprom}}
 
 ## EEPROM
