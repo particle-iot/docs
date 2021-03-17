@@ -62,7 +62,7 @@ var gitBranch;
 
 var generateSearch = process.env.SEARCH_INDEX !== '0';
 
-var noScripts = true; 
+var noScripts = false; 
 
 var dnsTable = JSON.parse(fs.readFileSync(path.join(__dirname, '../config', 'dnsTable.json')));
 
