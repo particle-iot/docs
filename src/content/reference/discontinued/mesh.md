@@ -40,13 +40,13 @@ After 2020 the mobile app support for creating mesh networks will be removed, so
 
 #### What happens after Device OS 1.5.x?
 
-Device OS 1.5.x, expected to be released in March, 2020, will be the last version to contain Thread mesh networking support. After this release, there will not be any additional mesh-specific bug fixes or upgrades to the nRF52 Thread mesh networking stack.
+Device OS 1.5.x, currently 1.5.2, will be the last version to contain Thread mesh networking support. After this release, there will not be any additional mesh-specific bug fixes or upgrades to the nRF52 Thread mesh networking stack.
 
-Later versions than 1.5.x have the ability to use a mesh network removed, and all Device OS API calls in the `Mesh` object will be removed.
+Version 2.0.0 and later (there is no 1.6.x), have the ability to use a mesh network removed, and all Device OS API calls in the `Mesh` object have been removed.
 
 It is possible to continue to use 1.5.x on Argon, Boron, and Xenon devices to continue to use Thread mesh networking features, however no new cloud or device OS features will be back-ported to 1.5.x.
 
-#### What happens in January 2021?
+#### What happens in March 2021?
 
 By this time, support for creating mesh gateways on Argon and Boron devices will be removed from the mobile apps and CLI. It also will no longer be possible to add a Xenon to a mesh network. The features to manage mesh networks ("Networks" tab) in the console will be removed as well.
 

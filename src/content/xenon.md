@@ -16,11 +16,6 @@ Equipped with the Nordic nRF52840, the Xenon has built-in battery charging circu
 
 The Xenon is best for connecting sensors, motors, pumps, valves, and points of data-interest. Pair it with an Argon or Boron gateway to get all that great data into the Device Cloud.
 
-<div  align="center">
-<br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
-</div>
-
 {{box op="start" cssClass="boxedSideBySide"}}
 **Learn more:**
 
@@ -67,8 +62,78 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
   <div align="center">
   <br />
 
-<a href="https://store.particle.io/products/xenon" target="_blank" class="button">BUY A XENON</a>
-
   </div>
 
 {{box op="end"}}
+
+
+### The Xenon Kit comes with the following things:
+
+{{box op="start"}}
+
+- **Xenon development kit**
+- **Starter Project**
+  - One micro-USB cable
+  - One mini breadboard
+- **Electronic components**
+  - Two resistors (220 ohm)
+  - One light-emitting diode (LED)
+  - One phototransistor
+    {{box op="end"}}
+
+---
+
+## 1. Set up your Xenon
+
+The Xenon is no longer supported by the mobile apps and if you choose to use the Xenon you will need to set it up using USB, and can only use Device OS up to 1.5.2. Later versions of Device OS do not support the Xenon.
+
+- [Mesh Setup over USB](https://support.particle.io/hc/en-us/articles/360039741133)
+
+## 2. Using the Web IDE
+
+Now that your Xenon is connected to Device Cloud, you can write some code in the online Web IDE and send new code to your device to run.
+
+To program your Xenon, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>. You will see a layout like the image below.
+
+![Image of the Web IDE](/assets/images/webide.png)
+
+{{box op="start"}}
+**NOTE:**
+
+The Web IDE is one of the ways you can write, compile, and deploy code to your Particle devices.
+
+Be sure to select Device OS 1.5.2. Later versions cannot be used with the Xenon.
+
+If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench](https://www.particle.io/workbench), a full toolchain integration with Microsoft Visual Studio Code.
+{{box op="end"}}
+
+---
+
+## 3. Load the Blink example
+
+![Image of the Web IDE with example code](/assets/images/webide-with-examples.png)
+
+Click on _Blink an LED_ on the left side of the page. As soon as you click the _Blink and LED_ code will load and fill the screen as shown below.
+
+![Image of the Web IDE with example code loaded](/assets/images/loaded-blink.png)
+
+The code is heavily commented to help you understand the general structure of the sketch: the first part of the code declares two variables, the setup() function configures two pins as outputs, and finally the loop() which turns the onboard LED on, then off, then loops continuously.
+
+---
+
+## 4. Target your device
+
+The Web IDE can be used with multiple devices. As such, when you go to compile source code, it's a good idea to verify that the device you are intending to program has a gold star to the left of its name in the Devices tab (circle with 4 lines).
+
+---
+
+## 5. Compile your code & flash
+
+Click the lightning bolt icon on the top left of your screen to flash your code to your device.
+
+As soon as you click, the Particle Device cloud will compile the program source code to a binary file and send it over-the-air (OTA) to your Argon.
+
+
+---
+
+For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/xenon).

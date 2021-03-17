@@ -2,7 +2,7 @@
 title: Tracker Eval Board Tutorials
 columns: two
 layout: tutorials.hbs
-order: 40
+order: 60
 description: Adding features to the Tracker Evaluation Board
 ---
 

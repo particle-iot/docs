@@ -10,7 +10,7 @@ Threads allow concurrent execution of multiple bits of code. They're popular in 
 
 Though the semantics are a bit different, you might use threads in the same way you would use separate processes in Unix as well.
 
-Particle devices (Gen 2 and Gen 3, including the Photon, P1, Electron, E Series, Argon, Boron, Xenon, and B Series) all include support for threaded execution of code.
+Particle devices (Gen 2 and Gen 3, including the Photon, P1, Electron, E Series, Argon, Boron, B Series SoM, and Tracker SoM) all include support for threaded execution of code.
 
 Author: Rick
 

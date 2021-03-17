@@ -86,6 +86,159 @@ In practice, this feature was vary rarely intentionally used and frequently unin
 
 Updating your device firmware and Device OS can be done securely over the Particle cloud connection that's used for the other device cloud features.
 
+
+## Pricing
+
+### Pricing Tiers
+
+#### Free Tier
+
+Cellular, Tracker, and Wi-Fi devices can be free to use!
+
+- Up to 100 devices, any mix of cellular and Wi-Fi
+- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- No credit card required
+- Products can be prototyped in the Free tier
+- Device communication is paused when the monthly limit is reached
+- Community support
+
+#### Growth Tier
+
+- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- Add as many blocks as you need for more Data Operations or more devices
+- No limit to the number of blocks you can purchase self-service
+- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased- Email support
+- Available in June 2021
+
+#### Enterprise Tier
+
+- Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
+- Data Operations and cellular data are pooled across all devices annually
+- Discounts for higher Enterprise tier commitments
+- [Contact sales](https://particle.io/sales/) for more information
+
+### Data Operations
+
+The central billing element for both cellular and Wi-Fi is the Data Operation:
+
+- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size (currently limited to 622 bytes per operation)
+- Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
+- Certain retransmissions, as described below
+
+<sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
+
+The following do **not** count against your Data Operations limit:
+
+- Over-the-air firmware updates do not count against your Data Operations limit
+- Internal events such as device vitals (beginning with "particle" or "spark") do not count against your Data Operations limit
+- Acknowledgements, session negotiation, keep-alives etc. do not count against your Data Operations limit
+- Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
+- Particle cloud API calls do not count against your Data Operations limit
+
+{{> dataoperationscalc}}
+
+### Blocks
+
+Blocks are a maximum number of Data Operations and devices per month in the Growth tier:
+
+- Up to 720K Data Operations (720,000)
+- Up to 100 devices
+- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased- Price varies for Wi-Fi, Cellular, and Tracker
+- Add as many blocks are you need
+
+For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed 720K. 
+
+Likewise, if you are using a million Data Operations per month, you will need 2 blocks, even of you have fewer than 100 devices.
+
+### Non-Particle cloud traffic
+
+For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
+
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
+
+### Minimizing Data Operations
+
+There are many possible steps for minimizing the number of Data Operations that you use, and will tend to be specific to your use case. Some options to consider:
+
+#### Combine fields
+
+Rather than publish several independent variables, publish several related variables at once in a single publish. Some common methods include:
+
+- Comma-separated values
+- JSON
+
+You're still limited to the 622 character maximum of a publish, but you can still store many values in a single publish.
+
+#### Aggregate data by time
+
+If you need a time series of data, but latency is acceptable, you can aggregate data by time.
+
+Instead of publishing once per second, you could accumulate 10 samples and send 10 every 10 seconds, reducing the number of publishes. 
+
+#### Only transmit changed data
+
+In some cases, you may want to only publish data when it changes. 
+
+Or, if it changes by a significantly large amount for analog-like data using a change threshold (value differs by more than x).
+
+Or keep a mean value of samples and publish when the current sample deviates from the mean. This can be helpful if the value tends to creep up or down slowly and wouldn't trigger a change threshold, but accumulates over time.
+
+#### Use TCP
+
+For Wi-Fi devices in particular, large data transfers can be done using TCP to an external service.
+
+This also works over cellular, however you can still run into the cellular data cap if TCP is used extensively on cellular devices.
+
+#### Use UDP (on Wi-Fi)
+
+For a group of devices on a Wi-Fi LAN that need to communicate with each other, UDP or UDP multicast are good options. These provide a high data rate with a low latency, as the packets stay on the local LAN and do not have to go to the cloud. 
+
+### Limits
+
+#### Where can I check my usage limits?
+
+The [Particle Console](https://console.particle.io) lists the three limits you will most likely encounter:
+
+- The number of devices (both cellular and Wi-Fi)
+- The number of Data Operations consumed this billing month
+- The number of MB of cellular usage this billing month
+
+Note that the cellular data usage is not real-time. It can take at least 24 hours, and in some cases may lag several days behind actual usage.
+
+#### What happens if I need more than 100 devices?
+
+You cannot add more than 100 devices to the Free tier. You instead will need to upgrade to the Growth tier. 
+
+You can have any number of devices in the Growth tier, but you will need to purchase another block for each group of 100 devices. It's not possible to purchase a fractional block for devices only; each block includes a maximum number of devices, Data Operations, and cellular data usage, and exceeding any one limit will require purchasing an additional block.
+
+There is no limit to the number of blocks you can purchase in the Growth tier, however upgrading to an enterprise contract can reduce the cost.
+
+#### What happens if I exceed the number of Data Operations?
+
+In the Free tier, if you need more Data Operations you will need to upgrade to the Growth tier. When you exceed 100K Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free tier. 
+
+In the Growth tier, if you need more than 720K Data Operations across your fleet of devices per month, you can add another block.
+
+In the Enterprise tier, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
+
+#### What happens if I exceed the cellular data quota?
+
+In the Free tier, if you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the Free tier.
+
+In the Growth tier, if you exceed the pooled monthly data quota, you can add an additional block to add more data.
+
+In the Enterprise tier, the amount of cellular data is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
+
+#### What is the maximum rate I can send data?
+
+[Publishes from a device](/reference/device-os/firmware/#particle-publish-) a limited to 1 per second, at the maximum publish payload size of 622 UTF-8 characters.
+
+There are no additional limits placed on webhooks. However, if the server you are sending to cannot process the data within 20 seconds or returns an error because it is overloaded, traffic to the server will be throttled, and the [events will be discarded](http://localhost:8080/reference/device-cloud/webhooks/#limits).
+
+While there is no specific rate limit on variables and functions, there are practical limits on how fast the device can return data. The device can only process one function or variable at a time. Additionally, if you have more than a few devices you will instead [run into API rate limits](/reference/device-cloud/api/#api-rate-limits) which limit how fast you can make requests to the Particle cloud APIs. You should avoid polling your entire device fleet frequently using functions or variables, as this is likely to cause scalability issues.
+
+
 ## Wi-Fi Support
 
 | Feature | Gen 2 | Gen 3 |
@@ -106,7 +259,7 @@ WPA2 Enterprise is a variation of Wi-Fi sometimes used in corporate and educatio
 To configure a Photon or P1 using WPA2 Enterprise, follow the [WPA2 Enterprise Setup Instructions](https://support.particle.io/hc/en-us/articles/360039741153). Of note:
 
 - Setup can only be done over USB using the [Particle CLI](/tutorials/developer-tools/cli/) (no mobile app support).
-- Requires Device OS 0.7.0 for WPA2 Enterprise Support.
+- Requires Device OS 0.7.0 or later for WPA2 Enterprise Support.
 - Device OS 1.5.4-rc.1 or 2.0.x or later is required if concatenated certificates (intermediate certificates) are required.
 - Only one set of WPA2 Enterprise Wi-Fi credentials can be stored.
 - The Argon does not have WPA2 Enterprise support.

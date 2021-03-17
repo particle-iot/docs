@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(014)</sup>
+# Tracker One<sup>(015)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -334,6 +334,87 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 222 | 608  | uA |
 
 
+---
+
+
+## Country compatibility
+
+{{!-- BEGIN do not edit content below, it is automatically generated 2f3d1a14-76de-11eb-9439-0242ac130002 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Albania | ONE524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Australia | ONE524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Belarus | ONE524 | 2G, 3G, Cat1 | A1, MTS |
+| Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Bosnia and Herzegovina | ONE524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
+| Bulgaria | ONE524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Canada | ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Croatia | ONE524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Czechia | ONE524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Denmark | ONE524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Estonia | ONE524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| Faroe Islands | ONE524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Finland | ONE524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| France | ONE524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| Germany | ONE524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Gibraltar | ONE524 | 2G, 3G, Cat1 | Gibtel |
+| Greece | ONE524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Hungary | ONE524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
+| Iceland | ONE524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Ireland | ONE524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
+| Italy | ONE524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Latvia | ONE524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
+| Liechtenstein | ONE524 | 2G, 3G, Cat1 | Mobilkom, Orange |
+| Lithuania | ONE524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
+| Luxembourg | ONE524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Malta | ONE524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Mexico | ONE404 | M1 | AT&T |
+| Moldova | ONE524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Monaco | ONE524 | 2G, 3G, Cat1 | Monaco Telecom |
+| Montenegro | ONE524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
+| Netherlands | ONE524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| New Zealand | ONE524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
+| Norway | ONE524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Poland | ONE524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
+| Portugal | ONE524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Romania | ONE524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Serbia | ONE524 | 2G, 3G, Cat1 | Telenor, VIP |
+| Slovakia | ONE524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovenia | ONE524 | 2G, 3G, Cat1 | A1, Mobitel |
+| Spain | ONE524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sweden | ONE524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | ONE524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| United Kingdom | ONE524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+| United States | ONE404 | M1 | AT&T |
+
+
+{{!-- END do not edit content above, it is automatically generated 2f3d1a14-76de-11eb-9439-0242ac130002 --}}
+
+---
+
+## Ordering Information
+
+{{!-- BEGIN do not edit content below, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
+
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
+| ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | GA | |
+| ONE404MTY-NB | Tracker One LTE M1 (NorAm), no battery, Bulk [x40] | NORAM | BG96-MC | GA | |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | GA | |
+| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), no battery, Bulk [x40] | EMEAA | EG91-EX | GA | |
+| ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | ONE404MEA|
+| ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | NRND | ONE404MTY|
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | ONE524MEA|
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | NRND | ONE524MTY|
+
+
+{{!-- END do not edit content above, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
+
+
 
 ---
 
@@ -358,15 +439,6 @@ This device must be treated as Waste Electrical & Electronic Equipment (WEEE) wh
 Any WEEE marked waste products must not be mixed with general household waste, but kept separate for the treatment, recovery and recycling of the materials used. For proper treatment, recovery and recycling; please take all WEEE marked waste to your Local Authority Civic waste site, where it will be accepted free of charge. If all consumers dispose of Waste Electrical & Electronic Equipment correctly, they will be helping to save valuable resources and preventing any potential negative effects upon human health and the environment of any hazardous materials that the waste may contain.
 
 
-## Ordering Information
-
-| SKU     | Description | Packaging |
-| :---    | :--- | :--- |
-| ONE402M | Tracker One LTE M1 (NorAm), [x1]	| Each |
-| ONE523M | Tracker One LTE CAT1/3G/2G (Europe), [x1] | Each |
-| TCAR	  | Tracker Carrier Board, [x1]	| Each |
-
-
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -387,3 +459,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 012      | 2020 Dec 09 | RK | CAN termination resistor is not present |
 | 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
 | 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
+| 015      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |

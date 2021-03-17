@@ -35,7 +35,7 @@ First, you will set up your Argon and claim it to your Particle account. This wi
 3. Make sure your phone has Bluetooth turned on. Open the Particle Mobile App and login to your particle account, if you have not already.
 ![](/assets/images/workshops/particle-101/01/app-login-filled.png)
 <br />
-4.  On the *Your Devices* screen, click the *+* icon to add a new device. Choose the *Argon/Boron/Xenon* option.
+4.  On the *Your Devices* screen, click the *+* icon to add a new device. Choose the *Argon or Boron* option.
 ![](/assets/images/workshops/particle-101/01/app-your-devices-empty.png)
 ![](/assets/images/workshops/particle-101/01/app-add-device.png)
 <br />

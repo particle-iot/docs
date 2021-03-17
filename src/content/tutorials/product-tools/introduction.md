@@ -11,7 +11,7 @@ description: Learn about products on the Particle platform
 
 | Feature | Developer | Product | Enterprise |
 | :--- | :---: | :---: | :---: |
-| Maximum devices | 100 | 250 | Unlimited |
+| Maximum devices | 100 | Unlimited | Unlimited |
 | OTA Firmware Updates | Per-Device | Per-Group | Intelligent OTA |
 | Device Groups | &nbsp; | &check; | &check; |
 | Team Members | &nbsp; | &check; | &check; |
@@ -31,12 +31,26 @@ Starting out with a single development kit and a single account you can use the 
 - [Functions and Variables](/tutorials/device-os/device-os/#particle-function).
 - [Over-the-air (OTA) firmware updates](/tutorials/device-cloud/ota-updates/).
 
-However, you are limited to 100 developer devices per account and you can only flash code to a single device at a time.
+Plus, cellular, Tracker, and Wi-Fi devices can be free to use!
+
+- Up to 100 devices, any mix of cellular and Wi-Fi
+- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- No credit card required
+- Products can be prototyped in the Free tier
+- Device communication is paused when the monthly limit is reached
+- Community support
 
 
 #### Products
 
-As you scale beyond prototyping, you will almost certainly want to use a product. In the self-service plan you can scale to 250 devices in a product.
+Products group devices with similar firmware and usage. You can use products with the Free tier above for prototyping, then expand to the Growth tier for production:
+
+- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- Add as many blocks as you need for more Data Operations or more devices
+- No limit to the number of blocks you can purchase self-service
+- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
+- Email support
 
 Products allow a number of additional features over developer devices:
 
@@ -54,11 +68,14 @@ Once you move beyond self-service to an enterprise plan, you get features such a
 - [Team access controls](/tutorials/product-tools/team-access-controls/), allowing you to grant specific permissions to team members.
 - [Fleet health](/tutorials/diagnostics/fleet-health/), for monitoring the status of your fleet of devices.
 - [Intelligent OTA](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases), allowing fine-grained control of the fleet OTA process.
+- Service Level Agreements (SLA)
+- Dedicated support
+- Annual pooled Device Operations and cellular data limits
 
 
 ## Devices in Products
 
-For most products, you pay for all of the device cloud charges from your own account. You then either handle your own recurring billing with your customer, or build the cost into the cost of your product. The device cloud charge includes 3 MB of cellular data per month.
+For most products, you pay for all of the device cloud charges from your own account. You then either handle your own recurring billing with your customer, or build the cost into the cost of your product. 
 
 You typically control which devices are in your product by Device ID. Each Particle device has a unique Device ID (24 character hexadecimal code) from the factory that cannot be changed. When you order devices in tray or reel quantities from the Particle wholesale store, you'll get an email with the Device IDs in your order. By [importing the list of device IDs](/tutorials/device-cloud/console/#adding-devices) to your product you associate those devices with your product.
 
@@ -76,7 +93,7 @@ Programming devices can be done:
 
 - Using JTAG/SWD. More common on an assembly line, also the fastest method.
 - Using USB. More common for small numbers of devices.
-- OTA. Less common for cellular devices as it can use a lot of data.
+- OTA. Less common for cellular devices.
 
 This also is a good time to test the device and make sure it is working properly. 
 

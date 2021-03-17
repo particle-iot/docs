@@ -290,3 +290,4 @@ With the jumpers installed, it will use the primary SPI and pins D8 as the chip 
 | 002      | 21 Jan 2020 | RK | Remove mesh |
 | 003      |  3 Feb 2020 | RK | Correct pins for SD card |
 
+

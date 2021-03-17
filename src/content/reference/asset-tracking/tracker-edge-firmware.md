@@ -72,6 +72,26 @@ Tracker::instance().init();
 
 You must call the `init()` method from `setup()` in your main application file.
 
+---
+
+```cpp
+// EXAMPLE
+void setup()
+{
+    TrackerConfiguration config;
+    config.enableIoCanPowerSleep(true)
+          .enableIoCanPower(true);
+
+    Tracker::instance().init(config);
+}
+```
+
+You can also specify additional configuration parameters via the `TrackerConfiguration` class passed to the `init()` method. This is explained in greater detail [below](/#trackerconfiguration). 
+
+This example shows how to control the behavior of CAN_PWR, the 5V supply for the CAN bus and external I/O on the M8 connector. CAN_PWR must be enabled to use GPIO, analog in (ADC), serial, or I2C ports on the M8 connector. 
+
+Turning off CAN_PWR disconnects the external I/O using a bidirectional analog switch to avoid having leakage current affect the nRF52 MCU.
+
 
 ### loop() - Tracker
 
@@ -95,6 +115,17 @@ int stop();
 ```
 
 Stops the tracker location and motion services. If you do this, the device will no longer publish based on location change or motion events.
+
+### enableIoCanPower() - Tracker
+
+```
+// PROTOTYPE 
+void enableIoCanPower(bool enable);
+```
+
+Turn on or off CAN_PWR, the 5V supply for the CAN bus and external I/O on the M8 connector. CAN_PWR must be enabled to use GPIO, analog in (ADC), serial, or I2C ports on the M8 connector. Turning off CAN_PWR disconnects the external I/O using a bidirectional analog switch to avoid having leakage current affect the nRF52 MCU.
+
+This can be used in addition to [`TrackerConfiguration`](/#trackerconfiguration) for more fine-grained control over CAN_PWR. For example, you might leave it off except during the brief intervals where you want to read an external sensor connected to I2C on the M8.
 
 ### getModel() - Tracker
 
@@ -247,6 +278,37 @@ On the Tracker One, returns the temperature using the thermistor on the Tracker 
  Note that this is the temperature on the board, within the enclosure, and will typically be several degrees warmer than the ambient temperature.
 
 
+## TrackerConfiguration
+
+The `TrackerConfiguration` class is used to customize the behavior at setup time.
+
+```cpp
+// EXAMPLE
+void setup()
+{
+    TrackerConfiguration config;
+    config.enableIoCanPowerSleep(true)
+          .enableIoCanPower(true);
+
+    Tracker::instance().init(config);
+}
+```
+
+### enableIoCanPower - TrackerConfiguration
+
+The `enableIoCanPower()` method controls the behavior of Tracker FW to enable the power on at initialization as well as coming out of sleep. If this is true then the firmware will control it on and off. If false, the user must control.
+
+| enableIoCanPower | enableIoCanPowerSleep | Meaning |
+| :--------------: | :-------------------: | :--- |
+| false            | false                 | CAN_PWR off at startup, user controls completely |
+| false            | true                  | CAN_PWR off at startup, CAN_PWR is turned off prior to sleep, user must power on in all cases |
+| true             | false                 | CAN_PWR on at startup, CAN_PWR remains on always |
+| true             | true                  | CAN_PWR on at startup, CAN_PWR off at sleep, on again on wake |
+
+### enableIoCanPowerSleep - TrackerConfiguration
+
+The `enableIoCanPowerSleep()` controls behavior before and after sleep. If enabled, the firmware will power down the supply prior to going to sleep. If in combination with enableIoCanPower, it will re-enable the supply on wake.
+
 ## CloudService
 
 The `CloudService` is initialized by `Tracker` so you don't need to set it up, but you may want use some methods for non-blocking publish from your code. You can also register a custom command handler:
@@ -335,6 +397,9 @@ void locationGenerationCallback(JSONWriter &writer,
 }
 ```
 
+Note: Tracker Edge v12 and later have built-in support for speed in the "spd" field of the location publish so you no longer need to add code to view the speed as detected by the GNSS.
+
+
 Registers a function or method to be called to add custom data to a location publish.
 
 ### regLocPubCallback - TrackerLocation
@@ -355,8 +420,6 @@ int regLocPubCallback(
 
 Registers a function to be called back after the next location publish attempt with success or failure indication.
 
-
-
 ---
 
 ```cpp
@@ -366,6 +429,21 @@ enum CloudServiceStatus {
     TIMEOUT, // waiting for application response, etc
 };
 ```
+
+### regEnhancedLocCallback - TrackerLocation
+
+```cpp
+void enhancedCb(const LocationPoint& point, const void* context) {
+    Log.info("Enhanced location callback");
+}
+
+void setup() {
+    Tracker::instance().init();
+    TrackerLocation::instance().regEnhancedLocCallback(enhancedCb);
+}
+```
+
+Registers a function to be called back with enhanced location information. If enabled in the [location configuration](/tutorials/device-cloud/console/#location-settings), location fusion, Wi-Fi and cellular tower information can be used to get an approximate location when GNSS is not available. This information is generated by the Particle cloud, but it is also possible to receive the enhanced location update on-device using regEnhancedLocCallback.
 
 
 ## LocationService
@@ -386,6 +464,8 @@ int getLocation(LocationPoint& point);
 // DEFINTION
 struct LocationPoint {
     int locked;
+    unsigned int lockedDuration;
+    bool stable;
     time_t epochTime;
     LocationTimescale timeScale;
     float latitude;
@@ -401,6 +481,8 @@ struct LocationPoint {
 | Type | Field | Description |
 | :--- | :--- | :--- |
 | `int` | `locked` | Indication of GNSS locked status (1=lock/fix obtained) |
+| `unsigned int` | `lockedDuration` | Duration of the current GNSS lock (if applicable) | 
+| `bool` | `stable` | Indication if GNNS lock is stable (if applicable) |
 | `time_t` | `epochTime` | Epoch time from device sources | 
 | `LocationTimescale` | `timeScale` | Epoch timescale |
 | `float` | `latitude` | Point latitude in degrees |
@@ -410,6 +492,8 @@ struct LocationPoint {
 | `float` | `heading` | Point heading in degrees |
 | `float` | `horizontalAccuracy` | Point horizontal accuracy in meters |
 | `float` | `verticalAccuracy` | Point vertical accuracy in meters |
+
+
 
 
 ### LocationTimescale - LocationService 

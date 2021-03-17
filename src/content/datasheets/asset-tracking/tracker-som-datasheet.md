@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(012)</sup>
+# Tracker SoM Datasheet <sup>(013)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -524,7 +524,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | VBUS USB supply voltage | VUSB | 4.35 | 5.0 | 5.5 | V |
 | LiPo Battery Voltage | V<sub>LiPo</sub> | 3.6 |  | 4.3 | V |
 | **Environmental** |
-| Normal operating temperature<sup>1</sup> | | -20 | +25 | +75<sup>3</sup> | °C |
+| Normal operating temperature<sup>1</sup> | | -20 | +25 | +75 | °C |
 | Extended operating temperature<sup>2</sup> | | -40 |  | +85 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
@@ -533,8 +533,6 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 <sup>1</sup> Normal operating temperature range (fully functional and meet 3GPP specifications).
 
 <sup>2</sup> Extended operating temperature range (RF performance may be affected outside normal operating range, though module is fully functional)
-
-<sup>3</sup> The maximum operating temperature is 75°C on the B523 (Quectel) but is 65°C on the B402 (u-blox LTE M1). For compatibility across modules, limit this to 65°C. 
 
 ---
 
@@ -1096,6 +1094,86 @@ This equipment complies with IC radiation exposure limits set forth for an uncon
 **Déclaration d'exposition aux radiations:**
 Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
 
+---
+
+## Country compatibility
+
+{{!-- BEGIN do not edit content below, it is automatically generated 8e7b0446-76de-11eb-9439-0242ac130002 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Albania | T524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
+| Australia | T524 | 3G, Cat1 | Optus, Telstra, Vodafone |
+| Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
+| Belarus | T524 | 2G, 3G, Cat1 | A1, MTS |
+| Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
+| Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
+| Bulgaria | T524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Canada | T404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Croatia | T524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
+| Czechia | T524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
+| Denmark | T524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
+| Estonia | T524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
+| Faroe Islands | T524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Finland | T524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
+| France | T524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
+| Germany | T524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
+| Gibraltar | T524 | 2G, 3G, Cat1 | Gibtel |
+| Greece | T524 | 2G, 3G, Cat1 | Cosmote, Vodafone, Wind |
+| Hungary | T524 | 2G, 3G, Cat1 | Magyar Telekom, Telenor, Vodafone |
+| Iceland | T524 | 2G, 3G, Cat1 | Nova, Siminn, Vodafone |
+| Ireland | T524 | 2G, 3G, Cat1 | 3 (Tre), Meteor, O2, Vodafone |
+| Italy | T524 | 2G, 3G, Cat1 | TIM, Vodafone, Wind |
+| Latvia | T524 | 2G, 3G, Cat1 | Bite, LMT, Tele2 |
+| Liechtenstein | T524 | 2G, 3G, Cat1 | Mobilkom, Orange |
+| Lithuania | T524 | 2G, 3G, Cat1 | Bite, Omnitel, Tele2 |
+| Luxembourg | T524 | 2G, 3G, Cat1 | Orange, POST, Tango |
+| Malta | T524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
+| Mexico | T404 | M1 | AT&T |
+| Moldova | T524 | 2G, 3G, Cat1 | Moldcell, Orange |
+| Monaco | T524 | 2G, 3G, Cat1 | Monaco Telecom |
+| Montenegro | T524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
+| Netherlands | T524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
+| New Zealand | T524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
+| Norway | T524 | 2G, 3G, Cat1 | TDC, Telenor, Telia |
+| Poland | T524 | 2G, 3G, Cat1 | Orange, Play, Plus, T-Mobile |
+| Portugal | T524 | 2G, 3G, Cat1 | NOS, TMN, Vodafone |
+| Romania | T524 | 2G, 3G, Cat1 | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Serbia | T524 | 2G, 3G, Cat1 | Telenor, VIP |
+| Slovakia | T524 | 2G, 3G, Cat1 | O2, Orange, Telekom |
+| Slovenia | T524 | 2G, 3G, Cat1 | A1, Mobitel |
+| Spain | T524 | 2G, 3G, Cat1 | Orange, Telefonica, Vodafone, Yoigo |
+| Sweden | T524 | 2G, 3G, Cat1 | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | T524 | 2G, 3G, Cat1 | Salt, Sunrise, Swisscom |
+| United Kingdom | T524 | 2G, 3G, Cat1 | 3, EE, Manx, O2, Sure, Vodafone |
+| United States | T404 | M1 | AT&T |
+
+
+{{!-- END do not edit content above, it is automatically generated 8e7b0446-76de-11eb-9439-0242ac130002 --}}
+
+---
+
+
+## Ordering Information
+
+{{!-- BEGIN do not edit content below, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
+
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | GA | |
+| T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | T404MEA|
+| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | NRND | T404MTY|
+| T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | T524MEA|
+| T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | NRND | T524MTY|
+
+
+{{!-- END do not edit content above, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
+
+---
+
 ## Product Handling
 
 ### ESD Precautions
@@ -1120,19 +1198,6 @@ The AssetTracker SoM comes pre-programmed with a bootloader and a user applicati
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
-## Ordering Information
-
-| SKU  | Description | Packaging |
-| :--- | :--- | :--- |
-| | T523 Family (Europe) | |
-| T523MEA  | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | Each |
-| T523MTY  | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | Tray (50) |
-| T523MKIT | Tracker SoM LTE CAT1/3G/2G (Europe) Evaluation Kit, [x1] |	Each |
-| | T402 Family (North America) | |
-| T402MEA | Tracker SoM LTE M1 (NorAm), [x1]	| Each |
-| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50]	| Tray (50) |
-| T402MKIT | Tracker SoM LTE M1 (NorAm) Evaluation Kit, [x1]	| Each |
-
 ## Revision history
 
 | Revision | Date | Author | Comments |
@@ -1151,3 +1216,4 @@ The bootloader allows you to easily update the user application via several diff
 | 010      | 2002 Sep 25 | RK | Fixed typo in Istop_usart maximum current |
 | 011      | 2002 Oct 01 | RK | Fixed VIN maximum voltage in text (is 17V not 12V) |
 | 012      | 2021 Feb 03 | RK | Change CAN output current to 370 mA |
+| 013      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |

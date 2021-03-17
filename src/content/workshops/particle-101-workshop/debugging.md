@@ -71,7 +71,7 @@ You’ll sometimes see this referred to as a *monolithic* build because this dif
 <br />
 2. Now that you’re setup on the hardware side, let’s start a debugging session and cover some Workbench basics. Make sure your project from this workshop is open in Workbench. Click the *bug* icon in the VS Code / Workbench sidebar to open the debug sidebar.
 <br /><br />
-3. Click the debug configurations dropdown and select the *Particle Debugger (Argon, Boron/BSoM, Xenon)* option.
+3. Click the debug configurations dropdown and select the *Particle Debugger (Argon or Boron)* option.
 
   ![](/assets/images/workshops/particle-101/03/DebugMenu.png)
 <br />

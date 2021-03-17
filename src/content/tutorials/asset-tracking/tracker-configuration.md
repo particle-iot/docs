@@ -186,7 +186,7 @@ Here's the whole file so you can see exactly where the data goes when merged wit
 
 ### Setting a custom schema
 
-The full example code for the engine configuration above can be found in the [AN017 Tracker CAN](https://github.com/particle-iot/app-notes/blob/master/AN017-Tracker-CAN/) application note.
+The full example code for the engine configuration above can be found in the [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can/) application note.
 
 There is no UI for setting the configuration schema yet, you will need to set it using curl:
 

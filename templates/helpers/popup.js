@@ -19,5 +19,6 @@ module.exports = function(link, type, args) {
 	    + args
 	    + '</span></span>';
     }
+   
     return new Handlebars.SafeString(r);
 }

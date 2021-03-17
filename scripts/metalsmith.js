@@ -44,6 +44,7 @@ var path = require('path');
 var fs = require('fs');
 var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
+var carriersUpdate = require('./carriers-update/carriers-update.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -289,6 +290,10 @@ exports.metalsmith = function () {
       omitExtensions: ['.md'],
       omitTrailingSlashes: false
     }))
+    .use(function(files, metalsmith, done) {
+      carriersUpdate.doUpdate(__dirname);
+      done();
+    })
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
     .use(inPlace({
@@ -379,8 +384,6 @@ exports.server = function (callback) {
           '${source}/assets/less/*.less': 'assets/less/*.less',
           '../templates/layouts/reference.hbs': 'content/reference/*.md',
           '../templates/layouts/datasheet.hbs': 'content/datasheets/**/*.md',
-          '../templates/layouts/support.hbs': 'content/support/**/*.md',
-          '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
           '../templates/layouts/community.hbs': 'content/community/*.md',
           '../templates/layouts/workshops.hbs': 'content/workshops/**/*.md',

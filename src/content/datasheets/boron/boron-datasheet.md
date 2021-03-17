@@ -6,7 +6,7 @@ order: 1
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet <sup>(v004)</sup>
+# Boron Datasheet <sup>(v005)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -86,7 +86,7 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 For the Boron 2G/3G version, make sure that the external DC supply is able to support 2A peak current requirements.
 
 #### 3V3 PIN
-This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Xenon or the Argon, this pin _CANNOT_ be used to power the Boron.
+This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Photon, this pin _CANNOT_ be used to power the Boron.
 
 #### EN PIN
 
@@ -251,8 +251,8 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
-| Peak Current, 2G | I<sub>Li+ pk</sub> | | | 800 | mA |
-| Peak Current, 3G | I<sub>Li+ pk</sub> | | | 1800 | mA |
+| Peak Current, 3G | I<sub>Li+ pk</sub> | | | 800 | mA |
+| Peak Current, 2G | I<sub>Li+ pk</sub> | | | 1800 | mA |
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.76 | 3.77 | 3.79 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 3.84 | 25.2 | 901 | mA |
 | Operating Current (uC on, cellular connecting to tower) | I<sub>cell_conn_twr</sub> | 11.6 | 56.9 | 579 | mA |
@@ -411,9 +411,192 @@ The complete schematic and board files are open source and available on Particle
 ## Bill of materials
 -->
 
+## Country compatibility
+
+{{!-- BEGIN do not edit content below, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+
+| Country | Model | Technologies | Carriers |
+| :--- | :--- | :--- | :--- |
+| Afghanistan | BRN314 | 2G, 3G | MTN |
+| Albania | BRN314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
+| Algeria | BRN314 | 2G, 3G | Mobilis, Ooredoo |
+| Anguilla | BRN314 | 2G, 3G | Flow |
+| Antigua and Barbuda | BRN314 | 2G, 3G | Flow |
+| Argentina | BRN314 | 2G, 3G | Claro, Movistar, Personal |
+| Armenia | BRN314 | 2G, 3G | Beeline, Ucom |
+| Australia | BRN314 | 3G | Optus, Telstra, Vodafone |
+| Austria | BRN314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
+| Azerbaijan | BRN314 | 2G, 3G | Bakcell, NAR Mobile |
+| Bahamas | BRN314 | 2G, 3G | Aliv, BTC Bahamas |
+| Bahrain | BRN314 | 2G, 3G | Zain |
+| Bangladesh | BRN314 | 2G, 3G | Bangalink, GrameenPhone |
+| Barbados | BRN314 | 2G, 3G | Flow |
+| Belarus | BRN314 | 2G, 3G | A1, MTS |
+| Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
+| Belize | BRN314 | 2G, 3G | Smart |
+| Bolivia | BRN314 | 2G, 3G | NuevaTel |
+| Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
+| Brazil | BRN314 | 2G, 3G | Claro, TIM, Vivo |
+| Brunei | BRN314 | 2G, 3G | DST |
+| Bulgaria | BRN314 | 2G, 3G | A1, Telenor, Vivacom |
+| Burkina Faso | BRN314 | 2G, 3G | Orange |
+| Cambodia | BRN314 | 2G, 3G | Metfone |
+| Cameroon | BRN314 | 2G, 3G | MTN |
+| Canada | BRN404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Cayman Islands | BRN314 | 2G, 3G | Flow |
+| Chad | BRN314 | 2G, 3G | Airtel |
+| Chile | BRN314 | 2G, 3G | Claro, Entel, Movistar |
+| Colombia | BRN314 | 2G, 3G | Movistar, Tigo |
+| Congo (Brazzaville) | BRN314 | 2G, 3G | Airtel |
+| Congo (Kinshasa) | BRN314 | 2G, 3G | Airtel |
+| Costa Rica | BRN314 | 2G, 3G | Movistar |
+| Côte d'Ivoire | BRN314 | 2G, 3G | MTN |
+| Croatia | BRN314 | 2G, 3G | Hrvatski Telekom, Tele2 |
+| Cyprus | BRN314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
+| Czechia | BRN314 | 2G, 3G | O2, T-Mobile, Vodafone |
+| Denmark | BRN314 | 2G, 3G | 3 (Tre), TDC, Telenor, Telia |
+| Dominica | BRN314 | 2G, 3G | Flow |
+| Dominican Republic | BRN314 | 2G, 3G | Altice Dominicana, Claro, Viva |
+| Ecuador | BRN314 | 2G, 3G | Claro, Movistar |
+| Egypt | BRN314 | 2G, 3G | Etisalat, Orange |
+| El Salvador | BRN314 | 2G, 3G | Claro, Telefonica |
+| Estonia | BRN314 | 2G, 3G | Elisa, Tele2, Telia |
+| eSwatini | BRN314 | 2G, 3G | MTN |
+| Ethiopia | BRN314 | 2G, 3G | Ethio Telecom |
+| Faroe Islands | BRN314 | 2G, 3G | Faroese Telecom, Vodafone |
+| Finland | BRN314 | 2G, 3G | DNA, Elisa, Telia |
+| France | BRN314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
+| French Guiana | BRN314 | 2G, 3G | Digicel |
+| Gabon | BRN314 | 2G, 3G | Airtel |
+| Georgia | BRN314 | 2G, 3G | Beeline, Geocell |
+| Germany | BRN314 | 2G, 3G | O2, Telekom, Vodafone |
+| Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
+| Gibraltar | BRN314 | 2G, 3G | Gibtel |
+| Greece | BRN314 | 2G, 3G | Cosmote, Vodafone, Wind |
+| Greenland | BRN314 | 2G, 3G | Tele |
+| Grenada | BRN314 | 2G, 3G | Flow |
+| Guadeloupe | BRN314 | 2G, 3G | Orange |
+| Guatemala | BRN314 | 2G, 3G | Claro, Movistar |
+| Guinea | BRN314 | 2G, 3G | MTN |
+| Guinea-Bissau | BRN314 | 2G, 3G | MTN |
+| Guyana | BRN314 | 2G, 3G | Digicel |
+| Haiti | BRN314 | 2G, 3G | Digicel |
+| Honduras | BRN314 | 2G, 3G | Claro, Tigo |
+| Hong Kong | BRN314 | 2G, 3G | CMHK, CSL, SmarTone |
+| Hungary | BRN314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
+| Iceland | BRN314 | 2G, 3G | Nova, Siminn, Vodafone |
+| India | BRN314 | 2G, 3G | Airtel, Idea, Jio |
+| Indonesia | BRN314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
+| Ireland | BRN314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
+| Israel | BRN314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
+| Italy | BRN314 | 2G, 3G | TIM, Vodafone, Wind |
+| Jamaica | BRN314 | 2G, 3G | Digicel, Flow |
+| Japan | BRN314 | 3G | NTT DoCoMo, Softbank |
+| Jordan | BRN314 | 2G, 3G | Zain |
+| Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell |
+| Kenya | BRN314 | 2G, 3G | Airtel |
+| Kuwait | BRN314 | 2G, 3G | Ooredoo, Viva, Zain |
+| Kyrgyzstan | BRN314 | 2G, 3G | Beeline |
+| Latvia | BRN314 | 2G, 3G | Bite, LMT, Tele2 |
+| Liechtenstein | BRN314 | 2G, 3G | Mobilkom, Orange |
+| Lithuania | BRN314 | 2G, 3G | Bite, Omnitel, Tele2 |
+| Luxembourg | BRN314 | 2G, 3G | Orange, POST, Tango |
+| Malawi | BRN314 | 2G, 3G | Airtel |
+| Malaysia | BRN314 | 2G, 3G | Celcom, DiGi, Maxis |
+| Malta | BRN314 | 2G, 3G | Go Mobile, Vodafone |
+| Mexico | BRN404 | M1 | AT&T |
+| Moldova | BRN314 | 2G, 3G | Moldcell, Orange |
+| Monaco | BRN314 | 2G, 3G | Monaco Telecom |
+| Mongolia | BRN314 | 2G, 3G | Mobicom, Unitel |
+| Montenegro | BRN314 | 2G, 3G | Mtel, T-Mobile, Telenor |
+| Montserrat | BRN314 | 2G, 3G | Flow |
+| Mozambique | BRN314 | 2G, 3G | Vodacom |
+| Myanmar | BRN314 | 2G, 3G | MPT, Telenor |
+| Namibia | BRN314 | 2G, 3G | Telecom Namibia |
+| Nepal | BRN314 | 2G, 3G | Nepal Telecom |
+| Netherlands | BRN314 | 2G, 3G | KPN, T-Mobile, Vodafone |
+| New Zealand | BRN314 | 2G, 3G | 2degrees, Spark, Vodafone |
+| Nicaragua | BRN314 | 2G, 3G | Movistar |
+| Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
+| Norway | BRN314 | 2G, 3G | TDC, Telenor, Telia |
+| Oman | BRN314 | 2G, 3G | Omantel, Ooredoo |
+| Pakistan | BRN314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
+| Palestine | BRN314 | 2G, 3G | Jawwal |
+| Panama | BRN314 | 2G, 3G | Digicel, Movistar |
+| Papua New Guinea | BRN314 | 2G, 3G | bmobile |
+| Paraguay | BRN314 | 2G, 3G | Claro, Personal, Tigo, Vox |
+| Peru | BRN314 | 2G, 3G | Claro, Entel, Movistar |
+| Philippines | BRN314 | 2G, 3G | Globe, Smart |
+| Poland | BRN314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
+| Portugal | BRN314 | 2G, 3G | NOS, TMN, Vodafone |
+| Puerto Rico | BRN314 | 2G, 3G | Claro |
+| Qatar | BRN314 | 2G, 3G | Ooredoo, Vodafone |
+| Romania | BRN314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
+| Russia | BRN314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
+| Rwanda | BRN314 | 2G, 3G | Airtel, MTN |
+| Saint Kitts and Nevis | BRN314 | 2G, 3G | Flow |
+| Saint Lucia | BRN314 | 2G, 3G | Flow |
+| Saint Vincent and the Grenadines | BRN314 | 2G, 3G | Flow |
+| Saudi Arabia | BRN314 | 2G, 3G | Mobily, STC, Zain |
+| Serbia | BRN314 | 2G, 3G | Telenor, VIP |
+| Singapore | BRN314 | 3G | SingTel, StarHub |
+| Sint Maarten | BRN314 | 2G, 3G | TelCell |
+| Slovakia | BRN314 | 2G, 3G | O2, Orange, Telekom |
+| Slovenia | BRN314 | 2G, 3G | A1, Mobitel |
+| South Africa | BRN314 | 2G, 3G | Cell C, MTN, Vodacom |
+| South Korea | BRN314 | 3G | KT, SK Telecom |
+| South Sudan | BRN314 | 2G, 3G | MTN |
+| Spain | BRN314 | 2G, 3G | Orange, Telefonica, Vodafone, Yoigo |
+| Sri Lanka | BRN314 | 2G, 3G | Dialog, Mobitel |
+| Suriname | BRN314 | 2G, 3G | Telesur |
+| Sweden | BRN314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
+| Switzerland | BRN314 | 2G, 3G | Salt, Sunrise, Swisscom |
+| Taiwan | BRN314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
+| Tajikistan | BRN314 | 2G, 3G | Beeline, Tcell |
+| Tanzania | BRN314 | 2G, 3G | Airtel |
+| Thailand | BRN314 | 2G, 3G | AIS, DTAC, True Move |
+| Trinidad and Tobago | BRN314 | 2G, 3G | Digicel, TSTT |
+| Tunisia | BRN314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
+| Turkey | BRN314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
+| Turks and Caicos Islands | BRN314 | 2G, 3G | Flow |
+| Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN |
+| Ukraine | BRN314 | 2G, 3G | Kyivstar, Life, MTS |
+| United Arab Emirates | BRN314 | 2G, 3G | du, Etisalat |
+| United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
+| United States | BRN404 | M1 | AT&T |
+| Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |
+| Uzbekistan | BRN314 | 2G, 3G | Beeline |
+| Venezuela | BRN314 | 2G, 3G | Movistar |
+| Vietnam | BRN314 | 2G, 3G | MobiFone, Viettel, Vinaphone |
+| Virgin Islands (British) | BRN314 | 2G, 3G | CCT, Flow |
+| Zambia | BRN314 | 2G, 3G | Airtel |
+
+
+{{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
+
+
 ## Ordering information
 
 Borons are available from [store.particle.io](https://store.particle.io/) in single quantities in 2G/3G and LTE Cat M1 versions.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
+
+| SKU | Description | Region  | Modem | Lifecycle | Replacement |
+| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | GA | |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | GA | |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | GA | |
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | NRND-US | BRN314TRAY50|
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | NRND | BRN314KIT|
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | BRN404|
+| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | NRND | BRN404KIT|
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | BRN404TRAY50|
+
+
+{{!-- END do not edit content above, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
+
 
 ## Qualification and approvals
 
@@ -536,6 +719,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v002     | 2020 Jan 21 | RK | Remove mesh |
 | v003     | 2020 Sep 01 | RK | Add EN pin information |
 | v004     | 16-Sep-2020 | RK | Added power consumption information |
+| v005     | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
 
 ## Known Errata
 

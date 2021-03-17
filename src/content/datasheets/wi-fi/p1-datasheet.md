@@ -8,7 +8,7 @@ description: Datasheet for the Particle P1, Gen 2 Wi-Fi mass-production module
 
 {{#unless pdf-generation}}
 
-# P1 Datasheet <sup>(v011)</sup>
+# P1 Datasheet <sup>(v012)</sup>
 
 {{downloadButton url="/assets/pdfs/datasheets/p1-datasheet.pdf"}}
 
@@ -530,6 +530,16 @@ To be added.
 
 P1 modules are available from [store.particle.io](https://store.particle.io/) as cut tape in quantities of 10 each.
 
+{{!-- BEGIN do not edit content below, it is automatically generated 797577ac-7751-11eb-9439-0242ac130002 --}}
+
+| SKU | Description | Region | Lifecycle | Replacement |
+| :--- | | :--- | :--- | :--- | :--- | :--- |
+| P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Global | GA | |
+| P1REEL | P1 Wi-Fi Module, Reel [x500] | Global | GA | |
+
+
+{{!-- END do not edit content above, it is automatically generated 797577ac-7751-11eb-9439-0242ac130002 --}}
+
 ## Qualification and approvals
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
@@ -658,6 +668,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v009 | 30-August-2017 | BW | Added part number for 1MB external SPI flash (MX25L8006E) |
 | v010 | 31-May-2018 | BW | Updated External Coexistence Interface section (unsupported) |
 | v011 | 09-Dec-2020 | RK | Remove paid tiers limit |
+| v012 | 15-Mar-2021 | RK | Updated ordering information |
 
 ## Known Errata
 

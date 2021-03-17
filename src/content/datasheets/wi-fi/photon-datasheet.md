@@ -8,7 +8,7 @@ description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 
 {{#unless pdf-generation}}
 
-# Photon Datasheet <sup>(v017)</sup>
+# Photon Datasheet <sup>(v018)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -545,6 +545,18 @@ A Photon without headers part for EAGLE can be found in the [Particle EAGLE libr
 
 Photons are available from [store.particle.io](https://store.particle.io/) in single quantities with and without headers, and also included in different maker kits.
 
+{{!-- BEGIN do not edit content below, it is automatically generated c9a47b1a-7751-11eb-9439-0242ac130002 --}}
+
+| SKU | Description | Region | Lifecycle | Replacement |
+| :--- | | :--- | :--- | :--- | :--- | :--- |
+| PHNTRAYH | Photon with Headers, Tray [x50] | Global | GA | |
+| PHNTRAYNOH | Photon without Headers, Tray [x50] | Global | GA | |
+| PHOTONH | Photon with Headers, [x1] | Global | GA | |
+| PHOTONNOH | Photon without Headers, Dev board Kit [x1] | Global | Discontinued | |
+
+
+{{!-- END do not edit content above, it is automatically generated c9a47b1a-7751-11eb-9439-0242ac130002 --}}
+
 ## Qualification and approvals
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
@@ -701,6 +713,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v015 | 25-July-2017 | BW | Updated the Pin Description section and added high resolution pinout PDF, PWM notes and DCT layout, added warning to power section |
 | v016 | 31-May-2018 | BW | Updated External Coexistence Interface section (unsupported) |
 | v017 | 16-Sep-2020 | RK | Added power consumption information |
+| v018 | 15-Mar-2021 | RK | Updated ordering information |
 
 ## Known Errata
 

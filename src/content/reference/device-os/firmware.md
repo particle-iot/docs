@@ -19,39 +19,7 @@ can be found in the Discontinued section.
 
 ## Cloud Functions
 
-{{#if has-cellular}}
-### Optimizing Cellular Data Use with Cloud connectivity
-
-{{since when="0.6.0"}}
-
-When the device first connects to the cloud, it establishes a secure channel
-and informs the cloud of the registered functions, variables and subscriptions. This uses 4400 bytes of data, plus additional data for each function, variable and subscription.
-
-Subsequent reconnections to the cloud while the device is still powered does not resend this data. Instead, a small reconnection message is sent to the cloud, which uses 135 bytes.
-
-Prior to 0.6.0, when the device was reset or woken from deep sleep, the cloud connection would be fully reinitialized, which meant resending the 4400 bytes of data. From 0.6.0, the device determines that a full reinitialization isn't needed and reuses the existing session (providing it still exists and is usable - see [`Particle.keepAlive()`](#particle-keepalive-)), after validating that the local state matches what was last communicated to the cloud. Connecting to the cloud after reset or wake-up sends just a reconnect message, using 135 bytes of data. A key requirement for the device to be able to determine that the existing session can be reused is that the functions, variables and subscriptions are registered BEFORE connecting to the cloud.
-
-One way to make sure of that is registering functions and variables before connecting to the cloud is easily done using `SEMI_AUTOMATIC` mode:
-
-```cpp
-// EXAMPLE USAGE
-// Using SEMI_AUTOMATIC mode to get the lowest possible data usage by
-// registering functions and variables BEFORE connecting to the cloud.
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-void setup() {
-    // register cloudy things
-    Particle.function(....);
-    Particle.variable(....);
-    Particle.subscribe(....);
-    // etc...
-    // then connect
-    Particle.connect();
-}
-```
-{{/if}} {{!-- has-cellular --}}
-
-**Overview of API field limits**
+### Overview of API field limits
 
 | API Field | Prior to 0.8.0 | Since 0.8.0 | Comment |
 |--:|--:|--:|:--|
@@ -103,6 +71,8 @@ void loop()
   delay(200);
 }
 ```
+
+Each variable retrieval uses one Data Operation from your monthly or yearly quota. Setting the variable does not use Data Operations.
 
 Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).
 
@@ -256,7 +226,7 @@ void loop() {
 }
 ```
 
-
+Each variable retrieval uses one Data Operation from your monthly or yearly quota. Setting the variable does not use Data Operations.
 
 
 ### Particle.function()
@@ -274,6 +244,8 @@ int funcName(String extra) {
   return 0;
 }
 ```
+
+Each function call request and response uses one Data Operation from your monthly or yearly quota. Setting up function calls does not use Data Operations.
 
 Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). 
 
@@ -420,7 +392,7 @@ For product devices, events published by a device can be subscribed to:
 
 Public events could previously be received by anyone on the Internet, and anyone could generate events to send to your devices. This did not turn out to a common use-case, and the ease at which you could accidentally use this mode, creating a security hole, caused it to be removed.
 
-
+Each publish uses one Data Operation from your monthly or yearly quota. This is true for both WITH_ACK and NO_ACK modes.
 
 ---
 
@@ -653,6 +625,10 @@ void loop() {
 
 You should not call `Particle.subscribe()` from the constructor of a globally allocated C++ object. See [Global Object Constructors](#global-object-constructors) for more information.
 
+Each event delivery attempt to a subscription handler uses one Data Operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
+
+If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/device-cloud/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
+
 ---
 
 A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans". The maximum length of the subscribe prefix is 64 characters.
@@ -789,6 +765,8 @@ loop () {
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `Particle.publishVitals(1h)` for 1 hour.
 
+Sending device vitals does not consume Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary vitals transmission can lead to increased data usage, which could result in hitting the monthly data limit for your account.
+
 
 >_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
 
@@ -816,6 +794,7 @@ After you call `Particle.connect()`, your loop will not be called again until th
 
 In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect-) or when you change the [system mode](#system-modes).
 
+Connecting to the cloud does not use Data Operation from your monthly or yearly quota. However, for cellular devices it does use cellular data, so unnecessary connection and disconnection can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
 ### Particle.disconnect()
 
@@ -909,6 +888,8 @@ void loop() {
 }
 ```
 
+This call is fast and can be called frequently without performance degradation.
+
 ### Particle.disconnected()
 
 Returns `true` when disconnected from the Cloud, and `false` when connected to Cloud.
@@ -951,6 +932,7 @@ For Ethernet, you will probably want to set a keepAlive of 2 to 5 minutes.
 
 For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
 
+Keep-alives do not use Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so setting it to a very small value can cause increased data usage, which could result in hitting the monthly data limit for your account.
 
 {{since when="1.5.0"}}
 
@@ -963,7 +945,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### Particle.process()
 
-Runs the background loop. 
+Runs the background loop. When in `SYSTEM_THREAD(ENABLED)` mode, it is generally unnecessary to use this call, as the background loop runs in a separate thread. Using `SYSTEM_THREAD(ENABLED)` is recommended.
 
 {{#unless has-linux}}
 `Particle.process()` checks the {{network-type}} module for incoming messages from the Cloud,
@@ -1019,6 +1001,8 @@ Note that this function sends a request message to the Cloud and then returns.
 The time on the device will not be synchronized until some milliseconds later
 when the Cloud responds with the current time between calls to your loop.
 See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedLast()`](#particle-timesyncedlast-), [`Time.isValid()`](#isvalid-) and [`Particle.syncTimePending()`](#particle-synctimepending-) for information on how to wait for request to be finished.
+
+Synchronizing time does not consume Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary time synchronization can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
 ### Particle.syncTimeDone()
 
@@ -10252,6 +10236,8 @@ void loop()
 **Data Usage Warning**
 
 When using a Particle SIM with the device, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+
+Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
@@ -10558,6 +10544,8 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 **Data Usage Warning**
 
 When using a Particle SIM with the device, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+
+Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()
@@ -13185,6 +13173,19 @@ void random_seed_from_cloud(unsigned int seed) {
 In the example, the seed is simply ignored, so the system will continue using
 whatever seed was previously set. In this case, the random seed will not be set
 from the cloud, and setting the seed is left to up you.
+
+### HAL_RNG_GetRandomNumber()
+
+```cpp
+// PROTOTYPE
+uint32_t HAL_RNG_GetRandomNumber(void);
+```
+
+Gets a cryptographic random number (32-bit) from the hardware random number generator.
+
+Note: The hardware random number generator has a limit to the number of random values it can produce in a given timeframe. If there aren't enough random numbers available at this time, this function may be block until there are. If you need a large number of random values you can use this function to seed a pseudo-random number generator (PRNG).
+
+Note: Only available on Gen 2 (Photon, P1, Electron, E Series), and Gen 3 (Argon, Boron, B Series SoM, Tracker SoM). Not available on the Spark Core.
 
 {{#if has-eeprom}}
 

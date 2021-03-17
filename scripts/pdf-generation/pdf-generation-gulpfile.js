@@ -45,7 +45,11 @@ const paths = {
 function filterUnchanged(vf) {
 	// Passed to ignore.include (gulp-ignore)
 	// https://www.npmjs.com/package/gulp-ignore
-		
+
+    if (vf.relative.startsWith('app-notes')) { 
+        return false;
+    }
+
 	var md = md5(vf.contents);
 	
 	var hashes = {};
@@ -126,6 +130,7 @@ gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
     .pipe(replace(/{{box (.*)}}/g, '')) // Strip out box helper
     .pipe(replace(/\/assets\//g, '../assets/')) // fix relative paths
     .pipe(replace(/{{assets}}/g, '../assets')) // fix relative paths
+    .pipe(replace(/{{!--(.*)--}}/g, '')) // Remove comments
     .pipe(replace(/\]\(\//g, '](https://docs.particle.io/')) // point to website in non-assets cases
     .pipe(markdown())
     .pipe(replace(/href="\./g, 'href="https://docs.particle.io')) // point to website's assets (to pdfs mostly)

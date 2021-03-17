@@ -56,6 +56,6 @@ IntelliSense not only provides syntax highlighting and autocomplete, but also pr
 
 ### Step-by-step debugging
 
-Support for source-level step-by-step debugging, breakpoints, viewing call stacks, registers, and memory, for 3rd generation (Argon, Boron, and Xenon) as well as 2nd generation (Photon, P1, Electron, E Series) devices.
+Support for source-level step-by-step debugging, breakpoints, viewing call stacks, registers, and memory, for 3rd generation (Argon, Boron, B Series SoM, and Tracker SoM) as well as 2nd generation (Photon, P1, Electron, E Series) devices.
 
 {{box op="end"}}

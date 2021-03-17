@@ -72,6 +72,9 @@ In some cases, you will want to set the maximum and minimum to the same value. T
 | 8 hours | 28800 |
 | 24 hours | 86400 |
 
+- **Minimize Data**. If checked, only only latitude and longitude data is sent on each location publish. If unchecked (the default), additional information such as speed and heading are sent.
+
+The other settings are described in [cloud configuration](/tutorials/device-cloud/console/#location-settings).
 
 #### Motion Settings
 
