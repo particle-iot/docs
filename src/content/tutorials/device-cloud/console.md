@@ -138,16 +138,12 @@ tutorial](/tutorials/integrations/google-cloud-platform/)
 
 ### Billing
 
-You should also use the Console to view and manage billing information.
-Some of the things to use the billing view for include:
+The **Billing** page in the console now includes your personal sandbox. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the Growth Tier, this is in addition to devices included in your Growth Tier blocks.
 
-- Updating the credit card used to pay for Particle platform features
-- Viewing SIM card data usage, and managing the connectivity state of
-the SIM card
-- View product billing and usage information, device fleet size, and current plan
+From this page you can view the total number of devices and data operations consumed by your free sandbox devices.
 
-<img src="{{assets}}/images/console/billing-view.png"
-class="full-width"/>
+<img src="{{assets}}/images/console/sandbox.png" class="full-width"/>
+
 
 ## Product Tools
 
