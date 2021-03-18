@@ -945,37 +945,16 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### Particle.process()
 
-Runs the background loop. When in `SYSTEM_THREAD(ENABLED)` mode, it is generally unnecessary to use this call, as the background loop runs in a separate thread. Using `SYSTEM_THREAD(ENABLED)` is recommended.
+- [Using `SYSTEM_THREAD(ENABLED)`](/reference/device-os/firmware/#system-thread) is recommended for most applications. When using threading mode you generally do not need to use `Particle.process()`.
 
-{{#unless has-linux}}
-`Particle.process()` checks the {{network-type}} module for incoming messages from the Cloud,
+- If you are using [`SYSTEM_MODE(AUTOMATIC)`](/reference/device-os/firmware/#system-modes) (the default if you do not specify), or `SEMI_AUTOMATIC` you generally do not need to `Particle.process()` unless your code blocks and prevents loop from returning and does not use `delay()` in any inner blocking loop. In other words, if you block `loop()` from returning you must call either `delay()` or `Particle.process()` within your blocking inner loop.
+
+- If you are using `SYSTEM_MODE(MANUAL)` you must call `Particle.process()` frequently, preferably on any call to `loop()` as well as any locations where you are blocking within `loop()`.
+
+`Particle.process()` checks the for incoming messages from the Cloud,
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the {{network-type}} module (e.g. immediately after `{{#if has-wifi}}WiFi{{else}}{{#if has-cellular}}Cellular{{/if}}{{/if}}.ready()` to update system variables).
-{{/unless}}
-
-```cpp
-SerialLogHandler logHandler;
-
-void setup() {
-  Serial.begin(9600);
-}
-
-void loop() {
-  // Do not do this in real code. You should return from loop() instead!
-  while (1) {
-    Particle.process();
-    redundantLoop();
-  }
-}
-
-void redundantLoop() {
-  Log.info("Well that was unnecessary.");
-}
-```
-
-`Particle.process()` is a blocking call, and blocks for a few milliseconds to several seconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the Wi-Fi module's buffer will overrun.
 
 ### Particle.syncTime()
 
@@ -1399,7 +1378,18 @@ Note that `WiFi.on()` does not need to be called unless you have changed the [sy
 
 ### off()
 
+```cpp
+// EXAMPLE:
+Particle.disconnect();
+WiFi.off();
+```
+
 `WiFi.off()` turns off the Wi-Fi module. Useful for saving power, since most of the power draw of the device is the Wi-Fi module.
+
+You must call [`Particle.disconnect()`](/reference/device-os/firmware/#particle-disconnect-) before turning off the Wi-Fi manually, otherwise the cloud connection may turn it back on again.
+
+This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](/reference/device-os/firmware/#semi-automatic-mode) (or `MANUAL`) as the cloud connection and Wi-Fi are managed by Device OS in `AUTOMATIC` mode.
+
 
 ### connect()
 
@@ -2703,11 +2693,20 @@ Cellular.on();
 ```cpp
 // SYNTAX
 Cellular.off();
+
+// EXAMPLE
+Particle.disconnect();
+Cellular.off();
 ```
 
 You must not turn off and on cellular more than every 10 minutes (6 times per hour). Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. 
 
 If you are manually managing the cellular connection in case of connection failures, you should wait at least 5 minutes before stopping the connection attempt. When retrying on failure, you should implement a back-off scheme waiting 5 minutes, 10 minutes, 15 minutes, 20 minutes, 30 minutes, then 60 minutes between retries. Repeated failures to connect can also result in your SIM being blocked.
+
+You must call [`Particle.disconnect()`](/reference/device-os/firmware/#particle-disconnect-) before turning off the cellular modem manually, otherwise the cloud connection may turn the cellular modem back on.
+
+This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](/reference/device-os/firmware/#semi-automatic-mode) (or `MANUAL`) as the cloud connection and cellular modem are managed by Device OS in `AUTOMATIC` mode.
+
 
 ### connect()
 
@@ -3307,6 +3306,14 @@ else {
 }
 ```
 
+---
+
+{{note op="start" type="gen2"}}
+Band available and band select APIs are only available on Gen 2 cellular devices (Electron and E Series)
+{{note op="end"}}
+
+---
+
 ### getBandSelect()
 
 {{since when="0.5.0"}}
@@ -3338,6 +3345,14 @@ else {
     Serial.printlnf("Bands selected not retrieved from the modem!");
 }
 ```
+
+---
+
+{{note op="start" type="gen2"}}
+Band available and band select APIs are only available on Gen 2 cellular devices (Electron and E Series).
+{{note op="end"}}
+
+---
 
 ### setBandSelect()
 {{since when="0.5.0"}}
@@ -3409,6 +3424,14 @@ else {
     Serial.println("Restoring factory defaults failed!");
 }
 ```
+
+---
+
+{{note op="start" type="gen2"}}
+Band available and band select APIs are only available on Gen 2 cellular devices (Electron and E Series).
+{{note op="end"}}
+
+---
 
 ### resolve()
 {{since when="0.6.1"}}
@@ -18655,6 +18678,110 @@ size_t count() const;
 ```
 
 Returns the count of the number of remaining values. As you call `next()` this value will decrease.
+
+
+## Debugging
+
+The most common method of debugging is to use serial print statements. A full source-level debugger is available as part of Particle Workbench, but often it's sufficient to just sprinkle a few print statements to develop code.
+
+### Using a serial terminal
+
+The [Particle CLI](/tutorials/developer-tools/cli/) provides a simple read-only terminal for USB serial. Using the `--follow` option will wait and retry connecting. This is helpful because USB serial disconnects on reboot and sleep.
+
+```
+particle serial monitor --follow
+```
+
+You can also use dedicated serial programs like `screen` on Mac and Linux, and PutTTY and CoolTerm on Windows.
+
+### Serial.print vs. Log.info
+
+```cpp
+SerialLogHandler logHandler;
+
+void setup() {
+    Log.info("System version: %s", (const char*)System.version());
+}
+
+void loop() {
+}
+```
+
+In Arduino, it's most common to use `Serial.print()` as well as its relatives like `Serial.println()` and `Serial.printlnf()`. While these are also available on Particle devices, it's strongly recommended that you instead use the [Logging facility](/reference/device-os/firmware/#logging).
+
+- Serial is not thread-safe. It's possible that if you log simultaneously with both Serial and Logging calls, the device may crash.
+- Using Logging you can adjust the verbosity from a single statement in your code, including setting the logging level per module at different levels.
+- Using Logging you can redirect the logs between USB serial and UART serial with one line of code.
+- Other logging handlers allow you to store logs on SD cards, to a network service like syslog, or to a cloud-based service like Solarwinds Papertrail.
+
+Being able to switch from USB to UART serial is especially helpful if you are using sleep modes. Because USB serial disconnects on sleep, it can take several seconds for it to reconnect to your computer. By using UART serial (Serial1, for example) with a USB to TTL serial converter, the USB serial will stay connected to the adapter so you can begin logging immediately upon wake.
+
+### Waiting for Serial
+
+```cpp
+SerialLogHandler logHandler;
+
+SYSTEM_THREAD(ENABLED);
+
+void setup() {
+  // Wait for a USB serial connection for up to 15 seconds
+  waitFor(Serial.isConnected, 15000);
+  delay(1000);
+
+  Log.info("Serial connected or timed out!");
+}
+```
+
+If you are debugging code in `setup()` you may not be able to connect USB serial fast enough to see the logging message you want, so you may want to delay until connected. This code delays for up to 15 seconds to give you time to connect or reconnect serial, but then will continue on if you don't connect.
+
+### comm.protocol errors
+
+```
+Dec 17 01:36:22 [comm.protocol] ERROR: Event loop error 1
+Dec 17 01:36:42 [comm.protocol.handshake] ERROR: Handshake failed: 25
+Dec 17 01:37:53 [comm.protocol.handshake] ERROR: Handshake failed: 25
+Dec 17 01:38:16 [comm.protocol.handshake] ERROR: Handshake failed: 26
+Dec 17 01:39:54 [comm.protocol] ERROR: Event loop error 1
+Dec 17 01:41:37 [comm.protocol] ERROR: Handshake: could not receive HELLO response 10
+```
+
+The system includes a number of logging statements if it is having trouble connecting to the cloud. These errors are defined [in the source](https://github.com/particle-iot/device-os/blob/develop/communication/inc/protocol_defs.h#L25). 
+
+| Number | Constant | Description |
+| :--- | :--- | :--- |
+|  0 | NO_ERROR | |
+|  1 | PING_TIMEOUT | |
+|  2 | IO_ERROR | |
+|  3 | INVALID_STATE | |
+|  4 | INSUFFICIENT_STORAGE | |
+|  5 | MALFORMED_MESSAGE | | 
+|  6 | DECRYPTION_ERROR | |
+|  7 | ENCRYPTION_ERROR | |
+|  8 | AUTHENTICATION_ERROR | |
+|  9 | BANDWIDTH_EXCEEDED | |
+| 10 | MESSAGE_TIMEOUT | |
+| 11 | MISSING_MESSAGE_ID | |
+| 12 | MESSAGE_RESET | |
+| 13 | SESSION_RESUMED | |
+| 14 | IO_ERROR_FORWARD_MESSAGE_CHANNEL | |
+| 15 | IO_ERROR_SET_DATA_MAX_EXCEEDED | |
+| 16 | IO_ERROR_PARSING_SERVER_PUBLIC_KEY | |
+| 17 | IO_ERROR_GENERIC_ESTABLISH | |
+| 18 | IO_ERROR_GENERIC_RECEIVE | |
+| 19 | IO_ERROR_GENERIC_SEND | |
+| 20 | IO_ERROR_GENERIC_MBEDTLS_SSL_WRITE | |
+| 21 | IO_ERROR_DISCARD_SESSION | |
+| 22 | IO_ERROR_LIGHTSSL_BLOCKING_SEND | |
+| 23 | IO_ERROR_LIGHTSSL_BLOCKING_RECEIVE | |
+| 24 | IO_ERROR_LIGHTSSL_RECEIVE | |
+| 25 | IO_ERROR_LIGHTSSL_HANDSHAKE_NONCE | |
+| 26 | IO_ERROR_LIGHTSSL_HANDSHAKE_RECV_KEY | |
+| 27 | NOT_IMPLEMENTED | |
+| 28 | MISSING_REQUEST_TOKEN | |
+| 29 | NOT_FOUND | |
+| 30 | NO_MEMORY | |
+| 31 | INTERNAL | |
+| 32 | OTA_UPDATE_ERROR | |
 
 
 ## Logging

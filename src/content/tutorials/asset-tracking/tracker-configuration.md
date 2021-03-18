@@ -63,6 +63,14 @@ The schema serves several purposes:
 
 Using a custom schema, you can add additional configuration elements, either to an existing group (location, sleep, etc.) or to a new custom group for your product (recommended). The new tabs or options are presented to all team members who have access to the product.
 
+If you are familiar with JSON Schema:
+
+- We do not support the `pattern` or `patternProperties` keywords
+- Remote schemas are not allowed
+- `additionalProperties` is always set to false for top-level fields
+- We've added two custom JSON Schema keywords: `minimumFirmwareVersion` and `maximumFirmwareVersion` that can be used to scope given settings to specific versions of the firmware
+
+
 ### Console
 
 The settings panels in the fleet configuration and device configuration, including all of the built-in settings, are defined using the configuration schema.

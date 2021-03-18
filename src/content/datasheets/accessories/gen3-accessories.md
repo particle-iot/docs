@@ -12,7 +12,7 @@ These accessories are for the Particle Gen 3 devices: Argon and Boron in the Ada
 
 ## Grove Starter Kit 
 
-<div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/grove-mesh-starter-kit.png" ></div>
+<div align=center><img src="/assets/images/accessories/grove-kit.jpg" ></div>
 
 The Grove starter kit is designed to make your first exploration into the world of sensing and actuating a breeze. The kit comes with seven different components that work out-of-the-box with Particle Gen 3 hardware and let you focus on learning the basics. Working with Starter Kit requires no soldering and minimal wiring. Simply connect the kit’s Grove Shield (the new co-developed FeatherWing adapter from Particle and SeeedStudio) to your Particle Gen 3 board and use the included cables to connect the adapter and the sensors and actuators that you want to use. It’s a plug-and-play experience.
 
@@ -214,6 +214,8 @@ If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRES
 ## PoE (Power over Ethernet)
 
 ![PoE Board](/assets/images/poe-main.jpg)
+
+**The PoE adapter is discontinued and no longer available for sale. Existing PoE adapters will continue to work.**
 
 The PoE (Power over Ethernet) adapter for the Ethernet FeatherWing plugs into the Ethernet side of the FeatherWing. 
 

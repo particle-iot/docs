@@ -137,7 +137,6 @@ particle flash --serial boron-bootloader@2.0.0.bin
 particle flash --serial boron-softdevice@2.0.0.bin
 ```
 
-
 ### Manually over SWD/JTAG
 
 On production lines, it's common to update devices using SWD/JTAG. This can be done with:
@@ -149,7 +148,13 @@ On production lines, it's common to update devices using SWD/JTAG. This can be d
 | Particle Debugger | &check; | &check; | &check; | &check; | &check; | Using openocd |
 | Segger J-LINK | &check; | &check; | &check; | &check; | &check; |  |
 
-Additional information can be found in the [JTAG and SWD Guide](https://support.particle.io/hc/en-us/articles/360039251414).
+You can use [device restore images](/reference/developer-tools/jtag/#restore-binaries) to restore a device to a known state using a SWD/JTAG debugger. This works for both upgrades and downgrades and is by far the fastest way to do this.
+
+A [hex file generator](/reference/developer-tools/jtag/#custom-hex-files) is available to take a device restore hex file and replace Tinker (or Tracker Edge) with your custom user firmware binary. This can make it very easy to mass-produce devices with exactly the version of Device OS and your firmware you want.
+
+Additional information can be found in the [JTAG and SWD Guide](/reference/developer-tools/jtag/).
+
+
 
 ### Using Particle Workbench
 
@@ -204,6 +209,8 @@ This should be done *after* upgrading system firmware.  The Electron bootloader 
 
 
 #### Updating SoftDevice and Bootloader
+
+Note: The SoftDevice .bin files provided on the Device OS Github release site are OTA binaries intended for use OTA or in --serial mode. They cannot be flashed directly to a device using SWD/JTAD because they have a Particle binary header that must be removed, and a Nordic preamble that must be inserted to flash directly via SWD.
 
 #### Via OTA
 
@@ -395,3 +402,8 @@ particle flash electron7 electron-bootloader@1.5.2+lto.bin
 - For Gen 3 devices, you may need to flash the SoftDevice.
 
 - Your device should now be online and successfully downgraded.
+
+### SWD/JTAG Device Restore
+
+Using a SWD/JTAG debugger such as the Particle Debugger, ST-LINK, or Segger J-Link, plus 
+[device restore images](/reference/developer-tools/jtag/#restore-binaries) make it restore a device to a known state or downgrade Device OS easily.
