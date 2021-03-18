@@ -39,8 +39,8 @@ module.exports = function(context) {
 
 
     versionNames.sort(function(a,b) {
-        aParts = a.split('.');
-        bParts = b.split('.');
+        aParts = a.split(/[-\\.]/);
+        bParts = b.split(/[-\\.]/);
         
         for(let part = 0; part < 3; part++) {
             // Reverse numeric sort (higher first)
@@ -49,12 +49,20 @@ module.exports = function(context) {
                 return cmp;
             }
         }
-        let cmp = aParts[4].localeCompare(bParts[4]);
+        if (!aParts[3]) {
+            // a is not an rc, but b is, so final goes first
+            return 1;
+        }
+        if (!bParts[3]) {
+            // a is not an rc, but b is, so final goes first
+            return -1;
+        }
+        let cmp = aParts[3].localeCompare(bParts[3]);
         if (cmp != 0) {
             return cmp;
         }
 
-        cmp = parseInt(bParts[5]) - parseInt(aParts[5]);
+        cmp = parseInt(bParts[4]) - parseInt(aParts[4]);
         if (cmp) {
             return cmp;
         }
