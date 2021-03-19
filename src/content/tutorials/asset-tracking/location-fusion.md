@@ -24,3 +24,11 @@ Wi-Fi geolocation does not connect to the Wi-Fi access points. Most access point
 
 - Handing enhanced location events from device firmware is in the [Tracker Edge reference](/reference/asset-tracking/tracker-edge-firmware/#regenhancedloccallback-trackerlocation).
 
+The approximate resolution of the various technologies is:
+
+| Technology | Best-Case | Worst-Case | 
+| :--- | :--- | :--- |
+| GNSS | 1.5 meters | 100 kilometers |
+| Wi-Fi | 24 meters |  | 
+| Cellular Tower | 123 meters | 10 kilometers |
+
