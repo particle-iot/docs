@@ -206,3 +206,12 @@ Note that the devices will not receive the firmware immediately;
 instead, they will be targeted for an over-the-air update the next time
 they start a new secure session with the cloud (this is called a
 *handshake*).
+
+## From Device Firmware
+
+Normally device groups are used to manage devices in the console and for releasing product firmware. However, by using a webhook and some device firmware, you can get the device group list from user firmware running on a Particle device.
+
+A 3rd-party library, [DeviceGroupHelperRK](https://github.com/rickkas7/DeviceGroupHelperRK) is available to make this easier. It is also available when using **Particle: Install Library** in Particle Workbench or in the community libraries in the Web IDE. Or you can use the technique shown in the library directly into your own firmware.
+
+
+
