@@ -22,6 +22,22 @@ Particle provides a number of devices with cellular connectivity including the T
 
 <sup>1</sup>During the transition period, a warning will be sent but communication will not be immediately paused.
 
+#### Growth Tier
+
+- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- Add as many blocks as you need for more Data Operations or more devices
+- No limit to the number of blocks you can purchase self-service
+- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
+- Email support
+- Available in June 2021
+
+#### Enterprise Tier
+
+- Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
+- Data Operations and cellular data are pooled across all devices annually
+- Discounts for higher Enterprise tier commitments
+- [Contact sales](https://particle.io/sales/) for more information
+
 ### Data Operations
 
 The central billing element for both cellular and Wi-Fi is the Data Operation:
