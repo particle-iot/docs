@@ -22,10 +22,10 @@
 
 
 <script>
-const freeMaxDevices = 100;
-const freeDataOperations = 100000;
-const devicesPerBlock = 100;
-const dataOperationsPerBlock = 720000;
+const freeMaxDevices = {{freeTierDevices}};
+const freeDataOperations = {{freeTierDataOperationsValue}};
+const devicesPerBlock = {{growthTierDevices}};
+const dataOperationsPerBlock = {{growthTierDataOperationsValue}};
 
 var dataUnitCalc = {};
 

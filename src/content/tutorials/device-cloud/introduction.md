@@ -93,22 +93,22 @@ Updating your device firmware and Device OS can be done securely over the Partic
 
 #### Free Tier
 
-Cellular, Tracker, and Wi-Fi devices can be free to use!
-
-- Up to 100 devices, any mix of cellular and Wi-Fi
-- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
+- {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - No credit card required
 - Products can be prototyped in the Free tier
-- Device communication is paused when the monthly limit is reached
+- Device communication is paused<sup>1</sup> when the monthly limit is reached
 - Community support
+
+<sup>1</sup>During the transition period, a warning will be sent but communication will not be immediately paused.
 
 #### Growth Tier
 
-- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
 - Available in June 2021
 
@@ -143,13 +143,13 @@ The following do **not** count against your Data Operations limit:
 
 Blocks are a maximum number of Data Operations and devices per month in the Growth tier:
 
-- Up to 720K Data Operations (720,000)
-- Up to 100 devices
-- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month 
+- Up to {{growthTierDevices}} devices
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Price varies for Wi-Fi, Cellular, and Tracker
 - Add as many blocks are you need
 
-For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed 720K. 
+For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed {{growthTierDataOperationsUnit}}. 
 
 Likewise, if you are using a million Data Operations per month, you will need 2 blocks, even of you have fewer than 100 devices.
 
@@ -157,7 +157,7 @@ Likewise, if you are using a million Data Operations per month, you will need 2 
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
-For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is {{freeTierDataOperationsCellularData}}, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
 
 ### Minimizing Data Operations
 
@@ -218,9 +218,9 @@ There is no limit to the number of blocks you can purchase in the Growth tier, h
 
 #### What happens if I exceed the number of Data Operations?
 
-In the Free tier, if you need more Data Operations you will need to upgrade to the Growth tier. When you exceed 100K Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free tier. 
+In the Free tier, if you need more Data Operations you will need to upgrade to the Growth tier. When you exceed {{freeTierDataOperationsUnit}} Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free tier. 
 
-In the Growth tier, if you need more than 720K Data Operations across your fleet of devices per month, you can add another block.
+In the Growth tier, if you need more than {{growthTierDataOperationsUnit}} Data Operations across your fleet of devices per month, you can add another block.
 
 In the Enterprise tier, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
 

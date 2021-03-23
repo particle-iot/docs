@@ -25,6 +25,7 @@ var paths = require('metalsmith-paths');
 var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
 var deviceFeatureFlags = require('./device_feature_flags');
+var planLimits = require('./planLimits');
 var redirects = require('./redirects');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
@@ -259,6 +260,9 @@ exports.metalsmith = function () {
         ]
       }
     }))//end of collections/sections
+    .use(planLimits({
+      config: '../config/planLimits.json'
+    }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link
     .use(fork({

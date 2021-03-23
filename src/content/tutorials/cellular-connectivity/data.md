@@ -12,9 +12,9 @@ Particle provides a number of devices with cellular connectivity including the T
 
 ### Free Tier
 
-- Up to 100 devices, any mix of cellular and Wi-Fi
-- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
+- {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - No credit card required
 - Products can be prototyped in the Free tier
 - Device communication is paused<sup>1</sup> when the monthly limit is reached
@@ -24,10 +24,10 @@ Particle provides a number of devices with cellular connectivity including the T
 
 #### Growth Tier
 
-- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
 - Available in June 2021
 
@@ -78,7 +78,9 @@ If the transmission is not acknowledged, it is possible that up to two more atte
 
 ### Cellular Data Limit
 
-For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is {{freeTierDataOperationsCellularData}} , pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
+
+In the growth tier, {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker) is included for each block purchased, per month.
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 

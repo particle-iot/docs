@@ -33,9 +33,9 @@ Starting out with a single development kit and a single account you can use the 
 
 Plus, cellular, Tracker, and Wi-Fi devices can be free to use!
 
-- Up to 100 devices, any mix of cellular and Wi-Fi
-- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
+- {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - No credit card required
 - Products can be prototyped in the Free tier
 - Device communication is paused when the monthly limit is reached
@@ -46,10 +46,10 @@ Plus, cellular, Tracker, and Wi-Fi devices can be free to use!
 
 Products group devices with similar firmware and usage. You can use products with the Free tier above for prototyping, then expand to the Growth tier for production:
 
-- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
 
 Products allow a number of additional features over developer devices:

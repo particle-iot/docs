@@ -571,11 +571,11 @@ To see all billing related information, you can click on the billing icon in the
 
 #### Free tier
 
-- Up to 100 devices, any mix of cellular and Wi-Fi
-- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
+- {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - No credit card required
-- Device communication is paused when the monthly limit is reached<sup>1</sup>
+- Device communication is paused<sup>1</sup> when the monthly limit is reached
 
 For more information see [Device Cloud - Introduction - Pricing](/tutorials/device-cloud/introduction/#pricing).
 
@@ -583,14 +583,14 @@ For more information see [Device Cloud - Introduction - Pricing](/tutorials/devi
 
 #### Free tier products
 
-Products can be prototyped in the Free tier at no charge. However, there is a limit of 100 devices for Free tier products. 
+Products can be prototyped in the Free tier at no charge. However, there is a limit of {{freeTierDevices}} devices for Free tier products. 
 
 #### Growth tier
 
-- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
 - Available in June 2021
 
