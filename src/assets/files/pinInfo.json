@@ -3790,8 +3790,8 @@
 				},
 				{
 					"num":40,
-					"name":"D3",
-					"desc":"SPI1 MOSI, Serial1 CTS, PWM, GPIO, Wire1 SCL",
+					"name":"D2",
+					"desc":"SPI1 SCK, Serial1 RTS, GPIO, Wire1 SDA",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3801,10 +3801,10 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"spi":"SPI1 (MOSI)|MOSI. Use SPI1 object.",
-					"serial":"UART1_CTS|Options CTS hardware flow control for Serial1",
-					"i2c":"Wire1 (SCL)|SCL. Use Wire1 object.",
-					"hardwarePin":"P1.01",
+					"spi":"SPI1 (SCK)|SCK. Use SPI1 object.",
+					"i2c":"Wire1 (SDA)|SDA. Use Wire1 object.",
+					"serial":"UART1_RTS|Options RTS hardware flow control for Serial1",
+					"hardwarePin":"P1.02",
 					"somPin":"RESERVED"
 				},
 				{
@@ -3827,8 +3827,8 @@
 				},
 				{
 					"num":42,
-					"name":"D2",
-					"desc":"SPI1 SCK, Serial1 RTS, GPIO, Wire1 SDA",
+					"name":"D3",
+					"desc":"SPI1 MOSI, Serial1 CTS, PWM, GPIO, Wire1 SCL",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3838,10 +3838,10 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"spi":"SPI1 (SCK)|SCK. Use SPI1 object.",
-					"i2c":"Wire1 (SDA)|SDA. Use Wire1 object.",
-					"serial":"UART1_RTS|Options RTS hardware flow control for Serial1",
-					"hardwarePin":"P1.02",
+					"spi":"SPI1 (MOSI)|MOSI. Use SPI1 object.",
+					"serial":"UART1_CTS|Options CTS hardware flow control for Serial1",
+					"i2c":"Wire1 (SCL)|SCL. Use Wire1 object.",
+					"hardwarePin":"P1.01",
 					"somPin":"RESERVED"
 				},
 				{
@@ -4410,8 +4410,8 @@
 				},
 				{
 					"num":40,
-					"name":"D3",
-					"desc":"SPI1 MOSI, Serial1 CTS, PWM, GPIO, Wire1 SCL",
+					"name":"D2",
+					"desc":"SPI1 SCK, Serial1 RTS, GPIO, Wire1 SDA",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4421,10 +4421,10 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"spi":"SPI1 (MOSI)|MOSI. Use SPI1 object.",
-					"serial":"UART1_CTS|Options CTS hardware flow control for Serial1",
-					"i2c":"Wire1 (SCL)|SCL. Use Wire1 object.",
-					"hardwarePin":"P1.01",
+					"spi":"SPI1 (SCK)|SCK. Use SPI1 object.",
+					"i2c":"Wire1 (SDA)|SDA. Use Wire1 object.",
+					"serial":"UART1_RTS|Options RTS hardware flow control for Serial1",
+					"hardwarePin":"P1.02",
 					"somPin":"RESERVED"
 				},
 				{
@@ -4447,8 +4447,8 @@
 				},
 				{
 					"num":42,
-					"name":"D2",
-					"desc":"SPI1 SCK, Serial1 RTS, GPIO, Wire1 SDA",
+					"name":"D3",
+					"desc":"SPI1 MOSI, Serial1 CTS, PWM, GPIO, Wire1 SCL",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4458,10 +4458,10 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"spi":"SPI1 (SCK)|SCK. Use SPI1 object.",
-					"i2c":"Wire1 (SDA)|SDA. Use Wire1 object.",
-					"serial":"UART1_RTS|Options RTS hardware flow control for Serial1",
-					"hardwarePin":"P1.02",
+					"spi":"SPI1 (MOSI)|MOSI. Use SPI1 object.",
+					"serial":"UART1_CTS|Options CTS hardware flow control for Serial1",
+					"i2c":"Wire1 (SCL)|SCL. Use Wire1 object.",
+					"hardwarePin":"P1.01",
 					"somPin":"RESERVED"
 				},
 				{
