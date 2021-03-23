@@ -57,6 +57,83 @@ In these docs, you'll see example calls written using a terminal program called 
 
 The examples use form encoded data to make them easier to read and type but unless specified otherwise any endpoint can also accept a JSON object with the parameters as properties.
 
+## Postman
+
+In addition to using curl, you can use [Postman](https://www.postman.com/) a 3rd-party product that provides a web-based graphical interface for making API calls.
+
+To making using Postman significantly easier, download [postman.zip](/assets/files/postman.zip) and extract the two files:
+
+- Particle Device Cloud API.postman_collection.json
+- Particle Postman Environment.postman_environment.json
+
+Use the **Import** feature to import these two files into Postman.
+
+{{imageOverlay src="/assets/images/postman/import.png" alt="Import"}}
+
+Once you've imported the Particle Postman Environment you can select it from the popup in the upper right corner of the Postman workspace window.
+
+{{imageOverlay src="/assets/images/postman/set-environment.png" alt="Set Environment"}}
+
+
+### Authenticating with Postman
+
+Using a quickly expiring access token is a good way to maintain security when using Postman. You can easily do this using the [Particle CLI](/reference/developer-tools/cli/#particle-token-create).
+
+The parameter is the number of seconds, so 3600 is one hour. If you leave off the `--expires-in` option, the token will be good for 90 days. You can also create a non-expiring token.
+
+`
+particle token create --expires-in 3600
+`
+
+- To use this token, select **Particle Postman Environment** in the upper right corner of the Postman workspace  (1). 
+
+- Click the eye icon next to it to view the configuration (2).
+
+- Paste in the access token in the `access_token` field (3).
+
+{{imageOverlay src="/assets/images/postman/access-token.png" alt="Access Token" }}
+
+
+It's also possible to enter your username and password in the Postman environment, and also possible to generate the token from within Postman itself. However, these techniques are hard to use if you have multi-factor authentication (MFA) enabled on your Particle account. The CLI and `access_token` technique above works both with and without MFA enabled.
+
+### Example: List devices
+
+A good way to test out your access token is use **List devices**.
+
+- Open **Collections** then **Particle Device Cloud API** then **Devices** then **List devices**.
+
+- If you've entered the access_token in the previous step, there should be a small green circle on the **Authorization** tab.
+
+- Click the blue **Send** button.
+
+{{imageOverlay src="/assets/images/postman/list-devices.png" alt="List Devices" }}
+
+
+You should get output with information about your devices in the bottom pane.
+
+{{imageOverlay src="/assets/images/postman/list-output.png" alt="List Output" }}
+
+
+### Example: Calling a function
+
+- Open **Collections** then **Particle Device Cloud API** then **Devices** then **Call a function**.
+
+- In the **Params** tab, enter the device ID you want to call in **deviceid** and the function name in **functionName**. 
+In this case, we're using the Blink and LED firmware on the device, so it will respond to the **led** function.
+
+{{imageOverlay src="/assets/images/postman/function-name.png" alt="Function Name" }}
+
+
+- You don't need to enter anything in the **Authorization** tab, but this is how the data gets from the Environment into the API call.
+
+{{imageOverlay src="/assets/images/postman/authorization.png" alt="Authorization" }}
+
+- In this example, we're passing the value **on** in the **arg** parameter. This turns on the blue D7 LED on the device with the Blink and LED firmware.
+
+{{imageOverlay src="/assets/images/postman/call-function-body.png" alt="Call function" }}
+
+- Click **Send**. It will also show some output in the bottom pane if the device is online and is running the appropriate firmware.
+
 
 ## Authentication
 
