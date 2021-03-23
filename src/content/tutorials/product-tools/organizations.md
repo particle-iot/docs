@@ -45,20 +45,17 @@ deployments using Products as a self-service customer before becoming an
 Enterprise customer. These Products will be re-associated to be owned by
 the Organization -- with access to those Products governed by RBAC rules
 of the org.
-- **Whitelisted users** (optional): A list of Particle users in which
-all self-service platform usage should be automatically billed to the
-Organization. This can be a helpful tool to centralize and simplify
-billing administration of all team members' usage of the platform
-(including devices/SIMs in the _Personal_ space, see below).
 
 
-## Organization vs. Personal Space
+
+## Organization vs. Sandbox Spaces
 
 With an Organization, you will now have two distinct **Spaces** within
 the Console:
-- _Personal space_: Everything owned by your Particle user
+- _Sandbox space_: Everything owned by your Particle user
 account intended for personal use of the platform. Personal devices, SIMs, and Products are associated and
-are owned by a single individual.
+are owned by a single individual. The Sandbox space can contain up to 100 cellular or Wi-Fi devices in any 
+combination at no additional charge. 
 - _Organization space_: Everything owned by an Organization intended for
 business use of the platform. This is a shared account meant to centralize visibility and access across Particle
 deployments amongst a group of team members.
@@ -74,7 +71,7 @@ navigation:
 ![Organizations space switcher](/assets/images/organizations/space-switcher-closed.png)
 
 This is your _space switcher_ that will allow you to easily toggle
-between your Organization and Personal spaces. When the space switcher
+between your Organization and Sandbox (Personal) spaces. When the space switcher
 is expanded, you will see the Organization(s) that you are a member of:
 
 ![Expanded space
@@ -158,18 +155,18 @@ alt="Org and Product Team" class="full-width" />
 
 The combination of the Organization and Product Teams give you the
 flexibility and fine-grained control needed to define the right
-heirarchy and levels of access to meet your company's needs.
+hierarchy and levels of access to meet your company's needs.
 
 ### Product Collaborator View
 
 Once you are invited to collaborate on a product team (vs being part of an organization team), and accepted
-the invitation the product will show up in your personal space with the following distinctions:
+the invitation the product will show up in your Sandbox space with the following distinctions:
 
 - If you are collaborating on a **product which belong to an organization** it will show up 
-in your personal space with a **suitcase** icon next to the name of the organization that invited you.
-- If you are collaborating on a product which belong to an individual - as his/her **personal product** - it will show up 
-in your personal space with a **person icon** next to the Particle username (email) of the individual that invited you.
-- If it is your own personal product it will show up with the same person icon and your Particle username next to it.  
+in your Sandbox space with a **suitcase** icon next to the name of the organization that invited you.
+- If you are collaborating on a product which belong to an individual - as his/her **sandbox product** - it will show up 
+in your Sandbox space with a **person icon** next to the Particle username (email) of the individual that invited you.
+- If it is your own sandbox product it will show up with the same person icon and your Particle username next to it.  
 
 Here's an example:
 
@@ -185,7 +182,7 @@ Each person on the Organization team has a **role** that dictates their
 level of permissions. The role assigned to an Organization team member
 impacts both their permissions as it relates to the Organization _as well as each
 Product belonging to the org_. This means team members will have the
-same role both at the Organization and Product lavel.
+same role both at the Organization and Product level.
 
 There are four available roles:
 
