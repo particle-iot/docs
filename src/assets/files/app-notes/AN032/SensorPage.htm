@@ -125,7 +125,10 @@
                 function (data) {
                     // Success! Show the main page
                     $('#mainDiv').css('display', 'inline');
+                    
+                    $('#userSpan').text(sessionStorage.particleUser);
 
+                    // Load the device selector popup
                     deviceList = data.body;
 
                     deviceIdToName = {};

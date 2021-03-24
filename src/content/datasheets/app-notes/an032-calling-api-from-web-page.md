@@ -26,6 +26,7 @@ In this example we copy and paste our access token and device ID into the HTML s
 anyone can just "View Source" on the web page and get our access token. With that token, they can log into 
 the Console, manage devices, delete source code, pretty much everything. 
 
+{{codebox content="/assets/files/app-notes/AN032/embed-token.htm" format="html" height="300"}}
 
 If you are using source code management like Github, it's easy to accidentally share your account access 
 token if you paste it into your code and have to remove it every time you commit a change.
@@ -595,7 +596,9 @@ send up values when the value does not change. That would be a good enhancement.
 
 As you add new devices, new rows are added to the table. 
 
-As the values change, the progress bar updates within a second or two! This works for both cellular and Wi-Fi.
+As the values change, the progress bar updates. This works for both cellular and Wi-Fi. It's normally
+pretty fast, within a second or so, but if a cellular device has been idle for a while it may take
+longer for the first update (up to 10 seconds) but then subsequent updates will be much faster.
 
 Most of the code is the same as the login page example above, however:
 
