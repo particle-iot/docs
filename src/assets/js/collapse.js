@@ -61,11 +61,13 @@ function collapseSelector(event, genericCssClass, switchTo) {
 			var hashOffset = href.lastIndexOf('#');
 			if (hashOffset >= 0) {
 				var hash = href.substring(hashOffset + 1);
-				if ($('#' + hash).is(':hidden')) {
-					$(anchor).parent('li').hide();
-				}
-				else {
-					$(anchor).parents('li').show();
+				if (hash) {
+					if ($('#' + hash).is(':hidden')) {
+						$(anchor).parent('li').hide();
+					}
+					else {
+						$(anchor).parents('li').show();
+					}	
 				}
 			}
 		});
@@ -118,4 +120,13 @@ function codeboxCopy(id) {
 	t.select();
 	document.execCommand("copy");
 	document.body.removeChild(t);
+}
+
+function codeboxOpenWebIDE(appid) {
+	var a = document.createElement('a');
+	a.href = 'https://go.particle.io/shared_apps/' + appid;
+	a.target = '_blank';
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
 }

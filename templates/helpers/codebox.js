@@ -24,7 +24,11 @@ module.exports = function(context) {
 
     html += '<button type="button" onclick="codeboxDownload(\'' + content + '\')">Download</button> &nbsp;';
     
-    html += '<button type="button" onclick="codeboxCopy(\'' + id + '\')">Copy to Clipboard</button>';
+    html += '<button type="button" onclick="codeboxCopy(\'' + id + '\')">Copy to Clipboard</button> &nbsp;';
+
+    if (context.hash.webide) {
+        html += '<button type="button" onclick="codeboxOpenWebIDE(\'' + context.hash.webide + '\')">Open in Web IDE</button> &nbsp;';
+    }
 
     html += '</div><div style="height:' + height + 'px; overflow:scroll;">';
 

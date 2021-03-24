@@ -395,6 +395,7 @@ exports.server = function (callback) {
           '../templates/layouts/main.hbs': 'content/index.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*': true,
+          '${source}/assets/files/**/*': true,
           '${source}/assets/images/**/*': true,
           '../config/device_features.json': 'content/**/*.md',
           '../api-service/src/**/*.js': 'content/reference/device-cloud/api.md',
