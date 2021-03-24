@@ -592,7 +592,7 @@ Products can be prototyped in the Free tier at no charge. However, there is a li
 - No limit to the number of blocks you can purchase self-service
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
-- Available in June 2021
+- Available in Summer 2021
 
 In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data.
 

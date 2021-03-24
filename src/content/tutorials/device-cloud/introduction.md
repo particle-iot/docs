@@ -110,7 +110,7 @@ Updating your device firmware and Device OS can be done securely over the Partic
 - No limit to the number of blocks you can purchase self-service
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
-- Available in June 2021
+- Available in Summer 2021
 
 #### Enterprise Tier
 
