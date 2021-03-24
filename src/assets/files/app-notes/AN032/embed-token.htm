@@ -1,0 +1,36 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js"></script>
+
+    <script>
+        var particle = new Particle();
+
+        const accessToken = 'paste your access token here';
+        const deviceId = 'paste you device ID here';
+
+        function ledControl(cmd) {
+            // Used to turn on or off the LED by using the Particle.function "led"
+            document.getElementById("statusSpan").innerHTML = '';
+
+            particle.callFunction({deviceId, name:'led', argument: cmd, auth:accessToken}).then(
+                function(data) {
+                    document.getElementById("statusSpan").innerHTML = 'Call completed';
+                },
+                function(err) {
+                    document.getElementById("statusSpan").innerHTML = 'Error calling device: ' + err;
+                }
+            );
+        }
+    </script>
+</head>
+<body>
+    <div id="mainDiv">
+        <h3>Control an LED!</h3>
+            <p><button id="ledOnButton" onclick="ledControl('on')">LED On</button>&nbsp;
+                <button id="ledOffButton" onclick="ledControl('off')">LED Off</button></p>
+            <p>&nbsp;</p>
+            <p><span id="statusSpan"></span></p>
+    </div>
+</body>
+
+</html>

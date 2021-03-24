@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            // This function is called when the page loads
+            $('#ledOnButton').on('click', function (e) {
+                e.preventDefault();
+                ledControl('on');
+            });
+            $('#ledOffButton').on('click', function (e) {
+                e.preventDefault();
+                ledControl('off');
+            });
+        });
+
+        function ledControl(cmd) {
+            // Used to turn on or off the LED by using the Particle.function "led"
+            $('#statusSpan').text('');
+            $.ajax({
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    'arg': cmd
+                }),
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $('#statusSpan').text('Error calling led server');
+                },
+                method: 'POST',
+                success: function (data, textStatus, jqXJHR) {
+                    const respObj = jqXJHR.responseJSON;
+                    if (!respObj.ok) {
+                        $('#statusSpan').text('Error calling led server');
+                    }
+                },
+                url: '/led'
+            });
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <h3>Control an LED!</h3>
+        <form>
+            <p><button id="ledOnButton">LED On</button>&nbsp;<button id="ledOffButton">LED Off</button></p>
+            <p>&nbsp;</p>
+            <p><span id="statusSpan"></span></p>
+        </form>
+    </div>
+</body>
+
+</html>
