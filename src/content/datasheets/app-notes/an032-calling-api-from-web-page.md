@@ -504,7 +504,7 @@ long and is incredibly unwieldy when sitting on my desk.
 
 ### Device Firmware
 
-{{codebox content="/assets/files/app-notes/AN032/sensorPage.cpp" format="cpp" height="500"}}
+{{codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500"}}
 
 A few things to note in this firmware:
 
@@ -586,7 +586,7 @@ if (delta > MIN_DELTA_TO_PUBLISH &&
 
 ### Web Page
 
-{{codebox content="/assets/files/app-notes/AN032/sensorPage.htm" format="html" height="500"}}
+{{codebox content="/assets/files/app-notes/AN032/SensorPage.htm" format="html" height="500"}}
 
 As in the earlier example, download the file and double-click to open in your web browser.
 
