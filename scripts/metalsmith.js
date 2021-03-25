@@ -129,7 +129,11 @@ exports.metalsmith = function () {
     }))
     // Add properties to files that match the pattern
     .use(fileMetadata([
-      { pattern: 'content/**/*.md', metadata: { assets: '/assets', branch: gitBranch, noScripts: noScripts } }
+      { pattern: 'content/**/*.md', metadata: { 
+          assets: '/assets', 
+          branch: gitBranch, 
+          noIndex: (gitBranch == 'staging' || gitBranch == 'prerelease'), 
+          noScripts: noScripts } }
     ]))
     // Inject the dnsTable into introduction.md so it can be used by the dnsTable helper
     .use(fileMetadata([

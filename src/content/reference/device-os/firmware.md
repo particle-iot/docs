@@ -1097,37 +1097,68 @@ This function takes one optional argument:
 Using this feature, the device can programmatically know its own public IP address.
 
 ```cpp
-LogHandler logHandler;
+SYSTEM_THREAD(ENABLED);
+
+SerialLogHandler logHandler;
+bool nameRequested = false;
 
 // Open a serial terminal and see the IP address printed out
-void handler(const char *topic, const char *data) {
+void subscriptionHandler(const char *topic, const char *data)
+{
     Log.info("topic=%s data=%s", topic, data);
 }
 
-void setup() {
-    Particle.subscribe("particle/device/ip", handler);
-    Particle.publish("particle/device/ip");
+void setup()
+{
+    Particle.subscribe("particle/device/ip", subscriptionHandler);
 }
+
+void loop() {
+    if (Particle.connected() && !nameRequested) {
+        nameRequested = true;
+        Particle.publish("particle/device/ip");
+    }
+}
+
 ```
+
+Note: Calling Particle
 
 
 ### Get Device name
 
-This gives you the device name that is stored in the cloud,
+This gives you the device name that is stored in the cloud.
 
 ```cpp
-LogHandler logHandler;
+SYSTEM_THREAD(ENABLED);
 
-// Open a serial terminal and see the device name printed out
-void handler(const char *topic, const char *data) {
+SerialLogHandler logHandler;
+bool nameRequested = false;
+
+// Open a serial terminal and see the IP address printed out
+void subscriptionHandler(const char *topic, const char *data)
+{
     Log.info("topic=%s data=%s", topic, data);
 }
 
-void setup() {
-    Particle.subscribe("particle/device/name", handler);
-    Particle.publish("particle/device/name");
+void setup()
+{
+    Particle.subscribe("particle/device/name", subscriptionHandler);
+}
+
+void loop() {
+    if (Particle.connected() && !nameRequested) {
+        nameRequested = true;
+        Particle.publish("particle/device/name");
+    }
 }
 ```
+
+Instead of fetching the name from the cloud each time, you can fetch it and store it 
+in retained memory or EEPROM. The [DeviceNameHelperRK](https://github.com/rickkas7/DeviceNameHelperRK) library
+makes this easy. The link includes instructions and the library is available in
+Particle Workbench by using **Particle: Install Library** or in the Web IDE
+by searching for **DeviceNameHelperRK**.
 
 ### Get Random seed
 
@@ -4779,7 +4810,7 @@ void setup() {
     // Apply a custom power configuration
     SystemPowerConfiguration conf;
     
-    conf.powerSourceMaxCurrent(550) 
+    conf.powerSourceMaxCurrent(900) 
         .powerSourceMinVoltage(4300) 
         .batteryChargeCurrent(850) 
         .batteryChargeVoltage(4210);
@@ -12653,6 +12684,8 @@ noInterrupts();
 
 `noInterrupts()` neither accepts a parameter nor returns anything.
 
+You must enable interrupts again as quickly as possible. Never return from setup(), loop(), from a function handler, variable handler, system event handler, etc. with interrupts disabled.
+
 {{/if}} {{!-- has-interrupts --}}
 
 {{#if has-software-timers}}
@@ -14558,7 +14591,7 @@ _Since 0.8.0_ An application may check the information about the latest sleep by
 
 `System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in this mode.
 
-This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(MANUAL) instead.
+This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(SEMI_AUTOMATIC) instead.
 
 ```cpp
 // SYNTAX
@@ -14980,7 +15013,7 @@ These system modes describe how connectivity is handled and when user code is ru
 
 System modes must be called before the setup() function. By default, the device is always in `AUTOMATIC` mode.
 
-### Automatic mode
+### Automatic mode (threading disabled)
 
 The automatic mode of connectivity provides the default behavior of the device, which is that:
 
@@ -15004,37 +15037,73 @@ void loop() {
 - If the connection to the Cloud is ever lost, the device will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
 - `SYSTEM_MODE(AUTOMATIC)` does not need to be called, because it is the default state; however the user can invoke this method to make the mode explicit.
 
-In automatic mode, the user can still call `Particle.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Particle.connect()`.
-
-### Semi-automatic mode
-
-The semi-automatic mode will not attempt to connect the device to the Cloud automatically. However once the device is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
+### Automatic mode (threading enabled)
 
 ```cpp
-SYSTEM_MODE(SEMI_AUTOMATIC);
+SYSTEM_MODE(AUTOMATIC);
+SYSTEM_THREAD(ENABLED);
 
 void setup() {
-  // This is called immediately
+  // This is called even before being cloud connected
 }
 
 void loop() {
-  if (buttonIsPressed()) {
-    Particle.connect();
-  } else {
-    doOfflineStuff();
-  }
+  // This is too
 }
 ```
 
-The semi-automatic mode is therefore much like the automatic mode, except:
+When also using `SYSTEM_THREAD(ENABLED)`, the following are true even in `AUTOMATIC` mode:
 
-- When the device boots up, `setup()` and `loop()` will begin running immediately.
-- Once the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked while the device attempts to negotiate a connection. This connection will block execution of `loop()` or `setup()` until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect-).
+- When the device starts up, it automatically tries to connect to Wi-Fi or Cellular and the Particle Device Cloud.
+- Messages to and from the Cloud are handled from a separate thread and are mostly unaffected by operations in loop.
+- If you block loop() from returning you can still impact the following:
+  - Function calls
+  - Variable retrieval
+  - Serial events
+
+Using `SYSTEM_THREAD(ENABLED)` is recommended.
+
+### Semi-automatic mode
+
+The semi-automatic mode will not attempt to connect the device to the Cloud automatically, but once you 
+connect it automatically handles reconnection. One common use case for this is checking the battery
+charge before connecting to cellular on the Boron, B Series SoM, Electron, and E Series.
+
+This code checks the battery level, and if low, goes back into sleep mode instead of trying to
+connect with a low battery, which is likely to fail.
+
+The combination of `SEMI_AUTOMATIC` and threading enabled is a recommended combination; it's what
+the Tracker Edge firmware uses.
+
+```cpp
+SYSTEM_MODE(SEMI_AUTOMATIC);
+SYSTEM_THREAD(ENABLED);
+
+void setup() {
+  float batterySoc = System.batteryCharge();
+  if (batterySoc < 5.0) {
+    // Battery is very low, go back to sleep immediately
+    SystemSleepConfiguration config;
+    config.mode(SystemSleepMode::ULTRA_LOW_POWER)
+      .duration(30min);
+    System.sleep(config);
+    return;
+  }
+
+  // Do normal things here
+  Particle.connect();
+}
+
+void loop() {
+}
+```
 
 ### Manual mode
 
+There are many hidden pitfalls when using `MANUAL` system mode with cloud connectivity, and it may interact unexpectedly with threading. 
 
-The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Device Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process-) on a regular basis.
+The only recommended use case for `MANUAL` mode is when you have no cloud connectivity at all, such as when you are using the device with no 
+cloud connectivity at all. For example, if you are only using BLE or NFC.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -15048,9 +15117,9 @@ void loop() {
     Particle.connect();
   }
   if (Particle.connected()) {
-    Particle.process();
     doOtherStuff();
   }
+  Particle.process();
 }
 ```
 
@@ -15060,6 +15129,7 @@ When using manual mode:
 - Once the user calls [`Particle.connect()`](#particle-connect-), the device will attempt to begin the connection process.
 - Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected-) ` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
 - If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
+- `Particle.process()` is required even with threading enabled in MANUAL mode.
 
 
 {{#if has-threading}}
@@ -15072,7 +15142,7 @@ is not interrupted by the system background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
 so they execute in parallel rather than sequentially.
 
-At present, System Thread is an opt-in change. To enable system threading for your application, add to the top of your application code.
+While you must opt into using system thread, its use is recommended for all applications.
 
 ```
 // EXAMPLE USAGE
@@ -15088,28 +15158,31 @@ non-threaded execution:
 
 - `setup()` is executed immediately regardless of the system mode, which means
 setup typically executes before the Network or Cloud is connected.
-Calls to network-related code will be impacted and may fail because the network is not up yet.
 `Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will function
-as intended whether the cloud is connected or not.  `Particle.publish()` will return
-`false` when the cloud is not available and the event will not be published.
-Other network initialisation (such as those in `UDP`, `TCPServer` and `TCPClient`)
-may not function yet.
-See `waitUntil` below for details on waiting for the network or cloud connection.
+as intended whether the cloud is connected or not.
 
-- after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
+- You should avoid calling `Particle.publish()` before being cloud connected as it may 
+block. This is important if you are switching to threaded mode and previously published 
+an event from setup.
+
+- Other network functions such as `UDP`, `TCPServer` and `TCPClient`) should wait until
+the network is connected before use.
+
+- After `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
 network or cloud connection. The system does not block `loop()` waiting
 for the network or cloud to be available, nor while connecting to Wi-Fi.
 
-- System modes `SEMI_AUTOMATIC` and `MANUAL` behave identically - both of these
-modes do not not start the Networking or a Cloud
+- System modes `SEMI_AUTOMATIC` and `MANUAL` do not not start the network or cloud
 connection automatically, while `AUTOMATIC` mode connects to the cloud as soon as possible.
 Neither has an effect on when the application `setup()` function is run - it is run
 as soon as possible, independently from the system network activities, as described above.
 
-- `Particle.process()` and `delay()` are not needed to keep the background tasks active - they run independently. These functions have a new role in keeping the application events serviced. Application events are:
+- `Particle.process()` and `delay()` are not needed to keep the background tasks active - they run independently. 
+These functions have a new role in keeping the application events serviced. Application events are:
  - cloud function calls
  - cloud events
  - system events
+ - serial events
 
 - Cloud functions registered with `Particle.function()` and event handlers
 registered with `Particle.subscribe()` continue to execute on the application
@@ -15152,8 +15225,8 @@ SYSTEM_MODE(SEMI_AUTOMATIC);
 void setup()
 {
 	// the system thread isn't busy so these synchronous functions execute quickly
-    Particle.subscribe("event", handler);
-	Particle.publish("myvar", myvar);
+  Particle.subscribe("event", handler);
+
 	Particle.connect();    // <-- now connect to the cloud, which ties up the system thread
 }
 ```
@@ -15185,19 +15258,23 @@ Here's an example:
 void so_timing_sensitive()
 {
     if (ready_to_send) {
-   		SINGLE_THREADED_BLOCK() { // single threaded execution starts now
-	    		digitalWrite(D0, LOW);		// timing critical GPIO
-    			delayMicroseconds(1500);
-    			digitalWrite(D0, HIGH);
-		}
-    }  // single threaded execution stops now
+   		SINGLE_THREADED_BLOCK() { 
+        // single threaded execution starts now
+
+        // timing critical GPIO
+	    	digitalWrite(D0, LOW);		
+    		delayMicroseconds(250);
+    		digitalWrite(D0, HIGH);
+		  }
+      // thread swapping can occur again now
+    }  
 }
 ```
 
 You must avoid within a SINGLE_THREADED_BLOCK:
 
 - Lengthy operations
-- Calls to delay()
+- Calls to delay() (delayMicroseconds() is OK)
 - Any call that can block (Particle.publish, Cellular.RSSI, and others)
 - Any function that uses a mutex to guard a resource (Log.info, SPI transactions, etc.)
 - Nesting. You cannot have a SINGLE_THREADED_BLOCK within another SINGLE_THREADED_BLOCK.
@@ -15226,9 +15303,10 @@ Here's an example:
 void so_timing_sensitive_and_no_interrupts()
 {
     if (ready_to_send) {
-   		ATOMIC_BLOCK() { // only this code runs from here on - no other threads or interrupts
-    		digitalWrite(D0, LOW);		// timing critical GPIO
-    		delayMicroseconds(1500);
+   		ATOMIC_BLOCK() { 
+        // only this code runs from here on - no other threads or interrupts
+    		digitalWrite(D0, LOW);
+    		delayMicroseconds(50);
     		digitalWrite(D0, HIGH);
     		}
     }  // other threads and interrupts can run from here
