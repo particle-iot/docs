@@ -8,7 +8,7 @@ order: 132
 
 This example illustrates a few techniques for calling the Particle API from a web page.
 
-These examples use the [Blink and LED from the cloud firmware](/tutorials/hardware-projects/hardware-examples/).
+The first few examples use the [Blink an LED from the cloud firmware](/tutorials/hardware-projects/hardware-examples/).
 
 {{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e"}}
 
@@ -24,7 +24,7 @@ Really, this is a horrible idea. It's tempting because it's so easy, but you rea
 
 In this example we copy and paste our access token and device ID into the HTML source. The problem is that
 anyone can just "View Source" on the web page and get our access token. With that token, they can log into 
-the Console, manage devices, delete source code, pretty much everything. 
+the Console, manage devices, delete source code from the Web IDE, pretty much everything. 
 
 {{codebox content="/assets/files/app-notes/AN032/embed-token.htm" format="html" height="300"}}
 
@@ -52,17 +52,17 @@ This example:
 Download this file and save it to disk on your computer. Then double-click to open it in your browser. The technique 
 in this example works from file:// URLs so you don't need to host the page on an actual web server to use it. 
 
-The user interface isn't very pretty because we've left out css styling to make the example less overwhelming, but it works.
+The user interface isn't very pretty because we've left out the css styling, but it works.
 
 ![Control LED](/assets/images/app-notes/AN032/control-led.png)
 
 ### The HTML
 
-The HTML page is really three separate user interfaces. 
+The HTML page is really three separate user interfaces that are either displayed or hidden as needed. 
 
-- mainDiv is the main user interface. If you want to play around with adding some other controls, here's where to put them.
-- loginDiv is where the user is prompted to log in.
-- otpDiv is where the user is prompted to enter their MFA token.
+- `mainDiv` is the main user interface. If you want to play around with adding some other controls, here's where to put them.
+- `loginDiv` is where the user is prompted to log in.
+- `otpDiv` is where the user is prompted to enter their MFA token.
 
 ```html
 <body>
@@ -143,7 +143,7 @@ works for accounts with MFA enabled or disabled.
 
 If you want to change the lifetime of the access token, change the value in `expires_in`. It's in seconds (3600 = 1 hour).
 
-The code that handles the 403 error is used for MFA. It enables the otpDiv for the user to enter their one-time password.
+The code that handles the 403 error is used for MFA. It enables the `otpDiv` for the user to enter their one-time password.
 
 And on success, it calls the `loginSuccess()` method with the access token we received.
 
@@ -209,8 +209,6 @@ $('#otpForm').submit(function (e) {
 });
 ```
 
-The last function implemented in pure jQuery ajax is the Logout button handler.
-
 The Particle API JS does not have a function to delete the current access token 
 but it's easy to do with ajax.
 
@@ -256,8 +254,7 @@ $('#ledOffButton').on('click', function (e) {
 ```
 
 And this code will attempt to use a previously saved token. This makes it possible to refresh the 
-page and not have to reenter your password every time. If you switch to localStorage, don't forget to 
-change this location as well.
+page and not have to reenter your password every time. 
 
 ```js
 if (sessionStorage.particleToken) {
@@ -284,7 +281,7 @@ back up the login window.
 If it's successful, then it shows the mainDiv and loads the device list into the popup
 using `loadDeviceList()`.
 
-Like most things in Javascript, the Particle API JS is asynchronous, so the parts in the `then` are called 
+The Particle API JS is asynchronous, and uses promises. The parts in the `then` are called 
 later. The first function is called on successful completion, or the second is called on error. 
 
 ```js
@@ -320,10 +317,9 @@ function loadDeviceList(deviceList) {
     $('#userSpan').text(sessionStorage.particleUser);
 
     deviceList.forEach(function (dev) {
-        // For each device in the user's account, see if the device supports the "led" function call
-        // Also note whether it's online or not.
         if (dev.functions.includes('led')) {
-            html += '<option value="' + dev.id + '">' + dev.name + (dev.online ? '' : ' (offline)') + '</option>';
+            html += '<option value="' + dev.id + '">' + dev.name + 
+                (dev.online ? '' : ' (offline)') + '</option>';
         }
     });
     $('#deviceSelect').html(html);
@@ -348,7 +344,8 @@ function ledControl(cmd) {
 
     $('#statusSpan').text('');
 
-    particle.callFunction({ deviceId, name: 'led', argument: cmd, auth: sessionStorage.particleToken }).then(
+    particle.callFunction({ deviceId, name: 'led', argument: cmd, 
+        auth: sessionStorage.particleToken }).then(
         function (data) {
             $('#statusSpan').text('Call completed');
         },
@@ -488,6 +485,9 @@ This example demonstrates a few useful techniques:
 
 It's based on the login example above, so a lot of the code will already be familiar.
 
+You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN032.zip).
+This example is in the two sensorPage files (.cpp and .htm).
+
 ### The Circuit
 
 For testing this, instead of using an actual sensor I used a potentiometer. One side is connected to
@@ -514,7 +514,7 @@ This configures which pin the analog sensor is connected to.
 const pin_t SENSOR_PIN = A0;
 ```
 
-The sensor can sometime have a little jitter to it. Averaging the samples can reduce this.
+A sensor can sometime have a little jitter to it. Averaging the samples can reduce this.
 This code is where you configure how many samples to average. It's being run at 1000 samples
 per second and this seems to be a good compromise with RAM usage.
 
@@ -552,11 +552,15 @@ Once we have enough samples we sum the entire sample buffer and divide to get th
 
 ```cpp
 void loop() {
-    samples[sampleIndex++ % NUM_SAMPLES_TO_AVERAGE] = (int16_t) analogRead(SENSOR_PIN);
+    samples[sampleIndex++ % NUM_SAMPLES_TO_AVERAGE] = 
+        (int16_t) analogRead(SENSOR_PIN);
     if (sampleIndex >= NUM_SAMPLES_TO_AVERAGE) {
         // Sum the recent samples to calculate the mean
         int sum = 0;
-        for(size_t ii = sampleIndex - NUM_SAMPLES_TO_AVERAGE; ii < sampleIndex; ii++) {
+        for(size_t ii = sampleIndex - NUM_SAMPLES_TO_AVERAGE; 
+            ii < sampleIndex; 
+            ii++) {
+
             sum += (int) samples[ii % NUM_SAMPLES_TO_AVERAGE];
         }
         int mean = (sum / NUM_SAMPLES_TO_AVERAGE);
@@ -600,10 +604,10 @@ As the values change, the progress bar updates. This works for both cellular and
 pretty fast, within a second or so, but if a cellular device has been idle for a while it may take
 longer for the first update (up to 10 seconds) but then subsequent updates will be much faster.
 
-Most of the code is the same as the login page example above, however:
+Most of the code is the same as the login page example above, however there are a few differences:
 
 Upon retrieving the device list, we build a hash which maps the device IDs to device names for devices in
-the account the logged in. 
+the account that logged in. 
 
 ```js
 deviceList = data.body;
@@ -652,7 +656,8 @@ row to the sensorTable for this device with the device name and a new progress b
 ```js
 if ($('#prog' + deviceId).length == 0) {
     // Add a row
-    let html = '<tr><td>' + deviceName + '</td><td><progress id="prog' + deviceId + '" value="0" max="4095"></progress></td></tr>';
+    let html = '<tr><td>' + deviceName + '</td><td><progress id="prog' + 
+        deviceId + '" value="0" max="4095"></progress></td></tr>';
     $('#sensorTable > tbody').append(html);
 }
 ```    
