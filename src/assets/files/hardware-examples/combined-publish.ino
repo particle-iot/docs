@@ -20,11 +20,12 @@ int i = 0;
 // This is where we'll store the last time a measurement was taken
 long lastMeasurement = 0;
 
-void setup() {
-
+void setup()
+{
 }
 
-void loop() {
+void loop()
+{
 
     /* This statement is incredibly useful.
     millis() tells us what the current time is in milliseconds
@@ -32,7 +33,8 @@ void loop() {
     If the difference in milliseconds between the current time and the last time we've measured
     is more than 600,000 milliseconds (ten minutes) then... do all the things!
     */
-    if(millis()-lastMeasurement > 600000){
+    if (millis() - lastMeasurement > 600000)
+    {
         // Measure the value on the photoresistor, and put it into the array
         light[i] = analogRead(A0);
 
@@ -40,17 +42,19 @@ void loop() {
         lastMeasurement = millis();
 
         // If we've taken 5 measurements (0-4, inclusive) then we should send that data
-        if(i == 4){
+        if (i == 4)
+        {
             /* We're using a short event name "T" to reduce data transmitted
             String::format will create a single string for us out of many data points
             Each %d means to put an integer there. %s is used for strings.
             To learn more, read https://en.wikipedia.org/wiki/Printf_format_string
             Since this will only happen every 5 measurements, we can assume these publishes will be 50 minutes apart*/
-            Particle.publish("L", String::format("%d,%d,%d,%d,%d", light[0],light[1],light[2],light[3],light[4]));
+            Particle.publish("L", String::format("%d,%d,%d,%d,%d", light[0], light[1], light[2], light[3], light[4]));
             // Reset index to beginning
             i = 0;
         }
-        else {
+        else
+        {
             // If it wasn't the 5th measurement, increase the index by 1
             i++;
         }
