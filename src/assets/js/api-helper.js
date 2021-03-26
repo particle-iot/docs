@@ -77,10 +77,9 @@ apiHelper.ready = function() {
     });
     
     $('.apiHelperLoginButton').on('click', function() {
-        // TODO: Find and add an anchor here!
-        const origUrl = req.protocol + "://" + req.get('host') + req.originalUrl;
+        const origUrl = window.location.href;
 
-		location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
+		window.location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
     });
 
     $('.apiHelperLogoutButton').on('click', function() {
@@ -359,7 +358,7 @@ apiHelper.ready = function() {
 
         $('div.apiHelperConfigSchema').each(function(index) {
             const configSchemaPartial = $(this);
-
+            /*
             $(this).on('dragenter', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
@@ -384,6 +383,7 @@ apiHelper.ready = function() {
 
                 uploadSchema(e.originalEvent.dataTransfer.files[0], configSchemaPartial);
             });
+            */
         });
         
     }
