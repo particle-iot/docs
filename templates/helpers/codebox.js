@@ -20,7 +20,7 @@ module.exports = function(context) {
 	// This helper is called inside a <p> so we need to fake out closing and opening the <p> otherwise
 	// things like <div> and <textarea> don't work properly
 
-    html += '</p><div>';
+    html += '</p><div class="codebox"><div class="codeboxBanner"><div class="codeboxBannerBox">';
 
     html += '<button type="button" onclick="codeboxDownload(\'' + content + '\')">Download</button> &nbsp;';
     
@@ -30,11 +30,18 @@ module.exports = function(context) {
         html += '<button type="button" onclick="codeboxOpenWebIDE(\'' + context.hash.webide + '\')">Open in Web IDE</button> &nbsp;';
     }
 
-    html += '</div><div style="height:' + height + 'px; overflow:scroll;">';
+    if (context.hash.flash) {
+        html += '<span class="codeboxFlashDeviceSpan" style="display: none"> &nbsp;&nbsp;'
+        html += '<select class="codeboxFlashDeviceSelect"></select> '
+        html += '<button type="button" onclick="codeboxFlash(\'' + id + '\')" disabled>Flash</button> &nbsp;';
+        html += '</span>'
+    }
 
-    html += '<pre><code class="lang-' + format + ' codebox" data-content="' + content + '" id="' + id + '">';
+    html += '</div></div><div style="height:' + height + 'px; overflow:scroll;">';
 
-    html += '</code></pre></div><p>';
+    html += '<pre class="codeboxPre"><code class="lang-' + format + ' codebox" data-content="' + content + '" id="' + id + '">';
+
+    html += '</code></pre></div></div><p>';
 
 		
 	return new Handlebars.SafeString(html);

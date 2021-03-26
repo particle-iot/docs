@@ -130,3 +130,25 @@ function codeboxOpenWebIDE(appid) {
 	a.click();
 	document.body.removeChild(a);
 }
+
+function codeboxFlash(id) {	
+	const codebox = $('#' + id).closest('div.codebox');
+	console.log('codebox ', codebox);
+
+	const device = $(codebox).find('select.codeboxFlashDeviceSelect').val();
+	if (!device || device == 'select') {
+		return;
+	}
+
+	console.log('device', device);
+
+	const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
+
+	if (!confirm(warning)) {
+		return;
+	}
+
+	const code = $('#' + id).text();
+
+	apiHelper.flashDevice(device, code);
+}

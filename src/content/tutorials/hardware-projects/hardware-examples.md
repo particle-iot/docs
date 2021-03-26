@@ -171,6 +171,7 @@ particle call my-test-device led on
 
 Replace `my-test-device` with the name of your device. If you get an "The access token was not found" error, use `particle login` to log into your Particle account first.
 
+
 ### From HTML
 
 It's also possible to call the function from your own HTML page. That's a more complicated scenario and there are a few options, so that's discussed in a separate application note.

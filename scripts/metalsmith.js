@@ -90,9 +90,11 @@ exports.metalsmith = function () {
       'content/languages/**/*',
       'assets/images/**/*.ai'
     ]))
-    .use(buildZip({
-      dir: '../src/assets/files/app-notes/'
-    }))
+    .use(msIf(
+      environment === 'development',
+      buildZip({
+        dir: '../src/assets/files/app-notes/'
+    })))
     // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
@@ -298,10 +300,12 @@ exports.metalsmith = function () {
       omitExtensions: ['.md'],
       omitTrailingSlashes: false
     }))
-    .use(function(files, metalsmith, done) {
+    .use(msIf(
+      environment === 'development',
+      function(files, metalsmith, done) {
       carriersUpdate.doUpdate(__dirname);
       done();
-    })
+    }))
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
     .use(inPlace({
@@ -397,6 +401,7 @@ exports.server = function (callback) {
           '../templates/layouts/workshops.hbs': 'content/workshops/**/*.md',
           '../templates/layouts/landing.hbs': 'content/*.md',
           '../templates/layouts/main.hbs': 'content/index.md',
+          '../templates/helpers/**/*.hbs': 'content/**/*.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*': true,
           '${source}/assets/files/**/*': true,
