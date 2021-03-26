@@ -8,12 +8,14 @@ description: Test Page
 
 ## Blink LED test 
 
-Some test before the control.
-
 {{> sso }}
 {{> led-function-test }}
 
-Some text after the control.
+
+## Codebox Flash
+
+{{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="300" webide="605b22dd4c3ada0017fd896e" flash="true"}}
+
 
 ## Tracker Edge Schema
 
@@ -21,9 +23,8 @@ Some text after the control.
 {{> config-schema }}
 
 
+## Codebox Schema
 
-## Codebox Flash
+This is the v11 + engine schema test:
 
-
-{{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="300" webide="605b22dd4c3ada0017fd896e" flash="true"}}
-
+{{codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}

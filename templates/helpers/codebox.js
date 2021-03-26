@@ -33,9 +33,16 @@ module.exports = function(context) {
     if (context.hash.flash) {
         html += '<span class="codeboxFlashDeviceSpan" style="display: none"> &nbsp;&nbsp;'
         html += '<select class="codeboxFlashDeviceSelect"></select> '
-        html += '<button type="button" onclick="codeboxFlash(\'' + id + '\')" disabled>Flash</button> &nbsp;';
+        html += '<button type="button" onclick="codeboxFlash(\'' + id + '\')" class="codeboxFlashDeviceButton" disabled>Flash</button> &nbsp;';
         html += '</span>'
     }
+    if (context.hash.configSchema) {
+        html += '<span class="codeboxConfigSchemaSpan" style="display: none"> &nbsp;&nbsp;'
+        html += '<select class="codeboxConfigSchemaProductSelect"></select> '
+        html += '<button type="button" onclick="codeboxUploadSchema(\'' + id + '\')" class="codeboxUploadSchemaButton">Upload Schema</button> &nbsp;';
+        html += '</span>'
+    }
+
     html += '</div><div class="codeboxFlashStatus"></div>';    
 
     html += '</div></div><div style="height:' + height + 'px; overflow:scroll;">';

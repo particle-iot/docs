@@ -139,8 +139,6 @@ function codeboxFlash(id) {
 		return;
 	}
 
-	console.log('device', device);
-
 	const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
 
 	if (!confirm(warning)) {
@@ -150,4 +148,24 @@ function codeboxFlash(id) {
 	const code = $('#' + id).text();
 
 	apiHelper.flashDevice(device, code, codebox);
+}
+
+
+function codeboxUploadSchema(id) {
+	const codebox = $('#' + id).closest('div.codebox');
+
+	const product = $(codebox).find('select.codeboxConfigSchemaProductSelect').val();
+
+	const warning = 'Uploading a configuration schema replaces the existing configuration schema for all users of this product! An incorrect schema can cause errors opening your product in the console. A backup will be saved in your Downloads directory but you should still exercise caution.';
+	
+	if (!confirm(warning)) {
+		return;
+	}
+
+	const schema = $('#' + id).text();
+
+	apiHelper.uploadSchemaCodebox(schema, product, 'default', function() {
+		
+	});
+
 }

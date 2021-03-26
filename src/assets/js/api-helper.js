@@ -61,6 +61,102 @@ apiHelper.flashDevice = function(deviceId, code, codebox) {
 
 };
 
+
+apiHelper.uploadSchemaCodebox = function(schema, product, deviceId, next) {
+    if (!apiHelper.auth) {
+        return;
+    }
+
+    const setStatus = function(status) {
+        $('.codeboxFlashStatus').html(status);
+    };
+
+    setStatus('Saving backup schema...');
+
+    apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
+        if (!err) {
+            setStatus('Uploading schema...');
+            apiHelper.uploadSchema(schema, product, deviceId, function(err) {
+                if (!err) {
+                    setStatus('Schema uploaded!');
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 4000);
+                }
+                else {
+                    setStatus('Error saving schema ' + err);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);        
+                }
+            });
+        }
+        else {
+            setStatus('Error saving backup schema ' + err);
+            setTimeout(function() {
+                setStatus('');
+            }, 10000);
+        }
+    });
+
+
+
+
+};
+
+apiHelper.uploadSchema = function(schema, product, deviceId, next) {
+    const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
+
+    $.ajax({
+        data: schema,
+        error: function(err) {
+            next(err.responseJSON.message);
+        },
+        headers: {
+            'Authorization':'Bearer ' + apiHelper.auth.access_token,
+            'Content-Type':'application/schema+json'
+        },
+        method: 'PUT',
+        processData: false,
+        success: function (resp) {
+            next();
+        },
+        url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
+    }); 
+};
+
+apiHelper.uploadSchemaFile = function(file, product, deviceId, next) {
+    const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
+
+    let fileReader = new FileReader();
+    fileReader.onload = function() {
+        apiHelper.uploadSchema(fileReader.result, product, deviceId, next);        
+    };
+    fileReader.readAsText(file);
+};
+
+apiHelper.downloadSchema = function(filename, product, deviceId, next) {
+    const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
+
+    $.ajax({
+        dataType: 'text',
+        error: function(err) {
+            next(err.responseJSON.message);
+        },
+        headers: {
+            'Accept':'application/schema+json'
+        },
+        method: 'GET',
+        success: function (resp) {
+            let blob = new Blob([resp], {type:'text/json'});
+            saveAs(blob, filename);
+            next();
+        },
+        url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl + '?access_token=' + apiHelper.auth.access_token
+    });    
+};
+
+
 apiHelper.ready = function() {
     apiHelper.auth = null;
 
@@ -83,7 +179,7 @@ apiHelper.ready = function() {
     });
 
     $('.apiHelperLogoutButton').on('click', function() {
-        Cookies.remove('ember_simple_auth_session');
+        Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
         localStorage.removeItem('particleAuth');
         apiHelper.ready();
     });
@@ -113,14 +209,12 @@ apiHelper.ready = function() {
     $('.apiHelperFakeAuth').hide();
 
     if (apiHelper.auth) {
-        console.log('authenticated!');
         $('.apiHelperUser').text(apiHelper.auth.username);
 
         $('.apiHelperLoggedIn').show();
     }
     else
     if (window.location.hostname.endsWith('particle.io')) {
-        console.log('could sso');
         $('.apiHelperCouldSSO').show();
     }
     else {
@@ -179,11 +273,13 @@ apiHelper.ready = function() {
         });
     }
 
-    if ($('.apiHelperConfigSchema').length > 0 && apiHelper.auth) {
-
+    if (($('.apiHelperConfigSchema').length > 0 || $('.codeboxConfigSchemaSpan').length > 0) && apiHelper.auth) {
+        // 
         const updateDeviceList = function(parentDiv) {
             const product = $(parentDiv).find('.apiHelperConfigSchemaProductSelect').val();
-            
+            if (!product) {
+                return;
+            }
             
             apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product:product }).then(
                 function(data) {
@@ -218,6 +314,11 @@ apiHelper.ready = function() {
                 });
                 if (html === '') {
                     html = '<option disabled>No Tracker products available</option>'
+                    $('.codeboxConfigSchemaSpan').hide();
+                }
+                else {
+                    $('.codeboxConfigSchemaProductSelect').html(html);
+                    $('.codeboxConfigSchemaSpan').show();
                 }
 
                 $('.apiHelperConfigSchemaProductSelect').html(html);
@@ -242,71 +343,24 @@ apiHelper.ready = function() {
             $(configSchemaPartial).find('.apiHelperConfigSchemaStatus').html(status);
         };
 
-        const uploadSchema = function(file, configSchemaPartial) {
-            const product = $(configSchemaPartial).find('.apiHelperConfigSchemaProductSelect').val();
-            const deviceId = $(configSchemaPartial).find('.apiHelperConfigSchemaDeviceSelect').val();
-            const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
-
-            setStatus(configSchemaPartial, 'Preparing upload...');
-
-            let fileReader = new FileReader();
-            fileReader.onload = function() {
-
-                $.ajax({
-                    data: fileReader.result,
-                    error: function(err) {
-                        setStatus(configSchemaPartial, 'Error uploading schema ' + err.responseJSON.message);
-                    },
-                    headers: {
-                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
-                        'Content-Type':'application/schema+json'
-                    },
-                    method: 'PUT',
-                    processData: false,
-                    success: function (resp) {
-                        setStatus(configSchemaPartial, 'Successfully uploaded schema!');
-                        setTimeout(function() {
-                            setStatus('');
-                        }, 4000);
-                    },
-                    url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
-                }); 
-            };
-            fileReader.readAsText(file);
-        };
 
         $('.apiHelperConfigSchemaDownload').on('click', function(ev) {
-
             const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
-            const product = $(configSchemaPartial).find('.apiHelperConfigSchemaProductSelect').val();
-            const deviceId = $(configSchemaPartial).find('.apiHelperConfigSchemaDeviceSelect').val();
-            const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
 
-            setStatus(configSchemaPartial, 'Downloading...');
-
-            $.ajax({
-                dataType: 'text',
-                error: function(err) {
-                    setStatus(configSchemaPartial, 'Error downloading schema ' + err.responseJSON.message);
-                    setTimeout(function() {
-                        setStatus('');
-                    }, 10000);
-                },
-                headers: {
-                    'Accept':'application/schema+json'
-                },
-                method: 'GET',
-                success: function (resp) {
-                    setStatus(configSchemaPartial, 'Saving...');
-                    let blob = new Blob([resp], {type:'text/json'});
-                    saveAs(blob, 'schema.json');
+            apiHelper.downloadSchema('schema.json', product, deviceId, function(err) {
+                if (!err) {
                     setStatus(configSchemaPartial, 'Downloaded!');
                     setTimeout(function() {
                         setStatus('');
-                    }, 4000);
-                },
-                url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl + '?access_token=' + apiHelper.auth.access_token
-            });    
+                    }, 4000);    
+                }
+                else {
+                    setStatus(configSchemaPartial, 'Error downloading schema ' + err);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);
+                }
+            });
         });    
 
         $('.apiHelperConfigSchemaUpload').on('click', function() {
@@ -317,7 +371,35 @@ apiHelper.ready = function() {
             setStatus(configSchemaPartial, 'Select schema to upload...');
 
             $(configSchemaPartial).find('.apiHelperConfigSchemaFileInput').on('change', function() {
-                uploadSchema(this.files[0], configSchemaPartial);
+                const fileList = this.files[0];
+
+                setStatus(configSchemaPartial, 'Saving backup schema...');
+
+                apiHelper.downloadSchema('backup-schema.json', product, deviceId, function(err) {
+                    if (!err) {
+                        setStatus(configSchemaPartial, 'Uploading schema...');
+                        apiHelper.uploadSchemaFile(fileList, product, deviceId, function(err) {
+                            if (!err) {
+                                setStatus(configSchemaPartial, 'Schema uploaded!');
+                                setTimeout(function() {
+                                    setStatus('');
+                                }, 4000);
+                            }
+                            else {
+                                setStatus(configSchemaPartial, 'Error saving schema ' + err);
+                                setTimeout(function() {
+                                    setStatus('');
+                                }, 10000);        
+                            }
+                        });
+                    }
+                    else {
+                        setStatus(configSchemaPartial, 'Error saving backup schema ' + err);
+                        setTimeout(function() {
+                            setStatus('');
+                        }, 10000);
+                    }
+                });
             });
 
             $(configSchemaPartial).find('.apiHelperConfigSchemaFileInput').click();
@@ -381,7 +463,7 @@ apiHelper.ready = function() {
                 console.log('drop');
                 $(configSchemaPartial).css('border-style: none')
 
-                uploadSchema(e.originalEvent.dataTransfer.files[0], configSchemaPartial);
+                //uploadSchema(e.originalEvent.dataTransfer.files[0], configSchemaPartial);
             });
             */
         });
@@ -400,14 +482,17 @@ apiHelper.ready = function() {
                         html += '<option value="' + dev.id + '">' + dev.name + '</option>';
                     });
                     $('.codeboxFlashDeviceSelect').html(html);
+                    $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
+                    
                     if (data.body.length > 0) {
                         $('.codeboxFlashDeviceSelect').on('change', function() {
-                            const containingSpan = $(this).closest('span.codeboxFlashDeviceSpan');
-                            if ($(this).val() != 'select') {
-                                $(containingSpan).find('button').removeAttr('disabled');
+                            const newVal = $(this).val();
+                            $('.codeboxFlashDeviceSelect').val(newVal);
+                            if (newVal != 'select') {
+                                $('.codeboxFlashDeviceButton').removeAttr('disabled');
                             }
                             else {
-                                $(containingSpan).find('button').attr('disabled', 'disabled');      
+                                $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
                             }
                         });
                         $('.codeboxFlashDeviceSpan').show();
