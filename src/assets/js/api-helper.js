@@ -25,10 +25,15 @@ apiHelper.deviceList = function(elems, options) {
     );
 };
 
-apiHelper.flashDevice = function(deviceId, code) {
+apiHelper.flashDevice = function(deviceId, code, codebox) {
     if (!apiHelper.auth) {
         return;
     }
+
+    const setStatus = function(status) {
+        $(codebox).find('.codeboxFlashStatus').html(status);
+    };
+    setStatus('Preparing to flash code...');
 
     let formData = new FormData();
 
@@ -39,12 +44,17 @@ apiHelper.flashDevice = function(deviceId, code) {
         data: formData,
         contentType: false,
         error: function(err) {
-            console.log('error flashing ', err);
+            setTimeout(function() {
+                setStatus('');
+            }, 4000);
         },
         method: 'PUT',
         processData: false,
         success: function (resp) {
-            console.log('flash success', resp);
+            setStatus(resp.message);
+            setTimeout(function() {
+                setStatus('');
+            }, 4000);
         },
         url: 'https://api.particle.io/v1/devices/' + deviceId + "?access_token=" + apiHelper.auth.access_token,
     });    
@@ -115,14 +125,11 @@ apiHelper.ready = function() {
         $('.apiHelperCouldSSO').show();
     }
     else {
-        console.log('requires fake auth');
         $('.apiHelperFakeAuth').show();
     }
 
 
     if ($('.apiHelperFunctionTest').length > 0 && apiHelper.auth) {
-        console.log('running function test');
-
         const refreshDeviceList = function() {
             apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
                 deviceFilter: function(dev) {
@@ -135,15 +142,27 @@ apiHelper.ready = function() {
         }
         refreshDeviceList();
 
+        const setStatus = function(status) {
+            $('.apiHelperLedFunctionTestStatus').html(status);
+        }
+
         const ledControl = function(elem, cmd) {
             const deviceId = elem.find('select').val();
 
+            setStatus('Sending request: ' + cmd);
+
             apiHelper.particle.callFunction({ deviceId, name: 'led', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    console.log('success');
+                    setStatus('Success! (' + data.body.return_value + ')');
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 4000);                
                 },
                 function (err) {
-                    console.log('failure', err);
+                    setStatus('Error: ' + err);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);                
                 }
             );            
         };
@@ -153,18 +172,15 @@ apiHelper.ready = function() {
         });
 
         $('.apiHelperLedFunctionTestOn').on('click', function() {
-            console.log('on button');
             ledControl($(this).closest('div'), 'on');
         });
 
         $('.apiHelperLedFunctionTestOff').on('click', function() {
-            console.log('off button');
             ledControl($(this).closest('div'), 'off');
         });
     }
 
     if ($('.apiHelperConfigSchema').length > 0 && apiHelper.auth) {
-        console.log('has config-schema');
 
         const updateDeviceList = function(parentDiv) {
             const product = $(parentDiv).find('.apiHelperConfigSchemaProductSelect').val();
@@ -173,7 +189,6 @@ apiHelper.ready = function() {
             apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product:product }).then(
                 function(data) {
                     let html = '<option value="default">Product Default</option>';
-                    console.log('data', data);
                     data.body.devices.forEach(function(dev) {
                         html += '<option value="' + dev.id + '">' + dev.name + '</option>';
                     });
@@ -191,11 +206,10 @@ apiHelper.ready = function() {
                 'access_token': apiHelper.auth.access_token
             },
             error: function(err) {
-                console.log('getting getting schema ', err);
+                console.log('getting getting list of products ', err);
             },
             method: 'GET',
             success: function (resp) {
-                // console.log('get products', resp.products);
                 let html = '';
                 resp.products.forEach(function(prod) {
                     if (prod.platform_id == 26) {
@@ -210,7 +224,6 @@ apiHelper.ready = function() {
                 $('.apiHelperConfigSchemaProductSelect').html(html);
 
                 $('.apiHelperConfigSchemaProductSelect').each(function(index) {
-                    // console.log('selector ', $(this));
 
                     const parentDiv = $(this).closest('div');
                     
@@ -226,17 +239,24 @@ apiHelper.ready = function() {
             url: 'https://api.particle.io/v1/user/products',
         });
 
-        const uploadSchema = function(file, product, deviceId) {
+        const setStatus = function(configSchemaPartial, status) {
+            $(configSchemaPartial).find('.apiHelperConfigSchemaStatus').html(status);
+        };
+
+        const uploadSchema = function(file, configSchemaPartial) {
+            const product = $(configSchemaPartial).find('.apiHelperConfigSchemaProductSelect').val();
+            const deviceId = $(configSchemaPartial).find('.apiHelperConfigSchemaDeviceSelect').val();
             const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
+
+            setStatus(configSchemaPartial, 'Preparing upload...');
 
             let fileReader = new FileReader();
             fileReader.onload = function() {
-                // console.log('file loaded ', fileReader.result);
 
                 $.ajax({
                     data: fileReader.result,
                     error: function(err) {
-                        console.log('error uploading schema ', err);
+                        setStatus(configSchemaPartial, 'Error uploading schema ' + err.responseJSON.message);
                     },
                     headers: {
                         'Authorization':'Bearer ' + apiHelper.auth.access_token,
@@ -245,7 +265,10 @@ apiHelper.ready = function() {
                     method: 'PUT',
                     processData: false,
                     success: function (resp) {
-                        console.log('upload success', resp);
+                        setStatus(configSchemaPartial, 'Successfully uploaded schema!');
+                        setTimeout(function() {
+                            setStatus('');
+                        }, 4000);
                     },
                     url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
                 }); 
@@ -260,18 +283,28 @@ apiHelper.ready = function() {
             const deviceId = $(configSchemaPartial).find('.apiHelperConfigSchemaDeviceSelect').val();
             const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
 
+            setStatus(configSchemaPartial, 'Downloading...');
+
             $.ajax({
                 dataType: 'text',
                 error: function(err) {
-                    console.log('error getting schema ', err);
+                    setStatus(configSchemaPartial, 'Error downloading schema ' + err.responseJSON.message);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);
                 },
                 headers: {
                     'Accept':'application/schema+json'
                 },
                 method: 'GET',
                 success: function (resp) {
+                    setStatus(configSchemaPartial, 'Saving...');
                     let blob = new Blob([resp], {type:'text/json'});
                     saveAs(blob, 'schema.json');
+                    setStatus(configSchemaPartial, 'Downloaded!');
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 4000);
                 },
                 url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl + '?access_token=' + apiHelper.auth.access_token
             });    
@@ -282,9 +315,10 @@ apiHelper.ready = function() {
             const product = $(configSchemaPartial).find('.apiHelperConfigSchemaProductSelect').val();
             const deviceId = $(configSchemaPartial).find('.apiHelperConfigSchemaDeviceSelect').val();
 
+            setStatus(configSchemaPartial, 'Select schema to upload...');
+
             $(configSchemaPartial).find('.apiHelperConfigSchemaFileInput').on('change', function() {
-                console.log('file selected!', this.files);
-                uploadSchema(this.files[0], product, deviceId);
+                uploadSchema(this.files[0], configSchemaPartial);
             });
 
             $(configSchemaPartial).find('.apiHelperConfigSchemaFileInput').click();
@@ -297,10 +331,16 @@ apiHelper.ready = function() {
             const deviceId = $(configSchemaPartial).find('.apiHelperConfigSchemaDeviceSelect').val();
             const deviceIdUrl = (deviceId == 'default') ? '' : '/' + deviceId; 
 
+            setStatus(configSchemaPartial, 'Restoring default schema...');
+
             $.ajax({
                 data: '{}',
                 error: function(err) {
-                    console.log('error deleting schema ', err);
+                    // console.log('err', err);
+                    setStatus(configSchemaPartial, 'Error deleting schema: ' + err.responseJSON.message + '.<br/>This is normal if there is no custom schema defined.');
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);
                 },
                 headers: {
                     'Authorization':'Bearer ' + apiHelper.auth.access_token,
@@ -308,24 +348,54 @@ apiHelper.ready = function() {
                 },
                 method: 'DELETE',
                 success: function (resp) {
-                    console.log('delete success', resp);
+                    setStatus(configSchemaPartial, 'Successfully restored.');
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 4000);
                 },
                 url: 'https://api.particle.io/v1/products/' + product + '/config' + deviceIdUrl
             });    
         });    
+
+        $('div.apiHelperConfigSchema').each(function(index) {
+            const configSchemaPartial = $(this);
+
+            $(this).on('dragenter', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                console.log('drag enter');
+                $(configSchemaPartial).css('border-style: dotted; border-width: 5px')
+            });
+            $(this).on('dragover', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            $(this).on('dragleave', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                console.log('drag leave');
+                $(configSchemaPartial).css('border-style: none')
+            });
+            $(this).on('drop', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                console.log('drop');
+                $(configSchemaPartial).css('border-style: none')
+
+                uploadSchema(e.originalEvent.dataTransfer.files[0], configSchemaPartial);
+            });
+        });
         
     }
 
     if ($('.codeboxFlashDeviceSpan').length > 0) {
         
-        console.log('has flash device');
         $('.codeboxFlashDeviceSpan').hide();
 
         if (apiHelper.auth) {
             apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
                 function(data) {
                     let html = '<option value="select" selected>Select Device</option>';
-                    console.log('data', data);
                     data.body.forEach(function(dev) {
                         html += '<option value="' + dev.id + '">' + dev.name + '</option>';
                     });

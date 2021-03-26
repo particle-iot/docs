@@ -133,7 +133,6 @@ function codeboxOpenWebIDE(appid) {
 
 function codeboxFlash(id) {	
 	const codebox = $('#' + id).closest('div.codebox');
-	console.log('codebox ', codebox);
 
 	const device = $(codebox).find('select.codeboxFlashDeviceSelect').val();
 	if (!device || device == 'select') {
@@ -150,5 +149,5 @@ function codeboxFlash(id) {
 
 	const code = $('#' + id).text();
 
-	apiHelper.flashDevice(device, code);
+	apiHelper.flashDevice(device, code, codebox);
 }

@@ -22,7 +22,7 @@ module.exports = function(context) {
 
     html += '</p><div class="codebox"><div class="codeboxBanner"><div class="codeboxBannerBox">';
 
-    html += '<button type="button" onclick="codeboxDownload(\'' + content + '\')">Download</button> &nbsp;';
+    html += '<div><button type="button" onclick="codeboxDownload(\'' + content + '\')">Download</button> &nbsp;';
     
     html += '<button type="button" onclick="codeboxCopy(\'' + id + '\')">Copy to Clipboard</button> &nbsp;';
 
@@ -36,6 +36,7 @@ module.exports = function(context) {
         html += '<button type="button" onclick="codeboxFlash(\'' + id + '\')" disabled>Flash</button> &nbsp;';
         html += '</span>'
     }
+    html += '</div><div class="codeboxFlashStatus"></div>';    
 
     html += '</div></div><div style="height:' + height + 'px; overflow:scroll;">';
 
