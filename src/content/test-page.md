@@ -32,15 +32,20 @@ This is the v11 + engine schema test:
 
 ## Event Viewer #1
 
-{{> event-viewer height="500"}}
+{{> sso }}
+{{> event-viewer height="500" style="table"}}
 
 
 ## Publish Event
 
 ## Call Function
 
+{{> device-function}}
+
+
 ## Get Variable
 
+{{> device-variable}}
 
 ## Codebox Flash 
 
@@ -50,4 +55,4 @@ This is the sensor page firmware that publishes a value
 
 ## Event Viewer #2
 
-{{> event-viewer height="300"}}
+{{> event-viewer height="300" style="table"}}

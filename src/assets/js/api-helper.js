@@ -358,7 +358,7 @@ apiHelper.ready = function() {
     }
 
 
-    if ($('.apiHelperFunctionTest').length > 0 && apiHelper.auth) {
+    if ($('.apiHelperLedFunctionTest').length > 0 && apiHelper.auth) {
         apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
             deviceFilter: function(dev) {
                 return dev.functions.includes("led");
@@ -402,6 +402,58 @@ apiHelper.ready = function() {
             ledControl($(this).closest('div'), 'off');
         });
     }
+
+    if ($('.apiHelperColorFunctionTest').length > 0 && apiHelper.auth) {
+        apiHelper.deviceList($('.apiHelperColorFunctionTestSelect'), {
+            deviceFilter: function(dev) {
+                return dev.functions.includes("setColor");
+            },
+            getTitle: function(dev) {
+                return dev.name + (dev.online ? '' : ' (offline)');
+            },
+            hasRefresh: true
+        });    
+
+
+        const ledControl = function(elem, cmd) {
+            const deviceId = elem.find('select').val();
+
+            const setStatus = function(status) {
+                $(elem).find('.apiHelperColorFunctionTestStatus').html(status);
+            }
+    
+            setStatus('Sending request: ' + cmd);
+
+            apiHelper.particle.callFunction({ deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
+                function (data) {
+                    setStatus('Success! (' + data.body.return_value + ')');
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 4000);                
+                },
+                function (err) {
+                    setStatus('Error: ' + err);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);                
+                }
+            );            
+        };
+
+        $('.apiHelperColorFunctionTestSend').on('click', function() {
+            const parent = $(this).closest('div.apiHelperColorFunctionTest');
+
+            const color = $(parent).find('.apiHelperColorFunctionTestColor').val();
+            const red = parseInt(color.substr(1, 2), 16);
+            const green = parseInt(color.substr(3, 2), 16);
+            const blue = parseInt(color.substr(5, 2), 16);
+
+            ledControl(parent, red + ',' + green + ',' + blue);
+        });
+
+    }
+    
+
 
     if (($('.apiHelperConfigSchema').length > 0 || $('.codeboxConfigSchemaSpan').length > 0) && apiHelper.auth) {
         // 
@@ -476,6 +528,8 @@ apiHelper.ready = function() {
 
         $('.apiHelperConfigSchemaDownload').on('click', function(ev) {
             const configSchemaPartial = $(this).closest('div.apiHelperConfigSchema');
+            const product = $(configSchemaPartial).find('.apiHelperConfigSchemaProductSelect').val();
+            const deviceId = $(configSchemaPartial).find('.apiHelperConfigSchemaDeviceSelect').val();
 
             apiHelper.downloadSchema('schema.json', product, deviceId, function(err) {
                 if (!err) {
@@ -647,6 +701,135 @@ apiHelper.ready = function() {
         });
 
     }
+
+    if ($('.apiHelperDeviceFunction').length > 0 && apiHelper.auth) {
+        apiHelper.deviceList($('.apiHelperDeviceFunctionDeviceSelect'), {
+            deviceFilter: function(dev) {
+                return dev.functions && dev.functions.length > 0;
+            },
+            getTitle: function(dev) {
+                return dev.name + (dev.online ? '' : ' (offline)');
+            },
+            hasRefresh: true,
+            hasSelectDevice: true,
+            onChange: function(elem) {
+                const deviceId = $(elem).val();
+
+                const functionPartial = $(elem).closest('div.apiHelperDeviceFunction');
+
+                const functionSelect = $(functionPartial).find('.apiHelperDeviceFunctionFunctionSelect');
+
+                const functionButton = (functionPartial).find('.apiHelperDeviceFunctionCall');
+
+                $(functionSelect).html('');
+                $(functionButton).attr('disabled', 'disabled');
+
+                apiHelper.deviceListCache.forEach(function(dev) {
+                    if (dev.id == deviceId) {
+                        dev.functions.forEach(function(fn) {
+                            $(functionSelect).append('<option name="' + fn + '">' + fn + '</option>');
+                            $(functionButton).removeAttr('disabled');
+                        });
+                    }
+                });
+            }
+        });    
+
+        $('.apiHelperDeviceFunctionCall').on('click', function() {
+            const functionPartial = $(this).closest('div.apiHelperDeviceFunction');
+
+            const deviceId = $(functionPartial).find('.apiHelperDeviceFunctionDeviceSelect').val();
+            const functionName = $(functionPartial).find('.apiHelperDeviceFunctionFunctionSelect').val();
+            const arg = $(functionPartial).find('.apiHelperDeviceFunctionArg').val();
+
+            const setStatus = function(status) {
+                $(functionPartial).find('.apiHelperDeviceFunctionStatus').html(status);
+            }
+    
+            setStatus('Making function call ' + functionName + ': ' + arg);
+
+            apiHelper.particle.callFunction({ deviceId, name: functionName, argument: arg, auth: apiHelper.auth.access_token  }).then(
+                function (data) {
+                    setStatus('Success! (' + data.body.return_value + ')');
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 4000);                
+                },
+                function (err) {
+                    setStatus('Error: ' + err);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);                
+                }
+            );            
+    
+        });
+
+    }
+
+
+    if ($('.apiHelperDeviceVariable').length > 0 && apiHelper.auth) {
+        apiHelper.deviceList($('.apiHelperDeviceVariableDeviceSelect'), {
+            deviceFilter: function(dev) {
+                return dev.variables && Object.keys(dev.variables).length > 0;
+            },
+            getTitle: function(dev) {
+                return dev.name + (dev.online ? '' : ' (offline)');
+            },
+            hasRefresh: true,
+            hasSelectDevice: true,
+            onChange: function(elem) {
+                const deviceId = $(elem).val();
+
+                const variablePartial = $(elem).closest('div.apiHelperDeviceVariable');
+
+                const variableSelect = $(variablePartial).find('.apiHelperDeviceVariableVariableSelect');
+
+                const variableGetButton = (variablePartial).find('.apiHelperDeviceVariableGet');
+
+                $(variableSelect).html('');
+                $(variableGetButton).attr('disabled', 'disabled');
+
+                apiHelper.deviceListCache.forEach(function(dev) {
+                    if (dev.id == deviceId) {
+                        Object.keys(dev.variables).forEach(function(v) {
+                            $(variableSelect).append('<option name="' + v + '">' + v + '</option>');
+                            $(variableGetButton).removeAttr('disabled');
+                        });
+                    }
+                });
+            }
+        });    
+
+        $('.apiHelperDeviceVariableGet').on('click', function() {
+            const variablePartial = $(this).closest('div.apiHelperDeviceVariable');
+
+            const deviceId = $(variablePartial).find('.apiHelperDeviceVariableDeviceSelect').val();
+            const variableName = $(variablePartial).find('.apiHelperDeviceVariableVariableSelect').val();
+
+            const setStatus = function(status) {
+                $(variablePartial).find('.apiHelperDeviceVariableStatus').html(status);
+            }
+    
+            setStatus('Getting Variable ' + variableName);
+
+            apiHelper.particle.getVariable({ deviceId, name: variableName, auth: apiHelper.auth.access_token  }).then(
+                function (data) {
+                    console.log('data', data);
+                    setStatus(data.body.result);
+                },
+                function (err) {
+                    setStatus('Error: ' + err);
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 10000);                
+                }
+            );            
+    
+        });
+
+    }
+    
 };
 
 $(document).ready(function() {
