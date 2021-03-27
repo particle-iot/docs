@@ -1,0 +1,54 @@
+<div class="apiHelper apiHelperEventViewer">
+    <div class="apiHelperBox">
+        <div class="apiHelperEventViewerControls" style="display:none;">
+            <p><span><input type="checkbox" class="apiHelperEventViewerEnable" />
+                <label>Enabled</label></span> &nbsp;
+                Filter: <input type="text" class="apiHelperEventViewerFilter" size="15" /> &nbsp;
+                Device: <select class="apiHelperEventViewerDeviceSelect apiHelperSelect"></select>
+            </p>
+        </div>
+        <div class="apiHelperEventViewerStatus"></div>
+        <div class="apiHelperEventViewerOutput" style="height: {{height}}px; overflow:scroll;">
+            <table class="apiHelperEventTable">
+                <thead>
+                    <th class="apiHelperEventViewerEvent">Event</th>
+                    <th class="apiHelperEventViewerData">Data</th>
+                    <th class="apiHelperEventViewerDevice">Device</th>
+                    <th class="apiHelperEventViewerTime">Time</th>
+                </thead>
+                <tbody>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!--
+
+            <p><input type="checkbox" class="apiHelperEventViewerTimestamp" />
+                <label>Show timestamp</label> &nbsp;
+                Show Device: <select class="apiHelperEventViewerShowDeviceSelect apiHelperSelect">
+                    <option name="name">Name</option>
+                    <option name="id">Device ID</option>
+                    <option name="hide">Hide</option>
+                </select> &nbsp;
+                <input type="checkbox" class="apiHelperEventViewerDecode" />
+                <label>Decode JSON</label> &nbsp;
+                <button class="apiHelperEventViewerClear">Clear History</button>
+            </p>
+
+
+            <p>Product: <select class="apiHelperConfigSchemaProductSelect apiHelperSelect"></select> &nbsp;
+        Device: <select class="apiHelperConfigSchemaDeviceSelect apiHelperSelect"></select></p>
+
+        <p><button class="apiHelperConfigSchemaDownload apiHelperButton">Download Schema</button>&nbsp;&nbsp;
+            <input type="file" class="apiHelperConfigSchemaFileInput" accept="*.json" style="display:none">
+            <button class="apiHelperConfigSchemaUpload apiHelperButton">Upload Schema</button>&nbsp;&nbsp;
+            <button class="apiHelperConfigSchemaDefault apiHelperButton">Restore Default Schema</button>&nbsp;&nbsp;
+        </p>
+
+[ ] Show timestamp   Show device : | Name   v | 
+[ ] Decode JSON   [ Clear History ]
+
+-->

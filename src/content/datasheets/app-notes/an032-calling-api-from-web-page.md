@@ -504,7 +504,7 @@ long and is incredibly unwieldy when sitting on my desk.
 
 ### Device Firmware
 
-{{codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500"}}
+{{codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500" flash="true"}}
 
 A few things to note in this firmware:
 

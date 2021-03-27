@@ -28,3 +28,26 @@ description: Test Page
 This is the v11 + engine schema test:
 
 {{codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}
+
+
+## Event Viewer #1
+
+{{> event-viewer height="500"}}
+
+
+## Publish Event
+
+## Call Function
+
+## Get Variable
+
+
+## Codebox Flash 
+
+This is the sensor page firmware that publishes a value
+
+{{codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500" flash="true"}}
+
+## Event Viewer #2
+
+{{> event-viewer height="300"}}

@@ -3,27 +3,101 @@
 
 let apiHelper = {};
 
+
+apiHelper.deviceListRefreshCallbacks = [];
+
+apiHelper.deviceListRefresh = function(next) {
+    if (apiHelper.fetchInProgress) {
+        return;
+    }
+
+    console.log('fetching device list');
+    apiHelper.fetchInProgress = true;
+
+    apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
+        function(data) {
+            apiHelper.deviceListCache = data.body;
+
+            apiHelper.deviceIdToName = {};
+            apiHelper.deviceListCache.forEach(function(dev) {
+                apiHelper.deviceIdToName[dev.id] = dev.name;
+            });
+
+            apiHelper.deviceListRefreshCallbacks.forEach(function(callback) {
+                callback();
+            });
+            apiHelper.fetchInProgress = false;
+            next();
+        },
+        function(err) {
+            apiHelper.fetchInProgress = false;
+            next(err);
+        }
+    );    
+};
+
 apiHelper.deviceList = function(elems, options) {
     if (!options) {
         options = {};
     }
-    apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
-        function(data) {
-            let html = '';
-            data.body.forEach(function(dev) {
-                if (!options.deviceFilter || options.deviceFilter(dev)) {
-                    const value = options.getValue ? options.getValue(dev) : dev.id;
-                    const title = options.getTitle ? options.getTitle(dev) : dev.name;
-                    html += '<option value="' + value + '">' + title + '</option>';
-                }
-            });
-            elems.html(html);
-        },
-        function(err) {
-
+    
+    const updateList = function() {
+        let html = '';
+        if (options.hasAllDevices) {
+            const title = options.allDevicesTitle || 'All Devices';
+            html += '<option value="all">' + title + '</option>';
         }
-    );
+        if (options.hasSelectDevice) {
+            const title = options.selectDeviceTitle || 'Select Device';
+            html += '<option value="select">' + title + '</option>';
+        }
+        if (options.hasRefresh) {
+            const title = options.refreshTitle || 'Refresh Device List';
+            html += '<option value="refresh">' + title + '</option>';
+        }
+
+        let first = true;
+
+        apiHelper.deviceListCache.forEach(function(dev, index) {
+            if (!options.deviceFilter || options.deviceFilter(dev)) {
+                const value = options.getValue ? options.getValue(dev) : dev.id;
+                const title = options.getTitle ? options.getTitle(dev) : dev.name;
+                const sel = ((!options.hasSelectDevice) && !options.hasAllDevices && first) ? ' selected' : '';
+                first = false;
+
+                html += '<option value="' + value + '"' + sel + '>' + title + '</option>';
+            }
+        });
+        if (apiHelper.deviceListCache.length == 0) {
+            const title = options.noDevicesTitle || 'No devices in this account';
+            html += '<option value="none">' + title + '</option>';
+        }
+
+        elems.html(html);
+    };
+
+    apiHelper.deviceListRefreshCallbacks.push(updateList);
+    
+    if (apiHelper.deviceListCache) {
+        updateList();
+    }
+    else {
+        apiHelper.deviceListRefresh(function() {
+        });
+    }
+
+    $(elems).on('change', function() {
+        const val = $(this).val();
+        if (val == 'refresh') {
+            updateList();        
+        }
+        if (options.onChange) {
+            options.onChange($(this));
+        }
+    });
 };
+
+
 
 apiHelper.flashDevice = function(deviceId, code, codebox) {
     if (!apiHelper.auth) {
@@ -156,6 +230,68 @@ apiHelper.downloadSchema = function(filename, product, deviceId, next) {
     });    
 };
 
+apiHelper.eventViewer = {};
+
+apiHelper.eventViewer.events = [];
+
+apiHelper.eventViewer.addRow = function(eventViewerElem, event) {
+    const deviceFilter = $(eventViewerElem).find('.apiHelperEventViewerDeviceSelect').val();
+    if (deviceFilter != 'all' && deviceFilter != event.coreid) {
+        return;
+    }
+    const eventFilter = $(eventViewerElem).find('.apiHelperEventViewerFilter').val();
+    if (eventFilter != '' && !event.name.startsWith(eventFilter)) {
+        return;
+    }
+
+    let deviceName = apiHelper.deviceIdToName[event.coreid];
+    if (!deviceName) {
+        deviceName = event.coreid;
+    }
+
+    const time = event.published_at.replace('T', ' ');
+
+    let html = '<tr>';
+    html += '<td class="apiHelperEventViewerEvent">' + event.name + '</td>';
+    html += '<td class="apiHelperEventViewerData">' + event.data + '</td>';
+    html += '<td class="apiHelperEventViewerDevice">' + deviceName + '</td>';
+    html += '<td class="apiHelperEventViewerTime">' + time + '</td>';
+    html += '</tr>';
+
+    $(eventViewerElem).find('.apiHelperEventViewerOutput > table > tbody').append(html);
+};
+
+apiHelper.eventViewer.event = function(event) {
+    apiHelper.eventViewer.events.push(event);
+
+    $('.apiHelperEventViewer').each(function(index) {
+        if ($(this).find('.apiHelperEventViewerEnable').prop('checked')) {
+            apiHelper.eventViewer.addRow($(this), event);
+        }
+    });
+};
+
+apiHelper.eventViewer.updateFilter = function(elem) {
+    const eventViewerElem = $(elem).closest('div.apiHelperEventViewer');
+
+    $(eventViewerElem).find('.apiHelperEventViewerOutput > table > tbody').html('');
+    apiHelper.eventViewer.events.forEach(function(event) {
+        apiHelper.eventViewer.addRow(eventViewerElem, event);
+    });
+};
+
+apiHelper.eventViewer.start = function(elem) {
+    if (!apiHelper.eventViewer.stream) {
+        apiHelper.particle.getEventStream({ deviceId: 'mine', auth: apiHelper.auth.access_token }).then(function(stream) {
+            apiHelper.eventViewer.stream = stream;
+            
+            stream.on('event', function(data) {
+                apiHelper.eventViewer.event(data);
+            });
+        });
+    }
+};
+
 
 apiHelper.ready = function() {
     apiHelper.auth = null;
@@ -223,17 +359,15 @@ apiHelper.ready = function() {
 
 
     if ($('.apiHelperFunctionTest').length > 0 && apiHelper.auth) {
-        const refreshDeviceList = function() {
-            apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
-                deviceFilter: function(dev) {
-                    return dev.functions.includes("led");
-                },
-                getTitle: function(dev) {
-                    return dev.name + (dev.online ? '' : ' (offline)');
-                }
-            });    
-        }
-        refreshDeviceList();
+        apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
+            deviceFilter: function(dev) {
+                return dev.functions.includes("led");
+            },
+            getTitle: function(dev) {
+                return dev.name + (dev.online ? '' : ' (offline)');
+            },
+            hasRefresh: true
+        });    
 
         const setStatus = function(status) {
             $('.apiHelperLedFunctionTestStatus').html(status);
@@ -259,10 +393,6 @@ apiHelper.ready = function() {
                 }
             );            
         };
-
-        $('.apiHelperLedFunctionRefresh').on('click', function() {
-            refreshDeviceList();
-        });
 
         $('.apiHelperLedFunctionTestOn').on('click', function() {
             ledControl($(this).closest('div'), 'on');
@@ -438,70 +568,83 @@ apiHelper.ready = function() {
             });    
         });    
 
-        $('div.apiHelperConfigSchema').each(function(index) {
-            const configSchemaPartial = $(this);
-            /*
-            $(this).on('dragenter', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                console.log('drag enter');
-                $(configSchemaPartial).css('border-style: dotted; border-width: 5px')
-            });
-            $(this).on('dragover', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-            });
-            $(this).on('dragleave', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                console.log('drag leave');
-                $(configSchemaPartial).css('border-style: none')
-            });
-            $(this).on('drop', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                console.log('drop');
-                $(configSchemaPartial).css('border-style: none')
-
-                //uploadSchema(e.originalEvent.dataTransfer.files[0], configSchemaPartial);
-            });
-            */
-        });
-        
     }
 
     if ($('.codeboxFlashDeviceSpan').length > 0) {
         
-        $('.codeboxFlashDeviceSpan').hide();
 
         if (apiHelper.auth) {
-            apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
-                function(data) {
-                    let html = '<option value="select" selected>Select Device</option>';
-                    data.body.forEach(function(dev) {
-                        html += '<option value="' + dev.id + '">' + dev.name + '</option>';
-                    });
-                    $('.codeboxFlashDeviceSelect').html(html);
-                    $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
-                    
-                    if (data.body.length > 0) {
-                        $('.codeboxFlashDeviceSelect').on('change', function() {
-                            const newVal = $(this).val();
-                            $('.codeboxFlashDeviceSelect').val(newVal);
-                            if (newVal != 'select') {
-                                $('.codeboxFlashDeviceButton').removeAttr('disabled');
-                            }
-                            else {
-                                $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
-                            }
-                        });
-                        $('.codeboxFlashDeviceSpan').show();
-                    }
+            $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
+            $('.codeboxFlashDeviceSpan').show();
+
+            apiHelper.deviceList($('.codeboxFlashDeviceSelect'), {
+                getTitle: function(dev) {
+                    return dev.name + (dev.online ? '' : ' (offline)');
                 },
-                function(err) {        
+                hasRefresh: true,
+                hasSelectDevice: true,
+                onChange: function(elem) {
+                    const newVal = $(elem).val();
+                    $('.codeboxFlashDeviceSelect').val(newVal);
+                    if (newVal != 'select') {
+                        $('.codeboxFlashDeviceButton').removeAttr('disabled');
+                    }
+                    else {
+                        $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
+                    }            
                 }
-            );        
+            });    
+
+   
         }
+        else {
+            $('.codeboxFlashDeviceSpan').hide();
+        }
+
+    }
+
+    if ($('.apiHelperEventViewer').length > 0) {
+        if (!apiHelper.auth) {
+            $('.apiHelperEventViewerStatus').text('Log in to view events');
+            $('.apiHelperEventViewerControls').hide();
+            return;
+        }
+
+        console.log('has event viewer');
+
+        $('.apiHelperEventViewerControls').show();
+
+        apiHelper.deviceList($('.apiHelperEventViewerDeviceSelect'), {
+            getTitle: function(dev) {
+                return dev.name + (dev.online ? '' : ' (offline)');
+            },
+            hasAllDevices: true,
+            hasRefresh: true,
+            onChange: function(elem) {
+                const newVal = $(elem).val();
+            }
+        });    
+
+        $('.apiHelperEventViewerEnable').each(function(index) {
+            const parentSpan =  $(this).closest('span');
+            const id = 'apiHelperEventViewerEnableCheckbox' + index;
+            $(this).attr('id', id);
+            $(parentSpan).find('label').attr('for', id);
+        });
+        
+        $('.apiHelperEventViewerEnable').change(function() {
+            if (this.checked) {
+                apiHelper.eventViewer.start(this);
+            }
+        });
+
+        $('.apiHelperEventViewerDeviceSelect').change(function() {
+            apiHelper.eventViewer.updateFilter(this);
+        });
+
+        $('.apiHelperEventViewerFilter').on('input', function() {
+            apiHelper.eventViewer.updateFilter(this);
+        });
 
     }
 };
