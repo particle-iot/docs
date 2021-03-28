@@ -4,7 +4,7 @@ order: 12
 columns: two
 layout: tutorials.hbs
 description: Using JSON with Particle Devices
-includeDefinitions: [codemirror,api-helper-json]
+includeDefinitions: [api-helper,api-helper-json,codemirror]
 ---
 
 # JSON (JavaScript Object Notation)
@@ -30,14 +30,14 @@ Commonly used data types include:
 - Boolean (`true` or `false`)
 - `null` (less commonly used)
 
-You can group together data types in an object, which consist of key - value pairs, or
+You can group together data types in an object, which consist of key/value pairs, or
 an array of just values.
 
 Objects and arrays can contain both simple types (number, string) as well as more objects
 or arrays. Nested objects are allowed, but you cannot represent circular data objects.
 
-The use of key - value pairs is helpful for client-server and similar situations because 
-you can easily add new data (more key - value pairs) later without breaking things as long 
+The use of key/value pairs is helpful for client-server and similar situations because 
+you can easily add new data (more key/value pairs) later without breaking things as long 
 as both sides ignore keys they don't understand. 
 
 
@@ -47,23 +47,23 @@ Here's a JSON object containing a key `a` and a value `123`:
 
 ```json
 {
-    "a":123
+  "a":123
 }
-```
-
-The whitespace and multiple lines are optional, and this is equivalent:
-
-```json
-{"a":123}
 ```
 
 Multiple values are separated by commas:
 
 ```json
 {
-    "a":123,
-    "b":456
+  "a": 123,
+  "b": 456
 }
+```
+
+The whitespace and multiple lines are optional, and this is equivalent:
+
+```json
+{"a":123,"b":456}
 ```
 
 The keys are always surrounded by double quotes. If you're familiar with Javascript JSON will 
@@ -76,7 +76,7 @@ Numbers can be decimal as well as integer:
 
 ```json
 {
-    "value":33.333,
+  "value":33.333
 }
 ```
 
@@ -88,7 +88,7 @@ As you might guess, strings are also surrounded by double quotes:
 
 ```json
 {
-    "value":"this is a test",
+  "value":"this is a test"
 }
 ```
 
@@ -96,7 +96,7 @@ What happens if you need to include a double quote in a JSON value? You escape i
 
 ```json
 {
-    "value":"Call me \"Al\"",
+  "value":"Call me \"Al\""
 }
 ```
 
@@ -104,7 +104,7 @@ But what if you want to encode a backslash? You double it.
 
 ```json
 {
-    "value":"Ends with a backlash\\",
+  "value":"Ends with a backlash\\"
 }
 ```
 
@@ -137,10 +137,12 @@ And you can include an array in an object:
 
 ```json
 {
-    "a":[
-        1, 2, 3
-    ],
-    "b":"testing!"
+  "a": [
+    1,
+    2,
+    3
+  ],
+  "b": "testing!"
 }
 ```
 
@@ -150,14 +152,14 @@ You can nest objects and arrays as deeply as you want:
 
 ```json
 {
-    "a":{
-        "inner1":123,
-        "inner2":456,
-        "innerArray":[
-            555.5,
-            666.6
-        ]
-    }
+  "a": {
+    "inner1": 123,
+    "inner2": 456,
+    "innerArray": [
+      555.5,
+      666.6
+    ]
+  }
 }
 ```
 
@@ -174,4 +176,21 @@ in a text-based format and store it in a string. Some formats you might want to 
 
 ## Try It!
 
+Try copying and pasting the examples above or your own JSON file into the box below.
+
 {{> json-linter rows="10" cols="60"}}
+
+If there is a syntax error, there will be a red x in a circle on the line with the syntax error.
+
+- The **Prettify** button reformats the JSON to be one key/value pair per line, which is easier to read. This only works if the JSON is valid.
+- The **Compact** button removes the excess whitespace and converts everything to a single line. This only works if the JSON is valid.
+- The **Stringify** button converts JSON into a string, escaping the double quotes. 
+- The **Unstringify** button converts a string back into JSON, removing the escaping.
+
+Try some other experiments:
+
+- The four buttons are mostly non-destructive so try them out!
+- Try adding a trailing comma after the last array element. It should generate a syntax error.
+- Try adding a key not in double quotes. It should generate a syntax error.
+- Try using single quotes instead of double quotes. It should generate a syntax error.
+

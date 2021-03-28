@@ -1,4 +1,12 @@
 <div class="apiHelper apiHelperJsonLinter">
-    <textarea rows="{{rows}}" cols="{{cols}}">
-    </textarea>
+    <div class="apiHelperBox">
+        <p><button class="apiHelperJsonLinterPrettifyButton apiHelperButton">Prettify</button> &nbsp;
+            <button class="apiHelperJsonLinterCompactButton apiHelperButton">Compact</button> &nbsp;
+            <button class="apiHelperJsonLinterStringifyButton apiHelperButton">Stringify</button> &nbsp;
+            <button class="apiHelperJsonLinterUnstringifyButton apiHelperButton">Unstringify</button> &nbsp;</p>
+        <div class="apiHelperDeviceFunctionStatus"></div>
+    </div>
+    <div class="apiHelperJsonLinterEditor">
+        <textarea rows="{{rows}}" cols="{{cols}}">{{defaultValue}}</textarea>
+    </div>
 </div>

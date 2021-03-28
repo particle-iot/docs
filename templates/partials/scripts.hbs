@@ -32,13 +32,6 @@
 <script src='/assets/js/collapse.js'></script>
 <script src='/assets/js/fonts-license.js'></script>
 
-{{#contains includeDefinitions 'codemirror'}}
-<script src="/assets/files/codemirror/codemirror.js"></script>
-<script src="/assets/files/codemirror/javascript.js"></script>
-<script src="/assets/files/codemirror/lint.js"></script>
-<script src="/assets/files/codemirror/json-lint.js"></script>
-{{/contains}}
-
 {{#contains includeDefinitions 'api-helper'}}
 <script src="/assets/js/particle.min.js"></script>
 <script src="/assets/js/FileSaver.min.js"></script>
@@ -58,6 +51,14 @@
 {{/contains}}
 {{#contains includeDefinitions 'api-helper-json'}}
 <script src='/assets/js/api-helper-json.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'codemirror'}}
+<script src="/assets/files/codemirror/codemirror.js"></script>
+<script src="/assets/files/codemirror/jshint.js"></script>
+<script src="/assets/files/codemirror/jsonlint.js"></script>
+<script src="/assets/files/codemirror/javascript.js"></script>
+<script src="/assets/files/codemirror/lint.js"></script>
+<script src="/assets/files/codemirror/json-lint.js"></script>
 {{/contains}}
 
 
