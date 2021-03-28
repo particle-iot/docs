@@ -8,12 +8,27 @@ $(document).ready(function() {
     apiHelper.jsonLinterCodeMirror = [];
 
     $('.apiHelperJsonLinter').each(function(index) {
-        $(this).attr('data-index', index);
+        const parentElem = $(this);
+        $(parentElem).attr('data-index', index);
         
-        let codeMirror = CodeMirror.fromTextArea($(this).find('textarea')[0], {
+        let codeMirror = CodeMirror.fromTextArea($(parentElem).find('textarea')[0], {
             gutters: ["CodeMirror-lint-markers"],
             lineNumbers: true,
-            lint: true,
+            lint: {
+                "getAnnotations": function(cm, updateLinting, options) {
+                    const errors = CodeMirror.lint.json(cm);
+
+                    if (errors.length == 0) {
+                        $(parentElem).find('.apiHelperJsonLinterValidOnlyButton').removeAttr('disabled');
+                    }
+                    else {
+                        $(parentElem).find('.apiHelperJsonLinterValidOnlyButton').attr('disabled', 'disabled');
+                    }
+
+                    updateLinting(errors);
+                },
+                "async": true
+            },
             mode: "application/json", 
             json: true
         });

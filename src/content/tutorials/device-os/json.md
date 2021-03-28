@@ -174,23 +174,29 @@ in a text-based format and store it in a string. Some formats you might want to 
 - Base 64
 - Base 85 (Ascii85)
 
-## Try It!
+### Try It!
 
-Try copying and pasting the examples above or your own JSON file into the box below.
+Enter JSON in the box below to validate it. If there is a syntax error, there will be a red x in a circle 
+on the line with the syntax error.
+ 
+{{> json-linter rows="10" cols="60" defaultValue="{\"a\":123,\"b\":\"test\",\"c\":true,\"d\":[1,2,3]}"}}
 
-{{> json-linter rows="10" cols="60"}}
 
-If there is a syntax error, there will be a red x in a circle on the line with the syntax error.
-
-- The **Prettify** button reformats the JSON to be one key/value pair per line, which is easier to read. This only works if the JSON is valid.
-- The **Compact** button removes the excess whitespace and converts everything to a single line. This only works if the JSON is valid.
+- The **Prettify** button reformats the JSON to be one key/value pair per line, which is easier to read.
+- The **Compact** button removes the excess whitespace and converts everything to a single line.
 - The **Stringify** button converts JSON into a string, escaping the double quotes. 
 - The **Unstringify** button converts a string back into JSON, removing the escaping.
+
+The four buttons only work when the JSON is valid. If there are syntax errors, the buttons will be grayed out.
 
 Try some other experiments:
 
 - The four buttons are mostly non-destructive so try them out!
-- Try adding a trailing comma after the last array element. It should generate a syntax error.
-- Try adding a key not in double quotes. It should generate a syntax error.
-- Try using single quotes instead of double quotes. It should generate a syntax error.
+- Try copying and pasting the examples above or your own JSON file into the box below.
+
+Try intentionally creating syntax errors:
+
+- Try adding a trailing comma after the last array element.
+- Try adding a key not in double quotes.
+- Try using single quotes instead of double quotes.
 
