@@ -39,7 +39,12 @@ This is the v11 + engine schema test:
 
 ## Publish Event
 
-{{> publish-event defaultName="setColor" defaultData="255,0,0"}}
+{{> publish-event defaultName="setColorEvent" defaultData="255,0,0"}}
+
+## Publish Event To Device
+
+{{> publish-event-to-device defaultName="setColorEvent" defaultData="255,0,0"}}
+
 
 ## Call Function
 

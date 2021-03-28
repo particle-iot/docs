@@ -110,8 +110,8 @@ $(document).ready(function() {
                     if (dev.id == deviceId) {
                         dev.functions.forEach(function(fn) {
                             $(functionSelect).append('<option name="' + fn + '">' + fn + '</option>');
-                            $(functionButton).removeAttr('disabled');
                         });
+                        $(functionButton).removeAttr('disabled');
                     }
                 });
             }
@@ -176,8 +176,8 @@ $(document).ready(function() {
                     if (dev.id == deviceId) {
                         Object.keys(dev.variables).forEach(function(v) {
                             $(variableSelect).append('<option name="' + v + '">' + v + '</option>');
-                            $(variableGetButton).removeAttr('disabled');
                         });
+                        $(variableGetButton).removeAttr('disabled');
                     }
                 });
             }

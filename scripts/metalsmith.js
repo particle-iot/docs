@@ -46,6 +46,7 @@ var fs = require('fs');
 var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
+var trackerSchema = require('./tracker-schema.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -94,6 +95,17 @@ exports.metalsmith = function () {
       environment === 'development',
       buildZip({
         dir: '../src/assets/files/app-notes/'
+    })))
+    .use(msIf(
+      environment === 'development',
+      trackerSchema({
+        dir: '../src/assets/files/tracker/',
+        officialSchema: 'tracker-edge.json',        
+        defaultSchema: 'default-schema.json',
+        fragments: [
+          'engine-schema',
+          'test-schema'
+        ]
     })))
     // Minify CSS
     .use(cleanCSS({
