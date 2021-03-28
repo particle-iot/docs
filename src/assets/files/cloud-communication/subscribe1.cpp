@@ -41,5 +41,4 @@ void setColor(const char *event, const char *data)
         RGB.color(red, green, blue);
         colorSetTime = millis();
     }
-    return 0;
 }

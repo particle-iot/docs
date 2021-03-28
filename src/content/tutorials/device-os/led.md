@@ -5,6 +5,7 @@ columns: two
 devices: [ boron,photon,electron,argon,xenon,tracker-som ]
 order: 6
 description: Explanation of status LED codes and device modes for Particle IoT devices
+includeDefinitions: [device-animation]
 ---
 
 # Status LED - {{device}}

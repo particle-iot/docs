@@ -4,6 +4,7 @@ layout: tutorials.hbs
 columns: two
 devices: [photon,electron,xenon,argon,boron]
 order: 90
+includeDefinitions: [api-helper, api-helper-extras]
 ---
 
 # Hardware Examples - {{device}}

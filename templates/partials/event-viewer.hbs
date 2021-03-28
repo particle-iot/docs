@@ -1,9 +1,17 @@
 <div class="apiHelper apiHelperEventViewer" data-style="{{style}}">
     <div class="apiHelperBox">
         <div class="apiHelperEventViewerControls" style="display:none;">
-            <p><span><input type="checkbox" class="apiHelperEventViewerEnable" />
+            <p><span><input type="checkbox" class="apiHelperEventViewerEnable" 
+                    {{#if defaultEnabled}}
+                    checked
+                    {{/if}}
+                />
                 <label>Enabled</label></span> &nbsp;
-                Filter: <input type="text" class="apiHelperEventViewerFilter" size="15" /> &nbsp;
+                Filter: <input type="text" class="apiHelperEventViewerFilter" size="15" 
+                    {{#if defaultFilter}}
+                    value="{{defaultFilter}}"
+                    {{/if}}
+                    /> &nbsp;
                 Device: <select class="apiHelperEventViewerDeviceSelect apiHelperSelect"></select>
             </p>
         </div>

@@ -2,6 +2,7 @@
 title: Test Page
 layout: landing.hbs
 description: Test Page
+includeDefinitions: [api-helper, api-helper-config, api-helper-events, api-helper-extras, api-helper-primitives]
 ---
 
 # Test Page
@@ -33,10 +34,12 @@ This is the v11 + engine schema test:
 ## Event Viewer #1
 
 {{> sso }}
-{{> event-viewer height="500" style="table"}}
+{{> event-viewer height="300" style="table"}}
 
 
 ## Publish Event
+
+{{> publish-event defaultName="setColor" defaultData="255,0,0"}}
 
 ## Call Function
 

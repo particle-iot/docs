@@ -32,7 +32,7 @@ module.exports = function(context) {
 
     if (context.hash.flash) {
         html += '<span class="codeboxFlashDeviceSpan" style="display: none"> &nbsp;&nbsp;'
-        html += '<select class="codeboxFlashDeviceSelect"></select> '
+        html += '<select class="codeboxFlashDeviceSelect apiHelperCommonDevice"></select> '
         html += '<button type="button" onclick="codeboxFlash(\'' + id + '\')" class="codeboxFlashDeviceButton" disabled>Flash</button> &nbsp;';
         html += '</span>'
     }

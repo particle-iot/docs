@@ -139,10 +139,14 @@ function codeboxFlash(id) {
 		return;
 	}
 
-	const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
+	if (!apiHelper.flashConfirmed) {
+		const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
 
-	if (!confirm(warning)) {
-		return;
+		if (!confirm(warning)) {
+			return;
+		}
+	
+		apiHelper.flashConfirmed = true;
 	}
 
 	const code = $('#' + id).text();

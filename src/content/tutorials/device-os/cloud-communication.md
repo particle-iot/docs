@@ -5,6 +5,7 @@ order: 4
 columns: two
 layout: tutorials.hbs
 description: Introduction to Particle Device OS Cloud Communication Primitives
+includeDefinitions: [api-helper, api-helper-events, api-helper-extras, api-helper-primitives]
 ---
 
 # {{title}}
@@ -53,10 +54,11 @@ You can also monitor your device right here. Click the **Enabled** checkbox to v
 Within 30 seconds you should start to see *testEvent* events in the box above if you've flashed the code in the
 example above. 
 
-This is not necessary if you save your source in a `.ino` file, but it doesn't hurt and it is necessary
-if you are using a `.cpp` file, so I like to just add it all the time.
 
 #### Deep dive into the code
+
+This is not necessary if you save your source in a `.ino` file, but it doesn't hurt and it is necessary
+if you are using a `.cpp` file, so I like to just add it all the time.
 
 ```cpp
 #include "Particle.h"
@@ -80,7 +82,7 @@ SerialLogHandler logHandler;
 
 This is a forward declaration. It allows `getSensor()` to be referenced (in the `Particle.publish()`
 call) before it's implemented at the end of the file. This is not needed in `.ino` files, but it's
-a good C++ programming habit to get into.
+a good C/C++ programming habit to get into.
 
 ```cpp
 int getSensor();
@@ -118,7 +120,7 @@ void setup()
 }
 ```
 
-The `loop()` function is called periodically, typically 1000 times per second.
+The `loop()` function is called periodically, typically 100 or 1000 times per second, depending on the device and other settings.
 
 ```cpp
 void loop()
@@ -131,7 +133,7 @@ We can't publish 1000 times a second, so we use the following construct to only 
 `millis()` is the number of milliseconds since system boot. You must always set it up exactly
 like this: `millis() - lastTime >= periodBetweenRuns`. The reason is that `millis()` rolls over to zero
 every 49 days, and doing things like trying to remember the next time to run, instead of the last time
-you ran, often does not work properly across rollover. This exact construct is always safe.
+you ran, often does not work properly across rollover. This exact construct is always safe across rollover.
 
 ```
 // Check to see if it's time to publish
@@ -457,3 +459,37 @@ You can learn more Particle subscribe in the [Device OS Firmware API reference](
 {{codebox content="/assets/files/cloud-communication/subscribe1.cpp" format="cpp" height="300" flash="true"}}
 
 This example works like the function example, except it uses subscribe instead of functions.
+
+{{> publish-event defaultName="setColorEvent" defaultData="255,0,0"}}
+
+- Or in the [console](https://console.particle.io)
+- Or using the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/):
+
+```
+particle publish setColor "255,0,0"
+```
+
+The main differences are:
+
+- If you flash this firmware to multiple devices in your account they all change at once!
+- You can't tell if a device actually received the change request
+
+It is possible to handle confirmation of event received; it would require that your device publish an event that it
+has received the event, and then the cloud would have to keep track of which devices received the event.
+
+### Device Subscribe
+
+{{codebox content="/assets/files/cloud-communication/subscribe2.cpp" format="cpp" height="300" flash="true"}}
+
+While there's no ability to force an event to go to only one device, you can use the event prefixing capability
+to emulate this behavior. 
+
+In this example, the subscribe is prefixed by the Device ID:
+
+```cpp
+Particle.subscribe(System.deviceID() + "/setColorEvent", setColor);
+```
+
+{{> publish-event-to-device defaultName="setColorEvent" defaultData="255,0,0"}}
+
+

@@ -15,7 +15,7 @@ void setColor(const char *event, const char *data);
 
 void setup()
 {
-    Particle.subscribe(System.deviceID() + "/setColorEvent", setColor);
+    Particle.subscribe(System.deviceID() + String("/setColorEvent"), setColor);
 }
 
 void loop()
@@ -41,5 +41,4 @@ void setColor(const char *event, const char *data)
         RGB.color(red, green, blue);
         colorSetTime = millis();
     }
-    return 0;
 }
