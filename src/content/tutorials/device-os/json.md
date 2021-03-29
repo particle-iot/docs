@@ -212,8 +212,8 @@ method.
 
 One important caveat: Once you start getting into strings that might contain a double quote, 
 backslash, or other character that must be escaped, things start to get complicated very quickly
-and you are much better off using the JSON generator in the next step. In fact, once you get
-used to using the JSON generator you'll probably want to use it for all cases, since it really
+and you are much better off using the JSON writer in a later section of this page. In fact, once you get
+used to using the JSON writer you'll probably want to use it for all cases, since it really
 makes life simpler.
 
 If you use `sprintf`, you must allocate a buffer big enough to hold your output. Furthermore, you
@@ -239,7 +239,7 @@ You can also do this using String::format, which does not require allocating a b
 int a = 123;
 int b = 456;
 
-Particle.publish("testEvent", String::format("{\"a\":%d,\"b\":%d}", a, b);
+Particle.publish("testEvent", String::format("{\"a\":%d,\"b\":%d}", a, b));
 // {"a":123,"b":456}
 ```
 
@@ -359,7 +359,7 @@ as backslash escaped in the event payload.
 
 This applies when getting the data from most sources:
 
-- `\{\{PARTICLE_EVENT_DATA}}` in a webhook
+- `\{{PARTICLE_EVENT_DATA}}` in a webhook
 - The `.data` field of the event in SSE (Server-Sent-Events)
 - The `.data` from Particle API JS event when using `getEvent()`
 
@@ -372,6 +372,10 @@ What if you are having trouble with your event JSON. It's easy to make a mistake
 JSON by hand using `sprintf`. This online viewer will print the most recently received event in 
 the box and attempt to parse it as JSON. If there are errors, they will be flagged which will
 hopefully make it easier to figure out what you did wrong.
+
+Flash the event generating firmware above to a test device. Click the **Enabled** button to 
+start monitoring events. When a new event arrives, it will be decoded and displayed in the 
+box below, showing any JSON syntax errors.
 
 {{> sso }}
 {{> event-viewer-json height="300"}}
@@ -466,7 +470,7 @@ actually want to extract the values you care about.
 
 The important part of the code is here:
 
-We initialize the values to good default. There's no guarantee the JSON object will have every element we expect.
+We initialize the values to reasonable defaults. There's no guarantee the JSON object will have every element we expect.
 
 ```cpp
 int a = 0;
@@ -534,10 +538,11 @@ to external servers, as well as parsing responses from servers.
 In the [Webhook Tutorial](/tutorials/device-cloud/webhooks/) there's a brief mention 
 of `\{{{PARTICLE_EVENT_VALUE}}}` but what is really going on there?
 
-The answer is that the webhook server uses a templating language known as Mustache.
+The answer is that the webhook server uses a template language known as Mustache.
 Things in double or triple curly brackets are a variable substitution.
 
-These variables are predefined for any webhook (use triple braces to avoid HTML escaping of the values):
+These variables are predefined for any webhook (use triple curly brackets to avoid 
+HTML escaping of the values):
 
 - `\{{{PARTICLE_DEVICE_ID}}}`: The Device ID of the device that triggered the webhook
 - `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
@@ -994,5 +999,65 @@ Of course some services won't like the empty string element. You could also try 
 {"a":[\{{#a}}"\{{{.}}}",\{{/a}}"\{{a.0}}"],"d":"\{{{PARTICLE_DEVICE_ID}}}"}
 ```
 
-Also note that this fails if any array element contain a double quote or backslash.
+Also note that this fails if any array element contains a double quote or backslash.
+
+### Google geolocation example
+
+The Google geolocation integration really just creates a fancy webhook template on the back-end.
+
+```
+{ \{{#c}}"considerIp":false,"radioType": "gsm","carrier": "\{{o}}","cellTowers":[\{{#a}}{"cellId":\{{i}},"locationAreaCode":\{{l}},"mobileCountryCode":\{{c}},"mobileNetworkCode":\{{n}} },\{{/a}}{"cellId":\{{a.0.i}},"locationAreaCode":\{{a.0.l}},"mobileCountryCode":\{{a.0.c}},"mobileNetworkCode":\{{a.0.n}} }]\{{/c}}\{{#w}}"considerIp":false,"wifiAccessPoints":[\{{#a}}{"macAddress":"\{{m}}","signalStrength":\{{s}},"channel":\{{c}} },\{{/a}}{"macAddress":"\{{a.0.m}}","signalStrength":\{{a.0.s}},"channel":\{{a.0.c}} }]\{{/w}} }
+```
+
+That's kind of ridiculous, it looks a bit better expanded:
+
+```
+{ 
+    \{{#c}}
+        "considerIp":false,
+        "radioType": "gsm",
+        "carrier": "\{{o}}",
+        "cellTowers":[
+        \{{#a}}
+            {
+                "cellId":\{{i}},
+                "locationAreaCode":\{{l}},
+                "mobileCountryCode":\{{c}},
+                "mobileNetworkCode":\{{n}} 
+            },
+        \{{/a}}
+            {
+                "cellId":\{{a.0.i}},
+                "locationAreaCode":\{{a.0.l}},
+                "mobileCountryCode":\{{a.0.c}},
+                "mobileNetworkCode":\{{a.0.n}} 
+            }
+        ]
+    \{{/c}}
+    \{{#w}}
+        "considerIp":false,
+        "wifiAccessPoints":[
+            \{{#a}}
+            {
+                "macAddress":"\{{m}}",
+                "signalStrength":\{{s}},
+                "channel":\{{c}} 
+            },
+            \{{/a}}
+            {
+                "macAddress":"\{{a.0.m}}",
+                "signalStrength":\{{a.0.s}},
+                "channel":\{{a.0.c}} 
+            }
+        ]
+    \{{/w}} 
+}
+```
+
+This is doing a few things: 
+
+- Includes the cellular fields if the `c` object is included in the top level of the publish object.
+- Includes the Wi-Fi fields if the `w` object is included in the top level of the publish object.
+- Expands JSON field names to maximize the data that will fit in a publish. For example `s` to `signalStrength` or `c` to `mobileCountryCode`.
+- Includes variable length arrays using the repeat first item in the array trick.
 
