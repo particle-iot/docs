@@ -5206,7 +5206,7 @@
 					"serial":"UART1_RX|RX Use Serial1 object.",
 					"tone":"D8, D9 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"hardwarePin":"P0.06",
+					"hardwarePin":"P0.8",
 					"hardwareTimer":"PWM2"
 				},
 				{
@@ -5225,7 +5225,7 @@
 					"serial":"UART1_TX|TX Use Serial1 object.",
 					"tone":"D8, D9 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"hardwarePin":"P0.08",
+					"hardwarePin":"P0.06",
 					"hardwareTimer":"PWM2"
 				},
 				{

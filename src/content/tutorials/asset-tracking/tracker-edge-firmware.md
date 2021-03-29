@@ -250,8 +250,8 @@ The Tracker One has three multi-function pins on the M8 port:
 
 | M8 Pin | Function   | Function  | Function  | 
 | :----: | :-------   | :-------  | :-------  | 
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | 
-| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | 
+| 4      | Serial1 RX | Wire3 SDA | GPIO D9   | 
+| 5      | Serial1 TX | Wire3 SCL | GPIO D8   | 
 | 7      | Analog A3  |           | GPIO D3   | 
 
 
@@ -273,7 +273,7 @@ If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO
 
 These pins have a 3.3V maximum and are **not** 5V tolerant!
 
-You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/RX/SDA, D9/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
 ## Using GitHub with Tracker Edge
 

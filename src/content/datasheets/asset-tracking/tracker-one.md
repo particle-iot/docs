@@ -6,7 +6,7 @@ order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(016)</sup>
+# Tracker One<sup>(017)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -80,8 +80,8 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 1      | CAN_P      |           |           | IO<sup>2</sup> | Yellow |
 | 2      | VIN<sup>3</sup> |      |           | I | Red |
 | 3      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> | White | 
-| 4      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> | Green |
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> | Brown |
+| 4      | Serial1 RX | Wire3 SDA | GPIO D9   | IO<sup>1</sup> | Green |
+| 5      | Serial1 TX | Wire3 SCL | GPIO D8   | IO<sup>1</sup> | Brown |
 | 6      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O | Orange | 
 | 7      | CAN_N      |           |           | IO<sup>2</sup> | Blue |
 | 8      | GND        |           |           |   | Black | 
@@ -105,7 +105,7 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/datasheets/asset-tracking/tracker-m8-accessories/).
 
-You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/RX/SDA, D9/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
 ---
 
@@ -119,8 +119,8 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | 2         | 1      | CAN_P     | Yellow         |  
 | 3         | 7      | CAN_N     | Blue           |  
 | 4         | 6      | CAN_5V    | Orange         |  
-| 5         | 5      | TX_SCL_D9 | Brown          |  
-| 6         | 4      | RX_SDA_D8 | Green          |  
+| 5         | 5      | TX_SCL_D8 | Brown          |  
+| 6         | 4      | RX_SDA_D9 | Green          |  
 | 7         | 3      | A3        | White          |  
 | 8         | 8      | GND       | Black          |  
 
@@ -133,8 +133,8 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | USER | A1 | USER button | 
 | GNSS_LOCK | A2 | GNSS lock indicator |
 | GPIO1 | A3 | GPIO on power and I/O connector |
-| MCU TX | TX | MCU serial TX, GPIO D9, Wire3 SCL | 
-| MCU RX | RX | MCU serial RX, GPIO D8, Wire3 SDA | 
+| MCU TX | TX | MCU serial TX, GPIO D8, Wire3 SCL | 
+| MCU RX | RX | MCU serial RX, GPIO D9, Wire3 SDA | 
 
 Note: While the USER button exists inside the Tracker One, the Tracker One is a sealed unit and opening it will void the warranty and may affect certifications, thus it is not practical to use. It can be used with the Tracker Carrier Board.
 
@@ -505,3 +505,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
 | 015      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
 | 016      | 2021 Mar 23 | RK | Added FCC and IC interference statements |
+| 017      | 2021 Mar 29 | RK | D8 and D9 were reversed in some tables |
