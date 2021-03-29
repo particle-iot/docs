@@ -46,7 +46,6 @@ var fs = require('fs');
 var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
-var trackerSchema = require('./tracker-schema.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -91,22 +90,9 @@ exports.metalsmith = function () {
       'content/languages/**/*',
       'assets/images/**/*.ai'
     ]))
-    .use(msIf(
-      environment === 'development',
-      buildZip({
-        dir: '../src/assets/files/app-notes/'
-    })))
-    .use(msIf(
-      environment === 'development',
-      trackerSchema({
-        dir: '../src/assets/files/tracker/',
-        officialSchema: 'tracker-edge.json',        
-        defaultSchema: 'default-schema.json',
-        fragments: [
-          'engine-schema',
-          'test-schema'
-        ]
-    })))
+    .use(buildZip({
+      dir: '../src/assets/files/app-notes/'
+    }))
     // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
@@ -312,12 +298,10 @@ exports.metalsmith = function () {
       omitExtensions: ['.md'],
       omitTrailingSlashes: false
     }))
-    .use(msIf(
-      environment === 'development',
-      function(files, metalsmith, done) {
+    .use(function(files, metalsmith, done) {
       carriersUpdate.doUpdate(__dirname);
       done();
-    }))
+    })
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
     .use(inPlace({
@@ -413,7 +397,6 @@ exports.server = function (callback) {
           '../templates/layouts/workshops.hbs': 'content/workshops/**/*.md',
           '../templates/layouts/landing.hbs': 'content/*.md',
           '../templates/layouts/main.hbs': 'content/index.md',
-          '../templates/helpers/**/*.hbs': 'content/**/*.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*': true,
           '${source}/assets/files/**/*': true,
