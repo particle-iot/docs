@@ -52,6 +52,9 @@
 {{#contains includeDefinitions 'api-helper-json'}}
 <script src='/assets/js/api-helper-json.js'></script>
 {{/contains}}
+{{#contains includeDefinitions 'api-helper-mustache'}}
+<script src='/assets/js/api-helper-mustache.js'></script>
+{{/contains}}
 {{#contains includeDefinitions 'codemirror'}}
 <script src="/assets/files/codemirror/codemirror.js"></script>
 <script src="/assets/files/codemirror/jshint.js"></script>
@@ -60,7 +63,9 @@
 <script src="/assets/files/codemirror/lint.js"></script>
 <script src="/assets/files/codemirror/json-lint.js"></script>
 {{/contains}}
-
+{{#contains includeDefinitions 'api-helper-mustache'}}
+<script src="/assets/js/hogan-3.0.2.amd.js"></script>
+{{/contains}}
 
 
 {{#unless noScripts}}

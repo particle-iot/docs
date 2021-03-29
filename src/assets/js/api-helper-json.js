@@ -39,13 +39,16 @@ $(document).ready(function() {
             lint: {
                 "getAnnotations": function(cm, updateLinting, options) {
                     const errors = CodeMirror.lint.json(cm);
-
+                    
                     if (errors.length == 0) {
                         $(parentElem).find('.apiHelperJsonLinterValidOnlyButton').removeAttr('disabled');
                     }
                     else {
                         $(parentElem).find('.apiHelperJsonLinterValidOnlyButton').attr('disabled', 'disabled');
                     }
+
+                    const event = new CustomEvent('linted', { errors: errors });
+                    $(parentElem)[0].dispatchEvent(event);
 
                     updateLinting(errors);
                 },
@@ -167,9 +170,9 @@ $(document).ready(function() {
         let str = codeMirror.getValue();
         if (str.startsWith('"')) {
             str = str.substr(1);
-        }
-        if (str.endsWith('"')) {
-            str = str.substr(0, str.length - 1);
+            if (str.endsWith('"')) {
+                str = str.substr(0, str.length - 1);
+            }
         }
         str = str.replace(/[\\][\\]/g, '\\')
                  .replace(/[\\][\"]/g, '"');

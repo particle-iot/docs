@@ -4,7 +4,7 @@ order: 12
 columns: two
 layout: tutorials.hbs
 description: Using JSON with Particle Devices
-includeDefinitions: [api-helper, api-helper-events, api-helper-json, api-helper-primitives, codemirror]
+includeDefinitions: [api-helper, api-helper-events, api-helper-json, api-helper-mustache, api-helper-primitives, codemirror]
 ---
 
 # JSON (JavaScript Object Notation)
@@ -519,4 +519,60 @@ And the USB serial debug output should look like this:
 0000007544 [app] INFO: b=test
 0000007544 [app] INFO: a=true
 ```
+
+It should be noted that you should never try to manually parse JSON, for example
+using `sscanf` or `strtok`. It's very hard to get correct, and you could end up 
+creating a dependency on the format of the JSON, which you should never do.
+For example, in JSON the keys may be reordered, and perhaps across versions
+of your software keys could be added or removed.
+
+## Webhooks
+
+The other common place where JSON is used is with webhooks, both for sending data 
+to external servers, as well as parsing responses from servers. 
+
+In the [Webhook Tutorial](/tutorials/device-cloud/webhooks/) there's a brief mention 
+of `\{{{PARTICLE_EVENT_VALUE}}}` but what is really going on there?
+
+The answer is that the webhook server uses a templating language known as Mustache.
+Things in double or triple curly brackets are a variable substitution.
+
+These variables are predefined for any webhook (use triple braces to avoid HTML escaping of the values):
+
+- `\{{{PARTICLE_DEVICE_ID}}}`: The Device ID of the device that triggered the webhook
+- `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
+- `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the event
+- `\{{{PARTICLE_PUBLISHED_AT}}}`: When the event was published
+
+Product webhooks also have access to:
+
+- `\{{{PRODUCT_USER_ID}}}`: The user id of the device owner
+- `\{{{PRODUCT_VERSION}}}`: The firmware version that published the event
+
+However, there's much more than that. When you trigger a webhook and the source
+data is JSON, you can use the variables in your data as variables in most places,
+including the URL, query parameters, headers, and POST or PUT body.
+
+And if the response from your server is JSON, you can extract elements from it
+and return it in the hook-response or hook-error. This is a powerful technique
+that can greatly reduce the size of the response if you only need a portion of
+the data returned by an API.
+
+This only works with JSON responses. Some APIs return XML instead of JSON, and
+mustache templates do not work with XML. Some services may have an option to
+return different formats, so that's worth looking into as well.
+
+Before we dive into parsing our own data, sometimes you'll see 
+`\{{{PARTICLE_EVENT_VALUE}}}` and sometimes `\{{PARTICLE_EVENT_VALUE}}`. Since
+mustache was originally intended for use in HTML, the default (two curly brackets)
+is to HTML escape any values where that is required. For example, angle brackets.
+This is almost never what you want for a JSON API, so you will almost always use
+three curly brackets, which do not HTML escape.
+
+### Mustache variables
+
+
+### Try it out
+
+{{> mustache-tester defaultData="{\"a\":123,\"b\":\"test\",\"c\":true,\"d\":[1,2,3],\"e\":{\"f\":444,\"g\":5.5}}" defaultTemplate="{{a}}"}}
 

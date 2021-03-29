@@ -1,0 +1,26 @@
+<div class="apiHelperMustacheTester">
+    <div class="apiHelperBox">
+        <p>Enter your JSON data to be parsed here:</p>
+        <p><button class="apiHelperJsonLinterPrettifyButton apiHelperJsonLinterValidOnlyButton apiHelperButton">Prettify</button> &nbsp;
+            <button class="apiHelperJsonLinterUnstringifyButton apiHelperJsonLinterValidOnlyButton apiHelperButton">Unstringify</button></p>
+    </div>
+    <div class="apiHelperJsonLinter">
+        <div class="apiHelperJsonLinterEditor">
+            <textarea rows="4" cols="60">{{defaultData}}</textarea>
+        </div>
+    </div>
+    <div class="apiHelperBox">
+        <p>Mustache template:</p>
+        <textarea row="4" cols="60" class="apiHelperMustacheTesterTemplate">{{defaultTemplate}}</textarea>
+    </div>
+    <div class="apiHelperBox">
+        <p>Expanded Template:</p>
+        <textarea row="4" cols="60" class="apiHelperMustacheTesterExpanded" readonly></textarea>
+    </div>
+    <div class="apiHelperJsonLinter">
+        <div class="apiHelperJsonLinterEditor apiHelperRenderedJson">
+            <p>Expanded template (JSON):</p>
+            <textarea rows="4" cols="60"></textarea>
+        </div>
+    </div>
+</div>
