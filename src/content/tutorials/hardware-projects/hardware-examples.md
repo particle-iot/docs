@@ -4,7 +4,6 @@ layout: tutorials.hbs
 columns: two
 devices: [photon,electron,xenon,argon,boron]
 order: 90
-includeDefinitions: [api-helper, api-helper-extras]
 ---
 
 # Hardware Examples - {{device}}
@@ -14,18 +13,8 @@ devices, use the blue device selector below the Particle logo on the left side o
 
 Here you will find a bunch of examples to get you started with your new Particle device! 
 
-## Logging in
 
-You can interact directly with your device from this tutorial page by logging into your 
-Particle account in the box below. This is optional, as you can use Particle 
-Workbench or the Web IDE and other techniques directly, if you prefer.
-
-{{> sso }}
-
-## Blink an LED
-
-The "Hello World" of embedded devices is blinking an LED, so here we go!
-
+#### Materials
 * **Hardware**
   * Your Particle device
   * USB to micro USB cable
@@ -50,7 +39,7 @@ This example will blink the blue D7 LED on your Particle device.
 - On the Argon and Boron it's located next to the USB connector (on the side with the battery connector)
 - The E Series, B Series SoM, and Tracker SoM evaluation boards, and the Tracker One, do not have D7 LEDs.
 
-{{codebox content="/assets/files/hardware-examples/blink-d7.ino" format="cpp" height="500" webide="605b1e92de63ee0017f525ea" flash="true"}}
+{{codebox content="/assets/files/hardware-examples/blink-d7.ino" format="cpp" height="500" webide="605b1e92de63ee0017f525ea"}}
 
 This code has a lot of comments, but a few things to note:
 
@@ -124,7 +113,7 @@ We've heavily commented the code below so that you can see what's going on. Basi
 
 ### Code
 
-{{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e" flash="true"}}
+{{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e"}}
 
 This code should look familiar if you've followed the previous example, but there are a few changes:
 
@@ -168,18 +157,13 @@ In the code above, if the command is "on" we turn the LED on, and if it's "off" 
 
 ### Testing
 
-If you've logged in, you can interact with your devices here:
-
-{{> sso }}
-{{> led-function-test }}
-
-You can also test your new function is from [the console](https://console.particle.io). In the devices tab, click on the row for the device you just flashed your code to.
+The easiest way to test your new function is from [the console](https://console.particle.io). In the devices tab, click on the row for the device you just flashed your code to.
 
 ![Device Info](/assets/images/console-function.png)
 
 On the right-hand side of the screen is a box for functions. There should be one labeled "led". If you type **on** in the box and click the Call button the LED should turn on. To turn it off use **off**.
 
-Or you can also do this from the [Particle CLI](/tutorials/developer-tools/cli/).
+You can also do this from the [Particle CLI](/tutorials/developer-tools/cli/).
 
 ```
 particle call my-test-device led on
@@ -187,10 +171,9 @@ particle call my-test-device led on
 
 Replace `my-test-device` with the name of your device. If you get an "The access token was not found" error, use `particle login` to log into your Particle account first.
 
-
 ### From HTML
 
-It's also possible to call the function from your own HTML page. That's a more complicated scenario and there are a few options, so that's discussed in a [separate application note](/datasheets/app-notes/an032-calling-api-from-web-page/).
+It's also possible to call the function from your own HTML page. That's a more complicated scenario and there are a few options, so that's discussed in a separate application note.
 
 
 <div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
@@ -606,4 +589,4 @@ particle flash my-device-name tinker
 Once you flash your own firmware to your device it will no longer have Tinker functionality. However you can easily take the Tinker source and add in your 
 own code so it will both have your code and the original Tinker functions you can call from the mobile apps!
 
-{{codebox content="/assets/files/hardware-examples/tinker.ino" format="cpp" height="500" flash="true"}}
+{{codebox content="/assets/files/hardware-examples/tinker.ino" format="cpp" height="500"}}

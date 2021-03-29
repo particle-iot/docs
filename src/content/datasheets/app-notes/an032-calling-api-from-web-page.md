@@ -3,7 +3,6 @@ title: AN032 Calling API from Web Page
 layout: datasheet.hbs
 columns: two
 order: 132
-includeDefinitions: [api-helper]
 ---
 # AN032 Calling API from Web Page
 
@@ -11,7 +10,7 @@ This example illustrates a few techniques for calling the Particle API from a we
 
 The first few examples use the [Blink an LED from the cloud firmware](/tutorials/hardware-projects/hardware-examples/).
 
-{{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e" flash="true"}}
+{{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e"}}
 
 You can use this firmware on most Particle devices, both Wi-Fi and Cellular, including the Argon, Boron, Photon, and Electron.
 
@@ -505,7 +504,7 @@ long and is incredibly unwieldy when sitting on my desk.
 
 ### Device Firmware
 
-{{codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500" flash="true"}}
+{{codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500"}}
 
 A few things to note in this firmware:
 
@@ -668,6 +667,4 @@ Finally, whether the row is new or not, the progress bar is updated with the val
 ```js
 $('#prog' + deviceId).val(sensorValue);
 ```
-
-{{> sso }}
 
