@@ -17,15 +17,51 @@
 <script src='/assets/js/bootstrap-dropdown.js'></script>
 <script src='/assets/js/prettify.js'></script>
 <script src='/assets/js/svg.min.js'></script>
+{{#contains includeDefinitions 'api-helper'}}
+<script src="/assets/js/js.cookie-2.2.1.min.js"></script>
+{{/contains}}
 <!-- Custom -->
 <script type="text/javascript" src="https://s3.amazonaws.com/redirect.particle.io/redirect-banner.js"></script>
 <script type="text/javascript" src="/assets/js/handlebars-runtime.js"></script>
 <script type="text/javascript" src="/assets/js/precompiled.js"></script>
 <script src='/assets/js/docs.js'></script>
 <script src='/assets/js/ga.js'></script>
+{{#contains includeDefinitions 'device-animation'}}
 <script src='/assets/js/device-animation.js'></script>
+{{/contains}}
 <script src='/assets/js/collapse.js'></script>
 <script src='/assets/js/fonts-license.js'></script>
+
+{{#contains includeDefinitions 'api-helper'}}
+<script src="/assets/js/particle.min.js"></script>
+<script src="/assets/js/FileSaver.min.js"></script>
+<script src='/assets/js/api-helper.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'api-helper-config'}}
+<script src='/assets/js/api-helper-config.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'api-helper-events'}}
+<script src='/assets/js/api-helper-events.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'api-helper-extras'}}
+<script src='/assets/js/api-helper-extras.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'api-helper-primitives'}}
+<script src='/assets/js/api-helper-primitives.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'api-helper-json'}}
+<script src='/assets/js/api-helper-json.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'codemirror'}}
+<script src="/assets/files/codemirror/codemirror.js"></script>
+<script src="/assets/files/codemirror/jshint.js"></script>
+<script src="/assets/files/codemirror/jsonlint.js"></script>
+<script src="/assets/files/codemirror/javascript.js"></script>
+<script src="/assets/files/codemirror/lint.js"></script>
+<script src="/assets/files/codemirror/json-lint.js"></script>
+{{/contains}}
+
+
 
 {{#unless noScripts}}
 <!-- Marketo Munchkin -->

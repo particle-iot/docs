@@ -1,0 +1,34 @@
+<div class="apiHelper apiHelperEventViewer" data-style="{{style}}">
+    <div class="apiHelperBox">
+        <div class="apiHelperEventViewerControls" style="display:none;">
+            <p><span><input type="checkbox" class="apiHelperEventViewerEnable" 
+                    {{#if defaultEnabled}}
+                    checked
+                    {{/if}}
+                />
+                <label>Enabled</label></span> &nbsp;
+                Filter: <input type="text" class="apiHelperEventViewerFilter" size="15" 
+                    {{#if defaultFilter}}
+                    value="{{defaultFilter}}"
+                    {{/if}}
+                    /> &nbsp;
+                Device: <select class="apiHelperEventViewerDeviceSelect apiHelperSelect"></select>
+            </p>
+        </div>
+        <div class="apiHelperEventViewerStatus"></div>
+        <div class="apiHelperEventViewerOutput" style="height: {{height}}px; overflow:scroll;">
+            {{#contains style table}}
+            <table class="apiHelperEventTable">
+                <thead>
+                    <th class="apiHelperEventViewerEvent">Event</th>
+                    <th class="apiHelperEventViewerData">Data</th>
+                    <th class="apiHelperEventViewerDevice">Device</th>
+                    <th class="apiHelperEventViewerTime">Time</th>
+                </thead>
+                <tbody>                    
+                </tbody>
+            </table>
+            {{/contains}}
+        </div>
+    </div>
+</div>
