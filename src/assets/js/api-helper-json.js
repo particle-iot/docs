@@ -5,6 +5,28 @@ $(document).ready(function() {
         return;
     }
 
+    apiHelper.jsonLinterGetValue = function(elem) {
+        const index = parseInt($(elem).attr('data-index'));
+        const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+
+        let result = codeMirror.getValue();
+
+        try {
+            const jsonObj = JSON.parse(result);
+            result = JSON.stringify(jsonObj, null, 0);
+        }  
+        catch(e) {
+        }
+        return result;
+    };
+    
+    apiHelper.jsonLinterEvent = function(elem, event) {
+        const index = parseInt($(elem).attr('data-index'));
+        const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+
+        codeMirror.setValue(event.data);
+    };
+
     apiHelper.jsonLinterCodeMirror = [];
 
     $('.apiHelperJsonLinter').each(function(index) {

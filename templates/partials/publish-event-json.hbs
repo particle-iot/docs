@@ -1,0 +1,17 @@
+<div class="apiHelper apiHelperLoggedIn apiHelperPublishEvent apiHelperJsonLinter" style="display:none;">
+    <div class="apiHelperBox">
+        <p>
+            Event Name: <input type="text" class="apiHelperPublishEventName apiHelperSmallText" size="15" 
+                {{#if defaultName}}
+                value="{{defaultName}}" 
+                {{/if}}
+            />
+        <button class="apiHelperPublishEventButton apiHelperButton">Publish Event</button> &nbsp;
+        <button class="apiHelperJsonLinterPrettifyButton apiHelperJsonLinterValidOnlyButton apiHelperButton">Prettify</button> &nbsp;</p>
+        <div class="apiHelperPublishEventStatus"></div>
+    </div>
+        <div class="apiHelperJsonInput" style="height: {{height}}px; overflow:scroll;">
+            <textarea>{{defaultData}}</textarea>
+        </div>
+</div>
+

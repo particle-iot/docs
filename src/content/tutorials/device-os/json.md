@@ -4,7 +4,7 @@ order: 12
 columns: two
 layout: tutorials.hbs
 description: Using JSON with Particle Devices
-includeDefinitions: [api-helper,api-helper-json,codemirror]
+includeDefinitions: [api-helper, api-helper-events, api-helper-json, api-helper-primitives, codemirror]
 ---
 
 # JSON (JavaScript Object Notation)
@@ -228,6 +228,7 @@ int b = 456;
 char buf[256];
 snprintf(buf, sizeof(buf), "{\"a\":%d,\"b\":%d}", a, b);
 Particle.publish("testEvent", buf);
+// {"a":123,"b":456}
 ```
 
 Note the need to escape all of the double quotes in the formatting string using backslashes.
@@ -239,9 +240,283 @@ int a = 123;
 int b = 456;
 
 Particle.publish("testEvent", String::format("{\"a\":%d,\"b\":%d}", a, b);
+// {"a":123,"b":456}
 ```
 
 If you need to include a c-string (const char *), use `%s` but don't forget to double
 quote escape the output.
 
+```cpp
+int a = 123;
+const char *b = "testing!";
+
+char buf[256];
+snprintf(buf, sizeof(buf), "{\"a\":%d,\"b\":\"%s\"}", a, b);
+// {"a":123,"b":"testing!"}
+```
+
+If the source is a `String` make sure you use `.c_str()` when using `%s`:
+
+```cpp
+int a = 123;
+String b = "testing!";
+
+char buf[256];
+snprintf(buf, sizeof(buf), "{\"a\":%d,\"b\":\"%s\"}", a, b.c_str());
+// {"a":123,"b":"testing!"}
+```
+
+You can output floating point numbers:
+
+```cpp
+float a = 12.333333;
+
+char buf[256];
+snprintf(buf, sizeof(buf), "{\"a\":%f}", a);
+// {"a":12.333333}
+```
+
+Floating point numbers with a limited number of decimal points:
+
+```cpp
+float a = 12.333333;
+
+char buf[256];
+snprintf(buf, sizeof(buf), "{\"a\":%.2f}", a);
+// {"a":12.33}
+```
+
+For `double` use `%lf` (long float):
+
+```cpp
+double a = 12.333333;
+
+char buf[256];
+snprintf(buf, sizeof(buf), "{\"a\":%lf}", a);
+//{"a":12.333333}
+```
+
+For booleans you might do something like this. Note that the `true` and `false` are not enclosed in double 
+quotes in the JSON output.
+
+```cpp
+ bool a = false;
+
+char buf[256];
+snprintf(buf, sizeof(buf), "{\"a\":%s}", (a ? "true" : "false"));
+// {"a":false}
+```
+
+Putting it all together:
+
+```cpp
+int a = 123;
+float b = 5.5;
+bool c = true;
+const char *d = "testing";
+
+char buf[256];
+snprintf(buf, sizeof(buf), "{\"a\":%d,\"b\":%.1f,\"c\":%s,\"d\":\"%s\"}", 
+    a, b, (c ? "true" : "false"), d);
+// {"a":123,"b":5.5,"c":true,"d":"testing"}
+```
+
+There are so many options to sprintf but fortunately there are many good references online
+including the one at [cplusplus.com](http://www.cplusplus.com/reference/cstdio/printf/).
+
+## JSON Troubleshooting
+
+As generating JSON that way is error-prone, some debugging techniques can help.
+
+This is a code sample for generating some JSON publish data. You can flash right
+from here, though you will probably want to copy this into Particle Workbench or
+the Web IDE so you can edit the code to try out new things.
+
+{{codebox content="/assets/files/cloud-communication/publish3.cpp" format="cpp" height="400" flash="true"}}
+
+### The console 
+
+The [Particle Console](https://console.particle.io/) as an **Events** tab that allows you to see recent events.
+
+![Events](/assets/images/json/events1.png)
+
+Clicking on a row will show the details. Important note: The **Pretty** view is not actually JSON! It's missing the comma-separators, for example.
+
+![Detail Pretty](/assets/images/json/detail1.png)
+
+The **Raw** view is the actual string received in the event.
+
+![Detail Raw](/assets/images/json/detail2.png)
+
+### The event
+
+The Particle event payload may contain JSON, as the code above shows. However, there is no requirement that
+the event data be JSON, and may only be a string of data. It could be a single data element, or something like 
+comma-separated values. While the console decodes JSON if detected, the data does not have to be JSON.
+
+Because of this, the data is treated as a JSON string value, not a JSON object value. The double quotes, in particular,
+as backslash escaped in the event payload.
+
+This applies when getting the data from most sources:
+
+- `\{\{PARTICLE_EVENT_DATA}}` in a webhook
+- The `.data` field of the event in SSE (Server-Sent-Events)
+- The `.data` from Particle API JS event when using `getEvent()`
+
+If you are processing an event payload that you know is JSON, you will need to parse it. For example, when
+using a browser or node.js, you will probably use `JSON.parse(event.data)`.
+
+### Event decoder
+
+What if you are having trouble with your event JSON. It's easy to make a mistake in encoding the
+JSON by hand using `sprintf`. This online viewer will print the most recently received event in 
+the box and attempt to parse it as JSON. If there are errors, they will be flagged which will
+hopefully make it easier to figure out what you did wrong.
+
+{{> sso }}
+{{> event-viewer-json height="300"}}
+
+## Using JSONWriter
+
+Instead of using `sprintf` you can use the `JSONWriter` class in the Device OS API.
+
+In the example above we wanted to output these values:
+
+```cpp
+int a = rand() % 10000;
+float b = ((float)rand()) / 100.0;
+bool c = (bool)(rand() % 2);
+String d(String::format("testing %d", rand() % 1000));
+```
+
+This is the `sprintf` version:
+
+```cpp
+char buf[256];
+snprintf(buf, sizeof(buf), 
+    "{\"a\":%d,\"b\":%.3f,\"c\":%s,\"d\":\"%s\"}", 
+    a, b, (c ? "true" : "false"), d.c_str());
+```
+
+And the equivalent JSONWriter:
+
+```cpp
+char buf[256];
+JSONBufferWriter writer(buf, sizeof(buf));
+writer.beginObject();
+    writer.name("a").value(a);
+    writer.name("b").value(b, 3);
+    writer.name("c").value(c);
+    writer.name("d").value(d);
+writer.endObject();
+writer.buffer()[std::min(writer.bufferSize(), writer.dataSize())] = 0;
+```
+
+It's more verbose, but it's also much more readable and less error-prone. The big
+advantage is that if the String (`d`) may contain special characters that need to 
+be escaped like double quotes and backslash characters.
+
+Also, if you have arrays, especially variable-length arrays, or nested objects, 
+it is much easier to use the JSONWriter.
+
+The [Device OS Firmware API Reference](/reference/device-os/firmware/boron/#jsonwriter) has
+more information on JSONWriter.
+
+## Receiving JSON
+
+You may want to receive JSON data on your Particle device using a Particle.function or
+subscribing to a Particle event.
+
+### Subscription logger
+
+This sample device firmware just subscribes to the event `testEvent` and prints out JSON to 
+the USB serial debug log.
+
+{{codebox content="/assets/files/cloud-communication/subscribe3.cpp" format="cpp" height="400" flash="true"}}
+
+### Sample event sender
+
+This box allows you to enter JSON and publish it:
+
+{{> publish-event-json defaultName="testEvent" defaultData="{\"a\":123,\"b\":\"test\",\"c\":true,\"d\":[1,2,3]}"}}
+
+```
+{"a":123,"b":"test","c":true,"d":[1,2,3]}
+```
+
+Combining the two, you should see a decoded event like this in the USB serial debug log:
+
+```
+0000010859 [app] INFO: Object
+0000010859 [app] INFO:   key="a" Number: 123
+0000010860 [app] INFO:   key="b" String: "test"
+0000010860 [app] INFO:   key="c" Bool: true
+0000010860 [app] INFO:   key="d" Array
+0000010861 [app] INFO:     Number: 1
+0000010861 [app] INFO:     Number: 2
+0000010861 [app] INFO:     Number: 3
+```
+
+### Looking for values
+
+In most cases you won't just be logging your event out to the USB serial debug log, you'll
+actually want to extract the values you care about.
+
+{{codebox content="/assets/files/cloud-communication/subscribe4.cpp" format="cpp" height="400" flash="true"}}
+
+The important part of the code is here:
+
+We initialize the values to good default. There's no guarantee the JSON object will have every element we expect.
+
+```cpp
+int a = 0;
+String b;
+bool c = false;
+```
+
+This parses the JSON and sets up an iterator:
+
+```cpp
+JSONValue outerObj = JSONValue::parseCopy(data);
+JSONObjectIterator iter(outerObj);
+while (iter.next())
+{
+```
+
+For each item in the `outerObj` we check the name (key) of the key/value. If it's one we're expecting
+we decode it and store it in our local variable we defined above.
+
+```cpp    
+    if (iter.name() == "a") 
+    {
+        a = iter.value().toInt();
+    }
+    else
+    if (iter.name() == "b") 
+    {
+        b = iter.value().toString().data();
+    }
+    else
+    if (iter.name() == "c") 
+    {
+        c = iter.value().toBool();
+    }
+}
+```
+
+Finally, outside of the iterator we print out all of the values we obtained.
+
+```cpp
+Log.info("a=%d", a);
+Log.info("b=%s", b.c_str());
+Log.info("a=%s", (c ? "true" : "false"));
+```
+
+And the USB serial debug output should look like this:
+
+```
+0000007544 [app] INFO: a=123
+0000007544 [app] INFO: b=test
+0000007544 [app] INFO: a=true
+```
 

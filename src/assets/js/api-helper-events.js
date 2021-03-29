@@ -35,7 +35,12 @@ apiHelper.eventViewer.event = function(event) {
 
     $('.apiHelperEventViewer').each(function(index) {
         if ($(this).find('.apiHelperEventViewerEnable').prop('checked')) {
-            apiHelper.eventViewer.addRow($(this), event);
+            if ($(this).hasClass('apiHelperJsonLinter')) {
+                apiHelper.jsonLinterEvent($(this), event);
+            }
+            else {
+                apiHelper.eventViewer.addRow($(this), event);
+            }
         }
     });
 };
@@ -43,10 +48,12 @@ apiHelper.eventViewer.event = function(event) {
 apiHelper.eventViewer.updateFilter = function(elem) {
     const eventViewerElem = $(elem).closest('div.apiHelperEventViewer');
 
-    $(eventViewerElem).find('.apiHelperEventViewerOutput > table > tbody').html('');
-    apiHelper.eventViewer.events.forEach(function(event) {
-        apiHelper.eventViewer.addRow(eventViewerElem, event);
-    });
+    if ($(eventViewerElem).find('.apiHelperEventViewerOutput > table').length > 0) {
+        $(eventViewerElem).find('.apiHelperEventViewerOutput > table > tbody').html('');
+        apiHelper.eventViewer.events.forEach(function(event) {
+            apiHelper.eventViewer.addRow(eventViewerElem, event);
+        });    
+    }
 };
 
 apiHelper.eventViewer.start = function(elem) {

@@ -1,4 +1,4 @@
-<div class="apiHelper apiHelperEventViewer" data-style="{{style}}">
+<div class="apiHelper apiHelperEventViewer apiHelperJsonLinter" data-style="codemirror">
     <div class="apiHelperBox">
         <div class="apiHelperEventViewerControls" style="display:none;">
             <p><span><input type="checkbox" class="apiHelperEventViewerEnable" 
@@ -14,21 +14,11 @@
                     /> &nbsp;
                 Device: <select class="apiHelperEventViewerDeviceSelect apiHelperSelect"></select>
             </p>
+            <p><button class="apiHelperJsonLinterPrettifyButton apiHelperJsonLinterValidOnlyButton apiHelperButton">Prettify</button> &nbsp;</p>
         </div>
         <div class="apiHelperEventViewerStatus"></div>
         <div class="apiHelperEventViewerOutput" style="height: {{height}}px; overflow:scroll;">
-            {{#contains style 'table'}}
-            <table class="apiHelperEventTable">
-                <thead>
-                    <th class="apiHelperEventViewerEvent">Event</th>
-                    <th class="apiHelperEventViewerData">Data</th>
-                    <th class="apiHelperEventViewerDevice">Device</th>
-                    <th class="apiHelperEventViewerTime">Time</th>
-                </thead>
-                <tbody>                    
-                </tbody>
-            </table>
-            {{/contains}}
+            <textarea></textarea>
         </div>
     </div>
 </div>

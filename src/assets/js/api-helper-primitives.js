@@ -9,7 +9,13 @@ $(document).ready(function() {
             const thisPartial = $(this).closest('div.apiHelperPublishEvent');
 
             const eventName = $(thisPartial).find('.apiHelperPublishEventName').val();
-            const eventData = $(thisPartial).find('.apiHelperPublishEventData').val();
+            let eventData;
+            if ($(thisPartial).hasClass('apiHelperJsonLinter')) {
+                eventData = apiHelper.jsonLinterGetValue(thisPartial);
+            }
+            else {
+                eventData = $(thisPartial).find('.apiHelperPublishEventData').val();
+            }
 
             const setStatus = function(status) {
                 $(thisPartial).find('.apiHelperPublishEventStatus').html(status);
@@ -19,7 +25,7 @@ $(document).ready(function() {
 
             apiHelper.particle.publishEvent({ name: eventName, data: eventData, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
-                    setStatus('Published!');
+                    setStatus('Published! ' + eventName + ' ' + eventData);
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
