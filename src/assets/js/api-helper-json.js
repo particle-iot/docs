@@ -36,6 +36,66 @@ $(document).ready(function() {
         apiHelper.jsonLinterCodeMirror[index] = codeMirror;
     });
 
+    const hex4 = function(val) {
+        let str = val.toString(16);
+        if (str.length < 4) {
+            str = '0000'.substr(0, 4 - str.length) + str;
+        }
+        return str;
+    }
+
+    const escapeUnicode = function(str, onlyUnicode) {
+        let result = '';
+        for(let ii = 0; ii < str.length; ii++) {
+            let cp = str.charCodeAt(ii);
+
+            let escape = false;
+            if (onlyUnicode) {
+                escape = (cp >= 127);
+            }
+            else {
+                escape = (cp < 32 || cp >= 127 || cp == 34 || cp == 92);
+            }
+
+            if (escape) {
+                switch(cp) {
+                    case 8: // Backspace
+                        result += '\\b';
+                        break;
+
+                    case 10: // Newline
+                        result += '\\n';
+                        break;
+
+                    case 12: // Formfeeed
+                        result += '\\f';
+                        break;
+
+                    case 13: // Carriage return
+                        result += '\\r';
+                        break;
+
+                    case 34:
+                        result += '\\"';
+                        break;
+
+                    case 92: 
+                        result += '\\\\';
+                        break;
+                    
+                    default:
+                        result += '\\u' + hex4(cp);
+                        break;
+                }
+            }
+            else {
+                result += String.fromCharCode(cp);
+            }
+        }
+        return result;
+    };
+
+
     const formatJson = function(parentElem, indent) {
         const index = parseInt($(parentElem).attr('data-index'));
         const codeMirror = apiHelper.jsonLinterCodeMirror[index];
@@ -70,9 +130,7 @@ $(document).ready(function() {
             const jsonObj = JSON.parse(jsonStr);
             const jsonCompact = JSON.stringify(jsonObj, null, 0);
             
-            let str = jsonCompact
-                .replace(/[\\]/g, '\\\\')
-                .replace(/[\"]/g, '\\\"');
+            let str = escapeUnicode(jsonCompact, false);
             codeMirror.setValue('"' + str + '"');
         }  
         catch(e) {
@@ -101,6 +159,15 @@ $(document).ready(function() {
         catch(e) {
         }
 
+    });
+
+    $('.apiHelperJsonLinterEscapeButton').on('click', function() {
+        let parentElem = $(this).closest('.apiHelperJsonLinter');
+        const index = parseInt($(parentElem).attr('data-index'));
+
+        const codeMirror = apiHelper.jsonLinterCodeMirror[index];
+        let str = codeMirror.getValue();
+        codeMirror.setValue(escapeUnicode(str, true));
     });
 
 });

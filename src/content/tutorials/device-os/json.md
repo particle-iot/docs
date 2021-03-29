@@ -118,7 +118,7 @@ There are a bunch of valid backslash escapes:
 | \r | Carriage Return | 13 (0x0d) |
 | \/ | Solidus (forward slash) | 27 (0x2f) |
 | \" | Double Quote | 34 (0x22)|
-| \\\\ | Reverse Solidus (backslash) | 134 (0x92) |
+| \\\\ | Reverse Solidus (backslash) | 92 (0x5c) |
 | \u | 4 hex digits, Unicode UTF-16 | &nbsp; | 
 
 Note that you cannot continue a string across multiple lines. But you can insert a new line (`\n`) in a string.
@@ -184,19 +184,64 @@ on the line with the syntax error.
 
 - The **Prettify** button reformats the JSON to be one key/value pair per line, which is easier to read.
 - The **Compact** button removes the excess whitespace and converts everything to a single line.
-- The **Stringify** button converts JSON into a string, escaping the double quotes. 
+- The **Stringify** button converts JSON into a string, escaping double quotes and backslashes, and Unicode.
 - The **Unstringify** button converts a string back into JSON, removing the escaping.
+- The **Escape Unicode** button converts characters >= 127 to a four-digit hex Unicode escape sequence.
 
-The four buttons only work when the JSON is valid. If there are syntax errors, the buttons will be grayed out.
+The five buttons only work when the JSON is valid. If there are syntax errors, the buttons will be grayed out.
+
 
 Try some other experiments:
 
-- The four buttons are mostly non-destructive so try them out!
-- Try copying and pasting the examples above or your own JSON file into the box below.
+- The buttons are mostly non-destructive so try them out!
+- Try copying and pasting the examples above or your own JSON file into the box.
+- Try typing some diacritical marks (like jalapeño).
 
 Try intentionally creating syntax errors:
 
 - Try adding a trailing comma after the last array element.
 - Try adding a key not in double quotes.
 - Try using single quotes instead of double quotes.
+
+## Generate using sprintf
+
+A common use case is to generate JSON on your Particle device and send it to the cloud using `Particle.publish()`.
+
+For simple data, using the standard C library function `sprintf()` or `String::format()` are a convenient 
+method. 
+
+One important caveat: Once you start getting into strings that might contain a double quote, 
+backslash, or other character that must be escaped, things start to get complicated very quickly
+and you are much better off using the JSON generator in the next step. In fact, once you get
+used to using the JSON generator you'll probably want to use it for all cases, since it really
+makes life simpler.
+
+If you use `sprintf`, you must allocate a buffer big enough to hold your output. Furthermore, you
+should always use `snprintf` which includes a length field, which prevents buffer overruns if
+your buffer is too small. A buffer overrun could cause your code to crash, or worse yet,
+crash sometimes later for unknown reasons because of heap corruption.
+
+```cpp
+int a = 123;
+int b = 456;
+
+char buf[256];
+snprintf(buf, sizeof(buf), "{\"a\":%d,\"b\":%d}", a, b);
+Particle.publish("testEvent", buf);
+```
+
+Note the need to escape all of the double quotes in the formatting string using backslashes.
+
+You can also do this using String::format, which does not require allocating a buffer:
+
+```cpp
+int a = 123;
+int b = 456;
+
+Particle.publish("testEvent", String::format("{\"a\":%d,\"b\":%d}", a, b);
+```
+
+If you need to include a c-string (const char *), use `%s` but don't forget to double
+quote escape the output.
+
 
