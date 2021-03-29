@@ -28,6 +28,7 @@ $(document).ready(function() {
             }
             env['PARTICLE_EVENT_VALUE'] = inputStr;
             env['PARTICLE_EVENT_NAME'] = 'testEvent';
+            env['PARTICLE_DEVICE_ID'] = '3f002b000000000000000000';
             env['PARTICLE_PUBLISHED_AT'] = '2016-04-16T13:37:08.755Z';
 
             const templateStr = $(thisPartial).find('.apiHelperMustacheTesterTemplate').val();
