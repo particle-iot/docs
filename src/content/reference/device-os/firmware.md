@@ -8262,6 +8262,22 @@ The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described
 - `scanData` The scan data (optional)
 - `rssi` The signal strength of the advertising message.
 
+Prior to Device OS 3.0, these were member variables. 
+
+In Device OS 3.0 and later, they are methods, so you 
+must access them as:
+
+- `address()` The BLE address of the device
+- `advertisingData()` The advertising data sent by the device
+- `scanData()` The scan data (optional)
+- `rssi()` The signal strength of the advertising message.
+
+For example:
+
+```
+len = scanResults[ii].advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
+```
+
 #### BLE.scan(Vector)
 
 The `Vector` version of scan does not require guessing the number of scan items ahead of time. However, it does dynamically allocate memory to hold all of the scan results.
@@ -8274,7 +8290,39 @@ The default is 5 seconds, however you can change it using `setScanTimeout()`.
 // PROTOTYPE
 Vector<BleScanResult> scan() const;
 
-// EXAMPLE
+// EXAMPLE - Device OS 3.0 and later
+#include "Particle.h"
+
+SYSTEM_MODE(MANUAL);
+
+SerialLogHandler logHandler(LOG_LEVEL_TRACE);
+
+void setup() {
+	(void)logHandler; // Does nothing, just to eliminate warning for unused variable
+}
+
+void loop() {
+	Vector<BleScanResult> scanResults = BLE.scan();
+
+    if (scanResults.size()) {
+        Log.info("%d devices found", scanResults.size());
+
+        for (int ii = 0; ii < scanResults.size(); ii++) {
+            Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
+                    scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
+                    scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5], scanResults[ii].rssi());
+
+            String name = scanResults[ii].advertisingData().deviceName();
+            if (name.length() > 0) {
+                Log.info("Advertising name: %s", name.c_str());
+            }
+        }
+    }
+
+    delay(3000);
+}
+
+// EXAMPLE - Device OS 2.0 and earlier
 #include "Particle.h"
 
 SYSTEM_MODE(MANUAL);
@@ -8471,7 +8519,20 @@ This call is synchronous and will block until a connection is completed or the o
 Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object. You typically use a construct like this:
 
 ```
-// EXAMPLE:
+// EXAMPLE - Device OS 3.0.0 and later:
+BlePeerDevice peer = BLE.connect(scanResults[ii].address());
+if (peer.connected()) {
+	Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
+							scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
+							scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5]);
+	// ...
+}
+else {
+	Log.info("connection failed");
+	// ...
+}
+
+// EXAMPLE - Device OS 2.x and earlier:
 BlePeerDevice peer = BLE.connect(scanResults[ii].address);
 if (peer.connected()) {
 	Log.info("successfully connected %02X:%02X:%02X:%02X:%02X:%02X!",
@@ -9485,6 +9546,15 @@ When using a Particle device in BLE central mode, connecting a peripheral return
 Typically you'd get the `BlePeerDevice` from calling [`BLE.connect()`](/reference/device-os/firmware/#ble-connect-).
 
 ```cpp
+// Device OS 3.0 and later
+BlePeerDevice peer = BLE.connect(scanResults[ii].address());
+if (peer.connected()) {
+	peerTxCharacteristic = peer.getCharacteristicByUUID(txUuid);
+	peerRxCharacteristic = peer.getCharacteristicByUUID(rxUuid);
+	// ...
+}
+
+// Device OS 2.x and earlier
 BlePeerDevice peer = BLE.connect(scanResults[ii].address);
 if (peer.connected()) {
 	peerTxCharacteristic = peer.getCharacteristicByUUID(txUuid);
@@ -9608,7 +9678,13 @@ The BleAddress is 6 octets long (constant: `BLE_SIG_ADDR_LEN`). You can access i
 // PROTOTYPE
 uint8_t operator[](uint8_t i) const;
 
-// EXAMPLE
+// EXAMPLE - Device OS 3.0 and later
+Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
+		scanResults[ii].rssi(),
+		scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
+		scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5]);
+
+// EXAMPLE - Device OS 2.x and earlier
 Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
 		scanResults[ii].rssi,
 		scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],

@@ -28,8 +28,8 @@ The color code and pin assignments for this cable are:
 | 2         | 1      | CAN_P     | Yellow         | 
 | 3         | 7      | CAN_N     | Blue           | 
 | 4         | 6      | CAN_5V    | Orange         | 
-| 5         | 5      | TX_SCL_D9 | Brown          | 
-| 6         | 4      | TX_SDA_D8 | Green          | 
+| 5         | 5      | TX_SCL_D8 | Brown          | 
+| 6         | 4      | RX_SDA_D9 | Green          | 
 | 7         | 3      | A3        | White          | 
 | 8         | 8      | GND       | Black          | 
 
