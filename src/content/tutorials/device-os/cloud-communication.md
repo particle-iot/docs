@@ -44,8 +44,10 @@ can easily change it. Normally you'd publish something like a sensor value, but 
 of this tutorial there's a fake `getSensor()` function that just returns a random value so you 
 don't have to find a special sensor just to run the example program.
 
-Normally you monitor published events in the [Particle Console](https://console.particle.io) in the **Events**
+Normally you monitor published events in the [Particle Console](https://console.particle.io/events/) in the **Events**
 tab.
+
+![Console Events](/assets/images/consoleTestEvent.png)
 
 You can also monitor your device right here. Click the **Enabled** checkbox to view events here.
 
@@ -228,12 +230,17 @@ The USB serial debug output for this version looks like this:
 0000120000 [app] INFO: published 9.0,98.4
 ```
 
+And in the console:
+
+![Console Events 2](/assets/images/consoleTestEvent2.png)
+
+
 ## Function
 
 - Functions allow the cloud to call one device to perform a task with optional data
 - Function data is limited to 622 bytes of UTF-8 characters
-- You can have up to 20 functions per device, but you can also use the data parameter to handle many more operations
-- Functions can only return a 4-byte (32-bit) integer value. They cannot return strings, double width floating point, etc.
+- You can have up to 20 functions per device, but you can also use the data parameter to handle many more variations
+- Functions can only return a 32-bit integer value. They cannot return strings, double width floating point, etc.
 - Functions only work when the device is online and breathing cyan
 - Each function typically uses one Particle cloud [data operation](/tutorials/device-cloud/introduction/#pricing-tiers)
 - Functions and variables can be used on unclaimed product devices, but subscribe cannot
@@ -401,7 +408,7 @@ if (millis() - lastSensorCheckMs >= sensorCheckPeriod.count())
 
 You can get the value of the variable here:
 
-{{> device-variable}}
+{{> device-variable nameIsText="true" defaultName="sensor"}}
 
 - Or in the [console](https://console.particle.io)
 - Using the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli/):
@@ -416,9 +423,9 @@ particle get test2 sensor
 
 {{codebox content="/assets/files/cloud-communication/variable2.cpp" format="cpp" height="300" flash="true"}}
 
-One thing about the example above: We continuously read the sensor even if the cloud isn't asking for the value. Sometimes you want to do this, for example if you are averaging values. But sometimes you might want to retrieve the value on demand only.
+One thing about the earlier example: We continuously read the sensor even if the cloud isn't asking for the value. Sometimes you want to do this, for example if you are averaging values. But sometimes you might want to retrieve the value on demand only.
 
-Fortunately, this is really easy to do! Instead of passing a global variable to `Particle.variable` you can pass a C++ function call!
+Fortunately, this is really easy to do. Instead of passing a global variable to `Particle.variable` you can pass a C++ function call!
 
 ```cpp
 int getSensor();

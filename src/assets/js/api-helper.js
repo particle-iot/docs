@@ -178,7 +178,7 @@ $(document).ready(function() {
         const authData = prompt('JSON authentication data:');
         if (authData) {
             localStorage.setItem('particleAuth', authData);
-            apiHelper.ready();
+            location.reload();
         }
     });
     
@@ -191,7 +191,7 @@ $(document).ready(function() {
     $('.apiHelperLogoutButton').on('click', function() {
         Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
         localStorage.removeItem('particleAuth');
-        apiHelper.ready();
+        location.reload();
     });
 
     const cookie = Cookies.get('ember_simple_auth_session');
