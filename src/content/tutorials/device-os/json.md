@@ -378,7 +378,7 @@ start monitoring events. When a new event arrives, it will be decoded and displa
 box below, showing any JSON syntax errors.
 
 {{> sso }}
-{{> event-viewer-json height="300"}}
+{{> event-viewer-json height="200" json-height="300"}}
 
 ## Using JSONWriter
 

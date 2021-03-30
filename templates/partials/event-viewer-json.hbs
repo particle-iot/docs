@@ -12,18 +12,26 @@
                     value="{{defaultFilter}}"
                     {{/if}}
                     /> &nbsp;
+                <button class="apiHelperJsonLinterPrettifyButton apiHelperJsonLinterValidOnlyButton apiHelperButton">Prettify Decoded JSON</button> &nbsp;
             </p>
             <p>
                 Device Filter: <select class="apiHelperEventViewerDeviceSelect apiHelperSelect"></select>
             </p>
-            <p>
-                Event Name: <span class="apiHelperEventViewerEventNameSpan"></span><br />
-                Event Device: <span class="apiHelperEventViewerEventDeviceSpan"></span>
-            </p>
-            <p><button class="apiHelperJsonLinterPrettifyButton apiHelperJsonLinterValidOnlyButton apiHelperButton">Prettify</button> &nbsp;</p>
         </div>
         <div class="apiHelperEventViewerStatus"></div>
         <div class="apiHelperEventViewerOutput" style="height: {{height}}px; overflow:scroll;">
+            <table class="apiHelperEventTable">
+                <thead>
+                    <th class="apiHelperEventViewerEvent">Event</th>
+                    <th class="apiHelperEventViewerData">Data</th>
+                    <th class="apiHelperEventViewerDevice">Device</th>
+                    <th class="apiHelperEventViewerTime">Time</th>
+                </thead>
+                <tbody>                    
+                </tbody>
+            </table>
+        </div>
+        <div class="apiHelperEventViewerOutputJson" style="height: {{json-height}}px; overflow:scroll;">
             <textarea></textarea>
         </div>
     </div>

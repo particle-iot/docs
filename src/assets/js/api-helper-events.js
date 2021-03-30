@@ -3,7 +3,7 @@ apiHelper.eventViewer = {};
 
 apiHelper.eventViewer.events = [];
 
-apiHelper.eventViewer.addRow = function(eventViewerElem, event) {
+apiHelper.eventViewer.addRow = function(eventViewerElem, event, eventsIndex) {
     const deviceFilter = $(eventViewerElem).find('.apiHelperEventViewerDeviceSelect').val();
     if (deviceFilter != 'all' && deviceFilter != event.coreid) {
         return;
@@ -20,7 +20,7 @@ apiHelper.eventViewer.addRow = function(eventViewerElem, event) {
 
     const time = event.published_at.replace('T', ' ');
 
-    let html = '<tr>';
+    let html = '<tr data-events-index="' + eventsIndex + '">';
     html += '<td class="apiHelperEventViewerEvent">' + event.name + '</td>';
     html += '<td class="apiHelperEventViewerData">' + event.data + '</td>';
     html += '<td class="apiHelperEventViewerDevice">' + deviceName + '</td>';
@@ -35,12 +35,7 @@ apiHelper.eventViewer.event = function(event) {
 
     $('.apiHelperEventViewer').each(function(index) {
         if ($(this).find('.apiHelperEventViewerEnable').prop('checked')) {
-            if ($(this).hasClass('apiHelperJsonLinter')) {
-                apiHelper.jsonLinterEvent($(this), event);
-            }
-            else {
-                apiHelper.eventViewer.addRow($(this), event);
-            }
+            apiHelper.eventViewer.addRow($(this), event, apiHelper.eventViewer.events.length - 1);
         }
     });
 };
@@ -50,9 +45,18 @@ apiHelper.eventViewer.updateFilter = function(elem) {
 
     if ($(eventViewerElem).find('.apiHelperEventViewerOutput > table').length > 0) {
         $(eventViewerElem).find('.apiHelperEventViewerOutput > table > tbody').html('');
-        apiHelper.eventViewer.events.forEach(function(event) {
-            apiHelper.eventViewer.addRow(eventViewerElem, event);
+        apiHelper.eventViewer.events.forEach(function(event, index) {
+            apiHelper.eventViewer.addRow(eventViewerElem, event, index);
         });    
+    }
+};
+
+apiHelper.eventViewer.clickRow = function(thisRowElem) {
+    const thisPartial = $(thisRowElem).closest('div.apiHelperEventViewer');
+
+    if ($(thisPartial).hasClass('apiHelperJsonLinter')) {
+        const event = apiHelper.eventViewer.events[$(thisRowElem).attr('data-events-index')];
+        apiHelper.jsonLinterEvent($(thisPartial), event);
     }
 };
 
@@ -115,6 +119,17 @@ $(document).ready(function() {
             apiHelper.eventViewer.updateFilter(this);
         });
 
+        if ($('.apiHelperEventViewerOutput > table').length > 0) {
+            $('.apiHelperEventViewerOutput > table > tbody').on('click', function(ev) {
+                const thisTable = $(ev.target).closest('table');
+                $(thisTable).find('tr').removeClass('apiHelperSelectedRow');
+
+                const thisRow = $(ev.target).closest('tr');
+                $(thisRow).addClass('apiHelperSelectedRow');
+
+                apiHelper.eventViewer.clickRow(thisRow);
+            });
+        }    
     }
 
 });
