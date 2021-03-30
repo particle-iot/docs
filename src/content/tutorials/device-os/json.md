@@ -574,7 +574,7 @@ is to HTML escape any values where that is required. For example, angle brackets
 This is almost never what you want for a JSON API, so you will almost always use
 three curly brackets, which do not HTML escape.
 
-### Mustache variables
+## Mustache variables
 
 This section has a number of examples of using mustache templates. The next
 section has an interactive editor that you can use with your own data!
