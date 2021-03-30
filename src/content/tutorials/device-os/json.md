@@ -374,8 +374,8 @@ the box and attempt to parse it as JSON. If there are errors, they will be flagg
 hopefully make it easier to figure out what you did wrong.
 
 Flash the event generating firmware above to a test device. Click the **Enabled** button to 
-start monitoring events. When a new event arrives, it will be decoded and displayed in the 
-box below, showing any JSON syntax errors.
+start monitoring events. Click on a row in the event list in the middle part to validate 
+and display the decoded JSON in the bottom part.
 
 {{> sso }}
 {{> event-viewer-json height="200" json-height="300"}}

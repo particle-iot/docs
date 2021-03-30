@@ -24,7 +24,15 @@ $(document).ready(function() {
         const index = parseInt($(elem).attr('data-index'));
         const codeMirror = apiHelper.jsonLinterCodeMirror[index];
 
-        codeMirror.setValue(event.data);
+        let data = event.data;
+        try {
+            const jsonObj = JSON.parse(data);
+            data = JSON.stringify(jsonObj, null, 2);
+        }  
+        catch(e) {
+        }
+
+        codeMirror.setValue(data);
     };
 
     apiHelper.jsonLinterCodeMirror = [];
