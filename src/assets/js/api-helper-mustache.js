@@ -16,7 +16,6 @@ $(document).ready(function() {
 
         const renderTemplate = function() {
             $(thisPartial).find('.apiHelperMustacheTesterExpanded').val('');
-            $(thisPartial).find('.apiHelperRenderedJson').hide();
 
             let env = {};
 
@@ -41,8 +40,14 @@ $(document).ready(function() {
 
             if (output.startsWith('{') || output.startsWith('[')) {
                 $(thisPartial).find('.apiHelperRenderedJson').show();
+                $(thisPartial).find('.apiHelperExpandedBox').hide();
                 codeMirrors[1].setValue(output);    
             }
+            else {
+                $(thisPartial).find('.apiHelperRenderedJson').hide();
+                $(thisPartial).find('.apiHelperExpandedBox').show();
+            }
+            
 
         };
 

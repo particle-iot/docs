@@ -664,8 +664,17 @@ and it is hard to work around, so it's best if you never have to deal with doubl
 
 ### Try it out
 
-{{> mustache-tester defaultData="{\"a\":123,\"b\":\"test\",\"c\":true,\"d\":[1,2,3],\"e\":{\"f\":444,\"g\":5.5}}" defaultTemplate="{{{a}}}"}}
+{{> mustache-tester defaultData="{\"a\":123,\"b\":\"test\",\"c\":true,\"d\":[1,2,3],\"e\":{\"f\":444,\"g\":5.5}}" 
+defaultTemplate="{\"a\":{{{a}}},\"id\":\"{{{PARTICLE_DEVICE_ID}}}\"}" }}
 
+Some mustache templates to try:
+
+- `\{{{a}}}`
+- `\{{{b}}}`
+- `"\{{{b}}}"`
+- `[\{{{d}}}]`
+- `\{{{e.g}}}`
+- `[\{{{e.g}}},\{{{e.f}}},\{{{a}}}]`
 
 ## Advanced mustache
 
