@@ -201,17 +201,21 @@ $(document).ready(function() {
     
             setStatus('Getting Variable ' + variableName);
 
-            apiHelper.particle.getVariable({ deviceId, name: variableName, auth: apiHelper.auth.access_token  }).then(
-                function (data) {
-                    setStatus(data.body.result);
-                },
-                function (err) {
-                    setStatus('Error: ' + err);
+            // The getVariable method in Particle-api-js does not appear to return an error if the
+            // variables does not exist
+            $.ajax({
+                error: function(err) {
+                    setStatus('Error: ' + err.responseJSON.error);
                     setTimeout(function() {
                         setStatus('');
                     }, 10000);                
-                }
-            );            
+                },
+                method: 'GET',
+                success: function (resp) {
+                    setStatus(resp.result);
+                },
+                url: 'https://api.particle.io/v1/devices/' + deviceId + '/' + variableName + "?access_token=" + apiHelper.auth.access_token,
+            });    
     
         });
 
