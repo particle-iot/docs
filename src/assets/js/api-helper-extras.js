@@ -13,7 +13,8 @@ $(document).ready(function() {
             getTitle: function(dev) {
                 return dev.name + (dev.online ? '' : ' (offline)');
             },
-            hasRefresh: true
+            hasRefresh: true,
+            hasSelectDevice: true
         });    
 
         const setStatus = function(status) {
@@ -58,7 +59,8 @@ $(document).ready(function() {
             getTitle: function(dev) {
                 return dev.name + (dev.online ? '' : ' (offline)');
             },
-            hasRefresh: true
+            hasRefresh: true,
+            hasSelectDevice: true
         });    
 
 

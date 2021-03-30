@@ -24,6 +24,14 @@ $(document).ready(function() {
         const index = parseInt($(elem).attr('data-index'));
         const codeMirror = apiHelper.jsonLinterCodeMirror[index];
 
+        let deviceName = apiHelper.deviceIdToName[event.coreid];
+        if (!deviceName) {
+            deviceName = event.coreid;
+        }
+    
+        $(elem).find('.apiHelperEventViewerEventNameSpan').text(event.name);
+        $(elem).find('.apiHelperEventViewerEventDeviceSpan').text(deviceName);
+
         codeMirror.setValue(event.data);
     };
 

@@ -368,7 +368,7 @@ using a browser or node.js, you will probably use `JSON.parse(event.data)`.
 
 ### Event decoder
 
-What if you are having trouble with your event JSON. It's easy to make a mistake in encoding the
+What if you are having trouble with your event JSON? It's easy to make a mistake in encoding the
 JSON by hand using `sprintf`. This online viewer will print the most recently received event in 
 the box and attempt to parse it as JSON. If there are errors, they will be flagged which will
 hopefully make it easier to figure out what you did wrong.
