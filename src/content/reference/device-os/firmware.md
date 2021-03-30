@@ -15089,9 +15089,9 @@ These system modes describe how connectivity is handled and when user code is ru
 
 System modes must be called before the setup() function. By default, the device is always in `AUTOMATIC` mode.
 
-### Automatic mode (threading disabled)
+### Automatic mode
 
-The automatic mode of connectivity provides the default behavior of the device, which is that:
+The automatic mode (threading disabled) of connectivity (with threading disabled) provides the default behavior of the device, which is that:
 
 ```cpp
 SYSTEM_MODE(AUTOMATIC);

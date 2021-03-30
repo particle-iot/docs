@@ -111,7 +111,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 - [Test report](/assets/pdfs/elc314-fcc-part15b-test-report.pdf)
 
-#### Electron E402 and ELC404 LTE Cat M1 (R410M)
+#### Electron ELC402 and ELC404 LTE Cat M1 (R410M)
 
 FCC Part 15 Subpart B, Class B (sDoC):
 
@@ -352,7 +352,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
   
 - [ICES-003 Issue 6 Test report](/assets/pdfs/elc314-ices-3-6-test-report.pdf)
 
-#### Electron E402 and ELC404 LTE Cat M1 (R410M modem)
+#### Electron ELC402 and ELC404 LTE Cat M1 (R410M modem)
 
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/electron402-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/electron402-fcc-part15b-test-report.pdf)
@@ -812,6 +812,12 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 #### Electron 2G (G350 modem)
 - Product has completed and passed all PTCRB test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 2G cellular solutions.
 
+#### Electron ELC402 LTE Cat M1 (R410M modem)
+- [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=43160)
+- [Certificate of Conformity](/assets/pdfs/elc402-ptcrb.pdf)
+- [OTA test report for network certification](/assets/pdfs/elc402-ota-att.pdf)
+
+
 #### E Series E310 (U201 modem)
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=39636)
 - [Certificate of Conformity](/assets/pdfs/electron/ptcrb-u201-certificate.pdf)
@@ -820,7 +826,7 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 #### E Series E402 LTE Cat M1 (R410M modem)
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=41338)
 - [Certificate of Conformity](/assets/pdfs/e402-ptcrb.pdf)
-- [AT&T LTE Certification](/assets/pdfs/e402-ota-att.pdf)
+- [OTA test report for network certification](/assets/pdfs/e402-ota-att.pdf)
 
 #### Boron LTE Cat M1 BRN402 (R410M modem)
 
@@ -832,8 +838,7 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 
 #### Tracker SoM T402
 
-- [Certificate of Conformity](/assets/pdfs/t402-ptcrb.pdf
-)
+- [Certificate of Conformity](/assets/pdfs/t402-ptcrb.pdf)
 
 
 ## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>
