@@ -1,0 +1,37 @@
+<div class="apiHelper apiHelperEventViewer apiHelperJsonLinter" data-style="codemirror">
+    <div class="apiHelperBox">
+        <div class="apiHelperEventViewerControls" style="display:none;">
+            <p><span><input type="checkbox" class="apiHelperEventViewerEnable" 
+                    {{#if defaultEnabled}}
+                    checked
+                    {{/if}}
+                />
+                <label>Enabled</label></span> &nbsp;
+                Filter: <input type="text" class="apiHelperEventViewerFilter" size="15" 
+                    {{#if defaultFilter}}
+                    value="{{defaultFilter}}"
+                    {{/if}}
+                    /> &nbsp;
+            </p>
+            <p>
+                Device Filter: <select class="apiHelperEventViewerDeviceSelect apiHelperSelect"></select>
+            </p>
+        </div>
+        <div class="apiHelperEventViewerStatus"></div>
+        <div class="apiHelperEventViewerOutput" style="height: {{height}}px; overflow:scroll;">
+            <table class="apiHelperEventTable">
+                <thead>
+                    <th class="apiHelperEventViewerEvent">Event</th>
+                    <th class="apiHelperEventViewerData">Data</th>
+                    <th class="apiHelperEventViewerDevice">Device</th>
+                    <th class="apiHelperEventViewerTime">Time</th>
+                </thead>
+                <tbody>                    
+                </tbody>
+            </table>
+        </div>
+        <div class="apiHelperEventViewerOutputJson" style="height: {{json-height}}px; overflow:scroll;">
+            <textarea></textarea>
+        </div>
+    </div>
+</div>

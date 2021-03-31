@@ -1,7 +1,7 @@
 ---
 word: Firmware Libraries
 title: Firmware Libraries
-order: 3 
+order: 8
 columns: two
 layout: tutorials.hbs
 description: Introduction to firmware libraries to access other services and hardware from your Particle IoT device firmware

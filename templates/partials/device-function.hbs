@@ -1,0 +1,25 @@
+<div class="apiHelper apiHelperLoggedIn apiHelperDeviceFunction" style="display:none;">
+    <div class="apiHelperBox">
+        <p>Device: <select class="apiHelperDeviceFunctionDeviceSelect apiHelperCommonDevice apiHelperSelect"></select> &nbsp;</p>
+        <p>
+            Function Name: 
+                {{#if nameIsText}}
+                <input type="text" class="apiHelperDeviceFunctionFunctionSelect apiHelperSmallText" size="15" 
+                    {{#if defaultName}}
+                    value="{{defaultName}}" 
+                    {{/if}}
+                    />
+                {{else}}
+                <select class="apiHelperDeviceFunctionFunctionSelect apiHelperSelect"></select>
+                {{/if}}
+            </p>
+        <p><input type="text" size="70" class="apiHelperDeviceFunctionArg" 
+            {{#if defaultArg}}
+            value="{{defaultArg}}"
+            {{/if}}
+            /></p>
+        <p><button class="apiHelperDeviceFunctionCall apiHelperButton" disabled>Call Function</button></p>
+        <div class="apiHelperDeviceFunctionStatus"></div>
+    </div>
+</div>
+

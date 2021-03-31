@@ -1,0 +1,25 @@
+<div class="apiHelper apiHelperLoggedIn apiHelperPublishEventToDevice" style="display:none;">
+    <div class="apiHelperBox">
+        <p>
+            Device: <select class="apiHelperPublishEventToDeviceSelect apiHelperCommonDevice apiHelperSelect"></select>
+        </p>
+        <p>
+            Event Name: <input type="text" class="apiHelperPublishEventToDeviceName apiHelperSmallText" size="15" 
+                {{#if defaultName}}
+                value="{{defaultName}}" 
+                {{/if}}
+            />
+        </p>
+        <p>
+            Event Data: <input type="text" class="apiHelperPublishEventToDeviceData apiHelperSmallText" size="70" 
+                {{#if defaultData}}
+                value="{{defaultData}}" 
+                {{/if}}
+            />
+        </p>
+
+        <p><button class="apiHelperPublishEventToDeviceButton apiHelperButton" disabled>Publish Event</button></p>
+        <div class="apiHelperPublishEventToDeviceStatus"></div>
+    </div>
+</div>
+
