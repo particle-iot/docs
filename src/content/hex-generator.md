@@ -21,7 +21,7 @@ This tool takes the [restore binaries](/reference/developer-tools/jtag/#restore-
 
 - Select your user firmware .bin file:
 
-<form>
+<form id="hexGeneratorForm">
 <p><input type="file" id="userBinFile" name="userBinFile" accept=".bin"></p>
 <p><button type="button" onclick="downloadHex()">Generate and Download Hex File</button></p>
 </form>

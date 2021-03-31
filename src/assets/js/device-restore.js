@@ -15,7 +15,25 @@ $(document).ready(function() {
         $('#progressDiv').hide();    
     }
 
+    if ($('#hexGeneratorForm').length > 0) {
+        const buttonEnable = function() {
+            const imageFile = $('input[name="imageFile"]:checked').val();
+            const userBinFiles = $('#userBinFile').prop('files');
+            if (!imageFile || !userBinFiles || userBinFiles.length != 1) {
+                // Not valid settings
+                $('#hexGeneratorForm').find('button').attr('disabled', 'disabled');
+            }
+            else {
+                $('#hexGeneratorForm').find('button').removeAttr('disabled');
+            }
+        };
+        
+        $('input').on('change', buttonEnable);
+
+        buttonEnable();
+    }
 });
+
 
 async function startFlash(platform, version) {
     $('#deviceRestoreTable').hide();
