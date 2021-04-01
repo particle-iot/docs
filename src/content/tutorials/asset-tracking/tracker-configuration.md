@@ -4,7 +4,7 @@ columns: two
 layout: tutorials.hbs
 order: 32
 description: Particle Tracker Configuration
-includeDefinitions: [api-helper, api-helper-config]
+includeDefinitions: [api-helper, api-helper-config, api-helper-tracker, zip]
 ---
 
 # Tracker Configuration
@@ -309,6 +309,24 @@ This is what it looks like in the console.
 ![](/assets/images/tracker/settings-example.png)
 
 ### Getting the Tracker Edge Firmware
+
+
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/tracker/example/main.cpp" project="config-sample"
+    src="/assets/files/tracker/example/MyConfig.cpp /assets/files/tracker/example/MyConfig.h" }}
+
+- Extract **tracker-config-example.zip** in your Downloads directory 
+- Open the **tracker-config-example** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
 
 The Tracker Edge firmware can be downloaded from Github:
 

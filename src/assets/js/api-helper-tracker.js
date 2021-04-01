@@ -19,6 +19,7 @@ $(document).ready(function() {
                 main: $(thisPartial).attr('data-main'),
                 project: $(thisPartial).attr('data-project'),
                 libraries: $(thisPartial).attr('data-libraries'),
+                src: $(thisPartial).attr('data-src'),
                 setStatus: setStatus,
                 next: function() {
                     $(thisButton).removeAttr('disabled');
@@ -51,13 +52,28 @@ async function buildTrackerDownload(options) {
     const zipFsVsCodeDir = zipFsTrackerDir.addDirectory('.vscode');
     await zipFsVsCodeDir.importHttpContent(vsCodeSettingsUrl);
 
+    const srcDir = zipFs.find(zipFsTrackerDir.getFullname() + '/src');
+
     if (options.main) {
         const oldMain = zipFs.find(zipFsTrackerDir.getFullname() + '/src/main.cpp');
         zipFs.remove(oldMain);
 
-        const srcDir = zipFs.find(zipFsTrackerDir.getFullname() + '/src');
-
         await srcDir.addHttpContent('main.cpp', options.main);
+    }
+
+    if (options.src) {
+        for(const src of options.src.split(' ')) {
+            let name;
+            const lastSlashIndex = src.lastIndexOf('/');
+            if (lastSlashIndex > 0) {
+                name = src.substr(lastSlashIndex + 1);
+            }
+            else {
+                name = src;
+            }
+            
+            await srcDir.addHttpContent(name, src);
+        }
     }
 
     if (options.libraries) {
