@@ -3,6 +3,7 @@ title: AN021 Tracker 4-20mA Sensor Quad
 layout: datasheet.hbs
 columns: two
 order: 121
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN021 Tracker 4-20mA Sensor Quad
 
@@ -134,6 +135,23 @@ By the way, this [inexpensive tool from Amazon](https://www.amazon.com/dp/B07L49
 
 ### Getting the Tracker Edge Firmware
 
+
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN021/firmware/main.cpp" project="tracker-an021" libraries="/assets/files/app-notes/AN021/firmware/AN021.dep"}}
+
+- Extract **tracker-an021.zip** in your Downloads directory 
+- Open the **tracker-an021** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
+
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -154,103 +172,17 @@ git submodule update --init --recursive
 Make sure you've used the [**Mark As Development Device**](https://docs.particle.io/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
 
-### Add the libraries - Quad
-
+#### Add the libraries
 
 From the command palette in Workbench, **Particle: Install Library** then enter **Sensor_4_20mA_RK**. Repeat for **SparkFun_ADS1015_Arduino_Library**. 
 
 If you prefer to edit project.properties directly, add these:
 
-```
-dependencies.Sensor_4_20mA_RK=0.0.2
-dependencies.SparkFun_ADS1015_Arduino_Library=2.3.0
-```
+{{codebox content="/assets/files/app-notes/AN021/firmware/AN021.dep" height="100"}}
 
-### The Source - Quad
+### The full source
 
-```cpp
-
-#include "Particle.h"
-
-#include "tracker_config.h"
-#include "tracker.h"
-
-#include "Sparkfun_ADS1015_Arduino_Library.h"
-#include "Sensor_4_20mA_RK.h"
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_INFO },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-const size_t NUM_SENSOR_CONFIG = 2;
-SensorConfig sensorConfig[NUM_SENSOR_CONFIG] = {
-    { 100, "sen1" },
-    { 101, "sen2", 0, 100, false }
-};
-Sensor_4_20mA sensor;
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
-
-
-void setup()
-{
-    // Uncomment to make it easier to see the serial logs at startup
-    waitFor(Serial.isConnected, 15000);
-    delay(1000);
-
-    Tracker::instance().init();
-
-    // Callback to add temperature information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
-
-    // If using the M8 connector, turn on the CAN_5V power
-    pinMode(CAN_PWR, OUTPUT);
-    digitalWrite(CAN_PWR, HIGH);
-    delay(500);
-
-    Wire3.begin();
-
-    sensor
-        .withADS1015(100, ADS1015_CONFIG_PGA_16, 318, 1602, ADS1015_ADDRESS_GND, Wire3)
-        .withConfig(sensorConfig, NUM_SENSOR_CONFIG)
-        .init();
-
-    Particle.connect();
-}
-
-void loop()
-{
-    Tracker::instance().loop();
-
-    static unsigned long lastReport = 0;
-    if (millis() - lastReport >= 2000) {
-        lastReport = millis();
-
-        for(size_t ii = 0; ii < NUM_SENSOR_CONFIG; ii++) {
-            SensorValue value = sensor.readPinValue(sensorConfig[ii].virtualPin);
-
-            Log.info("%s: value=%.3f mA=%.3f adcValue=%d", sensorConfig[ii].name, value.value, value.mA, value.adcValue);
-        }
-    }
-}
-
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
-{
-    sensor.writeJSON(writer);
-}
-
-```
-
+{{codebox content="/assets/files/app-notes/AN021/firmware/main.cpp" format="cpp" height="500"}}
 
 
 

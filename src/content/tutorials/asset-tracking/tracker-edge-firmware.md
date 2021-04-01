@@ -4,6 +4,7 @@ columns: two
 layout: tutorials.hbs
 order: 30
 description: Particle Tracker Edge Firmware
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 
 # Tracker Edge Firmware
@@ -27,6 +28,15 @@ Instead of having to manually upload firmware that you write, by default new rel
 Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added.
 
 ## Getting the Tracker Edge Firmware
+
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge }}
+
+- Extract **tracker-edge.zip** in your Downloads directory 
+- Open the **tracker-edge** directory in Workbench; it is a pre-configured project directory.
+
+### Manually
 
 The Tracker Edge firmware can be downloaded from Github:
 

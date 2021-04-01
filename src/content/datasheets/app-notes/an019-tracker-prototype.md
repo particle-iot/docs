@@ -3,6 +3,7 @@ title: AN019 Tracker Prototype to Board
 layout: datasheet.hbs
 columns: two
 order: 119
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN019 Tracker Prototype to Board
 
@@ -50,6 +51,23 @@ Note: All GPIO, ADC, and peripherals such as I2C, Serial, and SPI are 3.3V maxim
 
 ### Getting the Tracker Edge Firmware
 
+
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN019/firmware/main.cpp" project="tracker-an019" libraries="/assets/files/app-notes/AN019/firmware/AN019.dep"}}
+
+- Extract **tracker-an019.zip** in your Downloads directory 
+- Open the **tracker-an019** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
+
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -75,99 +93,14 @@ From the command palette in Workbench, **Particle: Install Library** then enter 
 
 If you prefer to edit project.properties directly, add:
 
-```
-dependencies.SparkFun_MCP9600_Arduino_Library=1.0.3
-```
+{{codebox content="/assets/files/app-notes/AN019/firmware/AN019.dep" height="120"}}
+
 
 ### The Source
 
 This is the modified main.cpp to implement thermocouple support:
 
-```cpp
-#include "Particle.h"
-
-#include "tracker_config.h"
-#include "tracker.h"
-
-// Library: SparkFun_MCP9600_Arduino_Library
-#include "SparkFun_MCP9600.h"
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_INFO },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-MCP9600 tempSensor;
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
-
-
-void setup()
-{
-    Tracker::instance().init();
-
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
-
-	// Turn on CAN power (needed when using M8 connector only)
-    pinMode(CAN_PWR, OUTPUT);
-    digitalWrite(CAN_PWR, HIGH);
-
-    // Set the multi-function pins for use the I2C instead of serial or GPIO
-    Wire3.begin();
-    Wire3.setClock(100000);
-
-    // Initialize the MCP9600 I2C thermocouple library
-    tempSensor.begin(0x60, Wire3); 
-
-    if(tempSensor.isConnected() && tempSensor.checkDeviceID()) {
-        Log.info("temp sensor good");
-    }
-    else {
-        Log.error("temp sensor init failed");
-    }
-
-    Particle.connect();
-}
-
-void loop()
-{
-    Tracker::instance().loop();
-
-    // This is just to print data to the USB serial debug log so you don't have to
-    // wait for a location publish. Also handy for touching the thermocouple
-    // to see the temperature change.
-    static unsigned long lastLog = 0;
-    if (millis() - lastLog >= 2000) {
-        lastLog = millis();
-
-        if(tempSensor.available()) {
-            Log.info("thermocouple=%.2f ambient=%.2f", tempSensor.getThermocoupleTemp(), tempSensor.getAmbientTemp());
-        }
-    }
-}
-
-void locationGenerationCallback(JSONWriter &writer, 
-    LocationPoint &point, const void *context)
-{
-    if (tempSensor.available()) {
-        // Add "thermocouple" with a value of degrees C to the location publish event
-        // This shows up in the Custom Data section of the device details
-        writer.name("thermocouple").value(tempSensor.getThermocoupleTemp(), 2); // degrees C
-    }
-    else {
-        Log.info("no sensor");
-    }
-}
-
-```
+{{codebox content="/assets/files/app-notes/AN019/firmware/main.cpp" format="cpp" height="500"}}
 
 ### Digging In
 

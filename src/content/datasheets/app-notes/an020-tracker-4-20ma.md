@@ -3,6 +3,7 @@ title: AN020 Tracker 4-20mA Sensor
 layout: datasheet.hbs
 columns: two
 order: 120
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN020 Tracker 4-20mA Sensor
 
@@ -108,6 +109,22 @@ By the way, this [inexpensive tool from Amazon](https://www.amazon.com/dp/B07L49
 
 ### Getting the Tracker Edge Firmware
 
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN020/firmware/main.cpp" project="tracker-an020" libraries="/assets/files/app-notes/AN020/firmware/AN020.dep"}}
+
+- Extract **tracker-an020.zip** in your Downloads directory 
+- Open the **tracker-an020** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
+
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -127,90 +144,18 @@ git submodule update --init --recursive
 
 Make sure you've used the [**Mark As Development Device**](https://docs.particle.io/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
-### Add the libraries - Single
+### Add the libraries
 
 From the command palette in Workbench, **Particle: Install Library** then enter **Sensor_4_20mA_RK**.
 If you prefer to edit project.properties directly, add this:
 
-```
-dependencies.Sensor_4_20mA_RK=0.0.1
-```
+{{codebox content="/assets/files/app-notes/AN020/firmware/AN020.dep" height="100"}}
 
-### The Source - Single
+### The full source
 
-```cpp
+{{codebox content="/assets/files/app-notes/AN020/firmware/main.cpp" format="cpp" height="500"}}
 
-#include "Particle.h"
-
-#include "tracker_config.h"
-#include "tracker.h"
-
-#include "Sensor_4_20mA_RK.h"
-
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_INFO },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-const size_t NUM_SENSOR_CONFIG = 1;
-SensorConfig sensorConfig[NUM_SENSOR_CONFIG] = {
-    { A3, "temp", 0, 100, false }
-};
-Sensor_4_20mA sensor;
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
-
-
-void setup()
-{
-    Tracker::instance().init();
-
-    // Callback to add temperature information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
-
-    sensor
-        .withNativeADC()
-        .withConfig(sensorConfig, NUM_SENSOR_CONFIG)
-        .init();
-
-    Particle.connect();
-}
-
-void loop()
-{
-     Tracker::instance().loop();
-
-     static unsigned long lastReport = 0;
-     if (millis() - lastReport >= 2000) {
-        lastReport = millis();
-
-        for(size_t ii = 0; ii < NUM_SENSOR_CONFIG; ii++) {
-            SensorValue value = sensor.readPinValue(sensorConfig[ii].virtualPin);
-
-            Log.info("%s: value=%.3f mA=%.3f adcValue=%d", sensorConfig[ii].name, value.value, value.mA, value.adcValue);
-        }
-     }
-}
-
-
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
-{
-    sensor.writeJSON(writer);
-}
-
-```
-
-## Digging In - Single
+## Digging In
 
 ```cpp
 const size_t NUM_SENSOR_CONFIG = 1;

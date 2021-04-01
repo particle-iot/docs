@@ -3,7 +3,7 @@ title: AN017 Tracker CAN
 layout: datasheet.hbs
 columns: two
 order: 117
-includeDefinitions: [api-helper, api-helper-config]
+includeDefinitions: [api-helper, api-helper-config, api-helper-tracker, zip]
 ---
 # AN017 Tracker CAN
 
@@ -61,6 +61,16 @@ If you are directly connecting another CAN module to the Tracker you will have t
 
 ### Getting the Tracker Edge Firmware
 
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN017/firmware/main.cpp" project="tracker-an017"}}
+
+- Extract **tracker-an017.zip** in your Downloads directory 
+- Open the **tracker-an017** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+
+
+#### Manually
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -81,18 +91,6 @@ git submodule update --init --recursive
 Make sure you've used the [**Mark As Development Device**](https://docs.particle.io/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
 CAN support requires Tracker Edge v10 or later, which requires 2.0.0-rc.3 or later.
-
-### Add the libraries
-
-The Tracker Edge develop branch and version 9 and later already has **can-mcp25x** included so you don't need to do anything else. If you are using version 8, you'll need to manually include it:
-
-From the command palette in Workbench, **Particle: Install Library** then enter **can-mcp25x**. 
-
-If you prefer to edit project.properties directly:
-
-```
-dependencies.can-mcp25x=1.0.0
-```
 
 
 ## Full Source

@@ -3,6 +3,7 @@ title: AN013 Tracker GPIO
 layout: datasheet.hbs
 columns: two
 order: 113
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN013 Tracker GPIO
 
@@ -169,6 +170,22 @@ This board includes a [Sparkfun Qwiic connector](https://www.sparkfun.com/produc
 
 ### Getting the Tracker Edge Firmware
 
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN013/firmware/main.cpp" project="tracker-an013" libraries="/assets/files/app-notes/AN013/firmware/AN013.dep"}}
+
+- Extract **tracker-an013.zip** in your Downloads directory 
+- Open the **tracker-an013** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
+
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -189,7 +206,7 @@ git submodule update --init --recursive
 Make sure you've used the [**Mark As Development Device**](https://docs.particle.io/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
 
-### Add the MCP23008 library
+#### Add the MCP23008 library
 
 From the command palette in Workbench, **Particle: Install Library** then enter **MCP23008-RK**.
 
@@ -197,92 +214,4 @@ The documentation for the library can be found [here](https://github.com/rickkas
 
 ### Customize main.cpp
 
-```cpp
-#include "Particle.h"
-
-#include "tracker_config.h"
-#include "tracker.h"
-
-#include "MCP23008-RK.h"
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_INFO, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_INFO },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-// When using the M8 connector, use Wire3 (not Wire)
-MCP23008 gpio(Wire3, 0);
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
-
-unsigned long lastGP0 = 0;
-
-
-void setup()
-{      
-    // Optional: Enable to make it easier to see debug USB serial messages at startup
-    waitFor(Serial.isConnected, 15000);
-    delay(1000);
-
-    // Initialize the tracker
-    Tracker::instance().init();
-
-    // If using the M8 connector, turn on the CAN_5V power
-    pinMode(CAN_PWR, OUTPUT);
-    digitalWrite(CAN_PWR, HIGH);
-    delay(500);
-
-    // Initialize the MCP23008 library (I2C GPIO Expander)
-	gpio.begin();
-
-    // Set all pins to input pull-up mode. Note: The MCP23008 does not support pull down mode.
-    for(uint16_t pin = 0; pin < MCP23008::NUM_PINS; pin++) {
-        gpio.pinMode(pin, INPUT_PULLUP);
-    }
-
-    // Callback to add temperature information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
-
-    // Connect to the Particle cloud now, since we use SEMI_AUTOMATIC mode
-    Particle.connect();
-}
-
-void loop()
-{
-    // Always call the tracker and ds loop functions on every loop call
-    Tracker::instance().loop();
-   
-    if (gpio.digitalRead(MCP23008::PIN_0) == 0 && millis() - lastGP0 > 2000) {
-        lastGP0 = millis();
-
-        // Connect GP0 to a push button to GND. When the button is pressed, the location will be published
-        Log.info("triggered publish by GP0");
-        Tracker::instance().location.triggerLocPub();
-    } 
-
-    // For outputs, use:
-    // gpio.pinMode(MCP23008::PIN_1, OUTPUT);
-    // gpio.digitalWrite(MCP23008::PIN_1, HIGH);
-}
-
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
-{
-    // This is all pins in a bitmask. GP0 is bit 0x01, GP7 is bit 0x80.
-    uint8_t pinState = gpio.readAllPins();
-
-    writer.name("pins").value(pinState);
-
-    Log.info("pinState=0x%x", pinState);
-}
-
-```
-
+{{codebox content="/assets/files/app-notes/AN013/firmware/main.cpp" format="cpp" height="500"}}
