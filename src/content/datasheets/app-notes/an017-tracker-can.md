@@ -95,7 +95,7 @@ CAN support requires Tracker Edge v10 or later, which requires 2.0.0-rc.3 or lat
 
 ## Full Source
 
-{{codebox content="/assets/files/app-notes/AN017/firmware/main.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/app-notes/AN017/firmware/main.cpp" format="cpp" height="400"}}
 
 
 ## Digging In
@@ -433,7 +433,7 @@ The configuration data that is sent between the device and cloud is described by
 
 These are the fields that will be added. This not only describe the data, but match the configuration data in the user firmware, and are also used to describe the console user interface.
 
-{{codebox content="/assets/files/tracker/engine-schema-fragment.json" format="json" height="400"}}
+{{> codebox content="/assets/files/tracker/engine-schema-fragment.json" format="json" height="400"}}
 
 ---
 
@@ -441,7 +441,7 @@ The easiest way to set the schema is using the control here.
 
 {{> sso}}
 
-{{codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}
+{{> codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}
 
 
 You can also set the schema manually using curl:

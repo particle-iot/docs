@@ -203,12 +203,12 @@ From the command palette in Workbench, **Particle: Install Library** then enter 
 
 If you prefer to edit project.properties directly, add these:
 
-{{codebox content="/assets/files/app-notes/AN018/firmware/AN018.dep" height="100"}}
+{{> codebox content="/assets/files/app-notes/AN018/firmware/AN018.dep" height="100"}}
 
 
 ### The Source
 
-{{codebox content="/assets/files/app-notes/AN018/firmware/main.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN018/firmware/main.cpp" format="cpp" height="500"}}
 
 
 ### Digging in

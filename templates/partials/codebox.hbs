@@ -1,0 +1,34 @@
+<div class="codebox" data-content="{{content}}">
+    <div class="codeboxBanner">
+        <div class="codeboxBannerBox">
+            <div><button type="button" class="codeboxDownloadButton" >Download</button> &nbsp;
+                <button type="button" class="codeboxCopyButton">Copy to Clipboard</button> &nbsp;
+
+                {{#if webide}}
+                    <button type="button" class="codeboxWebIdeButton" data-appid="{{webide}}">Open in Web IDE</button> &nbsp;
+                {{/if}}
+
+                {{#if flash}}
+                    <span class="codeboxFlashDeviceSpan" style="display: none"> &nbsp;&nbsp;
+                        <select class="codeboxFlashDeviceSelect apiHelperCommonDevice"></select>
+                        <button type="button" class="codeboxFlashDeviceButton" disabled>Flash</button> &nbsp;
+                    </span>
+                {{/if}}
+
+                {{#if configSchema}}
+                    <span class="codeboxConfigSchemaSpan" style="display: none"> &nbsp;&nbsp;
+                        <select class="codeboxConfigSchemaProductSelect"></select> 
+                        <button type="button" class="codeboxUploadSchemaButton">Upload Schema</button> &nbsp;
+                    </span>
+                {{/if}}
+
+            </div>
+            <div class="codeboxFlashStatus"></div>
+        </div>
+    </div>
+    <div style="height:{{height}}px; overflow:scroll;">
+        <pre class="codeboxPre"><code class="codebox lang-{{format}}" data-content="{{content}}"></code></pre>
+    </div>
+</div>
+
+

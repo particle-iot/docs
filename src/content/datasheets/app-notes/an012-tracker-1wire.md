@@ -164,7 +164,7 @@ The documentation for the library can be found [here](https://github.com/rickkas
 
 ### Customize main.cpp
 
-{{codebox content="/assets/files/app-notes/AN012/firmware/main.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN012/firmware/main.cpp" format="cpp" height="500"}}
 
 
 ### Digging In

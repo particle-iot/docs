@@ -238,7 +238,7 @@ If you're not interested in decoding arbitrary characteristics, you can skip thi
 
 In the [characteristics table](https://www.bluetooth.com/specifications/gatt/characteristics/), clicking on a name brings up the definition for the characteristic. It's a little hard to read (it's XML), but from this example you can find some useful facts about the Heart Rate Measurement Characteristic:
 
-{{codebox content="/assets/files/ble/heart-rate.xml" format="xml" height="300"}}
+{{> codebox content="/assets/files/ble/heart-rate.xml" format="xml" height="300"}}
 
 - The UUID is `uuid="2A37"`. That's hexadecimal, so you'd usually use `BleUuid(0x2A37)` as the characteristics UUID.
 
@@ -426,7 +426,7 @@ For this tutorial I'm using the **nRF Toolbox** mobile app from Nordic Semicondu
 
 Flash this code to a Gen 3 device:
 
-{{codebox content="/assets/files/ble/body-thermometer.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/body-thermometer.cpp" format="cpp" height="400"}}
 
 
 - Run the **NRF Toolbox** app on your mobile phone. 
@@ -456,11 +456,11 @@ And the following code:
 
 **For Device OS 3.0 and later:**
 
-{{codebox content="/assets/files/ble/heart-rate-oled3.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/heart-rate-oled3.cpp" format="cpp" height="400"}}
 
 **For earlier DeviceOS including 2.x LTS:**
 
-{{codebox content="/assets/files/ble/heart-rate-oled.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/heart-rate-oled.cpp" format="cpp" height="400"}}
 
 - Put on your heart rate monitor.
 - Flash the code to your Particle device.
@@ -477,15 +477,15 @@ In this demo you have an central device and two or more peripheral devices. Each
 
 **For Device OS 3.0 and later:**
 
-{{codebox content="/assets/files/ble/device-nearby-central3.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/device-nearby-central3.cpp" format="cpp" height="400"}}
 
 **For earlier DeviceOS including 2.x LTS**
 
-{{codebox content="/assets/files/ble/device-nearby-central.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/device-nearby-central.cpp" format="cpp" height="400"}}
 
 #### Device Nearby Beacon
 
-{{codebox content="/assets/files/ble/device-nearby-beacon.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/device-nearby-beacon.cpp" format="cpp" height="400"}}
 
 {{!-- this is disabled for now because of the limit of one peripheral device connection at a time in 1.3.0 --}}
 
@@ -518,11 +518,11 @@ This is the schematic for the button:
 
 #### Buzzer central
 
-{{codebox content="/assets/files/ble/buzzer-central.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/buzzer-central.cpp" format="cpp" height="400"}}
 
 #### Buzzer peripheral
 
-{{codebox content="/assets/files/ble/buzzer-peripheral.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/buzzer-peripheral.cpp" format="cpp" height="400"}}
 
 {{/if}} {{!-- has-ble-multiple-peripheral --}}
 
@@ -536,7 +536,7 @@ The UART peripheral example shows how your Particle device can appear to be a BL
 
 These are available for both iOS and Android.
 
-{{codebox content="/assets/files/ble/uart-peripheral.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/uart-peripheral.cpp" format="cpp" height="400"}}
 
 ### BLE log handler
 
@@ -562,16 +562,16 @@ To try it:
 
 #### Main source file
 
-{{codebox content="/assets/files/ble/main.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/main.cpp" format="cpp" height="400"}}
 
 
 #### BleLogging.cpp
 
-{{codebox content="/assets/files/ble/BleLogging.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/BleLogging.cpp" format="cpp" height="400"}}
 
 #### BleLogging.h
 
-{{codebox content="/assets/files/ble/BleLogging.h" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/BleLogging.h" format="cpp" height="400"}}
 
 
 ### UART central
@@ -580,11 +580,11 @@ It's less common, however the Particle device can also be the central device. Yo
 
 **For Device OS 3.0 and later:**
 
-{{codebox content="/assets/files/ble/uart-central3.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/uart-central3.cpp" format="cpp" height="400"}}
 
 **For earlier DeviceOS including 2.x LTS:**
 
-{{codebox content="/assets/files/ble/uart-central.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/uart-central.cpp" format="cpp" height="400"}}
 
 ### Chrome Web BLE
 

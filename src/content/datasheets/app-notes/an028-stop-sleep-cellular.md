@@ -119,7 +119,7 @@ if (publishFuture.isDone()) {
 
 ## The Code
 
-{{codebox content="/assets/files/app-notes/AN028/firmware/src/Stop-Sleep-Cellular.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN028/firmware/src/Stop-Sleep-Cellular.cpp" format="cpp" height="500"}}
 
 ## Code Walk-Through
 

@@ -93,14 +93,14 @@ From the command palette in Workbench, **Particle: Install Library** then enter 
 
 If you prefer to edit project.properties directly, add:
 
-{{codebox content="/assets/files/app-notes/AN019/firmware/AN019.dep" height="120"}}
+{{> codebox content="/assets/files/app-notes/AN019/firmware/AN019.dep" height="120"}}
 
 
 ### The Source
 
 This is the modified main.cpp to implement thermocouple support:
 
-{{codebox content="/assets/files/app-notes/AN019/firmware/main.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN019/firmware/main.cpp" format="cpp" height="500"}}
 
 ### Digging In
 

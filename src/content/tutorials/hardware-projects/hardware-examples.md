@@ -50,7 +50,7 @@ This example will blink the blue D7 LED on your Particle device.
 - On the Argon and Boron it's located next to the USB connector (on the side with the battery connector)
 - The E Series, B Series SoM, and Tracker SoM evaluation boards, and the Tracker One, do not have D7 LEDs.
 
-{{codebox content="/assets/files/hardware-examples/blink-d7.ino" format="cpp" height="500" webide="605b1e92de63ee0017f525ea" flash="true"}}
+{{> codebox content="/assets/files/hardware-examples/blink-d7.ino" format="cpp" height="500" webide="605b1e92de63ee0017f525ea" flash="true"}}
 
 This code has a lot of comments, but a few things to note:
 
@@ -124,7 +124,7 @@ We've heavily commented the code below so that you can see what's going on. Basi
 
 ### Code
 
-{{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e" flash="true"}}
+{{> codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e" flash="true"}}
 
 This code should look familiar if you've followed the previous example, but there are a few changes:
 
@@ -424,7 +424,7 @@ The green lines are connections between two pins.
 
 ### Code
 
-{{codebox content="/assets/files/hardware-examples/analog-sensor.ino" format="cpp" height="500" webide="605b2b28de63ee0017f5261a"}}
+{{> codebox content="/assets/files/hardware-examples/analog-sensor.ino" format="cpp" height="500" webide="605b2b28de63ee0017f5261a"}}
 
 This example can optionally print debugging information (the analog output value) to the USB serial output 
 when your Particle device is connected by USB to your computer. This line in the code enables it:
@@ -537,7 +537,7 @@ The setup for your breadboard is the same as in the last example.
 
 ### Code
 
-{{codebox content="/assets/files/hardware-examples/pub-sub.ino" format="cpp" height="500" webide="5be2df6f88096a97af0008d6"}}
+{{> codebox content="/assets/files/hardware-examples/pub-sub.ino" format="cpp" height="500" webide="5be2df6f88096a97af0008d6"}}
 
 <div style="display: none;" id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors"></div>
 
@@ -554,7 +554,7 @@ The setup for your breadboard is the same as in the last example.
 
 ### Code
 
-{{codebox content="/assets/files/hardware-examples/pub-sub-buddy.ino" format="cpp" height="500" webide="5be2dfca88096afd2a0009c1"}}
+{{> codebox content="/assets/files/hardware-examples/pub-sub-buddy.ino" format="cpp" height="500" webide="5be2dfca88096afd2a0009c1"}}
 
 
 
@@ -572,12 +572,12 @@ You can use the previous circuit, with the photoresistor or phototransistor conn
 
 ### Code
 
-{{codebox content="/assets/files/hardware-examples/combined-publish.ino" format="cpp" height="500"}}
+{{> codebox content="/assets/files/hardware-examples/combined-publish.ino" format="cpp" height="500"}}
 
 
 If you want to subscribe to these publishes from another Particle device, you can create a handler that splits the data on receipt:
 
-{{codebox content="/assets/files/hardware-examples/combined-subscribe.ino" format="cpp" height="500"}}
+{{> codebox content="/assets/files/hardware-examples/combined-subscribe.ino" format="cpp" height="500"}}
 
 
 <div style="display: none;" id="annotated-tinker-firmware" data-firmware-example-url="https://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with"></div>
@@ -606,4 +606,4 @@ particle flash my-device-name tinker
 Once you flash your own firmware to your device it will no longer have Tinker functionality. However you can easily take the Tinker source and add in your 
 own code so it will both have your code and the original Tinker functions you can call from the mobile apps!
 
-{{codebox content="/assets/files/hardware-examples/tinker.ino" format="cpp" height="500" flash="true"}}
+{{> codebox content="/assets/files/hardware-examples/tinker.ino" format="cpp" height="500" flash="true"}}

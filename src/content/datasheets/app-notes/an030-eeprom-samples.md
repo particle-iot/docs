@@ -21,7 +21,7 @@ In terms of power usage it's nearly identical to the **Stop-Sleep-Cellular** exa
 
 You can download the files associated with this app note [as a zip file](/assets/files/app-notes/AN030.zip).
 
-{{codebox content="/assets/files/app-notes/AN030/firmware/src/EEPROM-Samples.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN030/firmware/src/EEPROM-Samples.cpp" format="cpp" height="500"}}
 
 
 ## Code Walk-Through

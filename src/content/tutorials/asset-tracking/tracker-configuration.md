@@ -90,7 +90,7 @@ This picture shows how elements in the schema directly map to what you can see i
 
 This is the full schema for Tracker Edge, as of version 12. You won't need to understand the whole thing yet, but this is what it looks like:
 
-{{codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
+{{> codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
 
 
 ### Data types
@@ -110,7 +110,7 @@ There is a limit to the size of the data, as it needs to fit in a 622-byte publi
 
 Here's an example from the [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can/) application note. This is the new schema fragment we'll add to the console:
 
-{{codebox content="/assets/files/tracker/engine-schema-fragment.json" format="json" height="400"}}
+{{> codebox content="/assets/files/tracker/engine-schema-fragment.json" format="json" height="400"}}
 
 Of note:
 
@@ -122,7 +122,7 @@ Here's the whole file so you can see exactly where the data goes when merged wit
 
 {{> sso}}
 
-{{codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}
+{{> codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}
 
 If you set this schema you can go to the console and view your fleet configuration with the new panel!
 
@@ -281,11 +281,11 @@ Here's an example of how you set up a custom schema and use it from firmware. It
 
 ### Schema - Example
 
-{{codebox content="/assets/files/tracker/test-schema-fragment.json" format="json" height="400"}}
+{{> codebox content="/assets/files/tracker/test-schema-fragment.json" format="json" height="400"}}
 
 Here's the whole schema:
 
-{{codebox content="/assets/files/tracker/test-schema.json" format="json" height="300" configSchema="true"}}
+{{> codebox content="/assets/files/tracker/test-schema.json" format="json" height="300" configSchema="true"}}
 
 You can also set it using curl or another tool to call the API:
 
@@ -348,20 +348,20 @@ git submodule update --init --recursive
 
 This is the Tracker Edge main source file. There are only three lines (all containing "MyConfig") added to the default main.cpp.
 
-{{codebox content="/assets/files/tracker/example/main.cpp" format="cpp" height="300"}}
+{{> codebox content="/assets/files/tracker/example/main.cpp" format="cpp" height="300"}}
 
 
 #### MyConfig.h
 
 The C++ header file for the custom configuration class.
 
-{{codebox content="/assets/files/tracker/example/MyConfig.h" format="cpp" height="300"}}
+{{> codebox content="/assets/files/tracker/example/MyConfig.h" format="cpp" height="300"}}
 
 #### MyConfig.cpp
 
 The C++ implementation file for the custom configuration class.
 
-{{codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
+{{> codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
 
 ### Digging In - Example
 

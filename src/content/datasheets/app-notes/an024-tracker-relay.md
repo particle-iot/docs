@@ -158,11 +158,11 @@ From the command palette in Workbench, **Particle: Install Library** then enter 
 
 If you prefer to edit project.properties directly, add this:
 
-{{codebox content="/assets/files/app-notes/AN024/firmware/AN024.dep" height="100"}}
+{{> codebox content="/assets/files/app-notes/AN024/firmware/AN024.dep" height="100"}}
 
 ### The Source - Quad Relay
 
-{{codebox content="/assets/files/app-notes/AN024/firmware/quad.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN024/firmware/quad.cpp" format="cpp" height="500"}}
 
 
 ### Testing - Quad Relay
@@ -289,12 +289,12 @@ From the command palette in Workbench, **Particle: Install Library** then enter 
 
 If you prefer to edit project.properties directly, add this:
 
-{{codebox content="/assets/files/app-notes/AN024/firmware/AN024.dep" height="100"}}
+{{> codebox content="/assets/files/app-notes/AN024/firmware/AN024.dep" height="100"}}
 
 
 #### The Source - Dual Latching Relay
 
-{{codebox content="/assets/files/app-notes/AN024/firmware/dual.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN024/firmware/dual.cpp" format="cpp" height="500"}}
 
 ### Testing - Dual Latching Relay
 

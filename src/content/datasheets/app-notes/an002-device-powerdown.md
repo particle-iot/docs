@@ -20,7 +20,7 @@ The idea works like this:
 
 Full Code:
 
-{{codebox content="/assets/files/app-notes/AN002/firmware/powerdown.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN002/firmware/powerdown.cpp" format="cpp" height="500"}}
 
 
 Author: Rick

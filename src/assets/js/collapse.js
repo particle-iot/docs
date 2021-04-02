@@ -15,20 +15,93 @@ $(document).ready(function() {
     	collapseSelector(genericCssClass, defaultValue);
 	});
 
-	$('code.codebox').each(function(index) {
-		var content = $(this).attr('data-content');
+	$('div.codebox').each(function(index) {
+		const codeboxElem = $(this);
 
-		var elem = $(this);
-
-		$.ajax({url:content, dataType:'text'})
+		$.ajax({url:$(codeboxElem).attr('data-content'), dataType:'text'})
   			.done(function(data) {
-				elem.text(data);
-				elem.removeClass('prettyprinted');
+				const thisCodeElem = $(codeboxElem).find('code');
+				$(thisCodeElem).text(data);
+				$(thisCodeElem).removeClass('prettyprinted');
 				if (prettyPrint) {
 					prettyPrint();
 				}
-			})
+		})
+
+		$(codeboxElem).find('.codeboxDownloadButton').on('click', function() {
+			const contentUrl = $(codeboxElem).attr('data-content');
+	
+			var a = document.createElement('a');
+			a.href = contentUrl;
+			a.download = contentUrl.split('/').pop();
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
 		});
+
+		$(codeboxElem).find('.codeboxCopyButton').on('click', function() {
+			const thisCodeElem = $(codeboxElem).find('code');
+			
+			console.log('copy', thisCodeElem);
+
+			var t = document.createElement('textarea');
+			document.body.appendChild(t);
+			$(t).text($(thisCodeElem).text());
+			t.select();
+			document.execCommand("copy");
+			document.body.removeChild(t);
+		});
+
+		$(codeboxElem).find('.codeboxWebIdeButton').on('click', function() {
+			var a = document.createElement('a');
+			a.href = 'https://go.particle.io/shared_apps/' + $(this).attr('data-appid');
+			a.target = '_blank';
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+		});
+		
+
+		$(codeboxElem).find('.codeboxFlashDeviceButton').on('click', function() {
+			const thisCodeElem = $(codeboxElem).find('code');
+
+			const device = $(codeboxElem).find('select.codeboxFlashDeviceSelect').val();
+			if (!device || device == 'select') {
+				return;
+			}
+		
+			if (!apiHelper.flashConfirmed) {
+				const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
+		
+				if (!confirm(warning)) {
+					return;
+				}
+			
+				apiHelper.flashConfirmed = true;
+			}
+				
+			apiHelper.flashDevice(device, $(thisCodeElem).text(), codeboxElem);		
+		});
+
+		$(codeboxElem).find('.codeboxUploadSchemaButton').on('click', function() {
+			const thisCodeElem = $(codeboxElem).find('code');
+
+			const product = $(codeboxElem).find('select.codeboxConfigSchemaProductSelect').val();
+
+			const warning = 'Uploading a configuration schema replaces the existing configuration schema for all users of this product! An incorrect schema can cause errors opening your product in the console. A backup will be saved in your Downloads directory but you should still exercise caution.';
+			
+			if (!confirm(warning)) {
+				return;
+			}
+		
+			const schema = $(thisCodeElem).text();
+		
+			apiHelper.uploadSchemaCodebox(schema, product, 'default', function() {
+				
+			});
+		});
+		
+	});
 });
 
 function collapseToggle(id) {	 
@@ -104,72 +177,4 @@ function hideOverlay() {
 	$('#imageOverlay').hide();
 }
 
-function codeboxDownload(url) {
-	var a = document.createElement('a');
-	a.href = url;
-	a.download = url.split('/').pop();
-	document.body.appendChild(a);
-	a.click();
-	document.body.removeChild(a);
-}
 
-function codeboxCopy(id) {	
-	var t = document.createElement('textarea');
-	document.body.appendChild(t);
-	$(t).text($('#' + id).text());
-	t.select();
-	document.execCommand("copy");
-	document.body.removeChild(t);
-}
-
-function codeboxOpenWebIDE(appid) {
-	var a = document.createElement('a');
-	a.href = 'https://go.particle.io/shared_apps/' + appid;
-	a.target = '_blank';
-	document.body.appendChild(a);
-	a.click();
-	document.body.removeChild(a);
-}
-
-function codeboxFlash(id) {	
-	const codebox = $('#' + id).closest('div.codebox');
-
-	const device = $(codebox).find('select.codeboxFlashDeviceSelect').val();
-	if (!device || device == 'select') {
-		return;
-	}
-
-	if (!apiHelper.flashConfirmed) {
-		const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
-
-		if (!confirm(warning)) {
-			return;
-		}
-	
-		apiHelper.flashConfirmed = true;
-	}
-
-	const code = $('#' + id).text();
-
-	apiHelper.flashDevice(device, code, codebox);
-}
-
-
-function codeboxUploadSchema(id) {
-	const codebox = $('#' + id).closest('div.codebox');
-
-	const product = $(codebox).find('select.codeboxConfigSchemaProductSelect').val();
-
-	const warning = 'Uploading a configuration schema replaces the existing configuration schema for all users of this product! An incorrect schema can cause errors opening your product in the console. A backup will be saved in your Downloads directory but you should still exercise caution.';
-	
-	if (!confirm(warning)) {
-		return;
-	}
-
-	const schema = $('#' + id).text();
-
-	apiHelper.uploadSchemaCodebox(schema, product, 'default', function() {
-		
-	});
-
-}

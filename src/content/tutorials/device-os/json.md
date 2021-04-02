@@ -332,7 +332,7 @@ This is a code sample for generating some JSON publish data. You can flash right
 from here, though you will probably want to copy this into Particle Workbench or
 the Web IDE so you can edit the code to try out new things.
 
-{{codebox content="/assets/files/cloud-communication/publish3.cpp" format="cpp" height="400" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/publish3.cpp" format="cpp" height="400" flash="true"}}
 
 ### The console 
 
@@ -436,7 +436,7 @@ subscribing to a Particle event.
 This sample device firmware just subscribes to the event `testEvent` and prints out JSON to 
 the USB serial debug log.
 
-{{codebox content="/assets/files/cloud-communication/subscribe3.cpp" format="cpp" height="400" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/subscribe3.cpp" format="cpp" height="400" flash="true"}}
 
 ### Sample event sender
 
@@ -466,7 +466,7 @@ Combining the two, you should see a decoded event like this in the USB serial de
 In most cases you won't just be logging your event out to the USB serial debug log, you'll
 actually want to extract the values you care about.
 
-{{codebox content="/assets/files/cloud-communication/subscribe4.cpp" format="cpp" height="400" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/subscribe4.cpp" format="cpp" height="400" flash="true"}}
 
 The important part of the code is here:
 

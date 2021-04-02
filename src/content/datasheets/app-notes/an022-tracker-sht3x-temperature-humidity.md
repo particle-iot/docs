@@ -162,7 +162,7 @@ The documentation for the library can be found [here](https://github.com/particl
 
 ### Customize main.cpp
 
-{{codebox content="/assets/files/app-notes/AN022/firmware/main.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN022/firmware/main.cpp" format="cpp" height="500"}}
 
 
 ### Digging In

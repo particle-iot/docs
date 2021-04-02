@@ -87,4 +87,4 @@ Make sure you've used the [**Mark As Development Device**](https://docs.particle
 
 #### The Source - Current Solutions Accelerator
 
-{{codebox content="/assets/files/app-notes/AN026/main.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN026/main.cpp" format="cpp" height="500"}}

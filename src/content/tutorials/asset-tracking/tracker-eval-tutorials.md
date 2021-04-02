@@ -63,7 +63,7 @@ From the command palette in Workbench, **Particle: Install Library** then enter 
 
 If you prefer to edit project.properties directly, add these:
 
-{{codebox content="/assets/files/tracker/Temperature.dep" height="100"}}
+{{> codebox content="/assets/files/tracker/Temperature.dep" height="100"}}
 
 The first library is the interface for the temperature sensor. 
 
@@ -71,7 +71,7 @@ Because the sensor has a tendency to return incorrect values but does not includ
 
 ### The Full Source
 
-{{codebox content="/assets/files/tracker/Temperature.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/tracker/Temperature.cpp" format="cpp" height="500"}}
 
 ### The Details
 
@@ -251,7 +251,7 @@ $ particle library copy Adafruit_BME280_RK
 
 - Here's the source:
 
-{{codebox content="/assets/files/tracker/BME280.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/tracker/BME280.cpp" format="cpp" height="500"}}
 
 
 Most of it is boilerplate, but looking in more closely:

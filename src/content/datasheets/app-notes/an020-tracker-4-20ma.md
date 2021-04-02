@@ -149,11 +149,11 @@ Make sure you've used the [**Mark As Development Device**](https://docs.particle
 From the command palette in Workbench, **Particle: Install Library** then enter **Sensor_4_20mA_RK**.
 If you prefer to edit project.properties directly, add this:
 
-{{codebox content="/assets/files/app-notes/AN020/firmware/AN020.dep" height="100"}}
+{{> codebox content="/assets/files/app-notes/AN020/firmware/AN020.dep" height="100"}}
 
 ### The full source
 
-{{codebox content="/assets/files/app-notes/AN020/firmware/main.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN020/firmware/main.cpp" format="cpp" height="500"}}
 
 ## Digging In
 

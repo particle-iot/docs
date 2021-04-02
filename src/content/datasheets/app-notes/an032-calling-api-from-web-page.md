@@ -11,7 +11,7 @@ This example illustrates a few techniques for calling the Particle API from a we
 
 The first few examples use the [Blink an LED from the cloud firmware](/tutorials/hardware-projects/hardware-examples/).
 
-{{codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e" flash="true"}}
+{{> codebox content="/assets/files/hardware-examples/blink-function.ino" format="cpp" height="500" webide="605b22dd4c3ada0017fd896e" flash="true"}}
 
 You can use this firmware on most Particle devices, both Wi-Fi and Cellular, including the Argon, Boron, Photon, and Electron.
 
@@ -27,7 +27,7 @@ In this example we copy and paste our access token and device ID into the HTML s
 anyone can just "View Source" on the web page and get our access token. With that token, they can log into 
 the Console, manage devices, delete source code from the Web IDE, pretty much everything. 
 
-{{codebox content="/assets/files/app-notes/AN032/embed-token.htm" format="html" height="300"}}
+{{> codebox content="/assets/files/app-notes/AN032/embed-token.htm" format="html" height="300"}}
 
 If you are using source code management like Github, it's easy to accidentally share your account access 
 token if you paste it into your code and have to remove it every time you commit a change.
@@ -48,7 +48,7 @@ This example:
 - Handles MFA (multi-factor authentication) if is is enabled on the account.
 - Stores a short-lived access token in browser local storage. 
 
-{{codebox content="/assets/files/app-notes/AN032/login-prompt.htm" format="html" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN032/login-prompt.htm" format="html" height="500"}}
 
 Download this file and save it to disk on your computer. Then double-click to open it in your browser. The technique 
 in this example works from file:// URLs so you don't need to host the page on an actual web server to use it. 
@@ -377,7 +377,7 @@ This example is in the **server** directory.
 
 This is the node server source:
 
-{{codebox content="/assets/files/app-notes/AN032/server/app.js" format="html" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN032/server/app.js" format="html" height="500"}}
 
 
 This is a node app so it includes a package.json file with its dependencies. To install these dependencies, use:
@@ -387,7 +387,7 @@ cd server
 npm install
 ```
 
-{{codebox content="/assets/files/app-notes/AN032/server/package.json" format="html" height="200"}}
+{{> codebox content="/assets/files/app-notes/AN032/server/package.json" format="html" height="200"}}
 
 Then run it. The preferred way is to use environment variables:
 
@@ -440,7 +440,7 @@ app.post('/led', function (req, res) {
 
 This is the HTML source. This is much simpler than even the first example because all of the API logic has been moved into the server.
 
-{{codebox content="/assets/files/app-notes/AN032/server/public/index.html" format="html" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN032/server/public/index.html" format="html" height="500"}}
 
 
 The only noticeable change (other than removing a lot of stuff) is the `ledControl()` function.
@@ -505,7 +505,7 @@ long and is incredibly unwieldy when sitting on my desk.
 
 ### Device Firmware
 
-{{codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500" flash="true"}}
+{{> codebox content="/assets/files/app-notes/AN032/SensorPage.cpp" format="cpp" height="500" flash="true"}}
 
 A few things to note in this firmware:
 
@@ -587,7 +587,7 @@ if (delta > MIN_DELTA_TO_PUBLISH &&
 
 ### Web Page
 
-{{codebox content="/assets/files/app-notes/AN032/SensorPage.htm" format="html" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN032/SensorPage.htm" format="html" height="500"}}
 
 As in the earlier example, download the file and double-click to open in your web browser.
 

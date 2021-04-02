@@ -83,7 +83,7 @@ Other parameters are listed in the comments in the source and in the code walk-t
 
 ## The Code
 
-{{codebox content="/assets/files/app-notes/AN029/firmware/src/Wake-Publish-Sleep-Cellular.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN029/firmware/src/Wake-Publish-Sleep-Cellular.cpp" format="cpp" height="500"}}
 
 
 ## Code walk-through

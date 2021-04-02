@@ -37,7 +37,7 @@ You can learn more Particle publish in the [Device OS Firmware API reference](/r
 
 ### Publish - Simple
 
-{{codebox content="/assets/files/cloud-communication/publish1.cpp" format="cpp" height="400" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/publish1.cpp" format="cpp" height="400" flash="true"}}
 
 This is a simple example that published at a pre-set period. It's configured for 30 seconds, but you
 can easily change it. Normally you'd publish something like a sensor value, but for the purposes
@@ -198,7 +198,7 @@ are going out exactly in 30 second (30000 millisecond) intervals.
 
 What if you wanted to publish multiple values instead of a single value?
 
-{{codebox content="/assets/files/cloud-communication/publish2.cpp" format="cpp" height="300" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/publish2.cpp" format="cpp" height="300" flash="true"}}
 
 This code is very similar to the last one, except:
 
@@ -268,7 +268,7 @@ And a few notable limits:
 
 ### Function change LED color
 
-{{codebox content="/assets/files/cloud-communication/function1.cpp" format="cpp" height="300" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/function1.cpp" format="cpp" height="300" flash="true"}}
 
 {{> color-function-test}}
 
@@ -376,7 +376,7 @@ You can learn more Particle variables in the [Device OS Firmware API reference](
 
 ### Variable Normal
 
-{{codebox content="/assets/files/cloud-communication/variable1.cpp" format="cpp" height="300" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/variable1.cpp" format="cpp" height="300" flash="true"}}
 
 The normal use of variables is to first create a global variable:
 
@@ -421,7 +421,7 @@ particle get test2 sensor
 
 ### Variable Calculated
 
-{{codebox content="/assets/files/cloud-communication/variable2.cpp" format="cpp" height="300" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/variable2.cpp" format="cpp" height="300" flash="true"}}
 
 One thing about the earlier example: We continuously read the sensor even if the cloud isn't asking for the value. Sometimes you want to do this, for example if you are averaging values. But sometimes you might want to retrieve the value on demand only.
 
@@ -463,7 +463,7 @@ The function must return one of the allowed types: `int`, `bool`, `double`, or `
 
 You can learn more Particle subscribe in the [Device OS Firmware API reference](/reference/device-os/firmware/#particle-subscribe-). 
 
-{{codebox content="/assets/files/cloud-communication/subscribe1.cpp" format="cpp" height="300" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/subscribe1.cpp" format="cpp" height="300" flash="true"}}
 
 This example works like the function example, except it uses subscribe instead of functions.
 
@@ -486,7 +486,7 @@ has received the event, and then the cloud would have to keep track of which dev
 
 ### Device Subscribe
 
-{{codebox content="/assets/files/cloud-communication/subscribe2.cpp" format="cpp" height="300" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/subscribe2.cpp" format="cpp" height="300" flash="true"}}
 
 While there's no ability to force an event to go to only one device, you can use the event prefixing capability
 to emulate this behavior. 
