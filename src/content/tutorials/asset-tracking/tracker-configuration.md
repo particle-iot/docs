@@ -4,7 +4,7 @@ columns: two
 layout: tutorials.hbs
 order: 32
 description: Particle Tracker Configuration
-includeDefinitions: [api-helper, api-helper-config, api-helper-tracker, zip]
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---
 
 # Tracker Configuration
@@ -585,3 +585,8 @@ MyConfig &MyConfig::instance() {
 
 The function to get the instance checks to see if it has been allocated. If it has not been allocated, it will be allocated using `new`. This should happen during `setup()`. In either case, the instance is returned.
 
+## Per-device configuration
+
+Tracker devices that are marked as development devices can have per-device configuration that overrides the product default configuration. In addition to using the console or curl, above, this tool makes it easy to view and edit the configuration in JSON format:
+
+{{> tracker-config row="6" cols="70"}}

@@ -19,12 +19,11 @@ $(document).ready(function() {
         }
         return result;
     };
-    
-    apiHelper.jsonLinterEvent = function(elem, event) {
+
+    apiHelper.jsonLinterSetValue = function(elem, data) {
         const index = parseInt($(elem).attr('data-index'));
         const codeMirror = apiHelper.jsonLinterCodeMirror[index];
 
-        let data = event.data;
         try {
             const jsonObj = JSON.parse(data);
             data = JSON.stringify(jsonObj, null, 2);
@@ -33,6 +32,10 @@ $(document).ready(function() {
         }
 
         codeMirror.setValue(data);
+    };
+    
+    apiHelper.jsonLinterEvent = function(elem, event) {
+        apiHelper.jsonLinterSetValue(elem, event.data);
     };
 
     apiHelper.jsonLinterCodeMirror = [];

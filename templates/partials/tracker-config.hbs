@@ -1,0 +1,19 @@
+<div class="apiHelper apiHelperLoggedIn apiHelperTrackerConfig apiHelperJsonLinter" style="display:none;">
+    <div class="apiHelperBox">
+        <p>Product: <select class="apiHelperTrackerProductSelect apiHelperSelect"></select> &nbsp;
+        Device: <select class="apiHelperTrackerDeviceSelect apiHelperSelect"></select></p>
+
+        <p><button class="apiHelperTrackerConfigSet apiHelperButton">Update Configuration</button>&nbsp;&nbsp;
+            <button class="apiHelperTrackerConfigDefault apiHelperButton">Restore Product Default</button>&nbsp;&nbsp;
+            Show: <select class="apiHelperTrackerConfigShow apiHelperSelect">
+                <option value="current">Current Configuration</option>
+                <option value="pending">Pending Configuration</option>
+            </select>&nbsp;&nbsp;
+        </p>
+
+        <div class="apiHelperTrackerConfigStatus"></div>
+    </div>
+    <div class="apiHelperJsonLinterEditor">
+        <textarea rows="{{rows}}" cols="{{cols}}">{{defaultValue}}</textarea>
+    </div>
+</div>
