@@ -107,12 +107,9 @@ usbSerial.listeningCommand = async function(options, pipeline) {
     let timer;
 
     conn.onConnect = function() {
-        console.log('connected!');
-
         conn.sendString(pipeline.shift()());        
 
         timer = setTimeout(function() {
-            console.log('timeout');
             conn.disconnect();
         }, 15000);
     };
@@ -120,7 +117,6 @@ usbSerial.listeningCommand = async function(options, pipeline) {
     let response = '';
 
     conn.onReceive = async function(str) {
-        console.log('resp', str);
         response += str;
         if (response.endsWith('\n')) {
             pipeline[0](response, function(data) {
@@ -129,14 +125,11 @@ usbSerial.listeningCommand = async function(options, pipeline) {
                     conn.sendString(pipeline.shift()(data));        
                 }
                 else {
-                    console.log('disconnecting');
-
                     if (timer) {
                         clearTimeout(timer);
                     }
                     options.setOutput(response);
             
-                    console.log('about to disconnect');
                     conn.disconnect();        
                 }
             });
@@ -320,6 +313,12 @@ $(document).ready(function() {
             if (deviceId) {
                 $('.apiHelperDeviceLookupDeviceId').val(deviceId);
                 $('.apiHelperDeviceLookupDeviceId').trigger('input');
+            }
+
+            const iccid = status.match(/89[0-9]{17,19}/);
+            if (iccid) {
+                $('.apiHelperIccidLookupIccid').val(iccid);
+                $('.apiHelperIccidLookupIccid').trigger('input');
             }
 
             $(usbSerialToolsElem).find('.usbSerialToolsOutput > pre').text(status);
