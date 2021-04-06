@@ -7,4 +7,4 @@ includeDefinitions: [api-helper, usb-serial]
 
 # USB Serial Debug Log
 
-{{> usb-serial-console rows="15"}}
+{{> usb-serial-console}}

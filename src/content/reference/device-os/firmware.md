@@ -18888,6 +18888,18 @@ void setup() {
 
 If you are debugging code in `setup()` you may not be able to connect USB serial fast enough to see the logging message you want, so you may want to delay until connected. This code delays for up to 15 seconds to give you time to connect or reconnect serial, but then will continue on if you don't connect.
 
+If you are porting code from Arduino, sometimes you will see the following code. This is intended to
+wait for serial to be connected to by USB, but it does not work that way on Particle devices and you
+should instead use the `waitFor` method above.
+
+```cpp
+void setup() {
+  Serial.begin(9600);
+  
+  while(!Serial); // Do not do this
+}
+```
+
 ### comm.protocol errors
 
 ```

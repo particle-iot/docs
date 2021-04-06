@@ -1,8 +1,8 @@
 
-const usbSerialConnection = function() {
-    let conn = {};
+let usbSerial = {};
 
-    const particleVendorId = 0x2b04;
+usbSerial.newConnection = function() {
+    let conn = {};
 
     conn.handleConnection = async function() {
         // const { usbProductId, usbVendorId } = port.getInfo();   
@@ -53,17 +53,20 @@ const usbSerialConnection = function() {
 
     conn.connect = async function() {
         const filters = [
-            { usbVendorId: particleVendorId } // 2b04
+            { usbVendorId: 0x2b04 }, // Particle devices
+            { usbVendorId: 0x0d28, usbProductId: 0x0204 } // Particle debugger (DAPLink)
         ];
+
 
         try {
             conn.port = await navigator.serial.requestPort({ filters });
 
             conn.handleConnection();        
-            return true;
         }
         catch(e) {
-            return false;
+            if (conn.onCancelConnect) {
+                conn.onCancelConnect();
+            }        
         }
 
     };
@@ -99,12 +102,95 @@ const usbSerialConnection = function() {
     return conn;
 };
 
+usbSerial.listeningCommand = async function(options, pipeline) {
+    let conn = usbSerial.newConnection();
+    let timer;
+
+    conn.onConnect = function() {
+        console.log('connected!');
+
+        conn.sendString(pipeline.shift()());        
+
+        timer = setTimeout(function() {
+            console.log('timeout');
+            conn.disconnect();
+        }, 15000);
+    };
+
+    let response = '';
+
+    conn.onReceive = async function(str) {
+        console.log('resp', str);
+        response += str;
+        if (response.endsWith('\n')) {
+            pipeline[0](response, function(data) {
+                pipeline.shift();
+                if (pipeline.length >= 2) {
+                    conn.sendString(pipeline.shift()(data));        
+                }
+                else {
+                    console.log('disconnecting');
+
+                    if (timer) {
+                        clearTimeout(timer);
+                    }
+                    options.setOutput(response);
+            
+                    console.log('about to disconnect');
+                    conn.disconnect();        
+                }
+            });
+
+        }
+    }
+
+    conn.connect();
+
+};
+
+usbSerial.identify = async function(options) {
+    let output = '';
+
+    usbSerial.listeningCommand(options, [
+        function() {
+            return 'i';
+        },
+        function(str, done) {
+            output += str;
+            done();
+        },
+        function() {
+            return 'v';
+        },
+        function(str, done) {
+            output += str;
+            options.setOutput(output);
+            done();            
+        }
+    ]);
+
+};
+
+
+usbSerial.macAddress = async function(options) {
+    let output = '';
+
+    usbSerial.listeningCommand(options, [
+        function() {
+            return 'm';
+        },
+        function(str, done) {
+            output += str;
+            if (output.indexOf('\n') < (output.length - 1)) {
+                done();
+            }
+        }
+    ]);
+
+};
 
 
 $(document).ready(function() {
-    if ($('.usbSerialConsole').length == 0) {
-        return;
-    }
 
     $('.usbSerialConsole').each(function() {
         const usbSerialConsoleElem = $(this);
@@ -120,7 +206,7 @@ $(document).ready(function() {
         const usbSerialConsoleOutputDiv = $(usbSerialConsoleElem).find('.usbSerialConsoleOutput');
         const usbSerialConsoleTextAreaElem = $(usbSerialConsoleElem).find('textarea');
         
-        let conn = usbSerialConnection();
+        let conn = usbSerial.newConnection();
 
         const setStatus = function (status) {
             $(usbSerialConsoleStatusDiv).html(status);
@@ -166,30 +252,24 @@ $(document).ready(function() {
         conn.onWillNotReconnect = function() {
             appendText('Will no longer attempt to reconnect\n');
         };
+        conn.onCancelConnect = function() {
+            $(usbSerialConsoleConnectButton).prop('disabled', false);
+            $(usbSerialConsoleDisconnectButton).prop('disabled', true);
+        };
     
         if (!('serial' in navigator)) {
             $(usbSerialConsoleControlsElem).hide();
             $(usbSerialConsoleOutputDiv).hide();
-            setStatus('USB Serial is only available on the Chrome web browser, version 89 and later.');
+            setStatus('Web-based USB serial is only available on the Chrome web browser on Mac, Windows, Linux, and Chromebook, version 89 and later.');
             return;
         }
-
-        const sendInput = async function() {
-            const str = $(usbSerialConsoleInputElem).val();
-    
-            conn.sendString(str + '\r\n');
-        };
-    
 
         $(usbSerialConsoleConnectButton).on('click', async function() {
             // Connect
             $(usbSerialConsoleConnectButton).prop('disabled', true);
             $(usbSerialConsoleDisconnectButton).prop('disabled', false);
             
-            if (!conn.connect()) {
-                $(usbSerialConsoleConnectButton).prop('disabled', false);
-                $(usbSerialConsoleDisconnectButton).prop('disabled', true);
-            }
+            conn.connect();
         });
 
         $(usbSerialConsoleDisconnectButton).on('click', async function() {
@@ -203,6 +283,12 @@ $(document).ready(function() {
             $(usbSerialConsoleTextAreaElem).val('');
         });
         
+        const sendInput = async function() {
+            const str = $(usbSerialConsoleInputElem).val();
+    
+            conn.sendString(str + '\r\n');
+        };
+    
         $(usbSerialConsoleSendButton).on('click', async function() {
             sendInput();
         });
@@ -217,6 +303,40 @@ $(document).ready(function() {
             $(usbSerialConsoleInputElem).val('');
         });
         
+    });
+
+    $('.usbSerialTools').each(function() {
+        const usbSerialToolsElem = $(this);
+
+        const usbSerialToolsControlsElem = $(usbSerialToolsElem).find('.apiHelper');
+    
+        const setStatus = function (status) {
+            $(usbSerialToolsElem).find('.usbSerialToolsStatus').html(status);
+        };
+
+        const setOutput = function (status) {
+            $(usbSerialToolsElem).find('.usbSerialToolsOutput > pre').text(status);
+        };
+
+        if (!('serial' in navigator)) {
+            $(usbSerialToolsControlsElem).hide();
+            $(usbSerialToolsOutputDiv).hide();
+            setStatus('USB Serial is only available on the Chrome web browser on Mac, Windows, and Linux, version 89 and later.');
+            return;
+        }
+
+        const options = {
+            setStatus,
+            setOutput            
+        };
+
+        $(usbSerialToolsElem).find('.apiHelperSerialToolsIdentify').on('click', function() {
+            usbSerial.identify(options);
+        });
+        $(usbSerialToolsElem).find('.apiHelperSerialToolsMac').on('click', function() {
+            usbSerial.macAddress(options);
+        });
+
     });
 
 
