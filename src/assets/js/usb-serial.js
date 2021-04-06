@@ -157,6 +157,7 @@ usbSerial.identify = async function(options) {
         },
         function(str, done) {
             output += str;
+
             done();
         },
         function() {
@@ -315,6 +316,12 @@ $(document).ready(function() {
         };
 
         const setOutput = function (status) {
+            const deviceId = status.match(/[A-Za-z0-9]{24}/);
+            if (deviceId) {
+                $('.apiHelperDeviceLookupDeviceId').val(deviceId);
+                $('.apiHelperDeviceLookupDeviceId').trigger('input');
+            }
+
             $(usbSerialToolsElem).find('.usbSerialToolsOutput > pre').text(status);
         };
 
