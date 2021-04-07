@@ -1,8 +1,10 @@
 
 let usbSerial = {};
 
-usbSerial.newConnection = function() {
+usbSerial.newConnection = function(options) {
     let conn = {};
+
+    conn.options = options || {};
 
     conn.handleConnection = async function() {
         // const { usbProductId, usbVendorId } = port.getInfo();   
@@ -50,12 +52,40 @@ usbSerial.newConnection = function() {
         }
 
     };
-
     conn.connect = async function() {
-        const filters = [
-            { usbVendorId: 0x2b04 }, // Particle devices
-            { usbVendorId: 0x0d28, usbProductId: 0x0204 } // Particle debugger (DAPLink)
-        ];
+        let filters = [];
+        
+        console.log('connect options', options);
+
+        const wifiDevices = [6, 8, 12, 22];
+        const cellularDevices = [10, 13, 23, 25, 26];
+
+        if (options.showAllDevices) {
+            filters.push({ usbVendorId: 0x2b04 }); // Particle devices
+        }
+        if (options.showWifiDevices) {
+            for(const platformId of wifiDevices) {
+                filters.push({ usbVendorId: 0x2b04, usbProductId: platformId }); 
+            }            
+        }
+        if (options.showCellularDevices) {
+            for(const platformId of cellularDevices) {
+                filters.push({ usbVendorId: 0x2b04, usbProductId: platformId }); 
+            }            
+        }
+        if (options.showWifiListeningDevices) {
+            for(const platformId of wifiDevices) {
+                filters.push({ usbVendorId: 0x2b04, usbProductId: 0xc000 | platformId }); 
+            }            
+        }
+        if (options.showCellularListeningDevices) {
+            for(const platformId of cellularDevices) {
+                filters.push({ usbVendorId: 0x2b04, usbProductId: 0xc000 | platformId }); 
+            }            
+        }
+        if (!options.showDebugger) {
+            filters.push({ usbVendorId: 0x0d28, usbProductId: 0x0204 });// Particle debugger (DAPLink) 
+        }
 
 
         try {
@@ -103,7 +133,7 @@ usbSerial.newConnection = function() {
 };
 
 usbSerial.listeningCommand = async function(options, pipeline) {
-    let conn = usbSerial.newConnection();
+    let conn = usbSerial.newConnection(options);
     let timer;
 
     conn.onConnect = function() {
@@ -117,24 +147,19 @@ usbSerial.listeningCommand = async function(options, pipeline) {
     let response = '';
 
     conn.onReceive = async function(str) {
-        response += str;
-        if (response.endsWith('\n')) {
-            pipeline[0](response, function(data) {
-                pipeline.shift();
-                if (pipeline.length >= 2) {
-                    conn.sendString(pipeline.shift()(data));        
+        pipeline[0](str, function(data) {
+            pipeline.shift();
+            if (pipeline.length >= 2) {
+                conn.sendString(pipeline.shift()(data));        
+            }
+            else {
+                if (timer) {
+                    clearTimeout(timer);
                 }
-                else {
-                    if (timer) {
-                        clearTimeout(timer);
-                    }
-                    options.setOutput(response);
-            
-                    conn.disconnect();        
-                }
-            });
-
-        }
+        
+                conn.disconnect();        
+            }
+        });
     }
 
     conn.connect();
@@ -150,16 +175,21 @@ usbSerial.identify = async function(options) {
         },
         function(str, done) {
             output += str;
-
-            done();
+            if (output.endsWith('\n')) {
+                done();
+            }
         },
         function() {
             return 'v';
         },
         function(str, done) {
             output += str;
-            options.setOutput(output);
-            done();            
+            if (output.endsWith('\n')) {
+                if (options.setOutput) {
+                    options.setOutput(output);
+                }
+                done();            
+            }
         }
     ]);
 
@@ -175,10 +205,72 @@ usbSerial.macAddress = async function(options) {
         },
         function(str, done) {
             output += str;
-            if (output.indexOf('\n') < (output.length - 1)) {
+            if (output.endsWith('\n') && (output.indexOf('\n') < (output.length - 1))) {
+                if (options.setOutput) {
+                    options.setOutput(output);
+                }
                 done();
             }
         }
+    ]);
+
+};
+
+
+usbSerial.wifiSetup = async function(options) {
+    let output = '';
+
+    usbSerial.listeningCommand(options, [
+        function() {
+            output = '';
+            return 'i';
+        },
+        function(str, done) {
+            console.log('info: ', str);
+            output += str;
+            if (output.endsWith('\n')) {
+                console.log('calling done');
+                done();
+            }
+        },
+        // C: Enter 63-digit claim code: 
+        function() {
+            output = '';
+            return 'w';    
+        },
+        function(str, done) {
+            console.log('str: ', str);
+            output += str;
+            if (output.includes('SSID:')) {
+                console.log('got SSID prompt', output);
+                done();            
+            }
+        },
+        function() {
+            output = '';
+            return options.ssid + '\r\n';
+        },
+        function(str, done) {
+            console.log('str: ', str);
+            output += str;
+            if (output.includes('Password:')) {
+                console.log('got password prompt', output);
+                done();            
+            }
+            // Security 0=unsecured, 1=WEP, 2=WPA, 3=WPA2: 
+        },
+        function() {
+            output = '';
+            console.log('sending password');
+            return options.password + '\r\n';
+        },
+        function(str, done) {
+            output += str;
+            if (output.includes('<3 you!')) {
+                console.log('got success prompt', output);
+                done();            
+            }
+        },
     ]);
 
 };
@@ -200,7 +292,12 @@ $(document).ready(function() {
         const usbSerialConsoleOutputDiv = $(usbSerialConsoleElem).find('.usbSerialConsoleOutput');
         const usbSerialConsoleTextAreaElem = $(usbSerialConsoleElem).find('textarea');
         
-        let conn = usbSerial.newConnection();
+        const options = {
+            showAllDevices: true,
+            showDebugger: true
+        };
+
+        let conn = usbSerial.newConnection(options);
 
         const setStatus = function (status) {
             $(usbSerialConsoleStatusDiv).html(status);
@@ -333,7 +430,9 @@ $(document).ready(function() {
 
         const options = {
             setStatus,
-            setOutput            
+            setOutput,
+            showWifiListeningDevices:true,            
+            showCellularListeningDevices:true,            
         };
 
         $(usbSerialToolsElem).find('.apiHelperSerialToolsIdentify').on('click', function() {
@@ -343,6 +442,33 @@ $(document).ready(function() {
             usbSerial.macAddress(options);
         });
 
+    });
+
+    $('.apiHelperWiFiSetup').each(function() {
+        const wifiSetupElem = $(this);
+
+        const ssidElem = $(wifiSetupElem).find('.apiHelperWiFiSSID');
+        const passwordElem = $(wifiSetupElem).find('.apiHelperWiFiPassword');
+        const startButton = $(wifiSetupElem).find('.apiHelperWiFiSetupUSB');
+
+        const statusElem = $(wifiSetupElem).find('.apiHelperWiFiSetupStatus');
+
+        $(statusElem).html('');
+
+        const setStatus = function (status) {
+            $(statusElem).html(status);
+        };
+
+        $(startButton).on('click', function() {
+            let options = {
+                setStatus,
+                showWifiListeningDevices: true,
+                ssid: $(ssidElem).val(),
+                password: $(passwordElem).val()
+            };
+            
+            usbSerial.wifiSetup(options);
+        });
     });
 
 
