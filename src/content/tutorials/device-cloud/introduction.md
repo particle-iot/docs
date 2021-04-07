@@ -186,15 +186,6 @@ Or, if it changes by a significantly large amount for analog-like data using a c
 
 Or keep a mean value of samples and publish when the current sample deviates from the mean. This can be helpful if the value tends to creep up or down slowly and wouldn't trigger a change threshold, but accumulates over time.
 
-#### Use TCP
-
-For Wi-Fi devices in particular, large data transfers can be done using TCP to an external service.
-
-This also works over cellular, however you can still run into the cellular data cap if TCP is used extensively on cellular devices.
-
-#### Use UDP (on Wi-Fi)
-
-For a group of devices on a Wi-Fi LAN that need to communicate with each other, UDP or UDP multicast are good options. These provide a high data rate with a low latency, as the packets stay on the local LAN and do not have to go to the cloud. 
 
 ### Limits
 
