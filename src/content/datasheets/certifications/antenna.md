@@ -132,7 +132,7 @@ Full certification of a device typically involves three different certifications
 
 3. [PTCRB](https://www.ptcrb.com/). This is a certification for cellular devices in the United States. If you use a similar antenna to the one Particle used during its tests, you may be able to avoid having to perform this certification again. 
 
-In the United States [this document from the FCC](https://apps.fcc.gov/kdb/GetAttachment.html?id=zVUUifMY6Doa%2BO3Sg0Nygw%3D%3D&desc=996369%20D04%20Module%20Integration%20Guide%20V01&tracking_number=44637) provides a great deal of information about the various certifications. The process is similar in Canada (IC). In the European Union you will need to have a test lab perform similar tests, but there isn't the equivalent of an FCC or IC identification number for the EU.
+In the United States [this document from the FCC](https://apps.fcc.gov/kdb/GetAttachment.html?id=bNCiEdkFEKnHsZF9GHCNdg%3D%3D&desc=996369%20D04%20Module%20Integration%20Guide%20V02&tracking_number=44637) provides a great deal of information about the various certifications. The process is similar in Canada (IC). In the European Union you will need to have a test lab perform similar tests, but there isn't the equivalent of an FCC or IC identification number for the EU.
 
 In order to avoid having to complete steps 2 and 3 again, a substitute antenna must:
 
