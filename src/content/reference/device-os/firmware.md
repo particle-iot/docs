@@ -767,10 +767,20 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 Sending device vitals does not consume Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary vitals transmission can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
-
 >_**NOTE:** Diagnostic messages can be viewed in the [Console](https://console.particle.io/devices). Select the device in question, and view the messages under the "EVENTS" tab._
 
 <div style="margin-left:35px;"><img src="/assets/images/diagnostic-events.png"/></div>
+
+Device vitals are sent:
+
+- On handshake (at most every three days, but can be more frequent if waking from some sleep modes)
+- Before an OTA firmware flash if last vitals were sent more than 5 minutes ago
+- Under user control from device firmware when using `Particle.publishVitals()`
+- From the cloud side (API or console) when requested
+
+The actual device vitals are communicated to the cloud in a concise binary CoAP payload. The large JSON event you see in the event stream is a synthetic event. It looks like it's coming from the device but that format is not transmitted over the network connection.
+
+It is not possible to disable the device vitals messages, however they do not count as a data operation.
 
 ### Particle.connect()
 
