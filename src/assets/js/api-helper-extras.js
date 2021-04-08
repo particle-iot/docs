@@ -119,6 +119,7 @@ $(document).ready(function() {
             const deviceId = $(deviceLookupDeviceIdInputElem).val();
 
             const isValid = (deviceId.length == 24) && (deviceId.match(/[A-Za-z0-9]+/) == deviceId);
+            // console.log('deviceId=' + deviceId + ' isValid=' + isValid);
 
             $(deviceLookupButtonElem).prop('disabled', !isValid);        
         });
@@ -137,6 +138,10 @@ $(document).ready(function() {
 
                 setStatus('Claiming succeeded!');
                 $(deviceLookupButtonElem).trigger('click');    
+
+                apiHelper.deviceListRefresh(function() {
+                    apiHelper.setCommonDevice(deviceId);
+                });
             }
             catch(e) {
                 setStatus('Claiming failed.');
@@ -159,6 +164,10 @@ $(document).ready(function() {
                 await apiHelper.particle.renameDevice({ deviceId, name, auth: apiHelper.auth.access_token });
 
                 setStatus('Renaming succeeded!');
+
+                apiHelper.deviceListRefresh(function() {
+                    apiHelper.setCommonDevice(deviceId);
+                });
             }
             catch(e) {
                 setStatus('Renaming failed.');
@@ -188,8 +197,7 @@ $(document).ready(function() {
             $(deviceLookupElem).find('.apiHelperDeviceLookupOrg').hide();
             $(deviceLookupElem).find('.apiHelperDeviceLookupClaimDiv').hide();
             $(deviceLookupElem).find('.apiHelperDeviceLookupRenameDeviceDiv').hide();
-        
-                        
+                            
             let deviceFound = false;
             let deviceInfo;
             let deviceMine = false;
@@ -356,6 +364,7 @@ $(document).ready(function() {
                 if (deviceMine){
                     $('.apiHelperDeviceLookupRenameDeviceName').val(deviceInfo.name);
                     $(deviceLookupElem).find('.apiHelperDeviceLookupRenameDeviceDiv').show();    
+                    apiHelper.setCommonDevice(deviceId);
                 }
             }
             else {

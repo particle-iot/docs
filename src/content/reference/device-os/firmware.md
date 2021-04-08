@@ -34,6 +34,8 @@ Limits are in bytes of UTF-8 encoded characters.
 
 ### Particle.variable()
 
+{{api name1="Particle.variable"}}
+
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered.
 
@@ -231,6 +233,8 @@ Each variable retrieval uses one Data Operation from your monthly or yearly quot
 
 ### Particle.function()
 
+{{api name1="Particle.function"}}
+
 Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
 Particle.function allows code on the device to be run when requested from the cloud API. You typically do this when you want to control something on your device, say a LCD display or a buzzer, or control features in your firmware from the cloud.
@@ -346,6 +350,8 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
 
 
 ### Particle.publish()
+
+{{api name1="Particle.publish"}}
 
 Publish an *event* through the Particle Device Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
@@ -556,6 +562,8 @@ Previously, there were overloads with a `ttl` (time-to-live) value. These have b
 
 ### Particle.subscribe()
 
+{{api name1="Particle.subscribe"}}
+
 Subscribe to events published by devices.
 
 This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
@@ -682,6 +690,8 @@ There is no function to unsubscribe a single event handler.
 
 ### Particle.publishVitals()
 
+{{api name1="Particle.publishVitals"}}
+
 {{since when="1.2.0"}}
 
 ```cpp
@@ -784,6 +794,8 @@ It is not possible to disable the device vitals messages, however they do not co
 
 ### Particle.connect()
 
+{{api name1="Particle.connect"}}
+
 `Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
 {{#if has-gen3}}
@@ -807,6 +819,8 @@ In most cases, you do not need to call `Particle.connect()`; it is called automa
 Connecting to the cloud does not use Data Operation from your monthly or yearly quota. However, for cellular devices it does use cellular data, so unnecessary connection and disconnection can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
 ### Particle.disconnect()
+
+{{api name1="Particle.disconnect"}}
 
 `Particle.disconnect()` disconnects the device from the Cloud.
 
@@ -877,6 +891,8 @@ Safe mode can be used to reconnect to the cloud.*
 
 ### Particle.connected()
 
+{{api name1="Particle.connected"}}
+
 Returns `true` when connected to the Cloud, and `false` when disconnected from the Cloud.
 
 ```cpp
@@ -902,9 +918,13 @@ This call is fast and can be called frequently without performance degradation.
 
 ### Particle.disconnected()
 
+{{api name1="Particle.disconnected"}}
+
 Returns `true` when disconnected from the Cloud, and `false` when connected to Cloud.
 
 ### Particle.setDisconnectOptions()
+
+{{api name1="Particle.setDisconnectOptions"}}
 
 {{since when="2.0.0"}}
 
@@ -921,7 +941,10 @@ Sets the options for when disconnecting from the cloud, such as from `Particle.d
 **Note:** This method sets the disconnection options globally, meaning that any method that causes the device to disconnect from the Cloud, such as `System.reset()`, will do so gracefully.
 
 {{#if has-udp-cloud}}
+
 ### Particle.keepAlive()
+
+{{api name1="Particle.keepAlive"}}
 
 Sets the duration between keep-alive messages used to maintain the connection to the cloud.
 
@@ -955,6 +978,8 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### Particle.process()
 
+{{api name1="Particle.process"}}
+
 - [Using `SYSTEM_THREAD(ENABLED)`](/reference/device-os/firmware/#system-thread) is recommended for most applications. When using threading mode you generally do not need to use `Particle.process()`.
 
 - If you are using [`SYSTEM_MODE(AUTOMATIC)`](/reference/device-os/firmware/#system-modes) (the default if you do not specify), or `SEMI_AUTOMATIC` you generally do not need to `Particle.process()` unless your code blocks and prevents loop from returning and does not use `delay()` in any inner blocking loop. In other words, if you block `loop()` from returning you must call either `delay()` or `Particle.process()` within your blocking inner loop.
@@ -967,6 +992,8 @@ so if it's not called frequently, the connection to the Cloud may be lost.
 
 
 ### Particle.syncTime()
+
+{{api name1="Particle.syncTime"}}
 
 Synchronize the time with the Particle Device Cloud.
 This happens automatically when the device connects to the Cloud.
@@ -995,6 +1022,8 @@ Synchronizing time does not consume Data Operations from your monthly or yearly 
 
 ### Particle.syncTimeDone()
 
+{{api name1="Particle.syncTimeDone"}}
+
 {{since when="0.6.1"}}
 
 Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Device Cloud. Returns `false` when there is a pending `syncTime()` request.
@@ -1021,6 +1050,8 @@ void loop()
 See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
 
 ### Particle.syncTimePending()
+
+{{api name1="Particle.syncTimePending"}}
 
 {{since when="0.6.1"}}
 
@@ -1055,6 +1086,8 @@ void loop()
 See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
 
 ### Particle.timeSyncedLast()
+
+{{api name1="Particle.timeSyncedLast"}}
 
 ```cpp
 // EXAMPLE
@@ -1191,6 +1224,8 @@ void setup() {
 {{#if has-ethernet}}
 ## Ethernet
 
+{{api name1="Ethernet"}}
+
 Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/).
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
@@ -1226,15 +1261,21 @@ When using Ethernet with the Boron SoM, pins A7, D22, and D8 are reserved for th
 
 ### on()
 
+{{api name1="Ethernet.on"}}
+
 `Ethernet.on()` turns on the Ethernet module. Useful when you've turned it off, and you changed your mind.
 
 Note that `Ethernet.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Ethernet module off.
 
 ### off()
 
+{{api name1="Ethernet.off"}}
+
 `Ethernet.off()` turns off the Ethernet module. 
  
 ### connect()
+
+{{api name1="Ethernet.connect"}}
 
 Attempts to connect to the Ethernet network. If there are no credentials stored, this will enter listening mode. When this function returns, the device may not have an IP address on the LAN; use `Ethernet.ready()` to determine the connection status.
 
@@ -1245,6 +1286,8 @@ Ethernet.connect();
 
 ### disconnect()
 
+{{api name1="Ethernet.disconnect"}}
+
 Disconnects from the Ethernet network, but leaves the Ethernet module on.
 
 ```cpp
@@ -1253,6 +1296,8 @@ Ethernet.disconnect();
 ```
 
 ### connecting()
+
+{{api name1="Ethernet.connecting"}}
 
 This function will return `true` once the device is attempting to connect using stored credentials, and will return `false` once the device has successfully connected to the Ethernet network.
 
@@ -1263,6 +1308,8 @@ Ethernet.connecting();
 
 ### ready()
 
+{{api name1="Ethernet.ready"}}
+
 This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
 
 ```cpp
@@ -1271,6 +1318,8 @@ Ethernet.ready();
 ```
 
 ### listen()
+
+{{api name1="Ethernet.listen"}}
 
 This will enter or exit listening mode, which opens a Serial connection to get Ethernet credentials over USB, and also listens for credentials over
 Bluetooth.
@@ -1293,6 +1342,8 @@ Ethernet.listen(false);
 
 ### listening()
 
+{{api name1="Ethernet.listening"}}
+
 ```cpp
 // SYNTAX
 Ethernet.listening();
@@ -1304,6 +1355,8 @@ or the {{system-button}} button has been held for 3 seconds, when the RGB LED sh
 It will return `false` when the device is not in listening mode.
 
 ### setListenTimeout()
+
+{{api name1="Ethernet.setListenTimeout"}}
 
 ```cpp
 // SYNTAX
@@ -1319,6 +1372,8 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### getListenTimeout()
 
+{{api name1="Ethernet.getListenTimeout"}}
+
 ```cpp
 // SYNTAX
 uint16_t seconds = Ethernet.getListenTimeout();
@@ -1328,6 +1383,8 @@ uint16_t seconds = Ethernet.getListenTimeout();
 
 
 ### macAddress()
+
+{{api name1="Ethernet.macAddress"}}
 
 `Ethernet.macAddress()` gets the MAC address of the Ethernet interface.
 
@@ -1348,6 +1405,8 @@ void setup() {
 
 ### localIP()
 
+{{api name1="Ethernet.localIP"}}
+
 `Ethernet.localIP()` is used to get the IP address of the Ethernet interface as an `IPAddress`.
 
 ```cpp
@@ -1364,6 +1423,8 @@ void setup() {
 
 ### subnetMask()
 
+{{api name1="Ethernet.subnetMask"}}
+
 `Ethernet.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
 
 ```cpp
@@ -1379,6 +1440,8 @@ void setup() {
 ```
 
 ### gatewayIP()
+
+{{api name1="Ethernet.gatewayIP"}}
 
 `Ethernet.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
 
@@ -1397,10 +1460,14 @@ void setup() {
 
 ### dnsServerIP()
 
+{{api name1="Ethernet.dnsServerIP"}}
+
 `Ethernet.dnsServerIP()` retrieves the IP address of the DNS server that resolves
 DNS requests for the device's network connection. This will often be 0.0.0.0.
 
 ### dhcpServerIP()
+
+{{api name1="Ethernet.dhcpServerIP"}}
 
 `Ethernet.dhcpServerIP()` retrieves the IP address of the DHCP server that manages
 the IP address used by the device's network connection. This often will be 0.0.0.0.
@@ -1411,13 +1478,19 @@ the IP address used by the device's network connection. This often will be 0.0.0
 {{#if has-wifi}}
 ## WiFi
 
+{{api name1="WiFi"}}
+
 ### on()
+
+{{api name1="WiFi.on"}}
 
 `WiFi.on()` turns on the Wi-Fi module. Useful when you've turned it off, and you changed your mind.
 
 Note that `WiFi.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Wi-Fi module off.
 
 ### off()
+
+{{api name1="WiFi.off"}}
 
 ```cpp
 // EXAMPLE:
@@ -1433,6 +1506,8 @@ This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](/reference/device-
 
 
 ### connect()
+
+{{api name1="WiFi.connect"}}
 
 Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode (see below for how to avoid this.). If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
 
@@ -1458,6 +1533,8 @@ If there are no credentials then the call does nothing other than turn on the Wi
 
 ### disconnect()
 
+{{api name1="WiFi.disconnect"}}
+
 Disconnects from the Wi-Fi network, but leaves the Wi-Fi module on.
 
 ```cpp
@@ -1466,6 +1543,8 @@ WiFi.disconnect();
 ```
 
 ### connecting()
+
+{{api name1="WiFi.connecting"}}
 
 This function will return `true` once the device is attempting to connect using stored Wi-Fi credentials, and will return `false` once the device has successfully connected to the Wi-Fi network.
 
@@ -1476,6 +1555,8 @@ WiFi.connecting();
 
 ### ready()
 
+{{api name1="WiFi.ready"}}
+
 This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
 
 ```cpp
@@ -1485,6 +1566,8 @@ WiFi.ready();
 
 {{#if has-wifi-antenna-switch}}
 ### selectAntenna() [Antenna]
+
+{{api name1="WiFi.selectAntenna"}}
 
 Selects which antenna the device should connect to Wi-Fi with and remembers that
 setting until it is changed.
@@ -1532,6 +1615,8 @@ void loop() {
 
 ### listen()
 
+{{api name1="WiFi.listen"}}
+
 This will enter or exit listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
 Soft AP on the Photon or BLE on the Argon.
 
@@ -1555,6 +1640,8 @@ WiFi.listen(false);
 
 ### listening()
 
+{{api name1="WiFi.listening"}}
+
 ```cpp
 // SYNTAX
 WiFi.listening();
@@ -1569,6 +1656,8 @@ It will return `false` when the device is not in listening mode.
 
 
 ### setListenTimeout()
+
+{{api name1="WiFi.setListenTimeout"}}
 
 {{since when="0.6.1"}}
 
@@ -1604,6 +1693,8 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### getListenTimeout()
 
+{{api name1="WiFi.getListenTimeout"}}
+
 {{since when="0.6.1"}}
 
 ```cpp
@@ -1615,6 +1706,8 @@ uint16_t seconds = WiFi.getListenTimeout();
 
 
 ### setCredentials()
+
+{{api name1="WiFi.setCredentials"}}
 
 Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
 
@@ -1737,6 +1830,8 @@ This function returns `true` if credentials were successfully saved, or `false` 
 
 ### getCredentials()
 
+{{api name1="WiFi.getCredentials"}}
+
 {{since when="0.4.9"}}
 
 Lists the Wi-Fi networks with credentials stored on the device. Returns the number of stored networks.
@@ -1775,6 +1870,8 @@ for (int i = 0; i < found; i++) {
 
 ### clearCredentials()
 
+{{api name1="WiFi.clearCredentials"}}
+
 This will clear all saved credentials from the Wi-Fi module's memory. This will return `true` on success and `false` if the Wi-Fi module has an error.
 
 ```cpp
@@ -1784,6 +1881,8 @@ WiFi.clearCredentials();
 
 ### hasCredentials()
 
+{{api name1="WiFi.hasCredentials"}}
+
 Will return `true` if there are Wi-Fi credentials stored in the Wi-Fi module's memory.
 
 ```cpp
@@ -1792,6 +1891,8 @@ WiFi.hasCredentials();
 ```
 
 ### macAddress()
+
+{{api name1="WiFi.macAddress"}}
 
 `WiFi.macAddress()` returns the MAC address of the device.
 
@@ -1814,9 +1915,13 @@ void setup() {
 
 ### SSID()
 
+{{api name1="WiFi.SSID"}}
+
 `WiFi.SSID()` returns the SSID of the network the device is currently connected to as a `char*`.
 
 ### BSSID()
+
+{{api name1="WiFi.BSSID"}}
 
 `WiFi.BSSID()` retrieves the 6-byte MAC address of the access point the device is currently connected to.
 
@@ -1835,6 +1940,8 @@ void setup() {
 ```
 
 ### RSSI()
+
+{{api name1="WiFi.RSSI"}}
 
 `WiFi.RSSI()` returns the signal strength of a Wi-Fi network from -127 (weak) to -1dB (strong) as an `int`. Positive return values indicate an error with 1 indicating a Wi-Fi chip error and 2 indicating a time-out error.
 
@@ -1863,9 +1970,13 @@ This is necessary for the compiler to correctly convert the WiFiSignal class int
 
 ### WiFiSignal Class
 
+{{api name1="WiFiSignal"}}
+
 This class allows to query a number of signal parameters of the currently connected WiFi network.
 
 #### getStrength()
+
+{{api name1="WiFiSignal::getStrength"}}
 
 Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how strength values are mapped to 0%-100% range.
 
@@ -1883,6 +1994,8 @@ Returns: `float`
 
 #### getQuality()
 
+{{api name1="WiFiSignal::getQuality"}}
+
 Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how quality values are mapped to 0%-100% range.
 
 ```cpp
@@ -1899,6 +2012,8 @@ Returns: `float`
 
 #### getStrengthValue()
 
+{{api name1="WiFiSignal::getStrengthValue"}}
+
 ```cpp
 // SYNTAX
 WiFiSignal sig = WiFi.RSSI();
@@ -1910,6 +2025,8 @@ Gets the raw signal strength value in dBm. Range: [-90, 0].
 Returns: `float`
 
 #### getQualityValue()
+
+{{api name1="WiFiSignal::getQualityValue"}}
 
 ```cpp
 // SYNTAX
@@ -1923,6 +2040,8 @@ Returns: `float`
 
 ### ping()
 
+{{api name1="WiFi.ping"}}
+
 `WiFi.ping()` allows you to ping an IP address and returns the number of packets received as an `int`. It takes two forms:
 
 `WiFi.ping(IPAddress remoteIP)` takes an `IPAddress` and pings that address.
@@ -1930,6 +2049,8 @@ Returns: `float`
 `WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
 
 ### scan()
+
+{{api name1="WiFi.scan"}}
 
 Returns information about access points within range of the device.
 
@@ -2024,6 +2145,8 @@ const char* ssid = strongestFinder.scan();
 
 ### resolve()
 
+{{api name1="WiFi.resolve"}}
+
 `WiFi.resolve()` finds the IP address for a domain name.
 
 ```cpp
@@ -2053,6 +2176,8 @@ void setup() {
 
 ### localIP()
 
+{{api name1="WiFi.localIP"}}
+
 `WiFi.localIP()` returns the local IP address assigned to the device as an `IPAddress`.
 
 ```cpp
@@ -2068,6 +2193,8 @@ void setup() {
 ```
 
 ### subnetMask()
+
+{{api name1="WiFi.subnetMask"}}
 
 `WiFi.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
 
@@ -2085,6 +2212,8 @@ void setup() {
 
 ### gatewayIP()
 
+{{api name1="WiFi.gatewayIP"}}
+
 `WiFi.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
 
 ```cpp
@@ -2101,6 +2230,8 @@ void setup() {
 
 ### dnsServerIP()
 
+{{api name1="WiFi.dnsServerIP"}}
+
 `WiFi.dnsServerIP()` retrieves the IP address of the DNS server that resolves
 DNS requests for the device's network connection.
 
@@ -2109,6 +2240,8 @@ has connected.
 
 
 ### dhcpServerIP()
+
+{{api name1="WiFi.dhcpServerIP"}}
 
 `WiFi.dhcpServerIP()` retrieves the IP address of the DHCP server that manages
 the IP address used by the device's network connection.
@@ -2120,6 +2253,8 @@ has connected.
 {{#if photon}}
 
 ### setStaticIP()
+
+{{api name1="WiFi.setStaticIP"}}
 
 Defines the static IP addresses used by the system to connect to the network when static IP is activated.
 
@@ -2145,12 +2280,16 @@ application and also in safe mode.
 
 ### useStaticIP()
 
+{{api name1="WiFi.useStaticIP"}}
+
 Instructs the system to connect to the network using the IP addresses provided to
 `WiFi.setStaticIP()`
 
 The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
 
 ### useDynamicIP()
+
+{{api name1="WiFi.useDynamicIP"}}
 
 Instructs the system to connect to the network using a dynamically allocated IP
 address from the router.
@@ -2161,6 +2300,7 @@ is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 ### setHostname()
 
+{{api name1="WiFi.setHostname"}}
 
 {{since when="0.7.0"}}
 
@@ -2190,6 +2330,8 @@ Serial.println(System.deviceID());
 
 ### hostname()
 
+{{api name1="WiFi.hostname"}}
+
 {{since when="0.7.0"}}
 
 Retrieves device hostname used as DHCP client name (DHCP option 12).
@@ -2206,6 +2348,9 @@ By default the device uses its [device ID](#deviceid-) as hostname. See [WiFi.se
 {{/if}} {{!-- photon --}}
 
 ### WiFiCredentials class
+
+{{api name1="WiFiCredentials"}}
+
 This class allows to define WiFi credentials that can be passed to [WiFi.setCredentials()](#setcredentials-) function.
 
 ```cpp
@@ -2257,6 +2402,9 @@ Parameters:
 - `security`: see [SecurityType](#securitytype-enum) enum.
 
 #### setSsid()
+
+{{api name1="WiFiCredentials::setSsid"}}
+
 Sets access point SSID.
 
 ```cpp
@@ -2274,6 +2422,9 @@ Parameters:
 - `ssid`: SSID (string)
 
 #### setSecurity()
+
+{{api name1="WiFiCredentials::setSecurity"}}
+
 Sets access point security type.
 
 ```cpp
@@ -2308,6 +2459,9 @@ Parameters:
 - `cipher`: see [WLanSecurityCipher](#wlansecuritycipher-enum) enum.
 
 #### setPassword()
+
+{{api name1="WiFiCredentials::setPassword"}}
+
 Sets access point password.
 
 {{#if has-wpa-enterprise}}
@@ -2333,6 +2487,9 @@ Parameters:
 {{/if}} {{!-- has-wpa-enterprise --}}
 
 #### setChannel()
+
+{{api name1="WiFiCredentials::setChannel"}}
+
 Sets access point channel.
 
 ```cpp
@@ -2351,6 +2508,9 @@ Parameters:
 
 {{#if has-wpa-enterprise}}
 #### setEapType()
+
+{{api name1="WiFiCredentials::setEapType"}}
+
 Sets EAP type.
 
 ```cpp
@@ -2368,6 +2528,9 @@ Parameters:
 - `type`: EAP type. See [WLanEapType](#wlaneaptype-enum) enum for a list of supported values.
 
 #### setIdentity()
+
+{{api name1="WiFiCredentials::setIdentify"}}
+
 Sets EAP inner identity (username in case of PEAP/MSCHAPv2).
 
 ```cpp
@@ -2386,6 +2549,9 @@ Parameters:
 - `identity`: inner identity (string)
 
 #### setOuterIdentity()
+
+{{api name1="WiFiCredentials::setOuterIdentify"}}
+
 Sets EAP outer identity. Defaults to "anonymous".
 
 ```cpp
@@ -2403,6 +2569,9 @@ Parameters:
 - `identity`: outer identity (string)
 
 #### setClientCertificate()
+
+{{api name1="WiFiCredentials::setClientCertificate"}}
+
 Sets client certificate used for EAP-TLS authentication.
 
 ```cpp
@@ -2423,6 +2592,9 @@ Parameters:
 - `cert`: client certificate in PEM format (string)
 
 #### setPrivateKey()
+
+{{api name1="WiFiCredentials::setPrivateKey"}}
+
 Sets private key used for EAP-TLS authentication.
 
 ```cpp
@@ -2443,6 +2615,9 @@ Parameters:
 - `key`: private key in PEM format (string)
 
 #### setRootCertificate()
+
+{{api name1="WiFiCredentials::setRootCertificate"}}
+
 Sets one more root (CA) certificates.
 
 ```cpp
@@ -2472,6 +2647,9 @@ Parameters:
 - `cert`: one or multiple concatenated root certificates in PEM format (string)
 
 ### WLanEapType Enum
+
+{{api name1="WLanEapType"}}
+
 This enum defines EAP types.
 
 | Name                 | Description                                                     |
@@ -2482,6 +2660,9 @@ This enum defines EAP types.
 {{/if}} {{!-- has-wpa-enterprise --}}
 
 ### SecurityType Enum
+
+{{api name1="SecurityType"}}
+
 This enum defines wireless security types.
 
 | Name              | Description                          |
@@ -2494,6 +2675,9 @@ This enum defines wireless security types.
 | `WPA2_ENTERPRISE` | Wi-Fi Protected Access-Enterprise II |
 
 ### WLanSecurityCipher Enum
+
+{{api name1="WLanSecurityCipher"}}
+
 This enum defines wireless security ciphers.
 
 | Name                   | Description        |
@@ -2508,6 +2692,8 @@ This enum defines wireless security ciphers.
 
 {{#if has-softap}}
 ## SoftAP HTTP Pages
+
+{{api name1="SoftAP"}}
 
 {{since when="0.5.0"}}
 
@@ -2714,7 +2900,7 @@ STARTUP(softap_set_application_page_handler(myPage, nullptr));
 
 ### on()
 
-{{api name1="Cellular.on" name2="on"}}
+{{api name1="Cellular.on"}}
 
 `Cellular.on()` turns on the Cellular module. Useful when you've turned it off, and you changed your mind.
 
@@ -2727,7 +2913,7 @@ Cellular.on();
 
 ### off()
 
-{{api name1="Cellular.off" name2="off"}}
+{{api name1="Cellular.off"}}
 
 `Cellular.off()` turns off the Cellular module. Useful for saving power, since most of the power draw of the device is the Cellular module.  Note: turning off the Cellular module will force it to go through a full re-connect to the Cellular network the next time it is turned on.
 
@@ -2751,6 +2937,8 @@ This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](/reference/device-
 
 ### connect()
 
+{{api name1="Cellular.connect"}}
+
 Attempts to connect to the Cellular network. If there are no credentials entered, the default Particle APN for Particle SIM cards will be used.  If no SIM card is inserted, the device will enter listening mode. If a 3rd party APN is set, these credentials must match the inserted SIM card for the device to connect to the cellular network. When this function returns, the device may not have a local (private) IP address; use `Cellular.ready()` to determine the connection status.
 
 ```cpp
@@ -2764,6 +2952,8 @@ Cellular.connect();
 
 ### disconnect()
 
+{{api name1="Cellular.disconnect"}}
+
 Disconnects from the Cellular network, but leaves the Cellular module on.
 
 ```cpp
@@ -2772,6 +2962,9 @@ Cellular.disconnect();
 ```
 
 ### connecting()
+
+{{api name1="Cellular.connecting"}}
+
 
 This function will return `true` once the device is attempting to connect using the default Particle APN or 3rd party APN cellular credentials, and will return `false` once the device has successfully connected to the cellular network.
 
@@ -2782,6 +2975,8 @@ Cellular.connecting();
 
 ### ready()
 
+{{api name1="Cellular.ready"}}
+
 This function will return `true` once the device is connected to the cellular network and has been assigned an IP address, which means it has an activated PDP context and is ready to open TCP/UDP sockets. Otherwise it will return `false`.
 
 ```cpp
@@ -2790,6 +2985,8 @@ Cellular.ready();
 ```
 
 ### listen()
+
+{{api name1="Cellular.listen"}}
 
 This will enter or exit listening mode, which opens a Serial connection to get Cellular information such as the IMEI or CCID over USB.
 
@@ -2811,6 +3008,8 @@ Cellular.listen(false);
 
 ### listening()
 
+{{api name1="Cellular.listening"}}
+
 ```cpp
 // SYNTAX
 Cellular.listening();
@@ -2827,6 +3026,8 @@ It will return `false` when the device is not in listening mode.
 
 
 ### setListenTimeout()
+
+{{api name1="Cellular.setListenTimeout"}}
 
 {{since when="0.6.1"}}
 
@@ -2845,6 +3046,8 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### getListenTimeout()
 
+{{api name1="Cellular.getListenTimeout"}}
+
 {{since when="0.6.1"}}
 
 ```cpp
@@ -2856,6 +3059,8 @@ uint16_t seconds = Cellular.getListenTimeout();
 
 
 ### lock()
+
+{{api name1="Cellular.lock"}}
 
 The `Cellular` object does not have built-in thread-safety. If you want to use things like `Cellular.command()` from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
 
@@ -2875,12 +3080,16 @@ Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlo
 
 ### unlock()
 
+{{api name1="Cellular.unlock"}}
+
 Unlocks the `Cellular` mutex. See `lock()`.
 
 
 ### setCredentials()
 
-{{api name1="Cellular.setCredentials" name2="setCredentials"}}
+{{api name1="Cellular.setCredentials"}}
+
+{{api name1="Cellular.setCredentials"}}
 
 Sets 3rd party SIM credentials for the Cellular network from within the user application. 
 
@@ -2960,6 +3169,8 @@ void loop() {
 
 ### clearCredentials()
 
+{{api name1="Cellular.clearCredentials"}}
+
 Your device only uses one set of credentials, and they
 must be correctly matched to the SIM card that's used.  If using a
 Particle SIM, using `Cellular.setCredentials()` is not necessary as the
@@ -3024,6 +3235,8 @@ void loop() {
 
 ### setActiveSim()
 
+{{api name1="Cellular.setActiveSim"}}
+
 The device can use either the built-in MFF2 embedded Particle SIM card or an external nano SIM card in 
 the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
 once. The setting will be preserved across reset, power down, and firmware upgrades.
@@ -3066,6 +3279,8 @@ void loop() {
 {{/if}} {{!-- has-set-active-sim --}}
 
 ### getDataUsage()
+
+{{api name1="Cellular.getDataUsage"}}
 
 A software implementation of Data Usage that pulls sent and received session and total bytes from the cellular modem's internal counters.  The sent / received bytes are the gross payload evaluated by the protocol stack, therefore they comprise the TCP and IP header bytes and the packets used to open and close the TCP connection.  I.e., these counters account for all overhead in cellular communications.
 
@@ -3163,6 +3378,8 @@ void loop()
 
 ### setDataUsage()
 
+{{api name1="Cellular.setDataUsage"}}
+
 Sets the Data Usage counters to the values indicated in the supplied CellularData object.
 
 Returns `bool` - `true` indicating this operation was successful and the CellularData object was updated.
@@ -3175,6 +3392,8 @@ Cellular.setDataUsage(data);
 ```
 
 ### resetDataUsage()
+
+{{api name1="Cellular.resetDataUsage"}}
 
 Resets the Data Usage counters to all zero.  No CellularData object is required.  This is handy to call just before an operation where you'd like to measure data usage.
 
@@ -3189,13 +3408,19 @@ Cellular.resetDataUsage();
 
 ### RSSI()
 
+{{api name1="Cellular.RSSI"}}
+
 `Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that allows you to determine signal strength (RSSI) and signal quality of the currently connected Cellular network.
 
 ### CellularSignal Class
 
+{{api name1="CellularSignal"}}
+
 This class allows to query a number of signal parameters of the currently connected Cellular network.
 
 #### getAccessTechnology()
+
+{{api name1="CellularSignal::getAccessTechnology"}}
 
 ```cpp
 // SYNTAX
@@ -3213,6 +3438,8 @@ The following radio technologies are defined:
 
 #### getStrength()
 
+{{api name1="CellularSignal::getStrength"}}
+
 Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how raw RAT-specific strength values are mapped to 0%-100% range.
 
 ```cpp
@@ -3228,6 +3455,8 @@ Log.info("Cellular signal strength: %.02f%%", sig.getStrength());
 Returns: `float`
 
 #### getQuality()
+
+{{api name1="CellularSignal::getQuality"}}
 
 Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how raw RAT-specific quality values are mapped to 0%-100% range.
 
@@ -3247,6 +3476,8 @@ Returns: `float`
 
 #### getStrengthValue()
 
+{{api name1="CellularSignal::getStrengthValue"}}
+
 ```cpp
 // SYNTAX
 CellularSignal sig = Cellular.RSSI();
@@ -3261,6 +3492,8 @@ Gets the raw signal strength value. This value is RAT-specific. See [`getAccessT
 Returns: `float`
 
 #### getQualityValue()
+
+{{api name1="CellularSignal::getQualityValue"}}
 
 ```cpp
 // SYNTAX
@@ -3290,6 +3523,8 @@ Serial.println(sig.qual);
 ```
 
 ### getBandAvailable()
+
+{{api name1="Cellular::getBandAvailable"}}
 
 {{since when="0.5.0"}}
 
@@ -3357,6 +3592,8 @@ Band available and band select APIs are only available on Gen 2 cellular devices
 
 ### getBandSelect()
 
+{{api name1="Cellular::getBandSelect"}}
+
 {{since when="0.5.0"}}
 
 Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.
@@ -3396,6 +3633,9 @@ Band available and band select APIs are only available on Gen 2 cellular devices
 ---
 
 ### setBandSelect()
+
+{{api name1="Cellular::setBandSelect"}}
+
 {{since when="0.5.0"}}
 Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.
 
@@ -3475,6 +3715,9 @@ Band available and band select APIs are only available on Gen 2 cellular devices
 ---
 
 ### resolve()
+
+{{api name1="Cellular::resolve"}}
+
 {{since when="0.6.1"}}
 
 `Cellular.resolve()` finds the IP address for a domain name.
@@ -3506,6 +3749,8 @@ void setup() {
 
 ### localIP()
 
+{{api name1="Cellular::localIP"}}
+
 {{since when="0.5.0"}}
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
@@ -3521,6 +3766,8 @@ void setup() {
 ```
 
 ### command()
+
+{{api name1="Cellular::command"}}
 
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
@@ -3651,6 +3898,9 @@ The constant 0.0011224 is based on the voltage divider circuit (R1 = 806K, R2 = 
 
 {{#if has-fuel-gauge}}
 ## FuelGauge
+
+{{api name1="FuelGauge"}}
+
 The on-board Fuel Gauge allows you to monitor the battery voltage, state of charge and set low voltage battery thresholds. Use an instance of the `FuelGauge` library to call the various fuel gauge functions.
 
 ```cpp
@@ -3659,6 +3909,8 @@ FuelGauge fuel;
 ```
 
 ### getVCell()
+
+{{api name1="FuelGauge::getVCell"}}
 
 ```cpp
 // PROTOTYPE
@@ -3672,6 +3924,8 @@ Log.info( "voltage=%.2f", fuel.getVCell() );
 Returns the battery voltage as a `float`. Returns -1.0 if the fuel gauge cannot be read.
 
 ### getSoC()
+
+{{api name1="FuelGauge::getSoC"}}
 
 ```cpp
 // PROTOTYPE
@@ -3694,6 +3948,8 @@ It may be preferable to use [`System.batteryCharge()`](#batterycharge-) instead 
 
 ### getNormalizedSoC()
 
+{{api name1="FuelGauge::getNormalizedSoC"}}
+
 ```cpp
 // PROTOTYPE
 float getNormalizedSoC()
@@ -3704,33 +3960,63 @@ Returns the State of Charge in percentage from 0-100% as a `float`, normalized b
 It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of using `getNormalizedSoC()` directly. `System.batteryCharge()` uses the value in device diagnostics, which eventually uses `getNormalizedSoC()`.
 
 ### getVersion()
+
+{{api name1="FuelGauge::getVersion"}}
+
 `int getVersion();`
 
 ### getCompensateValue()
+
+{{api name1="FuelGauge::getCompensateValue"}}
+
 `byte getCompensateValue();`
 
 ### getAlertThreshold()
+
+{{api name1="FuelGauge::getAlertThreshold"}}
+
 `byte getAlertThreshold();`
 
 ### setAlertThreshold()
+
+{{api name1="FuelGauge::setAlertThreshold"}}
+
 `void setAlertThreshold(byte threshold);`
 
 ### getAlert()
+
+{{api name1="FuelGauge::getAlert"}}
+
 `boolean getAlert();`
 
 ### clearAlert()
+
+{{api name1="FuelGauge::clearAlert"}}
+
 `void clearAlert();`
 
 ### reset()
+
+{{api name1="FuelGauge::reset"}}
+
 `void reset();`
 
 ### quickStart()
+
+{{api name1="FuelGauge::quickStart"}}
+
 `void quickStart();`
 
 ### sleep()
+
+{{api name1="FuelGauge::sleep"}}
+
 `void sleep();`
 
 ### wakeup()
+
+{{api name1="FuelGauge::wakeup"}}
+
 `void wakeup();`
 {{/if}} {{!-- has-fuel-gauge --}}
 
@@ -3759,6 +4045,8 @@ On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to 
 {{/if}} {{!-- tracker-som --}}
 
 ### pinMode()
+
+{{api name1="pinMode"}}
 
 `pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
 
@@ -3866,6 +4154,8 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 ### getPinMode(pin)
 
+{{api name1="getPinMode"}}
+
 Retrieves the current pin mode.
 
 ```cpp
@@ -3880,6 +4170,8 @@ if (getPinMode(D0)==INPUT) {
 ```
 
 ### digitalWrite()
+
+{{api name1="digitalWrite"}}
 
 Write a `HIGH` or a `LOW` value to a GPIO pin.
 
@@ -3934,6 +4226,8 @@ void loop()
 
 ### digitalRead()
 
+{{api name1="digitalRead"}}
+
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
 
 ```cpp
@@ -3987,6 +4281,8 @@ void loop()
 {{#if has-nrf52}}
 ### pinSetDriveStrength()
 
+{{api name1="pinSetDriveStrength"}}
+
 {{since when="2.0.0"}}
 
 ```cpp
@@ -4020,6 +4316,8 @@ The drive strength is typically 2 mA in standard drive mode (the default), and 9
 {{#if has-pwm}}
 
 ### analogWrite() (PWM)
+
+{{api name1="analogWrite"}}
 
 Writes an analog value to a pin as a digital PWM (pulse-width modulated) signal. The default frequency of the PWM signal is 500 Hz.
 
@@ -4123,6 +4421,8 @@ The PWM frequency must be the same for pins in the same timer group.
 ### analogWriteResolution() (PWM)
 {{/if}}
 
+{{api name1="analogWriteResolution"}}
+
 {{since when="0.6.0"}}
 
 Sets or retrieves the resolution of `analogWrite()` function of a particular pin.
@@ -4148,6 +4448,8 @@ analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 **NOTE:** The resolution also affects maximum frequency that can be used with `analogWrite()`. The maximum frequency allowed with current resolution can be checked by calling `analogWriteMaxFrequency()`.
 
 ### analogWriteMaxFrequency() (PWM)
+
+{{api name1="analogWriteMaxFrequency"}}
 
 {{since when="0.6.0"}}
 
@@ -4189,6 +4491,8 @@ analogWrite(DAC1, 1024);
 {{#if has-adc}}
 
 ### analogRead() (ADC)
+
+{{api name1="analogRead"}}
 
 ```cpp
 // SYNTAX
@@ -4248,6 +4552,8 @@ _Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). 
 
 ### setADCSampleTime()
 
+{{api name1="setADCSampleTime"}}
+
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
  On the Photon, P1, Electron, and E Series this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
@@ -4282,6 +4588,8 @@ Prior to using the following low-level functions, `pinMode()` must be used to co
 
 ### pinSetFast()
 
+{{api name1="pinSetFast"}}
+
 Write a `HIGH` value to a digital pin.
 
 ```cpp
@@ -4312,6 +4620,8 @@ void loop()
 ```
 
 ### pinResetFast()
+
+{{api name1="pinResetFast"}}
 
 Write a `LOW` value to a digital pin.
 
@@ -4344,6 +4654,8 @@ void loop()
 
 ### digitalWriteFast()
 
+{{api name1="digitalWriteFast"}}
+
 Write a `HIGH` or `LOW` value to a digital pin.  This function will call pinSetFast() or pinResetFast() based on `value` and is useful when `value` is calculated. As such, this imposes a slight time overhead.
 
 ```cpp
@@ -4374,6 +4686,8 @@ void loop()
 ```
 
 ### pinReadFast()
+
+{{api name1="pinReadFast"}}
 
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
 
@@ -4409,6 +4723,8 @@ void loop()
 ## Advanced I/O
 
 ### tone()
+
+{{api name1="tone"}}
 
 Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin. tone() is generally used to make sounds or music on speakers or piezo buzzers.
 
@@ -4610,6 +4926,8 @@ void setup() {
 
 ### noTone()
 
+{{api name1="noTone"}}
+
 Stops the generation of a square wave triggered by tone() on a specified pin. Has no effect if no tone is being generated.
 
 The available pins are the same as for tone().
@@ -4629,6 +4947,8 @@ noTone(pin)
 ```
 
 ### shiftOut()
+
+{{api name1="shiftOut"}}
 
 Shifts out a byte of data one bit at a time on a specified pin. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. Each bit is written in turn to a data pin, after which a clock pin is pulsed (taken high, then low) to indicate that the bit is available.
 
@@ -4675,6 +4995,8 @@ loop() {
 
 ### shiftIn()
 
+{{api name1="shiftIn"}}
+
 Shifts in a byte of data one bit at a time. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. For each bit, the clock pin is pulled high, the next bit is read from the data line, and then the clock pin is taken low.
 
 **NOTE:** if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to `digitalWrite(clockPin, LOW)`.
@@ -4719,6 +5041,7 @@ loop() {
 
 ### pulseIn()
 
+{{api name1="pulseIn"}}
 
 {{since when="0.4.7"}}
 
@@ -4772,11 +5095,15 @@ void loop()
 
 ## Power Manager
 
+{{api name1="SystemPowerConfiguration"}}
+
 The Power Manager API provides a way to set PMIC (Power Management IC) settings such as input volage, input current limit, charge current, and charge termination voltage using a simple API. The Power Manager settings are persistent and saved in configuration flash so you can set them once and they will continue to be used.
 
 To set the Power Manager configuration, create a `SystemPowerConfiguration` object and use the methods below to adjust the settings:
 
 ### powerSourceMaxCurrent
+
+{{api name1="SystemPowerConfiguration::powerSourceMaxCurrent"}}
 
 Set maximum current the power source can provide. This applies only when powered through VIN. When powering by USB, the maximum current is negotiated with your computer or power adapter automatically.
 
@@ -4784,11 +5111,15 @@ The default is 900 mA.
 
 ### powerSourceMinVoltage
 
+{{api name1="SystemPowerConfiguration::powerSourceMinVoltage"}}
+
 Set minimum voltage required for VIN to be used. This applies only when powered through VIN. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts.
 
 The default is 3880 (3.88 volts).
 
 ### batteryChargeCurrent
+
+{{api name1="SystemPowerConfiguration::batteryChargeCurrent"}}
 
 Sets the battery charge current. The actual charge current is the lesser of powerSourceMaxCurrent and batteryChargeCurrent. The value is milliamps (mA).
 
@@ -4796,19 +5127,27 @@ The default is 896 mA.
 
 ### batteryChargeVoltage
 
+{{api name1="SystemPowerConfiguration::batteryChargeVoltage"}}
+
 Sets the battery charge termination voltage. The value is in millivolts or 1000ths of a volt, so 3880 is 3.880 volts. When the battery reaches this voltage, charging is stopped.
 
 The default is 4112 (4.112V).
 
 ### feature(SystemPowerFeature::PMIC_DETECTION)
 
+{{api name1="SystemPowerFeature::PMIC_DETECTION"}}
+
 For devices with an external PMIC and Fuel Gauge like the B Series SoM, enables detection of the bq24195 PMIC connected by I2C to the primary I2C interface (Wire). Since this requires the use of I2C, you should not use pins D0 and D1 for GPIO when using PMIC_DETECTION.
 
 ### feature(SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST)
 
+{{api name1="SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST"}}
+
 Normally, if a USB host is detected, the power limit settings will be determined by DPDM, the negotiation between the USB host and the PMIC to determine, for example, the maximum current available. If this feature is enabled, the VIN settings are used even when a USB host is detected. This is normally done if you are using USB for debugging but still have a power supply connected to VIN.
 
 ### feature(SystemPowerFeature::DISABLE)
+
+{{api name1="SystemPowerFeature::DISABLE"}}
 
 Disables the system power management features. If you set this mode you must manually set the values in the PMIC directly.
 
@@ -4894,6 +5233,8 @@ System.setPowerConfiguration(SystemPowerConfiguration());
 
 ## PMIC (Power Management IC)
 
+{{api name1="PMIC"}}
+
 You should generally set the PMIC settings such as input volage, input current limit, charge current, and charge termination voltage using the Power Manager API, above. If you directly set the PMIC, the settings will likely be overridden by the system.
 
 To find out the current power source (battery, VIN, USB), see [`System.powerSource()`](#powersource-). To find out if the battery is charging, discharging, disconnected, etc., see [`System.batteryState()`](#batterystate-).
@@ -4912,19 +5253,34 @@ PMIC(bool _lock=false);
 You can declare the PMIC object either as a global variable, or a stack-allocated local variable. If you use a stack local, pass `true` as the parameter to the constructor. This will automatically call `lock()` from the constructor and `unlock()` from the destructor.
 
 ### begin()
+
+{{api name1="PMIC::begin"}}
+
 `bool begin();`
 
 ### getVersion()
+
+{{api name1="PMIC::getVersion"}}
+
 `byte getVersion();`
 
 ### getSystemStatus()
+
+{{api name1="PMIC::getSystemStatus"}}
+
 `byte getSystemStatus();`
 
 ### getFault()
+
+{{api name1="PMIC::getFault"}}
+
 `byte getFault();`
 
 
 ### lock()
+
+{{api name1="PMIC::lock"}}
+
 `void lock();`
 
 You should always call `lock()` and `unlock()`, use `WITH_LOCK()`, or stack allocate a `PMIC` object nad pass `true` to the constructor.
@@ -4932,6 +5288,9 @@ You should always call `lock()` and `unlock()`, use `WITH_LOCK()`, or stack allo
 Since the PMIC can be accessed from both the system and user threads, locking it assures that a PMIC opertation will not be interrupted by another thread.
 
 ### unlock()
+
+{{api name1="PMIC::unlock"}}
+
 `void unlock();`
 
 ---
@@ -4939,24 +5298,45 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 ### Input source control register
 
 #### readInputSourceRegister()
+
+{{api name1="PMIC::readInputSourceRegister"}}
+
 `byte readInputSourceRegister(void);`
 
 #### enableBuck()
+
+{{api name1="PMIC::enableBuck"}}
+
 `bool enableBuck(void);`
 
 #### disableBuck()
+
+{{api name1="PMIC::disableBuck"}}
+
 `bool disableBuck(void);`
 
 #### setInputCurrentLimit()
+
+{{api name1="PMIC::setInputCurrentLimit"}}
+
 `bool setInputCurrentLimit(uint16_t current);`
 
 #### getInputCurrentLimit()
+
+{{api name1="PMIC::getInputCurrentLimit"}}
+
 `byte getInputCurrentLimit(void);`
 
 #### setInputVoltageLimit()
+
+{{api name1="PMIC::setInputVoltageLimit"}}
+
 `bool setInputVoltageLimit(uint16_t voltage);`
 
 #### getInputVoltageLimit()
+
+{{api name1="PMIC::getInputVoltageLimit"}}
+
 `byte getInputVoltageLimit(void);`
 
 ---
@@ -4964,27 +5344,51 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 ### Power ON Configuration Reg
 
 #### enableCharging()
+
+{{api name1="PMIC::enableCharging"}}
+
 `bool enableCharging(void);`
 
 #### disableCharging()
+
+{{api name1="PMIC::disableCharging"}}
+
 `bool disableCharging(void);`
 
 #### enableOTG()
+
+{{api name1="PMIC::enableOTG"}}
+
 `bool enableOTG(void);`
 
 #### disableOTG()
+
+{{api name1="PMIC::disableOTG"}}
+
 `bool disableOTG(void);`
 
 #### resetWatchdog()
+
+{{api name1="PMIC::resetWatchdog"}}
+
 `bool resetWatchdog(void);`
 
 #### setMinimumSystemVoltage()
+
+{{api name1="PMIC::setMinimumSystemVoltage"}}
+
 `bool setMinimumSystemVoltage(uint16_t voltage);`
 
 #### getMinimumSystemVoltage()
+
+{{api name1="PMIC::getMinimumSystemVoltage"}}
+
 `uint16_t getMinimumSystemVoltage();`
 
 #### readPowerONRegister()
+
+{{api name1="PMIC::readPowerONRegister"}}
+
 `byte readPowerONRegister(void);`
 
 ---
@@ -4992,6 +5396,9 @@ Since the PMIC can be accessed from both the system and user threads, locking it
 ### Charge Current Control Reg
 
 #### setChargeCurrent()
+
+{{api name1="PMIC::setChargeCurrent"}}
+
 `bool setChargeCurrent(bool bit7, bool bit6, bool bit5, bool bit4, bool bit3, bool bit2);`
 
 The total charge current is the 512mA + the combination of the current that the following bits represent
@@ -5015,6 +5422,9 @@ pmic.setChargeCurrent(0,0,1,1,1,0);
                     
 
 #### getChargeCurrent()
+
+{{api name1="PMIC::getChargeCurrent"}}
+
 `byte getChargeCurrent(void);`
 
 Returns the charge current register. This is the direct register value from the BQ24195 PMIC. The bits in this register correspond to the bits you pass into setChargeCurrent.
@@ -5027,15 +5437,27 @@ Returns the charge current register. This is the direct register value from the 
 ### PreCharge/Termination Current Control Reg
 
 #### setPreChargeCurrent()
+
+{{api name1="PMIC::setPreChargeCurrent"}}
+
 `bool setPreChargeCurrent();`
 
 #### getPreChargeCurrent()
+
+{{api name1="PMIC::getPreChargeCurrent"}}
+
 `byte getPreChargeCurrent();`
 
 #### setTermChargeCurrent()
+
+{{api name1="PMIC::setTermChargeCurrent"}}
+
 `bool setTermChargeCurrent();`
 
 #### getTermChargeCurrent()
+
+{{api name1="PMIC::getTermChargeCurrent"}}
+
 `byte getTermChargeCurrent();`
 
 ---
@@ -5043,6 +5465,9 @@ Returns the charge current register. This is the direct register value from the 
 ### Charge Voltage Control Reg
 
 #### setChargeVoltage()
+
+{{api name1="PMIC::setChargeVoltage"}}
+
 `bool setChargeVoltage(uint16_t voltage);`
 
 Voltage can be:
@@ -5066,11 +5491,15 @@ Note: Do not use 4208 with Device OS 0.4.8 or 0.5.0, as a bug will cause an inco
 
 #### getChargeVoltageValue()
 
+{{api name1="PMIC::getChargeVoltageValue"}}
+
 `uint16_t getChargeVoltageValue();`
 
 Returns the charge voltage constant that could pass into setChargeVoltage, typically 4208 or 4112.
 
 #### getChargeVoltage()
+
+{{api name1="PMIC::getChargeVoltage"}}
 
 `byte getChargeVoltage();`
 
@@ -5084,12 +5513,21 @@ Returns the charge voltage register. This is the direct register value from the 
 ### Charge Timer Control Reg
 
 #### readChargeTermRegister()
+
+{{api name1="PMIC::readChargeTermRegister"}}
+
 `byte readChargeTermRegister();`
 
 #### disableWatchdog()
+
+{{api name1="PMIC::disableWatchdog"}}
+
 `bool disableWatchdog(void);`
 
 #### setWatchdog()
+
+{{api name1="PMIC::setWatchdog"}}
+
 `bool setWatchdog(byte time);`
 
 ---
@@ -5097,9 +5535,15 @@ Returns the charge voltage register. This is the direct register value from the 
 ### Thermal Regulation Control Reg
 
 #### setThermalRegulation()
+
+{{api name1="PMIC::setThermalRegulation"}}
+
 `bool setThermalRegulation();`
 
 #### getThermalRegulation()
+
+{{api name1="PMIC::getThermalRegulation"}}
+
 `byte getThermalRegulation();`
 
 ---
@@ -5107,33 +5551,63 @@ Returns the charge voltage register. This is the direct register value from the 
 ### Misc Operation Control Reg
 
 #### readOpControlRegister()
+
+{{api name1="PMIC::readOpControlRegister"}}
+
 `byte readOpControlRegister();`
 
 #### enableDPDM()
+
+{{api name1="PMIC::enableDPDM"}}
+
 `bool enableDPDM(void);`
 
 #### disableDPDM()
+
+{{api name1="PMIC::disableDPDM"}}
+
 `bool disableDPDM(void);`
 
 #### enableBATFET()
+
+{{api name1="PMIC::enableBATFET"}}
+
 `bool enableBATFET(void);`
 
 #### disableBATFET()
+
+{{api name1="PMIC::disableBATFET"}}
+
 `bool disableBATFET(void);`
 
 #### safetyTimer()
+
+{{api name1="PMIC::safetyTimer"}}
+
 `bool safetyTimer();`
 
 #### enableChargeFaultINT()
+
+{{api name1="PMIC::enableChargeFaultINT"}}
+
 `bool enableChargeFaultINT();`
 
 #### disableChargeFaultINT()
+
+{{api name1="PMIC::disableChargeFaultINT"}}
+
 `bool disableChargeFaultINT();`
 
 #### enableBatFaultINT()
+
+{{api name1="PMIC::enableBatFaultINT"}}
+
 `bool enableBatFaultINT();`
 
 #### disableBatFaultINT()
+
+{{api name1="PMIC::disableBatFaultINT"}}
+
 `bool disableBatFaultINT();`
 
 ---
@@ -5141,21 +5615,39 @@ Returns the charge voltage register. This is the direct register value from the 
 ### System Status Register
 
 #### getVbusStat()
+
+{{api name1="PMIC::getVsysStat"}}
+
 `byte getVbusStat();`
 
 #### getChargingStat()
+
+{{api name1="PMIC::getChargingStat"}}
+
 `byte getChargingStat();`
 
 #### getDPMStat()
+
+{{api name1="PMIC::getDPMStat"}}
+
 `bool getDPMStat();`
 
 #### isPowerGood()
+
+{{api name1="PMIC::isPowerGood"}}
+
 `bool isPowerGood(void);`
 
 #### isHot()
+
+{{api name1="PMIC::isHot"}}
+
 `bool isHot(void);`
 
 #### getVsysStat()
+
+{{api name1="PMIC::getVsysStat"}}
+
 `bool getVsysStat();`
 
 ---
@@ -5163,21 +5655,36 @@ Returns the charge voltage register. This is the direct register value from the 
 ### Fault Register
 
 #### isWatchdogFault()
+
+{{api name1="PMIC::isWatchdogFault"}}
+
 `bool isWatchdogFault();`
 
 #### getChargeFault()
+
+{{api name1="PMIC::getChargeFault"}}
+
 `byte getChargeFault();`
 
 #### isBatFault()
+
+{{api name1="PMIC::isBatFault"}}
+
 `bool isBatFault();`
 
 #### getNTCFault()
+
+{{api name1="PMIC::getNTCFault"}}
+
 `byte getNTCFault();`
 
 {{/if}} {{!-- has-pmic --}}
 
 ## Serial
 (inherits from [`Stream`](#stream-class))
+
+{{api name1="Serial" name2="Serial1" name3="Serial2" name4="Serial3" name5="Serial4" name6="Serial5"}}
+
 
 | Interface | Maximum Speed (Gen2) | Maximum Speed (Gen 3) | Maximum Peripheral Devices |
 | :--- | :--- | :--- | :--- |
@@ -5351,6 +5858,8 @@ Now you are ready to read data sent by the device over Serial and send data back
 
 
 ### begin()
+
+{{api name1="Serial.begin" name2="Serial1.begin"}}
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -5531,6 +6040,8 @@ void setup()
 
 ### end()
 
+{{api name1="Serial.end" name2="Serial1.end"}}
+
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Disables serial channel.
@@ -5548,6 +6059,8 @@ Serial1.end();
 ```
 
 ### available()
+
+{{api name1="Serial.available" name2="Serial1.available"}}
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -5589,6 +6102,8 @@ void loop()
 
 ### availableForWrite()
 
+{{api name1="Serial.availableForWrite" name2="Serial1.availableForWrite"}}
+
 {{since when="0.4.9"}} Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}.
 
 {{since when="0.5.0"}} Available on USB Serial (Serial)
@@ -5605,6 +6120,9 @@ Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 
 {{#if has-usb-serial1}}
 ### acquireSerialBuffer()
+
+{{api name1="Serial1.acquireSerialBuffer"}}
+
 
 ```cpp
 // SYNTAX
@@ -5651,6 +6169,8 @@ This is not available for hardware UART ports like `Serial1`, `Serial2`, etc.. I
 
 ### blockOnOverrun()
 
+{{api name1="Serial.blockOnOverrun" name2="Serial1.blockOnOverrun"}}
+
 {{since when="0.4.9"}} Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}.
 
 {{since when="0.5.0"}} Available on USB Serial (Serial)
@@ -5670,6 +6190,8 @@ Serial1.begin(115200);
 ```
 
 ### serialEvent()
+
+{{api name1="Serial.serialEvent"  name2="Serial1.serialEvent"}}
 
 A family of application-defined functions that are called whenever there is data to be read
 from a serial peripheral.
@@ -5708,6 +6230,8 @@ void serialEvent()
 
 ### peek()
 
+{{api name1="Serial.peek" name2="Serial1.peek"}}
+
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
@@ -5720,6 +6244,8 @@ Serial1.peek();
 `peek()` returns the first byte of incoming serial data available (or `-1` if no data is available) - *int*
 
 ### write()
+
+{{api name1="Serial.write" name2="Serial1.write"}}
 
 _Available on Serial, Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -5760,6 +6286,8 @@ void loop()
 
 ### read()
 
+{{api name1="Serial.read" name2="Serial1.read"}}
+
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Reads incoming serial data.
@@ -5793,6 +6321,8 @@ void loop() {
 ```
 ### print()
 
+{{api name1="Serial.print" name2="Serial1.print"}}
+
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text.
@@ -5814,6 +6344,8 @@ An optional second parameter specifies the base (format) to use; permitted value
 - Serial.println(1.23456, 4) gives "1.2346"
 
 ### println()
+
+{{api name1="Serial.println" name2="Serial1.println"}}
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -5864,6 +6396,8 @@ void loop() {
 
 ### printf()
 
+{{api name1="Serial.printf" name2="Serial1.printf"}}
+
 {{since when="0.4.6"}}
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
@@ -5890,6 +6424,7 @@ The last `printf()` call could be changed to `printlnf()` to avoid a separate ca
 
 ### printlnf()
 
+{{api name1="Serial.printlnf" name2="Serial1.printlnf"}}
 
 {{since when="0.4.6"}}
 
@@ -5901,6 +6436,8 @@ so to that subsequent output appears on the next line.
 
 
 ### flush()
+
+{{api name1="Serial.flush" name2="Serial1.flush"}}
 
 Waits for the transmission of outgoing serial data to complete.
 
@@ -5916,6 +6453,8 @@ Serial1.flush();
 {{#if has-serial-half-duplex}}
 
 ### halfduplex()
+
+{{api name1="Serial1.halfduplex"}}
 
 _Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -5944,6 +6483,8 @@ Serial1.halfduplex(true);
 {{/if}}
 
 ### isConnected()
+
+{{api name1="Serial.isConnected"}}
 
 ```cpp
 // EXAMPLE USAGE
@@ -5983,6 +6524,8 @@ Returns:
 
 ### lock()
 
+{{api name1="Serial.lock" name2="Serial1.lock"}}
+
 The USB and UART serial objects do not have built-in thread-safety. If you want to read or write the object from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
 
 A call to lock `lock()` must be balanced with a call to `unlock()` and not be nested. To make sure every lock is released, it's good practice to use `WITH_LOCK` like this:
@@ -6001,11 +6544,14 @@ Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlo
 
 ### unlock()
 
+{{api name1="Serial.unlock" name2="Serial1.unlock"}}
+
 Unlocks the Serial mutex. See `lock()`.
 
 {{#if has-usb-hid}}
-Mouse
-----
+## Mouse
+
+{{api name1="Mouse"}}
 
 ```cpp
 // EXAMPLE USAGE
@@ -6048,6 +6594,8 @@ Full capabilities include:
 
 ### begin()
 
+{{api name1="Mouse.begin"}}
+
 ```cpp
 // SYNTAX
 Mouse.begin();
@@ -6068,6 +6616,8 @@ void setup() {
 This function takes no parameters and does not return anything.
 
 ### end()
+
+{{api name1="Mouse.end"}}
 
 ```cpp
 // SYNTAX
@@ -6096,6 +6646,8 @@ This function takes no parameters and does not return anything.
 
 ### move()
 
+{{api name1="Mouse.move"}}
+
 ```cpp
 // SYNTAX
 Mouse.move(x, y);
@@ -6113,6 +6665,8 @@ Moves the cursor relative to the current position.
 `move()` does not return anything.
 
 ### moveTo()
+
+{{api name1="Mouse.moveTo"}}
 
 ```cpp
 // SYNTAX
@@ -6132,6 +6686,8 @@ The default range [0, 32767] can be mapped to actual screen resolution by callin
 
 ### scroll()
 
+{{api name1="Mouse.scroll"}}
+
 ```cpp
 // SYNTAX
 Mouse.scroll(wheel);
@@ -6146,6 +6702,8 @@ Scrolls the mouse wheel by the specified amount.
 `scroll()` does not return anything.
 
 ### click()
+
+{{api name1="Mouse.click"}}
 
 ```cpp
 // SYNTAX
@@ -6175,6 +6733,8 @@ Mouse.click(MOUSE_LEFT | MOUSE_RIGHT);
 
 ### press()
 
+{{api name1="Mouse.press"}}
+
 ```cpp
 // SYNTAX
 Mouse.press();
@@ -6202,6 +6762,8 @@ Mouse.press(MOUSE_LEFT | MOUSE_RIGHT);
 `press()` does not return anything.
 
 ### release()
+
+{{api name1="Mouse.release"}}
 
 ```cpp
 // SYNTAX
@@ -6231,6 +6793,8 @@ Mouse.release(MOUSE_LEFT | MOUSE_RIGHT);
 
 ### isPressed()
 
+{{api name1="Mouse.isPressed"}}
+
 ```cpp
 // SYNTAX
 Mouse.isPressed();
@@ -6257,6 +6821,8 @@ pressed = Mouse.isPressed(MOUSE_MIDDLE);
 `isPressed()` returns `true` if provided button is currently pressed.
 
 ### screenSize()
+
+{{api name1="Mouse.screenSize"}}
 
 ```cpp
 // SYNTAX
@@ -6299,6 +6865,8 @@ void loop() {
 
 ### enableMoveTo()
 
+{{api name1="Mouse.enableMoveTo"}}
+
 ```cpp
 // SYNTAX
 Mouse.enableMoveTo(false);
@@ -6335,8 +6903,10 @@ void loop() {
 
 `enableMoveTo()` does not return anything.
 
-Keyboard
-----
+## Keyboard
+
+{{api name1="Keyboard"}}
+
 
 ```cpp
 // EXAMPLE USAGE
@@ -6366,9 +6936,11 @@ void loop() {
 
 {{since when="0.6.0"}}
 
-This library allows your device to act as a native USB HID Keyboard.
+This object allows your device to act as a native USB HID Keyboard.
 
 ### begin()
+
+{{api name1="Keyboard.begin"}}
 
 ```cpp
 // SYNTAX
@@ -6390,6 +6962,8 @@ void setup() {
 This function takes no parameters and does not return anything.
 
 ### end()
+
+{{api name1="Keyboard.end"}}
 
 ```cpp
 // SYNTAX
@@ -6417,6 +6991,8 @@ void setup() {
 This function takes no parameters and does not return anything.
 
 ### write()
+
+{{api name1="Keyboard.write"}}
 
 ```cpp
 // SYNTAX
@@ -6448,6 +7024,8 @@ This function is used by [`print()`](#print--1), [`println()`](#println--1), [`p
 
 ### click()
 
+{{api name1="Keyboard.click"}}
+
 ```cpp
 // SYNTAX
 Keyboard.click(key);
@@ -6474,6 +7052,8 @@ void setup() {
 `click()` does not return anything.
 
 ### press()
+
+{{api name1="Keyboard.press"}}
 
 ```cpp
 // SYNTAX
@@ -6509,6 +7089,8 @@ void setup() {
 
 ### release()
 
+{{api name1="Keyboard.release"}}
+
 ```cpp
 // SYNTAX
 Keyboard.release(key);
@@ -6540,6 +7122,8 @@ See [`Keyboard.click()`](#click--1) documentation for information about keycodes
 
 ### releaseAll()
 
+{{api name1="Keyboard.releaseAll"}}
+
 ```cpp
 // SYNTAX
 Keyboard.releaseAll();
@@ -6564,26 +7148,36 @@ This function takes no parameters and does not return anything.
 
 ### print()
 
+{{api name1="Keyboard.print"}}
+
 See [`Keyboard.write()`](#write--1) and [`Serial.print()`](#print-) documentation.
 
 ### println()
+
+{{api name1="Keyboard.println"}}
 
 See [`Keyboard.write()`](#write--1) and [`Serial.println()`](#println-) documentation.
 
 ### printf()
 
+{{api name1="Keyboard.printf"}}
+
 See [`Keyboard.write()`](#write--1) and [`Serial.printf()`](#printf-) documentation.
 
 ### printlnf()
+
+{{api name1="Keyboard.printlnf"}}
 
 See [`Keyboard.write()`](#write--1) and [`Serial.printlnf()`](#printlnf-) documentation.
 
 {{/if}} {{!-- has-usb-hid --}}
 
 {{#if has-spi}}
-SPI
-----
-This library allows you to communicate with SPI ("Serial Peripheral Interface") devices, with the device as the master device. 
+## SPI
+
+{{api name1="SPI" name2="SPI1"}}
+
+This object allows you to communicate with SPI ("Serial Peripheral Interface") devices, with the device as the master device. 
 
 | Interface | Maximum Speed (Gen2) | Maximum Speed (Gen 3) | Maximum Peripheral Devices |
 | :--- | :--- | :--- | :--- |
@@ -6660,6 +7254,8 @@ Note: On Gen 3 devices, the SPI1 pins different than 2nd-generation (Photon/Elec
 {{/if}} {{!-- has-nrf52 --}}
 
 ### begin()
+
+{{api name1="SPI.begin" name2="SPI1.begin"}}
 
 Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK is pulled either high or low depending on the configured SPI data mode (default high for `SPI_MODE3`). Slave-select is pulled high.
 
@@ -6750,6 +7346,8 @@ Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. It 
 
 ### end()
 
+{{api name1="SPI.end"}}
+
 Disables the SPI bus (leaving pin modes unchanged).
 
 ```cpp
@@ -6760,6 +7358,8 @@ SPI.end();
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.end()`.
 
 ### setBitOrder()
+
+{{api name1="SPI.setBitOrder"}}
 
 Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST (least-significant bit first) or MSBFIRST (most-significant bit first).
 
@@ -6773,6 +7373,8 @@ Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`.
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setBitOrder()`.
 
 ### setClockSpeed
+
+{{api name1="SPI.setClockSpeed"}}
 
 Sets the SPI clock speed. The value can be specified as a direct value, or as
 as a value plus a multiplier.
@@ -6804,6 +7406,8 @@ Gen 3 devices (Argon, Boron, and Xenon) support SPI speeds up to 32 MHz on SPI a
 
 
 ### setClockDividerReference
+
+{{api name1="SPI.setClockDividerReference"}}
 
 This function aims to ease porting code from other platforms by setting the clock speed that
 `SPI.setClockDivider` is relative to.
@@ -6843,6 +7447,8 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 
 ### setClockDivider()
 
+{{api name1="SPI.setClockDivider"}}
+
 Sets the SPI clock divider relative to the selected clock reference. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
 
 ```cpp
@@ -6875,6 +7481,8 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 
 ### setDataMode()
 
+{{api name1="SPI.setDataMode"}}
+
 Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia article on SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) for details.
 
 ```cpp
@@ -6889,6 +7497,8 @@ Where the parameter, `mode` can be:
  - `SPI_MODE3`
 
 ### transfer()
+
+{{api name1="SPI.transfer"}}
 
 Transfers one byte over the SPI bus, both sending and receiving.
 
@@ -6937,6 +7547,8 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 
 ### transferCancel()
 
+{{api name1="SPI.transferCancel"}}
+
 {{since when="0.5.0"}}
 
 Aborts the configured DMA transfer and disables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data.
@@ -6944,6 +7556,8 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 **Note**: The user specified SPI DMA transfer completion function will still be called to indicate the end of DMA transfer. The user application can check the actual number of bytes received/transmitted by calling `available()`.
 
 ### onSelect()
+
+{{api name1="SPI.onSelect"}}
 
 {{since when="0.5.0"}}
 
@@ -7059,6 +7673,8 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 
 ### available()
 
+{{api name1="SPI.available"}}
+
 {{since when="0.5.0"}}
 
 Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, it returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
@@ -7073,6 +7689,8 @@ Returns the number of bytes available.
 
 {{#if has-spi-settings}}
 ### SPISettings
+
+{{api name1="SPISettings"}}
 
 {{since when="0.6.2"}}
 
@@ -7102,6 +7720,8 @@ Parameters:
 - `dataMode`: `SPI_MODE0`, `SPI_MODE1`, `SPI_MODE2` or `SPI_MODE3` (see [`setDataMode()`](#setdatamode-))
 
 ### beginTransaction()
+
+{{api name1="SPI.beginTransaction"}}
 
 {{since when="0.6.1"}}
 
@@ -7137,6 +7757,8 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 
 ### endTransaction()
 
+{{api name1="SPI.endTransaction"}}
+
 {{since when="0.6.1"}}
 
 Releases the SPI peripheral.
@@ -7162,11 +7784,13 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 
 {{#if has-i2c}}
 
-Wire (I2C)
----
+## Wire (I2C)
+
 (inherits from [`Stream`](#stream-class))
 
-This library allows you to communicate with I2C / TWI (Two Wire Interface) devices. For an in-depth tutorial on I2C, see [learn more about I2C](/tutorials/learn-more/about-i2c/).
+{{api name1="Wire" name2="Wire1" name3="Wire2" name4="Wire3"}}
+
+This object allows you to communicate with I2C / TWI (Two Wire Interface) devices. For an in-depth tutorial on I2C, see [learn more about I2C](/tutorials/learn-more/about-i2c/).
 
 | Interface | Maximum Speed (Gen2) | Maximum Speed (Gen 3) | Maximum Peripheral Devices |
 | :--- | :--- | :--- | :--- |
@@ -7246,6 +7870,8 @@ This is primarily use with the Tracker One as TX/RX are exposed by the external 
 
 ### setSpeed()
 
+{{api name1="Wire.setSpeed"}}
+
 Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz and the maximum clock speed is 400KHz.
 
 ```cpp
@@ -7259,6 +7885,8 @@ Parameters:
 - `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
 
 ### stretchClock()
+
+{{api name1="Wire.stretchClock"}}
 
 Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). I2C clock stretching is only used with I2C Slave mode. The default I2C clock stretching mode is enabled.
 
@@ -7275,6 +7903,8 @@ Parameters:
 {{/if}} {{!-- has-embedded --}}
 
 ### begin()
+
+{{api name1="Wire.begin" name2="Wire1.begin" name3="Wire2.begin" name4="Wire3.begin"}}
 
 Initiate the Wire library and join the I2C bus as a master{{#if has-i2c-slave}} or slave{{/if}}. This should normally be called only once.
 
@@ -7293,11 +7923,15 @@ Parameters: `address`: the 7-bit slave address (optional); if not specified, joi
 
 ### end()
 
+{{api name1="Wire.end"}}
+
 {{since when="0.4.6"}}
 
 Releases the I2C bus so that the pins used by the I2C bus are available for general purpose I/O.
 
 ### isEnabled()
+
+{{api name1="Wire.isEnabled"}}
 
 Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
 
@@ -7318,6 +7952,8 @@ if (!Wire.isEnabled()) {
 ```
 
 ### requestFrom()
+
+{{api name1="Wire.requestFrom"}}
 
 Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions.
 
@@ -7356,6 +7992,8 @@ Wire.requestFrom(WireTransmission(I2C_ADDRESS).quantity(requestedLength).timeout
 
 ### reset()
 
+{{api name1="Wire.reset"}}
+
 {{since when="0.4.6"}}
 
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
@@ -7365,6 +8003,8 @@ we hope this function isn't required, and it's provided for completeness.
 {{/if}} {{!-- has-embedded --}}
 
 ### beginTransmission()
+
+{{api name1="Wire.beginTransmission"}}
 
 Begin a transmission to the I2C slave device with the given address. Subsequently, queue bytes for transmission with the `write()` function and transmit them by calling `endTransmission()`.
 
@@ -7389,6 +8029,8 @@ Wire.beginTransmission(WireTransmission(I2C_ADDRESS).timeout(100ms));
 
 ### endTransmission()
 
+{{api name1="Wire.endTransmission"}}
+
 Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`.
 
 
@@ -7411,6 +8053,8 @@ Returns: `byte`, which indicates the status of the transmission:
 - 5: data byte transfer succeeded, busy timeout immediately after
 
 ### write()
+
+{{api name1="Wire.write"}}
 
 Queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`){{#if has-i2c-slave}}, or writes data from a slave device in response to a request from a master{{/if}}. Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
 
@@ -7455,6 +8099,8 @@ void loop() {
 
 ### available()
 
+{{api name1="Wire.available"}}
+
 Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()`{{#if has-i2c-slave}} or on a slave inside the `onReceive()` handler{{/if}}.
 
 ```cpp
@@ -7464,6 +8110,8 @@ Wire.available();
 Returns: The number of bytes available for reading.
 
 ### read()
+
+{{api name1="Wire.read"}}
 
 Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class.
 
@@ -7498,6 +8146,8 @@ void loop() {
 
 ### peek()
 
+{{api name1="Wire.peek"}}
+
 Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
 
 ```cpp
@@ -7508,6 +8158,8 @@ Wire.peek();
 Returns: The next byte received (without removing it from the buffer)
 
 ### lock()
+
+{{api name1="Wire.lock"}}
 
 The `Wire` object does not have built-in thread-safety. If you want to use read or write from multiple threads, including from a software timer, you must lock and unlock it to prevent data from multiple thread from being interleaved or corrupted.
 
@@ -7531,6 +8183,8 @@ void loop()
 Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlock can occur.
 
 ### unlock()
+
+{{api name1="Wire.unlock"}}
 
 Unlocks the `Wire` mutex. See `lock()`.
 
@@ -7573,6 +8227,8 @@ void loop() {
 
 ### onRequest()
 
+{{api name1="Wire.onRequest"}}
+
 Register a function to be called when a master requests data from this slave device.
 
 Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
@@ -7604,6 +8260,8 @@ void loop() {
 
 ### acquireWireBuffer
 
+{{api name1="Wire.acquireWireBuffer"}}
+
 Creating a function `acquireWireBuffer()` that returns an `HAL_I2C_Config` struct allows custom buffer sizes to be used. If you do not include this function, the default behavior of 32 byte rx and tx buffers will be used.
 
 This example sets a 512 byte buffer size instead of the default 32 byte size.
@@ -7629,6 +8287,9 @@ HAL_I2C_Config acquireWireBuffer() {
 {{#if has-can}}
 
 ## CAN (CANbus)
+
+{{api name1="CAN"}}
+
 
 ![CAN bus](/assets/images/can.png)
 
@@ -7673,6 +8334,8 @@ void loop() {
 
 ### CANMessage
 
+{{api name1="CANMessage"}}
+
 The CAN message struct has these members:
 
 ```
@@ -7687,6 +8350,8 @@ struct CANMessage
 ```
 
 ### CANChannel
+
+{{api name1="CANChannel"}}
 
 Create a `CANChannel` global object to connect to a CAN bus on the specified pins.
 
@@ -7710,6 +8375,8 @@ CANChannel can(CAN_D1_D2, 10, 5);
 
 ### begin()
 
+{{api name1="CAN::begin"}}
+
 Joins the bus at the given `baud` rate.
 
 ```cpp
@@ -7732,6 +8399,8 @@ can.begin(500000, CAN_TEST_MODE);
 
 ### end()
 
+{{api name1="CAN::end"}}
+
 Disconnect from the bus.
 
 ```
@@ -7741,6 +8410,8 @@ can.end();
 ```
 
 ### available()
+
+{{api name1="CAN::available"}}
 
 The number of received messages waiting in the receive queue.
 
@@ -7760,6 +8431,8 @@ if(can.available() > 0) {
 ```
 
 ### receive()
+
+{{api name1="CAN::receive"}}
 
 Take a received message from the receive queue. This function does not wait for a message to arrive.
 
@@ -7784,6 +8457,8 @@ if(can.receive(message)) {
 ```
 
 ### transmit()
+
+{{api name1="CAN::transmit"}}
 
 Add a message to the queue to be transmitted to the CAN bus as soon as possible.
 
@@ -7811,6 +8486,8 @@ can.transmit(message);
 **Note**: Since the CAN bus requires at least one other CAN node to acknowledge transmitted messages if the Photon or Electron is alone on the bus (such as when using a CAN shield with no other CAN node connected) then messages will never be transmitted and the transmit queue will fill up.
 
 ### addFilter()
+
+{{api name1="CAN::addFilter"}}
 
 Filter which messages will be added to the receive queue.
 
@@ -7845,6 +8522,8 @@ can.addFilter(0, 0, CAN_FILTER_EXTENDED);
 
 ### clearFilters()
 
+{{api name1="CAN::clearFilters"}}
+
 Clear filters and accept all messages.
 
 ```
@@ -7854,6 +8533,8 @@ can.clearFilters();
 ```
 
 ### isEnabled()
+
+{{api name1="CAN::isEnabled"}}
 
 Used to check if the CAN bus is enabled already.  Check if enabled before calling can.begin() again.
 
@@ -7866,6 +8547,8 @@ can.isEnabled();
 Returns: boolean `true` if the CAN bus is enabled, `false` if the CAN bus is disabled.
 
 ### errorStatus()
+
+{{api name1="CAN::errorStatus"}}
 
 Get the current error status of the CAN bus.
 
@@ -7893,6 +8576,8 @@ Errors heal automatically when properly communicating with other microcontroller
 {{/if}} {{!-- has-can --}}
 
 ## IPAddress
+
+{{api name1="IPAddress"}}
 
 Creates an IP address that can be used with TCPServer, TCPClient, and UDP objects.
 
@@ -7953,6 +8638,8 @@ Serial.println(myIP);    // prints the device's IP address
 {{#if has-ble}}
 ## Bluetooth LE (BLE)
 
+{{api name1="BLE"}}
+
 Gen 3 devices (Argon, Boron, and Xenon) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
 
 BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
@@ -7970,6 +8657,8 @@ BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in D
 ### BLE Class
 
 #### BLE.advertise()
+
+{{api name1="BLE.advertise"}}
 
 A BLE peripheral can periodically publish data to all nearby devices using advertising. Once you've set up the [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata) object, call `BLE.advertise()` to continuously advertise the data to all BLE devices scanning for it.
 
@@ -8025,6 +8714,8 @@ Returns 0 on success or a non-zero error code.
 
 #### BLE.stopAdvertising()
 
+{{api name1="BLE.stopAdvertising"}}
+
 Stops advertising. You can resume advertising using `BLE.advertise()`. Advertising automatically stops while connected to a central device and resumes when disconnected.
 
 ```
@@ -8037,6 +8728,8 @@ BLE.stopAdvertising();
 
 #### BLE.advertising()
 
+{{api name1="BLE.advertising"}}
+
 Returns `true` (1) if advertising is currently on or `false` (0) if not.
 
 ```cpp
@@ -8045,6 +8738,8 @@ bool advertising() const;
 ```
 
 #### BLE.getAdvertisingData()
+
+{{api name1="BLE.getAdvertisingData"}}
 
 You can get the advertising data that you previously set using `getAdvertisingData()`. Initially the data will be empty.
 
@@ -8058,6 +8753,8 @@ See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdat
 
 #### BLE.setAdvertisingData()
 
+{{api name1="BLE.setAdvertisingData"}}
+
 You can set the advertising data using `setAdvertisingData`. You might want to do this if you want to change the data while continuously advertising.
 
 ```cpp
@@ -8069,6 +8766,8 @@ See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdat
 
 
 #### BLE.setAdvertisingInterval()
+
+{{api name1="BLE.setAdvertisingInterval"}}
 
 Sets the advertising interval. The unit is 0.625 millisecond (625 microsecond) intervals. The default value is 160, or 100 milliseconds.
 
@@ -8098,6 +8797,8 @@ BLE.setAdvertisingInterval(800);
 
 #### BLE.setAdvertisingTimeout()
 
+{{api name1="BLE.setAdvertisingTimeout"}}
+
 Normally, advertising continues until `stopAdvertising()` is called or a connection is made from a central device. 
 
 You can also have advertising automatically stop after a period of time. The parameter is in units of 10 milliseconds, so if you want to advertise for 10 seconds you'd set the parameter to 1000.
@@ -8112,6 +8813,8 @@ int setAdvertisingTimeout(uint16_t timeout) const;
 ```
 
 #### BLE.setAdvertisingType()
+
+{{api name1="BLE.setAdvertisingType"}}
 
 The advertising type can be set with this method. This is not typically necessary.
 
@@ -8136,6 +8839,8 @@ See [`BleAdvertisingEventType`](/reference/device-os/firmware/#bleadvertisingeve
 
 #### BLE.getAdvertisingParameters()
 
+{{api name1="BLE.getAdvertisingParameters"}}
+
 Gets the advertising parameters.
 
 ```cpp
@@ -8153,6 +8858,8 @@ int res = BLE.getAdvertisingParameters(&param);
 See [`BleAdvertisingParameters`](/reference/device-os/firmware/#bleadvertisingparams) for more information.
 
 #### BLE.setAdvertisingParameters()
+
+{{api name1="BLE.setAdvertisingParameters"}}
 
 Sets the advertising parameters using individual values for interval, timeout, and type.
 
@@ -8179,6 +8886,8 @@ See [`BleAdvertisingParameters`](/reference/device-os/firmware/#bleadvertisingpa
 
 #### BLE.getScanResponseData()
 
+{{api name1="BLE.getScanResponseData"}}
+
 In addition to the advertising data, there is an additional 31 bytes of data referred to as the scan response data. This data can be requested during the scan process. It does not require connection or authentication. This is only used from scannable peripheral devices.
 
 ```cpp
@@ -8189,6 +8898,8 @@ ssize_t getScanResponseData(BleAdvertisingData* scanResponse) const;
 See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdata).
 
 #### BLE.setScanResponseData()
+
+{{api name1="BLE.setScanResponseData"}}
 
 In addition to the advertising data, there is an additional 31 bytes of data referred to as the scan response data. This data can be requested during the scan process. It does not require connection or authentication. This is only used from scannable peripheral devices.
 
@@ -8201,6 +8912,8 @@ See also [`BleAdvertisingData`](/reference/device-os/firmware/#bleadvertisingdat
 
 
 #### BLE.addCharacteristic(characteristic)
+
+{{api name1="BLE.addCharacteristic"}}
 
 Adds a characteristic to this peripheral device from a [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object. 
 
@@ -8253,6 +8966,8 @@ You can have up to 20 user services, however you typically cannot advertise that
 See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
 
 #### BLE.scan(array)
+
+{{api name1="BLE.scan"}}
 
 Scan for BLE devices. This is typically used by a central device to find nearby BLE devices that can be connected to. It can also be used by an observer to find nearby beacons that continuously transmit data.
 
@@ -8444,6 +9159,8 @@ The callback is called from the BLE thread. It has a smaller stack than the norm
 
 #### BLE.stopScanning()
 
+{{api name1="BLE.stopScanning"}}
+
 The `stopScanning()` method interrupts a `BLE.scan()` in progress before the end of the timeout. It's typically called from the scan callback function.
 
 You might want to do this if you're looking for a specific device - you can stop scanning after you find it instead of waiting until the end of the scan timeout.
@@ -8460,6 +9177,8 @@ void scanResultCallback(const BleScanResult *scanResult, void *context) {
 ```
 
 #### BLE.setScanTimeout()
+
+{{api name1="BLE.setScanTimeout"}}
 
 Sets the length of time `scan()` will run for. The default is 5 seconds.
 
@@ -8479,6 +9198,8 @@ Returns 0 on success or a non-zero error code.
 
 #### BLE.getScanParameters()
 
+{{api name1="BLE.getScanParameters"}}
+
 Gets the parameters used for scanning.
 
 ```cpp
@@ -8496,6 +9217,8 @@ See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more inf
 
 #### BLE.setScanParameters()
 
+{{api name1="BLE.setScanParameters"}}
+
 Sets the parameters used for scanning. Typically you will only ever need to change the scan timeout, but if you need finer control you can use this function.
 
 ```cpp
@@ -8506,6 +9229,8 @@ int setScanParameters(const BleScanParams* params) const;
 See [`BleScanParams`](/reference/device-os/firmware/#blescanparams) for more information.
 
 #### BLE.connect()
+
+{{api name1="BLE.connect"}}
 
 In a central device the logic typically involves:
 
@@ -8581,6 +9306,8 @@ Returns a [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object
 
 #### BLE.setPPCP()
 
+{{api name1="BLE.setPPCP"}}
+
 Sets the connection parameter defaults so future calls to connect() without options will use these values.
 
 ```cpp
@@ -8597,6 +9324,8 @@ Note that the timeout is the timeout after the connection is established, to det
 
 #### BLE.connected()
 
+{{api name1="BLE.connected"}}
+
 Returns `true` (1) if a connected to a device or `false` (0) if not. 
 
 ```cpp
@@ -8608,6 +9337,8 @@ Can be used in central or peripheral mode, however if central mode if you are su
 
 
 #### BLE.disconnect()
+
+{{api name1="BLE.disconnect"}}
 
 Disconnects all peers.
 
@@ -8634,6 +9365,8 @@ Returns 0 on success or a non-zero error code.
 
 #### BLE.on()
 
+{{api name1="BLE.on"}}
+
 Turns the BLE radio on. It defaults to on in `SYSTEM_MODE(AUTOMATIC)`. In `SYSTEM_MODE(SEMI_AUTOMATIC)` or `SYSTEM_MODE(MANUAL)` you must turn on BLE.
 
 ```cpp
@@ -8650,6 +9383,8 @@ Returns 0 on success, or a non-zero error code.
 
 #### BLE.off()
 
+{{api name1="BLE.off"}}
+
 Turns the BLE radio off. You normally do not need to do this.
 
 ```cpp
@@ -8660,6 +9395,8 @@ int off();
 Returns 0 on success, or a non-zero error code.
 
 #### BLE.begin()
+
+{{api name1="BLE.begin"}}
 
 Starts the BLE service. It defaults to started, so you normally do not need to call this unless you have stopped it.
 
@@ -8672,6 +9409,8 @@ Returns 0 on success, or a non-zero error code.
 
 #### BLE.end()
 
+{{api name1="BLE.end"}}
+
 Stops the BLE service. You normally do not need to do this.
 
 ```cpp
@@ -8683,6 +9422,8 @@ Returns 0 on success, or a non-zero error code.
 
 
 #### BLE.onConnected()
+
+{{api name1="BLE.onConnected"}}
 
 Registers a callback function that is called when a connection is established. This is only called for peripheral devices. On central devices, `BLE.connect()` is synchronous.
 
@@ -8707,6 +9448,8 @@ The callback parameters are:
 The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
 
 #### BLE.onDisconnected()
+
+{{api name1="BLE.onDisconnected"}}
 
 Registers a callback function that is called when a connection is disconnected on a peripheral device.
 
@@ -8748,6 +9491,8 @@ Returns 0 on success or a non-zero error code.
 
 #### BLE.txPower()
 
+{{api name1="BLE.txPower"}}
+
 Gets the current txPower. The default is 0. 
 
 Returns 0 on success or a non-zero error code.
@@ -8764,6 +9509,8 @@ Log.info("txPower=%d", txPower);
 
 #### BLE.address()
 
+{{api name1="BLE.address"}}
+
 Get the BLE address of this device.
 
 ```cpp
@@ -8774,6 +9521,8 @@ const BleAddress address() const;
 See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more information.
 
 #### BLE.selectAntenna()
+
+{{api name1="BLE.selectAntenna"}}
 
 {{since when="1.3.1"}}
 
@@ -8825,6 +9574,8 @@ For more information about characteristics, see [the BLE tutorial](/tutorials/de
 
 
 ### BleCharacteristic
+
+{{api name1="BleCharacteristic"}}
 
 In a BLE peripheral role, each service has one or more characteristics. Each characteristic may have one of more values. 
 
@@ -8942,6 +9693,8 @@ The callback is called from the BLE thread. It has a smaller stack than the norm
 
 #### UUID()
 
+{{api name1="BleCharacteristic::UUID"}}
+
 Get the UUID of this characteristic.
 
 ```cpp
@@ -8957,6 +9710,8 @@ See also [`BleUuid`](/reference/device-os/firmware/#bleuuid).
 
 #### properties()
 
+{{api name1="BleCharacteristic::properties"}}
+
 Get the BLE characteristic properties for this characteristic. This indicates whether it can be read, written, etc..
 
 
@@ -8971,6 +9726,8 @@ BleCharacteristicProperty prop = batteryLevelCharacteristic.properties();
 See also [`BleCharacteristicProperty`](/reference/device-os/firmware/#blecharacteristicproperty).
 
 #### getValue(buf, len)
+
+{{api name1="BleCharacteristic::getValue"}}
 
 This overload of `getValue()` is typically used when you have a complex characteristic with a packed data structure that you need to manually extract. 
 
@@ -9010,6 +9767,8 @@ characteristic.getValue(&value);
 
 #### setValue(buf, len)
 
+{{api name1="BleCharacteristic::setValue"}}
+
 To set the value of a characteristic to arbitrary data, you can use this function.
 
 ```cpp
@@ -9043,6 +9802,8 @@ characteristic.setValue(value);
 
 #### onDataReceived()
 
+{{api name1="BleCharacteristic::onDataReceived"}}
+
 To be notified when a value is received to add a data received callback.
 
 The context is used when you've implemented the data received handler in a C++ class. You can pass the object instance (`this`) in context. If you have a global function, you probably don't need the context and can pass NULL.
@@ -9058,6 +9819,8 @@ void myCallback(const uint8_t* data, size_t len, const BlePeerDevice& peer, void
 The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
 
 ### BleCharacteristicProperty
+
+{{api name1="BleCharacteristicProperty"}}
 
 This bitfield defines what access is available to the property. It's assigned by the peripheral, and provides information to the central device about how the characteristic can be read or written.
 
@@ -9078,6 +9841,8 @@ You only assign these values as a peripheral device, and will typically use one 
 For bidirectional data transfer you typically assign two different characteristics, one for receive and one for transmit, as shown in the UART examples.
 
 ### BleUuid
+
+{{api name1="BleUuid"}}
 
 Services and characteristics are typically identified by their UUID. There are two types:
 
@@ -9125,6 +9890,8 @@ BleUuid myCustomService({0x24, 0x0d, 0x51, 0x83, 0x81, 0x9a, 0x46, 0x27, 0x9c, 0
 
 #### type()
 
+{{api name1="BleUuid::type"}}
+
 ```cpp
 // PROTOTYPE
 BleUuidType type() const;
@@ -9141,6 +9908,8 @@ Returns a constant:
 
 #### isValid()
 
+{{api name1="BleUuid::isValid"}}
+
 ```cpp
 // PROTOTYPE
 bool isValid() const;
@@ -9152,6 +9921,8 @@ bool isValid = uuid.isValid();
 Return `true` if the UUID is valid or `false` if not.
 
 #### equality
+
+{{api name1="BleUuid::equality"}}
 
 You can test two UUIDs for equality.
 
@@ -9179,6 +9950,8 @@ if (svcCount > 0 && foundServiceUUID == serviceUuid) {
 }
 ```
 #### rawBytes
+
+{{api name1="BleUuid::rawBytes"}}
 
 Get the underlying bytes of the UUID.
 
@@ -9221,6 +9994,8 @@ BleUuid& operator=(const hal_ble_uuid_t& uuid);
 
 ### BleAdvertisingData
 
+{{api name1="BleAdvertisingData"}}
+
 The BleAdvertisingData is used in two ways:
 
 - In the peripheral role, to define what you want to send when central devices do a scan.
@@ -9241,6 +10016,8 @@ BleAdvertisingData();
 ```
 
 #### append()
+
+{{api name1="BleAdvertisingData::append"}}
 
 Appends advertising data of a specific type to the advertising data object.
 
@@ -9266,6 +10043,8 @@ You normally don't need to include `BleAdvertisingDataType::FLAGS`, however. If 
 
 #### appendCustomData
 
+{{api name1="BleAdvertisingData::appendCustomData"}}
+
 Appends custom advertising data to the advertising data object.
 
 ```cpp
@@ -9289,6 +10068,8 @@ The maximum custom data size is 26 bytes, including the company ID. Adding data 
 
 #### appendLocalName()
 
+{{api name1="BleAdvertisingData::appendLocalName"}}
+
 An optional field in the advertising data is the local name. This can be useful if the user needs to select from multiple devices.
 
 The name takes up the length of the name plus two bytes (type and length). The total advertising data is limited to 31 bytes (`BLE_MAX_ADV_DATA_LEN`), and if you include service identifiers there isn't much left space for the name.
@@ -9300,6 +10081,8 @@ size_t appendLocalName(const String& name);
 ```
 
 #### appendServiceUUID()
+
+{{api name1="BleAdvertisingData::appendServiceUUID"}}
 
 Appends a service UUID to the advertisement (short or long). You typically only advertise the primary service. 
 
@@ -9322,6 +10105,8 @@ Since long UUIDs are long (16 bytes plus 2 bytes of overhead) they will use a lo
 
 #### clear()
 
+{{api name1="BleAdvertisingData::clear"}}
+
 Remove all existing data from the BleAdvertisingData object.
 
 ```cpp
@@ -9330,6 +10115,8 @@ void clear();
 ```
 
 #### remove()
+
+{{api name1="BleAdvertisingData::remove"}}
 
 Remove a specific data type from the BleAdvertisingData object.
 
@@ -9343,6 +10130,8 @@ void remove(BleAdvertisingDataType type);
 
 #### set()
 
+{{api name1="BleAdvertisingData::set"}}
+
 In a peripheral role, you sometimes will want to build your advertising data complete by hand. You can then copy your pre-build structure into the BleAdvertisingData object using `set()`.
 
 ```cpp
@@ -9351,6 +10140,8 @@ size_t set(const uint8_t* buf, size_t len);
 ```
 
 #### get(type, buffer)
+
+{{api name1="BleAdvertisingData::get"}}
 
 In the central role, if you want to get a specific block of advertising data by type, you can use this method.
 
@@ -9385,6 +10176,8 @@ Returns the number of bytes copied, which will be <= `len`.
 
 #### length()
 
+{{api name1="BleAdvertisingData::length"}}
+
 Return the length of the data in bytes.
 
 ```cpp
@@ -9393,6 +10186,8 @@ size_t length() const;
 ```
 
 #### deviceName()
+
+{{api name1="BleAdvertisingData::deviceName"}}
 
 Gets the deviceName (`SHORT_LOCAL_NAME` or `COMPLETE_LOCAL_NAME`). Returns a String object or an empty string if the advertising data does not contain a name.
 
@@ -9419,6 +10214,8 @@ Note that the buf will not be null-terminated (not a c-string).
 
 #### serviceUUID()
 
+{{api name1="BleAdvertisingData::serviceUUID"}}
+
 Returns an array of service UUIDs in the advertising data.
 
 ```cpp
@@ -9443,6 +10240,8 @@ Since the advertisement data is limited to 31 bytes, the maximum number of servi
 
 #### customData()
 
+{{api name1="BleAdvertisingData::customData"}}
+
 Returns the `MANUFACTURER_SPECIFIC_DATA` data in an advertisement.
 
 ```cpp
@@ -9456,6 +10255,8 @@ Returns the size of the data in bytes. Returns 0 if there is no `MANUFACTURER_SP
 
 #### contains()
 
+{{api name1="BleAdvertisingData::contains"}}
+
 Return true if the advertising data contains the specified type.
 
 ```cpp
@@ -9467,6 +10268,8 @@ bool contains(BleAdvertisingDataType type) const;
 
 
 ### BleAdvertisingDataType
+
+{{api name1="BleAdvertisingDataType"}}
 
 The following are the valid values for `BleAdvertisingDataType`. In many cases you won't need to use the directly as you can use methods like `serviceUUID` in the `BleAdvertisingData` to set both the type and data automatically.
 
@@ -9519,6 +10322,8 @@ Similarly, you typically use [`appendCustomData()`](/reference/device-os/firmwar
 
 ### BleAdvertisingDataType::FLAGS
 
+{{api name1="BleAdvertisingDataType::FLAGS"}}
+
 The valid values for advertising data type flags are:
 
 - `BLE_SIG_ADV_FLAG_LE_LIMITED_DISC_MODE` (0x01)
@@ -9551,6 +10356,8 @@ BLE.advertise(&advData);
 
 ### BlePeerDevice
 
+{{api name1="BlePeerDevice"}}
+
 When using a Particle device in BLE central mode, connecting a peripheral returns a `BlePeerDevice` object. This object can be used to see if the connection is still open and get [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) objects for the peripheral device.
 
 Typically you'd get the `BlePeerDevice` from calling [`BLE.connect()`](/reference/device-os/firmware/#ble-connect-).
@@ -9578,6 +10385,8 @@ Once you have the `BlePeerDevice` object you can use the following methods:
 
 #### connected()
 
+{{api name1="BlePeerDevice::connected"}}
+
 Returns true if the peer device is currently connected.
 
 ```cpp
@@ -9595,6 +10404,8 @@ else {
 
 #### address()
 
+{{api name1="BlePeerDevice::address"}}
+
 Get the BLE address of the peripheral device.
 
 ```cpp
@@ -9608,6 +10419,8 @@ Log.trace("Received data from: %02X:%02X:%02X:%02X:%02X:%02X", peer.address()[0]
 See [`BleAddress`](/reference/device-os/firmware/#bleaddress) for more information.
 
 #### getCharacteristicByUUID()
+
+{{api name1="BlePeerDevice::getCharacteristicByUUID"}}
 
 Get a characteristic by its UUID, either short or long UUID. See also [`BleUuid`](/reference/device-os/firmware/#bleuuid). Returns true if the characteristic was found.
 
@@ -9628,6 +10441,8 @@ bool bResult = peer.getCharacteristicByUUID(characteristic, BleUuid("6E400002-B5
 
 #### getCharacteristicByDescription()
 
+{{api name1="BlePeerDevice::getCharacteristicByDescription"}}
+
 Get the characteristic by its description. As these strings are not standardized like UUIDs, it's best to use UUIDs instead. Returns true if the characteristic was found.
 
 ```cpp
@@ -9641,6 +10456,8 @@ bool bResult = peer.getCharacteristicByDescription(characteristic, "rx");
 ```
 
 #### BleScanResult
+
+{{api name1="BleScanResult"}}
 
 When scanning, you get back one of:
 
@@ -9668,9 +10485,13 @@ public:
 
 ### BleAddress
 
+{{api name1="BleAddress"}}
+
 Each Bluetooth device has an address, which is encapsulated in the BleAddress object. The address is 6 octets, and the BleAddress object has two additional bytes of overhead. The BleAddress object can be trivially copied.
 
 #### copy (BleAddress)
+
+{{api name1="BleAddress::copy"}}
 
 You can copy and existing BleAddress.
 
@@ -9681,6 +10502,8 @@ BleAddress& operator=(const uint8_t addr[BLE_SIG_ADDR_LEN])
 ```
 
 #### address byte (BleAddress)
+
+{{api name1="BleAddress::address"}}
 
 The BleAddress is 6 octets long (constant: `BLE_SIG_ADDR_LEN`). You can access individual bytes using array syntax:
 
@@ -9702,6 +10525,8 @@ Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
 ```
 
 #### equality (BleAddress)
+
+{{api name1="BleAddress::equality"}}
 
 You can test two BleAddress objects for equality (same address).
 
@@ -9758,6 +10583,8 @@ int set(const String& address, BleAddressType type = BleAddressType::PUBLIC);
 
 ### BleAddressType
 
+{{api name1="BleAddressType"}}
+
 This enumeration specifies the type of BLE address. The default is PUBLIC. The type is part of the BleAddress class.
 
 - `BleAddressType::PUBLIC` Public (identity address).
@@ -9766,6 +10593,8 @@ This enumeration specifies the type of BLE address. The default is PUBLIC. The t
 - `BleAddressType::RANDOM_PRIVATE_NON_RESOLVABLE` Random private non-resolvable address.
 
 ### BleAdvertisingEventType
+
+{{api name1="BleAdvertisingEventType"}}
 
 You will not typically need to change this. The default is `CONNECTABLE_SCANNABLE_UNDIRECTED` (0).
 
@@ -9780,6 +10609,8 @@ Valid values include:
 - `SCANABLE_DIRECTED `
 
 ### BleAdvertisingParams
+
+{{api name1="BleAdvertisingParams"}}
 
 To set the parameters for advertising, you can use the BleAdvertisingParams structure:
 
@@ -9811,6 +10642,8 @@ int res = BLE.getAdvertisingParameters(&param);
 
 ### BleScanParams
 
+{{api name1="BleScanParams"}}
+
 The BleScanParams structure specifies the settings for scanning on a central device.
 
 ```cpp
@@ -9838,6 +10671,8 @@ int res = BLE.getScanParameters(&scanParams);
 - `filter_policy` Default is 0.
 
 ### iBeacon
+
+{{api name1="iBeacon"}}
 
 [Apple iOS iBeacon](https://developer.apple.com/ibeacon/) can be used to customize mobile app content based on nearby beacons.
 
@@ -9880,6 +10715,8 @@ The parameters to the iBeacon constructor in the example are:
 
 {{#if has-nfc-tag}}
 ## NFC
+
+{{api name1="NFC"}}
 
 NFC (Near-Field Communication) is typically used to communicate small amounts of data to a mobile app in very close range, within a few inches.
 
@@ -9946,6 +10783,8 @@ static void nfcCallback(nfc_event_type_t type, nfc_event_t* event, void* context
 
 ### NFC.on()
 
+{{api name1="NFC.on"}}
+
 Turn NFC on, optionally with a callback function.
 
 ```
@@ -9978,6 +10817,8 @@ NFC events may occur at interrupt service time. You should not, for example:
 
 ### NFC.off()
 
+{{api name1="NFC.off"}}
+
 Turns NFC off.
 
 ```
@@ -9987,6 +10828,8 @@ int off();
 
 ### NFC.update()
 
+{{api name1="NFC.update"}}
+
 Updates the NFC device, usually after changing the data using `NFC.setCustomData()`, `NFC.setText()`, etc..
 
 ```
@@ -9995,6 +10838,8 @@ int update();
 ```
 
 ### NFC.setText()
+
+{{api name1="NFC.setText"}}
 
 Sets text to be passed to the NFC reader.
 
@@ -10011,6 +10856,8 @@ Note that all of the set options are mutually exclusive. Calling `NFC.setText()`
 The maximum size is 988 bytes for a single text record. Adding multiple records will add some additional overhead for each NDEF message, 2 - 4 bytes, plus the length of the data.
 
 ### NFC.setUri()
+
+{{api name1="NFC.setUri"}}
 
 Sets a URI as the NFC data. 
 
@@ -10072,6 +10919,8 @@ The maximum size is 988 bytes for a single record. Adding multiple records will 
 
 ### NFC.setLaunchApp()
 
+{{api name1="NFC.setLaunchApp"}}
+
 On Android devices, it's possible to set an app (by its android package name) to launch when the tag is read.
 
 ```
@@ -10084,6 +10933,8 @@ Note that all of the set options are mutually exclusive. Calling `NFC.setLaunchA
 This does not do anything on iOS. An NFC-aware iOS app can read the package name, but in general won't be able to do much with it.
 
 ### NFC.setCustomData()
+
+{{api name1="NFC.setCustomData"}}
 
 It's possible to send any NFC-compliant data instead of one of the pre-defined types above. 
 
@@ -10098,9 +10949,13 @@ The maximum size is 988 bytes for a single record. Adding multiple records will 
 
 ### Record (NFC)
 
+{{api name1="Record"}}
+
 The NFC `Record` class specifies the custom data to be sent via NFC. This section describes the methods you may need to use `BLE.setCustomData()`.
 
 #### setTnf();
+
+{{api name1="Record::setTnf"}}
 
 ```
 // PROTOTYPE
@@ -10120,6 +10975,8 @@ The valid values for Record::Tnf are:
 
 #### setType()
 
+{{api name1="Record::setType"}}
+
 Set the type field in the NFC record.
 
 ```
@@ -10129,6 +10986,8 @@ size_t setType(const void* type, uint8_t numBytes);
 
 #### setId()
 
+{{api name1="Record::setId"}}
+
 The ID field is optional in NFC. If you are using the ID, call this method to set the value. It will automatically set the IL field in the header.
 
 ```
@@ -10137,6 +10996,8 @@ size_t setId(const void* id, uint8_t numBytes);
 ```
 
 #### setPayload()
+
+{{api name1="Record::setPayload"}}
 
 Appends to the NFC record payload.
 
@@ -10158,6 +11019,8 @@ Cellular devices (Boron, B Series SoM, Tracker SoM, Electron, E Series) do not s
 
 {{#if has-tcpserver}}
 ## TCPServer
+
+{{api name1="TCPServer"}}
 
 ```cpp
 // SYNTAX
@@ -10210,6 +11073,8 @@ void loop()
 
 ### begin()
 
+{{api name1="TCPServer::begin"}}
+
 Tells the server to begin listening for incoming connections.
 
 ```cpp
@@ -10219,11 +11084,15 @@ server.begin();
 
 ### available()
 
+{{api name1="TCPServer::available"}}
+
 Gets a client that is connected to the server and has data available for reading. The connection persists when the returned client object goes out of scope; you can close it by calling `client.stop()`.
 
 `available()` inherits from the `Stream` utility class.
 
 ### write()
+
+{{api name1="TCPServer::write"}}
 
 Write data to the last client that connected to a server. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
 
@@ -10251,6 +11120,9 @@ Returns: `size_t`: the number of bytes written
 
 ### print()
 
+{{api name1="TCPServer::print"}}
+
+
 Print data to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```cpp
@@ -10268,6 +11140,8 @@ Returns: `size_t`: the number of bytes written
 
 ### println()
 
+{{api name1="TCPServer::println"}}
+
 Print data, followed by a newline, to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```cpp
@@ -10283,6 +11157,8 @@ Parameters:
 - `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
 ### getWriteError()
+
+{{api name1="TCPServer::getWriteError"}}
 
 Get the error code of the most recent `write()` operation.
 
@@ -10308,6 +11184,8 @@ if (err != 0) {
 
 ### clearWriteError()
 
+{{api name1="TCPServer::clearWriteError"}}
+
 Clears the error code of the most recent `write()` operation setting it to `0`. This function is automatically called by `write()`.
 
 `clearWriteError()` does not return anything.
@@ -10318,6 +11196,8 @@ Clears the error code of the most recent `write()` operation setting it to `0`. 
 
 ## TCPClient
 (inherits from [`Stream`](#stream-class) via `Client`)
+
+{{api name1="TCPClient"}}
 
 Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
 
@@ -10382,6 +11262,8 @@ Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yea
 
 ### connected()
 
+{{api name1="TCPClient::connected"}}
+
 Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data.
 
 ```cpp
@@ -10393,6 +11275,8 @@ Returns true if the client is connected, false if not.
 
 ### status()
 
+{{api name1="TCPClient::status"}}
+
 Returns true if the network socket is open and the underlying network is ready. 
 
 ```cpp
@@ -10403,6 +11287,8 @@ client.status();
 This is different than connected() which returns true if the socket is closed but there is still unread buffered data, available() is non-zero.
 
 ### connect()
+
+{{api name1="TCPClient::connect"}}
 
 Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name.
 
@@ -10422,6 +11308,8 @@ Parameters:
 Returns true if the connection succeeds, false if not.
 
 ### write()
+
+{{api name1="TCPClient::write"}}
 
 Write data to the server the client is connected to. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
 
@@ -10449,6 +11337,8 @@ Returns: `size_t`: `write()` returns the number of bytes written.
 
 ### print()
 
+{{api name1="TCPClient::print"}}
+
 Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```cpp
@@ -10466,6 +11356,8 @@ Returns:  `byte`:  `print()` will return the number of bytes written, though rea
 
 ### println()
 
+{{api name1="TCPClient::println"}}
+
 Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```cpp
@@ -10482,6 +11374,8 @@ Parameters:
 
 ### available()
 
+{{api name1="TCPClient::available"}}
+
 Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to).
 
 ```cpp
@@ -10492,6 +11386,9 @@ client.available();
 Returns the number of bytes available.
 
 ### read()
+
+{{api name1="TCPClient::read"}}
+
 Read the next byte received from the server the client is connected to (after the last call to `read()`).
 
 ```cpp
@@ -10512,6 +11409,8 @@ Returns the number of bytes (or characters) read into `buffer`.
 
 ### flush()
 
+{{api name1="TCPClient::flush"}}
+
 Waits until all outgoing data in buffer has been sent.
 
 **NOTE:** That this function does nothing at present.
@@ -10522,6 +11421,9 @@ client.flush();
 ```
 
 ### remoteIP()
+
+{{api name1="TCPClient::remoteIP"}}
+
 
 {{since when="0.4.5"}}
 
@@ -10576,6 +11478,8 @@ if (client.connected())
 
 ### stop()
 
+{{api name1="TCPClient::stop"}}
+
 Disconnect from the server.
 
 ```cpp
@@ -10584,6 +11488,8 @@ client.stop();
 ```
 
 ### getWriteError()
+
+{{api name1="TCPClient::getWriteError"}}
 
 Get the error code of the most recent `write()` operation.
 
@@ -10611,6 +11517,8 @@ if (err != 0) {
 
 ### clearWriteError()
 
+{{api name1="TCPClient::clearWriteError"}}
+
 Clears the error code of the most recent `write()` operation setting it to `0`. This function is automatically called by `write()`.
 
 `clearWriteError()` does not return anything.
@@ -10618,6 +11526,8 @@ Clears the error code of the most recent `write()` operation setting it to `0`. 
 
 ## UDP
 (inherits from [`Stream`](#stream-class) and `Printable`)
+
+{{api name1="UDP"}}
 
 This class enables UDP messages to be sent and received.
 
@@ -10690,6 +11600,8 @@ Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yea
 
 ### begin()
 
+{{api name1="UDP::begin"}}
+
 Initializes the UDP library and network settings.
 
 ```cpp
@@ -10740,6 +11652,8 @@ void loop() {
 
 ### available()
 
+{{api name1="UDP::available"}}
+
 Get the number of bytes (characters) available for reading from the buffer. This is data that's already arrived.
 
 ```cpp
@@ -10754,6 +11668,8 @@ This function can only be successfully called after `UDP.parsePacket()`.
 Returns the number of bytes available to read.
 
 ### beginPacket()
+
+{{api name1="UDP::beginPacket"}}
 
 Starts a connection to write UDP data to the remote connection.
 
@@ -10771,6 +11687,8 @@ It returns nothing.
 
 ### endPacket()
 
+{{api name1="UDP::endPacket"}}
+
 Called after writing buffered UDP data using `write()` or `print()`. The buffered data is then sent to the
 remote UDP peer.
 
@@ -10783,6 +11701,8 @@ Udp.endPacket();
 Parameters: NONE
 
 ### write()
+
+{{api name1="UDP::write"}}
 
 Writes UDP data to the buffer - no data is actually sent. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
 
@@ -10804,6 +11724,8 @@ Returns:
 
 
 ### receivePacket()
+
+{{api name1="UDP::receivePacket"}}
 
 ```cpp
 // PROTOTYPES
@@ -10847,6 +11769,8 @@ Returns:
 
 ### parsePacket()
 
+{{api name1="UDP::parsePacket"}}
+
 Checks for the presence of a UDP packet, and reports the size. `parsePacket()` must be called before reading the buffer with `UDP.read()`.
 
 It's usually more efficient to use `receivePacket()` instead of `parsePacket()` and `read()`.
@@ -10869,6 +11793,8 @@ Returns:
 
 ### read()
 
+{{api name1="UDP::read"}}
+
 Reads UDP data from the specified buffer. If no arguments are given, it will return the next character in the buffer.
 
 This function can only be successfully called after `UDP.parsePacket()`.
@@ -10889,6 +11815,8 @@ Returns:
 
 ### flush()
 
+{{api name1="UDP::flush"}}
+
 Waits until all outgoing data in buffer has been sent.
 
 **NOTE:** That this function does nothing at present.
@@ -10900,6 +11828,8 @@ Udp.flush();
 
 ### stop()
 
+{{api name1="UDP::stop"}}
+
 Disconnect from the server. Release any resource being used during the UDP session.
 
 ```cpp
@@ -10910,6 +11840,8 @@ Udp.stop();
 Parameters: NONE
 
 ### remoteIP()
+
+{{api name1="UDP::remoteIP"}}
 
 Returns the IP address of sender of the packet parsed by `Udp.parsePacket()`/`Udp.receivePacket()`.
 
@@ -10926,6 +11858,8 @@ Returns:
 
 ### remotePort()
 
+{{api name1="UDP::remotePort"}}
+
 Returns the port from which the UDP packet was sent. The packet is the one most recently processed by `Udp.parsePacket()`/`Udp.receivePacket()`.
 
 ```cpp
@@ -10941,6 +11875,9 @@ Returns:
 
 
 ### setBuffer()
+
+{{api name1="UDP::setBuffer"}}
+
 
 {{since when="0.4.5"}}
 
@@ -10987,6 +11924,9 @@ the function always returns `true`.)
 
 ### releaseBuffer()
 
+{{api name1="UDP::releaseBuffer"}}
+
+
 {{since when="0.4.5"}}
 
 Releases the buffer previously set by a call to `setBuffer()`.
@@ -11000,6 +11940,8 @@ _This is typically required only when performing advanced memory management and 
 not scoped to the lifetime of the application._
 
 ### sendPacket()
+
+{{api name1="UDP::sendPacket"}}
 
 {{since when="0.4.5"}}
 
@@ -11039,6 +11981,8 @@ Returns:
 {{#if has-udp-multicast}}
 ### joinMulticast()
 
+{{api name1="UDP::joinMulticast"}}
+
 {{since when="0.4.5"}}
 
 Join a multicast address for all UDP sockets which are on the same network interface as this one.
@@ -11063,6 +12007,8 @@ Must be called only after `begin()` so that the network interface is established
 
 ### leaveMulticast()
 
+{{api name1="UDP::leaveMulticast"}}
+
 {{since when="0.4.5"}}
 
 Leaves a multicast group previously joined on a specific multicast address.
@@ -11081,7 +12027,9 @@ Udp.leaveMulticast(multicastAddress);
 
 ## Servo
 
-This library allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
+{{api name1="Servo"}}
+
+This object allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
 
 This example uses pin D0, but D0 cannot be used for Servo on all devices.
 
@@ -11124,6 +12072,8 @@ void loop()
 
 ### attach()
 
+{{api name1="Servo::attach"}}
+
 Set up a servo on a particular pin. Note that, Servo can only be attached to pins with a timer.
 
 - on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
@@ -11140,6 +12090,8 @@ servo.attach(pin)
 
 ### write()
 
+{{api name1="Servo::write"}}
+
 Writes a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with 0 being full-speed in one direction, 180 being full speed in the other, and a value near 90 being no movement).
 
 ```cpp
@@ -11148,6 +12100,8 @@ servo.write(angle)
 ```
 
 ### writeMicroseconds()
+
+{{api name1="Servo::writeMicroseconds"}}
 
 Writes a value in microseconds (uS) to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft. On standard servos a parameter value of 1000 is fully counter-clockwise, 2000 is fully clockwise, and 1500 is in the middle.
 
@@ -11163,6 +12117,8 @@ Continuous-rotation servos will respond to the writeMicrosecond function in an a
 
 ### read()
 
+{{api name1="Servo::read"}}
+
 Read the current angle of the servo (the value passed to the last call to write()). Returns an integer from 0 to 180 degrees.
 
 ```cpp
@@ -11172,6 +12128,8 @@ servo.read()
 
 ### attached()
 
+{{api name1="Servo::attached"}}
+
 Check whether the Servo variable is attached to a pin. Returns a boolean.
 
 ```cpp
@@ -11180,6 +12138,8 @@ servo.attached()
 ```
 
 ### detach()
+
+{{api name1="Servo::detach"}}
 
 Detach the Servo variable from its pin.
 
@@ -11193,6 +12153,8 @@ servo.detach()
 In Device OS 2.0.0 and later, the destructor for Servo will detach from the pin allowing it to be used as a regular GPIO again.
 
 ### setTrim()
+
+{{api name1="Servo::setTime"}}
 
 Sets a trim value that allows minute timing adjustments to correctly
 calibrate 90 as the stationary point.
@@ -11214,7 +12176,9 @@ servo.setTrim(0);
 
 ## RGB
 
-This library allows the user to control the RGB LED on the front of the device.
+{{api name1="RGB"}}
+
+This object allows the user to control the RGB LED on the front of the device.
 
 ```cpp
 // EXAMPLE CODE
@@ -11241,6 +12205,8 @@ RGB.control(false);
 ```
 
 ### control(user_control)
+
+{{api name1="RGB.control"}}
 
 User can take control of the RGB LED, or give control back to the system.
 
@@ -11271,6 +12237,8 @@ RGB.control(false);
 
 ### color(red, green, blue)
 
+{{api name1="RGB.color"}}
+
 Set the color of the RGB with three values, 0 to 255 (0 is off, 255 is maximum brightness for that color).  User must take control of the RGB LED before calling this method.
 
 ```cpp
@@ -11285,6 +12253,8 @@ RGB.color(255, 255, 255);
 ```
 
 ### brightness(val)
+
+{{api name1="RGB.brightness"}}
 
 Scale the brightness value of all three RGB colors with one value, 0 to 255 (0 is 0%, 255 is 100%).  This setting persists after `RGB.control()` is set to `false`, and will govern the overall brightness of the RGB LED under normal system operation. User must take control of the RGB LED before calling this method.
 
@@ -11310,6 +12280,8 @@ uint8_t value = RGB.brightness();
 ```
 
 ### onChange(handler)
+
+{{api name1="RGB.onChange"}}
 
 Specifies a function to call when the color of the RGB LED changes. It can be used to implement an external RGB LED.
 
@@ -11368,6 +12340,8 @@ The onChange handler is called 1000 times per second so you should be careful to
 
 ### mirrorTo()
 
+{{api name1="RGB.mirrorTo"}}
+
 {{since when="0.6.1"}}
 
 Allows a set of PWM pins to mirror the functionality of the on-board RGB LED.
@@ -11394,6 +12368,8 @@ Parameters:
 
 ### mirrorDisable()
 
+{{api name1="RGB.mirrorDisable"}}
+
 {{since when="0.6.1"}}
 
 Disables RGB LED mirroring.
@@ -11407,14 +12383,16 @@ Parameters:
 
 {{since when="0.6.1"}}
 
-This library allows applications to share control over the on-device RGB
+This object allows applications to share control over the on-device RGB
 LED with the Device OS in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
 
 The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/tutorials/device-os/led/) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
 
-**Note:** Consider using this library instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
+**Note:** Consider using this object instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
 
 ### LEDStatus Class
+
+{{api name1="LEDStatus"}}
 
 This class allows to define a _LED status_ that represents an application-specific LED indication. Every LED status is described by a signaling [pattern](#ledpattern-enum), [speed](#ledspeed-enum) and [color](#rgb-colors) parameters. Typically, applications use separate status instance for each application state that requires LED indication.
 
@@ -11467,6 +12445,9 @@ Parameters:
 
 #### setColor()
 
+{{api name1="LEDStatus::setColor"}}
+
+
 Sets status color.
 
 ```cpp
@@ -11486,9 +12467,13 @@ Parameters:
 
 #### color()
 
+{{api name1="LEDStatus::color"}}
+
 Returns status color (`uint32_t`).
 
 #### setPattern()
+
+{{api name1="LEDStatus::setPattern"}}
 
 Sets pattern type.
 
@@ -11509,9 +12494,13 @@ Parameters:
 
 #### pattern()
 
+{{api name1="LEDStatus::pattern"}}
+
 Returns pattern type ([`LEDPattern`](#ledpattern-enum)).
 
 #### setSpeed()
+
+{{api name1="LEDStatus::setSpeed"}}
 
 Sets pattern speed. This method resets pattern period to a system-default value that depends on specified pattern speed and current pattern type set for this status instance.
 
@@ -11529,6 +12518,8 @@ Parameters:
   * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum))
 
 #### setPeriod()
+
+{{api name1="LEDStatus::setPeriod"}}
 
 Sets pattern period. Pattern period specifies duration of a signaling pattern in milliseconds. For example, given the pattern type `LED_PATTERN_BLINK` (blinking color) with period set to 1000 milliseconds, the system will toggle the LED on and off every 500 milliseconds.
 
@@ -11549,9 +12540,13 @@ Parameters:
 
 #### period()
 
+{{api name1="LEDStatus::period"}}
+
 Returns pattern period in milliseconds (`uint16_t`).
 
 #### setPriority()
+
+{{api name1="LEDStatus::setPriority"}}
 
 Sets status priority. Note that a newly assigned priority will take effect only after [`setActive()`](#setactive-) method is called for the next time.
 
@@ -11572,9 +12567,13 @@ Parameters:
 
 #### priority()
 
+{{api name1="LEDStatus::priority"}}
+
 Returns status priority ([`LEDPriority`](#ledpriority-enum)).
 
 #### on()
+
+{{api name1="LEDStatus::on"}}
 
 Turns the LED on.
 
@@ -11602,21 +12601,31 @@ on = status.isOn(); // Returns true
 
 #### off()
 
+{{api name1="LEDStatus::off"}}
+
 Turns the LED off.
 
 #### toggle()
+
+{{api name1="LEDStatus::toggle"}}
 
 Toggles the LED on or off.
 
 #### isOn()
 
+{{api name1="LEDStatus::inOn"}}
+
 Returns `true` if the LED is turned on, or `false` otherwise.
 
 #### isOff()
 
+{{api name1="LEDStatus::isOff"}}
+
 Returns `true` if the LED turned off, or `false` otherwise.
 
 #### setActive()
+
+{{api name1="LEDStatus::setActive"}}
 
 Activates or deactivates this status instance. The overloaded method that takes `priority` argument assigns a new priority to this status instance before activating it.
 
@@ -11645,6 +12654,8 @@ Parameters:
   * `priority` : status priority ([`LEDPriority`](#ledpriority-enum))
 
 #### isActive()
+
+{{api name1="LEDStatus::isActive"}}
 
 Returns `true` if this status is active, or `false` otherwise.
 
@@ -11714,6 +12725,8 @@ Any class implementing a custom pattern needs to pass `LED_PATTERN_CUSTOM` patte
 
 ### LEDSystemTheme Class
 
+{{api name1="LEDSystemTheme"}}
+
 This class allows to set a custom theme for the system LED signaling. Refer to the [LEDSignal Enum](#ledsignal-enum) section for the list of LED signals defined by the system.
 
 ```cpp
@@ -11741,6 +12754,8 @@ LEDSystemTheme theme;
 
 #### setColor()
 
+{{api name1="LEDSystemTheme::setColor"}}
+
 Sets signal color.
 
 ```cpp
@@ -11761,9 +12776,13 @@ Parameters:
 
 #### color()
 
+{{api name1="LEDSystemTheme::color"}}
+
 Returns signal color (`uint32_t`).
 
 #### setPattern()
+
+{{api name1="LEDSystemTheme::setPattern"}}
 
 Sets signal pattern.
 
@@ -11827,9 +12846,13 @@ Parameters:
 
 #### period()
 
+{{api name1="LEDSystemTheme::period"}}
+
 Returns signal period in milliseconds (`uint16_t`).
 
 #### setSignal()
+
+{{api name1="LEDSystemTheme::setSignal"}}
 
 Sets several signal parameters at once.
 
@@ -11854,6 +12877,8 @@ Parameters:
 
 #### apply()
 
+{{api name1="LEDSystemTheme::apply"}}
+
 Applies theme settings.
 
 ```cpp
@@ -11873,6 +12898,8 @@ Parameters:
 
 #### restoreDefault()
 
+{{api name1="LEDSystemTheme::restoreDefault"}}
+
 Restores factory default theme.
 
 ```cpp
@@ -11884,6 +12911,8 @@ LEDSystemTheme::restoreDefault();
 ```
 
 ### LEDSignal Enum
+
+{{api name1="LEDSignal"}}
 
 This enum defines LED signals supported by the system:
 
@@ -11906,6 +12935,8 @@ LED_SIGNAL_POWER_OFF | Soft power down is pending | Critical | Solid gray
 
 ### LEDPriority Enum
 
+{{api name1="LEDPriority"}}
+
 This enum defines LED priorities supported by the system (from lowest to highest priority):
 
   * `LED_PRIORITY_BACKGROUND` : long-lasting background indications
@@ -11917,6 +12948,8 @@ Internally, the system uses the same set of priorities for its own LED signaling
 
 ### LEDPattern Enum
 
+{{api name1="LEDPattern"}}
+
 This enum defines LED patterns supported by the system:
 
   * `LED_PATTERN_SOLID` : solid color
@@ -11925,6 +12958,8 @@ This enum defines LED patterns supported by the system:
   * `LED_PATTERN_CUSTOM` : [custom pattern](#custom-patterns)
 
 ### LEDSpeed Enum
+
+{{api name1="LEDSpeed"}}
 
 This enum defines system-default LED speed values:
 
@@ -11952,6 +12987,8 @@ For convenience, the library defines constants for the following basic colors:
 
 ## Time
 
+{{api name1="Time"}}
+
 The device synchronizes time with the Particle Device Cloud during the handshake.
 From then, the time is continually updated on the device.
 This reduces the need for external libraries to manage dates and times.
@@ -11960,6 +12997,8 @@ Before the device gets online and for short intervals, you can use the
 `millis()` and `micros()` functions.
 
 ### millis()
+
+{{api name1="millis"}}
 
 Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
 
@@ -11989,6 +13028,8 @@ Instead of using `millis()`, you can instead use [`System.millis()`](#system-mil
 
 ### micros()
 
+{{api name1="micros"}}
+
 Returns the number of microseconds since the device booted.
 
 `unsigned long time = micros();`
@@ -12014,6 +13055,8 @@ void loop()
 It overflows at the maximum 32-bit unsigned long value.
 
 ### delay()
+
+{{api name1="delay"}}
 
 Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
 
@@ -12053,6 +13096,8 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### delayMicroseconds()
 
+{{api name1="delayMicroseconds"}}
+
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
 
 ```cpp
@@ -12086,6 +13131,8 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### hour()
 
+{{api name1="Time.hour"}}
+
 Retrieve the hour for the current or given time.
 Integer is returned without a leading zero.
 
@@ -12104,6 +13151,8 @@ Returns: Integer 0-23
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
 ### hourFormat12()
+
+{{api name1="Time.hourFormat12"}}
 
 Retrieve the hour in 12-hour format for the current or given time.
 Integer is returned without a leading zero.
@@ -12124,6 +13173,8 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 
 ### isAM()
 
+{{api name1="Time.isAM"}}
+
 Returns true if the current or given time is AM.
 
 ```cpp
@@ -12142,6 +13193,8 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 
 ### isPM()
 
+{{api name1="Time.isPM"}}
+
 Returns true if the current or given time is PM.
 
 ```cpp
@@ -12159,6 +13212,8 @@ Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing AM/PM to be calculated incorrectly.
 
 ### minute()
+
+{{api name1="Time.minute"}}
 
 Retrieve the minute for the current or given time.
 Integer is returned without a leading zero.
@@ -12179,6 +13234,8 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 
 ### second()
 
+{{api name1="Time.second"}}
+
 Retrieve the seconds for the current or given time.
 Integer is returned without a leading zero.
 
@@ -12196,6 +13253,8 @@ Returns: Integer 0-59
 
 
 ### day()
+
+{{api name1="Time.day"}}
 
 Retrieve the day for the current or given time.
 Integer is returned without a leading zero.
@@ -12215,6 +13274,8 @@ Returns: Integer 1-31
 If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect date.
 
 ### weekday()
+
+{{api name1="Time.weekday"}}
 
 Retrieve the weekday for the current or given time.
 
@@ -12242,6 +13303,8 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 
 ### month()
 
+{{api name1="Time.month"}}
+
 Retrieve the month for the current or given time.
 Integer is returned without a leading zero.
 
@@ -12261,6 +13324,8 @@ If you have set a timezone using zone(), beginDST(), etc. the hour returned will
 
 ### year()
 
+{{api name1="Time.year"}}
+
 Retrieve the 4-digit year for the current or given time.
 
 ```cpp
@@ -12278,6 +13343,8 @@ Returns: Integer
 
 ### now()
 
+{{api name1="Time.now"}}
+
 ```cpp
 // Print the current Unix timestamp
 Serial.print((int) Time.now()); // 1400647897
@@ -12292,6 +13359,8 @@ Returns: time_t (Unix timestamp), coordinated universal time (UTC), `long` integ
 
 ### local()
 
+{{api name1="Time.local"}}
+
 Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting.
 
 Note that the functions in the `Time` class expect times in UTC time, so the result from this should be used carefully. You should not pass Time.local() to Time.format(), for example.
@@ -12301,6 +13370,8 @@ _Since 0.6.0_
 Local time is also affected by the Daylight Saving Time (DST) settings.
 
 ### zone()
+
+{{api name1="Time.zone"}}
 
 Set the time zone offset (+/-) from UTC.
 The device will remember this offset until reboot.
@@ -12315,6 +13386,8 @@ Time.zone(-4);
 Parameters: floating point offset from UTC in hours, from -12.0 to 14.0
 
 ### isDST()
+
+{{api name1="Time.isDST"}}
 
 {{since when="0.6.0"}}
 
@@ -12331,6 +13404,8 @@ This function only returns the current DST setting that you choose using beginDS
 
 ### getDSTOffset()
 
+{{api name1="Time.getDSTOffset"}}
+
 {{since when="0.6.0"}}
 
 Retrieve the current Daylight Saving Time (DST) offset that is added to the current local time when Time.beginDST() has been called. The default is 1 hour.
@@ -12343,6 +13418,8 @@ float offset = Time.getDSTOffset();
 Returns: floating point DST offset in hours (default is +1.0 hours)
 
 ### setDSTOffset()
+
+{{api name1="Time.setDSTOffset"}}
 
 {{since when="0.6.0"}}
 
@@ -12358,6 +13435,8 @@ Parameters: floating point offset in hours, from 0.0 to 2.0
 
 ### beginDST()
 
+{{api name1="Time.beginDST"}}
+
 {{since when="0.6.0"}}
 
 Start applying Daylight Saving Time (DST) offset to the current time.
@@ -12366,6 +13445,8 @@ You must call beginDST() at startup if you want use DST mode. The setting is not
 
 ### endDST()
 
+{{api name1="Time.endDST"}}
+
 {{since when="0.6.0"}}
 
 Stop applying Daylight Saving Time (DST) offset to the current time.
@@ -12373,6 +13454,8 @@ Stop applying Daylight Saving Time (DST) offset to the current time.
 You must call endDST() on the appropriate date to end DST mode. It is not calculated automatically.
 
 ### setTime()
+
+{{api name1="Time.setTime"}}
 
 Set the system time to the given timestamp.
 
@@ -12391,6 +13474,8 @@ Parameter: time_t (Unix timestamp), coordinated universal time (UTC)
 
 ### timeStr()
 
+{{api name1="Time.timeStr"}}
+
 Return string representation for the given time.
 ```cpp
 Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
@@ -12401,6 +13486,8 @@ Returns: String
 _NB: In 0.3.4 and earlier, this function included a newline at the end of the returned string. This has been removed in 0.4.0._
 
 ### format()
+
+{{api name1="Time.format"}}
 
 Formats a time string using a configurable format. 
 
@@ -12435,6 +13522,8 @@ If you have set the time zone using Time.zone(), beginDST(), etc. the formatted 
 
 ### setFormat()
 
+{{api name1="Time.setFormat"}}
+
 Sets the format string that is the default value used by `format()`.
 
 ```cpp
@@ -12456,10 +13545,14 @@ Time.format(Time.now(), "Now it's %I:%M%p.");
 
 ### getFormat()
 
+{{api name1="Time.getFormat"}}
+
 Retrieves the currently configured format string for time formatting with `format()`.
 
 
 ### isValid()
+
+{{api name1="Time.isValid"}}
 
 {{since when="0.6.1"}}
 
@@ -12503,6 +13596,8 @@ void loop()
 For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the device](#other-functions) and the [description of the C standard library time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
 
 ## Chrono Literals
+
+{{api name1="std::chrono"}}
 
 {{since when="1.5.0"}}
 
@@ -12562,6 +13657,8 @@ interrupt handler. Rather, the interrupt handler can set a variable which instru
 the main loop that the event has occurred.
 
 ### attachInterrupt()
+
+{{api name1="attachInterrupt"}}
 
 Specifies a function to call when an external interrupt occurs. Replaces any previous function that was attached to the interrupt.
 
@@ -12725,6 +13822,8 @@ Typically global variables are used to pass data between an ISR and the main pro
 
 ### detachInterrupt()
 
+{{api name1="detachInterrupt"}}
+
 Turns off the given interrupt.
 
 ```
@@ -12736,6 +13835,8 @@ detachInterrupt(pin);
 
 
 ### interrupts()
+
+{{api name1="interrupts"}}
 
 Re-enables interrupts (after they've been disabled by `noInterrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
@@ -12761,6 +13862,8 @@ void loop()
 
 ### noInterrupts()
 
+{{api name1="noInterrupts"}}
+
 Disables interrupts (you can re-enable them with `interrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
 ```cpp
@@ -12777,6 +13880,8 @@ You must enable interrupts again as quickly as possible. Never return from setup
 {{#if has-software-timers}}
 
 ## Software Timers
+
+{{api name1="Timer"}}
 
 {{#if has-stm32}}
 _Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box.
@@ -12855,6 +13960,8 @@ Timer t(1000, &CallbackClass::onTimeout, callback);
 
 ### start()
 
+{{api name1="Timer::start"}}
+
 Starts a stopped timer (a newly created timer is stopped). If `start()` is called for a running timer, it will be reset.
 
 `start()`
@@ -12867,6 +13974,8 @@ timer.start(); // starts timer if stopped or resets it if started.
 
 ### stop()
 
+{{api name1="Timer::stop"}}
+
 Stops a running timer.
 
 `stop()`
@@ -12878,6 +13987,8 @@ timer.stop(); // stops a running timer.
 ```
 
 ### changePeriod()
+
+{{api name1="Timer::changePeriod"}}
 
 Changes the period of a previously created timer. It can be called to change the period of an running or stopped timer. Note that changing the period of a dormant timer will also start the timer.
 
@@ -12897,6 +14008,8 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ### reset()
 
+{{api name1="Timer::reset"}}
+
 Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stopped, it will be started.
 
 `reset()`
@@ -12912,9 +14025,16 @@ timer.reset(); // reset timer if running, or start timer if stopped.
 ### resetFromISR()
 ### changePeriodFromISR()
 
+{{api name1="Timer::startFromISR"}}
 `startFromISR()`
+
+{{api name1="Timer::stopFromISR"}}
 `stopFromISR()`
+
+{{api name1="Timer::resetFromISR"}}
 `resetFromISR()`
+
+{{api name1="Timer::changeFromISR"}}
 `changePeriodFromISR()`
 
 Start, stop and reset a timer or change a timer's period (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
@@ -12932,6 +14052,8 @@ timer.changePeriodFromISR(newPeriod);  // WITHIN an ISR, change the timer period
 
 ### dispose()
 
+{{api name1="Timer::dispose"}}
+
 `dispose()`
 
 Stop and remove a timer from the (max. 10) timer list, freeing a timer "slot" in the list.
@@ -12943,6 +14065,8 @@ timer.dispose(); // stop and delete timer from timer list.
 ```
 
 ### isActive()
+
+{{api name1="Timer::isActive"}}
 
 {{since when="0.5.0"}}
 
@@ -13037,11 +14161,15 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 
 ## Math
 
+{{api name1="Math"}}
+
 Note that in addition to functions outlined below all of the newlib math functions described at [sourceware.org](https://sourceware.org/newlib/libm.html) are also available for use by simply including the math.h header file thus:
 
 `#include "math.h"`
 
 ### min()
+
+{{api name1="min"}}
 
 Calculates the minimum of two numbers.
 
@@ -13073,6 +14201,8 @@ min(a, 100);    // use this instead - keep other math outside the function
 
 ### max()
 
+{{api name1="max"}}
+
 Calculates the maximum of two numbers.
 
 `max(x, y)`
@@ -13103,6 +14233,8 @@ max(a, 0);     // keep other math outside the function
 
 ### abs()
 
+{{api name1="abs"}}
+
 Computes the absolute value of a number.
 
 `abs(x);`
@@ -13123,6 +14255,8 @@ abs(a);       // keep other math outside the function
 ```
 
 ### constrain()
+
+{{api name1="constrain"}}
 
 Constrains a number to be within a range.
 
@@ -13204,6 +14338,8 @@ int map(int value, int fromStart, int fromEnd, int toStart, int toEnd)
 
 ### pow()
 
+{{api name1="pow"}}
+
 Calculates the value of a number raised to a power. `pow()` can be used to raise a number to a fractional power. This is useful for generating exponential mapping of values or curves.
 
 `pow(base, exponent);`
@@ -13230,6 +14366,8 @@ The function returns the number's square root *(double)*
 The firmware incorporates a pseudo-random number generator.
 
 ### random()
+
+{{api name1="random"}}
 
 Retrieves the next random value, restricted to a given range.
 
@@ -13272,6 +14410,8 @@ int r = random(10, 100);
   NB: If `min` is greater or equal to `max`, the result is always 0.
 
 ### randomSeed()
+
+{{api name1="randomSeed"}}
 
 `randomSeed(newSeed);`
 
@@ -13318,6 +14458,8 @@ from the cloud, and setting the seed is left to up you.
 
 ### HAL_RNG_GetRandomNumber()
 
+{{api name1="HAL_RNG_GetRandomNumber"}}
+
 ```cpp
 // PROTOTYPE
 uint32_t HAL_RNG_GetRandomNumber(void);
@@ -13332,6 +14474,8 @@ Note: Only available on Gen 2 (Photon, P1, Electron, E Series), and Gen 3 (Argon
 {{#if has-eeprom}}
 
 ## EEPROM
+
+{{api name1="EEPROM"}}
 
 {{#if has-eeprom-file}}
 EEPROM emulation allows small amounts  of data to be stored and persisted even across reset, power down, and user and system firmware flash operations.
@@ -13351,6 +14495,9 @@ will persist even after the device resets after a deep sleep or is powered off.
 
 
 ### length()
+
+{{api name1="EEPROM.length"}}
+
 Returns the total number of bytes available in the emulated EEPROM.
 
 ```cpp
@@ -13362,6 +14509,9 @@ size_t length = EEPROM.length();
 - The Gen 3 (Argon, Boron, Xenon) devices have 4096 bytes of emulated EEPROM.
 
 ### put()
+
+{{api name1="EEPROM.put"}}
+
 This function will write an object to the EEPROM. You can write single values like `int` and
 `float` or group multiple values together using `struct` to ensure that all values of the struct are
 updated together.
@@ -13406,6 +14556,9 @@ object must be larger than the address of the first object plus the size of the 
 can leave empty room between objects in case you need to make the first object bigger later.
 
 ### get()
+
+{{api name1="EEPROM.get"}}
+
 This function will retrieve an object from the EEPROM. Use the same type of object you used in the
 `put` call.
 
@@ -13453,6 +14606,9 @@ device will return an object filled with 0xFF. One trick to deal with default da
 a version field that you can check to see if there was valid data written in the EEPROM.
 
 ### read()
+
+{{api name1="EEPROM.read"}}
+
 Read a single byte of data from the emulated EEPROM.
 
 ```
@@ -13473,6 +14629,9 @@ uint8_t value = EEPROM.read(addr);
 When reading more than 1 byte, prefer `get()` over multiple `read()` since it's faster.
 
 ### write()
+
+{{api name1="EEPROM.write"}}
+
 Write a single byte of data to the emulated EEPROM.
 
 ```
@@ -13499,6 +14658,9 @@ The object data is first compared to the data written in the EEPROM to avoid wri
 haven't changed.
 
 ### clear()
+
+{{api name1="EEPROM.clear"}}
+
 Erase all the EEPROM so that all reads will return 255 (hexadecimal 0xFF).
 
 ```cpp
@@ -13516,6 +14678,9 @@ pages.
 {{#unless has-eeprom-file}}
 ### hasPendingErase()
 ### performPendingErase()
+
+{{api name1="EEPROM.hasPendingErase" name2="performPendingErase"}}
+
 
 *Automatic page erase is the default behavior. This section describes optional functions the
 application can call to manually control page erase for advanced use cases.*
@@ -13557,6 +14722,8 @@ pause any time `put()` or `write()` is called.
 
 {{#if has-backup-ram}}
 ## Backup RAM (SRAM)
+
+{{api name1="retained"}}
 
 {{#if has-stm32}}
 The STM32F2xx features 4KB of backup RAM (3068 bytes for Device OS
@@ -13668,6 +14835,8 @@ void loop() {
 
 ### Enabling Backup RAM (SRAM)
 
+{{api name1="FEATURE_RETAINED_MEMORY"}}
+
 Backup RAM is disabled by default, since it does require some maintenance power
 which may not be desired on some low-powered projects.  Backup RAM consumes roughly
 5uA or less on VIN and 9uA or less on VBAT.
@@ -13725,6 +14894,8 @@ when new `retained` variables are added to the end of the list, or when they are
 
 ### STARTUP()
 
+{{api name1="STARTUP"}}
+
 ```cpp
 void setup_the_fundulating_conbobulator()
 {
@@ -13778,6 +14949,8 @@ The brief change in state (especially when connected to a MOSFET that can be tri
 
 ### PRODUCT_ID()
 
+{{api name1="PRODUCT_ID" name2="PRODUCT_VERSION"}}
+
 When preparing software for your product, it is essential to include your product ID and version at the top of the firmware source code.
 
 ```cpp
@@ -13803,6 +14976,8 @@ This will allow the device to join the product it has been added to without hard
 
 ## sleep() [ Sleep ]
 
+{{api name1="SystemSleepConfiguration"}}
+
 ```cpp
 SystemSleepConfiguration config;
 config.mode(SystemSleepMode::STOP)
@@ -13823,6 +14998,8 @@ The Tracker One and Tracker SoM have an additional layer of sleep functionality.
 
 ### mode() (SystemSleepConfiguration)
 
+{{api name1="SystemSleepMode"}}
+
 The are are three sleep modes:
 
 - STOP
@@ -13839,6 +15016,8 @@ The are are three sleep modes:
 ---
 
 ### STOP (SystemSleepMode)
+
+{{api name1="SystemSleepMode::STOP"}}
 
 ```cpp
 // EXAMPLE
@@ -13903,6 +15082,9 @@ Typical power consumption in STOP sleep mode, based on the wakeup source:
 
 ### ULTRA_LOW_POWER (SystemSleepMode)
 
+{{api name1="SystemSleepMode::ULTRA_LOW_POWER"}}
+
+
 ```cpp
 // EXAMPLE
 SystemSleepConfiguration config;
@@ -13961,6 +15143,8 @@ Typical power consumption in ultra-low power (ULP) sleep mode, based on the wake
 ---
 
 ### HIBERNATE (SystemSleepMode)
+
+{{api name1="SystemSleepMode::HIBERNATE"}}
 
 ```
 // EXAMPLE
@@ -14025,6 +15209,8 @@ In this mode:
 
 ### duration() (SystemSleepConfiguration)
 
+{{api name1="SystemSleepConfiguration::duration"}}
+
 ```c++
 // PROTOTYPES
 SystemSleepConfiguration& duration(system_tick_t ms)
@@ -14060,6 +15246,7 @@ On cellular devices, if you turn off the cellular modem, you should not wake wit
 
 ### gpio() (SystemSleepConfiguration)
 
+{{api name1="SystemSleepConfiguration::gpio"}}
 
 ```c++
 // PROTOTYPE
@@ -14107,6 +15294,8 @@ On Gen 3 devices the location of the `WKP` pin varies, and it may make more sens
 
 ### flag() (SystemSleepConfiguration)
 
+{{api name1="SystemSleepConfiguration::flag"}}
+
 ```c++
 // PROTOTYPE
 SystemSleepConfiguration& flag(particle::EnumFlags<SystemSleepFlag> f)
@@ -14128,6 +15317,8 @@ This will make sure all cloud messages have been acknowledged before going to sl
 ---
 
 ### network() (SystemSleepConfiguration)
+
+{{api name1="SystemSleepConfiguration::network"}}
 
 ```c++
 // PROTOTYPE
@@ -14167,6 +15358,8 @@ If you use `INACTIVE_STANDBY`, the modem is kept powered, but the cloud is disco
 
 ### analog() (SystemSleepConfiguration)
 
+{{api name1="SystemSleepConfiguration::analog"}}
+
 ```c++
 // PROTOTYPE
 SystemSleepConfiguration& analog(pin_t pin, uint16_t voltage, AnalogInterruptMode trig) 
@@ -14194,6 +15387,8 @@ The `AnalogInterruptMode` is one of:
 
 ### usart (SystemSleepConfiguration)
 
+{{api name1="SystemSleepConfiguration::usart"}}
+
 ```c++
 // PROTOTYPE
 SystemSleepConfiguration& usart(const USARTSerial& serial)
@@ -14217,6 +15412,8 @@ Note: Keeping the USART active in ultra-low power mode significanly increases th
 ---
 
 ### ble() (SystemSleepConfiguration)
+
+{{api name1="SystemSleepConfiguration::ble"}}
 
 ```c++
 // PROTOTYPE
@@ -14247,6 +15444,8 @@ This brief wake-up only services the radio. User firmware and Device OS do not r
 
 
 ## SystemSleepResult Class
+
+{{api name1="SystemSleepResult"}}
 
 {{since when="1.5.0"}}
 
@@ -14286,6 +15485,8 @@ Returns the reason for wake. Constants include:
 
 ### wakeupPin() (SystemSleepResult)
 
+{{api name1="SystemSleepResult::wakeupPin"}}
+
 ```cpp
 // PROTOTYPE
 pin_t wakeupPin() const;
@@ -14295,6 +15496,8 @@ If `wakeupReason()` is `SystemSleepWakeupReason::BY_GPIO` returns which pin caus
 
 ### error() (SystemSleepResult)
 
+{{api name1="SystemSleepResult::error"}}
+
 ```cpp
 // PROTOTYPE
 system_error_t error() const;
@@ -14303,6 +15506,8 @@ system_error_t error() const;
 If there was an error, returns the system error code. 0 is no error.
 
 ### toSleepResult() (SystemSleepResult)
+
+{{api name1="SystemSleepResult::toSleepResult"}}
 
 ```cpp
 // PROTOTYPES
@@ -14314,6 +15519,8 @@ Returns the previous style of [`SleepResult`](#sleepresult-). There is also an o
 
 
 ## sleep() [ Classic API ]
+
+{{api name1="System.sleep"}}
 
 This API is the previous API for sleep and is less flexible. You should use the [newer sleep APIs](#sleep-sleep-) with Device OS 1.5.0 and later.
 
@@ -14808,11 +16015,15 @@ SystemSleepResult result = System.sleep(config);
 
 ### SleepResult Class
 
+{{api name1="SleepResult"}}
+
 {{since when="0.8.0"}}
 
 This class allows to query the information about the most recent `System.sleep()`. It is only recommended for use in Device OS 0.8.0 - 1.4.4. There is a newer, more flexible class `SystemSleepResult` in 1.5.0 and later.
 
 #### reason()
+
+{{api name1="SleepResult::reason"}}
 
 ```cpp
 // SYNTAX
@@ -14854,6 +16065,8 @@ Returns a code describing a reason the device woke up from sleep. The following 
 
 #### wokenUpByPin()
 
+{{api name1="SleepResult::wokenUpByPin"}}
+
 ```cpp
 // SYNTAX
 SleepResult result = System.sleepResult();
@@ -14869,6 +16082,8 @@ if (result.wokenUpByPin()) {
 Returns `true` when the device was woken up by a pin.
 
 #### wokenUpByRtc()
+
+{{api name1="SleepResult::wokenUpByRtc"}}
 
 Returns `true` when the device was woken up by the RTC (after a specified number of seconds).
 
@@ -14886,9 +16101,13 @@ if (result.wokenUpByRtc()) {
 
 #### rtc()
 
+{{api name1="SleepResult::rtc"}}
+
 An alias to [`wokenUpByRtc()`](#wokenupbyrtc-).
 
 #### pin()
+
+{{api name1="SleepResult::pin"}}
 
 ```cpp
 // SYNTAX
@@ -14907,6 +16126,8 @@ Returns: the number of the pin that woke the device.
 
 #### error()
 
+{{api name1="SleepResult::error"}}
+
 Get the error code of the latest sleep.
 
 ```cpp
@@ -14918,6 +16139,8 @@ int err = result.error();
 Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or a non-zero error code.
 
 ### sleepResult()
+
+{{api name1="SleepResult::sleepResult"}}
 
 {{since when="0.8.0"}}
 
@@ -14932,6 +16155,8 @@ Returns: an instance of [`SleepResult`](#sleepresult-) class.
 
 ### wakeUpReason()
 
+{{api name1="System.wakeUpReason"}}
+
 {{since when="0.8.0"}}
 
 ```cpp
@@ -14942,6 +16167,8 @@ int reason = System.wakeUpReason();
 See [`SleepResult`](#reason-) documentation.
 
 ### wokenUpByPin()
+
+{{api name1="System::wokenUpByPin"}}
 
 {{since when="0.8.0"}}
 
@@ -14954,6 +16181,8 @@ See [`SleepResult`](#wokenupbypin-) documentation.
 
 ### wokenUpByRtc()
 
+{{api name1="System::wokenUpByRtc"}}
+
 _Since 0.8.0_
 
 ```cpp
@@ -14965,6 +16194,8 @@ See [`SleepResult`](#wokenupbyrtc-) documentation.
 
 ### wakeUpPin()
 
+{{api name1="System::wakeUpPin"}}
+
 {{since when="0.8.0"}}
 
 ```cpp
@@ -14975,6 +16206,8 @@ pin_t pin = System.wakeUpPin();
 See [`SleepResult`](#pin-) documentation.
 
 ### sleepError()
+
+{{api name1="System::sleepError"}}
 
 {{since when="0.8.0"}}
 
@@ -15092,6 +16325,8 @@ Setup mode is also referred to as listening mode (blinking dark blue).
 
 ## System Modes
 
+{{api name1="SYSTEM_MODE"}}
+
 System modes help you control how the device manages the connection with the cloud.
 
 By default, the device connects to the Cloud and processes messages automatically. However there are many cases where a user will want to take control over that connection. There are three available system modes: `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`. These modes describe how connectivity is handled.
@@ -15100,6 +16335,8 @@ These system modes describe how connectivity is handled and when user code is ru
 System modes must be called before the setup() function. By default, the device is always in `AUTOMATIC` mode.
 
 ### Automatic mode
+
+{{api name1="SYSTEM_MODE(AUTOMATIC)" name2="AUTOMATIC"}}
 
 The automatic mode (threading disabled) of connectivity (with threading disabled) provides the default behavior of the device, which is that:
 
@@ -15151,6 +16388,8 @@ Using `SYSTEM_THREAD(ENABLED)` is recommended.
 
 ### Semi-automatic mode
 
+{{api name1="SYSTEM_MODE(SEMI_AUTOMATIC)" name2="SEMI_AUTOMATIC"}}
+
 The semi-automatic mode will not attempt to connect the device to the Cloud automatically, but once you 
 connect it automatically handles reconnection. One common use case for this is checking the battery
 charge before connecting to cellular on the Boron, B Series SoM, Electron, and E Series.
@@ -15186,6 +16425,8 @@ void loop() {
 
 ### Manual mode
 
+{{api name1="SYSTEM_MODE(MANUAL)" name2="MANUAL"}}
+
 There are many hidden pitfalls when using `MANUAL` system mode with cloud connectivity, and it may interact unexpectedly with threading. 
 
 The only recommended use case for `MANUAL` mode is when you have no cloud connectivity at all, such as when you are using the device with no 
@@ -15220,6 +16461,8 @@ When using manual mode:
 
 {{#if has-threading}}
 ## System Thread
+
+{{api name1="SYSTEM_THREAD(ENABLED)" name2="SYSTEM_THREAD"}}
 
 {{since when="0.4.6"}}
 
@@ -15328,6 +16571,8 @@ When executing timing-critical sections of code, the task switching needs to be 
 
 ### SINGLE_THREADED_BLOCK()
 
+{{api name1="SINGLE_THREADED_BLOCK"}}
+
 `SINGLE_THREADED_BLOCK()` declares that the next code block is executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits. Interrupts remain enabled, so the thread may be interrupted for small periods of time, such as by interrupts from peripherals.
 
 ```
@@ -15371,6 +16616,8 @@ Because it's hard to know exactly what resources will be guarded by a mutex its 
 
 ### ATOMIC_BLOCK()
 
+{{api name1="ATOMIC_BLOCK"}}
+
 `ATOMIC_BLOCK()` is similar to `SINGLE_THREADED_BLOCK()` in that it prevents other threads executing during a block of code. In addition, interrupts are also disabled.
 
 WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_BLOCK()` should be used only for brief periods where atomicity is essential.
@@ -15408,6 +16655,8 @@ ensures that only the thread owning the lock can access the resource. Any other 
 
 At present there is only one shared resource that is used by the system and the application - `Serial`. The system makes use of `Serial` during listening mode. If the application also makes use of serial during listening mode, then it should be locked before use.
 
+{{api name1="WITH_LOCK"}}
+
 ```
 void print_status()
 {
@@ -15427,6 +16676,9 @@ The primary difference compared to using Serial without a lock is the `WITH_LOCK
 - when the block has finished executing, the lock is released, allowing other threads to use the resource.
 
 It's also possible to attempt to lock a resource, but not block when the resource isn't available.
+
+{{api name1="TRY_LOCK"}}
+
 
 ```
 TRY_LOCK(Serial) {
@@ -15448,6 +16700,8 @@ Makes your application wait until/for something that the system is doing, such a
 ---
 
 #### waitUntil()
+
+{{api name1="waitUntil"}}
 
 ```
 // SYNTAX
@@ -15472,6 +16726,8 @@ Note: `waitUntil` does not tickle the [application watchdog](/reference/device-o
 
 #### waitUntilNot()
 
+{{api name1="waitUntilNot"}}
+
 {{since when="2.0.0"}}
 
 
@@ -15492,6 +16748,8 @@ Note: `waitUntilNot` does not tickle the [application watchdog](/reference/devic
 ---
 
 #### waitFor()
+
+{{api name1="waitFor"}}
 
 ```cpp
 // SYNTAX
@@ -15521,6 +16779,8 @@ Note: `waitFor` does not tickle the [application watchdog](/reference/device-os/
 
 #### waitForNot()
 
+{{api name1="waitForNot"}}
+
 ```cpp
 // SYNTAX
 waitForNot(condition, timeout);
@@ -15543,6 +16803,8 @@ Note: `waitForNot` does not tickle the [application watchdog](/reference/device-
 ## System Calls
 
 ### version()
+
+{{api name1="System.version"}}
 
 {{since when="0.4.7"}}
 
@@ -15568,6 +16830,8 @@ void setup()
 
 ### versionNumber()
 
+{{api name1="System.versionNumber"}}
+
 Determines the version of Device OS available. Returns the version encoded
 as a number:
 
@@ -15582,6 +16846,8 @@ Firmware 0.4.7 has a version number 0x00040700
 
 
 ### buttonPushed()
+
+{{api name1="System.buttonPushed"}}
 
 {{since when="0.4.6"}}
 
@@ -15644,6 +16910,8 @@ be more suitable.
 
 #### ticks()
 
+{{api name1="System.ticks"}}
+
 Returns the current value of the system tick count. One tick corresponds to
 one cpu cycle.
 
@@ -15654,6 +16922,8 @@ one cpu cycle.
 ```
 
 #### ticksPerMicrosecond();
+
+{{api name1="System.ticksPerMicrosecond"}}
 
 Retrieves the number of ticks per microsecond for this device. This is useful
 when converting between a number of ticks and time in microseconds.
@@ -15670,6 +16940,8 @@ when converting between a number of ticks and time in microseconds.
 ```
 
 #### ticksDelay()
+
+{{api name1="System.ticksDelay"}}
 
 Pause execution a given number of ticks. This can be used to implement precise
 delays.
@@ -15692,6 +16964,8 @@ at compile time and inline the function calls, reducing overhead to a minimum.
 
 ### freeMemory()
 
+{{api name1="System.freeMemory"}}
+
 {{since when="0.4.4"}}
 
 Retrieves the amount of free memory in the system in bytes.
@@ -15703,6 +16977,8 @@ Serial.println(freemem);
 ```
 
 ### reset()
+
+{{api name1="System.reset"}}
 
 ```cpp
 // PROTOTYPES
@@ -15742,6 +17018,8 @@ In Device OS 2.0.0 and later, a call to `System.reset()` defaults to notifying t
 
 ### dfu()
 
+{{api name1="System.dfu"}}
+
 ```cpp
 // PROTOTYPES
 void dfu(SystemResetFlags flags = SystemResetFlags());
@@ -15773,6 +17051,8 @@ new firmware is flashed, pass `true` for the `persist` flag.
 
 ### enterSafeMode()
 
+{{api name1="System.enterSafeMode"}}
+
 ```cpp
 // PROTOTYPE
 void enterSafeMode(SystemResetFlags flags = SystemResetFlags())
@@ -15794,6 +17074,8 @@ In Device OS 2.0.0 and later, a call to `System.dfu()` defaults to notifying the
 
 
 ### deviceID()
+
+{{api name1="System.deviceID"}}
 
 `System.deviceID()` provides an easy way to extract the device ID of your device. It returns a [String object](#string-class) of the device ID, which is used to identify your device.
 
@@ -15818,6 +17100,8 @@ void loop() {}
 
 ### System.millis()
 
+{{api name1="System.millis"}}
+
 {{since when="0.8.0"}}
 
 Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-) function but returns a 64-bit value.
@@ -15830,6 +17114,8 @@ As a workaround you can use the `Print64` firmware library in the community libr
 
 ### System.uptime()
 
+{{api name1="System.uptime"}}
+
 {{since when="0.8.0"}}
 
 Returns the number of seconds passed since the device was last reset.
@@ -15838,6 +17124,8 @@ Returns the number of seconds passed since the device was last reset.
 {{#if has-pmic}}
 
 ### powerSource()
+
+{{api name1="System.powerSource"}}
 
 {{since when="1.5.0"}}
 
@@ -15871,6 +17159,8 @@ if (powerSource == POWER_SOURCE_BATTERY) {
 
 ### batteryState()
 
+{{api name1="System.batteryState"}}
+
 {{since when="1.5.0"}}
 
 Determines the state of battery charging.
@@ -15899,6 +17189,8 @@ if (batteryState == BATTERY_STATE_CHARGING) {
 
 ### batteryCharge()
 
+{{api name1="System.batteryCharge"}}
+
 {{since when="1.5.0"}}
 
 Determines the battery state of charge (SoC) as a percentage, as a floating point number.
@@ -15916,6 +17208,8 @@ Log.info("soc=%.1f", batterySoc);
 {{/if}}
 
 ### disableReset()
+
+{{api name1="System.disableReset"}}
 
 This method allows to disable automatic resetting of the device on such events as successful firmware update.
 
@@ -15942,13 +17236,19 @@ When the system needs to reset the device it first sends the [`reset_pending`](#
 
 ### enableReset()
 
+{{api name1="System.enableReset"}}
+
 Allows the system to reset the device when necessary.
 
 ### resetPending()
 
+{{api name1="System.resetPending"}}
+
 Returns `true` if the system needs to reset the device.
 
 ### Reset Reason
+
+{{api name1="System.resetReason"}}
 
 {{since when="0.6.0"}}
 
@@ -16018,6 +17318,8 @@ This overloaded method accepts an arbitrary 32-bit value, stores it to the backu
 
 ### System Config [ set ]
 
+{{api name1="System.set"}}
+
 System configuration can be modified with the `System.set()` call.
 
 ```cpp
@@ -16045,10 +17347,14 @@ The following configuration values can be changed:
 
 ### System Flags [ disable ]
 
+{{api name1="System.disable" name2="System.enable"}}
+
 The system allows to alter certain aspects of its default behavior via the system flags. The following system flags are defined:
 
   * `SYSTEM_FLAG_PUBLISH_RESET_INFO` : enables publishing of the last [reset reason](#reset-reason) to the cloud (enabled by default)
   * `SYSTEM_FLAG_RESET_NETWORK_ON_CLOUD_ERRORS` : enables resetting of the network connection on cloud connection errors (enabled by default)
+
+{{api name1="SYSTEM_FLAG_PUBLISH_RESET_INFO" name2="SYSTEM_FLAG_RESET_NETWORK_ON_CLOUD_ERRORS"}}
 
 ```cpp
 // EXAMPLE
@@ -16110,6 +17416,8 @@ repository](https://github.com/particle-iot/device-os/blob/develop/hal/inc/inter
 
 ### attachSystemInterrupt()
 
+{{api name1="attachSystemInterrupt"}}
+
 Registers a function that is called when a system interrupt happens.
 
 ```cpp
@@ -16126,6 +17434,8 @@ void setup()
 
 ### detachSystemInterrupt()
 
+{{api name1="detachSystemInterrupt"}}
+
 Removes all handlers for the given interrupt, or for all interrupts.
 
 ```cpp
@@ -16135,6 +17445,8 @@ detachSystemInterrupt(SysInterrupt_TIM5);
 ```
 
 ### attachInteruptDirect()
+
+{{api name1="attachSystemInterruptDirect"}}
 
 _Since 0.8.0_
 
@@ -16175,6 +17487,8 @@ EXTI_ClearFlag(EXTI9_5_IRQn);
 
 ### detachInterruptDirect()
 
+{{api name1="detachSystemInterruptDirect"}}
+
 _Since 0.8.0_
 
 Unregisters application-provided interrupt handlers for the given interrupt and restores the default one.
@@ -16196,6 +17510,8 @@ Parameters:
 
 {{#if has-button-mirror}}
 ### buttonMirror()
+
+{{api name1="System.buttonMirror"}}
 
 {{since when="0.6.1"}}
 
@@ -16231,6 +17547,8 @@ STARTUP(System.buttonMirror(D1, RISING, true));
 
 ### disableButtonMirror()
 
+{{api name1="System.disableButtonMirror"}}
+
 {{since when="0.6.1"}}
 
 Disables SETUP button mirroring on a pin.
@@ -16257,6 +17575,8 @@ The system allows to alter certain aspects of its default behavior via the syste
 
 #### FEATURE_RETAINED_MEMORY
 
+{{api name1="FEATURE_RETAINED_MEMORY"}}
+
 Enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
 
 ```cpp
@@ -16271,6 +17591,8 @@ System.disableFeature(FEATURE_RETAINED_MEMORY);
 
 {{#if has-powersave-clock}}
 #### FEATURE_WIFI_POWERSAVE_CLOCK
+
+{{api name1="FEATURE_WIFI_POWERSAVE_CLOCK"}}
 
 {{since when="0.6.1"}}
 
@@ -16317,6 +17639,8 @@ This device implements a POSIX-style file system API to store files on the Littl
 The file system is not available on Gen 2 devices.
 
 ### File System open 
+
+{{api name1="open"}}
 
 ```cpp
 // INCLUDE
@@ -16367,6 +17691,8 @@ Opening the same path again without closing opens up a new file descriptor each 
 
 ### File System write
 
+{{api name1="write"}}
+
 ```cpp
 // PROTOTYPE
 int write(int fd, const void* buf, size_t count)
@@ -16388,6 +17714,8 @@ On error, returns -1 and sets `errno`. Some possible `errno` values include:
 
 ### File System read
 
+{{api name1="read"}}
+
 ```cpp
 // PROTOTYPE
 int read(int fd, void* buf, size_t count)
@@ -16407,6 +17735,8 @@ On error, returns -1 and sets `errno`. Some possible `errno` values include:
 
 ### File System lseek
 
+{{api name1="lseek"}}
+
 ```cpp
 // PROTOTYPE
 off_t lseek(int fd, off_t offset, int whence)
@@ -16423,6 +17753,8 @@ Seek to a position in a file. Affects where the next read or write will occur. S
 
 ### File System close
 
+{{api name1="close"}}
+
 ```cpp
 // PROTOTYPE
 int close(int fd)
@@ -16436,6 +17768,8 @@ Returns 0 on success. On error, returns -1 and sets `errno`.
 
 ### File System fsync
 
+{{api name1="fsync"}}
+
 ```cpp
 // PROTOTYPE
 int fsync(int fd) 
@@ -16448,6 +17782,8 @@ Synchronizes the file data flash, for example writing out any cached data.
 Returns 0 on success. On error, returns -1 and sets `errno`. 
 
 ### File System truncate
+
+{{api name1="truncate"}}
 
 ```cpp
 // PROTOTYPE
@@ -16466,6 +17802,8 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 
 ### File System ftruncate
 
+{{api name1="ftruncate"}}
+
 ```cpp
 // PROTOTYPE
 int ftruncate(int fd, off_t length)
@@ -16483,6 +17821,8 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 
 
 ### File System fstat
+
+{{api name1="fstat"}}
 
 ```cpp
 // INCLUDE
@@ -16508,6 +17848,8 @@ Only a subset of the `struct stat` fields are filled in. In particular:
   - Be sure to check for the bit, not equality, as other bits may be set (like `S_IRWXU` | `S_IRWXG` | `S_IRWXO`) may be set.
 
 ### File System stat
+
+{{api name1="stat"}}
 
 ```cpp
 // INCLUDE
@@ -16538,6 +17880,8 @@ Only a subset of the `struct stat` fields are filled in. In particular:
 The file system does not store file times (creation, modification, or access).
 
 ### File System mkdir
+
+{{api name1="mkdir"}}
 
 ```cpp
 // PROTOTYPE
@@ -16599,6 +17943,8 @@ The example code creates a directory if it does not already exists. It takes car
 
 ### File System rmdir
 
+{{api name1="rmdir"}}
+
 ```cpp
 // PROTOTYPE
 int rmdir(const char* pathname) 
@@ -16610,6 +17956,8 @@ Removes a directory from the file system. The directory must be empty to remove 
 
 
 ### File System unlink
+
+{{api name1="unlink"}}
 
 ```cpp
 // PROTOTYPE
@@ -16627,6 +17975,8 @@ Returns 0 on success. On error, returns -1 and sets `errno`. Some possible `errn
 
 ### File System rename
 
+{{api name1="rename"}}
+
 ```cpp
 // PROTOTYPE
 int rename(const char* oldpath, const char* newpath)
@@ -16641,6 +17991,8 @@ Returns 0 on success. On error, returns -1 and sets `errno`.
 
 
 ### File System opendir
+
+{{api name1="opendir"}}
 
 ```cpp
 // INCLUDE
@@ -16657,6 +18009,9 @@ Open a directory stream to iterate the files in the directory. Be sure to close 
 Returns `NULL` (0) on error, or a non-zero value for use with `readdir`.
 
 ### File System readdir
+
+{{api name1="readdir"}}
+
 ```cpp
 // INCLUDE
 #include <dirent.h>
@@ -16683,6 +18038,8 @@ This structure is reused on subsequent calls to `readdir` so if you need to save
 
 ### File System telldir
 
+{{api name1="telldir"}}
+
 ```cpp
 // INCLUDE
 #include <dirent.h>
@@ -16697,6 +18054,8 @@ Returns a numeric value for the current position in the directory that can subse
 
 ### File System seekdir
 
+{{api name1="seekdir"}}
+
 ```cpp
 // INCLUDE
 #include <dirent.h>
@@ -16709,6 +18068,8 @@ void seekdir(DIR* pdir, long loc)
 - `loc`: The location previously saved by [`telldir`](#file-system-telldir).
 
 ### File System rewinddir
+
+{{api name1="rewinddir"}}
 
 ```cpp
 // INCLUDE
@@ -16724,6 +18085,8 @@ Starts scanning the directory from the beginning again.
 
 
 ### File System readdir_r
+
+{{api name1="readdir_r"}}
 
 ```cpp
 // INCLUDE
@@ -16749,6 +18112,8 @@ Not all fields of `dentry` are filled in. You should only rely on:
 Returns 0 on success. On error, returns -1 and sets `errno`. 
 
 ### File System closedir
+
+{{api name1="closedir"}}
 
 ```cpp
 // INCLUDE
@@ -16853,6 +18218,9 @@ device that has called `System.disableUpdates()` will result in the
 [`System.updatesPending()`](#system-updatespending-) function returning `true`.
 
 ### System.enableUpdates()
+
+{{api name1="System.enableUpdates"}}
+
 ```cpp
 // System.enableUpdates() example where updates are disabled on startup
 
@@ -16913,6 +18281,9 @@ Releases](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases).
 | Device OS &gt;= 1.2.0 | Full support | Full Support | Full Support |
 
 ### System.updatesEnabled()
+
+{{api name1="System.updatesEnabled"}}
+
 ```cpp
 // System.updatesEnabled() example
 bool isSafeToUpdate() {
@@ -16936,6 +18307,9 @@ Returns `true` on startup, and after `System.enableUpdates()` has been called. R
 | Device OS &gt;= 1.2.0 | Supported | Supported | Supported |
 
 ### System.updatesPending()
+
+{{api name1="System.updatesPending"}}
+
 ```cpp
 // System.updatesPending() example
 
@@ -17005,6 +18379,8 @@ OTA update is queued,
 | Device OS >= 1.2.0 | N/A | N/A | Supported |
 
 ### System.updatesForced()
+
+{{api name1="System.updatesForced"}}
 
 ```cpp
 // System.updatesForced() example
@@ -17196,6 +18572,8 @@ For reference, character arrays are referred to as strings with a small s, and i
 
 ### String()
 
+{{api name1="String"}}
+
 Constructs an instance of the String class. There are multiple versions that construct Strings from different data types (i.e. format them as sequences of characters), including:
 
   * a constant string of characters, in double quotes (i.e. a char array)
@@ -17249,6 +18627,8 @@ Returns: an instance of the String class
 
 ### charAt()
 
+{{api name1="String::charAt"}}
+
 Access a particular character of the String.
 
 ```cpp
@@ -17264,6 +18644,8 @@ Returns: the n'th character of the String
 
 
 ### compareTo()
+
+{{api name1="String::compareTo"}}
 
 Compares two Strings, testing whether one comes before or after the other, or whether they're equal. The strings are compared character by character, using the ASCII values of the characters. That means, for example, that 'a' comes before 'b' but after 'A'. Numbers come before letters.
 
@@ -17286,6 +18668,8 @@ Returns:
 
 ### concat()
 
+{{api name1="String::concate"}}
+
 Combines, or *concatenates* two strings into one string. The second string is appended to the first, and the result is placed in the original string.
 
 ```cpp
@@ -17300,6 +18684,8 @@ Parameters:
 Returns: None
 
 ### endsWith()
+
+{{api name1="String::endsWith"}}
 
 Tests whether or not a String ends with the characters of another String.
 
@@ -17321,6 +18707,8 @@ Returns:
 
 ### equals()
 
+{{api name1="String::equals"}}
+
 Compares two strings for equality. The comparison is case-sensitive, meaning the String "hello" is not equal to the String "HELLO".
 
 ```cpp
@@ -17338,6 +18726,8 @@ Returns:
 
 ### equalsIgnoreCase()
 
+{{api name1="String::equalsIgnoreCase"}}
+
 Compares two strings for equality. The comparison is not case-sensitive, meaning the String("hello") is equal to the String("HELLO").
 
 ```cpp
@@ -17354,6 +18744,8 @@ Returns:
   * false: otherwise
 
 ### format()
+
+{{api name1="String::format"}}
 
 {{since when="0.4.6"}}
 
@@ -17374,6 +18766,8 @@ Sprintf-style formatting does not support 64-bit integers, such as `%lld`, `%llu
 
 ### getBytes()
 
+{{api name1="String::getBytes"}}
+
 Copies the string's characters to the supplied buffer.
 
 ```cpp
@@ -17389,6 +18783,8 @@ Parameters:
 Returns: None
 
 ### c_str()
+
+{{api name1="String::c_str"}}
 
 Gets a pointer (const char *) to the internal c-string representation of the string. You can use this to pass to a function that require a c-string. This string cannot be modified.
 
@@ -17408,6 +18804,8 @@ Log.info("ip addr: %s", WiFi.localIP().toString().c_str());
 
 ### indexOf()
 
+{{api name1="String::indexOf"}}
+
 Locates a character or String within another String. By default, searches from the beginning of the String, but can also start from a given index, allowing for the locating of all instances of the character or String.
 
 ```cpp
@@ -17425,6 +18823,8 @@ Parameters:
 Returns: The index of val within the String, or -1 if not found.
 
 ### lastIndexOf()
+
+{{api name1="String::lastIndexOf"}}
 
 Locates a character or String within another String. By default, searches from the end of the String, but can also work backwards from a given index, allowing for the locating of all instances of the character or String.
 
@@ -17444,6 +18844,9 @@ Returns: The index of val within the String, or -1 if not found.
 
 ### length()
 
+{{api name1="String::length"}}
+
+
 Returns the length of the String, in characters. (Note that this doesn't include a trailing null character.)
 
 ```cpp
@@ -17458,6 +18861,8 @@ Parameters:
 Returns: The length of the String in characters.
 
 ### remove()
+
+{{api name1="String::remove"}}
 
 The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
 
@@ -17477,6 +18882,8 @@ Returns: None
 
 ### replace()
 
+{{api name1="String::replace"}}
+
 The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring.
 
 ```cpp
@@ -17493,6 +18900,8 @@ Parameters:
 Returns: None
 
 ### reserve()
+
+{{api name1="String::reserve"}}
 
 The String reserve() function allows you to allocate a buffer in memory for manipulating strings.
 
@@ -17535,6 +18944,8 @@ void loop() {
 
 ### setCharAt()
 
+{{api name1="String::setCharAt"}}
+
 Sets a character of the String. Has no effect on indices outside the existing length of the String.
 
 ```cpp
@@ -17550,6 +18961,8 @@ Parameters:
 Returns: None
 
 ### startsWith()
+
+{{api name1="String::startsWith"}}
 
 Tests whether or not a String starts with the characters of another String.
 
@@ -17570,6 +18983,8 @@ Returns:
 
 ### substring()
 
+{{api name1="String::substring"}}
+
 Get a substring of a String. The starting index is inclusive (the corresponding character is included in the substring), but the optional ending index is exclusive (the corresponding character is not included in the substring). If the ending index is omitted, the substring continues to the end of the String.
 
 ```cpp
@@ -17588,6 +19003,8 @@ Returns: the substring
 
 ### toCharArray()
 
+{{api name1="String::toCharArray"}}
+
 Copies the string's characters to the supplied buffer.
 
 ```cpp
@@ -17604,6 +19021,8 @@ Returns: None
 
 ### toFloat()
 
+{{api name1="String::toFloat"}}
+
 Converts a valid String to a float. The input string should start with a digit. If the string contains non-digit characters, the function will stop performing the conversion. For example, the strings "123.45", "123", and "123fish" are converted to 123.45, 123.00, and 123.00 respectively. Note that "123.456" is approximated with 123.46. Note too that floats have only 6-7 decimal digits of precision and that longer strings might be truncated.
 
 ```cpp
@@ -17618,6 +19037,8 @@ Parameters:
 Returns: float (If no valid conversion could be performed because the string doesn't start with a digit, a zero is returned.)
 
 ### toInt()
+
+{{api name1="String::toInt"}}
 
 Converts a valid String to an integer. The input string should start with an integral number. If the string contains non-integral numbers, the function will stop performing the conversion.
 
@@ -17634,6 +19055,8 @@ Returns: long (If no valid conversion could be performed because the string does
 
 ### toLowerCase()
 
+{{api name1="String::toLowerCase"}}
+
 Get a lower-case version of a String. `toLowerCase()` modifies the string in place.
 
 ```cpp
@@ -17648,6 +19071,8 @@ Parameters:
 Returns: None
 
 ### toUpperCase()
+
+{{api name1="String::toUpperCase"}}
 
 Get an upper-case version of a String. `toUpperCase()` modifies the string in place.
 
@@ -17664,6 +19089,8 @@ Returns: None
 
 ### trim()
 
+{{api name1="String::trim"}}
+
 Get a version of the String with any leading and trailing whitespace removed.
 
 ```cpp
@@ -17679,6 +19106,9 @@ Returns: None
 
 
 ## Stream Class
+
+{{api name1="Stream"}}
+
 Stream is the base class for character and binary based streams. It is not called directly, but invoked whenever you use a function that relies on it.  The Particle Stream Class is based on the Arduino Stream Class.
 
 Stream defines the reading functions in Particle. When using any core functionality that uses a read() or similar method, you can safely assume it calls on the Stream class. For functions like print(), Stream inherits from the Print class.
@@ -17690,6 +19120,9 @@ Some of the Particle classes that rely on Stream include :
 `UDP`
 
 ### setTimeout()
+
+{{api name1="Stream::setTimeout"}}
+
 `setTimeout()` sets the maximum milliseconds to wait for stream data, it defaults to 1000 milliseconds.
 
 ```cpp
@@ -17705,6 +19138,9 @@ Parameters:
 Returns: None
 
 ### find()
+
+{{api name1="Stream::find"}}
+
 `find()` reads data from the stream until the target string of given length is found.
 
 ```cpp
@@ -17722,6 +19158,9 @@ Parameters:
 Returns: returns true if target string is found, false if timed out
 
 ### findUntil()
+
+{{api name1="Stream::findUntil"}}
+
 `findUntil()` reads data from the stream until the target string or terminator string is found.
 
 ```cpp
@@ -17740,6 +19179,9 @@ Parameters:
 Returns: returns true if target string or terminator string is found, false if timed out
 
 ### readBytes()
+
+{{api name1="Stream::readBytes"}}
+
 `readBytes()` read characters from a stream into a buffer. The function terminates if the determined length has been read, or it times out.
 
 ```cpp
@@ -17756,6 +19198,9 @@ Parameters:
 Returns: returns the number of characters placed in the buffer (0 means no valid data found)
 
 ### readBytesUntil()
+
+{{api name1="Stream::readBytesUntil"}}
+
 `readBytesUntil()` reads characters from a stream into a buffer. The function terminates if the terminator character is detected, the determined length has been read, or it times out.
 
 ```cpp
@@ -17773,6 +19218,9 @@ Parameters:
 Returns: returns the number of characters placed in the buffer (0 means no valid data found)
 
 ### readString()
+
+{{api name1="Stream::readString"}}
+
 `readString()` reads characters from a stream into a string. The function terminates if it times out.
 
 ```cpp
@@ -17787,6 +19235,9 @@ Parameters:
 Returns: the entire string read from stream (String)
 
 ### readStringUntil()
+
+{{api name1="Stream::readStringUntil"}}
+
 `readStringUntil()` reads characters from a stream into a string until a terminator character is detected. The function terminates if it times out.
 
 ```cpp
@@ -17802,6 +19253,9 @@ Parameters:
 Returns: the entire string read from stream, until the terminator character is detected
 
 ### parseInt()
+
+{{api name1="Stream::parseInt"}}
+
 `parseInt()` returns the first valid (long) integer value from the current position under the following conditions:
 
  - Initial characters that are not digits or a minus sign, are skipped;
@@ -17821,6 +19275,9 @@ Parameters:
 Returns: parsed int value (long). If no valid digits were read when the time-out occurs, 0 is returned.
 
 ### parseFloat()
+
+{{api name1="Stream::parseFloat"}}
+
 `parseFloat()` as `parseInt()` but returns the first valid floating point value from the current position.
 
 ```cpp
@@ -17871,6 +19328,8 @@ The Particle JSON library is based on [JSMN](https://github.com/zserge/jsmn) for
 - You can't encode circular structures with JSON.
 
 ### JSONWriter
+
+{{api name1="JSONWriter"}}
 
 The `JSONWriter` object creates JSON objects and arrays. While you can create JSON objects using things like `sprintf` the `JSONWriter` has a number of advantages:
 
@@ -17926,6 +19385,8 @@ The sprintf-style code above created a 12,212 byte binary. The JSONWriter create
 
 
 #### JSONWriter::beginArray()
+
+{{api name1="JSONWriter::beginArray"}}
 
 Creates an array. This can be a top-level array, or an array as a value with an object at a specific key.
 
@@ -17984,6 +19445,8 @@ writer.endObject();
 
 #### JSONWriter::endArray()
 
+{{api name1="JSONWriter::endArray"}}
+
 ```cpp
 // PROTOTYPE
 JSONWriter& endArray();
@@ -17993,6 +19456,8 @@ Closes an array. You must always balance `beginArray()` with an `endArray()`.
 
 
 #### JSONWriter::beginObject()
+
+{{api name1="JSONWriter::beginObject"}}
 
 ```cpp
 // PROTOTYPE
@@ -18016,6 +19481,8 @@ Begins a new object. The outermost object is not created automatically, so you a
 
 #### JSONWriter::endObject()
 
+{{api name1="JSONWriter::endObject"}}
+
 ```cpp
 // PROTOTYPE
 JSONWriter& endObject();
@@ -18026,6 +19493,8 @@ Closes an object. You must always balance `beginObject()` with `endObject()`.
 ---
 
 #### JSONWriter::name(const char *name)
+
+{{api name1="JSONWriter::name"}}
 
 ```cpp
 // PROTOTYPE
@@ -18082,6 +19551,8 @@ Sets the name of a key/value pair from a `String` object.
 ---
 
 #### JsonWriter::value(bool val)
+
+{{api name1="JSONWriter::value"}}
 
 ```cpp
 // PROTOTYPE
@@ -18228,6 +19699,8 @@ The value is escaped so it can contain double quote, backslash, and other specia
 
 #### JsonWriter::nullValue()
 
+{{api name1="JSONWriter::nullValue"}}
+
 ```cpp
 // PROTOTYPE
 JSONWriter& nullValue();
@@ -18250,6 +19723,8 @@ Adds a null value to an object. This is a special JSON value, and is not the sam
 
 
 ### JSONBufferWriter
+
+{{api name1="JSONWriter::JSONBufferWriter"}}
 
 Writes a JSON object to a buffer in RAM. You must pre-allocate the buffer larger than the maximum size of the object you intend to create.
 
@@ -18296,6 +19771,8 @@ The reason is that `writer.dataSize()` is the size the data would be if it fit. 
 
 #### JSONBufferWriter::buffer()
 
+{{api name1="JSONBufferWriter::buffer"}}
+
 ```
 // PROTOTYPE
 char* buffer() const;
@@ -18304,6 +19781,8 @@ char* buffer() const;
 Returns the buffer you passed into the constructor.
 
 #### JSONBufferWriter::bufferSize()
+
+{{api name1="JSONBufferWriter::bufferSize"}}
 
 ```
 // PROTOTYPE
@@ -18314,6 +19793,8 @@ Returns the buffer size passed into the constructor.
 
 #### JSONBufferWriter::dataSize()
 
+{{api name1="JSONBufferWriter::dataSize"}}
+
 ```
 // PROTOTYPE
 size_t dataSize() const;
@@ -18323,6 +19804,8 @@ Returns the actual data size, which may be larger than `bufferSize()`. If the da
 
 
 ### JSONStreamWriter
+
+{{api name1="JSONStreamWriter"}}
 
 You can use `JSONStreamWriter` to write JSON directly to a `Stream` that implements the `Print` interface. 
 
@@ -18340,6 +19823,8 @@ Constructs a `JSONWriter` that writes to a `Print` interface.
 
 
 #### JSONStreamWriter::stream()
+
+{{api name1="JSONStreamWriter::stream"}}
 
 ```cpp
 // PROTOTYPE
@@ -18363,6 +19848,8 @@ There are some limitations to be aware of:
 However, it is a fast and efficient parser, and since the JSMN parser is part of Device OS, it saves on code space.
 
 ### JSONValue
+
+{{api name1="JSONValue"}}
 
 ```cpp
 // EXAMPLE
@@ -18404,6 +19891,8 @@ In this example, `parseCopy()` is used because a subscription handler data must 
 
 #### JSONValue::isNull()
 
+{{api name1="JSONValue::isNull"}}
+
 ```cpp
 // PROTOTYPE
 bool isNull() const;
@@ -18414,6 +19903,8 @@ Returns true if the value is the JSON null value, like `{"value":null}`. This is
 
 #### JSONValue::isBool()
 
+{{api name1="JSONValue::isBool"}}
+
 ```cpp
 // PROTOTYPE
 bool isBool() const;
@@ -18422,6 +19913,8 @@ bool isBool() const;
 Returns true if the value is the JSON boolean value, like `{"value":true}` or `{"value":false}`. This is different than just being 0 or 1!
 
 #### JSONValue::isNumber()
+
+{{api name1="JSONValue::isNumber"}}
 
 ```cpp
 // PROTOTYPE
@@ -18432,6 +19925,8 @@ Returns true if the value is the JSON number value, either int or double, like `
 
 #### JSONValue::isString()
 
+{{api name1="JSONValue::isString"}}
+
 ```cpp
 // PROTOTYPE
 bool isString() const;
@@ -18440,6 +19935,8 @@ bool isString() const;
 Returns true if the value is the JSON string value, like `{"value":"testing"}`.
 
 #### JSONValue::isArray()
+
+{{api name1="JSONValue::isArray"}}
 
 ```cpp
 // PROTOTYPE
@@ -18450,6 +19947,9 @@ Returns true if the value is the JSON array value, like `[1,2,3]`.
 
 #### JSONValue::isObject()
 
+{{api name1="JSONValue::isObjecvt"}}
+
+
 ```cpp
 // PROTOTYPE
 bool isObject() const;
@@ -18458,6 +19958,8 @@ bool isObject() const;
 Returns true if the value is a JSON object, like `{"a":123,"b":"testing"}`.
 
 #### JSONValue::type()
+
+{{api name1="JSONValue::type"}}
 
 ```cpp
 // PROTOTYPE
@@ -18479,6 +19981,8 @@ Instead of using `isNumber()` for example, you can use `type()` and check it aga
 
 #### JSONValue::toBool()
 
+{{api name1="JSONValue::toBool"}}
+
 ```
 // PROTOTYPE
 bool toBool() const;
@@ -18493,6 +19997,8 @@ Converts the value to a boolean. Some type conversion is done if necessary:
 | `JSON_TYPE_STRING` | false if empty, "false", "0", or "0.0", otherwise true | 
 
 #### JSONValue::toInt()
+
+{{api name1="JSONValue::toInt"}}
 
 ```
 // PROTOTYPE
@@ -18517,6 +20023,8 @@ Beware of passing decimal values with leading zeros as they will be interpreted 
 
 #### JSONValue::toDouble()
 
+{{api name1="JSONValue::toDouble"}}
+
 ```
 // PROTOTYPE
 double toDouble() const;
@@ -18534,6 +20042,8 @@ Converts the value to a floating point double (64-bit). Some type conversion is 
 
 #### JSONValue::toString()
 
+{{api name1="JSONValue::toString"}}
+
 ```cpp
 // PROTOTYPE
 JSONString toString() const;
@@ -18547,6 +20057,8 @@ A `JSONString` is only a reference to the underlying data, and does not copy it.
 
 #### JSONValue::isValid()
 
+{{api name1="JSONValue::isValid"}}
+
 ```cpp
 // PROTOTYPE
 bool isValid() const;
@@ -18555,6 +20067,8 @@ bool isValid() const;
 Returns true if the `JSONValue` is valid. If you parse an invalid object, `isValid()` will be false.
 
 ### JSONString
+
+{{api name1="JSONString"}}
 
 The `JSONString` object is used to represent string objects and is returned from methods like `toString()` in the `JSONValue` class. Note that this is merely a view into the parsed JSON object. It does not create a separate copy of the string! 
 
@@ -18571,6 +20085,8 @@ Constructs a `JSONString` from a `JSONValue`. You will probably use the `toStrin
 
 #### JSONString::data()
 
+{{api name1="JSONString::data"}}
+
 ```cpp
 // PROTOTYPE
 const char* data() const; 
@@ -18579,6 +20095,8 @@ const char* data() const;
 Returns a c-string (null-terminated). Note that only 7-bit ASCII characters are supported. This returns a pointer to the original parsed JSON data, not a copy.
 
 #### JSONString::operator const char *()
+
+{{api name1="JSONString::operator const char *"}}
 
 ```cpp
 // PROTOTYPE
@@ -18590,6 +20108,8 @@ Returns a c-string (null-terminated). Note that only 7-bit ASCII characters are 
 
 #### JSONString::operator String()
 
+{{api name1="JSONString::operator String"}}
+
 ```cpp
 // PROTOTYPE
 explicit operator String() const;
@@ -18598,6 +20118,8 @@ explicit operator String() const;
 Returns a `String` object containing a copy of the string data. Note that only 7-bit ASCII characters are supported.
 
 #### JSONString::size()
+
+{{api name1="JSONString::size"}}
 
 ```cpp
 // PROTOTYPE
@@ -18610,6 +20132,8 @@ The `size()` method is fast, <i>O</i>(1), as the length is stored in the parsed 
 
 #### JSONString::isEmpty()
 
+{{api name1="JSONString::isEmpty"}}
+
 ```cpp
 // PROTOTYPE
 bool isEmpty() const;
@@ -18618,6 +20142,8 @@ bool isEmpty() const;
 Returns true if the string is empty, false if not.
 
 #### JSONString::operator==()
+
+{{api name1="JSONString::operator=="}}
 
 ```cpp
 // PROTOTYPES
@@ -18630,6 +20156,8 @@ Tests for equality with another string. Uses `strncmp` internally.
 
 #### JSONString::operator!=()
 
+{{api name1="JSONString::operator!="}}
+
 ```cpp
 // PROTOTYPES
 bool operator!=(const char *str) const;
@@ -18640,6 +20168,8 @@ bool operator!=(const JSONString &str) const;
 Tests for inequality with another string.
 
 ### JSONObjectIterator
+
+{{api name1="JSONObjectIterator"}}
 
 ```cpp
 // EXAMPLE
@@ -18729,6 +20259,8 @@ Construct an iterator from a `JSONValue`. This can be the whole object, or you c
 
 #### JSONObjectIterator::next()
 
+{{api name1="JSONObjectIterator::next"}}
+
 ```cpp
 // PROTOTYPE
 bool next();
@@ -18740,6 +20272,8 @@ There is no rewind function to go back to the beginning. To start over, construc
 
 #### JSONObjectIterator::name()
 
+{{api name1="JSONObjectIterator::name"}}
+
 ```cpp
 // PROTOTYPE
 JSONString name() const;
@@ -18748,6 +20282,8 @@ JSONString name() const;
 Returns the name of the current name/value pair in the object. The name must be 7-bit ASCII but can contain characters that require escaping (like double quotes and backslash). To get a `const char *` you can use `iter.name().data()`.
 
 #### JSONObjectIterator::value()
+
+{{api name1="JSONObjectIterator::value"}}
 
 ```cpp
 // PROTOTYPE
@@ -18764,6 +20300,8 @@ You will typically use methods of `JSONValue` like `toInt()`, `toBool()`, `toDou
 
 #### JSONObjectIterator::count()
 
+{{api name1="JSONObjectIterator::count"}}
+
 ```cpp
 // PROTOTYPE
 size_t count() const;
@@ -18773,6 +20311,8 @@ Returns the count of the number of remaining key/value pairs. As you call `next(
 
 
 ### JSONArrayIterator
+
+{{api name1="JSONArrayIterator"}}
 
 ```cpp
 // EXAMPLE
@@ -18811,6 +20351,8 @@ Construct an array iterator.
 
 #### JSONArrayIterator::next()
 
+{{api name1="JSONArrayIterator::next"}}
+
 ```cpp
 // PROTOTYPE
 bool next();
@@ -18821,6 +20363,8 @@ Call `next()` before accessing `value()`. Then each subsequent call will get the
 There is no rewind function to go back to the beginning. To start over, construct a new `JSONArrayIterator` from the `JSONValue` again.
 
 #### JSONArrayIterator::value()
+
+{{api name1="JSONArrayIterator::value"}}
 
 ```cpp
 // PROTOTYPE
@@ -18836,6 +20380,9 @@ You will typically use methods of `JSONValue` like `toInt()`, `toBool()`, `toDou
 - `iter.value().toString().data()`: Returns a `const char *`. You can assign this to a `String` to copy the value, if desired.
 
 #### JSONArrayIterator::count()
+
+{{api name1="JSONArrayIterator::count"}}
+
 ```cpp
 // PROTOTYPE
 size_t count() const;
@@ -18964,7 +20511,7 @@ The system includes a number of logging statements if it is having trouble conne
 
 {{since when="0.6.0"}}
 
-This library provides various classes for logging.
+This object provides various classes for logging.
 
 ```cpp
 // EXAMPLE
@@ -19009,6 +20556,8 @@ Log.info("millis=%s", toString(System.millis()).c_str());
 ```
 
 ### Logging Levels
+
+{{api name1="LOG_LEVEL_ALL" name2="LOG_LEVEL_TRACE" name3="LOG_LEVEL_INFO" name4="LOG_LEVEL_WARN" name5="LOG_LEVEL_ERROR" name6="LOG_LEVEL_NONE"}}
 
 Every log message is always associated with some logging level that describes _severity_ of the message. Supported logging levels are defined by the `LogLevel` enum (from lowest to highest level):
 
@@ -19160,6 +20709,8 @@ The example application specifies `code` and `details` attributes for the error 
 
 ### Log Handlers
 
+{{api name1="SerialLogHandler" name2="Serial1LogHandler"}}
+
 In order to enable logging, application needs to instantiate at least one log handler. If necessary, several different log handlers can be instantiated at the same time.
 
 ```cpp
@@ -19213,6 +20764,8 @@ The log handlers below are written by the community and are not considered "Offi
 
 ### Logger Class
 
+{{api name1="Logger"}}
+
 This class is used to generate log messages. The library also provides default instance of this class named `Log`, which can be used for all typical logging operations.
 
 `Logger()`  
@@ -19253,6 +20806,9 @@ Log.error("This is error message");
 // Format text message
 Log.info("The secret of everything is %d", 42);
 ```
+
+{{api name1="Log.trace" name2="Log.info" name3="Log.warn" name4="Log.error"}}
+
 
 Generate trace, info, warning or error message respectively.
 
@@ -19476,6 +21032,9 @@ The following documentation is based on the Arduino reference which can be found
 ### Structure
 
 #### setup()
+
+{{api name1="setup"}}
+
 The setup() function is called when an application starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or device reset.
 
 ```cpp
@@ -19497,6 +21056,9 @@ void loop()
 ```
 
 #### loop()
+
+{{api name1="loop"}}
+
 After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.  A return may be used to exit the loop() before it completely finishes.
 
 ```cpp
@@ -20439,6 +22001,8 @@ So if:
 
 #### HIGH | LOW
 
+{{api name1="HIGH" name2="LOW"}}
+
 When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: HIGH and LOW.
 
 `HIGH`
@@ -20493,6 +22057,9 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 
 #### void
 
+{{api name1="void"}}
+
+
 The `void` keyword is used only in function declarations. It indicates that the function is expected to return no information to the function from which it was called.
 
 ```cpp
@@ -20513,6 +22080,8 @@ void loop()
 ```
 
 #### boolean
+
+{{api name1="boolean"}}
 
 A `boolean` holds one of two values, `true` or `false`. (Each boolean variable occupies one byte of memory.)
 
@@ -20544,6 +22113,8 @@ void loop()
 
 #### char
 
+{{api name1="char"}}
+
 A data type that takes up 1 byte of memory that stores a character value. Character literals are written in single quotes, like this: 'A' (for multiple characters - strings - use double quotes: "ABC").
 Characters are stored as numbers however. You can see the specific encoding in the ASCII chart. This means that it is possible to do arithmetic on characters, in which the ASCII value of the character is used (e.g. 'A' + 1 has the value 66, since the ASCII value of the capital letter A is 65). See Serial.println reference for more on how characters are translated to numbers.
 The char datatype is a signed type, meaning that it encodes numbers from -128 to 127. For an unsigned, one-byte (8 bit) data type, use the `byte` data type.
@@ -20557,6 +22128,8 @@ char myChar = 65;      // both are equivalent
 
 #### unsigned char
 
+{{api name1="unsigned char"}}
+
 An unsigned data type that occupies 1 byte of memory. Same as the `byte` datatype.
 The unsigned char datatype encodes numbers from 0 to 255.
 For consistency of Arduino programming style, the `byte` data type is to be preferred.
@@ -20569,6 +22142,8 @@ unsigned char myChar = 240;
 
 #### byte
 
+{{api name1="byte"}}
+
 A byte stores an 8-bit unsigned number, from 0 to 255.
 
 ```cpp
@@ -20578,6 +22153,8 @@ byte b = 0x11;
 ```
 
 #### int
+
+{{api name1="int"}}
 
 Integers are your primary data-type for number storage. On the Photon/Electron, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
 int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
@@ -20590,6 +22167,8 @@ Other variations:
 
 #### unsigned int
 
+{{api name1="unsigned int"}}
+
 The Photon/Electron stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
 The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
 
@@ -20601,13 +22180,19 @@ Other variations:
 
 #### word
 
+{{api name1="word"}}
+
 `word` stores a 32-bit unsigned number, from 0 to 4,294,967,295.
 
 #### long
 
+{{api name1="long"}}
+
 Long variables are extended size variables for number storage, and store 32 bits (4 bytes), from -2,147,483,648 to 2,147,483,647.
 
 #### unsigned long
+
+{{api name1="unsigned long"}}
 
 Unsigned long variables are extended size variables for number storage, and store 32 bits (4 bytes). Unlike standard longs unsigned longs won't store negative numbers, making their range from 0 to 4,294,967,295 (2^32 - 1).
 
@@ -20617,12 +22202,16 @@ A short is a 16-bit data-type. This yields a range of -32,768 to 32,767 (minimum
 
 #### float
 
+{{api name1="float"}}
+
 Datatype for floating-point numbers, a number that has a decimal point. Floating-point numbers are often used to approximate analog and continuous values because they have greater resolution than integers. Floating-point numbers can be as large as 3.4028235E+38 and as low as -3.4028235E+38. They are stored as 32 bits (4 bytes) of information.
 
 Floating point numbers are not exact, and may yield strange results when compared. For example 6.0 / 3.0 may not equal 2.0. You should instead check that the absolute value of the difference between the numbers is less than some small number.
 Floating point math is also much slower than integer math in performing calculations, so should be avoided if, for example, a loop has to run at top speed for a critical timing function. Programmers often go to some lengths to convert floating point calculations to integer math to increase speed.
 
 #### double
+
+{{api name1="double"}}
 
 Double precision floating point number. On the Photon/Electron, doubles have 8-byte (64 bit) precision.
 
@@ -20763,6 +22352,8 @@ For advanced use cases, those functions are available for use in addition to the
 
 ### sprintf
 
+{{api name1="sprintf" name2="snprintf" name3="printf" name4="vsprintf" name5="vsnprintf"}}
+
 One commonly used function in the standard C library is `sprintf()`, which is used to format a string with variables. This also includes variations like `snprintf()` and also functions that call `snprintf()` internally, like `Log.info()` and `String::format()`.
 
 This example shows several common formatting techiques along with the expected output.
@@ -20896,6 +22487,8 @@ Note: `sscanf()` does not support the `%f` scanning option to scan for floating 
 
 
 ## Preprocessor
+
+{{api name1=".ino" name2="ino"}}
 
 When you are using the Particle Device Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 

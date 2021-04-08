@@ -686,10 +686,14 @@ $(document).ready(function() {
         };
 
         $(startButton).on('click', function() {
+            $(startButton).prop('disabled', true);
+            setStatus('Select device to configure...');
+
             const listening = usbSerial.listeningCommand();
             $('.apiHelperWiFiSetupInstructions').hide();
             $('.apiHelperWiFiSetupInstructions').hide();
-            $('.apiHelperWiFiSetupStatus').html('');
+
+            setStatus('Configuring device...');
         
             listening.connect({
                 showWifiListeningDevices:true,            
@@ -726,6 +730,7 @@ $(document).ready(function() {
                                         // results.timeout
                                         setStatus('Timed out communicating with the device.<br/>Reset your device and enter listening mode again before attempting again.');
                                     }
+                                    $(startButton).prop('disabled', false);
 
                                     listening.disconnect();
                                 }
