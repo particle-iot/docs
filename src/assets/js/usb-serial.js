@@ -389,6 +389,13 @@ usbSerial.wifiSetup = function(listening, options) {
                 }
             },
             {
+                includes: 'Security 0=',
+                handler:function() {
+                    results.unknownSSID = true;
+                    completion();
+                }
+            },
+            {
                 includes: 'Password:',
                 handler:function() {
                     listening.response = '';
@@ -396,9 +403,9 @@ usbSerial.wifiSetup = function(listening, options) {
                 }
             },
             {
-                includes: 'Security 0=',
-                handler:function() {
-                    results.unknownSSID = true;
+                includes: 'couldn\'t save the credentials.',
+                handler: function() {
+                    results.invalidPassword = true;
                     completion();
                 }
             },
@@ -655,12 +662,34 @@ $(document).ready(function() {
 
         $(statusElem).html('');
 
+        $(ssidElem).on('keydown', function(ev) {
+            if (ev.key != 'Enter') {
+                return;
+            }
+
+            ev.preventDefault();
+            $(passwordElem).trigger('click');    
+        });
+
+        $(passwordElem).on('keydown', function(ev) {
+            if (ev.key != 'Enter') {
+                return;
+            }
+
+            ev.preventDefault();
+            $(startButton).trigger('click');    
+        });
+
+
         const setStatus = function (status) {
             $(statusElem).html(status);
         };
 
         $(startButton).on('click', function() {
             const listening = usbSerial.listeningCommand();
+            $('.apiHelperWiFiSetupInstructions').hide();
+            $('.apiHelperWiFiSetupInstructions').hide();
+            $('.apiHelperWiFiSetupStatus').html('');
         
             listening.connect({
                 showWifiListeningDevices:true,            
@@ -684,9 +713,14 @@ $(document).ready(function() {
 
                                     if (results.success) {
                                         setStatus('Wi-Fi settings set!');
+                                        $('.apiHelperDeviceLookup').show();
+                                        $('.apiHelperWiFiSetupInstructions').show();
                                     }
                                     else if (results.unknownSSID) {
-                                        setStatus('The SSID could not be found by the device and was not set.<br/>Reset your device and enter listening mode again before attempting again.');
+                                        setStatus('The SSID could not be found by the device and was not set.<br/>Reset your device and enter listening mode before reattempting.');
+                                    }
+                                    else if (results.invalidPassword) {
+                                        setStatus('The password was not accepted by the access point.');
                                     }
                                     else {
                                         // results.timeout

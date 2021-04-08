@@ -259,7 +259,11 @@ $(document).ready(function() {
     if (apiHelper.auth) {
         $('.apiHelperUser').text(apiHelper.auth.username);
 
-        $('.apiHelperLoggedIn').show();
+        $('.apiHelperLoggedIn').each(function() {
+            if ($(this).attr('data-hidden') != 'true') {
+                $(this).show();
+            }
+        });
     }
     else
     if (window.location.hostname.endsWith('particle.io')) {

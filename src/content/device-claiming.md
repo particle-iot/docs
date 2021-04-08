@@ -16,3 +16,5 @@ Your Photon, P1, or Argon must be connected by USB to your computer and in liste
 the status LED blinks dark blue.
 
 {{> wifi-setup }}
+
+{{> device-lookup hidden="true"}}

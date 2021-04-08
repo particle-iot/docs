@@ -320,6 +320,10 @@ Log.info("value5=%.2lf (to two decimal places)", value5);
 Any time you are printing a `String` object from `Log.info` you must do it like this:
 
 ```cpp
+String myString = "testing!";
+Log.info("message: %s", myString.c_str());
+
+// Print my local IP address (Photon, P1, and Argon):
 Log.info("ip address: %s", WiFi.localIP().toString().c_str());
 ```
 
@@ -341,7 +345,8 @@ print the normal hex format by using:
 uint8_t addr[6];
 Ethernet.macAddress(addr);
 
-Log.info("mac: %02x-%02x-%02x-%02x-%02x-%02x", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+Log.info("mac: %02x-%02x-%02x-%02x-%02x-%02x", 
+    addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
 ```
 
 Sprintf-style formatting, including `Log.info()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/). This can happen if you want to print the event code for a [System Event Handler](/reference/device-os/firmware/#system-events) which is type `system_event_t` which is 64-bits wide.
@@ -446,11 +451,11 @@ There are a number of USB to TTL serial converters available. [This one from Spa
 works well with Particle devices; it's fully compatible and has a micro-USB connector like the Photon, Electron, Argon, and Boron. 
 It works without additional drivers on Mac and Linux and there are drivers available for Windows.
 
-There are many other options:
+There are many other options, however:
 
 - Make sure your converter is a 3.3V TTL serial converter.
 - Absolutely not an RS232 converter - that will permanently damage your Particle device!
-- `FT232` is a good search term, however. It's the name of FTDI chip in many of these converters.
+- `FT232` is a good search term. It's the name of FTDI chip in many of these converters.
 - There are other chipsets like the CH340 that also work fine.
 
 A 5V TTL converter will probably work Particle Device TX to converter RX, but never connect
