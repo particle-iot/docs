@@ -163,6 +163,44 @@ apiHelper.flashDevice = function(deviceId, code, codebox) {
 
 };
 
+apiHelper.getProducts = async function() {
+    return await $.ajax({
+        dataType: 'json',
+        headers: {
+            'Accept':'application/json',
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+        },
+        method: 'GET',
+        url: 'https://api.particle.io/v1/user/products/'
+    });    
+};
+
+apiHelper.getOrgs = async function() {
+    return await $.ajax({
+        dataType: 'json',
+        headers: {
+            'Accept':'application/json',
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+        },
+        method: 'GET',
+        url: 'https://api.particle.io/v1/orgs/'
+    });    
+};
+
+apiHelper.getOrgProducts = async function(org) {
+    return await $.ajax({
+        dataType: 'json',
+        headers: {
+            'Accept':'application/json',
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+        },
+        method: 'GET',
+        url: 'https://api.particle.io/v1/orgs/' + org + '/products/'
+    });    
+};
+
+
+
 $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
@@ -221,7 +259,11 @@ $(document).ready(function() {
     if (apiHelper.auth) {
         $('.apiHelperUser').text(apiHelper.auth.username);
 
-        $('.apiHelperLoggedIn').show();
+        $('.apiHelperLoggedIn').each(function() {
+            if ($(this).attr('data-hidden') != 'true') {
+                $(this).show();
+            }
+        });
     }
     else
     if (window.location.hostname.endsWith('particle.io')) {
