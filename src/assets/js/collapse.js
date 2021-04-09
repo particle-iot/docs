@@ -5,8 +5,6 @@ $(document).ready(function() {
 		var genericCssClass = $(this).attr('name');
 		var defaultValue = $(this).attr('value');
 
-		console.log('loading default genericCssClass=' + genericCssClass + ' defaultValue=' + defaultValue);
-
 		var switchTo = localStorage.getItem(genericCssClass) || defaultValue;
     	collapseSelector(null, genericCssClass, switchTo);
 	});
@@ -44,8 +42,6 @@ $(document).ready(function() {
 		$(codeboxElem).find('.codeboxCopyButton').on('click', function() {
 			const thisCodeElem = $(codeboxElem).find('code');
 			
-			console.log('copy', thisCodeElem);
-
 			var t = document.createElement('textarea');
 			document.body.appendChild(t);
 			$(t).text($(thisCodeElem).text());
@@ -122,8 +118,6 @@ function collapseSelector(event, genericCssClass, switchTo) {
 	if (event && event.altKey) {
 		$('span.' + genericCssClass + 'optionHide').show();			
 	}
-
-	console.log('collapseSelector genericCssClass=' + genericCssClass + ' switchTo=' + switchTo);
 
 	$('div.' + genericCssClass).hide();
 	$('div.' + genericCssClass + switchTo).show();			
