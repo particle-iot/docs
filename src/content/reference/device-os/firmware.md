@@ -488,8 +488,8 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 ```
 
 
-{{#if has-udp-cloud}}
 ---
+{{note op="start" type="cellular"}}
 
 ```cpp
 // PROTOTYPES
@@ -502,16 +502,18 @@ float temperature = sensor.readTemperature();  // by way of example, not part of
 Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
 ```
 
+On Gen 2 cellular devices (Electron, E Series) and all Gen 3 devices (Argon, Boron, B Series SoM, Tracker):
+
 *`NO_ACK` flag*
 
-Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electron waits for
+Unless specified otherwise, events sent to the cloud are sent as a reliable message. The device waits for
 acknowledgement from the cloud that the event has been received, resending the event in the background up to 3 times before giving up.
 
 The `NO_ACK` flag disables this acknowledge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
 
 For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occasional lost event can be tolerated.
 
-{{/if}} {{!-- has-udp-cloud --}}
+{{note op="end"}}
 ---
 
 
@@ -798,10 +800,6 @@ It is not possible to disable the device vitals messages, however they do not co
 
 `Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
-{{#if has-gen3}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling `Particle.connect()`.
-{{/if}}
-
 ```cpp
 void setup() {}
 
@@ -817,6 +815,8 @@ After you call `Particle.connect()`, your loop will not be called again until th
 In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect-) or when you change the [system mode](#system-modes).
 
 Connecting to the cloud does not use Data Operation from your monthly or yearly quota. However, for cellular devices it does use cellular data, so unnecessary connection and disconnection can lead to increased data usage, which could result in hitting the monthly data limit for your account.
+
+On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
 ### Particle.disconnect()
 
@@ -876,12 +876,7 @@ Particle.disconnect(CloudDisconnectOptions().graceful(true).timeout(5s));
 
 Note that the actual disconnection happens asynchronously. If necessary, `waitUntil(Particle.disconnected)` can be used to wait until the device has disconnected from the Cloud.
 
-{{#if has-wifi}}
-While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use `WiFi.off()`.
-{{/if}}
-{{#if has-cellular}}
-While this function will disconnect from the Cloud, it will keep the connection to the Cellular network. If you would like to completely deactivate the Cellular module, use `Cellular.off()`.
-{{/if}}
+While this function will disconnect from the Cloud, it will keep the connection to the network. If you would like to completely deactivate the network module, use `WiFi.off()` or `Cellular.off()` as appropriate.
 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
 
@@ -940,11 +935,13 @@ Sets the options for when disconnecting from the cloud, such as from `Particle.d
 
 **Note:** This method sets the disconnection options globally, meaning that any method that causes the device to disconnect from the Cloud, such as `System.reset()`, will do so gracefully.
 
-{{#if has-udp-cloud}}
+---
 
 ### Particle.keepAlive()
 
 {{api name1="Particle.keepAlive"}}
+
+On all Gen 3 devices (Argon, Boron, B Series SoM, Tracker) and Gen 2 cellular devices:
 
 Sets the duration between keep-alive messages used to maintain the connection to the cloud.
 
@@ -971,8 +968,6 @@ Keep-alives do not use Data Operations from your monthly or yearly quota. Howeve
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `Particle.keepAlive(2min)` for 2 minutes.
 
-
-{{/if}} {{!-- has-udp-cloud --}}
 
 
 
@@ -1221,12 +1216,17 @@ void setup() {
 }
 ```
 
-{{#if has-ethernet}}
 ## Ethernet
 
 {{api name1="Ethernet"}}
 
-Ethernet is available on the Argon and Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/).
+{{note op="start" type="gen3"}}
+
+Ethernet is available on the Argon, Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board.
+
+{{note op="end"}}
+
+--
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
 
@@ -1349,10 +1349,11 @@ Ethernet.listen(false);
 Ethernet.listening();
 ```
 
-This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
-With a dedicated system thread though `Ethernet.listening()` will return `true` once `Ethernet.listen()` has been called
-or the {{system-button}} button has been held for 3 seconds, when the RGB LED should be blinking blue.
-It will return `false` when the device is not in listening mode.
+Returns true if the device is in listening mode (blinking dark blue). 
+
+This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
+user firmware from running, so you would not have an opportunity to test the value and calling this always 
+returns false.
 
 ### setListenTimeout()
 
@@ -1472,13 +1473,25 @@ DNS requests for the device's network connection. This will often be 0.0.0.0.
 `Ethernet.dhcpServerIP()` retrieves the IP address of the DHCP server that manages
 the IP address used by the device's network connection. This often will be 0.0.0.0.
 
-{{/if}}
 
 
-{{#if has-wifi}}
 ## WiFi
 
+{{note op="start" type="wifi"}}
+
 {{api name1="WiFi"}}
+
+The `WiFi` class is available on the Argon (Gen 3), Photon, and P1 (Gen 2).
+
+The `WiFi` class is not available on cellular devices such as the Boron and
+B Series SoM (Gen 3) or Electron and E Series (Gen 2).
+
+While the Tracker SoM has a Wi-Fi module for geolocation, it cannot be used for network 
+connectivity and thus it does not have the `WiFi` class.
+
+{{note op="end"}}
+
+---
 
 ### on()
 
@@ -1527,9 +1540,7 @@ WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 
 If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
-{{#if has-gen3}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
-{{/if}}
+On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
 ### disconnect()
 
@@ -1564,13 +1575,20 @@ This function will return `true` once the device is connected to the network and
 WiFi.ready();
 ```
 
-{{#if has-wifi-antenna-switch}}
 ### selectAntenna() [Antenna]
 
 {{api name1="WiFi.selectAntenna"}}
 
-Selects which antenna the device should connect to Wi-Fi with and remembers that
-setting until it is changed.
+{{note op="start" type="note"}}
+
+On the Photon and P1 (Gen 2), selects which antenna the device should connect to Wi-Fi with and remembers that
+setting until it is changed. Resetting Wi-Fi credentials does not clear the antenna setting.
+
+The Argon (Gen 3) does not have an antenna switch; it can only use an external antenna.
+
+{{note op="end"}}
+
+---
 
 ```cpp
 // SYNTAX
@@ -1611,8 +1629,6 @@ void loop() {
 }
 ```
 
-{{/if}} {{!-- has-wifi-antenna-switch --}}
-
 ### listen()
 
 {{api name1="WiFi.listen"}}
@@ -1647,12 +1663,11 @@ WiFi.listen(false);
 WiFi.listening();
 ```
 
-{{#if has-threading}}
-This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
-With a dedicated system thread though `WiFi.listening()` will return `true` once `WiFi.listen()` has been called
-or the {{system-button}} button has been held for 3 seconds, when the RGB LED should be blinking blue.
-It will return `false` when the device is not in listening mode.
-{{/if}} {{!-- has-threading --}}
+Returns true if the device is in listening mode (blinking dark blue). 
+
+This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
+user firmware from running, so you would not have an opportunity to test the value and calling this always 
+returns false.
 
 
 ### setListenTimeout()
@@ -1666,7 +1681,7 @@ It will return `false` when the device is not in listening mode.
 WiFi.setListenTimeout(seconds);
 ```
 
-`WiFi.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Wi-Fi devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (WiFi.listening()==true).  After the timer expires, listening mode will be exited automatically.  If WiFi.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  {{#if has-threading}}**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.{{/if}} 
+`WiFi.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Wi-Fi devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (WiFi.listening()==true).  After the timer expires, listening mode will be exited automatically.  If WiFi.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)). **Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
 
 
 ```cpp
@@ -1677,12 +1692,11 @@ STARTUP(WiFi.setListenTimeout(60)); // set listening mode timeout to 60 seconds
 void setup() {
   // your setup code
 }
-{{#if has-threading}}
+
 void loop() {
   // update the timeout later in code based on an expression
   if (disableTimeout) WiFi.setListenTimeout(0); // disables the listening mode timeout
 }
-{{/if}}
 ```
 
 {{since when="1.5.0"}}
@@ -1711,13 +1725,10 @@ uint16_t seconds = WiFi.getListenTimeout();
 
 Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
 
-Your device can remember more than one set of credentials:
-- Photon: remembers the 5 most recently set credentials.
-- Argon: remembers the 10 most recently set credentials.
-
-{{#if has-stm32}}
-{{since when="0.7.0"}} Photon can store one set of WPA Enterprise credentials.
-{{/if}}
+- The Photon and P1 remember the 5 most recently set credentials.
+- The Photon and P1 can store one set of WPA Enterprise credentials in Device OS 0.7.0 and later.
+- The Argon remembers the 10 most recently set credentials.
+- The Argon does not support WPA Enterprise.
 
 ```cpp
 // Connects to an unsecured network.
@@ -1734,8 +1745,7 @@ WiFi.setCredentials(ssid, password, auth);
 WiFi.setCredentials("My_Router", "wepistheworst", WEP);
 ```
 
-{{#if photon}}
-When the Photon is used with hidden or offline networks, the security cipher is also required.
+When used with hidden or offline networks, the security cipher is also required.
 
 ```cpp
 
@@ -1744,8 +1754,6 @@ When the Photon is used with hidden or offline networks, the security cipher is 
 WiFi.setCredentials(ssid, password, auth, cipher);
 WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES);
 ```
-
-{{/if}} {{!-- photon --}}
 
 ```cpp
 // Connects to a network with an authentication procedure specified by WiFiCredentials object
@@ -1757,13 +1765,18 @@ credentials.setSsid("My_Router")
 WiFi.setCredentials(credentials);
 ```
 
+---
+
 {{since when="0.7.0"}}
+
+{{note op="start" type="note"}}
+WPA Enterprise is only supported on the Photon and P1 (Gen 2). It is not supported on the Argon (Gen 3).
+{{note op="end"}}
 
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
 
 For information on setting up WPA2 Enterprise from the Particle CLI, see [this article](https://support.particle.io/hc/en-us/articles/360039741153).
 
-{{#if has-wpa-enterprise}}
 ```cpp
 // WPA2 Enterprise with EAP-TLS
 
@@ -1813,7 +1826,6 @@ credentials.setRootCertificate("-----BEGIN CERTIFICATE-----\r\n" \
 // Save credentials
 WiFi.setCredentials(credentials);
 ```
-{{/if}}
 
 Parameters:
 - `ssid`: SSID (string)
@@ -2250,13 +2262,15 @@ Note that for this value to be available requires calling `Particle.process()` a
 has connected.
 
 
-{{#if photon}}
 
 ### setStaticIP()
 
 {{api name1="WiFi.setStaticIP"}}
 
 Defines the static IP addresses used by the system to connect to the network when static IP is activated.
+
+Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
+or Ethernet (Gen 3).
 
 ```cpp
 // SYNTAX
@@ -2287,6 +2301,9 @@ Instructs the system to connect to the network using the IP addresses provided t
 
 The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
 
+Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
+or Ethernet (Gen 3).
+
 ### useDynamicIP()
 
 {{api name1="WiFi.useDynamicIP"}}
@@ -2297,6 +2314,9 @@ address from the router.
 A note on switching between static and dynamic IP. If static IP addresses have been previously configured using `WiFi.setStaticIP()`, they continue to be remembered
 by the system after calling `WiFi.useDynamicIP()`, and so are available for use next time `WiFi.useStaticIP()`
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
+
+Static IP addressing is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
+or Ethernet (Gen 3).
 
 ### setHostname()
 
@@ -2328,6 +2348,9 @@ Serial.println(WiFi.getHostname());
 Serial.println(System.deviceID());
 ```
 
+Hostname setting is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
+or Ethernet (Gen 3).
+
 ### hostname()
 
 {{api name1="WiFi.hostname"}}
@@ -2345,7 +2368,9 @@ String hostname = WiFi.hostname();
 
 By default the device uses its [device ID](#deviceid-) as hostname. See [WiFi.setHostname()](#sethostname-) for documentation on changing the hostname.
 
-{{/if}} {{!-- photon --}}
+Hostname setting is only available on the Photon and P1 (Gen 2). It is not available on the Argon 
+or Ethernet (Gen 3).
+
 
 ### WiFiCredentials class
 
@@ -2464,9 +2489,7 @@ Parameters:
 
 Sets access point password.
 
-{{#if has-wpa-enterprise}}
 When configuring credentials for WPA/WPA2 Enterprise access point with PEAP/MSCHAPv2 authentication, this function sets password for username set by [setIdentity()](#setidentity-).
-{{/if}} {{!-- has-wpa-enterprise --}}
 
 ```cpp
 // SYNTAX
@@ -2480,11 +2503,7 @@ credentials.setPassword("mypassword");
 ```
 
 Parameters:
-{{#if has-wpa-enterprise}}
 - `password`: WEP/WPA/WPA2 access point password, or user password for PEAP/MSCHAPv2 authentication (string)
-{{else}}
-- `password`: WEP/WPA/WPA2 access point password (string)
-{{/if}} {{!-- has-wpa-enterprise --}}
 
 #### setChannel()
 
@@ -2506,12 +2525,11 @@ credentials.setChannel(10);
 Parameters:
 - `channel`: WLAN channel (int)
 
-{{#if has-wpa-enterprise}}
 #### setEapType()
 
 {{api name1="WiFiCredentials::setEapType"}}
 
-Sets EAP type.
+Sets EAP type. 
 
 ```cpp
 // SYNTAX
@@ -2526,6 +2544,9 @@ credentials.setEapType(WLAN_EAP_TYPE_PEAP);
 
 Parameters:
 - `type`: EAP type. See [WLanEapType](#wlaneaptype-enum) enum for a list of supported values.
+
+This is a feature of WPA Enterprise and is only available on the Photon and P1
+(Gen 2). It is not available on the Argon (Gen 3).
 
 #### setIdentity()
 
@@ -2568,6 +2589,9 @@ credentials.setOuterIdentity("notanonymous");
 Parameters:
 - `identity`: outer identity (string)
 
+This is a feature of WPA Enterprise and is only available on the Photon and P1
+(Gen 2). It is not available on the Argon (Gen 3).
+
 #### setClientCertificate()
 
 {{api name1="WiFiCredentials::setClientCertificate"}}
@@ -2591,6 +2615,9 @@ credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
 Parameters:
 - `cert`: client certificate in PEM format (string)
 
+This is a feature of WPA Enterprise and is only available on the Photon and P1
+(Gen 2). It is not available on the Argon (Gen 3).
+
 #### setPrivateKey()
 
 {{api name1="WiFiCredentials::setPrivateKey"}}
@@ -2613,6 +2640,9 @@ credentials.setPrivateKey("-----BEGIN RSA PRIVATE KEY-----\r\n" \
 
 Parameters:
 - `key`: private key in PEM format (string)
+
+This is a feature of WPA Enterprise and is only available on the Photon and P1
+(Gen 2). It is not available on the Argon (Gen 3).
 
 #### setRootCertificate()
 
@@ -2646,6 +2676,9 @@ credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
 Parameters:
 - `cert`: one or multiple concatenated root certificates in PEM format (string)
 
+This is a feature of WPA Enterprise and is only available on the Photon and P1
+(Gen 2). It is not available on the Argon (Gen 3).
+
 ### WLanEapType Enum
 
 {{api name1="WLanEapType"}}
@@ -2657,7 +2690,8 @@ This enum defines EAP types.
 | `WLAN_EAP_TYPE_PEAP` | PEAPv0/EAP-MSCHAPv2 (draft-josefsson-pppext-eap-tls-eap-06.txt) |
 | `WLAN_EAP_TYPE_TLS`  | EAP-TLS (RFC 2716)                                              |
 
-{{/if}} {{!-- has-wpa-enterprise --}}
+This is a feature of WPA Enterprise and is only available on the Photon and P1
+(Gen 2). It is not available on the Argon (Gen 3).
 
 ### SecurityType Enum
 
@@ -2687,13 +2721,18 @@ This enum defines wireless security ciphers.
 | `WLAN_CIPHER_TKIP`     | TKIP cipher        |
 | `WLAN_CIPHER_AES_TKIP` | AES or TKIP cipher |
 
-{{/if}} {{!-- has-wifi --}}
 
 
-{{#if has-softap}}
 ## SoftAP HTTP Pages
 
 {{api name1="SoftAP"}}
+
+{{note op="start" type="note"}}
+SoftAP is available only on the Photon and P1 (Gen 2). 
+
+It is not available on cellular devices or on the Argon (Gen 3 Wi-Fi).
+{{note op="end"}}
+
 
 {{since when="0.5.0"}}
 
@@ -2807,96 +2846,21 @@ if (strcmp(url,"/index")==0) {
 
 ### Complete Example
 
+The example source code can be downloaded [here](/assets/files/softap-example.cpp).
+
 Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to GitHub user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/device-os/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
 
 
-
-```
-#include "Particle.h"
-#include "softap_http.h"
-
-struct Page
-{
-    const char* url;
-    const char* mime_type;
-    const char* data;
-};
-
-
-const char index_html[] = "<!DOCTYPE html><html><head><meta name='viewport' content='width=device-width, initial-scale=1'><title>Setup your device</title><link rel='stylesheet' type='text/css' href='style.css'></head><body><h1>Connect me to your WiFi!</h1><h3>My device ID:</h3><input type=text id='device-id' size='25' value='' disabled/><button type='button' class='input-helper' id='copy-button'>Copy</button><div id='scan-div'><h3>Scan for visible WiFi networks</h3><button id='scan-button' type='button'>Scan</button></div><div id='networks-div'></div><div id='connect-div' style='display: none'><p>Don't see your network? Move me closer to your router, then re-scan.</p><form id='connect-form'><input type='password' id='password' size='25' placeholder='password'/><button type='button' class='input-helper' id='show-button'>Show</button><button type='submit' id='connect-button'>Connect</button></form></div><script src='rsa-utils/jsbn_1.js'></script><script src='rsa-utils/jsbn_2.js'></script><script src='rsa-utils/prng4.js'></script><script src='rsa-utils/rng.js'></script><script src='rsa-utils/rsa.js'></script><script src='script.js'></script></body></html>";
-
-const char rsa_js[] = "function parseBigInt(a,b){return new BigInteger(a,b);}function linebrk(a,b){var c='';var d=0;while(d+b<a.length){c+=a.substring(d,d+b)+'\\n';d+=b;}return c+a.substring(d,a.length);}function byte2Hex(a){if(a<0x10)return '0'+a.toString(16);else return a.toString(16);}function pkcs1pad2(a,b){if(b<a.length+11){alert('Message too long for RSA');return null;}var c=new Array();var d=a.length-1;while(d>=0&&b>0){var e=a.charCodeAt(d--);if(e<128)c[--b]=e;else if((e>127)&&(e<2048)){c[--b]=(e&63)|128;c[--b]=(e>>6)|192;}else{c[--b]=(e&63)|128;c[--b]=((e>>6)&63)|128;c[--b]=(e>>12)|224;}}c[--b]=0;var f=new SecureRandom();var g=new Array();while(b>2){g[0]=0;while(g[0]==0)f.nextBytes(g);c[--b]=g[0];}c[--b]=2;c[--b]=0;return new BigInteger(c);}function RSAKey(){this.n=null;this.e=0;this.d=null;this.p=null;this.q=null;this.dmp1=null;this.dmq1=null;this.coeff=null;}function RSASetPublic(a,b){if(a!=null&&b!=null&&a.length>0&&b.length>0){this.n=parseBigInt(a,16);this.e=parseInt(b,16);}else alert('Invalid RSA public key');}function RSADoPublic(a){return a.modPowInt(this.e,this.n);}function RSAEncrypt(a){var b=pkcs1pad2(a,(this.n.bitLength()+7)>>3);if(b==null)return null;var c=this.doPublic(b);if(c==null)return null;var d=c.toString(16);if((d.length&1)==0)return d;else return '0'+d;}RSAKey.prototype.doPublic=RSADoPublic;RSAKey.prototype.setPublic=RSASetPublic;RSAKey.prototype.encrypt=RSAEncrypt;";
-
-const char style_css[] = "html{height:100%;margin:auto;background-color:white}body{box-sizing:border-box;min-height:100%;padding:20px;background-color:#1aabe0;font-family:'Lucida Sans Unicode','Lucida Grande',sans-serif;font-weight:normal;color:white;margin-top:0;margin-left:auto;margin-right:auto;margin-bottom:0;max-width:400px;text-align:center;border:1px solid #6e6e70;border-radius:4px}div{margin-top:25px;margin-bottom:25px}h1{margin-top:25px;margin-bottom:25px}button{border-color:#1c75be;background-color:#1c75be;color:white;border-radius:5px;height:30px;font-size:15px;font-weight:bold}button.input-helper{background-color:#bebebe;border-color:#bebebe;color:#6e6e70;margin-left:3px}button:disabled{background-color:#bebebe;border-color:#bebebe;color:white}input[type='text'],input[type='password']{background-color:white;color:#6e6e70;border-color:white;border-radius:5px;height:25px;text-align:center;font-size:15px}input:disabled{background-color:#bebebe;border-color:#bebebe}input[type='radio']{position:relative;bottom:-0.33em;margin:0;border:0;height:1.5em;width:15%}label{padding-top:7px;padding-bottom:7px;padding-left:5%;display:inline-block;width:80%;text-align:left}input[type='radio']:checked+label{font-weight:bold;color:#1c75be}.scanning-error{font-weight:bold;text-align:center}.radio-div{box-sizing:border-box;margin:2px;margin-left:auto;margin-right:auto;background-color:white;color:#6e6e70;border:1px solid #6e6e70;border-radius:3px;width:100%;padding:5px}#networks-div{margin-left:auto;margin-right:auto;text-align:left}#device-id{text-align:center}#scan-button{min-width:100px}#connect-button{display:block;min-width:100px;margin-top:10px;margin-left:auto;margin-right:auto;margin-bottom:20px}#password{margin-top:20px;margin-bottom:10px}";
-
-const char rng_js[] = "var rng_state;var rng_pool;var rng_pptr;function rng_seed_int(a){rng_pool[rng_pptr++]^=a&255;rng_pool[rng_pptr++]^=(a>>8)&255;rng_pool[rng_pptr++]^=(a>>16)&255;rng_pool[rng_pptr++]^=(a>>24)&255;if(rng_pptr>=rng_psize)rng_pptr-=rng_psize;}function rng_seed_time(){rng_seed_int(new Date().getTime());}if(rng_pool==null){rng_pool=new Array();rng_pptr=0;var t;if(window.crypto&&window.crypto.getRandomValues){var ua=new Uint8Array(32);window.crypto.getRandomValues(ua);for(t=0;t<32;++t)rng_pool[rng_pptr++]=ua[t];}if(navigator.appName=='Netscape'&&navigator.appVersion<'5'&&window.crypto){var z=window.crypto.random(32);for(t=0;t<z.length;++t)rng_pool[rng_pptr++]=z.charCodeAt(t)&255;}while(rng_pptr<rng_psize){t=Math.floor(65536*Math.random());rng_pool[rng_pptr++]=t>>>8;rng_pool[rng_pptr++]=t&255;}rng_pptr=0;rng_seed_time();}function rng_get_byte(){if(rng_state==null){rng_seed_time();rng_state=prng_newstate();rng_state.init(rng_pool);for(rng_pptr=0;rng_pptr<rng_pool.length;++rng_pptr)rng_pool[rng_pptr]=0;rng_pptr=0;}return rng_state.next();}function rng_get_bytes(a){var b;for(b=0;b<a.length;++b)a[b]=rng_get_byte();}function SecureRandom(){}SecureRandom.prototype.nextBytes=rng_get_bytes;";
-
-const char jsbn_2_js[] = "function bnpRShiftTo(a,b){b.s=this.s;var c=Math.floor(a/this.DB);if(c>=this.t){b.t=0;return;}var d=a%this.DB;var e=this.DB-d;var f=(1<<d)-1;b[0]=this[c]>>d;for(var g=c+1;g<this.t;++g){b[g-c-1]|=(this[g]&f)<<e;b[g-c]=this[g]>>d;}if(d>0)b[this.t-c-1]|=(this.s&f)<<e;b.t=this.t-c;b.clamp();}function bnpSubTo(a,b){var c=0,d=0,e=Math.min(a.t,this.t);while(c<e){d+=this[c]-a[c];b[c++]=d&this.DM;d>>=this.DB;}if(a.t<this.t){d-=a.s;while(c<this.t){d+=this[c];b[c++]=d&this.DM;d>>=this.DB;}d+=this.s;}else{d+=this.s;while(c<a.t){d-=a[c];b[c++]=d&this.DM;d>>=this.DB;}d-=a.s;}b.s=(d<0)?-1:0;if(d<-1)b[c++]=this.DV+d;else if(d>0)b[c++]=d;b.t=c;b.clamp();}function bnpMultiplyTo(a,b){var c=this.abs(),d=a.abs();var e=c.t;b.t=e+d.t;while(--e>=0)b[e]=0;for(e=0;e<d.t;++e)b[e+c.t]=c.am(0,d[e],b,e,0,c.t);b.s=0;b.clamp();if(this.s!=a.s)BigInteger.ZERO.subTo(b,b);}function bnpSquareTo(a){var b=this.abs();var c=a.t=2*b.t;while(--c>=0)a[c]=0;for(c=0;c<b.t-1;++c){var d=b.am(c,b[c],a,2*c,0,1);if((a[c+b.t]+=b.am(c+1,2*b[c],a,2*c+1,d,b.t-c-1))>=b.DV){a[c+b.t]-=b.DV;a[c+b.t+1]=1;}}if(a.t>0)a[a.t-1]+=b.am(c,b[c],a,2*c,0,1);a.s=0;a.clamp();}function bnpDivRemTo(a,b,c){var d=a.abs();if(d.t<=0)return;var e=this.abs();if(e.t<d.t){if(b!=null)b.fromInt(0);if(c!=null)this.copyTo(c);return;}if(c==null)c=nbi();var f=nbi(),g=this.s,h=a.s;var i=this.DB-nbits(d[d.t-1]);if(i>0){d.lShiftTo(i,f);e.lShiftTo(i,c);}else{d.copyTo(f);e.copyTo(c);}var j=f.t;var k=f[j-1];if(k==0)return;var l=k*(1<<this.F1)+((j>1)?f[j-2]>>this.F2:0);var m=this.FV/l,n=(1<<this.F1)/l,o=1<<this.F2;var p=c.t,q=p-j,r=(b==null)?nbi():b;f.dlShiftTo(q,r);if(c.compareTo(r)>=0){c[c.t++]=1;c.subTo(r,c);}BigInteger.ONE.dlShiftTo(j,r);r.subTo(f,f);while(f.t<j)f[f.t++]=0;while(--q>=0){var s=(c[--p]==k)?this.DM:Math.floor(c[p]*m+(c[p-1]+o)*n);if((c[p]+=f.am(0,s,c,q,0,j))<s){f.dlShiftTo(q,r);c.subTo(r,c);while(c[p]<--s)c.subTo(r,c);}}if(b!=null){c.drShiftTo(j,b);if(g!=h)BigInteger.ZERO.subTo(b,b);}c.t=j;c.clamp();if(i>0)c.rShiftTo(i,c);if(g<0)BigInteger.ZERO.subTo(c,c);}function bnMod(a){var b=nbi();this.abs().divRemTo(a,null,b);if(this.s<0&&b.compareTo(BigInteger.ZERO)>0)a.subTo(b,b);return b;}function Classic(a){this.m=a;}function cConvert(a){if(a.s<0||a.compareTo(this.m)>=0)return a.mod(this.m);else return a;}function cRevert(a){return a;}function cReduce(a){a.divRemTo(this.m,null,a);}function cMulTo(a,b,c){a.multiplyTo(b,c);this.reduce(c);}function cSqrTo(a,b){a.squareTo(b);this.reduce(b);}Classic.prototype.convert=cConvert;Classic.prototype.revert=cRevert;Classic.prototype.reduce=cReduce;Classic.prototype.mulTo=cMulTo;Classic.prototype.sqrTo=cSqrTo;function bnpInvDigit(){if(this.t<1)return 0;var a=this[0];if((a&1)==0)return 0;var b=a&3;b=(b*(2-(a&0xf)*b))&0xf;b=(b*(2-(a&0xff)*b))&0xff;b=(b*(2-(((a&0xffff)*b)&0xffff)))&0xffff;b=(b*(2-a*b%this.DV))%this.DV;return(b>0)?this.DV-b:-b;}function Montgomery(a){this.m=a;this.mp=a.invDigit();this.mpl=this.mp&0x7fff;this.mph=this.mp>>15;this.um=(1<<(a.DB-15))-1;this.mt2=2*a.t;}function montConvert(a){var b=nbi();a.abs().dlShiftTo(this.m.t,b);b.divRemTo(this.m,null,b);if(a.s<0&&b.compareTo(BigInteger.ZERO)>0)this.m.subTo(b,b);return b;}function montRevert(a){var b=nbi();a.copyTo(b);this.reduce(b);return b;}function montReduce(a){while(a.t<=this.mt2)a[a.t++]=0;for(var b=0;b<this.m.t;++b){var c=a[b]&0x7fff;var d=(c*this.mpl+(((c*this.mph+(a[b]>>15)*this.mpl)&this.um)<<15))&a.DM;c=b+this.m.t;a[c]+=this.m.am(0,d,a,b,0,this.m.t);while(a[c]>=a.DV){a[c]-=a.DV;a[++c]++;}}a.clamp();a.drShiftTo(this.m.t,a);if(a.compareTo(this.m)>=0)a.subTo(this.m,a);}function montSqrTo(a,b){a.squareTo(b);this.reduce(b);}function montMulTo(a,b,c){a.multiplyTo(b,c);this.reduce(c);}Montgomery.prototype.convert=montConvert;Montgomery.prototype.revert=montRevert;Montgomery.prototype.reduce=montReduce;Montgomery.prototype.mulTo=montMulTo;Montgomery.prototype.sqrTo=montSqrTo;function bnpIsEven(){return((this.t>0)?(this[0]&1):this.s)==0;}function bnpExp(a,b){if(a>0xffffffff||a<1)return BigInteger.ONE;var c=nbi(),d=nbi(),e=b.convert(this),f=nbits(a)-1;e.copyTo(c);while(--f>=0){b.sqrTo(c,d);if((a&(1<<f))>0)b.mulTo(d,e,c);else{var g=c;c=d;d=g;}}return b.revert(c);}function bnModPowInt(a,b){var c;if(a<256||b.isEven())c=new Classic(b);else c=new Montgomery(b);return this.exp(a,c);}BigInteger.prototype.copyTo=bnpCopyTo;BigInteger.prototype.fromInt=bnpFromInt;BigInteger.prototype.fromString=bnpFromString;BigInteger.prototype.clamp=bnpClamp;BigInteger.prototype.dlShiftTo=bnpDLShiftTo;BigInteger.prototype.drShiftTo=bnpDRShiftTo;BigInteger.prototype.lShiftTo=bnpLShiftTo;BigInteger.prototype.rShiftTo=bnpRShiftTo;BigInteger.prototype.subTo=bnpSubTo;BigInteger.prototype.multiplyTo=bnpMultiplyTo;BigInteger.prototype.squareTo=bnpSquareTo;BigInteger.prototype.divRemTo=bnpDivRemTo;BigInteger.prototype.invDigit=bnpInvDigit;BigInteger.prototype.isEven=bnpIsEven;BigInteger.prototype.exp=bnpExp;BigInteger.prototype.toString=bnToString;BigInteger.prototype.negate=bnNegate;BigInteger.prototype.abs=bnAbs;BigInteger.prototype.compareTo=bnCompareTo;BigInteger.prototype.bitLength=bnBitLength;BigInteger.prototype.mod=bnMod;BigInteger.prototype.modPowInt=bnModPowInt;BigInteger.ZERO=nbv(0);BigInteger.ONE=nbv(1);";
-
-const char jsbn_1_js[] = "var dbits;var canary=0xdeadbeefcafe;var j_lm=((canary&0xffffff)==0xefcafe);function BigInteger(a,b,c){if(a!=null)if('number'==typeof a)this.fromNumber(a,b,c);else if(b==null&&'string'!=typeof a)this.fromString(a,256);else this.fromString(a,b);}function nbi(){return new BigInteger(null);}function am1(a,b,c,d,e,f){while(--f>=0){var g=b*this[a++]+c[d]+e;e=Math.floor(g/0x4000000);c[d++]=g&0x3ffffff;}return e;}function am2(a,b,c,d,e,f){var g=b&0x7fff,h=b>>15;while(--f>=0){var i=this[a]&0x7fff;var j=this[a++]>>15;var k=h*i+j*g;i=g*i+((k&0x7fff)<<15)+c[d]+(e&0x3fffffff);e=(i>>>30)+(k>>>15)+h*j+(e>>>30);c[d++]=i&0x3fffffff;}return e;}function am3(a,b,c,d,e,f){var g=b&0x3fff,h=b>>14;while(--f>=0){var i=this[a]&0x3fff;var j=this[a++]>>14;var k=h*i+j*g;i=g*i+((k&0x3fff)<<14)+c[d]+e;e=(i>>28)+(k>>14)+h*j;c[d++]=i&0xfffffff;}return e;}if(j_lm&&(navigator.appName=='Microsoft Internet Explorer')){BigInteger.prototype.am=am2;dbits=30;}else if(j_lm&&(navigator.appName!='Netscape')){BigInteger.prototype.am=am1;dbits=26;}else{BigInteger.prototype.am=am3;dbits=28;}BigInteger.prototype.DB=dbits;BigInteger.prototype.DM=((1<<dbits)-1);BigInteger.prototype.DV=(1<<dbits);var BI_FP=52;BigInteger.prototype.FV=Math.pow(2,BI_FP);BigInteger.prototype.F1=BI_FP-dbits;BigInteger.prototype.F2=2*dbits-BI_FP;var BI_RM='0123456789abcdefghijklmnopqrstuvwxyz';var BI_RC=new Array();var rr,vv;rr='0'.charCodeAt(0);for(vv=0;vv<=9;++vv)BI_RC[rr++]=vv;rr='a'.charCodeAt(0);for(vv=10;vv<36;++vv)BI_RC[rr++]=vv;rr='A'.charCodeAt(0);for(vv=10;vv<36;++vv)BI_RC[rr++]=vv;function int2char(a){return BI_RM.charAt(a);}function intAt(a,b){var c=BI_RC[a.charCodeAt(b)];return(c==null)?-1:c;}function bnpCopyTo(a){for(var b=this.t-1;b>=0;--b)a[b]=this[b];a.t=this.t;a.s=this.s;}function bnpFromInt(a){this.t=1;this.s=(a<0)?-1:0;if(a>0)this[0]=a;else if(a<-1)this[0]=a+this.DV;else this.t=0;}function nbv(a){var b=nbi();b.fromInt(a);return b;}function bnpFromString(a,b){var c;if(b==16)c=4;else if(b==8)c=3;else if(b==256)c=8;else if(b==2)c=1;else if(b==32)c=5;else if(b==4)c=2;else{this.fromRadix(a,b);return;}this.t=0;this.s=0;var d=a.length,e=false,f=0;while(--d>=0){var g=(c==8)?a[d]&0xff:intAt(a,d);if(g<0){if(a.charAt(d)=='-')e=true;continue;}e=false;if(f==0)this[this.t++]=g;else if(f+c>this.DB){this[this.t-1]|=(g&((1<<(this.DB-f))-1))<<f;this[this.t++]=(g>>(this.DB-f));}else this[this.t-1]|=g<<f;f+=c;if(f>=this.DB)f-=this.DB;}if(c==8&&(a[0]&0x80)!=0){this.s=-1;if(f>0)this[this.t-1]|=((1<<(this.DB-f))-1)<<f;}this.clamp();if(e)BigInteger.ZERO.subTo(this,this);}function bnpClamp(){var a=this.s&this.DM;while(this.t>0&&this[this.t-1]==a)--this.t;}function bnToString(a){if(this.s<0)return '-'+this.negate().toString(a);var b;if(a==16)b=4;else if(a==8)b=3;else if(a==2)b=1;else if(a==32)b=5;else if(a==4)b=2;else return this.toRadix(a);var c=(1<<b)-1,d,e=false,f='',g=this.t;var h=this.DB-(g*this.DB)%b;if(g-->0){if(h<this.DB&&(d=this[g]>>h)>0){e=true;f=int2char(d);}while(g>=0){if(h<b){d=(this[g]&((1<<h)-1))<<(b-h);d|=this[--g]>>(h+=this.DB-b);}else{d=(this[g]>>(h-=b))&c;if(h<=0){h+=this.DB;--g;}}if(d>0)e=true;if(e)f+=int2char(d);}}return e?f:'0';}function bnNegate(){var a=nbi();BigInteger.ZERO.subTo(this,a);return a;}function bnAbs(){return(this.s<0)?this.negate():this;}function bnCompareTo(a){var b=this.s-a.s;if(b!=0)return b;var c=this.t;b=c-a.t;if(b!=0)return(this.s<0)?-b:b;while(--c>=0)if((b=this[c]-a[c])!=0)return b;return 0;}function nbits(a){var b=1,c;if((c=a>>>16)!=0){a=c;b+=16;}if((c=a>>8)!=0){a=c;b+=8;}if((c=a>>4)!=0){a=c;b+=4;}if((c=a>>2)!=0){a=c;b+=2;}if((c=a>>1)!=0){a=c;b+=1;}return b;}function bnBitLength(){if(this.t<=0)return 0;return this.DB*(this.t-1)+nbits(this[this.t-1]^(this.s&this.DM));}function bnpDLShiftTo(a,b){var c;for(c=this.t-1;c>=0;--c)b[c+a]=this[c];for(c=a-1;c>=0;--c)b[c]=0;b.t=this.t+a;b.s=this.s;}function bnpDRShiftTo(a,b){for(var c=a;c<this.t;++c)b[c-a]=this[c];b.t=Math.max(this.t-a,0);b.s=this.s;}function bnpLShiftTo(a,b){var c=a%this.DB;var d=this.DB-c;var e=(1<<d)-1;var f=Math.floor(a/this.DB),g=(this.s<<c)&this.DM,h;for(h=this.t-1;h>=0;--h){b[h+f+1]=(this[h]>>d)|g;g=(this[h]&e)<<c;}for(h=f-1;h>=0;--h)b[h]=0;b[f]=g;b.t=this.t+f+1;b.s=this.s;b.clamp();}";
-
-const char script_js[] = "var base_url='http://192.168.0.1/';var network_list;var public_key;var rsa=new RSAKey();var scanButton=document.getElementById('scan-button');var connectButton=document.getElementById('connect-button');var copyButton=document.getElementById('copy-button');var showButton=document.getElementById('show-button');var deviceID=document.getElementById('device-id');var connectForm=document.getElementById('connect-form');var public_key_callback={success:function(a){console.log('Public key: '+a.b);public_key=a.b;rsa.setPublic(public_key.substring(58,58+256),public_key.substring(318,318+6));},error:function(a,b){console.log(a);window.alert('There was a problem fetching important information from your device. Please verify your connection, then reload this page.');}};var device_id_callback={success:function(a){var b=a.id;deviceID.value=b;},error:function(a,b){console.log(a);var c='COMMUNICATION_ERROR';deviceID.value=c;}};var scan=function(){console.log('Scanning...!');disableButtons();scanButton.innerHTML='Scanning...';connectButton.innerHTML='Connect';document.getElementById('connect-div').style.display='none';document.getElementById('networks-div').style.display='none';getRequest(base_url+'scan-ap',scan_callback);};var scan_callback={success:function(a){network_list=a.scans;console.log('I found:');var b=document.getElementById('networks-div');b.innerHTML='';if(network_list.length>0)for(var c=0;c<network_list.length;c++){ssid=network_list[c].ssid;console.log(network_list[c]);add_wifi_option(b,ssid);document.getElementById('connect-div').style.display='block';}else b.innerHTML='<p class=\\'scanning-error\\'>No networks found.</p>';},error:function(a){console.log('Scanning error:'+a);document.getElementById('networks-div').innerHTML='<p class=\\'scanning-error\\'>Scanning error.</p>';},regardless:function(){scanButton.innerHTML='Re-Scan';enableButtons();document.getElementById('networks-div').style.display='block';}};var configure=function(a){a.preventDefault();var b=get_selected_network();var c=document.getElementById('password').value;if(!b){window.alert('Please select a network!');return false;}var d={idx:0,ssid:b.ssid,pwd:rsa.encrypt(c),sec:b.sec,ch:b.ch};connectButton.innerHTML='Sending credentials...';disableButtons();console.log('Sending credentials: '+JSON.stringify(d));postRequest(base_url+'configure-ap',d,configure_callback);};var configure_callback={success:function(a){console.log('Credentials received.');connectButton.innerHTML='Credentials received...';postRequest(base_url+'connect-ap',{idx:0},connect_callback);},error:function(a,b){console.log('Configure error: '+a);window.alert('The configuration command failed, check that you are still well connected to the device\\'s WiFi hotspot and retry.');connectButton.innerHTML='Retry';enableButtons();}};var connect_callback={success:function(a){console.log('Attempting to connect to the cloud.');connectButton.innerHTML='Attempting to connect...';window.alert('Your device should now start flashing green and attempt to connect to the cloud. This usually takes about 20 seconds, after which it will begin slowly blinking cyan. \\n\\n\\nIf this process fails because you entered the wrong password, the device will flash green indefinitely. In this case, hold the setup button for 6 seconds until the device starts blinking blue again. Then reconnect to the WiFi hotspot it generates and reload this page to try again.');},error:function(a,b){console.log('Connect error: '+a);window.alert('The connect command failed, check that you are still well connected to the device\\'s WiFi hotspot and retry.');connectButton.innerHTML='Retry';enableButtons();}};var disableButtons=function(){connectButton.disabled=true;scanButton.disabled=true;};var enableButtons=function(){connectButton.disabled=false;scanButton.disabled=false;};var add_wifi_option=function(a,b){var c=document.createElement('INPUT');c.type='radio';c.value=b;c.id=b;c.name='ssid';c.className='radio';var d=document.createElement('DIV');d.className='radio-div';d.appendChild(c);var e=document.createElement('label');e.htmlFor=b;e.innerHTML=b;d.appendChild(e);a.appendChild(d);};var get_selected_network=function(){for(var a=0;a<network_list.length;a++){ssid=network_list[a].ssid;if(document.getElementById(ssid).checked)return network_list[a];}};var copy=function(){window.prompt('Copy to clipboard: Ctrl + C, Enter',deviceID.value);};var toggleShow=function(){var a=document.getElementById('password');inputType=a.type;if(inputType==='password'){showButton.innerHTML='Hide';a.type='text';}else{showButton.innerHTML='Show';a.type='password';}};var getRequest=function(a,b){var c=new XMLHttpRequest();c.open('GET',a,true);c.timeout=8000;c.send();c.onreadystatechange=function(){if(c.readyState==4)if(b){if(c.status==200){if(b.success)b.success(JSON.parse(c.responseText));}else if(b.error)b.error(c.status,c.responseText);if(b.regardless)b.regardless();}};};var postRequest=function(a,b,c){var d=JSON.stringify(b);var e=new XMLHttpRequest();e.open('POST',a,true);e.timeout=4000;e.setRequestHeader('Content-Type','multipart/form-data');e.send(d);e.onreadystatechange=function(){if(e.readyState==4)if(c){if(e.status==200){if(c.success)c.success(JSON.parse(e.responseText));}else if(c.error)c.error(e.status,e.responseText);if(c.regardless)c.regardless();}};};if(scanButton.addEventListener){copyButton.addEventListener('click',copy);showButton.addEventListener('click',toggleShow);scanButton.addEventListener('click',scan);connectForm.addEventListener('submit',configure);}else if(scanButton.attachEvent){copyButton.attachEvent('onclick',copy);showButton.attachEvent('onclick',toggleShow);scanButton.attachEvent('onclick',scan);connectForm.attachEvent('onsubmit',configure);}getRequest(base_url+'device-id',device_id_callback);getRequest(base_url+'public-key',public_key_callback);";
-
-const char prng4_js[] = "function Arcfour(){this.i=0;this.j=0;this.S=new Array();}function ARC4init(a){var b,c,d;for(b=0;b<256;++b)this.S[b]=b;c=0;for(b=0;b<256;++b){c=(c+this.S[b]+a[b%a.length])&255;d=this.S[b];this.S[b]=this.S[c];this.S[c]=d;}this.i=0;this.j=0;}function ARC4next(){var a;this.i=(this.i+1)&255;this.j=(this.j+this.S[this.i])&255;a=this.S[this.i];this.S[this.i]=this.S[this.j];this.S[this.j]=a;return this.S[(a+this.S[this.i])&255];}Arcfour.prototype.init=ARC4init;Arcfour.prototype.next=ARC4next;function prng_newstate(){return new Arcfour();}var rng_psize=256;";
-
-Page myPages[] = {
-     { "/index.html", "text/html", index_html },
-     { "/rsa-utils/rsa.js", "application/javascript", rsa_js },
-     { "/style.css", "text/css", style_css },
-     { "/rsa-utils/rng.js", "application/javascript", rng_js },
-     { "/rsa-utils/jsbn_2.js", "application/javascript", jsbn_2_js },
-     { "/rsa-utils/jsbn_1.js", "application/javascript", jsbn_1_js },
-     { "/script.js", "application/javascript", script_js },
-     { "/rsa-utils/prng4.js", "application/javascript", prng4_js },
-     { nullptr }
-};
-
-void myPage(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, Writer* result, void* reserved)
-{
-    Log.info("handling page %s", url);
-
-    if (strcmp(url,"/index")==0) {
-        Log.info("sending redirect");
-        Header h("Location: /index.html\r\n");
-        cb(cbArg, 0, 301, "text/plain", &h);
-        return;
-    }
-
-    int8_t idx = 0;
-    for (;;idx++) {
-        Page& p = myPages[idx];
-        if (!p.url) {
-            idx = -1;
-            break;
-        }
-        else if (strcmp(url, p.url)==0) {
-            break;
-        }
-    }
-
-    if (idx==-1) {
-        cb(cbArg, 0, 404, nullptr, nullptr);
-    }
-    else {
-        cb(cbArg, 0, 200, myPages[idx].mime_type, nullptr);
-        result->write(myPages[idx].data);
-    }
-}
-
-STARTUP(softap_set_application_page_handler(myPage, nullptr));
-
-// Press SETUP for 3 seconds to make the Photon enter Listening mode
-// Navigate to http://192.168.0.1 to setup Wi-Fi
-
-// Include the rest of your application below,
-// including your setup and loop functions
-```
-
-{{/if}} {{!-- has-softap --}}
-
-
-{{#if has-cellular}}
 ## Cellular
+
+{{note op="start" type="cellular"}}
+The `Cellular` class is available on the the Boron, B Series SoM, and Tracker (Gen 3) 
+and Electron and E Series (Gen 2).
+
+It is not available on Wi-Fi devices including the Argon (Gen 3), Photon, and P1 (Gen 2).
+{{note op="end"}}
+
+---
 
 ### on()
 
@@ -2946,9 +2910,7 @@ Attempts to connect to the Cellular network. If there are no credentials entered
 Cellular.connect();
 ```
 
-{{#if has-gen3}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}`WiFi.on()`{{/if}}{{#if has-cellular}}`Cellular.on()`{{/if}} before calling {{#if has-wifi}}`WiFi.connect()`{{/if}}{{#if has-cellular}}`Cellular.connect()`{{/if}}.
-{{/if}}
+On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker), prior to Device OS 2.0.0, you needed to call `WiFi.on()` or `Cellular.on()` before calling `Particle.connect()`. This is not necessary on Gen 2 devices (any Device OS version) or with 2.0.0 and later.
 
 ### disconnect()
 
@@ -3015,14 +2977,11 @@ Cellular.listen(false);
 Cellular.listening();
 ```
 
-Without multithreading enabled, this command is not useful (always returning `false`) because listening mode blocks application code.
+Returns true if the device is in listening mode (blinking dark blue). 
 
-This command becomes useful on the device when system code runs as a separate RTOS task from application code.
-
-Once system code does not block application code,
-`Cellular.listening()` will return `true` once `Cellular.listen()` has been called
-or the setup button has been held for 3 seconds, when the RGB LED should be blinking blue.
-It will return `false` when the device is not in listening mode.
+This is only relevant when using `SYSTEM_THREAD(ENABLED)`. When not using threading, listening mode stops 
+user firmware from running, so you would not have an opportunity to test the value and calling this always 
+returns false.
 
 
 ### setListenTimeout()
@@ -3089,8 +3048,6 @@ Unlocks the `Cellular` mutex. See `lock()`.
 
 {{api name1="Cellular.setCredentials"}}
 
-{{api name1="Cellular.setCredentials"}}
-
 Sets 3rd party SIM credentials for the Cellular network from within the user application. 
 
 Only a subset of Particle cellular devices are able to use a plastic 4FF nano SIM card from a 3rd-party carrier. [This table](/tutorials/cellular-connectivity/introduction/#sim-cards) lists external SIM capability and includes the Electron and Boron only. There are also limits on the number of devices with 3rd-party SIM cards in an account. For more information, see the [3rd-party SIM guide](https://support.particle.io/hc/en-us/articles/360039741113).
@@ -3113,20 +3070,10 @@ Gen 3 devices (Boron 2G/3G, Boron LTE) have both an internal (MFF2 SMD) SIM and 
 - The APN is saved in configuration flash and you only need to set it once.
 - The keep-alive is not saved so you will need to set that from your user firmware.
 - On the Boron LTE you must also remove the external SIM card when switching to the internal SIM in software.
-{{note op="end"}}
 
-{{note op="start" type="gen2"}}
-On Gen 2 devices (Electron), there is only a 4FF nano SIM card slot. There is no internal SIM so you must always have a SIM card in the SIM card holder on the bottom of the device for normal operation.
-
-- The APN must be set in all user firmware as it is only saved in the modem memory and the setting is erased when powered down.
-- The keep-alive must be set from your user firmware.
-- The Electron LTE (ELC402) does not have a SIM card slot and cannot be used with a 3rd-party SIM card.
-{{note op="end"}}
-
-
-{{#if has-set-credentials}}
 
 On Gen 3 devices, cellular credentials added to the device's non-volatile memory and only need to be set once. The setting will be preserved across reset, power down, and firmware upgrades. 
+
 This is different than the Electron and E series where you must call `cellular_credentials_set()` from all user firmware.
 
 You may set credentials in 3 different ways:
@@ -3171,19 +3118,28 @@ void loop() {
 
 {{api name1="Cellular.clearCredentials"}}
 
-Your device only uses one set of credentials, and they
+Gen 3 cellular devices only use one set of credentials, and they
 must be correctly matched to the SIM card that's used.  If using a
 Particle SIM, using `Cellular.setCredentials()` is not necessary as the
 default APN will be used. If you have set a different APN to use a 3rd-party
 SIM card, you can restore the use of the Particle SIM by using
 `Cellular.clearCredentials()`. 
 
-{{/if}} {{!-- has-nrfhas-set-credentials52 --}}
+{{note op="end"}}
 
+---
 
-{{#unless has-set-credentials}} {{!-- Electron and E series that don't save credentials in non-volatile memory --}}
+{{note op="start" type="gen2"}}
+On the Electron 2G, U260, U270, and ELC314, there is only a 4FF nano SIM card slot. There is no internal SIM so you must always have a SIM card in the SIM card holder on the bottom of the device for normal operation. 
 
-On Gen 2 devices (Electron), cellular credentials are not added to the device's non-volatile memory and need to be set every time from the user application.  You may set credentials in 3 different ways:
+The Electron LTE (ELC402 and ELC404) and E Series (E310, E314, E402, and E404), have a built-in MFF2 SMD SIM. Since 
+you cannot use a 3rd-party SIM card, you do not have to set the APN as the Particle SIM APN is built-in.
+
+- The APN must be set in all user firmware as it is only saved in the modem memory and the setting is erased when powered down.
+- The keep-alive must be set from your user firmware.
+- The Electron LTE (ELC402) does not have a SIM card slot and cannot be used with a 3rd-party SIM card.
+
+On Gen 2 devices, cellular credentials are not added to the device's non-volatile memory and need to be set every time from the user application.  You may set credentials in 3 different ways:
 
 - APN only
 - USERNAME & PASSWORD only
@@ -3228,20 +3184,26 @@ void loop() {
   // your loop code
 }
 ```
-{{/unless}} {{!-- has-set-credentials --}}
+{{note op="end"}}
 
-
-{{#if has-set-active-sim}}
 
 ### setActiveSim()
 
 {{api name1="Cellular.setActiveSim"}}
 
-The device can use either the built-in MFF2 embedded Particle SIM card or an external nano SIM card in 
+{{note op="start" type="note"}}
+
+The Boron 2G/3G and Boron LTE can use either the built-in MFF2 embedded Particle SIM card or an external nano SIM card in 
 the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
 once. The setting will be preserved across reset, power down, and firmware upgrades.
 
+All other cellular devices either have only one type of SIM (either MFF2 or 4FF), but not both, and do
+not support `Cellular.setActiveSim()`.
+
+{{note op="end"}}
+
 For Boron LTE modules, a special command needs to be given to the cell radio after setting `setActiveSim`. If this command is not given, the device may end up blinking green, and the device does not connect to cloud. Please refer to [this support article](https://support.particle.io/hc/en-us/articles/360039741113/) if you are switching SIM cards with Boron LTE.
+
 
 
 ```cpp
@@ -3276,11 +3238,15 @@ void loop() {
 }
 ```
 
-{{/if}} {{!-- has-set-active-sim --}}
 
 ### getDataUsage()
 
 {{api name1="Cellular.getDataUsage"}}
+
+{{note op="start" type="note"}}
+The data usage APIs are only available on the Electron 2G and 3G and E Series E310. It is not available on other cellular devices.
+{{note op="end"}}
+
 
 A software implementation of Data Usage that pulls sent and received session and total bytes from the cellular modem's internal counters.  The sent / received bytes are the gross payload evaluated by the protocol stack, therefore they comprise the TCP and IP header bytes and the packets used to open and close the TCP connection.  I.e., these counters account for all overhead in cellular communications.
 
@@ -3771,10 +3737,8 @@ void setup() {
 
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
-{{#if boron}}
 {{since when="0.9.0"}}
 On the Boron, Cellular.command requires Device OS 0.9.0 or later; it is not supported on 0.8.0-rc versions.
-{{/if}}
 
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
 
@@ -3881,12 +3845,10 @@ There are 13 different enumerated AT command responses passed by the system into
 - `TYPE_TEXT`       = 0x500000
 - `TYPE_ABORTED`    = 0x600000
 
-{{/if}} {{!-- electron --}}
 
-{{#if has-battery-voltage}}
 ## Battery Voltage
 
-This device does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
+The Argon device does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
 
 ```cpp
 float voltage = analogRead(BATT) * 0.0011224;
@@ -3894,9 +3856,15 @@ float voltage = analogRead(BATT) * 0.0011224;
 
 The constant 0.0011224 is based on the voltage divider circuit (R1 = 806K, R2 = 2M) that lowers the 3.6V LiPo battery output to a value that can be read by the ADC.
 
-{{/if}}
+---
 
-{{#if has-fuel-gauge}}
+{{note op="start" type="note"}}
+This technique applies only to the Argon. For the Boron, Electron, and E Series, see the FuelGauge, below.
+
+The Photon and P1 don't have built-in support for a battery.
+{{note op="end"}}
+
+
 ## FuelGauge
 
 {{api name1="FuelGauge"}}
@@ -3907,6 +3875,16 @@ The on-board Fuel Gauge allows you to monitor the battery voltage, state of char
 // EXAMPLE
 FuelGauge fuel;
 ```
+
+---
+
+{{note op="start" type="note"}}
+FuelGauge is available on all devices with a battery state-of-charge sensor, including the Boron, B Series SoM, Tracker SoM (Gen 3) as well as the Electron and E Series (Gen 2).
+
+The Argon (Gen 3), Photon, and P1 (Gen 2) do not have FuelGauge support.
+{{note op="end"}}
+
+
 
 ### getVCell()
 
@@ -4018,13 +3996,14 @@ It may be easier to use [`System.batteryCharge()`](#batterycharge-) instead of u
 {{api name1="FuelGauge::wakeup"}}
 
 `void wakeup();`
-{{/if}} {{!-- has-fuel-gauge --}}
 
 ## Input/Output
 
 Additional information on which pins can be used for which functions is available on the [pin information page](/reference/hardware/pin-info).
 
-{{#if tracker-som}}
+---
+{{note op="start" type="note"}}
+
 The Tracker SoM has shared A and D pins. In other words, pin A0 is the same physical pin as pin D0, and is also the SDA pin. The alternate naming is to simplify porting code from other device types.
 
 | Pin     | M8 Pin | Function    | Function    | Analog In | GPIO    | 
@@ -4042,7 +4021,7 @@ The Tracker SoM has shared A and D pins. In other words, pin A0 is the same phys
 
 On the Tracker One and Tracker Carrier Board you must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/TX/SCL, D9/RX/SDA). If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
-{{/if}} {{!-- tracker-som --}}
+{{note op="end"}}
 
 ### pinMode()
 
@@ -4217,7 +4196,7 @@ void loop()
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
-- All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+- All GPIO pins (`A0`..`A7`, `D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). For the Electron and Series `B0`..`B5`, `C0`..`C5` can be used as well.
 
 - The drive current on Gen 2 devices is 25 mA per pin, with a maximum of 125 mA across all GPIO.
 {{note op="end"}}
@@ -4272,13 +4251,12 @@ void loop()
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
-- All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+- All GPIO pins (`A0`..`A7`, `D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`). On the Electron and E Series, there are additional GPIO `B0`..`B5`, `C0`..`C5` as well.
 - On the Photon, Electron, and E Series, all GPIO pins **except** A3 and A6 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs.
 - On the P1, all GPIO pins **except** A3, A6, D0 and D1 are 5V tolerant. However you must not use `INPUT_PULLUP` or `INPUT_PULLDOWN` with 5V inputs. 
 - On the P1 there are 2.1K hardware pull-up resistors to 3V3 on D0 and D1 and are not 5V tolerant.
 {{note op="end"}}
 
-{{#if has-nrf52}}
 ### pinSetDriveStrength()
 
 {{api name1="pinSetDriveStrength"}}
@@ -4309,11 +4287,13 @@ The drive strength is typically 2 mA in standard drive mode (the default), and 9
 |Current at GND+0.4 V, output set low, standard drive|I<sub>OL,SD</sub> |V<sub>3V3</sub> >= 2.7V|1|2|4|mA|
 |Current at V<sub>3V3</sub>-0.4 V, output set high, standard drive|I<sub>OH,SD</sub>|V<sub>3V3</sub> >= 2.7V|1|2|4|mA|
 
+---
 
-{{/if}}
+{{note op="start" type="gen3"}}
+Pin drive strength setting is only available on Gen 3 devices (nRF52840). 
+On Gen 2 devices (Photon, P1, Electron, and E Series) the pin drive strength is always 25 mA.
+{{note op="end"}}
 
-
-{{#if has-pwm}}
 
 ### analogWrite() (PWM)
 
@@ -4333,17 +4313,20 @@ analogWrite(pin, value, frequency);
 
 - `pin`: the number of the pin whose value you wish to set
 - `value`: the duty cycle: between 0 (always off) and 255 (always on). _Since 0.6.0:_ between 0 and 255 (default 8-bit resolution) or `2^(analogWriteResolution(pin)) - 1` in general.
-{{#if has-stm32}}
-- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz) on Gen 2 devices (Photon, P1, Electron). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
-{{/if}}
-{{#if has-nrf52}}
-- `frequency`: the PWM frequency:from 5 Hz to `analogWriteMaxFrequency(pin)`, currently 500 kHz on Gen 3 devices (Argon, Boron, Xenon). The default value is 500 Hz.
-{{/if}}
-
+- `frequency`: the PWM frequency (optional). If not specified, the default is 500 Hz.
 
 **NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
 `analogWrite()` does not return anything.
+
+---
+{{note op="start" type="gen2"}}
+On the Photon, P1, Electron, and E Series, pins A3 and A6 (DAC) are DAC (digital-to-analog converter) 
+pins. The analogWrite() function sets an analog voltage, not a PWM frequency, when used on these pins.
+
+When controlling LED brightness, you should always use PWM, not DAC.
+{{note op="end"}}
+---
 
 ```cpp
 // EXAMPLE USAGE
@@ -4366,13 +4349,15 @@ void loop()
 }
 ```
 
-**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
+**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.
 
 Additional information on which pins can be used for PWM output is available on the [pin information page](/reference/hardware/pin-info).
 
 ---
 
 {{note op="start" type="gen3"}}
+On Gen 3 devices, the PWM frequency is from 5 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
+
 On Gen 3 Feather devices (Argon, Boron), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
@@ -4399,9 +4384,11 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are
 
 
 {{note op="start" type="gen2"}}
+On Gen 2 devices, the PWM frequency is from 1 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
+
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
-- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
+- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. 
 
 The PWM frequency must be the same for pins in the same timer group.
 
@@ -4411,15 +4398,8 @@ The PWM frequency must be the same for pins in the same timer group.
 {{note op="end"}}
 
 
-{{/if}} {{!-- has-pwm --}}
 
-{{#if has-pwm}}
-
-{{#if has-dac}}
-### analogWriteResolution() (PWM and DAC)
-{{else}}
 ### analogWriteResolution() (PWM)
-{{/if}}
 
 {{api name1="analogWriteResolution"}}
 
@@ -4441,11 +4421,14 @@ analogWriteResolution(D1, 12); // sets analogWrite resolution to 12 bits
 analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 ```
 
-{{#if has-dac}}
-**NOTE:** DAC pins `DAC1` (`A6`) and `DAC2` (`A3`) support only either 8-bit or 12-bit (default) resolutions.
-{{/if}}
-
 **NOTE:** The resolution also affects maximum frequency that can be used with `analogWrite()`. The maximum frequency allowed with current resolution can be checked by calling `analogWriteMaxFrequency()`.
+
+---
+
+{{note op="start" type="gen2"}}
+On the Photon, P1, Electron, and E Series, pins A3 and A6 (DAC) are DAC (digital-to-analog converter) 
+pins and support only either 8-bit or 12-bit (default) resolutions.
+{{note op="end"}}
 
 ### analogWriteMaxFrequency() (PWM)
 
@@ -4467,12 +4450,9 @@ int maxFreq = analogWriteMaxFrequency(D1);
 analogWrite(D1, 3000, maxFreq / 2); // 3000/4095 = ~73% duty cycle
 ```
 
-{{/if}} {{!-- has-pwm --}}
-
-{{#if has-dac}}
 ### Analog Output (DAC)
 
-The Photon and Electron support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
+The Photon, P1, Electron, and E Series support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
@@ -4486,9 +4466,12 @@ pinMode(DAC1, OUTPUT);
 analogWrite(DAC1, 1024);
 // sets DAC pin to an output voltage of 1024/4095 * 3.3V = 0.825V.
 ```
-{{/if}} {{!-- has-dac --}}
 
-{{#if has-adc}}
+---
+
+{{note op="start" type="gen3"}}
+DAC is not supported on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
+{{note op="end"}}
 
 ### analogRead() (ADC)
 
@@ -4548,7 +4531,6 @@ _Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). 
 {{note op="end"}}
 
 
-{{#if has-adc-sample-time}}
 
 ### setADCSampleTime()
 
@@ -4570,10 +4552,12 @@ The function `setADCSampleTime(duration)` is used to change the default sample t
 The default is ADC_SampleTime_480Cycles. This means that the ADC is sampled for 16 us which can provide a more accurate reading, at the expense of taking longer than using a shorter ADC sample time. If you are measuring a high frequency signal, such as audio, you will almost certainly want to reduce the ADC sample time.
  
 Furthermore, 5 consecutive samples at the sample time are averaged in analogRead(), so the time to convert is closer to 80 us, not 16 us, at 480 cycles.
-{{/if}} {{!-- has-adc-sample-time --}}
 
+---
 
-{{/if}} {{!-- has-adc --}}
+{{note op="start" type="gen3"}}
+setADCSampleTime is not supported on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
+{{note op="end"}}
 
 ## Low Level Input/Output
 
@@ -4728,15 +4712,21 @@ void loop()
 
 Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin. tone() is generally used to make sounds or music on speakers or piezo buzzers.
 
+```cpp
+// SYNTAX
+tone(pin, frequency, duration)
+```
 
-{{#if has-stm32}}
-- On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
+`tone()` takes three arguments, `pin`: the pin on which to generate the tone, `frequency`: the frequency of the tone in hertz and `duration`: the duration of the tone in milliseconds (a zero value = continuous tone).
 
-- Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
-- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
-{{/if}}
+The frequency range is from 20Hz to 20kHz. Frequencies outside this range will not be played.
 
-{{#if has-nrf52}}
+`tone()` does not return anything.
+
+---
+
+{{note op="start" type="gen3"}}
+
 On Gen 3 Feather devices (Argon, Boron, Xenon), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, and D8 can be used for tone(). Pins are assigned a PWM group. Each group must share the same frequency. Thus you can only output 3 different frequencies at the same time.
 
 - Group 3: Pins D2, D3, A4, and A5.
@@ -4756,20 +4746,62 @@ On the Tracker SoM, pins D0 - D9 can be used for PWM. Pins are assigned a PWM gr
 - Group 1: D4, D5, D6, D7
 - Group 1: D0, D1, D2, D3
 
-{{/if}}
+**NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), different timer numbers must be used to for each frequency:
 
-```cpp
-// SYNTAX
-tone(pin, frequency, duration)
-```
+ On the Argon, Boron, and Xenon:
 
-`tone()` takes three arguments, `pin`: the pin on which to generate the tone, `frequency`: the frequency of the tone in hertz and `duration`: the duration of the tone in milliseconds (a zero value = continuous tone).
+| Pin  | Timer |
+| :--: | :---: |
+| A0   | PWM2  |  
+| A1   | PWM2  |
+| A2   | PWM2  |
+| A3   | PWM2  | 
+| A4   | PWM3  |
+| A5   | PWM3  | 
+| D2   | PWM3  | 
+| D3   | PWM3  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+| D8   | PWM1  |
 
-The frequency range is from 20Hz to 20kHz. Frequencies outside this range will not be played.
+On the B Series SoM:
 
-`tone()` does not return anything.
+| Pin  | Timer |
+| :--: | :---: |
+| A0   | PWM2  |  
+| A1   | PWM2  |
+| A6   | PWM2  |
+| A7   | PWM2  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
 
-{{#if has-stm32}}
+On the Tracker SoM:
+
+| Pin  | Timer |
+| :--: | :---: |
+| D0   | PWM0  |  
+| D1   | PWM0  |
+| D2   | PWM0  |
+| D3   | PWM0  | 
+| D4   | PWM1  |
+| D5   | PWM1  |
+| D6   | PWM1  | 
+| D7   | PWM1  | 
+| D8 (TX)   | PWM2  | 
+| D9 (RX)   | PWM2  | 
+
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen2"}}
+- On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
+
+- Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
+- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. 
+
 **NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
 
 Pin  | TMR1 | TMR3 | TMR4 | TMR5
@@ -4820,57 +4852,9 @@ B2   |      |  x   |      |      |      |
 B3   |      |  x   |      |      |      |  
 C4   |      |      |  x   |      |      |  
 C5   |      |      |  x   |      |      |  
-{{/if}}
+{{note op="end"}}
 
-{{#if has-nrf52}}
-**NOTE:** The PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), different timer numbers must be used to for each frequency:
-
- On the Argon, Boron, and Xenon:
-
-| Pin  | Timer |
-| :--: | :---: |
-| A0   | PWM2  |  
-| A1   | PWM2  |
-| A2   | PWM2  |
-| A3   | PWM2  | 
-| A4   | PWM3  |
-| A5   | PWM3  | 
-| D2   | PWM3  | 
-| D3   | PWM3  | 
-| D4   | PWM1  |
-| D5   | PWM1  |
-| D6   | PWM1  | 
-| D8   | PWM1  |
-
-On the B Series SoM:
-
-| Pin  | Timer |
-| :--: | :---: |
-| A0   | PWM2  |  
-| A1   | PWM2  |
-| A6   | PWM2  |
-| A7   | PWM2  | 
-| D4   | PWM1  |
-| D5   | PWM1  |
-| D6   | PWM1  | 
-
-On the Tracker SoM:
-
-| Pin  | Timer |
-| :--: | :---: |
-| D0   | PWM0  |  
-| D1   | PWM0  |
-| D2   | PWM0  |
-| D3   | PWM0  | 
-| D4   | PWM1  |
-| D5   | PWM1  |
-| D6   | PWM1  | 
-| D7   | PWM1  | 
-| D8 (TX)   | PWM2  | 
-| D9 (RX)   | PWM2  | 
-
-{{/if}}
-
+---
 
 Additional information on which pins can be used for tone() is available on the [pin information page](/reference/hardware/pin-info).
 
@@ -5091,7 +5075,6 @@ void loop()
  */
 ```
 
-{{#if has-pmic}}
 
 ## Power Manager
 
@@ -5100,6 +5083,14 @@ void loop()
 The Power Manager API provides a way to set PMIC (Power Management IC) settings such as input volage, input current limit, charge current, and charge termination voltage using a simple API. The Power Manager settings are persistent and saved in configuration flash so you can set them once and they will continue to be used.
 
 To set the Power Manager configuration, create a `SystemPowerConfiguration` object and use the methods below to adjust the settings:
+
+---
+
+{{note op="start" type="note"}}
+Power Management is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+
+It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+{{note op="end"}}
 
 ### powerSourceMaxCurrent
 
@@ -5242,6 +5233,14 @@ To find out the current power source (battery, VIN, USB), see [`System.powerSour
 *Note*: This is advanced IO and for experienced users. This
 controls the LiPo battery management system and is handled automatically
 by the Device OS.
+
+---
+
+{{note op="start" type="note"}}
+Power Management is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+
+It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+{{note op="end"}}
 
 ### PMIC() constructor
 
@@ -5678,7 +5677,6 @@ Returns the charge voltage register. This is the direct register value from the 
 
 `byte getNTCFault();`
 
-{{/if}} {{!-- has-pmic --}}
 
 ## Serial
 (inherits from [`Stream`](#stream-class))
@@ -5686,30 +5684,32 @@ Returns the charge voltage register. This is the direct register value from the 
 {{api name1="Serial" name2="Serial1" name3="Serial2" name4="Serial3" name5="Serial4" name6="Serial5"}}
 
 
+| Device       | Serial   | USBSerial1   | Serial1   | Serial2   | Serial4   | Serial5   |
+| :----------- | :------: | :----------: | :-------: | :-------: | :-------: | :-------: |
+| Argon        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
+| Boron        | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    |
+| B Series SoM | &check;  | &nbsp;       | &check;   | &nbsp;    | &nbsp;    | &nbsp;    | 
+| Tracker SoM  | &check;  | &nbsp;       | 2         | &nbsp;    | &nbsp;    | &nbsp;    |
+| Photon       | &check;  | &check;      | &check;   | 1         | &nbsp;    | &nbsp;    |
+| P1           | &check;  | &check;      | &check;   | &check;   | &nbsp;    | &nbsp;    |
+| Electron     | &check;  | &check;      | &check;   | 1         | &check;   | &check;   | 
+| E Series     | &check;  | &check;      | &check;   | &check;   | &check;   | &check;   | 
+
+- (1) `Serial2` on the Photon and Electron uses the same pins as the RGB status LED, and cannot be used without 
+physically disconnecting the status LED on the device by removing the LED or current limiting resistors.
+- (2) `Serial1` on the Tracker One shares the same pins as `Wire3` on the external M8 connector.
+- `Serial` is a USB serial emulation, not a hardware UART.
+- `USBSerial1` is available on Device OS 0.6.0 and later, and is a second USB serial emulation.
+
+
+There are also other interfaces that can be used for communication:
+
 | Interface | Maximum Speed (Gen2) | Maximum Speed (Gen 3) | Maximum Peripheral Devices |
 | :--- | :--- | :--- | :--- |
 | UART Serial | 230 Kbit/sec | 1 Mbit/sec | 1 (point-to-point) |
 | I2C | 400 Kbit/sec | 400 Kbit/sec | Many (limited by addresses) |
 | SPI | 60 Mbit/sec | 32 Mbit/sec | Many (limited by CS GPIO pins) |
 
-
-{{#if electron}}
-The Electron has four hardware (USART) serial channels. 
-{{/if}}
-
-{{#unless electron}}
-
-{{#if has-serial2}}
-This device has two hardware (USART) serial channels. 
-{{/if}}
-
-{{#unless has-serial2}}
-This device has one hardware (USART) serial channel.
-{{/unless}} 
-
-{{/unless}} {{!-- electron --}} 
-
-It also has {{#if has-usb-serial1}}two{{else}}one{{/if}} USB serial channel{{#if has-usb-serial1}}s{{else}}{{/if}}.
 
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
 
@@ -5738,130 +5738,73 @@ Instead of using `Serial` directly, you should use it using the the `SerialLogHa
 
 You should also avoid mixing the use of `Serial.printlnf` and `Log.info` (and similar calls). Since `Serial.print` is not thread safe, it can interfere with the use of `Log` calls.
 
-{{#if has-usb-serial1}}
-`USBSerial1`: _Since 0.6.0_ This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default.
-{{/if}}
-
 `Serial1:` This channel is available via the device's TX and RX pins.
 
-{{#if has-nrf52}}
-Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the Gen 3 devices. 
-{{/if}}
+---
 
-{{#if has-i2c-wire3}}
+{{note op="start" type="gen3"}}
+Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM). 
 
-This device can use the TX and RX pins as either `Wire3` or `Serial1`. If you use `Serial1.begin()` the pins will be used for UART serial. If you use `Wire3.begin()`, `RX` will be `SDA` and `TX` will be `SCL`. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings.
-
-This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
-
-{{/if}} {{!-- has-i2c-wire3 --}}
+The Tracker SoM can use the TX and RX pins as either `Wire3` or `Serial1`. If you use `Serial1.begin()` the pins will be used for UART serial. If you use `Wire3.begin()`, `RX` will be `SDA` and `TX` will be `SCL`. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings. This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
+{{note op="end"}}
 
 
-{{#if has-serial2}}
+{{note op="start" type="gen2"}}
 
-{{#if photon}}
-`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
+`Serial2:` On the Photon, this channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/wi-fi/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed. If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 
-If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
-{{/if}}
+On the Electron, this channel is shared with the RGB Green (TX) and Blue (RX) LED pins. If used for Serial2, the LED or current limiting resistors should be removed. As there are no test pads for these LED pins on the Electron, Serial2 will be difficult to use.
 
-{{#if electron}}
-`Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.
+On the P1 and E Series, this channel is shared with the RGB Green (TX) and Blue (RX) LED pins. Since you supply your own LEDs on these devices, you can move them to other pins using RGB.mirrorTo().
 
-If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
-{{/if}}
-
-{{#if xenon}}
-`Serial2:` This channel is optionally available on D4(TX) and D5(RX). Optional hardware flow control is available on D6(CTS) and D8(RTS) on the Xenon. 
-{{/if}}
+Other devices do not support `Serial2`. On the Argon and Boron, the hardware port is used to communicate with the network coprocessor (NCP) and is not available for user use.
 
 To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
+`Serial4:` This channel is optionally available via the Electron and E Series C3(TX) and C2(RX) pins. To use Serial4, add `#include "Serial4/Serial4.h"` near the top of your app's main code file. This port is not available on other devices.
 
-{{/if}} {{!-- has-serial2 --}}
+`Serial5:` This channel is optionally available via the Electron and E Series C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file. This port is not available on other devices.
 
-{{#if has-serial4-5}}
-`Serial4:` This channel is optionally available via the Electron's C3(TX) and C2(RX) pins. To use Serial4, add `#include "Serial4/Serial4.h"` near the top of your app's main code file.
+`USBSerial1`: Available on Gen 2 (Photon, P1, Electron, E Series) with Device OS 0.6. and later: This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default. 
 
-`Serial5:` This channel is optionally available via the Electron's C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file.
-{{/if}}
+{{note op="end"}}
 
-To use the Serial1{{#if has-serial2}} or Serial2{{/if}} pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and ground.
+
+To use the Serial1 or other hardware UART pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and ground.
 
 ```cpp
 // EXAMPLE USAGE
-{{#if has-serial2}}
-// IMPORTANT: Include the header file for Serial2
-#include "Serial2/Serial2.h"
-{{/if}}
-{{#if has-serial4-5}}
-// IMPORTANT: Include the header file for Serial4/5
-#include "Serial4/Serial4.h"
-#include "Serial5/Serial5.h"
-{{/if}}
-
 void setup()
 {
   Serial1.begin(9600);
-{{#if has-serial2}}
-  Serial2.begin(9600);
-{{/if}}
-{{#if has-serial4-5}}
-  Serial4.begin(9600);
-  Serial5.begin(9600);
-{{/if}}
 
   Serial1.println("Hello World!");
-{{#if has-serial2}}
-  Serial2.println("Hello World!");
-{{/if}}
-{{#if has-serial4-5}}
-  Serial4.println("Hello World!");
-  Serial5.println("Hello World!");
-{{/if}}
 }
 ```
 
-To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has-serial4-5}}/4/5{{/if}}) to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your device to your device's ground.
+```cpp
+// EXAMPLE USAGE Serial4 on Electron and E Series
+#include "Serial4/Serial4.h"
+
+void setup()
+{
+  Serial4.begin(9600);
+
+  Serial4.println("Hello World!");
+}
+```
+
+To use the hardware serial pins of (Serial1, etc.) to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your device to your device's ground.
 
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the device.
 
+**NOTE:** On Windows 10, using `USBSerial1` on the Electron, E Series, and P1 may not be reliable due to limitations of the USB peripheral used for those 2 devices. Characters may be dropped between the computer and device. `USBSerial1` is reliable on other operating systems and also on the Photon. `USBSerial1` is not available on Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM).
 
-{{#if has-usb-serial1}}
-**NOTE:** On Windows 10, using `USBSerial1` on the Electron and P1 may not be reliable due to limitations of the USB peripheral used for those 2 platforms. Characters may be dropped between the computer and device. `USBSerial1` is reliable for other Particle platforms and other operating systems. `Serial` is reliable for all platforms and operating systems.
-{{/if}} {{!-- has-usb-serial1 --}}
-
-#### Connect to Serial with a computer
-
-For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). Plug your device into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
-
-- Baud rate: 9600
-- Data Bits: 8
-- Parity: none
-- Stop Bits: 1
-
-On **macOS (OS X) and Linux** systems, you can access the serial port through the terminal.
-
-For macOS, open the terminal and type:
-
-```screen /dev/tty.u```
-
-and pressing tab to autocomplete.
-
-On Linux, you can accomplish the same thing by using:
-
-```screen /dev/ttyACM```
-
-and pressing tab to autocomplete.
-
-Now you are ready to read data sent by the device over Serial and send data back.
-
+For more information about serial ports, see [learn more about serial](/tutorials/learn-more/about-serial/).
 
 ### begin()
 
 {{api name1="Serial.begin" name2="Serial1.begin"}}
-
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Enables serial channel with specified configuration.
 
@@ -5869,9 +5812,8 @@ Enables serial channel with specified configuration.
 // SYNTAX
 Serial.begin();          // via USB port
 
-{{#if has-usb-serial1}}
-USBSerial1.begin();      // via USB port
-{{/if}}
+// Photon, P1, Electron, and E Series only
+USBSerial1.begin();      // via USB port 
 
 Serial1.begin(speed);         // via TX/RX pins
 Serial1.begin(speed, config); //  "
@@ -5879,38 +5821,28 @@ Serial1.begin(speed, config); //  "
 Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
 Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
 
-{{#if has-serial2}}
+// Photon, P1, Electron, and E Series
 #include "Serial2/Serial2.h"
 Serial2.begin(speed);         // RGB-LED green(TX) and blue (RX) pins
 Serial2.begin(speed, config); //  "
 
 Serial2.begin(9600);         // via RGB Green (TX) and Blue (RX) LED pins
 Serial2.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via RGB Green (TX) and Blue (RX) LED pins, 9600 8E1.5
-{{/if}} {{!-- has-serial2 --}}
-{{#if has-serial4-5}}
 
+// Electron and E Series only
 #include "Serial4/Serial4.h"
 Serial4.begin(speed);         // via C3(TX)/C2(RX) pins
 Serial4.begin(speed, config); //  "
 
+// Electron and E Series only
 #include "Serial5/Serial5.h"
 Serial5.begin(speed);         // via C1(TX)/C0(RX) pins
 Serial5.begin(speed, config); //  "
-{{/if}} {{!-- has-serial4-5 --}}
 ```
 
 Parameters:
-- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_ 
-- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
-
-{{#if has-stm32f2}}
-Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, and 230400 on the Gen 2 devices.
-{{/if}}
-
-{{#if has-nrf52}}
-Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000 on the Gen 3 devices.
-{{/if}}
-
+- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` and `USBSerial1`_ 
+- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` and `USBSerial1`)_
 
 ```cpp
 // EXAMPLE USAGE
@@ -5932,13 +5864,41 @@ void loop() {}
 
 {{since when="0.5.0"}} 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character. Baudrate 14400 can be used to put the device into DFU Mode.
 
-When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), the configuration of the serial channel may also specify the number of data bits, stop bits, parity, flow control and other settings. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial1.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
+When using hardware serial channels (Serial1, Serial2, etc.), the configuration of the serial channel may also specify the number of data bits, stop bits, parity, flow control and other settings. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial1.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
 
 Pre-defined Serial configurations available:
 
-{{#if has-stm32f2}}
 
-**NOTE:** SERIAL_7N1 or (SERIAL_DATA_BITS_7 | SERIAL_PARITY_NO | SERIAL_STOP_BITS_1) is NOT supported
+---
+
+{{note op="start" type="gen3"}}
+On Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) devices: 
+
+Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000.
+
+Configuration options include:
+
+- `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
+- `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
+
+Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). 
+
+Flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using flow control (the default), then these pins can be used as regular GPIO.
+
+- `SERIAL_FLOW_CONTROL_NONE` - no flow control
+- `SERIAL_FLOW_CONTROL_RTS` - RTS flow control
+- `SERIAL_FLOW_CONTROL_CTS` - CTS flow control
+- `SERIAL_FLOW_CONTROL_RTS_CTS` - RTS/CTS flow control
+
+{{note op="end"}}
+
+
+{{note op="start" type="gen2"}}
+On Gen 2 devices (Photon, P1, Electron, E Series):
+
+Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, and 230400.
+
+Configuration options include:
 
 - `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
 - `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
@@ -5955,11 +5915,11 @@ Pre-defined Serial configurations available:
 - `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7E1` - 7 data bits, even parity, 1 stop bit
 - `SERIAL_7E2` - 7 data bits, even parity, 1 stop bit
-{{#if has-linbus}}
 - `LIN_MASTER_13B` - 8 data bits, no parity, 1 stop bit, LIN Master mode with 13-bit break generation
 - `LIN_SLAVE_10B` - 8 data bits, no parity, 1 stop bit, LIN Slave mode with 10-bit break detection
 - `LIN_SLAVE_11B` - 8 data bits, no parity, 1 stop bit, LIN Slave mode with 11-bit break detection
-{{/if}}
+
+**NOTE:** SERIAL_7N1 or (SERIAL_DATA_BITS_7 | SERIAL_PARITY_NO | SERIAL_STOP_BITS_1) is NOT supported
 
 Alternatively, configuration may be constructed manually by ORing (`|`) the following configuration constants:
 
@@ -5979,36 +5939,13 @@ Parity:
 - `SERIAL_PARITY_EVEN` - even parity
 - `SERIAL_PARITY_ODD` - odd parity
 
-{{/if}} {{!-- has-stm32 --}}
- 
-{{#if has-nrf52}}
-- `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
-- `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
-
-Other options, including odd parity, and 7 and 9 bit modes, are not available on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). 
-
-{{/if}} {{!-- has-nrf52 --}}
-
-
-{{#if has-stm32f2}} {{!-- photon and electron --}}
 Hardware flow control, available only on Serial2 (`CTS` - `A7`, `RTS` - `RGBR` ):
-{{/if}}
-
-{{#if has-nrf52}}
-On Gen 3 devices (Argon, Boron, Xenon), flow control is available on Serial1 D3(CTS) and D2(RTS). If you are not using flow control (the default), then these pins can be used as regular GPIO.
-{{/if}}
-
-{{#if xenon}}
-On the Xenon flow control is also available on Serial2 D6(CTS) and D8(RTS). 
-{{/if}}
-
 
 - `SERIAL_FLOW_CONTROL_NONE` - no flow control
 - `SERIAL_FLOW_CONTROL_RTS` - RTS flow control
 - `SERIAL_FLOW_CONTROL_CTS` - CTS flow control
 - `SERIAL_FLOW_CONTROL_RTS_CTS` - RTS/CTS flow control
 
-{{#if has-linbus}}
 LIN configuration:
 - `LIN_MODE_MASTER` - LIN Master
 - `LIN_MODE_SLAVE` - LIN Slave
@@ -6017,9 +5954,8 @@ LIN configuration:
 - `LIN_BREAK_11B` - 11-bit break detection
 
 **NOTE:** LIN break detection may be enabled in both Master and Slave modes.
-{{/if}} {{!-- has-linbus --}}
 
-{{#if has-usb-serial1}}
+
 **NOTE** {{since when="0.6.0"}} When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
 
 ```cpp
@@ -6036,22 +5972,23 @@ void setup()
   USBSerial1.println("Hello USBSerial1!");
 }
 ```
-{{/if}} {{!-- has-usb-serial1 --}}
+
+{{note op="end"}}
+ 
+---
 
 ### end()
 
 {{api name1="Serial.end" name2="Serial1.end"}}
 
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
-
 Disables serial channel.
 
-When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), disables serial communication, allowing channel's RX and TX pins to be used for general input and output. To re-enable serial communication, call `SerialX.begin()`.
+When used with hardware serial channels (Serial1, Serial2, etc.), disables serial communication, allowing channel's RX and TX pins to be used for general input and output. To re-enable serial communication, call `SerialX.begin()`.
 
 
 {{since when="0.6.0"}}
 
-When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
+When used with USB serial channels (`Serial` or `USBSerial1`), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
 
 ```cpp
 // SYNTAX
@@ -6062,17 +5999,11 @@ Serial1.end();
 
 {{api name1="Serial.available" name2="Serial1.available"}}
 
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
-
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
-The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is {{#if has-stm32}}64{{/if}}{{#if has-nrf52}}128{{/if}} bytes and cannot be changed. 
+The receive buffer size for hardware UART serial channels (Serial1, Serial2, etc.) is 128 bytes on Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) and 64 bytes on Gen 2 (Photon, P1, Electron, E Series) and cannot be changed.
 
-{{#if has-usb-serial1}}
-The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
-{{else}}
-The receive buffer size for Serial is 64 bytes. 
-{{/if}}
+For USB serial (Serial, USBSerial1), the receive buffer is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 
 ```cpp
 // EXAMPLE USAGE
@@ -6104,25 +6035,20 @@ void loop()
 
 {{api name1="Serial.availableForWrite" name2="Serial1.availableForWrite"}}
 
-{{since when="0.4.9"}} Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}.
+{{since when="0.4.9"}} Available on Serial1, Serial2, etc..
 
 {{since when="0.5.0"}} Available on USB Serial (Serial)
 
-{{#if has-usb-serial1}}{{since when="0.6.0"}} Available on `USBSerial1`{{/if}}
+{{since when="0.6.0"}} Available on `USBSerial1`
 
 Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
 If `blockOnOverrun(false)` has been called, the method returns the number of bytes that can be written to the buffer without causing buffer overrun, which would cause old data to be discarded and overwritten.
 
-{{#if has-usb-serial1}}
-Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
-{{/if}}
 
-{{#if has-usb-serial1}}
 ### acquireSerialBuffer()
 
 {{api name1="Serial1.acquireSerialBuffer"}}
-
 
 ```cpp
 // SYNTAX
@@ -6161,21 +6087,22 @@ HAL_USB_USART_Config acquireUSBSerial1Buffer()
 
 {{since when="0.6.0"}}
 
-It is possible for the application to allocate its own buffers for `Serial` (USB serial) and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
+It is possible for the application to allocate its own buffers for `Serial` (USB serial) by implementing `acquireSerialBuffer`. Minimum receive buffer size is 65 bytes.
+
+On Gen 2 devices (Photon, P1, Electron. E Series), the `USBSerial1` receive buffer can be resized using `acquireUSBSerial1Buffer`. Minimum receive buffer size is 65 bytes.
 
 This is not available for hardware UART ports like `Serial1`, `Serial2`, etc.. If you are getting hardware serial buffer overruns, the [Serial Buffer Library](https://github.com/rickkas7/SerialBufferRK) may be helpful.
 
-{{/if}} {{!-- has-usb-serial1 --}}
 
 ### blockOnOverrun()
 
 {{api name1="Serial.blockOnOverrun" name2="Serial1.blockOnOverrun"}}
 
-{{since when="0.4.9"}} Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}.
+{{since when="0.4.9"}} Available on Serial1, Serial2, ....
 
 {{since when="0.5.0"}} Available on USB Serial (Serial)
 
-{{#if has-usb-serial1}}{{since when="0.6.0"}} Available on `USBSerial1`{{/if}}
+{{since when="0.6.0"}} Available on `USBSerial1` on Gen 2 devices (Photon, P1, Electron, E Series)
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
@@ -6197,20 +6124,18 @@ A family of application-defined functions that are called whenever there is data
 from a serial peripheral.
 
 - serialEvent: called when there is data available from `Serial`
-{{#if has-usb-serial1}}- usbSerialEvent1: called when there is data available from `USBSerial1`{{/if}}
+- usbSerialEvent1: called when there is data available from `USBSerial1` if this port is available
 - serialEvent1: called when there is data available from `Serial1`
-{{#if has-serial2}}
-- serialEvent2: called when there is data available from `Serial2`
-{{/if}} {{!-- has-serial2 --}}
-{{#if has-serial4-5}}
-- serialEvent4: called when there is data available from `Serial4`
-- serialEvent5: called when there is data available from `Serial5`
-{{/if}} {{!-- has-serial4-5 --}}
+- serialEvent2: called when there is data available from `Serial2` if this port is available
+- serialEvent4: called when there is data available from `Serial4` if this port is available
+- serialEvent5: called when there is data available from `Serial5` if this port is available
 
 The `serialEvent` functions are called in between calls to the application `loop()`. This means that if `loop()` runs for a long time due to `delay()` calls or other blocking calls the serial buffer might become full between subsequent calls to `serialEvent` and serial characters might be lost. Avoid long `delay()` calls in your application if using `serialEvent`.
 
 Since `serialEvent` functions are an
 extension of the application loop, it is ok to call any functions that you would also call from `loop()`. Because of this, there is little advantage to using serial events over just reading serial from loop(). 
+
+There is no advantage in using serial events over simply reading the serial port from loop.
 
 ```cpp
 // EXAMPLE - echo all characters typed over serial
@@ -6232,8 +6157,6 @@ void serialEvent()
 
 {{api name1="Serial.peek" name2="Serial1.peek"}}
 
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
-
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
 ```cpp
@@ -6246,8 +6169,6 @@ Serial1.peek();
 ### write()
 
 {{api name1="Serial.write" name2="Serial1.write"}}
-
-_Available on Serial, Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Writes binary data to the serial port. This data is sent as a byte or series of bytes; to send the characters representing the digits of a number use the `print()` function instead.
 
@@ -6288,8 +6209,6 @@ void loop()
 
 {{api name1="Serial.read" name2="Serial1.read"}}
 
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
-
 Reads incoming serial data.
 
 ```cpp
@@ -6323,8 +6242,6 @@ void loop() {
 
 {{api name1="Serial.print" name2="Serial1.print"}}
 
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
-
 Prints data to the serial port as human-readable ASCII text.
 This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
 
@@ -6347,7 +6264,6 @@ An optional second parameter specifies the base (format) to use; permitted value
 
 {{api name1="Serial.println" name2="Serial1.println"}}
 
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as `Serial.print()`.
 
@@ -6400,7 +6316,6 @@ void loop() {
 
 {{since when="0.4.6"}}
 
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
 
@@ -6428,8 +6343,6 @@ The last `printf()` call could be changed to `printlnf()` to avoid a separate ca
 
 {{since when="0.4.6"}}
 
-_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
-
 formatted output followed by a newline.
 Produces the same output as [printf](#printf-) which is then followed by a newline character,
 so to that subsequent output appears on the next line.
@@ -6450,13 +6363,10 @@ Serial1.flush();
 `flush()` neither takes a parameter nor returns anything.
 
 
-{{#if has-serial-half-duplex}}
 
 ### halfduplex()
 
 {{api name1="Serial1.halfduplex"}}
-
-_Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
 are on the TX pin.  This mode can be used for a single wire bus communications
@@ -6480,7 +6390,12 @@ Serial1.halfduplex(true);
 
 `halfduplex()` returns nothing
 
-{{/if}}
+---
+
+{{note op="start" type="gen2"}}
+Half duplex mode is only available on Gen 2 devices (Photon, P1, Electron, E Series) on
+hardware UART ports (Serial1, Serial2, ...).
+{{note op="end"}}
 
 ### isConnected()
 
@@ -6515,7 +6430,7 @@ void setup()
 
 _Since 0.5.3 Available on `Serial`._
 
-_Since 0.6.0 Available on `Serial`{{#if has-usb-serial1}} and `USBSerial1`{{/if}}._
+_Since 0.6.0 Available on `Serial` and `USBSerial1`._
 
 Used to check if host has serial port (virtual COM port) open.
 
@@ -6548,7 +6463,6 @@ Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlo
 
 Unlocks the Serial mutex. See `lock()`.
 
-{{#if has-usb-hid}}
 ## Mouse
 
 {{api name1="Mouse"}}
@@ -6580,7 +6494,7 @@ void loop() {
 
 {{since when="0.6.0"}}
 
-This library allows devices to act as a native USB HID Mouse.
+This object allows devices to act as a native USB HID Mouse.
 
 In terms of USB HID, the device presents itself as two separate devices: Mouse (supporting relative movement) and Digitizer (supporting absolute movement).
 
@@ -6591,6 +6505,12 @@ Full capabilities include:
 - Wheel [-127, 127]
 
 ***NOTE:*** Linux X11 doesn't support HID devices reporting both absolute and relative coordinates. By default only absolute movement is possible by using [`Mouse.moveTo()`](#moveto-). In order for regular relative [`Mouse.move()`](#move-) to work, a call to [`Mouse.enableMoveTo(false)`](#enablemoveto-) is required.
+
+---
+
+{{note op="start" type="gen2"}}
+Mouse and Keyboard are available only on Gen 2 devices (Photon, P1, Electron, and E Series).
+{{note op="end"}}
 
 ### begin()
 
@@ -6938,6 +6858,12 @@ void loop() {
 
 This object allows your device to act as a native USB HID Keyboard.
 
+---
+
+{{note op="start" type="gen2"}}
+Mouse and Keyboard are available only on Gen 2 devices (Photon, P1, Electron, and E Series).
+{{note op="end"}}
+
 ### begin()
 
 {{api name1="Keyboard.begin"}}
@@ -7170,9 +7096,7 @@ See [`Keyboard.write()`](#write--1) and [`Serial.printf()`](#printf-) documentat
 
 See [`Keyboard.write()`](#write--1) and [`Serial.printlnf()`](#printlnf-) documentation.
 
-{{/if}} {{!-- has-usb-hid --}}
 
-{{#if has-spi}}
 ## SPI
 
 {{api name1="SPI" name2="SPI1"}}
@@ -7186,41 +7110,13 @@ This object allows you to communicate with SPI ("Serial Peripheral Interface") d
 | SPI | 60 Mbit/sec | 32 Mbit/sec | Many (limited by CS GPIO pins) |
 
 
-
-{{#if has-spi-slave}}
-{{#if has-stm32}}_Since 0.5.0_ {{/if}}This device can function as a SPI slave.
-{{/if}} {{!-- has-spi-slave --}}
+SPI slave mode is supported as well (since DeviceOS 0.5.0). On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM), SPI slave can only be used on SPI1. 
 
 The hardware SPI pin functions, which can
 be used via the `SPI` object, are mapped as follows:
 
-{{#if has-stm32}}
-* `SS` => `A2` (default)
-* `SCK` => `A3`
-* `MISO` => `A4`
-* `MOSI` => `A5`
-
-{{#if has-multiple-spi}}
-There is a second hardware SPI interface available, which can
-be used via the `SPI1` object. This second port is mapped as follows:
-* `SS` => `D5` (default)
-* `SCK` => `D4`
-* `MISO` => `D3`
-* `MOSI` => `D2`
-{{/if}} {{!-- has-multiple-spi --}}
-
-{{#if electron}}
-Additionally on the Electron, there is an alternate pin location for the second SPI interface, which can
-be used via the `SPI2` object. This alternate location is mapped as follows:
-* `SS` => `D5` (default)
-* `SCK` => `C3`
-* `MISO` => `C2`
-* `MOSI` => `C1`
-{{/if}} {{!-- electron --}}
-
-{{/if}} {{!-- has-stm32 --}}
-
-{{#if has-nrf52}}
+---
+{{note op="start" type="gen3"}}
 On the Argon, Boron, and Xenon:
 * `SS` => `A5 (D14)` (but can use any available GPIO)
 * `SCK` => `SCK (D13)`
@@ -7239,7 +7135,6 @@ On the Tracker SoM:
 * `MISO` => `A5`/`D5`
 * `MOSI` => `A4`/`D4`
 
-{{#if has-multiple-spi}}
 There is a second hardware SPI interface available, which can
 be used via the `SPI1` object. This second port is mapped as follows:
 
@@ -7249,9 +7144,32 @@ be used via the `SPI1` object. This second port is mapped as follows:
 
 Note: On Gen 3 devices, the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a Gen 3 device with the classic adapter.
 
-{{/if}} {{!-- has-multiple-spi --}}
+{{note op="end"}}
 
-{{/if}} {{!-- has-nrf52 --}}
+{{note op="start" type="gen2"}}
+* `SS` => `A2` (default)
+* `SCK` => `A3`
+* `MISO` => `A4`
+* `MOSI` => `A5`
+
+There is a second hardware SPI interface available, which can
+be used via the `SPI1` object. This second port is mapped as follows:
+* `SS` => `D5` (default)
+* `SCK` => `D4`
+* `MISO` => `D3`
+* `MOSI` => `D2`
+
+Additionally on the Electron and E Series, there is an alternate pin location for the second SPI interface, which can
+be used via the `SPI2` object. As this is just an alternate pin mapping you cannot use both `SPI1` and `SPI2` at the same time. 
+This alternate location is mapped as follows:
+* `SS` => `D5` (default)
+* `SCK` => `C3`
+* `MISO` => `C2`
+* `MOSI` => `C1`
+
+{{note op="end"}}
+---
+
 
 ### begin()
 
@@ -7264,26 +7182,13 @@ Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select 
 ```cpp
 // SYNTAX
 SPI.begin(ss);
-{{#if has-multiple-spi}}
 SPI1.begin(ss);
-{{#if electron}}
-SPI2.begin(ss);
-{{/if}} {{!-- electron --}}
-{{/if}} {{!-- has-multiple-spi --}}
 
 // Example with no SS pin configured:
 SPI.begin(PIN_INVALID);
 ```
 
-Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is:
-- Argon, Boron, Xenon: `A5 (D14)`
-- B Series SoM: `D8`
-- Photon, P1, Electron, and E Series: `A2`
-{{#if has-multiple-spi}}
-For `SPI1`, the default `ss` pin is `D5`.
-{{#if electron}}
-For `SPI2`, the default `ss` pin is also `D5`.
-{{/if}} {{!-- electron --}}
+Where, the parameter `ss` is the `SPI` device slave-select pin to initialize. The default SS pin varies by port and device, see above.
 
 ```cpp
 // Example using SPI1, with D5 as the SS pin:
@@ -7291,16 +7196,7 @@ SPI1.begin();
 // or
 SPI1.begin(D5);
 ```
-{{#if electron}}
-```cpp
-// Example using SPI2, with C0 as the SS pin:
-SPI2.begin(C0);
-```
-{{/if}} {{!-- electron --}}
 
-{{/if}} {{!-- has-multiple-spi --}}
-
-{{#if has-spi-slave}}
 
 ### begin(SPI_Mode, uint16_t)
 
@@ -7313,36 +7209,23 @@ Initializes the device SPI peripheral in master or slave mode.
 Parameters:
 
 - `mode`: `SPI_MODE_MASTER` or `SPI_MODE_SLAVE`
-- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is:
-- Argon, Boron, Xenon: `A5 (D14)`
-- B Series SoM: `D8`
-- Photon, P1, Electron, and E Series: `A2`
-{{#if has-multiple-spi}}
-For `SPI1`, the default `ss` pin is `D5`.
-{{#if electron}}
-For `SPI2`, the default `ss` pin is also `D5`.
-{{/if}} {{!-- electron --}}
-{{/if}} {{!-- has-multiple-spi --}}
+- `ss_pin`: slave-select pin to initialize. The default SS pin varies by port and device, see above.
 
 
 ```cpp
 // Example using SPI in master mode, with the default SS pin:
 SPI.begin(SPI_MODE_MASTER);
-{{#if has-multiple-spi}}
+
 // Example using SPI1 in slave mode, with D5 as the SS pin
 SPI1.begin(SPI_MODE_SLAVE, D5);
-{{#if electron}}
+
 // Example using SPI2 in slave mode, with C0 as the SS pin
+// (Electron and E Series only)
 SPI2.begin(SPI_MODE_SLAVE, C0);
-{{/if}} {{!-- electron --}}
-{{/if}} {{!-- has-multiple-spi --}}
 ```
 
-{{#if has-nrf52}}
-Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. It is not supported on SPI. The maximum speed is 8 MHz on SPI1.
-{{/if}} {{!-- has-nrf52 --}}
+On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1. It is not supported on SPI. The maximum speed is 8 MHz on SPI1.
 
-{{/if}} {{!-- has-spi-slave --}}
 
 ### end()
 
@@ -7400,9 +7283,7 @@ the clock speed using dividers is typically not portable since is dependent upon
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockSpeed()`.
 
-{{#if has-nrf52}}
-Gen 3 devices (Argon, Boron, and Xenon) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
-{{/if}}
+Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) support SPI speeds up to 32 MHz on SPI and 8 MHz on SPI1.
 
 
 ### setClockDividerReference
@@ -7433,14 +7314,11 @@ SPI.setClockDivider(SPI_CLK_DIV4);
 
 The default clock divider reference is the system clock.
 
-{{#if has-stm32}}
-On the Photon and Electron, the system clock speeds are:
+On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM), system clock speed is 64 MHz.
+
+On the Gen 2 (Photon, P1, Electron, and E Series), the system clock speeds are:
 - SPI - 60 MHz
 - SPI1 - 30 MHz
-{{/if}}
-{{#if has-nrf52}}
-On Gen 3 devices (Argon, Boron, Xenon), system clock speed is 64 MHz.
-{{/if}} {{!-- has-nrf52 --}}
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockDividerReference()`.
 
@@ -7468,12 +7346,8 @@ Where the parameter, `divider` can be:
 
 The clock reference varies depending on the device.
 
-{{#if has-stm32}}
-On the Photon and Electron, the clock reference is 120 MHz.
-{{/if}}
-{{#if has-nrf52}}
-On Gen 3 devices (Argon, Boron, Xenon), the clock reference is 64 MHz.
-{{/if}} {{!-- has-nrf52 --}}
+- On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SOM), the clock reference is 64 MHz.
+- On Gen 2 devices (Photon, P1, Electron, E Series), the clock reference is 120 MHz.
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setClockDivider()`.
 
@@ -7505,21 +7379,14 @@ Transfers one byte over the SPI bus, both sending and receiving.
 ```cpp
 // SYNTAX
 SPI.transfer(val);
-{{#if has-multiple-spi}}
 SPI1.transfer(val);
-{{#if electron}}
-SPI2.transfer(val);
-{{/if}}
-{{/if}}
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.setDataMode()`.
 
-{{#if has-threading}}
-`transfer()` acquires the SPI peripheral lock before sending a byte, blocking other threads from using the selected SPI peripheral during the transmission. If you call `transfer` in a loop, call [`beginTransaction()`](#begintransaction-) function before the loop and [`endTransaction()`](#endtransaction-) after the loop, to avoid the overhead of acquiring and releasing the lock over and over.
 
-{{/if}} {{!-- has-threading --}}
+`transfer()` acquires the SPI peripheral lock before sending a byte, blocking other threads from using the selected SPI peripheral during the transmission. If you call `transfer` in a loop, call [`beginTransaction()`](#begintransaction-) function before the loop and [`endTransaction()`](#endtransaction-) after the loop, to avoid having another thread interrupt your SPI operations.
 
 ### transfer(void\*, void\*, size_t, std::function)
 
@@ -7563,9 +7430,7 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 
 Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
 
-{{#if has-nrf52}}
 On Gen 3 devices (Argon, Boron, and Xenon), SPI slave can only be used on SPI1.
-{{/if}} {{!-- has-nrf52 --}}
 
 ```cpp
 // SYNTAX
@@ -7578,55 +7443,9 @@ void myFunction(uint8_t state) {
 
 Parameters: `handler`: the function to be called when the slave is selected or deselected; this should take a single uint8_t parameter (the current state: `1` - selected, `0` - deselected) and return nothing, e.g.: `void myHandler(uint8_t state)`
 
-{{#if has-stm32}}
+
 ```cpp
-// SPI slave example
-static uint8_t rx_buffer[64];
-static uint8_t tx_buffer[64];
-static uint32_t select_state = 0x00;
-static uint32_t transfer_state = 0x00;
-
-SerialLogHandler logHandler(LOG_LEVEL_TRACE);
-
-void onTransferFinished() {
-    transfer_state = 1;
-}
-
-void onSelect(uint8_t state) {
-    if (state)
-        select_state = state;
-}
-
-/* executes once at startup */
-void setup() {
-    Serial.begin(9600);
-    for (int i = 0; i < sizeof(tx_buffer); i++)
-      tx_buffer[i] = (uint8_t)i;
-    SPI.onSelect(onSelect);
-    SPI.begin(SPI_MODE_SLAVE, A2);
-}
-
-/* executes continuously after setup() runs */
-void loop() {
-    while (1) {
-        while(select_state == 0);
-        select_state = 0;
-
-        transfer_state = 0;
-        SPI.transfer(tx_buffer, rx_buffer, sizeof(rx_buffer), onTransferFinished);
-        while(transfer_state == 0);
-        if (SPI.available() > 0) {
-            Log.dump(LOG_LEVEL_TRACE, rx_buffer, SPI.available());
-            Log.info("Received %d bytes", SPI.available());
-        }
-    }
-}
-```
-{{/if}} {{!-- has-stm32 --}}
-
-{{#if has-nrf52}}
-```cpp
-// SPI slave example
+// SPI1 slave example
 static uint8_t rx_buffer[64];
 static uint8_t tx_buffer[64];
 static uint32_t select_state = 0x00;
@@ -7667,9 +7486,8 @@ void loop() {
     }
 }
 ```
-{{/if}} {{!-- has-nrf52 --}}
 
-Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.onSelect()`.
+On Gen 2 devices, this example can use `SPI` instead of `SPI1`. Makes sure you change all of the calls!
 
 ### available()
 
@@ -7687,7 +7505,6 @@ SPI.available();
 Returns the number of bytes available.
 
 
-{{#if has-spi-settings}}
 ### SPISettings
 
 {{api name1="SPISettings"}}
@@ -7727,7 +7544,6 @@ Parameters:
 
 Reconfigures the SPI peripheral with the supplied settings (see [`SPISettings`](#spisettings) documentation).
 
-{{#if has-threading}}
 In addition to reconfiguring the SPI peripheral, `beginTransaction()` also acquires the SPI peripheral lock, blocking other threads from using the selected SPI peripheral until [`endTransaction()`](#endtransaction-) is called. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
 
 It is required that you use `beginTransaction()` and `endTransaction()` if:
@@ -7737,7 +7553,6 @@ It is required that you use `beginTransaction()` and `endTransaction()` if:
 - You want to be compatible with the Ethernet FeatherWing or support Ethernet on your B Series SoM base board
 
 You must not use `beginTransaction()` within a `SINGLE_THREADED_BLOCK` as deadlock can occur.
-{{/if}} {{!-- has-threading --}}
 
 ```cpp
 // SYNTAX
@@ -7764,10 +7579,8 @@ Note that you must use the same `SPI` object as used with `SPI.begin()` so if yo
 Releases the SPI peripheral.
 
 
-{{#if has-threading}}
 This function releases the SPI peripheral lock, allowing other threads to use it. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
 
-{{/if}} {{!-- has-threading --}}
 
 ```cpp
 // SYNTAX
@@ -7778,11 +7591,6 @@ Returns: Negative integer in case of an error.
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.endTransaction()`.
 
-{{/if}} {{!-- has-spi-settings --}}
-
-{{/if}} {{!-- has-spi --}}
-
-{{#if has-i2c}}
 
 ## Wire (I2C)
 
@@ -7812,61 +7620,58 @@ On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), a 13K pull-up is add
 
 ### Pins (I2C)
 
-{{#if has-embedded}}
-
-{{#if has-stm32}}
-On the Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
-{{/if}} {{!-- has-stm32 --}}
-
-{{#if has-nrf52}}
-On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Additionally, there is a second optional I2C interface on D2 and D3 on the Argon and Xenon only.
-
-Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
-
-Note that unlike Gen 2 devices (Photon/P1/Electron), Gen 3 devices are not 5V tolerant.
-{{/if}} {{!-- has-nrf52 --}}
-
 
 These pins are used via the `Wire` object.
 
 * `SCL` => `D1`
 * `SDA` => `D0`
 
-{{#if has-i2c-wire1}}
 
-{{#if electron}}
+---
+
+{{note op="start" type="gen3"}}
+On the Argon/Boron/Xenon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Additionally, there is a second optional I2C interface on D2 and D3 on the Argon and Xenon only.
+
+Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+
+Note that unlike Gen 2 devices (Photon/P1/Electron), Gen 3 devices are not 5V tolerant.
+
+**Tracker**
+
+The Tracker SoM allows an alternate mapping of the `Wire` (I2C interface) from D0/D1 to RX/TX. The `Wire3` interface allows you to use RX as SDA and TX as SCL. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings.
+
+This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
+
+**Argon**
+
+Additionally, on the Argon, there is a second I2C port that can be used with the `Wire1` object. This a separate I2C peripheral and can be used at the same time as `Wire`.
+* `SCL` => `D3`
+* `SDA` => `D2` 
+
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen2"}}
+On the Gen 2 devices (Photon, P1, Electron, E Series), 
+D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). 
+
+Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).
+
+Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+
+On the P1, there are 2.1K hardware pull-up resistors inside the P1 module.
+
+**Electron**
+
 Additionally on the Electron, there is an alternate pin location for the I2C interface, which can
 be used via the `Wire1` object. This alternate location is mapped as follows:
 * `SCL` => `C5`
 * `SDA` => `C4`
 Note that you cannot use both Wire and Wire1. These are merely alternative pin locations for a 
 single hardware I2C port.
-{{/if}} {{!-- electron --}}
-{{#if has-nrf52}}
-Additionally, on the Argon and Xenon, there a second I2C port that can be used with the `Wire1` object:
-* `SCL` => `D3`
-* `SDA` => `D2` 
-{{/if}} {{!-- has-nrf52 --}}
 
-**Note**: Because there are multiple I2C locations available, be sure to use the same `Wire` or `Wire1` object with all associated functions. 
-For example, do not use `Wire.begin()` with `Wire1.write()`.
-
-{{/if}} {{!-- has-i2c-wire1 --}}
-
-
-{{#if has-i2c-wire3}}
-
-This device allows an alternate mapping of the `Wire` (I2C interface) from D0/D1 to RX/TX. The `Wire3` interface allows you to use RX as SDA and TX as SCL. You cannot use `Wire3` and `Serial1` at the same time. Likewise, you cannot use `Wire` and `Wire3` at the same time, as there is only one I2C peripheral, just different pin mappings.
-
-This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
-
-{{/if}} {{!-- has-i2c-wire3 --}}
-
-
-{{/if}} {{!-- has-embedded --}}
-
-
-{{#if has-embedded}}
+{{note op="end"}}
 
 ### setSpeed()
 
@@ -7900,25 +7705,20 @@ Parameters:
 
 - `stretch`: boolean. `true` will enable clock stretching (default). `false` will disable clock stretching.
 
-{{/if}} {{!-- has-embedded --}}
 
 ### begin()
 
 {{api name1="Wire.begin" name2="Wire1.begin" name3="Wire2.begin" name4="Wire3.begin"}}
 
-Initiate the Wire library and join the I2C bus as a master{{#if has-i2c-slave}} or slave{{/if}}. This should normally be called only once.
+Initiate the Wire library and join the I2C bus as a master or slave. This should normally be called only once.
 
 ```cpp
 // SYNTAX
-Wire.begin();
-{{#if has-i2c-slave}}
-Wire.begin(address);
-{{/if}} {{!-- has-i2c-slave --}}
+Wire.begin(); // I2C master mode
+Wire.begin(address); // I2C slave mode
 ```
 
-{{#if has-i2c-slave}}
-Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
-{{/if}} {{!-- has-i2c-slave --}}
+Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master. If address is specified, join the bus as an I2C slave. If you are communicating with I2C sensors, displays, etc. you will almost always use I2C master mode (no address specified).
 
 
 ### end()
@@ -7988,8 +7788,6 @@ Wire.requestFrom(WireTransmission(I2C_ADDRESS).quantity(requestedLength).timeout
 ```
 
 
-{{#if has-embedded}}
-
 ### reset()
 
 {{api name1="Wire.reset"}}
@@ -8000,7 +7798,6 @@ Attempts to reset the I2C bus. This should be called only if the I2C bus has
 has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
 we hope this function isn't required, and it's provided for completeness.
 
-{{/if}} {{!-- has-embedded --}}
 
 ### beginTransmission()
 
@@ -8056,7 +7853,9 @@ Returns: `byte`, which indicates the status of the transmission:
 
 {{api name1="Wire.write"}}
 
-Queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`){{#if has-i2c-slave}}, or writes data from a slave device in response to a request from a master{{/if}}. Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
+Queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`), or writes data from a slave device in response to a request from a master. 
+
+The default buffer size is 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored. The buffer size can be increased by using `acquireWireBuffer()`.
 
 ```cpp
 // SYNTAX
@@ -8101,7 +7900,7 @@ void loop() {
 
 {{api name1="Wire.available"}}
 
-Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()`{{#if has-i2c-slave}} or on a slave inside the `onReceive()` handler{{/if}}.
+Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()` or on a slave inside the `onReceive()` handler.
 
 ```cpp
 Wire.available();
@@ -8113,7 +7912,7 @@ Returns: The number of bytes available for reading.
 
 {{api name1="Wire.read"}}
 
-Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class.
+Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class.
 
 ```cpp
 // SYNTAX
@@ -8148,7 +7947,7 @@ void loop() {
 
 {{api name1="Wire.peek"}}
 
-Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
+Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
 
 ```cpp
 // SYNTAX
@@ -8188,7 +7987,6 @@ Never use `lock()` or `WITH_LOCK()` within a `SINGLE_THREADED_BLOCK()` as deadlo
 
 Unlocks the `Wire` mutex. See `lock()`.
 
-{{#if has-i2c-slave}}
 
 ### onReceive()
 
@@ -8255,7 +8053,6 @@ void loop() {
   delay(100);
 }
 ```
-{{/if}} {{!-- has-i2c-slave --}}
 
 
 ### acquireWireBuffer
@@ -8282,14 +8079,21 @@ HAL_I2C_Config acquireWireBuffer() {
 }
 ```
 
-{{/if}} {{!-- has-i2c --}}
-
-{{#if has-can}}
 
 ## CAN (CANbus)
 
 {{api name1="CAN"}}
 
+{{note op="start" type="note"}}
+This CAN API is supported only on Gen 2 devices (Photon, P1, Electron, and E Series).
+
+The Tracker SoM supports CAN, but uses an external library. See [Tracker CAN](/tutorials/asset-tracking/can-bus/).
+
+The Argon, Boron, and B Series SoM do not include CAN hardware, but it can be added with an external
+CAN interface chip and library, like the Tracker SoM.
+{{note op="end"}}
+
+---
 
 ![CAN bus](/assets/images/can.png)
 
@@ -8331,6 +8135,7 @@ void loop() {
     }
 }
 ```
+
 
 ### CANMessage
 
@@ -8573,7 +8378,6 @@ The two most common causes of error are: being alone on the bus (such as when us
 
 Errors heal automatically when properly communicating with other microcontrollers on the CAN bus.
 
-{{/if}} {{!-- has-can --}}
 
 ## IPAddress
 
@@ -8635,12 +8439,11 @@ IPAddress myIP = WiFi.localIP();
 Serial.println(myIP);    // prints the device's IP address
 ```
 
-{{#if has-ble}}
 ## Bluetooth LE (BLE)
 
 {{api name1="BLE"}}
 
-Gen 3 devices (Argon, Boron, and Xenon) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
+Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) support Bluetooth LE (BLE) in both peripheral and central modes. For more information about BLE, see the [BLE Tutorial](/tutorials/device-os/bluetooth-le/).
 
 BLE is intended for low data rate sensor applications. Particle devices do not support Bluetooth A2DP and can't be used with Bluetooth headsets, speakers, and other audio devices. Particle devices do not support Bluetooth 5 mesh.
 
@@ -8653,6 +8456,11 @@ BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in D
 - The number of connections from a central devices to peripherals is 3. It was 1 in 1.3.0.
 - The calls to get a characteristic now return a boolean value (true = success) and take the characteristic object as a parameter rather than returning the characteristic as in 1.3.0.
 - Limits for the number user characteristics is 20. In 1.3.0 it was 7.
+
+---
+{{note op="start" type="gen2"}}
+Gen 2 devices (Photon, P1, Electron, E Series) do not support BLE.
+{{note op="end"}}
 
 ### BLE Class
 
@@ -10710,21 +10518,26 @@ The parameters to the iBeacon constructor in the example are:
 - Power measurement in dBm (-55)
 
 
-{{/if}} {{!-- has-ble --}}
 
 
-{{#if has-nfc-tag}}
 ## NFC
 
 {{api name1="NFC"}}
 
 NFC (Near-Field Communication) is typically used to communicate small amounts of data to a mobile app in very close range, within a few inches.
 
-Particle Gen 3 devices only support emulating an NFC tag. They cannot locate or communicate with tags themselves, or support protocols such as for NFC payments.
+Particle Gen 3 devices (Argon, Boron, B Series SoM, and TrackerSoM) 
+only support emulating an NFC tag. They cannot locate or communicate with tags themselves, or support protocols such as for NFC payments.
 
-A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, directly underneath the USB connector.
+A separate antenna is required. NFC uses the unlicensed 13.56 MHz band, and requires a special loop antenna for electromagnetic induction. On the Argon, Boron, and Xenon, the NFC antenna connects to a U.FL connector on the bottom of the board, directly underneath the USB connector. The Tracker One includes an NFC antenna within the sealed enclosure.
 
 NFC is supported in Device OS 1.3.1 and later. NFC support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. 
+
+---
+
+{{note op="start" type="gen2"}}
+Gen 2 devices (Photon, P1, Electron, E Series) do not support NFC.
+{{note op="end"}}
 
 ### Example app
 
@@ -11008,19 +10821,18 @@ size_t setPayload(const void* payload, size_t numBytes);
 
 Returns the number of bytes added (`numBytes`).
 
-{{/if}} {{!-- has-nfc-tag --}}
 
 
-{{#if has-cellular}}
-## TCPServer
 
-Cellular devices (Boron, B Series SoM, Tracker SoM, Electron, E Series) do not support TCPServer. The cellular modem does not support it, and also the mobile carriers do not support it. You can only make outgoing TCP connections (TCPClient) on cellular devices.
-{{/if}}
-
-{{#if has-tcpserver}}
 ## TCPServer
 
 {{api name1="TCPServer"}}
+
+---
+{{note op="start" type="cellular"}}
+Cellular devices (Boron, B Series SoM, Tracker SoM, Electron, E Series) do not support TCPServer. The cellular modem does not support it, and also the mobile carriers do not support it. You can only make outgoing TCP connections (TCPClient) on cellular devices.
+{{note op="end"}}
+---
 
 ```cpp
 // SYNTAX
@@ -11190,9 +11002,7 @@ Clears the error code of the most recent `write()` operation setting it to `0`. 
 
 `clearWriteError()` does not return anything.
 
-{{/if}}
 
-{{#if has-tcpclient}}
 
 ## TCPClient
 (inherits from [`Stream`](#stream-class) via `Client`)
@@ -11252,13 +11062,12 @@ void loop()
 }
 ```
 
-{{#if has-cellular}}
-**Data Usage Warning**
-
-When using a Particle SIM with the device, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+---
+{{note op="start" type="cellular"}}
+On cellular devices, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
 
 Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
-{{/if}} {{!-- has-cellular --}}
+{{note op="end"}}
 
 ### connected()
 
@@ -11315,7 +11124,7 @@ Write data to the server the client is connected to. This data is sent as a byte
 
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
 
-The application code may additionally check if an error occurred during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
+The application code may additionally check if an error occurred during the last `write()` call by checking `getWriteError()` return value. Any non-zero error code indicates and error during write operation.
 
 
 ```cpp
@@ -11496,7 +11305,7 @@ Get the error code of the most recent `write()` operation.
 Returns: int `0` when everything is ok, a non-zero error code in case of an error.
 
 
-This value is updated every after every call to #write--4 or can be manually cleared by {{#if has-tcpserver}}[`clearWriteError()`](#clearwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`clearWriteError()`](#clearwriteerror-){{/if}}
+This value is updated every after every call to #write--4 or can be manually cleared by `clearWriteError()`.
 
 
 ```cpp
@@ -11522,7 +11331,7 @@ if (err != 0) {
 Clears the error code of the most recent `write()` operation setting it to `0`. This function is automatically called by `write()`.
 
 `clearWriteError()` does not return anything.
-{{/if}}
+
 
 ## UDP
 (inherits from [`Stream`](#stream-class) and `Printable`)
@@ -11589,14 +11398,13 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
  - to read an unbuffered packet, call `receivePacket` with a buffer to hold the received packet.
  - to write an unbuffered packet,  call `sendPacket` with the packet buffer to send, and the destination address.
 
-
-{{#if has-cellular}}
-**Data Usage Warning**
-
-When using a Particle SIM with the device, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks/).
+---
+{{note op="start" type="cellular"}}
+On cellular devices, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time.
 
 Direct TCP, UDP, and DNS do not consume Data Operations from your monthly or yearly quota. However, they do use cellular data and could cause you to exceed the monthly data limit for your account.
-{{/if}} {{!-- has-cellular --}}
+{{note op="end"}}
+
 
 ### begin()
 
@@ -11608,8 +11416,6 @@ Initializes the UDP library and network settings.
 // SYNTAX
 Udp.begin(port);
 ```
-
-{{#if has-threading}}
 
 If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
 to wait until the network is connected before calling `Udp.begin()`.
@@ -11629,13 +11435,8 @@ void setup() {
 }
 
 void loop() {
-{{#if has-cellular}}
+  // For Wi-Fi, use WiFi.ready()
 	if (Cellular.ready()) {
-{{/if}}
-{{#if has-wifi}}
-	if (WiFi.ready()) {
-{{/if}}
-
 		if (!wasConnected) {
 			udp.begin(LISTENING_PORT);
 			wasConnected = true;
@@ -11646,9 +11447,6 @@ void loop() {
 	}
 }
 ```
-
-
-{{/if}} {{!-- has-threading --}}
 
 ### available()
 
@@ -11978,7 +11776,6 @@ Parameters:
 Returns:
 - `int`: The number of bytes written. Negative value on error.
 
-{{#if has-udp-multicast}}
 ### joinMulticast()
 
 {{api name1="UDP::joinMulticast"}}
@@ -12023,8 +11820,6 @@ IPAddress multicastAddress(224,0,0,0);
 Udp.leaveMulticast(multicastAddress);
 ```
 
-{{/if}} {{!-- has-udp-multicast --}}
-
 ## Servo
 
 {{api name1="Servo"}}
@@ -12065,9 +11860,7 @@ void loop()
 
 **NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
 
-{{#if has-nrf52}}
 **NOTE:** Servo is only supported on Gen 3 devices in Device OS 0.8.0-rc.26 and later.
-{{/if}}
 
 
 ### attach()
@@ -12172,7 +11965,6 @@ servo.setTrim(30);
 servo.setTrim(0);
 ```
 
-{{#if has-rgb}}
 
 ## RGB
 
@@ -12336,7 +12128,6 @@ ExternalRGB myRGB(D0, D1, D2);
 
 The onChange handler is called 1000 times per second so you should be careful to not do any lengthy computations or functions that take a long time to execute. Do not call functions like Log.info, Serial.print, or Particle.publish from the onChange handler. Instead, save the values from onChange in global variables and handle lengthy operations from loop if you need to do lengthy operations.
 
-{{#if has-rgb-mirror}}
 
 ### mirrorTo()
 
@@ -12376,8 +12167,6 @@ Disables RGB LED mirroring.
 
 Parameters:
   - bootloader: if `true`, RGB mirroring configuration stored in DCT is also cleared disabling RGB mirroring functionality in bootloader (default)
-
-{{/if}} {{!-- has-rgb-mirror --}}
 
 ## LED Signaling
 
@@ -12983,7 +12772,6 @@ For convenience, the library defines constants for the following basic colors:
   * `RGB_COLOR_GRAY` : gray (`0x001f1f1f`)
   * `RGB_COLOR_ORANGE` : orange (`0x00ff6000`)
 
-{{/if}} {{!-- has-rgb --}}
 
 ## Time
 
@@ -13564,9 +13352,9 @@ Time.isValid();
 Used to check if current time is valid. This function will return `true` if:
 - Time has been set manually using [`Time.setTime()`](#settime-)
 - Time has been successfully synchronized with the Particle Device Cloud. The device synchronizes time with the Particle Device Cloud during the handshake. The application may also manually synchronize time with Particle Device Cloud using [`Particle.syncTime()`](#particle-synctime-)
-- Correct time has been maintained by RTC.{{#if has-backup-ram}} See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.{{/if}}
+- Correct time has been maintained by RTC. See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.
 
-**NOTE:** When the device is running in `AUTOMATIC` mode {{#if has-threading}}and threading is disabled {{/if}} this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once it synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
+**NOTE:** When the device is running in `AUTOMATIC` mode and threading is disabled this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once it synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
 
 ```cpp
 // Print true or false depending on whether current time is valid
@@ -13646,8 +13434,6 @@ Some places where you can use them:
 - Ethernet.setListenTimeout()
 - WiFi.setListenTimeout()
 
-{{#if has-interrupts}}
-
 ## Interrupts
 
 Interrupts are a way to write code that is run when an external event occurs.
@@ -13665,11 +13451,13 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 **NOTE:**
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
-{{#if has-nrf52}}
+---
+{{note op="start" type="gen3"}}
 All A and D pins (including TX, RX, and SPI) on Gen 3 devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
-{{/if}}
+{{note op="end"}}
 
-{{#if has-stm32}}
+---
+{{note op="start" type="gen2"}}
 External interrupts are supported on the following pins:
 
 **Photon**
@@ -13740,7 +13528,9 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
   - C4, RX
 
 
-{{/if}} {{!-- has-stm32 --}}
+{{note op="end"}}
+
+---
 
 Additional information on which pins can be used for interrupts is available on the [pin information page](/reference/hardware/pin-info).
 
@@ -13875,17 +13665,12 @@ noInterrupts();
 
 You must enable interrupts again as quickly as possible. Never return from setup(), loop(), from a function handler, variable handler, system event handler, etc. with interrupts disabled.
 
-{{/if}} {{!-- has-interrupts --}}
-
-{{#if has-software-timers}}
 
 ## Software Timers
 
 {{api name1="Timer"}}
 
-{{#if has-stm32}}
-_Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box.
-{{/if}}
+{{since when="0.4.7"}}
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
 
@@ -13926,8 +13711,6 @@ Software timers run with a smaller stack (1024 bytes vs. 6144 bytes). This can l
 - `callback` is the callback function which gets called when the timer expires.
 - `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer.
 
-
-{{/if}} {{!-- has-software-timers --}}
 
 ### Class member callbacks
 
@@ -14081,7 +13864,6 @@ if (timer.isActive()) {
 }
 ```
 
-{{#if has-application-watchdog}}
 
 ## Application Watchdog
 
@@ -14157,7 +13939,6 @@ Note: `waitFor` and `waitUntil` do not tickle the application watchdog. If the c
 
 You can also specify a value using [chrono literals](#chrono-literals), for example: `wd = new ApplicationWatchdog(60s, System.reset)` for 60 seconds. 
 
-{{/if}} {{!-- has-application-watchdog --}}
 
 ## Math
 
@@ -14471,18 +14252,23 @@ Note: The hardware random number generator has a limit to the number of random v
 
 Note: Only available on Gen 2 (Photon, P1, Electron, E Series), and Gen 3 (Argon, Boron, B Series SoM, Tracker SoM). Not available on the Spark Core.
 
-{{#if has-eeprom}}
-
 ## EEPROM
 
 {{api name1="EEPROM"}}
 
-{{#if has-eeprom-file}}
-EEPROM emulation allows small amounts  of data to be stored and persisted even across reset, power down, and user and system firmware flash operations.
+EEPROM emulation allows small amounts of data to be stored and persisted even across reset, power down, and user and system firmware flash operations.
 
-On this device the EEPROM emulation is stored as a file on the flash file system. Since the data is spread across a large number of flash sectors, flash erase-write cycle limits should not be an issue in general.
+---
 
-{{else}}
+{{note op="start" type="gen3"}}
+On Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) 
+the EEPROM emulation is stored as a file on the flash file system. Since the data is spread across a large number of flash sectors, flash erase-write cycle limits should not be an issue in general.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen2"}}
+On Gen 2 devices (Photon, P1, Electron, and E Series) 
 EEPROM emulation allocates a region of the device's built-in Flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled.
@@ -14491,8 +14277,10 @@ Each write containing changed values will add more data to the page until it is 
 
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
-{{/if}}
 
+{{note op="end"}}
+
+---
 
 ### length()
 
@@ -14506,7 +14294,7 @@ size_t length = EEPROM.length();
 ```
 
 - The Gen 2 (Photon, P1, Electron, and E Series) have 2047 bytes of emulated EEPROM.
-- The Gen 3 (Argon, Boron, Xenon) devices have 4096 bytes of emulated EEPROM.
+- The Gen 3 (Argon, Boron, B Series SoM, Tracker SoM) devices have 4096 bytes of emulated EEPROM.
 
 ### put()
 
@@ -14669,19 +14457,20 @@ Erase all the EEPROM so that all reads will return 255 (hexadecimal 0xFF).
 EEPROM.clear();
 ```
 
-{{#unless has-eeprom-file}}
-Calling this function pauses processor execution (including code running in interrupts) for 800ms since
+On Gen 2 devices, calling this function pauses processor execution (including code running in interrupts) for 800ms since
 no instructions can be fetched from Flash while the Flash controller is busy erasing both EEPROM
 pages.
-{{/unless}}
 
-{{#unless has-eeprom-file}}
 ### hasPendingErase()
 ### performPendingErase()
 
 {{api name1="EEPROM.hasPendingErase" name2="performPendingErase"}}
 
+{{note op="start" type="gen2"}}
+Pending erase functions are only used on Gen 2 devices (Photon, P1, Electron, and E Series). 
+{{note op="end"}}
 
+---
 *Automatic page erase is the default behavior. This section describes optional functions the
 application can call to manually control page erase for advanced use cases.*
 
@@ -14715,17 +14504,22 @@ If the application never calls `performPendingErase()` then the pending page era
 when data is written using `put()` or `write()` and both pages are full. So calling
 `performPendingErase()` is optional and provided to avoid the uncertainty of a potential processor
 pause any time `put()` or `write()` is called.
-{{/unless}} {{!-- has-eeprom-file --}}
 
 
-{{/if}}
 
-{{#if has-backup-ram}}
 ## Backup RAM (SRAM)
 
 {{api name1="retained"}}
 
-{{#if has-stm32}}
+{{note op="start" type="gen3"}}
+A 3068 bytes section of backup RAM is provided for storing values that are maintained across system reset and hibernate sleep mode. Unlike EEPROM emulation, the backup RAM can be accessed at the same speed as regular RAM and does not have any wear limitations.
+
+On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM), retained memory is only initialized in Device OS 1.5.0 and later. In prior versions, retained memory would always be uninitialized on first power-up.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen2"}}
 The STM32F2xx features 4KB of backup RAM (3068 bytes for Device OS
 version v0.6.0 and later) of which is available to the user. Unlike the regular RAM memory, the backup RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that the data in backup RAM is retained when:
 
@@ -14748,14 +14542,10 @@ Power Conditions and how they relate to Backup RAM initialization and data reten
 | System.reset() | Boot after software reset | Yes | Yes/No | No | Yes |
 | Hard reset | Boot after hard reset | Yes | Yes/No | No | Yes |
 
-<sup>[1]</sup> Note: If VBAT is floating when powering up for the first time, SRAM remains uninitialized.  When using this feature for Backup RAM, it is recommended to have VBAT connected to a 3V3 or a known good power source on system first boot.  When using this feature for Extra RAM, it is recommended to jumper VBAT to GND to ensure it always initializes on system first boot.
-{{/if}}
+<sup>[1]</sup> Note: If VBAT is floating when powering up for the first time, SRAM remains uninitialized.  When using this feature for Backup RAM, it is recommended to have VBAT connected to a 3V3 or a known good power source on system first boot.  When using this feature for Extra RAM, it is recommended to jumper VBAT to GND on the Photon, P1, and Electron to ensure it always initializes on system first boot. On the Electron, VBAT is tied to 3V3 and you must not connect it to GND.
+{{note op="end"}}
 
-{{#if has-nrf52}}
-A 3068 bytes section of backup RAM is provided for storing values that are maintained across system reset and hibernate sleep mode. Unlike EEPROM emulation, the backup RAM can be accessed at the same speed as regular RAM and does not have any wear limitations.
-
-On Gen 3 devices (Argon, Boron, B Series SoM), retained memory is only initialized in Device OS 1.5.0 and later. In prior versions, retained memory would always be uninitialized on first power-up.
-{{/if}}
+---
 
 ### Storing data in Backup RAM (SRAM)
 
@@ -14888,7 +14678,6 @@ keeping the `retained` variables in their own separate block. In this way it's e
 when new `retained` variables are added to the end of the list, or when they are rearranged.
 
 
-{{/if}} {{!-- has-backup-ram --}}
 
 ## Macros
 
@@ -14920,9 +14709,8 @@ The `STARTUP()` function instructs the system to execute the code even earlier, 
 
 The code referenced by `STARTUP()` is executed very early in the startup sequence, so it's best suited
 to initializing digital I/O and peripherals. Networking setup code should still be placed in `setup()`.
-{{#if has-wifi-antenna-switch}}
-Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made on the Photon and P1.
-{{/if}}
+
+There is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made on the Photon and P1.
 
 Note that when startup code performs digital I/O, there will still be a period of at least few hundred milliseconds
 where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
@@ -14971,8 +14759,6 @@ PRODUCT_VERSION(1); // increment each time you upload to the console
 This will allow the device to join the product it has been added to without hardcoding the product ID into the device firmware. This is used with the Tracker SoM to join the product it is assigned to with the factory firmware and not have to recompile and flash custom firmware. 
 
 
-
-{{#if has-sleep}}
 
 ## sleep() [ Sleep ]
 
@@ -15526,8 +15312,10 @@ This API is the previous API for sleep and is less flexible. You should use the 
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project. There are several variations of `System.sleep()` based on which arguments are passed.
 
-{{#if has-nrf52}}
-Gen 3 devices (Argon, Boron, Xenon) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for Gen 3 devices.
+---
+
+{{note op="start" type="gen3"}}
+Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) only support sleep modes in 0.9.0 and later. Sleep does not function properly in 0.8.0-rc versions of Device OS for Gen 3 devices.
 
 On the Argon, Boron, and Xenon, WKP is pin D8.
 
@@ -15535,11 +15323,40 @@ On the B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versio
 
 On the Tracker SoM WKP is pin A7/D7.
 
-{{/if}}
+`System.sleep(SLEEP_MODE_DEEP)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode." It is not possible to specify a wake time in seconds using `SLEEP_MODE_DEEP` on Gen 3 devices, however you can use timed wake with `ULTRA_LOW_POWER` sleep mode.
+
+```cpp
+// SYNTAX
+System.sleep(SLEEP_MODE_DEEP);
+
+// EXAMPLE USAGE
+
+// Put the device into deep sleep until wakened by D8.
+System.sleep(SLEEP_MODE_DEEP);
+// The device LED will shut off during deep sleep
+```
+
+On the Boron, B Series SoM, and Tracker SoM it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
+
+The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. It's possible wake from HIBERNATE mode using other pins; you should use the newer sleep API that supports HIBERNATE if possible.
+
+Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP or HIBERNATE. It will get set on after the first cloud connection, but initially it will not be set. 
 
 ---
 
-{{#if has-stm32}}
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
+```cpp
+// SYNTAX
+System.sleep(SLEEP_MODE_SOFTPOWEROFF);
+```
+
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen2"}}
+Gen 2 devices (Photon, P1, Electron, E Series): 
+
 `System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
 
 ```cpp
@@ -15567,42 +15384,11 @@ Note: Be sure WKP is LOW before going into SLEEP_MODE_DEEP with a time interval!
 You can also specify a value using [chrono literals](#chrono-literals), for example: `System.sleep(SLEEP_MODE_DEEP, 2min)` for 2 minutes.
 
 
-{{/if}} {{!-- has-stm32 --}}
-
-{{#if has-nrf52}}
-`System.sleep(SLEEP_MODE_DEEP)` can be used to put the entire device into a *deep sleep* mode, sometimes referred to as "standby sleep mode."
-
-
-```cpp
-// SYNTAX
-System.sleep(SLEEP_MODE_DEEP);
-
-// EXAMPLE USAGE
-
-// Put the device into deep sleep until wakened by D8.
-System.sleep(SLEEP_MODE_DEEP);
-// The device LED will shut off during deep sleep
-```
-
-On the Boron, B Series SoM, and Tracker SoM it is not useful to combine `SLEEP_MODE_DEEP` and `SLEEP_NETWORK_STANDBY` as the modem will remain on, but also be reset when the device resets, eliminating any advantage of using `SLEEP_NETWORK_STANDBY`.
-
-{{/if}} {{!-- has-nrf52 --}}
-
-In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a standby mode. 
-
-When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
-
-The standby mode is used to achieve the lowest power consumption.  After entering standby mode, the RAM and register contents are lost{{#if has-backup-ram}} except for retained memory{{/if}}.
-
-For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods less than 10 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently.
-
-{{#if has-stm32}}
 The device will automatically *wake up* after the specified number of seconds or by applying a rising edge signal to the WKP pin. 
 
 {{since when="0.8.0"}}
 Wake up by WKP pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
 
-{{#if has-fuel-gauge}}
 ---
 
 `System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`. This is also the same net result as used in the user-activated Soft Power Down feature when you double-tap the Mode button and the Electron powers down.
@@ -15611,28 +15397,18 @@ Wake up by WKP pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to 
 // SYNTAX
 System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 ```
-{{/if}} {{!-- has-fuel-gauge --}}
 
-{{/if}} {{!-- has-stm32 --}}
-
-{{#if has-nrf52}}
-
-The Gen 3 devices (Argon, Boron, Xenon) can only wake from SLEEP_MODE_DEEP by a high level on D8. It's not possible to exit SLEEP_MODE_DEEP based on time because the clock does not run in standby sleep mode on the nRF52. 
-
-Also, the real-time-clock (Time class) will not be set when waking up from SLEEP_MODE_DEEP. It will get set on after the first cloud connection, but initially it will not be set. 
-
-{{#if has-fuel-gauge}}
----
-
-`System.sleep(SLEEP_MODE_SOFTPOWEROFF)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the device, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`.
-```cpp
-// SYNTAX
-System.sleep(SLEEP_MODE_SOFTPOWEROFF);
-```
-{{/if}} {{!-- has-fuel-gauge --}}
+{{note op="end"}}
 
 
-{{/if}} {{!-- has-nrf52 --}}
+In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a standby mode. 
+
+When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
+
+The standby mode is used to achieve the lowest power consumption.  After entering standby mode, the RAM and register contents are lost except for retained memory.
+
+For cellular devices, reconnecting to cellular after `SLEEP_MODE_DEEP` will generally use more power than using `SLEEP_NETWORK_STANDBY` for periods less than 15 minutes. You should definitely avoid using `SLEEP_MODE_DEEP` on cellular devices for periods less than 10 minutes. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently.
+
 
 
 ---
@@ -15644,9 +15420,7 @@ The device will not reset before going into stop mode so all the application var
 ```cpp
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
-{{#if has-cellular}}
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY);
-{{/if}}
 
 // EXAMPLE USAGE
 
@@ -15655,30 +15429,23 @@ System.sleep(D1,RISING);
 // The device LED will shut off during sleep
 ```
 
-{{#if has-cellular}}
 The Electron and Boron maintain the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption during sleep. Roughly speaking, for sleep periods of less than 15 minutes, `SLEEP_NETWORK_STANDBY` uses less power.
 
 For sleep periods of less than 10 minutes you must use `SLEEP_NETWORK_STANDBY`. Your SIM can be blocked by your mobile carrier for aggressive reconnection if you reconnect to cellular very frequently. Using `SLEEP_NETWORK_STANDBY` keeps the connection up and prevents your SIM from being blocked.
-{{/if}}
 
 
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-{{#if has-stm32}}
     - supports external interrupts on the following pins:
-      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - Gen 3: all pins are allowed, but a maximum of 8 can be used at a time
+      - Gen 2: D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-{{else}}
-    - all pins are allowed, but a maximum of 8 can be used at a time
-{{/if}}
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
-{{#if electron}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
-{{/if}}
+- Cellular devices: `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 
 The device will automatically reconnect to the cloud if the cloud was connected when sleep was entered. If disconnected prior to sleep, it will stay disconnected on wake.
 
@@ -15690,14 +15457,12 @@ System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edge
 
 System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes);
 System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount);
-{{#if has-cellular}}
 
 System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
 System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY);
 
 System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY);
 System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY);
-{{/if}}
 
 // EXAMPLE USAGE
 
@@ -15732,13 +15497,10 @@ Multiple wakeup pins may be specified for this mode.
 - `wakeUpPins`: a list of wakeup pins:
     - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
     - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
-{{#if has-stm32}}
     - supports external interrupts on the following pins:
-      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - Gen 3: all pins are allowed, but a maximum of 8 can be used at a time
+      - Gen 2: D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-{{else}}
-    - all pins are allowed, but a maximum of 8 can be used at a time
-{{/if}}
 
 - `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
@@ -15749,16 +15511,12 @@ Multiple wakeup pins may be specified for this mode.
     - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
     - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
 - `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
-{{#if electron}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
-{{/if}}
+- Cellular devices: `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 
 ```cpp
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
-{{#if has-cellular}}
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
-{{/if}}
 
 // EXAMPLE USAGE
 
@@ -15772,22 +15530,16 @@ System.sleep(D1,RISING,60);
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-{{#if has-stm32}}
     - supports external interrupts on the following pins:
-      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - Gen 3: all pins are allowed, but a maximum of 8 can be used at a time
+      - Gen 2: D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-{{else}}
-    - all pins are allowed, but a maximum of 8 can be used at a time
-{{/if}}
-apply
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
-{{#if has-cellular}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
-{{/if}}
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). On Gen 3 devices, the maximum sleep time is approximately 24 days.
+- Cellular devices: `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 
 
 {{since when="1.5.0"}}
@@ -15802,14 +15554,12 @@ System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edge
 
 System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, long seconds);
 System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, long seconds);
-{{#if has-cellular}}
 
 System.sleep(std::initializer_list<pin_t> wakeUpPins, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
 System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, InterruptMode edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
 
 System.sleep(std::initializer_list<pin_t> wakeUpPins, std::initializer_list<InterruptMode> edgeTriggerModes, SLEEP_NETWORK_STANDBY, long seconds);
 System.sleep(const pin_t* wakeUpPins, size_t wakeUpPinsCount, const InterruptMode* edgeTriggerModes, size_t edgeTriggerModesCount, SLEEP_NETWORK_STANDBY, long seconds);
-{{/if}}
 
 // EXAMPLE USAGE
 
@@ -15844,14 +15594,10 @@ Multiple wakeup pins may be specified for this mode.
 - `wakeUpPins`: a list of wakeup pins:
     - `std::initializer_list<pin_t>`: e.g. `{D1, D2, D3}`
     - a `pin_t` array. The length of the array needs to be provided in `wakeUpPinsCount` argument
-{{#if has-stm32}}
     - supports external interrupts on the following pins:
-      - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+      - Gen 3: all pins are allowed, but a maximum of 8 can be used at a time
+      - Gen 2: D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
       - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
-{{else}}
-    - all pins are allowed, but a maximum of 8 can be used at a time
-{{/if}}
-(#attachinterrupt-) apply
 - `wakeUpPinsCount`: the length of the list of wakeup pins provided in `wakeUpPins` argument. This argument should only be specified if `wakeUpPins` is an array of pins and not an `std::initializer_list`.
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
@@ -15861,12 +15607,10 @@ Multiple wakeup pins may be specified for this mode.
     - `std::initializer_list<InterruptMode>`: e.g. `{RISING, FALLING, CHANGE}`
     - an `InterruptMode` array. The length of the array needs to be provided in `edgeTriggerModesCount` argument
 - `edgeTriggerModesCount`: the length of the edge trigger modes provided in `edgeTriggerModes` argument. This argument should only be specified if `edgeTriggerModes` is an array of modes and not an `std::initializer_list`.
-- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). {{#if has-nrf52}}On Gen 3 devices (Argon, Boron, Xenon), the maximum sleep time is approximately 24 days.{{/if}}
-{{#if has-cellular}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
-{{/if}}
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set). On Gen 3 devices, the maximum sleep time is approximately 24 days.
+- Cellular devices: `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 
-_Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
+_Since 0.4.5._ The state of the network and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
 _Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.
@@ -15882,7 +15626,7 @@ _Since 0.8.0_ An application may check the information about the latest sleep by
 
 ---
 
-`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in this mode.
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the network module is in this mode.
 
 This mode is not recommended; it is better to manually control the network connection using SYSTEM_MODE(SEMI_AUTOMATIC) instead.
 
@@ -16218,8 +15962,6 @@ int err = System.sleepError();
 
 See [`SleepResult`](#error-) documentation.
 
-{{/if}} {{!-- has-sleep --}}
-
 
 ## System Events
 
@@ -16459,7 +16201,6 @@ When using manual mode:
 - `Particle.process()` is required even with threading enabled in MANUAL mode.
 
 
-{{#if has-threading}}
 ## System Thread
 
 {{api name1="SYSTEM_THREAD(ENABLED)" name2="SYSTEM_THREAD"}}
@@ -16798,8 +16539,6 @@ To delay the application only for a period of time or the condition is not met (
 Note: `waitForNot` does not tickle the [application watchdog](/reference/device-os/firmware/#application-watchdog). If the condition you are waiting for is longer than the application watchdog timeout, the device will reset.
 
 
-{{/if}} {{!-- has-threading --}}
-
 ## System Calls
 
 ### version()
@@ -17121,8 +16860,6 @@ As a workaround you can use the `Print64` firmware library in the community libr
 Returns the number of seconds passed since the device was last reset.
 
 
-{{#if has-pmic}}
-
 ### powerSource()
 
 {{api name1="System.powerSource"}}
@@ -17156,6 +16893,14 @@ if (powerSource == POWER_SOURCE_BATTERY) {
   Log.info("running off battery");
 }
 ```
+---
+
+{{note op="start" type="note"}}
+Power Management including power source detection is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+
+It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+{{note op="end"}}
+
 
 ### batteryState()
 
@@ -17187,6 +16932,14 @@ if (batteryState == BATTERY_STATE_CHARGING) {
 }
 ```
 
+---
+
+{{note op="start" type="note"}}
+Power Management including battery state is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+
+It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+{{note op="end"}}
+
 ### batteryCharge()
 
 {{api name1="System.batteryCharge"}}
@@ -17204,8 +16957,14 @@ float batterySoc = System.batteryCharge();
 Log.info("soc=%.1f", batterySoc);
 ```
 
+---
 
-{{/if}}
+{{note op="start" type="note"}}
+Power Management including battery charge is available on the Boron, B Series SoM, Tracker SoM (Gen 3), Electron, and E Series (Gen 2).
+
+It is not available on the Argon (Gen 3), Photon, or P1 (Gen 2).
+{{note op="end"}}
+
 
 ### disableReset()
 
@@ -17327,23 +17086,19 @@ System configuration can be modified with the `System.set()` call.
 System.set(SYSTEM_CONFIG_..., "value");
 System.set(SYSTEM_CONFIG_..., buffer, length);
 
-{{#if has-wifi}}
-// EXAMPLE
+// EXAMPLE - Photon and P1 only
 // Change the SSID prefix in listening mode
 System.set(SYSTEM_CONFIG_SOFTAP_PREFIX, "Gizmo");
 
 // Change the SSID suffix in listening mode
 System.set(SYSTEM_CONFIG_SOFTAP_SUFFIX, "ABC");
-{{/if}} {{!-- has-wifi --}}
 ```
 
 The following configuration values can be changed:
 - `SYSTEM_CONFIG_DEVICE_KEY`: the device private key. Max length of `DCT_DEVICE_PRIVATE_KEY_SIZE` (1216).
 - `SYSTEM_CONFIG_SERVER_KEY`: the server public key. Max length of `SYSTEM_CONFIG_SERVER_KEY` (768).
-{{#if has-wifi}}
-- `SYSTEM_CONFIG_SOFTAP_PREFIX`: the prefix of the SSID broadcast in listening mode. Defaults to Photon. Max length of `DCT_SSID_PREFIX_SIZE-1` (25).
-- `SYSTEM_CONFIG_SOFTAP_SUFFIX`: the suffix of the SSID broadcast in listening mode. Defaults to a random 4 character alphanumerical string. Max length of `DCT_DEVICE_ID_SIZE` (6).
-{{/if}} {{!-- has-wifi --}}
+- `SYSTEM_CONFIG_SOFTAP_PREFIX`: the prefix of the SSID broadcast in listening mode. Defaults to Photon. Max length of `DCT_SSID_PREFIX_SIZE-1` (25). Only on Photon and P1.
+- `SYSTEM_CONFIG_SOFTAP_SUFFIX`: the suffix of the SSID broadcast in listening mode. Defaults to a random 4 character alphanumerical string. Max length of `DCT_DEVICE_ID_SIZE` (6). Only on Photon and P1.
 
 ### System Flags [ disable ]
 
@@ -17377,42 +17132,35 @@ Disables the system flag.
 
 Returns `true` if the system flag is enabled.
 
-{{#if has-interrupts}}
 
 ## System Interrupts
 
 This is advanced, low-level functionality, intended primarily for library writers.
 
-System interrupts happen as a result of peripheral events within the system. These
-system interrupts are supported on all platforms:
+---
+
+{{note op="start" type="gen2"}}
+System interrupts happen as a result of peripheral events within the system. 
 
 |Identifier | Description |
 |-----------|-------------|
-|SysInterrupt_SysTick | System Tick (1ms) handler |
-|SysInterrupt_TIM3 | Timer 3 interrupt |
-|SysInterrupt_TIM4 | Timer 4 interrupt |
-
-NB: SysInterrupt_TIM3 and SysInterrupt_TIM4 are used by the system to provide `tone()` and PWM output.
-
-{{#if has-stm32f2}}
-
-The device supports these additional interrupts:
-
-| Identifier | Description |
-| -----------|-------------|
+| SysInterrupt_SysTick | System Tick (1ms) handler |
+| SysInterrupt_TIM3 | Timer 3 interrupt |
+| SysInterrupt_TIM4 | Timer 4 interrupt |
 | SysInterrupt_TIM5 | Timer 5 interrupt |
 | SysInterrupt_TIM6 | Timer 6 interrupt |
 | SysInterrupt_TIM7 | Timer 7 interrupt |
 
-NB: SysInterrupt_TIM5 is used by the system to provide `tone()` and PWM output.
-NB: SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected to JTAG.
-
-{{/if}} {{!-- has-stm32f2 --}}
+- SysInterrupt_TIM3 and SysInterrupt_TIM4 are used by the system to provide `tone()` and PWM output.
+- SysInterrupt_TIM5 is used by the system to provide `tone()` and PWM output.
+- SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected to JTAG.
 
 See the [full list of interrupts in the firmware
 repository](https://github.com/particle-iot/device-os/blob/develop/hal/inc/interrupts_hal.h).
 
 > When implementing an interrupt handler, the handler **must** execute quickly, or the system operation may be impaired. Any variables shared between the interrupt handler and the main program should be declared as `volatile` to ensure that changes in the interrupt handler are visible in the main loop and vice versa.
+{{note op="end"}}
+
 
 ### attachSystemInterrupt()
 
@@ -17504,11 +17252,8 @@ detachInterruptDirect(TIM5_IRQn);
 Parameters:
 - `irqn`: platform-specific IRQ number
 
-{{/if}} {{!-- has-interrupts --}}
 
 
-
-{{#if has-button-mirror}}
 ### buttonMirror()
 
 {{api name1="System.buttonMirror"}}
@@ -17561,17 +17306,13 @@ System.disableButtonMirror(false);
 Parameters:
   * `bootloader`: (optional) if `true`, the mirror pin configuration is cleared from the DCT, disabling the feature in bootloader (default).
 
-{{/if}} {{!-- button-mirror --}}
 
-{{#if has-backup-ram}}
 ### System Features
 
 The system allows to alter certain aspects of its default behavior via the system features. The following system features are defined:
 
   * `FEATURE_RETAINED_MEMORY` : enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
-{{#if has-powersave-clock}}
   * `FEATURE_WIFI_POWERSAVE_CLOCK` : enables/disables the Wi-Fi Powersave Clock on P1S6 on P1 (enabled by default).
-{{/if}} {{!-- has-powersave-clock --}}
 
 #### FEATURE_RETAINED_MEMORY
 
@@ -17587,14 +17328,14 @@ System.enableFeature(FEATURE_RETAINED_MEMORY);
 // disable RETAINED MEMORY (default)
 System.disableFeature(FEATURE_RETAINED_MEMORY);
 ```
-{{/if}} {{!-- has-backup-ram --}}
 
-{{#if has-powersave-clock}}
 #### FEATURE_WIFI_POWERSAVE_CLOCK
 
 {{api name1="FEATURE_WIFI_POWERSAVE_CLOCK"}}
 
 {{since when="0.6.1"}}
+
+This feature is only available on the P1, and is enabled by default.
 
 ```cpp
 // SYNTAX
@@ -17623,20 +17364,21 @@ void loop() {
   // your loop code
 }
 ```
-{{/if}} {{!-- has-powersave-clock --}}
-
-{{#if has-posix-filesystem}}
 
 ## File System
 
-This device implements a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
+Gen 3 devices implement a POSIX-style file system API to store files on the LittleFS flash file system on the QSPI flash memory on the module.
 
 | Device | Since Device OS | Size |
 | :--- | :--- | :--- |
 | Tracker SoM | 1.5.4-rc.1 | 4 MB |
 | Argon, Boron, B Series SoM | 2.0.0-rc.1 | 2 MB |
 
-The file system is not available on Gen 2 devices.
+---
+
+{{note op="start" type="gen2"}}
+The File System is not available on Gen 2 devices (Photon, P1, Electron, E Series).
+{{note op="end"}}
 
 ### File System open 
 
@@ -18127,8 +17869,6 @@ int closedir(DIR* dirp)
 
 Returns 0 on success. On error, returns -1 and sets `errno`. 
 
-
-{{/if}} {{!-- has-posix-filesystem --}}
 
 
 ## OTA Updates
@@ -22342,11 +22082,7 @@ This means that things like `new`, `malloc`, `strdup`, etc., will not throw an e
 
 ## Other Functions
 
-{{#if has-linux}}
-The C standard library and other Linux libraries are available on the device. See this [description of the standard library](https://en.wikipedia.org/wiki/C_standard_library).
-{{else}}
 The C standard library used on the device is called newlib and is described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html)
-{{/if}} {{!-- has-linux --}}
 
 For advanced use cases, those functions are available for use in addition to the functions outlined above.
 
@@ -22567,11 +22303,12 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 #pragma SPARK_NO_PREPROCESSOR
 ```
 
-{{#if has-stm32f2}}
 
 ## Memory
 
-The Photon, P1, and Electron all have an STM32F205 processor with 128K of available RAM and 128K of flash for your user firmware.
+Gen 3 devices (Argon, Boron, B Series SoM, and Tracker SoM) have an nRF52840 MCU with 128K of flash for your user firmware.
+
+Gen 2 devices (Photon, P1, Electron, and E Series) all have an STM32F205 processor with 128K of flash for your user firmware.
 
 Some tips for understanding the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
 
@@ -22585,15 +22322,6 @@ The available stack depends on the environment:
 - Software timer callbacks: 1024 bytes
 
 The stack size cannot be changed as it's allocated by the Device OS before the user firmware is loaded. 
-
-{{/if}}
-
-{{#if has-mesh}}
-## Mesh
-
-The mesh networking features are only available in Device OS 0.9.0 - 1.5.4 and have been discontinued. See [mesh deprecation](/reference/discontinued/mesh/) for more information. The [mesh API](/reference/discontinued/firmware-mesh/) reference is still available for compatible versions of Device OS.
-
-{{/if}}
 
 ## Device OS Versions
 
