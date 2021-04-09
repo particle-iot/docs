@@ -2,20 +2,13 @@
 title: Device OS API
 layout: reference.hbs
 columns: three
-devices: [boron,photon,electron,argon,tracker-som]
+redirects: true
 order: 20
 description: Reference manual for the C++ API used by user firmware running on Particle IoT devices
 ---
 
-Device OS API - {{device}}
+Device OS API
 ==========
-
-You are viewing the Device OS API documentation for the **{{device}}**. To view the documentation for other 
-devices, use the blue device selector below the Particle logo on the left side of the page.
-
-The Device OS API for discontinued devices such as the [Spark Core](/reference/discontinued/firmware-core/) and 
-[Xenon](/reference/discontinued/firmware-xenon/) 
-can be found in the Discontinued section.
 
 ## Cloud Functions
 
@@ -489,6 +482,7 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 
 
 ---
+
 {{note op="start" type="cellular"}}
 
 ```cpp
@@ -514,6 +508,7 @@ The `NO_ACK` flag disables this acknowledge/retry behavior and sends the event o
 For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occasional lost event can be tolerated.
 
 {{note op="end"}}
+
 ---
 
 
@@ -798,7 +793,7 @@ It is not possible to disable the device vitals messages, however they do not co
 
 {{api name1="Particle.connect"}}
 
-`Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
+`Particle.connect()` connects the device to the Cloud. This will automatically activate the network connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
 ```cpp
 void setup() {}
@@ -1224,9 +1219,11 @@ void setup() {
 
 Ethernet is available on the Argon, Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board.
 
+It is not available on Gen 2 devices (Photon, P1, Electron, and E Series).
+
 {{note op="end"}}
 
---
+---
 
 By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
 
@@ -1581,7 +1578,7 @@ WiFi.ready();
 
 {{note op="start" type="note"}}
 
-On the Photon and P1 (Gen 2), selects which antenna the device should connect to Wi-Fi with and remembers that
+On the Photon and P1 (Gen 2), selectAntenna selects which antenna the device should connect to Wi-Fi with and remembers that
 setting until it is changed. Resetting Wi-Fi credentials does not clear the antenna setting.
 
 The Argon (Gen 3) does not have an antenna switch; it can only use an external antenna.
@@ -4320,12 +4317,14 @@ analogWrite(pin, value, frequency);
 `analogWrite()` does not return anything.
 
 ---
+
 {{note op="start" type="gen2"}}
 On the Photon, P1, Electron, and E Series, pins A3 and A6 (DAC) are DAC (digital-to-analog converter) 
 pins. The analogWrite() function sets an analog voltage, not a PWM frequency, when used on these pins.
 
 When controlling LED brightness, you should always use PWM, not DAC.
 {{note op="end"}}
+
 ---
 
 ```cpp
@@ -4397,7 +4396,7 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 {{note op="end"}}
 
-
+---
 
 ### analogWriteResolution() (PWM)
 
@@ -4429,6 +4428,8 @@ analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 On the Photon, P1, Electron, and E Series, pins A3 and A6 (DAC) are DAC (digital-to-analog converter) 
 pins and support only either 8-bit or 12-bit (default) resolutions.
 {{note op="end"}}
+
+---
 
 ### analogWriteMaxFrequency() (PWM)
 
@@ -7116,6 +7117,7 @@ The hardware SPI pin functions, which can
 be used via the `SPI` object, are mapped as follows:
 
 ---
+
 {{note op="start" type="gen3"}}
 On the Argon, Boron, and Xenon:
 * `SS` => `A5 (D14)` (but can use any available GPIO)
@@ -7168,6 +7170,7 @@ This alternate location is mapped as follows:
 * `MOSI` => `C1`
 
 {{note op="end"}}
+
 ---
 
 
@@ -10829,9 +10832,11 @@ Returns the number of bytes added (`numBytes`).
 {{api name1="TCPServer"}}
 
 ---
+
 {{note op="start" type="cellular"}}
 Cellular devices (Boron, B Series SoM, Tracker SoM, Electron, E Series) do not support TCPServer. The cellular modem does not support it, and also the mobile carriers do not support it. You can only make outgoing TCP connections (TCPClient) on cellular devices.
 {{note op="end"}}
+
 ---
 
 ```cpp
@@ -14273,7 +14278,9 @@ EEPROM emulation allocates a region of the device's built-in Flash memory to act
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled.
 
-Each write containing changed values will add more data to the page until it is full, causing a page erase.  When writing unchanged data, there is no flash wear, but there is a penalty in CPU cycles. Try not write to EEPROM every loop() iteration to avoid unnecessary CPU cycle penalties.  {{#if has-backup-ram}}Backup RAM may be a better storage solution for quickly changing values.  (see [Backup RAM (SRAM)](#backup-ram-sram-)){{/if}}
+Each write containing changed values will add more data to the page until it is full, causing a page erase.  When writing unchanged data, there is no flash wear, but there is a penalty in CPU cycles. Try not write to EEPROM every loop() iteration to avoid unnecessary CPU cycle penalties. 
+
+Backup RAM may be a better storage solution for quickly changing values, see [Backup RAM (SRAM)](#backup-ram-sram-)).
 
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
