@@ -241,7 +241,7 @@ While there is no specific rate limit on variables and functions, there are prac
 | [Mobile SDK](/reference/SDKs/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; |
 | USB configuration | &check; | &check; |
 | BLE configuration | &nbsp; | &check; |
-| [Soft AP](/reference/device-os/firmware/photon/#softap-http-pages) (configuration over Wi-Fi) | &check; | &nbsp; |
+| [Soft AP](/reference/device-os/firmware/#softap-http-pages) (configuration over Wi-Fi) | &check; | &nbsp; |
 | Static IP address support | &check; | &nbsp; |
 | WPA2 Enterprise support | &check; | &nbsp; |
 
@@ -293,7 +293,7 @@ The IP addresses used by the Particle cloud are subject to change without notice
 
 Gen 3 devices (Argon, Boron, B Series, Tracker SoM) and Gen 2 cellular devices (Electron, E Series) all use UDP port 5684, outbound. 
 
-While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/firmware/argon/#particle-keepalive-) to keep the cloud connection active.
+While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/firmware/#particle-keepalive-) to keep the cloud connection active.
 
 {{dnsTable key="udp"}}
 

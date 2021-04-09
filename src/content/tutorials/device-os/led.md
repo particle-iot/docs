@@ -77,7 +77,7 @@ Solid yellow or solid green indicates normal operation on the Tracker.
 ## Standard Modes
 These modes are the typical behaviors you will see from your device on a regular basis. They are the light patterns of a healthy device.
 
-Here's the typical pattern of {{a-device}} after power up.
+Here's the typical pattern of after power up.
 
 {{#if has-cellular}}
 {{device-animation device "pattern"

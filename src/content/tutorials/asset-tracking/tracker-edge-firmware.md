@@ -111,7 +111,7 @@ These are some standard Tracker include files that you will likely need:
 #include "tracker.h"
 ```
 
-This is the recommended [threading](/reference/device-os/firmware/tracker-som/#system-thread) and [system mode](/reference/device-os/firmware/tracker-som/#system-modes) to use. 
+This is the recommended [threading](/reference/device-os/firmware/#system-thread) and [system mode](/reference/device-os/firmware/#system-modes) to use. 
 
 ```cpp
 SYSTEM_THREAD(ENABLED);
@@ -194,7 +194,7 @@ Note the additions:
 
 - Calls `Tracker::instance().location.regLocGenCallback()` to register a location generation callback in `setup()`.
 - Adds a new function `locationGenerationCallback()`.
-- In the function adds a value to the loc object using the [JSON Writer API](/reference/device-os/firmware/tracker-som/#jsonwriter).
+- In the function adds a value to the loc object using the [JSON Writer API](/reference/device-os/firmware/#jsonwriter).
 
 If you look at the location event, you can see the new field for `speed` (in meters/second):
 
@@ -279,7 +279,7 @@ Wire3.begin();
 
 This feature is also available on the Tracker SoM, however on the Tracker SoM you have access to `Wire` on pins D0 an D1, so there is less of a need to use `Wire3`. Note that they map to the same I2C peripheral so you cannot use `Wire` and `Wire3` at the same time!
 
-If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/reference/device-os/firmware/tracker-som/#pinmode-), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
+If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/reference/device-os/firmware/#pinmode-), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
 
 These pins have a 3.3V maximum and are **not** 5V tolerant!
 

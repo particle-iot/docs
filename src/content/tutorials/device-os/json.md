@@ -423,7 +423,7 @@ be escaped like double quotes and backslash characters.
 Also, if you have arrays, especially variable-length arrays, or nested objects, 
 it is much easier to use the JSONWriter.
 
-The [Device OS Firmware API Reference](/reference/device-os/firmware/boron/#jsonwriter) has
+The [Device OS Firmware API Reference](/reference/device-os/firmware/#jsonwriter) has
 more information on JSONWriter.
 
 ## Receiving JSON

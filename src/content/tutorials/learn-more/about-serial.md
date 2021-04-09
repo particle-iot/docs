@@ -184,7 +184,7 @@ When you connect a Photon another device, say an Arduino, the RX pin on the Phot
 
 ### Additional ports on the Electron
 
-The Electron has two additional UART serial ports that you can use, [Serial4 and Serial5](/reference/device-os/firmware/electron/#serial). 
+The Electron has two additional UART serial ports that you can use, [Serial4 and Serial5](/reference/device-os/firmware/#serial). 
 
 - C0 Serial5 RX
 - C1 Serial5 TX

@@ -54,7 +54,7 @@ There are several mobile repos, for both iOS and Android.
 
 ### Particle Dev
 
-The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains the code used to run [Particle Dev](/tutorials/developer-tools/dev/), our professional, open source, hackable IDE, designed for use with Particle devices.
+The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains the code used to run [Particle Dev](/reference/discontinued/dev/), our professional, open source, hackable IDE, designed for use with Particle devices.
 
 
 ### Documentation

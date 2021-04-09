@@ -145,7 +145,7 @@ Particle.publish("T", String::format("%d,%d,%d,%d,%d", temperatures[0],temperatu
 
 **Use webhooks** Webhooks take a value that you Particle.publish and convert it into a HTTP request to an external server. If the external server is accepting connections by https (TLS/SSL), doing the TLS handshake from the webhook server greatly reduces the data usage from around 6K to the size of the publish, which might be as low as 100 bytes.
 
-**Use network sleep modes** If you are sleeping for 15 minutes or less, you can save data by keeping the cellular connection alive by using [network sleep](/reference/device-os/firmware/boron/#network-systemsleepconfiguration-). This can eliminate the negotiation that would occur to being the device back online after sleep.
+**Use network sleep modes** If you are sleeping for 15 minutes or less, you can save data by keeping the cellular connection alive by using [network sleep](/reference/device-os/firmware/#network-systemsleepconfiguration-). This can eliminate the negotiation that would occur to being the device back online after sleep.
 
 **Update Device OS over USB** Using `particle update` over USB to upgrade your device's version of Device OS can save a significant amount of data over upgrading over-the-air.
 
