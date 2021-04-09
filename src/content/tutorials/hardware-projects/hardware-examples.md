@@ -2,17 +2,16 @@
 title: Hardware Examples
 layout: tutorials.hbs
 columns: two
-devices: [photon,electron,xenon,argon,boron]
+redirects: true
 order: 90
 includeDefinitions: [api-helper, api-helper-extras]
 ---
 
-# Hardware Examples - {{device}}
-
-You are viewing the Hardware Examples for the **{{device}}**. To view the documentation for other 
-devices, use the blue device selector below the Particle logo on the left side of the page.
+# Hardware Examples
 
 Here you will find a bunch of examples to get you started with your new Particle device! 
+
+{{collapse op="hardwareTutorial"}}
 
 ## Logging in
 
@@ -202,6 +201,8 @@ It's also possible to call the function from your own HTML page. That's a more c
 
 Instead of using the built-in blue LED, we'll now hook up an external LED. 
 
+{{collapse op="hardwareTutorial"}}
+
 The development kits generally include the necessary extra parts, but the bare devices do not. If you do not have the components you can skip these examples.
 
 ![LEDs](/assets/images/kit-leds.jpg)
@@ -219,32 +220,42 @@ There may also be smaller red or green LEDs. Those are also fine.
 
 It's good practice to connect the red (+) bus bar on the top to 3V3 and the blue (-) bus bar on the bottom to ground.
 
-{{#if electron}}
+
+{{collapse op="start" hardwareTutorial="Electron"}}
+**Electron**:
 - 3V3 is left-most pin on the top (with the USB connector on the left). It is often connected using a red wire.
 - Ground is the second from the left on the bottom. It is typically connected using a black wire. 
-{{else}}
-{{#if photon}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Photon"}}
+**Photon**:
 - 3V3 is left-most pin on the top (with the USB connector on the left). It is often connected using a red wire.
 - Ground is the second from the left on the bottom. It is typically connected using a black wire. 
-{{else}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Gen3"}}
+**Gen 3 (Argon and Boron)**:
 - 3V3 is second from the left on the bottom (with the USB connector on the left). It is often connected using a red wire.
 - Ground is the fourth from the left on the bottom. It is typically connected using a black wire. 
-{{/if}}
-{{/if}}
+{{collapse op="end"}}
 
 Position the LED in the breadboard. The long lead (anode) goes to + (left) and the short lead (cathode) goes to - (right). When using an LED, you must always add a current liming resistor. Normally you'd use a 220 ohm resistor (red-red-brown-gold) for 3.3 volt circuits.
 
 In the picture, the long lead of the LED connects to pin D6 using the blue wire. The short lead of the LED connects to a 220 ohm resistor that connects it to ground. That completes the circuit.
- 
-{{#if electron}}
+
+
+{{collapse op="start" hardwareTutorial="Electron"}}
 ![Blink LED Circuit](/assets/images/blink-led-electron.jpg)
-{{else}}
-{{#if photon}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Photon"}}
 ![Blink LED Circuit](/assets/images/blink-led-photon.jpg)
-{{else}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Gen3"}}
 ![Blink LED Circuit](/assets/images/blink-led-argon.jpg)
-{{/if}}
-{{/if}}
+{{collapse op="end"}}
+
 
 Here's a close-up of the connections
 
@@ -263,27 +274,25 @@ Next, we're going to load code onto your device.
 
 This example uses the same setup as the LED control example to make a `Particle.function`. This time, though, we're going to add a sensor.
 
-{{#if has-gen3}}
+{{collapse op="hardwareTutorial"}}
+
+{{collapse op="start" hardwareTutorial="Gen3"}}
 For a short (~4 min) overview of this project, watch the video below.
 
 <iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/iE5ALWSZCis" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-{{/if}}
+{{collapse op="end"}}
 
-{{#if has-gen3}}
-We will get a value from a photo transistor and store it in the cloud. The photo transistor and a clear LED look similar, but the LED has rounded top and the photo transistor has a flat top.
 
-{{collapse op="photoSensor" force="Transistor"}}
-
-{{else}}
 We will get a value from a photo resistor or photo transistor and store it in the cloud.
 
 ![Photo Resistor or Transistor](/assets/images/photosensor.jpg)
 
 Depending on the kit you have, there may be a photo resistor (left, thin and flat with the squiggle pattern on the face) or photo transistor (right, clear and round with a flat top). The photo transistor and a clear LED look similar, but the LED has rounded top and the photo transistor has a flat top.
 
+All Gen 3 (Argon and Boron) kits have a photo transistor.
+
 {{collapse op="photoSensor"}}
 
-{{/if}}
 
 Paste the following code into your IDE, or just access the examples on the left hand menu bar in the online IDE.
 
@@ -303,15 +312,18 @@ The photo transistor is connected as follows:
 
 Point the LED and photo transistor at each other.
 
-{{#if electron}}
+{{collapse op="start" hardwareTutorial="Electron"}}
 ![Electron Diagram](/assets/images/phototransistor-electron.jpg)
-{{else}}
-{{#if photon}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Photon"}}
 ![Photon Diagram](/assets/images/phototransistor-photon.jpg)
-{{else}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Gen3"}}
 ![Argon Diagram](/assets/images/phototransistor-argon.jpg)
-{{/if}}
-{{/if}}
+{{collapse op="end"}}
+
 
 Since it's a little hard to follow the complete picture, here it is broken down into two parts.
 
@@ -335,11 +347,19 @@ The photo resistor is connected as follows:
 
 Point the LED and photo resistor at each other.
 
-{{#if electron}}
+{{collapse op="start" hardwareTutorial="Electron"}}
 ![Electron Diagram](/assets/images/photoresistor-electron.jpg)
-{{else}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Photon"}}
 ![Photon Diagram](/assets/images/photoresistor-photon.jpg)
-{{/if}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Gen3"}}
+You have selected photo resistor, but your Gen 3 (Argon or Boron) kit contains a photo transistor.
+{{collapse op="end"}}
+
+
 {{collapse op="end"}}
 
 Bend the LED and the photo sensor so that they are pointing at each other. (You want the LED, when turned on, to shine its beam of light directly at the photo sensor.)
@@ -349,23 +369,35 @@ Bend the LED and the photo sensor so that they are pointing at each other. (You 
 A schematic diagram is often use to document a circuit. You don't need to understand schematic diagrams, so feel free to skip this section, but they can make it easier to understand a circuit once you know the basics.
 
 {{collapse op="start" photoSensor="Transistor"}}
-{{#if electron}}
+
+{{collapse op="start" hardwareTutorial="Electron"}}
 ![Electron Diagram](/assets/images/schematic-phototransistor-electron.png)
-{{else}}
-{{#if photon}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Photon"}}
 ![Photon Diagram](/assets/images/schematic-phototransistor-photon.png)
-{{else}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Gen3"}}
 ![Argon Diagram](/assets/images/schematic-phototransistor-argon.png)
-{{/if}}
-{{/if}}
+{{collapse op="end"}}
+
 {{collapse op="end"}}
 
 {{collapse op="start" photoSensor="Resistor"}}
-{{#if electron}}
+
+{{collapse op="start" hardwareTutorial="Electron"}}
 ![Electron Diagram](/assets/images/schematic-photoresistor-electron.png)
-{{else}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Photon"}}
 ![Photon Diagram](/assets/images/schematic-photoresistor-photon.png)
-{{/if}}
+{{collapse op="end"}}
+
+{{collapse op="start" hardwareTutorial="Gen3"}}
+You have selected photo resistor, but your Gen 3 (Argon or Boron) kit contains a photo transistor.
+{{collapse op="end"}}
+
 {{collapse op="end"}}
 
 #### LED

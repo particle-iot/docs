@@ -5,14 +5,16 @@ $(document).ready(function() {
 		var genericCssClass = $(this).attr('name');
 		var defaultValue = $(this).attr('value');
 
+		console.log('loading default genericCssClass=' + genericCssClass + ' defaultValue=' + defaultValue);
+
 		var switchTo = localStorage.getItem(genericCssClass) || defaultValue;
-    	collapseSelector(genericCssClass, switchTo);
+    	collapseSelector(null, genericCssClass, switchTo);
 	});
 	$('input.collapseForce').each(function(index) {
 		var genericCssClass = $(this).attr('name');
 		var defaultValue = $(this).attr('value');
 
-    	collapseSelector(genericCssClass, defaultValue);
+    	collapseSelector(null, genericCssClass, defaultValue);
 	});
 
 	$('div.codebox').each(function(index) {
@@ -117,15 +119,17 @@ function collapseToggle(id) {
 
 function collapseSelector(event, genericCssClass, switchTo) {
 
-	if (event.altKey) {
+	if (event && event.altKey) {
 		$('span.' + genericCssClass + 'optionHide').show();			
 	}
+
+	console.log('collapseSelector genericCssClass=' + genericCssClass + ' switchTo=' + switchTo);
 
 	$('div.' + genericCssClass).hide();
 	$('div.' + genericCssClass + switchTo).show();			
 
-	$('input.' + genericCssClass).removeProp('checked');
-	$('input.' + genericCssClass + switchTo).prop('checked', 'checked');
+	$('input.' + genericCssClass).prop('checked', false);
+	$('input.' + genericCssClass + switchTo).prop('checked', true);
 
 	// Hide navigation menu items for sections that are hidden
 	$('div.in-page-toc-container').each(function(index, toc) {		

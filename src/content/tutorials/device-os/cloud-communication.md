@@ -255,7 +255,7 @@ Maybe a table will help:
 | | Works with unclaimed product devices |
 
 You can learn more Particle functions in the [Device OS Firmware API reference](/reference/device-os/firmware/#particle-function-). 
-There is also another tutorial in [Blink an LED over the net](/tutorials/hardware-projects/hardware-examples/boron/#control-leds-over-the-39-net).
+There is also another tutorial in [Blink an LED over the net](/tutorials/hardware-projects/hardware-examples/#control-leds-over-the-39-net).
 
 And a few notable limits:
 
