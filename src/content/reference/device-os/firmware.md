@@ -9282,6 +9282,8 @@ The callback parameters are the same as for onConnected().
 
 #### BLE.setTxPower()
 
+{{api name1="BLE.setTxPower"}}
+
 Sets the BLE transmit power. The default is 0 dBm.
 
 Valid values are: -20, -16, -12, -8, -4, 0, 4, 8. 
