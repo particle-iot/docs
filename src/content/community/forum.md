@@ -48,7 +48,7 @@ Stop by and join on of the best places online meet other people using Particle t
 - [Device OS Firmware Reference](/reference/device-os/firmware/)
 - [Cloud API Reference](/reference/device-cloud/api/)
 - [GitHub Organization](https://github.com/particle-iot)
-- [Device OS Firmware Release Notes](/reference/device-os/firmware/photon/#github-release-notes)
+- [Device OS Firmware Release Notes](/reference/device-os/firmware/#github-release-notes)
 - [FAQ](https://support.particle.io/hc/en-us/articles/360039741093/)
 - [Particle YouTube Channel](https://www.youtube.com/channel/UCpYjkSkGOXAMXeZjZkbb-PQ)
 - [Particle Blog](https://blog.particle.io)

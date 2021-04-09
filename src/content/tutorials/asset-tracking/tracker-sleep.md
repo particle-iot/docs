@@ -10,7 +10,7 @@ description: Particle Tracker Sleep Support
 
 Sleep modes made it possible to extend battery life by putting the device into a low-power state. 
 
-This is the power consumption for the Tracker One 523 in normal operating mode vs. [ultra-low-power sleep mode](/reference/device-os/firmware/tracker-som/#ultra_low_power-systemsleepmode-).
+This is the power consumption for the Tracker One 523 in normal operating mode vs. [ultra-low-power sleep mode](/reference/device-os/firmware/#ultra_low_power-systemsleepmode-).
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:

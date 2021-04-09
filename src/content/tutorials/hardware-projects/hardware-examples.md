@@ -71,7 +71,7 @@ SYSTEM_THREAD(ENABLED);
 ```
 
 The `setup()` function is called once when the device boots to, well, set up the device. In this case we define our LED
-pin an an OUTPUT instead of digital input. You can learn more about [`pinMode()`](/reference/device-os/firmware/photon/#pinmode-) 
+pin an an OUTPUT instead of digital input. You can learn more about [`pinMode()`](/reference/device-os/firmware/#pinmode-) 
 in the firmware API reference.
 
 ```cpp

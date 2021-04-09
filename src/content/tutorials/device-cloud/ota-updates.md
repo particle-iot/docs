@@ -564,7 +564,7 @@ to receive the new version of firmware will be OTA updated the next time
 they come online.
 - A target device _must also have OTA updates enabled_ at the time of release
 to receive the OTA update immediately. Specifically, this means that
-[`System.updatesEnabled()`](/reference/device-os/firmware/argon/#system-updatesenabled-)
+[`System.updatesEnabled()`](/reference/device-os/firmware/#system-updatesenabled-)
 returns `true` in application firmware. For more information, see the
 section below on [controlling OTA
 availability](#controlling-ota-availability).
@@ -604,7 +604,7 @@ Intelligent Release:
 ## Controlling OTA availability
 
 Sending an OTA update to a device comes with the risk of interrupting it
-during critical activities. Particle's Device OS includes [helpful APIs](/reference/device-os/firmware/argon/#system-enableupdates-)
+during critical activities. Particle's Device OS includes [helpful APIs](/reference/device-os/firmware/#system-enableupdates-)
 to allow a device to coordinate with the Device Cloud to ensure OTAs are
 delivered at the appropriate time.
 

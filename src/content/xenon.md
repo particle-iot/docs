@@ -19,7 +19,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 {{box op="start" cssClass="boxedSideBySide"}}
 **Learn more:**
 
-- [Quickstart with starter project](/quickstart/xenon/)
+- [Quickstart with starter project](/xenon/)
 - [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io/c/hardware)
 - [Support](https://support.particle.io/hc/)

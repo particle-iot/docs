@@ -13,7 +13,7 @@ description: Getting started with your Particle Photon, Gen 2 Wi-Fi device
 
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit addons](/datasheets/accessories/legacy-accessories/) and check out the [Photon datasheet](/datasheets/wi-fi/photon-datasheet/) if you like!
 
-If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button tutorial](/quickstart/button/) for more detailed info.
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button tutorial](/reference/discontinued/button/) for more detailed info.
 
 Let's quickly go over what you see.
 
