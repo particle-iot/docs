@@ -42,7 +42,8 @@ Particle provides a number of devices with cellular connectivity including the T
 
 The central billing element for both cellular and Wi-Fi is the Data Operation:
 
-- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size (currently limited to 622 bytes per operation)
+- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size
+- The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits)
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
 - Certain retransmissions, as described below
 
@@ -135,7 +136,7 @@ if(abs(temperature-lastTemperature)>5){
 }
 ```
 
-**Combining Publishes** Are you sending data that isn't time-critical? Consider combining many data points into a single publish. Instead of using the 100+ bytes of overhead for every data point, you'll only use it once and save a ton! Sample the data based on change or frequency, store them in a string or array, and then send them out as one publish when you've collected as many as you want (or fit in the 622 byte data field of a Particle.publish). We often add commas between data points so they're easy to separate.
+**Combining Publishes** Are you sending data that isn't time-critical? Consider combining many data points into a single publish. Instead of using the 100+ bytes of overhead for every data point, you'll only use it once and save a ton! Sample the data based on change or frequency, store them in a string or array, and then send them out as one publish when you've collected as many as you want (or fit in the data field of a Particle.publish). We often add commas between data points so they're easy to separate. The data has a maximum length of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits).
 
 ```
 Particle.publish("T", String::format("%d,%d,%d,%d,%d", temperatures[0],temperatures[1],temperatures[2],temperatures[3],temperatures[4]));
