@@ -418,6 +418,47 @@ There's also a special case of the central role: An **observer** only advertises
 In Device OS 1.3.0, you can only connect to a single peripheral device at a time. This will be expanded to 3 devices in a later version.
 
 
+### Pairing
+
+- Device OS 3.0.0 and later: Support for "Legacy Pairing" passkey display or input modes (both central and peripheral).
+- Prior to Device OS 3.0.0: No support for secure pairing.
+- Bluetooth LE Secure Connection Pairing ("LESC Pairing") is not currently supported. This uses numeric comparison mode and 
+Elliptic curve Diffie–Hellman (ECDH) encryption.
+- Out-of-band authentication (such as by NFC) is not built-in.
+
+When pairing, there are two different things going on:
+
+- Encryption assures that the central and peripheral devices can exchange data securely.
+- Authentication assures that both sides are who they say they are. This typically requires a display and a keyboard or keypad so a 6-digit passkey that you would only be able to obtain from the devices sitting in front of you. It prevents man-in-the middle ("MITM") attacks where a rogue device pretends to another so you'll connect to the wrong device. Authentication is optional.
+
+Encryption without authentication is allowed, and is referred to as "just works" mode. The encryption still works.
+
+When using Legacy Pairing, both the initiator (typically the central device) and receptor (peripheral) have five different possibilities:
+
+- No input, no output: This side has no display and no keyboard. This will always result in an unauthenticated connection if true for either side, as there is no way to confirm the passkey, however encryption still works.
+- Display Only: This side has a display that can show a 6-digit passkey.
+- Display Yes-No: This side has a display that can show a 6-digit passkey, and has button(s) to confirm a yes-no selection.
+- Keyboard Only: This side has a keyboard (numeric keypad, touchscreen, etc.) to enter a passkey, but no display.
+- Keyboard Display: This side has both a keyboard and a display.
+
+For example, if one side has a display and the other side has a keyboard, the connection can be authenticated since the passkey can be read off the display on one side and typed in on the keyboard on the other. The display and keypad could be on either side (central vs. peripheral).
+
+The Display Yes-No option is mostly useful with LESC Pairing, which is not currently supported. With LESC Pairing Yes-No mode, both sides need a display and one side needs a Yes-No button selection to confirm that both displays are showing the same number. No keyboard is necessary.
+
+You normally use [`BLE.setPairingIoCaps`](/reference/device-os/firmware/#ble-setpairingiocaps-) so specify which features you have on your device (display, keyboard, etc.).
+
+If you are the initiator (typically the central device, but does not have to be), you start the pairing process by using [`BLE.startPairing()`](/reference/device-os/firmware/#ble-startpairing-) after connecting to the BLE peer.
+
+Many BLE operations are asynchronous and you will probably need to implement a pairing event handler whether you're a central or peripheral device. This is done using the [`BLE.onPairingEvent()`](/reference/device-os/firmware/#ble-onpairingevent-) method.
+
+The pairing events occur after you have connected to the other device (from central mode) or been connected to (if you are a peripheral).
+
+If you have a display, and the other side has a keyboard, your pairing event callback may get a `BlePairingEventType::PASSKEY_DISPLAY` event with the passkey to put on your display. The passkey is determined by the other side.
+
+If you have a keyboard and the other side has a display, you may be requested to prompt the user to enter the passkey via the `BlePairingEventType::PASSKEY_INPUT` event. After the passkey is entered, you call [`BLE.setPairingPasskey()`](/reference/device-os/firmware/#ble-setpairingpasskey-) to tell the other side what passkey was entered.
+
+Finally, you can use either pairing status messages or functions such as [`BLE.isPaired()`](/reference/device-os/firmware/#ble-ispaired-) to see if the pairing has been completed.
+
 ## Examples
 
 ### Body temperature thermometer

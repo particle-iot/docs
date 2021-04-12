@@ -9364,6 +9364,276 @@ After all of your #include statements at the top of your source file, add:
 
 This occurs because the Arduino compatibility modules has a `#define` for `EXTERNAL` which breaks the `BleAntennaType` enumeration. This will only be necessary if a library you are using enables Arduino compatibility.
 
+#### BLE.setPairingIoCaps()
+
+{{api name1="BLE.setPairingIoCaps"}}
+
+```cpp
+// PROTOTYPE
+int setPairingIoCaps(BlePairingIoCaps ioCaps) const;
+```
+
+{{since when="3.0.0"}}
+
+Sets the capabilities of this side of the BLE connection.
+
+| Value | Description |
+| :--- | :--- |
+| `BlePairingIoCaps::NONE` | This side has no display or keyboard |
+| `BlePairingIoCaps::DISPLAY_ONLY` | Has a display for the 6-digit passcode |
+| `BlePairingIoCaps::DISPLAY_YESNO` | Display and a yes-no button |
+| `BlePairingIoCaps::KEYBOARD_ONLY` | Keyboard or numeric keypad only |
+| `BlePairingIoCaps::KEYBOARD_DISPLAY` | Display and a keyboard (or a touchscreen) |
+
+Ideally you want one side to have a keyboard and one side to have a display. This allows for an authenticated connection to assure that both sides the device they say they are. This prevents man-in-the-middle attack ("MITM") where a rogue device could pretend to be the device you are trying to pair with.
+
+Even if neither side has a display or keyboard, the connection can still be paired and encrypted, but there will be no authentication.
+
+For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+
+#### BLE.setPairingAlgorithm()
+
+{{api name1="BLE.setPairingAlgorithm"}}
+
+```cpp
+// PROTOTYPE
+int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
+```
+
+{{since when="3.0.0"}}
+
+| Value | Description |
+| :--- | :--- |
+| `BlePairingAlgorithm::AUTO` | Automatic selection |
+| `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
+| `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
+
+At this time, LESC pairing is not supported; only legacy pairing can be used. You can still specify LESC pairing, however it will fall back to "just works" mode which offers encryption but not authentication. You will not be prompted for the numeric comparison used in LESC pairing mode.
+
+
+#### BLE.startPairing()
+
+{{api name1="BLE.startPairing"}}
+
+```cpp
+// PROTOTYPE
+int startPairing(const BlePeerDevice& peer) const;
+```
+
+{{since when="3.0.0"}}
+
+When using BLE pairing, one side is the initiator. It's usually the BLE central device, but either side can initiate pairing if the other side is able to accept the request to pair. See `BLE.onPairingEvent()`, below, for how to respond to a request.
+
+The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
+
+For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+
+
+#### BLE.rejectPairing()
+
+{{api name1="BLE.rejectPairing"}}
+
+```cpp
+// PROTOTYPE
+int rejectPairing(const BlePeerDevice& peer) const;
+```
+
+{{since when="3.0.0"}}
+
+If you are the pairing responder (typically the BLE peripheral, but could be either side) and you do not support being the responder, call `BLE.rejectPairing()` from your `BLE.onPairingEvent()` handler. 
+
+The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
+
+#### BLE.setPairingNumericComparison()
+
+{{api name1="BLE.setPairingNumericComparison"}}
+
+```cpp
+// PROTOTYPE
+int setPairingNumericComparison(const BlePeerDevice& peer, bool equal) const;
+```
+
+{{since when="3.0.0"}}
+
+This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two LESC passcodes are identical. This requires a keypad or a yes-no button.
+
+The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
+
+LESC is not supported at this time so you will probably not need to use this function.
+
+
+#### BLE.setPairingPasskey()
+
+{{api name1="BLE.setPairingPasskey"}}
+
+```cpp
+// PROTOTYPE
+int setPairingPasskey(const BlePeerDevice& peer, const uint8_t* passkey) const;
+```
+
+{{since when="3.0.0"}}
+
+When you have a keyboard and the other side has a display, you may need to prompt the user to enter a passkey on your 
+keyboard. This is done by the `BlePairingEventType::PASSKEY_INPUT` event. Once they have entered it, call this function 
+to set the code that they entered.
+
+The passkey is BLE_PAIRING_PASSKEY_LEN bytes long (6). The passkey parameter does not need to be null terminated.
+
+The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
+
+
+#### BLE.isPairing()
+
+{{api name1="BLE.isPairing"}}
+
+```cpp
+// PROTOTYPE
+bool isPairing(const BlePeerDevice& peer) const;
+```
+
+{{since when="3.0.0"}}
+
+Returns true if the pairing negotiation is still in progress. This is several steps but is asynchrnouous. 
+
+#### BLE.isPaired()
+
+{{api name1="BLE.isPaired"}}
+
+```cpp
+// PROTOTYPE
+bool isPaired(const BlePeerDevice& peer) const;
+```
+
+{{since when="3.0.0"}}
+
+Returns true if pairing has been successfully completed.
+
+
+#### BLE.onPairingEvent()
+
+{{api name1="BLE.onPairingEvent"}}
+
+```cpp
+// PROTOTYPES
+void onPairingEvent(BleOnPairingEventCallback callback, void* context = nullptr) const;
+void onPairingEvent(const BleOnPairingEventStdFunction& callback) const;
+
+template<typename T>
+void onPairingEvent(void(T::*callback)(const BlePairingEvent& event), T* instance) const {
+    return onPairingEvent((callback && instance) ? std::bind(callback, instance, _1) : (BleOnPairingEventStdFunction)nullptr);
+}
+
+// BleOnPairingEventCallback declaration
+typedef void (*BleOnPairingEventCallback)(const BlePairingEvent& event, void* context);
+
+// BleOnPairingEventCallback example function
+void myPairingEventCallback(const BlePairingEvent& event, void* context);
+
+// BleOnPairingEventStdFunction declaration
+typedef std::function<void(const BlePairingEvent& event)> BleOnPairingEventStdFunction;
+```
+
+{{since when="3.0.0"}}
+
+For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+
+`BlePairingEventType::REQUEST_RECEIVED`
+
+Informational event that indicates that pairing was requested by the other side.
+
+`event.peer` is the BLE peer that requested the pairing.
+
+If you are not able to respond to pairing requests, you should call [`BLE.rejectPairing()`](/reference/device-os/firmware/#ble-rejectpairing-).
+
+
+`BlePairingEventType::PASSKEY_DISPLAY` 
+
+If you have specified that you have a display, the negotiation process may require that you show a passkey on your display. This is indicated to your code by this event. The passkey is specified by the other side; you just need to display it. It's in the event payload:
+
+- `event.payload.passkey` is a character array of passcode characters
+- `BLE_PAIRING_PASSKEY_LEN` is the length in characters. Currently 6.
+
+```cpp
+// Example using USB serial as the display and keyboard
+if (event.type == BlePairingEventType::PASSKEY_DISPLAY) {
+  Serial.print("Passkey display: ");
+  for (uint8_t i = 0; i < BLE_PAIRING_PASSKEY_LEN; i++) {
+      Serial.printf("%c", event.payload.passkey[i]);
+  }
+  Serial.println("");
+}
+```
+
+Note that `event.payload.passkey` is not a null terminated string, so you can't just print it as a c-string. It's a fixed-length array of bytes of ASCII digits (0x30 to 0x39, inclusive).
+
+`BlePairingEventType::PASSKEY_INPUT`
+
+If you specified that you have a keyboard, the negotiation process may require that the user enter the passcode that's displayed on the other side into the keyboard or keypad. When this is required, this event is passed to your callback.
+
+```cpp
+// Example using USB serial as the display and keyboard
+if (event.type == BlePairingEventType::PASSKEY_INPUT) {
+  Serial.print("Passkey input: ");
+  uint8_t i = 0;
+  uint8_t passkey[BLE_PAIRING_PASSKEY_LEN];
+  while (i < BLE_PAIRING_PASSKEY_LEN) {
+      if (Serial.available()) {
+          passkey[i] = Serial.read();
+          Serial.write(passkey[i++]);
+      }
+  }
+  Serial.println("");
+
+  BLE.setPairingPasskey(event.peer, passkey);
+}
+```
+
+`BlePairingEventType::STATUS_UPDATED`
+
+The pairing status was updated. These fields may be of interest:
+
+- `event.payload.status.status`
+- `event.payload.status.bonded`
+- `event.payload.status.lesc`
+
+
+##### BLEPairingEvent
+
+```cpp
+struct BlePairingEvent {
+    BlePeerDevice& peer;
+    BlePairingEventType type;
+    size_t payloadLen;
+    BlePairingEventPayload payload;
+};
+```
+
+The structure passed to the callback has these elements. The payload varies depending on the event type. For example, for the `BlePairingEventType::PASSKEY_DISPLAY` event, the payload is the passkey to display on your display. 
+
+##### BlePairingEventPayload
+
+The payload is either the passkey, or a status:
+
+```cpp
+union BlePairingEventPayload {
+    const uint8_t* passkey;
+    BlePairingStatus status;
+};
+```
+
+##### BlePairingStatus
+
+Fields of the payload used for `BlePairingEventType::STATUS_UPDATED` events.
+
+```cpp
+struct BlePairingStatus {
+    int status;
+    bool bonded;
+    bool lesc;
+};
+```
+
+
 ### BLE Services
 
 There isn't a separate class for configuring BLE Services. A service is identified by its UUID, and this UUID passed in when creating the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object(s) for the service. For example:
