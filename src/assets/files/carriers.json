@@ -20039,7 +20039,7 @@
     {
       "name": "E260KIT",
       "desc": "Electron 2G/3G (Americas/Aus) Starter Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "ELC314TY",
       "modem": "U260",
       "sim": 1,
@@ -20058,7 +20058,7 @@
     {
       "name": "E260TRAY50",
       "desc": "Electron 2G/3G (Americas/Aus), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "ELC314TY",
       "modem": "U260",
       "multiple": true,
@@ -20077,7 +20077,7 @@
     {
       "name": "E270KIT",
       "desc": "Electron 2G/3G (EMEA) Starter Kit, [x1]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "ELC314TY",
       "modem": "U270",
       "sim": 1,
@@ -20096,7 +20096,7 @@
     {
       "name": "E270TRAY50",
       "desc": "Electron 2G/3G (EMEA), Tray [x50]",
-      "lifecycle": "NRND",
+      "lifecycle": "Discontinued",
       "replacement": "ELC314TY",
       "modem": "U270",
       "multiple": true,
