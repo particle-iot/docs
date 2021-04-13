@@ -57,7 +57,7 @@ You can only use the PoE module with a IEEE 802.3af compliant Ethernet switch or
 
 There are many compatible Ethernet switches with PoE capabilities, ranging from small unmanaged switches to large industrial devices. 
 
-For example, for home use you might use something like the [Netgear GS305P](https://www.amazon.com/dp/B01MRO4M73/) 5-port PoE switch.
+For example, for home use you might use something like the Netgear GS305P 5-port PoE switch.
 
 ![PoE](/assets/images/poe-switch.jpg)
 
