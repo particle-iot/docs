@@ -28,7 +28,7 @@ Publishing events is a common thing to do:
 
 - Events are used to publish data from a device to the Particle cloud
 - Or from the Particle cloud to one or many devices
-- Events are relatively small (limited to 622 bytes of UTF-8 characters)
+- Events are relatively small (622 to 1024 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits))
 - Events have a maximum publish rate (typically 1 second per event per device)
 - Events can trigger webhooks for communicating with external services
 - Each event typically uses one Particle cloud [data operation](/tutorials/device-cloud/introduction/#pricing-tiers)
@@ -238,7 +238,7 @@ And in the console:
 ## Function
 
 - Functions allow the cloud to call one device to perform a task with optional data
-- Function data is limited to 622 bytes of UTF-8 characters
+- Function data is limited to 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits)
 - You can have up to 20 functions per device, but you can also use the data parameter to handle many more variations
 - Functions can only return a 32-bit integer value. They cannot return strings, double width floating point, etc.
 - Functions only work when the device is online and breathing cyan
@@ -359,7 +359,7 @@ What happens if:
 ## Variable
 
 - Variables allow the cloud to call one device and ask for a value
-- Variable data is limited to 622 bytes of UTF-8 characters
+- Variable data is limited to 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits)
 - You can have up to 20 variables per device
 - A variable can contain multiple values if encoded (comma separated values, JSON, etc.)
 - Variables only work when the device is online and breathing cyan
@@ -452,7 +452,7 @@ The function must return one of the allowed types: `int`, `bool`, `double`, or `
 ## Subscribe
 
 - Subscribe allows the cloud to send a message to many devices
-- Publish data is limited to 622 bytes of UTF-8 characters
+- Publish data is limited to 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits)
 - You can have up to four subscriptions per device, but it's a prefix so you can accept many events with one subscription
 - Subscribe only works when the device is online and breathing cyan
 - Each event received typically uses one Particle cloud [data operation](/tutorials/device-cloud/introduction/#pricing-tiers)

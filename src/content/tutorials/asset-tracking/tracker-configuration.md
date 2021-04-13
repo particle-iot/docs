@@ -104,7 +104,7 @@ The schema and support in Tracker Edge can include standard JSON data types, inc
 - Enumerations (a string with fixed options, a dropdown menu)
 - JSON objects (of the above types, with some limitations)
 
-There is a limit to the size of the data, as it needs to fit in a 622-byte publish. You should keep the data of a reasonable size and avoid overly lengthy JSON key names for this reason.
+There is a limit to the size of the data, as it needs to fit in a publish. You should keep the data of a reasonable size and avoid overly lengthy JSON key names for this reason. The publish size varies from 622 to 1024 bytes of UTF-8 characters depending on Device OS version; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits).
 
 ### Adding to the schema
 

@@ -81,6 +81,9 @@ function shouldCrawl(qurl) {
   if (qurl.indexOf('#') === 0) {
     return false;
   }
+  if (qurl.startsWith('/reference/device-os/firmware/?')) {
+    return false;
+  }
   return true;
 }
 

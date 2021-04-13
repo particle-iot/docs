@@ -14,16 +14,30 @@ Device OS API
 
 ### Overview of API field limits
 
-| API Field | Prior to 0.8.0 | Since 0.8.0 | Comment |
-|--:|--:|--:|:--|
-| Variable Key | 12 | 64 | |
-| Variable Data | 622 | 622 | |
-| Function Key | 12 | 64 | |
-| Function Argument | 63 | 622 | |
-| Publish/Subscribe Event Name | 64 | 64 | |
-| Publish/Subscribe Event Data | 255 | 622 |  |
+| API Field | < 0.8.0 | 0.8.0 - 2.x | ≥ 3.0.0 |
+|--:|:--:|:--:|:--:|
+| Variable Key | 12 | 64 | 64 |
+| Variable Data | 622 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> |
+| Function Key | 12 | 64 | 64 |
+| Function Argument | 63 | 622 | 864<sup>2</sup> / 1024<sup>3</sup> |
+| Publish/Subscribe Event Name | 64 | 64 | 64 |
+| Publish/Subscribe Event Data | 255 | 622 |  864<sup>2</sup> / 1024<sup>3</sup> |
 
-Limits are in bytes of UTF-8 encoded characters.
+
+- Limits are in bytes of UTF-8 encoded characters.
+- <sup>2</sup>On Gen 2 devices (Photon, P1, Electron, E Series), the limit is 864 characters,
+- <sup>3</sup>On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM) the limit is 1024 characters.
+- The 0.8.0 - 2.x column includes all 2.x LTS versions. Higher limits will not be back-ported to 2.x LTS.
+
+Instead of hardcoding these values, you should use these definitions:
+
+- `particle::protocol::MAX_VARIABLE_KEY_LENGTH`
+- `particle::protocol::MAX_VARIABLE_VALUE_LENGTH`
+- `particle::protocol::MAX_FUNCTION_KEY_LENGTH`
+- `particle::protocol::MAX_FUNCTION_ARG_LENGTH`
+- `particle::protocol::MAX_EVENT_NAME_LENGTH`
+- `particle::protocol::MAX_EVENT_DATA_LENGTH`
+
 
 ### Particle.variable()
 
@@ -83,7 +97,7 @@ When using the default [`AUTOMATIC`](#automatic-mode) system mode, the cloud var
 
 _Before 1.5.0:_ Variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. When using the [`AUTOMATIC`](#automatic-mode) system mode, make sure you register your cloud variables as early as possible in the `setup()` function, before you do any lengthy operations, delays, or things like waiting for a key press. Calling `Particle.variable()` after the registration information has been sent does not re-send the request and the variable will not work.
 
-String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
+String data has a maximum size of 255 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits) as the limit varies depending on Device OS version and sometimes the device. String variables must be UTF-8 encoded. You cannot send arbitrary binary data or other character sets like ISO-8859-1. If you need to send binary data you can use a text-based encoding like [Base64](https://github.com/rickkas7/Base64RK).
 
 Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter to specify the data type of the variable. From 0.4.7 onward, the system can infer the type from the actual variable. Additionally, the variable address was passed via the address-of operator (`&`). With 0.4.7 and newer, this is no longer required.
 
@@ -113,7 +127,7 @@ There are four supported data types:
  * `BOOLEAN`
  * `INT`
  * `DOUBLE`
- * `STRING` (maximum string length is 622 bytes of UTF-8 encoded characters)
+ * `STRING` (UTF-8 encoded characters)
 
 ```sh
 # EXAMPLE REQUEST IN TERMINAL
@@ -134,7 +148,7 @@ my name is particle
 
 ### Particle.variable() - calculated
 
-_Since 1.5.0:_ It is also possible to register a function to compute a cloud variable. This can be more efficient if the computation of a variable takes a lot of CPU or other resources. It can also be an alternative to using a Particle.function(). A function is limited to a single int (32-bit) return value, but you can return bool, double, int, String (up to 622 bytes of UTF-8 encoded characters) from a Particle.variable.
+_Since 1.5.0:_ It is also possible to register a function to compute a cloud variable. This can be more efficient if the computation of a variable takes a lot of CPU or other resources. It can also be an alternative to using a Particle.function(). A function is limited to a single int (32-bit) return value, but you can return bool, double, int, String from a Particle.variable. String data has a maximum size of 255 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits) as the limit varies depending on Device OS version and sometimes the device.
 
 Such a function should return a value of one of the supported variable types and take no arguments. The function will be called only when the value of the variable is requested.
 
@@ -253,7 +267,7 @@ The callback function is called application loop thread context, between calls t
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
-A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a maximum of 622 bytes of UTF-8 encoded characters. (Limited to 63 bytes prior to Device OS 0.8.0.)
+A cloud function is set up to take one argument of the [String](#string-class) datatype. The argument has a maximum size of 64 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits) as the limit varies depending on Device OS version and sometimes the device.
 
 Functions can only be triggered using the Particle API, or tools that use the API, like the console, CLI, and mobile apps. It's not possible to directly call a function from another device, even on the same account. Publish and subscribe can be used if you need device-to-device communication.
 
@@ -358,7 +372,7 @@ Cloud events have the following properties:
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-* optional data, up to 622 bytes of UTF-8 encoded characters. (Limited to 255 bytes prior to Device OS 0.8.0.)
+* optional data. The data has a maximum size of 255 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits) as the limit varies depending on Device OS version and sometimes the device.
 
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
@@ -958,6 +972,13 @@ For Ethernet, you will probably want to set a keepAlive of 2 to 5 minutes.
 For the Argon, the keep-alive is not generally needed. However, in unusual networking situations if the network router/firewall removes the port forwarded back-channels unusually aggressively, you may need to use a keep-alive.
 
 Keep-alives do not use Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so setting it to a very small value can cause increased data usage, which could result in hitting the monthly data limit for your account.
+
+| Device | Default Keep-Alive |
+| :--- | :--- |
+| All Cellular | 23 minutes |
+| Argon (< 3.0.0) | 30 seconds |
+| Argon (≥ 3.0.0) | 25 seconds |
+
 
 {{since when="1.5.0"}}
 
@@ -3476,7 +3497,7 @@ Returns: `float`
 
 _Before 0.8.0:_
 
-Before Device OS 0.8.0, the `CellularSignal` class only had two member variables, `rssi`, and `qual`. These will be removed in a future version of Device OS and you should use `getStrengthValue()` and `getQualityValue()` instead.
+Before Device OS 0.8.0, the `CellularSignal` class only had two member variables, `rssi`, and `qual`. These are removed in Device OS 3.0.0 and later and you should use `getStrengthValue()` and `getQualityValue()` instead.
 
 ```
 // Prior to 0.8.0:
@@ -5125,19 +5146,53 @@ Sets the battery charge termination voltage. The value is in millivolts or 1000t
 
 The default is 4112 (4.112V).
 
-### feature(SystemPowerFeature::PMIC_DETECTION)
+### SystemPowerFeature
+
+```cpp
+SerialLogHandler logHandler;
+
+void setup() {
+    // Apply a custom power configuration
+    SystemPowerConfiguration conf;
+
+    conf.feature(SystemPowerFeature::DISABLE_CHARGING);
+    int res = System.setPowerConfiguration(conf);
+    Log.info("setPowerConfiguration=%d", res);
+    // returns SYSTEM_ERROR_NONE (0) in case of success
+
+    // Settings are persisted, you normally wouldn't do this on every startup.
+}
+```
+
+System power features are enabled or disabled using the `SystemLiwerConfiguration::feature()` method. The settings are saved in non-volatile storage so you do not need to set them on every startup.
+
+
+#### SystemPowerFeature::PMIC_DETECTION
 
 {{api name1="SystemPowerFeature::PMIC_DETECTION"}}
 
 For devices with an external PMIC and Fuel Gauge like the B Series SoM, enables detection of the bq24195 PMIC connected by I2C to the primary I2C interface (Wire). Since this requires the use of I2C, you should not use pins D0 and D1 for GPIO when using PMIC_DETECTION.
 
-### feature(SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST)
+##@# SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST
 
 {{api name1="SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST"}}
 
 Normally, if a USB host is detected, the power limit settings will be determined by DPDM, the negotiation between the USB host and the PMIC to determine, for example, the maximum current available. If this feature is enabled, the VIN settings are used even when a USB host is detected. This is normally done if you are using USB for debugging but still have a power supply connected to VIN.
 
-### feature(SystemPowerFeature::DISABLE)
+#### SystemPowerFeature::DISABLE_CHARGING
+
+{{api name1="SystemPowerFeature::DISABLE_CHARGING"}}
+
+{{since when="3.0.0"}}
+
+Disables LiPo battery charging. This may be useful if:
+
+- You are manually controlling charging, for example based on an external temperature sensor
+- You are using a non-rechargeable battery
+- You are powering the device from a power supply connected to the Li+ pin instead of VIN
+
+
+#### SystemPowerFeature::DISABLE
 
 {{api name1="SystemPowerFeature::DISABLE"}}
 
@@ -7415,6 +7470,10 @@ _Since 0.5.0_ When SPI peripheral is configured in slave mode, the transfer will
 
 Note that you must use the same `SPI` object as used with `SPI.begin()` so if you used `SPI1.begin()` also use `SPI1.transfer()`.
 
+{{since when="3.0.0"}}
+
+On Gen 3 devices with Device OS 3.0.0 and later you can pass byte arrays stored in the program flash in `tx_buffer`. The nRF52 DMA controller does not support transferring directly out of flash memory, but in Device OS 3.0.0 the data will be copied in chunks to a temporary buffer in RAM automatically. Prior to 3.0.0 you had to do this manually in your code.
+
 ### transferCancel()
 
 {{api name1="SPI.transferCancel"}}
@@ -8914,6 +8973,7 @@ Note: You cannot call `BLE.connect()` from a `BLE.scan()` callback! If you want 
 ```cpp
 // PROTOTYPE
 int scan(BleOnScanResultCallback callback, void* context) const;
+int scan(BleOnScanResultCallbackRef callback, void* context) const;
 
 // EXAMPLE
 #include "Particle.h"
@@ -8967,6 +9027,55 @@ The [`BleScanResult`](/reference/device-os/firmware/#blescanresult) is described
 The `context` parameter is often used if you implement your scanResultCallback in a C++ object. You can store the object instance pointer (`this`) in the context.
 
 The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
+
+{{since when="3.0.0"}}
+
+```cpp
+// PROTOTYPES
+typedef std::function<void(const BleScanResult& result)> BleOnScanResultStdFunction;
+
+int scan(const BleOnScanResultStdFunction& callback) const;
+
+template<typename T>
+int scan(void(T::*callback)(const BleScanResult&), T* instance) const;
+```
+
+In Device OS 3.0.0 and later, you can implement the `BLE.scan()` callback as a C++ member function or a C++11 lambda.
+
+---
+
+{{since when="3.0.0"}}
+
+In Device OS 3.0.0 and later, it's also possible to pass to have the scan result passed by reference instead of pointer.
+
+```cpp
+void scanResultCallback(const BleScanResult &scanResult, void *context)
+```
+
+
+#### BLE.scanWithFilter()
+
+{{api name1="BLE.scanWithFilter"}}
+
+```cpp
+void scan() {
+    BleScanFilter filter;
+    filter.deviceName("MyDevice").minRssi(-50).serviceUUID(0x1234);
+    Vector<BleScanResult> scanResults = BLE.scanWithFilter(filter);
+}
+```
+
+{{since when="3.0.0"}}
+
+You can also BLE scan with a filter with Device OS 3.0.0 and later. The result is saved in a vector.
+
+The scanResults vector only contains the scanned devices those comply with all of the following conditions in the example above:
+
+- The scanned device should be broadcasting device name "MyDevice".
+- The RSSI of the scanned device should be large than -50 dBm.
+- The scanned device should be broadcasting service UUID 0x1234.
+
+See [`BLEScanFilter`](#blescanfilter) for additional options.
 
 #### BLE.stopScanning()
 
@@ -9258,6 +9367,21 @@ The callback parameters are:
 
 The callback is called from the BLE thread. It has a smaller stack than the normal loop stack, and you should avoid doing any lengthy operations that block from the callback. For example, you should not try to use functions like `Particle.publish()` and you should not use `delay()`. You should beware of thread safety issues. For example you should use `Log.info()` and instead of `Serial.print()` as `Serial` is not thread-safe.
 
+{{since when="3.0.0"}}
+
+```cpp
+// PROTOTYPES
+typedef std::function<void(const BlePeerDevice& peer)> BleOnConnectedStdFunction;
+
+void onConnected(const BleOnConnectedStdFunction& callback) const;
+
+template<typename T>
+void onConnected(void(T::*callback)(const BlePeerDevice& peer), T* instance) const;
+```
+
+in Device OS 3.0.0 and later, the `onConnected()` callback can be a C++ class member function or a C++11 lambda.
+
+
 #### BLE.onDisconnected()
 
 {{api name1="BLE.onDisconnected"}}
@@ -9278,6 +9402,21 @@ void callback(const BlePeerDevice& peer, void* context);
 ```
 
 The callback parameters are the same as for onConnected().
+
+{{since when="3.0.0"}}
+
+```cpp
+// PROTOTYPES
+typedef std::function<void(const BlePeerDevice& peer)> BleOnDisconnectedStdFunction;
+
+void onDisconnected(const BleOnDisconnectedStdFunction& callback) const;
+
+template<typename T>
+void onDisconnected(void(T::*callback)(const BlePeerDevice& peer), T* instance) const;
+```
+
+in Device OS 3.0.0 and later, the `onDisconnected()` callback can be a C++ class member function or a C++11 lambda.
+
 
 
 #### BLE.setTxPower()
@@ -9364,6 +9503,368 @@ After all of your #include statements at the top of your source file, add:
 
 This occurs because the Arduino compatibility modules has a `#define` for `EXTERNAL` which breaks the `BleAntennaType` enumeration. This will only be necessary if a library you are using enables Arduino compatibility.
 
+#### BLE.setPairingIoCaps()
+
+{{api name1="BLE.setPairingIoCaps"}}
+
+```cpp
+// PROTOTYPE
+int setPairingIoCaps(BlePairingIoCaps ioCaps) const;
+```
+
+{{since when="3.0.0"}}
+
+Sets the capabilities of this side of the BLE connection.
+
+| Value | Description |
+| :--- | :--- |
+| `BlePairingIoCaps::NONE` | This side has no display or keyboard |
+| `BlePairingIoCaps::DISPLAY_ONLY` | Has a display for the 6-digit passcode |
+| `BlePairingIoCaps::DISPLAY_YESNO` | Display and a yes-no button |
+| `BlePairingIoCaps::KEYBOARD_ONLY` | Keyboard or numeric keypad only |
+| `BlePairingIoCaps::KEYBOARD_DISPLAY` | Display and a keyboard (or a touchscreen) |
+
+Ideally you want one side to have a keyboard and one side to have a display. This allows for an authenticated connection to assure that both sides the device they say they are. This prevents man-in-the-middle attack ("MITM") where a rogue device could pretend to be the device you are trying to pair with.
+
+Even if neither side has a display or keyboard, the connection can still be paired and encrypted, but there will be no authentication.
+
+For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+
+#### BLE.setPairingAlgorithm()
+
+{{api name1="BLE.setPairingAlgorithm"}}
+
+```cpp
+// PROTOTYPE
+int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
+```
+
+{{since when="3.0.0"}}
+
+| Value | Description |
+| :--- | :--- |
+| `BlePairingAlgorithm::AUTO` | Automatic selection |
+| `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
+| `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
+
+At this time, LESC pairing is not supported; only legacy pairing can be used. You can still specify LESC pairing, however it will fall back to "just works" mode which offers encryption but not authentication. You will not be prompted for the numeric comparison used in LESC pairing mode.
+
+
+#### BLE.startPairing()
+
+{{api name1="BLE.startPairing"}}
+
+```cpp
+// PROTOTYPE
+int startPairing(const BlePeerDevice& peer) const;
+```
+
+{{since when="3.0.0"}}
+
+When using BLE pairing, one side is the initiator. It's usually the BLE central device, but either side can initiate pairing if the other side is able to accept the request to pair. See `BLE.onPairingEvent()`, below, for how to respond to a request.
+
+The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
+
+For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+
+
+#### BLE.rejectPairing()
+
+{{api name1="BLE.rejectPairing"}}
+
+```cpp
+// PROTOTYPE
+int rejectPairing(const BlePeerDevice& peer) const;
+```
+
+{{since when="3.0.0"}}
+
+If you are the pairing responder (typically the BLE peripheral, but could be either side) and you do not support being the responder, call `BLE.rejectPairing()` from your `BLE.onPairingEvent()` handler. 
+
+The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
+
+#### BLE.setPairingNumericComparison()
+
+{{api name1="BLE.setPairingNumericComparison"}}
+
+```cpp
+// PROTOTYPE
+int setPairingNumericComparison(const BlePeerDevice& peer, bool equal) const;
+```
+
+{{since when="3.0.0"}}
+
+This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two LESC passcodes are identical. This requires a keypad or a yes-no button.
+
+The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
+
+LESC is not supported at this time so you will probably not need to use this function.
+
+
+#### BLE.setPairingPasskey()
+
+{{api name1="BLE.setPairingPasskey"}}
+
+```cpp
+// PROTOTYPE
+int setPairingPasskey(const BlePeerDevice& peer, const uint8_t* passkey) const;
+```
+
+{{since when="3.0.0"}}
+
+When you have a keyboard and the other side has a display, you may need to prompt the user to enter a passkey on your 
+keyboard. This is done by the `BlePairingEventType::PASSKEY_INPUT` event. Once they have entered it, call this function 
+to set the code that they entered.
+
+The passkey is BLE_PAIRING_PASSKEY_LEN bytes long (6). The passkey parameter does not need to be null terminated.
+
+The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
+
+
+#### BLE.isPairing()
+
+{{api name1="BLE.isPairing"}}
+
+```cpp
+// PROTOTYPE
+bool isPairing(const BlePeerDevice& peer) const;
+```
+
+{{since when="3.0.0"}}
+
+Returns true if the pairing negotiation is still in progress. This is several steps but is asynchrnouous. 
+
+#### BLE.isPaired()
+
+{{api name1="BLE.isPaired"}}
+
+```cpp
+// PROTOTYPE
+bool isPaired(const BlePeerDevice& peer) const;
+```
+
+{{since when="3.0.0"}}
+
+Returns true if pairing has been successfully completed.
+
+
+#### BLE.onPairingEvent()
+
+{{api name1="BLE.onPairingEvent"}}
+
+```cpp
+// PROTOTYPES
+void onPairingEvent(BleOnPairingEventCallback callback, void* context = nullptr) const;
+void onPairingEvent(const BleOnPairingEventStdFunction& callback) const;
+
+template<typename T>
+void onPairingEvent(void(T::*callback)(const BlePairingEvent& event), T* instance) const {
+    return onPairingEvent((callback && instance) ? std::bind(callback, instance, _1) : (BleOnPairingEventStdFunction)nullptr);
+}
+
+// BleOnPairingEventCallback declaration
+typedef void (*BleOnPairingEventCallback)(const BlePairingEvent& event, void* context);
+
+// BleOnPairingEventCallback example function
+void myPairingEventCallback(const BlePairingEvent& event, void* context);
+
+// BleOnPairingEventStdFunction declaration
+typedef std::function<void(const BlePairingEvent& event)> BleOnPairingEventStdFunction;
+```
+
+{{since when="3.0.0"}}
+
+For more information about pairing, see [BLE pairing](/tutorials/device-os/bluetooth-le/#pairing).
+
+`BlePairingEventType::REQUEST_RECEIVED`
+
+Informational event that indicates that pairing was requested by the other side.
+
+`event.peer` is the BLE peer that requested the pairing.
+
+If you are not able to respond to pairing requests, you should call [`BLE.rejectPairing()`](/reference/device-os/firmware/#ble-rejectpairing-).
+
+
+`BlePairingEventType::PASSKEY_DISPLAY` 
+
+If you have specified that you have a display, the negotiation process may require that you show a passkey on your display. This is indicated to your code by this event. The passkey is specified by the other side; you just need to display it. It's in the event payload:
+
+- `event.payload.passkey` is a character array of passcode characters
+- `BLE_PAIRING_PASSKEY_LEN` is the length in characters. Currently 6.
+
+```cpp
+// Example using USB serial as the display and keyboard
+if (event.type == BlePairingEventType::PASSKEY_DISPLAY) {
+  Serial.print("Passkey display: ");
+  for (uint8_t i = 0; i < BLE_PAIRING_PASSKEY_LEN; i++) {
+      Serial.printf("%c", event.payload.passkey[i]);
+  }
+  Serial.println("");
+}
+```
+
+Note that `event.payload.passkey` is not a null terminated string, so you can't just print it as a c-string. It's a fixed-length array of bytes of ASCII digits (0x30 to 0x39, inclusive).
+
+`BlePairingEventType::PASSKEY_INPUT`
+
+If you specified that you have a keyboard, the negotiation process may require that the user enter the passcode that's displayed on the other side into the keyboard or keypad. When this is required, this event is passed to your callback.
+
+```cpp
+// Example using USB serial as the display and keyboard
+if (event.type == BlePairingEventType::PASSKEY_INPUT) {
+  Serial.print("Passkey input: ");
+  uint8_t i = 0;
+  uint8_t passkey[BLE_PAIRING_PASSKEY_LEN];
+  while (i < BLE_PAIRING_PASSKEY_LEN) {
+      if (Serial.available()) {
+          passkey[i] = Serial.read();
+          Serial.write(passkey[i++]);
+      }
+  }
+  Serial.println("");
+
+  BLE.setPairingPasskey(event.peer, passkey);
+}
+```
+
+`BlePairingEventType::STATUS_UPDATED`
+
+The pairing status was updated. These fields may be of interest:
+
+- `event.payload.status.status`
+- `event.payload.status.bonded`
+- `event.payload.status.lesc`
+
+
+##### BLEPairingEvent
+
+```cpp
+struct BlePairingEvent {
+    BlePeerDevice& peer;
+    BlePairingEventType type;
+    size_t payloadLen;
+    BlePairingEventPayload payload;
+};
+```
+
+The structure passed to the callback has these elements. The payload varies depending on the event type. For example, for the `BlePairingEventType::PASSKEY_DISPLAY` event, the payload is the passkey to display on your display. 
+
+##### BlePairingEventPayload
+
+The payload is either the passkey, or a status:
+
+```cpp
+union BlePairingEventPayload {
+    const uint8_t* passkey;
+    BlePairingStatus status;
+};
+```
+
+##### BlePairingStatus
+
+Fields of the payload used for `BlePairingEventType::STATUS_UPDATED` events.
+
+```cpp
+struct BlePairingStatus {
+    int status;
+    bool bonded;
+    bool lesc;
+};
+```
+
+### BLEScanFilter
+
+{{api name1="BLEScanFilter"}}
+
+{{since when="3.0.0"}}
+
+The `BLEScanFilter` object is used with [`BLE.scanWithFilter()`](#ble-scanwithfilter-) to return a subset of the available BLE peripherals near you.
+
+#### deviceName (BLEScanFilter)
+
+{{api name1="BLEScanFilter::deviceName" name2="BLEScanFilter::deviceNames"}}
+
+```cpp
+// PROTOTYPES
+template<typename T>
+BleScanFilter& deviceName(T name);
+BleScanFilter& deviceNames(const Vector<String>& names);
+const Vector<String>& deviceNames() const;
+```
+
+You can match on device names. You can call `deviceName()` more than once to add more than one device name to scan for.  Or you can use `deviceNames()` to pass in a vector of multiple device names in a single call.
+
+
+#### serviceUUID (BLEScanFilter)
+
+{{api name1="BLEScanFilter::serviceUUID" name2="BLEScanFilter::serviceUUIDs"}}
+
+```cpp
+// PROTOTYPES
+template<typename T>
+BleScanFilter& serviceUUID(T uuid);
+BleScanFilter& serviceUUIDs(const Vector<BleUuid>& uuids);
+const Vector<BleUuid>& serviceUUIDs() const;
+```
+
+You can match on service UUIDs. You can call `serviceUUID()` more than once to add more than one UUID to scan for.  Or you can use `serviceUUIDs()` to pass in a vector of multiple UUIDs in a single call. You can match both well-known and private UUIDs.
+
+#### address (BleScanFilter)
+
+{{api name1="BLEScanFilter::address" name2="BLEScanFilter::addresses"}}
+
+```cpp
+// PROTOTYPES
+template<typename T>
+BleScanFilter& address(T addr);
+BleScanFilter& addresses(const Vector<BleAddress>& addrs);
+const Vector<BleAddress>& addresses() const;
+```
+
+You can match on BLE addresses. You can call `address()` more than once to add more than one UUID to scan for.  Or you can use `addresses()` to pass in a vector of multiple addresses in a single call. 
+
+#### appearance (BleScanFilter)
+
+{{api name1="BLEScanFilter::appearance" name2="BLEScanFilter::apperances"}}
+
+```cpp
+// PROTOTYPES
+BleScanFilter& appearance(const ble_sig_appearance_t& appearance);
+BleScanFilter& appearances(const Vector<ble_sig_appearance_t>&  appearances);
+const Vector<ble_sig_appearance_t>& appearances() const;
+```
+
+You can match on BLE apperance codes. These are defined by the BLE special interest group for clases of devices with known characteristics, such as `BLE_SIG_APPEARANCE_THERMOMETER_EAR` or `BLE_SIG_APPEARANCE_GENERIC_HEART_RATE_SENSOR`.
+
+You can call `appearance()` more than once to add more than one appearance scan for.  Or you can use `apperances()` to pass in a vector of multiple apperances in a single call. 
+
+
+#### rssi (BleScanFilter)
+
+{{api name1="BLEScanFilter::minRssi" name2="BLEScanFilter::maxRssi"}}
+
+```cpp
+// PROTOTYPES
+BleScanFilter& minRssi(int8_t minRssi);
+BleScanFilter& maxRssi(int8_t maxRssi);
+int8_t minRssi() const;
+int maxRssi() const;
+```
+
+You can require a minimim of maximum RSSI to the peripipheral to be included in the scan list.
+
+#### customData (BleScanFilter)
+
+{{api name1="BLEScanFilter::customData"}}
+
+```cpp
+// PROTOTYPES
+BleScanFilter& customData(const uint8_t* const data, size_t len);
+const uint8_t* const customData(size_t* len) const;
+```
+
+You can require custom advertising data to match the specified data. 
+
 ### BLE Services
 
 There isn't a separate class for configuring BLE Services. A service is identified by its UUID, and this UUID passed in when creating the [`BleCharacteristic`](/reference/device-os/firmware/#blecharacteristic) object(s) for the service. For example:
@@ -9427,6 +9928,20 @@ void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, 
 The [`BlePeerDevice`](/reference/device-os/firmware/#blepeerdevice) object is described below.
 
 The `context` parameter can be used to pass extra data to the callback. It's typically used when you implement the callback in a C++ class to pass the object instance pointer (`this`).
+
+{{since when="3.0.0"}}
+
+```cpp
+// PROTOTYPES
+typedef std::function<void(const uint8_t*, size_t, const BlePeerDevice& peer)> BleOnDataReceivedStdFunction;
+
+void onDataReceived(const BleOnDataReceivedStdFunction& callback);
+
+template<typename T>
+void onDataReceived(void(T::*callback)(const uint8_t*, size_t, const BlePeerDevice& peer), T* instance);
+```
+
+In Device OS 3.0.0 and later, the onDataReceived callback can be a C++ member function or C++11 lambda.
 
 
 #### BleCharacteristic (peripheral)
@@ -9721,17 +10236,22 @@ Returns a constant:
 
 #### isValid()
 
-{{api name1="BleUuid::isValid"}}
+{{api name1="BleUuid::isValid" name2="BleUuid::valid"}}
 
 ```cpp
 // PROTOTYPE
 bool isValid() const;
+bool valid() const;
 
 // EXAMPLE
 bool isValid = uuid.isValid();
 ```
 
 Return `true` if the UUID is valid or `false` if not.
+
+{{since when="3.0.0"}}
+
+In Device OS 3.0.0 and later,, `valid()` can be used as well. Before, the `isValid()` method was used.
 
 #### equality
 
@@ -9774,6 +10294,18 @@ void rawBytes(uint8_t uuid128[BLE_SIG_UUID_128BIT_LEN]) const;
     const uint8_t* rawBytes() const;
 const uint8_t* rawBytes() const;    
 ```
+
+#### operator[]
+
+{{api name1="BleUuid::operator[]"}}
+
+```cpp
+uint8_t operator[](uint8_t i) const;
+```
+
+{{since when="3.0.0"}}
+
+In Device OS 3.0.0 and later, you can retrieve a raw bytes of the UUID using the `[]` operator.
 
 #### Constructors
 
@@ -9997,6 +10529,18 @@ Return the length of the data in bytes.
 // PROTOTYPE
 size_t length() const;
 ```
+
+#### operator[]
+
+{{api name1="BleAdvertisingData::operator[]"}}
+
+```cpp
+uint8_t operator[](uint8_t i) const;
+```
+
+{{since when="3.0.0"}}
+
+In Device OS 3.0.0 and later, you can retrieve a byte from the advertising data using the `[]` operator. This uses `get()` internally.
 
 #### deviceName()
 
@@ -10296,6 +10840,21 @@ public:
 - `scanResponse` The scan response data. This is an optional extra 31 bytes of data that can be provided by the peripheral. It requires an additional request to the peripheral, but is less overhead than connecting.
 - `rssi` The signal strength, which is a negative number of dBm. Numbers closer to 0 are a stronger signal.
 
+#### discoverAllCharacteristics
+
+{{api name1="BlePeerDevice::discoverAllCharacteristics"}}
+
+```cpp
+// PROTOTYPE
+Vector<BleCharacteristic> discoverAllCharacteristics();
+ssize_t discoverAllCharacteristics(BleCharacteristic* characteristics, size_t count);
+```
+
+{{since when="3.0.0"}}
+
+In Device OS 3.0.0 and later, once you're connected to a BLE peripherals, you can optionally query all of the characteristics available on that peer. Normally you would know the characteristic you wanted and would get the single characteristic by UUID or description, but it is also possible to retrieve all characteristics.
+
+
 ### BleAddress
 
 {{api name1="BleAddress"}}
@@ -10347,6 +10906,20 @@ You can test two BleAddress objects for equality (same address).
 // PROTOTYPE
 bool operator==(const BleAddress& addr) const 
 ```
+
+#### valid (BleAddress)
+
+{{api name1="BleAddress::valid"}}
+
+```
+// PROTOTYPE
+bool valid() const;
+```
+
+{{since when="3.0.0"}}
+
+You can test if a BLEAddress object is valid using the `valid()` method in Device OS 3.0.0 and later.
+
 
 #### Getters
 
@@ -10522,7 +11095,17 @@ The parameters to the iBeacon constructor in the example are:
 - Application UUID ("9c1b8bdc-5548-4e32-8a78-b9f524131206")
 - Power measurement in dBm (-55)
 
+{{since when="3.0.0"}}
 
+```cpp
+// PROTOTYPES
+uint16_t major() const;
+uint16_t minor() const;
+const BleUuid& UUID() const;
+int8_t measurePower() const;
+```
+
+In Device OS 3.0.0 and later there are accessors to read the values out of the iBeacon class.
 
 
 ## NFC
@@ -15069,6 +15652,22 @@ You can use `.gpio()` multiple times to wake on any of multiple pins, with the l
 
 ---
 
+```cpp
+System.sleep(SystemSleepConfiguration().mode(SystemSleepMode::STOP).gpio(GPS_INT, FALLING));
+```
+
+{{since when="3.0.0"}}
+
+On the Tracker SoM, you can pass GPIO connected to the IO Expander directly to the GPIO sleep option in Device OS 3.0.0 and later.
+
+| Name | Description | Location | 
+| :---: | :--- | :---: |
+| LOW_BAT_UC | Fuel Gauge Interrupt | IOEX 0.0 |
+| GPS_INT | u-blox GNSS interrupt | IOEX 0.7 | 
+| WIFI_INT | ESP32 interrupt | IOEX 0.4 |
+
+---
+
 {{note op="start" type="gen3"}}
 - You can wake on any pins on Gen 3 devices, however there is as limit of 8 total pins for wake.
 
@@ -15076,6 +15675,7 @@ On Gen 3 devices the location of the `WKP` pin varies, and it may make more sens
 - Argon, Boron, and Xenon, WKP is pin D8. 
 - B Series SoM, WKP is pin A7 in Device OS 1.3.1 and later. In prior versions, it was D8. 
 - Tracker SoM WKP is pin A7/D7.
+
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
