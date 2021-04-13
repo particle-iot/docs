@@ -9,19 +9,7 @@ description: Learn about products on the Particle platform
 # Products Introduction
 
 
-| Feature | Developer | Product | Enterprise |
-| :--- | :---: | :---: | :---: |
-| Maximum devices | 100 | Unlimited | Unlimited |
-| OTA Firmware Updates | Per-Device | Per-Group | Intelligent OTA |
-| Device Groups | &nbsp; | &check; | &check; |
-| Team Members | &nbsp; | &check; | &check; |
-| Team Access Controls | &nbsp; | &nbsp; | &check; |
-| Organizations | &nbsp; | &nbsp; | &check; |
-| Fleet Health | &nbsp; | &nbsp; | &check; |
-| Intelligent OTA | &nbsp; | &nbsp; | &check; |
-| Service Level Agreements | &nbsp; | &nbsp; | &check; |
-| Additional Support Options | &nbsp; | &nbsp; | &check; |
-
+## Introduction
 
 #### Developer Devices
 
