@@ -149,6 +149,7 @@ function createRefCards(options, files, fileName) {
 
         newFile.description = 'Reference manual for the C++ API used by user firmware running on Particle IoT devices';
         delete newFile.redirects;
+        delete newFile.singlePage;
 
         // Create new contents
         let contents = '';
