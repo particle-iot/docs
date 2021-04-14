@@ -41,6 +41,7 @@ function createRefCards(options, files, fileName) {
                 curL2 = {
                     folder: curFolder,
                     origTitle: origTitle,
+                    l3: [],
                     title: origTitle,
                     url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFolder
                 };
@@ -69,7 +70,7 @@ function createRefCards(options, files, fileName) {
 
 
             if (line.startsWith('## ') || line.startsWith('### ')) {
-                sections.push({
+                let obj = {
                     folder: curFolder,
                     newFolder: newFolder,
                     file: curFile,
@@ -78,7 +79,9 @@ function createRefCards(options, files, fileName) {
                     origTitle: origTitle,
                     title: origTitle + ' - ' + curL2.title,
                     url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile
-                });                
+                };
+                curL2.l3.push(obj);
+                sections.push(obj);                
                 continue;
             }
 
@@ -111,13 +114,24 @@ function createRefCards(options, files, fileName) {
             }
         });
 
+        // Clone the original .md source file
         let newFile = cloneDeep(files[fileName]);
         
+
         newFile.title = section.title;
         newFile.layout = 'cards.hbs';
         newFile.columns = 'two';
-        // delete description and redirects?
+        newFile.collection = [];
+        newFile.path.dir = thisCardsDir + '/' + section.folder;
+        newFile.path.base = section.file + '.md';
+        newFile.path.name = section.file;
+        newFile.path.href = section.url;
+        newFile.noEditButton = true;
 
+        newFile.description = 'Reference manual for the C++ API used by user firmware running on Particle IoT devices';
+        delete newFile.redirects;
+
+        // Create new contents
         let contents = '';
         contents += '## ' + section.curL2.title + '\n'; 
 
@@ -126,11 +140,43 @@ function createRefCards(options, files, fileName) {
         }
 
         contents += section.content;
-
         newFile.contents = Buffer.from(contents); 
 
-        const newPath = thisCardsDir + '/' + section.folder + '/' + section.file + '.md';
+        // Generate navigation
+        newFile.navigation = '';
+        for(const tempSection of section.curL2.l3) {
+            newFile.navigation += '<ul>';
 
+            if (tempSection.url === section.url) {
+                newFile.navigation += '<li class="top-level active"><span>' + section.origTitle + '</span></li>';
+            }
+            else {
+                if (tempSection.content.replace(/\n/g, '').trim()) {
+                    // This is not an empty section
+                    newFile.navigation += '<li class="top-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
+                }
+            }
+
+            newFile.navigation += '</ul>';
+            /*
+                       <ul>
+              <li class="top-level active">
+                  <span>Testing!</span>
+              </li>
+            </ul>
+           <ul>
+              <li class="top-level ">
+                  <a href="/quickstart/boron">Boron</a>
+              </li>
+            </ul>
+          </ul>
+            */
+
+        }
+        //console.log('newFile', newFile);
+        
+        // Save in metalsmith files so it the generated file will be converted to html
+        const newPath = thisCardsDir + '/' + section.folder + '/' + section.file + '.md';
         files[newPath] = newFile;
     }
 }
