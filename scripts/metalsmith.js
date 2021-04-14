@@ -180,7 +180,7 @@ exports.metalsmith = function () {
     .use(helpers({
       directory: '../templates/helpers'
     }))
-    // Group files into collections and add collection metadata
+// Group files into collections and add collection metadata
     // This plugin is complex and buggy.
     // It causes the duplicate nav bar bug during development with livereload
     .use(collections({
