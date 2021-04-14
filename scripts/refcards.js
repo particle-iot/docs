@@ -20,6 +20,7 @@ function createRefCards(options, files, fileName) {
     let curFile = '';
     let sections = [];
     let curL2 = {};
+    let allL2 = [];
     
     for(const line of mdFile.split('\n')) {
         if (line.startsWith('##')) {
@@ -32,7 +33,7 @@ function createRefCards(options, files, fileName) {
 
             const origAnchorNoTrailingDash = origAnchor.replace(/[-]+$/g, '');
 
-            let newFolder = false;
+            let isL2 = false;
 
             if (line.startsWith('## ')) {
                 // New L2 header denotes a new folder
@@ -45,7 +46,7 @@ function createRefCards(options, files, fileName) {
                     title: origTitle,
                     url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFolder
                 };
-                newFolder = true;
+                allL2.push(curL2);
             }
             if (line.startsWith('### ')) {
                 // New L3 header denotes a new file
@@ -72,7 +73,6 @@ function createRefCards(options, files, fileName) {
             if (line.startsWith('## ') || line.startsWith('### ')) {
                 let obj = {
                     folder: curFolder,
-                    newFolder: newFolder,
                     file: curFile,
                     curL2: curL2,
                     content: '',
@@ -93,12 +93,31 @@ function createRefCards(options, files, fileName) {
         }
     }
 
+    // Clean up the case where the L2 is followed by L3 with no text.
+    for(let ii = 0; ii < sections.length; ii++) {
+        if (!sections[ii].content.replace(/\n/g, '').trim()) {
+            // Section is empty
+            
+            if (sections[ii].curL2.l3[0].url == sections[ii].url) {
+                sections[ii].curL2.l3.splice(0, 1);
+                sections[ii].curL2.url = sections[ii].curL2.l3[0].url;
+            }
+            
+            sections.splice(ii, 1);
+            ii--;
+        }
+    }
+
+    // Remove Device OS Versions so we don't need to load the Javascript
+    for(let ii = 0; ii < allL2.length; ii++) {
+        if (allL2[ii].title == 'Device OS Versions') {
+            allL2.splice(ii, 1);
+            ii--;
+        }
+    }
+    
     // Generate data now
     for(let section of sections) {
-        if (!section.content.replace(/\n/g, '').trim()) {
-            // Ignore empty sections
-            continue;
-        }
 
         // Replace anchors in content
         section.content = section.content.replace(/\]\(#[-A-Za-z0-9]+\)/g, function(replacement) {
@@ -144,6 +163,34 @@ function createRefCards(options, files, fileName) {
 
         // Generate navigation
         newFile.navigation = '';
+        for(const tempL2 of allL2) {
+            newFile.navigation += '<ul>';
+            if (tempL2.url == section.curL2.url) {
+                newFile.navigation += '<li class="top-level active"><span>' + tempL2.origTitle + '</span></li>';
+
+                newFile.navigation += '<div class="in-page-toc-container">';
+                for(const tempSection of section.curL2.l3) {
+                    newFile.navigation += '<ul class="nav in-page-toc show">';
+
+                    if (tempSection.url === section.url) {
+                        newFile.navigation += '<li class="middle-level active"><span>' + section.origTitle + '</span></li>';
+                    }
+                    else {
+                        newFile.navigation += '<li class="middle-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
+                    }
+
+                    newFile.navigation += '</ul>';
+                }
+                newFile.navigation += '</div">';
+
+            }
+            else {
+                newFile.navigation += '<li class="top-level"><a href="' + tempL2.url + '">' + tempL2.origTitle + '</a></li>';
+            }
+            newFile.navigation += '</ul>';
+        }
+
+        /*
         for(const tempSection of section.curL2.l3) {
             newFile.navigation += '<ul>';
 
@@ -151,28 +198,12 @@ function createRefCards(options, files, fileName) {
                 newFile.navigation += '<li class="top-level active"><span>' + section.origTitle + '</span></li>';
             }
             else {
-                if (tempSection.content.replace(/\n/g, '').trim()) {
-                    // This is not an empty section
-                    newFile.navigation += '<li class="top-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
-                }
+                newFile.navigation += '<li class="top-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
             }
 
             newFile.navigation += '</ul>';
-            /*
-                       <ul>
-              <li class="top-level active">
-                  <span>Testing!</span>
-              </li>
-            </ul>
-           <ul>
-              <li class="top-level ">
-                  <a href="/quickstart/boron">Boron</a>
-              </li>
-            </ul>
-          </ul>
-            */
-
         }
+        */
         //console.log('newFile', newFile);
         
         // Save in metalsmith files so it the generated file will be converted to html
