@@ -20,26 +20,39 @@ function createRefCards(options, srcFile, cardsDir) {
     let anchors = {};
     let curFolder = '';
     let curFile = '';
-
+    let sections = [];
+    let curL2 = {};
+    
     for(const line of mdFile.split('\n')) {
         if (line.startsWith('##')) {
             // Any L2 or higher is an an anchor
             const spaceIndex = line.indexOf(' ');
-            if (spaceIndex < 0) {
-                continue;
-            }
 
-            const origAnchor = line.substr(spaceIndex + 1).trim().toLowerCase().replace(/[^-A-Za-z0-9 ]+/g, ' ').replace(/ +/g, '-');
+            const origTitle = line.substr(spaceIndex + 1).trim();
+
+            const origAnchor = origTitle.toLowerCase().replace(/[^-A-Za-z0-9 ]+/g, ' ').replace(/ +/g, '-');
+
+            const origAnchorNoTrailingDash = origAnchor.replace(/[-]+$/g, '');
+
+            let newFolder = false;
 
             if (line.startsWith('## ')) {
                 // New L2 header denotes a new folder
-                curFolder = origAnchor;
+                curFolder = origAnchorNoTrailingDash;
+                curFile = origAnchorNoTrailingDash;
+                curL2 = {
+                    folder: curFolder,
+                    origTitle: origTitle,
+                    title: origTitle,
+                    url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFolder
+                };
+                newFolder = true;
             }
             if (line.startsWith('### ')) {
                 // New L3 header denotes a new file
-                curFile = origAnchor;
+                curFile = origAnchorNoTrailingDash;
             }
-
+            
             let uniqueAnchor = origAnchor;
             //
             if (anchors[origAnchor]) {
@@ -56,9 +69,74 @@ function createRefCards(options, srcFile, cardsDir) {
                 anchor: origAnchor
             };
 
+
+            if (line.startsWith('## ') || line.startsWith('### ')) {
+                sections.push({
+                    folder: curFolder,
+                    newFolder: newFolder,
+                    file: curFile,
+                    curL2: curL2,
+                    content: '',
+                    origTitle: origTitle,
+                    title: origTitle + ' - ' + curL2.title,
+                    url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile
+                });                
+                continue;
+            }
+
+
+        }
+
+        if (sections.length) {
+            sections[sections.length - 1].content += line + '\n';
         }
     }
 
+    // Generate data now
+    for(let section of sections) {
+        if (!section.content.replace(/\n/g, '').trim()) {
+            // Ignore empty sections
+            continue;
+        }
+
+        // Replace anchors in content
+        section.content = section.content.replace(/\]\(#[-A-Za-z0-9]+\)/g, function(replacement) {
+            // console.log('replacement ' + replacement);
+            let anchor = replacement.substr(3, replacement.length - 4);
+            if (!anchors[anchor]) {
+                console.log('missing ' + anchor);
+                return replacement;
+            }
+            else {
+                const url = '/' + options.outputDir + '/' + cardsGroup + '/' + anchors[anchor].folder + '/' + anchors[anchor].file + '#' + anchors[anchor].anchor;
+                return '](' + url + ')';
+            }
+        });
+
+        //
+        let contents = ''; 
+        contents += '---\n';
+        contents += 'title: ' + section.title + '\n';  
+        contents += 'layout: cards.hbs\n';  
+        contents += 'columns: two\n';                
+        // contents += 'description:\n';                
+        contents += '---\n\n';                
+        
+        contents += '## ' + section.curL2.title + '\n'; 
+
+        if (section.curL2.title != section.origTitle) {
+            contents += '### ' + section.origTitle + '\n'; 
+        }
+
+        contents += section.content;
+
+        if (!fs.existsSync(path.join(thisCardsDir, section.folder))) {
+            fs.mkdirSync(path.join(thisCardsDir, section.folder));
+        }
+        fs.writeFileSync(path.join(thisCardsDir, section.folder, section.file + '.md'), contents);
+
+    }
+ /*
     // Pass 2: Replace anchors
     // Example: before [`Particle.connect()`](#particle-connect-) is called
 
@@ -145,13 +223,14 @@ function createRefCards(options, srcFile, cardsDir) {
     }
 
     writeCurFileContents();
-
+*/
 }
 
 
 module.exports = function(options) {
 
 	return function(files, metalsmith, done) {
+        console.log('files', files);
         const cardsDir = metalsmith.path(options.contentDir + '/' + options.outputDir);
         if (!fs.existsSync(cardsDir)) {
             fs.mkdirSync(cardsDir);
