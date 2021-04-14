@@ -632,6 +632,138 @@ Here are some Web BLE examples. The project links include the device source, as 
 </video>
 
 
+## Libraries
+
+As the previous tutorial showed, you can use Gen 3 devices to address a number of BLE use cases. To simplify the development of some common use cases, Particle has created libraries that allow you to more quickly add BLE functionality to your device.
+
+### BLE Gateway Library
+
+**For Device OS 3.0 and later**
+
+This library turns a Particle Gen3 device (Tracker, Boron, Argon) into a Bluetooth Low Energy (BLE) Central device. In this mode, it is able to detect and connect to BLE Peripherals, and expose APIs so that your application can get and/or send data to the peripherals, depending on their capabilities.
+
+The following video shows an example of using it to connect to a Cycling Speed sensor and a heart rate monitor:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EdmbsK70jss?rel=0&amp;&amp;showinfo=0&amp;controls=0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+
+If the peripheral that you’d like to connect to is already supported by the library, you can use this without any modifications. Here's a list of peripherals currently supported:
+- Heart Rate Monitor
+- Cycling Speed and Cadence Sensor
+- Glucose Meter
+- Veepeak brand OBDII dongle
+- Jumper brand Pulse Oximeter
+- Masterbuilt brand smoker
+
+If the peripheral is not currently supported, the library is written in a modular format so that it is easy to add your peripheral.
+
+#### Installation
+
+You can install the library through the Particle library system. The name is `ble-gateway`. You can also clone the library from [Github](https://github.com/particle-iot/ble-gateway-library) to include in your project or to modify it.
+
+#### Usage
+
+For basic usage, you will need to:
+
+- Include the header files for the peripherals you want to use
+- Enable the type of devices you want to connect to
+- Register a callback to be notified when a connection happens
+
+```c++
+#include "ble-device-gateway.h"
+#include "peripherals/pulse-oximeter.h"
+#include "peripherals/cycling-sensor.h"
+#include "peripherals/heart-rate-monitor.h"
+#include "peripherals/masterbuilt-smoker.h"
+
+void setup() {
+  BleDeviceGateway::instance().setup();
+  BleDeviceGateway::instance().onConnectCallback(onConnect);
+  BleDeviceGateway::instance().enableServiceCustom(PulseOx::bleDevicePtr, JUMPER_PULSEOX_SERVICE);
+  BleDeviceGateway::instance().enableService(HeartRateMonitor::bleDevicePtr, BLE_SIG_UUID_HEART_RATE_SVC);
+  BleDeviceGateway::instance().enableService(CyclingSpeedAndCadence::bleDevicePtr ,BLE_SIG_UUID_CYCLING_SPEED_CADENCE_SVC);
+  BleDeviceGateway::instance().enableServiceByName(MasterbuiltSmoker::bleDevicePtr ,"Masterbuilt Smoker");
+}
+
+void loop() {
+  BleDeviceGateway::instance().loop();
+}
+```
+
+The callback function for when a device is connected has the device class as the parameter. You can find out what type of device it is by checking the `getType()` function, like this:
+
+```c++
+void onConnect(BleDevice& device)
+{
+  if (device.getType() == BleUuid(JUMPER_PULSEOX_SERVICE))  {
+    Log.info("Connected to Jumper Pulse Oximeter");
+  } else if (device.getType() == BleUuid(BLE_SIG_UUID_HEART_RATE_SVC))
+  {
+    HeartRateMonitor& dev = (HeartRateMonitor&)device;
+    dev.setNewValueCallback(onNewHrValue, NULL);
+    uint8_t buf[20];
+    if (dev.getManufacturerName(buf, 20) > -1) {
+      Log.info("Connected to Heart Rate Monitor named: %s", buf);
+    }
+    Log.info("Battery Level: %d", dev.getBatteryLevel());
+  }
+}
+```
+
+Here is where you also would add the capabilities that your application needs. For example, a Heart Rate Monitor typically notifies once per second of the heart rate, so the Heart Rate Monitor type in the library has an API to register a callback to receive the notifications. The battery level is usually notified only when it changes. The `NOTIFY` property is Optional for the Battery Service, while `READ` is mandatory. If you know the heart rate monitor that you're using implements `NOTIFY`, then you can also get the battery level in the same callback as the heart rate measurement. For example:
+
+```c++
+void onNewHrValue(HeartRateMonitor& monitor, BleUuid uuid, void* context) {
+  if (uuid == BLE_SIG_HEART_RATE_MEASUREMENT_CHAR) {
+    //Log.info("Heart Rate: %u", monitor.getHeartRate() );
+  } else if (uuid == BLE_SIG_BATTERY_LEVEL_CHAR) {
+    Log.info("Battery callback level: %d", monitor.getBatteryLevel() );
+  } 
+}
+```
+
+
+### Beacon Scanner Library
+
+This library works with Particle Gen3 devices to scan for BLE advertisements and parses them for common beacon standards. Currently supported:
+- iBeacon
+- Eddystone UID, URL, and unencrypted TLM
+- Kontakt.io beacons (tested with Asset Tag S18-3)
+
+This [Application Note](https://support.particle.io/hc/en-us/articles/360046862953-Create-a-custom-cold-chain-solution-using-Gen3-devices-and-BLE) shows how the library can be used to monitor temperature using BLE beacons.
+
+#### Installation
+
+You can install the library through the Particle library system. The name is `BeaconScanner`. You can also clone the library from [Github](https://github.com/particle-iot/beacon-scanner-library) to include in your project or to modify it.
+
+#### Usage
+
+The following code will scan all iBeacons, Eddystones, and Kontakt.io tags nearby and automatically publish their information to the Particle Cloud.
+
+```c++
+#include "Particle.h"
+#include "BeaconScanner.h"
+
+SYSTEM_THREAD(ENABLED);
+
+Beaconscanner scanner;
+
+void setup() {
+}
+
+unsigned long scannedTime = 0;
+
+void loop() {
+  if (Particle.connected() && (millis() - scannedTime) > 10000) {
+    scannedTime = millis();
+    scanner.scanAndPublish(5, SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE, "test", PRIVATE);
+  }
+}
+```
+
+There are other functions that allow you to collect a `Vector` of the nearby tags to do some local processing prior to publishing. You can see the full documentation in the [Github repository](https://github.com/particle-iot/beacon-scanner-library).
+
+
 
 
 
