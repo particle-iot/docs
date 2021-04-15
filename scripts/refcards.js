@@ -226,7 +226,7 @@ function createRefCards(options, files, fileName, cardMappingPath) {
         // Generate navigation
         newFile.navigation = '';
         for(const tempL2 of allL2) {
-            newFile.navigation += '<ul>';
+            newFile.navigation += '<ul class="static-toc">';
             if (tempL2.url == section.curL2.url) {
                 newFile.navigation += '<li class="top-level active"><span>' + tempL2.origTitle + '</span></li>';
 

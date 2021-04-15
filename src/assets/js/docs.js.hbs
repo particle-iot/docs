@@ -124,6 +124,10 @@ Created by Zach Supalla.
   };
 
   Docs.expandPrimaryTOC = function($correspondingNavElement) {
+    if ($(correspondingNavElement).closest('ul.static-toc').length) {
+      return;
+    }
+
     // Remove active class
     $('ul.in-page-toc li[data-nav]').removeClass('active')
        // Show the secondary nav as collapsed
