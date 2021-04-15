@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 var cloneDeep = require('lodash').cloneDeep;
 
-function createRefCards(options, files, fileName, cardMappingPath) {
+function createRefCards(options, files, fileName, cardMappingPath, redirectsPath) {
     // console.log('processing refCards for ' + fileName);
     
     const cardsGroup = path.basename(fileName, '.md');
@@ -169,6 +169,39 @@ function createRefCards(options, files, fileName, cardMappingPath) {
         }
     }
 
+    // Generate redirects for all directories to the first page in that group
+    if (redirectsPath) {
+        const origFile = fs.readFileSync(redirectsPath, 'utf8');
+
+        let redirects = JSON.parse(origFile);
+     
+        // Top level
+        redirects['/' + thisCardsDir] = allL2[0].url;
+
+        // All L2s
+        for(const curL2 of allL2) {
+            redirects['/' + thisCardsDir + '/' + curL2.folder] = curL2.url;
+        }
+
+        // Sort the output file
+        let redirectsArray = [];
+        for(const key in redirects) {
+            redirectsArray.push({key:key,value:redirects[key]});
+        }
+        redirectsArray.sort(function(a, b) {
+            return a.key.localeCompare(b.key);
+        });
+        let redirectsSorted = {};
+        for(const obj of redirectsArray) {
+            redirectsSorted[obj.key] = obj.value;
+        }
+
+        const newFile = JSON.stringify(redirectsSorted, null, 2);
+        if (origFile != newFile) {
+            fs.writeFileSync(redirectsPath, newFile);
+        }
+    }
+
     // Remove Device OS Versions so we don't need to load the Javascript
     for(let ii = 0; ii < allL2.length; ii++) {
         if (allL2[ii].title == 'Device OS Versions') {
@@ -273,7 +306,7 @@ module.exports = function(options) {
 	return function(files, metalsmith, done) {
         Object.keys(files).forEach(function(fileName) {
             if (options.sources.includes(fileName)) {
-                createRefCards(options, files, fileName, metalsmith.path(options.cardMapping));
+                createRefCards(options, files, fileName, metalsmith.path(options.cardMapping), metalsmith.path(options.redirects));
             }
         });
 
