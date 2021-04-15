@@ -11,12 +11,13 @@ singlePage: true
 Device OS API
 ==========
 
+{{#unless pdf-generation}}
 {{#if singlePage}}
-You are viewing the single-page version of the Device OS firmware API reference manual.
-
+You are viewing the single-page version of the Device OS API reference manual.
 It is also available [divided into small sections](/cards/firmware/) if you prefer that style.
 {{/if}}
-
+{{/unless}} {{!-- pdf-generation --}}
+ 
 ## Cloud Functions
 
 ### Overview of API field limits
