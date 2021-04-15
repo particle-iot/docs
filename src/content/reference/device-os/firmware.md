@@ -11,13 +11,29 @@ singlePage: true
 Device OS API
 ==========
 
-{{#unless pdf-generation}}
+
+## Introduction
+
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
 It is also available [divided into small sections](/cards/firmware/) if you prefer that style.
+{{else}}
+You are viewing the multi-page version of the Device OS API reference manual.
+It is also available [as a single large document](/reference/device-os/firmware/) if you prefer that style.
+
+**Helpful tips for desktop and laptop:**
+
+- Shift-Right goes to the next topic
+- Shift-Left goes to the previous topic
+- Shift-Down goes to the next section
+- Shift-Up goes to the previous section
+
+**Helpful tips for mobile (phone and tablet):**
+
+- Swipe left or right edge tap goes to the next topic
+- Swipe right or left edge tap goes to the previous topic
 {{/if}}
-{{/unless}} {{!-- pdf-generation --}}
- 
+
 ## Cloud Functions
 
 ### Overview of API field limits
