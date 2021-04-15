@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 var cloneDeep = require('lodash').cloneDeep;
 
-function createRefCards(options, files, fileName) {
+function createRefCards(options, files, fileName, cardMappingPath) {
     // console.log('processing refCards for ' + fileName);
     
     const cardsGroup = path.basename(fileName, '.md');
@@ -20,6 +20,7 @@ function createRefCards(options, files, fileName) {
     let curFile = '';
     let sections = [];
     let curL2 = {};
+    let curL3 = null;
     let allL2 = [];
     
     for(const line of mdFile.split('\n')) {
@@ -66,9 +67,14 @@ function createRefCards(options, files, fileName) {
             anchors[uniqueAnchor] = {
                 folder: curFolder,
                 file: curFile,
-                anchor: origAnchor
+                anchor: origAnchor,
+                url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile
             };
-
+            
+            if (line.startsWith('####')) {
+                // L4 and higher can have direct links
+                anchors[uniqueAnchor].url += '#' + origAnchor;
+            }
 
             if (line.startsWith('## ') || line.startsWith('### ')) {
                 let obj = {
@@ -81,8 +87,29 @@ function createRefCards(options, files, fileName) {
                     url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile
                 };
                 curL2.l3.push(obj);
-                sections.push(obj);                
+                sections.push(obj);    
+                
+                if (line.startsWith('## ')) {
+                    curL3 = null;
+                }
+                else {
+                    curL3 = obj;
+                }
                 continue;
+            }
+            if (line.startsWith('#### ')) {
+                // L4 is included in the navigation
+                if (curL3) {
+                    if (!curL3.l4) {
+                        curL3.l4 = [];
+                    }
+                    let obj = {
+                        curL3: curL3,
+                        origTitle: origTitle,
+                        origAnchor: origAnchor
+                    };
+                    curL3.l4.push(obj);
+                }
             }
 
 
@@ -91,6 +118,15 @@ function createRefCards(options, files, fileName) {
         if (sections.length) {
             sections[sections.length - 1].content += line + '\n';
         }
+    }
+
+    // Output the redirect mapping table
+    if (cardMappingPath) {
+        let mapping = {};
+        for(const anchor in anchors) {
+            mapping[anchor] = anchors[anchor].url;
+        }
+        fs.writeFileSync(cardMappingPath, JSON.stringify(mapping, null, 2));
     }
 
     // Clean up the case where the L2 is followed by L3 with no text.
@@ -175,10 +211,19 @@ function createRefCards(options, files, fileName) {
 
                     if (tempSection.url === section.url) {
                         newFile.navigation += '<li class="middle-level active"><span>' + section.origTitle + '</span></li>';
+
+                        if (tempSection.l4) {
+                            newFile.navigation += '<ul class="nav secondary-in-page-toc" style="display:block">';
+                            for(const tempL4 of tempSection.l4) {
+                                newFile.navigation += '<li data-secondary-nav><a href="#' + tempL4.origAnchor + '">' + tempL4.origTitle + '</a></li>';
+                            }
+                            newFile.navigation += '</ul>';
+                        }
                     }
                     else {
                         newFile.navigation += '<li class="middle-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
                     }
+
 
                     newFile.navigation += '</ul>';
                 }
@@ -219,7 +264,7 @@ module.exports = function(options) {
 	return function(files, metalsmith, done) {
         Object.keys(files).forEach(function(fileName) {
             if (options.sources.includes(fileName)) {
-                createRefCards(options, files, fileName);
+                createRefCards(options, files, fileName, metalsmith.path(options.cardMapping));
             }
         });
 

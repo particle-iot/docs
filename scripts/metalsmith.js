@@ -287,7 +287,8 @@ exports.metalsmith = function () {
       sources: [
         'reference/device-os/firmware.md'
       ],
-      outputDir: 'cards'
+      outputDir: 'cards',
+      cardMapping: '../config/card_mapping.json'
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link
