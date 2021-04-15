@@ -60,7 +60,7 @@ you could change the constant in this one place at the top of the file. This is 
 const pin_t MY_LED = D7;
 ```
 
-You can learn more about threading in the [firmware API reference](/reference/device-os/firmware/#system-thread), but for now 
+You can learn more about threading in the [firmware API reference](/cards/firmware/system-thread/system-thread/), but for now 
 you mostly just need to know if you add this line, your code will run immediately at startup, before connecting to the cloud.
 If you leave this out, your code won't run (and the LED will not blink) until you've connected to the network and the Particle 
 cloud successfully (breathing cyan).
@@ -70,7 +70,7 @@ SYSTEM_THREAD(ENABLED);
 ```
 
 The `setup()` function is called once when the device boots to, well, set up the device. In this case we define our LED
-pin an an OUTPUT instead of digital input. You can learn more about [`pinMode()`](/reference/device-os/firmware/#pinmode-) 
+pin an an OUTPUT instead of digital input. You can learn more about [`pinMode()`](/cards/firmware/input-output/pinmode/) 
 in the firmware API reference.
 
 ```cpp
@@ -80,8 +80,8 @@ void setup() {
 ```
 
 The `loop()` function is called repeatedly while your device is running. In this case, we turn the LED on (`HIGH`), wait one second, 
-turn it off, wait one second, and repeat. You can learn more about [`digitalWrite()`](/reference/device-os/firmware/#digitalwrite-) 
-and [`delay()`](/reference/device-os/firmware/#delay-) in the firmware API reference.
+turn it off, wait one second, and repeat. You can learn more about [`digitalWrite()`](/cards/firmware/input-output/digitalwrite/) 
+and [`delay()`](/cards/firmware/time/delay/) in the firmware API reference.
 
 
 ```cpp
@@ -127,7 +127,7 @@ We've heavily commented the code below so that you can see what's going on. Basi
 
 This code should look familiar if you've followed the previous example, but there are a few changes:
 
-In `setup()` we now register a [`Particle.function()`](/reference/device-os/firmware/#particle-function-). This provides a way for the Particle 
+In `setup()` we now register a [`Particle.function()`](/cards/firmware/cloud-functions/particle-function/). This provides a way for the Particle 
 cloud to trigger a function on the device to do something. In this case, change the state of the blue D7 LED.
 
 ```cpp
@@ -497,7 +497,7 @@ analogvalue = analogRead(SENSOR_PIN);
 ```
 
 We also print this value to the USB serial debug log. In many examples you may see `Serial.print()` used instead, 
-but it's good to get into the habit of using [`Log.info()`](/reference/device-os/firmware/#logger-class) instead.
+but it's good to get into the habit of using [`Log.info()`](/cards/firmware/logging/logger-class/) instead.
 
 ```cpp
 Log.info("analogvalue=%d", analogvalue);

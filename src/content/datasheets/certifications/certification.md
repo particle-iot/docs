@@ -485,7 +485,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 The CE mark is a mandatory conformity marking for certain products sold within the European Economic Area (EEA). It is analogous in that sense to the FCC marking used on devices sold within in the United States.
 
 ### Integration
-Both the Photon/PØ and P1 are certified and carry the CE marking. Section 1.3.1 of the [Guide to the R&TTE Directive 1999/5/EC](http://ec.europa.eu/growth/sectors/electrical-engineering/rtte-directive/) states the following regarding the attachment of antennas to a module that already has documentation of conformance:
+Both the Photon/PØ and P1 are certified and carry the CE marking. Section 1.3.1 of the Guide to the R&TTE Directive 1999/5/EC states the following regarding the attachment of antennas to a module that already has documentation of conformance:
 
 _"Manufacturers who place on the market products without an antenna or with an antenna that is intended to allow replacement have a responsibility to provide information on the general types and/or characteristics of antennas that may be used with their equipment in order that the overall radio equipment remains compliant. The guidance of the transmitter manufacturer has to be followed when they are installed."_
 

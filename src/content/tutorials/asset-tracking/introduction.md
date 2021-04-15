@@ -103,7 +103,7 @@ And other tutorial resources:
 
 ### Reference
 
-- The [Device OS Firmware API](/reference/device-os/firmware/) reference includes information specific to the Tracker SoM, such as the difference in [GPIO](/reference/device-os/firmware/#input-output). The new [POSIX Filesystem](/reference/device-os/firmware/#file-system) is documented there as well.
+- The [Device OS Firmware API](/reference/device-os/firmware/) reference includes information specific to the Tracker SoM, such as the difference in [GPIO](/cards/firmware/input-output/input-output/). The new [POSIX Filesystem](/cards/firmware/file-system/file-system/) is documented there as well.
 - The [Particle Cloud API Reference](/reference/device-cloud/api/) includes information about [Tracking events](/reference/device-cloud/api/#asset-tracking-events) as well as a reference for the [Tracker Cloud API](/reference/device-cloud/api/#asset-tracking).
 - The [Tracker Edge Firmware Reference](/reference/asset-tracking/tracker-edge-firmware/) describes the Tracker Edge reference firmware API used to write device firmware. It allows for customizing the on-device code to access custom sensors and run your own code on the device.
 - The [Pin Info](/reference/hardware/pin-info/?m=table&sort=num) page includes more information on the available pins on the Tracker SoM.

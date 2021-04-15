@@ -43,7 +43,7 @@ Particle provides a number of devices with cellular connectivity including the T
 The central billing element for both cellular and Wi-Fi is the Data Operation:
 
 - Each publish, subscribe, function, or variable consumes one Data Operation regardless of size
-- The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits)
+- The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
 - Certain retransmissions, as described below
 
@@ -125,7 +125,7 @@ There are lots of things you can do to save data!
 
 **Use Shorter Names** This applies to Particle.publish, .variable, and .function. Those longer names have to be sent to/from the cloud, so you're much better off using `Particle.publish("x")` than `Particle.publish("xylophone_is_now_playing_a_song")`. 
 
-**Use Serial() for Development** When you're first testing and debugging your code, you can avoid costly and embarrassing runaway data publishing scenarios by sending sensor readings, alerts, etc over a USB cable. Comment out your `Particle.publish()` line, add `Serial.begin(9600);` to `setup()` and instead use `Serial.println(your_data_here")` to log data out to a serial terminal. You can use [Particle Workbench](/quickstart/workbench/), the Arduino IDE, `screen` or any other terminal program. Find out more in the [Serial reference](/reference/device-os/firmware/#serial)
+**Use Serial() for Development** When you're first testing and debugging your code, you can avoid costly and embarrassing runaway data publishing scenarios by sending sensor readings, alerts, etc over a USB cable. Comment out your `Particle.publish()` line, add `Serial.begin(9600);` to `setup()` and instead use `Serial.println(your_data_here")` to log data out to a serial terminal. You can use [Particle Workbench](/quickstart/workbench/), the Arduino IDE, `screen` or any other terminal program. Find out more in the [Serial reference](/cards/firmware/serial/serial/)
 
 **Event-Driven Publishing** One of the very common structures we see in code is a loop() with a sensor reading, then a publish and delay. This calls the publish (and uses data) at some regular interval, but the data being reported may not have changed! Picture a temperature sensor in your yard- the temperature is unlikely to have changed much after 1 second, 1 minute, or even 10 minutes. The data-efficient thing to do is to save the temperature you last published and compare the current reading to that previous one. If it's more than a few degrees different, then publish the new one.
 
@@ -136,7 +136,7 @@ if(abs(temperature-lastTemperature)>5){
 }
 ```
 
-**Combining Publishes** Are you sending data that isn't time-critical? Consider combining many data points into a single publish. Instead of using the 100+ bytes of overhead for every data point, you'll only use it once and save a ton! Sample the data based on change or frequency, store them in a string or array, and then send them out as one publish when you've collected as many as you want (or fit in the data field of a Particle.publish). We often add commas between data points so they're easy to separate. The data has a maximum length of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits).
+**Combining Publishes** Are you sending data that isn't time-critical? Consider combining many data points into a single publish. Instead of using the 100+ bytes of overhead for every data point, you'll only use it once and save a ton! Sample the data based on change or frequency, store them in a string or array, and then send them out as one publish when you've collected as many as you want (or fit in the data field of a Particle.publish). We often add commas between data points so they're easy to separate. The data has a maximum length of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/).
 
 ```
 Particle.publish("T", String::format("%d,%d,%d,%d,%d", temperatures[0],temperatures[1],temperatures[2],temperatures[3],temperatures[4]));
@@ -146,7 +146,7 @@ Particle.publish("T", String::format("%d,%d,%d,%d,%d", temperatures[0],temperatu
 
 **Use webhooks** Webhooks take a value that you Particle.publish and convert it into a HTTP request to an external server. If the external server is accepting connections by https (TLS/SSL), doing the TLS handshake from the webhook server greatly reduces the data usage from around 6K to the size of the publish, which might be as low as 100 bytes.
 
-**Use network sleep modes** If you are sleeping for 15 minutes or less, you can save data by keeping the cellular connection alive by using [network sleep](/reference/device-os/firmware/#network-systemsleepconfiguration-). This can eliminate the negotiation that would occur to being the device back online after sleep.
+**Use network sleep modes** If you are sleeping for 15 minutes or less, you can save data by keeping the cellular connection alive by using [network sleep](/cards/firmware/sleep-sleep/network-systemsleepconfiguration/). This can eliminate the negotiation that would occur to being the device back online after sleep.
 
 **Update Device OS over USB** Using `particle update` over USB to upgrade your device's version of Device OS can save a significant amount of data over upgrading over-the-air.
 

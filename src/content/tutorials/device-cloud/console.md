@@ -58,7 +58,7 @@ The left side of the page contains a real-time log of events passing through the
 #### How to publish events
 
 Publishing events can be achieved in multiple ways:
-- Using `particle.publish` in firmware ([docs](/reference/device-os/firmware/#particle-publish-))
+- Using `particle.publish` in firmware ([docs](/cards/firmware/cloud-functions/particle-publish/))
 - Using Particle API JS's `publishEvent` ([docs](/reference/SDKs/javascript/#publishevent))
 - Using the Publish event button in the Event Logs page:
 

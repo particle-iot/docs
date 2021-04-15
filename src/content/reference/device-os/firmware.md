@@ -5174,7 +5174,7 @@ System power features are enabled or disabled using the `SystemLiwerConfiguratio
 
 For devices with an external PMIC and Fuel Gauge like the B Series SoM, enables detection of the bq24195 PMIC connected by I2C to the primary I2C interface (Wire). Since this requires the use of I2C, you should not use pins D0 and D1 for GPIO when using PMIC_DETECTION.
 
-##@# SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST
+#### SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST
 
 {{api name1="SystemPowerFeature::USE_VIN_SETTINGS_WITH_USB_HOST"}}
 

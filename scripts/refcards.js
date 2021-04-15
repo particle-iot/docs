@@ -30,7 +30,7 @@ function createRefCards(options, files, fileName, cardMappingPath) {
 
             const origTitle = line.substr(spaceIndex + 1).trim();
 
-            const origAnchor = origTitle.toLowerCase().replace(/[^-A-Za-z0-9 ]+/g, ' ').replace(/ +/g, '-');
+            const origAnchor = origTitle.toLowerCase().replace(/[^-A-Za-z0-9_ ]+/g, ' ').replace(/ +/g, '-');
 
             const origAnchorNoTrailingDash = origAnchor.replace(/[-]+$/g, '');
 
@@ -45,7 +45,7 @@ function createRefCards(options, files, fileName, cardMappingPath) {
                     origTitle: origTitle,
                     l3: [],
                     title: origTitle,
-                    url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFolder
+                    url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFolder + '/'
                 };
                 allL2.push(curL2);
             }
@@ -68,7 +68,7 @@ function createRefCards(options, files, fileName, cardMappingPath) {
                 folder: curFolder,
                 file: curFile,
                 anchor: origAnchor,
-                url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile
+                url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile + '/'
             };
             
             if (line.startsWith('####')) {
@@ -83,17 +83,22 @@ function createRefCards(options, files, fileName, cardMappingPath) {
                     curL2: curL2,
                     content: '',
                     origTitle: origTitle,
-                    title: origTitle + ' - ' + curL2.title,
-                    url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile
+                    title: origTitle,
+                    url: '/' + options.outputDir + '/' + cardsGroup + '/' + curFolder + '/' + curFile + '/'
                 };
+
+
                 curL2.l3.push(obj);
                 sections.push(obj);    
                 
                 if (line.startsWith('## ')) {
+                    obj.level = 2;
                     curL3 = null;
                 }
                 else {
                     curL3 = obj;
+                    obj.level = 3;
+                    obj.title = origTitle + ' - ' + curL2.title;
                 }
                 continue;
             }
@@ -105,6 +110,7 @@ function createRefCards(options, files, fileName, cardMappingPath) {
                     }
                     let obj = {
                         curL3: curL3,
+                        level: 4,
                         origTitle: origTitle,
                         origAnchor: origAnchor
                     };
@@ -122,11 +128,30 @@ function createRefCards(options, files, fileName, cardMappingPath) {
 
     // Output the redirect mapping table
     if (cardMappingPath) {
+        const oldUrl = '/' + fileName.replace('.md', '') + '/#';  
+
         let mapping = {};
         for(const anchor in anchors) {
-            mapping[anchor] = anchors[anchor].url;
+            mapping[oldUrl + anchor] = anchors[anchor].url;
         }
         fs.writeFileSync(cardMappingPath, JSON.stringify(mapping, null, 2));
+    }
+
+    // Clean up the case where an L3 is empty, because there are multiple L3 in a row
+    // intended to have the same body
+    for(let ii = 0; ii < sections.length; ii++) {
+        if (!sections[ii].content.replace(/\n/g, '').trim()) {
+            if (sections[ii].level == 3) {
+                // Is L3 and empty
+                for(let jj = ii + 1; jj < sections.length && sections[jj].level >= 3; jj++) {
+                    if (sections[jj].content.replace(/\n/g, '').trim()) {
+                        // Not empty
+                        sections[ii].content = sections[jj].content;
+                        break;
+                    }                    
+                }
+            }
+        }
     }
 
     // Clean up the case where the L2 is followed by L3 with no text.
@@ -164,7 +189,7 @@ function createRefCards(options, files, fileName, cardMappingPath) {
                 return replacement;
             }
             else {
-                const url = '/' + options.outputDir + '/' + cardsGroup + '/' + anchors[anchor].folder + '/' + anchors[anchor].file + '#' + anchors[anchor].anchor;
+                const url = '/' + options.outputDir + '/' + cardsGroup + '/' + anchors[anchor].folder + '/' + anchors[anchor].file + '/#' + anchors[anchor].anchor;
                 return '](' + url + ')';
             }
         });
@@ -235,22 +260,6 @@ function createRefCards(options, files, fileName, cardMappingPath) {
             }
             newFile.navigation += '</ul>';
         }
-
-        /*
-        for(const tempSection of section.curL2.l3) {
-            newFile.navigation += '<ul>';
-
-            if (tempSection.url === section.url) {
-                newFile.navigation += '<li class="top-level active"><span>' + section.origTitle + '</span></li>';
-            }
-            else {
-                newFile.navigation += '<li class="top-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
-            }
-
-            newFile.navigation += '</ul>';
-        }
-        */
-        //console.log('newFile', newFile);
         
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = thisCardsDir + '/' + section.folder + '/' + section.file + '.md';
