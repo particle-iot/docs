@@ -351,6 +351,7 @@ Some commands you can enter into the box:
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
 
 Using `regCommandCallback` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
 
