@@ -16,22 +16,26 @@ Device OS API
 
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
-It is also available [divided into small sections](/cards/firmware/) if you prefer that style.
+
+It is also available [divided into small sections](/cards/firmware/) if you prefer that style. 
+Small sections also work better on mobile devices and small tablets.
 {{else}}
 You are viewing the multi-page version of the Device OS API reference manual.
+
 It is also available [as a single large document](/reference/device-os/firmware/) if you prefer that style.
 
 **Helpful tips for desktop and laptop:**
 
-- Shift-Right goes to the next topic
-- Shift-Left goes to the previous topic
-- Shift-Down goes to the next section
-- Shift-Up goes to the previous section
+- Shift-Right Arrow goes to the next topic
+- Shift-Left Arrow goes to the previous topic
+- Shift-Down Arrow goes to the next section
+- Shift-Up Arrow goes to the previous section
 
 **Helpful tips for mobile (phone and tablet):**
 
 - Swipe left or right edge tap goes to the next topic
 - Swipe right or left edge tap goes to the previous topic
+- Hamburger menu lists all sections
 {{/if}}
 
 ## Cloud Functions
