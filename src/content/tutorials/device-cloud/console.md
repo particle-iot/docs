@@ -859,6 +859,7 @@ Some commands you can enter into the box:
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
 
