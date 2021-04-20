@@ -188,6 +188,12 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
         for(const key in redirects) {
             redirectsArray.push({key:key,value:redirects[key]});
         }
+        // Remove the trailing slash on all internal pages
+        for(let ii = 0; ii < redirectsArray.length; ii++) {
+            if (redirectsArray[ii].value.startsWith('/') && redirectsArray[ii].value.endsWith('/') && redirectsArray[ii].value.length > 1) {
+                redirectsArray[ii].value = redirectsArray[ii].value.substr(0, redirectsArray[ii].value.length - 1);
+            }
+        }
         redirectsArray.sort(function(a, b) {
             return a.key.localeCompare(b.key);
         });
