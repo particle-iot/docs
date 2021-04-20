@@ -52,7 +52,7 @@ var refCards = require('./refcards.js');
 var handlebars = require('handlebars');
 var prettify = require('prettify');
 prettify.register(handlebars);
-
+ 
 //disable autolinking
 function noop() { }
 noop.exec = noop;
