@@ -158,7 +158,7 @@ SerialLogHandler logHandler;
 ```
 
 This line sets up the serial log handler. This is the the preferred way to output serial
-debug logs. You can [learn more here](/reference/device-os/firmware/#serial-print-vs-log-info).
+debug logs. You can [learn more here](/cards/firmware/debugging/serial-print-vs-log-info/).
 
 - Using the log handler you can adjust the verbosity from a single statement in your code, including setting the logging level per module at different levels.
 - Using the log handler you can redirect the logs between USB serial and UART serial with one line of code.
@@ -172,7 +172,7 @@ SYSTEM_THREAD(ENABLED);
 
 This line enables system threaded mode. It allows your code to run before connected 
 to the cloud, such as when blinking green or cyan. 
-You can [learn more here](/reference/device-os/firmware/#system-thread).
+You can [learn more here](/cards/firmware/system-thread/system-thread/).
 
 ```cpp
 const std::chrono::milliseconds logPeriod = 5s;
@@ -246,7 +246,7 @@ the code to be:
 Log.error("counter=%d", ++counter);
 ```
 
-Other logging methods can be [found here](/reference/device-os/firmware/#logging).
+Other logging methods can be [found here](/cards/firmware/logging/logging/).
 
 ## More examples
 
@@ -349,9 +349,9 @@ Log.info("mac: %02x-%02x-%02x-%02x-%02x-%02x",
     addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
 ```
 
-Sprintf-style formatting, including `Log.info()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/). This can happen if you want to print the event code for a [System Event Handler](/reference/device-os/firmware/#system-events) which is type `system_event_t` which is 64-bits wide.
+Sprintf-style formatting, including `Log.info()` etc. does not support 64-bit integers. It does not support `%lld`, `%llu` or Microsoft-style `%I64d` or `%I64u`. As a workaround you can use the `Print64` firmware library in the community libraries. The source and instructions can be found [in Github](https://github.com/rickkas7/Print64/). This can happen if you want to print the event code for a [System Event Handler](/cards/firmware/system-events/system-events/) which is type `system_event_t` which is 64-bits wide.
 
-You can learn more about `sprintf` [here](/reference/device-os/firmware/#sprintf).
+You can learn more about `sprintf` [here](/cards/firmware/other-functions/sprintf/).
 
 These messages are limited to 200 characters and are truncated if longer. 
 
@@ -513,6 +513,6 @@ Serial1LogHandler uartLogHandler(115200, LOG_LEVEL_TRACE);
 
 ## Learn more
 
-- Device OS [Serial Reference](/reference/device-os/firmware/#serial)
-- Device OS [Logging Reference](/reference/device-os/firmware/#logging)
+- Device OS [Serial Reference](/cards/firmware/serial/serial/)
+- Device OS [Logging Reference](/cards/firmware/logging/logging/)
 - [More about serial](/tutorials/learn-more/about-serial/) including hardware UART ports

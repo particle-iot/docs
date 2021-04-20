@@ -124,6 +124,10 @@ Created by Zach Supalla.
   };
 
   Docs.expandPrimaryTOC = function($correspondingNavElement) {
+    if ($(correspondingNavElement).closest('ul.static-toc').length) {
+      return;
+    }
+
     // Remove active class
     $('ul.in-page-toc li[data-nav]').removeClass('active')
        // Show the secondary nav as collapsed
@@ -302,6 +306,18 @@ Created by Zach Supalla.
     });
   };
   
+  Docs.scrollNavToActive = function() {
+    if ($('.guide-menu').length == 0) {
+      return;
+    }
+    const activeElem = $('.guide-menu').find('li.active');
+    if (activeElem.length <= 0) {
+      return;
+    }
+    activeElem[0].scrollIntoView();
+
+  };
+
   Docs.enableZendeskWidget = function() {
 	// Enable only for wide displays, typically desktop.
     if ($(document).width() >= 750) {
@@ -344,6 +360,7 @@ Created by Zach Supalla.
   Docs.toggleNav();
   Docs.toggleShowing();
   Docs.catchRedirectLinks();
+  Docs.scrollNavToActive();
   //Docs.enableZendeskWidget();
   if (prettyPrint) {
     prettyPrint();

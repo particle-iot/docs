@@ -97,7 +97,7 @@ When sending between two Particle Gen 3 devices with the default settings, the m
 
 Note, however, the most efficient size is a maximum 236 bytes. Above that size, fragmentation occurs which lowers the transfer rate. The maximum efficient size could vary slightly based on other factors.
 
-You can improve performance by adjusting the [PPCP settings](/reference/device-os/firmware/#ble-setppcp-) to reduce the interval setting. It may be possible to transmit as fast as 52 Kbits/sec. with adjusted settings.
+You can improve performance by adjusting the [PPCP settings](/cards/firmware/bluetooth-le-ble/ble-class/#ble-setppcp-) to reduce the interval setting. It may be possible to transmit as fast as 52 Kbits/sec. with adjusted settings.
 
 #### Peripheral Characteristics
 
@@ -445,19 +445,19 @@ For example, if one side has a display and the other side has a keyboard, the co
 
 The Display Yes-No option is mostly useful with LESC Pairing, which is not currently supported. With LESC Pairing Yes-No mode, both sides need a display and one side needs a Yes-No button selection to confirm that both displays are showing the same number. No keyboard is necessary.
 
-You normally use [`BLE.setPairingIoCaps`](/reference/device-os/firmware/#ble-setpairingiocaps-) so specify which features you have on your device (display, keyboard, etc.).
+You normally use [`BLE.setPairingIoCaps`](/cards/firmware/bluetooth-le-ble/ble-class/#ble-setpairingiocaps-) so specify which features you have on your device (display, keyboard, etc.).
 
-If you are the initiator (typically the central device, but does not have to be), you start the pairing process by using [`BLE.startPairing()`](/reference/device-os/firmware/#ble-startpairing-) after connecting to the BLE peer.
+If you are the initiator (typically the central device, but does not have to be), you start the pairing process by using [`BLE.startPairing()`](/cards/firmware/bluetooth-le-ble/ble-class/#ble-startpairing-) after connecting to the BLE peer.
 
-Many BLE operations are asynchronous and you will probably need to implement a pairing event handler whether you're a central or peripheral device. This is done using the [`BLE.onPairingEvent()`](/reference/device-os/firmware/#ble-onpairingevent-) method.
+Many BLE operations are asynchronous and you will probably need to implement a pairing event handler whether you're a central or peripheral device. This is done using the [`BLE.onPairingEvent()`](/cards/firmware/bluetooth-le-ble/ble-class/#ble-onpairingevent-) method.
 
 The pairing events occur after you have connected to the other device (from central mode) or been connected to (if you are a peripheral).
 
 If you have a display, and the other side has a keyboard, your pairing event callback may get a `BlePairingEventType::PASSKEY_DISPLAY` event with the passkey to put on your display. The passkey is determined by the other side.
 
-If you have a keyboard and the other side has a display, you may be requested to prompt the user to enter the passkey via the `BlePairingEventType::PASSKEY_INPUT` event. After the passkey is entered, you call [`BLE.setPairingPasskey()`](/reference/device-os/firmware/#ble-setpairingpasskey-) to tell the other side what passkey was entered.
+If you have a keyboard and the other side has a display, you may be requested to prompt the user to enter the passkey via the `BlePairingEventType::PASSKEY_INPUT` event. After the passkey is entered, you call [`BLE.setPairingPasskey()`](/cards/firmware/bluetooth-le-ble/ble-class/#ble-setpairingpasskey-) to tell the other side what passkey was entered.
 
-Finally, you can use either pairing status messages or functions such as [`BLE.isPaired()`](/reference/device-os/firmware/#ble-ispaired-) to see if the pairing has been completed.
+Finally, you can use either pairing status messages or functions such as [`BLE.isPaired()`](/cards/firmware/bluetooth-le-ble/ble-class/#ble-ispaired-) to see if the pairing has been completed.
 
 ## Examples
 
@@ -581,7 +581,7 @@ These are available for both iOS and Android.
 
 ### BLE log handler
 
-The BLE log handler provides a way to see the [Log Handler](/reference/device-os/firmware/#logging) output over BLE, similar to the way you can get it over USB. You may not want to do this on a production device because there is no authentication - anyone can connect to over BLE. 
+The BLE log handler provides a way to see the [Log Handler](/cards/firmware/logging/logging/) output over BLE, similar to the way you can get it over USB. You may not want to do this on a production device because there is no authentication - anyone can connect to over BLE. 
 
 You configure a buffer size, which makes it possible to see some amount of logging information in the past when you first connect. Also, BLE UART is kind of slow, so you need a buffer.
 

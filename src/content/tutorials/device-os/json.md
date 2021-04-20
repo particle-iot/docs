@@ -166,7 +166,7 @@ You can nest objects and arrays as deeply as you want:
 There is no limit to the length of keys and data elements imposed by the JSON standard. However, using 
 extremely long key names and very nested objects will use up more space if you're trying to fit the data 
 in a publish. The maximum data size varies depending on the Device OS version and sometimes the device; 
-see [API Field Limits](/reference/device-os/firmware/#overview-of-api-field-limits).
+see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/).
 
 It's also important to note that binary data cannot be stored in JSON! You must instead encode the binary data
 in a text-based format and store it in a string. Some formats you might want to use include:
@@ -424,7 +424,7 @@ be escaped like double quotes and backslash characters.
 Also, if you have arrays, especially variable-length arrays, or nested objects, 
 it is much easier to use the JSONWriter.
 
-The [Device OS Firmware API Reference](/reference/device-os/firmware/#jsonwriter) has
+The [Device OS Firmware API Reference](/cards/firmware/json/jsonwriter/) has
 more information on JSONWriter.
 
 ## Receiving JSON

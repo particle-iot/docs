@@ -33,15 +33,8 @@ module.exports = function plugin(options) {
             if (ignoreFile) {
                 return;
             }
-
-            // TODO: Check fileName to see if it has a priority in the frontmatter
             
             let priority = 0.5;
-
-            // Special case: for forked files, give the boron fork a priority bump (unless otherwise overridden)
-            if (fileName.endsWith('boron.md')) {
-                priority = 0.6;
-            }
 
             for(const str in sitemapConfig.priority) {
                 if (fileName.indexOf(str) >= 0) {

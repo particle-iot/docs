@@ -20,6 +20,9 @@ for(const old in redirects) {
     }
 }
 
+// This is the mapping from the single-page firmware API reference to new card URLs
+// "/reference/device-os/firmware/#cloud-functions": "/cards/firmware/cloud-functions/cloud-functions",
+const cardMapping = JSON.parse(fs.readFileSync(path.join(__dirname, '../../config/card_mapping.json')));
 
 let mdFiles = [];
 
@@ -35,6 +38,23 @@ function processDir(dir) {
         }
     });
 }
+
+function fixCards(content) {
+    for(const old in cardMapping) {
+        let replaceWith = cardMapping[old];
+
+        content = replaceUrl(content, '](', ')', old, replaceWith);
+        content = replaceUrl(content, 'href="', '"', old, replaceWith);
+
+        const oldAlt = old.replace('/#', '#');
+        if (oldAlt != old) {
+            content = replaceUrl(content, '](', ')', oldAlt, replaceWith);
+            content = replaceUrl(content, 'href="', '"', oldAlt, replaceWith);    
+        }
+    }
+    return content;
+}
+
 
 function fixRedirects(content) {
 
@@ -94,7 +114,8 @@ function processNextMdFile() {
 
     const orig = mdFile;
 
-    mdFile = fixRedirects(mdFile)
+    mdFile = fixRedirects(mdFile);
+    mdFile = fixCards(mdFile);
 
     if (orig !== mdFile) {
         console.log('updating ' + mdPath);

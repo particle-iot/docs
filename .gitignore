@@ -11,3 +11,4 @@ particle-api-js
 _pdf-datasheets-build/
 /app-notes
 .idea/
+/src/content/cards

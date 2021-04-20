@@ -8,7 +8,10 @@ var Handlebars = require('handlebars');
 
 
 module.exports = function(context) {
-	
+    if (context.data.root['singlePage']) {
+        return '';
+    }
+
 	let html = '';
 
     const sanitizeName = function(str) {

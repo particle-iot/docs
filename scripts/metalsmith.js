@@ -47,6 +47,7 @@ var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
 var trackerSchema = require('./tracker-schema.js');
+var refCards = require('./refcards.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -179,7 +180,7 @@ exports.metalsmith = function () {
     .use(helpers({
       directory: '../templates/helpers'
     }))
-    // Group files into collections and add collection metadata
+// Group files into collections and add collection metadata
     // This plugin is complex and buggy.
     // It causes the duplicate nav bar bug during development with livereload
     .use(collections({
@@ -280,6 +281,15 @@ exports.metalsmith = function () {
     }))//end of collections/sections
     .use(planLimits({
       config: '../config/planLimits.json'
+    }))
+    .use(refCards({
+      contentDir: '../src/content',
+      sources: [
+        'reference/device-os/firmware.md'
+      ],
+      outputDir: 'cards',
+      cardMapping: '../config/card_mapping.json',
+      redirects: '../config/redirects.json'
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link
