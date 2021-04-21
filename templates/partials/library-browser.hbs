@@ -1,16 +1,21 @@
-<div class="apiHelper apiHelperLoggedIn apiHelperLibraryBrowser" style="display:none;">
-    <div class="apiHelperBox">
-        <p>Library Name: <input type="text" class="apiHelperLibraryName" size="30"> 
-            <button class="apiHelperLibraryViewButton apiHelperButton">View</button>
-        </p>
-        <div class="apiHelperLibraryBrowserStatus"></div>
-        <div class="apiHelperLibraryBrowserOutput" style="display:none;">
-            <p><select class="apiHelperLibrarySelect apiHelperSelect"></select></p>
-            <div class="apiHelperLibraryBrowserOutputText"></div>
-            <div class="apiHelperLibraryBrowserOutputCode" style="height:400px; overflow:scroll; display:none;">
-                <pre class="codeboxPre"><code class="codebox lang-cpp"></code></pre>
-            </div>
+<div class="apiHelperLibraryBrowser">
+    <div class="apiHelper apiHelperLoggedIn" style="display:none;">
+        <div class="apiHelperBox">
+            <p>Library Name: <input type="text" class="apiHelperLibraryName" size="30">
+                <button class="apiHelperLibraryViewButton apiHelperButton">View</button>
+            </p>
+            <p><select class="apiHelperLibrarySelect apiHelperSelect" style="display:none"></select></p>
+            <div class="apiHelperLibraryBrowserStatus"></div>
         </div>
     </div>
+    <div class="apiHelperLibraryBrowserOutput" style="display:none;">
+        <div class="apiHelperLibraryBrowserOutputDiv" style="display:none;"></div>
+        <div class="apiHelperLibraryBrowserOutputPre" style="display:none;"><pre class="codeboxPre"></pre></div>
+        <div class="apiHelperLibraryBrowserOutputCode" style="height:400px; overflow:scroll; display:none;">
+            <pre class="codeboxPre"><code class="codebox lang-cpp">                
+            </code></pre>
+        </div>
+    </div>
+
 </div>
 

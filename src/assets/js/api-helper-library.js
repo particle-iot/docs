@@ -11,7 +11,8 @@ $(document).ready(function() {
 
             let extractedFiles;
 
-            const updateFileSelector = function() {
+            const updateFileSelector = function() {            
+                $(thisPartial).find('.apiHelperLibrarySelect').show();
                 $(thisPartial).find('.apiHelperLibraryBrowserOutput').show();
 
                 const sel = $(thisPartial).find('.apiHelperLibrarySelect');
@@ -33,15 +34,49 @@ $(document).ready(function() {
                 const index = parseInt($(this).val());
                 console.log('selected ' + index);
 
-                const outputCodeElem = $(thisPartial).find('.apiHelperLibraryBrowserOutputCode');
-                $(outputCodeElem).show();
+                const outputDivElem = $(thisPartial).find('.apiHelperLibraryBrowserOutputDiv');
+                $(outputDivElem).hide();
 
-                const thisCodeElem = $(outputCodeElem).find('code');
-				$(thisCodeElem).text(extractedFiles[index].readAsString());
-				$(thisCodeElem).removeClass('prettyprinted');
-				if (prettyPrint) {
-					prettyPrint();
-				}
+                const outputPreElem = $(thisPartial).find('.apiHelperLibraryBrowserOutputPre');
+                $(outputPreElem).hide();
+
+                const outputCodeElem = $(thisPartial).find('.apiHelperLibraryBrowserOutputCode');
+                $(outputCodeElem).hide();
+
+                const name = extractedFiles[index].name;
+                if (name.endsWith('.txt') || name.endsWith('.properties') || name.toUpperCase().startsWith('LICENSE')) {
+                    $(outputPreElem).find('pre').text(extractedFiles[index].readAsString());
+                    $(outputPreElem).show();
+                }
+                else if (name.endsWith('.md')) {
+                    var converter = new showdown.Converter();
+                    
+                    converter.setFlavor('github');
+
+                    $(outputDivElem).html(converter.makeHtml(extractedFiles[index].readAsString()));
+
+                    // 
+                    $(outputDivElem).find('img').each(function() {
+                        const src = $(this).attr('src');
+                        const lowerSrc = src.toLowerCase();
+                        if (!lowerSrc.startsWith('http') && !lowerSrc.startsWith('/')) {
+                            $(this).after('<span>[image unavailable]</span>');
+                            $(this).hide();
+                        }
+                    });
+
+                    $(outputDivElem).show();
+                }
+                else {
+                    $(outputCodeElem).show();
+
+                    const thisCodeElem = $(outputCodeElem).find('code');
+                    $(thisCodeElem).text(extractedFiles[index].readAsString());
+                    $(thisCodeElem).removeClass('prettyprinted');
+                    if (prettyPrint) {
+                        prettyPrint();
+                    }    
+                }
             });
 
             apiHelper.particle.getLibrary({ name:libraryName, auth: apiHelper.auth.access_token }).then(
