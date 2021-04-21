@@ -2106,6 +2106,10 @@ Returns: `float`
 
 `WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
 
+{{note op="start" type="gen3"}}
+WiFi.ping() is not available on Gen 3 Wi-Fi devices (Argon).
+{{note op="end"}}
+
 ### scan()
 
 {{api name1="WiFi.scan"}}
@@ -15636,7 +15640,9 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 ---
 
 {{note op="start" type="gen3"}}
-On the Argon, Boron, B Series SoM, and Tracker SoM you cannot wake from HIBERNATE mode by time because the RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low power (ULP) mode.
+On the Argon, Boron, B Series SoM you cannot wake from HIBERNATE mode by time because the nRF52 RTC does not run in HIBERNATE mode. You can only wake by pin. The maximum duration is approximately 24 days in STOP mode. You can wake by time in ultra-low power (ULP) mode. 
+
+On the Tracker SoM, even though it has an nRF52 processor, you can wake from HIBERNATE by time as it uses the AM1805 external watchdog/RTC to implement this feature.
 {{note op="end"}}
 
 {{note op="start" type="gen2"}}
@@ -16605,6 +16611,8 @@ See [`SleepResult`](#error-) documentation.
 {{since when="0.4.9"}}
 
 ### System Events Overview
+
+{{api name1="System.on"}}
 
 System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode (listening mode, blinking dark blue), or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
 
