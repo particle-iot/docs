@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Arduino_KeyPadLCD_Shield",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Arduino_KeyPadLCD_Shield/archive/0.0.12.tar.gz"
+  },
+  "attributes": {
+    "name": "Arduino_KeyPadLCD_Shield",
+    "version": "0.0.12",
+    "installs": 1395,
+    "license": "GNU GPLv3",
+    "author": "Adafruit, Technobly, ScruffR",
+    "sentence": "Library to use the Arduino KeyPad LCD Shield on Particle devices and the Particle Shield shield (based on LiquidCrystal lib)",
+    "url": "https://github.com/ScruffR/Arduino_KeyPadLCD_Shield",
+    "repository": "https://github.com/ScruffR/Arduino_KeyPadLCD_Shield.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.12": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "KeyPadLCD_Menu": false
+          },
+          "electron": {
+            "KeyPadLCD_Menu": false
+          },
+          "argon": {
+            "KeyPadLCD_Menu": false
+          },
+          "boron": {
+            "KeyPadLCD_Menu": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Arduino_KeyPadLCD_Shield\r\n========================\r\n\r\nSpecialized fork of SparkCore LiquidCrystal library to support the Arduino KeyPad LCD Shield on Particle devices in conjunction with the Particle Shield shield.\r\n\r\nStill supports universal LCDs:\r\n* Standard Hitachi HD44780 based LCDs in 4-bit mode\r\n* Adafruit's 16x2 OLED Display (Winstar)\r\n* Sparkfun's 16x2 OLED Display (ADH Technology Co. Ltd.)\r\n\r\n"
+}

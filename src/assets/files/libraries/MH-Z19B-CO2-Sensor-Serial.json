@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "MH-Z19B-CO2-Sensor-Serial",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MH-Z19B-CO2-Sensor-Serial/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "MH-Z19B-CO2-Sensor-Serial",
+    "version": "1.0.2",
+    "installs": 2249,
+    "license": "MIT",
+    "author": "Jidesh Veeramachaneni",
+    "sentence": "Read and control the MH-Z19B CO2 Module.",
+    "paragraph": "Uses the UART interface on the MH-Z19B module. Template class so you can easily use any Serial interface on the Electron.",
+    "url": "https://github.com/jideshv/MH-Z19B-CO2-Sensor-Serial",
+    "repository": "https://github.com/jideshv/MH-Z19B-CO2-Sensor-Serial.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# MHZ19BCO2SensorSerial\n\nA header only library that reads and controls the MH-Z19B CO2 module by Winsen. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file [MH-Z19B-CO2-Sensor-Serial.h](src/MH-Z19B-CO2-Sensor-Serial.h) to your project.\n\nThe library has been tested using [Google Test](https://github.com/google/googletest).\n\n## Usage\n\nSee the [example](examples/usage/usage.ino) for a complete example.\n\nYou may clone this repository and run the tests by doing the following:\n\n```\nmkdir build\ncd build\ncmake ..\nmake\nmake test\n```\n\n## LICENSE\n\nCopyright 2019 Jidesh Veeramachaneni  \nDistributed under the MIT License\n"
+}

@@ -1,0 +1,49 @@
+{
+  "type": "libraries",
+  "id": "genieParticle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/genieParticle/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "genieParticle",
+    "version": "1.0.0",
+    "installs": 9415,
+    "license": "GNU Lesser General Public License",
+    "author": "4D Systems Pty Ltd",
+    "sentence": "4D Systems Visi-Genie library for Partile Proton",
+    "url": "https://github.com/4dsystems/visi-genie-particle-library",
+    "repository": "https://github.com/4dsystems/visi-genie-particle-library.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "electron": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "argon": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "boron": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "![image](http://www.4dsystems.com.au/imagenes/header.png)\n\nViSi-Genie-Particle-Library - NEW VERSION - Updated 26-JAN-2016\n==============================================================\n\nParticle Proton Library for 4D Systems ViSi-Genie Environment\n\nThis library now supports support for neagative numbers, unsigned longs, unsigned integers with the WriteStr function.\nThis library now features enhanced String Writing capability, no longer is a character Array the only viable option. \nThis library recently included support for the new Workshop4 PRO features.\nThis library recently added support for 2+ displays connected to a single Particle Proton, and adds a new Demo to illustrate how that is achieved.\n\n## Information\n\nThis library provides high level functions for the Particle Proton, to ease communication with 4D Systems modules when using the module configured with ViSi-Genie.\nThis library is a version of 4D Systems ViSi-Genie-Arduino library (genieArduino) adapted for the Spark/Proton. The library is designed to use any (hardware) Serial port. On the Spark, this would be Serial1 or Serial2.\nWorkshop4 PRO adds additional features to ViSi-Genie, allowing the User to write 4DGL code which can be executed at will from ViSi-Genie, enabling many advanced features not previously possible.\nPlease refer to the 4D Systems website, namingly the Workshop 4 Product Page, for documentation regarding Workshop 4, and its environments.\n\n## Example Sketch\n\nInside the library are 3 example sketches, to assist with getting started using this library. Inside is also a ViSi-Genie Workshop4 project, which can be used on a range of 4D Systems displays (designed on a uLCD-32PTU however can be changed via Workshop4 menu). It illustrates how to use some of the commands in the library include Read Object, Write Object, Reported Messages, Write Contrast and Write String.\n\n## Tested with\n\nThis library has been tested on the Particle Proton.\nAny problems discovered with this library, please contact technical support so fixes can be put in place, or seek support from our forum.\n\n## Compatible 4D Systems Display Modules\n\nThis library will work with all 4D Systems Modules which are capable of using the ViSi-Genie environment. This is therefore all Picaso and Diablo16 Display Modules.\nThe demo included with this library was made for the uLCD-32PTU however can easily be adapted to other size displays.\n\n## Questions/Issues?\n\nPlease sign up for our Forum and ask a question there, or submit a Tech Support Ticket from our website.\nPlease do NOT post issues on Github, as this is not actively monitored. Please use one of the following:\nhttp://forum.4dsystems.com.au or http://www.4dsystems.com.au/support\n"
+}

@@ -1,0 +1,35 @@
+{
+  "type": "libraries",
+  "id": "ParticleWebLog",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ParticleWebLog/archive/1.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "ParticleWebLog",
+    "version": "1.0.4",
+    "installs": 4670,
+    "license": "MIT",
+    "author": "kevinh@geeksville.com",
+    "sentence": "Sends logs to the Particle servers via publish",
+    "paragraph": "This provides remote logging with a very tiny memory footprint. Logs can be viewed in the Particle console or use the Particle webhook feature to send those log messages to the logging service of your choice (such as loggly.com).",
+    "url": "https://github.com/geeksville/ParticleWebLog",
+    "repository": "https://github.com/geeksville/ParticleWebLog.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# ParticleWebLog\n\nA Particle library for remote logging via publish().  And example config\nfor loggly.com.\n\nI wrote this tiny logging framework because I wanted something that would allow\nremote logging but use **very** little FLASH space.\n\nOther benefits:\n\n* Messages are not sent in cleartext (they are inside the particle encrypted link).\n* Because this library doesn't use UDP, it is probably a more resistant to carrier\nthrottling on cellphone networks (i.e. for the Electron)\n\n## Usage\n\n```\n#include \"ParticleWebLog.h\"\nParticleWebLog particleWebLog;\n\nvoid setup() {\n  Log.info(\"Hi I'm a log message\");\n}\n\nvoid loop() {\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nThis library merely registers a log provider that publishes each logged string\nas a particle publish event.  The events will be published using the name of\nyour choice (defaults to \"log\").\n\nLimitations:\n\n* This tiny library is built on top of Particle.publish, so you should not\nprint log message too quickly if you are using it.  It might drop messages if\nyou send more than about 1 a second.\n* Third generation particle devices have lots of log messages from the system\nsome of which seem to come out before publishing is legal.  So this log provider\nonly logs \"app\" messages.\n\n## Using web logging services\n\nOne of the great things about this approach is that the Particle.io web service\nhas good webhook support.  So you can squirt these crude log messages to a nice storage/viewer\nservice.  Most any service that has a way to accept HTTP posts of log messages should work.\nHere is an example using loggly.com:\n\n* Go to loggly.com and create a free account (you can pick any domain name).\n* Go to the console for your domain: https://yourdomain.loggly.com/sources/setup/https\nand setup an HTTPS log source.  It will give you an URL that looks approximately\nlike this: https://logs-01.loggly.com/inputs/XXXXXXXX-76a8-4af5-a967-XXXXXXXXXXXX/tag/http/.\n* Go to the Particle.io web console and click on \"Integrations / New Integration / Webhook\".\n* On the form it shows, enter \"log\" for Event Name, the URL you were provided above, change the request format to\nJSON.\n* Then click to enter custom JSON data and paste in the following:\n```\n{\n  \"message\": \"{{{PARTICLE_EVENT_VALUE}}}\",\n  \"from\": \"{{{PARTICLE_DEVICE_ID}}}\",\n  \"published_at\": \"{{{PARTICLE_PUBLISHED_AT}}}\",\n  \"userid\": \"{{{PRODUCT_USER_ID}}}\",\n  \"fw_version\": \"{{{PRODUCT_VERSION}}}\"\n}\n```\n* Click \"save\" to save your new integration.\n* In the top right of the integration you should now see a \"Test\" button.  You can\nclick it to test that the Particle server is now able to talk with Loggly.\n* Any new log publishes from your device should now be stored in Loggly.\n\n## Contributing\n\nI will happily accept pull requests and respond to issues raised in github.\n\nThanks to @barakewi for his [Papertrail library](https://github.com/barakwei/ParticlePapertrail) which was used\nas a template to create this library.\n\n## LICENSE\nCopyright 2019 kevinh@geeksville.com\n\nLicensed under the <insert your choice of license here> license\n"
+}

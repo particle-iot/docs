@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_PCA9685",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_PCA9685/archive/2.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_PCA9685",
+    "version": "2.0.0",
+    "installs": 16087,
+    "license": "BSD License",
+    "author": "Limor Fried/Paul Kourany/Chad Bean/Louis DeScioli",
+    "sentence": "Library for Adafruit's PCA9685, a 16-channel PWM & Servo driver,  adapted for Spark",
+    "url": "https://github.com/grovelabs/spark-adafruit-pca9685",
+    "repository": "https://github.com/grovelabs/spark-adafruit-pca9685.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "2.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "light-wave": true
+          },
+          "electron": {
+            "light-wave": true
+          },
+          "argon": {
+            "light-wave": true
+          },
+          "boron": {
+            "light-wave": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "## Adafruit 16-channel PWM & Servo driver\n\nThis library is for the [Adafruit 16-channel PWM & Servo board](http://www.adafruit.com/products/815) when being used with a Spark Core, and only Spark Core (sorry Arduino)\n\n\n### Connections\n\nThese boards use I2C to communicate. 2 pins are required for the interface:\n\n    SCL -> D1\n    SDA -> D0\n\n### Things to Note\n\n### Default I2C Slave Address \nWith no address jumpers, the default I2C slave address of the board is `100 0000` or `0x40`. This default is set in the header file. If you are altering the address with jumpers, make sure to set it in the software to match.\n\n### setVal vs setPWM\n`setVal()` provides a some abstractions and is recommended over using `setPWM()`.\n\n### Examples\nThe examples included in this library are outdated, they don't work with the renaming that has occurred\n\n## Credits\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried (Ladyada) for Adafruit Industries.  \nAdapted by Paul Kourany to work with Spark Core  \nExtended by Chad Bean & Louis DeScioli for Grove Labs  \n\n## License\nBSD license, check LICENSE for more information\nAll text above must be included in any redistribution\n"
+}

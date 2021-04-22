@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "libfixmath",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/libfixmath/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "libfixmath",
+    "version": "0.0.2",
+    "installs": 6337,
+    "license": "MIT",
+    "author": "nrobinson2000",
+    "sentence": "An Implementation of libfixmath for the Particle Core, Photon, Electron, Argon, Boron, Xenon and RedBear Duo",
+    "url": "https://github.com/nrobinson2000/libfixmath",
+    "repository": "https://github.com/nrobinson2000/libfixmath.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "unittests": true
+          },
+          "electron": {
+            "unittests": true
+          },
+          "argon": {
+            "unittests": true
+          },
+          "boron": {
+            "unittests": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# libfixmath\n\nThe start of a libfixmath Particle library\n\nPorted from: https://github.com/PetteriAimonen/libfixmath\n\n## Unit testing\n\nSee src/demo.cpp for the unit tests.\n\n## Results\n\nOn a photon:\n\n```\n=== libfixmath Test ===\nTesting basic multiplication\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nTesting multiplication rounding corner cases\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nRunning testcases for multiplication\nOK: (1)\nTesting basic division\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nTesting division rounding corner cases\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nRunning testcases for division\nOK: (1)\nRunning testcases for addition\nOK: (1)\nRunning testcases for subtraction\nOK: (1)\nTesting basic square roots\nOK: (1)\nOK: (1)\nOK: (1)\nTesting square root rounding corner cases\nOK: (1)\nOK: (1)\nOK: (1)\nOK: (1)\nRunning test cases for square root\nOK: (1)\n=== Finished tests ===\n```"
+}

@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "Artnet",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Artnet/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "Artnet",
+    "version": "0.0.4",
+    "installs": 1972,
+    "license": "MIT",
+    "author": "Stef Sijben <github@stefsybo.nl>",
+    "sentence": "Artnet DMX over Ethernet receiver library",
+    "url": "https://github.com/stef-sijben/particle-artnet",
+    "repository": "https://github.com/stef-sijben/particle-artnet.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# Artnet\n\nAn Art-Net library for Particle Photon. May also work for other Particle-based devices.\n\n"
+}

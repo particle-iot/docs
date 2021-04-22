@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Particle_SI7021",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Particle_SI7021/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Particle_SI7021",
+    "version": "0.0.1",
+    "installs": 9050,
+    "license": "OIZOM",
+    "author": "Sohil Patel",
+    "sentence": "SI7021 library",
+    "url": "https://github.com/sohil4932/si7021",
+    "repository": "https://github.com/sohil4932/si7021.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "readsensor": true
+          },
+          "electron": {
+            "readsensor": true
+          },
+          "argon": {
+            "readsensor": true
+          },
+          "boron": {
+            "readsensor": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SI7021 Library for Particle."
+}

@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "adxl362",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/adxl362/archive/0.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "adxl362",
+    "version": "0.0.0",
+    "installs": 6273,
+    "license": "CC-BY-SA-3.0",
+    "author": "Gregoryfenton",
+    "sentence": "adxl362 accelerometer for Spark Internet Button",
+    "url": "https://github.com/gregoryfenton/adxl362",
+    "repository": "https://github.com/gregoryfenton/adxl362.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "adxl362\n=======\n"
+}

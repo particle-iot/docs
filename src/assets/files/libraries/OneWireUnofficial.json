@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "OneWireUnofficial",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/OneWireUnofficial/archive/1.4.0.tar.gz"
+  },
+  "attributes": {
+    "name": "OneWireUnofficial",
+    "version": "1.4.0",
+    "installs": 7484,
+    "license": "MIT",
+    "author": "Hotaman",
+    "sentence": "Dallas 1-Wire protocol support with examples",
+    "url": "https://github.com/hotaman/onewirespark",
+    "repository": "https://github.com/hotaman/onewirespark.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.4.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "electron": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "argon": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "boron": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "\nNow supporting ALL Particle devices and the Redbear Duo.\n\n\nOneWireSpark\n============\n\nProvides support for the Dallas One Wire (1-wire) protocol on Particle (and other) devices.\n\nSimply click the libs button in the web build tool at spark.io\nand add this lib to your project.\n\nNote that you need to remove the lib then re-add it to update to the latest version!\n\nRefer to the example code for basic use of the lib.\n"
+}

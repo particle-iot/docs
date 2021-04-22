@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "Color",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Color/archive/1.2.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Color",
+    "version": "1.2.1",
+    "installs": 1876,
+    "license": "GPL v3",
+    "author": "Jim Lindblom <jim@sparkfun.com>",
+    "sentence": "A simple library for the Particle Photon that generates Phant posts, gets, deletes and more. Ported to Particle by Ben Artin <ben@artins.org>",
+    "url": "https://github.com/airbornemint/colorarduino",
+    "repository": "https://github.com/airbornemint/colorarduino.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.2.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "ColorArduino\n============\n\nColor library for Arduino with Hue Saturation and Brightness conversion to RGB.\n"
+}

@@ -1,0 +1,52 @@
+{
+  "type": "libraries",
+  "id": "MQTT",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MQTT/archive/0.4.31.tar.gz"
+  },
+  "attributes": {
+    "name": "MQTT",
+    "version": "0.4.31",
+    "installs": 424376,
+    "license": "MIT",
+    "author": "hirotakaster",
+    "url": "https://github.com/hirotakaster/MQTT/",
+    "repository": "https://github.com/hirotakaster/MQTT.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.4.31": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          },
+          "electron": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "argon": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          },
+          "boron": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# MQTT for Photon, Spark Core\n<a href=\"http://mqtt.org/\" target=_blank>MQTT</a> publish/subscribe library for Photon, Argon, Tracker One...etc version 0.4.30.\n\n## Source Code\nThis lightweight library source code is only 2 files. firmware -> MQTT.cpp, MQTT.h.\n\nThe application can use QoS 0, 1, 2 and the retain flag when publishing a message.\n\n## Example\nSome sample sketches for Spark Core and Photon included (firmware/examples/).\n - mqtttest.ino\t: simple pub/sub sample. \n - mqttqostest.ino : QoS1, QoS2 publish and callback sample.\n - mqttSwitchBroker.ino : Example of how to switch to different brokers.\n - threadtest.ino : Example of SYSTEM_THREAD(ENABLED).\n\n## developer examples\nsome applications use MQTT with Photon. here are developer's reference examples.\n- <a href=\"http://www.instructables.com/id/Spark-Core-Photon-and-CloudMQTT/\" target=\"_blank\">Spark Core / Photon and CloudMQTT</a>\n- <a href=\"https://www.hackster.io/anasdalintakam/mqtt-publish-subscribe-using-rpi-esp-and-photon-864fe9#toc--particle-photon-as-mqtt-client-2\" target=\"_blank\">MQTT Publish-Subscribe Using Rpi, ESP and Photon</a>\n- <a href=\"http://www.kevinhoyt.com/2016/04/27/particle-photon-on-watson-iot/\" target=\"_blank\">Particle Photon on Watson IoT</a>\n- <a href=\"https://developer.ibm.com/recipes/tutorials/connecting-a-iot-device-of-the-watson-conversation-cardashboard-app/\" target=\"_blank\">Connecting IoT devices to the Watson Conversation Car-Dashboard app</a>\n- <a href=\"https://jp.mathworks.com/help/thingspeak/mqtt-api.html\" target=\"_blank\">ThingSpeak MQTT API</a>\n- <a href=\"https://www.losant.com/blog/how-to-connect-a-particle-photon-to-the-losant-iot-platform\" target=\"_blank\">How to Connect a Particle Photon to the Losant IoT Platform</a>\n- <a href=\"https://medium.com/@stevecaldwell/how-i-hacked-my-humidor-with-losant-and-a-particle-photon-84342744755b#.b68apdmo1\" target=\"_blank\">How I Hacked my Humidor with Losant and a Particle Photon</a>\n- <a href=\"https://www.digikey.jp/ja/maker/projects/how-to-build-a-photon-mqtt-logger/876ce49a8f914f0799a0f8b94519acc1\" target=\"_blank\">How to Build a Photon MQTT Logger</a>\n- <a href=\"https://ubidots.com/docs/devices/particleMQTT.html\" target=\"_blank\">Particle and Ubidots using MQTT</a>\n- <a href=\"https://www.twilio.com/docs/quickstart/sync-iot/mqtt-particle-photon-sync-iot\" target=\"_blank\">Using Twilio Sync with MQTT on a Particle Photon</a>\n\n## sample source\n```\n#include \"application.h\"\n#include \"MQTT.h\"\n\nvoid callback(char* topic, byte* payload, unsigned int length);\nMQTT client(\"iot.eclipse.org\", 1883, callback);\n\n// recieve message\nvoid callback(char* topic, byte* payload, unsigned int length) {\n    char p[length + 1];\n    memcpy(p, payload, length);\n    p[length] = NULL;\n\n    if (!strcmp(p, \"RED\"))\n        RGB.color(255, 0, 0);\n    else if (!strcmp(p, \"GREEN\"))\n        RGB.color(0, 255, 0);\n    else if (!strcmp(p, \"BLUE\"))\n        RGB.color(0, 0, 255);\n    else\n        RGB.color(255, 255, 255);\n    delay(1000);\n}\n\n\nvoid setup() {\n    RGB.control(true);\n\n    // connect to the server(unique id by Time.now())\n    client.connect(\"sparkclient_\" + String(Time.now()));\n\n    // publish/subscribe\n    if (client.isConnected()) {\n        client.publish(\"outTopic/message\",\"hello world\");\n        client.subscribe(\"inTopic/message\");\n    }\n}\n\nvoid loop() {\n    if (client.isConnected())\n        client.loop();\n}\n```\n## FAQ\n### Can't connect/publish/subscribe to the MQTT server?\n- Test your MQTT server and port (default 1883) with the mosquitto_pub/sub command. \n- Check your network environments. Make sure your MQTT server can reach the Internet through your firewall. \n- Verify your subscribe/publish topic name is correct.\n- Perhaps device firmware network stack is failed. check your firmware version and bugs.\n- If you are using MQTT-TLS, make sure your RooT CA pem file, client key, certifications is valid.\n- Several MQTT servers will disconnect the first connection when you use the same user_id. When the application calls the connect method, use a different user_id on every device as connect method's second argument. Using the MAC address as a user_id is suggested.\n<pre>\n   // device.1\n   client.connect(\"spark-client\", \"user_1\", \"password1\");\n   // other devices...\n   client.connect(\"spark-client\", \"user_others\", \"password1\");\n</pre>\n\n### I want to change MQTT keepalive timeout.\nMQTT keepalive timeout is defined \"MQTT_DEFAULT_KEEPALIVE 15\"(15 sec) in header file. You can change the keepalive timeout in constructor.\n<pre>\n    MQTT client(\"server_name\", 1883, callback); // default: send keepalive packet to MQTT server every 15sec.\n    MQTT client(\"server_name\", 1883, 30, callback); // keepalive timeout is 30 sec.\n</pre>\n\n### Want to use over the 255 byte message size.\nIn this library, the maximum MQTT message size is defined as \"MQTT_MAX_PACKET_SIZE 255\" in the header file. If you want to use over 255 bytes, use the constructor's last argument.\n<pre>\n    MQTT client(\"server_name\", 1883, callback); // default 255 bytes\n    MQTT client(\"server_name\", 1883, MQTT_DEFAULT_KEEPALIVE, callback, 512); // max 512 bytes\n</pre>\n\n### Can I use on old firmware?\nNo, use the default latest firmware. I tested this library on the default latest firmware or the latest pre-release version. If you use an old firmware it may not work well and is not supported.\n\n### Bug or Problem?\nFirst, check the <a href=\"https://community.particle.io/\" target=\"_blank\">Particle community site<a/>. But if your problem is not resolved, please create an issue with the problem details.\n\n### Pull Request \nIf you have a bug fix or feature, please send a pull request.\nThanks for all developers' pull requests!\n\n"
+}

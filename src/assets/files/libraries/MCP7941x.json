@@ -1,0 +1,37 @@
+{
+  "type": "libraries",
+  "id": "MCP7941x",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MCP7941x/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "MCP7941x",
+    "version": "0.0.4",
+    "installs": 3694,
+    "license": "MIT",
+    "author": "Robert Mawrey <robert@sentientthings.com>",
+    "maintainer": "Robert Mawrey <robert@sentientthings.com>",
+    "sentence": "Sentient Things MCP7941x real time clock library",
+    "paragraph": "Based on work by Ian Chilton",
+    "category": "Other",
+    "architectures": [
+      "a*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# MCP7941x\r\nSentient Things MCP79410/1/2 real time clock library\r\n"
+}

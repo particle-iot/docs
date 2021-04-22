@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_RGBLCDShield",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_RGBLCDShield/archive/0.0.10.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_RGBLCDShield",
+    "version": "0.0.10",
+    "installs": 10972,
+    "license": "BSD",
+    "author": "Mumblepins/Adafruit",
+    "sentence": "Port of Adafruit RGB LCD Shield Library (https://github.com/adafruit/Adafruit-RGB-LCD-Shield-Library)",
+    "url": "https://github.com/mumblepins/adafruit_rgblcdshield",
+    "repository": "https://github.com/mumblepins/adafruit_rgblcdshield.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.10": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "HelloWorld": true
+          },
+          "electron": {
+            "HelloWorld": true
+          },
+          "argon": {
+            "HelloWorld": true
+          },
+          "boron": {
+            "HelloWorld": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "This is a library for the Adafruit RGB 16x2 LCD Shield \n\nPick one up at the Adafruit shop!\n  ---------> http://http://www.adafruit.com/products/714\n\nThis new Adafruit shield makes it easy to use a 16x2 Character LCD. We really like the range of LCDs we stock in the shop, such as our classic <a href=\"http://www.adafruit.com/products/181\">blue & white</a> as well as the fancy <a href=\"http://www.adafruit.com/products/399\">RGB negative</a> and <a href=\"http://www.adafruit.com/products/398\">RGB positive</a>. Unfortunately, these LCDs do require quite a few digital pins, 6 to control the LCD and then perhaps another 3 to control the RGB backlight for a total of 9 pins. That's half of the pins available on a classic Arduino! \n\nWith this in mind, we wanted to make it easier for people to get these LCD into their projects so we devised a shield that lets you control <b>a 16x2 Character LCD, up to 3 backlight pins AND 5 keypad pins using only the two I2C pins on the Arduino!</b> The best part is you don't really lose those two pins either, since you can stick i2c-based sensors, RTCs, etc and have them share the I2C bus. This is a super slick way to add a display without all the wiring hassle.\n\n<hr>\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_RGBLCDShield. Check that the Adafruit_RGBLCDShield folder contains Adafruit_RGBLCDShield.cpp and Adafruit_RGBLCDShield.h\n\nPlace the Adafruit_RGBLCDShield library folder your <arduinosketchfolder>/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE."
+}

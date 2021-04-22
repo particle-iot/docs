@@ -1,0 +1,49 @@
+{
+  "type": "libraries",
+  "id": "liquid-crystal-spi",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/liquid-crystal-spi/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "liquid-crystal-spi",
+    "version": "0.0.1",
+    "installs": 902,
+    "license": "GNU GPLv3",
+    "author": "David A. Mellis, Limor Fried, Tom Igoe, Juan Hernandez, Technobly",
+    "sentence": "A Hardware and Software SPI driven LiquidCrystal library for Spark Core.",
+    "url": "https://github.com/technobly/sparkcore-liquidcrystalspi",
+    "repository": "https://github.com/technobly/sparkcore-liquidcrystalspi.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "electron": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "argon": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "boron": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkCore-LiquidCrystalSPI\n==========================\n\nA Hardware and Software SPI driven LiquidCrystal library for Spark Core.\n\nUniversally Supports:\n* Standard Hitachi HD44780 based LCDs in 4-bit mode\n* Adafruit's 16x2 OLED Display (Winstar)\n* Sparkfun's 16x2 OLED Display (ADH Technology Co. Ltd.)\n\nGrab the RAW version of each file and place into your web IDE as follows:\n\n![image](http://i.imgur.com/2Zm5fmG.png)\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\liquid-crystal-spi.h\n..\\core-firmware\\src\\application.cpp (renamed from lcd-soft-spi.cpp)\n..\\core-firmware\\src\\liquid-crystal-spi.cpp\n..\\core-firmware\\src\\build.mk (optional, if you have your own make file going, just add the liquid-crystal-spi.cpp to it)\n```\n\n###Hardware SPI Wiring (default)###\n![wiring](http://i.imgur.com/pFFWmv9.png)\n\n###Hardware SPI Example Code (default)###\n```cpp\n// Create an instance of the library for HARDWARE SPI mode (define SS \"latch\" pin)\n// Default SS pin is A2, but can be ANY of the A0 - A2, A6, A7 or D0 - D7 pins.\n// Just make sure you don't redefine this pin as some other peripheral later in your code.\nLiquidCrystal lcd(A2);\n\nvoid setup() {\n  // initialize the SPI ( Must call this before begin()! )\n  lcd.initSPI();\n  // set up the LCD's number of columns and rows: \n  lcd.begin(16, 2);\n  // Print a message to the LCD.\n  lcd.print(\"Hello, Sparky!\");\n}\n\nvoid loop() {\n  // set the cursor to column 0, line 1\n  // (note: line 1 is the second row, since counting begins with 0):\n  lcd.setCursor(0, 1);\n  // print the number of seconds since reset:\n  lcd.print(millis()/1000);\n  delay(100);\n}\n```\n<hr>\n\n###Software SPI Wiring###\n![wiring](http://i.imgur.com/RneHSOw.png)\n\n###Software SPI Example Code###\n```cpp\n// Create an instance of the library for SOFTWARE SPI mode (define SS \"latch\" pin, SCLK pin, SDAT pin)\n// These can be ANY of the A0 - A7 or D0 - D7 pins. \n// Just make sure you don't redefine them as some other peripheral later in your code.\nLiquidCrystal lcd(D2, D3, D4);\n\nvoid setup() {\n  // initialize the SPI ( Must call this before begin()! )\n  lcd.initSPI();\n  // set up the LCD's number of columns and rows: \n  lcd.begin(16, 2);\n  // Print a message to the LCD.\n  lcd.print(\"Hello, Sparky!\");\n}\n\nvoid loop() {\n  // set the cursor to column 0, line 1\n  // (note: line 1 is the second row, since counting begins with 0):\n  lcd.setCursor(0, 1);\n  // print the number of seconds since reset:\n  lcd.print(millis()/1000);\n  delay(100);\n}\n```\n<hr>\n\n![wiring](http://i.imgur.com/Y3J6199.jpg)\n\nSoftware SPI is just as fast as 9MHz Hardware SPI so don't be afraid to use it!\n\nControl the backlight via SPI if you have an Adafruit I2C/SPI LCD Backpack\n\n```cpp\n// Create an instance of the library for SOFTWARE SPI mode (define SS \"latch\" pin, SCLK pin, SDAT pin)\n// These can be ANY of the A0 - A7 or D0 - D7 pins. \n// Just make sure you don't redefine them as some other peripheral later in your code.\nLiquidCrystal lcd(D2, D3, D4);\n\nbool s = false;\n\nvoid setup() {\n  // initialize the SPI ( Must call this before begin()! )\n  lcd.initSPI();\n  // set up the LCD's number of columns and rows: \n  lcd.begin(16, 2);\n  // turn on the backlight ( Requires initSPI() to be called first )\n  lcd.backlight();\n  // Print a message to the LCD.\n  lcd.print(\"Backlight Rave!\");\n}\n\nvoid loop() {\n  // Toggle the Backlight on and off, Backlight RAVE!\n  if(s)\n    lcd.backlight();\n  else\n    lcd.noBacklight();\n  s = !s;\n  delay(100);\n}\n```"
+}

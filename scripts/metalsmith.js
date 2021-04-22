@@ -48,6 +48,7 @@ var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
 var trackerSchema = require('./tracker-schema.js');
 var refCards = require('./refcards.js');
+var libraries = require('./libraries.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -289,6 +290,10 @@ exports.metalsmith = function () {
       ],
       outputDir: 'cards',
       cardMapping: '../config/card_mapping.json',
+      redirects: '../config/redirects.json'
+    }))
+    .use(libraries({
+      sourceDir: '../src/assets/files/libraries',
       redirects: '../config/redirects.json'
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device

@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_CharacterOLED_Particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_CharacterOLED_Particle/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_CharacterOLED_Particle",
+    "version": "1.0.0",
+    "installs": 2626,
+    "license": "MIT",
+    "author": "kbgg <kevin@kb.gg>",
+    "sentence": "Adafruit 'Liquid Crystal' compatible libary for Character OLEDs",
+    "url": "https://github.com/boxxymays/adafruit_characteroled",
+    "repository": "https://github.com/boxxymays/adafruit_characteroled.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": ""
+}

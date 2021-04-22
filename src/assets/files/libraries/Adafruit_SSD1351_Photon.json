@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_SSD1351_Photon",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_SSD1351_Photon/archive/0.0.7.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_SSD1351_Photon",
+    "version": "0.0.7",
+    "installs": 11691,
+    "license": "BSD",
+    "author": "Nathan Friedly <nathan@nfriedly.com>",
+    "sentence": "Fork of Adafruit's SSD1351 Color OLED driver library",
+    "url": "https://github.com/nfriedly/Adafruit_SSD1351_Photon",
+    "repository": "https://github.com/nfriedly/Adafruit_SSD1351_Photon.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.7": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "OLED_test": false
+          },
+          "electron": {
+            "OLED_test": false
+          },
+          "argon": {
+            "OLED_test": false
+          },
+          "boron": {
+            "OLED_test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit SSD1351 1.5\" Color OLED library for Particle Photon\r\n\r\nConnect an [Adafruit SSD1351 1.5\" Color OLED](https://www.adafruit.com/products/1431) breakout board to a [Particle Photon](https://www.particle.io/products/hardware/photon-wifi-dev-kit). \r\n\r\n![Particle Photon with OLED Display](http://nfriedly.github.io/Adafruit_SSD1351_Photon/photon-oled.jpg)\r\n\r\n## Limitations\r\n\r\n### MicroSD Card is not currently supported\r\nShould be possible, but I haven't yet gotten it working. See https://community.particle.io/t/particle-photon-oled-screen-and-sd-card-demo/18145 and https://github.com/mikeseeh/photon-demo-oled-sdcard for examples where folks have succeeded.\r\n\r\n### Requires modification for other screen sizes\r\n\r\nWith a [small change](https://github.com/nfriedly/Adafruit_SSD1351_Photon/blob/master/src/Adafruit_SSD1351_Photon.h#L29), this library could be adjusted to work with [1.27 inch OLED](https://www.adafruit.com/products/684), and possibly the [0.96 inch OLED](https://www.adafruit.com/products/684) breakout boards.\r\n\r\n## Wiring\r\n\r\nFor hardware SPI (considerably faster), connect the pins as follows:\r\n    \r\n    Photon  -> OLED\r\n    ----------------------\r\n    3V3     -> 3Vo (3V)\r\n    GND     -> GND (G)\r\n    \r\n    D6      -> DC\r\n    D5      -> RESET (R)\r\n    \r\n    A5      -> MOSI (SI)\r\n    A3      -> SCK (CL)\r\n    \r\n    A2      -> OLEDCS (OC)\r\n\r\nDC and RESET may be set to any pin, but the example defaults to D5 & D6.\r\n\r\nAny combination of pins may be used for software SPI, but the display will update more slowly.\r\n\r\n## API documentation\r\n\r\nSee https://learn.adafruit.com/adafruit-gfx-graphics-library/\r\n\r\n\r\n## Credits\r\n\r\nThis is based on a collection of work from other tallented developers, 99.9% of the credit goes to them. \r\n\r\n* The lion's share of the credit goes to Adafruit - https://github.com/adafruit/Adafruit-SSD1351-library\r\n* I started with https://github.com/mikeseeh/photon-demo-oled-sdcard\r\n* Which I think is based on https://github.com/pkourany/Adafruit_SSD1351_Library/\r\n"
+}

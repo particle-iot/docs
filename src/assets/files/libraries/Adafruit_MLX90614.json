@@ -1,0 +1,46 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_MLX90614",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_MLX90614/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_MLX90614",
+    "version": "1.0.1",
+    "installs": 12205,
+    "license": "BSD",
+    "author": "Adafruit",
+    "maintainer": "@jspiro",
+    "sentence": "Particle port of the Arduino library for the MLX90614 sensors in the Adafruit shop",
+    "paragraph": "Particle port of the Arduino library for the MLX90614 sensors in the Adafruit shop",
+    "category": "Sensors",
+    "url": "https://github.com/jspiro/Adafruit-MLX90614-Library",
+    "repository": "jspiro/Adafruit-MLX90614-Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "mlxtest": true
+          },
+          "electron": {
+            "mlxtest": true
+          },
+          "argon": {
+            "mlxtest": true
+          },
+          "boron": {
+            "mlxtest": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit_MLX90614\nParticle (particle.io) port of the Adafruit library for the MLX90614 temperature sensor\n\n## Installation\n```\nparticle library add Adafruit_MLX90614\n```\n\n## Usage\n```\n#include <Adafruit_MLX90614.h>\nAdafruit_MLX90614 mlx = Adafruit_MLX90614();\n\nvoid setup() {\n  Serial.begin(9600);\n  mlx.begin();\n}\n\nvoid loop() {\n  Serial.print(\"Ambient = \"); Serial.print(mlx.readAmbientTempC());\n  Serial.print(\"*C\\tObject = \"); Serial.print(mlx.readObjectTempC()); Serial.println(\"*C\");\n  Serial.print(\"Ambient = \"); Serial.print(mlx.readAmbientTempF());\n  Serial.print(\"*F\\tObject = \"); Serial.print(mlx.readObjectTempF()); Serial.println(\"*F\");\n\n  Serial.println();\n  delay(500);\n}\n```\n\n---\n\n  Designed specifically to work with the MLX90614 sensors in the\n  adafruit shop\n  ----> https://www.adafruit.com/products/1748\n  ----> https://www.adafruit.com/products/1749\n\nThese sensors use I2C to communicate, 2 pins are required to interface\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nBSD license, all text above must be included in any redistribution\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_MLX90614. Check that the Adafruit_MLX90614 folder contains Adafruit_MLX90614.cpp and Adafruit_MLX90614.h\n\nPlace the Adafruit_MLX90614 library folder your arduinosketchfolder/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.\n"
+}

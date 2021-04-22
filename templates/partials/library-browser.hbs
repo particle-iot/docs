@@ -1,10 +1,10 @@
-<div class="apiHelperLibraryBrowser">
-    <div class="apiHelper apiHelperLoggedIn" style="display:none;">
+<div class="apiHelperLibraryBrowser" data-info="{{infoFile}}">
+    <div class="apiHelper">
         <div class="apiHelperBox">
-            <p>Library Name: <input type="text" class="apiHelperLibraryName" size="30">
-                <button class="apiHelperLibraryViewButton apiHelperButton">View</button>
+            <p>
+                <button class="apiHelperLibraryStart">Get list of available files</button>
+                <select class="apiHelperLibrarySelect apiHelperSelect" style="display:none;"></select>
             </p>
-            <p><select class="apiHelperLibrarySelect apiHelperSelect" style="display:none"></select></p>
             <div class="apiHelperLibraryBrowserStatus"></div>
         </div>
     </div>

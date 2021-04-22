@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "Touch_4Wire",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Touch_4Wire/archive/0.9.5.tar.gz"
+  },
+  "attributes": {
+    "name": "Touch_4Wire",
+    "version": "0.9.5",
+    "installs": 5340,
+    "license": "Adafruit",
+    "author": "ScruffR / Adafruit",
+    "sentence": "Adafruit 4-Wire-Touchscreen library (Compatible with Core 0.3.4ff, Photon/P1 0.4.3ff)",
+    "url": "https://github.com/ScruffR/Touch_4Wire",
+    "repository": "https://github.com/ScruffR/Touch_4Wire.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.9.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "electron": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Touch-4Wire Library\r\n=======================\r\n\r\nThis is the 4-wire resistive touch screen firmware for Arduino - and Spark Core.\r\n\r\nFor Arduino\r\n-----------\r\nWorks with all Arduinos and the Mega\r\n\r\n\r\nTo install, click DOWNLOAD SOURCE in the top right corner, and rename the uncompressed folder \"TouchScreen\". See our tutorial at http://www.ladyada.net/library/arduino/libraries.html on Arduino Library installation\r\n\r\nFor Spark Core (ported by ScruffR - Nov. 2014)\r\n----------------------------------------------\r\nTo download go to https://github.com/ScruffR/touch_4wire\r\n\r\n\r\n"
+}

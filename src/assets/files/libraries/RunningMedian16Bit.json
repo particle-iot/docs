@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "RunningMedian16Bit",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/RunningMedian16Bit/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "RunningMedian16Bit",
+    "version": "0.0.1",
+    "installs": 3861,
+    "license": "MIT",
+    "author": "Robert Mawrey <robert@sentientthings.com>",
+    "maintainer": "Robert Mawrey <robert@sentientthings.com>",
+    "sentence": "Sentient Things Running Median library for uint16_t values",
+    "paragraph": "Based on work by Rob Tillaart",
+    "category": "Other",
+    "architectures": [
+      "avr",
+      "spark-core",
+      "particle-photon",
+      "particle-p1",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "About\n===\n\nLibrary that calculates the running median for uint16_t numbers.  Based on the\nwork by Rob Tillaart.\n"
+}

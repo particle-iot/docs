@@ -1,0 +1,46 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_MAX31856_library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_MAX31856_library/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_MAX31856_library",
+    "version": "1.0.3",
+    "installs": 3992,
+    "license": "BSD",
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Library for the Adafruit Thermocouple Amplifier breakout with MAX31856",
+    "paragraph": "Library for the Adafruit Thermocouple Amplifier breakout with MAX31856",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_MAX31856",
+    "repository": "https://github.com/adafruit/Adafruit_MAX31856/",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "max31856": true
+          },
+          "electron": {
+            "max31856": true
+          },
+          "argon": {
+            "max31856": true
+          },
+          "boron": {
+            "max31856": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit MAX31856 Arduino Library  [![Build Status](https://travis-ci.org/adafruit/Adafruit_MAX31856.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_MAX31856)\n\nTested and works great with the Adafruit Thermocouple Breakout w/MAX31856\n    \n   * https://www.adafruit.com/product/3263\n\nThese sensors use SPI to communicate, 4 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n"
+}

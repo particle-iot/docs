@@ -1,0 +1,46 @@
+{
+  "type": "libraries",
+  "id": "TimeLord",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TimeLord/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "TimeLord",
+    "version": "0.0.1",
+    "installs": 5167,
+    "license": "mixed; be aware this contains a patchwork of code",
+    "author": "Rob Cermak; based on https://github.com/probonopd/TimeLord",
+    "sentence": "Port of an Arduino library with many time and date related functions.",
+    "paragraph": "Port of an Arduino library with many time and date related functions... Daylight Savings, Moon Phase, Sidereal time, with the SunRise library rolled in. http://swfltek.com/arduino/",
+    "url": "https://github.com/probonopd/TimeLord",
+    "repository": "https://github.com/probonopd/TimeLord.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "electron": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "argon": {
+            "SunriseSunset": false,
+            "usage": false
+          },
+          "boron": {
+            "SunriseSunset": false,
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# TimeLord\n\nMany time and date related functions... Daylight Savings, Moon Phase, Sidereal time, with the SunRise library rolled in.\n\nMirrored from http://swfltek.com/arduino/\n"
+}

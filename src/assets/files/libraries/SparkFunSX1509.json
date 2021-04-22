@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "SparkFunSX1509",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFunSX1509/archive/2.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFunSX1509",
+    "version": "2.0.2",
+    "installs": 12100,
+    "license": "MIT",
+    "author": "SparkFun Electronics (Ported by John Vidler)",
+    "sentence": "Arduino library and hardware files for the SX1509 IO Expander Breakout board.",
+    "url": "https://github.com/johnvidler/sparkfun_sx1509_arduino_library",
+    "repository": "https://github.com/johnvidler/sparkfun_sx1509_arduino_library.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "2.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "SparkFun SX1509 IO Expander Breakout Arduino Library\n========================================\n\n(Ported to the Particle format by John Vidler)\n\n[![SparkFun SX1509 IO Expander Breakout](https://cdn.sparkfun.com//assets/parts/1/0/9/5/6/13601-01.jpg)](https://www.sparkfun.com/products/13601)\n\n[*SparkFun SX1509 IO Expander Breakout (SKU)*](https://www.sparkfun.com/products/13601)\n\nArduino library for the SX1509 16-I/O expander. Capable of driving LEDs - with blink, and breathe functions - or monitoring up to 64 buttons in an 8x8 array.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/extras** - Additional documentation for the user. These files are ignored by the IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n\nDocumentation\n--------------\n\n* **[SparkFun SX1509 Breakout Board Hookup Guide](https://learn.sparkfun.com/tutorials/sx1509-io-expander-breakout-hookup-guide)** - SparkFun tutorial demonstrating how to hook up the SX1509 Breakout and use this library.\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/SX1509_IO-Expander)** - Main repository (including hardware files) for the SX1509 IO Expander Breakout.\n\nProducts that use this Library\n---------------------------------\n\n* [BOB-13601](https://www.sparkfun.com/products/13601) - SX1509 16 I/O Breakout Board (v2.0)\n* [BOB-11502](https://www.sparkfun.com/products/retired/11502)- (Retired) 16 I/O I2C port expander.\n\nVersion History\n---------------\n\n* [V_2.0.1](https://github.com/sparkfun/SparkFun_SX1509_Arduino_Library/tree/V_2.0.1) - Version 2.0.1. More user-friendly function calls. Increased clock functionality. More examples. Mostly backwards compatible with older versions.\n* [V_1.0.0](https://github.com/sparkfun/SparkFun_SX1509_Arduino_Library/tree/V_1.0.0) - Version 1.0.0\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nThe **code** is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n"
+}

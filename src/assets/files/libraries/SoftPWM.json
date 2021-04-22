@@ -1,0 +1,57 @@
+{
+  "type": "libraries",
+  "id": "SoftPWM",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SoftPWM/archive/1.1.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SoftPWM",
+    "version": "1.1.1",
+    "installs": 4873,
+    "license": "GNU General Public License 3+",
+    "author": "Brett Hagman / Paul Kourany",
+    "sentence": "Software PWM library adapted for Particle Core/Photon",
+    "url": "https://github.com/pkourany/SoftPWM",
+    "repository": "https://github.com/pkourany/SoftPWM.github",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.1.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "SoftPWM_LEDHead_Bounce": true,
+            "SoftPWM_LEDHead_Bounce2": true,
+            "SoftPWM_LEDHead_Random_Blink": true,
+            "SoftPWM_Spark_LED_Blink": true,
+            "SoftPWM_Wiring_HeartBeat": true
+          },
+          "electron": {
+            "SoftPWM_LEDHead_Bounce": true,
+            "SoftPWM_LEDHead_Bounce2": true,
+            "SoftPWM_LEDHead_Random_Blink": true,
+            "SoftPWM_Spark_LED_Blink": true,
+            "SoftPWM_Wiring_HeartBeat": true
+          },
+          "argon": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          },
+          "boron": {
+            "SoftPWM_LEDHead_Bounce": false,
+            "SoftPWM_LEDHead_Bounce2": false,
+            "SoftPWM_LEDHead_Random_Blink": false,
+            "SoftPWM_Spark_LED_Blink": false,
+            "SoftPWM_Wiring_HeartBeat": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "SoftPWM Library\n================\n\nArduino and wiring library adapted for Particle Core/Photon to produce PWM signals on any arbitrary pin.\n\thttps://code.google.com/p/rogue-code/wiki/SoftPWMLibraryDocumentation\n\nAdapted for Spark by Paul Kourany, August 12, 2014\nUpdated for Core/Photon by Paul Kourany, Oct 3, 2015\nUpdated for Libraries 2.0, Jan 29, 2017\n\nSpark Adaptation\n---\nThe Particle adaptation uses the SparkIntervalTimer library for timing.  The timer is set\nto the same 66us period as the Arduino code.\n\nThere are a maximum of 16 pins which can be configured with SoftPWM, namely D0-D7 and\nA0-A7.\n\nRequirements\n---\nThe SparkIntervalTimer library is used.\n"
+}

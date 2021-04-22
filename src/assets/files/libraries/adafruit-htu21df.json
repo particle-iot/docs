@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "adafruit-htu21df",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/adafruit-htu21df/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "adafruit-htu21df",
+    "version": "0.0.2",
+    "installs": 11633,
+    "license": "BSD License",
+    "author": "Marc Cobler <electronicslab@icloud.com>",
+    "sentence": "Arduino library for the HTU21D-F sensors in the Adafruit shop",
+    "url": "https://github.com/kitusmark/adafruit-htu21df",
+    "repository": "https://github.com/kitusmark/adafruit-htu21df.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "This is a library for the HTU21D-F Humidity + Temp sensor\n\nDesigned specifically to work with the HTU21D-F in the Adafruit shop\n  ----> https://www.adafruit.com/products/1899\n\nThese displays use I2C to communicate, 2 pins are required to interface\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nCheck out the links above for our tutorials and wiring diagrams\n\nTo download. click the ZIP button in the top-middle navbar,\nrename the uncompressed folder Adafruit_HTU21DF.\nCheck that the Adafruit_HTU21DF folder contains Adafruit_HTU21DF.cpp and Adafruit_HTU21DF.h\n\nPlace the Adafruit_HTU21DF library folder your arduinosketchfolder/libraries/ folder.\nYou may need to create the libraries subfolder if its your first library. Restart the IDE.\n\nWe also have a great tutorial on Arduino library installation at:\nhttp://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use\n"
+}

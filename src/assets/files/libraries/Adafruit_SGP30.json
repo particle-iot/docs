@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_SGP30",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_SGP30/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_SGP30",
+    "version": "1.0.0",
+    "installs": 6216,
+    "license": "BSD license",
+    "author": "Adafruit <info@adafruit.com>, SJB (dyadica.co.uk, github.com/dyadica)",
+    "sentence": "Adafruit SGP30 Library",
+    "paragraph": "Arduino/Particle library for SGP30 gas sensor",
+    "url": "https://github.com/dyadica/Adafruit_SGP30",
+    "repository": "https://github.com/dyadica/Adafruit_SGP30.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit_SGP30\r\n\r\nThis is a port of the library developed by Adafruit for the Adafruit SGP30 Gas / Air Quality I2C sensor breakout. This port/wrap enables the sensor to be used on a particle.io device.\r\n\r\nThis chip/breakout uses I2C to communicate. 2 pins are required to interface with the photon (D0 to SDA and D1 to SCL). You will also need to add power (3v3/GND).\r\n\r\nThe breakout can be sourced here: http://www.adafruit.com/products/3709\r\n\r\nThe original hook-up guide here: https://learn.adafruit.com/adafruit-sgp30-gas-tvoc-eco2-mox-sensor\r\n\r\nThe original library developed by Adafruit can be sourced here: https://github.com/adafruit/Adafruit_SGP30\r\n\r\nThe Fritzing resources can be sourced here: https://github.com/adafruit/Fritzing-Library\r\n\r\n#\r\n\r\nThis library was modified/wrapped by https://github.com/dyadica in order to work with Particle Photon & Core.\r\n\r\n## Usage\r\n\r\nConnect SGP30 hardware to the photon via the I2C ports, add the Adafruit_SGP30 library to your project. The sensor can be polled via the following code:\r\n\r\n```\r\n#include \"Adafruit_SGP30.h\"\r\nAdafruit_SGP30 adafruit_SGP30;\r\n\r\nvoid setup()\r\n{\r\n  Serial.begin(9600);\r\n  Serial.println(\"SGP30 test\");\r\n\r\n  if (! adafruit_SGP30.begin()){\r\n    Serial.println(\"Sensor not found :(\");\r\n    while (1);\r\n  }\r\n}\r\n\r\nvoid loop()\r\n{\r\n  if (! adafruit_SGP30.IAQmeasure())\r\n  {\r\n    Serial.println(\"Measurement failed\");\r\n    return;\r\n  }\r\n\r\n  Serial.print(\"TVOC \"); Serial.print(adafruit_SGP30.TVOC); Serial.print(\" ppb\\t\");\r\n  Serial.print(\"eCO2 \"); Serial.print(adafruit_SGP30.eCO2); Serial.println(\" ppm\");\r\n  delay(1000);\r\n}\r\n\r\n```\r\nFor a more in-depth example, including how to calibrate the sensor; please see the example sgp30test.ino within the examples/usage folder.\r\n\r\n## License Information\r\n\r\nThis code was originally developed by Adafruit and as such adopts their license policy:\r\n\r\nThis is the Adafruit SGP30 Gas / Air Quality I2C sensor library\r\n\r\nTested and works great with the Aadafruit SGP30 Breakout Board\r\n\r\nhttp://www.adafruit.com/products/3709\r\nThis chip uses I2C to communicate, 2 pins are required to interface\r\n\r\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\r\n\r\nWritten by Limor Fried for Adafruit Industries.\r\nBSD license, check license.txt for more information All text above must be included in any redistribution.\r\n\r\n# Useful Information\r\n\r\nPlease note, this sensor, like all VOC/gas sensors, has variability and to get precise measurements you will want to calibrate it against known sources! The following information sourced via the internet can be used provide a general outline as to what the reported values mean.\r\n\r\n## C02 Levels\r\n\r\nC02 Levels as taken from: https://www.kane.co.uk/knowledge-centre/what-are-safe-levels-of-co-and-co2-in-rooms\r\n\r\n250-350ppm\tNormal background concentration in outdoor ambient air\r\n\r\n350-1,000ppm\tConcentrations typical of occupied indoor spaces with good air exchange.\r\n\r\n1,000-2,000ppm\tComplaints of drowsiness and poor air.\r\n\r\n2,000-5,000 ppm\tHeadaches, sleepiness and stagnant, stale, stuffy air. Poor concentration, loss of attention, increased heart rate and slight nausea may also be present.\r\n\r\n5,000\tWorkplace exposure limit (as 8-hour TWA) in most jurisdictions.\r\n\r\nGreater than 40,000 ppm\tExposure may lead to serious oxygen deprivation resulting in permanent brain damage, coma, even death.\r\n\r\n## TVOC Levels\r\n\r\nTVOC Levels as taken from: http://www.critical-environment.com/blog/know-the-air-you%E2%80%99re-breathing-volatile-organic-compound-2-of-4/\r\n\r\nLess than 200 µg/m3\tNo irritation or discomfort expected\r\n\r\n200 – 3,000 µg/m3\tIrritation and discomfort may be possible\r\n\r\n3,000 – 25,000 µg/m3\tDiscomfort expected and headache possible\r\n\r\nGreater than 25,000 µg/m3\tToxic range where other neurotoxic effects may occur\r\n"
+}

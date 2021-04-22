@@ -1,0 +1,52 @@
+{
+  "type": "libraries",
+  "id": "pid",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/pid/archive/2.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "pid",
+    "version": "2.0.1",
+    "installs": 49242,
+    "license": "GPLv3",
+    "author": "Dan Rice <dan@zoombody.com>",
+    "maintainer": "Particle <hello@particle.io>",
+    "sentence": "PID control library",
+    "paragraph": "A PID controller seeks to keep some input variable close to a desired setpoint by adjusting an output. The way in which it does this can be 'tuned' by adjusting three parameters (P,I,D).",
+    "category": "Signal Input/Output",
+    "url": "https://github.com/particle-iot/Particle-PID",
+    "repository": "https://github.com/particle-iot/Particle-PID.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "2.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "electron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "argon": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "boron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# PID control library for Particle\n\n_Adapted from Brett Beauregard's [Arduino PID Library](https://github.com/br3ttb/Arduino-PID-Library)_\n\nFor a thorough explanation of the library's workings, see http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/\n"
+}

@@ -1,0 +1,91 @@
+{
+  "type": "libraries",
+  "id": "OLED_Display_128X64",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/OLED_Display_128X64/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "OLED_Display_128X64",
+    "version": "1.0.0",
+    "installs": 7051,
+    "license": "MIT",
+    "author": "Seeed Studio",
+    "maintainer": "Brandon Satrom <brandon@particle.io>",
+    "sentence": "Arduino library to control Grove - OLED Display 0.96.",
+    "paragraph": "Grove - OLED Display 0.96 is an OLED monochrome 128×64dot matrix display module with Grove 4pin I2C Interface .The characteristics of this display module are high brightness, self-emission, high contrast ratio, slim outline, wide viewing angle, wide temperature range, and low power consumption. It has a bigger screen and uses all the columns from the SSD1308 chip so that it can display more contents than the OLED 96×16.",
+    "category": "Display",
+    "url": "https://github.com/bsatrom/OLED_Display_128X64",
+    "repository": "https://github.com/bsatrom/OLED_Display_128X64",
+    "architectures": [
+      "particle-photon",
+      "particle-electron",
+      "particle-boron",
+      "particle-argon",
+      "particle-xenon",
+      "particle-bsom"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Brightness_Control": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Horizontal_Addressing_Mode": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true,
+            "usage": false
+          },
+          "electron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Brightness_Control": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Horizontal_Addressing_Mode": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true,
+            "usage": false
+          },
+          "argon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Brightness_Control": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Horizontal_Addressing_Mode": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true,
+            "usage": false
+          },
+          "boron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Brightness_Control": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Horizontal_Addressing_Mode": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true,
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "## OLED_Display_128X64\n\n<img src=https://statics3.seeedstudio.com/seeed/img/2016-09/6hLLXlBnfODAcWlp2wlaep3j.jpg width=400><img src=https://statics3.seeedstudio.com/seeed/img/2016-09/DwdeSLxipUJdCgsFZDI2wtYD.jpg width=400>\n\n[Grove - OLED Display 0.96\"](https://www.seeedstudio.com/s/Grove-OLED-Display-0.96%22-p-781.html)\n\nLED 128×64 Display module is an OLED monochrome 128×64dot matrix display module with Grove 4pin I2C Interface.Comparing to LCD, OLED screens are way more competitive, which has a number of advantages such as high brightness, self-emission, high contrast ratio, slim / thin outline, wide viewing angle, wide temperature range, and low power consumption. It has bigger screen so that it can display more contents than the OLED 96×96. \n\nFor more information, please refer to [Grove_OLED_Display_128X64 wiki][1]\n\n----\nThis software is written by Frankie Chu for seeed studio and is licensed under The GPL v2 License.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed is a hardware innovation platform for makers to grow inspirations into differentiating products. By working closely with technology providers of all scale, Seeed provides accessible technologies with quality, speed and supply chain knowledge. When prototypes are ready to iterate, Seeed helps productize 1 to 1,000 pcs using in-house engineering, supply chain management and agile manufacture forces. Seeed also team up with incubators, Chinese tech ecosystem, investors and distribution channels to portal Maker startups beyond.\n\n\n[1]:http://wiki.seeedstudio.com/Grove-OLED_Display_0.96inch/\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/OLED_Display_128X64)](https://github.com/igrigorik/ga-beacon)"
+}

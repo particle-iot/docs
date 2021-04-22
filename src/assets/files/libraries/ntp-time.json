@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "ntp-time",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ntp-time/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "ntp-time",
+    "version": "0.1.0",
+    "installs": 17271,
+    "license": "MIT",
+    "author": "Douglas Johnson",
+    "sentence": "Keeps the Particle Time synced to NTP.",
+    "url": "https://github.com/classtech/ntptime",
+    "repository": "https://github.com/classtech/ntptime.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# NtpTime\n\nA simple NTP client.  Keeps the Particle Time synced to NTP.  This should not be used for\nhigh precision time keeping.  The Particle Time is only one second resolution and\nhardware limitations prevent high accuracy setting.  So the system time shouldn't be used for anything\nthat needs more than accuracy to a large fraction of a second.  \n\nThere is an interface that will return the time to millisecond resolution.  Accuracy of that\ninterface is primarily dependent on internet latency.\n\nNtpTime uses one of Particle's software timers.\n"
+}

@@ -1,0 +1,46 @@
+{
+  "type": "libraries",
+  "id": "AdafruitTouchscreenFeatherWingRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AdafruitTouchscreenFeatherWingRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "AdafruitTouchscreenFeatherWingRK",
+    "version": "0.0.1",
+    "installs": 2814,
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Libraries for Adafruit 3.2\" touch-screen feather wing",
+    "category": "Display",
+    "url": "https://github.com/rickkas7/AdafruitTouchscreenFeatherWingRK",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "electron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# AdafruitTouchscreenFeatherWingRK\nPort of Adafruit TFT FeatherWing - 2.4\" 320x240 Touchscreen for Particle Argon/Boron/Xenon\n"
+}

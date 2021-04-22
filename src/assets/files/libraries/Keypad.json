@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "Keypad",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Keypad/archive/3.2.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Keypad",
+    "version": "3.2.0",
+    "installs": 3636,
+    "license": "LGPL 1.2",
+    "author": "Mark Stanley (mstanley@technologist.com), Alexander Brevig (alexanderbrevig@gmail.com), adapted for Spark Core by Sandro Lange",
+    "sentence": "A Spark Core port of the Keypad Arduino library by Mark Stanley, Alexander Brevig",
+    "url": "https://github.com/mctristan/keypad-spark",
+    "repository": "https://github.com/mctristan/keypad-spark.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "3.2.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "Keypad-spark\n============\n\nThe Arduino Keypad library ported to Spark Core\n"
+}

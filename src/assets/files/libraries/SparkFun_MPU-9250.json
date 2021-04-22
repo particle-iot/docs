@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_MPU-9250",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_MPU-9250/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_MPU-9250",
+    "version": "1.0.0",
+    "installs": 5873,
+    "author": "SparkFun Electronics",
+    "maintainer": "SparkFun Electronics <TechSupport@SparkFun.com>",
+    "sentence": "Driver for InvenSense's MPU-9250 9-DOF IMU (3-axis gyroscope, 3-axis accelerometer & 3-axis magnetometer)",
+    "paragraph": "The MPU-9250 is a system-in-package featuring acceleration full-scales of ±2 / ±4 / ±8 / ±16 (g), rotational full-scales of ±250 / ±500 / ±1000 / ±2000 (°/sec) and a magnetic field full scale of ±4800 µT. The MPU-9250 includes an I2C serial bus interface that supports speeds up to 400 kHz.",
+    "category": "Sensors",
+    "url": "https://github.com/eliteio/MPU-9250_Breakout",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "MPU9250BasicAHRS": true
+          },
+          "electron": {
+            "MPU9250BasicAHRS": true
+          },
+          "argon": {
+            "MPU9250BasicAHRS": true
+          },
+          "boron": {
+            "MPU9250BasicAHRS": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "MPU-9250 9 DOF IMU Arduino Library\n==================================\n\n![MPU-9250 Breakout](https://cdn.sparkfun.com/assets/parts/1/1/3/0/6/13762-00.jpg)](https://cdn.sparkfun.com/assets/parts/1/1/3/0/6/13762-00.jpg)\n\n[*MPU-9250 Breakout (SEN-13762)*](https://www.sparkfun.com/products/13762)\n\nThis is an arduino IDE library to control the MPU-9250.\n\nThis has been tested with Arduino Pro Mini.\n\nRepository Contents\n-------------------\n\n* **/examples** &mdash; Example sketch for the library (.ino). Run this from the Arduino IDE.\n* **/src** &mdash; Source files for the library (.cpp, .h).\n* **keywords.txt** &mdash; Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** &mdash; General library properties for the Arduino package manager.\n\nExample Briefs\n--------------\n\n* MPU9250BasicAHRS &mdash; Prints out sensor data with some sane default configuration parameters\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** &mdash; Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/MPU-9250_Breakout)** &mdash; Main repository (including hardware files) for the MPU-9250 Breakout.\n* **[Datasheet](https://cdn.sparkfun.com/assets/learn_tutorials/5/5/0/MPU9250REV1.0.pdf)** &mdash; Datasheet containing part of the product documentation.\n* **[Register map](https://cdn.sparkfun.com/assets/learn_tutorials/5/5/0/MPU-9250-Register-Map.pdf)** &mdash; Register map containing the rest of the product documentation.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/MPU-9250-hookup-guide)** &mdash; Basic hookup guide for the MPU-9250 Breakout.\n\nProducts that use this Library\n---------------------------------\n\n* [SEN-13762](https://www.sparkfun.com/products/13762) &mdash; MPU-9250 Breakout board\n\nVersion History\n---------------\n\n* [V 1.0.0](https://github.com/sparkfun/SparkFun_MPU-9250_6_DOF_IMU_Breakout_Arduino_Library/releases/tag/V_1.0.0) &mdash; Initial commit of Arduino 1.5+ compatible library.\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nCode is a lightly modified version of Kris Winer's [code](https://github.com/kriswiner/MPU-9250) which was licensed as Beerware. It's unclear the license of the code in quaternionFilters.ino.\n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n"
+}

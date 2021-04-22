@@ -1,0 +1,54 @@
+{
+  "type": "libraries",
+  "id": "blynk",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/blynk/archive/0.6.4.tar.gz"
+  },
+  "attributes": {
+    "name": "blynk",
+    "version": "0.6.4",
+    "installs": 677151,
+    "license": "MIT",
+    "author": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
+    "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
+    "sentence": "Build a smartphone app for your project in minutes!",
+    "category": "Communication",
+    "url": "https://github.com/vshymanskyy/blynk-library-particle",
+    "repository": "https://github.com/vshymanskyy/blynk-library-particle.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false,
+    "verified": true
+  },
+  "versions": {
+    "0.6.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "01_Particle": true,
+            "02_Particle_Electron": false,
+            "03_Bluz_Direct": false
+          },
+          "electron": {
+            "01_Particle": true,
+            "02_Particle_Electron": true,
+            "03_Bluz_Direct": false
+          },
+          "argon": {
+            "01_Particle": true,
+            "02_Particle_Electron": true,
+            "03_Bluz_Direct": false
+          },
+          "boron": {
+            "01_Particle": true,
+            "02_Particle_Electron": true,
+            "03_Bluz_Direct": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Blynk C++ Library [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Build%20your%20IoT%20App%20in%20minutes,%20right%20on%20your%20smartphone!&url=https://github.com/blynkkk/blynk-library&via=blynk_app&hashtags=IoT,iOS,Android,Arduino,ESP8266,ESP32,RaspberryPi)\r\n\r\n[![GitHub version](https://img.shields.io/github/release/blynkkk/blynk-library.svg)](https://github.com/blynkkk/blynk-library/releases/latest)\r\n[![GitHub download](https://img.shields.io/github/downloads/blynkkk/blynk-library/total.svg)](https://github.com/blynkkk/blynk-library/releases/latest)\r\n[![GitHub stars](https://img.shields.io/github/stars/blynkkk/blynk-library.svg)](https://github.com/blynkkk/blynk-library/stargazers)\r\n[![GitHub issues](https://img.shields.io/github/issues/blynkkk/blynk-library.svg)](https://github.com/blynkkk/blynk-library/issues)\r\n[![Build Status](https://img.shields.io/travis/blynkkk/blynk-library.svg)](https://travis-ci.org/blynkkk/blynk-library)\r\n[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/blynkkk/blynk-library/blob/master/LICENSE)\r\n\r\nIf you like **Blynk** - give it a star, or fork it and contribute! \r\n[![GitHub stars](https://img.shields.io/github/stars/blynkkk/blynk-library.svg?style=social&label=Star)](https://github.com/blynkkk/blynk-library/stargazers) \r\n[![GitHub forks](https://img.shields.io/github/forks/blynkkk/blynk-library.svg?style=social&label=Fork)](https://github.com/blynkkk/blynk-library/network)\r\n__________\r\n\r\n## What is Blynk?\r\nBlynk provides iOS and Android apps to control any hardware over the Internet or directly using Bluetooth.\r\nYou can easily build graphic interfaces for all your projects by simply dragging and dropping widgets, right on your smartphone.\r\nBlynk is the most popular IoT platform used by design studios, makers, educators, and equipment vendors all over the world.\r\n\r\n![Blynk Banner](https://github.com/blynkkk/blynkkk.github.io/blob/master/images/GithubBanner.jpg)\r\n\r\n## Download\r\n**Blynk [Arduino Library](https://github.com/blynkkk/blynk-library/releases/latest)**\r\n\r\n**Blynk App: [Google Play](https://play.google.com/store/apps/details?id=cc.blynk) / [App Store](https://itunes.apple.com/us/app/blynk-control-arduino-raspberry/id808760481?ls=1&mt=8)**\r\n\r\n**Blynk [Server](https://github.com/blynkkk/blynk-server)**\r\n\r\n## Documentation\r\nSocial: [Webpage](http://www.blynk.cc) / [Facebook](http://www.fb.com/blynkapp) / [Twitter](http://twitter.com/blynk_app) / [Kickstarter](https://www.kickstarter.com/projects/167134865/blynk-build-an-app-for-your-arduino-project-in-5-m/description)  \r\nHelp Center: http://help.blynk.cc  \r\nDocumentation: http://docs.blynk.cc/#blynk-firmware  \r\nCommunity Forum: http://community.blynk.cc  \r\nExamples Browser: http://examples.blynk.cc  \r\nBlynk for Business: http://www.blynk.io\r\n\r\n## Contributing\r\nWe accept contributions from our community: stability bugfixes, new hardware support, or any other improvements.  \r\n[Here](https://github.com/blynkkk/blynk-library/labels/help%20wanted) is a list of what you could help with.\r\n\r\n__________\r\n\r\n### Implementations for other platforms\r\n* [Arduino](https://github.com/blynkkk/blynk-library)\r\n* [Node.js, Espruino, Browsers](https://github.com/vshymanskyy/blynk-library-js)\r\n* [Lua, OpenWrt, NodeMCU](https://github.com/vshymanskyy/blynk-library-lua)\r\n* [Python, MicroPython](https://github.com/vshymanskyy/blynk-library-python)\r\n* [OpenWrt packages](https://github.com/vshymanskyy/blynk-library-openwrt)\r\n* [MBED](https://developer.mbed.org/users/vshymanskyy/code/Blynk/)\r\n* [Node-RED](https://www.npmjs.com/package/node-red-contrib-blynk-ws)\r\n* [LabVIEW](https://github.com/juncaofish/NI-LabVIEWInterfaceforBlynk)\r\n* [C#](https://github.com/sverrefroy/BlynkLibrary)\r\n\r\n### License\r\nThis project is released under The MIT License (MIT)\r\n"
+}

@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "LMP91000",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LMP91000/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "LMP91000",
+    "version": "0.0.1",
+    "installs": 8457,
+    "license": "OIZOM",
+    "author": "Shashank Sharma",
+    "sentence": "LMP91000 library",
+    "url": "https://github.com/shashank027/lmp91000",
+    "repository": "https://github.com/shashank027/lmp91000.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# LMP91000"
+}

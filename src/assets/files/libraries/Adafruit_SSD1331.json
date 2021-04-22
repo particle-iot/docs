@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_SSD1331",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_SSD1331/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_SSD1331",
+    "version": "0.0.1",
+    "installs": 5501,
+    "license": "BSD license, all text above must be included in any redistribution",
+    "author": "Fulvio Cusumano <fcusumano@gmail.com>",
+    "sentence": "Adafruit SSD1331 library for SparkCore",
+    "url": "https://github.com/gotnull/adafruit_ssd1331",
+    "repository": "https://github.com/gotnull/adafruit_ssd1331.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "Adafruit SSD1331 Library for SparkCore"
+}

@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Tinker-Servo",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Tinker-Servo/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Tinker-Servo",
+    "version": "1.0.1",
+    "installs": 5631,
+    "license": "GPL",
+    "author": "Christian Vallières&Scott Beasley",
+    "sentence": "Control Spark unused pins with Tinker interface in your project.",
+    "url": "https://github.com/jscottb/tinker-servo",
+    "repository": "https://github.com/jscottb/tinker-servo.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Tinker-servo": true
+          },
+          "electron": {
+            "Tinker-servo": true
+          },
+          "argon": {
+            "Tinker-servo": true
+          },
+          "boron": {
+            "Tinker-servo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Simple calling interface for GPIO pins and the servo libary.\n"
+}

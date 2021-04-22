@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_10DOF_IMU",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_10DOF_IMU/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_10DOF_IMU",
+    "version": "0.0.3",
+    "installs": 3720,
+    "license": "BSD",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "Particle port of the Adafruit 10-DOF IMU Breakout L3GD20H LSM303 BMP180",
+    "url": "https://github.com/rickkas7/Adafruit_10DOF_IMU",
+    "repository": "https://github.com/rickkas7/Adafruit_10DOF_IMU.git",
+    "architectures": [
+      "particle-photon",
+      " particle-p1",
+      " particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "sample": true
+          },
+          "electron": {
+            "sample": true
+          },
+          "argon": {
+            "sample": true
+          },
+          "boron": {
+            "sample": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit 10DOF IMU\n*Particle port of the Adafruit 10-DOF IMU Breakout L3GD20H LSM303 BMP180*\n\nThis is a port of the Adafruit libraries for the 10DOF (10 degree of freedom) IMU (Inertial Measurement Unit) breakout board for the Particle Photon, Electron, etc.\n\nWiring:\n\n* Boad <-> Photon\n* VIN  <-> 3V3\n* GND  <-> GND\n* SCL  <-> D1\n* SDA  <-> D0\n* Leave the rest of the pins unconnected\n\n\nBoard Description and purchase link: \n[https://www.adafruit.com/products/1604] (https://www.adafruit.com/products/1604)\n\n[Adafruit How-To] (https://learn.adafruit.com/adafruit-10-dof-imu-breakout-lsm303-l3gd20-bmp180/introduction)\n\nIt is ported from these libraries:\n\n- [Adafruit Unified Sensor Library] (https://github.com/adafruit/Adafruit_Sensor)\n- [LSM303DLHC Library] (https://github.com/adafruit/Adafruit_LSM303DLHC)\n- [L3GD20 Library] (https://github.com/adafruit/Adafruit_L3GD20_U)\n- [BMP180 Library] (https://github.com/adafruit/Adafruit_BMP085_Unified)\n- [Adafruit 10DOF Library] (https://github.com/adafruit/Adafruit_10DOF)\n\nTo use it in your code, simply add the Adafruit_10DOF_IMU library to your project. It should automatically add the approrpiate include:\n\n```\n#include \"Adafruit_10DOF_IMU/Adafruit_10DOF_IMU.h\"\n```\n\n"
+}

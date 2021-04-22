@@ -1,0 +1,46 @@
+{
+  "type": "libraries",
+  "id": "Fingerprint_FPS_GT511C3",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Fingerprint_FPS_GT511C3/archive/1.0.6.tar.gz"
+  },
+  "attributes": {
+    "name": "Fingerprint_FPS_GT511C3",
+    "version": "1.0.6",
+    "installs": 1778,
+    "author": "Josh Hawley",
+    "sentence": "A library for controlling the GT-511CS3 Fingerprint Scanner",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.6": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "electron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "argon": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "boron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Fingerprint_Scanner-TTL\n=======================\n\n[![FingerPrint Scanner](https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/7/9/2/11792-01_medium.jpg)  \n*Fingerprint Scanner - TTL (GT-511C3)(SEN-11792)*](https://www.sparkfun.com/products/11792)\n\nThis is a great fingerprint module from ADH-Tech that communicates over TTL Serial so you can easily embed it into your next project. \n\nThis repository contains example code to work with it. \n\nRepository Contents\n-------------------\n* **/FPS_GT511C3** - Arduino Library to interface with the sensor.\n\nLicense Information\n-------------------\n\nThe original library license is as follows:\n\n\"\tCreated by Josh Hawley, July 23rd 2013\n\tLicensed for non-commercial use, must include this license message\n\tbasically, Feel free to hack away at it, but just give me credit for my work =)\n\tTLDR; Wil Wheaton's Law \""
+}

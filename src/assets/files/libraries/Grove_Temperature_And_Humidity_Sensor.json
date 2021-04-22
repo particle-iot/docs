@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "Grove_Temperature_And_Humidity_Sensor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Grove_Temperature_And_Humidity_Sensor/archive/1.0.7.tar.gz"
+  },
+  "attributes": {
+    "name": "Grove_Temperature_And_Humidity_Sensor",
+    "version": "1.0.7",
+    "installs": 37696,
+    "license": "MIT License",
+    "author": "Seeed Studio",
+    "maintainer": "Seeed Studio <techsupport@seeed.cc>",
+    "sentence": "Particle library to control Grove DHT11.",
+    "url": "https://github.com/Seeed-Studio/Grove_Temperature_And_Humidity_Sensor_DHT11",
+    "repository": "https://github.com/Seeed-Studio/Grove_Temperature_And_Humidity_Sensor_DHT11.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.7": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "dht11_demo": true
+          },
+          "electron": {
+            "dht11_demo": true
+          },
+          "argon": {
+            "dht11_demo": true
+          },
+          "boron": {
+            "dht11_demo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Grove_Temperature_And_Humidity_Sensor\n=====================================\n\nThis is an Particle library for the DHT series of low cost temperature/humidity sensors.\n\n<img src=https://statics3.seeedstudio.com/images/101020011%201.jpg width=300>\n\n[Grove - Temperature & Humidity Sensor （DHT11）](https://www.seeedstudio.com/Grove-Temperature-%26-Humidity-Sensor-%EF%BC%88DHT11%EF%BC%89-p-745.html)\n\n\n\nFor more information please visit [wiki DHT11](http://wiki.seeedstudio.com/Grove-TemperatureAndHumidity_Sensor/) \n\n----\n\nThis demo is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check LINCESE for more information.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacture power and convenient global logistic system, <br>\nwe integrate resources to serve new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push open hardware movement.<br>\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_Temperature_And_Humidity_Sensor)](https://github.com/igrigorik/ga-beacon)\n"
+}

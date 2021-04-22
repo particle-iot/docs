@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "SHT30",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SHT30/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "SHT30",
+    "version": "0.0.2",
+    "installs": 3185,
+    "license": "GNU",
+    "author": "Travis Elliott <travis@controlanything.com>",
+    "sentence": "This Library is intended for use with SHT30 Mini module on the Particle Core/Photon platform.",
+    "url": "https://github.com/controleverythingcom/sht30",
+    "repository": "https://github.com/controleverythingcom/sht30.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Sample": true
+          },
+          "electron": {
+            "Sample": true
+          },
+          "argon": {
+            "Sample": false
+          },
+          "boron": {
+            "Sample": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# About\n\nThis Library is intended for use with SHT30 Mini module on the Particle Core/Photon platform.\n\nThe intention of this library is to make use of the SHT30 mini module with Particle development web IDE as simple as possible for users.\n\nThe SHT30 Mini Module from ControlEverything may be purchased [here] [sht30store].\n\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We specialize in hardware design and manufacturing of sensory input and output control devices.  We pride ourselves as being the industry leader of computer control relay products as well as sensory reading products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controleverything.com\n\n###Requirements\n- [SHT30 Mini Module][sht30store].\n- Particle Core/Photon module\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThe libary must be imported into your application.  This can be done through the Particle WEB IDE by selecting Libraries, then select the SHT30.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Particle's documentation] [sparkIncludeLibrary].\n\n### Example use\n\nOnce the Library is included in your applicaiton you should see an include statement at the top like this:\n```cpp\n//This #include statement was automatically added by the Particle IDE.\n#include \"SHT30/SHT30.h\"\n```\n\nNow you need to instanciate an object of the library for use in your application like this:\n```cpp\nSHT30 sensor;\n```\n\nHere is an example use case for the class:\n```cpp\n// This #include statement was automatically added by the Particle IDE.\n#include \"SHT30/SHT30.h\"\n\nSHT30 sensor;\ndouble humidity;\ndouble temperature;\n\nvoid setup() {\nsensor.setAddress(0);\nParticle.variable(\"Humidity\", humidity);\nParticle.variable(\"Temperature\", temperature);\n}\n\nvoid loop() {\nif(sensor.update()){\nhumidity = sensor.humidity;\ntemperature = sensor.temperature;\n}\ndelay(1000);\n}\n```\n\n###Public accessible methods\n```cpp\nvoid setAddress(int a0);\n```\n>Must be called first before using the object.  This method should also be called any time communication with\n>the controller is lost or broken to recover communication  This method accepts one int argument.  This\n>tells the Library what address to direct commands to.  a0 representations of the the Address\n>jumper on the SHT30 mini module.  If the jumper is\n>installed then send a 1, if the jumper is not installed send a 0 like this ```sensor.setAddress(0).```\n\n\n```cpp\nbool update();\n```\n>This method accepts no arguments.  A call to this method will return trigger a reading of the current Humidiity and Temperature on the SHT30 sensor, if the reading is successful true is returned, if the reading fails for any reason false will be returned.\n>\n\n###Public accessible Variables\n\n```cpp\ndouble temperature\n```\n>This variable is updated during the update function call with the current temperature reading from teh SHT30.  You should call the function update, then if true is returned check this value for the current temperature.  This temperature value will be in degrees C.\n\n```cpp\ndouble humidity\n```\n>This variable is updated during the update function call with the current humidity reading from teh SHT30.  You should call the function update, then if true is returned check this value for the current humidity.  This humidity value will represent the current relative humidiity as a percentage value.\n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:https://docs.particle.io/guide/getting-started/build/photon/\n[sht30store]:https://www.controleverything.com/content/Humidity?sku=SHT30_I2CS"
+}

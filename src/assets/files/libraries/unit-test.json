@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "unit-test",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/unit-test/archive/0.1.3.tar.gz"
+  },
+  "attributes": {
+    "name": "unit-test",
+    "version": "0.1.3",
+    "installs": 1404,
+    "license": "MIT",
+    "author": "mdma https://community.spark.io/users/mdma",
+    "sentence": "Unit testing on the spark",
+    "url": "https://github.com/m-mcgowan/spark-unit-test",
+    "repository": "https://github.com/m-mcgowan/spark-unit-test.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.1.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "This is a port of the [Arduino Unit](https://github.com/mmurdoch/arduinounit) library to the spark. \nPlease see that repo for library usage, or check out the examples.\n\nAdditions in the spark version:\n\n- when running, the RGB led indicates the overall test health\n- configuration at runtime of tests to include or exclude, via `cmd(include=pattern)`\n- waits to run tests until either 't' is received over serial, or the Cloud `cmd` function is called with 'start'\n- test stats (passed/failed/skipped/count) available as cloud variables \n- test running state (waiting, running, complete) available as a variable, \nand changes to running state are published as events.\n\nThese features are documented below.\n\nRGB Led\n-------\n\nWhen the test suite app executes, it initially enters the waiting state. \nThe RGB led shows the usual breathing cyan as the spark is connected to the cloud.\n\nWhen the test suite is later started, the RGB led shows a solid color to reflect\nthe current test health:\n\n - green: all tests (so far) have passed\n - orange: some tests skipped but otherwise all passed\n - red: some tests failed\n\nWhen the test suite has completed running, the LED status remains so you can leave the spark\nrunning and come back when it's done to see the result.\n(In future, the LED may blink while the tests are running, and then return to solid when all tests are done, \nto make it easy to see when the tests are still running or not.)\n\n\nIncluding/Excluding Tests\n-------------------------\n\nTests can be filtered at runtime using include/exclude globs. The include/exclude\nfeature is described in the [Arduino unit documentation](https://github.com/mmurdoch/arduinounit#selecting-tests).\n\nTo exclude tests ending \"*_slow\":\n\n```\nspark call mycore cmd exclude=*_slow\n```\n\nTo run only tests starting with 'abc':\n\n```\nspark call mycore cmd exclude=*\nspark call mycore cmd include=abc*\n```\n\n\nStarting the Test Suite\n-----------------------\nIf the test code hasn't requested the test suite starts immediately, the test suite\nwill wait until:\n\n- a 't' is sent over Serial, or\n- the `cmd(start)` function is called.\n\nE.g. to start the tests via the cloud:\n\n `spark call mycore cmd start`\n\n\nEnter DFU Mode\n--------------\nAs part of a locally operating automated tset suite, it can be useful to \nput the core in DFU mode for quick flashing of another app.\n\nThis is done with the command\n\n `spark call mycore cmd enterDFU`\n\nOn receiving the command, the core will reset and enter DFU mode (flashing yellow LED.)\n\nVariables for Test Statistics\n-----------------------------\n\nThe test suite exposes variables to the cloud to allow monitoring of the test health:\n\n- count (int32): the number of tests to be run (available from startup)\n- state (int32): the state of the test runner\n - 1: waiting to start running tests\n - 2: running - busy executing tests\n - 3: complete - all tests executed\n- passed (int32): the number of tests passed so far.\n- failed (int32): the number of tests failed so far.\n- skipped (int32): the number of tests skipped so far.\n\nThese variables are updated as the test suite executes. \n\nEvents\n------\n\nThe test suite publishes events as the test runner state changes. This allows\nexternal apps to monitor progress, e.g. wait for the test suite to complete.\n\nThe event `state` is published whenever the running state of the test suite changes. \nThe event can have these values:\n\n- waiting: waiting to start\n- running: executing tests\n- complete: all tests executed\n\n(NB: it would be easy in code to add an event each time a test has been executed, however\nthis could easily generate too many events causing more important events, such as the\nrunning state change 'complete', to be dropped.)\n\n\n\n\n\n"
+}

@@ -1,0 +1,94 @@
+{
+  "type": "libraries",
+  "id": "AccelStepperSpark",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AccelStepperSpark/archive/1.5.3.tar.gz"
+  },
+  "attributes": {
+    "name": "AccelStepperSpark",
+    "version": "1.5.3",
+    "installs": 27301,
+    "license": "GPL",
+    "author": "Mike McCauley modified by Abdulrahman Saleh Khamis",
+    "maintainer": "Abdulrahman Saleh Khamis <abdulrahman@mawqey.com>",
+    "sentence": "A library that allows you to control stepper motors with an object-oriented interface. It works with 2, 3 or 4 pin stepper motors.",
+    "url": "https://github.com/alotaiba/AccelStepperSpark",
+    "repository": "https://github.com/alotaiba/AccelStepperSpark.git",
+    "architectures": [
+      "particle-core",
+      " particle-photon",
+      " particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.5.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "electron": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "argon": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": false,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "boron": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": false,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# AccelStepper for Particle\n\nThis is the Arduino port of [AccelStepper library](http://www.airspayce.com/mikem/arduino/AccelStepper/) for Particle devices. It provides an object-oriented interface for 2, 3 or 4 pin stepper motors.\n\nThe standard Arduino IDE includes the Stepper library (http://arduino.cc/en/Reference/Stepper) for stepper motors. It is perfectly adequate for simple, single motor applications.\n\nAccelStepper significantly improves on the standard Arduino Stepper library in several ways:\n\n* Supports acceleration and deceleration\n* Supports multiple simultaneous steppers, with independent concurrent stepping on each stepper\n* API functions never delay() or block\n* Supports 2, 3 and 4 wire steppers, plus 3 and 4 wire half steppers.\n* Supports alternate stepping functions to enable support of AFMotor (https://github.com/adafruit/Adafruit-Motor-Shield-library)\n* Supports stepper drivers such as the Sparkfun EasyDriver (based on 3967 driver chip)\n* Very slow speeds are supported\n* Extensive API\n* Subclass support\n\n## Example usage\n\n```\n#include \"AccelStepperSpark.h\"\n\n// Define a stepper and the pins it will use\nAccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on D2, D3, D4, D5\n\nvoid setup()\n{  \n  // Change these to suit your stepper if you want\n  stepper.setMaxSpeed(100);\n  stepper.setAcceleration(20);\n  stepper.moveTo(500);\n}\n\nvoid loop()\n{\n    // If at the end of travel go to the other end\n    if (stepper.distanceToGo() == 0)\n      stepper.moveTo(-stepper.currentPosition());\n\n    stepper.run();\n}\n```\n\n## References\n\nPlease visit http://www.airspayce.com/mikem/arduino/AccelStepper/ for a complete list of APIs.\n\n# Thanks\n\nThanks to Mike McCauley for his awesome [AccelStepper](http://www.airspayce.com/mikem/arduino/AccelStepper/) library.\n\nThe Particle port is currently being maintained by [Abdulrahman Saleh Khamis](http://www.mawqey.com/)\n"
+}

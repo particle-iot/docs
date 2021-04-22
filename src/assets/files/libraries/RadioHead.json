@@ -1,0 +1,48 @@
+{
+  "type": "libraries",
+  "id": "RadioHead",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/RadioHead/archive/1.4.1.tar.gz"
+  },
+  "attributes": {
+    "name": "RadioHead",
+    "version": "1.4.1",
+    "installs": 721,
+    "author": "Mike McCauley <https://groups.google.com/forum/#!forum/radiohead-arduino>, SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "This is the RadioHead Packet Radio library for embedded microprocessors.",
+    "paragraph": "It provides a complete object-oriented library for sending and receiving packetized messages via a variety of common data radios and other transports on a range of embedded microprocessors.Drivers provide low level access to a range of different packet radios and other packetized message transports.",
+    "category": "Communication",
+    "url": "https://github.com/sparkfun/SparkFun_RadioHead_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.4.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "raspi": false,
+            "usage": false
+          },
+          "electron": {
+            "raspi": false,
+            "usage": false
+          },
+          "argon": {
+            "raspi": false,
+            "usage": false
+          },
+          "boron": {
+            "raspi": false,
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun RadioHead Arduino Library\n========================================\n\nThis is the SparkFun fork of the RadioHead library by Mike McCauley. The original library can be found here: http://www.airspayce.com/mikem/arduino/RadioHead/\n\nDescription from the original documentation: \n-------------------------------------------\n_This is the RadioHead Packet Radio library for embedded microprocessors. It provides a complete object-oriented library for sending and receiving packetized messages via a variety of common data radios and other transports on a range of embedded microprocessors._\n\n_The version of the package that this documentation refers to can be downloaded from http://www.airspayce.com/mikem/arduino/RadioHead/RadioHead-1.41.zip You can find the latest version at http://www.airspayce.com/mikem/arduino/RadioHead_\n_You can also find online help and discussion at http://groups.google.com/group/radiohead-arduino Please use that group for all questions and discussions on this topic. Do not contact the author directly, unless it is to discuss commercial licensing. Before asking a question or reporting a bug, please read:_\n_http://en.wikipedia.org/wiki/Wikipedia:Reference_desk/How_to_ask_a_software_question_\n_http://www.catb.org/esr/faqs/smart-questions.html_\n_http://www.chiark.greenend.org.uk/~shgtatham/bugs.html_\n\n_###Overview_\n\n_RadioHead consists of 2 main sets of classes: Drivers and Managers._\n\n_Drivers provide low level access to a range of different packet radios and other packetized message transports. Managers provide high level message sending and receiving facilities for a range of different requirements.\nEvery RadioHead program will have an instance of a Driver to provide access to the data radio or transport, and a Manager that uses that driver to send and receive messages for the application. The programmer is required to instantiate a Driver and a Manager, and to initialise the Manager. Thereafter the facilities of the Manager can be used to send and receive messages._\n\n_It is also possible to use a Driver on its own, without a Manager, although this only allows unaddressed, unreliable transport via the Driver's facilities.\nIn some specialised use cases, it is possible to instantiate more than one Driver and more than one Manager.\nA range of different common embedded microprocessor platforms are supported, allowing your project to run on your choice of processor.\nExample programs are included to show the main modes of use._\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/extras** - Additional documentation for the user. These files are ignored by the IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/RFM22_Shield-434MHz)** - Main repository (including hardware files) for the RFM22 Arduino Shield.\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease see the LICENSE.md file for more information. \n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_Based off of the original RadioHead library by Mike McCauley_\n"
+}

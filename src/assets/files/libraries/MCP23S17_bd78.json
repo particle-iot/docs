@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "MCP23S17_bd78",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MCP23S17_bd78/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "MCP23S17_bd78",
+    "version": "0.0.1",
+    "installs": 6148,
+    "license": "MIT",
+    "author": "Mike Machado <mike@machadolab.com>",
+    "sentence": "Library for MCP23S17 SPI IO expander. Originally written for Arduino by Cort Buffington & Keith Neufeld.",
+    "url": "https://github.com/machadolab/mcp23s17",
+    "repository": "https://github.com/machadolab/mcp23s17.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "writewords": true
+          },
+          "electron": {
+            "writewords": true
+          },
+          "argon": {
+            "writewords": true
+          },
+          "boron": {
+            "writewords": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "MCP23S17\n========\n\nArduino and Spark Core Library for MCP23S17 SPI IO expander\n\n\nFor API documentation, see http://playground.arduino.cc/Main/MCP23S17\n"
+}

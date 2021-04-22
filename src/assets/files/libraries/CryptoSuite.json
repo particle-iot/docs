@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "CryptoSuite",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CryptoSuite/archive/0.0.10.tar.gz"
+  },
+  "attributes": {
+    "name": "CryptoSuite",
+    "version": "0.0.10",
+    "installs": 4433,
+    "license": "MIT",
+    "author": "CryptoSuite Team",
+    "sentence": "Cryptosuite is a cryptographic library for Arduino (including SHA and HMAC-SHA)",
+    "url": "https://github.com/codebuffet/cryptosuite",
+    "repository": "https://github.com/codebuffet/cryptosuite.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.10": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "This fork is a valid Photon library, only SHA256 is supported at the moment.\n\n------\n\nThis branch is an experiment to see how hard it is to adapt to Particle.io's Photon Device.\n\nThe Plan:\n\n  * Copy the files into the Particle Build IDE. \n  * Find where it breaks. \n  * Fix dependencies - substitute and modify includes. \n  * Change functions or Structures where required. \n  \nPlease forgive me if I fail to use best practices in the fork, I'm new to this.  Suggestions are appreciated.\n\nCurrent Status:\n\n  * SHA256 portion works on Photon. \n  * To use - copy sha256.h, sha256.cpp, sha256_config.h, and Arduino.h into the Particle IDE.\n  * include sha256.h in your project. For examples see: sha/examples/photon\n  \n  Results of Photon Test:   \n   * Test: RFC4231 4.2 Hash took : 8265 micros\n   * Test: RFC4231 4.3 Hash took : 8276 micros\n   * Test: RFC4231 4.4 Hash took : 8273 micros\n   * Test: RFC4231 4.5 Hash took : 8273 micros\n   * Test: RFC4231 4.6 Hash took : 8284 micros  But the result looks like Test: RFC4868 AUTH256-2 (not truncated)\n   * Test: RFC4231 4.7 Hash took : 8475 micros\n   * Test: RFC4231 4.8 Hash took : 8609 micros\n\nBelow this point is unaltered ReadMe from the master.\n\nPlease see the full documentation at http://spaniakos.github.io/Cryptosuite\n\nCryptosuite is a cryptographic library for Arduino (including SHA and HMAC-SHA)\n\nIt currently supports secure hashing and hashed message authentication using SHA-1, SHA-256, HMAC-SHA-1 and HMAC-SHA-256.\n\nInstallation:\n  Make a 'libraries' directory with your Arduino sketches folder if you do not already have one.\n  Copy the 'Sha' directory into that directory.\n  Restart Arduino to rescan for new libraries.\n\nUsing SHA-1:\n  #include \"sha1.h\"\n  ...\n  uint8_t *hash;\n  Sha1.init();\n  Sha1.print(\"This is a message to hash\");\n  hash = Sha1.result();\n\n  The hash result is then stored in hash[0], hash[1] .. hash[19].\n\nUsing HMAC-SHA-1:\n  #include \"sha1.h\"\n  ...\n  uint8_t *hash;\n  Sha1.initHmac(\"hash key\",8); // key, and length of key in bytes\n  Sha1.print(\"This is a message to hash\");\n  hash = Sha1.resultHmac();\n\n  The hash result is then stored in hash[0], hash[1] .. hash[19].\n\nUsing SHA-256:\n  #include \"sha256.h\"\n  ...\n  uint8_t *hash;\n  Sha256.init();\n  Sha256.print(\"This is a message to hash\");\n  hash = Sha256.result();\n\n  The hash result is then stored in hash[0], hash[1] .. hash[31].\n\nUsing HMAC-SHA-256:\n  #include \"sha256.h\"\n  ...\n  uint8_t *hash;\n  Sha256.initHmac(\"hash key\",8); // key, and length of key in bytes\n  Sha256.print(\"This is a message to hash\");\n  hash = Sha256.resultHmac();\n\n  The hash result is then stored in hash[0], hash[1] .. hash[31].\n\n\nVerification:\n  The provided example code tests against published test vectors.\n  SHA-1: FIPS 180-2, RFC3174 compliant\n  HMAC-SHA-1: FIPS 198a compliant\n  SHA-256: FIPS 180-2, RFC4231 compliant\n  HMAC-SHA-256:  RFC4231 compliant\n\n*UPDATE** Added Intel Galileo Support\nAdded printf.h so galileo can redirect to serial all the printf requests.\n\n*UPDATE** Raspberry pi support added\n### Raspberry  pi\ninstall\n```\nsudo make install\ncd examples_Rpi\nmake\n```\n\nWhat to do after changes to the library\n```\nsudo make clean\nsudo make install\ncd examples_Rpi\nmake clean\nmake\n```\n\nWhat to do after changes to a sketch\n```\ncd examples_Rpi\nmake <sketch>\n\nor \nmake clean\nmake\n```\n\nHow to start a sketch\n```\ncd examples_Rpi\nsudo ./<sketch>\n```\n\n"
+}

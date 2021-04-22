@@ -1,0 +1,36 @@
+{
+  "type": "libraries",
+  "id": "sht20",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/sht20/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "sht20",
+    "version": "1.0.0",
+    "installs": 3521,
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "DFRobot_SHT20_test": true
+          },
+          "electron": {
+            "DFRobot_SHT20_test": true
+          },
+          "argon": {
+            "DFRobot_SHT20_test": true
+          },
+          "boron": {
+            "DFRobot_SHT20_test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# DFRobot_SHT20 Library for Arduino\nProvides an Arduino library for SHT20 Humidity And Temperature Sensor\n## Table of Contents\n\n* [Summary](#summary)\n* [Methods](#methods)\n* [History](#history)\n* [Credits](#credits)\n<snippet>\n<content>\n\n## Summary\n\nThe library is used to Use the SHT20 Sensor to obtain humidity and temperature.\n\n## Methods\n\n```C++\n\n/*\n * @brief Init SHT20 Sensor\n */\nvoid initSHT20(void);\n\n/*\n * @brief Check SHT20 Sensor\n */\nvoid checkSHT20(void);\n\n/*\n * @brief Read humidity\n *\n * @return The value of humidity\n */\nfloat readHumidity(void);\n\n/*\n * @breif Read Temperature\n *\n * @return The value of temperature\n */\nfloat readTemperature(void);\n\n```\n\n## History\n\n- data 2017-9-12\n- version V1.0\n\n## Credits\n\n- author [Zhangjiawei  <jiawei.zhang@dfrobot.com>]"
+}

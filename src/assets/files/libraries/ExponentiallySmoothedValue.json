@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "ExponentiallySmoothedValue",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ExponentiallySmoothedValue/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "ExponentiallySmoothedValue",
+    "version": "1.0.0",
+    "installs": 1177,
+    "license": "GPL3",
+    "author": "rvnash",
+    "sentence": "Class to provide exponential smoothing to a signal which is a time series of values.",
+    "repository": "https://github.com/rvnash/ExponentiallySmoothedValue.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ExponentiallySmoothedValue\n\nA class to provide exponential smoothing to a signal, likely a time series of values from a sensor \n\nThis library defines a class which performs exponential smoothing on a series of samples of a signal from a sensor. It implements the algorithm described here: https://en.wikipedia.org/wiki/Exponential_smoothing#Basic_exponential_smoothing .\n\nRefer to ExampleExponentiallySmoothedValue.ino and ExponentiallySmoothedValue.h for a full description of how to use this library.\n\n## Usage\n\nConnect Particle hardware, add the ExponentiallySmoothedValue library to your project and follow this simple example: ExampleExponentiallySmoothedValue.ino\n\n## LICENSE\n\nSee LICENSE\n\n"
+}

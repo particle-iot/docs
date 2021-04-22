@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_MAX31865_library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_MAX31865_library/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_MAX31865_library",
+    "version": "1.0.0",
+    "installs": 6282,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Library for the Adafruit RTD Amplifier breakout with MAX31865",
+    "paragraph": "Library for the Adafruit RTD Amplifier breakout with MAX31865",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_MAX31865",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "max31865": true
+          },
+          "electron": {
+            "max31865": true
+          },
+          "argon": {
+            "max31865": true
+          },
+          "boron": {
+            "max31865": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit_MAX31865\nArduino Library for Adafruit MAX31865 RTD Sensor\n"
+}

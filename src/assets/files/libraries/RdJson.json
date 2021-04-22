@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "RdJson",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/RdJson/archive/1.0.12.tar.gz"
+  },
+  "attributes": {
+    "name": "RdJson",
+    "version": "1.0.12",
+    "installs": 2858,
+    "license": "MIT",
+    "author": "Rob Dobson",
+    "sentence": "Access JSON data on particle",
+    "url": "https://github.com/robdobsn/ParticleRdJson",
+    "repository": "https://github.com/robdobsn/ParticleRdJson.git",
+    "architectures": [
+      "particle-photon",
+      "particle-redbear-duo"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.12": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# RdJson\n\nA library to parse and access JSON data\n\n## Usage\n\nExamples of usage\n\n```\n// Example usage for RdJson library\n// Rob Dobson 2017\n\n#include \"RdJson.h\"\n\nSYSTEM_MODE(AUTOMATIC);\nSYSTEM_THREAD(ENABLED);\n\nvoid setup() {\n\n    Serial.begin(115200);\n    delay(5000);\n    Serial.println(\"Example usage of RdJson library\");\n\n    // Test JSON\n    String jsonStr = \"{\\\"maxSpeed\\\":12.2, \\\"message\\\":\\\"This is a test\\\", \\\"a\\\":[0,1,2,3], \\\"b\\\":{\\\"c\\\":42} }\";\n\n    // Double\n    Serial.printlnf(\"Max speed %0.3f\", RdJson::getDouble(\"maxSpeed\", 0.0, jsonStr.c_str()));\n\n    // String\n    String messageStr = RdJson::getString(\"message\", \"\", jsonStr.c_str());\n    Serial.printlnf(\"Message %s\", messageStr.c_str());\n\n    // Array - by extracting string from JSON\n    bool isValid = false;\n    jsmnrtype_t objType = JSMNR_UNDEFINED;\n    int objSize = 0;\n    String arrayJson = RdJson::getString(\"a\", \"\", isValid, objType, objSize, jsonStr.c_str());\n    Serial.printlnf(\"Array %s valid %d, type %s, size %d\", arrayJson.c_str(), isValid, RdJson::getObjTypeStr(objType), objSize);\n\n    // Array elements - using a simplified form of XPATH - to get element 2 of the object a use a[2]\n    long arrayElem = RdJson::getLong(\"a[2]\", 0, jsonStr);\n    Serial.printlnf(\"Array element [2] = %ld\", arrayElem);\n\n    // Extracting an element within a sub-object - use / separator like XPATH - also not that string will get any kind of object\n    String subObjStr = RdJson::getString(\"b/c\", \"\", jsonStr.c_str());\n    Serial.printlnf(\"Sub-object string %s\", subObjStr.c_str());\n\n    // A JSON string that is just an array\n    String jsonStr2 = \"[0,1,2,{\\\"a\\\":1},4]\";\n\n    // Entire array\n    String arrayJson2 = RdJson::getString(\"\", \"\", isValid, objType, objSize, jsonStr2.c_str());\n    Serial.printlnf(\"Array %s valid %d, type %s, size %d\", arrayJson2.c_str(), isValid, RdJson::getObjTypeStr(objType), objSize);\n\n    // Element of array - that is an object\n    String arrayJson3 = RdJson::getString(\"[3]\", \"\", isValid, objType, objSize, jsonStr2.c_str());\n    Serial.printlnf(\"Array %s valid %d, type %s, size %d\", arrayJson3.c_str(), isValid, RdJson::getObjTypeStr(objType), objSize);\n}\n\nvoid loop() {\n}\n\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nThree basic methods are provided to access elements of a JSON string:\n\ngetString()\ngetDouble()\ngetLong()\n\ngetString() can be used on any kind of element - the parser simply isolates the string in the JSON and returns it.\n\nThe method setJsonStr() can be used to set a member variable to avoid passing in the base string repeatedly.  Each method is available in static form and, whether or not the static form is used, the JSON is re-parsed for each call to getString, getDouble or getLong. This may be inefficient in some cases but often memory is a more valuable resource than processor cycles.\n\nA very much simplified form of XPATH is available to access members:\n[] can be used to isolate an element of an array\n/ can be used to specify sub-objects\n\n## LICENSE\nBased on JSMN https://github.com/zserge/jsmn\nModified from https://github.com/pkourany/JSMNSpark\nPortions Copyright 2017 Rob Dobson\nLicensed under the MIT license\n"
+}

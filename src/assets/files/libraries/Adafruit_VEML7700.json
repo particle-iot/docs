@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_VEML7700",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_VEML7700/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_VEML7700",
+    "version": "0.0.3",
+    "installs": 3253,
+    "license": "BSD",
+    "author": "Adafruit, nrobinson2000",
+    "sentence": "An Implementation of Adafruit's VEML7700 Library for the Particle Core, Photon, Electron, Argon, Boron, Xenon and RedBear Duo",
+    "url": "https://github.com/nrobinson2000/Adafruit_VEML7700",
+    "repository": "https://github.com/nrobinson2000/Adafruit_VEML7700.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "veml7700_test": true
+          },
+          "electron": {
+            "veml7700_test": true
+          },
+          "argon": {
+            "veml7700_test": true
+          },
+          "boron": {
+            "veml7700_test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit_VEML7700 \n================\n\nThis is the Adafruit VEML7700 Lux sensor library\n\nTested and works great with the [Adafruit VEML7700 Breakout Board](http://www.adafruit.com/)\n\nPorted to Particle by [nrobinson2000](https://nrobinson.me)\n\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Kevin Townsend/Limor Fried for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution"
+}

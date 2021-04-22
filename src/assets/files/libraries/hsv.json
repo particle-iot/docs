@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "hsv",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/hsv/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "hsv",
+    "version": "1.0.3",
+    "installs": 1874,
+    "license": "MIT",
+    "author": "Julien Vanier <jvanier@gmail.com>",
+    "sentence": "Convert color values between RGB and HSV",
+    "url": "https://github.com/monkbroc/particle-hsv",
+    "repository": "https://github.com/monkbroc/particle-hsv.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "rainbow": true
+          },
+          "electron": {
+            "rainbow": true
+          },
+          "argon": {
+            "rainbow": true
+          },
+          "boron": {
+            "rainbow": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# hsv\n\nA Particle library to convert color values between red green blue (RGB) and hue saturation value (HSV).\n\n## Usage\n\nAdd the hsv library to your project and follow this simple example:\n\n```\n#include \"hsv.h\"\n\nHsvColor hsv(hue, 255, 255);\nRgbColor rgb = HsvToRgb(hsv);\n```\n\nFlash a full example that animates the RGB LED in a rainbow pattern.\n```\nparticle flash <my_device> examples/rainbow\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\n### `RgbColor`\n\nStructure with red, green, blue colors.\n\n```\n// Create black\nRgbColor rgb;\n// Create with color\nRgbColor rgb(255, 255, 0);\n// Extract colors\nRGB.color(rgb.r, rgb.g, rgb.b);\n```\n\n### `HsvColor`\n\nStructure with hue, saturation, value colors.\n\n```\n// Create black\nHsvColor hsv;\n// Create with color\nHsvColor hsv(255, 255, 0);\n// Extract colors\nunsigned char hue = hsv.h;\nunsigned char saturation = hsv.s;\nunsigned char value = hsv.v;\n```\n\n### `HsvToRgb`, `RgbToHsv`\n\nConvert between the 2 color types.\n\n```\nHsvColor hsv = RgbToHsv(rgb);\nRgbColor rgb = HsvToRgb(hsv);\n```\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/rainbow` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add hsv_myname` to add the library to a project on your machine or add the hsv_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2016 Julien Vanier <jvanier@gmail.com>\n\nLicensed under the MIT license\n"
+}

@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "PID-AutoTune",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PID-AutoTune/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "PID-AutoTune",
+    "version": "0.0.3",
+    "installs": 5689,
+    "license": "GPLv3",
+    "author": "Brett Beauregard <br3ttb@gmail.com> brettbeauregard.com",
+    "sentence": "PID AutoTune library for Particle",
+    "url": "https://github.com/hl68fx/pid_autotune",
+    "repository": "https://github.com/hl68fx/pid_autotune.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "AutoTune": false
+          },
+          "electron": {
+            "AutoTune": false
+          },
+          "argon": {
+            "AutoTune": false
+          },
+          "boron": {
+            "AutoTune": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Credits go to:\nBrett Beauregard for creating the Arduino library\nScruffR from the Particle community for providing help\n\n// ************************************************\n// This library relies on the PID library\n// You must not forget to include it on your own!\n// ************************************************"
+}

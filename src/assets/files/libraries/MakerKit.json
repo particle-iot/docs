@@ -1,0 +1,54 @@
+{
+  "type": "libraries",
+  "id": "MakerKit",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MakerKit/archive/1.2.0.tar.gz"
+  },
+  "attributes": {
+    "name": "MakerKit",
+    "version": "1.2.0",
+    "installs": 7143,
+    "license": "BSD",
+    "author": "Owen Smithyman",
+    "sentence": "A library with examples for each Particle Maker Kit tutorial.",
+    "url": "https://github.com/spark/makerkit",
+    "repository": "https://github.com/spark/makerkit.git",
+    "architectures": [],
+    "visibility": "public",
+    "official": true,
+    "mine": false
+  },
+  "versions": {
+    "1.2.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "electron": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "argon": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "boron": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "_This library contains example projects for the Particle Maker Kit. In addition to showing how to use the components included in the Maker Kit, these examples also demonstrate how to interact with them via the Internet._\n\n## Examples\n\n1. __Servo Gong__ - Use the Do Button app to make the servo ring a gong from your smartphone.\n2. __NextBus Alert__ - Receive alerts on the OLED screen when your bus is close by.\n3. __Sitting Monitor__ - Use the PIR sensor to record your sitting habits into a Google spreadsheet.\n4. __Remote Outlet__ - Use the relay to control electricity to a light or appliance remotely.\n"
+}

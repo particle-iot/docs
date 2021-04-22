@@ -161,7 +161,7 @@ async function testBuilds() {
                 }
             }
         }
-        if (examples) {
+        if (examples.length > 0) {
             const buildsDir = path.join(libVerDir, 'builds');
             if (!fs.existsSync(buildsDir)) {
                 fs.mkdirSync(buildsDir);
@@ -221,6 +221,104 @@ async function testBuilds() {
     }
 }
 
+async function generate() {
+    const librariesDir = path.join(__dirname, '../../src/assets/files/libraries');
+    if (!fs.existsSync(librariesDir)) {
+        fs.mkdirSync(librariesDir);
+    }
+
+    for (const lib of libraryList) {
+        const libInfoPath = path.join(librariesDir, lib.id + '.json');
+
+        // Stuff from the library information API
+        let libInfo = {};
+        libInfo = Object.assign(libInfo, lib);
+
+        // Build history
+        if (libraryData[lib.id]) {
+            libInfo = Object.assign(libInfo, libraryData[lib.id]);
+        }
+
+        // Readme
+        const libDir = path.join(dataLibrariesDir, lib.id);
+        if (fs.existsSync(libDir)) {
+            const libVerDir = path.join(libDir, lib.attributes.version);
+            if (fs.existsSync(libVerDir)) {
+                ['README.md', 'README.txt', 'README'].some(function(name) {
+                    const readmePath = path.join(libVerDir, name);
+                    if (fs.existsSync(readmePath)) {
+                        libInfo.readme = fs.readFileSync(readmePath, 'utf8');
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                });
+            }
+        }
+    
+        // TODO: Version history
+
+
+        let libInfoOld = '';
+        if (fs.existsSync(libInfoPath)) {
+            libInfoOld = fs.readFileSync(libInfoPath, 'utf8');
+        }
+        const libInfoNew = JSON.stringify(libInfo, null, 2);
+        if (libInfoOld != libInfoNew) {
+            fs.writeFileSync(libInfoPath, libInfoNew);
+        }
+
+    }
+
+    // Generate top-level
+}
+
+/*
+    const cardsDir = path.join(__dirname, '../../src/content/cards');
+    if (!fs.existsSync(cardsDir)) {
+        fs.mkdirSync(cardsDir);
+    }
+    const librariesDir = path.join(cardsDir, 'libraries');
+    if (!fs.existsSync(librariesDir)) {
+        fs.mkdirSync(librariesDir);
+    }
+
+    for (const lib of libraryList) {
+        const letter = lib.id.substr(0, 1).toLowerCase();
+        const letterDir = path.join(librariesDir, letter);
+        if (!fs.existsSync(letterDir)) {
+            fs.mkdirSync(letterDir);
+        }
+
+        if (lib.official) {
+            kindStr = 'official library';
+        }
+        else if (lib.verified) {
+            kindStr = 'verified community library';
+        }
+        else {
+            kindStr = 'community library';
+        }
+
+        let md = '';
+
+        md += '---\n';
+        md += 'title: ' + lib.name + '\n';
+        md += 'layout: cards.hbs\n';
+        md += 'columns: two\n';
+        // md += 'order: 15\n';
+        md += 'description: ' + lib.name + ' (' + kindStr + ')\n';
+        md += 'includeDefinitions: [api-helper, api-helper-extras, api-helper-library]\n';
+        md += '---\n\n';
+
+        md += '# ' + lib.id + ' (' + kindStr + ')\n\n';
+
+        fs.writeFileSync(path.join(letterDir, lib.id + '.md'), md);
+
+    }
+*/
+
 function saveLibraryData() {
     const newStr = JSON.stringify(libraryData, null, 2);
     if (newStr != libraryDataStr) {
@@ -245,6 +343,10 @@ async function run() {
 
     if (argv.testBuilds) {
         await testBuilds();
+    }
+
+    if (argv.generate) {
+        await generate();
     }
 
     saveLibraryData();

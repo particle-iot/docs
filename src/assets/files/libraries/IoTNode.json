@@ -1,0 +1,39 @@
+{
+  "type": "libraries",
+  "id": "IoTNode",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/IoTNode/archive/0.0.9.tar.gz"
+  },
+  "attributes": {
+    "name": "IoTNode",
+    "version": "0.0.9",
+    "installs": 2905,
+    "license": "MIT",
+    "author": "Robert Mawrey <robert@sentientthings.com>",
+    "maintainer": "Robert Mawrey <robert@sentientthings.com>",
+    "sentence": "Sentient Things IoT Node library",
+    "architectures": [],
+    "dependencies": {
+      "adafruit-mcp23017": "1.0.2",
+      "mcp7941x": "0.0.4",
+      "fram-i2-c": "0.1.3",
+      "sd-fat": "1.0.16"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.9": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# IoTNode\r\nLibrary for the Sentient Things IoT Node\r\n\r\nSee here for documentation: https://sentientthings.github.io/IoTNode/index.html\r\n"
+}

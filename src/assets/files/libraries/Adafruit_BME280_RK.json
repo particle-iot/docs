@@ -1,0 +1,52 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_BME280_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_BME280_RK/archive/1.0.9.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_BME280_RK",
+    "version": "1.0.9",
+    "installs": 7154,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for BME280 sensors.",
+    "paragraph": "Arduino library for BME280 humidity and pressure sensors. Port of 1.0.5 version by rickkas7.",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_BME280_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.9": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "i2c_Wire1": false,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "electron": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "argon": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          },
+          "boron": {
+            "i2c_Wire1": true,
+            "i2c_bme280": true,
+            "spi_bme280": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Port of Adafruit BME Library\n\n## Version History\n\n### 1.0.9\n\n- Added support for other Wire interface (like Wire1 or Wire3) by passing it to the constructor.\n\n---\n\nThis is a library for the Adafruit BME280 Humidity, Barometric Pressure + Temp sensor\n\nDesigned specifically to work with the Adafruit BME280 Breakout \n * http://www.adafruit.com/products/2652\n\nThese sensors use I2C or SPI to communicate, up to 4 pins are required to interface\n\nUse of this library also requires [Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor)\nto be installed on your local system.\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams \n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nTo download. click the DOWNLOAD ZIP button, rename the uncompressed folder Adafruit_BME280. \nCheck that the Adafruit_BME280 folder contains Adafruit_BME280.cpp and Adafruit_BME280.h\n\nPlace the Adafruit_BME280 library folder your arduinosketchfolder/libraries/ folder. \nYou may need to create the libraries subfolder if its your first library. Restart the IDE.\n\nWe also have a great tutorial on Arduino library installation at:\nhttp://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use\n<!-- START COMPATIBILITY TABLE -->\n\n## Compatibility\n\nMCU                | Tested Works | Doesn't Work | Not Tested  | Notes\n------------------ | :----------: | :----------: | :---------: | -----\nAtmega328 @ 16MHz  |      X       |             |            | \nAtmega328 @ 12MHz  |      X       |             |            | \nAtmega32u4 @ 16MHz |      X       |             |            | Use SDA/SCL on pins D2 &amp; D3\nAtmega32u4 @ 8MHz  |      X       |             |            | Use SDA/SCL on pins D2 &amp; D3\nESP8266            |      X       |             |            | SDA/SCL default to pins 4 &amp; 5 but any two pins can be assigned as SDA/SCL using Wire.begin(SDA,SCL)\nAtmega2560 @ 16MHz |      X       |             |            | Use SDA/SCL on pins 20 &amp; 21\nATSAM3X8E          |      X       |             |            | Use SDA/SCL on pins 20 &amp; 21\nATSAM21D           |      X       |             |            | \nATtiny85 @ 16MHz   |             |      X       |            | \nATtiny85 @ 8MHz    |             |      X       |            | \nIntel Curie @ 32MHz |             |             |     X       | \nSTM32F2            |             |             |     X       | \n\n  * ATmega328 @ 16MHz : Arduino UNO, Adafruit Pro Trinket 5V, Adafruit Metro 328, Adafruit Metro Mini\n  * ATmega328 @ 12MHz : Adafruit Pro Trinket 3V\n  * ATmega32u4 @ 16MHz : Arduino Leonardo, Arduino Micro, Arduino Yun, Teensy 2.0\n  * ATmega32u4 @ 8MHz : Adafruit Flora, Bluefruit Micro\n  * ESP8266 : Adafruit Huzzah\n  * ATmega2560 @ 16MHz : Arduino Mega\n  * ATSAM3X8E : Arduino Due\n  * ATSAM21D : Arduino Zero, M0 Pro\n  * ATtiny85 @ 16MHz : Adafruit Trinket 5V\n  * ATtiny85 @ 8MHz : Adafruit Gemma, Arduino Gemma, Adafruit Trinket 3V\n\n<!-- END COMPATIBILITY TABLE -->\n"
+}

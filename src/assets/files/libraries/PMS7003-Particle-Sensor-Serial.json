@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "PMS7003-Particle-Sensor-Serial",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PMS7003-Particle-Sensor-Serial/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "PMS7003-Particle-Sensor-Serial",
+    "version": "1.0.3",
+    "installs": 2799,
+    "license": "MIT",
+    "author": "Jidesh Veeramachaneni",
+    "sentence": "Read and control the Plantower PMS7003 Module.",
+    "paragraph": "Template class so you can easily use any Serial interface on the Electron.",
+    "url": "https://github.com/jideshv/PMS7003-Particle-Sensor-Serial",
+    "repository": "https://github.com/jideshv/PMS7003-Particle-Sensor-Serial.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# PMS7003Serial\n\nA header only library that reads and controls the Plantower PMS7002 module. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file [PMS7003-Particle-Sensor-Serial.h](src/PMS7003-Particle-Sensor-Serial.h) to your project.\n\n## Usage\n\nSee the [example](examples/usage/usage.ino) for a complete example.\n\n## LICENSE\n\nCopyright 2019 Jidesh Veeramachaneni  \nDistributed under the MIT License\n"
+}

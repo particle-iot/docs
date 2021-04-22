@@ -1,0 +1,55 @@
+{
+  "type": "libraries",
+  "id": "New_Ping",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/New_Ping/archive/1.8.1.tar.gz"
+  },
+  "attributes": {
+    "name": "New_Ping",
+    "version": "1.8.1",
+    "installs": 3695,
+    "author": "Tim Eckel",
+    "maintainer": "eliteio",
+    "sentence": "A library that makes working with ultrasonic sensors easy.",
+    "paragraph": "When I first received an ultrasonic sensor I was not happy with how poorly it performed. I soon realized the problem was not the sensor, it was the available ping and ultrasonic libraries causing the problem. The NewPing library totally fixes these problems, adds many new features, and breathes new life into these very affordable distance sensors.",
+    "category": "Sensors",
+    "url": "https://github.com/eliteio/Arduino_New_Ping",
+    "repository": "https://github.com/eliteio/Arduino_New_Ping.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.8.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "NewPing15Sensors": true,
+            "NewPingEventTimer": true,
+            "NewPingExample": true,
+            "TimerExample": true
+          },
+          "electron": {
+            "NewPing15Sensors": true,
+            "NewPingEventTimer": true,
+            "NewPingExample": true,
+            "TimerExample": true
+          },
+          "argon": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "boron": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# New_Ping\n\nA Particle library for New_Ping\n\n## Welcome to your library!\n\nTo get started, modify the sources in [src](src). Rename the example folder inside [examples](examples) to a more meaningful name and add additional examples in separate folders.\n\nTo compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nLibraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.\n\nAfter the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.\n\n_TODO: update this README_\n\n## Usage\n\nConnect XYZ hardware, add the New_Ping library to your project and follow this simple example:\n\n```\n#include \"New_Ping.h\"\nNew_Ping new_Ping;\n\nvoid setup() {\n  new_Ping.begin();\n}\n\nvoid loop() {\n  new_Ping.process();\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nTODO: Describe `New_Ping`\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add New_Ping_myname` to add the library to a project on your machine or add the New_Ping_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2017 Tim Eckel\n"
+}

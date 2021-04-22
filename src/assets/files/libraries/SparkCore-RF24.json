@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "SparkCore-RF24",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkCore-RF24/archive/0.0.20.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkCore-RF24",
+    "version": "0.0.20",
+    "installs": 768,
+    "license": "MIT",
+    "author": "technobly",
+    "sentence": "An Implementation of ManiacBug's RF24 Library for the Spark Core",
+    "url": "https://github.com/mshoemaker/sparkcore-rf24",
+    "repository": "https://github.com/mshoemaker/sparkcore-rf24.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.20": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Spark_GettingStartedRF24": true
+          },
+          "electron": {
+            "Spark_GettingStartedRF24": true
+          },
+          "argon": {
+            "Spark_GettingStartedRF24": true
+          },
+          "boron": {
+            "Spark_GettingStartedRF24": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkCore-RF24\n==============\n\nAn Implementation of [ManiacBug's RF24 Library](https://github.com/maniacbug/RF24) for the Spark Core\n\nGrab the RAW version of each file and place into your web IDE as follows:\n![image](http://i.imgur.com/cYS7ZEK.png)\n\nIf you are building locally, place the files here:\n\n```\n..\\core-firmware\\inc\\RF24.h\n..\\core-firmware\\inc\\nRF24L01.h\n..\\core-firmware\\src\\application.cpp (renamed from Spark_GettingStartedRF24.cpp)\n..\\core-firmware\\src\\RF24.cpp\n..\\core-firmware\\src\\build.mk (optional, if you have your own make file going, just add the RF24.cpp to it)\n```\n"
+}

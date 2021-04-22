@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_VL53L0X",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_VL53L0X/archive/0.0.5.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_VL53L0X",
+    "version": "0.0.5",
+    "installs": 10229,
+    "license": "LICENSE.pdf",
+    "author": "Arduino - Adafruit <support@adafruit.com>",
+    "sentence": "Sensor driver for VL53L0X Time of Flight sensor",
+    "url": "https://github.com/ScruffR/Adafruit_VL53L0X",
+    "repository": "https://github.com/ScruffR/Adafruit_VL53L0X.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "vl53l0x": true
+          },
+          "electron": {
+            "vl53l0x": true
+          },
+          "argon": {
+            "vl53l0x": true
+          },
+          "boron": {
+            "vl53l0x": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "##VL53L0X Time-of-Flight (TOF) ranging and gesture detection sensor application programming interface (API)##\r\n\r\n#Description#\r\n\r\nThe VL53L0X API is a set of C functions controlling the VL53L0X (init, ranging,�) to enable the development of end-user applications. This API is structured in a way it can be compiled on any kind of platform through a well isolated platform layer (mainly for low level I2C access). Several code examples are provided to show how to use the API and perform ranging measurements. \r\nThe VL53L0X is the latest product based on ST�s patented FlightSense� technology. This is a ground-breaking technology allowing absolute distance to be measured independent of target reflectance. Instead of estimating the distance by measuring the amount of light reflected back from the object (which is significantly influenced by color and surface), the VL53L0X precisely measures the time the light takes to travel to the nearest object and reflect back to the sensor (Time-of-Flight).\r\n\r\n"
+}

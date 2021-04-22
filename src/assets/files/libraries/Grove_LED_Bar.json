@@ -1,0 +1,82 @@
+{
+  "type": "libraries",
+  "id": "Grove_LED_Bar",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Grove_LED_Bar/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Grove_LED_Bar",
+    "version": "1.0.1",
+    "installs": 1317,
+    "license": "The LGPL License V2.1.",
+    "author": "SeeeedStudio--lg",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "electron": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "argon": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "boron": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Grove LED Bar\n-------------------------------------------------------------\n![image](Grove_LED_Bar.gif)\n\n\nGrove LED Bar is comprised of a 10 segment LED gauge bar and an MY9221 LED driver.\nIt can be used as a indicator for remaining battery life, voltage, water level, music volume or other values that require a gradient display.\nThere are 10 discrete LED bars in the LED bar graph: one red, one yellow, one light green, and the rest green.\n\n\nFor more information, please refer to the wiki: [Grove_LED_Bar][1] and [LED_Bar][2]\n\nSKU: [LED05031P][3]\n\n\n----\n\nThis software is written by Frankie Chu for seeed studio<br>\nand is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt for more information.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacture power and convenient global logistic system, <br>\nwe integrate resources to serve new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push open hardware movement.<br>\n\n\n[1]:http://www.seeedstudio.com/wiki/Grove_-_LED_Bar\n\n[2]:http://www.seeedstudio.com/wiki/LED_Bar\n\n[3]:http://www.seeedstudio.com/depot/Grove-LED-Bar-p-1178.html\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_LED_Bar)](https://github.com/igrigorik/ga-beacon)\n"
+}

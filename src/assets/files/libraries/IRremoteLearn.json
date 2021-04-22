@@ -1,0 +1,49 @@
+{
+  "type": "libraries",
+  "id": "IRremoteLearn",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/IRremoteLearn/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "IRremoteLearn",
+    "version": "0.0.1",
+    "installs": 2581,
+    "license": "GPL",
+    "author": "Brett Walach <technobly@gmail.com>",
+    "sentence": "IR Remote Control for Learner IR receivers",
+    "paragraph": "IR Remote Control for Learner IR receivers",
+    "repository": "https://github.com/technobly/IRremoteLearn.git",
+    "architectures": [
+      "particle-photon",
+      " particle-electron",
+      " particle-p1"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "electron": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "argon": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "boron": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# IRremoteLearn\nIR Remote Control for Learner IR receivers with Particle devices\n\nModified from IRremote for Particle Photon/P1/Electron:\nhttps://github.com/babean/IRRemote\n\nWhich was modified from PJRC IRremote for teensy:\nhttps://www.pjrc.com/teensy/arduino_libraries/IRremote.zip\n"
+}

@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "TM1637Display",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TM1637Display/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "TM1637Display",
+    "version": "0.0.1",
+    "installs": 19289,
+    "license": "GNU",
+    "author": "Orlando Aguirre <oraguirre@gmail.com>",
+    "sentence": "A library for TM1637 (LED Driver)",
+    "url": "https://github.com/oraguirre/tm1637",
+    "repository": "https://github.com/oraguirre/tm1637.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "TM1637\n======\nArduino / Spark Core library for TM1637 (LED Driver)\n\nDescription\n-----------\nThis is an upgraded version from an arduino library to work as well with the spark core from Particle.\n\nAn Arduino library for 7-segment display modules based on the TM1637 chip, such as Seeed Studio's [Grove 4 digit display](http://www.seeedstudio.com/depot/grove-4digit-display-p-1198.html). The TM1637 chip also has keyboard input capability, but it's not implemented in this library.\n\nHardware Connection\n-------------------\nThe display modules has two signal connection (and two power connections) which are CLK and DIO. These pins can be connected to any pair of digital pins on the Arduino. When an object is created, the pins should be configured. There is no limitaion on the number of instances used concurrently (as long as each instance has a pin pair of its own)\n\nInstallation\n------------\nThe library is installed as any Arduino library, by copying the files into a directory on the library search path of the Arduino IDE.\n\nFor Spark core just contribute in library this repository or include in app.\n\nUsage\n-----\nThe library provides a single class named TM1637Display. An instance of this class provides the following functions:\n\n* `setSegments` - Sets the raw value of the segments of each digit\n* `showNumberDec` - Displays a decimal number\n* `setBrightness` - Sets the brightness of the display\n\nThe information given above is only a summary. Please refer to TM1637Display.h for more information. An example is included, demonstarting the operation of most of the functions.\n\n"
+}

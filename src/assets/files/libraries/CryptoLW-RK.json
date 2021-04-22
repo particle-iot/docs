@@ -1,0 +1,52 @@
+{
+  "type": "libraries",
+  "id": "CryptoLW-RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CryptoLW-RK/archive/0.2.0.tar.gz"
+  },
+  "attributes": {
+    "name": "CryptoLW-RK",
+    "version": "0.2.0",
+    "installs": 5538,
+    "author": "Rhys Weatherley <rhys.weatherley@gmail.com>",
+    "maintainer": "Ported to Particle by rickkas7 (https://github.com/rickkas7/CryptoLW-RK)",
+    "sentence": "Light-weight algorithms for the Arduino Cryptography Library",
+    "paragraph": "This library provides implementations of various \"light-weight\" cryptography algorithms, designed for resource-constrained environments.",
+    "category": "Communication",
+    "url": "https://github.com/rweather/arduinolibs",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.2.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "electron": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "argon": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          },
+          "boron": {
+            "1-TestAcorn": true,
+            "2-TestAscon": true,
+            "3-TestSpeck": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# CryptoLW-RK\n\n*Port of the lightweight rweather Arduino Cryptography Library (CryptoLW) for Particle*\n\n- [Original library Github](https://github.com/rweather/arduinolibs)\n- [Documentation](http://rweather.github.io/arduinolibs/crypto.html)\n\n## Tests\n\n### 1-TestAcorn\n\nTested on a Photon running Device OS 1.0.0:\n\n```\nState Size ... 64\n\nTest Vectors:\nAcorn128 #1 ... Passed\nAcorn128 #2 ... Passed\nAcorn128 #3 ... Passed\nAcorn128 #4 ... Passed\nAcorn128 #5 ... Passed\n\nPerformance Tests:\nAcorn128 #4 SetKey ... 94.36us per operation, 10597.37 per second\nAcorn128 #4 Encrypt ... 0.38us per byte, 2638304.89 bytes per second\nAcorn128 #4 Decrypt ... 0.40us per byte, 2480331.74 bytes per second\nAcorn128 #4 AddAuthData ... 0.43us per byte, 2348968.66 bytes per second\nAcorn128 #4 ComputeTag ... 68.21us per operation, 14661.25 per second\n```\n\n### 2-TestAscon\n\nTested on a Photon running Device OS 1.0.0:\n\n```\nState Size ... 72\n\nTest Vectors:\nAscon128 #1 ... Passed\nAscon128 #2 ... Passed\nAscon128 #3 ... Passed\nAscon128 #4 ... Passed\nAscon128 #5 ... Passed\n\nPerformance Tests:\nAscon128 #4 SetKey ... 33.40us per operation, 29940.12 per second\nAscon128 #4 Encrypt ... 2.22us per byte, 450450.45 bytes per second\nAscon128 #4 Decrypt ... 2.21us per byte, 453219.27 bytes per second\nAscon128 #4 AddAuthData ... 2.15us per byte, 465403.77 bytes per second\nAscon128 #4 ComputeTag ... 34.54us per operation, 28951.10 per second\n```\n\n\n\n### 3-TestSpeck\n\nTested on a Photon running Device OS 1.0.0:\n\n```\nState Sizes:\nSpeck ... 288\nSpeckSmall ... 80\nSpeckTiny ... 48\n\nSpeck Test Vectors:\nSpeck-128-ECB Encryption ... Passed\nSpeck-128-ECB Decryption ... Passed\nSpeck-192-ECB Encryption ... Passed\nSpeck-192-ECB Decryption ... Passed\nSpeck-256-ECB Encryption ... Passed\nSpeck-256-ECB Decryption ... Passed\n\nSpeckSmall Test Vectors:\nSpeck-128-ECB Encryption ... Passed\nSpeck-128-ECB Decryption ... Passed\nSpeck-192-ECB Encryption ... Passed\nSpeck-192-ECB Decryption ... Passed\nSpeck-256-ECB Encryption ... Passed\nSpeck-256-ECB Decryption ... Passed\n\nSpeckTiny Test Vectors:\nSpeck-128-ECB Encryption ... Passed\nSpeck-192-ECB Encryption ... Passed\nSpeck-256-ECB Encryption ... Passed\n\nSpeck Performance Tests:\nSpeck-128-ECB Set Key ... 16.98us per operation, 58890.73 per second\nSpeck-128-ECB Encrypt ... 0.48us per byte, 2090738.03 bytes per second\nSpeck-128-ECB Decrypt ... 0.44us per byte, 2275507.01 bytes per second\n\nSpeck-192-ECB Set Key ... 17.45us per operation, 57305.28 per second\nSpeck-192-ECB Encrypt ... 0.49us per byte, 2033967.25 bytes per second\nSpeck-192-ECB Decrypt ... 0.45us per byte, 2213552.48 bytes per second\n\nSpeck-256-ECB Set Key ... 18.04us per operation, 55433.29 per second\nSpeck-256-ECB Encrypt ... 0.50us per byte, 1981915.03 bytes per second\nSpeck-256-ECB Decrypt ... 0.46us per byte, 2155578.91 bytes per second\n\nSpeckSmall Performance Tests:\nSpeck-128-ECB Set Key ... 14.11us per operation, 70878.25 per second\nSpeck-128-ECB Encrypt ... 1.88us per byte, 532527.44 bytes per second\nSpeck-128-ECB Decrypt ... 0.99us per byte, 1009909.74 bytes per second\n\nSpeck-192-ECB Set Key ... 15.11us per operation, 66182.21 per second\nSpeck-192-ECB Encrypt ... 1.97us per byte, 507939.73 bytes per second\nSpeck-192-ECB Decrypt ... 1.03us per byte, 973176.81 bytes per second\n\nSpeck-256-ECB Set Key ... 16.09us per operation, 62140.36 per second\nSpeck-256-ECB Encrypt ... 2.05us per byte, 487742.42 bytes per second\nSpeck-256-ECB Decrypt ... 1.07us per byte, 938526.51 bytes per second\n\nSpeckTiny Performance Tests:\nSpeck-128-ECB Set Key ... 0.51us per operation, 1979414.09 per second\nSpeck-128-ECB Encrypt ... 1.88us per byte, 532435.29 bytes per second\n\nSpeck-192-ECB Set Key ... 0.61us per operation, 1650437.37 per second\nSpeck-192-ECB Encrypt ... 1.96us per byte, 509071.01 bytes per second\n\nSpeck-256-ECB Set Key ... 0.74us per operation, 1348072.26 per second\nSpeck-256-ECB Encrypt ... 2.05us per byte, 487709.72 bytes per second\n```\n\nThe flash usage is quite reasonable for the Speck example:\n\n```\nMemory use: \n   text\t   data\t    bss\t    dec\t    hex\tfilename\n  11068\t    108\t   1820\t  12996\t   32c4\t/workspace/target/workspace.elf\n```\n\n----\n\n## Original Read Me\n\nArduino Cryptography Library\n============================\n\nThis distribution contains a libraries and example applications to perform\ncryptography operations on Arduino devices.  They are distributed under the\nterms of the MIT license.\n\nThe [documentation](http://rweather.github.com/arduinolibs/crypto.html)\ncontains more information on the libraries and examples.\n\nThis repository used to contain a number of other examples and libraries\nfor other areas of Arduino functionality but most users are only interested\nin the cryptography code.  The other projects have been moved to a\nseparate [repository](https://github.com/rweather/arduino-projects) and\nonly the cryptography code remains in this repository.\n\nFor more information on these libraries, to report bugs, or to suggest\nimprovements, please contact the author Rhys Weatherley via\n[email](mailto:rhys.weatherley@gmail.com).\n\nRecent significant changes to the library\n-----------------------------------------\n\nApr 2018:\n\n* Acorn128 and Ascon128 authenticated ciphers (finalists in the CAESAR AEAD\n  competition in the light-weight category).\n* Split the library into Crypto (core), CryptoLW (light-weight), and\n  CryptoLegacy (deprecated algorithms).\n* Tiny and small versions of AES for reducing memory requirements.\n* Port the library to ESP8266 and ESP32.\n* Make the RNG class more robust if the app doesn't call begin() or loop().\n\nNov 2017:\n\n* Fix the AVR assembly version of Speck and speed it up a little.\n* API improvements to the RNG class.\n\n\n----\n\n## Original License\n\n```\n/*\n * Copyright (C) 2012 Southern Storm Software, Pty Ltd.\n *\n * Permission is hereby granted, free of charge, to any person obtaining a\n * copy of this software and associated documentation files (the \"Software\"),\n * to deal in the Software without restriction, including without limitation\n * the rights to use, copy, modify, merge, publish, distribute, sublicense,\n * and/or sell copies of the Software, and to permit persons to whom the\n * Software is furnished to do so, subject to the following conditions:\n *\n * The above copyright notice and this permission notice shall be included\n * in all copies or substantial portions of the Software.\n *\n * THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n * DEALINGS IN THE SOFTWARE.\n */\n ```\n"
+}

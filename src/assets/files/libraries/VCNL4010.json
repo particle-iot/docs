@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "VCNL4010",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/VCNL4010/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "VCNL4010",
+    "version": "0.0.1",
+    "installs": 2717,
+    "license": "BSD",
+    "author": "Ladyada <contact@adafruit.com>",
+    "sentence": "Particle library for VCNL4010 all-in-one proximity/light sensor",
+    "url": "https://github.com/hl68fx/particlevcnl4010",
+    "repository": "https://github.com/hl68fx/particlevcnl4010.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "VCNL4010-tester": true
+          },
+          "electron": {
+            "VCNL4010-tester": true
+          },
+          "argon": {
+            "VCNL4010-tester": true
+          },
+          "boron": {
+            "VCNL4010-tester": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Credits go to:\nAdafruit for developing the breakout board and creating the Arduino library\nScruffR from the Particle community for providing help\nsuda from the Particle community for porting the VCNL4000 library"
+}

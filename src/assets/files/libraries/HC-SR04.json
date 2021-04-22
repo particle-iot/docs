@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "HC-SR04",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/HC-SR04/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "HC-SR04",
+    "version": "1.0.1",
+    "installs": 24215,
+    "license": "GPL3",
+    "author": "rnash",
+    "sentence": "Class to drive the HC-SR04 range finder.",
+    "repository": "https://github.com/rvnash/HC-SR04.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# HC-SR04\n\nClass to operate to the HC-SR04 range finder.\n\n## Usage\n\nInstantiate this class specifying which pins the Trig and Echo pins are\nconnected to. And call the function to range find the distance.\n\nPlease see the src/HC-SR04.h file as well as examples/usage/usage.ino for\nan example of how to use this library.\n\n## LICENSE\n\nSee LICENSE\n"
+}

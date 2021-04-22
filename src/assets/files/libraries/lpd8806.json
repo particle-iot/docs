@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "lpd8806",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/lpd8806/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "lpd8806",
+    "version": "1.0.0",
+    "installs": 1512,
+    "license": "Choose a license",
+    "author": "Adafruit <info@adafruit.com>",
+    "sentence": "Arduino library for LED strips and pixels using LPD8806 (and probably LPD8803/LPD8809)",
+    "url": "https://github.com/jeffglancy/lpd8806",
+    "repository": "https://github.com/jeffglancy/lpd8806.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# Arduino library for LPD8806 #\nThis Library was written for the LPD8806 PWM LED driver chips, strips and pixels.\nBut the LPD8803/LPD8809 will probably work too.\n\n## Where to Buy? ##\nPick some up at [Adafruit Industries](http://www.adafruit.com/products/306)\n\n## Forked from Adafruit Code: ##\nhttps://github.com/adafruit/LPD8806\n\n## Edited for Particle Proton & RedBear Duo ##\nThis file was modified by Jeff Glancy (https://github.com/jeffglancy)"
+}

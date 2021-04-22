@@ -1,0 +1,69 @@
+{
+  "type": "libraries",
+  "id": "BetterPhotonButton",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/BetterPhotonButton/archive/0.1.6.tar.gz"
+  },
+  "attributes": {
+    "name": "BetterPhotonButton",
+    "version": "0.1.6",
+    "installs": 1035,
+    "license": "Apache License, Version 2.0",
+    "author": "Kevin R. Smith <krsjunk@netscape.net>",
+    "sentence": "Classes to simplify use of Particle's InternetButton with Photon.",
+    "url": "https://github.com/krsmes/BetterPhotonButton",
+    "repository": "https://github.com/krsmes/BetterPhotonButton.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.1.6": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "AnimateAccel": true,
+            "Animations": true,
+            "Incrementor": true,
+            "PlaySongs": true,
+            "SerialTesting": true,
+            "SimpleRainbow": true,
+            "ToneTest": true,
+            "Whites": true
+          },
+          "electron": {
+            "AnimateAccel": true,
+            "Animations": true,
+            "Incrementor": true,
+            "PlaySongs": true,
+            "SerialTesting": true,
+            "SimpleRainbow": true,
+            "ToneTest": true,
+            "Whites": true
+          },
+          "argon": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "boron": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# BetterPhotonButton\n\n_Replacement for Particle's InternetButton library specific to the Photon_\n\n### Why\n\nAfter reading through the code to InternetButton from Particle I wanted to fix a few things.  \nInstead I ended up creating a replacement.\n\nBetterPhotonButton only works with the Photon (not the Core).  The LED driver class only works with WS2812 LEDs \n(the ones on the InternetButton).\n\n## Features\n\n* **There is no use of the delay() function in BetterPhotonButton.**  \n\n* Button presses and releases have debounce handling built in and can trigger a callback function.\n\n* The LED/Pixel classes support animations.  Write your own or use one of the 17 built in animations.\n\n* The animations support custom color palettes.\n\n* LEDs can be set with separate r, g, b values or with a combined value (like html colors).\n\n* The Accelerometer class supports a callback method which is called when the InternetButton starts\nor stops moving.  The class also provides angle, azimuth, pitch, and roll calculations.  It uses\na state machine when starting up to also avoid using delay().\n\nAll of the above is accomplished by an `update()` method on BetterPhotonButton.  \nJust add `update(millis())` to the `loop()` method and BetterPhotonButton classes take care of the rest.\n\n## Usage\n\nThe below is the example code from AnimateAccel, it simply rotates a gradient color palette so color 0\nstays at the top.\n\n```c\n#include \"BetterPhotonButton.h\"\n\nSYSTEM_THREAD(ENABLED);\n\nBetterPhotonButton bb = BetterPhotonButton();\nPhotonADXL362Accel *accel;\n\nvoid gradientTop(PixelAnimationData *data) {\n    float step = data->pixelCount - (accel->getAzimuth() / (360 / data->pixelCount));\n    for (int idx = 0; idx < data->pixelCount; idx++) {\n        data->pixels[idx] = data->paletteColor(((step + idx) * data->paletteCount()) / data->pixelCount);\n    }\n}\n\nvoid setup() {\n    bb.setup();\n    accel = bb.startAccelerometer(1000/60);  // start accelerometer with a update rate of 60x per second\n    bb.startPixelAnimation(&gradientTop, &paletteRainbow);\n}\n\nvoid loop() {\n    bb.update(millis());\n}\n```\n\nThe key to this code being `bb.setup()` and `bb.update(...)`. Every BetterPhotonButton needs to call \nthese two for the library to function properly.\n\n## Examples\n\n#### AnimateAccel\nSee above.\n\n#### Animations\nUse the buttons to cycle through a variety of sample animations.\n\n#### Incrementor\nUse the buttons to increment/decrement/reset which LED is lit up.\n\n#### PlaySongs\nCycle through 11 'tunes' using the buttons.  One tune per LED.\n\n#### SimpleRainbow\nThe simplest BetterPhotonButton example.  Simple gradiant across all the LEDs.  \n\n```c\n#include \"BetterPhotonButton.h\"\n\nBetterPhotonButton bb = BetterPhotonButton();\n\nvoid setup() {\n    bb.setup();\n    bb.rainbow(250); // cycle rainbow every 250ms (indefinitely)\n}\n\nvoid loop() {\n    bb.update(millis());\n}\n```\n\nThe `rainbow(...)` function exists as an carryover from Particle's InternetButton library.  All it \ndoes is call `startPixelAnimation(&animation_gradient, &paletteRainbow, cycle, duration);`\n\n#### ToneTest\nExample of playing notes while animating the LEDs\n\n## Notes\n\n* It is possible to use the `PhotonWS2812Pixel` and Animations classes directly to support any chain \nof WS8212 pixel LEDs.  Just use the `BetterPhotonButton` class as an example.  \n  * See `BetterPhotonButton::updateAnimation` and the global `pixelRing` specifically\n\n\n## License\nCopyright 2017 The Brynwood Team, LLC."
+}

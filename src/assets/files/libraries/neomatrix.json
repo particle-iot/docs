@@ -1,0 +1,33 @@
+{
+  "type": "libraries",
+  "id": "neomatrix",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/neomatrix/archive/0.3.0.tar.gz"
+  },
+  "attributes": {
+    "name": "neomatrix",
+    "version": "0.3.0",
+    "installs": 18947,
+    "license": "MIT,",
+    "author": "Drew Delianides <drew@delianides.com>",
+    "url": "http://github.com/delianides/Particle-NeoMatrix",
+    "repository": "http://github.com/delianides/Particle-NeoMatrix.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.3.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "SparkCore NeoPixel Matrix\n==========================\n\nThis is a port of Adafruit's NeoPixel Matrix [Library](https://github.com/adafruit/Adafruit_NeoMatrix) for the [Spark](http://spark.io). Porting this over was very easy thanks to the work done by [technobly](https://github.com/technobly) porting the NeoPixel [library](https://github.com/technobly/SparkCore-NeoPixel) over.\n\nInstallation\n-----------\n\n- You should be able to just add the library via the Web IDE and include \"neomatrix.h\" (It should add it for you)\n- You can compile locally using the Particle CLI tool.\n\n```bash\n$ particle compile photon neomatrix-project --saveTo firmware.bin\n$ particle flash --usb firmware.bin\n```\n\nRead the docs for more information with this method of updating the cores.\n\nResources/Prior Art\n--------\n\n- [Particle-NeoPixel](https://github.com/technobly/Particle-NeoPixel)\n- [Adafruit_TFT](https://github.com/lbarrosoneto/Adafruit_TFT)\n- [Adafruit NeoMatrix Uberguide](https://learn.adafruit.com/adafruit-neopixel-uberguide/neomatrix-library)\n\nContributions\n------------\n\nAll of them. I'll probably compile them first to make sure but I can't image there's\ntoo much to break.\n\nAgain, so much thanks to [technobly](https://github.com/technobly). Porting that\nlibrary over made this one pretty easy.\n\nLicense\n-------\n\nSee LICENSE\n"
+}

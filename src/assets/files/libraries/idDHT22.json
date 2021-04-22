@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "idDHT22",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/idDHT22/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "idDHT22",
+    "version": "0.0.4",
+    "installs": 7965,
+    "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
+    "author": "Paul Kourany <pkourany@gmail.com>",
+    "sentence": "NOTICE: This library has been deprecated! Please use the PIETTETCH_DHT libray instead",
+    "url": "https://github.com/pkourany/iddht22spark",
+    "repository": "https://github.com/pkourany/iddht22spark.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "```/***\n *     __          __     _____  _   _ _____ _   _  _____                                              \n *     \\ \\        / /\\   |  __ \\| \\ | |_   _| \\ | |/ ____|  _                                          \n *      \\ \\  /\\  / /  \\  | |__) |  \\| | | | |  \\| | |  __  (_)                                         \n *       \\ \\/  \\/ / /\\ \\ |  _  /| . ` | | | | . ` | | |_ |                                             \n *        \\  /\\  / ____ \\| | \\ \\| |\\  |_| |_| |\\  | |__| |  _                                          \n *      ___\\/  \\/_/_   \\_\\_|_ \\_\\_| \\_|_____|_| \\_|\\_____|_(_)____   _                                 \n *     |  __ \\ / __ \\  | \\ | |/ __ \\__   __| | |  | |/ ____|  ____| | |                                \n *     | |  | | |  | | |  \\| | |  | | | |    | |  | | (___ | |__    | |                                \n *     | |  | | |  | | | . ` | |  | | | |    | |  | |\\___ \\|  __|   | |                                \n *     | |__| | |__| | | |\\  | |__| | | |    | |__| |____) | |____  |_|                                \n *     |_____/ \\____/  |_| \\_|\\____/  |_|     \\____/|_____/|______| (_)      _       _           _     \n *     | |    (_) |                              | |                        (_)     | |         | |    \n *     | |     _| |__  _ __ __ _ _ __ _   _    __| | ___ _ __  _ __ ___  ___ _  __ _| |_ ___  __| |    \n *     | |    | | '_ \\| '__/ _` | '__| | | |  / _` |/ _ \\ '_ \\| '__/ _ \\/ __| |/ _` | __/ _ \\/ _` |    \n *     | |____| | |_) | | | (_| | |  | |_| | | (_| |  __/ |_) | | |  __/ (__| | (_| | ||  __/ (_| |    \n *     |______|_|_.__/|_|  \\__,_|_|   \\__, |  \\__,_|\\___| .__/|_|  \\___|\\___|_|\\__,_|\\__\\___|\\__,_|    \n *                                     __/ |            | |                                            \n *      _    _            _____ _     |___/_       _    |_|     _                _____  _    _ _______ \n *     | |  | |          |  __ (_)    | | | |     | |          | |              |  __ \\| |  | |__   __|\n *     | |  | |___  ___  | |__) |  ___| |_| |_ ___| |_ ___  ___| |__            | |  | | |__| |  | |   \n *     | |  | / __|/ _ \\ |  ___/ |/ _ \\ __| __/ _ \\ __/ _ \\/ __| '_ \\           | |  | |  __  |  | |   \n *     | |__| \\__ \\  __/ | |   | |  __/ |_| ||  __/ ||  __/ (__| | | |  ______  | |__| | |  | |  | |   \n *      \\____/|___/\\___| |_|   |_|\\___|\\__|\\__\\___|\\__\\___|\\___|_| |_| |______| |_____/|_|  |_|  |_|   \n *                                                                                            \n */\n```\n\n\nNOTICE\n======\n\nThis library has been replaced by an improved and stable version of idDHT22Spark\nand can be found here:\n\nhttps://github.com/piettetech/piettetech_dht\n\n\nidDHT22Spark\n------------\n\nInterrupt driven, non blocking DHT22 library for Spark\n\n"
+}

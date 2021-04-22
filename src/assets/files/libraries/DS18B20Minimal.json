@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "DS18B20Minimal",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DS18B20Minimal/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "DS18B20Minimal",
+    "version": "0.0.1",
+    "installs": 6836,
+    "license": "MIT",
+    "author": "Robert Mawrey <robert@sentientthings.com>",
+    "maintainer": "Robert Mawrey <robert@sentientthings.com>",
+    "sentence": "Sentient Things minimal DS18B20 library",
+    "paragraph": "Based on work by Rob Tillaart",
+    "category": "Other",
+    "architectures": [
+      "avr",
+      "spark-core",
+      "particle-photon",
+      "particle-p1",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "About\n===\n\nMinimal DS18B20 library based on work by Rob Tillaart.\n"
+}

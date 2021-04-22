@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "ADXL362DMA",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ADXL362DMA/archive/0.0.5.tar.gz"
+  },
+  "attributes": {
+    "name": "ADXL362DMA",
+    "version": "0.0.5",
+    "installs": 3578,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "ADXL362 accelerometer driver with SPI DMA support",
+    "url": "https://github.com/rickkas7/ADXL362DMA",
+    "repository": "https://github.com/rickkas7/ADXL362DMA.git",
+    "architectures": [
+      "particle-photon",
+      " particle-p1",
+      " particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1acceladxl362": true
+          },
+          "electron": {
+            "1acceladxl362": true
+          },
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ADXL362DMA\n*Library for ADXL362 accelerometer that uses SPI DMA for efficient transfers*\n\nThe ADXL362 is an inexpensive 3-DOF ultra-low power accelerometer. It can do movement detection from rest continuously at 270 nA (yes, nano-amps!) and also has a large FIFO that makes it possible to buffer samples while the processor is busy or even sleeping.\n\nData sheet:\nhttp://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf\n\n\n"
+}

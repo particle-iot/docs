@@ -1,0 +1,46 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_BLE",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_BLE/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_BLE",
+    "version": "0.0.3",
+    "installs": 10762,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "Particle port of Adafruit BlueFruitLE nRF51 Bluetooth LE library",
+    "paragraph": "Provides bluetooth support to the Photon, Electron, etc. using the Adafruit BluefruitLE module. Works with both serial and SPI versions.",
+    "url": "https://github.com/rickkas7/Adafruit_BLE",
+    "repository": "https://github.com/rickkas7/Adafruit_BLE.git",
+    "architectures": [
+      "particle-photon",
+      " particle-p1",
+      " particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "atcommand": false
+          },
+          "electron": {
+            "atcommand": false
+          },
+          "argon": {
+            "atcommand": false
+          },
+          "boron": {
+            "atcommand": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Port of the Adafruit BluefruitLE nRF51 library for Particle\n\nA sample program is in firmware/examples/atcommand.ino. It allows you to type serial commands directly to the Bluefruit from the USB serial device.\n\n## SPI\n\nThis code works with the [Adafruit Bluefruit LE SPI Friend] (https://www.adafruit.com/products/2633).\n\nFor your own code, you will need to include these files:\n\n```\n#include \"Adafruit_BLE/Adafruit_BLE.h\"\n#include \"Adafruit_BLE/Adafruit_BluefruitLE_SPI.h\"\n```\n\nYou’ll also need to create an object to interface with the Bluefruit and assign pins:\n\n```\nAdafruit_BluefruitLE_SPI ble(&SPI, BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);\n```\n\nSample connections as configured in the atcommand.ino sample file:\n\n* SCK - A3\n* MISO - A5\n* MOSI - A4\n* CS - A2 (can use any pin)\n* IRQ - D3 (can use any pin, does not use a hardware interrupt)\n* RST - D2 (can use any pin)\n* GND - GND\n* VIN - 3V3\n\nYou can use the SPI1 hardware SPI port if you prefer.\n\n## UART (Serial)\n\nThe software can also be used with the [Adafruit Bluefruit LE UART Friend] (https://www.adafruit.com/products/2479). \n\n```\n#include \"Adafruit_BLE/Adafruit_BLE.h\"\n#include \"Adafruit_BLE/Adafruit_BluefruitLE_UART.h\"\n```\n\n```\t\n// Optional, set to -1 her and leave MODE unconnected if not using\n#define BLUEFRUIT_UART_MODE_PIN\t \t   -1 \n\nAdafruit_BluefruitLE_UART ble(&Serial1, BLUEFRUIT_UART_MODE_PIN);\n```\n\nConnections:\n\n* MOD - Optional for changing between modes (see note below)\n* CTS - Must connect to GND!\n* TXD - Connect to Photon/Electron RX pin\n* RXI - Connect to Photon/Electron TX pin\n* VIN - Connect to 3V3\n* RTS - No connection\n* GND - Connect to GND\n* DFU - No connection\n\nThe Adafruit board has a switch that choose between CMD and UART mode. You can also control this through software by connecting the MOD pin to a output. Specify the pin wit `BLUEFRUIT_UART_MODE_PIN`.\n\nOn the Particle Electron, you can also use Serial4 (TX=C3, RX=C2) or Serial5 (TX=C1, RX=C0).\n\n\n## Other resources\n\nAdafruit Project: \n[https://learn.adafruit.com/introducing-the-adafruit-bluefruit-spi-breakout/introduction] (https://learn.adafruit.com/introducing-the-adafruit-bluefruit-spi-breakout/introduction)\n\nThe latest version of this library for Particle here: \n[https://github.com/rickkas7/Adafruit_BLE] (https://github.com/rickkas7/Adafruit_BLE)\n\nOriginal source including additional example programs (not ported): \n[https://github.com/adafruit/Adafruit_BluefruitLE_nRF51] (https://github.com/adafruit/Adafruit_BluefruitLE_nRF51)\n\nFork of the source for easy change merging is here: \n[https://github.com/rickkas7/Adafruit_BluefruitLE_nRF51] (https://github.com/rickkas7/Adafruit_BluefruitLE_nRF51)\n\n## Updates\n\nVersion 0.0.3 - Fixed compatibility with mesh devices (Argon, Boron, Xenon) due to redeclaration of err_t.\n\n\n\n"
+}

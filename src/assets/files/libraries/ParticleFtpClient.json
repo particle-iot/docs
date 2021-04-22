@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "ParticleFtpClient",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ParticleFtpClient/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "ParticleFtpClient",
+    "version": "0.0.4",
+    "installs": 14260,
+    "license": "MIT",
+    "author": "Joon-Yee Chuah",
+    "sentence": "A library that implements PASV FTP",
+    "url": "https://github.com/jychuah/ParticleFtpClient",
+    "repository": "https://github.com/jychuah/ParticleFtpClient.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ParticleFtpClient\n\nA library for Particle.io platform devices to perform simple FTP commands.\n\n### Usage\n\n```\nParticleFtpClient ftp;\n```\n\nMost methods mirror FTP commands. To log into an FTP server, you must successively call `ftp.open(\"hostname\", timeout)`, `ftp.user(\"username\")` and `ftp.pass(\"password\")`. Each should return true.\n\n### Timeouts\n\nFTP can be a slow protocol. Therefore, the `open` method has a `timeout` parameter in integer seconds. Certain methods will timeout. I've tried to make the client as robust as possible, but occassionally things will happen \"out of sequence\" and you may wish to retry your ftp commands.\n\n### Passive Mode\n\nThis library implements a passive mode client only. _TLDR, The server needs to support passive mode._\n\nIn passive mode, any time the server needs to send or receive extensive data, the client will automatically send a PASV command. The server responds with a new port used for the data transfer. The sender of the data (either the client when uploading or server when downloading) stops the connection when the data transfer is finished and the port is discarded.\n\n### Downloading Files\n\nCertain methods (`list`, `retr`) requires the use of a passive connection. Therefore, ParticleFTPClient exposes a public `TCPClient` member `data`. For methods that retrieve passive data (`list` and `retr`), you may reasonably expect server sent data as long as `data` remaines `connected`. For example:\n\n```\n// Initiate a download\nftp.retr(\"download.txt\");\n// While the connection remains open, the server still intends to send data.\nwhile (ftp.data.connected()) {\n  // Read what data is in the current packet\n  while (ftp.data.available()) {\n    // get another byte\n    char c = ftp.data.read();\n  }\n}\n```\n\n### Uploading Files\n\nThe `stor` method allows a file upload, using the `data` member. Call `finish` when you are done uploading. It will `stop` the `data` connection and flush any server responses. (There may be a timeout here.) For example:\n\n```\n// Set the file type to ASCII\nftp.type(\"A\"); \n// Initiate an upload\nftp.stor(\"upload.txt\");\nfor (int i = 0; i < strlen(data); i++) {\n  ftp.data.write(data[i]);\n}\n// Call finish when you are done uploading. You may expect a timeout here.\nftp.finish();\n```\n\n### Debugging\n\nIf you want verbose serial output for server responses, uncomment `#define PARTICLE_FTP_DEBUG` in `ParticleFtpClient.cpp`\n"
+}

@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Sunrise",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Sunrise/archive/0.1.7.tar.gz"
+  },
+  "attributes": {
+    "name": "Sunrise",
+    "version": "0.1.7",
+    "installs": 17402,
+    "license": "GNU",
+    "author": "Jim Brower <bulldoglowell@gmail.com>",
+    "sentence": "Sunrise/Sunset Time ported for Spark Core",
+    "url": "https://github.com/bulldoglowell/sunrise",
+    "repository": "https://github.com/bulldoglowell/sunrise.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.1.7": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "sunriseExample": true
+          },
+          "electron": {
+            "sunriseExample": true
+          },
+          "argon": {
+            "sunriseExample": true
+          },
+          "boron": {
+            "sunriseExample": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SunriseSunset\nSunriseSunset library for Spark Core\n\nreturns Sunrise, Sunset and Solar Noon times for Spark Core\n"
+}

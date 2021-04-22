@@ -1,0 +1,48 @@
+{
+  "type": "libraries",
+  "id": "ard-streams",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ard-streams/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "ard-streams",
+    "version": "1.0.2",
+    "installs": 660,
+    "author": "Vladimir Talybin",
+    "sentence": "This library includes iostreams that otherwise overflow the flash memory.",
+    "paragraph": "Arduino STL iostreams.",
+    "url": "https://github.com/talybin/ard-streams",
+    "repository": "https://github.com/talybin/ard-streams.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true,
+            "using_serial": true
+          },
+          "electron": {
+            "usage": true,
+            "using_serial": true
+          },
+          "argon": {
+            "usage": true,
+            "using_serial": true
+          },
+          "boron": {
+            "usage": true,
+            "using_serial": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# STL iostreams for Arduino\n\nThis library includes iostreams from STL with additional wrappers for Arduino hardware.\n\nAll files in this library are copy-pasted from GCC 7.3 standard library with some modifications to avoid linking of libstdc++ that otherwise overflow the flash memory.\n\n## Using STL streams\n\nTo avoid file and namespace conflicts, all files in this library has `.hpp` extension and `ard` namespace (instead of `std`). Otherwise the full documentation is available on [cppreference.com](https://en.cppreference.com/w/cpp/io).\n\nThere are some limitations though:\n\n* Locale is not supported\n* File streams not implemented\n* Exceptions are disabled\n\nUsage example:\n\n```c++\n#include <sstream.hpp>\n\nvoid setup()\n{\n    int n;\n    double f;\n    bool b;\n    std::string s;\n\n    ard::istringstream iss(\"41 3.14 false helloworld\");\n    iss >> n >> f >> ard::boolalpha >> b >> s;\n}\n```\n\n## Using streams with serial port\n\nThe serial stream is not in standard GCC library but included as usefull part of Arduino projects.\n\n```c++\n#include <iostream.hpp>\n#include <serstream.hpp>\n\nnamespace ard\n{\n    ard::oserialstream cout(Serial1);\n    ard::iserialstream cin(Serial1);\n}\n\nvoid setup()\n{\n    Serial1.begin(9600);\n\n    // Wait for input for 30 seconds.\n    // Note, ard::iserialstream will use this\n    // timeout value\n    Serial1.setTimeout(30000);\n}\n\nvoid loop()\n{\n    ard::cout << \"Give me an integer: \";\n\n    int data;\n    if (ard::cin >> data)\n        ard::cout << \"2 + \" << data << \" = \" << (2 + data) << '\\n';\n    else {\n        // Clear failbit\n        ard::cin.clear();\n        // Drain read buffer\n        ard::cin.ignore(ard::cin.rdbuf()->in_avail());\n    }\n}\n\n```\n\n## Creating a single header\n\nYou can generate a single, header only, file of this library with `make_single.py` tool. By default it generates `single/ard-streams.h` under library's root. This can be changed with `-o` or `--output` flag. For example:\n\n```\npython make_single.py\n```\n\n```\npython make_single.py -o /tmp/iostreams.hpp\n```\n\n"
+}

@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "MCP23008-I2C",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MCP23008-I2C/archive/0.0.10.tar.gz"
+  },
+  "attributes": {
+    "name": "MCP23008-I2C",
+    "version": "0.0.10",
+    "installs": 2447,
+    "license": "BSD",
+    "author": "Limor Fried/Ladyada",
+    "sentence": "A version of Ladyada's MCP23008 8-bit I2C IO Expander library, ported for use on Spark Core.",
+    "url": "https://github.com/jbionics/mcp23008-i2c",
+    "repository": "https://github.com/jbionics/mcp23008-i2c.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.10": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "button": true,
+            "toggle": true
+          },
+          "electron": {
+            "button": true,
+            "toggle": true
+          },
+          "argon": {
+            "button": false,
+            "toggle": false
+          },
+          "boron": {
+            "button": false,
+            "toggle": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "This is very much beta, it seems to work fine but its not optimized and doesn't currently suport the interrupt capability of the chip\n\nCurrently it can do: setting pin directions, inputs and outputs and turning on/off the pull-up resistors\n\nTo use:\nConnect pin #1 of the expander to D1 (i2c clock)\nConnect pin #1 to 5V (using a pullup resistor ~4K7 (4700) ohms)\nConnect pin #2 of the expander to D0 (i2c data)\nConnect pin #2 to 5V (using a pullup resistor ~4K7 (4700) ohms)\nConnect pins #3, 4 and 5 of the expander to ground (address selection)\nConnect pin #6 and 18 of the expander to 5V (power and reset disable)\nConnect pin #9 of the expander to ground (common ground)\nPins 10 thru 17 are your input/output pins\n\nCheck the datasheet for more info: http://ww1.microchip.com/downloads/en/DeviceDoc/21919b.pdf\n\nEnjoy and send pull requests!"
+}

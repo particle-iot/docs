@@ -1,0 +1,37 @@
+{
+  "type": "libraries",
+  "id": "thingspeak-webhooks",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/thingspeak-webhooks/archive/0.0.11.tar.gz"
+  },
+  "attributes": {
+    "name": "thingspeak-webhooks",
+    "version": "0.0.11",
+    "installs": 758,
+    "license": "MIT",
+    "author": "Robert Mawrey <robert@sentientthings.com>",
+    "maintainer": "Robert Mawrey <robert@sentientthings.com>",
+    "sentence": "Sentient Things library that uses Particle Webhooks with ThingSpeak.",
+    "paragraph": "Library uses Webhooks (assumed to have been created) to communicate with ThingSpeak.",
+    "category": "Other",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.11": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "About\r\n===\r\n\r\nLibrary that uses Particle Webhooks to send and receive data with ThingSpeak\r\nusing the ThingSpeak API.  Benefits include lower data usage with is important\r\nfor cellular devices.  The use of this libary with Particle Webhooks also improves\r\nsecurity by avoiding the need to store the ThingSpeak User API Key in firmware.\r\n"
+}

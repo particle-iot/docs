@@ -1,0 +1,46 @@
+{
+  "type": "libraries",
+  "id": "particle-timezone",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/particle-timezone/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "particle-timezone",
+    "version": "0.0.4",
+    "installs": 4544,
+    "license": "MIT",
+    "author": "Jelmer Tiete<jelmer@tiete.be>",
+    "maintainer": "Jelmer Tiete<jelmer@tiete.be>",
+    "paragraph": "Library to set the correct timezone on your particle device. This library goes together with a GCloud app-engine server (check the Github link)",
+    "url": "https://github.com/JelmerT/particle-timezone",
+    "repository": "https://github.com/JelmerT/particle-timezone.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_timezone_simple": true,
+            "2_timezone_advanced": true
+          },
+          "electron": {
+            "1_timezone_simple": false,
+            "2_timezone_advanced": false
+          },
+          "argon": {
+            "1_timezone_simple": true,
+            "2_timezone_advanced": true
+          },
+          "boron": {
+            "1_timezone_simple": false,
+            "2_timezone_advanced": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Particle Timezone Library\n\nThis is a Particle library that sets the correct timezone on your Particle\ndevice based on its location.\n\n## How it works\n\nThe Particle device collects the mac addresses of the local WiFi networks and\nsends them via a Particle webhook to your [Google Cloud App\nEngine](https://cloud.google.com/appengine/) flex server. The server sends the\nWiFi-network data to the [Google Maps Geolocation\nAPI](https://developers.google.com/maps/documentation/geolocation/intro). Once\nthe API determined the location of the device, the `lat` and `long` is sent to\nthe [Google Maps Time Zone\nAPI](https://developers.google.com/maps/documentation/timezone/start). This API\nin turn responds with the correct UTC offset and daylight savings-time data of\nthe device. The offsets are send back, via the Particle webhook, to the Particle\ndevice, which sets the correct timezone and DST data.\n\n\n## How to set it up\n\n### Setup the App Engine server\n\nYou can find the source code of the App Engine server in the\n[timezone-server](timezone-server) folder.\n\nBefore you deploy your server you need to add your [Google Maps API\nkey](https://developers.google.com/maps/documentation/geolocation/get-api-key)\nto `config.py` (you can duplicate and rename `config.py.template`).\n\nThen you can deploy the server with:\n```\ngcloud app deploy\n```\n\nTake note of the URL of your server (you can visit it in a browser to see if\nit's running).\n\n### Setup the webhook\n\nThe configuration of the webhook is described in\n[`timezone-webhook.json`](timezone-webhook.json).\n\nChange the `url` value in the JSON file to your server URL.\n\nYou can deploy the webhook via the\n[Particle-cli](https://docs.particle.io/tutorials/developer-tools/cli/) with:\n```\nparticle webhook create timezone-webhook.json\n```\n\nVisit https://console.particle.io/integrations to verify or setup the webhook\nmanually.\n\n### Run the library on your device\n\n```\n#include \"timezone.h\"\n\nTimezone timezone;\n\nvoid setup() {\n  timezone.begin();\n}\n\nvoid loop() {\n  if (Particle.connected() && !timezone.isValid())\n    timezone.request();\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Firmware Library API\n\n### Creating an object\n\nYou normally create an timezone object as a global variable in your program:\n\n```\nTimezone timezone;\n```\n\n### Setup\n\nTo start the library in setup() you use the begin() function:\n```\ntimezone.begin();\n```\nThis will setup a subscribtion to the correct Particle event.\n\n### Customizing the event name\n\nThe default event name is **timezone**. You can change that in setup() by using:\n\n```\ntimezone.withEventName(\"test/custom_timezone_event\").begin();\n```\n\n### Requesting the timezone\n\nThe timezone can be requested with:\n\n```\nif (Particle.connected() && !timezone.isValid())\n\ttimezone.request();\n```\nThis will first check if the device is connected to the Particle cloud and if\nthe timezone was not already set. Then the library will publish an event which\nfires the webhook and requests the timezone.\n\nWhen the server answers the subscriptionHandler() function is run and the\ntimezone is update. You can check if the timezone is set with:\n\n```\ntimezone.isValid()\n```\n\n### Debugging\n\nThe library uses the logging feature of system firmware 0.6.0 or later when\nbuilding for 0.6.0 or later. Adding this line to the top of your .ino file will\nenable debugging messages to the serial port.\n\n```\nSerialLogHandler logHandler;\n```\n\n## Contributing\n\nThis library can be imporved in a lot of ways. [GitHub pull\nrequest](https://help.github.com/articles/about-pull-requests/) are highly\nappreciated.\n\n## Related Libraries\n\nThis library is heavily based on the [Google Maps Device Locator\nlibrary](https://github.com/particle-iot/google-maps-device-locator) by Rick\nKaseguma.\n\nAnother timezone library for Particle devices is\n[TzCfg](https://github.com/rwpalmer/TzCfg) by Rodney Palmer. This library does\nnot use Particle webhooks and uses timezonedb.com and the local ip to determine\ntimezone info.\n\n## LICENSE\n\nBased on [Google Maps Device Locator\nlibrary](https://github.com/particle-iot/google-maps-device-locator) by Rick\nKaseguma licensed under MIT License.\n\nCopyright 2019 Jelmer Tiete <jelmer@tiete.be>\n\nLicensed under the MIT License\n"
+}

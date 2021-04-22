@@ -1,0 +1,68 @@
+{
+  "type": "libraries",
+  "id": "SFE_MicroOLED",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SFE_MicroOLED/archive/1.2.7.tar.gz"
+  },
+  "attributes": {
+    "name": "SFE_MicroOLED",
+    "version": "1.2.7",
+    "installs": 1276,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Library for the <a href=\"https://www.sparkfun.com/products/13003\">SparkFun Micro OLED Breakout</a>.",
+    "paragraph": "Library for the Micro OLED Breakout, a monochrome, 0.66\", 64x48 OLED display. Several basic functionlity examples included.  ",
+    "category": "Display",
+    "url": "https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.2.7": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true,
+            "MicroOLED_Rick_and_Morty_I2C": false
+          },
+          "electron": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true,
+            "MicroOLED_Rick_and_Morty_I2C": false
+          },
+          "argon": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true,
+            "MicroOLED_Rick_and_Morty_I2C": false
+          },
+          "boron": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true,
+            "MicroOLED_Rick_and_Morty_I2C": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun Micro OLED Breakout Arduino Library\n========================================\n\n<table class=\"table table-hover table-striped table-bordered\">\n  <tr align=\"center\">\n   <td><a href=\"https://www.sparkfun.com/products/13003\"><img src=\"https://cdn.sparkfun.com//assets/parts/9/9/5/6/OLED_Action.jpg\" alt=\"SparkFun Micro OLED Breakout\"></a></td>\n   <td><a href=\"https://www.sparkfun.com/products/14532\"><img src=\"https://cdn.sparkfun.com//assets/parts/1/2/6/2/1/14532-SparkFun_Micro_OLED_Breakout__Qwiic_-01.jpg\" alt=\"SparkFun Micro OLED Breakout (Qwiic)\"></a></td>\n  </tr>\n  <tr align=\"center\">\n    <td><i><a href=\"https://www.sparkfun.com/products/13003\">SparkFun Micro OLED Breakout (LCD-13003)</a></i></td>\n    <td><i><a href=\"https://www.sparkfun.com/products/14532\">SparkFun Micro OLED Breakout (Qwiic)</a></i></td>\n  </tr>\n</table>\n\nAn Arduino library that allows you to draw shapes and text on the Micro OLED display and Qwiic micro OLED breakout.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n  * **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Micro_OLED_Breakout)** - Main repository (including hardware files) for the Micro OLED Breakout.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/micro-oled-breakout-hookup-guide)** - Basic hookup guide for the Micro OLED Breakout.\n\nProducts that use this Library\n---------------------------------\n\n* [Micro OLED Breakout](https://www.sparkfun.com/products/13003)- A breakout for the monochrome 64x48 OLED.\n* [Micro OLED Breakout (Qwiic)](https://www.sparkfun.com/products/14532) - Qwiic version of the Micro OLED breakout with jumpers set for I2C\n\nVersion History\n---------------\n* [v 1.2.7](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/releases/tag/v1.2.7) - Add more comments and Wire.begin() to examples\n* [v 1.2.6](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/releases/tag/V_1.2.6) - Removes call of Wire.begin from library\n* [v 1.2.5](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/releases/tag/v1.2.5) - Adding Qwiic Examples for I2C\n* [v 1.2.4](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/releases/tag/v.1.2.4) - Add colon to 7-segment font, add version history information to README, move and rename swap function to avoid namespace issues, add support for Arduino 101.\n* [v 1.2.3](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/releases/tag/v1.2.3) -- Fix for I2C dcPin not configured\n* [v 1.2.0](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/releases/tag/V_1.2.0) - add SAMD21 support, fix PROGMEM and `_BV` errors\n* v 1.1.3 (not released)\n* [v 1.1.2](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/tree/V_1.1.2) - Added compatibility for ESP8266\n* [v 1.1.1](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/tree/V_1.1.1) - Changed to remove register level pin access, for cross-platform compatibility\n* [v 1.1.0](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/tree/V_1.1.0) - Matching 1.6 standard\n* [V 1.0.0](https://github.com/sparkfun/SparkFun_Micro_OLED_Arduino_Library/tree/V_1.0.0) - Initial release\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nThe **code** is released under the GPL v3 license. See the included LICENSE.md for more information.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n"
+}

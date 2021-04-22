@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "SparkFunLSM9DS1",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFunLSM9DS1/archive/1.1.3.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFunLSM9DS1",
+    "version": "1.1.3",
+    "installs": 33399,
+    "license": "MIT",
+    "author": "Jim Lindblom <jim@sparkfun.com>",
+    "sentence": "A library to drive the LSM9DS1 9DoF.",
+    "url": "https://github.com/sparkfun/sparkfun_lsm9ds1_particle_library",
+    "repository": "https://github.com/sparkfun/sparkfun_lsm9ds1_particle_library.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.1.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "electron": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "argon": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "boron": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "## SparkFun LSM9DS1 Particle Library\n\nFirmware library SparkFun's Photon IMU Shield and the LSM9DS1 Breakout.\n\nAbout\n-------------------\n\nThis is a firmware library for [SparkFun's Photon IMU Shield](https://www.sparkfun.com/products/13629).\n\n[![Photon IMU Shield](https://cdn.sparkfun.com//assets/parts/1/1/0/1/6/13629-01a.jpg)](https://www.sparkfun.com/products/13629).\n\nThe Photon IMU Shield connects the Photon WiFi development board up to an [ST LSM9DS1](http://www.st.com/web/catalog/sense_power/FM89/SC1448/PF259998) 9DOF IMU - providing it access to an accelerometer, gyroscope, and magnetometer.\n\nRepository Contents\n-------------------\n\n* **/doc** - Additional documentation for the user. These files are ignored by the IDE. \n* **/firmware** - Source files for the library (.cpp, .h).\n* **/firmware/examples** - Example sketches for the library (.cpp). Run these from the Particle IDE. \n* **spark.json** - General library properties for the Particel library manager. \n\nExample Usage\n-------------------\n\n#### Initializing the Library\n\nInclude the library, declare an IMU object, and set it up with these snippets of code:\n\n\t#include \"SparkFunLSM9DS1/SparkFunLSM9DS1.h\"\n\n\t// Use the LSM9DS1 class to create an object. [imu] can be\n\t// named anything, we'll refer to that throught the sketch.\n\tLSM9DS1 imu;\n\n\t// SDO_XM and SDO_G are both pulled high, so our addresses are:\n\t#define LSM9DS1_M\t0x1E // Would be 0x1C if SDO_M is LOW\n\t#define LSM9DS1_AG\t0x6B // Would be 0x6A if SDO_AG is LOW\n\n\tvoid setup() \n\t{\n\t  Serial.begin(115200);\n\t  \n\t  // Before initializing the IMU, there are a few settings\n\t  // we may need to adjust. Use the settings struct to set\n\t  // the device's communication mode and addresses:\n\t  imu.settings.device.commInterface = IMU_MODE_I2C;\n\t  imu.settings.device.mAddress = LSM9DS1_M;\n\t  imu.settings.device.agAddress = LSM9DS1_AG;\n\t  // The above lines will only take effect AFTER calling\n\t  // imu.begin(), which verifies communication with the IMU\n\t  // and turns it on.\n\t  if (!imu.begin())\n\t  {\n\t\tSerial.println(\"Failed to communicate with LSM9DS1.\");\n\t\tSerial.println(\"Double-check wiring.\");\n\t\tSerial.println(\"Default settings in this sketch will \" \\\n\t\t\t\t\t  \"work for an out of the box LSM9DS1 \" \\\n\t\t\t\t\t  \"Breakout, but may need to be modified \" \\\n\t\t\t\t\t  \"if the board jumpers are.\");\n\t\twhile (1)\n\t\t  ;\n\t  }\n\t}\n\n#### Reading Sensor Data\n\nTo get data out of the IMU, call `imu.readAccel()`, `imu.readGyro()`, and `imu.readMag()`. Those functions will update the objects member variables: `imu.ax`, `imu.ay`, `imu.az`, `imu.gx`, `imu.gy`, `imu.gz`, `imu.mx`, `imu.my`, and`imu.mz`. Here, some example functions can probably make it more clear:\n\n\tvoid printAccel()\n\t{\n\t  // To read from the accelerometer, you must first call the\n\t  // readAccel() function. When this exits, it'll update the\n\t  // ax, ay, and az variables with the most current data.\n\t  imu.readAccel();\n\t  \n\t  // Now we can use the ax, ay, and az variables as we please.\n\t  Serial.print(\"A: \");\n\t  Serial.print(imu.ax);\n\t  Serial.print(\", \");\n\t  Serial.print(imu.ay);\n\t  Serial.print(\", \");\n\t  Serial.println(imu.az);\n\t}\n\n\tvoid printGyro()\n\t{\n\t  // To read from the gyroscope, you must first call the\n\t  // readGyro() function. When this exits, it'll update the\n\t  // gx, gy, and gz variables with the most current data.\n\t  imu.readGyro();\n\t  \n\t  // Now we can use the gx, gy, and gz variables as we please.\n\t  Serial.print(\"G: \");\n\t  Serial.print(imu.gx);\n\t  Serial.print(\", \");\n\t  Serial.print(imu.gy);\n\t  Serial.print(\", \");\n\t  Serial.println(imu.gz);\n\t}\n\n\tvoid printMag()\n\t{\n\t  // To read from the magnetometer, you must first call the\n\t  // readMag() function. When this exits, it'll update the\n\t  // mx, my, and mz variables with the most current data.\n\t  imu.readMag();\n\t  \n\t  // Now we can use the mx, my, and mz variables as we please.\n\t  Serial.print(\"M: \");\n\t  Serial.print(imu.mx);\n\t  Serial.print(\", \");\n\t  Serial.print(imu.my);\n\t  Serial.print(\", \");\n\t  Serial.println(imu.mz);\n\t}\n\n---\n\nCheck out the example files in the [examples directory](https://github.com/sparkfun/SparkFun_LSM9DS1_Particle_Library/tree/master/firmware/examples) for more guidance.\n\nRecommended Components\n-------------------\n\n* [Particle Photon](https://www.sparkfun.com/products/13345)\n* [SparkFun Photon IMU Shield](https://www.sparkfun.com/products/13629)\n\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun."
+}

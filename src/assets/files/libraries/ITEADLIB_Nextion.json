@@ -1,0 +1,95 @@
+{
+  "type": "libraries",
+  "id": "ITEADLIB_Nextion",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ITEADLIB_Nextion/archive/0.0.18.tar.gz"
+  },
+  "attributes": {
+    "name": "ITEADLIB_Nextion",
+    "version": "0.0.18",
+    "installs": 48859,
+    "license": "DO WHAT YOU WANT PUBLIC LICENSE",
+    "author": "ITEAD / BSpranger / ScruffR",
+    "maintainer": "ScruffR et al.",
+    "sentence": "Nextion library provides an easy-to-use way to manipulate Nextion serial displays.",
+    "paragraph": "Users can use the libarry freely, either in commerical projects or open-source prjects, without any additional condiitons. For more information about the Nextion display project, please visit the wiki. The wiki provdies all the necessary technical documnets, quick start guide, tutorials, demos, as well as some useful resources. To get your Nextion display, please visit iMall. To discuss the project? Request new features? Report a BUG? please visit the Forums",
+    "url": "https://github.com/ScruffR/ITEADLIB_Nextion",
+    "repository": "https://github.com/ScruffR/ITEADLIB_Nextion.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.18": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "CompButton": true,
+            "CompCrop": true,
+            "CompDualStateButton": true,
+            "CompGauge": true,
+            "CompHotspot": true,
+            "CompNumber": true,
+            "CompPage": true,
+            "CompPicture": true,
+            "CompProgressBar": true,
+            "CompSlider": true,
+            "CompText": true,
+            "CompTimer": true,
+            "CompWaveform": true,
+            "GraphPrimitives": true
+          },
+          "electron": {
+            "CompButton": true,
+            "CompCrop": true,
+            "CompDualStateButton": true,
+            "CompGauge": true,
+            "CompHotspot": true,
+            "CompNumber": true,
+            "CompPage": true,
+            "CompPicture": true,
+            "CompProgressBar": true,
+            "CompSlider": true,
+            "CompText": true,
+            "CompTimer": true,
+            "CompWaveform": true,
+            "GraphPrimitives": true
+          },
+          "argon": {
+            "CompButton": true,
+            "CompCrop": true,
+            "CompDualStateButton": true,
+            "CompGauge": true,
+            "CompHotspot": true,
+            "CompNumber": true,
+            "CompPage": true,
+            "CompPicture": true,
+            "CompProgressBar": true,
+            "CompSlider": true,
+            "CompText": true,
+            "CompTimer": true,
+            "CompWaveform": true,
+            "GraphPrimitives": true
+          },
+          "boron": {
+            "CompButton": true,
+            "CompCrop": true,
+            "CompDualStateButton": true,
+            "CompGauge": true,
+            "CompHotspot": true,
+            "CompNumber": true,
+            "CompPage": true,
+            "CompPicture": true,
+            "CompProgressBar": true,
+            "CompSlider": true,
+            "CompText": true,
+            "CompTimer": true,
+            "CompWaveform": true,
+            "GraphPrimitives": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "@mainpage Home Page\r\n\r\n# Nextion\r\n\r\n--------------------------------------------------------------------------------\r\n\r\n##Known Issues with Particle port:\r\n\r\n  - Required test HMI files are now located under doc/Examples (TFT have to be created with Nextion Editor from HMI files) \r\n  - ...\r\n\r\n--------------------------------------------------------------------------------\r\n# Introduction\r\n\r\nNextion Arduino library provides an easy-to-use way to manipulate Nextion serial\r\ndisplays. Users can use the libarry freely, either in commerical projects or \r\nopen-source prjects,  without any additional condiitons. \r\n\r\nFor more information about the Nextion display project, please visit \r\n[the wiki。](http://wiki.iteadstudio.com/Nextion_HMI_Solution)  \r\nThe wiki provdies all the necessary technical documnets, quick start guide, \r\ntutorials, demos, as well as some useful resources.\r\n\r\nTo get your Nextion display, please visit \r\n[iMall.](http://imall.itead.cc/display/nextion.html)\r\n\r\nTo discuss the project?  Request new features?  Report a BUG? please visit the \r\n[Forums](http://support.iteadstudio.com/discussions/1000058038)\r\n\r\n# Download Source Code \r\n\r\nLatest version is unstable and a mass of change may be applied in a short time \r\nwithout any notification for users. Commonly, it is for developers of this \r\nlibrary. \r\n\r\n**Release version is recommanded for you, unless you are one of developers of this \r\nlibrary.**\r\n\r\n**Release notes** is at\r\n<https://github.com/itead/ITEADLIB_Arduino_Nextion/blob/master/release_notes.md>.\r\n\r\n## Latest(unstable)\r\n\r\nLatest source code(master branch) can be downloaded:\r\n  <https://github.com/itead/ITEADLIB_Arduino_Nextion/archive/master.zip>. \r\n\r\nYou can also clone it via git:\r\n\r\n    git clone https://github.com/itead/ITEADLIB_Arduino_Nextion\r\n\r\n## Releases(stable)\r\n\r\n  - https://github.com/itead/ITEADLIB_Arduino_Nextion/archive/v0.7.0.zip\r\n  - https://github.com/itead/ITEADLIB_Arduino_Nextion/archive/v0.7.0.tar.gz\r\n\r\nAll releases can be available from:\r\n<https://github.com/itead/ITEADLIB_Arduino_Nextion/releases>.\r\n\r\n# Documentation\r\n\r\n[Latest Online Documentation](http://docs.iteadstudio.com/ITEADLIB_Arduino_Nextion/index.html)\r\ncontains Configuration, Get Started, Reference of API and Examples, etc.\r\n\r\nOffline Documentation's entry `doc/Documentation/index.html` shiped with source code\r\ncan be open in your browser such as Chrome, Firefox or any one you like. \r\n\r\n# Suppported Mainboards\r\n\r\n**All boards, which has one or more hardware serial, can be supported.**\r\n\r\nFor example:\r\n\r\n  - Particle Core\r\n  - Particle Photon/P0/P1\r\n  - Particle Electron\r\n  - Iteaduino MEGA2560\r\n  - Iteaduino UNO\r\n  - Arduino MEGA2560\r\n  - Arduino UNO\r\n\r\n# Configuration\r\n\r\nIn configuration file NexConfig.h, you can find two macros below:\r\n\r\n  - dbSerial: Debug Serial (baudrate:9600), needed by beginners for debug your \r\n    nextion applications or sketches. If your complete your work, it will be a \r\n    wise choice to disable Debug Serial.\r\n\r\n  - nexSerial: Nextion Serial, the bridge of Nextion and your mainboard.\r\n\r\n**Note:** the default configuration is for MEGA2560.\r\n\r\n## Redirect dbSerial and nexSerial\r\n\r\nIf you want to change the default serial to debug or communicate with Nextion ,\r\nyou need to modify the line in configuration file:\r\n\r\n\t#define dbSerial Serial    ---> #define dbSerial Serialxxx\r\n    #define nexSerial Serial2  ---> #define nexSeria Serialxxx\r\n\r\n## Disable Debug Serial\r\n\r\nIf you want to disable the debug information,you need to modify the line in \r\nconfiguration file:\r\n\r\n    #define DEBUG_SERIAL_ENABLE ---> //#define DEBUG_SERIAL_ENABLE\r\n\r\n# UNO-like Mainboards\r\n\r\nIf your board has only one hardware serial, such as UNO, you should disable \r\ndbSerial and redirect nexSerial to Serial(Refer to section:`Serial configuration`). \r\n\r\n# Useful Links\r\n\r\n<http://blog.iteadstudio.com/nextion-tutorial-based-on-nextion-arduino-library/>\r\n\r\n# License\r\n\r\n-------------------------------------------------------------------------------\r\n\r\n\r\n    DO WHAT YOU WANT TO PUBLIC LICENSE \r\n        Version 2, December 2004 \r\n\r\n    Copyright (C) 2014 ITEAD Studio\r\n\r\n    Everyone is permitted to copy and distribute verbatim or modified \r\n    copies of this license document, and changing it is allowed as long \r\n    as the name is changed. \r\n\r\n        DO WHAT YOU WANT TO PUBLIC LICENSE \r\n        \r\n    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION \r\n\r\n    0. You just DO WHAT YOU WANT TO.\r\n\r\n\r\n-------------------------------------------------------------------------------\r\n"
+}

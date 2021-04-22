@@ -1,0 +1,49 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_SH1106_0",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_SH1106_0/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_SH1106_0",
+    "version": "0.1.0",
+    "installs": 2050,
+    "license": "Whatever Adafruit uses",
+    "author": "Adafruit, wonho-maker, Paul Kourney, Gerrit Coetzee",
+    "sentence": "Port of wonho-maker's SH1106 port of Adafruit's SSD1306 OLED library based on Paul Kourney's port of the same libray. Anyway, you can run your SSH1106 OLED's now. Don't know which boards this doesn't work for.",
+    "url": "https://github.com/chriszero/Adafruit_SH1106_Particle",
+    "repository": "https://github.com/chriszero/Adafruit_SH1106_Particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "electron": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "argon": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SH1106 Driver for Particle\r\n* Actual work was done by (forked from): https://github.com/wonho-maker/Adafruit_SH1106\r\n* Ported By Gerrit Coetzee, gerritcoetzee.com 2017\r\n* Stack-overflowed heavily from Paul Kourany's port of the Adafruit_SSD1306 library for particle \r\n\r\n\r\nAdafruit_SH1106\r\n===============\r\n\r\nAdafruit graphic library for SH1106 driver lcds.\r\n\r\nsome small oled lcd use SH1106 driver.\r\n\r\nI change the adafruit SSD1306 to SH1106 \r\n\r\nSH1106 driver similar to SSD1306. thus, just change the display() method. \r\n \r\nHowever, SH1106 driver don't provide several functions such as scroll commands.\r\n\r\n\r\n Adafruit-GFX-Library\r\n https://github.com/adafruit/Adafruit-GFX-Library\r\n"
+}

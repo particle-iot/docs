@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "Unified_Sensors",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Unified_Sensors/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Unified_Sensors",
+    "version": "0.0.1",
+    "installs": 1614,
+    "license": "Adafruit",
+    "author": "Matt Thompson @inet_ntoa",
+    "sentence": "Adafruit Unified Sensors for Particle",
+    "url": "https://github.com/wtfuzz/particle_sensors",
+    "repository": "https://github.com/wtfuzz/particle_sensors.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Sensors": true
+          },
+          "electron": {
+            "Sensors": true
+          },
+          "argon": {
+            "Sensors": true
+          },
+          "boron": {
+            "Sensors": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Collection of Adafruit Unified sensors\n"
+}

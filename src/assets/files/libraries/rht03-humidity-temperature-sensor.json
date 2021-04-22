@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "rht03-humidity-temperature-sensor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/rht03-humidity-temperature-sensor/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "rht03-humidity-temperature-sensor",
+    "version": "1.0.0",
+    "installs": 4457,
+    "license": "BSD",
+    "author": "Marc Liyanage <reg.github@entropy.ch>",
+    "sentence": "Reads out a Maxdetect RHT03 (also known as DHT22 and AM2302) humidity/temperature sensor.",
+    "url": "https://github.com/liyanage/maxdetect-rht03-humidity-sensor",
+    "repository": "https://github.com/liyanage/maxdetect-rht03-humidity-sensor.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "electron": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "argon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "boron": {
+            "rht03-humidity-temperature-sensor": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "\nCode to read out the humidity and temperature values from a Maxdetect RHT03 humidity/temperature sensor.\nThat sensor is apparently also known as DHT22 and AM2302.\n\nSee https://www.sparkfun.com/products/10167 and http://www.humiditycn.com/fl1_1.html\n\nMaintained at https://github.com/liyanage/maxdetect-rht03-humidity-sensor\n"
+}

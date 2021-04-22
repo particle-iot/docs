@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "Pixycam5",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Pixycam5/archive/0.0.5.tar.gz"
+  },
+  "attributes": {
+    "name": "Pixycam5",
+    "version": "0.0.5",
+    "installs": 1261,
+    "license": "GNU General Public License 3+",
+    "author": "Jeremy Ellis",
+    "sentence": "Beginner startup programs to use the pixy camera with the Particle.io Photon",
+    "url": "https://github.com/hpssjellis/particle-photon-pixy-camera",
+    "repository": "https://github.com/hpssjellis/particle-photon-pixy-camera.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.0.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "a01-pixy-d7": true,
+            "a02-pixy-serial": true
+          },
+          "electron": {
+            "a01-pixy-d7": true,
+            "a02-pixy-serial": true
+          },
+          "argon": {
+            "a01-pixy-d7": true,
+            "a02-pixy-serial": true
+          },
+          "boron": {
+            "a01-pixy-d7": true,
+            "a02-pixy-serial": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Title: particle-photon-pixy-camera\n====\n\nAdapted for Particle devices by Jeremy Ellis Mar 6, 2016\n\ndetails and example sketch: https://github.com/hpssjellis/particle-photon-pixy-camera\n\nBrought to you by: Jeremy Ellis       http://www.rocksetta.com   Twitter @rocksetta\n\n\nInstructions\n----\n\nUsing the particle.io IDE at http://build/particle.io\n\nsearch for this library, \"Use This Example\"\n\nWEIRD BUG. MAKE SURE YOU CHANGE THE FILE SLIGHTLY AND SAVE IT BEFORE IT WILL COMPILE. (I add a blank line)\n\nflash to your Photon one of the two examples in the example folder.\n\na01-pixy-d7.ino\n\na02-pixy-serial.ino\n\nNote: you need to teach the Pixy about a color to identify. See this website.\n\nhttp://cmucam.org/projects/cmucam5/wiki/Teach_Pixy_an_object\n\nLearn more about colors codes here\n\nhttp://cmucam.org/projects/cmucam5/wiki/Hooking_up_Pixy_to_a_Microcontroller_(like_an_Arduino)\n\n\nHow to instal pixymon on windows\n\nhttp://cmucam.org/projects/cmucam5/wiki/Installing_PixyMon_on_Windows_Vista_7_or_8\n\n\n\nHook up Pixy as per diagram (Cable that comes with the Pixy)\n\n![](pixy-serial-spark-core.png)\n"
+}

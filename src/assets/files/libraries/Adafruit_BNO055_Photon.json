@@ -1,0 +1,53 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_BNO055_Photon",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_BNO055_Photon/archive/0.1.6.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_BNO055_Photon",
+    "version": "0.1.6",
+    "installs": 4979,
+    "author": "KTOWN_for_Adafruit",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "versions": {
+    "0.1.6": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "electron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "argon": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "boron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "/***************************************************************************\n  This is a library for the BNO055 orientation sensor\n  Designed specifically to work with the Adafruit BNO055 Breakout.\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products\n  These sensors use I2C to communicate, 2 pins are required to interface.\n  Adafruit invests time and resources providing this open source code,\n  please support Adafruit and open-source hardware by purchasing products\n  from Adafruit!\n  Written by KTOWN for Adafruit Industries.\n  MIT license, all text above must be included in any redistribution\n  Ported to Particle devices by Nathan Robinson\n  https://github.com/nrobinson2000\n  On 2017-1-21\n****************************************************************************/\n"
+}
