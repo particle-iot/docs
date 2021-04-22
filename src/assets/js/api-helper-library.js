@@ -28,12 +28,11 @@ $(document).ready(function() {
             if (!lunrIndex) {
                 return;
             }
+            sessionStorage.setItem('librarySearch', searchFor);
 
             $(searchOutputElem).html('');
 
             const results = lunrIndex.search(searchFor);
-            console.log('results', results);
-
 
             for(let ii = 0; ii < 20 && ii < results.length; ii++) {
                 const url = '/assets/files/libraries/' + results[ii].ref + '.json';
@@ -42,26 +41,22 @@ $(document).ready(function() {
                     .then(response => response.json())
                     .then(function(libInfo) {
                         // 
-                        console.log(libInfo);
 
                         let html = '<h3><a href="' + libInfo.cardUrl + '">' + libInfo.id + '</a></h3>';
                         $(searchOutputElem).append(html);
                         
-                        if (libInfo.attributes.sentence) {
-                            $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.sentence));
-                        }
-                        if (libInfo.attributes.paragraph) {
-                            $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.paragraph));
-                        }
-
                         $(searchOutputElem).append('<ul>');
 
                         $(searchOutputElem).append($(document.createElement('li')).text('Version: ' + libInfo.attributes.version));
-                        
+
+                        $(searchOutputElem).append($(document.createElement('li')).text('Installs: ' + libInfo.attributes.installs));
+
                         if (libInfo.verification) {
                             $(searchOutputElem).append($(document.createElement('li')).text('Verification: ' + libInfo.verification));
                         }
-                        $(searchOutputElem).append($(document.createElement('li')).text('Installs: ' + libInfo.attributes.installs));
+                        if (libInfo.attributes.license) {
+                            $(searchOutputElem).append($(document.createElement('li')).text('License: ' + libInfo.attributes.license));
+                        }
 
                         if (libInfo.attributes.author) {
                             $(searchOutputElem).append($(document.createElement('li')).text('Author: ' + libInfo.attributes.author));
@@ -72,10 +67,19 @@ $(document).ready(function() {
 
                         $(searchOutputElem).append('</ul>');
 
+                        if (libInfo.attributes.sentence) {
+                            $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.sentence));
+                        }
+                        if (libInfo.attributes.paragraph) {
+                            $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.paragraph));
+                        }
+
                     });
             }
+            if (results.length == 0) {
+                $(searchOutputElem).text('No matching libraries found');
+            }
         });
-
 
         $.getScript('/assets/js/lunr.min.js', function(data, textStatus, jqxhr) {
             fetch('/assets/files/librarySearch.json')
@@ -83,6 +87,11 @@ $(document).ready(function() {
                 .then(function(data) {
                     lunrIndex = lunr.Index.load(data);
 
+                    const savedSearch = sessionStorage.getItem('librarySearch');
+                    if (savedSearch) {
+                        $(searchTextElem).val(savedSearch);
+                        $(searchButtonElem).trigger('click'); 
+                    }            
                 });
 
         });

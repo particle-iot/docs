@@ -10,6 +10,11 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
     const thisCardsDir = 'cards/libraries';
 
+    const topSpecial = ['Search'];
+    const topSpecialFilename = function(name) {
+        return name.replace(/[^-A-Za-z0-9_]/g, '-').toLowerCase();
+    }
+
     let hasOther = false;
     let letters = [];
     let letterLibraries = {};
@@ -236,10 +241,16 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
         // Generate navigation
         newFile.navigation = '';
+        for(const curSpecial of topSpecial) {
+            newFile.navigation += '<ul class="static-toc">';
+            newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + topSpecialFilename(curSpecial) + '/">' + curSpecial + '</a></li>';
+            newFile.navigation += '</ul>';
+        }
+
         for (const curLetter of letters) {
             newFile.navigation += '<ul class="static-toc">';
             if (lib.letter == curLetter) {
-                newFile.navigation += '<li class="top-level active"><span>' + curLetter + '</span></li>';
+                newFile.navigation += '<li class="top-level active"><span>' + curLetter.toUpperCase() + '</span></li>';
 
                 newFile.navigation += '<div class="in-page-toc-container">';
                 for (let tempName of letterLibraries[lib.letter]) {
@@ -262,7 +273,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
                 newFile.navigation += '</div">';
             }
             else {
-                newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + curLetter + '</a></li>';
+                newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + curLetter.toUpperCase() + '</a></li>';
             }
             newFile.navigation += '</ul>';
         }
@@ -271,6 +282,51 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         const newPath = thisCardsDir + '/' + letter + '/' + lib.id + '.md';
         files[newPath] = newFile;
 
+    }
+
+    // Specials
+    for(const curSpecial of topSpecial) {
+        let newFile = {};
+
+        let md = '';
+        
+        if (curSpecial == 'Search') {
+            md += '# Library Search\n\n';
+            md += '{{> library-search}}\n';
+        }
+
+
+        newFile.title = curSpecial;
+        newFile.layout = 'cards.hbs';
+        newFile.columns = 'two';
+        newFile.collection = [];
+        newFile.description = 'Library search';
+        newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library]';
+        newFile.contents = Buffer.from(md);
+
+        // Generate navigation
+        newFile.navigation = '';
+        for(const tempSpecial of topSpecial) {
+            newFile.navigation += '<ul class="static-toc">';
+
+            if (curSpecial == tempSpecial) {
+                newFile.navigation += '<li class="top-level active"><span>' + curSpecial + '</span></li>';
+            }
+            else {
+                newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + topSpecialFilename(tempSpecial) + '/">' + tempSpecial + '</a></li>';
+            }
+            newFile.navigation += '</ul>';
+        }
+
+        for (const curLetter of letters) {
+            newFile.navigation += '<ul class="static-toc">';
+            newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + curLetter.toUpperCase() + '</a></li>';
+            newFile.navigation += '</ul>';
+        }
+
+        // Save in metalsmith files so it the generated file will be converted to html
+        const newPath = thisCardsDir + '/' + topSpecialFilename(curSpecial) + '.md';
+        files[newPath] = newFile;
     }
 
     var lunrIndex = lunr(function () {
