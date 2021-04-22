@@ -3,8 +3,9 @@
 const fs = require('fs');
 const path = require('path');
 const { hide } = require('yargs');
+const lunr = require('lunr');
 
-function createLibraries(options, files, sourceDir, redirectsPath) {
+function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPath) {
     // console.log('processing libraries');    
 
     const thisCardsDir = 'cards/libraries';
@@ -13,7 +14,7 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
     let letters = [];
     let letterLibraries = {};
 
-    for(const dirent of fs.readdirSync(sourceDir, {withFileTypes:true})) {
+    for (const dirent of fs.readdirSync(sourceDir, { withFileTypes: true })) {
         if (!dirent.isFile || !dirent.name.endsWith('.json')) {
             continue;
         }
@@ -23,7 +24,7 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         if (letter >= 'a' && letter <= 'z') {
             if (!letters.includes(letter)) {
                 letters.push(letter);
-            }    
+            }
         }
         else {
             hasOther = true;
@@ -44,32 +45,32 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         const origFile = fs.readFileSync(redirectsPath, 'utf8');
 
         let redirects = JSON.parse(origFile);
-     
+
         // Top level - will go to the introduction/search page
         // redirects['/' + thisCardsDir] = allL2[0].url;
 
         // All letters
-        for(const letter of letters) {
+        for (const letter of letters) {
             const letterPath = '/' + thisCardsDir + '/' + letter;
             redirects[letterPath] = letterPath + '/' + letterLibraries[letter][0];
         }
 
         // Sort the output file
         let redirectsArray = [];
-        for(const key in redirects) {
-            redirectsArray.push({key:key,value:redirects[key]});
+        for (const key in redirects) {
+            redirectsArray.push({ key: key, value: redirects[key] });
         }
         // Remove the trailing slash on all internal pages
-        for(let ii = 0; ii < redirectsArray.length; ii++) {
+        for (let ii = 0; ii < redirectsArray.length; ii++) {
             if (redirectsArray[ii].value.startsWith('/') && redirectsArray[ii].value.endsWith('/') && redirectsArray[ii].value.length > 1) {
                 redirectsArray[ii].value = redirectsArray[ii].value.substr(0, redirectsArray[ii].value.length - 1);
             }
         }
-        redirectsArray.sort(function(a, b) {
+        redirectsArray.sort(function (a, b) {
             return a.key.localeCompare(b.key);
         });
         let redirectsSorted = {};
-        for(const obj of redirectsArray) {
+        for (const obj of redirectsArray) {
             redirectsSorted[obj.key] = obj.value;
         }
 
@@ -79,9 +80,9 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         }
     }
 
-    const transformReadme = function(mdOld) {
+    const transformReadme = function (mdOld) {
         let mdNew = '';
-        for(let line of mdOld.split('\n')) {
+        for (let line of mdOld.split('\n')) {
             line = line.trim();
 
             if (line.match(/^[#]+ /)) {
@@ -93,7 +94,7 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
             const m = line.match(/!\[[^\]]+\]\(([^\)]+)\)/);
             if (m) {
                 if (!m[1].startsWith('http')) {
-                    line = line.substr(0, m.index) + '[image unavailable]' + line.substr(m.index + m.input.length);                   
+                    line = line.substr(0, m.index) + '[image unavailable]' + line.substr(m.index + m.input.length);
                 }
             }
 
@@ -102,7 +103,7 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         return mdNew;
     };
 
-    const makeLink = function(url) {
+    const makeLink = function (url) {
         if (url.startsWith('http')) {
             return '[' + url + '](' + url + ')';
         }
@@ -111,7 +112,9 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         }
     };
 
-    for(const dirent of fs.readdirSync(sourceDir, {withFileTypes:true})) {
+    let searchDocuments = [];
+
+    for (const dirent of fs.readdirSync(sourceDir, { withFileTypes: true })) {
         if (!dirent.isFile || !dirent.name.endsWith('.json')) {
             continue;
         }
@@ -122,21 +125,15 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
             letter = 'other';
         }
 
-        let kindStr;
-        if (lib.official) {
-            kindStr = 'official library';
-        }
-        else if (lib.verified) {
-            kindStr = 'verified community library';
-        }
-        else {
-            kindStr = 'community library';
-        }
-
         let md = '';
-        
-    
-        md += '# ' + lib.id + ' (' + kindStr + ')\n\n';
+
+
+        md += '# ' + lib.id + ' (' + lib.kind + ')\n\n';
+
+
+        let searchDoc = {
+            name: lib.attributes.name
+        };
 
         // Information table
         md += '## Summary\n\n'
@@ -145,14 +142,20 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         md += '| Name | ' + lib.attributes.name + ' |\n';
         md += '| Version | ' + lib.attributes.version + ' |\n';
         md += '| Installs | ' + lib.attributes.installs + ' |\n';
+        if (lib.verification) {
+            md += '| Verification | ' + lib.verification + ' |\n';
+            searchDoc.verification = lib.verification;
+        }
         if (lib.attributes.license) {
             md += '| License | ' + lib.attributes.license + ' |\n';
         }
         if (lib.attributes.author) {
             md += '| Author | ' + lib.attributes.author + ' |\n';
+            searchDoc.author = lib.attributes.author;
         }
         if (lib.attributes.maintainer) {
             md += '| Maintainer | ' + lib.attributes.maintainer + ' |\n';
+            searchDoc.maintainer = lib.attributes.maintainer;
         }
         if (lib.attributes.url) {
             md += '| URL | ' + makeLink(lib.attributes.url) + ' |\n';
@@ -163,11 +166,17 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         md += '| Download | [.tar.gz](' + lib.links.download + ') |\n';
         md += '\n';
 
+        let desc = '';
         if (lib.attributes.sentence) {
             md += lib.attributes.sentence + '\n';
+            desc += lib.attributes.sentence + '\n';
         }
         if (lib.attributes.paragraph) {
             md += lib.attributes.paragraph + '\n';
+            desc += lib.attributes.paragraph + '\n';
+        }
+        if (desc) {
+            searchDoc.description = desc;
         }
         md += '\n';
 
@@ -186,12 +195,14 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
             md += '## Library Read Me\n'
             md += '\n';
             md += '_This content is provided by the library maintainer and has not been validated or approved._\n';
-            
+
             md += transformReadme(lib.readme);
 
+            searchDoc.body = lib.readme;
 
             md += '\n\n';
         }
+        searchDocuments.push(searchDoc);
 
         // Library browser
         md += '## Browse Library Files\n'
@@ -200,7 +211,7 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
 
         // Parse out headers for navigation
         let h2 = [];
-        for(let line of md.split('\n')) {
+        for (let line of md.split('\n')) {
             line = line.trim();
 
             if (line.match(/^(## )/)) {
@@ -208,41 +219,41 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
             }
         }
 
-        const anchorFor = function(hdr) {
+        const anchorFor = function (hdr) {
             return hdr.toLowerCase().replace(/[^-A-Za-z0-9_ ]+/g, ' ').replace(/ +/g, '-');
         }
 
         let newFile = {};
-        
+
         newFile.title = lib.id;
         newFile.layout = 'cards.hbs';
         newFile.columns = 'two';
         newFile.collection = [];
-        newFile.description = lib.id + ' (' + kindStr + ')';
+        newFile.description = lib.id + ' (' + lib.kind + ')';
         newFile.includeDefinitions = '[api-helper, api-helper-extras, api-helper-library]';
         newFile.infoFile = '/assets/files/libraries/' + lib.id + '.json';
-        newFile.contents = Buffer.from(md); 
+        newFile.contents = Buffer.from(md);
 
         // Generate navigation
         newFile.navigation = '';
-        for(const curLetter of letters) {
+        for (const curLetter of letters) {
             newFile.navigation += '<ul class="static-toc">';
-            if (letter == curLetter) {
+            if (lib.letter == curLetter) {
                 newFile.navigation += '<li class="top-level active"><span>' + curLetter + '</span></li>';
 
                 newFile.navigation += '<div class="in-page-toc-container">';
-                for(let tempName of letterLibraries[letter]) {
+                for (let tempName of letterLibraries[lib.letter]) {
                     newFile.navigation += '<ul class="nav in-page-toc show">';
 
                     if (tempName == lib.id) {
                         newFile.navigation += '<li class="middle-level active"><span>' + tempName + '</span></li>';
 
                         newFile.navigation += '<ul class="nav secondary-in-page-toc" style="display:block">';
-                        for(const curH2 of h2) {
+                        for (const curH2 of h2) {
                             newFile.navigation += '<li data-secondary-nav><a href="#' + anchorFor(curH2) + '">' + curH2 + '</a></li>';
                         }
                         newFile.navigation += '</ul>';
-                }
+                    }
                     else {
                         newFile.navigation += '<li class="middle-level"><a href="/cards/libraries/' + curLetter + '/' + tempName + '">' + tempName + '</a></li>';
                     }
@@ -259,18 +270,37 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = thisCardsDir + '/' + letter + '/' + lib.id + '.md';
         files[newPath] = newFile;
-        
+
     }
 
+    var lunrIndex = lunr(function () {
+        this.ref('name');
 
+        for(const field of ['verification', 'author', 'maintainer', 'description', 'body']) {
+            this.field(field);
+        }
+
+        searchDocuments.forEach(function (doc) {
+            this.add(doc)
+        }, this)
+    })
+
+    let oldSearchIndex = '';
+    if (fs.existsSync(searchIndexPath)) {
+        oldSearchIndex = fs.readFileSync(searchIndexPath, 'utf8');
+    }
+    const newSearchIndex = JSON.stringify(lunrIndex, null, 2);
+    if (oldSearchIndex != newSearchIndex) {
+        fs.writeFileSync(searchIndexPath, newSearchIndex);
+    }
 }
 
 
-module.exports = function(options) {
+module.exports = function (options) {
 
-	return function(files, metalsmith, done) {
-        createLibraries(options, files, metalsmith.path(options.sourceDir), metalsmith.path(options.redirects));
+    return function (files, metalsmith, done) {
+        createLibraries(options, files, metalsmith.path(options.sourceDir), metalsmith.path(options.redirects), metalsmith.path(options.searchIndex));
 
-		done();
-	};
+        done();
+    };
 };

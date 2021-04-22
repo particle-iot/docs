@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Humidity_AHT20_Arduino_Library",
   "versions": {
     "1.0.0": {
       "builds": {

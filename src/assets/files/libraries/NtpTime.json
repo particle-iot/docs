@@ -18,6 +18,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/NtpTime",
   "versions": {
     "0.0.3": {
       "builds": {

@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/CE_BME280",
   "versions": {
     "1.0.1": {
       "builds": {

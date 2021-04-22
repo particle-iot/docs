@@ -20,6 +20,10 @@
     "mine": false,
     "verified": true
   },
+  "verification": "verified",
+  "kind": "verified community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/ThingSpeak",
   "versions": {
     "1.5.1": {
       "builds": {

@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/cards/libraries/w/WebDuino",
   "versions": {
     "1.9.1": {
       "builds": {

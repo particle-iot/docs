@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PhotonWaveOut",
   "versions": {
     "0.0.1": {
       "builds": {

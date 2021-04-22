@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/Tinker-Servo",
   "versions": {
     "1.0.1": {
       "builds": {

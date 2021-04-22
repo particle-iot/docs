@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DailyTimerSpark",
   "versions": {
     "0.1.3": {
       "builds": {

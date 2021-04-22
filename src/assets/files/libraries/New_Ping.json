@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/New_Ping",
   "versions": {
     "1.8.1": {
       "builds": {

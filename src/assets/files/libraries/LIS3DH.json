@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/LIS3DH",
   "versions": {
     "0.2.8": {
       "builds": {

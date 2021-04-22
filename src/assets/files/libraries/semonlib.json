@@ -16,6 +16,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/semonlib",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_SCD30_Arduino_Library",
   "versions": {
     "1.0.3": {
       "builds": {

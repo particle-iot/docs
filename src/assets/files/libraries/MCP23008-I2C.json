@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MCP23008-I2C",
   "versions": {
     "0.0.10": {
       "builds": {

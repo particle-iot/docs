@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/cards/libraries/e/Ethernet_b239",
   "versions": {
     "0.0.10": {
       "builds": {

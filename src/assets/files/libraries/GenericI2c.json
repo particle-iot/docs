@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/GenericI2c",
   "versions": {
     "0.0.2": {
       "builds": {

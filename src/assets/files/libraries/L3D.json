@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/L3D",
   "versions": {
     "1.1.2": {
       "builds": {

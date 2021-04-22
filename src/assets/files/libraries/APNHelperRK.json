@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/APNHelperRK",
   "versions": {
     "0.0.2": {
       "builds": {

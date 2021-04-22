@@ -27,6 +27,10 @@
     "mine": false,
     "verified": true
   },
+  "verification": "verified",
+  "kind": "verified community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PL_microEPD",
   "versions": {
     "1.0.12": {
       "builds": {

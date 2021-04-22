@@ -18,6 +18,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_LSM303_U",
   "versions": {
     "1.0.8": {
       "builds": {

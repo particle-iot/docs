@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/cards/libraries/w/WebServer",
   "versions": {
     "0.0.2": {
       "builds": {

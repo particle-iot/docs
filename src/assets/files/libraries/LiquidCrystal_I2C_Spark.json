@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/LiquidCrystal_I2C_Spark",
   "versions": {
     "1.1.0": {
       "builds": {

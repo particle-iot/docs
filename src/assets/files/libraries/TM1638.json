@@ -16,6 +16,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TM1638",
   "versions": {
     "1.0.0": {
       "builds": {

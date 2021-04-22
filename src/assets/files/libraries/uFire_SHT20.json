@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "u",
+  "cardUrl": "/cards/libraries/u/uFire_SHT20",
   "versions": {
     "1.0.0": {
       "builds": {

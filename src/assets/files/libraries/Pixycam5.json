@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/Pixycam5",
   "versions": {
     "0.0.5": {
       "builds": {

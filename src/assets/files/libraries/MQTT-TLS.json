@@ -16,6 +16,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MQTT-TLS",
   "versions": {
     "0.2.23": {
       "builds": {

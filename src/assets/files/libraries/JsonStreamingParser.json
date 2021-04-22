@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "j",
+  "cardUrl": "/cards/libraries/j/JsonStreamingParser",
   "versions": {
     "1.0.5": {
       "builds": {

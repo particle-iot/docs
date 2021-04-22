@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MCP7941x",
   "versions": {
     "0.0.4": {
       "builds": {

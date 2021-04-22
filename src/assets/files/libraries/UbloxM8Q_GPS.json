@@ -18,6 +18,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "u",
+  "cardUrl": "/cards/libraries/u/UbloxM8Q_GPS",
   "versions": {
     "0.3.1": {
       "builds": {

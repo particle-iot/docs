@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/cards/libraries/e/elapsedMillis",
   "versions": {
     "0.0.2": {
       "builds": {

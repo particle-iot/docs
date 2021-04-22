@@ -23,6 +23,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/CircularBuffer",
   "versions": {
     "1.3.3": {
       "builds": {

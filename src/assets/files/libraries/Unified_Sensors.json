@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "u",
+  "cardUrl": "/cards/libraries/u/Unified_Sensors",
   "versions": {
     "0.0.1": {
       "builds": {

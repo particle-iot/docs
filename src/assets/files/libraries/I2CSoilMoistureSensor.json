@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/I2CSoilMoistureSensor",
   "versions": {
     "1.0.3": {
       "builds": {

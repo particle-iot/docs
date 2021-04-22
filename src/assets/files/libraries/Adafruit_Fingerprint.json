@@ -18,6 +18,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_Fingerprint",
   "versions": {
     "1.0.3": {
       "builds": {

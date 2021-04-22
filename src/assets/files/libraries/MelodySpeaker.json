@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MelodySpeaker",
   "versions": {
     "1.0.0": {
       "builds": {

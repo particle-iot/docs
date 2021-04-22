@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/I2cMaster",
   "versions": {
     "0.0.4": {
       "builds": {

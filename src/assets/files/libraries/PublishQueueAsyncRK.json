@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PublishQueueAsyncRK",
   "versions": {
     "0.2.0": {
       "builds": {

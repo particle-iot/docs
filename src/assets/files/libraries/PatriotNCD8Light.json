@@ -23,6 +23,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PatriotNCD8Light",
   "versions": {
     "5.1.0": {
       "builds": {

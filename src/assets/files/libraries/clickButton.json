@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/clickButton",
   "versions": {
     "1.0.9": {
       "builds": {

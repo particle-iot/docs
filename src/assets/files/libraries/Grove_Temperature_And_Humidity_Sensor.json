@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/Grove_Temperature_And_Humidity_Sensor",
   "versions": {
     "1.0.7": {
       "builds": {

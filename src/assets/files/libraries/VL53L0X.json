@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "v",
+  "cardUrl": "/cards/libraries/v/VL53L0X",
   "versions": {
     "0.0.4": {
       "builds": {

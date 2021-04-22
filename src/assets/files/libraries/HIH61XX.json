@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/HIH61XX",
   "versions": {
     "0.0.1": {
       "builds": {

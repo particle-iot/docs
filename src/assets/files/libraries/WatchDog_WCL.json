@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/cards/libraries/w/WatchDog_WCL",
   "versions": {
     "1.0.2": {
       "builds": {

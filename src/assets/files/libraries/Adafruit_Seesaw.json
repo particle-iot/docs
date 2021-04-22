@@ -23,6 +23,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_Seesaw",
   "versions": {
     "0.0.6": {
       "builds": {

@@ -16,6 +16,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/IoTNodePower",
   "versions": {
     "0.0.4": {
       "builds": {

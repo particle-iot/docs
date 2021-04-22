@@ -20,6 +20,10 @@
     "mine": false,
     "verified": true
   },
+  "verification": "verified",
+  "kind": "verified community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/google-maps-device-locator",
   "versions": {
     "0.0.7": {
       "builds": {

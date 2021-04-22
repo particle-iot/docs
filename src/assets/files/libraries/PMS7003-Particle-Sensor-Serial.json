@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PMS7003-Particle-Sensor-Serial",
   "versions": {
     "1.0.3": {
       "builds": {

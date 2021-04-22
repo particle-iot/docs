@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/movingAvg",
   "versions": {
     "2.1.0": {
       "builds": {

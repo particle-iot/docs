@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/ADXL362DMA",
   "versions": {
     "0.0.5": {
       "builds": {

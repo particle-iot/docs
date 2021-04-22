@@ -24,6 +24,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DS18B20Minimal",
   "versions": {
     "0.0.1": {
       "builds": {

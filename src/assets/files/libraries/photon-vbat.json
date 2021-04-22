@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/photon-vbat",
   "versions": {
     "0.0.3": {
       "builds": {

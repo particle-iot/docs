@@ -16,6 +16,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MQTT",
   "versions": {
     "0.4.31": {
       "builds": {

@@ -18,6 +18,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/cards/libraries/e/EchoPhotonBridge",
   "versions": {
     "0.7.5": {
       "builds": {

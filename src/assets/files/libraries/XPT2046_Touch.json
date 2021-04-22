@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "x",
+  "cardUrl": "/cards/libraries/x/XPT2046_Touch",
   "versions": {
     "1.1.7": {
       "builds": {

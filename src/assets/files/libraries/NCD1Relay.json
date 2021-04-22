@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/NCD1Relay",
   "versions": {
     "0.0.2": {
       "builds": {

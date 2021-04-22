@@ -18,6 +18,10 @@
     "mine": false,
     "verified": true
   },
+  "verification": "verified",
+  "kind": "verified community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/neopixel",
   "versions": {
     "1.0.0": {
       "builds": {

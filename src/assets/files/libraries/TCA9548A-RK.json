@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TCA9548A-RK",
   "versions": {
     "0.0.1": {
       "builds": {

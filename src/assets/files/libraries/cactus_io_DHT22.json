@@ -13,6 +13,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/cactus_io_DHT22",
   "versions": {
     "1.0.5": {
       "builds": {

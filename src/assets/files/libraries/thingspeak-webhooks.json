@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/thingspeak-webhooks",
   "versions": {
     "0.0.11": {
       "builds": {

@@ -15,6 +15,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/speaker",
   "versions": {
     "1.2.0": {
       "builds": {

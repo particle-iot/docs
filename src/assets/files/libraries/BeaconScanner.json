@@ -18,6 +18,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/BeaconScanner",
   "versions": {
     "0.4.0": {
       "builds": {

@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/RunningMedian2",
   "versions": {
     "0.2.16": {
       "builds": {

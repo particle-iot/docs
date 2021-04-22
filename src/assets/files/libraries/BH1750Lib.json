@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/BH1750Lib",
   "versions": {
     "0.0.5": {
       "builds": {

@@ -14,6 +14,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/Grove_LED_Bar",
   "versions": {
     "1.0.1": {
       "builds": {

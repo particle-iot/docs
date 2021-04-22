@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/carloop",
   "versions": {
     "2.1.0": {
       "builds": {

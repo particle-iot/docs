@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/gp20u7_particle",
   "versions": {
     "1.0.3": {
       "builds": {

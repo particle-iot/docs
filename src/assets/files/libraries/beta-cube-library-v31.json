@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/beta-cube-library-v31",
   "versions": {
     "0.3.1": {
       "builds": {

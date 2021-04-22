@@ -18,6 +18,10 @@
     "official": true,
     "mine": false
   },
+  "verification": "official",
+  "kind": "official library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/InternetButton",
   "versions": {
     "0.1.15": {
       "builds": {

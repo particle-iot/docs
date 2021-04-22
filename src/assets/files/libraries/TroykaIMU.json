@@ -13,6 +13,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TroykaIMU",
   "versions": {
     "0.0.4": {
       "builds": {

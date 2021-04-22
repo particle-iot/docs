@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/NCD_Ethernet_Overlay",
   "versions": {
     "1.0.1": {
       "builds": {

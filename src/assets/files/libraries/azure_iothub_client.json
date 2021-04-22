@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/azure_iothub_client",
   "versions": {
     "0.0.3": {
       "builds": {

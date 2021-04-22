@@ -13,6 +13,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/RH_RF95",
   "versions": {
     "1.0.0": {
       "builds": {

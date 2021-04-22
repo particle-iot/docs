@@ -234,6 +234,26 @@ async function generate() {
         let libInfo = {};
         libInfo = Object.assign(libInfo, lib);
 
+        if (lib.attributes.official) {
+            libInfo.verification = 'official';
+            libInfo.kind = 'official library';
+        }
+        else
+        if (lib.attributes.verified) {
+            libInfo.verification = 'verified';
+            libInfo.kind = 'verified community library';
+        }
+        else {
+            libInfo.kind = 'community library';
+        }
+
+
+        libInfo.letter = lib.id.substr(0, 1).toLowerCase();
+        if (libInfo.letter < 'a' || libInfo.letter > 'z') {
+            libInfo.letter = 'other';
+        }
+        libInfo.cardUrl = '/cards/libraries/' + libInfo.letter + '/' + lib.id;
+
         // Build history
         if (libraryData[lib.id]) {
             libInfo = Object.assign(libInfo, libraryData[lib.id]);

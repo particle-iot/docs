@@ -16,6 +16,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/InLoopPeriodicCallback",
   "versions": {
     "1.0.2": {
       "builds": {

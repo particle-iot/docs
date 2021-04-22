@@ -24,6 +24,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/spark-dallas-temperature",
   "versions": {
     "0.0.7": {
       "builds": {

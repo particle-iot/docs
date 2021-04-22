@@ -22,6 +22,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/NeoGPS",
   "versions": {
     "4.1.3": {
       "builds": {

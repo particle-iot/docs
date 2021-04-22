@@ -18,6 +18,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "f",
+  "cardUrl": "/cards/libraries/f/FiniteStateMachine",
   "versions": {
     "1.9.0": {
       "builds": {

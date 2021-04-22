@@ -18,6 +18,10 @@
     "official": true,
     "mine": false
   },
+  "verification": "official",
+  "kind": "official library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MakerKit",
   "versions": {
     "1.2.0": {
       "builds": {

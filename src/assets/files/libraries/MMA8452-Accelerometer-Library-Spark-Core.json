@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MMA8452-Accelerometer-Library-Spark-Core",
   "versions": {
     "0.0.3": {
       "builds": {

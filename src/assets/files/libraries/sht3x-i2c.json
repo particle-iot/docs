@@ -18,6 +18,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/sht3x-i2c",
   "versions": {
     "1.0.0": {
       "builds": {

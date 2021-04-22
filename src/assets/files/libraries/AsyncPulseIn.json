@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AsyncPulseIn",
   "versions": {
     "0.0.2": {
       "builds": {

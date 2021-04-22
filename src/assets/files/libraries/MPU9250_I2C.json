@@ -16,6 +16,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MPU9250_I2C",
   "versions": {
     "0.0.3": {
       "builds": {

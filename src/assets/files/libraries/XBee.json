@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "x",
+  "cardUrl": "/cards/libraries/x/XBee",
   "versions": {
     "0.0.10": {
       "builds": {

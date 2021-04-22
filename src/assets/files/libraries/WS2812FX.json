@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/cards/libraries/w/WS2812FX",
   "versions": {
     "0.0.1": {
       "builds": {

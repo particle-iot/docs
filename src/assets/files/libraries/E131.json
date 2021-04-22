@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/cards/libraries/e/E131",
   "versions": {
     "1.0.1": {
       "builds": {

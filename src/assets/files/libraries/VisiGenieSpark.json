@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "v",
+  "cardUrl": "/cards/libraries/v/VisiGenieSpark",
   "versions": {
     "1.0.0": {
       "builds": {

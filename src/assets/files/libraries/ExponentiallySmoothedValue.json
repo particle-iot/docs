@@ -16,6 +16,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/cards/libraries/e/ExponentiallySmoothedValue",
   "versions": {
     "1.0.0": {
       "builds": {

@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/Grove_ChainableLED",
   "versions": {
     "1.0.2": {
       "builds": {

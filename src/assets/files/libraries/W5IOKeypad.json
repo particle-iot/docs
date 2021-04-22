@@ -13,6 +13,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/cards/libraries/w/W5IOKeypad",
   "versions": {
     "0.0.1": {
       "builds": {

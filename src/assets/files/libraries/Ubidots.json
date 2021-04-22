@@ -25,6 +25,10 @@
     "mine": false,
     "verified": true
   },
+  "verification": "verified",
+  "kind": "verified community library",
+  "letter": "u",
+  "cardUrl": "/cards/libraries/u/Ubidots",
   "versions": {
     "3.2.3": {
       "builds": {

@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "k",
+  "cardUrl": "/cards/libraries/k/Kalman",
   "versions": {
     "0.0.6": {
       "builds": {

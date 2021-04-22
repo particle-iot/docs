@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DiagnosticsHelperRK",
   "versions": {
     "0.0.2": {
       "builds": {

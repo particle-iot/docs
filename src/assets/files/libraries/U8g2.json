@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "u",
+  "cardUrl": "/cards/libraries/u/U8g2",
   "versions": {
     "2.25.7": {
       "builds": {

@@ -13,6 +13,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SDL_Arduino_INA3221",
   "versions": {
     "1.2.1": {
       "builds": {

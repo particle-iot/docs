@@ -3,6 +3,91 @@ $(document).ready(function() {
         return;
     }
 
+    $('.apiHelperLibrarySearch').each(function() {
+        let lunrIndex;
+
+        const thisPartial = $(this);
+
+        const searchTextElem = $(thisPartial).find('.apiHelperLibrarySearchField');
+        const searchButtonElem = $(thisPartial).find('.apiHelperLibrarySearchButton');
+        const searchOutputElem = $(thisPartial).find('.apiHelperLibrarySearchOutput');
+        
+
+        $(searchTextElem).on('keydown', function(ev) {
+            if (ev.key != 'Enter') {
+                return;
+            }
+
+            ev.preventDefault();
+            $(searchButtonElem).trigger('click');    
+        });
+
+        $(searchButtonElem).on('click', function() {
+            const searchFor = $(searchTextElem).val();  
+
+            if (!lunrIndex) {
+                return;
+            }
+
+            $(searchOutputElem).html('');
+
+            const results = lunrIndex.search(searchFor);
+            console.log('results', results);
+
+
+            for(let ii = 0; ii < 20 && ii < results.length; ii++) {
+                const url = '/assets/files/libraries/' + results[ii].ref + '.json';
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(function(libInfo) {
+                        // 
+                        console.log(libInfo);
+
+                        let html = '<h3><a href="' + libInfo.cardUrl + '">' + libInfo.id + '</a></h3>';
+                        $(searchOutputElem).append(html);
+                        
+                        if (libInfo.attributes.sentence) {
+                            $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.sentence));
+                        }
+                        if (libInfo.attributes.paragraph) {
+                            $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.paragraph));
+                        }
+
+                        $(searchOutputElem).append('<ul>');
+
+                        $(searchOutputElem).append($(document.createElement('li')).text('Version: ' + libInfo.attributes.version));
+                        
+                        if (libInfo.verification) {
+                            $(searchOutputElem).append($(document.createElement('li')).text('Verification: ' + libInfo.verification));
+                        }
+                        $(searchOutputElem).append($(document.createElement('li')).text('Installs: ' + libInfo.attributes.installs));
+
+                        if (libInfo.attributes.author) {
+                            $(searchOutputElem).append($(document.createElement('li')).text('Author: ' + libInfo.attributes.author));
+                        }
+                        if (libInfo.attributes.maintainer) {
+                            $(searchOutputElem).append($(document.createElement('li')).text('Maintainer: ' + libInfo.attributes.maintainer));
+                        }
+
+                        $(searchOutputElem).append('</ul>');
+
+                    });
+            }
+        });
+
+
+        $.getScript('/assets/js/lunr.min.js', function(data, textStatus, jqxhr) {
+            fetch('/assets/files/librarySearch.json')
+                .then(response => response.json())
+                .then(function(data) {
+                    lunrIndex = lunr.Index.load(data);
+
+                });
+
+        });
+    });
+
     $('.apiHelperLibraryBuilds').each(function() {
         const thisPartial = $(this);
 

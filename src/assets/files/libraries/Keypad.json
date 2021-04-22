@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "k",
+  "cardUrl": "/cards/libraries/k/Keypad",
   "versions": {
     "3.2.0": {
       "builds": {

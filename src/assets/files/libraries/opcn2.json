@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "o",
+  "cardUrl": "/cards/libraries/o/opcn2",
   "versions": {
     "1.3.1": {
       "builds": {

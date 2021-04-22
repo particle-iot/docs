@@ -19,6 +19,10 @@
     "official": true,
     "mine": false
   },
+  "verification": "official",
+  "kind": "official library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PowerShield",
   "versions": {
     "0.0.5": {
       "builds": {

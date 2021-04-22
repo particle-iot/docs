@@ -22,6 +22,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DFRobotDFPlayerMini",
   "versions": {
     "1.0.1": {
       "builds": {

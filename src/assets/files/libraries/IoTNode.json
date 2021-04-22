@@ -22,6 +22,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/IoTNode",
   "versions": {
     "0.0.9": {
       "builds": {

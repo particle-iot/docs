@@ -20,6 +20,10 @@
     "mine": false,
     "verified": true
   },
+  "verification": "verified",
+  "kind": "verified community library",
+  "letter": "o",
+  "cardUrl": "/cards/libraries/o/OneWire",
   "versions": {
     "2.0.4": {
       "builds": {

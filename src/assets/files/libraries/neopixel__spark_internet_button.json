@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/neopixel__spark_internet_button",
   "versions": {
     "0.0.5": {
       "builds": {

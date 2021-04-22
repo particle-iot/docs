@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/codetacc-wearables",
   "versions": {
     "0.0.4": {
       "builds": {

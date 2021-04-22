@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/bluz_gateway",
   "versions": {
     "1.8.0": {
       "builds": {

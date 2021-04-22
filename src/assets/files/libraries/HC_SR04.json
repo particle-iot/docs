@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/HC_SR04",
   "versions": {
     "0.0.12": {
       "builds": {

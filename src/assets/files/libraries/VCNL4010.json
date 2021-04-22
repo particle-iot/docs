@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "v",
+  "cardUrl": "/cards/libraries/v/VCNL4010",
   "versions": {
     "0.0.1": {
       "builds": {

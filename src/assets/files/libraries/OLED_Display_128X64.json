@@ -27,6 +27,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "o",
+  "cardUrl": "/cards/libraries/o/OLED_Display_128X64",
   "versions": {
     "1.0.0": {
       "builds": {

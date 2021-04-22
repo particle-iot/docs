@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/locator",
   "versions": {
     "0.0.1": {
       "builds": {

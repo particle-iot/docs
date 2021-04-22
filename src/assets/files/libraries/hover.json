@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/hover",
   "versions": {
     "1.1.0": {
       "builds": {

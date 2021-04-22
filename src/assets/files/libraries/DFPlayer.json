@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DFPlayer",
   "versions": {
     "0.0.1": {
       "builds": {

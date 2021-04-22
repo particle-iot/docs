@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/Serial_Controlled_Motor_Driver",
   "versions": {
     "1.0.3": {
       "builds": {

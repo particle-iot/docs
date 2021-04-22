@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/RGBPixelClock",
   "versions": {
     "1.1.3": {
       "builds": {

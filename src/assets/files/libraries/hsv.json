@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/hsv",
   "versions": {
     "1.0.3": {
       "builds": {

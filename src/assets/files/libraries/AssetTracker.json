@@ -20,6 +20,10 @@
     "official": true,
     "mine": false
   },
+  "verification": "official",
+  "kind": "official library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AssetTracker",
   "versions": {
     "0.0.10": {
       "builds": {

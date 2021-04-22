@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/GxEPD2_PP",
   "versions": {
     "1.1.9": {
       "builds": {

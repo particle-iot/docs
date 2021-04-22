@@ -21,6 +21,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/cards/libraries/w/WaveshareEPaper29b",
   "versions": {
     "0.0.1": {
       "builds": {

@@ -20,6 +20,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_LEDBackpack_RK",
   "versions": {
     "1.1.8": {
       "builds": {

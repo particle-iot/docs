@@ -17,6 +17,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Arduino_KeyPadLCD_Shield",
   "versions": {
     "0.0.12": {
       "builds": {

@@ -14,6 +14,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "f",
+  "cardUrl": "/cards/libraries/f/Fingerprint_FPS_GT511C3",
   "versions": {
     "1.0.6": {
       "builds": {

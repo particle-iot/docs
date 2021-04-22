@@ -19,6 +19,9 @@
     "visibility": "public",
     "mine": false
   },
+  "kind": "community library",
+  "letter": "j",
+  "cardUrl": "/cards/libraries/j/JsonParserGeneratorRK",
   "versions": {
     "0.1.4": {
       "builds": {
