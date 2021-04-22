@@ -39,6 +39,46 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         letters.push('other');
     }
 
+    // Generate redirects for all directories to the first page in that group
+    if (redirectsPath) {
+        const origFile = fs.readFileSync(redirectsPath, 'utf8');
+
+        let redirects = JSON.parse(origFile);
+     
+        // Top level - will go to the introduction/search page
+        // redirects['/' + thisCardsDir] = allL2[0].url;
+
+        // All letters
+        for(const letter of letters) {
+            const letterPath = '/' + thisCardsDir + '/' + letter;
+            redirects[letterPath] = letterPath + '/' + letterLibraries[letter][0];
+        }
+
+        // Sort the output file
+        let redirectsArray = [];
+        for(const key in redirects) {
+            redirectsArray.push({key:key,value:redirects[key]});
+        }
+        // Remove the trailing slash on all internal pages
+        for(let ii = 0; ii < redirectsArray.length; ii++) {
+            if (redirectsArray[ii].value.startsWith('/') && redirectsArray[ii].value.endsWith('/') && redirectsArray[ii].value.length > 1) {
+                redirectsArray[ii].value = redirectsArray[ii].value.substr(0, redirectsArray[ii].value.length - 1);
+            }
+        }
+        redirectsArray.sort(function(a, b) {
+            return a.key.localeCompare(b.key);
+        });
+        let redirectsSorted = {};
+        for(const obj of redirectsArray) {
+            redirectsSorted[obj.key] = obj.value;
+        }
+
+        const newFile = JSON.stringify(redirectsSorted, null, 2);
+        if (origFile != newFile) {
+            fs.writeFileSync(redirectsPath, newFile);
+        }
+    }
+
     const transformReadme = function(mdOld) {
         let mdNew = '';
         for(let line of mdOld.split('\n')) {
@@ -48,12 +88,27 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
                 // Move h1->h3, h2->h4, ...
                 line = '##' + line;
             }
-            // if (line.match(/!\[(.*)\]\((.*)\)/))
-            // TODO: Something about inline images in the README.md
+
+            // Remove relative images because they are not uploaded by default
+            const m = line.match(/!\[[^\]]+\]\(([^\)]+)\)/);
+            if (m) {
+                if (!m[1].startsWith('http')) {
+                    line = line.substr(0, m.index) + '[image unavailable]' + line.substr(m.index + m.input.length);                   
+                }
+            }
 
             mdNew += line + '\n';
         }
         return mdNew;
+    };
+
+    const makeLink = function(url) {
+        if (url.startsWith('http')) {
+            return '[' + url + '](' + url + ')';
+        }
+        else {
+            return url;
+        }
     };
 
     for(const dirent of fs.readdirSync(sourceDir, {withFileTypes:true})) {
@@ -83,15 +138,6 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
     
         md += '# ' + lib.id + ' (' + kindStr + ')\n\n';
 
-        const makeLink = function(url) {
-            if (url.startsWith('http')) {
-                return '[' + url + '](' + url + ')';
-            }
-            else {
-                return url;
-            }
-        };
-
         // Information table
         md += '## Summary\n\n'
         md += '| Name | Value |\n';
@@ -114,6 +160,7 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         if (lib.attributes.repository) {
             md += '| Repository | ' + makeLink(lib.attributes.repository) + ' |\n';
         }
+        md += '| Download | [.tar.gz](' + lib.links.download + ') |\n';
         md += '\n';
 
         if (lib.attributes.sentence) {
@@ -130,14 +177,12 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
             md += '\n';
             md += '{{> library-builds}}\n';
             md += '\n';
-            md += 'This table is generated from an automated build.\n';
-            md += 'The library may have included examples that are not intended to work on all devices, so a failed build may not indicate an actual problem with the library.\n';
-            md += 'The builds have not been tested; they have only been compiled.\n';
+            md += '_This table is generated from an automated build. The library may have included examples that are not intended to work on all devices, so a failed build may not indicate an actual problem with the library. The builds have not been tested; they have only been compiled._\n';
             md += '\n';
         }
 
         // README
-        if (lib.readme) {
+        if (lib.readme && lib.readme.trim().length > 0) {
             md += '## Library Read Me\n'
             md += '\n';
             md += '_This content is provided by the library maintainer and has not been validated or approved._\n';
@@ -151,7 +196,7 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         // Library browser
         md += '## Browse Library Files\n'
         md += '\n';
-        md += '{{> library-browser}}\n\n';
+        md += '{{> library-browser height="500"}}\n\n';
 
         // Parse out headers for navigation
         let h2 = [];
@@ -181,6 +226,7 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
         // Generate navigation
         newFile.navigation = '';
         for(const curLetter of letters) {
+            newFile.navigation += '<ul class="static-toc">';
             if (letter == curLetter) {
                 newFile.navigation += '<li class="top-level active"><span>' + curLetter + '</span></li>';
 
@@ -207,226 +253,15 @@ function createLibraries(options, files, sourceDir, redirectsPath) {
             else {
                 newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + curLetter + '</a></li>';
             }
-        }
-
-            /*
-        for(const letter of letters) {
-            newFile.navigation += '<ul class="static-toc">';
-            if (tempL2.url == section.curL2.url) {
-                newFile.navigation += '<li class="top-level active"><span>' + tempL2.origTitle + '</span></li>';
-
-                newFile.navigation += '<div class="in-page-toc-container">';
-                for(const tempSection of section.curL2.l3) {
-                    newFile.navigation += '<ul class="nav in-page-toc show">';
-
-                    if (tempSection.url === section.url) {
-                        newFile.navigation += '<li class="middle-level active"><span>' + section.origTitle + '</span></li>';
-
-                        if (tempSection.l4) {
-                            newFile.navigation += '<ul class="nav secondary-in-page-toc" style="display:block">';
-                            for(const tempL4 of tempSection.l4) {
-                                newFile.navigation += '<li data-secondary-nav><a href="#' + tempL4.origAnchor + '">' + tempL4.origTitle + '</a></li>';
-                            }
-                            newFile.navigation += '</ul>';
-                        }
-                    }
-                    else {
-                        newFile.navigation += '<li class="middle-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
-                    }
-
-
-                    newFile.navigation += '</ul>';
-                }
-                newFile.navigation += '</div">';
-
-            }
-            else {
-                newFile.navigation += '<li class="top-level"><a href="' + tempL2.url + '">' + tempL2.origTitle + '</a></li>';
-            }
             newFile.navigation += '</ul>';
         }
-        */
-        
+
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = thisCardsDir + '/' + letter + '/' + lib.id + '.md';
         files[newPath] = newFile;
         
     }
 
-    /*
-
-    // Output the redirect mapping table
-    if (cardMappingPath) {
-        const oldUrl = '/' + fileName.replace('.md', '') + '/#';  
-
-        let mapping = {};
-        for(const anchor in anchors) {
-            mapping[oldUrl + anchor] = anchors[anchor].url;
-        }
-        fs.writeFileSync(cardMappingPath, JSON.stringify(mapping, null, 2));
-    }
-
-    // Clean up the case where an L3 is empty, because there are multiple L3 in a row
-    // intended to have the same body
-    for(let ii = 0; ii < sections.length; ii++) {
-        if (!sections[ii].content.replace(/\n/g, '').trim()) {
-            if (sections[ii].level == 3) {
-                // Is L3 and empty
-                for(let jj = ii + 1; jj < sections.length && sections[jj].level >= 3; jj++) {
-                    if (sections[jj].content.replace(/\n/g, '').trim()) {
-                        // Not empty
-                        sections[ii].content = sections[jj].content;
-                        break;
-                    }                    
-                }
-            }
-        }
-    }
-
-    // Clean up the case where the L2 is followed by L3 with no text.
-    for(let ii = 0; ii < sections.length; ii++) {
-        if (!sections[ii].content.replace(/\n/g, '').trim()) {
-            // Section is empty
-            
-            if (sections[ii].curL2.l3[0].url == sections[ii].url) {
-                sections[ii].curL2.l3.splice(0, 1);
-                sections[ii].curL2.url = sections[ii].curL2.l3[0].url;
-            }
-            
-            sections.splice(ii, 1);
-            ii--;
-        }
-    }
-
-    // Generate redirects for all directories to the first page in that group
-    if (redirectsPath) {
-        const origFile = fs.readFileSync(redirectsPath, 'utf8');
-
-        let redirects = JSON.parse(origFile);
-     
-        // Top level
-        redirects['/' + thisCardsDir] = allL2[0].url;
-
-        // All L2s
-        for(const curL2 of allL2) {
-            redirects['/' + thisCardsDir + '/' + curL2.folder] = curL2.url;
-        }
-
-        // Sort the output file
-        let redirectsArray = [];
-        for(const key in redirects) {
-            redirectsArray.push({key:key,value:redirects[key]});
-        }
-        // Remove the trailing slash on all internal pages
-        for(let ii = 0; ii < redirectsArray.length; ii++) {
-            if (redirectsArray[ii].value.startsWith('/') && redirectsArray[ii].value.endsWith('/') && redirectsArray[ii].value.length > 1) {
-                redirectsArray[ii].value = redirectsArray[ii].value.substr(0, redirectsArray[ii].value.length - 1);
-            }
-        }
-        redirectsArray.sort(function(a, b) {
-            return a.key.localeCompare(b.key);
-        });
-        let redirectsSorted = {};
-        for(const obj of redirectsArray) {
-            redirectsSorted[obj.key] = obj.value;
-        }
-
-        const newFile = JSON.stringify(redirectsSorted, null, 2);
-        if (origFile != newFile) {
-            fs.writeFileSync(redirectsPath, newFile);
-        }
-    }
-
-    
-    // Generate data now
-    for(let section of sections) {
-
-        // Replace anchors in content
-        section.content = section.content.replace(/\]\(#[-A-Za-z0-9]+\)/g, function(replacement) {
-            // console.log('replacement ' + replacement);
-            let anchor = replacement.substr(3, replacement.length - 4);
-            if (!anchors[anchor]) {
-                console.log('missing ' + anchor);
-                return replacement;
-            }
-            else {
-                const url = '/' + options.outputDir + '/' + cardsGroup + '/' + anchors[anchor].folder + '/' + anchors[anchor].file + '/#' + anchors[anchor].anchor;
-                return '](' + url + ')';
-            }
-        });
-
-        // Clone the original .md source file
-        let newFile = cloneDeep(files[fileName]);
-        
-
-        newFile.title = section.title;
-        newFile.layout = 'cards.hbs';
-        newFile.columns = 'two';
-        newFile.collection = [];
-        newFile.path.dir = thisCardsDir + '/' + section.folder;
-        newFile.path.base = section.file + '.md';
-        newFile.path.name = section.file;
-        newFile.path.href = section.url;
-        newFile.noEditButton = true;
-
-        newFile.description = 'Reference manual for the C++ API used by user firmware running on Particle IoT devices';
-        delete newFile.redirects;
-        delete newFile.singlePage;
-
-        // Create new contents
-        let contents = '';
-        contents += '## ' + section.curL2.title + '\n'; 
-
-        if (section.curL2.title != section.origTitle) {
-            contents += '### ' + section.origTitle + '\n'; 
-        }
-
-        contents += section.content;
-        newFile.contents = Buffer.from(contents); 
-
-        // Generate navigation
-        newFile.navigation = '';
-        for(const tempL2 of allL2) {
-            newFile.navigation += '<ul class="static-toc">';
-            if (tempL2.url == section.curL2.url) {
-                newFile.navigation += '<li class="top-level active"><span>' + tempL2.origTitle + '</span></li>';
-
-                newFile.navigation += '<div class="in-page-toc-container">';
-                for(const tempSection of section.curL2.l3) {
-                    newFile.navigation += '<ul class="nav in-page-toc show">';
-
-                    if (tempSection.url === section.url) {
-                        newFile.navigation += '<li class="middle-level active"><span>' + section.origTitle + '</span></li>';
-
-                        if (tempSection.l4) {
-                            newFile.navigation += '<ul class="nav secondary-in-page-toc" style="display:block">';
-                            for(const tempL4 of tempSection.l4) {
-                                newFile.navigation += '<li data-secondary-nav><a href="#' + tempL4.origAnchor + '">' + tempL4.origTitle + '</a></li>';
-                            }
-                            newFile.navigation += '</ul>';
-                        }
-                    }
-                    else {
-                        newFile.navigation += '<li class="middle-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
-                    }
-
-
-                    newFile.navigation += '</ul>';
-                }
-                newFile.navigation += '</div">';
-
-            }
-            else {
-                newFile.navigation += '<li class="top-level"><a href="' + tempL2.url + '">' + tempL2.origTitle + '</a></li>';
-            }
-            newFile.navigation += '</ul>';
-        }
-        
-        // Save in metalsmith files so it the generated file will be converted to html
-        const newPath = thisCardsDir + '/' + section.folder + '/' + section.file + '.md';
-        files[newPath] = newFile;
-    }
-        */
 
 }
 

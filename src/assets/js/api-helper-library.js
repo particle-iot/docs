@@ -12,7 +12,6 @@ $(document).ready(function() {
             const deviceOs = $(thisPartial).find('.apiHelperLibraryBuildsVersion').val();
 
             const buildResults = libInfo.versions[libInfo.attributes.version].builds[deviceOs];
-            console.log('update table', buildResults);
 
             let examples = [];
 
@@ -50,7 +49,7 @@ $(document).ready(function() {
                         cellContents = 'nbsp;';
                     }
 
-                    html += '<td>' + cellContents + '</td>';
+                    html += '<td style="text-align: center;">' + cellContents + '</td>';
                 }
                 html += '</tr>';
             }
@@ -90,8 +89,6 @@ $(document).ready(function() {
 
             const sel = $(thisPartial).find('.apiHelperLibrarySelect');
             $(sel).html('<option value="-1" selected>Select file to view</option>');
-
-            console.log('extractedFiles', extractedFiles);
 
             for(let ii = 0; ii < extractedFiles.length; ii++) {
                 const f = extractedFiles[ii];
@@ -167,7 +164,7 @@ $(document).ready(function() {
         $(thisPartial).find('.apiHelperLibraryStart').on('click', function() {
             $(thisPartial).find('.apiHelperLibraryStart').hide();
             $(thisPartial).find('.apiHelperLibrarySelect').show();
-            
+
             fetch($(thisPartial).attr('data-info'))
                 .then(response => response.json())
                 .then(function(data) {

@@ -8,4 +8,4 @@ includeDefinitions: [api-helper, api-helper-extras, api-helper-library]
 # Library Test Tools
 
 {{> sso}}
-{{> library-browser}}
+{{> library-browser height="400"}}

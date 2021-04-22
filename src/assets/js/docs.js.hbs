@@ -123,8 +123,8 @@ Created by Zach Supalla.
     Docs.expandPrimaryTOC($correspondingNavElement);
   };
 
-  Docs.expandPrimaryTOC = function($correspondingNavElement) {
-    if ($(correspondingNavElement).closest('ul.static-toc').length) {
+  Docs.expandPrimaryTOC = function(correspondingNavElement) {
+    if (!correspondingNavElement || $(correspondingNavElement).closest('ul.static-toc').length) {
       return;
     }
 
@@ -133,7 +133,7 @@ Created by Zach Supalla.
        // Show the secondary nav as collapsed
       .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
     // Make the current nav element active
-    $correspondingNavElement.addClass('active')
+    $(correspondingNavElement).addClass('active')
        // Show the secondary nav as expanded
       .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass(' ion-arrow-down-b');
 
@@ -143,7 +143,7 @@ Created by Zach Supalla.
         .find('li').removeClass('active');
 
     // Show the secondary in page toc for this section
-    var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
+    var $secondaryNav = $(correspondingNavElement).next('.secondary-in-page-toc');
     if ($secondaryNav.length > 0) {
       $secondaryNav.show();
     }
