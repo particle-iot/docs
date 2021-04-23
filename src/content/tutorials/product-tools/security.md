@@ -16,12 +16,12 @@ with a product at scale.
 
 When you created a product, you created a new type of device in the Particle
 cloud. So far, development kits that you have been using for prototyping have been considered as a "Photon," "P1", "Electron," or "Core" by the
-Particle cloud. However, when you added devices to your product, you are signaling to the cloud
+Particle cloud. However, when you add devices to your product, you are signaling to the cloud
 that you would like them to be treated as part of your product instead of
 as development kits.
 
 There are certain security implications that arise around devices behaving as products. Ideally, the following is always true:
-- Only the _devices_ that be given product privileges will receive them
+- Only the _devices_ that are given product privileges will receive them
 - Only the _people_ who should have the ability to interact with the
   product device will be allowed to do so
 
