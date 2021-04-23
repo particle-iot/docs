@@ -5,6 +5,9 @@ $(document).ready(function() {
 
     $('.apiHelperLibrarySearch').each(function() {
         let lunrIndex;
+        let searchOpts = {};
+        let searchResults;
+        let fetchQueue = [];
 
         const thisPartial = $(this);
 
@@ -13,8 +16,87 @@ $(document).ready(function() {
         const searchOutputElem = $(thisPartial).find('.apiHelperLibrarySearchOutput');
         const searchShowTipsElem = $(thisPartial).find('.apiHelperLibrarySearchShowTips');
         const searchTipsElem = $(thisPartial).find('.apiHelperLibrarySearchTips');
-        
+        const searchViewMoreElem = $(thisPartial).find('.apiHelperLibraryViewMoreButton');
+
+        const librarySearchStorageKey = 'librarySearch';
+
         $(searchShowTipsElem).prop('checked', false);
+
+        const fetchRange = function(start, end) {            
+            for(let ii = start; ii < end && ii < searchResults.length; ii++) {
+                fetchQueue.push(searchResults[ii].ref)
+            }
+            fetchResults();            
+
+            if (end < searchResults.length) {
+                $(searchViewMoreElem).show();
+            }
+            else {
+                $(searchViewMoreElem).hide();
+            }
+        };
+
+        const fetchMore = function() {
+            const start = searchOpts.num;
+            searchOpts.num += 20;
+            if (searchOpts.num > searchResults.length) {
+                searchOpts.num = searchResults.length;
+            }
+            sessionStorage.setItem(librarySearchStorageKey, JSON.stringify(searchOpts));
+
+            fetchRange(start, searchOpts.num);
+        };
+
+        const fetchResults = function() {
+            if (fetchQueue.length == 0) {
+                return;
+            }
+
+            const name = fetchQueue.shift();
+            const url = '/assets/files/libraries/' + name + '.json';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(function(libInfo) {
+                    // 
+
+                    let html = '<h3><a href="' + libInfo.cardUrl + '">' + libInfo.id + '</a></h3>';
+                    $(searchOutputElem).append(html);
+                    
+                    $(searchOutputElem).append('<ul>');
+
+                    $(searchOutputElem).append($(document.createElement('li')).text('Version: ' + libInfo.attributes.version));
+
+                    $(searchOutputElem).append($(document.createElement('li')).text('Installs: ' + libInfo.attributes.installs));
+
+                    if (libInfo.verification) {
+                        $(searchOutputElem).append($(document.createElement('li')).text('Verification: ' + libInfo.verification));
+                    }
+                    if (libInfo.attributes.license) {
+                        $(searchOutputElem).append($(document.createElement('li')).text('License: ' + libInfo.attributes.license));
+                    }
+
+                    if (libInfo.attributes.author) {
+                        $(searchOutputElem).append($(document.createElement('li')).text('Author: ' + libInfo.attributes.author));
+                    }
+                    if (libInfo.attributes.maintainer) {
+                        $(searchOutputElem).append($(document.createElement('li')).text('Maintainer: ' + libInfo.attributes.maintainer));
+                    }
+
+                    $(searchOutputElem).append('</ul>');
+
+                    if (libInfo.attributes.sentence) {
+                        $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.sentence));
+                    }
+                    if (libInfo.attributes.paragraph) {
+                        $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.paragraph));
+                    }
+
+                    fetchResults();
+                });
+        }
+
+        $(searchViewMoreElem).on('click', fetchMore);
 
         $(searchShowTipsElem).on('change', function() {
             if (this.checked) {
@@ -40,57 +122,22 @@ $(document).ready(function() {
             if (!lunrIndex) {
                 return;
             }
-            sessionStorage.setItem('librarySearch', searchFor);
+
+            searchOpts.text = searchFor;
+            searchOpts.num = 0;
+            sessionStorage.setItem(librarySearchStorageKey, JSON.stringify(searchOpts));
 
             $(searchOutputElem).html('');
 
-            const results = lunrIndex.search(searchFor);
-
-            for(let ii = 0; ii < 20 && ii < results.length; ii++) {
-                const url = '/assets/files/libraries/' + results[ii].ref + '.json';
-
-                fetch(url)
-                    .then(response => response.json())
-                    .then(function(libInfo) {
-                        // 
-
-                        let html = '<h3><a href="' + libInfo.cardUrl + '">' + libInfo.id + '</a></h3>';
-                        $(searchOutputElem).append(html);
-                        
-                        $(searchOutputElem).append('<ul>');
-
-                        $(searchOutputElem).append($(document.createElement('li')).text('Version: ' + libInfo.attributes.version));
-
-                        $(searchOutputElem).append($(document.createElement('li')).text('Installs: ' + libInfo.attributes.installs));
-
-                        if (libInfo.verification) {
-                            $(searchOutputElem).append($(document.createElement('li')).text('Verification: ' + libInfo.verification));
-                        }
-                        if (libInfo.attributes.license) {
-                            $(searchOutputElem).append($(document.createElement('li')).text('License: ' + libInfo.attributes.license));
-                        }
-
-                        if (libInfo.attributes.author) {
-                            $(searchOutputElem).append($(document.createElement('li')).text('Author: ' + libInfo.attributes.author));
-                        }
-                        if (libInfo.attributes.maintainer) {
-                            $(searchOutputElem).append($(document.createElement('li')).text('Maintainer: ' + libInfo.attributes.maintainer));
-                        }
-
-                        $(searchOutputElem).append('</ul>');
-
-                        if (libInfo.attributes.sentence) {
-                            $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.sentence));
-                        }
-                        if (libInfo.attributes.paragraph) {
-                            $(searchOutputElem).append($(document.createElement('p')).text(libInfo.attributes.paragraph));
-                        }
-
-                    });
-            }
-            if (results.length == 0) {
+            searchResults = lunrIndex.search(searchFor);
+            if (searchResults.length == 0) {
                 $(searchOutputElem).text('No matching libraries found');
             }
+            else {
+                fetchQueue = [];
+                fetchMore();
+            }
+
         });
 
         $.getScript('/assets/js/lunr.min.js', function(data, textStatus, jqxhr) {
@@ -99,10 +146,15 @@ $(document).ready(function() {
                 .then(function(data) {
                     lunrIndex = lunr.Index.load(data);
 
-                    const savedSearch = sessionStorage.getItem('librarySearch');
+                    const savedSearch = sessionStorage.getItem(librarySearchStorageKey);
                     if (savedSearch) {
-                        $(searchTextElem).val(savedSearch);
-                        $(searchButtonElem).trigger('click'); 
+                        try {
+                            searchOpts = JSON.parse(savedSearch);
+                            $(searchTextElem).val(searchOpts.text);
+                            $(searchButtonElem).trigger('click'); 
+                        }
+                        catch(e) {
+                        }
                     }            
                 });
 
