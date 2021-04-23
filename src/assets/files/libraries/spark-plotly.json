@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "spark-plotly",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/spark-plotly/archive/0.0.11.tar.gz"
+  },
+  "attributes": {
+    "name": "spark-plotly",
+    "version": "0.0.11",
+    "installs": 313,
+    "license": "MIT",
+    "author": "Martin Cooley",
+    "sentence": "Based off Plot.ly examples for Arduino.",
+    "url": "https://github.com/bigmacd/spark-plotly",
+    "repository": "https://github.com/bigmacd/spark-plotly.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/spark-plotly",
+  "versions": {
+    "0.0.11": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "spark-plotly": false
+          },
+          "electron": {
+            "spark-plotly": false
+          },
+          "argon": {
+            "spark-plotly": false
+          },
+          "boron": {
+            "spark-plotly": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "spark-plotly\n============\n\nA port of Plotly library for Arduino to the Spark Core\n\n\nWas not successful getting the Plot.ly Arduino libraries to work.  This code makes them work on the Spark Core (required very little change BTW) and now you can import it via spark.io.\n\n"
+}

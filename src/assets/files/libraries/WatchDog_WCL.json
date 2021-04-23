@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WatchDog_WCL",
     "version": "1.0.2",
-    "installs": 705,
+    "installs": 706,
     "license": "BSD",
     "author": "Kevin McQuown",
     "sentence": "Hardware watch dog timer specifically for Gen3 devices.",

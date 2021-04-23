@@ -1,0 +1,48 @@
+{
+  "type": "libraries",
+  "id": "DynamicFrequencySampler",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DynamicFrequencySampler/archive/0.0.8.tar.gz"
+  },
+  "attributes": {
+    "name": "DynamicFrequencySampler",
+    "version": "0.0.8",
+    "installs": 239,
+    "license": "LGPL",
+    "author": "calvin@particle.io",
+    "sentence": "Create \"dynamic\" or \"smart\" publishing frequencies for sensor data that you want to send to the Particle Cloud.",
+    "paragraph": "This library enables two \"smart\" publishing frequencies so you can make sure you're publish high frequency data when it counts and saving on data when it doesn't.",
+    "url": "https://github.com/particle-iot/solutions-libraries-DynamicFrequencySampler",
+    "repository": "https://github.com/particle-iot/solutions-libraries-DynamicFrequencySampler.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DynamicFrequencySampler",
+  "versions": {
+    "0.0.8": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_Sampler101": true
+          },
+          "electron": {
+            "1_Sampler101": true
+          },
+          "argon": {
+            "1_Sampler101": true
+          },
+          "boron": {
+            "1_Sampler101": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# DynamicFrequencySampler\n\nCreate \"dynamic\" or \"smart\" publishing frequencies for sensor data that you want to send to the Particle Cloud. This library depends on `RunningAverage@0.0.1`.\n\n## Welcome to your library!\n\nThis library enables two \"smart\" publishing frequencies so you can make sure you're publish high frequency data when it counts and saving on data when it doesn't. The current \"smart\" methodologies include: \n1. *\"jump\"*, the latest value is compared to the average across the last `<length>` measurements. If the latest value is more than `<absValueChange>` greater-than  || less-than that average then it will publish.\n2. *\"gaussian\"*, aka [Gaussian distribution](https://en.wikipedia.org/wiki/Normal_distribution#Standard_deviation_and_coverage) is similar to the \"jump\" method except that it uses the standard deviation of the last `<length>` measurements and the input `<sigma>` to create upper and lower bounds that trigger a publish.\n3. *\"range\"*, this is the simplist method and allows you to define a static range that will trigger a publish when your latest value falls outs side range.\n\n\n\n## Usage\nTo create an instance of this library, you'll need to initialize a `SamplerSpec` structure.\n```\nSamplerSpec tempSpec { eventName: \"tempC\", method: \"jump\", minInterval: 10, maxInterval: 60, length: 20, absValueChange: 3};\nDynamicFrequencySampler temperatureSampler(tempSpec)\n```\nThis above example will create an object that will publish an event named \"tempC\". The payload of that event will be a JSON object with key `\"tempC\"`. The library will make sure that events are published at least every `60` seconds, and not more than once every `10` seconds. The length `20` determines how many subsequent publish calls are stored in the library's buffer. This buffer plays a role in both the \"jump\" and \"gaussian\" methods because the entire buffer is used to determine the `average` and `stdev` which define the upper and lower thresholds for triggering publishes. \n\nIn order do actually publish data you will have to call into the `publish()` function, the signature of that function is:\n```\ntemperatureSampler.publish(latestSensorValue)\n```\n\nThis library also automatically creates Particle functions that will toggle a debugging mode that prints out values and thresholds passed to the the `DynamicFrequencySampler.publish` function. Try enabling debugger mode and running `particle serial monitor` from your CLI (while your device is plugged into your computer) to see the output. \n\n## Examples\n\n1. __1_Sampler101__ - Basic example of how to initialize the library\n\n## Improvements: \n- Make it possible to disable the creation of debugger functions. \n\n## Changes: \n*v0.0.6* - Was getting compile warnings so changed branching logic to use strcmp\n\n*v0.0.7* - Moved the particle cloud functions to a new method `enableCloudFunctions`\n\n*v0.0.8* - Adding logging and found bug in strcmp logic"
+}

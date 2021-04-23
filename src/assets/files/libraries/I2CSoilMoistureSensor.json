@@ -7,7 +7,7 @@
   "attributes": {
     "name": "I2CSoilMoistureSensor",
     "version": "1.0.3",
-    "installs": 2407,
+    "installs": 2408,
     "license": "MIT",
     "author": "Mike Morales",
     "sentence": "Library to control Miceuz Soil Moisture Sensor (https://github.com/Miceuz/i2c-moisture-sensor)",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BH1750",
     "version": "1.0.0",
-    "installs": 4443,
+    "installs": 4467,
     "license": "GNU",
     "author": "Alik <aliktab@gmail.com>",
     "sentence": "BH1750 library for Particle",

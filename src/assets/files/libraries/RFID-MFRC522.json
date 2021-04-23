@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RFID-MFRC522",
     "version": "1.3.7",
-    "installs": 2102,
+    "installs": 2118,
     "author": "GithubCommunity",
     "maintainer": "albertoteloko",
     "sentence": "Arduino RFID Library for MFRC522 (SPI)",

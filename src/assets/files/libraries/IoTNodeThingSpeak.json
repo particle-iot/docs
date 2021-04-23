@@ -1,0 +1,30 @@
+{
+  "type": "libraries",
+  "id": "IoTNodeThingSpeak",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/IoTNodeThingSpeak/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "IoTNodeThingSpeak",
+    "version": "0.0.3",
+    "installs": 255,
+    "license": "MIT",
+    "author": "Robert Mawrey <robert@sentientthings.com>",
+    "maintainer": "Robert Mawrey <robert@sentientthings.com>",
+    "sentence": "Sentient Things ThingSpeak library for the IoT Node.",
+    "paragraph": "Uses Fram to queue messages sent via the Bulk-Write CSV Data API.",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/IoTNodeThingSpeak",
+  "versions": {
+    "0.0.3": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# IoTNodeThingSpeak\r\nSentient Things ThingSpeak library for the IoT Node.  Uses Fram to queue messages send via the Bulk-Write CSV Data API\r\n"
+}

@@ -1,0 +1,72 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_TMP117_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_TMP117_Arduino_Library/archive/1.2.3.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_TMP117_Arduino_Library",
+    "version": "1.2.3",
+    "installs": 207,
+    "author": "SparkFun Electronics",
+    "maintainer": "SparkFun Electronics",
+    "sentence": "A library to drive the Texas Instruments TMP117 by I2C.",
+    "paragraph": "Communicates with the TMP117 over I<sup>2</sup>C to quickly integrate a temperature sensor into your project. The sensor outputs temperature readings with high precision of +/- 0.1°C over the range of -20°C to +50°C with no calibration. The maximum range is from -55°C to 150°C with a slightly lower precision of +/-0.3°C. It also has a very low power consumption which minimizes the impact of self-heating on measurement accuracy. The sensor operates from 1.8V to 5.5V. ",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_TMP117_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_TMP117_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_TMP117_Arduino_Library",
+  "versions": {
+    "1.2.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": false
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun TMP117 Arduino Library\n========================================\n\n[![SparkFun High Precision Temperature Sensor - TMP117 (Qwiic)](https://cdn.sparkfun.com//assets/parts/1/4/4/3/0/15805-SparkFun_High_Precision_Temperature_Sensor_-_TMP117__Qwiic_-01.jpg)](https://www.sparkfun.com/products/15805)\n\n[*SparkFun High Precision Temperature Sensor - TMP117 (Qwiic) (SEN-15805)*](https://www.sparkfun.com/products/15805)\n\nThe TMP117 is a high precision temperature Sensor with accuracy of up to +/-0.1 degrees celsius and an operating temperature range of -55°C to +150°C. It is NIST traceable and verified with equipment that is calibrated to ISO/IEC 17025 accredited standards. It has a very low power consumption with a supply range of 1.8V to 5.5V. \n\nThe TMP117 address can be changed with an external jumper to 4 different addresses. There are 4 different conversion modes that it can read from, with continuous conversion, shutdown, and one shot conversion. There is also digital offset for system correction, programmable temperature limits, General-Purpose EEPROM, and selectable averaging. \n\nSparkFun labored with love to create this code. Feel like supporting open source hardware? \nBuy a [board](https://www.sparkfun.com/products/15805) from SparkFun!\n\nRepository Contents\n-------------------\n\n* **/examples** - Example code to be used in the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **libaray.properties** - General library properties for the Arduino package manager\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/SparkFun_High_Precision_Temperature_Sensor_TMP117_Qwiic)** - Main repository (including hardware files)\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-tmp117-high-precision-digital-temperature-sensor-hookup-guide)** - Basic hookup guide for the SparkFun High Precision Temperature Sensor TMP117 (Qwiic).\n\nProducts that use this Repository\n--------------\n\n* [SEN-13166](https://www.sparkfun.com/products/15805)- SparkFun Version\n* [SPX-15413](https://www.sparkfun.com/products/15413)- SparkX Version\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact technical support on our [SparkFun forums](https://forum.sparkfun.com/viewforum.php?f=152).\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n_<COLLABORATION CREDIT>_\n"
+}

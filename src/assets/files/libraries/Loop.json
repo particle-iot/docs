@@ -1,0 +1,48 @@
+{
+  "type": "libraries",
+  "id": "Loop",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Loop/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Loop",
+    "version": "1.0.0",
+    "installs": 573,
+    "license": "MIT",
+    "author": "Kevron Rees",
+    "sentence": "Advanced Looping library with timeouts and stuff",
+    "url": "https://github.com/tripzero/loop",
+    "repository": "https://github.com/tripzero/loop.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/Loop",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "loop_example": false,
+            "test": false
+          },
+          "electron": {
+            "loop_example": false,
+            "test": false
+          },
+          "argon": {
+            "loop_example": false,
+            "test": false
+          },
+          "boron": {
+            "loop_example": false,
+            "test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Loop\nAdvanced looping class for arduino[-like] devices with timeouts and callbacks\n"
+}

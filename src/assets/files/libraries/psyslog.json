@@ -7,7 +7,7 @@
   "attributes": {
     "name": "psyslog",
     "version": "0.1.0",
-    "installs": 870,
+    "installs": 871,
     "license": "MIT",
     "author": "Hans Nielsen <hans@stackallocated.com>",
     "sentence": "A UDP syslog library for sending log data to remote servers",

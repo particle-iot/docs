@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "ard-boost",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ard-boost/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "ard-boost",
+    "version": "0.0.3",
+    "installs": 122,
+    "license": "Boost Software License, Version 1.0.",
+    "author": "Vladimir Talybin",
+    "sentence": "Boost library port.",
+    "paragraph": "Boost is a set of C++ libraries usable across a broad spectrum of applications.",
+    "url": "https://github.com/talybin/ard-boost",
+    "repository": "https://github.com/talybin/ard-boost.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/ard-boost",
+  "versions": {
+    "0.0.3": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "## ARD-BOOST\r\n\r\nThis is a mini port of [Boost](https://www.boost.org) library, version 1.72.0 (latest on time of writing). Boost is a set of C++ libraries that provide support for tasks and structures such as linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions, unit testing and many more. It contains 160 individual libraries.\r\n\r\nNot all libraries are included in this port. Some libraries, such as threading and filesystem, makes no sence on Arduino hardware. Others are already in the standard, like chrono and array, and can be used from standard namespace. But there are many libraries that are not yet in standard or require C++17 or just great parts of Boost. These parts ported to this library.\r\n\r\nSo far it includes only libraries I was able to compile for Arduino. My intention is to add more libraries as needed. Requests are welcome.\r\n\r\n### Currently supporting\r\n\r\nThe following is a list of supported libraries with all their dependencies:\r\n\r\n* [any](https://www.boost.org/doc/libs/1_72_0/libs/any/)\r\n* [concept check](https://www.boost.org/doc/libs/1_72_0/libs/concept_check/)\r\n* [container](https://www.boost.org/doc/libs/1_72_0/libs/container/)\r\n* [container hash](https://www.boost.org/doc/libs/1_72_0/libs/container_hash/)\r\n* [core](https://www.boost.org/doc/libs/1_72_0/libs/core/)\r\n* [functional](https://www.boost.org/doc/libs/1_72_0/libs/functional/)\r\n* [iterator](https://www.boost.org/doc/libs/1_72_0/libs/iterator/)\r\n* [mp11](https://www.boost.org/doc/libs/1_72_0/libs/mp11/)\r\n* [mpl](https://www.boost.org/doc/libs/1_72_0/libs/mpl/)\r\n* [optional](https://www.boost.org/doc/libs/1_72_0/libs/optional/)\r\n* [preprocessor](https://www.boost.org/doc/libs/1_72_0/libs/preprocessor/)\r\n* [range](https://www.boost.org/doc/libs/1_72_0/libs/range/)\r\n* [static assert](https://www.boost.org/doc/libs/1_72_0/libs/static_assert/)\r\n* [string_view / string_ref](https://www.boost.org/doc/libs/1_72_0/libs/utility/doc/html/string_ref.html)\r\n* [type index](https://www.boost.org/doc/libs/1_72_0/libs/type_index/)\r\n* [type traits](https://www.boost.org/doc/libs/1_72_0/libs/type_traits/)\r\n* [utility](https://www.boost.org/doc/libs/1_72_0/libs/utility/utility.htm)\r\n* [variant](https://www.boost.org/doc/libs/1_72_0/libs/variant/)\r\n* [variant2](https://www.boost.org/doc/libs/1_72_0/libs/variant2/)\r\n\r\n### Get started\r\n\r\nBefore include of any Boost library make sure to include `ard-boost.h`. This will setup exception handling and fix some compile problems. Otherwise the usage is the same as usual. Include any of supported library and you are good to go.\r\n\r\n```cpp\r\n#include \"ard-boost.h\"\r\n#include \"boost/range.hpp\"\r\n\r\nvoid setup()\r\n{\r\n    int sum = 0;\r\n    for (int i : boost::irange(5, 10))\r\n        sum += i;\r\n}\r\n\r\nvoid loop() { }\r\n```\r\n\r\n### Exception handling\r\n\r\nAs you may know, exceptions are disabled on Arduino. Instead of throwing exception, Boost will call special handler function with exception as argument. It is defined in `ard-boost.h` and by default, in case of an exception, will reboot the device.\r\n\r\nTo provide your own exception handler, make sure to define `CUSTOM_EXCEPTION_HANDLER` **before** include of `ard-boost.h` and override exception function. For example:\r\n\r\n```cpp\r\n#define CUSTOM_EXCEPTION_HANDLER\r\n#include \"ard-boost.h\"\r\n\r\nvoid boost::throw_exception(const std::exception& ex) {\r\n    // Log exception and reboot\r\n    Particle.publish(\"Error\", ex.what(), PRIVATE);\r\n    System.reset();\r\n}\r\n\r\nvoid setup() { }\r\nvoid loop() { }\r\n```\r\n\r\n**Note!** The exception handler must not return (protected by *noreturn* attribute).\r\n"
+}

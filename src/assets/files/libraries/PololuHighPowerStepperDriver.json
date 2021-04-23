@@ -1,0 +1,49 @@
+{
+  "type": "libraries",
+  "id": "PololuHighPowerStepperDriver",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PololuHighPowerStepperDriver/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "PololuHighPowerStepperDriver",
+    "version": "1.0.0",
+    "installs": 514,
+    "author": "Pololu",
+    "sentence": "Pololu High-Power Stepper Motor Driver library for Particle",
+    "paragraph": "This is a library for Particle devices that helps interface with Pololu High-Power Stepper Motor Drivers.",
+    "url": "https://github.com/rkast/pololu-high-power-stepper-driver-particle",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PololuHighPowerStepperDriver",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "electron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "argon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "boron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# High-Power Stepper Motor Driver library for Particle\r\n\r\nVersion: 0.0.1<br/>\r\nRelease date: 2019-11-11<br/>\r\n[www.pololu.com](https://www.pololu.com/)\r\n\r\n## Summary\r\n\r\nThis is a library for the Particle ecosystem that helps interface with a [Pololu\r\nHigh-Power Stepper Motor Driver 36v4][hpsd-36v4].  It uses the existing Particle SPI capabilities library to communicate with the SPI interface (SCS, SCLK, SDATI, and\r\nSDATO) of the driver. This library was ported over from an existing Arduino library provided by Pololu so all credit goes to them. I just needed this capability in the particle ecosystem and thought I'd publish it in case others did too. To Pololu, if I didn't get crediting or licensing correct, please reach out and I'd be happy to update this.\r\n\r\n## Supported platforms\r\n\r\nThis library is designed to work with the Particle ecosystem. I personally still use the Particle Desktop IDE (atom) and will be testing with a GEN 2 Photon running at firmware version 1.4.2\r\nI may get around to testing with other .\r\n\r\n## Getting started\r\n\r\n### Hardware\r\n\r\nThe HighPowerStepperDriver library supports Pololu's [High-Power Stepper Motor\r\nDriver 36v4][hpsd-36v4].  Before continuing, careful reading of its product\r\npage is recommended.\r\n\r\nYou will need to connect your motor, motor power, and IOREF as described on the\r\nproduct page.  You should also make the following connections between the\r\nParticle and the driver:\r\n\r\n| Particle     | High-Power Stepper Motor Driver |\r\n|--------------|---------------------------------|\r\n| D0           | DIR                             |\r\n| D1           | STEP                            |\r\n| A2 (SS)      | SCS                             |\r\n| A3 (SCK)     | SCLK                            |\r\n| A4 (MISO)    | SDATO                           |\r\n| A5 (MOSI)    | SDATI                           |\r\n| GND          | GND                             |\r\n\r\nThe SDATO pin is only needed if you want to read information back from the\r\nstepper driver.  Since the motor can be stepped and its direction changed using\r\nthe SPI interface, it is possible to use the driver without connecting the STEP\r\nand DIR pins, and they are not used in every example.\r\n\r\n## Examples\r\n\r\nSeveral example sketches are available that show how to use the library. You\r\ncan access them under the examples folder, which is subdivided by whether you intend to use SPI or Step/Dir based control.\r\n\r\n## Documentation\r\n\r\nFor complete documentation of this library, including many features that were\r\nnot mentioned here, see [the high-power-stepper-driver-arduino\r\ndocumentation][doc].  If you are already on that page, see the\r\nHighPowerStepperDriver class reference.\r\n\r\n## Version history\r\n\r\n* 1.0.0 (2019-06-04): Original release.\r\n\r\n[particle]: https://docs.particle.io/reference/device-os/firmware/photon/\r\n[github]: https://github.com/rkast/pololu-high-power-stepper-driver-particle\r\n[Original Arduino github]: https://github.com/pololu/high-power-stepper-driver-arduino/releases\r\n[hpsd-36v4]: https://www.pololu.com/product/3730\r\n[spi]: https://docs.particle.io/reference/device-os/firmware/photon/#spi\r\n"
+}

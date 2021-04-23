@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Ethernet_b239",
     "version": "0.0.10",
-    "installs": 699,
+    "installs": 700,
     "license": "BSD",
     "author": "peekay123 <john@doe.io>",
     "sentence": "Arduino port of Ethernet library",

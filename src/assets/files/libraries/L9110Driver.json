@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "L9110Driver",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/L9110Driver/archive/0.0.10.tar.gz"
+  },
+  "attributes": {
+    "name": "L9110Driver",
+    "version": "0.0.10",
+    "installs": 372,
+    "license": "GPL",
+    "author": "Scott Beasley <scottbeasley@gmail.com>",
+    "sentence": "L9110 Motor driver library for Particle boards",
+    "url": "https://github.com/jscottb/l9110driver_particle",
+    "repository": "https://github.com/jscottb/l9110driver_particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/L9110Driver",
+  "versions": {
+    "0.0.10": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "test_L9110": false
+          },
+          "electron": {
+            "test_L9110": false
+          },
+          "argon": {
+            "test_L9110": false
+          },
+          "boron": {
+            "test_L9110": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# L9110Driver_Particle\nL9110 motor driver for Particle boards\n*\n"
+}

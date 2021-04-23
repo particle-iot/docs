@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PollingTimer",
     "version": "1.3.0",
-    "installs": 5981,
+    "installs": 5982,
     "license": "Apache 2",
     "author": "dgarrett@acm.org",
     "sentence": "A simple software timer implemetion.",

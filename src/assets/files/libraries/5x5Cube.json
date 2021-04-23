@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "5x5Cube",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/5x5Cube/archive/0.0.11.tar.gz"
+  },
+  "attributes": {
+    "name": "5x5Cube",
+    "version": "0.0.11",
+    "installs": 88,
+    "license": "MIT",
+    "author": "Bryan Schremp <netnut@outlook.com>",
+    "sentence": "A fork of the L3DCube Library for a 5x5x5 cube w/8mm through hole WS2812B LEDs.",
+    "url": "https://github.com/bryanschremp/5x5cube",
+    "repository": "https://github.com/bryanschremp/5x5cube.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "other",
+  "cardUrl": "/cards/libraries/other/5x5Cube",
+  "versions": {
+    "0.0.11": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "blink": false
+          },
+          "electron": {
+            "blink": false
+          },
+          "argon": {
+            "blink": false
+          },
+          "boron": {
+            "blink": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# 5X5Cube"
+}

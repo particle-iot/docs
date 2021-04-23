@@ -1,0 +1,43 @@
+{
+  "type": "libraries",
+  "id": "CarbonLibrary",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CarbonLibrary/archive/0.0.6.tar.gz"
+  },
+  "attributes": {
+    "name": "CarbonLibrary",
+    "version": "0.0.6",
+    "installs": 95,
+    "license": "MIT",
+    "author": "Garrett Bartley <wgb@wgb.me>",
+    "url": "https://github.com/wgbartley/spark-carbon-library",
+    "repository": "https://github.com/wgbartley/spark-carbon-library.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/CarbonLibrary",
+  "versions": {
+    "0.0.6": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "CarbonLibrary": false
+          },
+          "electron": {
+            "CarbonLibrary": false
+          },
+          "argon": {
+            "CarbonLibrary": false
+          },
+          "boron": {
+            "CarbonLibrary": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "spark-carbon-library\n====================\n\nAbout\n-----\nA library for posting metrics to a Carbon daemon.\n\n\nWhat You Need\n-------------\n\n - A Spark Core\n - A Carbon daemon    \n\n\nHow to Use\n----------\n\n1. Set up a TCPClient to use with SparkCarbon.\n2. Instantiate the SparkCarbon library.  We'll use a variables named `tcpClient` and `carbon` for this example.\n3. In `setup()`, \"begin\" the library using `carbon.begin()`.  `carbon.begin()` will work with a few variations.\n    1. IP Address without port (defaults to 2003): `carbon.begin(tcpClient, { 127, 0, 0, 1 });`\n    2. IP Address with port: `carbon.begin(tcpClient, { 127, 0, 0, 1}, 2003);`\n    3. DNS name without port (defaults to 2003): `carbon.begin(tcpClient, \"my-carbon-server.mydomain.com\", 2003);`\n    4. DNS name with port: `carbon.begin(tcpClient, \"my-carbon-server.mydomain.com\", 2003);`\n4. Finally, elsewhere in your code, you can use `carbon.sendData(\"stats.spark-test\", 1, 1302905160)` (metric, value, timestamp) to post data to your Carbon daemon.\n\n\nLinks\n-----\n\n - [Graphite/Carbon](http://graphite.readthedocs.org/)\n"
+}

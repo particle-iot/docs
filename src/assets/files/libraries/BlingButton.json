@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "BlingButton",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/BlingButton/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "BlingButton",
+    "version": "0.0.2",
+    "installs": 121,
+    "license": "MIT",
+    "author": "Punam Dahiya <punamdahiya@yahoo.com>",
+    "sentence": "A simple library that connects over Wifi to Particle cloud service and enable exchange of messages with paired device",
+    "url": "https://github.com/punamdahiya/blingbutton",
+    "repository": "https://github.com/punamdahiya/blingbutton.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/BlingButton",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "TestExample": false
+          },
+          "electron": {
+            "TestExample": false
+          },
+          "argon": {
+            "TestExample": false
+          },
+          "boron": {
+            "TestExample": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "\n# About Buzzy-Pixel BlingButton library \n\nThis repo serves buzzy-pixel library written to support research prototype used in Mozilla Project Haiku\n\nLearn about the Project Haiku (former Project Smart Home) on the Mozilla wiki\n* [https://wiki.mozilla.org/Connected_Devices/Projects/Project_Haiku](https://wiki.mozilla.org/Connected_Devices/Projects/Project_Haiku)\n\nFollow below link for examples and usage\n\n* https://github.com/mozilla/project_haiku.iot/tree/master/Prototype\n"
+}

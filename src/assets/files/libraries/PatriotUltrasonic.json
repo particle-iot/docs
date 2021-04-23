@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "PatriotUltrasonic",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PatriotUltrasonic/archive/2.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "PatriotUltrasonic",
+    "version": "2.0.0",
+    "installs": 154,
+    "license": "BSD",
+    "author": "Ron Lisle",
+    "sentence": "Extend Patriot IoT to support ultrasonic proximity detectors.",
+    "paragraph": "Patriot provides support for controlling IoT devices using Alexa and iOS devices. This plugin adds the ability to use ultrasonic proximity detectors to control those devices wirelessly also.",
+    "url": "http://www.github.com/rlisle/Patriot",
+    "repository": "http://www.github.com/rlisle/Patriot",
+    "architectures": [
+      "particle-photon"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PatriotUltrasonic",
+  "versions": {
+    "2.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "ultrasonic": false
+          },
+          "electron": {
+            "ultrasonic": false
+          },
+          "argon": {
+            "ultrasonic": false
+          },
+          "boron": {
+            "ultrasonic": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# PatriotUltrasonic\n\nA Patriot plugin to support ultrasonic proximity detector devices.\n\nThis library is used to support HC-SR04 ultrasonic proximity devices.\nAny 2 Photon I/O pins may be used to provide pulse trigger and echo status.\n\n## Usage\n\nInclude this library in any Photon sketch that needs to support an ultrasonic\nproximity sensor such as the HC-SR04. \nThese are inexpensive devices that generate an ultrasonic\npulse when triggered, and raise an echo line when that pulse is detected.\nDistance is calculated by measuring the time between the trigger and the\nreceived echo.\nRefer to the more complex examples in the main Patriot IoT examples\n directory.\n\nThis example creates a single ultrasonic proximity device connected to pins\nA1 and A0.\n\nWhen the state of the input D4 pin changes, an event named \"switch\"\nwill be published. Other device can define a behavior that uses\nthis event.\n\nYou can use the Particle.io console to monitor these events.\n\n```\n#include <IoT.h>\n#include <PatriotUltrasonic.h>\n\nIoT *iot;\n\nvoid setup() {\n    iot = IoT::getInstance();\n    iot->setControllerName(\"myPhoton\");\n    iot->begin();\n\n    // Create the HC-SR04 sensor device\n    Ultrasonic *ultra1 = new Ultrasonic(A1, A0, \"Proximity\");\n\n    // Add it to IoT\n    iot->addDevice(ultra1);\n}\n\nvoid loop() {\n    iot->loop();\n}\n```\n\n## Documentation\n\nRefer to the Patriot Github repository and documentation for more\ninformation.\n\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add IoT_myname` to add the library to a project on your machine or add the IoT_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2017 Ron Lisle\n\nRefer to the included LICENSE file.\n"
+}

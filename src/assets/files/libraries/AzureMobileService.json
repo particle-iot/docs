@@ -1,0 +1,56 @@
+{
+  "type": "libraries",
+  "id": "AzureMobileService",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AzureMobileService/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "AzureMobileService",
+    "version": "0.0.3",
+    "installs": 141,
+    "license": "GPL",
+    "author": "Brian Sherwin <github:bsherwin>; Paul DeCarlo <github:toolboc>; Bill Fink <github:WhatsTheBigIT>",
+    "sentence": "Simplify getting data to Azure Mobile Services",
+    "url": "https://github.com/dxhackers/azuremobilespark",
+    "repository": "https://github.com/dxhackers/azuremobilespark.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AzureMobileService",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "electron": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "argon": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "boron": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "﻿# AzureMobileSpark\nLibrary for abstracting Azure Mobile Services REST Api for the Spark.Core.\n\n<a name=\"resources\" />\n## Resources ##\nhttps://msdn.microsoft.com/en-us/library/azure/jj710108.aspx\n\n<a name=\"phase\" />\n## Phase ##\nV1 (Ease of Interaction with Mobile Service Operations)\n\n- Login\n- Mobile Service Functionality\n- User required to build JSON string\n\n````\n\tams.insert(\"Table\", valueString);\n````\n\nV2 (Data Enhancement)\n\n- User builds key dictionary, provide simpler posting of data\n\n````\n\tdictionary.Add(\"Key\", \"Value\");\n\tazure.insertdata(\"table\", dictionary);\n````\n\n<a name=\"requirements\" />\n## Requirements ##\nFunctionality - Create, Read, Update, Destroy handled using HttpClient\n\n- Create(Table, JSONData)\n- Read(Table)\n- Update(Table, ID, JSONData)\n- Destroy(Table, ID)\n\nOther\n\n- Azure string builder - abstracted away to create connections to service\n- Error - receive http codes and act appropriately\n- Data - JSON payload builder\n\n\nConfiguration - Mobile Service Name and Mobile Service Key\n\n<a name=\"implementation\" />\n## Implementation ##\n\n````C#\n#include \"HttpClient/HttpClient.h\"\n#include \"AzureMobileService/AzureMobileServices.h\"\n \nAzureMobileServices ams;\nString azureKey = \"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\";\nString azureUrl = \"MyAzureMobileServiceName\";\n \nint button = D6;\n \nvoid setup() {\n\tams.configure(MYSERVICE, MYKEY);\n\tpinMode(button, INPUT_PULLUP);\n}\n \nvoid loop() {\n\tif (digitalRead(button) == LOW) {\n\t\tsendDataToAzure(\"pushed a button at: \" + Time.now());\n\t}\n}\n \nvoid sendDataToAzure(String message) {\n\tams.create(\"TableName\", \"{\\\"text\\\":\\\"\" + message +\"\\}\");\n}\n````"
+}

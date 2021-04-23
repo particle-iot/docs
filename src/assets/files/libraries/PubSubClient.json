@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PubSubClient",
     "version": "2.6.0",
-    "installs": 28010,
+    "installs": 28054,
     "license": "MIT",
     "author": "knolleary",
     "url": "https://github.com/tectiv3/pubsubclient",

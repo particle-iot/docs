@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ds1307",
     "version": "0.0.1",
-    "installs": 4659,
+    "installs": 4660,
     "license": "Public Domain",
     "author": "JeeLabs, Technobly",
     "sentence": "DS-1307 RTC library",

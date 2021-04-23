@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "command-parser",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/command-parser/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "command-parser",
+    "version": "0.0.2",
+    "installs": 86,
+    "license": "MIT",
+    "author": "Daniel Sundberg <daniel.sundberg@gmail.com>",
+    "sentence": "Multi command parser for use with Spark.function()",
+    "url": "https://github.com/dsundberg/command-parser",
+    "repository": "https://github.com/dsundberg/command-parser.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/command-parser",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "command-parser\n==============\n\ncommand parser for use with Spark.function()\n"
+}

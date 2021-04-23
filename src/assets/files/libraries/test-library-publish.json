@@ -1,0 +1,50 @@
+{
+  "type": "libraries",
+  "id": "test-library-publish",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/test-library-publish/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "test-library-publish",
+    "version": "0.0.2",
+    "installs": 92,
+    "license": "MIT",
+    "author": "Joe Goggins <joe@particle.io>",
+    "sentence": "A simple library that illustrates coding conventions of a Spark Library",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/test-library-publish",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "electron": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "argon": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          },
+          "boron": {
+            "blink-an-led": true,
+            "blink-an-led-slower": false,
+            "blink-an-led-very-slow": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "About\n===\n\nThis repo serves as the specfication for what constitutes a valid Spark firmware library and an actual example library you can use as a reference when writing your own libraries.\n\nSpark Libraries can be used in the [Spark IDE](https://www.spark.io/build).\n_Soon_ you'll also be able to use them with the [Spark CLI](https://github.com/spark/spark-cli) and when compiling firmware locally with [Spark core-firmware](https://github.com/spark/core-firmware).\n\n## Table of Contents\n\nThis README describes how to create libraries as well as the Spark Library Spec.\n\nThe other files constitute the Spark Library itself:\n\n  - file, class, and function [naming conventions](doc/firmware-code-conventions.md)\n  - [example apps](firmware/examples) that illustrate library in action\n  - recommended approaches for [test-driven embedded development](firmware/test/RUNNING_TESTS.md)\n  - [metadata](spark.json) to set authors, license, official names\n  \n## Getting Started\n\n### 1. Define a temporary function to create library boilerplate\n\nCopy and paste this into a bash or zsh shell or .profile file.\n\n```bash\ncreate_spark_library() {\n\tLIB_NAME=\"$1\"\n\n\t# Make sure a library name was passed\n\tif [ -z \"{$LIB_NAME}\" ]; then\n\t\techo \"Please provide a library name\"\n\t\treturn\n\tfi\n\n\techo \"Creating $LIB_NAME\"\n\n\t# Create the directory if it doesn't exist\n\tif [ ! -d \"$LIB_NAME\" ]; then\n\t\techo \" ==> Creating ${LIB_NAME} directory\"\n\t\tmkdir $LIB_NAME\n\tfi\n\n\t# CD to the directory\n\tcd $LIB_NAME\n\n\n\t# Create the spark.json if it doesn't exist.\n\tif [ ! -f \"spark.json\" ]; then\n\t\techo \" ==> Creating spark.json file\"\n\t\tcat <<EOS > spark.json\n{\n\t\"name\": \"${LIB_NAME}\",\n\t\"version\": \"0.0.1\",\n\t\"author\": \"Someone <email@somesite.com>\",\n\t\"license\": \"Choose a license\",\n\t\"description\": \"Briefly describe this library\"\n}\nEOS\n\tfi\n\n\n\t# Create the README file if it doesn't exist\n\tif test -z \"$(find ./ -maxdepth 1 -iname 'README*' -print -quit)\"; then\n\t\techo \" ==> Creating README.md\"\n\t\tcat <<EOS > README.md\nTODO: Describe your library and how to run the examples\nEOS\n\tfi\n\n\n\t# Create an empty license file if none exists\n\tif test -z \"$(find ./ -maxdepth 1 -iname 'LICENSE*' -print -quit)\"; then\n\t\techo \" ==> Creating LICENSE\"\n\t\ttouch LICENSE\n\tfi\n\n\n\t# Create the firmware/examples directory if it doesn't exist\n\tif [ ! -d \"firmware/examples\" ]; then\n\t\techo \" ==> Creating firmware and firmware/examples directories\"\n\t\tmkdir -p firmware/examples\n\tfi\n\n\n\t# Create the firmware .h file if it doesn't exist\n\tif [ ! -f \"firmware/${LIB_NAME}.h\" ]; then\n\t\techo \" ==> Creating firmware/${LIB_NAME}.h\"\n\t\ttouch firmware/${LIB_NAME}.h\n\tfi\n\n\n\t# Create the firmware .cpp file if it doesn't exist\n\tif [ ! -f \"firmware/${LIB_NAME}.cpp\" ]; then\n\t\techo \" ==> Creating firmware/${LIB_NAME}.cpp\"\n\t\tcat <<EOS > firmware/${LIB_NAME}.cpp\n#include \"${LIB_NAME}.h\"\n\nEOS\n\tfi\n\n\n\t# Create an empty example file if none exists\n\tif test -z \"$(find ./firmware/examples -maxdepth 1 -iname '*' -print -quit)\"; then\n\t\techo \" ==> Creating firmware/examples/example.cpp\"\n\t\tcat <<EOS > firmware/examples/example.cpp\n#include \"${LIB_NAME}/${LIB_NAME}.h\"\n\n// TODO write code that illustrates the best parts of what your library can do\n\nvoid setup {\n\n}\n\n\nvoid loop {\n\n}\nEOS\n\tfi\n\n\n\t# Initialize the git repo if it's not already one\n\tif [ ! -d \".git\" ]; then\n\t\tGIT=`git init`\n\t\techo \" ==> ${GIT}\"\n\tfi\n\n\techo \"Creation of ${LIB_NAME} complete!\"\n\techo \"Check out https://github.com/spark/uber-library-example for more details\"\n}\n\n```\n\n### 2. Call the function\n\n```bash\ncreate_spark_library this-is-my-library-name\n```\n\n- Replace `this-is-my-library-name` with the actual lib name. Your library's name should be lower-case, dash-separated.\n\n### 3. Edit the spark.json firmware .h and .cpp files\n\n- Use this repo as your guide to good library conventions.\n\n### 4. Create a GitHub repo and push to it\n\n### 5. Validate and publish via the Spark IDE\n\nTo validate, import, and publish the library, jump into the IDE and click the \"Add Library\" button.\n\n## Getting Support\n\n- Check out the [libraries category on the Spark community site](https://community.spark.io/category/libraries) and post a thread there!\n- To file a bug; create a GitHub issue on this repo. Be sure to include details about how to replicate it.\n\n## The Spark Library Spec\n\nA Spark firmware library consists of:\n\n  - a GitHub REPO with a public clone url\n  - a JSON manifest (`spark.json`) at the root of the repo\n  - a bunch of files and directories at predictable locations (as illustrated here)\n\nMore specifically, the collection of files comprising a Spark Library include the following:\n\n### Supporting Files\n\n1. a `spark.json` meta data file at the root of the library dir, very similar to NPM's `package.json`. (required)\n  1. The content of this file is validated via [this JSON Schema](https://www.spark.io/spark_library_schema_v1.json).\n\n2. a `README.md` that should provide one or more of the following sections\n  - _About_: An overview of the library; purpose, and description of dominant use cases.\n  - _Example Usage_: A simple snippet of code that illustrates the coolest part about your library.\n  - _Recommended Components_: Description and links to example components that can be used with the library.\n  - _Circuit Diagram: A schematic and breadboard view of how to wire up components with the library.\n  - _Learning Activities_: Proposed challenges to do more sophisticated things or hacks with the library.\n\n3. a `doc` directory of diagrams or other supporting documentation linked to from the `README.md`\n\n### Firmware\n\n1. a `firmware` folder containing code that will compile and execute on a Spark device. This folder contains:\n  1. A bunch of `.h`, `.cpp`, and `.c` files constituting the header and source code of the library.\n    1. _The main library header file_, intended to be included by users \n      1. MUST be named the same as the \"name\" key in the `spark.json` + a `.h` extension. So if `name` is `uber-library-example`, then there should be a `uber-library-example.h` file in this folder. Other `.h` files, can exist, but this is the only one that is required.\n      2. SHOULD define a C++ style namespace in upper camel case style from the name (i.e. uber-library-example -> UberLibraryExample)\n    2. _The main definition file_, providing the bulk of the libraries public facing functionality\n      1. MUST be named like the header file, but with a `.cpp` extension. (uber-library-example.cpp)\n      2. SHOULD encapsulate all code inside a C++ style namespace in upper camel case style (i.e. UberLibraryExample)\n    3. Other optional `.h` files, when included in a user's app, will be available for inclusion in the Web IDE via `#include \"uber-library-example/SOME_FILE_NAME.h\"`.\n    4. Other optional `.cpp` files will be compiled by the Web IDE when the library is included in an app (and use `arm-none-eabi-g++` to build).\n    5. Other optional `.c` files will be compiled by the Web IDE when the library is included in an app (and use `arm-none-eabi-gcc` to build).\n  2. An `examples` sub-folder containing one or more flashable example firmware `.ino` or `.cpp` applications.\n    1. Each example file should be named descriptively and indicate what aspect of the library it illustrates. For example, a JSON library might have an example file like `parse-json-and-output-to-serial.cpp`.\n  3. A `test` sub-folder containing any associated tests\n\n## Contributing\n\nThis repo is meant to serve as a place to consolidate insights from conversations had about libraries on the [Spark community site](https://community.spark.io), GitHub, or elsewhere on the web. \"Proposals\" to change the spec are pull requests that both define the conventions in the README AND illustrate them in underlying code. If something doesn't seem right, start a community thread or issue pull requests to stir up the conversation about how it ought to be!\n\n\n"
+}

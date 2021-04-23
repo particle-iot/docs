@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ImageReader",
     "version": "1.0.9",
-    "installs": 2123,
+    "installs": 2124,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>, Brandon Satrom <brandon@particle.io>",
     "sentence": "Companion library for Adafruit_GFX to load images from SD card.",

@@ -1,0 +1,30 @@
+{
+  "type": "libraries",
+  "id": "spark-streaming",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/spark-streaming/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "spark-streaming",
+    "version": "0.0.1",
+    "installs": 273,
+    "license": "MIT",
+    "author": "Kyle Bowerman <kyle.bowerman@gmail.com>",
+    "sentence": "Port of Arduino Streaming.h to spark, originaly from Mikal Hart",
+    "url": "https://github.com/kbowerma/streaming",
+    "repository": "https://github.com/kbowerma/streaming.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/spark-streaming",
+  "versions": {
+    "0.0.1": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "Fork of Mikal Hart Streaming library.\n\nImplements C++ Streaming operator (<<) for various print operations.\n\nChanges in this fork include:\n\n1) Updated for Arduino 1.0\n2) Changed macro 'BIN' to 'BINARY' to be compatible with ATtiny.\n  NB: The define of 'BIN' in Print.h must be similarly changed to use this library\n\n"
+}

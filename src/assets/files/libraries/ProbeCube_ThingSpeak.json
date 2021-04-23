@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "ProbeCube_ThingSpeak",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ProbeCube_ThingSpeak/archive/1.1.1.tar.gz"
+  },
+  "attributes": {
+    "name": "ProbeCube_ThingSpeak",
+    "version": "1.1.1",
+    "installs": 150,
+    "license": "MIT",
+    "author": "Lafudoci",
+    "sentence": "A fork from https://github.com/mathworks/thingspeak-particle",
+    "url": "https://github.com/lafudoci/probecube_thingspeak",
+    "repository": "https://github.com/lafudoci/probecube_thingspeak.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/ProbeCube_ThingSpeak",
+  "versions": {
+    "1.1.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "WriteMultipleVoltages": true
+          },
+          "electron": {
+            "WriteMultipleVoltages": true
+          },
+          "argon": {
+            "WriteMultipleVoltages": false
+          },
+          "boron": {
+            "WriteMultipleVoltages": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "\n"
+}

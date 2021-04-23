@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "HPMA115S0-Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/HPMA115S0-Library/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "HPMA115S0-Library",
+    "version": "1.0.0",
+    "installs": 135,
+    "author": "Felix Galindo",
+    "maintainer": "Felix Galindo <felixgalindo91@gmail.com>",
+    "sentence": "A library for Honeywell HPMA115S0 Particle Sensor",
+    "paragraph": "Supports the HPMA115S0",
+    "category": "Sensors",
+    "url": "https://github.com/felixgalindo/HPMA115S0.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/HPMA115S0-Library",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# HPMA115S0\nLibrary for Honeywell's Particle Sensor (HPMA115S0-XXX)\n\nThis fork provides some debugging functionality (printing more information to the Serial Monitor). Additional minor changes were added.\n\n## Instructions\n* Place this repository in Documents\\Arduino (or your default library location).\n* Include this library: `#include <hpma115S0.h>`\n* **OR** place `hpma115S0.h` and `hpma115S0.cpp` in same folder as your Arduino sketch and include using `#include \"hpma115S0.h\"`\n* The debugging can be turned off by commenting out the line in src/hpma115s0.g\n`// #define DEBUG`\n\nAn additional example with a hardware serial for the Arduino Mega will be provided.\n"
+}

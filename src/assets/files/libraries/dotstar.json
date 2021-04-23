@@ -7,7 +7,7 @@
   "attributes": {
     "name": "dotstar",
     "version": "0.0.5",
-    "installs": 69298,
+    "installs": 69304,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "An Implementation of Adafruit's DotStar Library for Particle devices",

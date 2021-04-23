@@ -1,0 +1,48 @@
+{
+  "type": "libraries",
+  "id": "BlueDot_BME280_TSL2591",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/BlueDot_BME280_TSL2591/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "BlueDot_BME280_TSL2591",
+    "version": "1.0.3",
+    "installs": 526,
+    "license": "CC BY-SA 4.0",
+    "author": "BlueDot",
+    "maintainer": "BlueDot <info@bluedot.space>",
+    "sentence": "BlueDot library for BME280 and TSL2591 sensors.",
+    "paragraph": "Read temperature, relative humidity, pressure and illuminance with BME280 and TSL2591 sensors.",
+    "category": "Sensors",
+    "url": "https://github.com/BlueDot-Arduino/BlueDot_BME280_TSL2591",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/BlueDot_BME280_TSL2591",
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "BME280_TSL2591_Test": false
+          },
+          "electron": {
+            "BME280_TSL2591_Test": false
+          },
+          "argon": {
+            "BME280_TSL2591_Test": false
+          },
+          "boron": {
+            "BME280_TSL2591_Test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "## **BlueDot Arduino Libraries**\n\nThis library allows the user to program and simultaneously read the outputs of the BME280 Sensor and the TSL2591 Sensor with an Arduino Board.\n\n\n## **Repository Contents**\n\n* Source Files (.cpp and .h)\n* Example Sketch: BME280_TSL2591_Test.ino\n\n* library.properties File\n\n\n## **Version History**\n\n* V1.0.3 - Public Release Version\n\n\n\n## **License Information**\n\nThis licence is released under the [Creative Commons ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/) license.\n\nThis Library is distributed as-is and no warranty is given.\n"
+}

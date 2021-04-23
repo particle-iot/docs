@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ExponentiallySmoothedValue",
     "version": "1.0.0",
-    "installs": 1177,
+    "installs": 1178,
     "license": "GPL3",
     "author": "rvnash",
     "sentence": "Class to provide exponential smoothing to a signal which is a time series of values.",

@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "TTCP_V3.3.1",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TTCP_V3.3.1/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "TTCP_V3.3.1",
+    "version": "0.1.0",
+    "installs": 223,
+    "license": "MIT",
+    "author": "hirotakaster, zhongjin",
+    "sentence": "TTCP protocol support version 3.3.1 with examples",
+    "url": "https://github.com/zhongjin616/mqtt",
+    "repository": "https://github.com/zhongjin616/mqtt.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TTCP_V3.3.1",
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "mqtttest": false
+          },
+          "electron": {
+            "mqtttest": false
+          },
+          "argon": {
+            "mqtttest": false
+          },
+          "boron": {
+            "mqtttest": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "MQTT for Spark\n============\n\n<a href=\"http://mqtt.org/\" target=_blank>MQTT</a> library for Spark core version 0.1.0.\n\nExample mqtttest.ino is dependent on:\n\n        MQTT_1.h\n        MQTT_2.cpp\n"
+}

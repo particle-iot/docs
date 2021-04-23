@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WebServer",
     "version": "0.0.2",
-    "installs": 34336,
+    "installs": 34345,
     "license": "MIT",
     "author": "mdma https://community.spark.io/t/webduino-webserver-library-ported/5306",
     "sentence": "A lightweight webserver for the spark.",

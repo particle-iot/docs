@@ -1,0 +1,49 @@
+{
+  "type": "libraries",
+  "id": "simple-storage",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/simple-storage/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "simple-storage",
+    "version": "1.0.0",
+    "installs": 573,
+    "license": "MIT",
+    "author": "Julien Vanier <jvanier@gmail.com>",
+    "sentence": "Load and store configuration from the EEPROM",
+    "paragraph": "Automatically handle default and customize config migration",
+    "url": "https://github.com/monkbroc/particle-simple-storage",
+    "repository": "https://github.com/monkbroc/particle-simple-storage.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/simple-storage",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "basic": true,
+            "migration": true
+          },
+          "electron": {
+            "basic": true,
+            "migration": true
+          },
+          "argon": {
+            "basic": true,
+            "migration": true
+          },
+          "boron": {
+            "basic": true,
+            "migration": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Simple Storage\n\nA Particle library for simple persistent storage in EEPROM.\n\n## Usage\n\nDefine the config fields you want to store, provide default config and\nload the config on boot. Store the config after you modify it.\n\n```\n#include \"simple-storage.h\"\n\nstruct Config {\n    uint32_t app;\n    int counter;\n} config;\n\nConfig defaultConfig = {\n    /* app */ APP_CODE('C','N', 'T', 1),\n    /* counter */ 0,\n};\n\nStorage<Config> storage(defaultConfig);\n\nvoid setup() {\n    storage.load(config);\n}\n\nvoid loop() {\n  config.counter++;\n  if (config.counter % 1000 == 0) {\n    storage.store(counter);\n  }\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nTODO: Describe `Storage`\n\n## LICENSE\nCopyright 2017 Julien Vanier <jvanier@gmail.com>\n\nLicensed under the MIT license\n"
+}

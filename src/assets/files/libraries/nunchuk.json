@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "nunchuk",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/nunchuk/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "nunchuk",
+    "version": "1.0.0",
+    "installs": 281,
+    "license": "BSD",
+    "author": "Gabriel Bianconi <bianconi.gabriel@gmail.com>",
+    "maintainer": "Tim Caswell <tim@creationix.com>",
+    "sentence": "A simple class for interfacing with Wii Nuhchuks via I2C",
+    "url": "https://github.com/creationix/spark-nunchuk",
+    "repository": "https://github.com/creationix/spark-nunchuk.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/nunchuk",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "wiichuk-demo": true
+          },
+          "electron": {
+            "wiichuk-demo": true
+          },
+          "argon": {
+            "wiichuk-demo": true
+          },
+          "boron": {
+            "wiichuk-demo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# SparkNunchuk\n\nSpark.io friendly fork of ArduinoNunchuk customized by @creationix.\n\nThis should be available in the list of libraries on spark.io"
+}

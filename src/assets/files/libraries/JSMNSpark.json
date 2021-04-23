@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "JSMNSpark",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/JSMNSpark/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "JSMNSpark",
+    "version": "0.0.1",
+    "installs": 640,
+    "license": "Choose a license",
+    "author": "Paul Kourany <pkourany@gmail.com>, Menan Vadivel<menan.vadivel@gmail.com>,JSMN",
+    "sentence": "Briefly describe this library",
+    "url": "https://github.com/menan/jsmnspark",
+    "repository": "https://github.com/menan/jsmnspark.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "j",
+  "cardUrl": "/cards/libraries/j/JSMNSpark",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "JSMNDemo": false
+          },
+          "electron": {
+            "JSMNDemo": false
+          },
+          "argon": {
+            "JSMNDemo": false
+          },
+          "boron": {
+            "JSMNDemo": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "JSMNSpark\n=========\n\nJSMN is a small JSON parser ported to the Spark from https://bitbucket.org/zserge/jsmn/wiki/Home.\n\nThis software is distributed under MIT license, so feel free to integrate it in your commercial products.\n\nCode metrics - TBD\nflash used:\nram used:"
+}

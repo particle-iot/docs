@@ -1,0 +1,67 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_Qwiic_Relay",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_Qwiic_Relay/archive/1.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_Qwiic_Relay",
+    "version": "1.1.2",
+    "installs": 504,
+    "author": "Elias Santistevan",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Library for the SparkFun Quad and Single Relay Boards",
+    "paragraph": "The SparkFun Qwiic Relay Arduino Library makes it very easy to use the Qwiic enabled relays from SparkFun Electronics. It gives you easy to use functions to turn on and off relays, toggle them, and check their status. Also provided is example code for each board (<a href=\"https://www.sparkfun.com/products/15093\"><SparkFun Single Qwiic Relay</a> and the <a href=\"https://www.sparkfun.com/products/15102\"><SparkFun Qwiic Quad Relay</a>) that gives instructions on how to use the library to its fullest.",
+    "category": "Device Control",
+    "url": "https://github.com/sparkfun/SparkFun_Qwiic_Relay_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_Qwiic_Relay",
+  "versions": {
+    "1.1.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "electron": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "argon": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          },
+          "boron": {
+            "Example1_Single_Relay_Basics": true,
+            "Example2_Quad_Relay_Basics": true,
+            "Example3_Quad_Relay_Interrupts": true,
+            "Example4_Quad_Relay_Buttons": true,
+            "Example5-I2C_Scanner": true,
+            "Example6_Change_I2C_Address": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun Single and Qwiic Quad Relay Arduino Library\n========================================\n\n<table class=\"table table-hover table-striped table-bordered\">\n  <tr align=\"center\">\n   <td><a href=\"https://www.sparkfun.com/products/15093\"><img src=\"https://cdn.sparkfun.com/assets/parts/1/3/4/5/1/15093-SparkFun_Qwiic_Single_Relay-01.jpg\"></a></td>\n   <td><a href=\"https://www.sparkfun.com/products/15102\"><img src=\"https://cdn.sparkfun.com/assets/parts/1/3/4/6/2/15102-SparkFun_Qwiic_Quad_Relay-01a.jpg\"></a></td>\n  </tr>\n  <tr align=\"center\">\n    <td><a href=\"https://www.sparkfun.com/products/15093\">SparkFun Qwiic Single Relay (COM-15093)</a></td>\n    <td><a href=\"https://www.sparkfun.com/products/15102\">SparkFun Qwiic Quad Relay (COM-15102)</a></td>\n  </tr>\n</table>\n\nThe Single and Quad relays make it possible to control high powered devices\nusing a low powered device like an Arduino. These relays are Qwiic enabled\nwhich means they are plug and play, and now with their very own library it's\neasier then ever to get started.  \n\nRepository Contents\n-------------------\n\n* **/examples** - Example code for the Arduino IDE \n* **/src** - Source files for the library (.cpp and .h files). \n* **/keywords.txt** - Keywords from the library that are highlighted in Arduino IDE.\n* **/library.properties** - General Library properties for the Arduino Package Manager.\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n\nProducts that use this library\n--------------\n* [COM-15093](https://www.sparkfun.com/products/15093) - SparkFun Qwiic Single Relay \n* [COM-15102](https://www.sparkfun.com/products/15102) - SparkFun Qwiic Quad Relay\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nVarious bits of the code have different licenses applied. Anything SparkFun wrote is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n"
+}

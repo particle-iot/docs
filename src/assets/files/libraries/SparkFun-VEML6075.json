@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-VEML6075",
     "version": "1.0.4",
-    "installs": 1772,
+    "installs": 1773,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the VEML6075 on the SparkFun Qwiic UV Sensor",

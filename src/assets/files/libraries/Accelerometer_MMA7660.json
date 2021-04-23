@@ -1,0 +1,42 @@
+{
+  "type": "libraries",
+  "id": "Accelerometer_MMA7660",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Accelerometer_MMA7660/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Accelerometer_MMA7660",
+    "version": "0.0.1",
+    "installs": 443,
+    "license": "MIT",
+    "author": "Frankie Chu <xuguang.shao@seeed.cc>",
+    "sentence": "accelerometer_MMA7760",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Accelerometer_MMA7660",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "MMA7660FC_Demo": true
+          },
+          "electron": {
+            "MMA7660FC_Demo": true
+          },
+          "argon": {
+            "MMA7660FC_Demo": true
+          },
+          "boron": {
+            "MMA7660FC_Demo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "##Accelerometer_MMA7660\r\n![image](http://www.seeedstudio.com/wiki/images/b/bb/3_aix_acc.jpg)\r\n\r\n3-Axis Digital Accelerometer is the key part in projects like orientation detection, gesture detection and Motion detection. This 3-Asix Digital Accelerometer(±1.5g) is based on Freescale's low power consumption module, MMA7660FC. It features up to 10,000g high shock surviability and configurable Samples per Second rate. For generous applications that don't require too large measurement range, this is a great choice because it's durable, energy saving and cost-efficient.\r\n\r\nFor more information, please refer to [Grove_3Axis_Digital_Accelerometer_MMA7660][1]\r\n\r\n----\r\nThis software is written by Frankie Chu for seeed studio<br>\r\nand is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt for more information.<br>\r\n\r\nContributing to this software is warmly welcomed. You can do this basically by<br>\r\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\r\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\r\nThanks for your contribution.\r\n\r\nSeeed is a hardware innovation platform for makers to grow inspirations into differentiating products. By working closely with technology providers of all scale, Seeed provides accessible technologies with quality, speed and supply chain knowledge. When prototypes are ready to iterate, Seeed helps productize 1 to 1,000 pcs using in-house engineering, supply chain management and agile manufacture forces. Seeed also team up with incubators, Chinese tech ecosystem, investors and distribution channels to portal Maker startups beyond.\r\n\r\n\r\n[1]:http://www.seeedstudio.com/wiki/Grove_-_3-Axis_Digital_Accelerometer(%C2%B11.5g)\r\n\r\n\r\n\r\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Accelerometer_MMA7660)](https://github.com/igrigorik/ga-beacon)\r\n"
+}

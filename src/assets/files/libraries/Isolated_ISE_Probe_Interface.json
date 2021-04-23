@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "Isolated_ISE_Probe_Interface",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Isolated_ISE_Probe_Interface/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Isolated_ISE_Probe_Interface",
+    "version": "1.0.0",
+    "installs": 171,
+    "author": "uFire",
+    "maintainer": "justin@ufire.co",
+    "sentence": "An isolated Ion Specific Electrode Probe Interface",
+    "paragraph": "Use it to measure pH, ORP, or any other voltage based probe",
+    "category": "Sensors",
+    "url": "https://ufire.co",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/Isolated_ISE_Probe_Interface",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "SAMD21": true
+          },
+          "electron": {
+            "SAMD21": true
+          },
+          "argon": {
+            "SAMD21": true
+          },
+          "boron": {
+            "SAMD21": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "### Isolated ISE Probe Interface\n\n> Use any Ion Specific Electrode\n- Measure pH with temperature compensation\n- Measure ORP and Eh\n- Raw mV\n- Temperature in Celsius/Fahrenheit\n- Electrically Isolated\n\n#### What it is\nAn I2C slave device that can interface with any voltage based sensor such as a pH or ORP probe. There are pin headers available to connect a DS18B20 temperature sensor for automatic temperature compensation. The firmware on the device provides two calibration options, single or dual point.\n\n#### Using it\nThere is extensive [documentation](http://ufire.co/docs/uFire_ISE/) on the use and setup of the device. The library to use it is in the Arduino IDE, Particle.io IDE and a python implementation for Raspberry Pi and MicroPython is also available.\n\n~~~\n#include \"uFire_ISE.h\"\nISE_Probe mv;\nmv.measuremV();\n~~~\n~~~\n#include \"ISE_pH.h\"\nISE_pH ph;\nph.measurepH();\n~~~\n~~~\n#include \"ISE_ORP.h\"\nISE_ORP orp;\norp.measureORP();\n~~~\n\n##### Isolation\n\nWhen different probes are connected to the same controlling device, they can cause interference. The environment also causes interference due to ground-loops or other electrical noise like pumps. Electrically isolating the probe from the controlling device can help to prevent it.\n\nAll μFire probe interfaces come with electrical isolation hardware which provides a stable, isolated power supply and I2C bus between the interface and your controlling device."
+}

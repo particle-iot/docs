@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_STMPE610_RK",
     "version": "1.0.1",
-    "installs": 16372,
+    "installs": 16407,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for Adafruit STMPE610/811 resistive touch screen controllers. Ported by rickkas7.",

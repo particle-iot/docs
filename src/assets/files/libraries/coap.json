@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "coap",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/coap/archive/0.2.4.tar.gz"
+  },
+  "attributes": {
+    "name": "coap",
+    "version": "0.2.4",
+    "installs": 638,
+    "license": "MIT",
+    "author": "hirotakaster",
+    "url": "https://github.com/hirotakaster/CoAP/",
+    "repository": "https://github.com/hirotakaster/CoAP.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/coap",
+  "versions": {
+    "0.2.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "electron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "argon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# CoAP client, server library for Spark Photon, Spark Core.\n<a href=\"http://coap.technology/\" target=_blank>CoAP</a> simple server, client library for Particle Photon, Core.\n\n## Source Code\nThis lightweight library source code are only 2 files. simple-coap.cpp, simple-coap.h.\n\n## Example\nSome sample sketches for Spark Core and Photon included(firmware/examples/).\n\n - coaptest.ino : simple request/response sample.\n - coapserver.ino : server endpoint url callback sample.\n\n## How to use\nIn this exmples need CoAP server libcoap or microcoap server for check the example program. There is setting the libcoap on Ubuntu Linux. But if there don't use CoAP server(request/reseponse), following setting don't be needed.\n\n    git clone https://github.com/obgm/libcoap\n    cd libcoap/\n    ./autogen.sh\n    ./configure --disable-examples\n    gcc -o coap-server ./examples/coap-server.c -I./include/coap/ -I. -L.libs -lcoap-1 -DWITH_POSIX\n    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.libs\n    ./coap-server\n    # next start Photon or Core, check the request/response.\n\n## Arduino compatible\nThis library is Arduino compatible. That's version is <a href=\"https://github.com/hirotakaster/CoAP/tree/arduino\">here</a>.\n"
+}

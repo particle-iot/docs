@@ -1,0 +1,51 @@
+{
+  "type": "libraries",
+  "id": "CayenneLPP",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/CayenneLPP/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "CayenneLPP",
+    "version": "1.0.2",
+    "installs": 170,
+    "author": "Electronic Cats",
+    "maintainer": "Electronic Cats <hola@electroniccats.com>",
+    "sentence": "CayenneLPP Arduino Library.",
+    "paragraph": "Compatible with Cayenne Low Power Payload.",
+    "category": "Communication",
+    "url": "https://github.com/sabas1080/CayenneLPP",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/CayenneLPP",
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "electron": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "argon": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          },
+          "boron": {
+            "Basic_library_TTN": false,
+            "WeatherStation_LMIC": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# CayenneLPP\n\nThis is an Arduino Library for Arduino Compatible with Cayenne Low Power Payload\n\n## Documentation\n\n* [Cayenne Low Power Payload](https://mydevices.com/cayenne/docs/#lora-cayenne-low-power-payload)\n* [API](https://github.com/sabas1080/CayenneLPP/blob/master/API.md)\n\nBased in the work of [Johan Stokking](https://github.com/TheThingsNetwork/arduino-device-lib)\n"
+}

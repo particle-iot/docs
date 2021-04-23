@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LIDAR-Lite",
     "version": "3.0.1",
-    "installs": 3437,
+    "installs": 3438,
     "author": "Garmin <www.garmin.com>",
     "maintainer": "Garmin <www.garmin.com>",
     "sentence": "Arduino library for Garmin LIDAR-Lite.",

@@ -1,0 +1,43 @@
+{
+  "type": "libraries",
+  "id": "NexaCtrl",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/NexaCtrl/archive/0.2.0.tar.gz"
+  },
+  "attributes": {
+    "name": "NexaCtrl",
+    "version": "0.2.0",
+    "installs": 445,
+    "license": "",
+    "author": "Carl Gunnarsson",
+    "sentence": "Nexa/HomeEasy control library for arduino with absolute dim support",
+    "url": "https://github.com/danielsunnerberg/nexactrl",
+    "repository": "https://github.com/danielsunnerberg/nexactrl.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/NexaCtrl",
+  "versions": {
+    "0.2.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "BasicUsageExample": false
+          },
+          "electron": {
+            "BasicUsageExample": false
+          },
+          "argon": {
+            "BasicUsageExample": false
+          },
+          "boron": {
+            "BasicUsageExample": false
+          }
+        }
+      }
+    }
+  }
+}

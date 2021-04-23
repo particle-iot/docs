@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_SSD1325",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_SSD1325/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_SSD1325",
+    "version": "1.0.3",
+    "installs": 276,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "SSD1325 monochrome OLED library",
+    "paragraph": "SSD1325 monochome OLED library (note does not support grayscale).",
+    "category": "Display",
+    "url": "https://github.com/xylo04/Adafruit_SSD1325",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_SSD1325",
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "This is a library for our Monochrome/Grayscale OLEDs based on SSD1325 drivers\n\n(This fork of https://github.com/adafruit/Adafruit_SSD1325_Library is made to\nwork with http://particle.io boards and toolchain.)\n\n  Pick one up today in the adafruit shop!\n  ------> \n\nThese displays use SPI to communicate, 4 or 5 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_SSD1325. Check that the Adafruit_SSD1325 folder contains Adafruit_SSD1325.cpp and Adafruit_SSD1325.h\n\nPlace the Adafruit_SSD1325 library folder your <arduinosketchfolder>/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.\n\nYou will also have to download the Adafruit GFX Graphics core which does all the circles, text, rectangles, etc. You can get it from\nhttps://github.com/adafruit/Adafruit-GFX-Library\nand download/install that library as well "
+}

@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "Adafruit-CAP1188",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit-CAP1188/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit-CAP1188",
+    "version": "0.1.0",
+    "installs": 513,
+    "license": "MIT License",
+    "author": "Mauricio Sanchez <design@sanchezmauricio.com>",
+    "sentence": "Allows the Photon to talk to the CAP1188 Adafruit board through I2C. Analog values functionality implemented as well setting the level of sensitivity",
+    "url": "https://github.com/sheva29/photon-adafruit_cap1188",
+    "repository": "https://github.com/sheva29/photon-adafruit_cap1188.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit-CAP1188",
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ADAFRUIT_CAP1188\nAdaFruit Captouch board library for Particle Photon with extended functionality to read Analog Values.\n"
+}

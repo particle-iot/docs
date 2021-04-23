@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "MQ135M",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MQ135M/archive/1.9.9.tar.gz"
+  },
+  "attributes": {
+    "name": "MQ135M",
+    "version": "1.9.9",
+    "installs": 189,
+    "author": "Meshal <malmuhareb@gmail.com>",
+    "sentence": "RZero correction",
+    "paragraph": "RZero: 81.65",
+    "category": "Sensors",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MQ135M",
+  "versions": {
+    "1.9.9": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "MQ135 GAS SENSOR\n=====\n\nArduino library for the MQ135 gas sensor\n\n## Datasheet\nCan be found [here](https://www.olimex.com/Products/Components/Sensors/SNS-MQ135/resources/SNS-MQ135.pdf)\n\n## Application\nThey are used in air quality control equipments for buildings/offices, are suitable for detecting of NH3, NOx, alcohol, Benzene, smoke, CO2, etc\n\n## Features\nThis library has:\n - Corrections for temperature and humidity\n - Measurements:\n    - getResistance\n    - getCorrectedResistance\n    - getPPM\n    - getCorrectedPPM\n    - getRZero\n    - getCorrectedRZero\n\nMore Info\n=====\n\nhttps://hackaday.io/project/3475-sniffing-trinket/log/12363-mq135-arduino-library\n"
+}

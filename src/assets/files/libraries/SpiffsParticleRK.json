@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SpiffsParticleRK",
     "version": "0.0.8",
-    "installs": 5756,
+    "installs": 5775,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle port for the spiffs (SPI flash file system) library",

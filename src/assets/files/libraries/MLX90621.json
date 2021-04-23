@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "MLX90621",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MLX90621/archive/0.0.13.tar.gz"
+  },
+  "attributes": {
+    "name": "MLX90621",
+    "version": "0.0.13",
+    "installs": 171,
+    "license": "Public",
+    "author": "Max Ritter",
+    "sentence": "Library for interfacing with MLX90621 temp sensor array",
+    "url": "https://github.com/hepmehepme/mlx90621",
+    "repository": "https://github.com/hepmehepme/mlx90621.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MLX90621",
+  "versions": {
+    "0.0.13": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "readTemperatures": true
+          },
+          "electron": {
+            "readTemperatures": true
+          },
+          "argon": {
+            "readTemperatures": true
+          },
+          "boron": {
+            "readTemperatures": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "MLX90621 Arduino and Processing example code\n\nParticle code for the Melexis MLX90621 16x4 thermopile array.\n\n\nThe MLX90621 FIRray temperature sensing device from Melexis utilizes the company’s non-contact \ntemperature measurement technology to create a highly cost-effective thermography solution. \nCovering a -20°C to 300°C temperature range, this 16 x 4 element far infrared (FIR) thermopile \nsensor array produces a map of heat values for the target area in real time, avoiding the need to \nscan the area with a single point sensor or use an expensive microbolometer device.\n\nIn use in VU and Tilburg University temperature cry detection project.\n\nImplements MaxBot's MLX90621 Arduino library patched with KMoto's minor change in defaultConfig_H."
+}

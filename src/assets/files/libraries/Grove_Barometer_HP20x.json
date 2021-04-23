@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "Grove_Barometer_HP20x",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Grove_Barometer_HP20x/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Grove_Barometer_HP20x",
+    "version": "1.0.0",
+    "installs": 281,
+    "license": "MIT",
+    "author": "Seeed Studio",
+    "sentence": "Arduino library to control Grove barometer HP20x.",
+    "paragraph": "Arduino library to control Grove barometer HP20x.",
+    "url": "https://github.com/Seeed-Studio/Grove_Barometer_HP20x",
+    "repository": "https://github.com/Seeed-Studio/Grove_Barometer_HP20x.git",
+    "architectures": [
+      "particle-photon"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/Grove_Barometer_HP20x",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "HP20x_demo": true
+          },
+          "electron": {
+            "HP20x_demo": true
+          },
+          "argon": {
+            "HP20x_demo": true
+          },
+          "boron": {
+            "HP20x_demo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Grove_barometer HP20x  [![Build Status](https://travis-ci.com/Seeed-Studio/Grove_Barometer_HP20x.svg?branch=master)](https://travis-ci.com/Seeed-Studio/Grove_Barometer_HP20x)\n------------\n![](https://raw.githubusercontent.com/SeeedDocument/Grove-Barometer-High-Accuracy/master/img/Grove-Barometer-High-Accuracy.jpg)\n\n[Grove - Barometer (High-Accuracy)](https://www.seeedstudio.com/Grove-Barometer-%28High-Accuracy%29-p-1865.html)\n\n\n  This is a driver for Grove_barometer HP20x(high accuracy and waterproof).\n  DataSheet of this sensor:(https://raw.githubusercontent.com/SeeedDocument/Grove-Barometer-High-Accuracy/master/res/HP206C_Datasheet.pdf)\n\n### Usage\n    1.Git clone this resp to your arduino IDE's lib directory.\n\t2.Open the demo \"HP20x_dev\"\n\nMore information please visit [wiki page](http://wiki.seeedstudio.com/Grove-Barometer-High-Accuracy/).\n\n----\n\nThis software is written by Oliver Wang (long.wang@seeedstudio.com) for seeed studio<br>\nand is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt for more information.<br>\n\n\nSeeed Studio is an open hardware facilitation company based in Shenzhen, China. <br>\nBenefiting from local manufacture power and convenient global logistic system, <br>\nwe integrate resources to serve new era of innovation. Seeed also works with <br>\nglobal distributors and partners to push open hardware movement.<br>\n\n[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Seeed-Studio/mesh_bee/trend.png)](https://bitdeli.com/free \"Bitdeli Badge\")\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Mesh_Bee)](https://github.com/igrigorik/ga-beacon)\n\n"
+}

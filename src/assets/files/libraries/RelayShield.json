@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RelayShield",
     "version": "0.0.6",
-    "installs": 49995,
+    "installs": 49997,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Functions to make the Photon Relay Shield even easier!",

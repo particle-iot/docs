@@ -13449,5 +13449,7485 @@
         }
       }
     }
+  },
+  "LSM6": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "LIS3MDL_magnetometer": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Calibrate": true,
+              "Serial": true
+            },
+            "electron": {
+              "Calibrate": true,
+              "Serial": true
+            },
+            "argon": {
+              "Calibrate": true,
+              "Serial": true
+            },
+            "boron": {
+              "Calibrate": true,
+              "Serial": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_SHTC3_Arduino_Library": {
+    "versions": {
+      "1.1.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_BasicReadings": true,
+              "Example3_ChangingOptions": true,
+              "Example4_UsingCallback": true
+            },
+            "electron": {
+              "Example1_BasicReadings": true,
+              "Example3_ChangingOptions": true,
+              "Example4_UsingCallback": true
+            },
+            "argon": {
+              "Example1_BasicReadings": true,
+              "Example3_ChangingOptions": true,
+              "Example4_UsingCallback": true
+            },
+            "boron": {
+              "Example1_BasicReadings": true,
+              "Example3_ChangingOptions": true,
+              "Example4_UsingCallback": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "InternetButtonEvents": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "example": false
+            },
+            "electron": {
+              "example": false
+            },
+            "argon": {
+              "example": false
+            },
+            "boron": {
+              "example": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Radar": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "nrf8001-ble-uart-spark-io": {
+    "versions": {
+      "0.6.6": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "ble-mesh-cloud": true,
+              "nrf8001-ble-uart": true
+            },
+            "electron": {
+              "ble-mesh-cloud": true,
+              "nrf8001-ble-uart": true
+            },
+            "argon": {
+              "ble-mesh-cloud": true,
+              "nrf8001-ble-uart": true
+            },
+            "boron": {
+              "ble-mesh-cloud": true,
+              "nrf8001-ble-uart": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "JSMNSpark": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "JSMNDemo": false
+            },
+            "electron": {
+              "JSMNDemo": false
+            },
+            "argon": {
+              "JSMNDemo": false
+            },
+            "boron": {
+              "JSMNDemo": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "TensorFlowLite": {
+    "versions": {
+      "0.1.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "coap": {
+    "versions": {
+      "0.2.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "electron": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "argon": {
+              "coapserver": true,
+              "coaptest": true
+            },
+            "boron": {
+              "coapserver": true,
+              "coaptest": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "TLC5940-Servo": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "SimpleServo": false
+            },
+            "electron": {
+              "SimpleServo": false
+            },
+            "argon": {
+              "SimpleServo": false
+            },
+            "boron": {
+              "SimpleServo": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SDS011": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "InfluxDB_RJL": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "DustSensor": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "CarriotsAPI": {
+    "versions": {
+      "0.1.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "RouterPowerRSSI": true
+            },
+            "electron": {
+              "RouterPowerRSSI": false
+            },
+            "argon": {
+              "RouterPowerRSSI": true
+            },
+            "boron": {
+              "RouterPowerRSSI": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Steinhart-Thermistor": {
+    "versions": {
+      "2.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Steinhart-Thermistor": true
+            },
+            "electron": {
+              "Steinhart-Thermistor": true
+            },
+            "argon": {
+              "Steinhart-Thermistor": true
+            },
+            "boron": {
+              "Steinhart-Thermistor": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Particle_Adafruit_IS31FL3731": {
+    "versions": {
+      "1.0.3": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "libroomba": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "remote": true
+            },
+            "electron": {
+              "remote": true
+            },
+            "argon": {
+              "remote": true
+            },
+            "boron": {
+              "remote": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "WebSockets": {
+    "versions": {
+      "0.1.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "azure_c_shared_utility": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "main": false
+            },
+            "electron": {
+              "main": false
+            },
+            "argon": {
+              "main": false
+            },
+            "boron": {
+              "main": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_Qwiic_MP3_Trigger_Arduino_Library": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1-PlaySong": true,
+              "Example2-PlayNext": true,
+              "Example3-PlayFile": true,
+              "Example4-StopPause": true,
+              "Example5-KitchenSink": true,
+              "Example6-ChangeAddress": true,
+              "Example7_AdvanceWire": false,
+              "Example8_Interrupts": true
+            },
+            "electron": {
+              "Example1-PlaySong": true,
+              "Example2-PlayNext": true,
+              "Example3-PlayFile": true,
+              "Example4-StopPause": true,
+              "Example5-KitchenSink": true,
+              "Example6-ChangeAddress": true,
+              "Example7_AdvanceWire": true,
+              "Example8_Interrupts": true
+            },
+            "argon": {
+              "Example1-PlaySong": true,
+              "Example2-PlayNext": true,
+              "Example3-PlayFile": true,
+              "Example4-StopPause": true,
+              "Example5-KitchenSink": true,
+              "Example6-ChangeAddress": true,
+              "Example7_AdvanceWire": true,
+              "Example8_Interrupts": true
+            },
+            "boron": {
+              "Example1-PlaySong": true,
+              "Example2-PlayNext": true,
+              "Example3-PlayFile": true,
+              "Example4-StopPause": true,
+              "Example5-KitchenSink": true,
+              "Example6-ChangeAddress": true,
+              "Example7_AdvanceWire": true,
+              "Example8_Interrupts": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "PatriotActivity": {
+    "versions": {
+      "5.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "activity": false
+            },
+            "electron": {
+              "activity": false
+            },
+            "argon": {
+              "activity": false
+            },
+            "boron": {
+              "activity": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "NCD16PWM_IFTTT": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "Simon": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Game": false
+            },
+            "electron": {
+              "Game": false
+            },
+            "argon": {
+              "Game": false
+            },
+            "boron": {
+              "Game": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_NFCShield_I2C": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "mcp23s17": {
+    "versions": {
+      "0.2.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Blink": true
+            },
+            "electron": {
+              "Blink": true
+            },
+            "argon": {
+              "Blink": true
+            },
+            "boron": {
+              "Blink": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "InternetButtonADXL362": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "ADXL362_SimpleRead": false
+            },
+            "electron": {
+              "ADXL362_SimpleRead": false
+            },
+            "argon": {
+              "ADXL362_SimpleRead": false
+            },
+            "boron": {
+              "ADXL362_SimpleRead": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "BlynkLog": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "uuidV4": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Si7021_MultiWire": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SeeedMotorShield": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "example": true
+            },
+            "electron": {
+              "example": true
+            },
+            "argon": {
+              "example": true
+            },
+            "boron": {
+              "example": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun-BH1749NUC": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1-RGB_IR_Monitoring": false,
+              "Example2_RGB_DataPolling": true,
+              "Example3_NewDataInterrupt": true,
+              "Example4_ThresholdInterrupt": true,
+              "Example5_Hex_Color_Generation": false,
+              "Example6_pyRGBVisualizer": false,
+              "ExampleZ_testSketch": false
+            },
+            "electron": {
+              "Example1-RGB_IR_Monitoring": false,
+              "Example2_RGB_DataPolling": true,
+              "Example3_NewDataInterrupt": true,
+              "Example4_ThresholdInterrupt": true,
+              "Example5_Hex_Color_Generation": false,
+              "Example6_pyRGBVisualizer": false,
+              "ExampleZ_testSketch": false
+            },
+            "argon": {
+              "Example1-RGB_IR_Monitoring": false,
+              "Example2_RGB_DataPolling": true,
+              "Example3_NewDataInterrupt": true,
+              "Example4_ThresholdInterrupt": true,
+              "Example5_Hex_Color_Generation": false,
+              "Example6_pyRGBVisualizer": false,
+              "ExampleZ_testSketch": false
+            },
+            "boron": {
+              "Example1-RGB_IR_Monitoring": false,
+              "Example2_RGB_DataPolling": true,
+              "Example3_NewDataInterrupt": true,
+              "Example4_ThresholdInterrupt": true,
+              "Example5_Hex_Color_Generation": false,
+              "Example6_pyRGBVisualizer": false,
+              "ExampleZ_testSketch": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "TeleInfo": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "TeleInfo_exemple": false
+            },
+            "electron": {
+              "TeleInfo_exemple": false
+            },
+            "argon": {
+              "TeleInfo_exemple": false
+            },
+            "boron": {
+              "TeleInfo_exemple": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "BMP085": {
+    "versions": {
+      "2.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Barometer_Sensor": false
+            },
+            "electron": {
+              "Barometer_Sensor": false
+            },
+            "argon": {
+              "Barometer_Sensor": false
+            },
+            "boron": {
+              "Barometer_Sensor": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "simple-storage": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "basic": true,
+              "migration": true
+            },
+            "electron": {
+              "basic": true,
+              "migration": true
+            },
+            "argon": {
+              "basic": true,
+              "migration": true
+            },
+            "boron": {
+              "basic": true,
+              "migration": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Loop": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "loop_example": false,
+              "test": false
+            },
+            "electron": {
+              "loop_example": false,
+              "test": false
+            },
+            "argon": {
+              "loop_example": false,
+              "test": false
+            },
+            "boron": {
+              "loop_example": false,
+              "test": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_L3GD20_U": {
+    "versions": {
+      "1.1.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Adafruit_L3GD20_U_test": true
+            },
+            "electron": {
+              "Adafruit_L3GD20_U_test": true
+            },
+            "argon": {
+              "Adafruit_L3GD20_U_test": true
+            },
+            "boron": {
+              "Adafruit_L3GD20_U_test": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Temperature_Alarm": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "application": true
+            },
+            "electron": {
+              "application": true
+            },
+            "argon": {
+              "application": true
+            },
+            "boron": {
+              "application": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "NCD24Relay": {
+    "versions": {
+      "0.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "CloudControl": false,
+              "Loop_Test": false
+            },
+            "electron": {
+              "CloudControl": false,
+              "Loop_Test": false
+            },
+            "argon": {
+              "CloudControl": false,
+              "Loop_Test": false
+            },
+            "boron": {
+              "CloudControl": false,
+              "Loop_Test": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_BQ27441": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "BQ27441_Basic": true,
+              "BQ27441_GPOUT_BAT_LOW": true,
+              "BQ27441_GPOUT_SOC_INT": true
+            },
+            "electron": {
+              "BQ27441_Basic": true,
+              "BQ27441_GPOUT_BAT_LOW": true,
+              "BQ27441_GPOUT_SOC_INT": true
+            },
+            "argon": {
+              "BQ27441_Basic": true,
+              "BQ27441_GPOUT_BAT_LOW": true,
+              "BQ27441_GPOUT_SOC_INT": true
+            },
+            "boron": {
+              "BQ27441_Basic": true,
+              "BQ27441_GPOUT_BAT_LOW": true,
+              "BQ27441_GPOUT_SOC_INT": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Air_Quality": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "AirQuality_Sensor": false,
+              "usage": true
+            },
+            "electron": {
+              "AirQuality_Sensor": false,
+              "usage": true
+            },
+            "argon": {
+              "AirQuality_Sensor": false,
+              "usage": true
+            },
+            "boron": {
+              "AirQuality_Sensor": false,
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "azure_uamqp_c": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "main": false
+            },
+            "electron": {
+              "main": false
+            },
+            "argon": {
+              "main": false
+            },
+            "boron": {
+              "main": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Fob_Alarm": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "key-fob-buzzer-article": true
+            },
+            "electron": {
+              "key-fob-buzzer-article": true
+            },
+            "argon": {
+              "key-fob-buzzer-article": true
+            },
+            "boron": {
+              "key-fob-buzzer-article": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "StepMotorController": {
+    "versions": {
+      "0.0.32": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "TemperatureHumidityValidatorRK": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "EMGFilters": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "BlueDot_BME280_TSL2591": {
+    "versions": {
+      "1.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "BME280_TSL2591_Test": false
+            },
+            "electron": {
+              "BME280_TSL2591_Test": false
+            },
+            "argon": {
+              "BME280_TSL2591_Test": false
+            },
+            "boron": {
+              "BME280_TSL2591_Test": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "U8glib": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Bitmap": false,
+              "Chess": false,
+              "Color": false,
+              "Console": false,
+              "F": false,
+              "FPS": false,
+              "GraphicsTest": false,
+              "HelloWorld": false,
+              "Menu": false,
+              "PrintTest": false,
+              "Rotation": false,
+              "Scale": false,
+              "TextRotX": false,
+              "Touch4WSetup": false,
+              "Touch4WTest": false,
+              "U8gLogo": false,
+              "XBM": false,
+              "usage": true
+            },
+            "electron": {
+              "Bitmap": false,
+              "Chess": false,
+              "Color": false,
+              "Console": false,
+              "F": false,
+              "FPS": false,
+              "GraphicsTest": false,
+              "HelloWorld": false,
+              "Menu": false,
+              "PrintTest": false,
+              "Rotation": false,
+              "Scale": false,
+              "TextRotX": false,
+              "Touch4WSetup": false,
+              "Touch4WTest": false,
+              "U8gLogo": false,
+              "XBM": false,
+              "usage": true
+            },
+            "argon": {
+              "Bitmap": false,
+              "Chess": false,
+              "Color": false,
+              "Console": false,
+              "F": false,
+              "FPS": false,
+              "GraphicsTest": false,
+              "HelloWorld": false,
+              "Menu": false,
+              "PrintTest": false,
+              "Rotation": false,
+              "Scale": false,
+              "TextRotX": false,
+              "Touch4WSetup": false,
+              "Touch4WTest": false,
+              "U8gLogo": false,
+              "XBM": false,
+              "usage": true
+            },
+            "boron": {
+              "Bitmap": false,
+              "Chess": false,
+              "Color": false,
+              "Console": false,
+              "F": false,
+              "FPS": false,
+              "GraphicsTest": false,
+              "HelloWorld": false,
+              "Menu": false,
+              "PrintTest": false,
+              "Rotation": false,
+              "Scale": false,
+              "TextRotX": false,
+              "Touch4WSetup": false,
+              "Touch4WTest": false,
+              "U8gLogo": false,
+              "XBM": false,
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "FRAM": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "FRAM-Checkcounter": true,
+              "FRAM-RW-validate": true
+            },
+            "electron": {
+              "FRAM-Checkcounter": true,
+              "FRAM-RW-validate": true
+            },
+            "argon": {
+              "FRAM-Checkcounter": true,
+              "FRAM-RW-validate": true
+            },
+            "boron": {
+              "FRAM-Checkcounter": true,
+              "FRAM-RW-validate": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_VS1053_Photon": {
+    "versions": {
+      "1.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "ledfader": {
+    "versions": {
+      "1.0.10": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Fade": true
+            },
+            "electron": {
+              "Fade": true
+            },
+            "argon": {
+              "Fade": true
+            },
+            "boron": {
+              "Fade": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "PololuHighPowerStepperDriver": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "BasicStepping": true,
+              "BasicSteppingSPI": true
+            },
+            "electron": {
+              "BasicStepping": true,
+              "BasicSteppingSPI": true
+            },
+            "argon": {
+              "BasicStepping": true,
+              "BasicSteppingSPI": true
+            },
+            "boron": {
+              "BasicStepping": true,
+              "BasicSteppingSPI": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit-CAP1188": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "example": false
+            },
+            "electron": {
+              "example": false
+            },
+            "argon": {
+              "example": false
+            },
+            "boron": {
+              "example": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "DGS": {
+    "versions": {
+      "2.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "FirebaseArduino": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false
+            },
+            "electron": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false
+            },
+            "argon": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false
+            },
+            "boron": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_Qwiic_Relay": {
+    "versions": {
+      "1.1.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_Single_Relay_Basics": true,
+              "Example2_Quad_Relay_Basics": true,
+              "Example3_Quad_Relay_Interrupts": true,
+              "Example4_Quad_Relay_Buttons": true,
+              "Example5-I2C_Scanner": true,
+              "Example6_Change_I2C_Address": true
+            },
+            "electron": {
+              "Example1_Single_Relay_Basics": true,
+              "Example2_Quad_Relay_Basics": true,
+              "Example3_Quad_Relay_Interrupts": true,
+              "Example4_Quad_Relay_Buttons": true,
+              "Example5-I2C_Scanner": true,
+              "Example6_Change_I2C_Address": true
+            },
+            "argon": {
+              "Example1_Single_Relay_Basics": true,
+              "Example2_Quad_Relay_Basics": true,
+              "Example3_Quad_Relay_Interrupts": true,
+              "Example4_Quad_Relay_Buttons": true,
+              "Example5-I2C_Scanner": true,
+              "Example6_Change_I2C_Address": true
+            },
+            "boron": {
+              "Example1_Single_Relay_Basics": true,
+              "Example2_Quad_Relay_Basics": true,
+              "Example3_Quad_Relay_Interrupts": true,
+              "Example4_Quad_Relay_Buttons": true,
+              "Example5-I2C_Scanner": true,
+              "Example6_Change_I2C_Address": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "NCD32Relay": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "CloudControl": false,
+              "Loop_Test": false
+            },
+            "electron": {
+              "CloudControl": false,
+              "Loop_Test": false
+            },
+            "argon": {
+              "CloudControl": false,
+              "Loop_Test": false
+            },
+            "boron": {
+              "CloudControl": false,
+              "Loop_Test": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "libmodbus": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "remote_transmitter": {
+    "versions": {
+      "2.3.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "sol-driver": {
+    "versions": {
+      "1.0.7": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "PS2Communication": {
+    "versions": {
+      "0.0.8": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "PS2Mouse": false
+            },
+            "electron": {
+              "PS2Mouse": false
+            },
+            "argon": {
+              "PS2Mouse": false
+            },
+            "boron": {
+              "PS2Mouse": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "AirowlHttpClient": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "gbjFilterExponential": {
+    "versions": {
+      "1.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "analog_input_filtering": false
+            },
+            "electron": {
+              "analog_input_filtering": false
+            },
+            "argon": {
+              "analog_input_filtering": false
+            },
+            "boron": {
+              "analog_input_filtering": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "PatriotRelay": {
+    "versions": {
+      "3.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "relay": false,
+              "timedRelay": false
+            },
+            "electron": {
+              "relay": false,
+              "timedRelay": false
+            },
+            "argon": {
+              "relay": false,
+              "timedRelay": false
+            },
+            "boron": {
+              "relay": false,
+              "timedRelay": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "URC": {
+    "versions": {
+      "0.5.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "RFM69": {
+    "versions": {
+      "0.0.9": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "AdafruitColorTFTJoystickFeatherWing": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "2-tft-basic": true,
+              "3-tft-graphicstest": true
+            },
+            "electron": {
+              "2-tft-basic": true,
+              "3-tft-graphicstest": true
+            },
+            "argon": {
+              "2-tft-basic": true,
+              "3-tft-graphicstest": true
+            },
+            "boron": {
+              "2-tft-basic": true,
+              "3-tft-graphicstest": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_DS1307_RTC": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "DS1307_RTC_Demo": true
+            },
+            "electron": {
+              "DS1307_RTC_Demo": true
+            },
+            "argon": {
+              "DS1307_RTC_Demo": true
+            },
+            "boron": {
+              "DS1307_RTC_Demo": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun-Qwiic_Capacitive_Touch_Slider-CAP1203": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example01_BasicReading": true,
+              "Example02_DetectAnyTouch": true,
+              "Example03_DetectSwipe": true,
+              "Example04_PowerButton": true,
+              "Example05_DetectCurrentTouch": true,
+              "Example06_DisableInterrupt": true,
+              "Example07_SetSensitivity": true
+            },
+            "electron": {
+              "Example01_BasicReading": true,
+              "Example02_DetectAnyTouch": true,
+              "Example03_DetectSwipe": true,
+              "Example04_PowerButton": true,
+              "Example05_DetectCurrentTouch": true,
+              "Example06_DisableInterrupt": true,
+              "Example07_SetSensitivity": true
+            },
+            "argon": {
+              "Example01_BasicReading": true,
+              "Example02_DetectAnyTouch": true,
+              "Example03_DetectSwipe": true,
+              "Example04_PowerButton": true,
+              "Example05_DetectCurrentTouch": true,
+              "Example06_DisableInterrupt": true,
+              "Example07_SetSensitivity": true
+            },
+            "boron": {
+              "Example01_BasicReading": true,
+              "Example02_DetectAnyTouch": true,
+              "Example03_DetectSwipe": true,
+              "Example04_PowerButton": true,
+              "Example05_DetectCurrentTouch": true,
+              "Example06_DisableInterrupt": true,
+              "Example07_SetSensitivity": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "FFT": {
+    "versions": {
+      "1.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "FTPFileSender": {
+    "versions": {
+      "0.1.6": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "NexaCtrl": {
+    "versions": {
+      "0.2.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "BasicUsageExample": false
+            },
+            "electron": {
+              "BasicUsageExample": false
+            },
+            "argon": {
+              "BasicUsageExample": false
+            },
+            "boron": {
+              "BasicUsageExample": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "PatriotPartOfDay": {
+    "versions": {
+      "5.1.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "Accelerometer_MMA7660": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "MMA7660FC_Demo": true
+            },
+            "electron": {
+              "MMA7660FC_Demo": true
+            },
+            "argon": {
+              "MMA7660FC_Demo": true
+            },
+            "boron": {
+              "MMA7660FC_Demo": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_PM25AQI": {
+    "versions": {
+      "1.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Adafruit_PM25AQI_demo": true
+            },
+            "electron": {
+              "Adafruit_PM25AQI_demo": true
+            },
+            "argon": {
+              "Adafruit_PM25AQI_demo": true
+            },
+            "boron": {
+              "Adafruit_PM25AQI_demo": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "compressFile": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Temboo": {
+    "versions": {
+      "1.2.8": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "application_gmail": true,
+              "application_gxls": true
+            },
+            "electron": {
+              "application_gmail": true,
+              "application_gxls": true
+            },
+            "argon": {
+              "application_gmail": true,
+              "application_gxls": true
+            },
+            "boron": {
+              "application_gmail": true,
+              "application_gxls": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "i2c_anything": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_Jib_BME680": {
+    "versions": {
+      "1.0.8": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Sparkfun_MMA8452Q": {
+    "versions": {
+      "1.2.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SimpleDmx": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "full-on": true,
+              "rainbow": true
+            },
+            "electron": {
+              "full-on": true,
+              "rainbow": true
+            },
+            "argon": {
+              "full-on": true,
+              "rainbow": true
+            },
+            "boron": {
+              "full-on": true,
+              "rainbow": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ros": {
+    "versions": {
+      "1.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "BlinkerWithClass": false
+            },
+            "electron": {
+              "BlinkerWithClass": false
+            },
+            "argon": {
+              "BlinkerWithClass": false
+            },
+            "boron": {
+              "BlinkerWithClass": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "MCP_CAN_RK": {
+    "versions": {
+      "1.5.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "CAN_loopback": true,
+              "CAN_receive": true,
+              "CAN_send": true,
+              "CAN_to_Ethernet": true,
+              "Dual_CAN": true,
+              "Extended_MaskFilter": true,
+              "GetRPM": true,
+              "OBD_Sim": true,
+              "RPM_Sim": true,
+              "Standard_MaskFilter": true
+            },
+            "electron": {
+              "CAN_loopback": true,
+              "CAN_receive": true,
+              "CAN_send": true,
+              "CAN_to_Ethernet": true,
+              "Dual_CAN": true,
+              "Extended_MaskFilter": true,
+              "GetRPM": true,
+              "OBD_Sim": true,
+              "RPM_Sim": true,
+              "Standard_MaskFilter": true
+            },
+            "argon": {
+              "CAN_loopback": true,
+              "CAN_receive": true,
+              "CAN_send": true,
+              "CAN_to_Ethernet": true,
+              "Dual_CAN": true,
+              "Extended_MaskFilter": true,
+              "GetRPM": true,
+              "OBD_Sim": true,
+              "RPM_Sim": true,
+              "Standard_MaskFilter": true
+            },
+            "boron": {
+              "CAN_loopback": true,
+              "CAN_receive": true,
+              "CAN_send": true,
+              "CAN_to_Ethernet": true,
+              "Dual_CAN": true,
+              "Extended_MaskFilter": true,
+              "GetRPM": true,
+              "OBD_Sim": true,
+              "RPM_Sim": true,
+              "Standard_MaskFilter": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ServoEaser": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "ServoEaser0ManualEasing": false,
+              "ServoEaser1RandEasing": false,
+              "ServoEaser2MovesList": false,
+              "ServoEaser3Callbacks": false,
+              "ServoEaser4ButtonPlay": false,
+              "ServoEaser5PlaySync": false
+            },
+            "electron": {
+              "ServoEaser0ManualEasing": false,
+              "ServoEaser1RandEasing": false,
+              "ServoEaser2MovesList": false,
+              "ServoEaser3Callbacks": false,
+              "ServoEaser4ButtonPlay": false,
+              "ServoEaser5PlaySync": false
+            },
+            "argon": {
+              "ServoEaser0ManualEasing": false,
+              "ServoEaser1RandEasing": false,
+              "ServoEaser2MovesList": false,
+              "ServoEaser3Callbacks": false,
+              "ServoEaser4ButtonPlay": false,
+              "ServoEaser5PlaySync": false
+            },
+            "boron": {
+              "ServoEaser0ManualEasing": false,
+              "ServoEaser1RandEasing": false,
+              "ServoEaser2MovesList": false,
+              "ServoEaser3Callbacks": false,
+              "ServoEaser4ButtonPlay": false,
+              "ServoEaser5PlaySync": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "HT16K33-LED": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "seven-segement": false
+            },
+            "electron": {
+              "seven-segement": false
+            },
+            "argon": {
+              "seven-segement": false
+            },
+            "boron": {
+              "seven-segement": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "WeatherLevel": {
+    "versions": {
+      "0.1.3": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "WeatherSensors": {
+    "versions": {
+      "0.0.2": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "DFPlay": {
+    "versions": {
+      "0.0.9": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "W5100_Ethernet": {
+    "versions": {
+      "1.1.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "AdvancedChatServer": false,
+              "ChatServer": false,
+              "DhcpAddressPrinter": false,
+              "DhcpChatServer": false,
+              "TelnetClient": false,
+              "UDPSendReceiveString": false,
+              "UdpNtpClient": false,
+              "WebClient": false,
+              "WebClientRepeating": false,
+              "WebServer": false
+            },
+            "electron": {
+              "AdvancedChatServer": false,
+              "ChatServer": false,
+              "DhcpAddressPrinter": false,
+              "DhcpChatServer": false,
+              "TelnetClient": false,
+              "UDPSendReceiveString": false,
+              "UdpNtpClient": false,
+              "WebClient": false,
+              "WebClientRepeating": false,
+              "WebServer": false
+            },
+            "argon": {
+              "AdvancedChatServer": false,
+              "ChatServer": false,
+              "DhcpAddressPrinter": false,
+              "DhcpChatServer": false,
+              "TelnetClient": false,
+              "UDPSendReceiveString": false,
+              "UdpNtpClient": false,
+              "WebClient": false,
+              "WebClientRepeating": false,
+              "WebServer": false
+            },
+            "boron": {
+              "AdvancedChatServer": false,
+              "ChatServer": false,
+              "DhcpAddressPrinter": false,
+              "DhcpChatServer": false,
+              "TelnetClient": false,
+              "UDPSendReceiveString": false,
+              "UdpNtpClient": false,
+              "WebClient": false,
+              "WebClientRepeating": false,
+              "WebServer": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "I2c7SegmentLed": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "I2c7SegmentLedDemo": true
+            },
+            "electron": {
+              "I2c7SegmentLedDemo": true
+            },
+            "argon": {
+              "I2c7SegmentLedDemo": true
+            },
+            "boron": {
+              "I2c7SegmentLedDemo": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "HighPowerStepperDriver": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "BasicStepping": true,
+              "BasicSteppingSPI": true
+            },
+            "electron": {
+              "BasicStepping": true,
+              "BasicSteppingSPI": true
+            },
+            "argon": {
+              "BasicStepping": true,
+              "BasicSteppingSPI": true
+            },
+            "boron": {
+              "BasicStepping": true,
+              "BasicSteppingSPI": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "AzureMobileApp": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1_Create": true,
+              "2_Read": true,
+              "3_Update": true,
+              "4_Delete": true
+            },
+            "electron": {
+              "1_Create": true,
+              "2_Read": true,
+              "3_Update": true,
+              "4_Delete": true
+            },
+            "argon": {
+              "1_Create": true,
+              "2_Read": true,
+              "3_Update": true,
+              "4_Delete": true
+            },
+            "boron": {
+              "1_Create": true,
+              "2_Read": true,
+              "3_Update": true,
+              "4_Delete": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_L3GD20": {
+    "versions": {
+      "0.1.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Adafruit_L3GD20_test": true
+            },
+            "electron": {
+              "Adafruit_L3GD20_test": true
+            },
+            "argon": {
+              "Adafruit_L3GD20_test": true
+            },
+            "boron": {
+              "Adafruit_L3GD20_test": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "beakn": {
+    "versions": {
+      "0.4.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "beakn-sparkcore": false,
+              "beakn-sparkcore-onboard-led": true
+            },
+            "electron": {
+              "beakn-sparkcore": false,
+              "beakn-sparkcore-onboard-led": true
+            },
+            "argon": {
+              "beakn-sparkcore": false,
+              "beakn-sparkcore-onboard-led": true
+            },
+            "boron": {
+              "beakn-sparkcore": false,
+              "beakn-sparkcore-onboard-led": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "L9110Driver": {
+    "versions": {
+      "0.0.10": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "test_L9110": false
+            },
+            "electron": {
+              "test_L9110": false
+            },
+            "argon": {
+              "test_L9110": false
+            },
+            "boron": {
+              "test_L9110": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_FXOS8700": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "dnsclient": {
+    "versions": {
+      "0.0.13": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "dnslookup": false
+            },
+            "electron": {
+              "dnslookup": false
+            },
+            "argon": {
+              "dnslookup": false
+            },
+            "boron": {
+              "dnslookup": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_Qwiic_Button": {
+    "versions": {
+      "2.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_PrintButtonStatus": true,
+              "Example2_LightWhenPressed": true,
+              "Example3_PulseWhenPressed": true,
+              "Example4_QueueUsage": true,
+              "Example5_ChangeI2CAddress": true,
+              "Example6_WireSettings": false,
+              "Example7_2Buttons": true,
+              "Example8_ExtInterrupt": true
+            },
+            "electron": {
+              "Example1_PrintButtonStatus": true,
+              "Example2_LightWhenPressed": true,
+              "Example3_PulseWhenPressed": true,
+              "Example4_QueueUsage": true,
+              "Example5_ChangeI2CAddress": true,
+              "Example6_WireSettings": true,
+              "Example7_2Buttons": true,
+              "Example8_ExtInterrupt": true
+            },
+            "argon": {
+              "Example1_PrintButtonStatus": true,
+              "Example2_LightWhenPressed": true,
+              "Example3_PulseWhenPressed": true,
+              "Example4_QueueUsage": true,
+              "Example5_ChangeI2CAddress": true,
+              "Example6_WireSettings": true,
+              "Example7_2Buttons": true,
+              "Example8_ExtInterrupt": true
+            },
+            "boron": {
+              "Example1_PrintButtonStatus": true,
+              "Example2_LightWhenPressed": true,
+              "Example3_PulseWhenPressed": true,
+              "Example4_QueueUsage": true,
+              "Example5_ChangeI2CAddress": true,
+              "Example6_WireSettings": true,
+              "Example7_2Buttons": true,
+              "Example8_ExtInterrupt": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "TFT_eSPI": {
+    "versions": {
+      "0.16.15": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_CCS811_Arduino_Library": {
+    "versions": {
+      "2.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_BasicReadings": true,
+              "Example3_ThermistorCompensation": true,
+              "Example4_SetBaseline": true,
+              "Example5_WakeAndInterrupt": true,
+              "Example6_TwentyMinuteTest": true,
+              "Example7_SensitivityDemo": true,
+              "Example8_Core": true,
+              "Example9_AdvancedBegin": false
+            },
+            "electron": {
+              "Example1_BasicReadings": true,
+              "Example3_ThermistorCompensation": true,
+              "Example4_SetBaseline": true,
+              "Example5_WakeAndInterrupt": true,
+              "Example6_TwentyMinuteTest": true,
+              "Example7_SensitivityDemo": true,
+              "Example8_Core": true,
+              "Example9_AdvancedBegin": true
+            },
+            "argon": {
+              "Example1_BasicReadings": true,
+              "Example3_ThermistorCompensation": true,
+              "Example4_SetBaseline": true,
+              "Example5_WakeAndInterrupt": true,
+              "Example6_TwentyMinuteTest": true,
+              "Example7_SensitivityDemo": true,
+              "Example8_Core": true,
+              "Example9_AdvancedBegin": true
+            },
+            "boron": {
+              "Example1_BasicReadings": true,
+              "Example3_ThermistorCompensation": true,
+              "Example4_SetBaseline": true,
+              "Example5_WakeAndInterrupt": true,
+              "Example6_TwentyMinuteTest": true,
+              "Example7_SensitivityDemo": true,
+              "Example8_Core": true,
+              "Example9_AdvancedBegin": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ReclaimerLabs_ADS1118": {
+    "versions": {
+      "0.9.6": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "thermocouple_monitor": true
+            },
+            "electron": {
+              "thermocouple_monitor": true
+            },
+            "argon": {
+              "thermocouple_monitor": true
+            },
+            "boron": {
+              "thermocouple_monitor": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "particle-strip": {
+    "versions": {
+      "2.3.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "combo": true,
+              "led": true,
+              "pattern": true
+            },
+            "electron": {
+              "combo": true,
+              "led": true,
+              "pattern": true
+            },
+            "argon": {
+              "combo": false,
+              "led": false,
+              "pattern": false
+            },
+            "boron": {
+              "combo": false,
+              "led": false,
+              "pattern": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_CAP1188": {
+    "versions": {
+      "0.2.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "Structure-MQTT-device": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "led-temp-example": true
+            },
+            "electron": {
+              "led-temp-example": true
+            },
+            "argon": {
+              "led-temp-example": true
+            },
+            "boron": {
+              "led-temp-example": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "spark-usb-host": {
+    "versions": {
+      "0.0.2": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "telnet-server-lib": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "telnet-server-commandline": false
+            },
+            "electron": {
+              "telnet-server-commandline": false
+            },
+            "argon": {
+              "telnet-server-commandline": false
+            },
+            "boron": {
+              "telnet-server-commandline": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "ILI9163": {
+    "versions": {
+      "0.0.2": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "measurement": {
+    "versions": {
+      "0.4.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "MCP3008": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "adafruit-serial-rgb-lcd": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "SparkFun_Ambient_Light_Sensor_Arduino_Library": {
+    "versions": {
+      "1.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_Read_Ambient_Basics": true,
+              "Example2_Light_Interrupt_Hardware": true,
+              "Example3_Light_Interrupt_Software": true,
+              "Example4_Power_Save_Mode": true
+            },
+            "electron": {
+              "Example1_Read_Ambient_Basics": true,
+              "Example2_Light_Interrupt_Hardware": true,
+              "Example3_Light_Interrupt_Software": true,
+              "Example4_Power_Save_Mode": true
+            },
+            "argon": {
+              "Example1_Read_Ambient_Basics": true,
+              "Example2_Light_Interrupt_Hardware": true,
+              "Example3_Light_Interrupt_Software": true,
+              "Example4_Power_Save_Mode": true
+            },
+            "boron": {
+              "Example1_Read_Ambient_Basics": true,
+              "Example2_Light_Interrupt_Hardware": true,
+              "Example3_Light_Interrupt_Software": true,
+              "Example4_Power_Save_Mode": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun-Spark-Phant": {
+    "versions": {
+      "0.1.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "testStream": true
+            },
+            "electron": {
+              "testStream": true
+            },
+            "argon": {
+              "testStream": true
+            },
+            "boron": {
+              "testStream": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "dht22_from_t": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFunAS726X": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_BasicReadings": true,
+              "Example2_SensorSettings": true,
+              "Example3_BulbReadings": false
+            },
+            "electron": {
+              "Example1_BasicReadings": true,
+              "Example2_SensorSettings": true,
+              "Example3_BulbReadings": false
+            },
+            "argon": {
+              "Example1_BasicReadings": true,
+              "Example2_SensorSettings": true,
+              "Example3_BulbReadings": false
+            },
+            "boron": {
+              "Example1_BasicReadings": true,
+              "Example2_SensorSettings": true,
+              "Example3_BulbReadings": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "drops": {
+    "versions": {
+      "0.0.10": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "getStateButton": false,
+              "sendArrayNumber": false,
+              "sendBoolean": false,
+              "sendNumber": false,
+              "sendString": false
+            },
+            "electron": {
+              "getStateButton": false,
+              "sendArrayNumber": false,
+              "sendBoolean": false,
+              "sendNumber": false,
+              "sendString": false
+            },
+            "argon": {
+              "getStateButton": false,
+              "sendArrayNumber": false,
+              "sendBoolean": false,
+              "sendNumber": false,
+              "sendString": false
+            },
+            "boron": {
+              "getStateButton": false,
+              "sendArrayNumber": false,
+              "sendBoolean": false,
+              "sendNumber": false,
+              "sendString": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_AS3935_Lightning_Detector_Arduino_Library": {
+    "versions": {
+      "1.4.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_BasicLightning_I2C": false,
+              "Example1_BasicLightning_SPI": false,
+              "Example2_More_Lightning_Features_I2C": false,
+              "Example2_More_Lightning_Features_SPI": false,
+              "Example3_Tune_Antenna_I2C": false,
+              "Example3_Tune_Antenna_SPI": false
+            },
+            "electron": {
+              "Example1_BasicLightning_I2C": false,
+              "Example1_BasicLightning_SPI": false,
+              "Example2_More_Lightning_Features_I2C": false,
+              "Example2_More_Lightning_Features_SPI": false,
+              "Example3_Tune_Antenna_I2C": false,
+              "Example3_Tune_Antenna_SPI": false
+            },
+            "argon": {
+              "Example1_BasicLightning_I2C": false,
+              "Example1_BasicLightning_SPI": false,
+              "Example2_More_Lightning_Features_I2C": false,
+              "Example2_More_Lightning_Features_SPI": false,
+              "Example3_Tune_Antenna_I2C": false,
+              "Example3_Tune_Antenna_SPI": false
+            },
+            "boron": {
+              "Example1_BasicLightning_I2C": false,
+              "Example1_BasicLightning_SPI": false,
+              "Example2_More_Lightning_Features_I2C": false,
+              "Example2_More_Lightning_Features_SPI": false,
+              "Example3_Tune_Antenna_I2C": false,
+              "Example3_Tune_Antenna_SPI": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "qMenuSystem": {
+    "versions": {
+      "0.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "TestMenu": false
+            },
+            "electron": {
+              "TestMenu": false
+            },
+            "argon": {
+              "TestMenu": false
+            },
+            "boron": {
+              "TestMenu": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "neopixelmatrix": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "spark-plotly": {
+    "versions": {
+      "0.0.11": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "spark-plotly": false
+            },
+            "electron": {
+              "spark-plotly": false
+            },
+            "argon": {
+              "spark-plotly": false
+            },
+            "boron": {
+              "spark-plotly": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "MMA7660-Accelerometer": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "AccelerometerTest": true
+            },
+            "electron": {
+              "AccelerometerTest": true
+            },
+            "argon": {
+              "AccelerometerTest": true
+            },
+            "boron": {
+              "AccelerometerTest": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun-BNO080": {
+    "versions": {
+      "1.1.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1-RotationVector": true,
+              "Example10-PrintPacket": true,
+              "Example11-AdvancedConfig": false,
+              "Example12-LinearAccelerometer": true,
+              "Example13-TimeStamp": true,
+              "Example14-TwoSensors": true,
+              "Example15-RawReadings": true,
+              "Example2-Accelerometer": true,
+              "Example3-Gyro": true,
+              "Example4-Magnetometer": true,
+              "Example5-StepCounter": true,
+              "Example6-MetaData": true,
+              "Example7-StabilityClassifier": true,
+              "Example8-ActivityClassifier": true,
+              "Example9-Calibrate": true
+            },
+            "electron": {
+              "Example1-RotationVector": true,
+              "Example10-PrintPacket": true,
+              "Example11-AdvancedConfig": true,
+              "Example12-LinearAccelerometer": true,
+              "Example13-TimeStamp": true,
+              "Example14-TwoSensors": true,
+              "Example15-RawReadings": true,
+              "Example2-Accelerometer": true,
+              "Example3-Gyro": true,
+              "Example4-Magnetometer": true,
+              "Example5-StepCounter": true,
+              "Example6-MetaData": true,
+              "Example7-StabilityClassifier": true,
+              "Example8-ActivityClassifier": true,
+              "Example9-Calibrate": true
+            },
+            "argon": {
+              "Example1-RotationVector": true,
+              "Example10-PrintPacket": true,
+              "Example11-AdvancedConfig": true,
+              "Example12-LinearAccelerometer": true,
+              "Example13-TimeStamp": true,
+              "Example14-TwoSensors": true,
+              "Example15-RawReadings": true,
+              "Example2-Accelerometer": true,
+              "Example3-Gyro": true,
+              "Example4-Magnetometer": true,
+              "Example5-StepCounter": true,
+              "Example6-MetaData": true,
+              "Example7-StabilityClassifier": true,
+              "Example8-ActivityClassifier": true,
+              "Example9-Calibrate": true
+            },
+            "boron": {
+              "Example1-RotationVector": true,
+              "Example10-PrintPacket": true,
+              "Example11-AdvancedConfig": true,
+              "Example12-LinearAccelerometer": true,
+              "Example13-TimeStamp": true,
+              "Example14-TwoSensors": true,
+              "Example15-RawReadings": true,
+              "Example2-Accelerometer": true,
+              "Example3-Gyro": true,
+              "Example4-Magnetometer": true,
+              "Example5-StepCounter": true,
+              "Example6-MetaData": true,
+              "Example7-StabilityClassifier": true,
+              "Example8-ActivityClassifier": true,
+              "Example9-Calibrate": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "neopixel-bluz": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "neo": false
+            },
+            "electron": {
+              "neo": false
+            },
+            "argon": {
+              "neo": false
+            },
+            "boron": {
+              "neo": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "NimbleSensor": {
+    "versions": {
+      "0.0.10": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ParticleAppleMIDI": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Esp8266_NoteOnOffEverySec": false,
+              "EthernetShield_InitiateSession": false,
+              "EthernetShield_InitiateSessions": false,
+              "EthernetShield_NoteOnOffEverySec": false,
+              "Wifi_NoteOnOffEverySec": false
+            },
+            "electron": {
+              "Esp8266_NoteOnOffEverySec": false,
+              "EthernetShield_InitiateSession": false,
+              "EthernetShield_InitiateSessions": false,
+              "EthernetShield_NoteOnOffEverySec": false,
+              "Wifi_NoteOnOffEverySec": false
+            },
+            "argon": {
+              "Esp8266_NoteOnOffEverySec": false,
+              "EthernetShield_InitiateSession": false,
+              "EthernetShield_InitiateSessions": false,
+              "EthernetShield_NoteOnOffEverySec": false,
+              "Wifi_NoteOnOffEverySec": false
+            },
+            "boron": {
+              "Esp8266_NoteOnOffEverySec": false,
+              "EthernetShield_InitiateSession": false,
+              "EthernetShield_InitiateSessions": false,
+              "EthernetShield_NoteOnOffEverySec": false,
+              "Wifi_NoteOnOffEverySec": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_Sensor_Photon": {
+    "versions": {
+      "1.0.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Adafruit_Sensor": false
+            },
+            "electron": {
+              "Adafruit_Sensor": false
+            },
+            "argon": {
+              "Adafruit_Sensor": false
+            },
+            "boron": {
+              "Adafruit_Sensor": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "StreamDebug": {
+    "versions": {
+      "0.0.2": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "PMS3003": {
+    "versions": {
+      "0.1.2": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "NeoGPS_v4_2_9": {
+    "versions": {
+      "4.2.9": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "NMEA": false,
+              "NMEAGSV": false,
+              "NMEASDlog": false,
+              "NMEA_isr": false,
+              "NMEAaverage": false,
+              "NMEAbenchmark": false,
+              "NMEAblink": false,
+              "NMEAdiagnostic": false,
+              "NMEAdistance": false,
+              "NMEAloc": false,
+              "NMEAlocDMS": false,
+              "NMEAorder": false,
+              "NMEArevGeoCache": false,
+              "NMEAsimple": false,
+              "NMEAtest": false,
+              "NMEAtimezone": false,
+              "PGRM": false,
+              "PUBX": false,
+              "SyncTime": false,
+              "Tabular": false,
+              "ublox": false,
+              "ubloxRate": false
+            },
+            "electron": {
+              "NMEA": false,
+              "NMEAGSV": false,
+              "NMEASDlog": false,
+              "NMEA_isr": false,
+              "NMEAaverage": false,
+              "NMEAbenchmark": false,
+              "NMEAblink": false,
+              "NMEAdiagnostic": false,
+              "NMEAdistance": false,
+              "NMEAloc": false,
+              "NMEAlocDMS": false,
+              "NMEAorder": false,
+              "NMEArevGeoCache": false,
+              "NMEAsimple": false,
+              "NMEAtest": false,
+              "NMEAtimezone": false,
+              "PGRM": false,
+              "PUBX": false,
+              "SyncTime": false,
+              "Tabular": false,
+              "ublox": false,
+              "ubloxRate": false
+            },
+            "argon": {
+              "NMEA": false,
+              "NMEAGSV": false,
+              "NMEASDlog": false,
+              "NMEA_isr": false,
+              "NMEAaverage": false,
+              "NMEAbenchmark": false,
+              "NMEAblink": false,
+              "NMEAdiagnostic": false,
+              "NMEAdistance": false,
+              "NMEAloc": false,
+              "NMEAlocDMS": false,
+              "NMEAorder": false,
+              "NMEArevGeoCache": false,
+              "NMEAsimple": false,
+              "NMEAtest": false,
+              "NMEAtimezone": false,
+              "PGRM": false,
+              "PUBX": false,
+              "SyncTime": false,
+              "Tabular": false,
+              "ublox": false,
+              "ubloxRate": false
+            },
+            "boron": {
+              "NMEA": false,
+              "NMEAGSV": false,
+              "NMEASDlog": false,
+              "NMEA_isr": false,
+              "NMEAaverage": false,
+              "NMEAbenchmark": false,
+              "NMEAblink": false,
+              "NMEAdiagnostic": false,
+              "NMEAdistance": false,
+              "NMEAloc": false,
+              "NMEAlocDMS": false,
+              "NMEAorder": false,
+              "NMEArevGeoCache": false,
+              "NMEAsimple": false,
+              "NMEAtest": false,
+              "NMEAtimezone": false,
+              "PGRM": false,
+              "PUBX": false,
+              "SyncTime": false,
+              "Tabular": false,
+              "ublox": false,
+              "ubloxRate": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "apis-master": {
+    "versions": {
+      "0.0.39": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "DS75-RK": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": true,
+              "2-thermostat-interrupt": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-thermostat-interrupt": true
+            },
+            "argon": {
+              "1-simple": true,
+              "2-thermostat-interrupt": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-thermostat-interrupt": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "DandelionHWInterface": {
+    "versions": {
+      "0.9.9": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "IoTNodeWeatherLevelGlobals": {
+    "versions": {
+      "0.0.13": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "SunSet_2a01": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "example": false
+            },
+            "electron": {
+              "example": false
+            },
+            "argon": {
+              "example": false
+            },
+            "boron": {
+              "example": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Particle-WebSockets": {
+    "versions": {
+      "2.0.8": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "WebSocketClient": false,
+              "WebSocketClientAVR": false,
+              "WebSocketClientSSL": false,
+              "WebSocketServer": false,
+              "WebSocketServer_LEDcontrol": false
+            },
+            "electron": {
+              "WebSocketClient": false,
+              "WebSocketClientAVR": false,
+              "WebSocketClientSSL": false,
+              "WebSocketServer": false,
+              "WebSocketServer_LEDcontrol": false
+            },
+            "argon": {
+              "WebSocketClient": false,
+              "WebSocketClientAVR": false,
+              "WebSocketClientSSL": false,
+              "WebSocketServer": false,
+              "WebSocketServer_LEDcontrol": false
+            },
+            "boron": {
+              "WebSocketClient": false,
+              "WebSocketClientAVR": false,
+              "WebSocketClientSSL": false,
+              "WebSocketServer": false,
+              "WebSocketServer_LEDcontrol": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "TCA9534": {
+    "versions": {
+      "0.2.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "TCA_example": true
+            },
+            "electron": {
+              "TCA_example": true
+            },
+            "argon": {
+              "TCA_example": true
+            },
+            "boron": {
+              "TCA_example": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_SH1106_Particle": {
+    "versions": {
+      "00.00.00": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "sh1106_128x64_i2c": false,
+              "sh1106_128x64_spi": false,
+              "usage": false
+            },
+            "electron": {
+              "sh1106_128x64_i2c": false,
+              "sh1106_128x64_spi": false,
+              "usage": false
+            },
+            "argon": {
+              "sh1106_128x64_i2c": false,
+              "sh1106_128x64_spi": false,
+              "usage": false
+            },
+            "boron": {
+              "sh1106_128x64_i2c": false,
+              "sh1106_128x64_spi": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "ada-sensors": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Grove_Barometer_HP20x": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "HP20x_demo": true
+            },
+            "electron": {
+              "HP20x_demo": true
+            },
+            "argon": {
+              "HP20x_demo": true
+            },
+            "boron": {
+              "HP20x_demo": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "rgb-values": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "nunchuk": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "wiichuk-demo": true
+            },
+            "electron": {
+              "wiichuk-demo": true
+            },
+            "argon": {
+              "wiichuk-demo": true
+            },
+            "boron": {
+              "wiichuk-demo": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "influxdb": {
+    "versions": {
+      "0.0.2": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "SerialCommandParserRK": {
+    "versions": {
+      "0.0.8": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": true,
+              "2-line-editing": true,
+              "3-line-editing-uart": true,
+              "4-print-message": true,
+              "5-log-handler": true,
+              "6-tcp-server": true,
+              "7-cmd-options-test": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-line-editing": true,
+              "3-line-editing-uart": true,
+              "4-print-message": true,
+              "5-log-handler": true,
+              "6-tcp-server": true,
+              "7-cmd-options-test": true
+            },
+            "argon": {
+              "1-simple": true,
+              "2-line-editing": true,
+              "3-line-editing-uart": true,
+              "4-print-message": true,
+              "5-log-handler": true,
+              "6-tcp-server": true,
+              "7-cmd-options-test": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-line-editing": true,
+              "3-line-editing-uart": true,
+              "4-print-message": true,
+              "5-log-handler": true,
+              "6-tcp-server": true,
+              "7-cmd-options-test": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_SSD1325": {
+    "versions": {
+      "1.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_PCD8544_mfGFX": {
+    "versions": {
+      "1.1.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Noika5110": true
+            },
+            "electron": {
+              "Noika5110": true
+            },
+            "argon": {
+              "Noika5110": true
+            },
+            "boron": {
+              "Noika5110": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "XBee_804b": {
+    "versions": {
+      "0.0.11": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "spark-streaming": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "ARGON-RFID-MFRC522": {
+    "versions": {
+      "1.3.7": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "AccessControl": false,
+              "ChangeUID": true,
+              "DumpInfo": true,
+              "FixBrickedUID": true,
+              "MifareClassicValueBlock": true,
+              "MinimalInterrupt": true,
+              "Ntag216_AUTH": true,
+              "RFID-Cloner": true,
+              "ReadAndWrite": true,
+              "ReadNUID": true,
+              "ReadUidMultiReader": false,
+              "firmware_check": true,
+              "rfid_default_keys": true,
+              "rfid_read_personal_data": true,
+              "rfid_write_personal_data": true
+            },
+            "electron": {
+              "AccessControl": false,
+              "ChangeUID": true,
+              "DumpInfo": true,
+              "FixBrickedUID": true,
+              "MifareClassicValueBlock": true,
+              "MinimalInterrupt": true,
+              "Ntag216_AUTH": true,
+              "RFID-Cloner": true,
+              "ReadAndWrite": true,
+              "ReadNUID": true,
+              "ReadUidMultiReader": false,
+              "firmware_check": true,
+              "rfid_default_keys": true,
+              "rfid_read_personal_data": true,
+              "rfid_write_personal_data": true
+            },
+            "argon": {
+              "AccessControl": false,
+              "ChangeUID": true,
+              "DumpInfo": true,
+              "FixBrickedUID": true,
+              "MifareClassicValueBlock": true,
+              "MinimalInterrupt": true,
+              "Ntag216_AUTH": true,
+              "RFID-Cloner": true,
+              "ReadAndWrite": true,
+              "ReadNUID": true,
+              "ReadUidMultiReader": false,
+              "firmware_check": true,
+              "rfid_default_keys": true,
+              "rfid_read_personal_data": true,
+              "rfid_write_personal_data": true
+            },
+            "boron": {
+              "AccessControl": false,
+              "ChangeUID": true,
+              "DumpInfo": true,
+              "FixBrickedUID": true,
+              "MifareClassicValueBlock": true,
+              "MinimalInterrupt": true,
+              "Ntag216_AUTH": true,
+              "RFID-Cloner": true,
+              "ReadAndWrite": true,
+              "ReadNUID": true,
+              "ReadUidMultiReader": false,
+              "firmware_check": true,
+              "rfid_default_keys": true,
+              "rfid_read_personal_data": true,
+              "rfid_write_personal_data": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "codetacc-robotics": {
+    "versions": {
+      "0.0.12": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1_robot": true,
+              "2_sensors": true,
+              "3_publish": true,
+              "4_handler": true,
+              "5_states": true,
+              "6_servos": true
+            },
+            "electron": {
+              "1_robot": true,
+              "2_sensors": true,
+              "3_publish": true,
+              "4_handler": true,
+              "5_states": true,
+              "6_servos": true
+            },
+            "argon": {
+              "1_robot": true,
+              "2_sensors": true,
+              "3_publish": true,
+              "4_handler": true,
+              "5_states": true,
+              "6_servos": true
+            },
+            "boron": {
+              "1_robot": true,
+              "2_sensors": true,
+              "3_publish": true,
+              "4_handler": true,
+              "5_states": true,
+              "6_servos": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "fsm": {
+    "versions": {
+      "2.2.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "light_switch": true,
+              "multitasking": true,
+              "timed_switchoff": true
+            },
+            "electron": {
+              "light_switch": true,
+              "multitasking": true,
+              "timed_switchoff": true
+            },
+            "argon": {
+              "light_switch": true,
+              "multitasking": true,
+              "timed_switchoff": true
+            },
+            "boron": {
+              "light_switch": true,
+              "multitasking": true,
+              "timed_switchoff": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Grove-I2C-Touch-Sensor": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "i2c_touch": true
+            },
+            "electron": {
+              "i2c_touch": true
+            },
+            "argon": {
+              "i2c_touch": true
+            },
+            "boron": {
+              "i2c_touch": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "PowerCheck": {
+    "versions": {
+      "1.0.2": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "chrismayu_am2320": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "readAM2320": false,
+              "usage": false
+            },
+            "electron": {
+              "readAM2320": false,
+              "usage": false
+            },
+            "argon": {
+              "readAM2320": false,
+              "usage": false
+            },
+            "boron": {
+              "readAM2320": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "IoTNodeThingSpeak": {
+    "versions": {
+      "0.0.3": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "QRCode": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "QRCode": true,
+              "usage": false
+            },
+            "electron": {
+              "QRCode": true,
+              "usage": false
+            },
+            "argon": {
+              "QRCode": true,
+              "usage": false
+            },
+            "boron": {
+              "QRCode": true,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "cwop-particle": {
+    "versions": {
+      "0.0.10": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "basic-cwop": true
+            },
+            "electron": {
+              "basic-cwop": true
+            },
+            "argon": {
+              "basic-cwop": false
+            },
+            "boron": {
+              "basic-cwop": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "GoBLE": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "EEPROM_Class": {
+    "versions": {
+      "1.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "advancedUsage": true,
+              "basicUsage": true
+            },
+            "electron": {
+              "advancedUsage": false,
+              "basicUsage": false
+            },
+            "argon": {
+              "advancedUsage": false,
+              "basicUsage": false
+            },
+            "boron": {
+              "advancedUsage": false,
+              "basicUsage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "neopixel-dma": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "test": false
+            },
+            "electron": {
+              "test": false
+            },
+            "argon": {
+              "test": false
+            },
+            "boron": {
+              "test": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "ADXL335": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Calibration": false,
+              "MeasuringAcceleration": false
+            },
+            "electron": {
+              "Calibration": false,
+              "MeasuringAcceleration": false
+            },
+            "argon": {
+              "Calibration": false,
+              "MeasuringAcceleration": false
+            },
+            "boron": {
+              "Calibration": false,
+              "MeasuringAcceleration": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "RGBMoodLifx": {
+    "versions": {
+      "0.0.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "arduinolifx": false
+            },
+            "electron": {
+              "arduinolifx": false
+            },
+            "argon": {
+              "arduinolifx": false
+            },
+            "boron": {
+              "arduinolifx": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_Qwiic_Keypad": {
+    "versions": {
+      "1.2.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_ReadButton": true,
+              "Example2_ReadWithTime": true,
+              "Example3_ChangeI2CAddress": false,
+              "Example4_I2CScanner": true,
+              "Example5_InterruptRead": true,
+              "Example6_KeyCode": true
+            },
+            "electron": {
+              "Example1_ReadButton": true,
+              "Example2_ReadWithTime": true,
+              "Example3_ChangeI2CAddress": false,
+              "Example4_I2CScanner": true,
+              "Example5_InterruptRead": true,
+              "Example6_KeyCode": true
+            },
+            "argon": {
+              "Example1_ReadButton": true,
+              "Example2_ReadWithTime": true,
+              "Example3_ChangeI2CAddress": false,
+              "Example4_I2CScanner": true,
+              "Example5_InterruptRead": true,
+              "Example6_KeyCode": true
+            },
+            "boron": {
+              "Example1_ReadButton": true,
+              "Example2_ReadWithTime": true,
+              "Example3_ChangeI2CAddress": false,
+              "Example4_I2CScanner": true,
+              "Example5_InterruptRead": true,
+              "Example6_KeyCode": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Camera_Pixy2": {
+    "versions": {
+      "1.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "ccc_hello_world": false,
+              "ccc_i2c_uart": false,
+              "ccc_pantilt": false,
+              "ccc_zumo_chase": false,
+              "line_get_all": false,
+              "line_hello_world": false,
+              "line_zumo_demo": false,
+              "test_other_functions": false,
+              "video_get_rgb": false
+            },
+            "electron": {
+              "ccc_hello_world": false,
+              "ccc_i2c_uart": false,
+              "ccc_pantilt": false,
+              "ccc_zumo_chase": false,
+              "line_get_all": false,
+              "line_hello_world": false,
+              "line_zumo_demo": false,
+              "test_other_functions": false,
+              "video_get_rgb": false
+            },
+            "argon": {
+              "ccc_hello_world": false,
+              "ccc_i2c_uart": false,
+              "ccc_pantilt": false,
+              "ccc_zumo_chase": false,
+              "line_get_all": false,
+              "line_hello_world": false,
+              "line_zumo_demo": false,
+              "test_other_functions": false,
+              "video_get_rgb": false
+            },
+            "boron": {
+              "ccc_hello_world": false,
+              "ccc_i2c_uart": false,
+              "ccc_pantilt": false,
+              "ccc_zumo_chase": false,
+              "line_get_all": false,
+              "line_hello_world": false,
+              "line_zumo_demo": false,
+              "test_other_functions": false,
+              "video_get_rgb": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "DynamicFrequencySampler": {
+    "versions": {
+      "0.0.8": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1_Sampler101": true
+            },
+            "electron": {
+              "1_Sampler101": true
+            },
+            "argon": {
+              "1_Sampler101": true
+            },
+            "boron": {
+              "1_Sampler101": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "neopixel-nrf": {
+    "versions": {
+      "0.0.16": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "electron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "argon": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            },
+            "boron": {
+              "a-rainbow": true,
+              "extra-examples": true,
+              "rgbw-strandtest": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "AmazonDynamoDBClient": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+              "application": false
+            },
+            "electron": {
+              "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+              "application": false
+            },
+            "argon": {
+              "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+              "application": false
+            },
+            "boron": {
+              "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+              "application": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "PulseSensorAmped": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "bluetooth": false,
+              "usage": false
+            },
+            "electron": {
+              "bluetooth": false,
+              "usage": false
+            },
+            "argon": {
+              "bluetooth": true,
+              "usage": true
+            },
+            "boron": {
+              "bluetooth": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "sds011-sh": {
+    "versions": {
+      "1.1.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Ethernet_Overlay": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "DemersTech_DHT": {
+    "versions": {
+      "0.0.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "DHT_2sensor": false,
+              "DHT_example": false,
+              "DHT_simple": false
+            },
+            "electron": {
+              "DHT_2sensor": false,
+              "DHT_example": false,
+              "DHT_simple": false
+            },
+            "argon": {
+              "DHT_2sensor": false,
+              "DHT_example": false,
+              "DHT_simple": false
+            },
+            "boron": {
+              "DHT_2sensor": false,
+              "DHT_example": false,
+              "DHT_simple": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "TTCP_V3.3.1": {
+    "versions": {
+      "0.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "mqtttest": false
+            },
+            "electron": {
+              "mqtttest": false
+            },
+            "argon": {
+              "mqtttest": false
+            },
+            "boron": {
+              "mqtttest": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "DualMotor": {
+    "versions": {
+      "0.0.2": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "AccelerometerADXL335": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Calibration": false,
+              "MeasuringAcceleration": false
+            },
+            "electron": {
+              "Calibration": false,
+              "MeasuringAcceleration": false
+            },
+            "argon": {
+              "Calibration": false,
+              "MeasuringAcceleration": false
+            },
+            "boron": {
+              "Calibration": false,
+              "MeasuringAcceleration": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "httpsclient-particle-xguan": {
+    "versions": {
+      "0.0.7": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "glowfish-post-test": false,
+              "timeapi-test": true
+            },
+            "electron": {
+              "glowfish-post-test": false,
+              "timeapi-test": true
+            },
+            "argon": {
+              "glowfish-post-test": false,
+              "timeapi-test": true
+            },
+            "boron": {
+              "glowfish-post-test": false,
+              "timeapi-test": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "RHMesh": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "raspi": false,
+              "usage": true
+            },
+            "electron": {
+              "raspi": false,
+              "usage": true
+            },
+            "argon": {
+              "raspi": false,
+              "usage": true
+            },
+            "boron": {
+              "raspi": false,
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "spark-parse": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "parse_hex": true
+            },
+            "electron": {
+              "parse_hex": true
+            },
+            "argon": {
+              "parse_hex": true
+            },
+            "boron": {
+              "parse_hex": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Vedirect": {
+    "versions": {
+      "1.0.5": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "test": {
+    "versions": {
+      "1.1.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_TMP117_Arduino_Library": {
+    "versions": {
+      "1.2.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_BasicReadings": true,
+              "Example2_AlertStatuses": true,
+              "Example3_SetOffsetTemperatureValue": true,
+              "Example4_SetConversionMode": true,
+              "Example5_SetAlertModeTemperatureLimits": true,
+              "Example6_SetConversionCycleTime": true,
+              "Example7_AdvancedI2CFunctions": false
+            },
+            "electron": {
+              "Example1_BasicReadings": true,
+              "Example2_AlertStatuses": true,
+              "Example3_SetOffsetTemperatureValue": true,
+              "Example4_SetConversionMode": true,
+              "Example5_SetAlertModeTemperatureLimits": true,
+              "Example6_SetConversionCycleTime": true,
+              "Example7_AdvancedI2CFunctions": true
+            },
+            "argon": {
+              "Example1_BasicReadings": true,
+              "Example2_AlertStatuses": true,
+              "Example3_SetOffsetTemperatureValue": true,
+              "Example4_SetConversionMode": true,
+              "Example5_SetAlertModeTemperatureLimits": true,
+              "Example6_SetConversionCycleTime": true,
+              "Example7_AdvancedI2CFunctions": true
+            },
+            "boron": {
+              "Example1_BasicReadings": true,
+              "Example2_AlertStatuses": true,
+              "Example3_SetOffsetTemperatureValue": true,
+              "Example4_SetConversionMode": true,
+              "Example5_SetAlertModeTemperatureLimits": true,
+              "Example6_SetConversionCycleTime": true,
+              "Example7_AdvancedI2CFunctions": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SdFatAsync": {
+    "versions": {
+      "1.1.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "AnalogBinLogger": false,
+              "DirectoryFunctions": false,
+              "LongFileName": false,
+              "LowLatencyLogger": false,
+              "LowLatencyLoggerADXL345": false,
+              "LowLatencyLoggerMPU6050": false,
+              "OpenNext": false,
+              "PrintBenchmark": false,
+              "QuickStart": false,
+              "RawWrite": false,
+              "ReadCsv": false,
+              "ReadCsvArray": false,
+              "ReadCsvStream": false,
+              "ReadWrite": false,
+              "STM32Test": false,
+              "SdFormatter": false,
+              "SdInfo": false,
+              "SoftwareSpi": false,
+              "StdioBench": false,
+              "TeensySdioDemo": false,
+              "Timestamp": false,
+              "TwoCards": false,
+              "VolumeFreeSpace": false,
+              "bench": false,
+              "dataLogger": false,
+              "fgets": false,
+              "formatting": false,
+              "getline": false,
+              "rename": false,
+              "wipe": false
+            },
+            "electron": {
+              "AnalogBinLogger": false,
+              "DirectoryFunctions": false,
+              "LongFileName": false,
+              "LowLatencyLogger": false,
+              "LowLatencyLoggerADXL345": false,
+              "LowLatencyLoggerMPU6050": false,
+              "OpenNext": false,
+              "PrintBenchmark": false,
+              "QuickStart": false,
+              "RawWrite": false,
+              "ReadCsv": false,
+              "ReadCsvArray": false,
+              "ReadCsvStream": false,
+              "ReadWrite": false,
+              "STM32Test": false,
+              "SdFormatter": false,
+              "SdInfo": false,
+              "SoftwareSpi": false,
+              "StdioBench": false,
+              "TeensySdioDemo": false,
+              "Timestamp": false,
+              "TwoCards": false,
+              "VolumeFreeSpace": false,
+              "bench": false,
+              "dataLogger": false,
+              "fgets": false,
+              "formatting": false,
+              "getline": false,
+              "rename": false,
+              "wipe": false
+            },
+            "argon": {
+              "AnalogBinLogger": false,
+              "DirectoryFunctions": false,
+              "LongFileName": false,
+              "LowLatencyLogger": false,
+              "LowLatencyLoggerADXL345": false,
+              "LowLatencyLoggerMPU6050": false,
+              "OpenNext": false,
+              "PrintBenchmark": false,
+              "QuickStart": false,
+              "RawWrite": false,
+              "ReadCsv": false,
+              "ReadCsvArray": false,
+              "ReadCsvStream": false,
+              "ReadWrite": false,
+              "STM32Test": false,
+              "SdFormatter": false,
+              "SdInfo": false,
+              "SoftwareSpi": false,
+              "StdioBench": false,
+              "TeensySdioDemo": false,
+              "Timestamp": false,
+              "TwoCards": false,
+              "VolumeFreeSpace": false,
+              "bench": false,
+              "dataLogger": false,
+              "fgets": false,
+              "formatting": false,
+              "getline": false,
+              "rename": false,
+              "wipe": false
+            },
+            "boron": {
+              "AnalogBinLogger": false,
+              "DirectoryFunctions": false,
+              "LongFileName": false,
+              "LowLatencyLogger": false,
+              "LowLatencyLoggerADXL345": false,
+              "LowLatencyLoggerMPU6050": false,
+              "OpenNext": false,
+              "PrintBenchmark": false,
+              "QuickStart": false,
+              "RawWrite": false,
+              "ReadCsv": false,
+              "ReadCsvArray": false,
+              "ReadCsvStream": false,
+              "ReadWrite": false,
+              "STM32Test": false,
+              "SdFormatter": false,
+              "SdInfo": false,
+              "SoftwareSpi": false,
+              "StdioBench": false,
+              "TeensySdioDemo": false,
+              "Timestamp": false,
+              "TwoCards": false,
+              "VolumeFreeSpace": false,
+              "bench": false,
+              "dataLogger": false,
+              "fgets": false,
+              "formatting": false,
+              "getline": false,
+              "rename": false,
+              "wipe": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Compass_Relay": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "application": false
+            },
+            "electron": {
+              "application": false
+            },
+            "argon": {
+              "application": false
+            },
+            "boron": {
+              "application": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "uber-library-example": {
+    "versions": {
+      "0.0.7": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "blink-an-led": true,
+              "blink-an-led-slower": true
+            },
+            "electron": {
+              "blink-an-led": true,
+              "blink-an-led-slower": true
+            },
+            "argon": {
+              "blink-an-led": true,
+              "blink-an-led-slower": true
+            },
+            "boron": {
+              "blink-an-led": true,
+              "blink-an-led-slower": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_RFD77402_Distance_Sensor-VCSEL_Time_of_Flight": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1-BasicReadings": true,
+              "Example2-ConfidenceValue": true,
+              "Example3-FastRead": true,
+              "Tester": false
+            },
+            "electron": {
+              "Example1-BasicReadings": true,
+              "Example2-ConfidenceValue": true,
+              "Example3-FastRead": true,
+              "Tester": false
+            },
+            "argon": {
+              "Example1-BasicReadings": true,
+              "Example2-ConfidenceValue": true,
+              "Example3-FastRead": true,
+              "Tester": false
+            },
+            "boron": {
+              "Example1-BasicReadings": true,
+              "Example2-ConfidenceValue": true,
+              "Example3-FastRead": true,
+              "Tester": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_Simple_AHRS": {
+    "versions": {
+      "0.0.3": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "LMIC-Arduino": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "raw": false,
+              "ttn-abp": false,
+              "ttn-otaa": false
+            },
+            "electron": {
+              "raw": false,
+              "ttn-abp": false,
+              "ttn-otaa": false
+            },
+            "argon": {
+              "raw": false,
+              "ttn-abp": false,
+              "ttn-otaa": false
+            },
+            "boron": {
+              "raw": false,
+              "ttn-abp": false,
+              "ttn-otaa": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "MQTT5": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "advanced": true,
+              "basic": true
+            },
+            "electron": {
+              "advanced": true,
+              "basic": true
+            },
+            "argon": {
+              "advanced": true,
+              "basic": true
+            },
+            "boron": {
+              "advanced": true,
+              "basic": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "GA1A12S202": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "example": true
+            },
+            "electron": {
+              "example": true
+            },
+            "argon": {
+              "example": true
+            },
+            "boron": {
+              "example": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "XivelyLib": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "XivelyLibSample": false
+            },
+            "electron": {
+              "XivelyLibSample": false
+            },
+            "argon": {
+              "XivelyLibSample": false
+            },
+            "boron": {
+              "XivelyLibSample": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "MAX30105_Bearcat": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_Basic_Readings": true,
+              "Example2_Presence_Sensing": true,
+              "Example3_Temperature_Sense": true,
+              "Example4_HeartBeat_Plotter": true,
+              "Example5_HeartRate": false,
+              "Example6_FIFO_Readings": true,
+              "Example7_Basic_Readings_Interrupts": true,
+              "Example8_SPO2": false
+            },
+            "electron": {
+              "Example1_Basic_Readings": true,
+              "Example2_Presence_Sensing": true,
+              "Example3_Temperature_Sense": true,
+              "Example4_HeartBeat_Plotter": true,
+              "Example5_HeartRate": false,
+              "Example6_FIFO_Readings": true,
+              "Example7_Basic_Readings_Interrupts": true,
+              "Example8_SPO2": false
+            },
+            "argon": {
+              "Example1_Basic_Readings": true,
+              "Example2_Presence_Sensing": true,
+              "Example3_Temperature_Sense": true,
+              "Example4_HeartBeat_Plotter": true,
+              "Example5_HeartRate": false,
+              "Example6_FIFO_Readings": true,
+              "Example7_Basic_Readings_Interrupts": true,
+              "Example8_SPO2": false
+            },
+            "boron": {
+              "Example1_Basic_Readings": true,
+              "Example2_Presence_Sensing": true,
+              "Example3_Temperature_Sense": true,
+              "Example4_HeartBeat_Plotter": true,
+              "Example5_HeartRate": false,
+              "Example6_FIFO_Readings": true,
+              "Example7_Basic_Readings_Interrupts": true,
+              "Example8_SPO2": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "apis-master_mk2": {
+    "versions": {
+      "1.0.7": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "MQ135M": {
+    "versions": {
+      "1.9.9": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "NCD_Ethernet_Overlay_SPI1": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "EthernetBonjour": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "debugging": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "i2c-scanner": true,
+              "serial-monitor": false,
+              "test-neopixel": false,
+              "test-vbat": false,
+              "wifi": false
+            },
+            "electron": {
+              "i2c-scanner": true,
+              "serial-monitor": false,
+              "test-neopixel": false,
+              "test-vbat": false,
+              "wifi": false
+            },
+            "argon": {
+              "i2c-scanner": true,
+              "serial-monitor": false,
+              "test-neopixel": false,
+              "test-vbat": false,
+              "wifi": false
+            },
+            "boron": {
+              "i2c-scanner": true,
+              "serial-monitor": false,
+              "test-neopixel": false,
+              "test-vbat": false,
+              "wifi": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "NDEF-MFRC522": {
+    "versions": {
+      "2.1.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "CleanTag": false,
+              "EraseTag": false,
+              "FormatTag": false,
+              "ReadTag": false,
+              "ReadTagExtended": false,
+              "WriteTag": false,
+              "WriteTagMultipleRecords": false
+            },
+            "electron": {
+              "CleanTag": false,
+              "EraseTag": false,
+              "FormatTag": false,
+              "ReadTag": false,
+              "ReadTagExtended": false,
+              "WriteTag": false,
+              "WriteTagMultipleRecords": false
+            },
+            "argon": {
+              "CleanTag": false,
+              "EraseTag": false,
+              "FormatTag": false,
+              "ReadTag": false,
+              "ReadTagExtended": false,
+              "WriteTag": false,
+              "WriteTagMultipleRecords": false
+            },
+            "boron": {
+              "CleanTag": false,
+              "EraseTag": false,
+              "FormatTag": false,
+              "ReadTag": false,
+              "ReadTagExtended": false,
+              "WriteTag": false,
+              "WriteTagMultipleRecords": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "LoopWaiter": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "LightProtocol": {
+    "versions": {
+      "1.0.3": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "Keypad-I2C": {
+    "versions": {
+      "0.1.3": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "DAIRremote": {
+    "versions": {
+      "1.9.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "lightshow": {
+    "versions": {
+      "0.0.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "_basic_lightshow": true,
+              "_lightshow-with-blynk": false
+            },
+            "electron": {
+              "_basic_lightshow": true,
+              "_lightshow-with-blynk": false
+            },
+            "argon": {
+              "_basic_lightshow": false,
+              "_lightshow-with-blynk": false
+            },
+            "boron": {
+              "_basic_lightshow": false,
+              "_lightshow-with-blynk": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_Micro_OLED_Arduino_Library": {
+    "versions": {
+      "1.2.7": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "MicroOLED_Clock": true,
+              "MicroOLED_Cube": true,
+              "MicroOLED_Demo": true,
+              "MicroOLED_Demo_I2C": true,
+              "MicroOLED_DrawBitmap": true,
+              "MicroOLED_Hello": true
+            },
+            "electron": {
+              "MicroOLED_Clock": true,
+              "MicroOLED_Cube": true,
+              "MicroOLED_Demo": true,
+              "MicroOLED_Demo_I2C": true,
+              "MicroOLED_DrawBitmap": true,
+              "MicroOLED_Hello": true
+            },
+            "argon": {
+              "MicroOLED_Clock": true,
+              "MicroOLED_Cube": true,
+              "MicroOLED_Demo": true,
+              "MicroOLED_Demo_I2C": true,
+              "MicroOLED_DrawBitmap": true,
+              "MicroOLED_Hello": true
+            },
+            "boron": {
+              "MicroOLED_Clock": true,
+              "MicroOLED_Cube": true,
+              "MicroOLED_Demo": true,
+              "MicroOLED_Demo_I2C": true,
+              "MicroOLED_DrawBitmap": true,
+              "MicroOLED_Hello": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "WatchPower": {
+    "versions": {
+      "0.1.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "glowfish-particle": {
+    "versions": {
+      "0.0.12": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "Modulo": {
+    "versions": {
+      "1.2.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "DisplayEventsTutorial": true,
+              "DisplayTutorial": true,
+              "IRTutorial": true,
+              "KnobEventsTutorial": true,
+              "KnobTutorial": true,
+              "MotorEventsTutorial": true,
+              "MotorTutorial": true,
+              "USBControl": true
+            },
+            "electron": {
+              "DisplayEventsTutorial": true,
+              "DisplayTutorial": true,
+              "IRTutorial": true,
+              "KnobEventsTutorial": true,
+              "KnobTutorial": true,
+              "MotorEventsTutorial": true,
+              "MotorTutorial": true,
+              "USBControl": true
+            },
+            "argon": {
+              "DisplayEventsTutorial": true,
+              "DisplayTutorial": true,
+              "IRTutorial": true,
+              "KnobEventsTutorial": true,
+              "KnobTutorial": true,
+              "MotorEventsTutorial": true,
+              "MotorTutorial": true,
+              "USBControl": true
+            },
+            "boron": {
+              "DisplayEventsTutorial": true,
+              "DisplayTutorial": true,
+              "IRTutorial": true,
+              "KnobEventsTutorial": true,
+              "KnobTutorial": true,
+              "MotorEventsTutorial": true,
+              "MotorTutorial": true,
+              "USBControl": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "OB_LED_Flasher_IV": {
+    "versions": {
+      "6.3.25": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "MLX90621": {
+    "versions": {
+      "0.0.13": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "readTemperatures": true
+            },
+            "electron": {
+              "readTemperatures": true
+            },
+            "argon": {
+              "readTemperatures": true
+            },
+            "boron": {
+              "readTemperatures": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Isolated_ISE_Probe_Interface": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "SAMD21": true
+            },
+            "electron": {
+              "SAMD21": true
+            },
+            "argon": {
+              "SAMD21": true
+            },
+            "boron": {
+              "SAMD21": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "CayenneLPP": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Basic_library_TTN": false,
+              "WeatherStation_LMIC": false
+            },
+            "electron": {
+              "Basic_library_TTN": false,
+              "WeatherStation_LMIC": false
+            },
+            "argon": {
+              "Basic_library_TTN": false,
+              "WeatherStation_LMIC": false
+            },
+            "boron": {
+              "Basic_library_TTN": false,
+              "WeatherStation_LMIC": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Lixie-Particle": {
+    "versions": {
+      "1.4.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "FPS_test": false,
+              "counter": false,
+              "counter_multi": false,
+              "read_analog_voltage": false,
+              "scoreboard": false
+            },
+            "electron": {
+              "FPS_test": false,
+              "counter": false,
+              "counter_multi": false,
+              "read_analog_voltage": false,
+              "scoreboard": false
+            },
+            "argon": {
+              "FPS_test": false,
+              "counter": false,
+              "counter_multi": false,
+              "read_analog_voltage": false,
+              "scoreboard": false
+            },
+            "boron": {
+              "FPS_test": false,
+              "counter": false,
+              "counter_multi": false,
+              "read_analog_voltage": false,
+              "scoreboard": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Isolated_EC_Probe_Interface": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "BLE": false,
+              "Calibration": true,
+              "Minimal": true,
+              "OutsideTempSource": true,
+              "SAMD21": true,
+              "Shell": true,
+              "Temperature": true,
+              "TemperatureCompensation": true
+            },
+            "electron": {
+              "BLE": false,
+              "Calibration": true,
+              "Minimal": true,
+              "OutsideTempSource": true,
+              "SAMD21": true,
+              "Shell": true,
+              "Temperature": true,
+              "TemperatureCompensation": true
+            },
+            "argon": {
+              "BLE": false,
+              "Calibration": true,
+              "Minimal": true,
+              "OutsideTempSource": true,
+              "SAMD21": true,
+              "Shell": true,
+              "Temperature": true,
+              "TemperatureCompensation": true
+            },
+            "boron": {
+              "BLE": false,
+              "Calibration": true,
+              "Minimal": true,
+              "OutsideTempSource": true,
+              "SAMD21": true,
+              "Shell": true,
+              "Temperature": true,
+              "TemperatureCompensation": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Sparkfun_MLX90614": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "MLX90614_Get_ID": true,
+              "MLX90614_Serial_Demo": true,
+              "MLX90614_Set_Address": true,
+              "MLX90614_Set_Emissivity": true,
+              "usage": true
+            },
+            "electron": {
+              "MLX90614_Get_ID": true,
+              "MLX90614_Serial_Demo": true,
+              "MLX90614_Set_Address": true,
+              "MLX90614_Set_Emissivity": true,
+              "usage": true
+            },
+            "argon": {
+              "MLX90614_Get_ID": true,
+              "MLX90614_Serial_Demo": true,
+              "MLX90614_Set_Address": true,
+              "MLX90614_Set_Emissivity": true,
+              "usage": true
+            },
+            "boron": {
+              "MLX90614_Get_ID": true,
+              "MLX90614_Serial_Demo": true,
+              "MLX90614_Set_Address": true,
+              "MLX90614_Set_Emissivity": true,
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "homekit-server": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "neopixel-pi": {
+    "versions": {
+      "0.0.15": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "a-rainbow": false,
+              "extra-examples": false,
+              "rgbw-strandtest": false
+            },
+            "electron": {
+              "a-rainbow": false,
+              "extra-examples": false,
+              "rgbw-strandtest": false
+            },
+            "argon": {
+              "a-rainbow": false,
+              "extra-examples": false,
+              "rgbw-strandtest": false
+            },
+            "boron": {
+              "a-rainbow": false,
+              "extra-examples": false,
+              "rgbw-strandtest": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "APDS_Trigger": {
+    "versions": {
+      "1.0.9": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "PopTestResult": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "tank_level_lib": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "EEPROMStorage": {
+    "versions": {
+      "0.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_Qwiic_OpenLog_Arduino_Library": {
+    "versions": {
+      "3.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example10_CheckStatus": true,
+              "Example11_ChangeAddress": true,
+              "Example1_WritingLog": true,
+              "Example2_AppendFile": true,
+              "Example3_CreateFile": true,
+              "Example4_ReadFileSize": true,
+              "Example5_ReadFile": true,
+              "Example6_MakeDirectory": true,
+              "Example7_ReadDirectoryContents": true,
+              "Example8_RemoveDirectory": true,
+              "Example9_ReadVersion": true
+            },
+            "electron": {
+              "Example10_CheckStatus": true,
+              "Example11_ChangeAddress": true,
+              "Example1_WritingLog": true,
+              "Example2_AppendFile": true,
+              "Example3_CreateFile": true,
+              "Example4_ReadFileSize": true,
+              "Example5_ReadFile": true,
+              "Example6_MakeDirectory": true,
+              "Example7_ReadDirectoryContents": true,
+              "Example8_RemoveDirectory": true,
+              "Example9_ReadVersion": true
+            },
+            "argon": {
+              "Example10_CheckStatus": true,
+              "Example11_ChangeAddress": true,
+              "Example1_WritingLog": true,
+              "Example2_AppendFile": true,
+              "Example3_CreateFile": true,
+              "Example4_ReadFileSize": true,
+              "Example5_ReadFile": true,
+              "Example6_MakeDirectory": true,
+              "Example7_ReadDirectoryContents": true,
+              "Example8_RemoveDirectory": true,
+              "Example9_ReadVersion": true
+            },
+            "boron": {
+              "Example10_CheckStatus": true,
+              "Example11_ChangeAddress": true,
+              "Example1_WritingLog": true,
+              "Example2_AppendFile": true,
+              "Example3_CreateFile": true,
+              "Example4_ReadFileSize": true,
+              "Example5_ReadFile": true,
+              "Example6_MakeDirectory": true,
+              "Example7_ReadDirectoryContents": true,
+              "Example8_RemoveDirectory": true,
+              "Example9_ReadVersion": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "particle-mf2017-can": {
+    "versions": {
+      "1.3.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "listener": true,
+              "panel2": true
+            },
+            "electron": {
+              "listener": true,
+              "panel2": true
+            },
+            "argon": {
+              "listener": false,
+              "panel2": false
+            },
+            "boron": {
+              "listener": false,
+              "panel2": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "phant": {
+    "versions": {
+      "0.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "phant": true
+            },
+            "electron": {
+              "phant": true
+            },
+            "argon": {
+              "phant": true
+            },
+            "boron": {
+              "phant": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_GridEYE_Arduino_Library": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1-SerialVisualizer": true,
+              "Example2-UsingInterrupts": true,
+              "Example3-DeviceTemperature": true,
+              "Example4-ProcessingHeatCam": true,
+              "Example5-HotPixel": true
+            },
+            "electron": {
+              "Example1-SerialVisualizer": true,
+              "Example2-UsingInterrupts": true,
+              "Example3-DeviceTemperature": true,
+              "Example4-ProcessingHeatCam": true,
+              "Example5-HotPixel": true
+            },
+            "argon": {
+              "Example1-SerialVisualizer": true,
+              "Example2-UsingInterrupts": true,
+              "Example3-DeviceTemperature": true,
+              "Example4-ProcessingHeatCam": true,
+              "Example5-HotPixel": true
+            },
+            "boron": {
+              "Example1-SerialVisualizer": true,
+              "Example2-UsingInterrupts": true,
+              "Example3-DeviceTemperature": true,
+              "Example4-ProcessingHeatCam": true,
+              "Example5-HotPixel": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "wolfssl_particle": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Grove_I2C_Color_Sensor": {
+    "versions": {
+      "1.0.7": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "GroveColorSensorDemo": true,
+              "MUXandTwoSensorsDemo": true
+            },
+            "electron": {
+              "GroveColorSensorDemo": true,
+              "MUXandTwoSensorsDemo": true
+            },
+            "argon": {
+              "GroveColorSensorDemo": true,
+              "MUXandTwoSensorsDemo": true
+            },
+            "boron": {
+              "GroveColorSensorDemo": true,
+              "MUXandTwoSensorsDemo": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "PatriotUltrasonic": {
+    "versions": {
+      "2.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "ultrasonic": false
+            },
+            "electron": {
+              "ultrasonic": false
+            },
+            "argon": {
+              "ultrasonic": false
+            },
+            "boron": {
+              "ultrasonic": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "TideStats": {
+    "versions": {
+      "0.0.4": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "CarrierLookupRK": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": true
+            },
+            "electron": {
+              "1-simple": true
+            },
+            "argon": {
+              "1-simple": true
+            },
+            "boron": {
+              "1-simple": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ADC_a_Serial": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFunOpenLog": {
+    "versions": {
+      "1.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example10_CheckStatus": false,
+              "Example11_ChangeAddress": false,
+              "Example12_WriteBenchmarking": false,
+              "Example1_WritingLog": false,
+              "Example2_AppendFile": false,
+              "Example3_CreateFile": false,
+              "Example4_ReadFileSize": false,
+              "Example5_ReadFile": false,
+              "Example6_MakeDirectory": false,
+              "Example7_ReadDirectoryContents": false,
+              "Example8_RemoveDirectory": false,
+              "Example9_ReadVersion": false,
+              "usage": false
+            },
+            "electron": {
+              "Example10_CheckStatus": false,
+              "Example11_ChangeAddress": false,
+              "Example12_WriteBenchmarking": false,
+              "Example1_WritingLog": false,
+              "Example2_AppendFile": false,
+              "Example3_CreateFile": false,
+              "Example4_ReadFileSize": false,
+              "Example5_ReadFile": false,
+              "Example6_MakeDirectory": false,
+              "Example7_ReadDirectoryContents": false,
+              "Example8_RemoveDirectory": false,
+              "Example9_ReadVersion": false,
+              "usage": false
+            },
+            "argon": {
+              "Example10_CheckStatus": false,
+              "Example11_ChangeAddress": false,
+              "Example12_WriteBenchmarking": false,
+              "Example1_WritingLog": false,
+              "Example2_AppendFile": false,
+              "Example3_CreateFile": false,
+              "Example4_ReadFileSize": false,
+              "Example5_ReadFile": false,
+              "Example6_MakeDirectory": false,
+              "Example7_ReadDirectoryContents": false,
+              "Example8_RemoveDirectory": false,
+              "Example9_ReadVersion": false,
+              "usage": false
+            },
+            "boron": {
+              "Example10_CheckStatus": false,
+              "Example11_ChangeAddress": false,
+              "Example12_WriteBenchmarking": false,
+              "Example1_WritingLog": false,
+              "Example2_AppendFile": false,
+              "Example3_CreateFile": false,
+              "Example4_ReadFileSize": false,
+              "Example5_ReadFile": false,
+              "Example6_MakeDirectory": false,
+              "Example7_ReadDirectoryContents": false,
+              "Example8_RemoveDirectory": false,
+              "Example9_ReadVersion": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "camera_VC0706": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "MotionDetect": false,
+              "Snapshot": false,
+              "take_picture": false
+            },
+            "electron": {
+              "MotionDetect": false,
+              "Snapshot": false,
+              "take_picture": false
+            },
+            "argon": {
+              "MotionDetect": false,
+              "Snapshot": false,
+              "take_picture": false
+            },
+            "boron": {
+              "MotionDetect": false,
+              "Snapshot": false,
+              "take_picture": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "ProbeCube_ThingSpeak": {
+    "versions": {
+      "1.1.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "WriteMultipleVoltages": true
+            },
+            "electron": {
+              "WriteMultipleVoltages": true
+            },
+            "argon": {
+              "WriteMultipleVoltages": false
+            },
+            "boron": {
+              "WriteMultipleVoltages": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_AK975X": {
+    "versions": {
+      "1.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1-BasicReadings": true,
+              "Example2-Graph": true,
+              "Example3-ConfigurationSettings": false,
+              "Example4-ThresholdTests": true
+            },
+            "electron": {
+              "Example1-BasicReadings": true,
+              "Example2-Graph": true,
+              "Example3-ConfigurationSettings": false,
+              "Example4-ThresholdTests": true
+            },
+            "argon": {
+              "Example1-BasicReadings": true,
+              "Example2-Graph": true,
+              "Example3-ConfigurationSettings": false,
+              "Example4-ThresholdTests": true
+            },
+            "boron": {
+              "Example1-BasicReadings": true,
+              "Example2-Graph": true,
+              "Example3-ConfigurationSettings": false,
+              "Example4-ThresholdTests": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "mdns_53d7": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "mdns": false
+            },
+            "electron": {
+              "mdns": false
+            },
+            "argon": {
+              "mdns": false
+            },
+            "boron": {
+              "mdns": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "RGBmatrixPanel2": {
+    "versions": {
+      "1.1.6": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "rosserial": {
+    "versions": {
+      "1.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "LightTouch": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "LightTouchDemo": true
+            },
+            "electron": {
+              "LightTouchDemo": true
+            },
+            "argon": {
+              "LightTouchDemo": true
+            },
+            "boron": {
+              "LightTouchDemo": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "New-Haven-Display": {
+    "versions": {
+      "1.1.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "AppleMidi": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "ThinkParticle": {
+    "versions": {
+      "0.2.6": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "application": true
+            },
+            "electron": {
+              "application": false
+            },
+            "argon": {
+              "application": true
+            },
+            "boron": {
+              "application": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_Alphanumeric_Display_Arduino_Library": {
+    "versions": {
+      "1.1.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example10_DefineChar": true,
+              "Example1_Begin": true,
+              "Example2_TurnOnOneSegment": true,
+              "Example3_PrintChar": true,
+              "Example4_PrintString": true,
+              "Example5_DisplayOptions": true,
+              "Example6_colonAndDecimal": true,
+              "Example7_unkownChar": true,
+              "Example8_MultiDisplay": true,
+              "Example9_ScrollingString": true
+            },
+            "electron": {
+              "Example10_DefineChar": true,
+              "Example1_Begin": true,
+              "Example2_TurnOnOneSegment": true,
+              "Example3_PrintChar": true,
+              "Example4_PrintString": true,
+              "Example5_DisplayOptions": true,
+              "Example6_colonAndDecimal": true,
+              "Example7_unkownChar": true,
+              "Example8_MultiDisplay": true,
+              "Example9_ScrollingString": true
+            },
+            "argon": {
+              "Example10_DefineChar": true,
+              "Example1_Begin": true,
+              "Example2_TurnOnOneSegment": true,
+              "Example3_PrintChar": true,
+              "Example4_PrintString": true,
+              "Example5_DisplayOptions": true,
+              "Example6_colonAndDecimal": true,
+              "Example7_unkownChar": true,
+              "Example8_MultiDisplay": true,
+              "Example9_ScrollingString": true
+            },
+            "boron": {
+              "Example10_DefineChar": true,
+              "Example1_Begin": true,
+              "Example2_TurnOnOneSegment": true,
+              "Example3_PrintChar": true,
+              "Example4_PrintString": true,
+              "Example5_DisplayOptions": true,
+              "Example6_colonAndDecimal": true,
+              "Example7_unkownChar": true,
+              "Example8_MultiDisplay": true,
+              "Example9_ScrollingString": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "RTWparticle": {
+    "versions": {
+      "1.1.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "test": false
+            },
+            "electron": {
+              "test": false
+            },
+            "argon": {
+              "test": false
+            },
+            "boron": {
+              "test": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "AzureMobileService": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1_Create": true,
+              "2_Read": true,
+              "3_Update": true,
+              "4_Delete": true
+            },
+            "electron": {
+              "1_Create": true,
+              "2_Read": true,
+              "3_Update": true,
+              "4_Delete": true
+            },
+            "argon": {
+              "1_Create": true,
+              "2_Read": true,
+              "3_Update": true,
+              "4_Delete": true
+            },
+            "boron": {
+              "1_Create": true,
+              "2_Read": true,
+              "3_Update": true,
+              "4_Delete": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "firebase-arduino": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "electron": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "argon": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            },
+            "boron": {
+              "FirebaseCloudMessaging_Send_ESP8266": false,
+              "FirebaseDemo_ESP8266": false,
+              "FirebaseNeoPixel_ESP8266": false,
+              "FirebaseRoom_ESP8266": false,
+              "FirebaseStream_ESP8266": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "HPMA115S0-Library": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "example": false
+            },
+            "electron": {
+              "example": false
+            },
+            "argon": {
+              "example": false
+            },
+            "boron": {
+              "example": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "PietteTech_Phant": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "phanttest": true
+            },
+            "electron": {
+              "phanttest": false
+            },
+            "argon": {
+              "phanttest": true
+            },
+            "boron": {
+              "phanttest": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "uFire_PAR_Sensor": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Minimal": true
+            },
+            "electron": {
+              "Minimal": true
+            },
+            "argon": {
+              "Minimal": true
+            },
+            "boron": {
+              "Minimal": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Digital_Infrared_Temperature_Sensor_MLX90615": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "electron": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "argon": {
+              "multiDevice": false,
+              "singleDevice": false
+            },
+            "boron": {
+              "multiDevice": false,
+              "singleDevice": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_LPS25HB_Arduino_Library": {
+    "versions": {
+      "1.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_Basic_Readings": true,
+              "Example2_I2C_Configuration": true,
+              "Example3_Check_Connection": true,
+              "Example4_Change_Settings": true,
+              "Example5_FIFO_Average": true
+            },
+            "electron": {
+              "Example1_Basic_Readings": true,
+              "Example2_I2C_Configuration": true,
+              "Example3_Check_Connection": true,
+              "Example4_Change_Settings": true,
+              "Example5_FIFO_Average": true
+            },
+            "argon": {
+              "Example1_Basic_Readings": true,
+              "Example2_I2C_Configuration": true,
+              "Example3_Check_Connection": true,
+              "Example4_Change_Settings": true,
+              "Example5_FIFO_Average": true
+            },
+            "boron": {
+              "Example1_Basic_Readings": true,
+              "Example2_I2C_Configuration": true,
+              "Example3_Check_Connection": true,
+              "Example4_Change_Settings": true,
+              "Example5_FIFO_Average": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "UIPEthernet": {
+    "versions": {
+      "2.0.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "electron": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "argon": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            },
+            "boron": {
+              "AdvancedChatServer": false,
+              "EchoServer": false,
+              "TcpClient": false,
+              "TcpServer": false,
+              "UdpClient": false,
+              "UdpServer": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "FatFs": {
+    "versions": {
+      "0.2.13": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "01_FatFs_Examples": true
+            },
+            "electron": {
+              "01_FatFs_Examples": false
+            },
+            "argon": {
+              "01_FatFs_Examples": false
+            },
+            "boron": {
+              "01_FatFs_Examples": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "PatriotNCD8Relay": {
+    "versions": {
+      "5.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "relay": false
+            },
+            "electron": {
+              "relay": false
+            },
+            "argon": {
+              "relay": false
+            },
+            "boron": {
+              "relay": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "MechaQMC5883": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "azimuth": true,
+              "raw": true
+            },
+            "electron": {
+              "azimuth": true,
+              "raw": true
+            },
+            "argon": {
+              "azimuth": true,
+              "raw": true
+            },
+            "boron": {
+              "azimuth": true,
+              "raw": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "sm130": {
+    "versions": {
+      "2.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Multi-gas-sensor": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "jsmn": {
+    "versions": {
+      "1.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "particleflux-Si7021": {
+    "versions": {
+      "1.2.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "simple": true,
+              "tiny": true,
+              "usage": true
+            },
+            "electron": {
+              "simple": true,
+              "tiny": true,
+              "usage": true
+            },
+            "argon": {
+              "simple": true,
+              "tiny": true,
+              "usage": true
+            },
+            "boron": {
+              "simple": true,
+              "tiny": true,
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ard-boost": {
+    "versions": {
+      "0.0.3": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "TM6666": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SerialCommand1": {
+    "versions": {
+      "1.1.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "BlingButton": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "TestExample": false
+            },
+            "electron": {
+              "TestExample": false
+            },
+            "argon": {
+              "TestExample": false
+            },
+            "boron": {
+              "TestExample": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "PopComms": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "Protocentral_ADS1220": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Protocentral_ADS1220": true
+            },
+            "electron": {
+              "Protocentral_ADS1220": true
+            },
+            "argon": {
+              "Protocentral_ADS1220": true
+            },
+            "boron": {
+              "Protocentral_ADS1220": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "FIDOTMRpcm": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "electron": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "argon": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            },
+            "boron": {
+              "basic": false,
+              "music": false,
+              "progmem": false,
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "LIDAR": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "AnalogSmoother": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "graph": true
+            },
+            "electron": {
+              "graph": true
+            },
+            "argon": {
+              "graph": true
+            },
+            "boron": {
+              "graph": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_FRAM_SPI": {
+    "versions": {
+      "1.1.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Arduino_LSM9DS1": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "SimpleAccelerometer": true,
+              "SimpleGyroscope": true,
+              "SimpleMagnetometer": true
+            },
+            "electron": {
+              "SimpleAccelerometer": true,
+              "SimpleGyroscope": true,
+              "SimpleMagnetometer": true
+            },
+            "argon": {
+              "SimpleAccelerometer": true,
+              "SimpleGyroscope": true,
+              "SimpleMagnetometer": true
+            },
+            "boron": {
+              "SimpleAccelerometer": true,
+              "SimpleGyroscope": true,
+              "SimpleMagnetometer": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "MiniShift-Particle": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "serialwrite": true
+            },
+            "electron": {
+              "serialwrite": true
+            },
+            "argon": {
+              "serialwrite": true
+            },
+            "boron": {
+              "serialwrite": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_Si7021_kag": {
+    "versions": {
+      "1.2.3": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "SmartThingsLib": {
+    "versions": {
+      "1.0.12": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "smartbit": true,
+              "usage": true
+            },
+            "electron": {
+              "smartbit": false,
+              "usage": false
+            },
+            "argon": {
+              "smartbit": true,
+              "usage": true
+            },
+            "boron": {
+              "smartbit": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_ICM-20948_ArduinoLibrary": {
+    "versions": {
+      "1.1.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_Basics": true,
+              "Example2_Advanced": true,
+              "Example3_Interrupts": true
+            },
+            "electron": {
+              "Example1_Basics": true,
+              "Example2_Advanced": true,
+              "Example3_Interrupts": true
+            },
+            "argon": {
+              "Example1_Basics": true,
+              "Example2_Advanced": true,
+              "Example3_Interrupts": true
+            },
+            "boron": {
+              "Example1_Basics": true,
+              "Example2_Advanced": true,
+              "Example3_Interrupts": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "microgear": {
+    "versions": {
+      "1.2.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Basic": true
+            },
+            "electron": {
+              "Basic": false
+            },
+            "argon": {
+              "Basic": true
+            },
+            "boron": {
+              "Basic": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "LPS331": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "elapsedMillis1": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "spark_deck_lights": false
+            },
+            "electron": {
+              "spark_deck_lights": false
+            },
+            "argon": {
+              "spark_deck_lights": false
+            },
+            "boron": {
+              "spark_deck_lights": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "can-mcp25x": {
+    "versions": {
+      "1.0.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "CellularHelper_ls": {
+    "versions": {
+      "0.0.5": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": false,
+              "2-show-carriers": false
+            },
+            "electron": {
+              "1-simple": true,
+              "2-show-carriers": true
+            },
+            "argon": {
+              "1-simple": false,
+              "2-show-carriers": false
+            },
+            "boron": {
+              "1-simple": true,
+              "2-show-carriers": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "CommTCP": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "AM2302n": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "HTTPSRedirect": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_9DoF_IMU_Breakout_ICM_20948": {
+    "versions": {
+      "1.0.5": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "G35": {
+    "versions": {
+      "1.0.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "TTLCameraLibrary": {
+    "versions": {
+      "1.0.0": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "Wasm3": {
+    "versions": {
+      "0.4.9": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "electron": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "argon": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "boron": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "PMD5": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "soundtouch": {
+    "versions": {
+      "0.1.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "LedDisplay": {
+    "versions": {
+      "0.4.11": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "electron": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "argon": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            },
+            "boron": {
+              "fade": true,
+              "print": true,
+              "printAnalog": true,
+              "scroll": true,
+              "scroll_multiple": true,
+              "scroll_serial": true,
+              "usage": false,
+              "writeCharacters": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "easing": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "basic": false
+            },
+            "electron": {
+              "basic": false
+            },
+            "argon": {
+              "basic": false
+            },
+            "boron": {
+              "basic": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "CarbonLibrary": {
+    "versions": {
+      "0.0.6": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "CarbonLibrary": false
+            },
+            "electron": {
+              "CarbonLibrary": false
+            },
+            "argon": {
+              "CarbonLibrary": false
+            },
+            "boron": {
+              "CarbonLibrary": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "LM75A": {
+    "versions": {
+      "1.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": false
+            },
+            "electron": {
+              "usage": false
+            },
+            "argon": {
+              "usage": false
+            },
+            "boron": {
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "i2c_anything_ng": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "APDS-9301": {
+    "versions": {
+      "1.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Simple_Example": false,
+              "usage": false
+            },
+            "electron": {
+              "Simple_Example": false,
+              "usage": false
+            },
+            "argon": {
+              "Simple_Example": false,
+              "usage": false
+            },
+            "boron": {
+              "Simple_Example": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "test-library-publish": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "blink-an-led": true,
+              "blink-an-led-slower": false,
+              "blink-an-led-very-slow": false
+            },
+            "electron": {
+              "blink-an-led": true,
+              "blink-an-led-slower": false,
+              "blink-an-led-very-slow": false
+            },
+            "argon": {
+              "blink-an-led": true,
+              "blink-an-led-slower": false,
+              "blink-an-led-very-slow": false
+            },
+            "boron": {
+              "blink-an-led": true,
+              "blink-an-led-slower": false,
+              "blink-an-led-very-slow": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "do_DogLcd": {
+    "versions": {
+      "0.1.7": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "Monitor": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1_SimpleMonitor": false
+            },
+            "electron": {
+              "1_SimpleMonitor": false
+            },
+            "argon": {
+              "1_SimpleMonitor": false
+            },
+            "boron": {
+              "1_SimpleMonitor": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "particle-loop": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "RunLoops": true
+            },
+            "electron": {
+              "RunLoops": true
+            },
+            "argon": {
+              "RunLoops": true
+            },
+            "boron": {
+              "RunLoops": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "homekit-relay-switch": {
+    "versions": {
+      "0.0.1": {
+        "builds": {},
+        "noExamples": true
+      }
+    }
+  },
+  "LSM9DS1_FIFO": {
+    "versions": {
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "lsm9ds1": false
+            },
+            "electron": {
+              "lsm9ds1": false
+            },
+            "argon": {
+              "lsm9ds1": false
+            },
+            "boron": {
+              "lsm9ds1": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "5x5Cube": {
+    "versions": {
+      "0.0.11": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "blink": false
+            },
+            "electron": {
+              "blink": false
+            },
+            "argon": {
+              "blink": false
+            },
+            "boron": {
+              "blink": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "led-candle": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_PHT_MS8607_Arduino_Library": {
+    "versions": {
+      "1.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_PressureReading": true,
+              "Example2_VariousUnits": true,
+              "Example3_WeatherPressure": true,
+              "Example4_LocalAltitudeChange": true,
+              "Example5_AdvancedSettings": true,
+              "Example6_UnitTester": true,
+              "Example7_Humidity": true,
+              "Example9_Original_TE_Example": true
+            },
+            "electron": {
+              "Example1_PressureReading": true,
+              "Example2_VariousUnits": true,
+              "Example3_WeatherPressure": true,
+              "Example4_LocalAltitudeChange": true,
+              "Example5_AdvancedSettings": true,
+              "Example6_UnitTester": true,
+              "Example7_Humidity": true,
+              "Example9_Original_TE_Example": true
+            },
+            "argon": {
+              "Example1_PressureReading": true,
+              "Example2_VariousUnits": true,
+              "Example3_WeatherPressure": true,
+              "Example4_LocalAltitudeChange": true,
+              "Example5_AdvancedSettings": true,
+              "Example6_UnitTester": true,
+              "Example7_Humidity": true,
+              "Example9_Original_TE_Example": true
+            },
+            "boron": {
+              "Example1_PressureReading": true,
+              "Example2_VariousUnits": true,
+              "Example3_WeatherPressure": true,
+              "Example4_LocalAltitudeChange": true,
+              "Example5_AdvancedSettings": true,
+              "Example6_UnitTester": true,
+              "Example7_Humidity": true,
+              "Example9_Original_TE_Example": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "command-parser": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "example": false
+            },
+            "electron": {
+              "example": false
+            },
+            "argon": {
+              "example": false
+            },
+            "boron": {
+              "example": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SequentialFileRK": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": false,
+              "2-test-suite": false
+            },
+            "electron": {
+              "1-simple": false,
+              "2-test-suite": false
+            },
+            "argon": {
+              "1-simple": true,
+              "2-test-suite": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-test-suite": true
+            }
+          }
+        }
+      }
+    }
   }
 }

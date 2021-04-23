@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "New-Haven-Display",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/New-Haven-Display/archive/1.1.4.tar.gz"
+  },
+  "attributes": {
+    "name": "New-Haven-Display",
+    "version": "1.1.4",
+    "installs": 143,
+    "license": "Public Domain",
+    "author": "Chip McClelland",
+    "sentence": "Simple Library for the New Haven NHD0420CW-Ax3 Display",
+    "paragraph": "Please note that this Library has been superceeded by a new version NewHaven-Display-I2C  - Please use this one.",
+    "url": "https://github.com/chipmc/New-Haven-Display/",
+    "repository": "https://github.com/chipmc/New-Haven-Display/",
+    "architectures": [
+      "All"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/New-Haven-Display",
+  "versions": {
+    "1.1.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# New-Haven-Display\n\nThis is a simple library to implement a display driver for the New Haven OLED displays.  \n\nPlease note that this Library has been superceeded by a new version NewHaven-Display-I2C  - Please use this one.\n"
+}

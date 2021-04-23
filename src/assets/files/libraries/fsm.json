@@ -1,0 +1,55 @@
+{
+  "type": "libraries",
+  "id": "fsm",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/fsm/archive/2.2.1.tar.gz"
+  },
+  "attributes": {
+    "name": "fsm",
+    "version": "2.2.1",
+    "installs": 270,
+    "author": "Jon Black <jon@humblecoder.com>",
+    "maintainer": "Mike Machado <mike@machadolab.com>",
+    "sentence": "A library for implementing a finite state machine",
+    "paragraph": "Supports events for exiting and entering states.",
+    "category": "Other",
+    "url": "https://github.com/jonblack/arduino-fsm",
+    "architectures": [
+      "avr"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "f",
+  "cardUrl": "/cards/libraries/f/fsm",
+  "versions": {
+    "2.2.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "light_switch": true,
+            "multitasking": true,
+            "timed_switchoff": true
+          },
+          "electron": {
+            "light_switch": true,
+            "multitasking": true,
+            "timed_switchoff": true
+          },
+          "argon": {
+            "light_switch": true,
+            "multitasking": true,
+            "timed_switchoff": true
+          },
+          "boron": {
+            "light_switch": true,
+            "multitasking": true,
+            "timed_switchoff": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "An arduino library for implementing a finite state machine.\n\n# Documentation\n\nOther than the examples included in the library, the following pages might be\nuseful to you:\n\n* [Humble Coder: Arduino finite state machine library][1]\n* [Humble Coder: Arduino multitasking using a finite state machine][2]\n\n[1]: http://www.humblecoder.com/arduino-finite-state-machine-library/\n[2]: http://www.humblecoder.com/arduino-multitasking-using-finite-state-machines/\n\n# Contribution\n\nIf you'd like to contribute to `arduino-fsm` please submit a pull-request on a\nfeature branch.\n\n# Donate\n\n* Bitcoin: 1HnqohdK1d6gwDc7bT6LPPkmUFAXczEJKp\n\n# Changelog\n\n**2.2.0 - 25/10/2017**\n\n* Add `on_state()` handler to states\n* New `run_machine()` method to invoke machine execution (includes a `check_timed_transitions()` call)\n* New `timed_switchoff.ino` example sketch to ilustrate new `on_state()` and `run_machine()` funcionality\n* Corrections:\n - `make_transition()` correctly initialices timed transitions start milliseconds (`make_transition()` is now a fsm method)\n - Initial state `on_enter()` handler is now correctly executed on fsm first run\n - Removed `Serial.println(now);` trace in _Fsm.cpp_\n - Correct initialization of `m_num_timed_transitions`\n \n\n**2.1.0 - 21/11/2015**\n\n* Add timed transitions\n\n**2.0.0 - 03/09/2015**\n\n* Remove AUTHORS files: too much hassle to maintain\n* Add library.properties\n* Add keywords.txt\n* Remove name attribute from state\n* Use int for transition event instead of string\n\n**1.0.0 - 24/12/2013**\n\n* Initial release.\n"
+}

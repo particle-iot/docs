@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "MQTT5",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MQTT5/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "MQTT5",
+    "version": "1.0.1",
+    "installs": 194,
+    "license": "MIT",
+    "author": "Thomas Peroutka <thomas.peroutka@gmail.com>",
+    "url": "https://github.com/perotom/MQTT5",
+    "repository": "https://github.com/perotom/MQTT5.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MQTT5",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "advanced": true,
+            "basic": true
+          },
+          "electron": {
+            "advanced": true,
+            "basic": true
+          },
+          "argon": {
+            "advanced": true,
+            "basic": true
+          },
+          "boron": {
+            "advanced": true,
+            "basic": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# MQTT5 for Particle Device OS\n\nA particle library for MQTT5. MQTT5 supports publish/subscribe and request/response pattern. The packet exchange happens asynchronous.\n\n# Features\nThe following features are coverd by this library:\n\n* Publish/Subscribe messages\n* Quality of Service\n* Retained Messages\n* Keep Alive\n* Username/Password authentication\n* Last Will and Testament\n* Session and Message Expiry Intervals\n* Topic alias\n* Better error handling (negative ACKs)\n* Additional properties for Connect and Publish (Maximum Packet Size & Server Keep Alive, ...)\n\nNot yet implemented:\n\n* Challenge-Response authentication\n* Request/Response messages\n* User Properties\n\n# Requirements\n\nThis library builds heavily on `TCPClient` library from Particle Device OS. If you use Particle Device OS you are good to go.\n\n# Example\n\nSee the examples folder.\n\n# FAQ\n\n## Change packet size or get \"Packet exceeds max packet size\"?\nChange the maximum packet size in the construct.\n```C++\nMQTT5 client; // Default max packet size\nMQTT5 client(512); // 512 bytes max packet size\n```\n\n## Message gets truncated\nIf you send binary data make sure you use the method where you can specify the length.\n\n## I get disconnected when publishing\nMake sure your topic string contains only valid characters. Some servers disconnect immediately if they receive malformed packets.\n\n## I get disconnected after some time\nMake sure you periodically call `loop()`.\n\n## Something weird is happening\nMake sure you are using the latest Device OS version. Make sure your flased Device OS version matches your building version.\n\n# Debugging\nTo enable logging you have to declare a `SerialLogHandler` and start the serial port:\n\n```C++\nSerialLogHandler logHandler(LOG_LEVEL_NONE, {\n    { \"app.MQTT\", LOG_LEVEL_ALL }\n});\n\nvoid setup() {\n  Serial.begin();\n  ...\n}\n```\nTo further increase the amount of logs you can add in `MQTT5.h`:\n\n```C++\n#define MQTT5_DEBUG\n```\n\n# Contribute\nFeel free to open issues and pull requests.\n\n# LICENSE\nCopyright 2020 Thomas Peroutka <thomas.peroutka@gmail.com>\n\nLicensed under the MIT license\n"
+}

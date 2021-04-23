@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishQueueAsyncRK",
     "version": "0.2.0",
-    "installs": 34696,
+    "installs": 34771,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Asynchronous publishing code for the Particle Electron",

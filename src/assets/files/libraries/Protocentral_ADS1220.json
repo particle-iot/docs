@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "Protocentral_ADS1220",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Protocentral_ADS1220/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Protocentral_ADS1220",
+    "version": "0.0.2",
+    "installs": 118,
+    "license": "OIZOM",
+    "author": "Sohil Patel",
+    "sentence": "ADS1220 library",
+    "url": "https://github.com/sohil4932/ads1220",
+    "repository": "https://github.com/sohil4932/ads1220.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/Protocentral_ADS1220",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Protocentral_ADS1220": true
+          },
+          "electron": {
+            "Protocentral_ADS1220": true
+          },
+          "argon": {
+            "Protocentral_ADS1220": true
+          },
+          "boron": {
+            "Protocentral_ADS1220": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "ADS1220 Library for Particle."
+}

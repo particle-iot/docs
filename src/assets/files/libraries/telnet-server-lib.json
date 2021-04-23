@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "telnet-server-lib",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/telnet-server-lib/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "telnet-server-lib",
+    "version": "0.1.0",
+    "installs": 353,
+    "license": "GNU LESSER V3",
+    "author": "Spivack <spivack@outlook.com>",
+    "sentence": "A telnet server library and a Command entry library in one.",
+    "url": "https://github.com/fearless40/spark-telnet-server-lib",
+    "repository": "https://github.com/fearless40/spark-telnet-server-lib.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/telnet-server-lib",
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "telnet-server-commandline": false
+          },
+          "electron": {
+            "telnet-server-commandline": false
+          },
+          "argon": {
+            "telnet-server-commandline": false
+          },
+          "boron": {
+            "telnet-server-commandline": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "CommandEngine\n=============\n\nAbout\n-----\n\nA simple library to allow parsing of arbitary strings and then executing them in a direct fashion. \nGreat for implementing a command and control structure for serial input/output and for a \ntelnet library. (See Telnet Library to see the two of them in action)\n\nReally helpful for creating programs that parse input of somesort and then act on the input. The \nnice thing about the library is it supports macros to allow you to type less. It acts more as a \ncommand line interpreter than anything fancy. It does not do math or anysuch thing and does not\nallow for advanced funcitonality of calling one function from another. That is beyond the scope\nof this library and probably not useful in an embedded enviroment.\n\nThe engine will parse commands as follows:\n[command] [arg1] [arg2] [arg3] [arg4] [...]\n\n[command] \"[arg1 with spaces in it]\" [arg2] \"[arg3 with even more spaces in it]\" [arg4] [...]\n\nItems with a $ in front will be checked to see if it is a macro. If it is it will be replaced.\nanalogWrite $rgbPin $high --> analogWrite A3 1\n\nThe macro replacement is the very first step. A macro is defined by calling: set\nset ag analogWrite\n\necho $ag --> analogWrite\n\nThe same example as above:\n$ag $rgbPin $high --> analogWrite A3 1\n\nAs you can see a powerful way to shorten typing if you wish to use it. Macros can also be defined in code.\n\nTwo built in functions exist:\nset --> allows the definition of new macros\nhelp --> prints out help messages about the commands and a list of all commands\n\nExample Usage\n-------------\n\nIncredibly easy to use.\n\n\n\n\tCommandEngine::CommandLineEngine eng;\n\n\tvoid Command_AnalogWrite( Print * printer, CommandEngine::Tokens & tk, CommandEngine::CommandLineEngine::FunctionFlags ff )\n\t{\n\t\t// Do something in here\n\t}\n\n\tDECLARE_COMMAND(Command_digitalWrite)\n\t\t// Do your digitalwrite stuff in here\n\tDECLARE_COMMAND_END\n\n\n\tvoid startup() {\n\n\n\teng.registerMacro(\"high\",\"1\");\n\teng.registerMacro(\"low\",\"0\");\n\n\teng.registerFunction(\"analogWrite\", Command_AnalogWrite);\n\teng.registerFunction(\"digitalWrite\", Command_digitalWrite);\n\n\t}\n\n\tvoid loop() {\n\n\t\tString input;\n\t\t\n\t\teng.execute(input, Serial);\n\t}\n\n\nThe above snippet of code will register two macros that represent high and low in the commands. The registerFunction will \nregister a custom function to be called by the user. \n\nThe user will interact by sending a string as follows: analogWrite A0 $high\nStep 1) The string is read for macros and becomes : analogWrite A0 1\nStep 2) The function: Command_AnalogWrite is called with Tokens: A0, 1\n\nA simple and effective way of parsing a command and executing it with minimal input from you!\n\n\nRecommended Components\n----------------------\nI highly recommend the Telnet library. They work wonderfully together.\n\nCircuit Diagram\n---------------\nOnly software\n\nLearning Activities\n-------------------\nThe tokenizer can work standalone. It supports things such as quotation marks. \nThe Tokens class is a singlely linked list. It supports forward iteration with iterators. A little more light weight than\nusing <list> from the standard c++ library. It also has a built in iterator for doing some nifty things. See the example code.\n\n\nThe CommandLineEngine class only ever does a linear search for commands and macros. If you want you could do a quick sort or use a \nhash rather than just a linear vector. I chose a linear vector since how many commands are you really planning on having in the system.\nA linear search will be faster for most arrays that have less than 20 or so definitions.\n\n\nTelnet Server\n=============\n\n\nAbout\n-----\n\nA telnet server allows you to connect to the spark core and use a command line like entry of text. It is a basic server and\nprovides minimal functionality on its own. It does remove the telnet commands and codes from the string allowing you to \nnever have to worry about the telnet protocol itself. \n\nIt is very easy to setup and use. I included the CommandEngine library in the telnet library as they go hand in hand. The \nCommanEngine Library can be used without the telnet library. The telnet library can be used without the CommandEngine library.\nHowever using the Telnet library without the commandengine lib is more difficult and you have to now write your own parser and\nfunction do-er. \n\nThis code has been tested with putty: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html\nIt has also been tested with the linux telnet command. (man telnet)\n\n\nExample\n-------\n\nYou need to define a function that will be used as a callback whenever the server detects that it has input. The definition \nof the function is:\n\ttypedef void (*processInputCallBack)(Server *,String , int );\n\nIn other words:\n\n\tvoid processInput( Telnet::Server * ts, String txt, int flags );\n\nFlags is defined as one of the following values:\n\tenum Callbackflags {\n\t\tCBF_WelcomeMsg \t= \t0x1,\n\t\tCBF_InputCmd\t=\t0x2,\n\t\tCBF_Error\t= \t0x4,\n\t\tCBF_CmdPrompt\t= \t0x8,\n\t}\n\nI currently do not OR them together so a simple switch statement will surfice.\n\nTo actually use the server the code will look something like this:\n\n\tTelnet::Server tServer(8000);\t\n\n\tvoid setup() {\n\n\t\t// Set the function to be called when the telnet server process the input\n\t\ttServer.setProcessCallback(processData);\n\n\t\t// Start the server and connect\n\t\ttServer.connect();\n\t\t\n\t\t// End Telnet server setup\n\t}\n\n\tvoid loop() {\n\n\t\ttServer.poll();\n\t}\n\nRecommended Components\n----------------------\nWorks with the CommandEngine library very well. It is included already in this code for you!\n\nCircuit Diagram\n---------------\nOnly software\n\nLearning Activities\n-------------------\nThe Telnet server could be adjusted to work with certain more limited terminals if you wish. As of now it does not support line\nediting from the client. It expects the client to send complete lines of text to it. The server itself does some work behind\nthe scenes to shield you from some of the vagaries of the telnet protocol. Unless you want to learn about telnet protocol \nnothing really needs to be done.\n\nHowever if you want to add features like tab completion then you will need to modify its telnet protocol class. I don't recommend\nit unless you want to learn some weird features and have to deal with different clients. \n\nWhy\n---\nIf you don't know what telnet is than I highly recommend that you learn a little about it! Do not worry about the protocol. The\nreason this library was written was to allow me to interact with my programs in a better way than reading from the serial port.\nI have never connected my SparkCore to the serial port and my cores are placed in not easy to reach places. It is far easier to \ndebug my code from a command line like interface rather than using a serial interface. A http one could also be made and I \nconsidered that however for it to be interactive at a reasonible speed it would require Ajax and other fancy stuff that seems\nmore overkill than necessary. \n\n\n"
+}

@@ -1,0 +1,47 @@
+{
+  "type": "libraries",
+  "id": "PatriotActivity",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PatriotActivity/archive/5.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "PatriotActivity",
+    "version": "5.0.0",
+    "installs": 608,
+    "license": "MIT",
+    "author": "Ron Lisle",
+    "sentence": "Allow Alexa to set a state not associated with an actual hardware device.",
+    "paragraph": "Patriot provides support for controlling IoT devices using Alexa and iOS devices. This plugin adds the ability to add a virtual device (activity) that Alexa can control, but does not have an associated hardware device.",
+    "url": "http://www.github.com/rlisle/Patriot",
+    "repository": "http://www.github.com/rlisle/Patriot",
+    "architectures": [
+      "particle-photon"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PatriotActivity",
+  "versions": {
+    "5.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "activity": false
+          },
+          "electron": {
+            "activity": false
+          },
+          "argon": {
+            "activity": false
+          },
+          "boron": {
+            "activity": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# PatriotPseudoDevice\n\nA Patriot plugin to support adding Alexa commands without devices.\n\nThis library is used to support commands without hardware.\nThis can be useful for setting a mode not associates with any particular device.\nFor example, GuestMode is used to disable turning on the lamp in the guest bedroom that would otherwise be turned on in the morning when I wake up.\n\n## Usage\n\nInclude this library in any Photon sketch to add a pseudo device.\n\n```\n#include <IoT.h>\n#include <PatriotPseudoDevice.h>\n\nIoT *iot;\n\nvoid setup() {\n    iot = IoT::getInstance();\n    iot->setControllerName(\"myPhoton\");\n    iot->begin();\n\n    // Create your device\n    PseudoDevice *guestMode = new PseudoDevice();\n\n    // Add it to IoT\n    iot->addDevice(guestMode);\n}\n\nvoid loop() {\n    iot->loop();\n}\n```\n\n## Documentation\n\nRefer to the Patriot Github repository and documentation for more\ninformation.\n\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add IoT_myname` to add the library to a project on your machine or add the IoT_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2019 Ron Lisle\n\nRefer to the included LICENSE file.\n"
+}

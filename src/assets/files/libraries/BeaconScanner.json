@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BeaconScanner",
     "version": "0.4.0",
-    "installs": 2902,
+    "installs": 2903,
     "license": "MIT",
     "author": "Mariano Goluboff",
     "sentence": "Scan BLE beacons",

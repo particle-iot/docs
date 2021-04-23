@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AM2321",
     "version": "0.9.0",
-    "installs": 664,
+    "installs": 666,
     "license": "MIT",
     "author": "Ed Wios <edwintam@iostation.com>",
     "sentence": "AM2321 temperature and humidity sensor library for Spark Core",

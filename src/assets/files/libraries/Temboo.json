@@ -1,0 +1,48 @@
+{
+  "type": "libraries",
+  "id": "Temboo",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Temboo/archive/1.2.8.tar.gz"
+  },
+  "attributes": {
+    "name": "Temboo",
+    "version": "1.2.8",
+    "installs": 426,
+    "license": "Apache License, Version 2.0",
+    "author": "Temboo, Spark port by Karl Kaiser <karl@bentuino.com>",
+    "sentence": "Temboo Library for Spark, for details about Temboo service visit temboo.com",
+    "url": "https://github.com/bentuino/temboo",
+    "repository": "https://github.com/bentuino/temboo.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/Temboo",
+  "versions": {
+    "1.2.8": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "electron": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "argon": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "boron": {
+            "application_gmail": true,
+            "application_gxls": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Temboo Arduino Library with Spark support\n=========================================\n\nThis repository holds a modified version of the Temboo Arduino library v1.2 with support for spark core. Instructions to build an application give here are for CLI mode. So please consult the spark.io web site for details how to install the CLI tools for the Spark Core.\n\nAuthor: The Temboo Spark Core support was added by Karl N Kaiser. Please check-out my DYI IoT blog under http://bentuino.com\n\nInstallation\n------------\n\n1. Get the Spark Core firmware:\n\n  %git clone https://github.com/spark/core-firmware.git\n  \n  %git clone https://github.com/spark/core-common-lib.git\n  \n  %git clone https://github.com/spark/core-communication-lib.git\n\n2. Note: This step is only required with older firmware - Go to core-firmware/inc and uncomment the line 54 of file spark_wiring_ipaddress.h with your favorite editor\n\n\t// Overloaded cast operator to allow IPAddress objects to be used where a pointer\n  \n\t// to a four-byte uint8_t array is expected\n\t\n\t//operator uint32_t() { return *((uint32_t*)_address); };\n\t\n\t**//bool operator==(const IPAddress& addr) { return (*((uint32_t*)_address)) == (*((uint32_t*)addr._address)); };**\n\t\n\tbool operator==(const uint8_t* addr);\n\n3. Save your TembooAccount.h you generated with DeviceCoder to temboo-arduino-library-1.2\\Temboo\n\n4. Build application:\n\n  %cd core-firmware/build\n  \n  %make -f makefile.temboo clean all \n\n5. Connect your Spark Core to your computer via a USB cable\n\n6. Push both buttons, release Reset button and continue holding the other button until RGB-LED lights up yellow\n\n7. Download application into Spark Core\n\n  %make -f makefile.temboo program-dfu\n  \nExample\n-------\n\nTwo simple Spark application examples are included: \n\ncore-firmware/src/application_gxls.cpp - Example demonstrates the Temboo library with Google Spreadsheet\n\ncore-firmware/src/application_gmail.cpp - Example demonstrates the Temboo library with Gmail\n\nto change the example that is compiled into the spark core edit the first line in the core-firmware/src/build.mk file:\n\nCPPSRC += $(TARGET_SRC_PATH)/application.cpp => CPPSRC += $(TARGET_SRC_PATH)/application_gxls.cpp \n\nor \n\nCPPSRC += $(TARGET_SRC_PATH)/application_gmail.cpp\n\n\nTesting\n-------\n\nBuilding this code was tested under Windows 8.1 using cygwin and the MINGW version of the ARM GCC compiler tool chain.\n"
+}

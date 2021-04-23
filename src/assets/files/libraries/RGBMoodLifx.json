@@ -1,0 +1,44 @@
+{
+  "type": "libraries",
+  "id": "RGBMoodLifx",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/RGBMoodLifx/archive/0.0.5.tar.gz"
+  },
+  "attributes": {
+    "name": "RGBMoodLifx",
+    "version": "0.0.5",
+    "installs": 241,
+    "license": "GPLv3",
+    "author": "Paul Kourany, Kenneth Lim, Matthew McGowan, @Hootie81, @lightx",
+    "sentence": "LIFX bulb emulator",
+    "url": "https://github.com/kennethlimcp/arduinolifx",
+    "repository": "https://github.com/kennethlimcp/arduinolifx.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/RGBMoodLifx",
+  "versions": {
+    "0.0.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "arduinolifx": false
+          },
+          "electron": {
+            "arduinolifx": false
+          },
+          "argon": {
+            "arduinolifx": false
+          },
+          "boron": {
+            "arduinolifx": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Arduino LIFX bulb\n\nLIFX bulb emulator by Kayne Richens (kayno@kayno.net)\n\nEmulates a LIFX bulb. Connect an RGB LED (or LED strip via drivers) to redPin, greenPin and bluePin as you normally would on an ethernet-ready Arduino and control it from the LIFX app!\n\n## Notes\n- As of Android LIFX app v1.70, you CAN control an Arduino bulb and real LIFX bulbs at the same time with the Android LIFX app. Untested with the iOS LIFX app.\n- Only one client (e.g. app) can connect to the bulb at once\n\n## Setup\n- Connect an RGB LED to PWM pins on your ethernet-ready arduino\n- Set the following variables in [arduinolifx.ino](arduinolifx.ino) to suit your Arduino and network environment:\n - mac (unique mac address for your arduino)\n - redPin (PWM pin for RED)\n - greenPin  (PWM pin for GREEN)\n - bluePin  (PWM pin for BLUE)\n- Connect the arduino to power and network\n- Upload the code to the arduino\n- The LED should light up (warm white) once the arduino gets a DHCP lease from your network\n- Start up the LIFX app - you should see a bulb named \"Arduino bulb\"\n- Control your arduino bulb from the LIFX app!\n\nMade possible by the work of magicmonkey: https://github.com/magicmonkey/lifxjs/ - you can use this to control your arduino bulb as well as real LIFX bulbs at the same time!\n\nAnd also the RGBMood library by Harold Waterkeyn, which was modified slightly to support powering down the LED\n\nPorted over to Spark by @kennethlimcp, @pkourany, @m-mcgowan, @Hootie81 and @lightx on 09 September 2014\n"
+}

@@ -40,7 +40,7 @@ catch (e) {
 async function fetchLibraryList() {
     let libraryList = [];
 
-    for (let page = 1; page <= 10; page++) {
+    for (let page = 1; page <= 16; page++) {
         const data = await particle.listLibraries({
             auth: config.accessToken,
             excludeScopes: 'private',
@@ -48,10 +48,16 @@ async function fetchLibraryList() {
             page: page,
             sort: 'popularity'
         });
+        if (data.body.data.length == 0) {
+            break;
+        }
+
         libraryList = libraryList.concat(data.body.data);
     }
     console.log('data', libraryList);
     fs.writeFileSync(libraryListPath, JSON.stringify(libraryList, null, 2));
+
+    return libraryList;
 }
 
 async function downloadLibraries() {
@@ -294,50 +300,6 @@ async function generate() {
     // Generate top-level
 }
 
-/*
-    const cardsDir = path.join(__dirname, '../../src/content/cards');
-    if (!fs.existsSync(cardsDir)) {
-        fs.mkdirSync(cardsDir);
-    }
-    const librariesDir = path.join(cardsDir, 'libraries');
-    if (!fs.existsSync(librariesDir)) {
-        fs.mkdirSync(librariesDir);
-    }
-
-    for (const lib of libraryList) {
-        const letter = lib.id.substr(0, 1).toLowerCase();
-        const letterDir = path.join(librariesDir, letter);
-        if (!fs.existsSync(letterDir)) {
-            fs.mkdirSync(letterDir);
-        }
-
-        if (lib.official) {
-            kindStr = 'official library';
-        }
-        else if (lib.verified) {
-            kindStr = 'verified community library';
-        }
-        else {
-            kindStr = 'community library';
-        }
-
-        let md = '';
-
-        md += '---\n';
-        md += 'title: ' + lib.name + '\n';
-        md += 'layout: cards.hbs\n';
-        md += 'columns: two\n';
-        // md += 'order: 15\n';
-        md += 'description: ' + lib.name + ' (' + kindStr + ')\n';
-        md += 'includeDefinitions: [api-helper, api-helper-extras, api-helper-library]\n';
-        md += '---\n\n';
-
-        md += '# ' + lib.id + ' (' + kindStr + ')\n\n';
-
-        fs.writeFileSync(path.join(letterDir, lib.id + '.md'), md);
-
-    }
-*/
 
 function saveLibraryData() {
     const newStr = JSON.stringify(libraryData, null, 2);
@@ -350,7 +312,7 @@ function saveLibraryData() {
 
 async function run() {
     if (argv.fetchLibraryList || !fs.existsSync(libraryListPath)) {
-        await fetchLibraryList();
+        libraryList = await fetchLibraryList();
     }
     else {
         libraryList = JSON.parse(fs.readFileSync(libraryListPath, 'utf8'));

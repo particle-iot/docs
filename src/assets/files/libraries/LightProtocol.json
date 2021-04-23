@@ -1,0 +1,33 @@
+{
+  "type": "libraries",
+  "id": "LightProtocol",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LightProtocol/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "LightProtocol",
+    "version": "1.0.3",
+    "installs": 183,
+    "license": "MIT",
+    "author": "Kevron Rees <tripzero.kev@gmail.com>",
+    "sentence": "Fast binary light protocol for controlling lights and light strips over a network socket",
+    "paragraph": "long description",
+    "url": "https://github.com/tripzero/LightProtocol",
+    "repository": "tripzero/LightProtocol",
+    "architectures": [
+      "particle-photon"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/LightProtocol",
+  "versions": {
+    "1.0.3": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# LightProtocol\nFast light protocol parser for controlling light strips (but can be used for single rgb lights).\n"
+}
