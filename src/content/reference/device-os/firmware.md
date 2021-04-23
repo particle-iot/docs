@@ -3313,9 +3313,9 @@ To use the data usage API, an instance of the `CellularData` type needs to be cr
 - **ok**: (bool) a boolean value `false` when the CellularData object is initially created, and `true` after the object has been successfully updated by the API. If the last reading failed and the counters were not changed from their previous value, this value is set to `false`.
 - **cid**: (int) a value from 0-255 that is the index of the current PDP context that the data usage counters are valid for.  If this number is -1, the data usage counters have either never been initially set, or the last reading failed and the counters were not changed from their previous value.
 - **tx_session**: (int) number of bytes sent for the current session
-- **rx_session**: (int) number of bytes sent for the current session
+- **rx_session**: (int) number of bytes received for the current session
 - **tx_total**: (int) number of bytes sent total (typical equals the session numbers)
-- **rx_total**: (int) number of bytes sent total (typical equals the session numbers)
+- **rx_total**: (int) number of bytes received total (typical equals the session numbers)
 
 CellularData is a Printable object, so using it directly with `Serial.println(data);` will be output as follows:
 
