@@ -11,9 +11,12 @@ $(document).ready(function() {
         const searchTextElem = $(thisPartial).find('.apiHelperLibrarySearchField');
         const searchButtonElem = $(thisPartial).find('.apiHelperLibrarySearchButton');
         const searchOutputElem = $(thisPartial).find('.apiHelperLibrarySearchOutput');
+        const searchShowTipsElem = $(thisPartial).find('.apiHelperLibrarySearchShowTips');
         const searchTipsElem = $(thisPartial).find('.apiHelperLibrarySearchTips');
         
-        $(thisPartial).find('.apiHelperLibrarySearchShowTips').on('change', function() {
+        $(searchShowTipsElem).prop('checked', false);
+
+        $(searchShowTipsElem).on('change', function() {
             if (this.checked) {
                 $(searchTipsElem).show();
             }
