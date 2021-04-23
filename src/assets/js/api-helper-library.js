@@ -11,7 +11,16 @@ $(document).ready(function() {
         const searchTextElem = $(thisPartial).find('.apiHelperLibrarySearchField');
         const searchButtonElem = $(thisPartial).find('.apiHelperLibrarySearchButton');
         const searchOutputElem = $(thisPartial).find('.apiHelperLibrarySearchOutput');
+        const searchTipsElem = $(thisPartial).find('.apiHelperLibrarySearchTips');
         
+        $(thisPartial).find('.apiHelperLibrarySearchShowTips').on('change', function() {
+            if (this.checked) {
+                $(searchTipsElem).show();
+            }
+            else {
+                $(searchTipsElem).hide();
+            }
+        });
 
         $(searchTextElem).on('keydown', function(ev) {
             if (ev.key != 'Enter') {
@@ -100,6 +109,8 @@ $(document).ready(function() {
     $('.apiHelperLibraryBuilds').each(function() {
         const thisPartial = $(this);
 
+        const buildFailureElem = $(thisPartial).find('.apiHelperLibraryBuildsFailureNote');
+
         let libInfo;
         
         const updateTable = function() {
@@ -123,6 +134,7 @@ $(document).ready(function() {
             html += '</tr>';
             $(thisPartial).find('.apiHelperLibraryBuildsOutput > thead').html(html);
 
+            let hasFailure = false;
 
             html = '';
             for(const example of examples) {
@@ -138,6 +150,7 @@ $(document).ready(function() {
                     }
                     else if (buildResults[platform][example] === false) {
                         cellContents = '\u274C'; // Red X
+                        hasFailure = true;
                     }    
                     else {
                         cellContents = 'nbsp;';
@@ -150,6 +163,12 @@ $(document).ready(function() {
 
             $(thisPartial).find('.apiHelperLibraryBuildsOutput > tbody').html(html);
 
+            if (hasFailure) {
+                $(buildFailureElem).show();
+            }
+            else {
+                $(buildFailureElem).hide();
+            }
         };
 
         fetch($(thisPartial).attr('data-info'))

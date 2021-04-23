@@ -166,8 +166,6 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             md += '\n';
             md += '{{> library-builds}}\n';
             md += '\n';
-            md += '_This table is generated from an automated build. The library may have included examples that are not intended to work on all devices, so a failed build may not indicate an actual problem with the library. The builds have not been tested; they have only been compiled._\n';
-            md += '\n';
         }
 
         // README
