@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "ADS1220 Library for Particle."
+  "readme": "ADS1220 Library for Particle.",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
 }

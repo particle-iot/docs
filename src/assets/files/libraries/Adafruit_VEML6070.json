@@ -33,5 +33,8 @@
       "noExamples": true
     }
   },
-  "readme": "VEML6070 port for Particle devices\n\nCredits go to:\nAdafruit (adafruit.com) for creating the Arduino library\n***********************************************"
+  "readme": "VEML6070 port for Particle devices\n\nCredits go to:\nAdafruit (adafruit.com) for creating the Arduino library\n***********************************************",
+  "allVersions": [
+    "0.0.3"
+  ]
 }

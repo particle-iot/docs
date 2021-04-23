@@ -49,5 +49,11 @@
       }
     }
   },
-  "readme": "This is a library for our optical Fingerprint sensor\n\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products/751\n\nThese displays use TTL Serial to communicate, 2 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\n!!! Update for Particle Libraries V2.0, Jan 2016 !!!\n!!! Adapted for Spark Core by Paul Kourany, May 2014 !!!\n"
+  "readme": "This is a library for our optical Fingerprint sensor\n\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products/751\n\nThese displays use TTL Serial to communicate, 2 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\n!!! Update for Particle Libraries V2.0, Jan 2016 !!!\n!!! Adapted for Spark Core by Paul Kourany, May 2014 !!!\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
 }

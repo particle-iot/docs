@@ -26,5 +26,8 @@
       "noExamples": true
     }
   },
-  "readme": "Esta es una libreria MD5 para Photon, basada en el libreria MD5 de scottmac's, la que puedes encontrar aquí:\nhttps://github.com/scottmac/arduino\n\nHice este port porque me tarde un tiempo buscndo una libreria facil de usar para el Photon.\n\n------------------English---------------------------\n\nThis is an MD5 library for the Photon, based on scottmac's MD5 library, which you can find here:\nhttps://github.com/scottmac/arduino\n\nI ported this because I was having a really hard time finding an easy-to-install and use libray for the Photon,\nso I decided to make my own. There is an example on how to use it.\n"
+  "readme": "Esta es una libreria MD5 para Photon, basada en el libreria MD5 de scottmac's, la que puedes encontrar aquí:\nhttps://github.com/scottmac/arduino\n\nHice este port porque me tarde un tiempo buscndo una libreria facil de usar para el Photon.\n\n------------------English---------------------------\n\nThis is an MD5 library for the Photon, based on scottmac's MD5 library, which you can find here:\nhttps://github.com/scottmac/arduino\n\nI ported this because I was having a really hard time finding an easy-to-install and use libray for the Photon,\nso I decided to make my own. There is an example on how to use it.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

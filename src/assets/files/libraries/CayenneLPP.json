@@ -47,5 +47,10 @@
       }
     }
   },
-  "readme": "# CayenneLPP\n\nThis is an Arduino Library for Arduino Compatible with Cayenne Low Power Payload\n\n## Documentation\n\n* [Cayenne Low Power Payload](https://mydevices.com/cayenne/docs/#lora-cayenne-low-power-payload)\n* [API](https://github.com/sabas1080/CayenneLPP/blob/master/API.md)\n\nBased in the work of [Johan Stokking](https://github.com/TheThingsNetwork/arduino-device-lib)\n"
+  "readme": "# CayenneLPP\n\nThis is an Arduino Library for Arduino Compatible with Cayenne Low Power Payload\n\n## Documentation\n\n* [Cayenne Low Power Payload](https://mydevices.com/cayenne/docs/#lora-cayenne-low-power-payload)\n* [API](https://github.com/sabas1080/CayenneLPP/blob/master/API.md)\n\nBased in the work of [Johan Stokking](https://github.com/TheThingsNetwork/arduino-device-lib)\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
 }

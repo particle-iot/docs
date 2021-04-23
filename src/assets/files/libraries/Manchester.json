@@ -60,5 +60,10 @@
       }
     }
   },
-  "readme": "Manchester_Library\n==================\n\nManchester library for 315/433Mhz transmitter/receivers adapted for Spark by Paul Kourany, May 21/2014\n\nAdapted from mchr3k's Arduino library using SparkIntervalTimer timer library by Paul Kourany\n\nReplace ManchesterTX_Basic.ino with desired example from examples folder and compile.\n\nPlease read Manchester.h for details on the implementation of the protocol.\n\nThis library requires SparkIntervalTimer library to function\n\n"
+  "readme": "Manchester_Library\n==================\n\nManchester library for 315/433Mhz transmitter/receivers adapted for Spark by Paul Kourany, May 21/2014\n\nAdapted from mchr3k's Arduino library using SparkIntervalTimer timer library by Paul Kourany\n\nReplace ManchesterTX_Basic.ino with desired example from examples folder and compile.\n\nPlease read Manchester.h for details on the implementation of the protocol.\n\nThis library requires SparkIntervalTimer library to function\n\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
 }

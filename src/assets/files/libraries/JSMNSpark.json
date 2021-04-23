@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "JSMNSpark\n=========\n\nJSMN is a small JSON parser ported to the Spark from https://bitbucket.org/zserge/jsmn/wiki/Home.\n\nThis software is distributed under MIT license, so feel free to integrate it in your commercial products.\n\nCode metrics - TBD\nflash used:\nram used:"
+  "readme": "JSMNSpark\n=========\n\nJSMN is a small JSON parser ported to the Spark from https://bitbucket.org/zserge/jsmn/wiki/Home.\n\nThis software is distributed under MIT license, so feel free to integrate it in your commercial products.\n\nCode metrics - TBD\nflash used:\nram used:",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

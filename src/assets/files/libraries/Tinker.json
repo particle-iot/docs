@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "Control Spark unused pins with Tinker interface in your project.\n"
+  "readme": "Control Spark unused pins with Tinker interface in your project.\n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
 }

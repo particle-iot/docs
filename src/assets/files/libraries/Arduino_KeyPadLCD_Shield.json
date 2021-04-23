@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "Arduino_KeyPadLCD_Shield\r\n========================\r\n\r\nSpecialized fork of SparkCore LiquidCrystal library to support the Arduino KeyPad LCD Shield on Particle devices in conjunction with the Particle Shield shield.\r\n\r\nStill supports universal LCDs:\r\n* Standard Hitachi HD44780 based LCDs in 4-bit mode\r\n* Adafruit's 16x2 OLED Display (Winstar)\r\n* Sparkfun's 16x2 OLED Display (ADH Technology Co. Ltd.)\r\n\r\n"
+  "readme": "Arduino_KeyPadLCD_Shield\r\n========================\r\n\r\nSpecialized fork of SparkCore LiquidCrystal library to support the Arduino KeyPad LCD Shield on Particle devices in conjunction with the Particle Shield shield.\r\n\r\nStill supports universal LCDs:\r\n* Standard Hitachi HD44780 based LCDs in 4-bit mode\r\n* Adafruit's 16x2 OLED Display (Winstar)\r\n* Sparkfun's 16x2 OLED Display (ADH Technology Co. Ltd.)\r\n\r\n",
+  "allVersions": [
+    "0.0.12",
+    "0.0.1"
+  ]
 }

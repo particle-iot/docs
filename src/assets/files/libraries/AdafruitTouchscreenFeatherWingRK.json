@@ -45,5 +45,8 @@
       }
     }
   },
-  "readme": "# AdafruitTouchscreenFeatherWingRK\nPort of Adafruit TFT FeatherWing - 2.4\" 320x240 Touchscreen for Particle Argon/Boron/Xenon\n"
+  "readme": "# AdafruitTouchscreenFeatherWingRK\nPort of Adafruit TFT FeatherWing - 2.4\" 320x240 Touchscreen for Particle Argon/Boron/Xenon\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

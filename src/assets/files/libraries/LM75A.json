@@ -45,5 +45,8 @@
       }
     }
   },
-  "readme": "# I2C LM75A Temperature Sensor\n\n## author\nQuentin Comte-Gaz\n\n## license\nMIT License\n\n## source\nhttps://github.com/QuentinCG/Arduino-LM75A-Temperature-Sensor-Library\n\n## Usage\nSee example\n\n## LICENSE\nCopyright 2018 Quentin Comte-Gaz\n\nLicensed under the MIT license\n"
+  "readme": "# I2C LM75A Temperature Sensor\n\n## author\nQuentin Comte-Gaz\n\n## license\nMIT License\n\n## source\nhttps://github.com/QuentinCG/Arduino-LM75A-Temperature-Sensor-Library\n\n## Usage\nSee example\n\n## LICENSE\nCopyright 2018 Quentin Comte-Gaz\n\nLicensed under the MIT license\n",
+  "allVersions": [
+    "1.1.0"
+  ]
 }

@@ -38,5 +38,10 @@
       }
     }
   },
-  "readme": "spark-parse\n===========\n\nFunctions to help with parsing RPC arguments\n"
+  "readme": "spark-parse\n===========\n\nFunctions to help with parsing RPC arguments\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
 }

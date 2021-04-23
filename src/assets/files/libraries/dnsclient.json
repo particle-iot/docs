@@ -40,5 +40,10 @@
       }
     }
   },
-  "readme": "DNSClient\n=========\n\nDNS Client for Spark. \n\n\nOriginal code from Arduino Ethernet library, ported for use on Spark Core\n\nthe myUDP.h was written by a unknown person on the Spark Forums and overcomes an issue \nwith sending a UDP packet each time the write is called, now it is only sent \nwhen endPacket is called\n\nExample inluded, change the dnsServerIP to whatever DNS server you want to use\nand change serverName to the place you want to look up.\n\nThanks to everyone who helped make this work\n\n"
+  "readme": "DNSClient\n=========\n\nDNS Client for Spark. \n\n\nOriginal code from Arduino Ethernet library, ported for use on Spark Core\n\nthe myUDP.h was written by a unknown person on the Spark Forums and overcomes an issue \nwith sending a UDP packet each time the write is called, now it is only sent \nwhen endPacket is called\n\nExample inluded, change the dnsServerIP to whatever DNS server you want to use\nand change serverName to the place you want to look up.\n\nThanks to everyone who helped make this work\n\n",
+  "allVersions": [
+    "0.0.13",
+    "0.0.12",
+    "0.0.10"
+  ]
 }

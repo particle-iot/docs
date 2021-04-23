@@ -52,5 +52,8 @@
       }
     }
   },
-  "readme": "# Adafruit VL53L0X Library [![Build Status](https://travis-ci.org/adafruit/Adafruit_VL53L0X.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_VL53L0X)\n\n<img src=\"https://cdn-shop.adafruit.com/970x728/3317-03.jpg\" height=\"300\"/>\n\nThis is a library for the Adafruit VL53L0X time-of-flight breakout:\n  * https://www.adafruit.com/products/3317\n \nCheck out the links above for our tutorials and wiring diagrams. This chip uses I2C to communicate\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nMIT license, all text above must be included in any redistribution"
+  "readme": "# Adafruit VL53L0X Library [![Build Status](https://travis-ci.org/adafruit/Adafruit_VL53L0X.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_VL53L0X)\n\n<img src=\"https://cdn-shop.adafruit.com/970x728/3317-03.jpg\" height=\"300\"/>\n\nThis is a library for the Adafruit VL53L0X time-of-flight breakout:\n  * https://www.adafruit.com/products/3317\n \nCheck out the links above for our tutorials and wiring diagrams. This chip uses I2C to communicate\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nMIT license, all text above must be included in any redistribution",
+  "allVersions": [
+    "1.0.4"
+  ]
 }

@@ -48,5 +48,10 @@
       }
     }
   },
-  "readme": "##ADXL345 Library\n\nOriginal library repo is at: https://github.com/jenschr/Arduino-libraries/tree/master/ADXL345\n\nPorted over to Spark core platform by @kennethlimcp\n\nUpdated on 23 July 2015\n"
+  "readme": "##ADXL345 Library\n\nOriginal library repo is at: https://github.com/jenschr/Arduino-libraries/tree/master/ADXL345\n\nPorted over to Spark core platform by @kennethlimcp\n\nUpdated on 23 July 2015\n",
+  "allVersions": [
+    "0.1.1",
+    "0.1.0",
+    "0.0.2"
+  ]
 }

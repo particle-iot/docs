@@ -40,5 +40,10 @@
       }
     }
   },
-  "readme": "# LiquidCrystal_I2C\nLiquidCrystal_I2C library for Spark Core\n\nI had a lot of difficulty getting the I2C library for Spark Core working without corrupting the display...\n\n\nI modified the library, adding a few delays following the writes and it works for me, now.\n"
+  "readme": "# LiquidCrystal_I2C\nLiquidCrystal_I2C library for Spark Core\n\nI had a lot of difficulty getting the I2C library for Spark Core working without corrupting the display...\n\n\nI modified the library, adding a few delays following the writes and it works for me, now.\n",
+  "allVersions": [
+    "1.1.0",
+    "1.0.0",
+    "0.2.11"
+  ]
 }

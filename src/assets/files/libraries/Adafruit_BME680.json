@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# Adafruit_BME680\n\nThis is a library for the Adafruit BME680 Humidity, Barometric Pressure, Temp and MOX Gas sensor\n\nDesigned specifically to work with the Adafruit BME680 Breakout\n\nhttp://www.adafruit.com/products/3660\n\nWritten by Adafruit Industries (https://github.com/adafruit/Adafruit_BME680) but\nmodified to work with Particle Photon & Core. All credits to them. \n\n## Example Wiring ( I2C )\n\n| BME680 | Particle Photon |\n| --- | ---\n| VIN | 3v3\n| GND | GND\n| SCK | D1\n| SDI | D0\n"
+  "readme": "# Adafruit_BME680\n\nThis is a library for the Adafruit BME680 Humidity, Barometric Pressure, Temp and MOX Gas sensor\n\nDesigned specifically to work with the Adafruit BME680 Breakout\n\nhttp://www.adafruit.com/products/3660\n\nWritten by Adafruit Industries (https://github.com/adafruit/Adafruit_BME680) but\nmodified to work with Particle Photon & Core. All credits to them. \n\n## Example Wiring ( I2C )\n\n| BME680 | Particle Photon |\n| --- | ---\n| VIN | 3v3\n| GND | GND\n| SCK | D1\n| SDI | D0\n",
+  "allVersions": [
+    "0.1.2"
+  ]
 }

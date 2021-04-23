@@ -60,5 +60,16 @@
       }
     }
   },
-  "readme": "# CODE @ TACC Robotics library\n\n### Introduction\n\nThis library wraps functionality for several Adafruit Arduino shield libraries,\nas well as provides general compatibility to these libraries. Included is an\nexample ```robot.ino``` file, to be used as a project base for the\nCODE @ TACC Summer 2016 curriculum. Additional\nexamples may be included for operation of sensors.\n\n### CODE @ TACC\n\nCODE @ TACC is a summer residential program for rising juniors and seniors\nin high school, hosted by the Texas Advanced Computing Center at\nThe University of Texas at Austin. [You may view the open source curriculum\non GitHub.](https://github.com/CODE-at-TACC/summer-2016)\n"
+  "readme": "# CODE @ TACC Robotics library\n\n### Introduction\n\nThis library wraps functionality for several Adafruit Arduino shield libraries,\nas well as provides general compatibility to these libraries. Included is an\nexample ```robot.ino``` file, to be used as a project base for the\nCODE @ TACC Summer 2016 curriculum. Additional\nexamples may be included for operation of sensors.\n\n### CODE @ TACC\n\nCODE @ TACC is a summer residential program for rising juniors and seniors\nin high school, hosted by the Texas Advanced Computing Center at\nThe University of Texas at Austin. [You may view the open source curriculum\non GitHub.](https://github.com/CODE-at-TACC/summer-2016)\n",
+  "allVersions": [
+    "0.0.12",
+    "0.0.11",
+    "0.0.10",
+    "0.0.9",
+    "0.0.8",
+    "0.0.7",
+    "0.0.6",
+    "0.0.5",
+    "0.0.4"
+  ]
 }

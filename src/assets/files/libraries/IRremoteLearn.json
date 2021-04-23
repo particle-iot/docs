@@ -48,5 +48,8 @@
       }
     }
   },
-  "readme": "# IRremoteLearn\nIR Remote Control for Learner IR receivers with Particle devices\n\nModified from IRremote for Particle Photon/P1/Electron:\nhttps://github.com/babean/IRRemote\n\nWhich was modified from PJRC IRremote for teensy:\nhttps://www.pjrc.com/teensy/arduino_libraries/IRremote.zip\n"
+  "readme": "# IRremoteLearn\nIR Remote Control for Learner IR receivers with Particle devices\n\nModified from IRremote for Particle Photon/P1/Electron:\nhttps://github.com/babean/IRRemote\n\nWhich was modified from PJRC IRremote for teensy:\nhttps://www.pjrc.com/teensy/arduino_libraries/IRremote.zip\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

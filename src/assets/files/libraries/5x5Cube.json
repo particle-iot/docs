@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# 5X5Cube"
+  "readme": "# 5X5Cube",
+  "allVersions": [
+    "0.0.11"
+  ]
 }

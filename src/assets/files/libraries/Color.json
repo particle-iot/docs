@@ -33,5 +33,9 @@
       "noExamples": true
     }
   },
-  "readme": "ColorArduino\n============\n\nColor library for Arduino with Hue Saturation and Brightness conversion to RGB.\n"
+  "readme": "ColorArduino\n============\n\nColor library for Arduino with Hue Saturation and Brightness conversion to RGB.\n",
+  "allVersions": [
+    "1.2.1",
+    "1.2.0"
+  ]
 }

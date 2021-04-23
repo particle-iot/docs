@@ -53,5 +53,8 @@
       }
     }
   },
-  "readme": "# DFPlayer - A Mini MP3 Player For Arduino\n# 1.31.17 - Directory structure and files modified for Particle Photon import\n\nDFPlayer - A Mini MP3 Player For Arduino\nhttps://www.dfrobot.com/index.php?route=product/product&product_id=1121\n\nThis example shows the all the function of library for DFPlayer.\n\nCreated 2016-12-07\nBy [Angelo qiao](Angelo.qiao@dfrobot.com)\n\nGNU Lesser General Public License.\nSee <http://www.gnu.org/licenses/> for details.\nAll above must be included in any redistribution\n\nNotice and Trouble shooting\n\n1.Connection and Diagram can be found here\nhttps://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299#Connection_Diagram\n2.This code is tested on Arduino Uno, Leonardo, Mega boards.\n"
+  "readme": "# DFPlayer - A Mini MP3 Player For Arduino\n# 1.31.17 - Directory structure and files modified for Particle Photon import\n\nDFPlayer - A Mini MP3 Player For Arduino\nhttps://www.dfrobot.com/index.php?route=product/product&product_id=1121\n\nThis example shows the all the function of library for DFPlayer.\n\nCreated 2016-12-07\nBy [Angelo qiao](Angelo.qiao@dfrobot.com)\n\nGNU Lesser General Public License.\nSee <http://www.gnu.org/licenses/> for details.\nAll above must be included in any redistribution\n\nNotice and Trouble shooting\n\n1.Connection and Diagram can be found here\nhttps://www.dfrobot.com/wiki/index.php/DFPlayer_Mini_SKU:DFR0299#Connection_Diagram\n2.This code is tested on Arduino Uno, Leonardo, Mega boards.\n",
+  "allVersions": [
+    "1.0.1"
+  ]
 }

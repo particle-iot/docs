@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "SparkTimeAlarms\n===============\n\nPort of PJRC's TimeAlarms Library using core Time.now\n\nPlease note that this library is not intended to work with the SparkTime NTP library.\n\nThis library only works with built-in core Time.now() initialized from the Spark Cloud.\n"
+  "readme": "SparkTimeAlarms\n===============\n\nPort of PJRC's TimeAlarms Library using core Time.now\n\nPlease note that this library is not intended to work with the SparkTime NTP library.\n\nThis library only works with built-in core Time.now() initialized from the Spark Cloud.\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2"
+  ]
 }

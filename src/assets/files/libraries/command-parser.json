@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "command-parser\n==============\n\ncommand parser for use with Spark.function()\n"
+  "readme": "command-parser\n==============\n\ncommand parser for use with Spark.function()\n",
+  "allVersions": [
+    "0.0.2"
+  ]
 }

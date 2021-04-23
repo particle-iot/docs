@@ -132,5 +132,8 @@
       }
     }
   },
-  "readme": "# photon_book\nThe code to accompany the book Getting Started with Photon\n"
+  "readme": "# photon_book\nThe code to accompany the book Getting Started with Photon\n",
+  "allVersions": [
+    "0.0.10"
+  ]
 }

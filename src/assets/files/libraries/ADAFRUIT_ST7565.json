@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# ST7565\nST7565 Library for Particle Devices.  Ported from Adafruit's ST7565_LCD library.\n\nExtended with Particle Library Information.\n"
+  "readme": "# ST7565\nST7565 Library for Particle Devices.  Ported from Adafruit's ST7565_LCD library.\n\nExtended with Particle Library Information.\n",
+  "allVersions": [
+    "0.0.3"
+  ]
 }

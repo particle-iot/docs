@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# ledfader\n"
+  "readme": "# ledfader\n",
+  "allVersions": [
+    "1.0.10"
+  ]
 }

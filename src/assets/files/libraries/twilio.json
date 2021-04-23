@@ -33,5 +33,8 @@
       "noExamples": true
     }
   },
-  "readme": "1.) Install the Spark-CLI and login!\n\n\t(more details here - https://github.com/spark/spark-cli)\n\n\tnpm install -g spark-cli \n\tspark login\n\n2.) Create a Twilio account / grab your login info!\n\nhttps://www.twilio.com/login\n\n[![Twilio API info](images/twilio1.png)](images/twilio1.png)\n\n\n3.) Customize your twilio.json webhook with your phone numbers, and Twilio account info from above, and create your hook!\n\n\tspark webhook create twilio.json\n\n\n4.) Compile your firmware and flash it to your core!\n\n\tspark compile . --saveTo twilio.bin\n\tspark flash coreName twilio.bin\n\n5.) You'll get a text message when your core starts up!  Send more by calling the function on your device!\n\n\tspark call coreName twilio \"Hello Texting World\"\n\n\n"
+  "readme": "1.) Install the Spark-CLI and login!\n\n\t(more details here - https://github.com/spark/spark-cli)\n\n\tnpm install -g spark-cli \n\tspark login\n\n2.) Create a Twilio account / grab your login info!\n\nhttps://www.twilio.com/login\n\n[![Twilio API info](images/twilio1.png)](images/twilio1.png)\n\n\n3.) Customize your twilio.json webhook with your phone numbers, and Twilio account info from above, and create your hook!\n\n\tspark webhook create twilio.json\n\n\n4.) Compile your firmware and flash it to your core!\n\n\tspark compile . --saveTo twilio.bin\n\tspark flash coreName twilio.bin\n\n5.) You'll get a text message when your core starts up!  Send more by calling the function on your device!\n\n\tspark call coreName twilio \"Hello Texting World\"\n\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

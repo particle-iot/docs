@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# Azure C Shared Utility\n\n*Warning: experimental port*\n\nazure-c-shared-utility is a C library providing common functionality for basic tasks (like string, list manipulation, IO, etc.).\n\nThis is a port of the library available at https://www.github.com/Azure/azure-c-shared-utility.git."
+  "readme": "# Azure C Shared Utility\n\n*Warning: experimental port*\n\nazure-c-shared-utility is a C library providing common functionality for basic tasks (like string, list manipulation, IO, etc.).\n\nThis is a port of the library available at https://www.github.com/Azure/azure-c-shared-utility.git.",
+  "allVersions": [
+    "0.0.3"
+  ]
 }

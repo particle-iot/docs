@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# ADAFRUIT_CAP1188\nAdaFruit Captouch board library for Particle Photon with extended functionality to read Analog Values.\n"
+  "readme": "# ADAFRUIT_CAP1188\nAdaFruit Captouch board library for Particle Photon with extended functionality to read Analog Values.\n",
+  "allVersions": [
+    "0.1.0"
+  ]
 }

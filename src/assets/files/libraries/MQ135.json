@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "MQ135\n=====\n\nArduino library for the MQ135\n"
+  "readme": "MQ135\n=====\n\nArduino library for the MQ135\n",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "OSC library for the Particle (formerly Spark) platform.\n\n## Examples\n\nip-reporter.ino - simple example that reports the devices IP address over OSC\n\n## Provenance\n\nThis is a package of the library put together by [Collectif Trublion](http://www.trublion.org/)\nthat can be found at [trublion/sparkcore_osc](https://github.com/trublion/sparkcore_osc).\nThat was itself a port of the [Oscuino library](https://github.com/CNMAT/OSC)\nlibrary for Arduino and related embedded processor platforms.\n"
+  "readme": "OSC library for the Particle (formerly Spark) platform.\n\n## Examples\n\nip-reporter.ino - simple example that reports the devices IP address over OSC\n\n## Provenance\n\nThis is a package of the library put together by [Collectif Trublion](http://www.trublion.org/)\nthat can be found at [trublion/sparkcore_osc](https://github.com/trublion/sparkcore_osc).\nThat was itself a port of the [Oscuino library](https://github.com/CNMAT/OSC)\nlibrary for Arduino and related embedded processor platforms.\n",
+  "allVersions": [
+    "0.0.3"
+  ]
 }

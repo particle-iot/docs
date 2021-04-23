@@ -33,5 +33,9 @@
       "noExamples": true
     }
   },
-  "readme": "# Artnet\n\nAn Art-Net library for Particle Photon. May also work for other Particle-based devices.\n\n"
+  "readme": "# Artnet\n\nAn Art-Net library for Particle Photon. May also work for other Particle-based devices.\n\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.2"
+  ]
 }

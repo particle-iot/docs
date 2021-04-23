@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# ADXL362\nLibrary for the ADXL362 accelerometer factored out of the internet button library\n"
+  "readme": "# ADXL362\nLibrary for the ADXL362 accelerometer factored out of the internet button library\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

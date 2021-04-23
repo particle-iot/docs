@@ -42,5 +42,11 @@
       }
     }
   },
-  "readme": "This is a library for the Adafruit ILI9341 display products\r\n\r\nAdapted for Particle devices and to use Adafruit_mfGFX\r\nmultifont library by Paul Kourany\r\n\r\nThis library works with the Adafruit 2.8\" Touch Shield V2 (SPI)\r\n  ----> http://www.adafruit.com/products/1651\r\n \r\nCheck out the links above for our tutorials and wiring diagrams.\r\nThese displays use SPI to communicate, 4 or 5 pins are required\r\nto interface (RST is optional).\r\n\r\nAdafruit invests time and resources providing this open source code,\r\nplease support Adafruit and open-source hardware by purchasing\r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada for Adafruit Industries.\r\nMIT license, all text above must be included in any redistribution\r\n"
+  "readme": "This is a library for the Adafruit ILI9341 display products\r\n\r\nAdapted for Particle devices and to use Adafruit_mfGFX\r\nmultifont library by Paul Kourany\r\n\r\nThis library works with the Adafruit 2.8\" Touch Shield V2 (SPI)\r\n  ----> http://www.adafruit.com/products/1651\r\n \r\nCheck out the links above for our tutorials and wiring diagrams.\r\nThese displays use SPI to communicate, 4 or 5 pins are required\r\nto interface (RST is optional).\r\n\r\nAdafruit invests time and resources providing this open source code,\r\nplease support Adafruit and open-source hardware by purchasing\r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada for Adafruit Industries.\r\nMIT license, all text above must be included in any redistribution\r\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "0.9.4",
+    "0.9.1"
+  ]
 }

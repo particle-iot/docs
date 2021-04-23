@@ -43,5 +43,9 @@
       }
     }
   },
-  "readme": "# IRRemote\n\nModified from PJRC for Particle Photon.\nhttps://www.pjrc.com/teensy/arduino_libraries/IRremote.zip\n"
+  "readme": "# IRRemote\n\nModified from PJRC for Particle Photon.\nhttps://www.pjrc.com/teensy/arduino_libraries/IRremote.zip\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.1"
+  ]
 }

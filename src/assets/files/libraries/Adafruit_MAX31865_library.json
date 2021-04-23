@@ -43,5 +43,8 @@
       }
     }
   },
-  "readme": "# Adafruit_MAX31865\nArduino Library for Adafruit MAX31865 RTD Sensor\n"
+  "readme": "# Adafruit_MAX31865\nArduino Library for Adafruit MAX31865 RTD Sensor\n",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

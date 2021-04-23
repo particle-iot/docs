@@ -45,5 +45,8 @@
       }
     }
   },
-  "readme": "# Adafruit MAX31856 Arduino Library  [![Build Status](https://travis-ci.org/adafruit/Adafruit_MAX31856.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_MAX31856)\n\nTested and works great with the Adafruit Thermocouple Breakout w/MAX31856\n    \n   * https://www.adafruit.com/product/3263\n\nThese sensors use SPI to communicate, 4 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n"
+  "readme": "# Adafruit MAX31856 Arduino Library  [![Build Status](https://travis-ci.org/adafruit/Adafruit_MAX31856.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_MAX31856)\n\nTested and works great with the Adafruit Thermocouple Breakout w/MAX31856\n    \n   * https://www.adafruit.com/product/3263\n\nThese sensors use SPI to communicate, 4 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n",
+  "allVersions": [
+    "1.0.3"
+  ]
 }

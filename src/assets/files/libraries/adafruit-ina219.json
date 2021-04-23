@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "adafruit-ina219\n===============\n\nINA219 Current Sensor\n\nFork of Adafruits repo so it could be added to the Particle (formally Spark) library.\n"
+  "readme": "adafruit-ina219\n===============\n\nINA219 Current Sensor\n\nFork of Adafruits repo so it could be added to the Particle (formally Spark) library.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

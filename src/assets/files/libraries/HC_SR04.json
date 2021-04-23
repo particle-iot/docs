@@ -40,5 +40,10 @@
       }
     }
   },
-  "readme": "# Spark_HC_SR04\nA Spark Photon/Core library for the HC-SR04 Ultrasonic Rangefinder\n"
+  "readme": "# Spark_HC_SR04\nA Spark Photon/Core library for the HC-SR04 Ultrasonic Rangefinder\n",
+  "allVersions": [
+    "0.0.12",
+    "0.0.11",
+    "0.0.10"
+  ]
 }

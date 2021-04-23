@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# SunriseSunset\nSunriseSunset library for Spark Core\n\nreturns Sunrise, Sunset and Solar Noon times for Spark Core\n"
+  "readme": "# SunriseSunset\nSunriseSunset library for Spark Core\n\nreturns Sunrise, Sunset and Solar Noon times for Spark Core\n",
+  "allVersions": [
+    "0.1.7"
+  ]
 }

@@ -44,5 +44,8 @@
       }
     }
   },
-  "readme": "ColorArduino\n============\n\nThis is a library to work with the camera VC0706 on photon imported from a library of Arduino"
+  "readme": "ColorArduino\n============\n\nThis is a library to work with the camera VC0706 on photon imported from a library of Arduino",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

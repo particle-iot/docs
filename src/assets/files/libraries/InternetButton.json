@@ -74,5 +74,22 @@
       }
     }
   },
-  "readme": "# Internet Button\n[![Build Status](https://travis-ci.org/particle-iot/InternetButton.svg?branch=master)](https://travis-ci.org/particle-iot/InternetButton)\n\n_The Internet Button has a lot of features, but some of these aren't as straightforward to use as simple LEDs and sensors. This library abstracts a lot of the complexity and provides simple functions with broad capability. It wraps modified versions of both Adafruit's Neopixel and AnneM's ADXL362 Arduino libraries, as well as some novel functions._\n\n## Examples\n\n1. __Blink an LED__ - How to control the smart LEDs on this board\n2. __Blink all the LEDs__ - An extension on the simplest case\n3. __LEDs and Buttons__ - How to read the buttons on the Button, and make LEDs blink with them\n4. __Good Combination__ - A set of button and LED conditionals that I happen to like and use frequently\n5. __Motion__ - The Internet Button also has an accelerometer on it to measure motion- this shows how the related functions work\n6. __Orientation__ - How to use the accelerometer functions to determine the orientation\n7. __Internet__ - Send that data out to the world!\n8. __Making Music__ - Learn how to play notes and songs while controlling LEDs and reading buttons at the same time.\n9. __Release Firmware__ - Big, complicated set of epic.\n\n\n_Watch for gauge and other display additions to this library!_\n"
+  "readme": "# Internet Button\n[![Build Status](https://travis-ci.org/particle-iot/InternetButton.svg?branch=master)](https://travis-ci.org/particle-iot/InternetButton)\n\n_The Internet Button has a lot of features, but some of these aren't as straightforward to use as simple LEDs and sensors. This library abstracts a lot of the complexity and provides simple functions with broad capability. It wraps modified versions of both Adafruit's Neopixel and AnneM's ADXL362 Arduino libraries, as well as some novel functions._\n\n## Examples\n\n1. __Blink an LED__ - How to control the smart LEDs on this board\n2. __Blink all the LEDs__ - An extension on the simplest case\n3. __LEDs and Buttons__ - How to read the buttons on the Button, and make LEDs blink with them\n4. __Good Combination__ - A set of button and LED conditionals that I happen to like and use frequently\n5. __Motion__ - The Internet Button also has an accelerometer on it to measure motion- this shows how the related functions work\n6. __Orientation__ - How to use the accelerometer functions to determine the orientation\n7. __Internet__ - Send that data out to the world!\n8. __Making Music__ - Learn how to play notes and songs while controlling LEDs and reading buttons at the same time.\n9. __Release Firmware__ - Big, complicated set of epic.\n\n\n_Watch for gauge and other display additions to this library!_\n",
+  "allVersions": [
+    "0.1.15",
+    "0.1.14",
+    "0.1.13",
+    "0.1.12",
+    "0.1.11",
+    "0.1.10",
+    "0.1.9",
+    "0.1.8",
+    "0.1.7",
+    "0.1.6",
+    "0.1.5",
+    "0.1.4",
+    "0.1.3",
+    "0.1.2",
+    "0.1.1"
+  ]
 }

@@ -44,5 +44,12 @@
       }
     }
   },
-  "readme": "\nNow supporting ALL Particle devices and the Redbear Duo.\n\n\nOneWireSpark\n============\n\nProvides support for the Dallas One Wire (1-wire) protocol on Particle (and other) devices.\n\nSimply click the libs button in the web build tool at spark.io\nand add this lib to your project.\n\nNote that you need to remove the lib then re-add it to update to the latest version!\n\nRefer to the example code for basic use of the lib.\n"
+  "readme": "\nNow supporting ALL Particle devices and the Redbear Duo.\n\n\nOneWireSpark\n============\n\nProvides support for the Dallas One Wire (1-wire) protocol on Particle (and other) devices.\n\nSimply click the libs button in the web build tool at spark.io\nand add this lib to your project.\n\nNote that you need to remove the lib then re-add it to update to the latest version!\n\nRefer to the example code for basic use of the lib.\n",
+  "allVersions": [
+    "1.4.0",
+    "1.3.0",
+    "1.2.0",
+    "1.1.0",
+    "1.0.0"
+  ]
 }

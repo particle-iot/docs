@@ -22,5 +22,9 @@
       "noExamples": true
     }
   },
-  "readme": "# StreamDebug\n\nA Particle project named StreamDebug.\n\n## Overview\n\nA simple library to debug on any stream, like serial ports, and embedding sprintf-like behaviour.\n\n## Use\n\nSee examples directory.\n"
+  "readme": "# StreamDebug\n\nA Particle project named StreamDebug.\n\n## Overview\n\nA simple library to debug on any stream, like serial ports, and embedding sprintf-like behaviour.\n\n## Use\n\nSee examples directory.\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
 }

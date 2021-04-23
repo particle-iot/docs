@@ -31,5 +31,8 @@
       "noExamples": true
     }
   },
-  "readme": "A quick port of the Linduino LT2943 3 Cell Battery Fuel gauge to use the native Wire routines on Particle.\r\n"
+  "readme": "A quick port of the Linduino LT2943 3 Cell Battery Fuel gauge to use the native Wire routines on Particle.\r\n",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

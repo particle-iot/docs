@@ -52,5 +52,9 @@
       }
     }
   },
-  "readme": "/***************************************************************************\n  This is a library for the BNO055 orientation sensor\n  Designed specifically to work with the Adafruit BNO055 Breakout.\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products\n  These sensors use I2C to communicate, 2 pins are required to interface.\n  Adafruit invests time and resources providing this open source code,\n  please support Adafruit and open-source hardware by purchasing products\n  from Adafruit!\n  Written by KTOWN for Adafruit Industries.\n  MIT license, all text above must be included in any redistribution\n  Ported to Particle devices by Nathan Robinson\n  https://github.com/nrobinson2000\n  On 2017-1-21\n****************************************************************************/\n"
+  "readme": "/***************************************************************************\n  This is a library for the BNO055 orientation sensor\n  Designed specifically to work with the Adafruit BNO055 Breakout.\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products\n  These sensors use I2C to communicate, 2 pins are required to interface.\n  Adafruit invests time and resources providing this open source code,\n  please support Adafruit and open-source hardware by purchasing products\n  from Adafruit!\n  Written by KTOWN for Adafruit Industries.\n  MIT license, all text above must be included in any redistribution\n  Ported to Particle devices by Nathan Robinson\n  https://github.com/nrobinson2000\n  On 2017-1-21\n****************************************************************************/\n",
+  "allVersions": [
+    "0.1.6",
+    "0.1.5"
+  ]
 }

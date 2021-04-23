@@ -31,5 +31,9 @@
       "noExamples": true
     }
   },
-  "readme": "About\n===\n\nThis is the library for Measurements.  A Measurement is a tagged, time stamped value such as temperature.\n"
+  "readme": "About\n===\n\nThis is the library for Measurements.  A Measurement is a tagged, time stamped value such as temperature.\n",
+  "allVersions": [
+    "0.4.0",
+    "0.0.2"
+  ]
 }

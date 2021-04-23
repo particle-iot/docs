@@ -36,5 +36,8 @@
       "noExamples": true
     }
   },
-  "readme": "# RunningMedianST\r\nSentient Things Running Median Library\r\n"
+  "readme": "# RunningMedianST\r\nSentient Things Running Median Library\r\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

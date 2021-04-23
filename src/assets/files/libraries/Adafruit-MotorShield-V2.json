@@ -47,5 +47,10 @@
       }
     }
   },
-  "readme": " This is the library for the Adafruit Motor Shield V2 ported to\n the Spark Core. \n It supports DC motors & Stepper motors with microstepping as well\n as stacking-support. It is *not* compatible with the V1 library!\n\n It will only work with https://www.adafruit.com/products/1438\n \n Adafruit invests time and resources providing this open\n source code, please support Adafruit and open-source hardware\n by purchasing products from Adafruit!\n \n Written by Limor Fried/Ladyada for Adafruit Industries.\n Ported to the Spark Core by TJ Hunter\n BSD license, check LICENSE for more information.\n All text above must be included in any redistribution.\n\n See the following URL for help on connecting the Motor Shield\n to the spark core:\n\n https://community.spark.io/t/adafruit-motor-shield-v2-progress/5218\n"
+  "readme": " This is the library for the Adafruit Motor Shield V2 ported to\n the Spark Core. \n It supports DC motors & Stepper motors with microstepping as well\n as stacking-support. It is *not* compatible with the V1 library!\n\n It will only work with https://www.adafruit.com/products/1438\n \n Adafruit invests time and resources providing this open\n source code, please support Adafruit and open-source hardware\n by purchasing products from Adafruit!\n \n Written by Limor Fried/Ladyada for Adafruit Industries.\n Ported to the Spark Core by TJ Hunter\n BSD license, check LICENSE for more information.\n All text above must be included in any redistribution.\n\n See the following URL for help on connecting the Motor Shield\n to the spark core:\n\n https://community.spark.io/t/adafruit-motor-shield-v2-progress/5218\n",
+  "allVersions": [
+    "1.0.0",
+    "0.0.2",
+    "0.0.1"
+  ]
 }

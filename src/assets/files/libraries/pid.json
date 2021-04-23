@@ -51,5 +51,13 @@
       }
     }
   },
-  "readme": "# PID control library for Particle\n\n_Adapted from Brett Beauregard's [Arduino PID Library](https://github.com/br3ttb/Arduino-PID-Library)_\n\nFor a thorough explanation of the library's workings, see http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/\n"
+  "readme": "# PID control library for Particle\n\n_Adapted from Brett Beauregard's [Arduino PID Library](https://github.com/br3ttb/Arduino-PID-Library)_\n\nFor a thorough explanation of the library's workings, see http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/\n",
+  "allVersions": [
+    "2.0.1",
+    "2.0.0",
+    "1.1.1-1",
+    "0.1.1",
+    "0.1.0",
+    "0.0.1"
+  ]
 }

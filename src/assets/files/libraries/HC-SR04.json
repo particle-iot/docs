@@ -39,5 +39,9 @@
       }
     }
   },
-  "readme": "# HC-SR04\n\nClass to operate to the HC-SR04 range finder.\n\n## Usage\n\nInstantiate this class specifying which pins the Trig and Echo pins are\nconnected to. And call the function to range find the distance.\n\nPlease see the src/HC-SR04.h file as well as examples/usage/usage.ino for\nan example of how to use this library.\n\n## LICENSE\n\nSee LICENSE\n"
+  "readme": "# HC-SR04\n\nClass to operate to the HC-SR04 range finder.\n\n## Usage\n\nInstantiate this class specifying which pins the Trig and Echo pins are\nconnected to. And call the function to range find the distance.\n\nPlease see the src/HC-SR04.h file as well as examples/usage/usage.ino for\nan example of how to use this library.\n\n## LICENSE\n\nSee LICENSE\n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
 }

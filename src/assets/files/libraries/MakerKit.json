@@ -54,5 +54,8 @@
       }
     }
   },
-  "readme": "_This library contains example projects for the Particle Maker Kit. In addition to showing how to use the components included in the Maker Kit, these examples also demonstrate how to interact with them via the Internet._\n\n## Examples\n\n1. __Servo Gong__ - Use the Do Button app to make the servo ring a gong from your smartphone.\n2. __NextBus Alert__ - Receive alerts on the OLED screen when your bus is close by.\n3. __Sitting Monitor__ - Use the PIR sensor to record your sitting habits into a Google spreadsheet.\n4. __Remote Outlet__ - Use the relay to control electricity to a light or appliance remotely.\n"
+  "readme": "_This library contains example projects for the Particle Maker Kit. In addition to showing how to use the components included in the Maker Kit, these examples also demonstrate how to interact with them via the Internet._\n\n## Examples\n\n1. __Servo Gong__ - Use the Do Button app to make the servo ring a gong from your smartphone.\n2. __NextBus Alert__ - Receive alerts on the OLED screen when your bus is close by.\n3. __Sitting Monitor__ - Use the PIR sensor to record your sitting habits into a Google spreadsheet.\n4. __Remote Outlet__ - Use the relay to control electricity to a light or appliance remotely.\n",
+  "allVersions": [
+    "1.2.0"
+  ]
 }

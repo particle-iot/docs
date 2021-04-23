@@ -26,5 +26,9 @@
       "noExamples": true
     }
   },
-  "readme": "# IoTNodeThingSpeak\r\nSentient Things ThingSpeak library for the IoT Node.  Uses Fram to queue messages send via the Bulk-Write CSV Data API\r\n"
+  "readme": "# IoTNodeThingSpeak\r\nSentient Things ThingSpeak library for the IoT Node.  Uses Fram to queue messages send via the Bulk-Write CSV Data API\r\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2"
+  ]
 }

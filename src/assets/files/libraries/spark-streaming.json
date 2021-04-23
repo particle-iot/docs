@@ -26,5 +26,8 @@
       "noExamples": true
     }
   },
-  "readme": "Fork of Mikal Hart Streaming library.\n\nImplements C++ Streaming operator (<<) for various print operations.\n\nChanges in this fork include:\n\n1) Updated for Arduino 1.0\n2) Changed macro 'BIN' to 'BINARY' to be compatible with ATtiny.\n  NB: The define of 'BIN' in Print.h must be similarly changed to use this library\n\n"
+  "readme": "Fork of Mikal Hart Streaming library.\n\nImplements C++ Streaming operator (<<) for various print operations.\n\nChanges in this fork include:\n\n1) Updated for Arduino 1.0\n2) Changed macro 'BIN' to 'BINARY' to be compatible with ATtiny.\n  NB: The define of 'BIN' in Print.h must be similarly changed to use this library\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

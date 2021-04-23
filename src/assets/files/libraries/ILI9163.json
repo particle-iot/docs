@@ -26,5 +26,9 @@
       "noExamples": true
     }
   },
-  "readme": "Particle library for using ILI9163 based displays.\n"
+  "readme": "Particle library for using ILI9163 based displays.\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
 }

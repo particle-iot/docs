@@ -22,5 +22,8 @@
       "noExamples": true
     }
   },
-  "readme": "Initial version of an Arduino library for reading VE.Direct serial\noutput of the Victron Energy charge controllers and battery\nmonitors. A version of this library has been running on Particle\nElectron, ESP8266, ESP32 and Arduino.\n"
+  "readme": "Initial version of an Arduino library for reading VE.Direct serial\noutput of the Victron Energy charge controllers and battery\nmonitors. A version of this library has been running on Particle\nElectron, ESP8266, ESP32 and Arduino.\n",
+  "allVersions": [
+    "1.0.5"
+  ]
 }

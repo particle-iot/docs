@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# GP20U7 GPS Library\nA very simple library for interfacing with the [GP-20U7 GPS unit](https://www.sparkfun.com/products/13740).\n\n## Installation\n\n## Usage\n\n## Example\n```c\n\n```\n"
+  "readme": "# GP20U7 GPS Library\nA very simple library for interfacing with the [GP-20U7 GPS unit](https://www.sparkfun.com/products/13740).\n\n## Installation\n\n## Usage\n\n## Example\n```c\n\n```\n",
+  "allVersions": [
+    "1.0.3"
+  ]
 }

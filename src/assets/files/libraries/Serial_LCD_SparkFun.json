@@ -46,5 +46,8 @@
       }
     }
   },
-  "readme": "_This is a port of the wonderful library found here: http://playground.arduino.cc/Code/SerLCD\nThe documentation there will explain all the functions available, and I expect them all to work\nEXCEPT when it says `lcd.print()` If you're copying example code, you'll need to change those to\n`Serial1.print()`... and that's it!_\n\nThe wiring is simple- Provide appropriate power and ground (there are 5v and 3.3v varieties\nof the LCD) and connect the LCD's `RX` pin to the Core or Photon's `TX` pin!_\n\n## Examples\n\n1. __Basic use__ - A very short example showing LCD clearing and printing\n2. __Internet display__ - Using Spark.function() to send messages to the LCD"
+  "readme": "_This is a port of the wonderful library found here: http://playground.arduino.cc/Code/SerLCD\nThe documentation there will explain all the functions available, and I expect them all to work\nEXCEPT when it says `lcd.print()` If you're copying example code, you'll need to change those to\n`Serial1.print()`... and that's it!_\n\nThe wiring is simple- Provide appropriate power and ground (there are 5v and 3.3v varieties\nof the LCD) and connect the LCD's `RX` pin to the Core or Photon's `TX` pin!_\n\n## Examples\n\n1. __Basic use__ - A very short example showing LCD clearing and printing\n2. __Internet display__ - Using Spark.function() to send messages to the LCD",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

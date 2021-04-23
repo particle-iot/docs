@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# RTC DS1307 library for Spark/Particle Core\n"
+  "readme": "# RTC DS1307 library for Spark/Particle Core\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

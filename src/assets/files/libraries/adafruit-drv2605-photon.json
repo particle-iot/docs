@@ -33,5 +33,9 @@
       "noExamples": true
     }
   },
-  "readme": "About\n==\nPorted version of the Arduino DRV2605 library to control the Haptic Controller Breakout via I2C, modified to meet the requirements of a Particle Photon library. "
+  "readme": "About\n==\nPorted version of the Arduino DRV2605 library to control the Haptic Controller Breakout via I2C, modified to meet the requirements of a Particle Photon library. ",
+  "allVersions": [
+    "1.1.0",
+    "1.0.0"
+  ]
 }

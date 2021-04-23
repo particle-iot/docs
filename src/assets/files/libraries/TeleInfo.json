@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "TeleInfo\n========\n\nCette bibliothèque permet de décoder les trames TéléInfo des compteurs ERDF."
+  "readme": "TeleInfo\n========\n\nCette bibliothèque permet de décoder les trames TéléInfo des compteurs ERDF.",
+  "allVersions": [
+    "0.1.0"
+  ]
 }

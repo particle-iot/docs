@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# L9110Driver_Particle\nL9110 motor driver for Particle boards\n*\n"
+  "readme": "# L9110Driver_Particle\nL9110 motor driver for Particle boards\n*\n",
+  "allVersions": [
+    "0.0.10"
+  ]
 }

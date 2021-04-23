@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "MQTT for Spark\n============\n\n<a href=\"http://mqtt.org/\" target=_blank>MQTT</a> library for Spark core version 0.1.0.\n\nExample mqtttest.ino is dependent on:\n\n        MQTT_1.h\n        MQTT_2.cpp\n"
+  "readme": "MQTT for Spark\n============\n\n<a href=\"http://mqtt.org/\" target=_blank>MQTT</a> library for Spark core version 0.1.0.\n\nExample mqtttest.ino is dependent on:\n\n        MQTT_1.h\n        MQTT_2.cpp\n",
+  "allVersions": [
+    "0.1.0"
+  ]
 }

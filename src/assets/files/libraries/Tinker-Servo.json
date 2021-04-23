@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "Simple calling interface for GPIO pins and the servo libary.\n"
+  "readme": "Simple calling interface for GPIO pins and the servo libary.\n",
+  "allVersions": [
+    "1.0.1"
+  ]
 }

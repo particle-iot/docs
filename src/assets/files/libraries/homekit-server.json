@@ -35,5 +35,9 @@
       }
     }
   },
-  "readme": "# Deprecated\n\nPlease see library `particle-hap`.\n"
+  "readme": "# Deprecated\n\nPlease see library `particle-hap`.\n",
+  "allVersions": [
+    "0.0.1",
+    "0.0.0"
+  ]
 }

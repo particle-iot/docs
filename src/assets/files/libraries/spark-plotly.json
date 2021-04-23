@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "spark-plotly\n============\n\nA port of Plotly library for Arduino to the Spark Core\n\n\nWas not successful getting the Plot.ly Arduino libraries to work.  This code makes them work on the Spark Core (required very little change BTW) and now you can import it via spark.io.\n\n"
+  "readme": "spark-plotly\n============\n\nA port of Plotly library for Arduino to the Spark Core\n\n\nWas not successful getting the Plot.ly Arduino libraries to work.  This code makes them work on the Spark Core (required very little change BTW) and now you can import it via spark.io.\n\n",
+  "allVersions": [
+    "0.0.11",
+    "0.0.10"
+  ]
 }

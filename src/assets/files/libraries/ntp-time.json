@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "# NtpTime\n\nA simple NTP client.  Keeps the Particle Time synced to NTP.  This should not be used for\nhigh precision time keeping.  The Particle Time is only one second resolution and\nhardware limitations prevent high accuracy setting.  So the system time shouldn't be used for anything\nthat needs more than accuracy to a large fraction of a second.  \n\nThere is an interface that will return the time to millisecond resolution.  Accuracy of that\ninterface is primarily dependent on internet latency.\n\nNtpTime uses one of Particle's software timers.\n"
+  "readme": "# NtpTime\n\nA simple NTP client.  Keeps the Particle Time synced to NTP.  This should not be used for\nhigh precision time keeping.  The Particle Time is only one second resolution and\nhardware limitations prevent high accuracy setting.  So the system time shouldn't be used for anything\nthat needs more than accuracy to a large fraction of a second.  \n\nThere is an interface that will return the time to millisecond resolution.  Accuracy of that\ninterface is primarily dependent on internet latency.\n\nNtpTime uses one of Particle's software timers.\n",
+  "allVersions": [
+    "0.1.0",
+    "0.0.1"
+  ]
 }

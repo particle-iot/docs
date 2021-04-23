@@ -33,5 +33,8 @@
       "noExamples": true
     }
   },
-  "readme": "# nikos\nnikos\n"
+  "readme": "# nikos\nnikos\n",
+  "allVersions": [
+    "0.4.5"
+  ]
 }

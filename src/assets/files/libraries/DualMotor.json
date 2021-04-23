@@ -26,5 +26,8 @@
       "noExamples": true
     }
   },
-  "readme": "# DualMotor\nCustom DualMotorShield Library\n"
+  "readme": "# DualMotor\nCustom DualMotorShield Library\n",
+  "allVersions": [
+    "0.0.2"
+  ]
 }

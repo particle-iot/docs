@@ -10,79 +10,11 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
     const thisCardsDir = 'cards/libraries';
 
+    let searchDocuments = [];
+
     const topSpecial = ['Search'];
     const topSpecialFilename = function(name) {
         return name.replace(/[^-A-Za-z0-9_]/g, '-').toLowerCase();
-    }
-
-    let hasOther = false;
-    let letters = [];
-    let letterLibraries = {};
-
-    for (const dirent of fs.readdirSync(sourceDir, { withFileTypes: true })) {
-        if (!dirent.isFile || !dirent.name.endsWith('.json')) {
-            continue;
-        }
-        const lib = JSON.parse(fs.readFileSync(path.join(sourceDir, dirent.name)));
-
-        let letter = lib.id.substr(0, 1).toLowerCase();
-        if (letter >= 'a' && letter <= 'z') {
-            if (!letters.includes(letter)) {
-                letters.push(letter);
-            }
-        }
-        else {
-            hasOther = true;
-            letter = 'other';
-        }
-        if (!letterLibraries[letter]) {
-            letterLibraries[letter] = [];
-        }
-        letterLibraries[letter].push(lib.id);
-    }
-    letters.sort();
-    if (hasOther) {
-        letters.push('other');
-    }
-
-    // Generate redirects for all directories to the first page in that group
-    if (redirectsPath) {
-        const origFile = fs.readFileSync(redirectsPath, 'utf8');
-
-        let redirects = JSON.parse(origFile);
-
-        // Top level - will go to the introduction/search page
-        // redirects['/' + thisCardsDir] = allL2[0].url;
-
-        // All letters
-        for (const letter of letters) {
-            const letterPath = '/' + thisCardsDir + '/' + letter;
-            redirects[letterPath] = letterPath + '/' + letterLibraries[letter][0];
-        }
-
-        // Sort the output file
-        let redirectsArray = [];
-        for (const key in redirects) {
-            redirectsArray.push({ key: key, value: redirects[key] });
-        }
-        // Remove the trailing slash on all internal pages
-        for (let ii = 0; ii < redirectsArray.length; ii++) {
-            if (redirectsArray[ii].value.startsWith('/') && redirectsArray[ii].value.endsWith('/') && redirectsArray[ii].value.length > 1) {
-                redirectsArray[ii].value = redirectsArray[ii].value.substr(0, redirectsArray[ii].value.length - 1);
-            }
-        }
-        redirectsArray.sort(function (a, b) {
-            return a.key.localeCompare(b.key);
-        });
-        let redirectsSorted = {};
-        for (const obj of redirectsArray) {
-            redirectsSorted[obj.key] = obj.value;
-        }
-
-        const newFile = JSON.stringify(redirectsSorted, null, 2);
-        if (origFile != newFile) {
-            fs.writeFileSync(redirectsPath, newFile);
-        }
     }
 
     const transformReadme = function (mdOld) {
@@ -117,13 +49,49 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         }
     };
 
-    let searchDocuments = [];
+    // Find all first letters for left navigation
+    let hasOther = false;
+    let letters = [];
+    let letterLibraries = {};
+    let libraryNames = [];
 
     for (const dirent of fs.readdirSync(sourceDir, { withFileTypes: true })) {
         if (!dirent.isFile || !dirent.name.endsWith('.json')) {
             continue;
         }
-        const lib = JSON.parse(fs.readFileSync(path.join(sourceDir, dirent.name)));
+
+        libraryNames.push(dirent.name.substr(0, dirent.name.length - 5));
+    }
+
+    libraryNames.sort(function(a, b) {
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
+
+    for (const name of libraryNames) {
+       let letter = name.substr(0, 1).toLowerCase();
+        if (letter >= 'a' && letter <= 'z') {
+            if (!letters.includes(letter)) {
+                letters.push(letter);
+            }
+        }
+        else {
+            hasOther = true;
+            letter = 'other';
+        }
+        if (!letterLibraries[letter]) {
+            letterLibraries[letter] = [];
+        }
+        letterLibraries[letter].push(name);
+    }
+    letters.sort();
+    if (hasOther) {
+        letters.push('other');
+    }
+
+
+    // Build the content
+    for (const name of libraryNames) {
+        const lib = JSON.parse(fs.readFileSync(path.join(sourceDir, name + '.json')));
 
         let letter = lib.id.substr(0, 1).toLowerCase();
         if (letter < 'a' || letter > 'z') {
@@ -169,6 +137,13 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
             md += '| Repository | ' + makeLink(lib.attributes.repository) + ' |\n';
         }
         md += '| Download | [.tar.gz](' + lib.links.download + ') |\n';
+
+        // Version History
+        if (lib.allVersions.length > 1) {
+            md += '| All Versions | ' + lib.allVersions.join(', ') + ' |\n';
+        }
+
+
         md += '\n';
 
         let desc = '';
@@ -329,6 +304,48 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         files[newPath] = newFile;
     }
 
+
+    // Generate redirects for all directories to the first page in that group
+    if (redirectsPath) {
+        const origFile = fs.readFileSync(redirectsPath, 'utf8');
+
+        let redirects = JSON.parse(origFile);
+
+        // Top level - will go to the introduction/search page
+        // redirects['/' + thisCardsDir] = allL2[0].url;
+
+        // All letters
+        for (const letter of letters) {
+            const letterPath = '/' + thisCardsDir + '/' + letter;
+            redirects[letterPath] = letterPath + '/' + letterLibraries[letter][0];
+        }
+
+        // Sort the output file
+        let redirectsArray = [];
+        for (const key in redirects) {
+            redirectsArray.push({ key: key, value: redirects[key] });
+        }
+        // Remove the trailing slash on all internal pages
+        for (let ii = 0; ii < redirectsArray.length; ii++) {
+            if (redirectsArray[ii].value.startsWith('/') && redirectsArray[ii].value.endsWith('/') && redirectsArray[ii].value.length > 1) {
+                redirectsArray[ii].value = redirectsArray[ii].value.substr(0, redirectsArray[ii].value.length - 1);
+            }
+        }
+        redirectsArray.sort(function (a, b) {
+            return a.key.localeCompare(b.key);
+        });
+        let redirectsSorted = {};
+        for (const obj of redirectsArray) {
+            redirectsSorted[obj.key] = obj.value;
+        }
+
+        const newFile = JSON.stringify(redirectsSorted, null, 2);
+        if (origFile != newFile) {
+            fs.writeFileSync(redirectsPath, newFile);
+        }
+    }
+    
+    // Search Index
     var lunrIndex = lunr(function () {
         this.ref('name');
 

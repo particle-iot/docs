@@ -42,5 +42,9 @@
       }
     }
   },
-  "readme": "Adafruit_DotStarMatrix.\n=======================\n\n## Particle Port\n\nThis is a Particle Port of the Adafruit_DotStarMatrix for Particle devices. It can be used with 2nd (Photon/P1/Electron/E Series) and 3rd-generation devices (Argon, Boron, Xenon).\n\n## Original README\n\nAdafruit_GFX-compatible library for DotStar matrices and grids. Controls single and tiled DotStar matrices or grids assembled from DotStar LED strip. Requires Adafruit_DotStar and Adafruit_GFX libraries.\n\nAfter downloading, rename folder to 'Adafruit_DotStarMatrix' and install in Arduino Libraries folder. Restart Arduino IDE, then open File->Sketchbook->Library->Adafruit_DotStarMatrix->matrixtest sketch.\n"
+  "readme": "Adafruit_DotStarMatrix.\n=======================\n\n## Particle Port\n\nThis is a Particle Port of the Adafruit_DotStarMatrix for Particle devices. It can be used with 2nd (Photon/P1/Electron/E Series) and 3rd-generation devices (Argon, Boron, Xenon).\n\n## Original README\n\nAdafruit_GFX-compatible library for DotStar matrices and grids. Controls single and tiled DotStar matrices or grids assembled from DotStar LED strip. Requires Adafruit_DotStar and Adafruit_GFX libraries.\n\nAfter downloading, rename folder to 'Adafruit_DotStarMatrix' and install in Arduino Libraries folder. Restart Arduino IDE, then open File->Sketchbook->Library->Adafruit_DotStarMatrix->matrixtest sketch.\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2"
+  ]
 }

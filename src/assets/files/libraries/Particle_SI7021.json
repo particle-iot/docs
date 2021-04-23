@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "SI7021 Library for Particle."
+  "readme": "SI7021 Library for Particle.",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

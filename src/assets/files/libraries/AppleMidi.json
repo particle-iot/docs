@@ -26,5 +26,8 @@
       "noExamples": true
     }
   },
-  "readme": "AppleMidi\n=========\n\nThis is an attemp to copy Arduino-AppleMidi-Library into Spark Core\n\nAs of now I am just pushing buttons to get something and have no clue what I am doing.\n"
+  "readme": "AppleMidi\n=========\n\nThis is an attemp to copy Arduino-AppleMidi-Library into Spark Core\n\nAs of now I am just pushing buttons to get something and have no clue what I am doing.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

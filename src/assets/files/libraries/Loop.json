@@ -44,5 +44,8 @@
       }
     }
   },
-  "readme": "# Loop\nAdvanced looping class for arduino[-like] devices with timeouts and callbacks\n"
+  "readme": "# Loop\nAdvanced looping class for arduino[-like] devices with timeouts and callbacks\n",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

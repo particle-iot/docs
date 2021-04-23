@@ -48,5 +48,10 @@
       }
     }
   },
-  "readme": "Adafruit_MCP23017 I2C expander library\r\n======================================\r\nThis is a library for the MCP23017 I2c Port Expander\r\n \r\nThese chips use I2C to communicate, 2 pins required to interface\r\n\r\nAdafruit invests time and resources providing this open source code, \r\nplease support Adafruit and open-source hardware by purchasing \r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \r\nBSD license, check license.txt for more information\r\nAll text above must be included in any redistribution\r\n\r\nAdapted for Spark Core by Paul Kourany, Sept 3, 2014\r\nUpdate to Libraries 2.0, Jan 29, 2017\r\n\r\n"
+  "readme": "Adafruit_MCP23017 I2C expander library\r\n======================================\r\nThis is a library for the MCP23017 I2c Port Expander\r\n \r\nThese chips use I2C to communicate, 2 pins required to interface\r\n\r\nAdafruit invests time and resources providing this open source code, \r\nplease support Adafruit and open-source hardware by purchasing \r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \r\nBSD license, check license.txt for more information\r\nAll text above must be included in any redistribution\r\n\r\nAdapted for Spark Core by Paul Kourany, Sept 3, 2014\r\nUpdate to Libraries 2.0, Jan 29, 2017\r\n\r\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
 }

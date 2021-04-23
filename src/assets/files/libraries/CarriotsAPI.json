@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# CarriotsAPI\n[Particle Photon](https://www.particle.io/prototype#photon) library to publish data streams on Carriots API\n"
+  "readme": "# CarriotsAPI\n[Particle Photon](https://www.particle.io/prototype#photon) library to publish data streams on Carriots API\n",
+  "allVersions": [
+    "0.1.1"
+  ]
 }

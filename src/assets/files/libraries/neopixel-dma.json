@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "Spark-Neopixel-DMA\n==================\n\nSparkCore-NeoPixel-DMA\n"
+  "readme": "Spark-Neopixel-DMA\n==================\n\nSparkCore-NeoPixel-DMA\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

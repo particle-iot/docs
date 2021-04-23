@@ -32,5 +32,8 @@
       "noExamples": true
     }
   },
-  "readme": "TODO: Describe your library and how to run the examples\n"
+  "readme": "TODO: Describe your library and how to run the examples\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

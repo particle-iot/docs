@@ -45,5 +45,8 @@
       }
     }
   },
-  "readme": "# TimeLord\n\nMany time and date related functions... Daylight Savings, Moon Phase, Sidereal time, with the SunRise library rolled in.\n\nMirrored from http://swfltek.com/arduino/\n"
+  "readme": "# TimeLord\n\nMany time and date related functions... Daylight Savings, Moon Phase, Sidereal time, with the SunRise library rolled in.\n\nMirrored from http://swfltek.com/arduino/\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

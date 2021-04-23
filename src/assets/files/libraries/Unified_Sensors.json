@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "Collection of Adafruit Unified sensors\n"
+  "readme": "Collection of Adafruit Unified sensors\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

@@ -32,5 +32,11 @@
       "noExamples": true
     }
   },
-  "readme": "About\r\n===\r\n\r\nLibrary that uses the I2C bus and Microchip MCP23017 IO expander to control and monitor the power setting of the IoT Node circuitry.\r\nVersion 2 has an error.\r\nVersion 3 added digitalWrite\r\nVersion 4 added setPullUp\r\n"
+  "readme": "About\r\n===\r\n\r\nLibrary that uses the I2C bus and Microchip MCP23017 IO expander to control and monitor the power setting of the IoT Node circuitry.\r\nVersion 2 has an error.\r\nVersion 3 added digitalWrite\r\nVersion 4 added setPullUp\r\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
 }

@@ -44,5 +44,11 @@
       }
     }
   },
-  "readme": "Touch-4Wire Library\r\n=======================\r\n\r\nThis is the 4-wire resistive touch screen firmware for Arduino - and Spark Core.\r\n\r\nFor Arduino\r\n-----------\r\nWorks with all Arduinos and the Mega\r\n\r\n\r\nTo install, click DOWNLOAD SOURCE in the top right corner, and rename the uncompressed folder \"TouchScreen\". See our tutorial at http://www.ladyada.net/library/arduino/libraries.html on Arduino Library installation\r\n\r\nFor Spark Core (ported by ScruffR - Nov. 2014)\r\n----------------------------------------------\r\nTo download go to https://github.com/ScruffR/touch_4wire\r\n\r\n\r\n"
+  "readme": "Touch-4Wire Library\r\n=======================\r\n\r\nThis is the 4-wire resistive touch screen firmware for Arduino - and Spark Core.\r\n\r\nFor Arduino\r\n-----------\r\nWorks with all Arduinos and the Mega\r\n\r\n\r\nTo install, click DOWNLOAD SOURCE in the top right corner, and rename the uncompressed folder \"TouchScreen\". See our tutorial at http://www.ladyada.net/library/arduino/libraries.html on Arduino Library installation\r\n\r\nFor Spark Core (ported by ScruffR - Nov. 2014)\r\n----------------------------------------------\r\nTo download go to https://github.com/ScruffR/touch_4wire\r\n\r\n\r\n",
+  "allVersions": [
+    "0.9.5",
+    "0.9.3",
+    "0.9.2",
+    "0.9.1"
+  ]
 }

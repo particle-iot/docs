@@ -40,5 +40,13 @@
       "noExamples": true
     }
   },
-  "readme": "Spark Core compatible Dallas Temperature sensor library\n===\n\nThis library is a port of the original Arduino compatible Dallas Sensor library. Some includes have been fixed, but the libary is otherwise untouched.\n\n_**Note:** This library depends on the OneWire library._\n\nOriginal repository by Miles Burton: [Arduino-Temperature-Control-Library](https://github.com/milesburton/Arduino-Temperature-Control-Library).\n  \n## Getting Started\n> This library supports the following devices :\n> \n> \n> * DS18B20\n> * DS18S20 - Please note there appears to be an issue with this series.\n> * DS1822\n> * DS1820\n>\n>\n> You will need a pull-up resistor of about 5 KOhm between the 1-Wire data line\n> and your 5V power. If you are using the DS18B20, ground pins 1 and 3. The\n> centre pin is the data line '1-wire'."
+  "readme": "Spark Core compatible Dallas Temperature sensor library\n===\n\nThis library is a port of the original Arduino compatible Dallas Sensor library. Some includes have been fixed, but the libary is otherwise untouched.\n\n_**Note:** This library depends on the OneWire library._\n\nOriginal repository by Miles Burton: [Arduino-Temperature-Control-Library](https://github.com/milesburton/Arduino-Temperature-Control-Library).\n  \n## Getting Started\n> This library supports the following devices :\n> \n> \n> * DS18B20\n> * DS18S20 - Please note there appears to be an issue with this series.\n> * DS1822\n> * DS1820\n>\n>\n> You will need a pull-up resistor of about 5 KOhm between the 1-Wire data line\n> and your 5V power. If you are using the DS18B20, ground pins 1 and 3. The\n> centre pin is the data line '1-wire'.",
+  "allVersions": [
+    "0.0.7",
+    "0.0.6",
+    "0.0.5",
+    "0.0.4",
+    "0.0.2",
+    "0.0.1"
+  ]
 }

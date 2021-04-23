@@ -29,5 +29,10 @@
       "noExamples": true
     }
   },
-  "readme": "# LightProtocol\nFast light protocol parser for controlling light strips (but can be used for single rgb lights).\n"
+  "readme": "# LightProtocol\nFast light protocol parser for controlling light strips (but can be used for single rgb lights).\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "1.0.1"
+  ]
 }

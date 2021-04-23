@@ -28,5 +28,8 @@
       "noExamples": true
     }
   },
-  "readme": "# TemperatureHumidityValidatorRK\nUtility class for removing outlier values from DHT11/DHT22 temperature sensor data\n"
+  "readme": "# TemperatureHumidityValidatorRK\nUtility class for removing outlier values from DHT11/DHT22 temperature sensor data\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

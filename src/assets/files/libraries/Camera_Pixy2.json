@@ -70,5 +70,8 @@
       }
     }
   },
-  "readme": ""
+  "readme": "",
+  "allVersions": [
+    "1.0.3"
+  ]
 }

@@ -36,5 +36,9 @@
       "noExamples": true
     }
   },
-  "readme": "About\r\n===\r\n\r\nLibrary that uses Particle Webhooks to send and receive data with ThingSpeak\r\nusing the ThingSpeak API.  Benefits include lower data usage with is important\r\nfor cellular devices.  The use of this libary with Particle Webhooks also improves\r\nsecurity by avoiding the need to store the ThingSpeak User API Key in firmware.\r\n"
+  "readme": "About\r\n===\r\n\r\nLibrary that uses Particle Webhooks to send and receive data with ThingSpeak\r\nusing the ThingSpeak API.  Benefits include lower data usage with is important\r\nfor cellular devices.  The use of this libary with Particle Webhooks also improves\r\nsecurity by avoiding the need to store the ThingSpeak User API Key in firmware.\r\n",
+  "allVersions": [
+    "0.0.11",
+    "0.0.10"
+  ]
 }

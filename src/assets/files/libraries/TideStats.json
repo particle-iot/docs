@@ -29,5 +29,10 @@
       "noExamples": true
     }
   },
-  "readme": "# TideStats\r\nSentient Things tide gauge statistics library for the IoT Node. Library calculates tidal datum and other statistics from tide sensor measurements.\r\n\r\n\r\n"
+  "readme": "# TideStats\r\nSentient Things tide gauge statistics library for the IoT Node. Library calculates tidal datum and other statistics from tide sensor measurements.\r\n\r\n\r\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.3",
+    "0.0.2"
+  ]
 }

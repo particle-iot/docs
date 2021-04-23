@@ -44,5 +44,19 @@
       }
     }
   },
-  "readme": "# Particle Maker Faire 2017 Machine Communication\n\nShare state between all machine modules over CAN.\n\n## Overview\n\nCreate a `Communication` object. Read variables that contain state from\nother modules you care about, write state about your own module. Call\n`receive()` to update other module states and\n`transmit(MachimeModules::<my_module>)` to send your own state to other\nmodules.\n\n```\n#include \"mf2017-can.h\"\n\nCommunication comms;\n\nvoid setup() {\n  pinMode(D0, INPUT);\n  comms.begin();\n}\n\nvoid loop() {\n  // Send your state\n  comms.ballsEntering[0] = digitalRead(D0);\n  // Read other state\n  if (comms.machineState == 0) {\n    // disable this station\n  }\n\n  // Update CAN bus\n  comms.receive();\n  comms.transmit(MachineModules::Station1);\n}\n```\n\n## LICENSE\nCopyright 2017 Particle\n\nLicensed under the MIT license\n"
+  "readme": "# Particle Maker Faire 2017 Machine Communication\n\nShare state between all machine modules over CAN.\n\n## Overview\n\nCreate a `Communication` object. Read variables that contain state from\nother modules you care about, write state about your own module. Call\n`receive()` to update other module states and\n`transmit(MachimeModules::<my_module>)` to send your own state to other\nmodules.\n\n```\n#include \"mf2017-can.h\"\n\nCommunication comms;\n\nvoid setup() {\n  pinMode(D0, INPUT);\n  comms.begin();\n}\n\nvoid loop() {\n  // Send your state\n  comms.ballsEntering[0] = digitalRead(D0);\n  // Read other state\n  if (comms.machineState == 0) {\n    // disable this station\n  }\n\n  // Update CAN bus\n  comms.receive();\n  comms.transmit(MachineModules::Station1);\n}\n```\n\n## LICENSE\nCopyright 2017 Particle\n\nLicensed under the MIT license\n",
+  "allVersions": [
+    "1.3.2",
+    "1.3.1",
+    "1.3.0",
+    "1.2.1",
+    "1.2.0",
+    "1.1.5",
+    "1.1.4",
+    "1.1.3",
+    "1.1.2",
+    "1.1.1",
+    "1.1.0",
+    "1.0.0"
+  ]
 }

@@ -42,5 +42,8 @@
       }
     }
   },
-  "readme": "# GoBLE\n\nA Particle port of DFRobot's library for GoBLE\nhttps://www.dfrobot.com/wiki/index.php/Bluetooth_APP_Control\n\nThis enables the uses of genertic BLE modules like HM-10 with Particle for added RC control.\n\nUsing AT commands, set the HM-10 as follows (all other settings at default values):\n\nAT+BAUD4\n\nAT+UUID0xDFB0\n\nAT+CHAR0xDFB1\n\nThen connect hm-10's TX to Particle Serial1_RX, connect power. Good to go.\n\n"
+  "readme": "# GoBLE\n\nA Particle port of DFRobot's library for GoBLE\nhttps://www.dfrobot.com/wiki/index.php/Bluetooth_APP_Control\n\nThis enables the uses of genertic BLE modules like HM-10 with Particle for added RC control.\n\nUsing AT commands, set the HM-10 as follows (all other settings at default values):\n\nAT+BAUD4\n\nAT+UUID0xDFB0\n\nAT+CHAR0xDFB1\n\nThen connect hm-10's TX to Particle Serial1_RX, connect power. Good to go.\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "sh1106\n======\n\nA Spark library for the SH1106 OLED chipset on the I2c bus\n\nFeatures:\n*\ttext display with scrolling\n*\tpixel drawing\n*\trectangles, outline, filled\n*\tlines, any angle\n"
+  "readme": "sh1106\n======\n\nA Spark library for the SH1106 OLED chipset on the I2c bus\n\nFeatures:\n*\ttext display with scrolling\n*\tpixel drawing\n*\trectangles, outline, filled\n*\tlines, any angle\n",
+  "allVersions": [
+    "0.0.2"
+  ]
 }

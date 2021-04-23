@@ -40,5 +40,12 @@
       }
     }
   },
-  "readme": "spark-thermistor-library\n========================\n\nAbout\n-----\nA simple class for calculating temperature from simple 10K negative temperature\ncoefficient (NTC) thermistors.\n\nThis library is adapted from [Arduino Playground Thermistor2](http://playground.arduino.cc/ComponentLib/Thermistor2#TheSimpleCode) and packaged as a library for the Spark Core web IDE.\n\n\nWhat You Need\n-------------\n\n - A 10K NTC thermistor (initially tested with [this one](https://www.sparkfun.com/products/250)\n - A resistor (a 10,000 ohm resistor is used in the example)\n - A couple of wires\n - A Spark Core\n\n\nHow To Use\n----------\n\n - Connect one lead of the thermistor to  VCC.\n - Connect one lead of the resistor to ground and the other lead to the thermistor.\n - Connect a wire from the ground/resistor lead of the thermistor to your desired analog pin.\n\n\nLinks\n-----\n\n - Original [Arduino Playground Thermistor2 reference](http://playground.arduino.cc/ComponentLib/Thermistor2#TheSimpleCode)\n - [10K NTC Thermistor](https://www.sparkfun.com/products/250) at Sparkfun\n"
+  "readme": "spark-thermistor-library\n========================\n\nAbout\n-----\nA simple class for calculating temperature from simple 10K negative temperature\ncoefficient (NTC) thermistors.\n\nThis library is adapted from [Arduino Playground Thermistor2](http://playground.arduino.cc/ComponentLib/Thermistor2#TheSimpleCode) and packaged as a library for the Spark Core web IDE.\n\n\nWhat You Need\n-------------\n\n - A 10K NTC thermistor (initially tested with [this one](https://www.sparkfun.com/products/250)\n - A resistor (a 10,000 ohm resistor is used in the example)\n - A couple of wires\n - A Spark Core\n\n\nHow To Use\n----------\n\n - Connect one lead of the thermistor to  VCC.\n - Connect one lead of the resistor to ground and the other lead to the thermistor.\n - Connect a wire from the ground/resistor lead of the thermistor to your desired analog pin.\n\n\nLinks\n-----\n\n - Original [Arduino Playground Thermistor2 reference](http://playground.arduino.cc/ComponentLib/Thermistor2#TheSimpleCode)\n - [10K NTC Thermistor](https://www.sparkfun.com/products/250) at Sparkfun\n",
+  "allVersions": [
+    "0.0.5",
+    "0.0.4",
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
 }

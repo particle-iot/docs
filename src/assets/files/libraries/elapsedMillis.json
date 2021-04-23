@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "elapsedMillis\n=============\n\n- Jan 2017, updated to Libraries 2.0\n- Adapted for Particle devices\n\nElapsed time types - for easy-to-use measurements of elapsed time\nhttp://www.pjrc.com/teensy/\nCopyright (c) 2011 PJRC.COM, LLC\n\nThese special variable types automatically increase as time elapses.\nIt's easy to check if a certain time has elapsed, while your program\nperforms other work or checks for user input. It is also very to handle\nmultiple tasks requiring different delays.\n"
+  "readme": "elapsedMillis\n=============\n\n- Jan 2017, updated to Libraries 2.0\n- Adapted for Particle devices\n\nElapsed time types - for easy-to-use measurements of elapsed time\nhttp://www.pjrc.com/teensy/\nCopyright (c) 2011 PJRC.COM, LLC\n\nThese special variable types automatically increase as time elapses.\nIt's easy to check if a certain time has elapsed, while your program\nperforms other work or checks for user input. It is also very to handle\nmultiple tasks requiring different delays.\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
 }

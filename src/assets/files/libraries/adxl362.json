@@ -33,5 +33,8 @@
       "noExamples": true
     }
   },
-  "readme": "adxl362\n=======\n"
+  "readme": "adxl362\n=======\n",
+  "allVersions": [
+    "0.0.0"
+  ]
 }

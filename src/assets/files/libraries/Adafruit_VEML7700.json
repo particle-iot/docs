@@ -40,5 +40,10 @@
       }
     }
   },
-  "readme": "Adafruit_VEML7700 \n================\n\nThis is the Adafruit VEML7700 Lux sensor library\n\nTested and works great with the [Adafruit VEML7700 Breakout Board](http://www.adafruit.com/)\n\nPorted to Particle by [nrobinson2000](https://nrobinson.me)\n\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Kevin Townsend/Limor Fried for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution"
+  "readme": "Adafruit_VEML7700 \n================\n\nThis is the Adafruit VEML7700 Lux sensor library\n\nTested and works great with the [Adafruit VEML7700 Breakout Board](http://www.adafruit.com/)\n\nPorted to Particle by [nrobinson2000](https://nrobinson.me)\n\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Kevin Townsend/Limor Fried for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
 }

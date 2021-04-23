@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# max30100_photon\nPort of the Oxullo Interscans max30100 library for MAX30100 pulse ox, Heart Rate sensor for the Particle Photon.\n\nVerified to work on Photon, Not yet tested on Core or Electron.\n\nConnections are Vin-> 3.3V\n                Gnd->Gnd\n                SDA->D0\n                SCL->D1\n"
+  "readme": "# max30100_photon\nPort of the Oxullo Interscans max30100 library for MAX30100 pulse ox, Heart Rate sensor for the Particle Photon.\n\nVerified to work on Photon, Not yet tested on Core or Electron.\n\nConnections are Vin-> 3.3V\n                Gnd->Gnd\n                SDA->D0\n                SCL->D1\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

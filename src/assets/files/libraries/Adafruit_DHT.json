@@ -40,5 +40,10 @@
       }
     }
   },
-  "readme": "Adafruit_DHT\n============\n\nSpark Core DHT Library based on Adafruit Arduino DHT Library\n"
+  "readme": "Adafruit_DHT\n============\n\nSpark Core DHT Library based on Adafruit Arduino DHT Library\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.3",
+    "0.0.2"
+  ]
 }

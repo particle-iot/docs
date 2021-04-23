@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# Simon\nSimon game for Particle Photon with \"Internet Button\" shield.\n\nTo use this in your Internet Button project, here is the code to use in the Particle IDE. You will need to include the \"InternetButton\" and \"Simon\" libraries.\n\n```\n#include \"InternetButton/InternetButton.h\"\n#include \"Simon/Simon.h\"\n\nSimon s = Simon();\n\nvoid setup() {\n    s.setup();   \n}\n\nvoid loop() {\n    s.loop();\n}\n```\n\nMore information at https://particle.hackster.io/Dumky/particle-photon-simon\n"
+  "readme": "# Simon\nSimon game for Particle Photon with \"Internet Button\" shield.\n\nTo use this in your Internet Button project, here is the code to use in the Particle IDE. You will need to include the \"InternetButton\" and \"Simon\" libraries.\n\n```\n#include \"InternetButton/InternetButton.h\"\n#include \"Simon/Simon.h\"\n\nSimon s = Simon();\n\nvoid setup() {\n    s.setup();   \n}\n\nvoid loop() {\n    s.loop();\n}\n```\n\nMore information at https://particle.hackster.io/Dumky/particle-photon-simon\n",
+  "allVersions": [
+    "0.1.0"
+  ]
 }

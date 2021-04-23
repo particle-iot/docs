@@ -29,5 +29,8 @@
       "noExamples": true
     }
   },
-  "readme": ""
+  "readme": "",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

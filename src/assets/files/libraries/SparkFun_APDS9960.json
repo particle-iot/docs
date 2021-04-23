@@ -32,5 +32,8 @@
       },
       "noExamples": true
     }
-  }
+  },
+  "allVersions": [
+    "0.0.1"
+  ]
 }

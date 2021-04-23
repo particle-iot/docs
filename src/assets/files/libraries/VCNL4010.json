@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "Credits go to:\nAdafruit for developing the breakout board and creating the Arduino library\nScruffR from the Particle community for providing help\nsuda from the Particle community for porting the VCNL4000 library"
+  "readme": "Credits go to:\nAdafruit for developing the breakout board and creating the Arduino library\nScruffR from the Particle community for providing help\nsuda from the Particle community for porting the VCNL4000 library",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

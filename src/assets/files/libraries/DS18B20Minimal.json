@@ -40,5 +40,8 @@
       "noExamples": true
     }
   },
-  "readme": "About\n===\n\nMinimal DS18B20 library based on work by Rob Tillaart.\n"
+  "readme": "About\n===\n\nMinimal DS18B20 library based on work by Rob Tillaart.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

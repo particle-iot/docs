@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "GA1A12S202-sensor\n=================\n\nSimple library for GA1A12S202 light/lux sensor\n"
+  "readme": "GA1A12S202-sensor\n=================\n\nSimple library for GA1A12S202 light/lux sensor\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
 }

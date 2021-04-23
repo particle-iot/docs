@@ -40,5 +40,8 @@
       "noExamples": true
     }
   },
-  "readme": "About\n===\n\nLibrary that calculates the running median for uint16_t numbers.  Based on the\nwork by Rob Tillaart.\n"
+  "readme": "About\n===\n\nLibrary that calculates the running median for uint16_t numbers.  Based on the\nwork by Rob Tillaart.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

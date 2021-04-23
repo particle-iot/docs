@@ -40,5 +40,9 @@
       }
     }
   },
-  "readme": "Spark Library for Hover (www.justhover.com)\n\nHover is a development kit that lets you control your hardware projects in a whole new way.\nWave goodbye to physical buttons. Hover detects hand movements in the air for touch-less interaction.\nIt also features five touch-sensitive regions for even more options. Hover uses I2C and 2 digital pins. It is compatible with Arduino, Raspberry Pi and Spark.\n\nWritten by Emran Mahbub and Jonathan Li for Gearseven Studios.\nBSD license, all text above must be included in any redistribution"
+  "readme": "Spark Library for Hover (www.justhover.com)\n\nHover is a development kit that lets you control your hardware projects in a whole new way.\nWave goodbye to physical buttons. Hover detects hand movements in the air for touch-less interaction.\nIt also features five touch-sensitive regions for even more options. Hover uses I2C and 2 digital pins. It is compatible with Arduino, Raspberry Pi and Spark.\n\nWritten by Emran Mahbub and Jonathan Li for Gearseven Studios.\nBSD license, all text above must be included in any redistribution",
+  "allVersions": [
+    "1.1.0",
+    "1.0.0"
+  ]
 }

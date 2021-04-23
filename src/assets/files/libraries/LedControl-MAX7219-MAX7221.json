@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "LedControl\n==========\n\nPort of Eberhard Fahle's LedControl library for controlling the MAX7219/MAX7221 for the Spark Core.\n\nhttps://code.google.com/p/arudino-maxmatrix-library/\n"
+  "readme": "LedControl\n==========\n\nPort of Eberhard Fahle's LedControl library for controlling the MAX7219/MAX7221 for the Spark Core.\n\nhttps://code.google.com/p/arudino-maxmatrix-library/\n",
+  "allVersions": [
+    "0.0.10"
+  ]
 }

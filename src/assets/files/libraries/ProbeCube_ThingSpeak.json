@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "\n"
+  "readme": "\n",
+  "allVersions": [
+    "1.1.1"
+  ]
 }

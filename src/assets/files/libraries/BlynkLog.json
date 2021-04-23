@@ -41,5 +41,8 @@
       }
     }
   },
-  "readme": "# BlynkLog\n\nA Particle library for logging to [Blynk terminal wiget](http://docs.blynk.cc/#widgets-displays-terminal).\n\n## Usage\n\nCreate a logger and pass it an instance of a terminal widget.\n\n```\n#include <blynk.h>\n#include \"BlynkLog.h\"\nWidgetTerminal terminal(V0);\nBlynkLog blynkLog((Stream*)&terminal);\n\nvoid loop() {\n  blynkLog.info(\"Hello world\");\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Logging format\n\nThe library automatically adds timestamp, log level and category. To configure the timestamp format, use \n\n```\nTime.setFormat(\"%m/%d %H:%M\");\n```\n\nFor brievety, log level is abreviated to first letter. For example \n\n```\n02/14 14:23 I: app This is an info level log line\n```"
+  "readme": "# BlynkLog\n\nA Particle library for logging to [Blynk terminal wiget](http://docs.blynk.cc/#widgets-displays-terminal).\n\n## Usage\n\nCreate a logger and pass it an instance of a terminal widget.\n\n```\n#include <blynk.h>\n#include \"BlynkLog.h\"\nWidgetTerminal terminal(V0);\nBlynkLog blynkLog((Stream*)&terminal);\n\nvoid loop() {\n  blynkLog.info(\"Hello world\");\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Logging format\n\nThe library automatically adds timestamp, log level and category. To configure the timestamp format, use \n\n```\nTime.setFormat(\"%m/%d %H:%M\");\n```\n\nFor brievety, log level is abreviated to first letter. For example \n\n```\n02/14 14:23 I: app This is an info level log line\n```",
+  "allVersions": [
+    "0.1.0"
+  ]
 }

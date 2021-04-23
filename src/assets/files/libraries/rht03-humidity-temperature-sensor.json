@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "\nCode to read out the humidity and temperature values from a Maxdetect RHT03 humidity/temperature sensor.\nThat sensor is apparently also known as DHT22 and AM2302.\n\nSee https://www.sparkfun.com/products/10167 and http://www.humiditycn.com/fl1_1.html\n\nMaintained at https://github.com/liyanage/maxdetect-rht03-humidity-sensor\n"
+  "readme": "\nCode to read out the humidity and temperature values from a Maxdetect RHT03 humidity/temperature sensor.\nThat sensor is apparently also known as DHT22 and AM2302.\n\nSee https://www.sparkfun.com/products/10167 and http://www.humiditycn.com/fl1_1.html\n\nMaintained at https://github.com/liyanage/maxdetect-rht03-humidity-sensor\n",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

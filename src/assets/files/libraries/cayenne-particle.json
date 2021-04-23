@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# Cayenne Particle\n\nUnofficial Particle library for Cayenne IoT. This is a heavily modified version\nof the blynk and Cayenne library to work with the Particle's Photon.\n"
+  "readme": "# Cayenne Particle\n\nUnofficial Particle library for Cayenne IoT. This is a heavily modified version\nof the blynk and Cayenne library to work with the Particle's Photon.\n",
+  "allVersions": [
+    "0.1.1"
+  ]
 }

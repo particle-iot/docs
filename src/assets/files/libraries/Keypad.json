@@ -33,5 +33,8 @@
       "noExamples": true
     }
   },
-  "readme": "Keypad-spark\n============\n\nThe Arduino Keypad library ported to Spark Core\n"
+  "readme": "Keypad-spark\n============\n\nThe Arduino Keypad library ported to Spark Core\n",
+  "allVersions": [
+    "3.2.0"
+  ]
 }

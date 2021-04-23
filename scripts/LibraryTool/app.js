@@ -228,12 +228,15 @@ async function testBuilds() {
 }
 
 async function generate() {
+
     const librariesDir = path.join(__dirname, '../../src/assets/files/libraries');
     if (!fs.existsSync(librariesDir)) {
         fs.mkdirSync(librariesDir);
     }
 
     for (const lib of libraryList) {
+        const libSourceDir = path.join(dataLibrariesDir, lib.id);
+
         const libInfoPath = path.join(librariesDir, lib.id + '.json');
 
         // Stuff from the library information API
@@ -283,8 +286,31 @@ async function generate() {
             }
         }
     
-        // TODO: Version history
-
+        // Version history
+        const versionHistory = JSON.parse(fs.readFileSync(path.join(libSourceDir, 'versions.json'), 'utf8'));
+        libInfo.allVersions = [];
+        for(const ver of versionHistory) {
+            if (ver.attributes.visibility === 'public') {
+                libInfo.allVersions.push(ver.attributes.version);
+            }
+        }
+        libInfo.allVersions.sort(function(a, b) {
+            const aParts = a.split('.');
+            const bParts = b.split('.');
+            for(let ii = 0; ii < 3; ii++) {
+                if (bParts.length < ii) {
+                    return -1;
+                }
+                if (aParts.length < ii) {
+                    return +1;
+                }
+                let cmp = parseInt(bParts[ii]) - parseInt(aParts[ii]);
+                if (cmp != 0) {
+                    return cmp;
+                }
+            }
+            return 0;
+        });
 
         let libInfoOld = '';
         if (fs.existsSync(libInfoPath)) {

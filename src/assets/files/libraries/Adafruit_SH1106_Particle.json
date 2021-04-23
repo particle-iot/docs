@@ -48,5 +48,8 @@
       }
     }
   },
-  "readme": "#SH1106 Driver for Particle\n*Actual work was done by (forked from): https://github.com/wonho-maker/Adafruit_SH1106\n*Ported By Gerrit Coetzee, gerritcoetzee.com 2017\n*Stack-overflowed heavily from Paul Kourany's port of the Adafruit_SSD1306 library for particle \n\n\nAdafruit_SH1106\n===============\n\nAdafruit graphic library for SH1106 driver lcds.\n\nsome small oled lcd use SH1106 driver.\n\nI change the adafruit SSD1306 to SH1106 \n\nSH1106 driver similar to SSD1306. thus, just change the display() method. \n \nHowever, SH1106 driver don't provide several functions such as scroll commands.\n\n\n Adafruit-GFX-Library\n https://github.com/adafruit/Adafruit-GFX-Library\n"
+  "readme": "#SH1106 Driver for Particle\n*Actual work was done by (forked from): https://github.com/wonho-maker/Adafruit_SH1106\n*Ported By Gerrit Coetzee, gerritcoetzee.com 2017\n*Stack-overflowed heavily from Paul Kourany's port of the Adafruit_SSD1306 library for particle \n\n\nAdafruit_SH1106\n===============\n\nAdafruit graphic library for SH1106 driver lcds.\n\nsome small oled lcd use SH1106 driver.\n\nI change the adafruit SSD1306 to SH1106 \n\nSH1106 driver similar to SSD1306. thus, just change the display() method. \n \nHowever, SH1106 driver don't provide several functions such as scroll commands.\n\n\n Adafruit-GFX-Library\n https://github.com/adafruit/Adafruit-GFX-Library\n",
+  "allVersions": [
+    "00.00.00"
+  ]
 }

@@ -40,5 +40,11 @@
       }
     }
   },
-  "readme": "About\n===\nI2cMaster-Particle is a beta library for [Particle](https://www.particle.io/) development boards.\n\nIt has only been tested on Photon.\n\nExpect bugs.\n\n## Examples\n\nI included the two examples I used for development.\n\nI2cMasterTest.cpp in firmware/examples folder.\n\nMPU6050 tests in the mpu6050test folder.\n\n\n\n"
+  "readme": "About\n===\nI2cMaster-Particle is a beta library for [Particle](https://www.particle.io/) development boards.\n\nIt has only been tested on Photon.\n\nExpect bugs.\n\n## Examples\n\nI included the two examples I used for development.\n\nI2cMasterTest.cpp in firmware/examples folder.\n\nMPU6050 tests in the mpu6050test folder.\n\n\n\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
 }

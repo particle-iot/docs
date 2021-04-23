@@ -41,5 +41,11 @@
       }
     }
   },
-  "readme": "This is a library for the Adafruit BMP085/BMP180 Barometric Pressure + Temp sensor\n\nDesigned specifically to work with the Adafruit BMP085 or BMP180 Breakout \n  ----> http://www.adafruit.com/products/391\n  ----> http://www.adafruit.com/products/1603\n\nThese displays use I2C to communicate, 2 pins are required to interface\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams \n"
+  "readme": "This is a library for the Adafruit BMP085/BMP180 Barometric Pressure + Temp sensor\n\nDesigned specifically to work with the Adafruit BMP085 or BMP180 Breakout \n  ----> http://www.adafruit.com/products/391\n  ----> http://www.adafruit.com/products/1603\n\nThese displays use I2C to communicate, 2 pins are required to interface\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams \n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
 }

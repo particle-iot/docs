@@ -33,5 +33,8 @@
       "noExamples": true
     }
   },
-  "readme": "AdafruitPN532_Library\n=====================\n\nAdafruit PN532 NFC reader library ported for Spark with Hardware/Software SPI support\n"
+  "readme": "AdafruitPN532_Library\n=====================\n\nAdafruit PN532 NFC reader library ported for Spark with Hardware/Software SPI support\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

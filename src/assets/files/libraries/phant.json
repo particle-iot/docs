@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "About\n===\n\nThis library is based on [Phant-Arduino](https://github.com/sparkfun/phant-arduino)\n\nThis library use Spark firmware [TCPClient library](http://docs.spark.io/firmware/#communication-tcpclient) to send resquests to a Phant server.\nSuccess or failure is not currently validated.\n\nSpark Libraries can be used in the [Spark IDE](https://www.spark.io/build).\n_Soon_ you'll also be able to use them with the [Spark CLI](https://github.com/spark/spark-cli) and when compiling firmware locally with [Spark core-firmware](https://github.com/spark/core-firmware).\n\n## Usage\n\n## TODO\n* Add more documentation\n* Add example scripts\n* Testing\n"
+  "readme": "About\n===\n\nThis library is based on [Phant-Arduino](https://github.com/sparkfun/phant-arduino)\n\nThis library use Spark firmware [TCPClient library](http://docs.spark.io/firmware/#communication-tcpclient) to send resquests to a Phant server.\nSuccess or failure is not currently validated.\n\nSpark Libraries can be used in the [Spark IDE](https://www.spark.io/build).\n_Soon_ you'll also be able to use them with the [Spark CLI](https://github.com/spark/spark-cli) and when compiling firmware locally with [Spark core-firmware](https://github.com/spark/core-firmware).\n\n## Usage\n\n## TODO\n* Add more documentation\n* Add example scripts\n* Testing\n",
+  "allVersions": [
+    "0.0.4"
+  ]
 }

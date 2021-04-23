@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# particle-loop\n============\n\nProvides another way to add multiple loops for the Particle (Spark).\nTested on the Photon."
+  "readme": "# particle-loop\n============\n\nProvides another way to add multiple loops for the Particle (Spark).\nTested on the Photon.",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "#### Library for Seeed's Motor Shield 2.0 That works with Spark's Photon\n"
+  "readme": "#### Library for Seeed's Motor Shield 2.0 That works with Spark's Photon\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

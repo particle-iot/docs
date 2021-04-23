@@ -64,5 +64,8 @@
       }
     }
   },
-  "readme": "# TinyGPS++\n\nTinyGPS++ library for www.particle.com photon and electron."
+  "readme": "# TinyGPS++\n\nTinyGPS++ library for www.particle.com photon and electron.",
+  "allVersions": [
+    "0.9.4"
+  ]
 }

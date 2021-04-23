@@ -41,5 +41,8 @@
       }
     }
   },
-  "readme": "# SparkNunchuk\n\nSpark.io friendly fork of ArduinoNunchuk customized by @creationix.\n\nThis should be available in the list of libraries on spark.io"
+  "readme": "# SparkNunchuk\n\nSpark.io friendly fork of ArduinoNunchuk customized by @creationix.\n\nThis should be available in the list of libraries on spark.io",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

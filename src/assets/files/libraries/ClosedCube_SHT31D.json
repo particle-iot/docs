@@ -59,5 +59,8 @@
       }
     }
   },
-  "readme": "Particle Photon Library for\nClosedCube SHT31-D (SHT35 and SHT30) I2C Digital Humidity and Temperature Sensor Breakout\n=====================================================================================================\n\nYou can see some documentation on the [wiki](https://github.com/hawesg/SHT31D_Particle_Photon_ClosedCube/wiki) please check back as they are a work in progress.\n\nNote: The library supports SHT30 (low-cost) and SHT35 (high-end) sensor versions as well.\n\n---\n### Where to Buy?\nThis library was ported from excellent work by ClosedCube their SHT breakout boards can be purchased from\n<a href=\"https://www.tindie.com/stores/closedcube/?ref=offsite_badges&utm_source=sellers_closedcube&utm_medium=badges&utm_campaign=badge_medium\">Tindie</a>\n"
+  "readme": "Particle Photon Library for\nClosedCube SHT31-D (SHT35 and SHT30) I2C Digital Humidity and Temperature Sensor Breakout\n=====================================================================================================\n\nYou can see some documentation on the [wiki](https://github.com/hawesg/SHT31D_Particle_Photon_ClosedCube/wiki) please check back as they are a work in progress.\n\nNote: The library supports SHT30 (low-cost) and SHT35 (high-end) sensor versions as well.\n\n---\n### Where to Buy?\nThis library was ported from excellent work by ClosedCube their SHT breakout boards can be purchased from\n<a href=\"https://www.tindie.com/stores/closedcube/?ref=offsite_badges&utm_source=sellers_closedcube&utm_medium=badges&utm_campaign=badge_medium\">Tindie</a>\n",
+  "allVersions": [
+    "0.1.1"
+  ]
 }

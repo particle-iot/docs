@@ -48,5 +48,10 @@
       }
     }
   },
-  "readme": "Adafruit_SSD1306\n================\n\nAdafruit_SSD1306 library ported for Spark by Paul Kourany, Mar 18, 2014\nUntested as of Mar 18, 2018\n\n"
+  "readme": "Adafruit_SSD1306\n================\n\nAdafruit_SSD1306 library ported for Spark by Paul Kourany, Mar 18, 2014\nUntested as of Mar 18, 2018\n\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1",
+    "0.0.0"
+  ]
 }

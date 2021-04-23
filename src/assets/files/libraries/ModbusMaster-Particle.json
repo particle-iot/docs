@@ -38,5 +38,11 @@
       }
     }
   },
-  "readme": "# ModbusMaster-Electron [![Build Status](https://travis-ci.org/peergum/ModbusMaster-Electron.svg?branch=master)](https://travis-ci.org/peergum/ModbusMaster-Electron)\nModbusMaster library for the Electron\n\nThis is a derived work from 4-20's library for Arduinos.\n\nDue to time constraint, specific parts/defines to Arduinos were removed, rather than adapted to the Electron environment.\nPlease feel free to improve, adapt or extend as necessary.\n\nCheers\nPhil.\n\n## Changelog\n* 1.0.2: improved performance, added example, allowed parity configuration\n* 1.0.3: increased inter-char timeout from 300ms to 500ms, and send a zero after setting speed for serial sync with sensors\n"
+  "readme": "# ModbusMaster-Electron [![Build Status](https://travis-ci.org/peergum/ModbusMaster-Electron.svg?branch=master)](https://travis-ci.org/peergum/ModbusMaster-Electron)\nModbusMaster library for the Electron\n\nThis is a derived work from 4-20's library for Arduinos.\n\nDue to time constraint, specific parts/defines to Arduinos were removed, rather than adapted to the Electron environment.\nPlease feel free to improve, adapt or extend as necessary.\n\nCheers\nPhil.\n\n## Changelog\n* 1.0.2: improved performance, added example, allowed parity configuration\n* 1.0.3: increased inter-char timeout from 300ms to 500ms, and send a zero after setting speed for serial sync with sensors\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
 }

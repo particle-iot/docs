@@ -30,5 +30,8 @@
       "noExamples": true
     }
   },
-  "readme": "# InfluxDB library for Particle devices\n"
+  "readme": "# InfluxDB library for Particle devices\n",
+  "allVersions": [
+    "0.0.2"
+  ]
 }

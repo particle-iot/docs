@@ -48,5 +48,8 @@
       }
     }
   },
-  "readme": "Spark Adafruit LED Backpack\n===========================\n\nForked from Adafruit's LED Backpack library, for SparkCore\n"
+  "readme": "Spark Adafruit LED Backpack\n===========================\n\nForked from Adafruit's LED Backpack library, for SparkCore\n",
+  "allVersions": [
+    "1.0.0"
+  ]
 }

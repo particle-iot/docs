@@ -38,5 +38,8 @@
       }
     }
   },
-  "readme": "# HT16K33-LED\n\nA Particle library for the HT16K33 LED display driver.\n\n## Usage\n\nConnect the HT16K33 to I2C, add the HT16K33 library to your project and follow this simple example:\n\n```\n#include \"HT16K33-LED.h\"\n\nHT16K33 display;\n\nvoid setup() {\n  display.begin();\n}\n\nvoid loop() {\n  uint8_t dots[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };\n  // Set dots[0], dots[1], etc to other values\n  display.writeDisplay(dots, 0, sizeof(dots));\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\n### `HT16K33`\n\nTODO\n\n## References\n\n- [HT16K33 datasheet](https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf)\n\n## License\nCopyright 2017 Julien Vanier\n\nReleased under the MIT license\n"
+  "readme": "# HT16K33-LED\n\nA Particle library for the HT16K33 LED display driver.\n\n## Usage\n\nConnect the HT16K33 to I2C, add the HT16K33 library to your project and follow this simple example:\n\n```\n#include \"HT16K33-LED.h\"\n\nHT16K33 display;\n\nvoid setup() {\n  display.begin();\n}\n\nvoid loop() {\n  uint8_t dots[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };\n  // Set dots[0], dots[1], etc to other values\n  display.writeDisplay(dots, 0, sizeof(dots));\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\n### `HT16K33`\n\nTODO\n\n## References\n\n- [HT16K33 datasheet](https://cdn-shop.adafruit.com/datasheets/ht16K33v110.pdf)\n\n## License\nCopyright 2017 Julien Vanier\n\nReleased under the MIT license\n",
+  "allVersions": [
+    "1.0.2"
+  ]
 }

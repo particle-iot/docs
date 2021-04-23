@@ -41,5 +41,8 @@
       }
     }
   },
-  "readme": "MQ135 GAS SENSOR\n=====\n\nArduino library for the MQ135 gas sensor\n\n## Datasheet\nCan be found [here](https://www.olimex.com/Products/Components/Sensors/SNS-MQ135/resources/SNS-MQ135.pdf)\n\n## Application\nThey are used in air quality control equipments for buildings/offices, are suitable for detecting of NH3, NOx, alcohol, Benzene, smoke, CO2, etc\n\n## Features\nThis library has:\n - Corrections for temperature and humidity\n - Measurements:\n    - getResistance\n    - getCorrectedResistance\n    - getPPM\n    - getCorrectedPPM\n    - getRZero\n    - getCorrectedRZero\n\nMore Info\n=====\n\nhttps://hackaday.io/project/3475-sniffing-trinket/log/12363-mq135-arduino-library\n"
+  "readme": "MQ135 GAS SENSOR\n=====\n\nArduino library for the MQ135 gas sensor\n\n## Datasheet\nCan be found [here](https://www.olimex.com/Products/Components/Sensors/SNS-MQ135/resources/SNS-MQ135.pdf)\n\n## Application\nThey are used in air quality control equipments for buildings/offices, are suitable for detecting of NH3, NOx, alcohol, Benzene, smoke, CO2, etc\n\n## Features\nThis library has:\n - Corrections for temperature and humidity\n - Measurements:\n    - getResistance\n    - getCorrectedResistance\n    - getPPM\n    - getCorrectedPPM\n    - getRZero\n    - getCorrectedRZero\n\nMore Info\n=====\n\nhttps://hackaday.io/project/3475-sniffing-trinket/log/12363-mq135-arduino-library\n",
+  "allVersions": [
+    "1.9.9"
+  ]
 }

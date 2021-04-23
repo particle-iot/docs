@@ -44,5 +44,9 @@
       }
     }
   },
-  "readme": "# Version 1 of the Experimental AWS SDK for Arduino\n\nAn experimental SDK for contacting AWS Services on Arduino-compatible devices. \n\n##Step 1: Create Amazon DynamoDB Table.\n\nWe are going to use a Table with two columns \"device_id\" and \"time\"\n\n##Step 2: Import AmazonDynamoDB Contributed Library\n\nSketch > Contributed Libraries \"AmazonDynamoDBClient\"\n\n##Step 3: Open the Sample\n\nLoad the .ino or application.cpp file\n\n##Step 4: Modify Keys and WiFi info\n\nModify keys.cpp file and add your keys\nModify application.cpp file with your table details\n\n##Step 5: Verify, Compile and Upload \n\nWire your connected device. After the wiring is finished, you should be able to connect two cables to your computer via usb, compile and upload the code with the Arduino IDE. "
+  "readme": "# Version 1 of the Experimental AWS SDK for Arduino\n\nAn experimental SDK for contacting AWS Services on Arduino-compatible devices. \n\n##Step 1: Create Amazon DynamoDB Table.\n\nWe are going to use a Table with two columns \"device_id\" and \"time\"\n\n##Step 2: Import AmazonDynamoDB Contributed Library\n\nSketch > Contributed Libraries \"AmazonDynamoDBClient\"\n\n##Step 3: Open the Sample\n\nLoad the .ino or application.cpp file\n\n##Step 4: Modify Keys and WiFi info\n\nModify keys.cpp file and add your keys\nModify application.cpp file with your table details\n\n##Step 5: Verify, Compile and Upload \n\nWire your connected device. After the wiring is finished, you should be able to connect two cables to your computer via usb, compile and upload the code with the Arduino IDE. ",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
 }

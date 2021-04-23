@@ -43,5 +43,8 @@
       }
     }
   },
-  "readme": "# Adafruit_STMPE610_RK\nPort of the Adafruit STMPE610 touch screen driver for Particle Argon, Boron, and Xenon\n"
+  "readme": "# Adafruit_STMPE610_RK\nPort of the Adafruit STMPE610 touch screen driver for Particle Argon, Boron, and Xenon\n",
+  "allVersions": [
+    "1.0.1"
+  ]
 }

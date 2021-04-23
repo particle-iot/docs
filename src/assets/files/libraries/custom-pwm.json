@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "# custom-pwm\nUsing Particle functions\n\nUpdated 6.0.0 firmware allows for custom PWM settings, this is barely abstracting those functions, mainly learning to contribute a library for me.\n"
+  "readme": "# custom-pwm\nUsing Particle functions\n\nUpdated 6.0.0 firmware allows for custom PWM settings, this is barely abstracting those functions, mainly learning to contribute a library for me.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }

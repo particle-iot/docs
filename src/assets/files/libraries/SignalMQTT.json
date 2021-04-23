@@ -33,5 +33,10 @@
       "noExamples": true
     }
   },
-  "readme": "## MySignal.io MQTT library for Particle Devices\n\nThis library allows you to easily connect your Particle device to the MySignal.io platform and publish your asset tracker data. For example on how to use, see this Hackster tutorial:\n\nhttps://www.hackster.io/YanSarazin/particle-asset-tracker-with-mysignal-io-using-mqtt-1a853e\n"
+  "readme": "## MySignal.io MQTT library for Particle Devices\n\nThis library allows you to easily connect your Particle device to the MySignal.io platform and publish your asset tracker data. For example on how to use, see this Hackster tutorial:\n\nhttps://www.hackster.io/YanSarazin/particle-asset-tracker-with-mysignal-io-using-mqtt-1a853e\n",
+  "allVersions": [
+    "1.1.1",
+    "1.1.0",
+    "1.0.7"
+  ]
 }

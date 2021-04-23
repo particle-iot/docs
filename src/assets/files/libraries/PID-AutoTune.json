@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "Credits go to:\nBrett Beauregard for creating the Arduino library\nScruffR from the Particle community for providing help\n\n// ************************************************\n// This library relies on the PID library\n// You must not forget to include it on your own!\n// ************************************************"
+  "readme": "Credits go to:\nBrett Beauregard for creating the Arduino library\nScruffR from the Particle community for providing help\n\n// ************************************************\n// This library relies on the PID library\n// You must not forget to include it on your own!\n// ************************************************",
+  "allVersions": [
+    "0.0.3"
+  ]
 }

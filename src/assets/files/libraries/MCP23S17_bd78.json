@@ -40,5 +40,8 @@
       }
     }
   },
-  "readme": "MCP23S17\n========\n\nArduino and Spark Core Library for MCP23S17 SPI IO expander\n\n\nFor API documentation, see http://playground.arduino.cc/Main/MCP23S17\n"
+  "readme": "MCP23S17\n========\n\nArduino and Spark Core Library for MCP23S17 SPI IO expander\n\n\nFor API documentation, see http://playground.arduino.cc/Main/MCP23S17\n",
+  "allVersions": [
+    "0.0.1"
+  ]
 }
