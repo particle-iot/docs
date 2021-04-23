@@ -187,7 +187,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         // Library browser
         md += '## Browse Library Files\n'
         md += '\n';
-        md += '{{> library-browser height="500"}}\n\n';
+        md += '{{> library-browser}}\n\n';
 
         // Parse out headers for navigation
         let h2 = [];
@@ -223,9 +223,11 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         }
 
         for (const curLetter of letters) {
+            let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
+
             newFile.navigation += '<ul class="static-toc">';
             if (lib.letter == curLetter) {
-                newFile.navigation += '<li class="top-level active"><span>' + curLetter.toUpperCase() + '</span></li>';
+                newFile.navigation += '<li class="top-level active"><span>' + letterUC + '</span></li>';
 
                 newFile.navigation += '<div class="in-page-toc-container">';
                 for (let tempName of letterLibraries[lib.letter]) {
@@ -248,7 +250,7 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
                 newFile.navigation += '</div">';
             }
             else {
-                newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + curLetter.toUpperCase() + '</a></li>';
+                newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + letterUC + '</a></li>';
             }
             newFile.navigation += '</ul>';
         }
@@ -295,7 +297,8 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
 
         for (const curLetter of letters) {
             newFile.navigation += '<ul class="static-toc">';
-            newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + curLetter.toUpperCase() + '</a></li>';
+            let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
+            newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + letterUC + '</a></li>';
             newFile.navigation += '</ul>';
         }
 
@@ -358,14 +361,18 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         }, this)
     })
 
-    let oldSearchIndex = '';
-    if (fs.existsSync(searchIndexPath)) {
-        oldSearchIndex = fs.readFileSync(searchIndexPath, 'utf8');
+    let paths = [];
+    let curPath = path.dirname(searchIndexPath);
+    while (!fs.existsSync(curPath)) {
+        paths.push(curPath);
+        curPath = path.dirname(curPath);
     }
+    while(paths.length) {
+        fs.mkdirSync(paths.pop());
+    }
+    
     const newSearchIndex = JSON.stringify(lunrIndex, null, 2);
-    if (oldSearchIndex != newSearchIndex) {
-        fs.writeFileSync(searchIndexPath, newSearchIndex);
-    }
+    fs.writeFileSync(searchIndexPath, newSearchIndex);
 }
 
 

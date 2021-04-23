@@ -294,7 +294,7 @@ exports.metalsmith = function () {
     }))
     .use(libraries({
       sourceDir: '../src/assets/files/libraries',
-      searchIndex: '../src/assets/files/librarySearch.json',
+      searchIndex: '../build/assets/files/librarySearch.json',
       redirects: '../config/redirects.json'
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
