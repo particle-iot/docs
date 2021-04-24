@@ -35,6 +35,20 @@
           "boron": {
             "photon-wdgs-demo": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "photon-wdgs-demo": true
+          },
+          "electron": {
+            "photon-wdgs-demo": false
+          },
+          "argon": {
+            "photon-wdgs-demo": false
+          },
+          "boron": {
+            "photon-wdgs-demo": false
+          }
         }
       }
     }

@@ -40,6 +40,28 @@
             "gesture_sensor": true,
             "proximity_sensor": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "electron": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": true
+          },
+          "argon": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          },
+          "boron": {
+            "color_sensor": true,
+            "gesture_sensor": true,
+            "proximity_sensor": false
+          }
         }
       }
     }

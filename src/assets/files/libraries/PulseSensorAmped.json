@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PulseSensorAmped",
     "version": "0.0.2",
-    "installs": 235,
+    "installs": 251,
     "author": "Bill Siever <bsiever@gmail.com>",
     "sentence": "Argon Port of Pulse Sensor Amped support",
     "url": "https://github.com/bsiever/Argon-pulsesensoramped",
@@ -23,6 +23,24 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "electron": {
+            "bluetooth": false,
+            "usage": false
+          },
+          "argon": {
+            "bluetooth": true,
+            "usage": true
+          },
+          "boron": {
+            "bluetooth": false,
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "bluetooth": false,
             "usage": false

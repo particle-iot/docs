@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_OpenLog_Arduino_Library",
     "version": "3.0.1",
-    "installs": 158,
+    "installs": 159,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic OpenLog",
@@ -28,6 +28,60 @@
     "3.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example10_CheckStatus": true,
+            "Example11_ChangeAddress": true,
+            "Example1_WritingLog": true,
+            "Example2_AppendFile": true,
+            "Example3_CreateFile": true,
+            "Example4_ReadFileSize": true,
+            "Example5_ReadFile": true,
+            "Example6_MakeDirectory": true,
+            "Example7_ReadDirectoryContents": true,
+            "Example8_RemoveDirectory": true,
+            "Example9_ReadVersion": true
+          },
+          "electron": {
+            "Example10_CheckStatus": true,
+            "Example11_ChangeAddress": true,
+            "Example1_WritingLog": true,
+            "Example2_AppendFile": true,
+            "Example3_CreateFile": true,
+            "Example4_ReadFileSize": true,
+            "Example5_ReadFile": true,
+            "Example6_MakeDirectory": true,
+            "Example7_ReadDirectoryContents": true,
+            "Example8_RemoveDirectory": true,
+            "Example9_ReadVersion": true
+          },
+          "argon": {
+            "Example10_CheckStatus": true,
+            "Example11_ChangeAddress": true,
+            "Example1_WritingLog": true,
+            "Example2_AppendFile": true,
+            "Example3_CreateFile": true,
+            "Example4_ReadFileSize": true,
+            "Example5_ReadFile": true,
+            "Example6_MakeDirectory": true,
+            "Example7_ReadDirectoryContents": true,
+            "Example8_RemoveDirectory": true,
+            "Example9_ReadVersion": true
+          },
+          "boron": {
+            "Example10_CheckStatus": true,
+            "Example11_ChangeAddress": true,
+            "Example1_WritingLog": true,
+            "Example2_AppendFile": true,
+            "Example3_CreateFile": true,
+            "Example4_ReadFileSize": true,
+            "Example5_ReadFile": true,
+            "Example6_MakeDirectory": true,
+            "Example7_ReadDirectoryContents": true,
+            "Example8_RemoveDirectory": true,
+            "Example9_ReadVersion": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example10_CheckStatus": true,
             "Example11_ChangeAddress": true,

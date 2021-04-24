@@ -43,6 +43,24 @@
             "DHT_Unified_Sensor": true,
             "DHTtester": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "DHT_Unified_Sensor": true,
+            "DHTtester": true
+          },
+          "electron": {
+            "DHT_Unified_Sensor": true,
+            "DHTtester": true
+          },
+          "argon": {
+            "DHT_Unified_Sensor": true,
+            "DHTtester": true
+          },
+          "boron": {
+            "DHT_Unified_Sensor": true,
+            "DHTtester": true
+          }
         }
       }
     }

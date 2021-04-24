@@ -40,6 +40,24 @@
             "MPR121_ISR": true,
             "MPR121_Test": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MPR121_ISR": true,
+            "MPR121_Test": true
+          },
+          "electron": {
+            "MPR121_ISR": true,
+            "MPR121_Test": true
+          },
+          "argon": {
+            "MPR121_ISR": true,
+            "MPR121_Test": true
+          },
+          "boron": {
+            "MPR121_ISR": true,
+            "MPR121_Test": true
+          }
         }
       }
     }

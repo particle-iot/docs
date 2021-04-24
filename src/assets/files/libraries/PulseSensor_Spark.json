@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PulseSensor_Spark",
     "version": "1.5.4",
-    "installs": 13368,
+    "installs": 13467,
     "license": "CreativeCommons",
     "author": "Joel Murphy, Yury Gitman, ported by Paul Kourany",
     "sentence": "PulseSensor Amped library v1.4 for Particle devices",
@@ -24,6 +24,20 @@
     "1.5.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "electron": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "argon": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          },
+          "boron": {
+            "PulseSensorAmped_Arduino_1dot4": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "PulseSensorAmped_Arduino_1dot4": false
           },

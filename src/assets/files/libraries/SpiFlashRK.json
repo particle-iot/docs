@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SpiFlashRK",
     "version": "0.0.9",
-    "installs": 8612,
+    "installs": 8619,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle library for SPI NOR flash chips",
@@ -26,6 +26,28 @@
     "0.0.9": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "electron": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "argon": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          },
+          "boron": {
+            "1-unittest-SpiFlashRK": true,
+            "2-unittest-winbond": true,
+            "3-unittest-large": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-unittest-SpiFlashRK": true,
             "2-unittest-winbond": true,

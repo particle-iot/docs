@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CellularHelper",
     "version": "0.2.5",
-    "installs": 86599,
+    "installs": 86643,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Handy utility functions for cellular devices",
@@ -29,6 +29,40 @@
     "0.2.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-simple": false,
+            "2-show-carriers": false,
+            "3-select-carrier": false,
+            "4-cell-locate": false,
+            "5-cellular-global-identity": false,
+            "6-no-cellular-test": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-show-carriers": true,
+            "3-select-carrier": true,
+            "4-cell-locate": true,
+            "5-cellular-global-identity": true,
+            "6-no-cellular-test": true
+          },
+          "argon": {
+            "1-simple": false,
+            "2-show-carriers": false,
+            "3-select-carrier": false,
+            "4-cell-locate": false,
+            "5-cellular-global-identity": false,
+            "6-no-cellular-test": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-show-carriers": true,
+            "3-select-carrier": true,
+            "4-cell-locate": true,
+            "5-cellular-global-identity": true,
+            "6-no-cellular-test": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-simple": false,
             "2-show-carriers": false,

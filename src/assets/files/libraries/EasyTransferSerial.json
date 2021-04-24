@@ -48,6 +48,32 @@
             "EasyTransfer_RX_Example": true,
             "EasyTransfer_TX_Example": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          },
+          "electron": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          },
+          "argon": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          },
+          "boron": {
+            "EasyTransfer_2Way_wPot_Example": true,
+            "EasyTransfer_2Way_wServo_Example": true,
+            "EasyTransfer_RX_Example": true,
+            "EasyTransfer_TX_Example": true
+          }
         }
       }
     }

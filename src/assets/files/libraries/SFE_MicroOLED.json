@@ -63,6 +63,44 @@
             "MicroOLED_Hello": true,
             "MicroOLED_Rick_and_Morty_I2C": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true,
+            "MicroOLED_Rick_and_Morty_I2C": false
+          },
+          "electron": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true,
+            "MicroOLED_Rick_and_Morty_I2C": false
+          },
+          "argon": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true,
+            "MicroOLED_Rick_and_Morty_I2C": false
+          },
+          "boron": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true,
+            "MicroOLED_Rick_and_Morty_I2C": false
+          }
         }
       }
     }

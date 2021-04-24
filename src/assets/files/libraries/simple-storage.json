@@ -7,7 +7,7 @@
   "attributes": {
     "name": "simple-storage",
     "version": "1.0.0",
-    "installs": 573,
+    "installs": 574,
     "license": "MIT",
     "author": "Julien Vanier <jvanier@gmail.com>",
     "sentence": "Load and store configuration from the EEPROM",
@@ -25,6 +25,24 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "basic": true,
+            "migration": true
+          },
+          "electron": {
+            "basic": true,
+            "migration": true
+          },
+          "argon": {
+            "basic": true,
+            "migration": true
+          },
+          "boron": {
+            "basic": true,
+            "migration": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "basic": true,
             "migration": true

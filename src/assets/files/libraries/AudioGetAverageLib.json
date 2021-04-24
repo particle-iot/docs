@@ -36,6 +36,20 @@
           "boron": {
             "AudioGetAverageLibSample": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AudioGetAverageLibSample": true
+          },
+          "electron": {
+            "AudioGetAverageLibSample": true
+          },
+          "argon": {
+            "AudioGetAverageLibSample": true
+          },
+          "boron": {
+            "AudioGetAverageLibSample": true
+          }
         }
       }
     }

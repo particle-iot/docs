@@ -60,6 +60,44 @@
             "6_accel": false,
             "7_uv": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "electron": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "argon": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "boron": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PS2Communication",
     "version": "0.0.8",
-    "installs": 478,
+    "installs": 479,
     "license": "GNU Lesser General Public License",
     "author": "ScruffR",
     "sentence": "Basic PS/2 communication framework (Core/Photon/P1)",
@@ -24,6 +24,20 @@
     "0.0.8": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "PS2Mouse": false
+          },
+          "electron": {
+            "PS2Mouse": false
+          },
+          "argon": {
+            "PS2Mouse": false
+          },
+          "boron": {
+            "PS2Mouse": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "PS2Mouse": false
           },

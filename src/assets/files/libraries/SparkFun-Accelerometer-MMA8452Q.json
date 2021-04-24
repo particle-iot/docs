@@ -39,6 +39,20 @@
           "boron": {
             "SparkFun_MMA8452Q_Basic": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "electron": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "argon": {
+            "SparkFun_MMA8452Q_Basic": true
+          },
+          "boron": {
+            "SparkFun_MMA8452Q_Basic": true
+          }
         }
       }
     }

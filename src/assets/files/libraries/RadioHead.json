@@ -43,6 +43,24 @@
             "raspi": false,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "raspi": false,
+            "usage": false
+          },
+          "electron": {
+            "raspi": false,
+            "usage": false
+          },
+          "argon": {
+            "raspi": false,
+            "usage": false
+          },
+          "boron": {
+            "raspi": false,
+            "usage": false
+          }
         }
       }
     }

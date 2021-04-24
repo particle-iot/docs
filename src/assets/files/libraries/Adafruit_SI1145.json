@@ -36,6 +36,20 @@
           "boron": {
             "si1145test": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "si1145test": true
+          },
+          "electron": {
+            "si1145test": true
+          },
+          "argon": {
+            "si1145test": true
+          },
+          "boron": {
+            "si1145test": true
+          }
         }
       }
     }

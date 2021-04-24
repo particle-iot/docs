@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AdafruitDataLoggerRK",
     "version": "0.0.1",
-    "installs": 3667,
+    "installs": 3668,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for the Adafruit SD card and RTC FeatherWing",
     "url": "https://github.com/rickkas7/AdafruitDataLoggerRK",
@@ -24,6 +24,28 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "electron": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "argon": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          },
+          "boron": {
+            "1-SdFat": true,
+            "2-SdRotatingFile": true,
+            "3-TimeSync": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-SdFat": true,
             "2-SdRotatingFile": true,

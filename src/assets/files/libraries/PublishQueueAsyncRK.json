@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PublishQueueAsyncRK",
     "version": "0.2.0",
-    "installs": 34771,
+    "installs": 34794,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Asynchronous publishing code for the Particle Electron",
@@ -26,6 +26,32 @@
     "0.2.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": false
+          },
+          "electron": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": false
+          },
+          "argon": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          },
+          "boron": {
+            "1-periodic": true,
+            "2-button-and-timer": true,
+            "3-test-suite": true,
+            "4-test-suite-posix": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-periodic": true,
             "2-button-and-timer": true,

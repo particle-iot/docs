@@ -7,7 +7,7 @@
   "attributes": {
     "name": "debugging",
     "version": "0.0.3",
-    "installs": 188,
+    "installs": 189,
     "author": "SkippyTheIdiot",
     "repository": "https://github.com/SkippyTheIdiot/Particle/tree/master/Libraries/debugging",
     "architectures": [],
@@ -21,6 +21,36 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "electron": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "argon": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          },
+          "boron": {
+            "i2c-scanner": true,
+            "serial-monitor": false,
+            "test-neopixel": false,
+            "test-vbat": false,
+            "wifi": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "i2c-scanner": true,
             "serial-monitor": false,

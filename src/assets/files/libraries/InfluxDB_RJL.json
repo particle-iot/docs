@@ -7,7 +7,7 @@
   "attributes": {
     "name": "InfluxDB_RJL",
     "version": "0.1.0",
-    "installs": 628,
+    "installs": 629,
     "license": "LGPL",
     "author": "Richard Lyon <richardlyon@fastmail.com>",
     "sentence": "InfluxDB library for Particle",
@@ -25,6 +25,20 @@
     "0.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

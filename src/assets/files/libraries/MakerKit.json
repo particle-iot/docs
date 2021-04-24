@@ -50,6 +50,32 @@
             "3_conf_rm_monitor": false,
             "4_temp_logger": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "electron": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "argon": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          },
+          "boron": {
+            "1_servo_gong": false,
+            "2_next_bus_alert": false,
+            "3_conf_rm_monitor": false,
+            "4_temp_logger": false
+          }
         }
       }
     }

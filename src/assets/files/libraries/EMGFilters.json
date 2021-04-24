@@ -7,7 +7,7 @@
   "attributes": {
     "name": "EMGFilters",
     "version": "1.0.0",
-    "installs": 527,
+    "installs": 528,
     "author": "Yuyou Liang",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

@@ -36,6 +36,20 @@
           "boron": {
             "HelloWorld": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "HelloWorld": true
+          },
+          "electron": {
+            "HelloWorld": true
+          },
+          "argon": {
+            "HelloWorld": true
+          },
+          "boron": {
+            "HelloWorld": true
+          }
         }
       }
     }

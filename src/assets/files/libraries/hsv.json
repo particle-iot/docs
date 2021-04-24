@@ -36,6 +36,20 @@
           "boron": {
             "rainbow": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "rainbow": true
+          },
+          "electron": {
+            "rainbow": true
+          },
+          "argon": {
+            "rainbow": true
+          },
+          "boron": {
+            "rainbow": true
+          }
         }
       }
     }

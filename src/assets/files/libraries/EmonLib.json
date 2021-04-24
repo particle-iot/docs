@@ -38,6 +38,24 @@
             "current_only": true,
             "voltage_and_current": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "electron": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "argon": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "boron": {
+            "current_only": true,
+            "voltage_and_current": true
+          }
         }
       }
     }

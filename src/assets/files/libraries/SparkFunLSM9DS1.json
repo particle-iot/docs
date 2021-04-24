@@ -40,6 +40,24 @@
             "LSM9DS1_Basic_I2C": false,
             "LSM9DS1_Basic_SPI": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "electron": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "argon": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          },
+          "boron": {
+            "LSM9DS1_Basic_I2C": false,
+            "LSM9DS1_Basic_SPI": false
+          }
         }
       }
     }

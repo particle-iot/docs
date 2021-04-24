@@ -39,6 +39,20 @@
           "boron": {
             "base64": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "base64": true
+          },
+          "electron": {
+            "base64": true
+          },
+          "argon": {
+            "base64": true
+          },
+          "boron": {
+            "base64": true
+          }
         }
       }
     }

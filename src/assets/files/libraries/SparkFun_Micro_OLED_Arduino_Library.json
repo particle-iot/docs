@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Micro_OLED_Arduino_Library",
     "version": "1.2.7",
-    "installs": 177,
+    "installs": 178,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the <a href=\"https://www.sparkfun.com/products/13003\">SparkFun Micro OLED Breakout</a>.",
@@ -28,6 +28,40 @@
     "1.2.7": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          },
+          "electron": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          },
+          "argon": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          },
+          "boron": {
+            "MicroOLED_Clock": true,
+            "MicroOLED_Cube": true,
+            "MicroOLED_Demo": true,
+            "MicroOLED_Demo_I2C": true,
+            "MicroOLED_DrawBitmap": true,
+            "MicroOLED_Hello": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "MicroOLED_Clock": true,
             "MicroOLED_Cube": true,

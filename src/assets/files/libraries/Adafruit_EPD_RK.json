@@ -38,6 +38,20 @@
           "boron": {
             "FeatherWingTest": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "FeatherWingTest": true
+          },
+          "electron": {
+            "FeatherWingTest": true
+          },
+          "argon": {
+            "FeatherWingTest": true
+          },
+          "boron": {
+            "FeatherWingTest": true
+          }
         }
       }
     }

@@ -34,6 +34,20 @@
           "boron": {
             "magsensor": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "magsensor": false
+          },
+          "electron": {
+            "magsensor": false
+          },
+          "argon": {
+            "magsensor": false
+          },
+          "boron": {
+            "magsensor": false
+          }
         }
       }
     }

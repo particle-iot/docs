@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_AS3935_Lightning_Detector_Arduino_Library",
     "version": "1.4.1",
-    "installs": 321,
+    "installs": 322,
     "author": "Elias Santistevan",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "This is an Arduino Library for the AS3935 Lightning Detector by AMS",
@@ -27,6 +27,40 @@
     "1.4.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_BasicLightning_I2C": false,
+            "Example1_BasicLightning_SPI": false,
+            "Example2_More_Lightning_Features_I2C": false,
+            "Example2_More_Lightning_Features_SPI": false,
+            "Example3_Tune_Antenna_I2C": false,
+            "Example3_Tune_Antenna_SPI": false
+          },
+          "electron": {
+            "Example1_BasicLightning_I2C": false,
+            "Example1_BasicLightning_SPI": false,
+            "Example2_More_Lightning_Features_I2C": false,
+            "Example2_More_Lightning_Features_SPI": false,
+            "Example3_Tune_Antenna_I2C": false,
+            "Example3_Tune_Antenna_SPI": false
+          },
+          "argon": {
+            "Example1_BasicLightning_I2C": false,
+            "Example1_BasicLightning_SPI": false,
+            "Example2_More_Lightning_Features_I2C": false,
+            "Example2_More_Lightning_Features_SPI": false,
+            "Example3_Tune_Antenna_I2C": false,
+            "Example3_Tune_Antenna_SPI": false
+          },
+          "boron": {
+            "Example1_BasicLightning_I2C": false,
+            "Example1_BasicLightning_SPI": false,
+            "Example2_More_Lightning_Features_I2C": false,
+            "Example2_More_Lightning_Features_SPI": false,
+            "Example3_Tune_Antenna_I2C": false,
+            "Example3_Tune_Antenna_SPI": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_BasicLightning_I2C": false,
             "Example1_BasicLightning_SPI": false,

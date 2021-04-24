@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FiniteStateMachine",
     "version": "1.9.0",
-    "installs": 22890,
+    "installs": 22891,
     "license": "GNU General Public License, version 2",
     "author": "Gustavo Gonnet <gusgonnet@gmail.com>",
     "sentence": "A simple Finite State Machine Library",
@@ -25,6 +25,24 @@
     "1.9.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": true,
+            "typed": true
+          },
+          "electron": {
+            "example": true,
+            "typed": true
+          },
+          "argon": {
+            "example": true,
+            "typed": true
+          },
+          "boron": {
+            "example": true,
+            "typed": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": true,
             "typed": true

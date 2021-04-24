@@ -36,6 +36,20 @@
           "boron": {
             "vl53l0x": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "vl53l0x": true
+          },
+          "electron": {
+            "vl53l0x": true
+          },
+          "argon": {
+            "vl53l0x": true
+          },
+          "boron": {
+            "vl53l0x": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VL53L1X_Arduino_Library",
     "version": "1.2.9",
-    "installs": 892,
+    "installs": 919,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic 4m Distance Sensor - VL53L1X",
@@ -28,6 +28,40 @@
     "1.2.9": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "electron": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "argon": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          },
+          "boron": {
+            "Example1_ReadDistance": true,
+            "Example2_SetDistanceMode": true,
+            "Example3_StatusAndRate": true,
+            "Example4_SetIntermeasurementPeriod": true,
+            "Example6_ArduinoPlotterOutput": true,
+            "Example7_Calibration": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_ReadDistance": true,
             "Example2_SetDistanceMode": true,

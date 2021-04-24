@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SSD1306",
     "version": "0.0.2",
-    "installs": 260008,
+    "installs": 260192,
     "license": "SOME",
     "author": "Paul Kourany <pkourany@gmail.com>",
     "sentence": "A Port of the ADAFruit SSD1306 libary",
@@ -24,6 +24,28 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "electron": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "argon": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          },
+          "boron": {
+            "ssd1306_128x64_i2c": false,
+            "ssd1306_128x64_spi": false,
+            "surfsoon-oled": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "ssd1306_128x64_i2c": false,
             "ssd1306_128x64_spi": false,

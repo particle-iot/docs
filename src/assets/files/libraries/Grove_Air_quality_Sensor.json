@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_Air_quality_Sensor",
     "version": "1.0.1",
-    "installs": 8836,
+    "installs": 8840,
     "license": "MIT",
     "author": "Seeed Studio",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
@@ -34,6 +34,24 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "electron": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "argon": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          },
+          "boron": {
+            "Grove_Air_Quality_Sensor": true,
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Grove_Air_Quality_Sensor": true,
             "usage": false

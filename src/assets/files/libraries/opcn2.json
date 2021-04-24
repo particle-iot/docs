@@ -44,6 +44,28 @@
             "tests": true,
             "wifi-opc": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "electron": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "argon": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          },
+          "boron": {
+            "run-the-opc": true,
+            "tests": true,
+            "wifi-opc": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LM75A",
     "version": "1.1.0",
-    "installs": 94,
+    "installs": 95,
     "license": "MIT License",
     "author": "Quentin Comte-Gaz",
     "sentence": "I2C LM75A Temperature Sensor",
@@ -29,6 +29,20 @@
     "1.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

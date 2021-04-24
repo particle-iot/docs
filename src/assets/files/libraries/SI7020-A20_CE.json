@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SI7020-A20_CE",
     "version": "1.0.0",
-    "installs": 1527,
+    "installs": 1529,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of www.ControlEverything.com SI7020-A20 temperature sensor Mini module",
@@ -24,6 +24,24 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "electron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "argon": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          },
+          "boron": {
+            "1_Reading_Temperature": true,
+            "2_Publishing_Temperature": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1_Reading_Temperature": true,
             "2_Publishing_Temperature": true

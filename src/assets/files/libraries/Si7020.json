@@ -36,6 +36,20 @@
           "boron": {
             "Si7020_example": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Si7020_example": true
+          },
+          "electron": {
+            "Si7020_example": true
+          },
+          "argon": {
+            "Si7020_example": true
+          },
+          "boron": {
+            "Si7020_example": true
+          }
         }
       }
     }

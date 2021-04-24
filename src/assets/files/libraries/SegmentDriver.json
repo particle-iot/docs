@@ -36,6 +36,20 @@
           "boron": {
             "RSSI_Example": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "RSSI_Example": true
+          },
+          "electron": {
+            "RSSI_Example": false
+          },
+          "argon": {
+            "RSSI_Example": false
+          },
+          "boron": {
+            "RSSI_Example": false
+          }
         }
       }
     }

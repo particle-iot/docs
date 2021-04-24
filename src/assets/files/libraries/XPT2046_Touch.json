@@ -36,6 +36,20 @@
           "boron": {
             "with_serial": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "with_serial": true
+          },
+          "electron": {
+            "with_serial": true
+          },
+          "argon": {
+            "with_serial": true
+          },
+          "boron": {
+            "with_serial": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NtpTime",
     "version": "0.0.3",
-    "installs": 3866,
+    "installs": 3867,
     "license": "MIT License",
     "author": "ClassTech",
     "sentence": "Simple sync of system clock to NTP",
@@ -25,6 +25,20 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

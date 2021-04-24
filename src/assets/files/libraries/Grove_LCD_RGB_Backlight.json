@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_LCD_RGB_Backlight",
     "version": "1.0.1",
-    "installs": 13378,
+    "installs": 13492,
     "license": "MIT License",
     "author": "Loovee / Paul Kourany",
     "sentence": "Seeedstudio Grove LCD RGB Backlight library",
@@ -24,6 +24,64 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "electron": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "argon": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          },
+          "boron": {
+            "Autoscroll": true,
+            "Blink": true,
+            "Cursor": true,
+            "CustomCharacter": true,
+            "Display": true,
+            "HelloWorld": true,
+            "Scroll": true,
+            "SerialDisplay": true,
+            "TextDirection": true,
+            "fade": true,
+            "setColor": true,
+            "setCursor": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Autoscroll": true,
             "Blink": true,

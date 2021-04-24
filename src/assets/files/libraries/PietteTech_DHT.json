@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PietteTech_DHT",
     "version": "0.0.12",
-    "installs": 137963,
+    "installs": 138111,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Scott Piette / Migrated and bug-fixed by ScruffR",
     "sentence": "Interrupt driven DHT11/21/22 Sensor library for Particle devices",
@@ -25,6 +25,28 @@
     "0.0.12": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "electron": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "argon": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          },
+          "boron": {
+            "DHT_2sensor": true,
+            "DHT_example": true,
+            "DHT_simple": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "DHT_2sensor": true,
             "DHT_example": true,

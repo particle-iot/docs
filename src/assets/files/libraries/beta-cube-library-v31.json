@@ -60,6 +60,44 @@
             "streaming": false,
             "text": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "blink": true,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": true,
+            "multiline": true,
+            "streaming": true,
+            "text": false
+          },
+          "electron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "js-streaming": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false,
+            "text": false
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "gbjFilterExponential",
     "version": "1.1.0",
-    "installs": 474,
+    "installs": 475,
     "license": "MIT",
     "author": "Libor Gabaj <libor.gabaj@gmail.com>",
     "maintainer": "Libor Gabaj <libor.gabaj@gmail.com>",
@@ -32,6 +32,20 @@
     "1.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "analog_input_filtering": false
+          },
+          "electron": {
+            "analog_input_filtering": false
+          },
+          "argon": {
+            "analog_input_filtering": false
+          },
+          "boron": {
+            "analog_input_filtering": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "analog_input_filtering": false
           },

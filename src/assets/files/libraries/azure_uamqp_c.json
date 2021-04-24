@@ -7,7 +7,7 @@
   "attributes": {
     "name": "azure_uamqp_c",
     "version": "0.0.2",
-    "installs": 544,
+    "installs": 545,
     "license": "MIT",
     "author": "dcristo@microsoft.com",
     "sentence": "Experimental port - General purpose AMQP library",
@@ -24,6 +24,20 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "main": false
           },

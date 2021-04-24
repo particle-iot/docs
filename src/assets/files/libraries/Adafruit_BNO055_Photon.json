@@ -48,6 +48,36 @@
             "restore_offsets": true,
             "sensorapi": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "electron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "argon": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          },
+          "boron": {
+            "BNO055": true,
+            "bunny": true,
+            "rawdata": true,
+            "restore_offsets": true,
+            "sensorapi": true
+          }
         }
       }
     }

@@ -40,6 +40,24 @@
             "genieSpark_Demo": true,
             "genieSpark_Demo_MultiScreen": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "genieSpark_Demo": true,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "electron": {
+            "genieSpark_Demo": true,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "argon": {
+            "genieSpark_Demo": true,
+            "genieSpark_Demo_MultiScreen": false
+          },
+          "boron": {
+            "genieSpark_Demo": true,
+            "genieSpark_Demo_MultiScreen": false
+          }
         }
       }
     }

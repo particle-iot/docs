@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FIDOTMRpcm",
     "version": "1.0.0",
-    "installs": 117,
+    "installs": 118,
     "author": "C Guy",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,32 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "electron": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "argon": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          },
+          "boron": {
+            "basic": false,
+            "music": false,
+            "progmem": false,
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "basic": false,
             "music": false,

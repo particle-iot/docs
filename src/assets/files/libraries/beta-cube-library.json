@@ -52,6 +52,36 @@
             "multiline": false,
             "streaming": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "electron": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "argon": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          },
+          "boron": {
+            "blink": false,
+            "fireworks": false,
+            "line": false,
+            "multiline": false,
+            "streaming": false
+          }
         }
       }
     }

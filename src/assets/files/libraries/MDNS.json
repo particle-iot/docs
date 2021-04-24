@@ -35,6 +35,20 @@
           "boron": {
             "mdns": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "mdns": true
+          },
+          "electron": {
+            "mdns": false
+          },
+          "argon": {
+            "mdns": true
+          },
+          "boron": {
+            "mdns": false
+          }
         }
       }
     }

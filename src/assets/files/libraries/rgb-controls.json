@@ -7,7 +7,7 @@
   "attributes": {
     "name": "rgb-controls",
     "version": "0.0.1",
-    "installs": 12687,
+    "installs": 12690,
     "license": "MIT",
     "author": "Michael Gillett <mgillett54@gmail.com>",
     "sentence": "Particle.io library with methods for controlling RGB LEDs",
@@ -24,6 +24,40 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "electron": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "argon": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          },
+          "boron": {
+            "fade_array_example": true,
+            "fade_example": true,
+            "fade_once_example": true,
+            "flash_array_example": true,
+            "flash_example": true,
+            "pulse_example": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "fade_array_example": true,
             "fade_example": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ParticleSoftSerial",
     "version": "0.0.15",
-    "installs": 77244,
+    "installs": 77248,
     "license": "GNU Lesser General Public License",
     "author": "ScruffR",
     "sentence": "Basic SoftSerial implementation (requires SparkIntervalTimer library to work)",
@@ -24,6 +24,20 @@
     "0.0.15": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "PSS_SimpleTest": false
+          },
+          "electron": {
+            "PSS_SimpleTest": false
+          },
+          "argon": {
+            "PSS_SimpleTest": false
+          },
+          "boron": {
+            "PSS_SimpleTest": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "PSS_SimpleTest": false
           },

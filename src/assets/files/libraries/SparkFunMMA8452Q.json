@@ -36,6 +36,20 @@
           "boron": {
             "MMA8452Q-Serial_Example": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "electron": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "argon": {
+            "MMA8452Q-Serial_Example": true
+          },
+          "boron": {
+            "MMA8452Q-Serial_Example": true
+          }
         }
       }
     }

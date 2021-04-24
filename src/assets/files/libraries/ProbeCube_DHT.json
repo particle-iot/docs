@@ -36,6 +36,20 @@
           "boron": {
             "DHTtester": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "DHTtester": true
+          },
+          "electron": {
+            "DHTtester": true
+          },
+          "argon": {
+            "DHTtester": true
+          },
+          "boron": {
+            "DHTtester": true
+          }
         }
       }
     }

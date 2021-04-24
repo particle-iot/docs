@@ -36,6 +36,20 @@
           "boron": {
             "spark-web": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "spark-web": true
+          },
+          "electron": {
+            "spark-web": true
+          },
+          "argon": {
+            "spark-web": true
+          },
+          "boron": {
+            "spark-web": true
+          }
         }
       }
     }

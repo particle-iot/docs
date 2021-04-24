@@ -40,6 +40,24 @@
             "BreakoutTouchPaint": false,
             "TouchScreenDemo": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "electron": {
+            "BreakoutTouchPaint": true,
+            "TouchScreenDemo": true
+          },
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "TouchScreenDemo": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Simon",
     "version": "0.1.0",
-    "installs": 602,
+    "installs": 603,
     "license": "CC0 1.0 Universal",
     "author": "Julien Couvreur <julien.couvreur@gmail.com>",
     "sentence": "Simon game for Particle Photon with 'Internet Button' shield. More details at https://particle.hackster.io/Dumky/particle-photon-simon",
@@ -24,6 +24,20 @@
     "0.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Game": false
+          },
+          "electron": {
+            "Game": false
+          },
+          "argon": {
+            "Game": false
+          },
+          "boron": {
+            "Game": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Game": false
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotNCD8Relay",
     "version": "5.1.0",
-    "installs": 129,
+    "installs": 130,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support NCD 8 Relay board",
@@ -30,6 +30,20 @@
     "5.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "relay": false
+          },
+          "electron": {
+            "relay": false
+          },
+          "argon": {
+            "relay": false
+          },
+          "boron": {
+            "relay": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "relay": false
           },

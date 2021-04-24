@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Stepper",
     "version": "1.1.3",
-    "installs": 31095,
+    "installs": 31117,
     "author": "Arduino",
     "maintainer": "Arduino <info@arduino.cc>",
     "sentence": "Allows Arduino boards to control a variety of stepper motors. ",
@@ -27,6 +27,32 @@
     "1.1.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "electron": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "argon": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          },
+          "boron": {
+            "MotorKnob": true,
+            "stepper_oneRevolution": true,
+            "stepper_oneStepAtATime": true,
+            "stepper_speedControl": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "MotorKnob": true,
             "stepper_oneRevolution": true,

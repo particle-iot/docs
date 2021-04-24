@@ -44,6 +44,28 @@
             "2_no_lib": true,
             "3_run": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "electron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "argon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "boron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          }
         }
       }
     }

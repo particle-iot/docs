@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-sht31",
     "version": "0.0.7",
-    "installs": 61185,
+    "installs": 61257,
     "license": "GNU GPLv3",
     "author": "Adafruit, brolly759",
     "sentence": "Adafruit SHT31 port to Particle",
@@ -24,6 +24,20 @@
     "0.0.7": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "SHT31test": true
+          },
+          "electron": {
+            "SHT31test": true
+          },
+          "argon": {
+            "SHT31test": true
+          },
+          "boron": {
+            "SHT31test": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "SHT31test": true
           },

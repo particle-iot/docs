@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AzureMobileService",
     "version": "0.0.3",
-    "installs": 141,
+    "installs": 142,
     "license": "GPL",
     "author": "Brian Sherwin <github:bsherwin>; Paul DeCarlo <github:toolboc>; Bill Fink <github:WhatsTheBigIT>",
     "sentence": "Simplify getting data to Azure Mobile Services",
@@ -24,6 +24,32 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "electron": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "argon": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          },
+          "boron": {
+            "1_Create": true,
+            "2_Read": true,
+            "3_Update": true,
+            "4_Delete": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1_Create": true,
             "2_Read": true,

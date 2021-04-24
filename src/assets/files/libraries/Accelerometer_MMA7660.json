@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Accelerometer_MMA7660",
     "version": "0.0.1",
-    "installs": 443,
+    "installs": 444,
     "license": "MIT",
     "author": "Frankie Chu <xuguang.shao@seeed.cc>",
     "sentence": "accelerometer_MMA7760",
@@ -22,6 +22,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "MMA7660FC_Demo": true
+          },
+          "electron": {
+            "MMA7660FC_Demo": true
+          },
+          "argon": {
+            "MMA7660FC_Demo": true
+          },
+          "boron": {
+            "MMA7660FC_Demo": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "MMA7660FC_Demo": true
           },

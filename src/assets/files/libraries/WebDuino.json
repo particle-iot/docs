@@ -71,6 +71,52 @@
             "Image": true,
             "Parms": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "electron": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "argon": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          },
+          "boron": {
+            "AjaxBuzzer": true,
+            "AjaxRGB": true,
+            "AjaxRGB_mobile": true,
+            "Authentication": true,
+            "Buzzer": true,
+            "Demo": true,
+            "HelloWorld": true,
+            "Image": true,
+            "Parms": true
+          }
         }
       }
     }

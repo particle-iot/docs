@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Modulo",
     "version": "1.2.0",
-    "installs": 175,
+    "installs": 176,
     "author": "Erin Tomson <erin@modulo.co>",
     "url": "https://github.com/modulolabs/modulo-particle",
     "repository": "https://github.com/modulolabs/modulo-particle.git",
@@ -22,6 +22,48 @@
     "1.2.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "electron": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "argon": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "boron": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "DisplayEventsTutorial": true,
             "DisplayTutorial": true,

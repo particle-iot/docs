@@ -7,7 +7,7 @@
   "attributes": {
     "name": "liquid-crystal-spi",
     "version": "0.0.1",
-    "installs": 903,
+    "installs": 904,
     "license": "GNU GPLv3",
     "author": "David A. Mellis, Limor Fried, Tom Igoe, Juan Hernandez, Technobly",
     "sentence": "A Hardware and Software SPI driven LiquidCrystal library for Spark Core.",
@@ -24,6 +24,28 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "electron": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "argon": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          },
+          "boron": {
+            "lcd-backlight-spi": false,
+            "lcd-hardware-spi": false,
+            "lcd-software-spi": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "lcd-backlight-spi": false,
             "lcd-hardware-spi": false,

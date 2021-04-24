@@ -40,6 +40,20 @@
           "boron": {
             "1acceladxl362": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1acceladxl362": true
+          },
+          "electron": {
+            "1acceladxl362": true
+          },
+          "argon": {
+            "1acceladxl362": true
+          },
+          "boron": {
+            "1acceladxl362": true
+          }
         }
       }
     }

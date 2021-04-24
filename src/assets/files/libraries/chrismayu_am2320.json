@@ -7,7 +7,7 @@
   "attributes": {
     "name": "chrismayu_am2320",
     "version": "1.0.1",
-    "installs": 256,
+    "installs": 257,
     "author": "someone",
     "sentence": "UPdated",
     "architectures": [],
@@ -21,6 +21,24 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "electron": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "argon": {
+            "readAM2320": false,
+            "usage": false
+          },
+          "boron": {
+            "readAM2320": false,
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "readAM2320": false,
             "usage": false

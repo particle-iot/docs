@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Ethernet_Overlay",
     "version": "1.0.0",
-    "installs": 227,
+    "installs": 228,
     "author": "Mike",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

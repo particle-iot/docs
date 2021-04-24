@@ -40,6 +40,24 @@
             "a01-pixy-d7": true,
             "a02-pixy-serial": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "a01-pixy-d7": true,
+            "a02-pixy-serial": true
+          },
+          "electron": {
+            "a01-pixy-d7": true,
+            "a02-pixy-serial": true
+          },
+          "argon": {
+            "a01-pixy-d7": true,
+            "a02-pixy-serial": true
+          },
+          "boron": {
+            "a01-pixy-d7": true,
+            "a02-pixy-serial": true
+          }
         }
       }
     }

@@ -35,6 +35,20 @@
           "boron": {
             "tm1638qyf_functions_example": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "tm1638qyf_functions_example": true
+          },
+          "electron": {
+            "tm1638qyf_functions_example": true
+          },
+          "argon": {
+            "tm1638qyf_functions_example": true
+          },
+          "boron": {
+            "tm1638qyf_functions_example": true
+          }
         }
       }
     }

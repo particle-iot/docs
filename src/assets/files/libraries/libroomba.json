@@ -7,7 +7,7 @@
   "attributes": {
     "name": "libroomba",
     "version": "1.0.0",
-    "installs": 614,
+    "installs": 615,
     "author": "Steven Wheeler <steventwheeler@gmail.com>",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "remote": true
+          },
+          "electron": {
+            "remote": true
+          },
+          "argon": {
+            "remote": true
+          },
+          "boron": {
+            "remote": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "remote": true
           },

@@ -36,6 +36,20 @@
           "boron": {
             "adafruit-mqtt-spark-test": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "electron": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "argon": {
+            "adafruit-mqtt-spark-test": true
+          },
+          "boron": {
+            "adafruit-mqtt-spark-test": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MAX31855",
     "version": "0.0.2",
-    "installs": 27114,
+    "installs": 27115,
     "license": "BSD",
     "author": "Adafruit, Technobly",
     "sentence": "Adafruit MAX31885 Library ported to Spark Core.",
@@ -24,6 +24,24 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "electron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "argon": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          },
+          "boron": {
+            "lcd-thermocouple": false,
+            "serial-thermocouple": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "lcd-thermocouple": false,
             "serial-thermocouple": true

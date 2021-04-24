@@ -42,6 +42,24 @@
             "1_Basic_Use": true,
             "2_Internet_Display": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "electron": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "argon": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          },
+          "boron": {
+            "1_Basic_Use": true,
+            "2_Internet_Display": true
+          }
         }
       }
     }

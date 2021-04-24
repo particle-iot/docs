@@ -40,6 +40,20 @@
           "boron": {
             "AsyncPulseInTest": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AsyncPulseInTest": true
+          },
+          "electron": {
+            "AsyncPulseInTest": true
+          },
+          "argon": {
+            "AsyncPulseInTest": true
+          },
+          "boron": {
+            "AsyncPulseInTest": true
+          }
         }
       }
     }

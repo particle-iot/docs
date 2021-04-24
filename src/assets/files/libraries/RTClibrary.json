@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RTClibrary",
     "version": "1.2.1",
-    "installs": 14777,
+    "installs": 14783,
     "author": "Adafruit",
     "sentence": "A fork of Jeelab's fantastic RTC library",
     "paragraph": "A fork of Jeelab's fantastic RTC library",
@@ -25,6 +25,48 @@
     "1.2.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          },
+          "electron": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          },
+          "argon": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          },
+          "boron": {
+            "datecalc": true,
+            "ds1307": true,
+            "ds1307SqwPin": true,
+            "ds1307nvram": true,
+            "ds3231": true,
+            "pcf8523": true,
+            "softrtc": true,
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "datecalc": true,
             "ds1307": true,

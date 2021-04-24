@@ -37,6 +37,20 @@
           "boron": {
             "HelloKeypad": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "HelloKeypad": true
+          },
+          "electron": {
+            "HelloKeypad": true
+          },
+          "argon": {
+            "HelloKeypad": true
+          },
+          "boron": {
+            "HelloKeypad": true
+          }
         }
       }
     }

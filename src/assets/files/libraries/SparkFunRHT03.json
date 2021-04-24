@@ -36,6 +36,20 @@
           "boron": {
             "RHT03-Example-Serial": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "RHT03-Example-Serial": true
+          },
+          "electron": {
+            "RHT03-Example-Serial": true
+          },
+          "argon": {
+            "RHT03-Example-Serial": true
+          },
+          "boron": {
+            "RHT03-Example-Serial": true
+          }
         }
       }
     }

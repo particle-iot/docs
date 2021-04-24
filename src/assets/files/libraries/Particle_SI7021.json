@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle_SI7021",
     "version": "0.0.1",
-    "installs": 9055,
+    "installs": 9059,
     "license": "OIZOM",
     "author": "Sohil Patel",
     "sentence": "SI7021 library",
@@ -24,6 +24,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "readsensor": true
+          },
+          "electron": {
+            "readsensor": true
+          },
+          "argon": {
+            "readsensor": true
+          },
+          "boron": {
+            "readsensor": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "readsensor": true
           },

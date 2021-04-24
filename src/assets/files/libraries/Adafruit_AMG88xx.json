@@ -52,6 +52,40 @@
             "thermal_cam_featherwing": false,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "electron": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "argon": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          },
+          "boron": {
+            "amg88xx_interrupt": true,
+            "amg88xx_test": true,
+            "pixels_test": true,
+            "thermal_cam": false,
+            "thermal_cam_featherwing": false,
+            "usage": false
+          }
         }
       }
     }

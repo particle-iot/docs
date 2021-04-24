@@ -41,6 +41,24 @@
             "1_timezone_simple": false,
             "2_timezone_advanced": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_timezone_simple": true,
+            "2_timezone_advanced": true
+          },
+          "electron": {
+            "1_timezone_simple": false,
+            "2_timezone_advanced": false
+          },
+          "argon": {
+            "1_timezone_simple": true,
+            "2_timezone_advanced": true
+          },
+          "boron": {
+            "1_timezone_simple": false,
+            "2_timezone_advanced": false
+          }
         }
       }
     }

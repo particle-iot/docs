@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_LPS25HB_Arduino_Library",
     "version": "1.1.0",
-    "installs": 130,
+    "installs": 131,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the <a href=\"https://www.sparkfun.com/products/14767\">SparkFun Qwiic Pressure Sensor - LPS25HB</a>.",
@@ -28,6 +28,36 @@
     "1.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "electron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_I2C_Configuration": true,
+            "Example3_Check_Connection": true,
+            "Example4_Change_Settings": true,
+            "Example5_FIFO_Average": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_Basic_Readings": true,
             "Example2_I2C_Configuration": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DAIRremote",
     "version": "1.9.0",
-    "installs": 180,
+    "installs": 181,
     "author": "Fulvio Cusumano",
     "architectures": [
       "particle-photon",

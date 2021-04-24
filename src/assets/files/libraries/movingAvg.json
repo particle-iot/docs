@@ -7,7 +7,7 @@
   "attributes": {
     "name": "movingAvg",
     "version": "2.1.0",
-    "installs": 3562,
+    "installs": 3568,
     "author": "Jack Christensen <jack.christensen@outlook.com>",
     "maintainer": "Jack Christensen <jack.christensen@outlook.com>",
     "sentence": "A simple Arduino library for calculating moving averages.",
@@ -27,6 +27,32 @@
     "2.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "electron": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "argon": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          },
+          "boron": {
+            "mcp9800": false,
+            "mcp9808": false,
+            "photoCell": true,
+            "tmp36": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "mcp9800": false,
             "mcp9808": false,

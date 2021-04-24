@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_CCS811_Arduino_Library",
     "version": "2.0.1",
-    "installs": 362,
+    "installs": 363,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "An Arduino library to drive the AMS CCS811 by I2C.",
@@ -28,6 +28,48 @@
     "2.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": false
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_BasicReadings": true,
             "Example3_ThermistorCompensation": true,

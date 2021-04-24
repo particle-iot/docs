@@ -50,6 +50,32 @@
             "2_Accelerometer": true,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "0_GPS_Features": true,
+            "1_GPS_Features": true,
+            "2_Accelerometer": true,
+            "usage": false
+          },
+          "electron": {
+            "0_GPS_Features": true,
+            "1_GPS_Features": true,
+            "2_Accelerometer": true,
+            "usage": false
+          },
+          "argon": {
+            "0_GPS_Features": true,
+            "1_GPS_Features": true,
+            "2_Accelerometer": true,
+            "usage": false
+          },
+          "boron": {
+            "0_GPS_Features": true,
+            "1_GPS_Features": true,
+            "2_Accelerometer": true,
+            "usage": false
+          }
         }
       }
     }

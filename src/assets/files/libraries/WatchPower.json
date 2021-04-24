@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WatchPower",
     "version": "0.1.1",
-    "installs": 177,
+    "installs": 178,
     "license": "GLP",
     "author": "Hassan Nadeem",
     "sentence": "Interface with OptiSolar",
@@ -22,6 +22,20 @@
     "0.1.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

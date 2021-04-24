@@ -7,7 +7,7 @@
   "attributes": {
     "name": "elapsedMillis1",
     "version": "0.0.1",
-    "installs": 109,
+    "installs": 110,
     "license": "none",
     "author": "Bruce Calder <brucebcalder@gmail.com>",
     "sentence": "A elapsedMillis library",
@@ -24,6 +24,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "spark_deck_lights": false
+          },
+          "electron": {
+            "spark_deck_lights": false
+          },
+          "argon": {
+            "spark_deck_lights": false
+          },
+          "boron": {
+            "spark_deck_lights": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "spark_deck_lights": false
           },

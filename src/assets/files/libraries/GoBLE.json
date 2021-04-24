@@ -7,7 +7,7 @@
   "attributes": {
     "name": "GoBLE",
     "version": "0.0.1",
-    "installs": 250,
+    "installs": 251,
     "author": "Michael Doan",
     "sentence": "Add generic BLE RC controller to your projects",
     "paragraph": "Port of DFRobot's GoBLE. Program HM-10 BLE modules to connect with the APP on your phone: AT+BAUD4, AT+UUID0xDFB0, AT+CHAR0xDFB1.",
@@ -26,6 +26,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

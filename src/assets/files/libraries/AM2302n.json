@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AM2302n",
     "version": "1.0.0",
-    "installs": 104,
+    "installs": 105,
     "author": "Abrick",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

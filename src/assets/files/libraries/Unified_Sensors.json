@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Unified_Sensors",
     "version": "0.0.1",
-    "installs": 1615,
+    "installs": 1622,
     "license": "Adafruit",
     "author": "Matt Thompson @inet_ntoa",
     "sentence": "Adafruit Unified Sensors for Particle",
@@ -24,6 +24,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Sensors": true
+          },
+          "electron": {
+            "Sensors": true
+          },
+          "argon": {
+            "Sensors": true
+          },
+          "boron": {
+            "Sensors": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Sensors": true
           },

@@ -52,6 +52,36 @@
             "PublishWithTimestamp": true,
             "StaticBuffer": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "electron": {
+            "BasicExample-TimeDelayOnly": false,
+            "CacheBeforeCloudConnect": false,
+            "CustomCacheSize": false,
+            "PublishWithTimestamp": false,
+            "StaticBuffer": false
+          },
+          "argon": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          },
+          "boron": {
+            "BasicExample-TimeDelayOnly": true,
+            "CacheBeforeCloudConnect": true,
+            "CustomCacheSize": true,
+            "PublishWithTimestamp": true,
+            "StaticBuffer": true
+          }
         }
       }
     }

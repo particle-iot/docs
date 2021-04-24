@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Steinhart-Thermistor",
     "version": "2.0.1",
-    "installs": 616,
+    "installs": 617,
     "license": "GPL",
     "author": "Christian Vallières",
     "sentence": "4 coefficients Steinhart version of Thermistor library.",
@@ -28,6 +28,20 @@
     "2.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Steinhart-Thermistor": true
+          },
+          "electron": {
+            "Steinhart-Thermistor": true
+          },
+          "argon": {
+            "Steinhart-Thermistor": true
+          },
+          "boron": {
+            "Steinhart-Thermistor": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Steinhart-Thermistor": true
           },

@@ -36,6 +36,20 @@
           "boron": {
             "gateway": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "gateway": true
+          },
+          "electron": {
+            "gateway": true
+          },
+          "argon": {
+            "gateway": false
+          },
+          "boron": {
+            "gateway": false
+          }
         }
       }
     }

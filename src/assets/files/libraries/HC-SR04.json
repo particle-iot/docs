@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HC-SR04",
     "version": "1.0.1",
-    "installs": 24293,
+    "installs": 24321,
     "license": "GPL3",
     "author": "rnash",
     "sentence": "Class to drive the HC-SR04 range finder.",
@@ -23,6 +23,20 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

@@ -48,6 +48,32 @@
             "UbidotsPublishTimestamp": true,
             "UbidotsSubscribe": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          },
+          "electron": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          },
+          "argon": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          },
+          "boron": {
+            "UbidotsPublish": true,
+            "UbidotsPublishContext": true,
+            "UbidotsPublishTimestamp": true,
+            "UbidotsSubscribe": true
+          }
         }
       }
     }

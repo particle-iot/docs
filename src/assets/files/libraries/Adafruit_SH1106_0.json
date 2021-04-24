@@ -44,6 +44,28 @@
             "sh1106_128x64_spi": true,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "electron": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "argon": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          },
+          "boron": {
+            "sh1106_128x64_i2c": true,
+            "sh1106_128x64_spi": true,
+            "usage": false
+          }
         }
       }
     }

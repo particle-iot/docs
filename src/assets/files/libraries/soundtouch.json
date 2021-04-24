@@ -7,7 +7,7 @@
   "attributes": {
     "name": "soundtouch",
     "version": "0.1.3",
-    "installs": 98,
+    "installs": 99,
     "license": "MIT",
     "author": "mattbornski",
     "sentence": "Bose Soundtouch discovery and control on local network",
@@ -23,6 +23,20 @@
     "0.1.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

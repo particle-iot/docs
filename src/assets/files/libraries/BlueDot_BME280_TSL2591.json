@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BlueDot_BME280_TSL2591",
     "version": "1.0.3",
-    "installs": 526,
+    "installs": 527,
     "license": "CC BY-SA 4.0",
     "author": "BlueDot",
     "maintainer": "BlueDot <info@bluedot.space>",
@@ -28,6 +28,20 @@
     "1.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BME280_TSL2591_Test": false
+          },
+          "electron": {
+            "BME280_TSL2591_Test": false
+          },
+          "argon": {
+            "BME280_TSL2591_Test": false
+          },
+          "boron": {
+            "BME280_TSL2591_Test": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BME280_TSL2591_Test": false
           },

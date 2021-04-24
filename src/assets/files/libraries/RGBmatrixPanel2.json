@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RGBmatrixPanel2",
     "version": "1.1.6",
-    "installs": 147,
+    "installs": 148,
     "license": "BSD license",
     "author": "Paul Kourany / Adafruit",
     "sentence": "Adafruit 16/32/64+ x 32 RGB matrix Panel library for Particle",

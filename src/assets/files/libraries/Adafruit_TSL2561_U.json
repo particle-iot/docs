@@ -36,6 +36,20 @@
           "boron": {
             "Adafruit_TLS2561_U": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Adafruit_TLS2561_U": true
+          },
+          "electron": {
+            "Adafruit_TLS2561_U": true
+          },
+          "argon": {
+            "Adafruit_TLS2561_U": true
+          },
+          "boron": {
+            "Adafruit_TLS2561_U": true
+          }
         }
       }
     }

@@ -36,6 +36,20 @@
           "boron": {
             "rht03-humidity-temperature-sensor": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "electron": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "argon": {
+            "rht03-humidity-temperature-sensor": true
+          },
+          "boron": {
+            "rht03-humidity-temperature-sensor": true
+          }
         }
       }
     }

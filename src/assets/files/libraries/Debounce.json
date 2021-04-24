@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Debounce",
     "version": "0.0.1",
-    "installs": 70166,
+    "installs": 70275,
     "license": "MIT",
     "author": "David Washington <github:dwcares>; Thomas Ouellet Fredericks <github:thomasfredericks>;",
     "sentence": "Debounce digital inputs",
@@ -24,6 +24,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": true
           },

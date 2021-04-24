@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adxl345",
     "version": "0.0.3",
-    "installs": 8553,
+    "installs": 8574,
     "license": "GNU",
     "author": "Kenneth Lim <kennethlimcp@gmail.com>",
     "url": "https://github.com/spark/spark-lib-adxl345",
@@ -23,6 +23,28 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "electron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "argon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "adxl345_no_library": false,
             "adxl345_test": false,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SDS011",
     "version": "0.0.2",
-    "installs": 629,
+    "installs": 630,
     "license": "GPL",
     "author": "toon nelissen",
     "sentence": "Library to read data from the SDS011 dustsensor",
@@ -28,6 +28,20 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

@@ -45,6 +45,24 @@
             "AirQualityWingExample": false,
             "CanaryExample": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "electron": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "argon": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          },
+          "boron": {
+            "AirQualityWingExample": false,
+            "CanaryExample": false
+          }
         }
       }
     }

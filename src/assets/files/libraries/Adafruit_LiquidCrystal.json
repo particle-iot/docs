@@ -40,6 +40,24 @@
             "LiquidCrystal_i2c": true,
             "LiquidCrystal_spi": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "electron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "argon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "boron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          }
         }
       }
     }

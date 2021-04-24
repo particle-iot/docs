@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ModbusMaster",
     "version": "1.2.0",
-    "installs": 39534,
+    "installs": 39586,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Anurag Chugh <lithiumhead@gmail.com>",
     "sentence": "Modbus Master Library for Particle Photon",
@@ -24,6 +24,20 @@
     "1.2.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": true
           },

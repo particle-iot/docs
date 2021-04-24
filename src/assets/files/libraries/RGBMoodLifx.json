@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RGBMoodLifx",
     "version": "0.0.5",
-    "installs": 241,
+    "installs": 242,
     "license": "GPLv3",
     "author": "Paul Kourany, Kenneth Lim, Matthew McGowan, @Hootie81, @lightx",
     "sentence": "LIFX bulb emulator",
@@ -24,6 +24,20 @@
     "0.0.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "arduinolifx": false
+          },
+          "electron": {
+            "arduinolifx": false
+          },
+          "argon": {
+            "arduinolifx": false
+          },
+          "boron": {
+            "arduinolifx": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "arduinolifx": false
           },

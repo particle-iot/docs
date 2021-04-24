@@ -48,6 +48,28 @@
             "vl53l0x_dual": true,
             "vl53l0x_oled": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "electron": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "argon": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "boron": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          }
         }
       }
     }

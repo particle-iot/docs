@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP_CAN_RK",
     "version": "1.5.1",
-    "installs": 410,
+    "installs": 411,
     "license": "LGPL2.1",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "https://github.com/coryjfowler/MCP_CAN_lib port for Particle",
@@ -26,6 +26,56 @@
     "1.5.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "electron": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "argon": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          },
+          "boron": {
+            "CAN_loopback": true,
+            "CAN_receive": true,
+            "CAN_send": true,
+            "CAN_to_Ethernet": true,
+            "Dual_CAN": true,
+            "Extended_MaskFilter": true,
+            "GetRPM": true,
+            "OBD_Sim": true,
+            "RPM_Sim": true,
+            "Standard_MaskFilter": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "CAN_loopback": true,
             "CAN_receive": true,

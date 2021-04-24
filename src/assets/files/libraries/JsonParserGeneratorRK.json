@@ -7,7 +7,7 @@
   "attributes": {
     "name": "JsonParserGeneratorRK",
     "version": "0.1.4",
-    "installs": 85263,
+    "installs": 85291,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "JSON parser and generator for Particle devices",
@@ -26,6 +26,28 @@
     "0.1.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "electron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "argon": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "boron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-parser": true,
             "2-generator": true,

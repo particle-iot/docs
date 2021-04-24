@@ -173,7 +173,7 @@ async function testBuilds() {
                 fs.mkdirSync(buildsDir);
             }
     
-            for(const target of ['2.0.1']) {
+            for(const target of ['2.0.1','1.5.2']) {
                 if (!libraryData[lib.id].versions[lib.attributes.version].builds[target]) {
                     libraryData[lib.id].versions[lib.attributes.version].builds[target] = {};
                 }

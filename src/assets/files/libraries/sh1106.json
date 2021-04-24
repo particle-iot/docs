@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sh1106",
     "version": "0.0.2",
-    "installs": 8216,
+    "installs": 8222,
     "license": "MIT",
     "author": "Dan Milligan modified by Dustin Sellinger ",
     "sentence": "A library for the SH1106 chipset via I2C",
@@ -24,6 +24,20 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "SH1106": true
+          },
+          "electron": {
+            "SH1106": true
+          },
+          "argon": {
+            "SH1106": true
+          },
+          "boron": {
+            "SH1106": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "SH1106": true
           },

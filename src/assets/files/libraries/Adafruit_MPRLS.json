@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MPRLS",
     "version": "1.0.0",
-    "installs": 12677,
+    "installs": 12685,
     "author": "Adafruit",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,24 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "electron": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "argon": {
+            "mprls_simpletest": true,
+            "usage": false
+          },
+          "boron": {
+            "mprls_simpletest": true,
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "mprls_simpletest": true,
             "usage": false

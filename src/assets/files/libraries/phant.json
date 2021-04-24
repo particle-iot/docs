@@ -7,7 +7,7 @@
   "attributes": {
     "name": "phant",
     "version": "0.0.4",
-    "installs": 156,
+    "installs": 157,
     "license": "GPL v3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "A simple library to send data to a Phant server",
@@ -24,6 +24,20 @@
     "0.0.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "phant": true
+          },
+          "electron": {
+            "phant": true
+          },
+          "argon": {
+            "phant": true
+          },
+          "boron": {
+            "phant": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "phant": true
           },

@@ -95,6 +95,76 @@
             "rfid_read_personal_data": false,
             "rfid_write_personal_data": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AccessControl": false,
+            "ChangeUID": false,
+            "DumpInfo": false,
+            "FixBrickedUID": false,
+            "MifareClassicValueBlock": false,
+            "MinimalInterrupt": false,
+            "Ntag216_AUTH": false,
+            "RFID-Cloner": false,
+            "ReadAndWrite": false,
+            "ReadNUID": false,
+            "ReadUidMultiReader": false,
+            "firmware_check": false,
+            "rfid_default_keys": false,
+            "rfid_read_personal_data": false,
+            "rfid_write_personal_data": false
+          },
+          "electron": {
+            "AccessControl": false,
+            "ChangeUID": false,
+            "DumpInfo": false,
+            "FixBrickedUID": false,
+            "MifareClassicValueBlock": false,
+            "MinimalInterrupt": false,
+            "Ntag216_AUTH": false,
+            "RFID-Cloner": false,
+            "ReadAndWrite": false,
+            "ReadNUID": false,
+            "ReadUidMultiReader": false,
+            "firmware_check": false,
+            "rfid_default_keys": false,
+            "rfid_read_personal_data": false,
+            "rfid_write_personal_data": false
+          },
+          "argon": {
+            "AccessControl": false,
+            "ChangeUID": false,
+            "DumpInfo": false,
+            "FixBrickedUID": false,
+            "MifareClassicValueBlock": false,
+            "MinimalInterrupt": false,
+            "Ntag216_AUTH": false,
+            "RFID-Cloner": false,
+            "ReadAndWrite": false,
+            "ReadNUID": false,
+            "ReadUidMultiReader": false,
+            "firmware_check": false,
+            "rfid_default_keys": false,
+            "rfid_read_personal_data": false,
+            "rfid_write_personal_data": false
+          },
+          "boron": {
+            "AccessControl": false,
+            "ChangeUID": false,
+            "DumpInfo": false,
+            "FixBrickedUID": false,
+            "MifareClassicValueBlock": false,
+            "MinimalInterrupt": false,
+            "Ntag216_AUTH": false,
+            "RFID-Cloner": false,
+            "ReadAndWrite": false,
+            "ReadNUID": false,
+            "ReadUidMultiReader": false,
+            "firmware_check": false,
+            "rfid_default_keys": false,
+            "rfid_read_personal_data": false,
+            "rfid_write_personal_data": false
+          }
         }
       }
     }

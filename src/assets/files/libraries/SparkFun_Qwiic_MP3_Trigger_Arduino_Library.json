@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_MP3_Trigger_Arduino_Library",
     "version": "1.0.2",
-    "installs": 611,
+    "installs": 612,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic MP3 Trigger",
@@ -27,6 +27,48 @@
     "1.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1-PlaySong": true,
+            "Example2-PlayNext": true,
+            "Example3-PlayFile": true,
+            "Example4-StopPause": true,
+            "Example5-KitchenSink": true,
+            "Example6-ChangeAddress": true,
+            "Example7_AdvanceWire": false,
+            "Example8_Interrupts": true
+          },
+          "electron": {
+            "Example1-PlaySong": true,
+            "Example2-PlayNext": true,
+            "Example3-PlayFile": true,
+            "Example4-StopPause": true,
+            "Example5-KitchenSink": true,
+            "Example6-ChangeAddress": true,
+            "Example7_AdvanceWire": true,
+            "Example8_Interrupts": true
+          },
+          "argon": {
+            "Example1-PlaySong": true,
+            "Example2-PlayNext": true,
+            "Example3-PlayFile": true,
+            "Example4-StopPause": true,
+            "Example5-KitchenSink": true,
+            "Example6-ChangeAddress": true,
+            "Example7_AdvanceWire": true,
+            "Example8_Interrupts": true
+          },
+          "boron": {
+            "Example1-PlaySong": true,
+            "Example2-PlayNext": true,
+            "Example3-PlayFile": true,
+            "Example4-StopPause": true,
+            "Example5-KitchenSink": true,
+            "Example6-ChangeAddress": true,
+            "Example7_AdvanceWire": true,
+            "Example8_Interrupts": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1-PlaySong": true,
             "Example2-PlayNext": true,

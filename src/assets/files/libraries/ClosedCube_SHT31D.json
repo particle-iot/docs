@@ -55,6 +55,36 @@
             "singleshotmode": false,
             "whoiam": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": true,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": true
+          },
+          "electron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": true,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": true
+          },
+          "argon": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": true,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": true
+          },
+          "boron": {
+            "periodicmode": false,
+            "periodicmode-2-sensors": true,
+            "reset": false,
+            "singleshotmode": false,
+            "whoiam": true
+          }
         }
       }
     }

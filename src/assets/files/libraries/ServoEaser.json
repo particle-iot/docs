@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ServoEaser",
     "version": "1.0.0",
-    "installs": 407,
+    "installs": 408,
     "author": "Tod E. Kurt",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,40 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "electron": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "argon": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          },
+          "boron": {
+            "ServoEaser0ManualEasing": false,
+            "ServoEaser1RandEasing": false,
+            "ServoEaser2MovesList": false,
+            "ServoEaser3Callbacks": false,
+            "ServoEaser4ButtonPlay": false,
+            "ServoEaser5PlaySync": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "ServoEaser0ManualEasing": false,
             "ServoEaser1RandEasing": false,

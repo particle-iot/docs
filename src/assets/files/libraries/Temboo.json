@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Temboo",
     "version": "1.2.8",
-    "installs": 426,
+    "installs": 427,
     "license": "Apache License, Version 2.0",
     "author": "Temboo, Spark port by Karl Kaiser <karl@bentuino.com>",
     "sentence": "Temboo Library for Spark, for details about Temboo service visit temboo.com",
@@ -24,6 +24,24 @@
     "1.2.8": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "electron": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "argon": {
+            "application_gmail": true,
+            "application_gxls": true
+          },
+          "boron": {
+            "application_gmail": true,
+            "application_gxls": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "application_gmail": true,
             "application_gxls": true

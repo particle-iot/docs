@@ -42,6 +42,28 @@
             "playWavFromSD": false,
             "sawtooth": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": true
+          },
+          "electron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": true
+          },
+          "argon": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "boron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          }
         }
       }
     }

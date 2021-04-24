@@ -7,7 +7,7 @@
   "attributes": {
     "name": "apis-master",
     "version": "0.0.39",
-    "installs": 295,
+    "installs": 296,
     "author": "G.C.",
     "architectures": [],
     "dependencies": {
@@ -25,6 +25,20 @@
     "0.0.39": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

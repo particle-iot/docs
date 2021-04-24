@@ -77,6 +77,64 @@
             "Walk": true,
             "WalkMultiple": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "electron": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "argon": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          },
+          "boron": {
+            "BasicControl": true,
+            "Bounce": true,
+            "ControlSingleLed": true,
+            "Level": true,
+            "Random": true,
+            "Reverse": true,
+            "Toggle": true,
+            "V3_ControlSingleLed": true,
+            "V3_Level": true,
+            "V3_Wave": false,
+            "Walk": true,
+            "WalkMultiple": false
+          }
         }
       }
     }

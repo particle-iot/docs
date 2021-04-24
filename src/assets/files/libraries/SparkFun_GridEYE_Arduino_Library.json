@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_GridEYE_Arduino_Library",
     "version": "1.0.1",
-    "installs": 155,
+    "installs": 156,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the Panasonic GridEYE Thermopile Array - AMG88",
@@ -28,6 +28,36 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "electron": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "argon": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          },
+          "boron": {
+            "Example1-SerialVisualizer": true,
+            "Example2-UsingInterrupts": true,
+            "Example3-DeviceTemperature": true,
+            "Example4-ProcessingHeatCam": true,
+            "Example5-HotPixel": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1-SerialVisualizer": true,
             "Example2-UsingInterrupts": true,

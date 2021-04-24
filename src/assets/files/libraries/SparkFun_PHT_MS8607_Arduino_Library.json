@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_PHT_MS8607_Arduino_Library",
     "version": "1.0.1",
-    "installs": 86,
+    "installs": 87,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Arduino library for the TE Connectivity MS8607 PHT sensor",
@@ -28,6 +28,48 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": true
+          },
+          "electron": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": true
+          },
+          "argon": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": true
+          },
+          "boron": {
+            "Example1_PressureReading": true,
+            "Example2_VariousUnits": true,
+            "Example3_WeatherPressure": true,
+            "Example4_LocalAltitudeChange": true,
+            "Example5_AdvancedSettings": true,
+            "Example6_UnitTester": true,
+            "Example7_Humidity": true,
+            "Example9_Original_TE_Example": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_PressureReading": true,
             "Example2_VariousUnits": true,

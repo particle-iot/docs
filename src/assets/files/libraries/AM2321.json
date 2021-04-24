@@ -36,6 +36,20 @@
           "boron": {
             "AM2321Example": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AM2321Example": true
+          },
+          "electron": {
+            "AM2321Example": true
+          },
+          "argon": {
+            "AM2321Example": true
+          },
+          "boron": {
+            "AM2321Example": true
+          }
         }
       }
     }

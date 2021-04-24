@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_OLED_128x64",
     "version": "1.0.7",
-    "installs": 15492,
+    "installs": 15538,
     "license": "GPLv3",
     "author": "Evan Simkowitz <esimkowitz@wustl.edu>, Visweswara R",
     "maintainer": "Evan Simkowitz <esimkowitz@wustl.edu>",
@@ -25,6 +25,56 @@
     "1.0.7": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "electron": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "argon": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          },
+          "boron": {
+            "BitmapInverseDisplay": true,
+            "BrightnessControl": true,
+            "DrawBitmap": true,
+            "HelloWorld": true,
+            "HorizontalAddressingMode": true,
+            "InverseDisplay": true,
+            "PrintNumbers": true,
+            "SamplingPlatter": true,
+            "ScrollLeft": true,
+            "ScrollRight": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BitmapInverseDisplay": true,
             "BrightnessControl": true,

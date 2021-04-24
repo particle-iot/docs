@@ -45,6 +45,28 @@
             "manual_switch": true,
             "test": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "electron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "argon": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "boron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          }
         }
       }
     }

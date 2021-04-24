@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Sparkfun_MLX90614",
     "version": "1.0.0",
-    "installs": 166,
+    "installs": 167,
     "author": "DraNard",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,36 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "MLX90614_Get_ID": true,
+            "MLX90614_Serial_Demo": true,
+            "MLX90614_Set_Address": true,
+            "MLX90614_Set_Emissivity": true,
+            "usage": true
+          },
+          "electron": {
+            "MLX90614_Get_ID": true,
+            "MLX90614_Serial_Demo": true,
+            "MLX90614_Set_Address": true,
+            "MLX90614_Set_Emissivity": true,
+            "usage": true
+          },
+          "argon": {
+            "MLX90614_Get_ID": true,
+            "MLX90614_Serial_Demo": true,
+            "MLX90614_Set_Address": true,
+            "MLX90614_Set_Emissivity": true,
+            "usage": true
+          },
+          "boron": {
+            "MLX90614_Get_ID": true,
+            "MLX90614_Serial_Demo": true,
+            "MLX90614_Set_Address": true,
+            "MLX90614_Set_Emissivity": true,
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "MLX90614_Get_ID": true,
             "MLX90614_Serial_Demo": true,

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "max30105",
     "version": "2.6.0",
-    "installs": 2245,
+    "installs": 2247,
     "author": "Nathan Seidle",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "2.6.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

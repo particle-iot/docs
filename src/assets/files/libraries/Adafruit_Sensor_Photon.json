@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Sensor_Photon",
     "version": "1.0.5",
-    "installs": 308,
+    "installs": 309,
     "license": "Apache",
     "author": "Aaron Jimenez",
     "sentence": "Adafruit's common sensor library",
@@ -24,6 +24,20 @@
     "1.0.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Adafruit_Sensor": false
+          },
+          "electron": {
+            "Adafruit_Sensor": false
+          },
+          "argon": {
+            "Adafruit_Sensor": false
+          },
+          "boron": {
+            "Adafruit_Sensor": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Adafruit_Sensor": false
           },

@@ -43,6 +43,20 @@
           "boron": {
             "adafruit-motorshielf-example": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "adafruit-motorshielf-example": false
+          },
+          "electron": {
+            "adafruit-motorshielf-example": false
+          },
+          "argon": {
+            "adafruit-motorshielf-example": false
+          },
+          "boron": {
+            "adafruit-motorshielf-example": false
+          }
         }
       }
     }

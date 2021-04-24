@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RHMesh",
     "version": "1.0.0",
-    "installs": 215,
+    "installs": 216,
     "author": "William Espinoza",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,24 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "raspi": false,
+            "usage": true
+          },
+          "electron": {
+            "raspi": false,
+            "usage": true
+          },
+          "argon": {
+            "raspi": false,
+            "usage": true
+          },
+          "boron": {
+            "raspi": false,
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "raspi": false,
             "usage": true

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADC_a_Serial",
     "version": "1.0.2",
-    "installs": 152,
+    "installs": 153,
     "author": "Leonardo Morales",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "1.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

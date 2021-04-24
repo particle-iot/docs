@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BMP280",
     "version": "1.0.3",
-    "installs": 58183,
+    "installs": 58184,
     "license": "MIT",
     "author": "Nathan Heskew <heskew@gmail.com>",
     "sentence": "Adafruit BMP280 driver for Particle devices",
@@ -24,6 +24,20 @@
     "1.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BMP280": true
+          },
+          "electron": {
+            "BMP280": true
+          },
+          "argon": {
+            "BMP280": true
+          },
+          "boron": {
+            "BMP280": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BMP280": true
           },

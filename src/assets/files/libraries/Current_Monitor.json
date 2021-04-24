@@ -40,6 +40,24 @@
             "1-Channel-Event-Trip": false,
             "Current-Limit-Breaker": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-Channel-Event-Trip": true,
+            "Current-Limit-Breaker": false
+          },
+          "electron": {
+            "1-Channel-Event-Trip": true,
+            "Current-Limit-Breaker": false
+          },
+          "argon": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          },
+          "boron": {
+            "1-Channel-Event-Trip": false,
+            "Current-Limit-Breaker": false
+          }
         }
       }
     }

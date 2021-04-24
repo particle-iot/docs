@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BLE_Group",
     "version": "0.3.0",
-    "installs": 3754,
+    "installs": 3755,
     "license": "LGPL",
     "author": "Mariano Goluboff <mariano@particle.io>",
     "sentence": "Create a group of Gen3 Particle devices that can communicate locally over BLE publish/subscribe.",
@@ -23,6 +23,28 @@
     "0.3.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "diagnostics": false,
+            "heartbeat": false,
+            "pingpong": false
+          },
+          "electron": {
+            "diagnostics": false,
+            "heartbeat": false,
+            "pingpong": false
+          },
+          "argon": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          },
+          "boron": {
+            "diagnostics": true,
+            "heartbeat": true,
+            "pingpong": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "diagnostics": false,
             "heartbeat": false,

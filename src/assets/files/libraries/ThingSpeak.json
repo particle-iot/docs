@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ThingSpeak",
     "version": "1.5.1",
-    "installs": 152999,
+    "installs": 153146,
     "license": "See associated license file",
     "author": "MathWorks, Inc <support@thingspeak.com>",
     "sentence": "ThingSpeak Communication Library for Particle-based devices written by the ThingSpeak development team.",
@@ -28,6 +28,40 @@
     "1.5.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": true,
+            "WriteVoltage": true
+          },
+          "electron": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": true,
+            "WriteVoltage": true
+          },
+          "argon": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": true
+          },
+          "boron": {
+            "CheerLights": true,
+            "ReadLastTemperature": true,
+            "ReadPrivateChannel": true,
+            "ReadWeatherStation": true,
+            "WriteMultipleVoltages": false,
+            "WriteVoltage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "CheerLights": true,
             "ReadLastTemperature": true,

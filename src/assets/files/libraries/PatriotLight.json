@@ -42,6 +42,20 @@
           "boron": {
             "light": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "light": false
+          },
+          "electron": {
+            "light": false
+          },
+          "argon": {
+            "light": false
+          },
+          "boron": {
+            "light": false
+          }
         }
       }
     }

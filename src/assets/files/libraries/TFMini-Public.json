@@ -43,6 +43,24 @@
             "BasicReading": false,
             "SingleReading": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "electron": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "argon": {
+            "BasicReading": false,
+            "SingleReading": false
+          },
+          "boron": {
+            "BasicReading": false,
+            "SingleReading": false
+          }
         }
       }
     }

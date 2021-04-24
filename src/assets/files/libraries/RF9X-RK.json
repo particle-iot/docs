@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RF9X-RK",
     "version": "0.0.5",
-    "installs": 5458,
+    "installs": 5459,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Port of the RadioHead RF95/96/97/98 LoRa Packet radio driver for Particle",
     "url": "https://github.com/rickkas7/AdafruitDataLoggerRK",
@@ -24,6 +24,32 @@
     "0.0.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "electron": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "argon": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          },
+          "boron": {
+            "1-encrypted-server": true,
+            "2-encrypted-client": true,
+            "3-reliable-datagram-server": true,
+            "4-reliable-datagram-client": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-encrypted-server": true,
             "2-encrypted-client": true,

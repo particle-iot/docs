@@ -38,6 +38,20 @@
           "boron": {
             "1-full-electronsample": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-full-electronsample": false
+          },
+          "electron": {
+            "1-full-electronsample": true
+          },
+          "argon": {
+            "1-full-electronsample": false
+          },
+          "boron": {
+            "1-full-electronsample": true
+          }
         }
       }
     }

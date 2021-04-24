@@ -43,6 +43,24 @@
             "usage": true,
             "using_serial": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true,
+            "using_serial": true
+          },
+          "electron": {
+            "usage": true,
+            "using_serial": true
+          },
+          "argon": {
+            "usage": true,
+            "using_serial": true
+          },
+          "boron": {
+            "usage": true,
+            "using_serial": true
+          }
         }
       }
     }

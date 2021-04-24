@@ -44,6 +44,28 @@
             "genieParticle_Demo_MultiScreen": false,
             "genieParticle_WriteStr_Demo": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "electron": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "argon": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          },
+          "boron": {
+            "genieParticle_Demo": false,
+            "genieParticle_Demo_MultiScreen": false,
+            "genieParticle_WriteStr_Demo": false
+          }
         }
       }
     }

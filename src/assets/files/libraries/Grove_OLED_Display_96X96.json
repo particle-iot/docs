@@ -64,6 +64,48 @@
             "OLED_Scroll_Right": true,
             "OLED_Z_Display_Driver_Test_Suite": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "electron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "argon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          },
+          "boron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true
+          }
         }
       }
     }

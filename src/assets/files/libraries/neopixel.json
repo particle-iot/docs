@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel",
     "version": "1.0.0",
-    "installs": 2157488,
+    "installs": 2157803,
     "license": "LGPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Particle Core, Photon, Electron, Argon, Boron, Xenon and RedBear Duo",
@@ -26,6 +26,28 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "electron": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "argon": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          },
+          "boron": {
+            "a-rainbow": true,
+            "extra-examples": true,
+            "rgbw-strandtest": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "a-rainbow": true,
             "extra-examples": true,

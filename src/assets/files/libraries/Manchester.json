@@ -56,6 +56,40 @@
             "ManchesterTX_Basic": false,
             "ManchesterTX_Check": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "ManchesterRX_Array": true,
+            "ManchesterRX_Basic": true,
+            "ManchesterRX_Check": true,
+            "ManchesterTX_Array": true,
+            "ManchesterTX_Basic": true,
+            "ManchesterTX_Check": true
+          },
+          "electron": {
+            "ManchesterRX_Array": true,
+            "ManchesterRX_Basic": true,
+            "ManchesterRX_Check": true,
+            "ManchesterTX_Array": true,
+            "ManchesterTX_Basic": true,
+            "ManchesterTX_Check": true
+          },
+          "argon": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "boron": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT",
     "version": "0.4.31",
-    "installs": 424957,
+    "installs": 425340,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/MQTT/",
@@ -23,6 +23,32 @@
     "0.4.31": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          },
+          "electron": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          },
+          "argon": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": true
+          },
+          "boron": {
+            "mqttSwitchBroker": true,
+            "mqttqostest": true,
+            "mqtttest": true,
+            "threadtest": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "mqttSwitchBroker": true,
             "mqttqostest": true,

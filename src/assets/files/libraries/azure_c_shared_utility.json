@@ -7,7 +7,7 @@
   "attributes": {
     "name": "azure_c_shared_utility",
     "version": "0.0.3",
-    "installs": 613,
+    "installs": 614,
     "license": "MIT",
     "author": "dcristo@microsoft.com",
     "sentence": "Experimental port - Azure C shared utility",
@@ -24,6 +24,20 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "main": false
           },

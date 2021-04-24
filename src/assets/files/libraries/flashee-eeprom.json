@@ -44,6 +44,28 @@
             "integration-tests": false,
             "performace-profile": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "filemanager": true,
+            "integration-tests": true,
+            "performace-profile": true
+          },
+          "electron": {
+            "filemanager": true,
+            "integration-tests": true,
+            "performace-profile": true
+          },
+          "argon": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          },
+          "boron": {
+            "filemanager": false,
+            "integration-tests": false,
+            "performace-profile": false
+          }
         }
       }
     }

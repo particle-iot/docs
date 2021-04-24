@@ -7,7 +7,7 @@
   "attributes": {
     "name": "APDS-9301",
     "version": "1.0.2",
-    "installs": 92,
+    "installs": 101,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Broadcom APDS-9301 Lux Sensor.",
@@ -27,6 +27,24 @@
     "1.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "electron": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "argon": {
+            "Simple_Example": false,
+            "usage": false
+          },
+          "boron": {
+            "Simple_Example": false,
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Simple_Example": false,
             "usage": false

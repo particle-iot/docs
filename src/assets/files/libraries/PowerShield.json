@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PowerShield",
     "version": "0.0.5",
-    "installs": 81953,
+    "installs": 81963,
     "license": "LGPL",
     "author": "Mohit Bhoite <mohit@particle.io>",
     "sentence": "The Power Shield allows a Particle device to be powered from different types of power sources. This library gives firmware access to the fuel gauge IC",
@@ -27,6 +27,28 @@
     "0.0.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "electron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "argon": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "boron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1_Read_voltage_over_serial": true,
             "2_Publish_voltage_readings": true,

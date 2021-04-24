@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TCA9534",
     "version": "0.2.1",
-    "installs": 288,
+    "installs": 289,
     "license": "MIT",
     "author": "David Dressner <dressner95@gmail.com>",
     "maintainer": "David Dressner <dressner95@gmail.com>",
@@ -33,6 +33,20 @@
     "0.2.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "TCA_example": true
+          },
+          "electron": {
+            "TCA_example": true
+          },
+          "argon": {
+            "TCA_example": true
+          },
+          "boron": {
+            "TCA_example": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "TCA_example": true
           },

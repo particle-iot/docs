@@ -60,6 +60,44 @@
             "6_Orientation": false,
             "7_Internet": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_Blink_An_LED": true,
+            "2_Blink_ALL_the_LEDs": true,
+            "3_Buttons_and_LEDs": true,
+            "4_Good_Combination": true,
+            "5_Motion": true,
+            "6_Orientation": true,
+            "7_Internet": false
+          },
+          "electron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "argon": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          },
+          "boron": {
+            "1_Blink_An_LED": false,
+            "2_Blink_ALL_the_LEDs": false,
+            "3_Buttons_and_LEDs": false,
+            "4_Good_Combination": false,
+            "5_Motion": false,
+            "6_Orientation": false,
+            "7_Internet": false
+          }
         }
       }
     }

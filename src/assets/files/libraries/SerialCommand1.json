@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SerialCommand1",
     "version": "1.1.2",
-    "installs": 121,
+    "installs": 122,
     "license": "open source",
     "author": "JC",
     "sentence": "serical command",
@@ -30,6 +30,20 @@
     "1.1.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

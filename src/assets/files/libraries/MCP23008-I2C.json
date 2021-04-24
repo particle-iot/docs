@@ -40,6 +40,24 @@
             "button": false,
             "toggle": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "button": true,
+            "toggle": true
+          },
+          "electron": {
+            "button": true,
+            "toggle": true
+          },
+          "argon": {
+            "button": false,
+            "toggle": false
+          },
+          "boron": {
+            "button": false,
+            "toggle": false
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "uFire_PAR_Sensor",
     "version": "1.0.0",
-    "installs": 131,
+    "installs": 132,
     "author": "uFire",
     "maintainer": "contact@ufire.co",
     "sentence": "Measure photosynthetically active radiation (PAR).",
@@ -27,6 +27,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Minimal": true
+          },
+          "electron": {
+            "Minimal": true
+          },
+          "argon": {
+            "Minimal": true
+          },
+          "boron": {
+            "Minimal": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Minimal": true
           },

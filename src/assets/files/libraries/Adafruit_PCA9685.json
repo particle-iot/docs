@@ -36,6 +36,20 @@
           "boron": {
             "light-wave": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "light-wave": true
+          },
+          "electron": {
+            "light-wave": true
+          },
+          "argon": {
+            "light-wave": true
+          },
+          "boron": {
+            "light-wave": true
+          }
         }
       }
     }

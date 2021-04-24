@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sol-driver",
     "version": "1.0.7",
-    "installs": 478,
+    "installs": 479,
     "author": "Greg Chrin",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "1.0.7": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

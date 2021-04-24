@@ -39,6 +39,20 @@
           "boron": {
             "wave-out": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "wave-out": false
+          },
+          "electron": {
+            "wave-out": false
+          },
+          "argon": {
+            "wave-out": false
+          },
+          "boron": {
+            "wave-out": false
+          }
         }
       }
     }

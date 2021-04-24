@@ -45,6 +45,28 @@
             "interval": true,
             "timeout": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "electron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "argon": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          },
+          "boron": {
+            "debounce": true,
+            "interval": true,
+            "timeout": true
+          }
         }
       }
     }

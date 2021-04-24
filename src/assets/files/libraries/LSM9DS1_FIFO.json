@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LSM9DS1_FIFO",
     "version": "1.0.0",
-    "installs": 88,
+    "installs": 89,
     "license": "BSD",
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
@@ -29,6 +29,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "lsm9ds1": false
+          },
+          "electron": {
+            "lsm9ds1": false
+          },
+          "argon": {
+            "lsm9ds1": false
+          },
+          "boron": {
+            "lsm9ds1": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "lsm9ds1": false
           },

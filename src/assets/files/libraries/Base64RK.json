@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Base64RK",
     "version": "0.0.1",
-    "installs": 6247,
+    "installs": 6250,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Base64 encoded and decoder",
@@ -26,6 +26,24 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "electron": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "argon": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          },
+          "boron": {
+            "1-tester-Base64": true,
+            "2-unittest-Base64": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-tester-Base64": true,
             "2-unittest-Base64": true

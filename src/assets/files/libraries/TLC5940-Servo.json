@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TLC5940-Servo",
     "version": "0.0.1",
-    "installs": 633,
+    "installs": 634,
     "license": "MIT",
     "author": "Mark Beharrell <mark.beharrell@gmail.com>",
     "sentence": "Basic Library to use a TLC5940 to control upto 16 servos",
@@ -24,6 +24,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "SimpleServo": false
+          },
+          "electron": {
+            "SimpleServo": false
+          },
+          "argon": {
+            "SimpleServo": false
+          },
+          "boron": {
+            "SimpleServo": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "SimpleServo": false
           },

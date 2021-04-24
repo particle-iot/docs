@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Tinker-Servo",
     "version": "1.0.1",
-    "installs": 5632,
+    "installs": 5647,
     "license": "GPL",
     "author": "Christian Vallières&Scott Beasley",
     "sentence": "Control Spark unused pins with Tinker interface in your project.",
@@ -24,6 +24,20 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Tinker-servo": true
+          },
+          "electron": {
+            "Tinker-servo": true
+          },
+          "argon": {
+            "Tinker-servo": true
+          },
+          "boron": {
+            "Tinker-servo": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Tinker-servo": true
           },

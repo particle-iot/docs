@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixelmatrix",
     "version": "0.0.1",
-    "installs": 315,
+    "installs": 316,
     "author": "Adam Puleo",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

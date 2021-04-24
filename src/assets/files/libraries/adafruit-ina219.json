@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-ina219",
     "version": "0.0.1",
-    "installs": 40883,
+    "installs": 40884,
     "license": "BSD",
     "author": "K. Townsend Adafruit Industries",
     "sentence": "This is a library for the Adafruit INA219 breakout board - modified for use with Particle Photon",
@@ -24,6 +24,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "get-current": true
+          },
+          "electron": {
+            "get-current": true
+          },
+          "argon": {
+            "get-current": true
+          },
+          "boron": {
+            "get-current": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "get-current": true
           },

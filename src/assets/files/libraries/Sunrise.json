@@ -36,6 +36,20 @@
           "boron": {
             "sunriseExample": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "sunriseExample": true
+          },
+          "electron": {
+            "sunriseExample": true
+          },
+          "argon": {
+            "sunriseExample": true
+          },
+          "boron": {
+            "sunriseExample": true
+          }
         }
       }
     }

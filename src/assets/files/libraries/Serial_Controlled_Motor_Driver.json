@@ -59,6 +59,40 @@
             "TwoMasterMotorTest": false,
             "TwoMotorRobot": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "electron": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "argon": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          },
+          "boron": {
+            "DriverChainWithBridging": false,
+            "MotorTest": false,
+            "RegisterRWTool": false,
+            "Run-timeDiagnostics": false,
+            "TwoMasterMotorTest": false,
+            "TwoMotorRobot": false
+          }
         }
       }
     }

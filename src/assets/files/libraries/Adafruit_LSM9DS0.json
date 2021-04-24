@@ -43,6 +43,24 @@
             "lsm9doftest": true,
             "sensorapi": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "lsm9doftest": true,
+            "sensorapi": true
+          },
+          "electron": {
+            "lsm9doftest": true,
+            "sensorapi": true
+          },
+          "argon": {
+            "lsm9doftest": true,
+            "sensorapi": true
+          },
+          "boron": {
+            "lsm9doftest": true,
+            "sensorapi": true
+          }
         }
       }
     }

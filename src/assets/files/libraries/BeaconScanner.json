@@ -41,6 +41,24 @@
             "log": true,
             "publish": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "log": false,
+            "publish": false
+          },
+          "electron": {
+            "log": false,
+            "publish": false
+          },
+          "argon": {
+            "log": true,
+            "publish": true
+          },
+          "boron": {
+            "log": true,
+            "publish": true
+          }
         }
       }
     }

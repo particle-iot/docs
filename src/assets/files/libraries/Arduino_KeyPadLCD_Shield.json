@@ -36,6 +36,20 @@
           "boron": {
             "KeyPadLCD_Menu": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "KeyPadLCD_Menu": false
+          },
+          "electron": {
+            "KeyPadLCD_Menu": false
+          },
+          "argon": {
+            "KeyPadLCD_Menu": false
+          },
+          "boron": {
+            "KeyPadLCD_Menu": false
+          }
         }
       }
     }

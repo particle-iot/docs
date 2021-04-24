@@ -44,6 +44,28 @@
             "GraphicsTest": false,
             "SpiTftBitmap": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "electron": {
+            "BreakoutTouchPaint": true,
+            "GraphicsTest": true,
+            "SpiTftBitmap": true
+          },
+          "argon": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          },
+          "boron": {
+            "BreakoutTouchPaint": false,
+            "GraphicsTest": false,
+            "SpiTftBitmap": false
+          }
         }
       }
     }

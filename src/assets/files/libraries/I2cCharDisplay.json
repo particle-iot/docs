@@ -40,6 +40,20 @@
           "boron": {
             "I2cCharDisplayDemo": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "I2cCharDisplayDemo": true
+          },
+          "electron": {
+            "I2cCharDisplayDemo": true
+          },
+          "argon": {
+            "I2cCharDisplayDemo": true
+          },
+          "boron": {
+            "I2cCharDisplayDemo": true
+          }
         }
       }
     }

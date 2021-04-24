@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ParticleAppleMIDI",
     "version": "1.0.0",
-    "installs": 310,
+    "installs": 311,
     "author": "Joel Quatrocchi",
     "maintainer": "Joel Quatrocchi <joel.quatro@gmail.com>",
     "sentence": "Library code for AppleMIDI protocol",
@@ -27,6 +27,36 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          },
+          "electron": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          },
+          "argon": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          },
+          "boron": {
+            "Esp8266_NoteOnOffEverySec": false,
+            "EthernetShield_InitiateSession": false,
+            "EthernetShield_InitiateSessions": false,
+            "EthernetShield_NoteOnOffEverySec": false,
+            "Wifi_NoteOnOffEverySec": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Esp8266_NoteOnOffEverySec": false,
             "EthernetShield_InitiateSession": false,

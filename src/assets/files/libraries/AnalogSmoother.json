@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AnalogSmoother",
     "version": "1.0.0",
-    "installs": 115,
+    "installs": 116,
     "license": "MIT",
     "author": "Nicholas Cox, nickcox1008@gmail.com",
     "maintainer": "Nicholas Cox <https://github.com/knickers>",
@@ -29,6 +29,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "graph": true
+          },
+          "electron": {
+            "graph": true
+          },
+          "argon": {
+            "graph": true
+          },
+          "boron": {
+            "graph": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "graph": true
           },

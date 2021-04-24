@@ -36,6 +36,20 @@
           "boron": {
             "Noika5110": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Noika5110": true
+          },
+          "electron": {
+            "Noika5110": true
+          },
+          "argon": {
+            "Noika5110": true
+          },
+          "boron": {
+            "Noika5110": true
+          }
         }
       }
     }

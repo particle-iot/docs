@@ -36,6 +36,20 @@
           "boron": {
             "basic-data-output": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "basic-data-output": true
+          },
+          "electron": {
+            "basic-data-output": true
+          },
+          "argon": {
+            "basic-data-output": true
+          },
+          "boron": {
+            "basic-data-output": true
+          }
         }
       }
     }

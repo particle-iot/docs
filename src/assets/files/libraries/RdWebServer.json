@@ -47,6 +47,28 @@
             "Particle_RdWebServerRateTest": false,
             "Particle_RdWebServerTest": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          },
+          "electron": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          },
+          "argon": {
+            "Particle_RdWebServerPostTest": true,
+            "Particle_RdWebServerRateTest": true,
+            "Particle_RdWebServerTest": true
+          },
+          "boron": {
+            "Particle_RdWebServerPostTest": false,
+            "Particle_RdWebServerRateTest": false,
+            "Particle_RdWebServerTest": false
+          }
         }
       }
     }

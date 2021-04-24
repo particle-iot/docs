@@ -36,6 +36,20 @@
           "boron": {
             "RFID_UART": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "RFID_UART": true
+          },
+          "electron": {
+            "RFID_UART": true
+          },
+          "argon": {
+            "RFID_UART": false
+          },
+          "boron": {
+            "RFID_UART": false
+          }
         }
       }
     }

@@ -40,6 +40,24 @@
             "a-rainbow": false,
             "extra-examples": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "electron": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "argon": {
+            "a-rainbow": false,
+            "extra-examples": false
+          },
+          "boron": {
+            "a-rainbow": false,
+            "extra-examples": false
+          }
         }
       }
     }

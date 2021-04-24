@@ -7,7 +7,7 @@
   "attributes": {
     "name": "qMenuSystem",
     "version": "0.0.4",
-    "installs": 316,
+    "installs": 317,
     "license": "Apache 2.0",
     "author": "Brandon Satrom <brandon@particle.io>",
     "sentence": "Simple menu system for Particle projects that leverage an OLED or TFT Screen.",
@@ -25,6 +25,20 @@
     "0.0.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "TestMenu": false
+          },
+          "electron": {
+            "TestMenu": false
+          },
+          "argon": {
+            "TestMenu": false
+          },
+          "boron": {
+            "TestMenu": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "TestMenu": false
           },

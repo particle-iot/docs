@@ -7,7 +7,7 @@
   "attributes": {
     "name": "wolfssl_particle",
     "version": "0.0.3",
-    "installs": 154,
+    "installs": 155,
     "author": "Andrew Pullin, WolfSSL Inc",
     "architectures": [
       "particle-photon",
@@ -23,6 +23,20 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

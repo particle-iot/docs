@@ -39,6 +39,20 @@
           "boron": {
             "MMA8451demo": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MMA8451demo": false
+          },
+          "electron": {
+            "MMA8451demo": false
+          },
+          "argon": {
+            "MMA8451demo": false
+          },
+          "boron": {
+            "MMA8451demo": false
+          }
         }
       }
     }

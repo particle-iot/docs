@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BME280",
     "version": "1.1.5",
-    "installs": 126871,
+    "installs": 126904,
     "license": "BSD license",
     "author": "Adafruit <info@adafruit.com>, Markus Haack (https://github.com/mhaack)",
     "sentence": "Adafruit BME280 Library",
@@ -28,6 +28,24 @@
     "1.1.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "electron": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "argon": {
+            "advancedsettings": true,
+            "bme280test": true
+          },
+          "boron": {
+            "advancedsettings": true,
+            "bme280test": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "advancedsettings": true,
             "bme280test": true

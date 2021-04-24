@@ -7,7 +7,7 @@
   "attributes": {
     "name": "lightshow",
     "version": "0.0.5",
-    "installs": 179,
+    "installs": 180,
     "license": "MIT",
     "author": "Jeremy Calloway <xntricweb@gmail.com>",
     "sentence": "A neopixel helper library to show off some pretty colors.",
@@ -24,6 +24,24 @@
     "0.0.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "_basic_lightshow": true,
+            "_lightshow-with-blynk": false
+          },
+          "electron": {
+            "_basic_lightshow": true,
+            "_lightshow-with-blynk": false
+          },
+          "argon": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "_basic_lightshow": true,
             "_lightshow-with-blynk": false

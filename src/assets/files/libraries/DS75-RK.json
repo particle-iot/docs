@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS75-RK",
     "version": "0.0.1",
-    "installs": 294,
+    "installs": 295,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for DS75 temperature sensor",
@@ -26,6 +26,24 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "argon": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-thermostat-interrupt": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-simple": true,
             "2-thermostat-interrupt": true

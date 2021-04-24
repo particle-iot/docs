@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ST7735",
     "version": "0.0.1",
-    "installs": 32361,
+    "installs": 32432,
     "license": "Choose a license",
     "author": "Someone <menan.vadivel@gmail.com>",
     "sentence": "Ported Adafruit_ST7735 library",
@@ -24,6 +24,20 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": false
           },

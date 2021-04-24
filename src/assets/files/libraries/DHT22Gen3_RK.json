@@ -50,6 +50,32 @@
             "3-publish": true,
             "4-simple-DHT11": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "electron": {
+            "1-simple": false,
+            "2-tester": false,
+            "3-publish": false,
+            "4-simple-DHT11": false
+          },
+          "argon": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true,
+            "3-publish": true,
+            "4-simple-DHT11": true
+          }
         }
       }
     }

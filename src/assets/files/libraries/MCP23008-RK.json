@@ -50,6 +50,32 @@
             "03-interrupts": false,
             "04-interrupts-class": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "electron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "argon": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          },
+          "boron": {
+            "01-simple-gpio": true,
+            "02-really-simple-output": true,
+            "03-interrupts": false,
+            "04-interrupts-class": true
+          }
         }
       }
     }

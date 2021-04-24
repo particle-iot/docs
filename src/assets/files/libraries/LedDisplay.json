@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LedDisplay",
     "version": "0.4.11",
-    "installs": 97,
+    "installs": 98,
     "author": "Tom Igoe",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,48 @@
     "0.4.11": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "electron": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "argon": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          },
+          "boron": {
+            "fade": true,
+            "print": true,
+            "printAnalog": true,
+            "scroll": true,
+            "scroll_multiple": true,
+            "scroll_serial": true,
+            "usage": false,
+            "writeCharacters": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "fade": true,
             "print": true,

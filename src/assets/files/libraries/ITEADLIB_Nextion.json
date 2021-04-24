@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ITEADLIB_Nextion",
     "version": "0.0.18",
-    "installs": 48877,
+    "installs": 48882,
     "license": "DO WHAT YOU WANT PUBLIC LICENSE",
     "author": "ITEAD / BSpranger / ScruffR",
     "maintainer": "ScruffR et al.",
@@ -26,6 +26,72 @@
     "0.0.18": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "CompButton": true,
+            "CompCrop": true,
+            "CompDualStateButton": true,
+            "CompGauge": true,
+            "CompHotspot": true,
+            "CompNumber": true,
+            "CompPage": true,
+            "CompPicture": true,
+            "CompProgressBar": true,
+            "CompSlider": true,
+            "CompText": true,
+            "CompTimer": true,
+            "CompWaveform": true,
+            "GraphPrimitives": true
+          },
+          "electron": {
+            "CompButton": true,
+            "CompCrop": true,
+            "CompDualStateButton": true,
+            "CompGauge": true,
+            "CompHotspot": true,
+            "CompNumber": true,
+            "CompPage": true,
+            "CompPicture": true,
+            "CompProgressBar": true,
+            "CompSlider": true,
+            "CompText": true,
+            "CompTimer": true,
+            "CompWaveform": true,
+            "GraphPrimitives": true
+          },
+          "argon": {
+            "CompButton": true,
+            "CompCrop": true,
+            "CompDualStateButton": true,
+            "CompGauge": true,
+            "CompHotspot": true,
+            "CompNumber": true,
+            "CompPage": true,
+            "CompPicture": true,
+            "CompProgressBar": true,
+            "CompSlider": true,
+            "CompText": true,
+            "CompTimer": true,
+            "CompWaveform": true,
+            "GraphPrimitives": true
+          },
+          "boron": {
+            "CompButton": true,
+            "CompCrop": true,
+            "CompDualStateButton": true,
+            "CompGauge": true,
+            "CompHotspot": true,
+            "CompNumber": true,
+            "CompPage": true,
+            "CompPicture": true,
+            "CompProgressBar": true,
+            "CompSlider": true,
+            "CompText": true,
+            "CompTimer": true,
+            "CompWaveform": true,
+            "GraphPrimitives": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "CompButton": true,
             "CompCrop": true,

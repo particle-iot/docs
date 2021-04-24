@@ -36,6 +36,20 @@
           "boron": {
             "TempAndPressure": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "TempAndPressure": true
+          },
+          "electron": {
+            "TempAndPressure": true
+          },
+          "argon": {
+            "TempAndPressure": true
+          },
+          "boron": {
+            "TempAndPressure": true
+          }
         }
       }
     }

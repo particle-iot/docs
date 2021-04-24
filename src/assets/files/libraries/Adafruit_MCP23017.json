@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MCP23017",
     "version": "1.0.2",
-    "installs": 125717,
+    "installs": 125727,
     "license": "BSD License",
     "author": "Limor Fried/Ladyada/Paul Kourany",
     "sentence": "Adafruit_MCP23017 I2C expander library adapted for Spark",
@@ -24,6 +24,28 @@
     "1.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "electron": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "argon": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          },
+          "boron": {
+            "button": true,
+            "interrupt": true,
+            "toggle": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "button": true,
             "interrupt": true,

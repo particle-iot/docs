@@ -7,7 +7,7 @@
   "attributes": {
     "name": "drops",
     "version": "0.0.10",
-    "installs": 322,
+    "installs": 323,
     "license": "MIT",
     "author": "Jhon Ortega <jjortegalopez@udenar.edu.co>",
     "maintainer": "Juan Velasquez <jdvr1994@hotmail.com>",
@@ -29,6 +29,36 @@
     "0.0.10": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "electron": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "argon": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          },
+          "boron": {
+            "getStateButton": false,
+            "sendArrayNumber": false,
+            "sendBoolean": false,
+            "sendNumber": false,
+            "sendString": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "getStateButton": false,
             "sendArrayNumber": false,

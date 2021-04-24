@@ -36,6 +36,20 @@
           "boron": {
             "Norwegian_Blue": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Norwegian_Blue": true
+          },
+          "electron": {
+            "Norwegian_Blue": true
+          },
+          "argon": {
+            "Norwegian_Blue": true
+          },
+          "boron": {
+            "Norwegian_Blue": true
+          }
         }
       }
     }

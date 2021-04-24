@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PietteTech_Phant",
     "version": "0.0.3",
-    "installs": 134,
+    "installs": 135,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Scott Piette, Piette Technologies LTD (scott.piette@gmail.com)",
     "sentence": "Phant database library for Spark",
@@ -24,6 +24,20 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "phanttest": true
+          },
+          "electron": {
+            "phanttest": false
+          },
+          "argon": {
+            "phanttest": true
+          },
+          "boron": {
+            "phanttest": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "phanttest": true
           },

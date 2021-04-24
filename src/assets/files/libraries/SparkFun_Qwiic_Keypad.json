@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Keypad",
     "version": "1.2.0",
-    "installs": 240,
+    "installs": 241,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic Keypad",
@@ -27,6 +27,40 @@
     "1.2.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "electron": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "argon": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          },
+          "boron": {
+            "Example1_ReadButton": true,
+            "Example2_ReadWithTime": true,
+            "Example3_ChangeI2CAddress": false,
+            "Example4_I2CScanner": true,
+            "Example5_InterruptRead": true,
+            "Example6_KeyCode": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_ReadButton": true,
             "Example2_ReadWithTime": true,

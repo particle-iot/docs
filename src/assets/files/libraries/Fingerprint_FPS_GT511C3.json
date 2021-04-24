@@ -41,6 +41,28 @@
             "FPS_Enroll": false,
             "FPS_IDFinger": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "electron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "argon": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          },
+          "boron": {
+            "FPS_Blink": false,
+            "FPS_Enroll": false,
+            "FPS_IDFinger": false
+          }
         }
       }
     }

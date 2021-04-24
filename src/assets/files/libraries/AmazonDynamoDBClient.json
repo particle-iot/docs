@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AmazonDynamoDBClient",
     "version": "0.0.2",
-    "installs": 236,
+    "installs": 237,
     "license": "Apache 2.0 license",
     "author": "Jinesh Varia <jvaria@amazon.com>",
     "sentence": "Amazon DynamoDB Client for Spark Core.",
@@ -24,6 +24,24 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "electron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "argon": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "boron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
             "application": false

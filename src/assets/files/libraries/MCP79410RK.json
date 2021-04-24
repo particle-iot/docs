@@ -62,6 +62,44 @@
             "7-board-id-set": true,
             "8-board-id": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-wake": true,
+            "3-self-test": false,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "electron": {
+            "1-wake": true,
+            "3-self-test": false,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "argon": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          },
+          "boron": {
+            "1-wake": true,
+            "3-self-test": true,
+            "4-sram-test": true,
+            "5-eeprom-test": true,
+            "6-oscillator-trim": true,
+            "7-board-id-set": true,
+            "8-board-id": true
+          }
         }
       }
     }

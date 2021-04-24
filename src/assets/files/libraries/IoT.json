@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IoT",
     "version": "5.1.0",
-    "installs": 5417,
+    "installs": 5421,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Control your Photon projects using MQTT events from other Photons, Alexa and iOS devices",
@@ -27,6 +27,36 @@
     "5.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "electron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": true,
+            "unitTest": false
+          },
+          "argon": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          },
+          "boron": {
+            "myEventHandler": false,
+            "starter": false,
+            "switchAndLED": false,
+            "switchesAndLEDs": false,
+            "unitTest": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "myEventHandler": false,
             "starter": false,

@@ -40,6 +40,24 @@
             "HDC1000test": false,
             "HDCMonitorExample": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "electron": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "argon": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          },
+          "boron": {
+            "HDC1000test": false,
+            "HDCMonitorExample": false
+          }
         }
       }
     }

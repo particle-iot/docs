@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AdafruitColorTFTJoystickFeatherWing",
     "version": "0.0.1",
-    "installs": 462,
+    "installs": 463,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Adafruit Mini Color TFT with Joystick FeatherWing",
     "url": "https://github.com/rickkas7/AdafruitColorTFTJoystickFeatherWing",
@@ -24,6 +24,24 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "electron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "argon": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          },
+          "boron": {
+            "2-tft-basic": true,
+            "3-tft-graphicstest": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "2-tft-basic": true,
             "3-tft-graphicstest": true

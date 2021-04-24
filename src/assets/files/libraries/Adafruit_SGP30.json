@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SGP30",
     "version": "1.0.0",
-    "installs": 6217,
+    "installs": 6218,
     "license": "BSD license",
     "author": "Adafruit <info@adafruit.com>, SJB (dyadica.co.uk, github.com/dyadica)",
     "sentence": "Adafruit SGP30 Library",
@@ -27,6 +27,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

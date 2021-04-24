@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Lixie-Particle",
     "version": "1.4.1",
-    "installs": 167,
+    "installs": 168,
     "license": "GNU v3",
     "author": "Connor Nishijima",
     "sentence": "Allows for easy writing to Lixie Digit displays!",
@@ -26,6 +26,36 @@
     "1.4.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "electron": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "argon": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          },
+          "boron": {
+            "FPS_test": false,
+            "counter": false,
+            "counter_multi": false,
+            "read_analog_voltage": false,
+            "scoreboard": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "FPS_test": false,
             "counter": false,

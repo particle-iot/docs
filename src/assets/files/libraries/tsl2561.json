@@ -34,6 +34,20 @@
           "boron": {
             "demo_tsl2561": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "demo_tsl2561": true
+          },
+          "electron": {
+            "demo_tsl2561": true
+          },
+          "argon": {
+            "demo_tsl2561": true
+          },
+          "boron": {
+            "demo_tsl2561": true
+          }
         }
       }
     }

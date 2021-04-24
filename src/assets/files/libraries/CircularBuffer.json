@@ -70,6 +70,48 @@
             "Struct": false,
             "Test": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "electron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "argon": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          },
+          "boron": {
+            "CircularBuffer": false,
+            "EventLogging": false,
+            "Interrupts": false,
+            "Object": false,
+            "Queue": false,
+            "Stack": false,
+            "Struct": false,
+            "Test": false
+          }
         }
       }
     }

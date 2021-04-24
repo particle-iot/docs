@@ -43,6 +43,24 @@
             "tsl2591": true,
             "tsl2591_interrupt": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "electron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "argon": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "boron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          }
         }
       }
     }

@@ -40,6 +40,24 @@
             "tts": true,
             "ttsdemo": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "electron": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "argon": {
+            "tts": true,
+            "ttsdemo": true
+          },
+          "boron": {
+            "tts": true,
+            "ttsdemo": true
+          }
         }
       }
     }

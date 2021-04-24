@@ -49,6 +49,32 @@
             "Example3_EnableRTCM": false,
             "Example4_StartRTCMBase": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_BasicNMEARead": true,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": true
+          },
+          "electron": {
+            "Example1_BasicNMEARead": true,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": true
+          },
+          "argon": {
+            "Example1_BasicNMEARead": true,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": true
+          },
+          "boron": {
+            "Example1_BasicNMEARead": true,
+            "Example2_NMEAParsing": false,
+            "Example3_EnableRTCM": false,
+            "Example4_StartRTCMBase": true
+          }
         }
       }
     }

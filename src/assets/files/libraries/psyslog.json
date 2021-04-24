@@ -36,6 +36,20 @@
           "boron": {
             "example_logger": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "example_logger": true
+          },
+          "electron": {
+            "example_logger": false
+          },
+          "argon": {
+            "example_logger": true
+          },
+          "boron": {
+            "example_logger": false
+          }
         }
       }
     }

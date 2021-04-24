@@ -44,6 +44,28 @@
             "Loop_Test": false,
             "Time_Activated_Relay": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": true
+          },
+          "electron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": true
+          },
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": true
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "Time_Activated_Relay": true
+          }
         }
       }
     }

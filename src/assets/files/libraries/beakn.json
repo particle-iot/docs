@@ -7,7 +7,7 @@
   "attributes": {
     "name": "beakn",
     "version": "0.4.1",
-    "installs": 372,
+    "installs": 373,
     "license": "MIT",
     "author": "Jon Gallant <jon@jongallant.com>",
     "sentence": "The beakn SparkCore library is part of a DIY Lync Status light called beakn. More information here: http://blog.jongallant.com",
@@ -24,6 +24,24 @@
     "0.4.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "electron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "argon": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "boron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "beakn-sparkcore": false,
             "beakn-sparkcore-onboard-led": true

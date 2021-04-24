@@ -43,6 +43,24 @@
             "graphicstest_featherwing": true,
             "touchpaint_featherwing": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "electron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "argon": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          },
+          "boron": {
+            "graphicstest_featherwing": true,
+            "touchpaint_featherwing": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AssetTracker",
     "version": "0.0.10",
-    "installs": 141549,
+    "installs": 141554,
     "license": "LGPL",
     "author": "Richard Whitney <richard@particle.io>",
     "sentence": "Functions to make the Asset Tracker for Electron easy to use!",
@@ -28,6 +28,28 @@
     "0.0.10": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1_GPS_Features": true,
+            "2_Accelerometer": true,
+            "3_WakeOnMove": true
+          },
+          "electron": {
+            "1_GPS_Features": true,
+            "2_Accelerometer": true,
+            "3_WakeOnMove": true
+          },
+          "argon": {
+            "1_GPS_Features": true,
+            "2_Accelerometer": true,
+            "3_WakeOnMove": true
+          },
+          "boron": {
+            "1_GPS_Features": true,
+            "2_Accelerometer": true,
+            "3_WakeOnMove": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1_GPS_Features": true,
             "2_Accelerometer": true,

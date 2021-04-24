@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FRAM",
     "version": "1.0.1",
-    "installs": 518,
+    "installs": 519,
     "license": "GPLv3",
     "author": "Paul Kourany, Kenneth Lim",
     "sentence": "FRAM library for Particle.",
@@ -24,6 +24,24 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "FRAM-Checkcounter": true,
+            "FRAM-RW-validate": true
+          },
+          "electron": {
+            "FRAM-Checkcounter": true,
+            "FRAM-RW-validate": true
+          },
+          "argon": {
+            "FRAM-Checkcounter": true,
+            "FRAM-RW-validate": true
+          },
+          "boron": {
+            "FRAM-Checkcounter": true,
+            "FRAM-RW-validate": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "FRAM-Checkcounter": true,
             "FRAM-RW-validate": true

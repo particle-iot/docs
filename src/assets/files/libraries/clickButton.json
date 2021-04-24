@@ -7,7 +7,7 @@
   "attributes": {
     "name": "clickButton",
     "version": "1.0.9",
-    "installs": 71694,
+    "installs": 71737,
     "license": "GNU General Public License v3+",
     "author": "Paul Kourany/raron, raronzen@gmail.com",
     "sentence": "clickButton Library",
@@ -24,6 +24,20 @@
     "1.0.9": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "clickButtonDemo": true
+          },
+          "electron": {
+            "clickButtonDemo": true
+          },
+          "argon": {
+            "clickButtonDemo": true
+          },
+          "boron": {
+            "clickButtonDemo": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "clickButtonDemo": true
           },

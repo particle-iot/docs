@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DS18B20",
     "version": "0.1.14",
-    "installs": 199247,
+    "installs": 199322,
     "license": "MIT",
     "author": "ScruffR (based on Lucas Figg's lib) ",
     "sentence": "DSB18XX Lib for Particle devices",
@@ -24,6 +24,24 @@
     "0.1.14": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "electron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "argon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "ds18b20_MultiDrop": true,
             "ds18b20_SingleDrop": true

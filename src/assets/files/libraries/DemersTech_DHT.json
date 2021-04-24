@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DemersTech_DHT",
     "version": "0.0.5",
-    "installs": 223,
+    "installs": 224,
     "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
     "author": "Aaron Demers Aaron_d26.com",
     "sentence": "Interrupt driven DHT11/21/22 Sensor library",
@@ -24,6 +24,28 @@
     "0.0.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "electron": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "argon": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          },
+          "boron": {
+            "DHT_2sensor": false,
+            "DHT_example": false,
+            "DHT_simple": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "DHT_2sensor": false,
             "DHT_example": false,

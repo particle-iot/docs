@@ -7,7 +7,7 @@
   "attributes": {
     "name": "FirebaseArduino",
     "version": "0.0.1",
-    "installs": 508,
+    "installs": 509,
     "author": "Firebase",
     "maintainer": "Firebase",
     "sentence": "Library for communicating with Firebase.",
@@ -27,6 +27,36 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false
+          },
+          "electron": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false
+          },
+          "argon": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false
+          },
+          "boron": {
+            "FirebaseCloudMessaging_Send_ESP8266": false,
+            "FirebaseDemo_ESP8266": false,
+            "FirebaseNeoPixel_ESP8266": false,
+            "FirebaseRoom_ESP8266": false,
+            "FirebaseStream_ESP8266": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "FirebaseCloudMessaging_Send_ESP8266": false,
             "FirebaseDemo_ESP8266": false,

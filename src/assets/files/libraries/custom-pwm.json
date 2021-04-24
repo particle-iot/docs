@@ -36,6 +36,20 @@
           "boron": {
             "digital-servo": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "digital-servo": true
+          },
+          "electron": {
+            "digital-servo": true
+          },
+          "argon": {
+            "digital-servo": true
+          },
+          "boron": {
+            "digital-servo": true
+          }
         }
       }
     }

@@ -45,6 +45,28 @@
             "enroll": true,
             "fingerprint": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "blank": true,
+            "enroll": true,
+            "fingerprint": true
+          },
+          "electron": {
+            "blank": true,
+            "enroll": true,
+            "fingerprint": true
+          },
+          "argon": {
+            "blank": true,
+            "enroll": true,
+            "fingerprint": true
+          },
+          "boron": {
+            "blank": true,
+            "enroll": true,
+            "fingerprint": true
+          }
         }
       }
     }

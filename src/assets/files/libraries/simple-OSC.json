@@ -7,7 +7,7 @@
   "attributes": {
     "name": "simple-OSC",
     "version": "0.0.3",
-    "installs": 6718,
+    "installs": 6728,
     "license": "MIT",
     "author": "AntoineM* <ameisso@gmail.com>",
     "sentence": "simple osc (open sound control) to send and receive OSC messages to photons.",
@@ -24,6 +24,28 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "receive-osc": true,
+            "send-osc": true,
+            "send-receive-osc": true
+          },
+          "electron": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          },
+          "argon": {
+            "receive-osc": true,
+            "send-osc": true,
+            "send-receive-osc": true
+          },
+          "boron": {
+            "receive-osc": false,
+            "send-osc": false,
+            "send-receive-osc": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "receive-osc": true,
             "send-osc": true,

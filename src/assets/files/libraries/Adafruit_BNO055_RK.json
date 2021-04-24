@@ -39,6 +39,20 @@
           "boron": {
             "sensorapi": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "sensorapi": true
+          },
+          "electron": {
+            "sensorapi": true
+          },
+          "argon": {
+            "sensorapi": true
+          },
+          "boron": {
+            "sensorapi": true
+          }
         }
       }
     }

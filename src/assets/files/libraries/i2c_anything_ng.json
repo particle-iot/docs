@@ -7,7 +7,7 @@
   "attributes": {
     "name": "i2c_anything_ng",
     "version": "1.0.1",
-    "installs": 93,
+    "installs": 94,
     "author": "Nick Gammon",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

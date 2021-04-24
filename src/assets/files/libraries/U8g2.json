@@ -7,7 +7,7 @@
   "attributes": {
     "name": "U8g2",
     "version": "2.25.7",
-    "installs": 994,
+    "installs": 996,
     "license": "BSD-2-Clause",
     "author": "oliver <olikraus@gmail.com>",
     "maintainer": "oliver <olikraus@gmail.com>",
@@ -28,6 +28,20 @@
     "2.25.7": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

@@ -44,6 +44,24 @@
             "AES_GCM": true,
             "mbedtls_self_tests": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AES_GCM": true,
+            "mbedtls_self_tests": true
+          },
+          "electron": {
+            "AES_GCM": true,
+            "mbedtls_self_tests": true
+          },
+          "argon": {
+            "AES_GCM": true,
+            "mbedtls_self_tests": true
+          },
+          "boron": {
+            "AES_GCM": true,
+            "mbedtls_self_tests": true
+          }
         }
       }
     }

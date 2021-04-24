@@ -7,7 +7,7 @@
   "attributes": {
     "name": "G35",
     "version": "1.0.0",
-    "installs": 104,
+    "installs": 105,
     "license": "BSD",
     "author": "Mike Tsao <sowbug@sowbug.com>",
     "sentence": "This library makes it easy to replace the controller in GE Color Effects Christmas lights with an Arduino.",

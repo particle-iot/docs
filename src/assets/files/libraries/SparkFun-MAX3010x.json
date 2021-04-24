@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-MAX3010x",
     "version": "1.1.1",
-    "installs": 7595,
+    "installs": 7645,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the MAX30102 Pulse and MAX30105 Proximity Breakout",
@@ -27,6 +27,52 @@
     "1.1.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": false,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false,
+            "Example9_RateTesting": true
+          },
+          "electron": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": false,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false,
+            "Example9_RateTesting": true
+          },
+          "argon": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": false,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false,
+            "Example9_RateTesting": true
+          },
+          "boron": {
+            "Example1_Basic_Readings": true,
+            "Example2_Presence_Sensing": true,
+            "Example3_Temperature_Sense": true,
+            "Example4_HeartBeat_Plotter": true,
+            "Example5_HeartRate": false,
+            "Example6_FIFO_Readings": true,
+            "Example7_Basic_Readings_Interrupts": true,
+            "Example8_SPO2": false,
+            "Example9_RateTesting": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_Basic_Readings": true,
             "Example2_Presence_Sensing": true,

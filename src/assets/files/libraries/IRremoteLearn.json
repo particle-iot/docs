@@ -44,6 +44,24 @@
             "IRrecvDemo": true,
             "IRsendDemo": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "electron": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "argon": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          },
+          "boron": {
+            "IRrecvDemo": true,
+            "IRsendDemo": true
+          }
         }
       }
     }

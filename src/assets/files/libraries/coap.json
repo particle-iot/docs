@@ -7,7 +7,7 @@
   "attributes": {
     "name": "coap",
     "version": "0.2.4",
-    "installs": 638,
+    "installs": 639,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/CoAP/",
@@ -23,6 +23,24 @@
     "0.2.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "electron": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "argon": {
+            "coapserver": true,
+            "coaptest": true
+          },
+          "boron": {
+            "coapserver": true,
+            "coaptest": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "coapserver": true,
             "coaptest": true

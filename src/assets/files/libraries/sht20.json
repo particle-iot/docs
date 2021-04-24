@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sht20",
     "version": "1.0.0",
-    "installs": 3527,
+    "installs": 3541,
     "architectures": [],
     "visibility": "public",
     "mine": false
@@ -19,6 +19,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "DFRobot_SHT20_test": true
+          },
+          "electron": {
+            "DFRobot_SHT20_test": true
+          },
+          "argon": {
+            "DFRobot_SHT20_test": true
+          },
+          "boron": {
+            "DFRobot_SHT20_test": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "DFRobot_SHT20_test": true
           },

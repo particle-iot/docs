@@ -60,6 +60,40 @@
             "Example5_BurstMode": true,
             "Example6_ConfigureTemperatureAlert": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_SetThermocoupleType": true,
+            "Example3_SetFilterCoefficient": true,
+            "Example4_SetResolution": true,
+            "Example5_BurstMode": true,
+            "Example6_ConfigureTemperatureAlert": true
+          }
         }
       }
     }

@@ -40,6 +40,24 @@
             "Continuous": true,
             "Single": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Continuous": true,
+            "Single": true
+          },
+          "electron": {
+            "Continuous": true,
+            "Single": true
+          },
+          "argon": {
+            "Continuous": true,
+            "Single": true
+          },
+          "boron": {
+            "Continuous": true,
+            "Single": true
+          }
         }
       }
     }

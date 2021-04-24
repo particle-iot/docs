@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TinyGPS",
     "version": "1.0.0",
-    "installs": 24573,
+    "installs": 24587,
     "license": "GNU Lesser General Public License",
     "author": "Krishnaraj Varma",
     "sentence": "TinyGPS (by Mikal Hart) for Spark Core library",
@@ -24,6 +24,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "gps": false
+          },
+          "electron": {
+            "gps": false
+          },
+          "argon": {
+            "gps": false
+          },
+          "boron": {
+            "gps": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "gps": false
           },

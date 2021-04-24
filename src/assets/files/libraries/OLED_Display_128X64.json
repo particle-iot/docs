@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OLED_Display_128X64",
     "version": "1.0.0",
-    "installs": 7055,
+    "installs": 7064,
     "license": "MIT",
     "author": "Seeed Studio",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
@@ -34,6 +34,60 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Brightness_Control": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Horizontal_Addressing_Mode": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true,
+            "usage": false
+          },
+          "electron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Brightness_Control": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Horizontal_Addressing_Mode": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true,
+            "usage": false
+          },
+          "argon": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Brightness_Control": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Horizontal_Addressing_Mode": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true,
+            "usage": false
+          },
+          "boron": {
+            "OLED_Bitmap_Inverse_Display": true,
+            "OLED_Brightness_Control": true,
+            "OLED_Draw_Bitmap": true,
+            "OLED_Hello_World": true,
+            "OLED_Horizontal_Addressing_Mode": true,
+            "OLED_Inverse_Display": true,
+            "OLED_PrintNumbers": true,
+            "OLED_Scroll_Left": true,
+            "OLED_Scroll_Right": true,
+            "OLED_Z_Display_Driver_Test_Suite": true,
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "OLED_Bitmap_Inverse_Display": true,
             "OLED_Brightness_Control": true,

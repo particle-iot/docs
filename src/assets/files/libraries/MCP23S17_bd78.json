@@ -36,6 +36,20 @@
           "boron": {
             "writewords": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "writewords": true
+          },
+          "electron": {
+            "writewords": true
+          },
+          "argon": {
+            "writewords": true
+          },
+          "boron": {
+            "writewords": true
+          }
         }
       }
     }

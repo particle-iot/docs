@@ -36,6 +36,20 @@
           "boron": {
             "ip-reporter": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "ip-reporter": true
+          },
+          "electron": {
+            "ip-reporter": false
+          },
+          "argon": {
+            "ip-reporter": true
+          },
+          "boron": {
+            "ip-reporter": false
+          }
         }
       }
     }

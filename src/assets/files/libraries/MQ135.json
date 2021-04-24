@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQ135",
     "version": "1.0.0",
-    "installs": 6605,
+    "installs": 6613,
     "license": "GNU GPLv3",
     "author": "Georg Krocker",
     "sentence": "Arduino library for the MQ135",
@@ -24,6 +24,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": true
           },

@@ -51,6 +51,32 @@
             "pulsingBackground": false,
             "shell": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": true
+          },
+          "electron": {
+            "demo": true,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "argon": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          },
+          "boron": {
+            "demo": false,
+            "helloCube": false,
+            "pulsingBackground": false,
+            "shell": false
+          }
         }
       }
     }

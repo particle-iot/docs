@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ArduinoJson",
     "version": "6.17.3",
-    "installs": 332811,
+    "installs": 332916,
     "license": "MIT",
     "author": "Benoit Blanchon <blog.benoitblanchon.fr>",
     "maintainer": "Benoit Blanchon <blog.benoitblanchon.fr>",
@@ -29,6 +29,56 @@
     "6.17.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "electron": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "argon": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          },
+          "boron": {
+            "JsonConfigFile": false,
+            "JsonFilterExample": false,
+            "JsonGeneratorExample": true,
+            "JsonHttpClient": false,
+            "JsonParserExample": false,
+            "JsonServer": false,
+            "JsonUdpBeacon": false,
+            "MsgPackParser": false,
+            "ProgmemExample": true,
+            "StringExample": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "JsonConfigFile": false,
             "JsonFilterExample": false,

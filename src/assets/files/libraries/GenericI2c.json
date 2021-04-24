@@ -7,7 +7,7 @@
   "attributes": {
     "name": "GenericI2c",
     "version": "0.0.2",
-    "installs": 1362,
+    "installs": 1372,
     "license": "GNU",
     "author": "Trey Felton <trey@tomadoh.com>",
     "sentence": "Library providing class for controlling and reading i2c devices",
@@ -24,6 +24,20 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "i2c-control": false
+          },
+          "electron": {
+            "i2c-control": false
+          },
+          "argon": {
+            "i2c-control": false
+          },
+          "boron": {
+            "i2c-control": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "i2c-control": false
           },

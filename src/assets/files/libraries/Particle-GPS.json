@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle-GPS",
     "version": "1.0.4",
-    "installs": 57667,
+    "installs": 57671,
     "license": "GPL-3.0",
     "author": "Daniel Porrey <Daniel.Porrey@hotmail.com>",
     "sentence": "A library to communicate with serial GPS devices on the Particle Electron and Photon.",
@@ -28,6 +28,28 @@
     "1.0.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "electron": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "argon": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          },
+          "boron": {
+            "all-data": true,
+            "all-data-serialN": true,
+            "parse-data": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "all-data": true,
             "all-data-serialN": true,

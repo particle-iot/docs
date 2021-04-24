@@ -39,6 +39,20 @@
           "boron": {
             "uCamTestSingleFile": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "uCamTestSingleFile": false
+          },
+          "electron": {
+            "uCamTestSingleFile": false
+          },
+          "argon": {
+            "uCamTestSingleFile": false
+          },
+          "boron": {
+            "uCamTestSingleFile": false
+          }
         }
       }
     }

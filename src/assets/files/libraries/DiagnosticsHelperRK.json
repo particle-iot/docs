@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DiagnosticsHelperRK",
     "version": "0.0.2",
-    "installs": 17292,
+    "installs": 17309,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Functions for accessing diagnostics data on-device",
@@ -26,6 +26,28 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "electron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "argon": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          },
+          "boron": {
+            "1-get-values-DiagnosticsHelperRK": true,
+            "2-get-json-DiagnosticsHelperRK": true,
+            "3-powered-by-DiagnosticsHelperRK": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-get-values-DiagnosticsHelperRK": true,
             "2-get-json-DiagnosticsHelperRK": true,

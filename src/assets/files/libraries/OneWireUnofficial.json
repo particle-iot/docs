@@ -40,6 +40,24 @@
             "Address_Scanner": false,
             "DS18x20_Temperature": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "electron": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "argon": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          },
+          "boron": {
+            "Address_Scanner": false,
+            "DS18x20_Temperature": false
+          }
         }
       }
     }

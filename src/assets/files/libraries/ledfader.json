@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ledfader",
     "version": "1.0.10",
-    "installs": 517,
+    "installs": 518,
     "license": "MIT",
     "author": "fred>",
     "sentence": "A simple library that illustrates coding conventions of a Spark Library",
@@ -24,6 +24,20 @@
     "1.0.10": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Fade": true
+          },
+          "electron": {
+            "Fade": true
+          },
+          "argon": {
+            "Fade": true
+          },
+          "boron": {
+            "Fade": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Fade": true
           },

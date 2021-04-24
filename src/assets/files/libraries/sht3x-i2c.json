@@ -45,6 +45,28 @@
             "single-shot": true,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "electron": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "argon": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          },
+          "boron": {
+            "periodic": false,
+            "single-shot": true,
+            "usage": false
+          }
         }
       }
     }

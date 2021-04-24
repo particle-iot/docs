@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sds011-sh",
     "version": "1.1.2",
-    "installs": 228,
+    "installs": 229,
     "license": "MIT",
     "author": "Alexey M",
     "sentence": "Manager dust sensor SDS011.",
@@ -24,6 +24,20 @@
     "1.1.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "telnet-server-lib",
     "version": "0.1.0",
-    "installs": 353,
+    "installs": 354,
     "license": "GNU LESSER V3",
     "author": "Spivack <spivack@outlook.com>",
     "sentence": "A telnet server library and a Command entry library in one.",
@@ -24,6 +24,20 @@
     "0.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "telnet-server-commandline": false
+          },
+          "electron": {
+            "telnet-server-commandline": false
+          },
+          "argon": {
+            "telnet-server-commandline": false
+          },
+          "boron": {
+            "telnet-server-commandline": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "telnet-server-commandline": false
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Alphanumeric_Display_Arduino_Library",
     "version": "1.1.2",
-    "installs": 141,
+    "installs": 142,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive the Holtek HT16K33 LED Driver with an Alphanumeric Display.",
@@ -28,6 +28,56 @@
     "1.1.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example10_DefineChar": true,
+            "Example1_Begin": true,
+            "Example2_TurnOnOneSegment": true,
+            "Example3_PrintChar": true,
+            "Example4_PrintString": true,
+            "Example5_DisplayOptions": true,
+            "Example6_colonAndDecimal": true,
+            "Example7_unkownChar": true,
+            "Example8_MultiDisplay": true,
+            "Example9_ScrollingString": true
+          },
+          "electron": {
+            "Example10_DefineChar": true,
+            "Example1_Begin": true,
+            "Example2_TurnOnOneSegment": true,
+            "Example3_PrintChar": true,
+            "Example4_PrintString": true,
+            "Example5_DisplayOptions": true,
+            "Example6_colonAndDecimal": true,
+            "Example7_unkownChar": true,
+            "Example8_MultiDisplay": true,
+            "Example9_ScrollingString": true
+          },
+          "argon": {
+            "Example10_DefineChar": true,
+            "Example1_Begin": true,
+            "Example2_TurnOnOneSegment": true,
+            "Example3_PrintChar": true,
+            "Example4_PrintString": true,
+            "Example5_DisplayOptions": true,
+            "Example6_colonAndDecimal": true,
+            "Example7_unkownChar": true,
+            "Example8_MultiDisplay": true,
+            "Example9_ScrollingString": true
+          },
+          "boron": {
+            "Example10_DefineChar": true,
+            "Example1_Begin": true,
+            "Example2_TurnOnOneSegment": true,
+            "Example3_PrintChar": true,
+            "Example4_PrintString": true,
+            "Example5_DisplayOptions": true,
+            "Example6_colonAndDecimal": true,
+            "Example7_unkownChar": true,
+            "Example8_MultiDisplay": true,
+            "Example9_ScrollingString": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example10_DefineChar": true,
             "Example1_Begin": true,

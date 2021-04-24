@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LIS3DH",
     "version": "0.2.8",
-    "installs": 77655,
+    "installs": 77658,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "LIS3DH accelerometer driver",
@@ -28,6 +28,40 @@
     "0.2.8": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": false,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "electron": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "argon": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          },
+          "boron": {
+            "1_WakeOnMove": true,
+            "2_Samples": true,
+            "3_I2C": true,
+            "4_Position": true,
+            "5_Movement": true,
+            "6_SPI1": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1_WakeOnMove": true,
             "2_Samples": true,

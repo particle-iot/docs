@@ -40,6 +40,20 @@
           "boron": {
             "Example1_GetMeasurements": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_GetMeasurements": true
+          },
+          "electron": {
+            "Example1_GetMeasurements": true
+          },
+          "argon": {
+            "Example1_GetMeasurements": true
+          },
+          "boron": {
+            "Example1_GetMeasurements": true
+          }
         }
       }
     }

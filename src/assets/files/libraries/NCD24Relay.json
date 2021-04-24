@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD24Relay",
     "version": "0.0.4",
-    "installs": 568,
+    "installs": 569,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 24 channel Particle compatible Relay Controller with 8 inputs",
@@ -22,6 +22,24 @@
     "0.0.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "electron": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "CloudControl": false,
             "Loop_Test": false

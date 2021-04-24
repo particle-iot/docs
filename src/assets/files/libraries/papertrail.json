@@ -7,7 +7,7 @@
   "attributes": {
     "name": "papertrail",
     "version": "0.0.5",
-    "installs": 33019,
+    "installs": 33020,
     "license": "MIT",
     "author": "Barak Weiss <barakwei@gmail.com>",
     "sentence": "Sends logs to Papertrail",
@@ -29,6 +29,20 @@
     "0.0.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "01_simple_papertrail": true
+          },
+          "electron": {
+            "01_simple_papertrail": true
+          },
+          "argon": {
+            "01_simple_papertrail": true
+          },
+          "boron": {
+            "01_simple_papertrail": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "01_simple_papertrail": true
           },

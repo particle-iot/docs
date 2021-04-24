@@ -40,6 +40,24 @@
             "control-everything-shield-demo": false,
             "relay-shield-demo": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "electron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
         }
       }
     }

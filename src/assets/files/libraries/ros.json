@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ros",
     "version": "1.1.0",
-    "installs": 415,
+    "installs": 416,
     "license": "MIT",
     "author": "Gadget",
     "maintainer": "MrGadget",
@@ -27,6 +27,20 @@
     "1.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BlinkerWithClass": false
+          },
+          "electron": {
+            "BlinkerWithClass": false
+          },
+          "argon": {
+            "BlinkerWithClass": false
+          },
+          "boron": {
+            "BlinkerWithClass": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BlinkerWithClass": false
           },

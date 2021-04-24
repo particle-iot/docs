@@ -39,6 +39,24 @@
             "mqttqostest": true,
             "mqtttest": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "electron": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "argon": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "boron": {
+            "mqttqostest": true,
+            "mqtttest": true
+          }
         }
       }
     }

@@ -36,6 +36,20 @@
           "boron": {
             "AutoTune": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AutoTune": false
+          },
+          "electron": {
+            "AutoTune": false
+          },
+          "argon": {
+            "AutoTune": false
+          },
+          "boron": {
+            "AutoTune": false
+          }
         }
       }
     }

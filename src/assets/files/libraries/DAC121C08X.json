@@ -40,6 +40,20 @@
           "boron": {
             "write_value": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "write_value": true
+          },
+          "electron": {
+            "write_value": true
+          },
+          "argon": {
+            "write_value": true
+          },
+          "boron": {
+            "write_value": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MPU6050",
     "version": "1.0.3",
-    "installs": 70376,
+    "installs": 70389,
     "license": "MIT license",
     "author": "Paul Kourany / Jeff Rowberg / James Hagerman",
     "sentence": "MPU6050 IMU library",
@@ -24,6 +24,28 @@
     "1.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "electron": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "argon": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          },
+          "boron": {
+            "MPU6050_DMP6": true,
+            "MPU6050_raw": true,
+            "example-mpu-dump-to-serial": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "MPU6050_DMP6": true,
             "MPU6050_raw": true,

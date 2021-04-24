@@ -48,6 +48,32 @@
             "Spark-ReadWrite": false,
             "Spark-SpeedTest": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "electron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "argon": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          },
+          "boron": {
+            "Spark-CardInfo": false,
+            "Spark-DataLogger": false,
+            "Spark-ReadWrite": false,
+            "Spark-SpeedTest": false
+          }
         }
       }
     }

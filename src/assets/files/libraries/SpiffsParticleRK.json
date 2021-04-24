@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SpiffsParticleRK",
     "version": "0.0.8",
-    "installs": 5775,
+    "installs": 5782,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle port for the spiffs (SPI flash file system) library",
@@ -26,6 +26,44 @@
     "0.0.8": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": false,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "electron": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "argon": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": true,
+            "4-deep-sleep-SpiffsParticleRK": false,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          },
+          "boron": {
+            "1-simple-SpiffsParticleRK": true,
+            "2-self-test-SpiffsParticleRK": true,
+            "3-stop-sleep-SpiffsParticleRK": false,
+            "4-deep-sleep-SpiffsParticleRK": true,
+            "5-benchmark-SpiffsParticleRK": true,
+            "6-list-files-SpiffsParticleRK": true,
+            "7-large-files-SpiffsParticleRK": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-simple-SpiffsParticleRK": true,
             "2-self-test-SpiffsParticleRK": true,

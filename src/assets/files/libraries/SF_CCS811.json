@@ -36,6 +36,24 @@
             "BasicReadings": true,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "electron": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "argon": {
+            "BasicReadings": true,
+            "usage": false
+          },
+          "boron": {
+            "BasicReadings": true,
+            "usage": false
+          }
         }
       }
     }

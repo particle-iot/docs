@@ -44,6 +44,28 @@
             "quadalphanum": true,
             "sevenseg": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "electron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "argon": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "boron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          }
         }
       }
     }

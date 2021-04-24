@@ -40,6 +40,24 @@
             "dmd_clock_readout": false,
             "dmd_demo": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "dmd_clock_readout": true,
+            "dmd_demo": true
+          },
+          "electron": {
+            "dmd_clock_readout": true,
+            "dmd_demo": true
+          },
+          "argon": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          },
+          "boron": {
+            "dmd_clock_readout": false,
+            "dmd_demo": false
+          }
         }
       }
     }

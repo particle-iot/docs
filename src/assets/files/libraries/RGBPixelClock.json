@@ -36,6 +36,20 @@
           "boron": {
             "1_RGBPongClock": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_RGBPongClock": true
+          },
+          "electron": {
+            "1_RGBPongClock": true
+          },
+          "argon": {
+            "1_RGBPongClock": false
+          },
+          "boron": {
+            "1_RGBPongClock": false
+          }
         }
       }
     }

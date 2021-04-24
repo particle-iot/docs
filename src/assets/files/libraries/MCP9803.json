@@ -40,6 +40,24 @@
             "duct-thermostat": true,
             "mcp9803-example": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "duct-thermostat": true,
+            "mcp9803-example": true
+          },
+          "electron": {
+            "duct-thermostat": true,
+            "mcp9803-example": true
+          },
+          "argon": {
+            "duct-thermostat": true,
+            "mcp9803-example": true
+          },
+          "boron": {
+            "duct-thermostat": true,
+            "mcp9803-example": true
+          }
         }
       }
     }

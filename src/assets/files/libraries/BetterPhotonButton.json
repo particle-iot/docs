@@ -64,6 +64,48 @@
             "ToneTest": false,
             "Whites": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AnimateAccel": true,
+            "Animations": true,
+            "Incrementor": true,
+            "PlaySongs": true,
+            "SerialTesting": true,
+            "SimpleRainbow": true,
+            "ToneTest": true,
+            "Whites": true
+          },
+          "electron": {
+            "AnimateAccel": true,
+            "Animations": true,
+            "Incrementor": true,
+            "PlaySongs": true,
+            "SerialTesting": true,
+            "SimpleRainbow": true,
+            "ToneTest": true,
+            "Whites": true
+          },
+          "argon": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          },
+          "boron": {
+            "AnimateAccel": false,
+            "Animations": false,
+            "Incrementor": false,
+            "PlaySongs": false,
+            "SerialTesting": false,
+            "SimpleRainbow": false,
+            "ToneTest": false,
+            "Whites": false
+          }
         }
       }
     }

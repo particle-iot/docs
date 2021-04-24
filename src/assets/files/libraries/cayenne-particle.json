@@ -36,6 +36,20 @@
           "boron": {
             "01_Cayenne": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "01_Cayenne": true
+          },
+          "electron": {
+            "01_Cayenne": true
+          },
+          "argon": {
+            "01_Cayenne": true
+          },
+          "boron": {
+            "01_Cayenne": true
+          }
         }
       }
     }

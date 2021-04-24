@@ -7,7 +7,7 @@
   "attributes": {
     "name": "camera_VC0706",
     "version": "1.0.0",
-    "installs": 150,
+    "installs": 151,
     "sentence": "Make's the camera_VC0706 work on photon",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,28 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "electron": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "argon": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          },
+          "boron": {
+            "MotionDetect": false,
+            "Snapshot": false,
+            "take_picture": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "MotionDetect": false,
             "Snapshot": false,

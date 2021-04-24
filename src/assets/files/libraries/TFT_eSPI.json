@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TFT_eSPI",
     "version": "0.16.15",
-    "installs": 365,
+    "installs": 366,
     "author": "Bodmer",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "0.16.15": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

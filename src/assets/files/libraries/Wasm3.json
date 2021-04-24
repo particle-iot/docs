@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Wasm3",
     "version": "0.4.9",
-    "installs": 101,
+    "installs": 102,
     "license": "MIT",
     "author": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>, Steven Massey <soundandform@gmail.com>",
     "maintainer": "Volodymyr Shymanskyy <vshymanskyi@gmail.com>",
@@ -29,6 +29,36 @@
     "0.4.9": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "electron": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "argon": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          },
+          "boron": {
+            "Wasm_Blink": false,
+            "Wasm_CoreMark": false,
+            "Wasm_Dino_ESP32_TDisplay": false,
+            "Wasm_Dino_PyBadge": false,
+            "Wasm_Fibonacci": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Wasm_Blink": false,
             "Wasm_CoreMark": false,

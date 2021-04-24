@@ -36,6 +36,20 @@
           "boron": {
             "Spark_GettingStartedRF24": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Spark_GettingStartedRF24": true
+          },
+          "electron": {
+            "Spark_GettingStartedRF24": true
+          },
+          "argon": {
+            "Spark_GettingStartedRF24": true
+          },
+          "boron": {
+            "Spark_GettingStartedRF24": true
+          }
         }
       }
     }

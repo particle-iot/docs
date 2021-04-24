@@ -68,6 +68,48 @@
             "player_simple": false,
             "record_ogg": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "electron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "argon": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "boron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          }
         }
       }
     }

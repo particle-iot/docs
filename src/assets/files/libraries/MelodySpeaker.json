@@ -36,6 +36,20 @@
           "boron": {
             "application": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "application": true
+          },
+          "electron": {
+            "application": true
+          },
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          }
         }
       }
     }

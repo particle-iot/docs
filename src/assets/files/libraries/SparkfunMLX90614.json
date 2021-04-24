@@ -48,6 +48,36 @@
             "MLX90614_Set_Emissivity": false,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "electron": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "argon": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          },
+          "boron": {
+            "MLX90614_Get_ID": false,
+            "MLX90614_Serial_Demo": false,
+            "MLX90614_Set_Address": false,
+            "MLX90614_Set_Emissivity": false,
+            "usage": false
+          }
         }
       }
     }

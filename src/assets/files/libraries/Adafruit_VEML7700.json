@@ -36,6 +36,20 @@
           "boron": {
             "veml7700_test": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "veml7700_test": true
+          },
+          "electron": {
+            "veml7700_test": true
+          },
+          "argon": {
+            "veml7700_test": true
+          },
+          "boron": {
+            "veml7700_test": true
+          }
         }
       }
     }

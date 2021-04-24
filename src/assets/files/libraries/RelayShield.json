@@ -44,6 +44,28 @@
             "2_Control_All_Relays": false,
             "3_Internet_Relays": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "electron": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "argon": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          },
+          "boron": {
+            "1_Blink_a_Relay": true,
+            "2_Control_All_Relays": false,
+            "3_Internet_Relays": true
+          }
         }
       }
     }

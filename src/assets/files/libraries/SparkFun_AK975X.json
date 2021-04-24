@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_AK975X",
     "version": "1.0.4",
-    "installs": 149,
+    "installs": 150,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the AK9753 PIR Human Presence Qwiic Board",
@@ -27,6 +27,32 @@
     "1.0.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "electron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "argon": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          },
+          "boron": {
+            "Example1-BasicReadings": true,
+            "Example2-Graph": true,
+            "Example3-ConfigurationSettings": false,
+            "Example4-ThresholdTests": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1-BasicReadings": true,
             "Example2-Graph": true,

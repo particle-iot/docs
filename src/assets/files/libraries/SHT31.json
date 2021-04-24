@@ -44,6 +44,20 @@
           "boron": {
             "getTempAndHumidity": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "getTempAndHumidity": true
+          },
+          "electron": {
+            "getTempAndHumidity": true
+          },
+          "argon": {
+            "getTempAndHumidity": true
+          },
+          "boron": {
+            "getTempAndHumidity": true
+          }
         }
       }
     }

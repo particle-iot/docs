@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CellularHelper_ls",
     "version": "0.0.5",
-    "installs": 108,
+    "installs": 109,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Handy utility for the Electron cellular modem",
@@ -26,6 +26,24 @@
     "0.0.5": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-simple": false,
+            "2-show-carriers": false
+          },
+          "electron": {
+            "1-simple": true,
+            "2-show-carriers": true
+          },
+          "argon": {
+            "1-simple": false,
+            "2-show-carriers": false
+          },
+          "boron": {
+            "1-simple": true,
+            "2-show-carriers": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-simple": false,
             "2-show-carriers": false

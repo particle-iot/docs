@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MAX31856_library",
     "version": "1.0.3",
-    "installs": 3995,
+    "installs": 4013,
     "license": "BSD",
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
@@ -29,6 +29,20 @@
     "1.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "max31856": true
+          },
+          "electron": {
+            "max31856": true
+          },
+          "argon": {
+            "max31856": true
+          },
+          "boron": {
+            "max31856": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "max31856": true
           },

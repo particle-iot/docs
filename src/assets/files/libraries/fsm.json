@@ -7,7 +7,7 @@
   "attributes": {
     "name": "fsm",
     "version": "2.2.1",
-    "installs": 270,
+    "installs": 271,
     "author": "Jon Black <jon@humblecoder.com>",
     "maintainer": "Mike Machado <mike@machadolab.com>",
     "sentence": "A library for implementing a finite state machine",
@@ -27,6 +27,28 @@
     "2.2.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "light_switch": true,
+            "multitasking": true,
+            "timed_switchoff": true
+          },
+          "electron": {
+            "light_switch": true,
+            "multitasking": true,
+            "timed_switchoff": true
+          },
+          "argon": {
+            "light_switch": true,
+            "multitasking": true,
+            "timed_switchoff": true
+          },
+          "boron": {
+            "light_switch": true,
+            "multitasking": true,
+            "timed_switchoff": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "light_switch": true,
             "multitasking": true,

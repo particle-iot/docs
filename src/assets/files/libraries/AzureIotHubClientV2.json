@@ -41,6 +41,24 @@
             "AzureIotHub-Full": false,
             "AzureIotHub-Simple": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "electron": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "argon": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          },
+          "boron": {
+            "AzureIotHub-Full": false,
+            "AzureIotHub-Simple": false
+          }
         }
       }
     }

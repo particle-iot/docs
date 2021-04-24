@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TinyGPS++",
     "version": "0.9.4",
-    "installs": 80800,
+    "installs": 80975,
     "license": "MIT",
     "author": "Mikal Hart",
     "sentence": "A new, customizable Arduino NMEA parsing library http://arduiniana.org",
@@ -24,6 +24,44 @@
     "0.9.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "electron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "argon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "boron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BasicExample": true,
             "DeviceExample": false,

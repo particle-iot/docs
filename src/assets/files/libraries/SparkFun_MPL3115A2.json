@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_MPL3115A2",
     "version": "1.1.2",
-    "installs": 13055,
+    "installs": 13061,
     "license": "MIT",
     "author": "Joel Bartlett <joel@sparkfun.com>",
     "sentence": "A library to drive the MPL3115A2 barometric pressure sensor.",
@@ -24,6 +24,20 @@
     "1.1.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "electron": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "argon": {
+            "SparkFun_MPL3115A2_Example": false
+          },
+          "boron": {
+            "SparkFun_MPL3115A2_Example": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "SparkFun_MPL3115A2_Example": false
           },

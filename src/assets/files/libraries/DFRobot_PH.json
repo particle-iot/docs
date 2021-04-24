@@ -40,6 +40,28 @@
             "DFRobot_PH_Test": false,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "electron": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "argon": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          },
+          "boron": {
+            "DFRobot_PH_EC": false,
+            "DFRobot_PH_Test": false,
+            "usage": false
+          }
         }
       }
     }

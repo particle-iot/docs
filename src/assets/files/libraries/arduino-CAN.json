@@ -47,6 +47,28 @@
             "CANReceiverCallback": true,
             "CANSender": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          },
+          "electron": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          },
+          "argon": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          },
+          "boron": {
+            "CANReceiver": true,
+            "CANReceiverCallback": true,
+            "CANSender": true
+          }
         }
       }
     }

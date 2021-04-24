@@ -40,6 +40,24 @@
             "glowfish-post-test": false,
             "timeapi-test": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "glowfish-post-test": false,
+            "timeapi-test": true
+          },
+          "electron": {
+            "glowfish-post-test": false,
+            "timeapi-test": true
+          },
+          "argon": {
+            "glowfish-post-test": false,
+            "timeapi-test": true
+          },
+          "boron": {
+            "glowfish-post-test": false,
+            "timeapi-test": true
+          }
         }
       }
     }

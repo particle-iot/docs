@@ -55,6 +55,36 @@
             "Example4_Calculate_UVI": true,
             "ExampleZ_VEML6075_UV_Test": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "electron": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "argon": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          },
+          "boron": {
+            "Example1_Stream_UV": true,
+            "Example2_Configure_UV": true,
+            "Example3_Shutdown": true,
+            "Example4_Calculate_UVI": true,
+            "ExampleZ_VEML6075_UV_Test": true
+          }
         }
       }
     }

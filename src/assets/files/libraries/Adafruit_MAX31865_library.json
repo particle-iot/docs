@@ -39,6 +39,20 @@
           "boron": {
             "max31865": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "max31865": true
+          },
+          "electron": {
+            "max31865": true
+          },
+          "argon": {
+            "max31865": true
+          },
+          "boron": {
+            "max31865": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PCA9534",
     "version": "0.1.4",
-    "installs": 1678,
+    "installs": 1702,
     "license": "MIT",
     "author": "Abdulrahman Saleh Khamis",
     "sentence": "PCA9534 I/O expander library with Particle like API calls",
@@ -25,6 +25,32 @@
     "0.1.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "electron": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "argon": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          },
+          "boron": {
+            "blink": true,
+            "interrupt": true,
+            "inverted": true,
+            "io": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "blink": true,
             "interrupt": true,

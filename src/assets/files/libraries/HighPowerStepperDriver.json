@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HighPowerStepperDriver",
     "version": "1.0.0",
-    "installs": 377,
+    "installs": 378,
     "author": "Pololu",
     "maintainer": "rkast @ github, reach out to me on the project repository for questions or concerns",
     "sentence": "High-Power Stepper Motor Driver library for Particle",
@@ -27,6 +27,24 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "electron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "argon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "boron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BasicStepping": true,
             "BasicSteppingSPI": true

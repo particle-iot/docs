@@ -36,6 +36,20 @@
           "boron": {
             "OLED_test": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "OLED_test": false
+          },
+          "electron": {
+            "OLED_test": false
+          },
+          "argon": {
+            "OLED_test": false
+          },
+          "boron": {
+            "OLED_test": false
+          }
         }
       }
     }

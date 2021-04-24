@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Air_Quality",
     "version": "0.0.1",
-    "installs": 544,
+    "installs": 545,
     "author": "Hozan",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,24 @@
     "0.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "electron": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "argon": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          },
+          "boron": {
+            "AirQuality_Sensor": false,
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "AirQuality_Sensor": false,
             "usage": true

@@ -36,6 +36,20 @@
           "boron": {
             "MAX30100_Minimal": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MAX30100_Minimal": true
+          },
+          "electron": {
+            "MAX30100_Minimal": true
+          },
+          "argon": {
+            "MAX30100_Minimal": true
+          },
+          "boron": {
+            "MAX30100_Minimal": true
+          }
         }
       }
     }

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SunSet_2a01",
     "version": "1.0.2",
-    "installs": 290,
+    "installs": 291,
     "license": "MIT",
     "author": "Peter Buelow (goballstate@gmail.com)",
     "sentence": "Deprecated, use sunset 1.0.6 or later",
@@ -22,6 +22,20 @@
     "1.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": false
           },

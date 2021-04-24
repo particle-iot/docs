@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SerialBufferRK",
     "version": "0.0.2",
-    "installs": 29712,
+    "installs": 29723,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "SerialBuffer for Particle platform",
@@ -26,6 +26,28 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "electron": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "argon": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          },
+          "boron": {
+            "1-simple-SerialBufferRK": true,
+            "2-test-receiver-SerialBufferRK": true,
+            "3-test-sender-SerialBufferRK": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-simple-SerialBufferRK": true,
             "2-test-receiver-SerialBufferRK": true,

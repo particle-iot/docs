@@ -67,6 +67,40 @@
             "_05_TapCounter": false,
             "_06_WakeOnTap": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "electron": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "argon": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          },
+          "boron": {
+            "_01_HelloWorld": false,
+            "_02_GFXdemo": false,
+            "_03_4GLs": false,
+            "_04_UpdateModes": false,
+            "_05_TapCounter": false,
+            "_06_WakeOnTap": false
+          }
         }
       }
     }

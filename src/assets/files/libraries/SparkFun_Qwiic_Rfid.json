@@ -55,6 +55,36 @@
             "Example4_ChangeI2CAddress": true,
             "Example5_I2CScanner": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "electron": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "argon": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          },
+          "boron": {
+            "Example1_Read_Tag_Basics": true,
+            "Example2_Read_Tag_Interrupt": true,
+            "Example3_Get_All_Available_Tags": true,
+            "Example4_ChangeI2CAddress": true,
+            "Example5_I2CScanner": true
+          }
         }
       }
     }

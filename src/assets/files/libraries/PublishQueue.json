@@ -36,6 +36,20 @@
           "boron": {
             "publishqueue": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "publishqueue": false
+          },
+          "electron": {
+            "publishqueue": false
+          },
+          "argon": {
+            "publishqueue": false
+          },
+          "boron": {
+            "publishqueue": false
+          }
         }
       }
     }

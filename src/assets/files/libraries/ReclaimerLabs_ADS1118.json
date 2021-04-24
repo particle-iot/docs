@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ReclaimerLabs_ADS1118",
     "version": "0.9.6",
-    "installs": 362,
+    "installs": 363,
     "license": "MIT",
     "author": "Jason Cerundolo",
     "maintainer": "Jason Cerundolo",
@@ -27,6 +27,20 @@
     "0.9.6": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "thermocouple_monitor": true
+          },
+          "electron": {
+            "thermocouple_monitor": true
+          },
+          "argon": {
+            "thermocouple_monitor": true
+          },
+          "boron": {
+            "thermocouple_monitor": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "thermocouple_monitor": true
           },

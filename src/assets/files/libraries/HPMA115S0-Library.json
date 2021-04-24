@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HPMA115S0-Library",
     "version": "1.0.0",
-    "installs": 135,
+    "installs": 136,
     "author": "Felix Galindo",
     "maintainer": "Felix Galindo <felixgalindo91@gmail.com>",
     "sentence": "A library for Honeywell HPMA115S0 Particle Sensor",
@@ -27,6 +27,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": false
           },

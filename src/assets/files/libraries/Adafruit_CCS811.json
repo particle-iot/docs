@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_CCS811",
     "version": "1.0.2",
-    "installs": 6664,
+    "installs": 6677,
     "author": "Adafruit",
     "maintainer": "ScruffR at community.particle.io",
     "sentence": "This is an Adafruit library for the CCS811 I2C gas sensor - ported for Particle",
@@ -28,6 +28,24 @@
     "1.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "electron": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "argon": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "boron": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "CCS811_OLED_Demo": false,
             "CCS811_test": true

@@ -44,6 +44,28 @@
             "WebControl": false,
             "WebRover": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "electron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "argon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "boron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          }
         }
       }
     }

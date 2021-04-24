@@ -36,6 +36,20 @@
           "boron": {
             "onewiretemp": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "onewiretemp": false
+          },
+          "electron": {
+            "onewiretemp": false
+          },
+          "argon": {
+            "onewiretemp": false
+          },
+          "boron": {
+            "onewiretemp": false
+          }
         }
       }
     }

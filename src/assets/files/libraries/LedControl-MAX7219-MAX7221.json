@@ -36,6 +36,20 @@
           "boron": {
             "matrixpaneldemo": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "matrixpaneldemo": true
+          },
+          "electron": {
+            "matrixpaneldemo": true
+          },
+          "argon": {
+            "matrixpaneldemo": true
+          },
+          "boron": {
+            "matrixpaneldemo": true
+          }
         }
       }
     }

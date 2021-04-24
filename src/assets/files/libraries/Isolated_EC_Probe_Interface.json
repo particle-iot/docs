@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Isolated_EC_Probe_Interface",
     "version": "1.0.0",
-    "installs": 166,
+    "installs": 167,
     "author": "uFire",
     "maintainer": "contact@ufire.co",
     "sentence": "Measure Electrical Conductivity, Total Dissolved Solids, and Salinity",
@@ -27,6 +27,48 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "electron": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "argon": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          },
+          "boron": {
+            "BLE": false,
+            "Calibration": true,
+            "Minimal": true,
+            "OutsideTempSource": true,
+            "SAMD21": true,
+            "Shell": true,
+            "Temperature": true,
+            "TemperatureCompensation": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BLE": false,
             "Calibration": true,

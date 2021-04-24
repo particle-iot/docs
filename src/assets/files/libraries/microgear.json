@@ -7,7 +7,7 @@
   "attributes": {
     "name": "microgear",
     "version": "1.2.2",
-    "installs": 111,
+    "installs": 112,
     "author": "Chavee",
     "architectures": [],
     "visibility": "public",
@@ -20,6 +20,20 @@
     "1.2.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Basic": true
+          },
+          "electron": {
+            "Basic": false
+          },
+          "argon": {
+            "Basic": true
+          },
+          "boron": {
+            "Basic": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Basic": true
           },

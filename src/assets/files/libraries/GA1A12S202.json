@@ -7,7 +7,7 @@
   "attributes": {
     "name": "GA1A12S202",
     "version": "0.0.2",
-    "installs": 194,
+    "installs": 195,
     "license": "MIT",
     "author": "Garrett Bartley",
     "sentence": "Simple library for GA1A12S202 light/lux sensor",
@@ -24,6 +24,20 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": true
           },

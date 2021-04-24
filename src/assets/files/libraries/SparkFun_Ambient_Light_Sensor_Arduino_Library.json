@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Ambient_Light_Sensor_Arduino_Library",
     "version": "1.0.3",
-    "installs": 347,
+    "installs": 348,
     "author": "Elias Santistevan",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Ambient Light Sensor-VEML6030",
@@ -28,6 +28,32 @@
     "1.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_Read_Ambient_Basics": true,
+            "Example2_Light_Interrupt_Hardware": true,
+            "Example3_Light_Interrupt_Software": true,
+            "Example4_Power_Save_Mode": true
+          },
+          "electron": {
+            "Example1_Read_Ambient_Basics": true,
+            "Example2_Light_Interrupt_Hardware": true,
+            "Example3_Light_Interrupt_Software": true,
+            "Example4_Power_Save_Mode": true
+          },
+          "argon": {
+            "Example1_Read_Ambient_Basics": true,
+            "Example2_Light_Interrupt_Hardware": true,
+            "Example3_Light_Interrupt_Software": true,
+            "Example4_Power_Save_Mode": true
+          },
+          "boron": {
+            "Example1_Read_Ambient_Basics": true,
+            "Example2_Light_Interrupt_Hardware": true,
+            "Example3_Light_Interrupt_Software": true,
+            "Example4_Power_Save_Mode": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_Read_Ambient_Basics": true,
             "Example2_Light_Interrupt_Hardware": true,

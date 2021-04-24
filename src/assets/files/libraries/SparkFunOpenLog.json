@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunOpenLog",
     "version": "1.0.4",
-    "installs": 152,
+    "installs": 153,
     "author": "Nathan Seidle <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic OpenLog",
@@ -27,6 +27,68 @@
     "1.0.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example10_CheckStatus": false,
+            "Example11_ChangeAddress": false,
+            "Example12_WriteBenchmarking": false,
+            "Example1_WritingLog": false,
+            "Example2_AppendFile": false,
+            "Example3_CreateFile": false,
+            "Example4_ReadFileSize": false,
+            "Example5_ReadFile": false,
+            "Example6_MakeDirectory": false,
+            "Example7_ReadDirectoryContents": false,
+            "Example8_RemoveDirectory": false,
+            "Example9_ReadVersion": false,
+            "usage": false
+          },
+          "electron": {
+            "Example10_CheckStatus": false,
+            "Example11_ChangeAddress": false,
+            "Example12_WriteBenchmarking": false,
+            "Example1_WritingLog": false,
+            "Example2_AppendFile": false,
+            "Example3_CreateFile": false,
+            "Example4_ReadFileSize": false,
+            "Example5_ReadFile": false,
+            "Example6_MakeDirectory": false,
+            "Example7_ReadDirectoryContents": false,
+            "Example8_RemoveDirectory": false,
+            "Example9_ReadVersion": false,
+            "usage": false
+          },
+          "argon": {
+            "Example10_CheckStatus": false,
+            "Example11_ChangeAddress": false,
+            "Example12_WriteBenchmarking": false,
+            "Example1_WritingLog": false,
+            "Example2_AppendFile": false,
+            "Example3_CreateFile": false,
+            "Example4_ReadFileSize": false,
+            "Example5_ReadFile": false,
+            "Example6_MakeDirectory": false,
+            "Example7_ReadDirectoryContents": false,
+            "Example8_RemoveDirectory": false,
+            "Example9_ReadVersion": false,
+            "usage": false
+          },
+          "boron": {
+            "Example10_CheckStatus": false,
+            "Example11_ChangeAddress": false,
+            "Example12_WriteBenchmarking": false,
+            "Example1_WritingLog": false,
+            "Example2_AppendFile": false,
+            "Example3_CreateFile": false,
+            "Example4_ReadFileSize": false,
+            "Example5_ReadFile": false,
+            "Example6_MakeDirectory": false,
+            "Example7_ReadDirectoryContents": false,
+            "Example8_RemoveDirectory": false,
+            "Example9_ReadVersion": false,
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example10_CheckStatus": false,
             "Example11_ChangeAddress": false,

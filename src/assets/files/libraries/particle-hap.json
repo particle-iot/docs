@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-hap",
     "version": "1.0.18",
-    "installs": 4789,
+    "installs": 4805,
     "license": "MIT",
     "author": "Lukas Jezny",
     "sentence": "Homekit server for Particle Photon",
@@ -28,6 +28,52 @@
     "1.0.18": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": true
+          },
+          "electron": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "argon": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          },
+          "boron": {
+            "BH1750LightSensor": false,
+            "BME280TemperatureHumiditySensor": false,
+            "adaptica_door_opener": false,
+            "homestation": false,
+            "lightbulb": false,
+            "lightsensor": false,
+            "relayswitch": false,
+            "roomba": false,
+            "singlenixie": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BH1750LightSensor": false,
             "BME280TemperatureHumiditySensor": false,

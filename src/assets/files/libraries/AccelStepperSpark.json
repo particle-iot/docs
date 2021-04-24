@@ -89,6 +89,68 @@
             "Quickstop": true,
             "Random": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "electron": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": true,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "argon": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": false,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          },
+          "boron": {
+            "AFMotor_ConstantSpeed": false,
+            "AFMotor_MultiStepper": false,
+            "Blocking": true,
+            "Bounce": true,
+            "ConstantSpeed": true,
+            "DualMotorShield": true,
+            "MotorShield": false,
+            "MultiStepper": true,
+            "MultipleSteppers": false,
+            "Overshoot": true,
+            "ProportionalControl": true,
+            "Quickstop": true,
+            "Random": true
+          }
         }
       }
     }

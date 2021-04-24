@@ -7,7 +7,7 @@
   "attributes": {
     "name": "dnsclient",
     "version": "0.0.13",
-    "installs": 368,
+    "installs": 369,
     "license": "Apache License, version 2.0",
     "author": "chris huitema",
     "sentence": "DNS Lookup Client ported from Arduino to Spark",
@@ -24,6 +24,20 @@
     "0.0.13": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "dnslookup": false
+          },
+          "electron": {
+            "dnslookup": false
+          },
+          "argon": {
+            "dnslookup": false
+          },
+          "boron": {
+            "dnslookup": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "dnslookup": false
           },

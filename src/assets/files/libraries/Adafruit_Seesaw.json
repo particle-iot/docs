@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_Seesaw",
     "version": "0.0.6",
-    "installs": 5431,
+    "installs": 5439,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
     "sentence": "This is a (Particle-compatible) library for the Adafruit seesaw helper IC.",
@@ -30,6 +30,20 @@
     "0.0.6": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "EEPROM": true
+          },
+          "electron": {
+            "EEPROM": true
+          },
+          "argon": {
+            "EEPROM": true
+          },
+          "boron": {
+            "EEPROM": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "EEPROM": true
           },

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_TMP117_Arduino_Library",
     "version": "1.2.3",
-    "installs": 207,
+    "installs": 208,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive the Texas Instruments TMP117 by I2C.",
@@ -28,6 +28,44 @@
     "1.2.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": false
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_AlertStatuses": true,
+            "Example3_SetOffsetTemperatureValue": true,
+            "Example4_SetConversionMode": true,
+            "Example5_SetAlertModeTemperatureLimits": true,
+            "Example6_SetConversionCycleTime": true,
+            "Example7_AdvancedI2CFunctions": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_BasicReadings": true,
             "Example2_AlertStatuses": true,

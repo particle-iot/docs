@@ -38,6 +38,20 @@
           "boron": {
             "dotstar_wing": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "dotstar_wing": false
+          },
+          "electron": {
+            "dotstar_wing": false
+          },
+          "argon": {
+            "dotstar_wing": true
+          },
+          "boron": {
+            "dotstar_wing": true
+          }
         }
       }
     }

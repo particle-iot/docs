@@ -7,7 +7,7 @@
   "attributes": {
     "name": "codetacc-robotics",
     "version": "0.0.12",
-    "installs": 271,
+    "installs": 272,
     "license": "GNU GPLv3, BSD License for derivative works",
     "author": "Joon-Yee Chuah <jchuah@tacc.utexas.edu>",
     "sentence": "This library is designed to be used in the CODE @ TACC Summer 2016 Robotics curriculum, and wraps/provides compatibility for several Adafruit sensor libraries",
@@ -24,6 +24,40 @@
     "0.0.12": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "electron": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "argon": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "boron": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1_robot": true,
             "2_sensors": true,

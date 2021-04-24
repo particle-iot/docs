@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_TSL2591_Library",
     "version": "1.1.0",
-    "installs": 1144,
+    "installs": 1145,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the TSL2591 digital luminosity (light) sensors.",
@@ -27,6 +27,24 @@
     "1.1.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "electron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "argon": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          },
+          "boron": {
+            "tsl2591": true,
+            "tsl2591_interrupt": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "tsl2591": true,
             "tsl2591_interrupt": true

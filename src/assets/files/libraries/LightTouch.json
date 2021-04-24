@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LightTouch",
     "version": "0.0.2",
-    "installs": 145,
+    "installs": 146,
     "license": "GNU GPLv3",
     "author": "Benjamin Veenema <ben@veenemadesignworks.com>",
     "sentence": "A light-weight [4-wire] Touchscreen library",
@@ -24,6 +24,20 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "LightTouchDemo": true
+          },
+          "electron": {
+            "LightTouchDemo": true
+          },
+          "argon": {
+            "LightTouchDemo": true
+          },
+          "boron": {
+            "LightTouchDemo": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "LightTouchDemo": true
           },

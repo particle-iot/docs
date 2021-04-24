@@ -64,6 +64,48 @@
             "testshapes_16x32": false,
             "testshapes_32x32": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "colorwheel_32x32": true,
+            "colorwheel_progmem_32x32": true,
+            "plasma_16x32": true,
+            "plasma_32x32": true,
+            "scrolltext_16x32": true,
+            "testcolors_16x32": true,
+            "testshapes_16x32": true,
+            "testshapes_32x32": true
+          },
+          "electron": {
+            "colorwheel_32x32": true,
+            "colorwheel_progmem_32x32": true,
+            "plasma_16x32": true,
+            "plasma_32x32": true,
+            "scrolltext_16x32": true,
+            "testcolors_16x32": true,
+            "testshapes_16x32": true,
+            "testshapes_32x32": true
+          },
+          "argon": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          },
+          "boron": {
+            "colorwheel_32x32": false,
+            "colorwheel_progmem_32x32": false,
+            "plasma_16x32": false,
+            "plasma_32x32": false,
+            "scrolltext_16x32": false,
+            "testcolors_16x32": false,
+            "testshapes_16x32": false,
+            "testshapes_32x32": false
+          }
         }
       }
     }

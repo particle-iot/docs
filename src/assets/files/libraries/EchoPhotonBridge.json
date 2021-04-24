@@ -41,6 +41,24 @@
             "garage candles": false,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "garage candles": false,
+            "usage": false
+          },
+          "electron": {
+            "garage candles": false,
+            "usage": false
+          },
+          "argon": {
+            "garage candles": false,
+            "usage": false
+          },
+          "boron": {
+            "garage candles": false,
+            "usage": false
+          }
         }
       }
     }

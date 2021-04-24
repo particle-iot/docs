@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AccelerometerADXL335",
     "version": "1.0.0",
-    "installs": 222,
+    "installs": 223,
     "license": "MIT License",
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
@@ -29,6 +29,24 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "electron": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "argon": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          },
+          "boron": {
+            "Calibration": false,
+            "MeasuringAcceleration": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Calibration": false,
             "MeasuringAcceleration": false

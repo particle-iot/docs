@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adafruit-serial-rgb-lcd",
     "version": "0.0.1",
-    "installs": 348,
+    "installs": 349,
     "license": "MIT",
     "author": "Colin O'Dell <colinodell@gmail.com>",
     "sentence": "Firmware library for Adafruit's USB + Serial Backpack Kit with 16x2 RGB LCD",

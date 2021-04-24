@@ -37,6 +37,20 @@
           "boron": {
             "getAllData-example": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "getAllData-example": false
+          },
+          "electron": {
+            "getAllData-example": false
+          },
+          "argon": {
+            "getAllData-example": false
+          },
+          "boron": {
+            "getAllData-example": false
+          }
         }
       }
     }

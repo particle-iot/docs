@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD1Relay",
     "version": "0.0.2",
-    "installs": 6592,
+    "installs": 6605,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 1 channel Particle compatible Relay Controller",
@@ -24,6 +24,28 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "electron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "argon": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          },
+          "boron": {
+            "CloudControl": false,
+            "Loop_Test": false,
+            "duct-relay": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "CloudControl": false,
             "Loop_Test": false,

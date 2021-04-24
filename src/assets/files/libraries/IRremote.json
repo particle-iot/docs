@@ -7,7 +7,7 @@
   "attributes": {
     "name": "IRremote",
     "version": "0.0.3",
-    "installs": 33934,
+    "installs": 33939,
     "license": "GPL",
     "author": "Michael Doan",
     "sentence": "IR Remote Control",
@@ -27,6 +27,20 @@
     "0.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

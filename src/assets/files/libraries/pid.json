@@ -7,7 +7,7 @@
   "attributes": {
     "name": "pid",
     "version": "2.0.1",
-    "installs": 49251,
+    "installs": 49273,
     "license": "GPLv3",
     "author": "Dan Rice <dan@zoombody.com>",
     "maintainer": "Particle <hello@particle.io>",
@@ -27,6 +27,28 @@
     "2.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "electron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "argon": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          },
+          "boron": {
+            "PID_AdaptiveTunings": true,
+            "PID_Basic": true,
+            "PID_RelayOutput": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "PID_AdaptiveTunings": true,
             "PID_Basic": true,

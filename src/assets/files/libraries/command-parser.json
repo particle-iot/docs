@@ -7,7 +7,7 @@
   "attributes": {
     "name": "command-parser",
     "version": "0.0.2",
-    "installs": 86,
+    "installs": 87,
     "license": "MIT",
     "author": "Daniel Sundberg <daniel.sundberg@gmail.com>",
     "sentence": "Multi command parser for use with Spark.function()",
@@ -24,6 +24,20 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "example": false
+          },
+          "electron": {
+            "example": false
+          },
+          "argon": {
+            "example": false
+          },
+          "boron": {
+            "example": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "example": false
           },

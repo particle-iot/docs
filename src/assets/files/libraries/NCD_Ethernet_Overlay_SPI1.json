@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD_Ethernet_Overlay_SPI1",
     "version": "1.0.0",
-    "installs": 189,
+    "installs": 190,
     "license": "MIT",
     "author": "Travis Elliott w NCD.io",
     "architectures": [
@@ -24,6 +24,20 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": false
           },

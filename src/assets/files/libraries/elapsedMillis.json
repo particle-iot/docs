@@ -7,7 +7,7 @@
   "attributes": {
     "name": "elapsedMillis",
     "version": "0.0.2",
-    "installs": 63705,
+    "installs": 63722,
     "license": "Unknown",
     "author": "Paul Kourany/PJRC.COM",
     "sentence": "elapsedMillis for Particle devices",
@@ -24,6 +24,20 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "elapsedMillisDemo": true
+          },
+          "electron": {
+            "elapsedMillisDemo": true
+          },
+          "argon": {
+            "elapsedMillisDemo": true
+          },
+          "boron": {
+            "elapsedMillisDemo": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "elapsedMillisDemo": true
           },

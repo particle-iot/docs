@@ -71,6 +71,52 @@
             "ShieldST7735": false,
             "usage": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "electron": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "argon": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          },
+          "boron": {
+            "BreakoutST7735-128x128": false,
+            "BreakoutST7735-160x128": false,
+            "BreakoutST7735-160x80": false,
+            "FeatherWingHX8357": false,
+            "FeatherWingILI9341": false,
+            "FeatherWingST7735": false,
+            "ShieldILI9341": false,
+            "ShieldST7735": false,
+            "usage": false
+          }
         }
       }
     }

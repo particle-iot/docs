@@ -36,6 +36,20 @@
           "boron": {
             "LCDTest_ST7565": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "LCDTest_ST7565": false
+          },
+          "electron": {
+            "LCDTest_ST7565": false
+          },
+          "argon": {
+            "LCDTest_ST7565": false
+          },
+          "boron": {
+            "LCDTest_ST7565": false
+          }
         }
       }
     }

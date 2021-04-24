@@ -7,7 +7,7 @@
   "attributes": {
     "name": "New_Ping",
     "version": "1.8.1",
-    "installs": 3696,
+    "installs": 3701,
     "author": "Tim Eckel",
     "maintainer": "eliteio",
     "sentence": "A library that makes working with ultrasonic sensors easy.",
@@ -26,6 +26,32 @@
     "1.8.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "NewPing15Sensors": true,
+            "NewPingEventTimer": true,
+            "NewPingExample": true,
+            "TimerExample": true
+          },
+          "electron": {
+            "NewPing15Sensors": true,
+            "NewPingEventTimer": true,
+            "NewPingExample": true,
+            "TimerExample": true
+          },
+          "argon": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          },
+          "boron": {
+            "NewPing15Sensors": false,
+            "NewPingEventTimer": false,
+            "NewPingExample": false,
+            "TimerExample": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "NewPing15Sensors": true,
             "NewPingEventTimer": true,

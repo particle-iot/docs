@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunAS726X",
     "version": "1.0.0",
-    "installs": 324,
+    "installs": 325,
     "author": "Andrew England",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "A library to drive the AMS AS726X NIR/VIS Spectrum Sensor",
@@ -27,6 +27,28 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": false
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": false
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": false
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example2_SensorSettings": true,
+            "Example3_BulbReadings": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_BasicReadings": true,
             "Example2_SensorSettings": true,

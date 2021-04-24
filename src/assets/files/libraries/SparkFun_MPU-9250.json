@@ -39,6 +39,20 @@
           "boron": {
             "MPU9250BasicAHRS": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MPU9250BasicAHRS": true
+          },
+          "electron": {
+            "MPU9250BasicAHRS": true
+          },
+          "argon": {
+            "MPU9250BasicAHRS": true
+          },
+          "boron": {
+            "MPU9250BasicAHRS": true
+          }
         }
       }
     }

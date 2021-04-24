@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT5",
     "version": "1.0.1",
-    "installs": 194,
+    "installs": 195,
     "license": "MIT",
     "author": "Thomas Peroutka <thomas.peroutka@gmail.com>",
     "url": "https://github.com/perotom/MQTT5",
@@ -23,6 +23,24 @@
     "1.0.1": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "advanced": true,
+            "basic": true
+          },
+          "electron": {
+            "advanced": true,
+            "basic": true
+          },
+          "argon": {
+            "advanced": true,
+            "basic": true
+          },
+          "boron": {
+            "advanced": true,
+            "basic": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "advanced": true,
             "basic": true

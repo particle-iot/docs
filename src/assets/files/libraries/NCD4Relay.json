@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD4Relay",
     "version": "0.0.2",
-    "installs": 22603,
+    "installs": 22618,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 4 channel Spark compatible Relay Controller",
@@ -24,6 +24,24 @@
     "0.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "electron": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "argon": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          },
+          "boron": {
+            "CloudControl": true,
+            "NCD4RelaySample": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "CloudControl": true,
             "NCD4RelaySample": true

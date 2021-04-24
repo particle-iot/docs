@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SC16IS740RK",
     "version": "0.0.7",
-    "installs": 9385,
+    "installs": 9393,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for SC16IS740 UART",
@@ -26,6 +26,28 @@
     "0.0.7": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "argon": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-selftest-SC16IS740RK": true,
+            "3-simple-spi-SC16IS740RK": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "1-simple": true,
             "2-selftest-SC16IS740RK": true,

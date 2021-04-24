@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NexaCtrl",
     "version": "0.2.0",
-    "installs": 445,
+    "installs": 446,
     "license": "",
     "author": "Carl Gunnarsson",
     "sentence": "Nexa/HomeEasy control library for arduino with absolute dim support",
@@ -24,6 +24,20 @@
     "0.2.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BasicUsageExample": false
+          },
+          "electron": {
+            "BasicUsageExample": false
+          },
+          "argon": {
+            "BasicUsageExample": false
+          },
+          "boron": {
+            "BasicUsageExample": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BasicUsageExample": false
           },

@@ -37,6 +37,20 @@
           "boron": {
             "serial-detector": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "serial-detector": true
+          },
+          "electron": {
+            "serial-detector": true
+          },
+          "argon": {
+            "serial-detector": true
+          },
+          "boron": {
+            "serial-detector": true
+          }
         }
       }
     }

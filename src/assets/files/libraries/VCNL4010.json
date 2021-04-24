@@ -36,6 +36,20 @@
           "boron": {
             "VCNL4010-tester": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "VCNL4010-tester": true
+          },
+          "electron": {
+            "VCNL4010-tester": true
+          },
+          "argon": {
+            "VCNL4010-tester": true
+          },
+          "boron": {
+            "VCNL4010-tester": true
+          }
         }
       }
     }

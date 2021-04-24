@@ -41,6 +41,20 @@
           "boron": {
             "atcommand": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "atcommand": false
+          },
+          "electron": {
+            "atcommand": false
+          },
+          "argon": {
+            "atcommand": false
+          },
+          "boron": {
+            "atcommand": false
+          }
         }
       }
     }

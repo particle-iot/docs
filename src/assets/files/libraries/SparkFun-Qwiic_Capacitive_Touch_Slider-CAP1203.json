@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-Qwiic_Capacitive_Touch_Slider-CAP1203",
     "version": "1.0.2",
-    "installs": 460,
+    "installs": 461,
     "author": "SparkFun Electronics <sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "SparkFun library for the CAP1203 cap sense IC and slider sensor",
@@ -27,6 +27,44 @@
     "1.0.2": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "electron": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "argon": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          },
+          "boron": {
+            "Example01_BasicReading": true,
+            "Example02_DetectAnyTouch": true,
+            "Example03_DetectSwipe": true,
+            "Example04_PowerButton": true,
+            "Example05_DetectCurrentTouch": true,
+            "Example06_DisableInterrupt": true,
+            "Example07_SetSensitivity": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example01_BasicReading": true,
             "Example02_DetectAnyTouch": true,

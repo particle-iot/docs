@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PololuHighPowerStepperDriver",
     "version": "1.0.0",
-    "installs": 514,
+    "installs": 515,
     "author": "Pololu",
     "sentence": "Pololu High-Power Stepper Motor Driver library for Particle",
     "paragraph": "This is a library for Particle devices that helps interface with Pololu High-Power Stepper Motor Drivers.",
@@ -25,6 +25,24 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "electron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "argon": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          },
+          "boron": {
+            "BasicStepping": true,
+            "BasicSteppingSPI": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "BasicStepping": true,
             "BasicSteppingSPI": true

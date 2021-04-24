@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Photon_Weather_Shield_Library",
     "version": "1.1.3",
-    "installs": 78253,
+    "installs": 78273,
     "license": "MIT",
     "author": "Joel Bartlett <joel.bartlett@sparkfun.com>",
     "sentence": "A library to support all I2C sensors on the SparkFun Photon Weather Shield.",
@@ -22,6 +22,24 @@
     "1.1.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "SparkFun_Photon_Weather_Shield_Example": true,
+            "Weather_Publish_and_Variable": true
+          },
+          "electron": {
+            "SparkFun_Photon_Weather_Shield_Example": true,
+            "Weather_Publish_and_Variable": true
+          },
+          "argon": {
+            "SparkFun_Photon_Weather_Shield_Example": true,
+            "Weather_Publish_and_Variable": true
+          },
+          "boron": {
+            "SparkFun_Photon_Weather_Shield_Example": true,
+            "Weather_Publish_and_Variable": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "SparkFun_Photon_Weather_Shield_Example": true,
             "Weather_Publish_and_Variable": true

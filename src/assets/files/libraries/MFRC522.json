@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MFRC522",
     "version": "0.1.4",
-    "installs": 44805,
+    "installs": 44829,
     "license": "Unknown",
     "author": "Paul Kourany",
     "sentence": "MFRC522 RFID library for Particle devices",
@@ -24,6 +24,28 @@
     "0.1.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          },
+          "electron": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          },
+          "argon": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          },
+          "boron": {
+            "DumpInfo": true,
+            "MifareClassicValueBlock": true,
+            "ReadAndWrite": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "DumpInfo": true,
             "MifareClassicValueBlock": true,

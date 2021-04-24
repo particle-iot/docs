@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkIntervalTimer",
     "version": "1.3.8",
-    "installs": 270558,
+    "installs": 270661,
     "license": "Unknown",
     "author": "Paul Kourany",
     "sentence": "Particle Interval Timer using hardware timers for Core/Photon/Electron",
@@ -24,6 +24,20 @@
     "1.3.8": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "SparkIntervalTimerDemo": true
+          },
+          "electron": {
+            "SparkIntervalTimerDemo": true
+          },
+          "argon": {
+            "SparkIntervalTimerDemo": false
+          },
+          "boron": {
+            "SparkIntervalTimerDemo": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "SparkIntervalTimerDemo": true
           },

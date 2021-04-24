@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT-TLS",
     "version": "0.2.23",
-    "installs": 63190,
+    "installs": 63192,
     "license": "MIT",
     "author": "hirotakaster",
     "url": "https://github.com/hirotakaster/MQTT-TLS",
@@ -23,6 +23,24 @@
     "0.2.23": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "electron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "a1-example": true,
             "a2-example": true

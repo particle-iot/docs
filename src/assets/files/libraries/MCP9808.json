@@ -36,6 +36,20 @@
           "boron": {
             "MCP9808": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "MCP9808": true
+          },
+          "electron": {
+            "MCP9808": true
+          },
+          "argon": {
+            "MCP9808": true
+          },
+          "boron": {
+            "MCP9808": true
+          }
         }
       }
     }

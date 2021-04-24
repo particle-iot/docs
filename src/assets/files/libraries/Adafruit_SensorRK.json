@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SensorRK",
     "version": "1.0.3",
-    "installs": 11112,
+    "installs": 11126,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Required for all Adafruit Unified Sensor based libraries.",
@@ -27,6 +27,20 @@
     "1.0.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "usage": true
           },

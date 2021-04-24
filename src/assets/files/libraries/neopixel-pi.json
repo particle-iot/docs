@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel-pi",
     "version": "0.0.15",
-    "installs": 165,
+    "installs": 166,
     "license": "LGPLv3",
     "author": "Adafruit, Technobly, BoldBigflank",
     "sentence": "An Implementation of Adafruit's NeoPixel Library for the Spark Core, Particle Photon, P1, Electron and RedBear Duo",
@@ -24,6 +24,28 @@
     "0.0.15": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "electron": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "argon": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          },
+          "boron": {
+            "a-rainbow": false,
+            "extra-examples": false,
+            "rgbw-strandtest": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "a-rainbow": false,
             "extra-examples": false,

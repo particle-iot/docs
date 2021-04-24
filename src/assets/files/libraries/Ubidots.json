@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Ubidots",
     "version": "3.2.3",
-    "installs": 181136,
+    "installs": 181207,
     "license": "MIT",
     "author": "Ubidots <devel@ubidots.com>, Jose Garcia <jose.garcia@ubidots.com>",
     "maintainer": "Jose García <jose.garcia@ubidots.com>",
@@ -33,6 +33,60 @@
     "3.2.3": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          },
+          "electron": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          },
+          "argon": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          },
+          "boron": {
+            "GetMultipleValuesTCP": true,
+            "GetValueHttp": true,
+            "GetValueTcp": true,
+            "SendContext": true,
+            "SendPosition": true,
+            "SendValuesDeviceType": true,
+            "SendValuesHttp": true,
+            "SendValuesParticleWebhook": true,
+            "SendValuesTCP": true,
+            "SendValuesUDP": true,
+            "sendValuesWithTimestamp": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "GetMultipleValuesTCP": true,
             "GetValueHttp": true,

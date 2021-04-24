@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Button",
     "version": "2.0.0",
-    "installs": 367,
+    "installs": 368,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Fischer Moseley <fischer.moseley@sparkfun.com>",
     "sentence": "Communicates and configures the SparkFun Qwiic Button and Switch.",
@@ -27,6 +27,48 @@
     "2.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": false,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "electron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "argon": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          },
+          "boron": {
+            "Example1_PrintButtonStatus": true,
+            "Example2_LightWhenPressed": true,
+            "Example3_PulseWhenPressed": true,
+            "Example4_QueueUsage": true,
+            "Example5_ChangeI2CAddress": true,
+            "Example6_WireSettings": true,
+            "Example7_2Buttons": true,
+            "Example8_ExtInterrupt": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1_PrintButtonStatus": true,
             "Example2_LightWhenPressed": true,

@@ -39,6 +39,20 @@
           "boron": {
             "TouchTest": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "TouchTest": true
+          },
+          "electron": {
+            "TouchTest": true
+          },
+          "argon": {
+            "TouchTest": true
+          },
+          "boron": {
+            "TouchTest": true
+          }
         }
       }
     }

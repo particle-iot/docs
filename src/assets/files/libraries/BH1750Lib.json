@@ -36,6 +36,20 @@
           "boron": {
             "BH1750LibSample": false
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "BH1750LibSample": false
+          },
+          "electron": {
+            "BH1750LibSample": false
+          },
+          "argon": {
+            "BH1750LibSample": false
+          },
+          "boron": {
+            "BH1750LibSample": false
+          }
         }
       }
     }

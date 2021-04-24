@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_Temperature_And_Humidity_Sensor",
     "version": "1.0.7",
-    "installs": 37735,
+    "installs": 37799,
     "license": "MIT License",
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
@@ -27,6 +27,20 @@
     "1.0.7": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "dht11_demo": true
+          },
+          "electron": {
+            "dht11_demo": true
+          },
+          "argon": {
+            "dht11_demo": true
+          },
+          "boron": {
+            "dht11_demo": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "dht11_demo": true
           },

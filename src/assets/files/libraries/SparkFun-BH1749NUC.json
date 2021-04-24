@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-BH1749NUC",
     "version": "1.0.0",
-    "installs": 581,
+    "installs": 582,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the BH1749NUC color sensor on the SparkFun Qwiic RGB Sensor",
@@ -27,6 +27,44 @@
     "1.0.0": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "electron": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "argon": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          },
+          "boron": {
+            "Example1-RGB_IR_Monitoring": false,
+            "Example2_RGB_DataPolling": true,
+            "Example3_NewDataInterrupt": true,
+            "Example4_ThresholdInterrupt": true,
+            "Example5_Hex_Color_Generation": false,
+            "Example6_pyRGBVisualizer": false,
+            "ExampleZ_testSketch": false
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Example1-RGB_IR_Monitoring": false,
             "Example2_RGB_DataPolling": true,

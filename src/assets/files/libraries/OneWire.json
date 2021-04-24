@@ -7,7 +7,7 @@
   "attributes": {
     "name": "OneWire",
     "version": "2.0.4",
-    "installs": 597178,
+    "installs": 597409,
     "license": "MIT",
     "author": "Hotaman, Julien Vanier <julien@particle.io>",
     "sentence": "Dallas 1-Wire protocol with support for DS18B20, DS1820, DS1822",
@@ -28,6 +28,24 @@
     "2.0.4": {
       "builds": {
         "2.0.1": {
+          "photon": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "electron": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "argon": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          },
+          "boron": {
+            "Address_Scanner": true,
+            "DS18x20_Temperature": true
+          }
+        },
+        "1.5.2": {
           "photon": {
             "Address_Scanner": true,
             "DS18x20_Temperature": true

@@ -39,6 +39,24 @@
             "a1-example": true,
             "a2-example": true
           }
+        },
+        "1.5.2": {
+          "photon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "electron": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "argon": {
+            "a1-example": true,
+            "a2-example": true
+          },
+          "boron": {
+            "a1-example": true,
+            "a2-example": true
+          }
         }
       }
     }
