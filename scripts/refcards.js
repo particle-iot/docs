@@ -30,7 +30,7 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
 
             const origTitle = line.substr(spaceIndex + 1).trim();
 
-            const origAnchor = origTitle.toLowerCase().replace(/[^-A-Za-z0-9_ ]+/g, ' ').replace(/ +/g, '-');
+            const origAnchor = origTitle.toLowerCase().replace(/&/g, 'amp-').replace(/[^-A-Za-z0-9_]+/g, ' ').replace(/ +/g, '-');
 
             const origAnchorNoTrailingDash = origAnchor.replace(/[-]+$/g, '');
 
@@ -220,7 +220,7 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
     for(let section of sections) {
 
         // Replace anchors in content
-        section.content = section.content.replace(/\]\(#[-A-Za-z0-9]+\)/g, function(replacement) {
+        section.content = section.content.replace(/\]\(#[-A-Za-z0-9_]+\)/g, function(replacement) {
             // console.log('replacement ' + replacement);
             let anchor = replacement.substr(3, replacement.length - 4);
             if (!anchors[anchor]) {
