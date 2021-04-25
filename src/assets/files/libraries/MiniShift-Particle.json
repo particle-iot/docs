@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "MiniShift-Particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MiniShift-Particle/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "MiniShift-Particle",
+    "version": "1.0.0",
+    "installs": 115,
+    "license": "See 'LICENSE' file",
+    "author": "Gregory Fenton and ArachnidLabs",
+    "sentence": "ArachnidLabs MiniShift library for Particle devices",
+    "url": "https://github.com/gregoryfenton/minishift-particle",
+    "repository": "https://github.com/gregoryfenton/minishift-particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MiniShift-Particle",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "serialwrite": true
+          },
+          "electron": {
+            "serialwrite": true
+          },
+          "argon": {
+            "serialwrite": true
+          },
+          "boron": {
+            "serialwrite": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "serialwrite": true
+          },
+          "electron": {
+            "serialwrite": true
+          },
+          "argon": {
+            "serialwrite": true
+          },
+          "boron": {
+            "serialwrite": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Minishift-Particle\r\n\r\nParticle library for the @ArachnidLabs Minishift\r\n\r\nPorted by Gregory Fenton, http://labby.co.uk\r\n\r\nMinishift pinout (Pin 1 at top, 5 at bottom, bottom signified by black dot matrix letters/numbers on white plastic):\r\n1\tPower (3v3 or 5v)\r\n2\tGnd\r\n3\tSCK\t\t(Clock)\r\n4\tCS\t\t(Latch)\r\n5\tMOSI\t(Data)\r\n\r\nAll lines go to the female header, the male header is for the next Minishift module.\r\n\r\nUsage:\r\nEnsure you set the minishift pins to OUTPUT in setup()\r\nCreate a MiniShift object using\r\nMiniShift ms(dataPin, clockPin, latchPin);\r\n\r\nDisplay the message using\r\nms.writeString(String message);\r\nTo add a delay between columns (slow the text down) use\r\nms.writeString(String message, int delayMS);\r\nTo add a gap between columns (so characters do not abut) use\r\nms.writeString(String message, int delayMS, int columns);\r\n\r\nTo output raw data (such as a picture) to the minishift use:\r\nms.writeColumns()\r\nfor example:\r\nint i;\r\nunsigned const char smileyFace[] = {\r\n\t0b00111100, //  XXXX \r\n\t0b01000010, // X    X\r\n\t0b10101001, //X X X  X\r\n\t0b10000101, //X    X X\r\n\t0b10000101,\t//X    X X\r\n\t0b10101001, //X X X  X\r\n\t0b01000010, // X    X\r\n\t0b00111100\t//  XXXX \r\n}; //Note the face is sideways, the data gets read in a column at a time not a row at a time\r\nfor(i = 0; i < 8; i++)//Fill 8 minishift modules with smiley faces\r\n{\r\n\tms.writeColumns(smileyFace, 8 /* 8 bytes of data */, 40 /* 40ms gap between columns */);\r\n}\r\n\r\nHave fun, and let me (@gregoryfenton) and ArachnidLabs (@ArachnidLabs) know what you get up to [:)]",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "gp20u7_particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/gp20u7_particle/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "gp20u7_particle",
+    "version": "1.0.3",
+    "installs": 4985,
+    "license": "MIT",
+    "author": "Kevin Sidwar <kevin@sidwar.com>",
+    "sentence": "A simple library for the GP20U7 GPS unit",
+    "url": "https://github.com/sidwarkd/gp20u7_particle",
+    "repository": "https://github.com/sidwarkd/gp20u7_particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/gp20u7_particle",
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "basic-example": true
+          },
+          "electron": {
+            "basic-example": true
+          },
+          "argon": {
+            "basic-example": true
+          },
+          "boron": {
+            "basic-example": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "basic-example": true
+          },
+          "electron": {
+            "basic-example": true
+          },
+          "argon": {
+            "basic-example": true
+          },
+          "boron": {
+            "basic-example": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# GP20U7 GPS Library\nA very simple library for interfacing with the [GP-20U7 GPS unit](https://www.sparkfun.com/products/13740).\n\n## Installation\n\n## Usage\n\n## Example\n```c\n\n```\n",
+  "allVersions": [
+    "1.0.3"
+  ]
+}

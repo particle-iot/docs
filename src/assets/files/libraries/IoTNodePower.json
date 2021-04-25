@@ -1,0 +1,42 @@
+{
+  "type": "libraries",
+  "id": "IoTNodePower",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/IoTNodePower/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "IoTNodePower",
+    "version": "0.0.4",
+    "installs": 1422,
+    "license": "MIT",
+    "author": "Robert Mawrey <robert@sentientthings.com>",
+    "maintainer": "Robert Mawrey <robert@sentientthings.com>",
+    "sentence": "Sentient Things IoT Node Power library",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/IoTNodePower",
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "About\r\n===\r\n\r\nLibrary that uses the I2C bus and Microchip MCP23017 IO expander to control and monitor the power setting of the IoT Node circuitry.\r\nVersion 2 has an error.\r\nVersion 3 added digitalWrite\r\nVersion 4 added setPullUp\r\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

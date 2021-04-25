@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "bluz_gateway",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/bluz_gateway/archive/1.8.0.tar.gz"
+  },
+  "attributes": {
+    "name": "bluz_gateway",
+    "version": "1.8.0",
+    "installs": 4046,
+    "license": "GPL",
+    "author": "Eric Ely <ericely@bluz.io>",
+    "sentence": "A library to turn a Particle board into a bluz gateway when paired with a Gateway Shield.",
+    "url": "https://github.com/bluzDK/particle-gateway-shield-code",
+    "repository": "https://github.com/bluzDK/particle-gateway-shield-code.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/bluz_gateway",
+  "versions": {
+    "1.8.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "gateway": true
+          },
+          "electron": {
+            "gateway": true
+          },
+          "argon": {
+            "gateway": false
+          },
+          "boron": {
+            "gateway": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "gateway": true
+          },
+          "electron": {
+            "gateway": true
+          },
+          "argon": {
+            "gateway": false
+          },
+          "boron": {
+            "gateway": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "<p align=\"center\" >\n<img src=\"http://bluz.io/static/img/logo.png\" alt=\"Bluz\" title=\"Bluz\">\n</p>\n\nParticle Gateway Code\n==========\nBluz is a Development Kit (DK) that implements the Wiring language and talks to the [Particle](https://www.particle.io/) cloud through Bluetooth Low Energy. It can be accessed through a REST API and programmed from a Web IDE.\n\nThe code in this repository is used for a Particle Core/Photon/Electron to act as a gateway device using the bluz gateway shield. For more information on setting up the gateway shield, please see the [documentation.](http://docs.bluz.io/tutorials/gateway_getting_started/)\n\nThe code is available as a library in the Particle Web IDE under the title Bluz Gateway.\n\n##Programming Particle Device\n\nFor full instructions, please refer to the [bluz docs on programming the Particle device.](http://docs.bluz.io/tutorials/gateway_getting_started/) \n",
+  "allVersions": [
+    "1.8.0",
+    "1.6.0",
+    "1.5.0",
+    "1.4.0",
+    "1.3.0",
+    "1.2.0"
+  ]
+}

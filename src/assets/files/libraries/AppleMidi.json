@@ -1,0 +1,33 @@
+{
+  "type": "libraries",
+  "id": "AppleMidi",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AppleMidi/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "AppleMidi",
+    "version": "0.0.1",
+    "installs": 144,
+    "license": "MIT - I think",
+    "author": "Bob Race <boberace@hotmail.com>",
+    "sentence": "This is an attempt to copy the Arduino-AppleMidi-Library to Spark Core 'no clue what I am doing' ",
+    "url": "https://github.com/rrace001/applemidi",
+    "repository": "https://github.com/rrace001/applemidi.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AppleMidi",
+  "versions": {
+    "0.0.1": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "AppleMidi\n=========\n\nThis is an attemp to copy Arduino-AppleMidi-Library into Spark Core\n\nAs of now I am just pushing buttons to get something and have no clue what I am doing.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

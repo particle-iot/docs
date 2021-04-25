@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_VEML6070",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_VEML6070/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_VEML6070",
+    "version": "0.0.3",
+    "installs": 25403,
+    "license": "BSD",
+    "author": "Limor (Ladyada) Fried, Tony DiCola",
+    "sentence": "Adafruit_VEML6070 library for Particle",
+    "url": "https://github.com/hl68fx/adafruit_veml6070",
+    "repository": "https://github.com/hl68fx/adafruit_veml6070.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_VEML6070",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "VEML6070 port for Particle devices\n\nCredits go to:\nAdafruit (adafruit.com) for creating the Arduino library\n***********************************************",
+  "allVersions": [
+    "0.0.3"
+  ]
+}

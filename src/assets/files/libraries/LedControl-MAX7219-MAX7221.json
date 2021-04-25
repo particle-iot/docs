@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "LedControl-MAX7219-MAX7221",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LedControl-MAX7219-MAX7221/archive/0.0.10.tar.gz"
+  },
+  "attributes": {
+    "name": "LedControl-MAX7219-MAX7221",
+    "version": "0.0.10",
+    "installs": 10223,
+    "license": "GNU GPL v3",
+    "author": "Christian Loris <christian.loris@gmail.com>",
+    "sentence": "Port of Eberhard Fahle's LedControl library for controlling the MAX7219/MAX7221 for the Spark Core.",
+    "url": "https://github.com/chrisloris/ledcontrol-max7219-max7221",
+    "repository": "https://github.com/chrisloris/ledcontrol-max7219-max7221.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/LedControl-MAX7219-MAX7221",
+  "versions": {
+    "0.0.10": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "matrixpaneldemo": true
+          },
+          "electron": {
+            "matrixpaneldemo": true
+          },
+          "argon": {
+            "matrixpaneldemo": true
+          },
+          "boron": {
+            "matrixpaneldemo": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "matrixpaneldemo": true
+          },
+          "electron": {
+            "matrixpaneldemo": true
+          },
+          "argon": {
+            "matrixpaneldemo": true
+          },
+          "boron": {
+            "matrixpaneldemo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "LedControl\n==========\n\nPort of Eberhard Fahle's LedControl library for controlling the MAX7219/MAX7221 for the Spark Core.\n\nhttps://code.google.com/p/arudino-maxmatrix-library/\n",
+  "allVersions": [
+    "0.0.10"
+  ]
+}

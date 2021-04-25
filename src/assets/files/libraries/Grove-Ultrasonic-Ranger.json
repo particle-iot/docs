@@ -1,0 +1,74 @@
+{
+  "type": "libraries",
+  "id": "Grove-Ultrasonic-Ranger",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Grove-Ultrasonic-Ranger/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Grove-Ultrasonic-Ranger",
+    "version": "1.0.2",
+    "installs": 19123,
+    "author": "Seeed Studio",
+    "maintainer": "Seeed Studio <techsupport@seeed.cc>",
+    "sentence": "Particle Xenon library for controlling Grove Ultrasonic Ranger, using gennal I/O communication.",
+    "paragraph": "Particle Xenon library for controlling Grove Ultrasonic Ranger, using gennal I/O communication.",
+    "category": "Sensors",
+    "url": "https://github.com/Jenkinlu001/Grove-Ultrasonic-Ranger_Xenon",
+    "repository": "https://github.com/Jenkinlu001/Grove-Ultrasonic-Ranger_Xenon.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/Grove-Ultrasonic-Ranger",
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "electron": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "argon": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "boron": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "electron": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "argon": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          },
+          "boron": {
+            "UltraDisOnSeeedSerialLcd": false,
+            "UltrasonicDisplayOnTerm": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Grove_Ultrasonic_Ranger\n--------------------------------\n\n[![Grove_Ultrasonic_Ranger](http://www.seeedstudio.com/wiki/images/thumb/3/3a/Ultrasonic_Ranger.jpg/300px-Ultrasonic_Ranger.jpg)](http://www.seeedstudio.com/depot/grove-ultrasonic-ranger-p-960.html?cPath=144_149)\n\nThis Grove - ultrasonic sensor is a non-contact distance measurement module which works at 42KHz, suitable for projects that require middle distance measurement. \n\n### Usage:\n\n1. Clone this repo or download as a zip;\n2. Unzip the zip file if you downloaded a zip file;\n3. Remove the string \"-master\" if you download as a zip file;\n4. Copy the directory \"Grove_Ultrasonic_Ranger\" into Arduino's libraries directory;\n5. Open Arduino IDE, go to \"File\"->\"Examples\"->\"Grove_Ultrasonic_Ranger\"\n\nAssume that you connected the grove correctly. \n\nFor connection guide and more information, please refer to [wiki page](http://www.seeedstudio.com/wiki/Grove_-_Ultrasonic_Ranger).\n\n    \n----\n\nThis software is written by L.G. for for [Seeed Technology Inc.](http://www.seeed.cc) and is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt/LICENSE for the details of MIT license.<br>\n\nContributing to this software is warmly welcomed. You can do this basically by<br>\n[forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>\nfor operating guide). Adding change log and your contact into file header is encouraged.<br>\nThanks for your contribution.\n\nSeeed is a hardware innovation platform for makers to grow inspirations into differentiating products. By working closely with technology providers of all scale, Seeed provides accessible technologies with quality, speed and supply chain knowledge. When prototypes are ready to iterate, Seeed helps productize 1 to 1,000 pcs using in-house engineering, supply chain management and agile manufacture forces. Seeed also team up with incubators, Chinese tech ecosystem, investors and distribution channels to portal Maker startups beyond.\n\n\n[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_Ultrasonic_Ranger)](https://github.com/igrigorik/ga-beacon)\n\n\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1"
+  ]
+}

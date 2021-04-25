@@ -1,0 +1,64 @@
+{
+  "type": "libraries",
+  "id": "PhotonWaveOut",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PhotonWaveOut/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "PhotonWaveOut",
+    "version": "0.0.1",
+    "installs": 1329,
+    "license": "Apache-2.0",
+    "author": "Stefan Sauer <ensonic@google.com>",
+    "sentence": "Audio playback library for the particle.io",
+    "url": "https://github.com/ensonic/photon-waveout",
+    "repository": "https://github.com/ensonic/photon-waveout.git",
+    "architectures": [],
+    "dependencies": {
+      "spark-interval-timer": "1.3.3"
+    },
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PhotonWaveOut",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "wave-out": false
+          },
+          "electron": {
+            "wave-out": false
+          },
+          "argon": {
+            "wave-out": false
+          },
+          "boron": {
+            "wave-out": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "wave-out": false
+          },
+          "electron": {
+            "wave-out": false
+          },
+          "argon": {
+            "wave-out": false
+          },
+          "boron": {
+            "wave-out": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# photon-waveout\n\nAudio playback library for the particle.io photon using two digital pins to\ncreate an 8bit mono audio stream at 7874 Hz using AC PWM. This is not an\nofficial Google product.\n\n## how to use it\n\nFirst you need to convert you audio sample into a c header. One way you can do\nit is:\ngst-launch-1.0 -q uridecodebin uri=file:///path/to/audio-file ! audioconvert ! \\\n  audioresample ! audioconvert ! \"audio/x-raw,format=S8,rate=7874,channels=1\" ! \\\n  filesink location=/tmp/snd; \\\n  perl ~/bin/bin2hex.pl /tmp/snd 1 >/tmp/wave_data.h\n\ngstreamer is included with most linux distros and I found the bin2hex.pl at\nhttp://www.chami.com/tips/delphi/052098D.html\n\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "InternetButtonADXL362",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/InternetButtonADXL362/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "InternetButtonADXL362",
+    "version": "0.0.1",
+    "installs": 592,
+    "license": "MIT License",
+    "author": "Anthony Liekens <anthony@liekens.net>",
+    "sentence": "Provides a library for the ADXL362 accelerometer and temperature sensor",
+    "url": "https://github.com/aliekens/adxl362",
+    "repository": "https://github.com/aliekens/adxl362.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/InternetButtonADXL362",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "ADXL362_SimpleRead": false
+          },
+          "electron": {
+            "ADXL362_SimpleRead": false
+          },
+          "argon": {
+            "ADXL362_SimpleRead": false
+          },
+          "boron": {
+            "ADXL362_SimpleRead": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "ADXL362_SimpleRead": false
+          },
+          "electron": {
+            "ADXL362_SimpleRead": false
+          },
+          "argon": {
+            "ADXL362_SimpleRead": false
+          },
+          "boron": {
+            "ADXL362_SimpleRead": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "ADXL362\n=======\n\nA library for manipulating ADXL362 accelerometer and temperature sensor for the Spark Core and Spark Internet Button v1.0.\nImplementation based on the ADXL362 library for Arduino, https://github.com/annem/ADXL362 by Anne Mahaffey and Jonathan Ruiz de Garibay, ported to Spark by Anthony Liekens.\n\nComponents Required\n---\n- Spark core\n- Example built with the Spark Internet Button v1.0 or ADXL362 connected to the Spark PCI bus\n\nExample Usage\n---\n\nSee this [example](firmware/examples/ADXL362_SimpleRead.cpp) for details.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

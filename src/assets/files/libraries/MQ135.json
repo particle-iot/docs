@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "MQ135",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MQ135/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "MQ135",
+    "version": "1.0.0",
+    "installs": 6613,
+    "license": "GNU GPLv3",
+    "author": "Georg Krocker",
+    "sentence": "Arduino library for the MQ135",
+    "url": "https://github.com/emarinizquierdo/mq135",
+    "repository": "https://github.com/emarinizquierdo/mq135.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MQ135",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "MQ135\n=====\n\nArduino library for the MQ135\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

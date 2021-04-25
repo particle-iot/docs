@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "particle-osc",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/particle-osc/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "particle-osc",
+    "version": "0.0.3",
+    "installs": 745,
+    "license": "See LICENSE file",
+    "author": "Tekin Suleyman <tekin@tekin.co.uk>",
+    "sentence": "OSC encoding library for the Particle platform",
+    "url": "https://github.com/tekin/particle-osc",
+    "repository": "https://github.com/tekin/particle-osc.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/particle-osc",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "ip-reporter": true
+          },
+          "electron": {
+            "ip-reporter": false
+          },
+          "argon": {
+            "ip-reporter": true
+          },
+          "boron": {
+            "ip-reporter": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "ip-reporter": true
+          },
+          "electron": {
+            "ip-reporter": false
+          },
+          "argon": {
+            "ip-reporter": true
+          },
+          "boron": {
+            "ip-reporter": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "OSC library for the Particle (formerly Spark) platform.\n\n## Examples\n\nip-reporter.ino - simple example that reports the devices IP address over OSC\n\n## Provenance\n\nThis is a package of the library put together by [Collectif Trublion](http://www.trublion.org/)\nthat can be found at [trublion/sparkcore_osc](https://github.com/trublion/sparkcore_osc).\nThat was itself a port of the [Oscuino library](https://github.com/CNMAT/OSC)\nlibrary for Arduino and related embedded processor platforms.\n",
+  "allVersions": [
+    "0.0.3"
+  ]
+}

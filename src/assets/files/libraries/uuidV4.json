@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "uuidV4",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/uuidV4/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "uuidV4",
+    "version": "1.0.1",
+    "installs": 588,
+    "license": "MIT",
+    "author": "Micah L Abelson",
+    "sentence": "A Particle library to create version 4 universally unique identifier (UUID)",
+    "url": "https://github.com/abelsm2/uuidV4",
+    "repository": "https://github.com/abelsm2/uuidV4.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "u",
+  "cardUrl": "/cards/libraries/u/uuidV4",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# uuidV4\n\nA Particle library to create version 4 universally unique identifier (UUID)\n\n\n## Usage\n\nThis is not a typical library in the sense that there is no class.  It is simply a function that can be included and called using the uuid:: namespace.\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nA Particle library to create version 4 universally unique identifier (UUID).  This function uses the Particle HAL RNG rather than the standard random function in order access to the STM32F205 32 bit true random number generator.\n\n## LICENSE\nCopyright 2017 Micah L Abelson\n\nLicensed under the MIT license\n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0",
+    "0.0.1"
+  ]
+}

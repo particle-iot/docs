@@ -1,0 +1,65 @@
+{
+  "type": "libraries",
+  "id": "IRremote",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/IRremote/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "IRremote",
+    "version": "0.0.3",
+    "installs": 33939,
+    "license": "GPL",
+    "author": "Michael Doan",
+    "sentence": "IR Remote Control",
+    "paragraph": "IR Remote Control",
+    "repository": "https://github.com/babean/IRRemote.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/IRremote",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# IRRemote\n\nModified from PJRC for Particle Photon.\nhttps://www.pjrc.com/teensy/arduino_libraries/IRremote.zip\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.1"
+  ]
+}

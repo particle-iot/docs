@@ -1,0 +1,5 @@
+node_modules
+data/libraries
+data/libraryList.json
+.DS_Store
+config.json

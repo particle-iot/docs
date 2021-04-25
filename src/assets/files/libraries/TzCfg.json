@@ -1,0 +1,45 @@
+{
+  "type": "libraries",
+  "id": "TzCfg",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TzCfg/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "TzCfg",
+    "version": "0.0.1",
+    "installs": 1225,
+    "license": "GNU GPLv3",
+    "author": "Rodney Palmer",
+    "maintainer": "RodneyPalmer (rwpalmeribm@gmail.com)",
+    "sentence": "TzCfg manages local time settings and performs DST transitions. ",
+    "paragraph": "TzCfg has functions to configure local time settings based on an IP address, GPS coordinates, or a valid IANA time zone ID (aka Olson Name). TzCfg obtains timezone data via the network, and stores it in EEPROM so the data is available when the device boots without network connectivity. The timezone data includes DST transition information so TzCfg can reset local time when DST transitions are scheduled. Coupling TzCfg functions with \"Particle Functions\" allows users to manage time settings on remote devices via the web.",
+    "category": "Other",
+    "url": "",
+    "repository": "https://github.com/rwpalmer/TzCfg",
+    "architectures": [
+      "Particle Devices"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TzCfg",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# TzCfg\r\n\r\n## A library to automatically maintain local time settings on Particle IOT devices\r\n\r\n### So, what does \"Automatically\" mean?\r\nThe TzCfg library configures the device's local time settings based on one of the following three items\r\n* The device's *IP address*, which it gets from the Internet ... that's automatic.\r\n* The device's *GPS coordinates* supplied by the GPS hardware or software of your choice ... that's automatic.\r\n* A user-specified \"time zone ID\" (aka \"Olson Name\")... okay, not so automatic ... but two out of three's not bad.  \r\n\r\nTime-zone changes can be triggered at any time, via software, or via the web. \r\n\r\nTime zone information is saved in EEPROM, so the device can set proper time after a reboot, even if it has no network connectivity at that time.\r\n\r\nOh, and yes, tzCfg automatically performs DST transitions at their scheduled time.\r\n\r\n\r\n## How the Library Works ...\r\n\r\n* IANA maintains the time zone database that communication companies and OS vendors use to manage local time world wide. \r\n\r\n* TzCfg obtains IANA time zone information via [timezonedb.com](https://timezonedb.com). TzCfg users must register for a timezonedb.com API-key to access the data. The key is free ( for up to 1 lookup per second ). They charge a fee for access above this level. [Registration link](http://timezonedb.com/register)\r\n\r\n* To enable time zone configuration by IP, TzCfg needs to know the Particle device's IP address and the time zone ID associated with that address. This information is obtained from [ip-api.com](http://ip-api.com) which does not require an API key for non-commercial access up to 150 lookups per minute. Commercial use requires preapproval ... see the site for more details.  \r\n\r\n*It should be noted that TzCfg does not use Particle's WiFi.localIP() function to obtain the device's IP address because that would not work.  Most IOT devices are configured with non-routable addresses (like 192.168.xxx.xxx, or 10.xxx.xxx.xxx). Non-routable addresses like these CAN NOT be used for time zone lookups. ipapi.com returns the IP address designated as the \"return address\" on packets sent from your device. This is most likely the IP address assigned to the internet side of the IP gateway that your device uses to communicate with the web. \r\n\r\nI'm not really into markup, markdown, meltdown, or whatever it is, so forgive me if I went a different way when it comes to documentation. \r\n\r\n## TzCfg Documentation:\r\n\r\nTzCfg Documentation:  \r\n* [TzCfg QuickStartGuide](https://docs.google.com/document/d/e/2PACX-1vQL7RNLxRsPbv9EC9xgdZFwIcbJHS-eEm-ocAxOIScUA4sIZUem_HSJZbh2hFMzVZ7V2BmjUy5fAJlr/pub)\r\n* [TzCfg Command Reference](https://docs.google.com/document/d/e/2PACX-1vSAg2uOsghutDC64-izE44u9ZXh8S8i--FXHapayXSZ-EPrm93bIpW2d_fWUszqxKYYxMqM0jmWe8mE/pub)\r\n\r\n##\tFirmware Examples\r\nTzCfg is packaged with three firmware examples. All three are designed to be run with a serial console.\r\n*\t*TzCfg101.ino* demonstrates setting local time and displaying local time variables exposed by tzLib and the Particle Time class.\r\n*\t*TzCfg201.ino* demonstrates how TzCfg can perform DST transitions on command ... to enable testing of software that logs or displays data with time related information. \r\n*\t*TzCfg301.ino* demonstrates how a device's time zone can be changed via the web. Particle functions are used to allow users to change timezones by entering a timezone ID, by entering GPS coordinates, and/or by simply clicking \"setZonebyIP\".  \r\n\r\nSample \"serial console output\" is included in the comments at the the bottom of each example's .ino file.\r\n\r\n## Current State of the Project ...\r\n\r\n* TzCfg (0.0.1) Beta 1\r\n* Known defects: 0\r\n* First draft of documentation is complete ... see links above.\r\nCode will appear on GitHub once the preliminary beta testing is complete ... \r\n\t\t\t\t\r\nPlease report any issues, suggestions, or other comments to the author and maintainer: rwpalmeribm@gmail.com.\r\n\r\nMany thanks to Wagner Sartori (https://github.com/trunet) for his suggestion to use timezonedb.com as a source for timezone data. Without that suggestion, this library would not exist. \r\n\r\n\r\n\r\n\r\n\r\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

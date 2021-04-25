@@ -1,0 +1,81 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_LEDBackpack_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_LEDBackpack_RK/archive/1.1.8.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_LEDBackpack_RK",
+    "version": "1.1.8",
+    "installs": 7349,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Adafruit LED Backpack Library for our 8x8 matrix and 7-segment LED backpacks",
+    "paragraph": "Adafruit LED Backpack Library for our 8x8 matrix and 7-segment LED backpacks. Ported 1.1.6 version by rickkas7.",
+    "category": "Display",
+    "url": "https://github.com/adafruit/Adafruit-LED-Backpack-Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_LEDBackpack_RK",
+  "versions": {
+    "1.1.8": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "matrix8x8": false,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "electron": {
+            "matrix8x8": false,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "argon": {
+            "matrix8x8": false,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "boron": {
+            "matrix8x8": false,
+            "quadalphanum": true,
+            "sevenseg": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "matrix8x8": false,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "electron": {
+            "matrix8x8": false,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "argon": {
+            "matrix8x8": false,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "boron": {
+            "matrix8x8": false,
+            "quadalphanum": true,
+            "sevenseg": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit-LED-Backpack-Library\n<!-- START COMPATIBILITY TABLE -->\n\n## Compatibility\n\nMCU               | Tested Works | Doesn't Work | Not Tested  | Notes\n----------------- | :----------: | :----------: | :---------: | -----\nAtmega328 @ 16MHz |      X       |             |            | \nAtmega328 @ 12MHz |      X       |             |            | \nAtmega32u4 @ 16MHz |      X       |             |            | \nAtmega32u4 @ 8MHz |      X       |             |            | \nESP8266           |      X       |             |            | \nAtmega2560 @ 16MHz |      X       |             |            | \nATSAM3X8E         |      X       |             |            | Use SDA/SCL on pins 20 &amp; 21\nATSAM21D          |      X       |             |            | \nATtiny85 @ 16MHz  |      X       |             |            | Use 0 for SDA, 2 for SCL, examples may need Serial references removed\nATtiny85 @ 8MHz   |      X       |             |            | Use 0 for SDA, 2 for SCL, examples may need Serial references removed\n\n  * ATmega328 @ 16MHz : Arduino UNO, Adafruit Pro Trinket 5V, Adafruit Metro 328, Adafruit Metro Mini\n  * ATmega328 @ 12MHz : Adafruit Pro Trinket 3V\n  * ATmega32u4 @ 16MHz : Arduino Leonardo, Arduino Micro, Arduino Yun, Teensy 2.0\n  * ATmega32u4 @ 8MHz : Adafruit Flora, Bluefruit Micro\n  * ESP8266 : Adafruit Huzzah\n  * ATmega2560 @ 16MHz : Arduino Mega\n  * ATSAM3X8E : Arduino Due\n  * ATSAM21D : Arduino Zero, M0 Pro\n  * ATtiny85 @ 16MHz : Adafruit Trinket 5V\n  * ATtiny85 @ 8MHz : Adafruit Gemma, Arduino Gemma, Adafruit Trinket 3V\n\n<!-- END COMPATIBILITY TABLE -->\n",
+  "allVersions": [
+    "1.1.8",
+    "1.1.6"
+  ]
+}

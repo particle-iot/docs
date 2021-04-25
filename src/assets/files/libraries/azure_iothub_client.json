@@ -1,0 +1,41 @@
+{
+  "type": "libraries",
+  "id": "azure_iothub_client",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/azure_iothub_client/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "azure_iothub_client",
+    "version": "0.0.3",
+    "installs": 1195,
+    "license": "MIT",
+    "author": "dcristo@microsoft.com",
+    "sentence": "Experimental port - Azure IoTHub client",
+    "url": "https://github.com/dcristoloveanu/azure-iothub-client-particleio",
+    "repository": "https://github.com/dcristoloveanu/azure-iothub-client-particleio.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/azure_iothub_client",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# Microsoft Azure IoT SDKs\n\n*Warning: experimental port*\n\nThis repository contains the IoT device SDK for IoTHub from https://www.github.com/Azure/azure-iot-sdks ported to particle.io.\nSome limitations exist for the port:\n- only AMQP is supported\n- only the LL layer is supported (no threading and locking).\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2"
+  ]
+}

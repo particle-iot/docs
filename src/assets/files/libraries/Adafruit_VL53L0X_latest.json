@@ -1,0 +1,81 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_VL53L0X_latest",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_VL53L0X_latest/archive/1.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_VL53L0X_latest",
+    "version": "1.0.4",
+    "installs": 1349,
+    "license": "LICENSE",
+    "author": "Adafruit",
+    "maintainer": "adafruit <support@adafruit.com>",
+    "sentence": "Sensor driver for VL53L0X Time of Flight sensor",
+    "paragraph": "Sensor driver for VL53L0X Time of Flight sensor",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_VL53L0X",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_VL53L0X_latest",
+  "versions": {
+    "1.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "electron": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "argon": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "boron": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "electron": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "argon": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          },
+          "boron": {
+            "vl53l0x": true,
+            "vl53l0x_dual": true,
+            "vl53l0x_oled": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit VL53L0X Library [![Build Status](https://travis-ci.org/adafruit/Adafruit_VL53L0X.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_VL53L0X)\n\n<img src=\"https://cdn-shop.adafruit.com/970x728/3317-03.jpg\" height=\"300\"/>\n\nThis is a library for the Adafruit VL53L0X time-of-flight breakout:\n  * https://www.adafruit.com/products/3317\n \nCheck out the links above for our tutorials and wiring diagrams. This chip uses I2C to communicate\n\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nMIT license, all text above must be included in any redistribution",
+  "allVersions": [
+    "1.0.4"
+  ]
+}

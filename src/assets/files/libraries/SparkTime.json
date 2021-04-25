@@ -1,0 +1,72 @@
+{
+  "type": "libraries",
+  "id": "SparkTime",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkTime/archive/0.0.6.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkTime",
+    "version": "0.0.6",
+    "installs": 74095,
+    "license": "MIT",
+    "author": "Brian Ogilvie <bko@pobox.com>",
+    "sentence": "A Spark Library for NTP time",
+    "url": "https://github.com/bkobkobko/sparktime",
+    "repository": "https://github.com/bkobkobko/sparktime.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkTime",
+  "versions": {
+    "0.0.6": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "electron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "argon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "boron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "electron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "argon": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          },
+          "boron": {
+            "SparkTimeExample": true,
+            "timentemp": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkTime\n=========\n\nNTP Time Client Code for the Spark Core\n",
+  "allVersions": [
+    "0.0.6",
+    "0.0.4",
+    "0.0.3",
+    "0.0.2"
+  ]
+}

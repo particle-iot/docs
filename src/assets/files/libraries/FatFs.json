@@ -1,0 +1,62 @@
+{
+  "type": "libraries",
+  "id": "FatFs",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/FatFs/archive/0.2.13.tar.gz"
+  },
+  "attributes": {
+    "name": "FatFs",
+    "version": "0.2.13",
+    "installs": 131,
+    "license": "MIT",
+    "author": "Aaron Heise <aaron@hizlabs.com>",
+    "sentence": "FatFs library by ChaN plus C++ driver loader, for Particle firmware. Includes an SD card (SPI mode) driver.",
+    "url": "https://github.com/hizlabs/fatfs-particle",
+    "repository": "https://github.com/hizlabs/fatfs-particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "f",
+  "cardUrl": "/cards/libraries/f/FatFs",
+  "versions": {
+    "0.2.13": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "01_FatFs_Examples": true
+          },
+          "electron": {
+            "01_FatFs_Examples": false
+          },
+          "argon": {
+            "01_FatFs_Examples": false
+          },
+          "boron": {
+            "01_FatFs_Examples": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "01_FatFs_Examples": true
+          },
+          "electron": {
+            "01_FatFs_Examples": false
+          },
+          "argon": {
+            "01_FatFs_Examples": false
+          },
+          "boron": {
+            "01_FatFs_Examples": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# FatFs (Particle library)\n\nFatFs includes the FatFs library from ChaN (v0.12) and a C++ driver interface. Up to 4 drivers can be loaded simultaneously.\n\n**Goals of this project**\n\n- Filesystem I/O on Particle with a license compatible with proprietary projects\n- Separate out device drivers from filesystem driver in an extensible fashion\n- Dynamically attach drivers\n\n**Quickstart** (using FatFsSD driver included in library)\n\n1. Include FatFs library\n2. Include a driver library\n3. Declare and set up instance of driver\n4. Attach (mount) driver\n\n```c++\n#include <FatFs/FatFs.h>\n\n//If using another driver, include the library\n//#include <OtherDriver/OtherDriver.h>\n\n//Declare an instance of the driver\nFatFsSD SD0;\n\nvoid setup() \n{\n    //Set up driver instance\n    SD0.begin(SPI, A2);\n    //Attach driver instance to drive 0:\n    FRESULT result = FatFs::attach(SD0, 0);\n    //FatFs operations return FRESULT codes. FR_OK indicates success.\n    if(result != FR_OK)\n    {\n        Serial.printlnf(\"Drive attach failed: %s\", FatFs::fileResultMessage(result));\n    }\n}\n\nvoid loop() \n{\n    //do stuff\n}\n```\n\n**Using the filesystem** | \nAfter attaching the drive, you will use the FatFs API to use the drive. For reference and examples for interacting with the filesystem, see the [FatFs documentation](http://elm-chan.org/fsw/ff/00index_e.html). \n\nThe drive is attached using the drive number you supply. In the example code, the SD card is attached on drive number 0, so the file `\\test.txt` on the SD card would be accessed at the path `0:/test.txt`.\n\nThe included example program demonstrates performing several file operations including reading and writing files, getting file info such as size and attributes, and traversal of the directory structure.\n\nAPI Reference\n=============\n\n**`FatFs::` function reference** | attaching and detaching drivers and interpreting error messages\n\n| function      | description          |\n| ------------- | -------------------- |\n| `FRESULT FatFs::attach(FatFsDriver& driver, BYTE driveNumber)` | attach a driver to a drive number |\n|`void FatFs::detach(BYTE driveNumber)`| detach a driver (does not close open files) |\n|`const char* FatFs::fileResultMessage(FRESULT fileResult)`| returns a user-readable status message for FRESULT error codes|\n\n**`FatFsSD` member function reference** | configuring and using an instance of the driver\n\n| function      | description          |\n| ------------- | -------------------- |\n| `void begin(SPIClass& spi, const uint16_t cs)` | Set up instance with an SPI interface and CS pin. |\n|`void begin(SPIClass& spi, const uint16_t cs, std::mutex& mutex)`| Set up instance with SPI interface, CS pin, and a mutex for sharing access to the SPI interface. *Available only on threaded platforms.*|\n|`void enableCardDetect(const uint16_t cdPin, uint8_t activeState)`| Set up a pin to signal whether or not card is present. Pass `HIGH` or `LOW` for `activeState`. |\n| `void enableWriteProtectDetect(const Pin& wpPin, bool activeState)` | Set up a pin to signal whether or not card is write protected. Pass `HIGH` or `LOW` for `activeState`. |\n| `uint32_t highSpeedClock()` | Returns the current high-speed clock limit in Hz. High speed is used after the card interface has been initialized. |\n| `void highSpeedClock(uint32_t clock)` | Sets the high-speed clock maximum speed in Hz. The initial value is `15000000`. |\n| `uint32_t lowSpeedClock()` | Returns the current low-speed clock limit in Hz. Low speed is used for initialization of the SD card. |\n| `void lowSpeedClock(uint32_t clock)` | Sets the low-speed clock maximum speed in Hz. The initial value is `400000`. |\n| `uint32_t activeClock()` | Returns the active clock speed limit in Hz. |\n| `bool wasBusySinceLastCheck()` | Returns true if the disk was read or written since the last call. (For use in a UI loop to update the status of an LED) |\n\n\n**Custom Drivers** | A driver for any storage device can be created by extending the abstract class `FatFsDriver`. This driver can then be attached using `FatFs::attach()`. For more information, see the `disk_` functions in the [FatFs documentation](http://elm-chan.org/fsw/ff/00index_e.html) under the section *Device Control Interface*.\n\n```c++\nclass MyCustomFatFsDriver : public FatFsDriver {\npublic:\n\tvirtual DSTATUS initialize();\n\tvirtual DSTATUS status();\n\tvirtual DRESULT read(BYTE* buff, DWORD sector, UINT count);\n\tvirtual DRESULT write(const BYTE* buff, DWORD sector, UINT count);\n\tvirtual DRESULT ioctl(BYTE cmd, void* buff);\n\tvirtual ~FatFsDriver();\n};\n```\n\n*Note on the read/write commands:* the `sector` parameter the driver uses a sector size of 512 bytes, so your driver will need to translate from 512 byte sector indexes to the appropriate addresses for your medium.",
+  "allVersions": [
+    "0.2.13",
+    "0.2.12"
+  ]
+}

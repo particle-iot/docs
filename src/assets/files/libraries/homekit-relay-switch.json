@@ -1,0 +1,29 @@
+{
+  "type": "libraries",
+  "id": "homekit-relay-switch",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/homekit-relay-switch/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "homekit-relay-switch",
+    "version": "0.0.1",
+    "installs": 90,
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/homekit-relay-switch",
+  "versions": {
+    "0.0.1": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# Deprecated\n\nPlease see library `particle-hap`.\n",
+  "allVersions": [
+    "0.0.1",
+    "0.0.0"
+  ]
+}

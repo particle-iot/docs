@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "Simon",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Simon/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Simon",
+    "version": "0.1.0",
+    "installs": 603,
+    "license": "CC0 1.0 Universal",
+    "author": "Julien Couvreur <julien.couvreur@gmail.com>",
+    "sentence": "Simon game for Particle Photon with 'Internet Button' shield. More details at https://particle.hackster.io/Dumky/particle-photon-simon",
+    "url": "https://github.com/dumky/simon",
+    "repository": "https://github.com/dumky/simon.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/Simon",
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Game": false
+          },
+          "electron": {
+            "Game": false
+          },
+          "argon": {
+            "Game": false
+          },
+          "boron": {
+            "Game": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Game": false
+          },
+          "electron": {
+            "Game": false
+          },
+          "argon": {
+            "Game": false
+          },
+          "boron": {
+            "Game": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Simon\nSimon game for Particle Photon with \"Internet Button\" shield.\n\nTo use this in your Internet Button project, here is the code to use in the Particle IDE. You will need to include the \"InternetButton\" and \"Simon\" libraries.\n\n```\n#include \"InternetButton/InternetButton.h\"\n#include \"Simon/Simon.h\"\n\nSimon s = Simon();\n\nvoid setup() {\n    s.setup();   \n}\n\nvoid loop() {\n    s.loop();\n}\n```\n\nMore information at https://particle.hackster.io/Dumky/particle-photon-simon\n",
+  "allVersions": [
+    "0.1.0"
+  ]
+}

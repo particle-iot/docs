@@ -1,0 +1,42 @@
+{
+  "type": "libraries",
+  "id": "SignalMQTT",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SignalMQTT/archive/1.1.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SignalMQTT",
+    "version": "1.1.1",
+    "installs": 1734,
+    "license": "MIT",
+    "author": "Yan Sarazin <yan@mysignal.io>",
+    "maintainer": "Yan Sarazin <yan@mysignal.io>",
+    "sentence": "MySignal.io MQTT library for Particle",
+    "url": "https://github.com/statiklabs/signal-particle-mqtt",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SignalMQTT",
+  "versions": {
+    "1.1.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "## MySignal.io MQTT library for Particle Devices\n\nThis library allows you to easily connect your Particle device to the MySignal.io platform and publish your asset tracker data. For example on how to use, see this Hackster tutorial:\n\nhttps://www.hackster.io/YanSarazin/particle-asset-tracker-with-mysignal-io-using-mqtt-1a853e\n",
+  "allVersions": [
+    "1.1.1",
+    "1.1.0",
+    "1.0.7"
+  ]
+}

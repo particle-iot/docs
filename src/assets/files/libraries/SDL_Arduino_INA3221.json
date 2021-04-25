@@ -1,0 +1,58 @@
+{
+  "type": "libraries",
+  "id": "SDL_Arduino_INA3221",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SDL_Arduino_INA3221/archive/1.2.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SDL_Arduino_INA3221",
+    "version": "1.2.1",
+    "installs": 1637,
+    "author": "SwitchDoc Labs",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SDL_Arduino_INA3221",
+  "versions": {
+    "1.2.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SwitchDoc Labs SDL_Arduino_INA3221 Library\n\nSwitchDoc Labs - www.switchdoc.com\n\nVersion 1.2 September 2019 - Added Manufacture ID\n\nThe INA3221 is Triple-Channel, High-SideMeasurement, Shunt and Bus Voltage Monitor with I2C Interface\n\nIt is used in the SwitchDoc Labs Solar Controller Product, SunAirPlus and in a standalone SwitchDoc Labs INA3221 Breakout Board\n\nhttp://www.switchdoc.com/sunairplus-solar-power-controllerdata-collector/\n\n\nThanks to the original Adafruit INA219 library, although very little of it ended up being used  The INA3221 is a much different beast than the INA219.\n\n",
+  "allVersions": [
+    "1.2.1",
+    "1.2.0"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "type": "libraries",
+  "id": "DailyTimerSpark",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DailyTimerSpark/archive/0.1.3.tar.gz"
+  },
+  "attributes": {
+    "name": "DailyTimerSpark",
+    "version": "0.1.3",
+    "installs": 13606,
+    "license": "MIT",
+    "author": "Jim Brower <bulldoglowell@gmail.com>",
+    "sentence": "Library that allow you to create daily timers",
+    "url": "https://github.com/bulldoglowell/dailytimerspark",
+    "repository": "https://github.com/bulldoglowell/dailytimerspark.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DailyTimerSpark",
+  "versions": {
+    "0.1.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "SimpleExample": true,
+            "example": true
+          },
+          "electron": {
+            "SimpleExample": true,
+            "example": true
+          },
+          "argon": {
+            "SimpleExample": true,
+            "example": true
+          },
+          "boron": {
+            "SimpleExample": true,
+            "example": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "SimpleExample": true,
+            "example": true
+          },
+          "electron": {
+            "SimpleExample": true,
+            "example": true
+          },
+          "argon": {
+            "SimpleExample": true,
+            "example": true
+          },
+          "boron": {
+            "SimpleExample": true,
+            "example": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# DailyTimerSpark\n\n\nDailyTimer.h Library\nBulldogLowell@gmail.com\nApril, 2016\n\n\nLibrary provides tools to set daily timers for control of devices such as lamps, appliances, etc. Developed primarilary for houshold presence simulation.\nAllows for setting ON and OFF times, days of the week (i.e. weekends, weekdays, Fridays) and the use of random on/off times using this Constructor:\n   DailyTimer myTimer( START_HOUR, START_MINUTE, END_HOUR, END_MINUTE, DAYS_OF_WEEK, RANDOM or FIXED)\n\nTimers may bridge midnight, simply enter times accordingly:\n   DailyTimer myTimer( 18, 30,  1, 45, WEEKENDS, FIXED);  // starts at 6:30pm Saturdays and Sundays and ends at 1:45am the next day.\n\nAutomatically sets correct timer state on powerup, using isActive() in loop(), see example below.\nRandom start and/or end times using this member function:\n   myTimer.setRandomOffset(30, RANDOM_START);  //  Can be RANDOM_START, RANDOM_END, or both (RANDOM)  default random offfset is 15min\n\nRandom days of week using this member function:\n   myTimer.setRandomDays(4); // will select four days of the week, randomly.  Useful to run this member function once a week, for example.\n\nSelect custom days of the week using this member function:\n   myTimer.setDaysActive(0b10101010);  // e.g.Sunday, Tuesday, Thursday and Saturday Note: Days in this order:  0bSMTWTFS0 <- LSB is zero\n\nSet a timed event with just the start time as a trigger:\n   myTimer.startTrigger();  // will return true when Start Time is passed if today is an active day. use it in loop()\n\nYou can return the active days using this getter:\n   byte myByte = myTimer.getDays();  // returns a byte... Sunday is the MSB, Saturday is the LSB << 1\n\nDynamically set your start or end time (i.e. using some type of celestial function or web call to determine Sunrise or Sunset times)\n   myTimer.setStartTime(byte hour, byte minute);\n   myTimer.setEndTime(byte hour, byte minute);\n\n\nUse this webhook to automatially get sunrise/sunset times plus your DST offset from weatherunderground:\n\nsun_time.json:\n```\n{\n\t\"event\": \"sun_time\",\n\t\"url\": \"http://api.wunderground.com/api/getYourOwnApiKey/astronomy/q/{{my-state}}/{{my-city}}.json\",\n\t\"requestType\": \"POST\",\n\t\"headers\": null,\n\t\"query\": null,\n\t\"responseTemplate\": \"{{#sun_phase}}{{sunrise.hour}}~{{sunrise.minute}}~{{sunset.hour}}~{{sunset.minute}}~{{#moon_phase}}{{current_time.hour}}~{{current_time.minute}}{{/moon_phase}}~{{/sun_phase}}\",\n\t\"responseTopic\": \"{{SPARK_CORE_ID}}_sun_time\",\n\t\"json\": null,\n\t\"auth\": null,\n\t\"coreid\": null,\n\t\"deviceid\": null,\n\t\"mydevices\": true\n}\n```\n\n",
+  "allVersions": [
+    "0.1.3",
+    "0.1.2"
+  ]
+}

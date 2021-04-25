@@ -1,0 +1,65 @@
+{
+  "type": "libraries",
+  "id": "qMenuSystem",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/qMenuSystem/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "qMenuSystem",
+    "version": "0.0.4",
+    "installs": 317,
+    "license": "Apache 2.0",
+    "author": "Brandon Satrom <brandon@particle.io>",
+    "sentence": "Simple menu system for Particle projects that leverage an OLED or TFT Screen.",
+    "paragraph": "A menu system for embedded applications. Enables the creation of interactive menus on a screen, and handles visual updates during navigation and selection.",
+    "url": "https://github.com/bsatrom/qMenuSystem",
+    "repository": "https://github.com/bsatrom/qMenuSystem",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "q",
+  "cardUrl": "/cards/libraries/q/qMenuSystem",
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "TestMenu": false
+          },
+          "electron": {
+            "TestMenu": false
+          },
+          "argon": {
+            "TestMenu": false
+          },
+          "boron": {
+            "TestMenu": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "TestMenu": false
+          },
+          "electron": {
+            "TestMenu": false
+          },
+          "argon": {
+            "TestMenu": false
+          },
+          "boron": {
+            "TestMenu": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# qMenuSystem\n\nSimple menu system for Particle projects that leverage the Adafruit SSD1306 OLED Display.\n\n# Installation\n\nSearch for `qMenuSystem` in the Particle Web IDE, Desktop IDE or CLI to install.\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

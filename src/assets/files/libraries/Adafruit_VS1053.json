@@ -1,0 +1,121 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_VS1053",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_VS1053/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_VS1053",
+    "version": "0.0.1",
+    "installs": 3596,
+    "author": "Adafruit",
+    "maintainer": "ScruffR <community.particle.io>",
+    "sentence": "This is a library for the Adafruit VS1053 Codec Breakout and Music Maker Shields",
+    "paragraph": "This is a library for the Adafruit VS1053 Codec Breakout and Music Maker Shields",
+    "category": "Device Control",
+    "url": "https://github.com/ScruffR/Adafruit_VS1053_Library",
+    "repository": "https://github.com/ScruffR/Adafruit_VS1053_Library.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_VS1053",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "electron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "argon": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "boron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "electron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "argon": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          },
+          "boron": {
+            "ParticleTest": true,
+            "feather_midi": false,
+            "feather_player": false,
+            "player_gpiotest": false,
+            "player_interrupts": false,
+            "player_miditest": false,
+            "player_simple": false,
+            "record_ogg": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "// ********************************************************************** /\n// This is a library for the Adafruit VS1053 Codec Breakout\n//\n// Designed specifically to work with the Adafruit VS1053 Codec Breakout \n// ----> https://www.adafruit.com/products/1381\n//       https://www.adafruit.com/product/3357\n//       https://www.adafruit.com/product/3436\n// \n// Adafruit invests time and resources providing this open source code, \n// please support Adafruit and open-source hardware by purchasing \n// products from Adafruit!\n//// Written by Limor Fried/Ladyada for Adafruit Industries.  \n// BSD license, all text above must be included in any redistribution\n// \n// Original library: https://github.com/adafruit/Adafruit_VS1053_Library\n// \n// Ported for Particle by ScruffR\n// Forked and ported: https://github.com/ScruffR/Adafruit_VS1053_Library\n// ********************************************************************** /\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

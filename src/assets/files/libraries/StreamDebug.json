@@ -1,0 +1,30 @@
+{
+  "type": "libraries",
+  "id": "StreamDebug",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/StreamDebug/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "StreamDebug",
+    "version": "0.0.2",
+    "installs": 309,
+    "author": "Exovii",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/StreamDebug",
+  "versions": {
+    "0.0.2": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# StreamDebug\n\nA Particle project named StreamDebug.\n\n## Overview\n\nA simple library to debug on any stream, like serial ports, and embedding sprintf-like behaviour.\n\n## Use\n\nSee examples directory.\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

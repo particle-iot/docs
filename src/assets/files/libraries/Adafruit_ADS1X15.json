@@ -1,0 +1,77 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_ADS1X15",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_ADS1X15/archive/0.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_ADS1X15",
+    "version": "0.1.2",
+    "installs": 35236,
+    "license": "BSD",
+    "author": "Koos du Preez <kdupreez@hotmail.com>",
+    "sentence": "Library for ADS1x15 series of 12-bit and 16-bit Analog to Digital converter breakout boards",
+    "url": "https://github.com/kdupreez/adafruit_ads1x15",
+    "repository": "https://github.com/kdupreez/adafruit_ads1x15.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_ADS1X15",
+  "versions": {
+    "0.1.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "electron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "argon": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "boron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "electron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "argon": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          },
+          "boron": {
+            "comparator": true,
+            "differential": true,
+            "singleended": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit_ADS1015\n================\nLibrary for ADS1x15 series of 12-bit and 16-bit Analog to Digital converter breakout boards\n\nv1.2.0 Added Photon online IDE compatibility..\n",
+  "allVersions": [
+    "0.1.2"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "type": "libraries",
+  "id": "BlynkLog",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/BlynkLog/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "BlynkLog",
+    "version": "0.1.0",
+    "installs": 590,
+    "license": "MIT",
+    "author": "Georges Auberger",
+    "sentence": "Particle logger output to Blynk Terminal Widget",
+    "paragraph": "Prints logs to a Blynk Terminal Widget.",
+    "url": "https://github.com/georges/BlynkLog",
+    "repository": "https://github.com/georges/BlynkLog.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/BlynkLog",
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# BlynkLog\n\nA Particle library for logging to [Blynk terminal wiget](http://docs.blynk.cc/#widgets-displays-terminal).\n\n## Usage\n\nCreate a logger and pass it an instance of a terminal widget.\n\n```\n#include <blynk.h>\n#include \"BlynkLog.h\"\nWidgetTerminal terminal(V0);\nBlynkLog blynkLog((Stream*)&terminal);\n\nvoid loop() {\n  blynkLog.info(\"Hello world\");\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Logging format\n\nThe library automatically adds timestamp, log level and category. To configure the timestamp format, use \n\n```\nTime.setFormat(\"%m/%d %H:%M\");\n```\n\nFor brievety, log level is abreviated to first letter. For example \n\n```\n02/14 14:23 I: app This is an info level log line\n```",
+  "allVersions": [
+    "0.1.0"
+  ]
+}

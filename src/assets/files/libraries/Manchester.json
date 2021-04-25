@@ -1,0 +1,103 @@
+{
+  "type": "libraries",
+  "id": "Manchester",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Manchester/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Manchester",
+    "version": "1.0.2",
+    "installs": 1774,
+    "license": "Unspecified",
+    "author": "Paul Kourany",
+    "sentence": "Manchester library for 315/433MHz radios",
+    "url": "https://github.com/pkourany/manchesteride",
+    "repository": "https://github.com/pkourany/manchesteride.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/Manchester",
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "ManchesterRX_Array": true,
+            "ManchesterRX_Basic": true,
+            "ManchesterRX_Check": true,
+            "ManchesterTX_Array": true,
+            "ManchesterTX_Basic": true,
+            "ManchesterTX_Check": true
+          },
+          "electron": {
+            "ManchesterRX_Array": true,
+            "ManchesterRX_Basic": true,
+            "ManchesterRX_Check": true,
+            "ManchesterTX_Array": true,
+            "ManchesterTX_Basic": true,
+            "ManchesterTX_Check": true
+          },
+          "argon": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "boron": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "ManchesterRX_Array": true,
+            "ManchesterRX_Basic": true,
+            "ManchesterRX_Check": true,
+            "ManchesterTX_Array": true,
+            "ManchesterTX_Basic": true,
+            "ManchesterTX_Check": true
+          },
+          "electron": {
+            "ManchesterRX_Array": true,
+            "ManchesterRX_Basic": true,
+            "ManchesterRX_Check": true,
+            "ManchesterTX_Array": true,
+            "ManchesterTX_Basic": true,
+            "ManchesterTX_Check": true
+          },
+          "argon": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          },
+          "boron": {
+            "ManchesterRX_Array": false,
+            "ManchesterRX_Basic": false,
+            "ManchesterRX_Check": false,
+            "ManchesterTX_Array": false,
+            "ManchesterTX_Basic": false,
+            "ManchesterTX_Check": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Manchester_Library\n==================\n\nManchester library for 315/433Mhz transmitter/receivers adapted for Spark by Paul Kourany, May 21/2014\n\nAdapted from mchr3k's Arduino library using SparkIntervalTimer timer library by Paul Kourany\n\nReplace ManchesterTX_Basic.ino with desired example from examples folder and compile.\n\nPlease read Manchester.h for details on the implementation of the protocol.\n\nThis library requires SparkIntervalTimer library to function\n\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

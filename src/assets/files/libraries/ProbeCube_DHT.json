@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "ProbeCube_DHT",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ProbeCube_DHT/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "ProbeCube_DHT",
+    "version": "1.0.2",
+    "installs": 4207,
+    "license": "MIT License",
+    "author": "Lafudoci",
+    "sentence": "Forked from russgrue/Adafruit_DHT_Library",
+    "url": "https://github.com/lafudoci/probecube_dht",
+    "repository": "https://github.com/lafudoci/probecube_dht.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/ProbeCube_DHT",
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "DHTtester": true
+          },
+          "electron": {
+            "DHTtester": true
+          },
+          "argon": {
+            "DHTtester": true
+          },
+          "boron": {
+            "DHTtester": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "DHTtester": true
+          },
+          "electron": {
+            "DHTtester": true
+          },
+          "argon": {
+            "DHTtester": true
+          },
+          "boron": {
+            "DHTtester": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "\n",
+  "allVersions": [
+    "1.0.2"
+  ]
+}

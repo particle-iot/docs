@@ -1,0 +1,193 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_BNO080_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_BNO080_Arduino_Library/archive/1.1.8.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_BNO080_Arduino_Library",
+    "version": "1.1.8",
+    "installs": 924,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Library for the SparkFun Qwiic VR IMU - BNO080/BNO085",
+    "paragraph": "An Arduino Library for the BNO080 IMU. The BNO080 IMU has a combination triple axis accelerometer/gyro/magnetometer packaged with an ARM Cortex M0+ running powerful algorithms. This enables the BNO080 Inertial Measurement Unit (IMU) to produce accurate rotation vector headings with an error of 5 degrees or less. It's what we've been waiting for: all the sensor data is combined into meaningful, accurate IMU information. Available at: https://www.sparkfun.com/products/14586",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_BNO080_Arduino_Library",
+  "versions": {
+    "1.1.8": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Example1-RotationVector": true,
+            "Example10-PrintPacket": true,
+            "Example11-AdvancedConfig": false,
+            "Example12-LinearAccelerometer": true,
+            "Example13-TimeStamp": true,
+            "Example14-TwoSensors": true,
+            "Example15-RawReadings": true,
+            "Example16-GyroIntegratedRotationVector": true,
+            "Example17-EulerAngles": true,
+            "Example2-Accelerometer": true,
+            "Example3-Gyro": true,
+            "Example4-Magnetometer": true,
+            "Example5-StepCounter": true,
+            "Example6-MetaData": true,
+            "Example7-StabilityClassifier": true,
+            "Example8-ActivityClassifier": true,
+            "Example9-Calibrate": true
+          },
+          "electron": {
+            "Example1-RotationVector": true,
+            "Example10-PrintPacket": true,
+            "Example11-AdvancedConfig": true,
+            "Example12-LinearAccelerometer": true,
+            "Example13-TimeStamp": true,
+            "Example14-TwoSensors": true,
+            "Example15-RawReadings": true,
+            "Example16-GyroIntegratedRotationVector": true,
+            "Example17-EulerAngles": true,
+            "Example2-Accelerometer": true,
+            "Example3-Gyro": true,
+            "Example4-Magnetometer": true,
+            "Example5-StepCounter": true,
+            "Example6-MetaData": true,
+            "Example7-StabilityClassifier": true,
+            "Example8-ActivityClassifier": true,
+            "Example9-Calibrate": true
+          },
+          "argon": {
+            "Example1-RotationVector": true,
+            "Example10-PrintPacket": true,
+            "Example11-AdvancedConfig": true,
+            "Example12-LinearAccelerometer": true,
+            "Example13-TimeStamp": true,
+            "Example14-TwoSensors": true,
+            "Example15-RawReadings": true,
+            "Example16-GyroIntegratedRotationVector": true,
+            "Example17-EulerAngles": true,
+            "Example2-Accelerometer": true,
+            "Example3-Gyro": true,
+            "Example4-Magnetometer": true,
+            "Example5-StepCounter": true,
+            "Example6-MetaData": true,
+            "Example7-StabilityClassifier": true,
+            "Example8-ActivityClassifier": true,
+            "Example9-Calibrate": true
+          },
+          "boron": {
+            "Example1-RotationVector": true,
+            "Example10-PrintPacket": true,
+            "Example11-AdvancedConfig": true,
+            "Example12-LinearAccelerometer": true,
+            "Example13-TimeStamp": true,
+            "Example14-TwoSensors": true,
+            "Example15-RawReadings": true,
+            "Example16-GyroIntegratedRotationVector": true,
+            "Example17-EulerAngles": true,
+            "Example2-Accelerometer": true,
+            "Example3-Gyro": true,
+            "Example4-Magnetometer": true,
+            "Example5-StepCounter": true,
+            "Example6-MetaData": true,
+            "Example7-StabilityClassifier": true,
+            "Example8-ActivityClassifier": true,
+            "Example9-Calibrate": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1-RotationVector": true,
+            "Example10-PrintPacket": true,
+            "Example11-AdvancedConfig": false,
+            "Example12-LinearAccelerometer": true,
+            "Example13-TimeStamp": true,
+            "Example14-TwoSensors": true,
+            "Example15-RawReadings": true,
+            "Example16-GyroIntegratedRotationVector": true,
+            "Example17-EulerAngles": true,
+            "Example2-Accelerometer": true,
+            "Example3-Gyro": true,
+            "Example4-Magnetometer": true,
+            "Example5-StepCounter": true,
+            "Example6-MetaData": true,
+            "Example7-StabilityClassifier": true,
+            "Example8-ActivityClassifier": true,
+            "Example9-Calibrate": true
+          },
+          "electron": {
+            "Example1-RotationVector": true,
+            "Example10-PrintPacket": true,
+            "Example11-AdvancedConfig": true,
+            "Example12-LinearAccelerometer": true,
+            "Example13-TimeStamp": true,
+            "Example14-TwoSensors": true,
+            "Example15-RawReadings": true,
+            "Example16-GyroIntegratedRotationVector": true,
+            "Example17-EulerAngles": true,
+            "Example2-Accelerometer": true,
+            "Example3-Gyro": true,
+            "Example4-Magnetometer": true,
+            "Example5-StepCounter": true,
+            "Example6-MetaData": true,
+            "Example7-StabilityClassifier": true,
+            "Example8-ActivityClassifier": true,
+            "Example9-Calibrate": true
+          },
+          "argon": {
+            "Example1-RotationVector": true,
+            "Example10-PrintPacket": true,
+            "Example11-AdvancedConfig": true,
+            "Example12-LinearAccelerometer": true,
+            "Example13-TimeStamp": true,
+            "Example14-TwoSensors": true,
+            "Example15-RawReadings": true,
+            "Example16-GyroIntegratedRotationVector": true,
+            "Example17-EulerAngles": true,
+            "Example2-Accelerometer": true,
+            "Example3-Gyro": true,
+            "Example4-Magnetometer": true,
+            "Example5-StepCounter": true,
+            "Example6-MetaData": true,
+            "Example7-StabilityClassifier": true,
+            "Example8-ActivityClassifier": true,
+            "Example9-Calibrate": true
+          },
+          "boron": {
+            "Example1-RotationVector": true,
+            "Example10-PrintPacket": true,
+            "Example11-AdvancedConfig": true,
+            "Example12-LinearAccelerometer": true,
+            "Example13-TimeStamp": true,
+            "Example14-TwoSensors": true,
+            "Example15-RawReadings": true,
+            "Example16-GyroIntegratedRotationVector": true,
+            "Example17-EulerAngles": true,
+            "Example2-Accelerometer": true,
+            "Example3-Gyro": true,
+            "Example4-Magnetometer": true,
+            "Example5-StepCounter": true,
+            "Example6-MetaData": true,
+            "Example7-StabilityClassifier": true,
+            "Example8-ActivityClassifier": true,
+            "Example9-Calibrate": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun BNO080 IMU Library\n===========================================================\n\n![SparkFun Inertial Measurement Unit - BNO080](https://cdn.sparkfun.com//assets/parts/1/2/8/9/1/14686-Qwiic_VR_IMU_BN0080-01.jpg)\n\n[*SparkFun IMU BNO080 (SEN-14686)*](https://www.sparkfun.com/products/14686)\n\nThe BNO080/BNO085 IMU has a combination triple axis accelerometer/gyro/magnetometer packaged with an ARM Cortex M0+ running powerful algorithms. This enables the BNO080 Inertial Measurement Unit (IMU) to produce accurate rotation vector headings with an error of 5 degrees or less. It's what we've been waiting for: all the sensor data is combined into meaningful, accurate IMU information.\n\nThis IC was designed to be implemented in Android based cellular phones to handle all the computations necessary for virtual reality goggles using only your phone. The sensor is quite powerful but with power comes a complex interface. We've written an I<sup>2</sup>C based library that provides the rotation vector (the reading most folks want from an IMU) as well as raw acceleration, gyro, and magnetometer readings. The sensor is capable of communicating over SPI and UART as well!\n\nIn addition the BNO080 IMU provides a built-in step counter, tap detector, activity classifier (are you running, walking, or sitting still?), and a shake detector. We are duly impressed.\n\nLibrary written by Nathan Seidle ([SparkFun](http://www.sparkfun.com)).\n\nThank to all those who have helped improve the library:\n\n* blendmaster for adding [Linear Accel report](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library/pull/4)\n* per1234 for fixing our [keywords file](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library/pull/12)\n* fm4dd for typo - [PR 19](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library/pull/19)\n* tstellanova for heading accuracy correction - [PR 40](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library/pull/40)\n* badVibes for gyro integrated rotation vector support - [PR 41](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library/pull/41)\n* Filimindji for AR/VR Stabilized RotationVector and AR/VR Stabilized GameRotationVector support - [PR 46](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library/pull/46)\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n* **[CONTRIBUTING.md](https://github.com/sparkfun/SparkFun_BNO080_Arduino_Library/blob/master/CONTRIBUTING.md)** - guidance on how to contribute to this library.\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Qwiic_IMU_BNO080)** - Main repository (including hardware files)\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nPlease review the LICENSE.md file for license information.\n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release any derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.1.8"
+  ]
+}

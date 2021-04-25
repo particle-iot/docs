@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "Kalman",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Kalman/archive/0.0.6.tar.gz"
+  },
+  "attributes": {
+    "name": "Kalman",
+    "version": "0.0.6",
+    "installs": 2139,
+    "license": "GNU",
+    "author": "Kristian Lauszus (TKJ Electronics) <kristianl@tkjelectronics.com>",
+    "sentence": "Spark Library to work with Kalman Filters",
+    "url": "https://github.com/rlyle78/kalmanfilter",
+    "repository": "https://github.com/rlyle78/kalmanfilter.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "k",
+  "cardUrl": "/cards/libraries/k/Kalman",
+  "versions": {
+    "0.0.6": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "#### Developed by Kristian Lauszus, TKJ Electronics 2012\n\nThe code is released under the GNU General Public License.\n_________\n\nThis is a Kalman filter library for any microcontroller that supports float math.\n\nIt can also be used with Arduino, simply copy the folder to your library folder.\n\nMy assignment I wrote back in High School regarding Kalman filter can be found here: <http://www.tkjelectronics.dk/uploads/Kalman_SRP.zip>.\n\nFor more information see my blog post: <http://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it> or send me an email at <kristianl@tkjelectronics.dk>.",
+  "allVersions": [
+    "0.0.6"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "AnalogSmoother",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AnalogSmoother/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "AnalogSmoother",
+    "version": "1.0.0",
+    "installs": 116,
+    "license": "MIT",
+    "author": "Nicholas Cox, nickcox1008@gmail.com",
+    "maintainer": "Nicholas Cox <https://github.com/knickers>",
+    "sentence": "Smooth analog input readings through a running average buffer.",
+    "paragraph": "Provides a single method that reads the value of an analog input and returns the average of the last N readings.",
+    "category": "Signal Input/Output",
+    "url": "https://github.com/knickers/AnalogSmoother",
+    "repository": "git@github.com:knickers/AnalogSmoother.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AnalogSmoother",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "graph": true
+          },
+          "electron": {
+            "graph": true
+          },
+          "argon": {
+            "graph": true
+          },
+          "boron": {
+            "graph": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "graph": true
+          },
+          "electron": {
+            "graph": true
+          },
+          "argon": {
+            "graph": true
+          },
+          "boron": {
+            "graph": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# AnalogSmoother\n\nThis library employs a running average to smooth analog input readings.\n\n```cpp\n#include \"AnalogSmoother.h\"\n\nAnalogSmoother sensor(A0, 10); // Buffer size of 10 readings\n\nvoid setup() {\n\tSerial.begin(115200);\n\n\t// Optional, fill the buffer with actual readings from the sensor\n\tsensor.fill();\n}\n\nvoid loop() {\n\t// Draw 2 lines in the serial plotter\n\tSerial.print(analogRead(A0));\n\tSerial.print(\" \");\n\tSerial.println(sensor.read());\n\n\t// Slow down the serial output\n\tdelay(10);\n}\n```\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

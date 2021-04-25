@@ -1,0 +1,81 @@
+{
+  "type": "libraries",
+  "id": "DS18B20",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DS18B20/archive/0.1.14.tar.gz"
+  },
+  "attributes": {
+    "name": "DS18B20",
+    "version": "0.1.14",
+    "installs": 199322,
+    "license": "MIT",
+    "author": "ScruffR (based on Lucas Figg's lib) ",
+    "sentence": "DSB18XX Lib for Particle devices",
+    "url": "https://github.com/eliteio/DS18B20",
+    "repository": "https://github.com/eliteio/DS18B20.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DS18B20",
+  "versions": {
+    "0.1.14": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "electron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "argon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "electron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "argon": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          },
+          "boron": {
+            "ds18b20_MultiDrop": true,
+            "ds18b20_SingleDrop": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "#DS18B20 Library for Particle Core, Photon and P1\r\nModified DS18BXX Lib copied from\r\nhttps://github.com/krvarma/Dallas_DS18B20_SparkCore\r\nSample application using Particle Photon and Dallas DS18B20 Digital Temperature\r\nSensor.\r\nThe OneWire source code is taken from this link by @tidwelltimj.\r\nI just separated this into two classes OneWire and DS18B20.\r\nThe sample code publishes a variable named tmpinfo with temperature value.\r\n\r\nRequires Particle-OneWire (included) from\r\nhttps://github.com/balbano/OneWire-Particle/tree/master/firmware\r\nWiring:\r\nPower to 3.3/5V\r\nGND to GND\r\nSignal to D2 (with 4.7k pullup resistor)\r\n\r\nUse crcCheck() to verify the sensor was successfully read.\r\n",
+  "allVersions": [
+    "0.1.14",
+    "0.1.13",
+    "0.1.12",
+    "0.1.11",
+    "0.1.10",
+    "0.1.9",
+    "0.1.8",
+    "0.1.7",
+    "0.1.6",
+    "0.1.5",
+    "0.1.3",
+    "0.1.2",
+    "0.1.0"
+  ]
+}

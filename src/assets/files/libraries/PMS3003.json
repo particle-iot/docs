@@ -1,0 +1,38 @@
+{
+  "type": "libraries",
+  "id": "PMS3003",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PMS3003/archive/0.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "PMS3003",
+    "version": "0.1.2",
+    "installs": 305,
+    "license": "MIT",
+    "author": "Wojtek Siudzinski <admin@suda.pl>",
+    "sentence": "Library for PMS3003 air quality sensor.",
+    "category": "Sensors",
+    "url": "https://github.com/suda/PMS3003",
+    "repository": "suda/PMS3003",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PMS3003",
+  "versions": {
+    "0.1.2": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# PMS3003 air quality sensor library for Arduino & Particle modules\n\nA simple library, based on [neojou's test code](https://github.com/neojou/arduino-ameba/blob/master/example/pms3003-test/pms3003-test.ino).\n\n## Installation\n\n### Particle ecosystem\n\n#### CLI\n\n```\n$ particle library add PMS3003\n```\n\n#### Web & Desktop IDE's\n\nLook for `PMS3003` library and add it to your project.\n\n## Examples\n\nPlease take a look at the [`examples` directory](examples).\n\n## Contributing\n\n[All contributions (no matter if small or big) are always welcome!](https://contributionswelcome.org/). Please create an Issue or PR if needed!",
+  "allVersions": [
+    "0.1.2",
+    "0.1.1",
+    "0.1.0"
+  ]
+}

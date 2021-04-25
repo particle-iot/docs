@@ -1,0 +1,28 @@
+<div class="apiHelperLibrarySearch">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <p>
+                <input type="text" class="apiHelperLibrarySearchField" size="50" />
+                <button class="apiHelperLibrarySearchButton">Search</button>
+                &nbsp;&nbsp;
+                <input type="checkbox" class="apiHelperLibrarySearchShowTips">Show search tips
+            </p>
+            <div class="apiHelperLibrarySearchTips" style="display:none; ">
+                <ul>
+                    <li>Search for specific fields using <b>author:rick</b>,  <b>maintainer:rick</b>, <b>description:DS18B20</b>
+                    <li>Search for verified libraries using <b>verification:verified</b>
+                    <li>Search for official libraries using <b>verification:official</b>
+                    <li>Wildcards using * are supported
+                    <li>Many more options supported by <a href="https://lunrjs.com/guides/searching.html" target="_blank">lunr</a>
+                </ul>
+            </div>
+            <div class="apiHelperLibrarySearchStatus"></div>
+        </div>
+    </div>
+    <div class="apiHelperLibrarySearchOutput">
+    </div>
+    <div>
+        <button class="apiHelperLibraryViewMoreButton" style="display:none;">View More Results</button>
+    </div>
+</div>
+

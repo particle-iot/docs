@@ -1,0 +1,109 @@
+{
+  "type": "libraries",
+  "id": "TinyGPS++",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TinyGPS++/archive/0.9.4.tar.gz"
+  },
+  "attributes": {
+    "name": "TinyGPS++",
+    "version": "0.9.4",
+    "installs": 80975,
+    "license": "MIT",
+    "author": "Mikal Hart",
+    "sentence": "A new, customizable Arduino NMEA parsing library http://arduiniana.org",
+    "url": "https://github.com/codegardenllc/tiny_gps_plus",
+    "repository": "https://github.com/codegardenllc/tiny_gps_plus.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TinyGPS++",
+  "versions": {
+    "0.9.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "electron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "argon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "boron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "electron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "argon": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          },
+          "boron": {
+            "BasicExample": true,
+            "DeviceExample": false,
+            "FullExample": false,
+            "KitchenSink": false,
+            "SatElevTracker": false,
+            "SatelliteTracker": false,
+            "UsingCustomFields": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# TinyGPS++\n\nTinyGPS++ library for www.particle.com photon and electron.",
+  "allVersions": [
+    "0.9.4"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_PWMServoDriver",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_PWMServoDriver/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_PWMServoDriver",
+    "version": "1.0.1",
+    "installs": 20445,
+    "license": "BSD License",
+    "author": "Limor Fried/Ladyada/Paul Kourany",
+    "sentence": "Adafruit 16-channel PWM & Servo driver library adapted for Spark",
+    "url": "https://github.com/pkourany/Adafruit_PWMServoDriver_IDE",
+    "repository": "https://github.com/pkourany/Adafruit_PWMServoDriver_IDE.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_PWMServoDriver",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "electron": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "argon": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "boron": {
+            "pwmtest": true,
+            "servo": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "electron": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "argon": {
+            "pwmtest": true,
+            "servo": true
+          },
+          "boron": {
+            "pwmtest": true,
+            "servo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit 16-channel PWM & Servo driver\n======================================\nThis library is for the Adafruit 16-channel PWM & Servo board.\n\n  Pick one up today in the adafruit shop!\n  ------> http://www.adafruit.com/products/815\n\nThe library is compatible with Arduino and Spark Core.\n\nConnections\n-----------\nThese displays use I2C to communicate, 2 pins are required to interface:\n\nFor Arduinos:\t SCL -> Analog 5, SDA -> Analog 4\n\nFor Spark Core:\t SCL -> D1, SDA -> D0\n\nCredits\n-------\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada  for Adafruit Industries.  \nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nAdapted for Spark Core by Paul Kourany, Sept. 15, 2014\n\nLoading on Arduino (only)\n-------------------------\nTo download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_PWMServoDriver. Check that the Adafruit_PWMServoDriver folder contains Adafruit_PWMServoDriver.cpp and Adafruit_PWMServoDriver.h\n\nPlace the Adafruit_PWMServoDriver library folder your <arduinosketchfolder>/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.\n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
+}

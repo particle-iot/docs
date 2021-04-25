@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "ledfader",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ledfader/archive/1.0.10.tar.gz"
+  },
+  "attributes": {
+    "name": "ledfader",
+    "version": "1.0.10",
+    "installs": 518,
+    "license": "MIT",
+    "author": "fred>",
+    "sentence": "A simple library that illustrates coding conventions of a Spark Library",
+    "url": "https://github.com/fcwpinguino/ledfader",
+    "repository": "https://github.com/fcwpinguino/ledfader.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/ledfader",
+  "versions": {
+    "1.0.10": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Fade": true
+          },
+          "electron": {
+            "Fade": true
+          },
+          "argon": {
+            "Fade": true
+          },
+          "boron": {
+            "Fade": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Fade": true
+          },
+          "electron": {
+            "Fade": true
+          },
+          "argon": {
+            "Fade": true
+          },
+          "boron": {
+            "Fade": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ledfader\n",
+  "allVersions": [
+    "1.0.10"
+  ]
+}

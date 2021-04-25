@@ -1,0 +1,76 @@
+{
+  "type": "libraries",
+  "id": "adxl345",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/adxl345/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "adxl345",
+    "version": "0.0.3",
+    "installs": 8574,
+    "license": "GNU",
+    "author": "Kenneth Lim <kennethlimcp@gmail.com>",
+    "url": "https://github.com/spark/spark-lib-adxl345",
+    "repository": "https://github.com/spark/spark-lib-adxl345.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/adxl345",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "electron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "argon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "electron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "argon": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          },
+          "boron": {
+            "adxl345_no_library": false,
+            "adxl345_test": false,
+            "adxlrun345": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "To use this Library,\n -----------\n1) Create a new App in Spark IDE\n\n2) Add a new library and name it `ADXL345`\n\n3) Add another library and name it `Binary`\n\n4) Copy the code from `ADXL345.cpp`, `ADXL345.h` and `Binary.h` into your App\n\n5) Choose an example you want to try out and paste it in the `your_app_name.ino`\n\nLastly, have fun!\n\nUpdated on: 01 May 2014\n\nKennethlimcp\n",
+  "allVersions": [
+    "0.0.3"
+  ]
+}

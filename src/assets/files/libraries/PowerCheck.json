@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "PowerCheck",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PowerCheck/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "PowerCheck",
+    "version": "1.0.2",
+    "installs": 262,
+    "license": "LGPL",
+    "author": "Rick K",
+    "sentence": "simple power checking for battery devices",
+    "url": "https://community.particle.io/t/when-is-electron-powered-by-battery/20702/18",
+    "repository": "https://github.com/dougcooper/particle-power-check.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PowerCheck",
+  "versions": {
+    "1.0.2": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "",
+  "allVersions": [
+    "1.0.2",
+    "1.0.0"
+  ]
+}

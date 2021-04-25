@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "particle-loop",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/particle-loop/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "particle-loop",
+    "version": "0.0.1",
+    "installs": 91,
+    "license": "MIT",
+    "author": "Fabien Lavocat <fabien.lavocat@live.com>",
+    "sentence": "A simple library to help writing loops for a Particle Photon",
+    "url": "https://github.com/fabienlavocat/particle-loop",
+    "repository": "https://github.com/fabienlavocat/particle-loop.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/particle-loop",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "RunLoops": true
+          },
+          "electron": {
+            "RunLoops": true
+          },
+          "argon": {
+            "RunLoops": true
+          },
+          "boron": {
+            "RunLoops": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "RunLoops": true
+          },
+          "electron": {
+            "RunLoops": true
+          },
+          "argon": {
+            "RunLoops": true
+          },
+          "boron": {
+            "RunLoops": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# particle-loop\n============\n\nProvides another way to add multiple loops for the Particle (Spark).\nTested on the Photon.",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

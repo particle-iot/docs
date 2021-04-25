@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "ADAFRUIT_ST7565",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ADAFRUIT_ST7565/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "ADAFRUIT_ST7565",
+    "version": "0.0.3",
+    "installs": 772,
+    "license": "GNU GENERAL PUBLIC LICENSE",
+    "author": "Someone <email@somesite.com>",
+    "sentence": "Adafruit ST7565 Library",
+    "url": "https://github.com/bveenema/st7565",
+    "repository": "https://github.com/bveenema/st7565.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/ADAFRUIT_ST7565",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "LCDTest_ST7565": false
+          },
+          "electron": {
+            "LCDTest_ST7565": false
+          },
+          "argon": {
+            "LCDTest_ST7565": false
+          },
+          "boron": {
+            "LCDTest_ST7565": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "LCDTest_ST7565": false
+          },
+          "electron": {
+            "LCDTest_ST7565": false
+          },
+          "argon": {
+            "LCDTest_ST7565": false
+          },
+          "boron": {
+            "LCDTest_ST7565": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ST7565\nST7565 Library for Particle Devices.  Ported from Adafruit's ST7565_LCD library.\n\nExtended with Particle Library Information.\n",
+  "allVersions": [
+    "0.0.3"
+  ]
+}

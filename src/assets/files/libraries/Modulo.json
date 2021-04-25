@@ -1,0 +1,119 @@
+{
+  "type": "libraries",
+  "id": "Modulo",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Modulo/archive/1.2.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Modulo",
+    "version": "1.2.0",
+    "installs": 176,
+    "author": "Erin Tomson <erin@modulo.co>",
+    "url": "https://github.com/modulolabs/modulo-particle",
+    "repository": "https://github.com/modulolabs/modulo-particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/Modulo",
+  "versions": {
+    "1.2.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "electron": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "argon": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "boron": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "electron": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "argon": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          },
+          "boron": {
+            "DisplayEventsTutorial": true,
+            "DisplayTutorial": true,
+            "IRTutorial": true,
+            "KnobEventsTutorial": true,
+            "KnobTutorial": true,
+            "MotorEventsTutorial": true,
+            "MotorTutorial": true,
+            "USBControl": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# modulo-particle\nThe modulo library for particle.io\n",
+  "allVersions": [
+    "1.2.0",
+    "1.1.0",
+    "1.0.0",
+    "0.7.0",
+    "0.6.0"
+  ]
+}

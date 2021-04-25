@@ -1,0 +1,33 @@
+{
+  "type": "libraries",
+  "id": "DualMotor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DualMotor/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "DualMotor",
+    "version": "0.0.2",
+    "installs": 224,
+    "license": "GNU GPLv3",
+    "author": "Refik Can MALLI",
+    "sentence": "Custom DualMotor Library",
+    "url": "https://github.com/refikcanmalli/dualmotor",
+    "repository": "https://github.com/refikcanmalli/dualmotor.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DualMotor",
+  "versions": {
+    "0.0.2": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# DualMotor\nCustom DualMotorShield Library\n",
+  "allVersions": [
+    "0.0.2"
+  ]
+}

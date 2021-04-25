@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_GFX",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_GFX/archive/0.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_GFX",
+    "version": "0.0.0",
+    "installs": 59133,
+    "license": "SOME",
+    "author": "Paul Kourany <pkourany@gmail.com>",
+    "sentence": "A Port of the ADAFruit GFX libary",
+    "url": "https://github.com/mpechner/adafruit_gfx",
+    "repository": "https://github.com/mpechner/adafruit_gfx.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_GFX",
+  "versions": {
+    "0.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "Adafruit_SSD1306\n================\n\nAdafruit_GFX library ported for Spark by Paul Kourany, Mar 18, 2014\nUntested as of Mar 18, 2018\n\n",
+  "allVersions": [
+    "0.0.0"
+  ]
+}

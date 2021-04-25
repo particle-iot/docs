@@ -1,0 +1,58 @@
+{
+  "type": "libraries",
+  "id": "Grove-I2C-Touch-Sensor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Grove-I2C-Touch-Sensor/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Grove-I2C-Touch-Sensor",
+    "version": "1.0.0",
+    "installs": 267,
+    "license": "The LGPL License V2.1.",
+    "author": "SeeeedStudio--lg",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "g",
+  "cardUrl": "/cards/libraries/g/Grove-I2C-Touch-Sensor",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "i2c_touch": true
+          },
+          "electron": {
+            "i2c_touch": true
+          },
+          "argon": {
+            "i2c_touch": true
+          },
+          "boron": {
+            "i2c_touch": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "i2c_touch": true
+          },
+          "electron": {
+            "i2c_touch": true
+          },
+          "argon": {
+            "i2c_touch": true
+          },
+          "boron": {
+            "i2c_touch": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Grove-I2C-Touch-Sensor\n\nA Particle library for Grove-I2C-Touch-Sensor\n\n## Welcome to your library!\n\nTo get started, modify the sources in [src](src). Rename the example folder inside [examples](examples) to a more meaningful name and add additional examples in separate folders.\n\nTo compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nLibraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.\n\nAfter the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.\n\n_TODO: update this README_\n\n## Usage\n\nConnect XYZ hardware, add the Grove-I2C-Touch-Sensor library to your project and follow this simple example:\n\n```\n#include \"Grove-I2C-Touch-Sensor.h\"\nGroveI2CTouchSensor groveI2CTouchSensor;\n\nvoid setup() {\n  groveI2CTouchSensor.begin();\n}\n\nvoid loop() {\n  groveI2CTouchSensor.process();\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nTODO: Describe `GroveI2CTouchSensor`\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add Grove-I2C-Touch-Sensor_myname` to add the library to a project on your machine or add the Grove-I2C-Touch-Sensor_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. \n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2017 Julian Adenauer\n\nLicensed under the <insert your choice of license here> license\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

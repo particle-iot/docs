@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "cwop-particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/cwop-particle/archive/0.0.10.tar.gz"
+  },
+  "attributes": {
+    "name": "cwop-particle",
+    "version": "0.0.10",
+    "installs": 252,
+    "license": "See associated license file",
+    "author": "Andrew Keyser <legoguy@gmail.com>",
+    "sentence": "CWOP weather data reporting library for Particle Core, Photon, Electron and P1.",
+    "url": "https://github.com/legoadk/cwop-particle",
+    "repository": "https://github.com/legoadk/cwop-particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/cwop-particle",
+  "versions": {
+    "0.0.10": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "basic-cwop": true
+          },
+          "electron": {
+            "basic-cwop": true
+          },
+          "argon": {
+            "basic-cwop": false
+          },
+          "boron": {
+            "basic-cwop": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "basic-cwop": true
+          },
+          "electron": {
+            "basic-cwop": true
+          },
+          "argon": {
+            "basic-cwop": false
+          },
+          "boron": {
+            "basic-cwop": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# CWOP-Particle: Citizen Weather Observer Program Reporting Library for Particle devices\n\nThis library was created to facilitate sending weather data in the correct APRS packet format to CWOP. \n\nThis is meant to be a supplement to your own weather-gathering firmware, and makes no attempt to actually gather any data - you must provide it!\n\nPlease note that in order to send data and have it be used by CWOP, you must register for an ID here: [CWOP Sign-Up][1]\n\n## Examples\nSee the [basic-cwop example][2] for a sample of how to use this library, and have fun!\n\n## Reference\n\n### `CWOP_Particle`\n\n`CWOP_Particle cwop = CWOP_Particle();`\n\nCreates an object to use in sending CWOP data.\n\n### `begin`\n\n`cwop.begin(client);`\n\nPrepares the object for communication with CWOP by providing a TCPClient.\n\n`cwop.begin(client, \"ID\");`\n\nPrepares the object for communication with CWOP by providing a TCPClient and a CWOP ID.\n\n### `setLatitude`, `setLongitude`\n\n`cwop.setLatitude(degrees, minutes, hemisphere);`\n`cwop.setLongitude(degrees, minutes, hemisphere);`\n\nSet the latitude/longitude respectively, by specifying the degrees, minutes, and hemisphere (a single char; ex: 'N', 'S', 'E', 'W')\n\n### `setWindDegrees`\n\n`cwop.setWindDegrees(degrees);`\n\nSet the \"wind degrees\" field of the CWOP packet, in degrees.\n\n### `setWindMph`\n\n`cwop.setWindMph(mph);`\n\nSet the \"wind speed\" field of the CWOP packet, in MPH.\n\n### `setWindGustMph`\n\n`cwop.setWindGustMph(mph);`\n\nSet the \"wind gust speed\" field of the CWOP packet, in MPH.\n\n### `setTempF`\n\n`cwop.setTempF(degreesF);`\n\nSet the \"Temperature\" field of the CWOP packet, in degrees Fahrenheit.\n\n### `setRain1hIn`\n\n`cwop.setRain1hIn(inches);`\n\nSet the \"one-hour rainfall\" field of the CWOP packet, in inches.\n\n### `setRain24hIn`\n\n`cwop.setRain24hIn(inches);`\n\nSet the \"24-hour rainfall\" field of the CWOP packet, in inches.\n\n### `setRainSinceMidnightIn`\n\n`cwop.setRainSinceMidnightIn(inches);`\n\nSet the \"rainfall since midnight\" field of the CWOP packet, in inches.\n\n### `setHumidityPct`\n\n`cwop.setHumidityPct(percent);`\n\nSet the \"humidity\" field of the CWOP packet, in percent.\n\n### `setPressureMb`\n\n`cwop.setPressureMb(millibar);`\n\nSet the \"relative pressure\" field of the CWOP packet, in millibars.\n\n### `setLuminosityWM2`\n\n`cwop.setLuminosityWM2(wm2);`\n\nSet the \"luminosity\" field of the CWOP packet, in WM².\n\n### `setSnow24hIn`\n\n`cwop.setSnow24hIn(inches)`\n\nSet the \"24-hour snowfall\" field of the CWOP packet, in inches.\n\n### `setRegNumber`\n\n`cwop.setRegNumber(regNumber);`\n\nSet the Registration Number to use for the CWOP packet.\n\n### `createAPRS`\n\n`cwop.createAPRS();`\n\nStages an APRS packet internally; returns the resulting string. Useful for doing\na \"dry run\" to see the APRS packet without sending it.\n\n### `writePacket`\n\n`cwop.writePacket();`\n\nPrepares an APRS packet, connects to the CWOP server and sends the entire packet.\n\n## References\n[1]: http://www.wxqa.com/SIGN-UP.html\n[2]: firmware/examples/basic-cwop\n\n## License\nCC0 (Public Domain) - see license.md",
+  "allVersions": [
+    "0.0.10",
+    "0.0.9",
+    "0.0.8"
+  ]
+}

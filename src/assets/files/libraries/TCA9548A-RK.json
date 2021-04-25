@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "TCA9548A-RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TCA9548A-RK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "TCA9548A-RK",
+    "version": "0.0.1",
+    "installs": 8833,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Particle driver TCA9548A I2C bus multiplexer",
+    "url": "https://github.com/rickkas7/TCA9548A-RK",
+    "repository": "https://github.com/rickkas7/TCA9548A-RK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TCA9548A-RK",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-simple": true
+          },
+          "electron": {
+            "1-simple": true
+          },
+          "argon": {
+            "1-simple": true
+          },
+          "boron": {
+            "1-simple": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# TCA9548A-RK\n\n*Particle driver for TCA9548A I2C multiplexer*\n\nThis handy chip allows 8 separate I2C busses to be connected to a single I2C port. This is handy it you want to connect devices that have conflict I2C addresses. Or if you want to support multiple busses at different voltage levels. \n\nI purchased mine from [Adafruit](https://www.adafruit.com/products/2717) which has the surface mount chip soldered on a handy breakout board.\n\n## Pinouts\n\nBottom side:\n\n- 1 - A0\n- 2 - A1\n- 3 - /RESET\n- 4 SD0\n- 5 SC0\n- 6 SD1\n- 7 SC1\n- 8 SD2\n- 9 SC2\n- 10 SD3\n- 11 SC3\n- 12 GND\n\nTop side:\n\n- 13 SD4\n- 14 SC4\n- 15 SD5\n- 16 SC5\n- 17 SD6\n- 18 SC6\n- 19 SD7\n- 20 SC7\n- 21 A2\n- 22 SCL\n- 23 SDA\n- 24 VCC\n\nNote that the Adafruit breakout board has built-in pull-up resistors on the SDL and SCL (to Photon/Electron) lines. These can be disabled by cutting two traces on the bottom side of the board.\n\nAlso the A0, A1, and A2 lines have internal pull-downs, so the default address is 0 with no connections. There are solder pads on the bottom to change the address permanently.\n\nFinally, the /RESET line has a pull-up on it, so you don't have to connect it unless you want to be able to hardware reset the chip.\n\nIf you are using a bare TCA9548A chip you'll need to add your own ties to GND or VCC, and add pull-ups for I2C.\n\nAlso note that neither includes pull-ups on the expanded SDAn and SCLn ports! This is intentional so you can pull-up to either 3.3V or 5V depending on what voltage you want to run the bus at. Each port can be run at a different voltage as desired.\n\n## Test Circuit\n\n\n\n## Examples\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

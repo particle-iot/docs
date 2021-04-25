@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "Adafruit-LEDBackpack",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit-LEDBackpack/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit-LEDBackpack",
+    "version": "0.0.1",
+    "installs": 1208,
+    "license": "MIT",
+    "author": "beefbowl <dev020@gmail.com>",
+    "sentence": "Forked from Adafruit's LED Backpack library, for SparkCore",
+    "url": "https://github.com/beefbowl/spark_adafruit_ledbackpack",
+    "repository": "https://github.com/beefbowl/spark_adafruit_ledbackpack.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit-LEDBackpack",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "Spark_Adafruit_LEDBackpack\n==========================\n\nForked from Adafruit's LED Backpack library, for SparkCore\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

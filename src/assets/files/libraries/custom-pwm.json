@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "custom-pwm",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/custom-pwm/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "custom-pwm",
+    "version": "0.0.1",
+    "installs": 3300,
+    "license": "MIT",
+    "author": "Ken Kaiser <admin@makerken.com>",
+    "sentence": "Abstracting the 6.0.0 analogWrite functions",
+    "url": "https://github.com/makerken/custom-pwm",
+    "repository": "https://github.com/makerken/custom-pwm.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/custom-pwm",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "digital-servo": true
+          },
+          "electron": {
+            "digital-servo": true
+          },
+          "argon": {
+            "digital-servo": true
+          },
+          "boron": {
+            "digital-servo": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "digital-servo": true
+          },
+          "electron": {
+            "digital-servo": true
+          },
+          "argon": {
+            "digital-servo": true
+          },
+          "boron": {
+            "digital-servo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# custom-pwm\nUsing Particle functions\n\nUpdated 6.0.0 firmware allows for custom PWM settings, this is barely abstracting those functions, mainly learning to contribute a library for me.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_TCS34725",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_TCS34725/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_TCS34725",
+    "version": "1.0.0",
+    "installs": 16596,
+    "license": "BSD",
+    "author": "Krishnaraj Varma",
+    "sentence": "Spark Core library for the TCS34725 sensor",
+    "url": "https://github.com/krvarma/adafruit_tcs34725_sparkcore",
+    "repository": "https://github.com/krvarma/adafruit_tcs34725_sparkcore.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_TCS34725",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "TCS34725": true
+          },
+          "electron": {
+            "TCS34725": true
+          },
+          "argon": {
+            "TCS34725": true
+          },
+          "boron": {
+            "TCS34725": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "TCS34725": true
+          },
+          "electron": {
+            "TCS34725": true
+          },
+          "argon": {
+            "TCS34725": true
+          },
+          "boron": {
+            "TCS34725": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "#Adafruit TCS34725 Color Sensor Driver #\n\n*** Adapted by Krishnaraj Varma for Spark Core ***\n\nThis driver is for the Adafruit TCS34725 Breakout.\n    ------> http://www.adafruit.com/products/1334\n\n## About this Driver ##\n\nThese modules use I2C to communicate, 2 pins are required to  \ninterface\n\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nWritten by Kevin (KTOWN) Townsend for Adafruit Industries.\nBSD license, check license.txt for more information\nAll text above must be included in any redistribution\n\nTo download. click the ZIP button in the top bar, and check this tutorial\nfor instructions on how to install: \nhttp://learn.adafruit.com/adafruit-all-about-arduino-libraries-install-use",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

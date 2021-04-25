@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_DHT",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_DHT/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_DHT",
+    "version": "0.0.4",
+    "installs": 340946,
+    "license": "MIT License",
+    "author": "RussGrue <rstockhammer@hotmail.com>",
+    "sentence": "Spark Core DHT Library based on Adafruit Arduino DHT Library",
+    "url": "https://github.com/YutingYou/Particle_Adafruit_DHT",
+    "repository": "https://github.com/YutingYou/Particle_Adafruit_DHT.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_DHT",
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "dht-test": true
+          },
+          "electron": {
+            "dht-test": true
+          },
+          "argon": {
+            "dht-test": true
+          },
+          "boron": {
+            "dht-test": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "dht-test": true
+          },
+          "electron": {
+            "dht-test": true
+          },
+          "argon": {
+            "dht-test": true
+          },
+          "boron": {
+            "dht-test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit_DHT\n============\n\nSpark Core DHT Library based on Adafruit Arduino DHT Library\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.3",
+    "0.0.2"
+  ]
+}

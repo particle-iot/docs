@@ -1,0 +1,70 @@
+{
+  "type": "libraries",
+  "id": "beakn",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/beakn/archive/0.4.1.tar.gz"
+  },
+  "attributes": {
+    "name": "beakn",
+    "version": "0.4.1",
+    "installs": 373,
+    "license": "MIT",
+    "author": "Jon Gallant <jon@jongallant.com>",
+    "sentence": "The beakn SparkCore library is part of a DIY Lync Status light called beakn. More information here: http://blog.jongallant.com",
+    "url": "https://github.com/jonbgallant/beakn-sparkcore",
+    "repository": "https://github.com/jonbgallant/beakn-sparkcore.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/beakn",
+  "versions": {
+    "0.4.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "electron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "argon": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "boron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "electron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "argon": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          },
+          "boron": {
+            "beakn-sparkcore": false,
+            "beakn-sparkcore-onboard-led": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "The beakn-sparkcore library is part of a DIY Lync Status light called beakn. You flash this file to your SparkCore and install a desktop application to send your Lync status to it. You can find more information about beakn here: http://blog.jongallant.com/2014/12/beakn-v0-4-diy-lync-status-light.html",
+  "allVersions": [
+    "0.4.1",
+    "0.4.0"
+  ]
+}

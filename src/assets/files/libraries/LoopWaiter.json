@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "LoopWaiter",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LoopWaiter/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "LoopWaiter",
+    "version": "1.0.2",
+    "installs": 198,
+    "license": "MIT",
+    "author": "Jidesh Veeramachaneni",
+    "sentence": "A header only timer library to simplify waiting without using delay.",
+    "url": "https://github.com/jideshv/LoopWaiter",
+    "repository": "https://github.com/jideshv/LoopWaiter.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/LoopWaiter",
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# LoopWaiter\n\nA header only library to simplify waiting on MCUs without using a delay. This library is published as a Particle Library for use with the Particle Photon and Particle Electron platforms. For other platforms just copy the header file [LoopWaiter.h](src/LoopWaiter.h) to your project. \n\nThe library has been tested using [Google Test](https://github.com/google/googletest) and [fff](https://github.com/meekrosoft/fff).\n\n## Usage\n\nSee the [example](examples/usage/usage.ino) for a complete example.\n\nYou may clone this repository and run the tests by doing the following:\n\n```\nmkdir build\ncd build\ncmake ..\nmake\nmake test\n```\n\n## LICENSE\n\nCopyright 2018 Jidesh Veeramachaneni  \nDistributed under the MIT License\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

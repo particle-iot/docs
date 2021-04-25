@@ -1,0 +1,39 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_APDS9960",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_APDS9960/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_APDS9960",
+    "version": "0.0.1",
+    "installs": 4452,
+    "license": "GNU",
+    "author": "SparkFun_APDS9960",
+    "sentence": "Spark Library to work with SparkFun_APDS-9960",
+    "url": "https://github.com/rondagdag/apds9960_particlelib",
+    "repository": "https://github.com/rondagdag/apds9960_particlelib.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_APDS9960",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "allVersions": [
+    "0.0.1"
+  ]
+}

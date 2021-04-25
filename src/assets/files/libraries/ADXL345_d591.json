@@ -1,0 +1,79 @@
+{
+  "type": "libraries",
+  "id": "ADXL345_d591",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ADXL345_d591/archive/0.1.1.tar.gz"
+  },
+  "attributes": {
+    "name": "ADXL345_d591",
+    "version": "0.1.1",
+    "installs": 1351,
+    "license": "GPLv3",
+    "author": "Kenneth Lim",
+    "sentence": "ADXL345 3-axes accelerometer",
+    "url": "https://github.com/kennethlimcp/spark-adxl345",
+    "repository": "https://github.com/kennethlimcp/spark-adxl345.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/ADXL345_d591",
+  "versions": {
+    "0.1.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "electron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "argon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "boron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "electron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "argon": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          },
+          "boron": {
+            "1_reg_print": true,
+            "2_no_lib": true,
+            "3_run": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "##ADXL345 Library\n\nOriginal library repo is at: https://github.com/jenschr/Arduino-libraries/tree/master/ADXL345\n\nPorted over to Spark core platform by @kennethlimcp\n\nUpdated on 23 July 2015\n",
+  "allVersions": [
+    "0.1.1",
+    "0.1.0",
+    "0.0.2"
+  ]
+}

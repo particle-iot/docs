@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "sds011-sh",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/sds011-sh/archive/1.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "sds011-sh",
+    "version": "1.1.2",
+    "installs": 229,
+    "license": "MIT",
+    "author": "Alexey M",
+    "sentence": "Manager dust sensor SDS011.",
+    "url": "https://github.com/shizacat/sds011-sh",
+    "repository": "https://github.com/shizacat/sds011-sh",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/sds011-sh",
+  "versions": {
+    "1.1.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# sds011\n\nA Particle library for sds011 - dust sensor from Nova.\n\n## Code error\n\n- -1: Error read\n- -2: Checksum does not match\n- -3: Error format packet\n- -4: Command does not match\n\n## Change Log\n\n1.1.2:\n\n- Changed names of file to sds011-sh.*\n\n1.1.0:\n\n- Added timeout for read packet UART.\n- Added error code description.\n- Added function flush\\_in\\_buffer.\n\n## LICENSE\nCopyright 2019 Alexey M\n\nLicensed under the MIT license",
+  "allVersions": [
+    "1.1.2",
+    "1.1.1",
+    "1.0.0"
+  ]
+}

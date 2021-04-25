@@ -1,0 +1,77 @@
+{
+  "type": "libraries",
+  "id": "speaker",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/speaker/archive/1.2.0.tar.gz"
+  },
+  "attributes": {
+    "name": "speaker",
+    "version": "1.2.0",
+    "installs": 1907,
+    "author": "Julien Vanier <jvanier@gmail.com>",
+    "sentence": "Generate audio output for a speaker",
+    "url": "https://github.com/monkbroc/particle-speaker",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/speaker",
+  "versions": {
+    "1.2.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": true
+          },
+          "electron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": true
+          },
+          "argon": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "boron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": true
+          },
+          "electron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": true
+          },
+          "argon": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          },
+          "boron": {
+            "playFromFlash": false,
+            "playWavFromSD": false,
+            "sawtooth": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Speaker\n[![Build Status](https://travis-ci.org/monkbroc/particle-speaker.svg?branch=master)](https://travis-ci.org/monkbroc/particle-speaker)\n\nGenerate audio output for a speaker for Particle devices (Photon, Electron)\n\n## Usage\n\nConnect a speaker amplifier like [this one from Adafruit](https://www.adafruit.com/product/2130) to the digital to analog converter `DAC` pin of a Photon or Electron and run this code to play a sawtooth wave.\n\n```\n#include \"speaker.h\"\n\nuint16_t bufferSize = 128;\nSpeaker speaker(bufferSize);\n\nvoid setup() {\n  uint16_t audioFrequency = 22050; // Hz\n  speaker.begin(audioFrequency);\n}\n\nuint16_t audioSignal = 0;\n\nvoid loop() {\n  if (speaker.ready()) {\n    uint16_t *buffer = speaker.getBuffer();\n    // Produces a 1 kHz sawtooth wave\n    for (uint16_t i = 0; i < bufferSize; i++) {\n      buffer[i] = audioSignal;\n      audioSignal += 2267;\n      if (audioSignal > 50000) {\n        audioSignal = 0;\n      }\n    }\n  }\n}\n```\n\n![1 kHz sawtooth signal](docs/speaker%201kHz%20sawtooth%20signal.png)<br>\nA 1 kHz sawtooth signal played from a Photon\n\nSee [complete example](examples/sawtooth/sawtooth.ino) in the examples directory.\n\nCurrently the output is mono. Since the Photon and Electron have 2 DAC outputs, the library could be extended to support stereo output.\n\n## Documentation\n\n### `Speaker`\n\n`Speaker speaker(bufferSize);`\n\nCreates a speaker object with 2 buffers of the same size (double buffering).\n\nWhile the library plays the sound in one buffer your application fills the second one.\n\nThe larger the buffer, the more delay there will be in between your application filling a buffer and it being played. The shorter the buffer, the less time your code has to fill the next buffer. Short buffers work best for real-time audio synthesis and longer buffer for playback from an SD card.\n\nThe application has `bufferSize / audioFrequency` seconds to fill the next buffer. For example, this is 2.9 ms at 44100 Hz with a 128 sample buffer.\n\nThe copy from memory to the DAC is done using direct memory access (DMA) so the CPU is free to do other tasks.\n\n### `begin`\n\n`speaker.begin(audioFrequency);`\n\nSets up the `DAC` pin and `TIM6` timer to trigger at the correct audio freqency. Common frequencies are 44100 Hz, 22050 Hz, 11025 Hz and 8000 Hz.\n\nStarts playing the content of the buffer immediately so you may want to fill the audio buffer before calling `speaker.begin`. The buffer is zero by default so not filling the buffer first would still be OK.\n\n_Note: Do not call `analogWrite(DAC, ...);` when using this library since it completely takes over the DAC peripheral.`_\n\n### `end`\n\n`speaker.end();`\n\nStops the audio playback.\n\n### `ready`\n\n`bool readyForMoreAudio = speaker.ready();`\n\nReturns `true` once when the audio buffer is ready to be filled with more audio samples.  Will return `false` when called again until the buffer has finished playing.\n\n### `getBuffer`\n\n`uint16_t *buffer = speaker.getBuffer();`\n\nReturns a pointer to an array of `bufferSize` audio samples.\n\nThe audio samples are 16 bit integers but the DAC on the Photon and Electron only has 12 bits to the least significant 4 bits are ignored.\n\nYou must only write to this array when `speaker.ready()` is `true`.\n\n## Resource Utilization\n\nThis library uses the `DAC1` digital to analog converter, `TIM6` basic timer and `DMA1` stream 5 direct memory access.\n\n## References\n\nRead the [STM Application note AN3126 - Audio and waveform generation using the DAC in STM32 microcontrollers](http://www.st.com/content/ccc/resource/technical/document/application_note/05/fb/41/91/39/02/4d/1e/CD00259245.pdf/files/CD00259245.pdf/jcr:content/translations/en.CD00259245.pdf) for more background on using the DAC and DMA for audio generation.\n\n## License\nCopyright 2016 Julien Vanier\n\nReleased under the MIT license\n",
+  "allVersions": [
+    "1.2.0",
+    "1.1.0",
+    "1.0.1"
+  ]
+}

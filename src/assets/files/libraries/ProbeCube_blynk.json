@@ -1,0 +1,62 @@
+{
+  "type": "libraries",
+  "id": "ProbeCube_blynk",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ProbeCube_blynk/archive/0.3.8.tar.gz"
+  },
+  "attributes": {
+    "name": "ProbeCube_blynk",
+    "version": "0.3.8",
+    "installs": 694,
+    "license": "MIT",
+    "author": "Lafudoci",
+    "sentence": "forked from vshymanskyy/blynk-library-spark",
+    "url": "https://github.com/lafudoci/probecube_blynk",
+    "repository": "https://github.com/lafudoci/probecube_blynk.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/ProbeCube_blynk",
+  "versions": {
+    "0.3.8": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Particle": true
+          },
+          "electron": {
+            "Particle": true
+          },
+          "argon": {
+            "Particle": false
+          },
+          "boron": {
+            "Particle": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Particle": true
+          },
+          "electron": {
+            "Particle": true
+          },
+          "argon": {
+            "Particle": false
+          },
+          "boron": {
+            "Particle": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "\r\n",
+  "allVersions": [
+    "0.3.8",
+    "0.3.3"
+  ]
+}

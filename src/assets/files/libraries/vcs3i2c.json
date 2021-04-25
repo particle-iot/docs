@@ -1,0 +1,59 @@
+{
+  "type": "libraries",
+  "id": "vcs3i2c",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/vcs3i2c/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "vcs3i2c",
+    "version": "0.1.0",
+    "installs": 2510,
+    "author": "Tinovi",
+    "sentence": "Arduino i2c sensor moisture sensor library",
+    "repository": "https://github.com/tinovi/i2cArduino",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "v",
+  "cardUrl": "/cards/libraries/v/vcs3i2c",
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "i2cArduino": true
+          },
+          "electron": {
+            "i2cArduino": true
+          },
+          "argon": {
+            "i2cArduino": true
+          },
+          "boron": {
+            "i2cArduino": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "i2cArduino": true
+          },
+          "electron": {
+            "i2cArduino": true
+          },
+          "argon": {
+            "i2cArduino": true
+          },
+          "boron": {
+            "i2cArduino": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# TinoviSoilSensor\n\nA Particle library for TinoviSoilSensor\n\n## Welcome to your library!\n\nTo get started, modify the sources in [src](src). Rename the example folder inside [examples](examples) to a more meaningful name and add additional examples in separate folders.\n\nTo compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nLibraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.\n\nAfter the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.\n\n_TODO: update this README_\n\n## Usage\n\nConnect XYZ hardware, add the TinoviSoilSensor library to your project and follow this simple example:\n\n```\n#include \"TinoviSoilSensor.h\"\nTinoviSoilSensor tinoviSoilSensor;\n\nvoid setup() {\n  tinoviSoilSensor.begin();\n}\n\nvoid loop() {\n  tinoviSoilSensor.process();\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\n## Interfacing from Arduino\n**WARNING!!! use 3.3 voltage levels only, more voltage will damage device**\n\n###wiring to Arduiono:\n\nArduiono pin #3V3 - sensor red (3.3v)\n\nArduiono pin #A4 - sensor green (SDA)\n\nArduiono pin #A5 - sensor white (SCL)\n\nArduiono pin #GND - sensor black (GND)\n\npin #GND - shield (GND)\n\n**SDA and SCL lines requires pull-up resitors to 3.3v line, we recommend to use 1.8K resistors, because of long wiring to i2c sensor.**\n\n### API\n```\nSVCS3();\n  //pass i2c addres of sensor, default 0x63\n  int init(int address);\n  // update i2c address of sesnor\n  int newAddress(byte newAddr);\n  // hold sesnor in air or put in dry soil and call  (offset DP = 1 or VWC=0%)\n  int calibrationAir();\n  // submerge sesnor in the water or soil with water (offset DP = 80 or VWC=100%)\n  int calibrationWater();\n  // submerge sesnor in EC calibration fluid or soil with known EC and supply correc EC vaue in\n  int calibrationEC(int16_t valueUs);\n  //initate reading, then need to wait for 100ms to let reading to finish\n  int newReading();\n  float getE25();\n  float getEC();\n  float getTemp();\n  float getVWC();\n  //get all values, supply float[4] , return 0-DP;1-EC;2-Temp;3-VWC\n  void getData(float retVal[]);\n```\n\n\n### Get software\n\nThis sample software demonstrates hot to read data from sensor.\n\nSensor default I2C address is 0x63.\n\nDownload Arduino library from [there.](https://github.com/tinovi/i2cArduino)\n\n<a href=\"https://www.tindie.com/stores/tinovi/\"><img src=\"https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-mediums.png\" alt=\"I sell on Tindie\" width=\"150\" height=\"78\" /></a>\n\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add TinoviSoilSensor_myname` to add the library to a project on your machine or add the TinoviSoilSensor_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2019 Tinovi\n\nLicensed under the <insert your choice of license here> license\n",
+  "allVersions": [
+    "0.1.0"
+  ]
+}

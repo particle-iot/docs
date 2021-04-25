@@ -1,0 +1,90 @@
+{
+  "type": "libraries",
+  "id": "JsonParserGeneratorRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/JsonParserGeneratorRK/archive/0.1.4.tar.gz"
+  },
+  "attributes": {
+    "name": "JsonParserGeneratorRK",
+    "version": "0.1.4",
+    "installs": 85291,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "JSON parser and generator for Particle devices",
+    "url": "https://github.com/rickkas7/JsonParserGeneratorRK",
+    "repository": "https://github.com/rickkas7/JsonParserGeneratorRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "j",
+  "cardUrl": "/cards/libraries/j/JsonParserGeneratorRK",
+  "versions": {
+    "0.1.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "electron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "argon": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "boron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "electron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "argon": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          },
+          "boron": {
+            "1-parser": true,
+            "2-generator": true,
+            "3-subscription": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# JSON Parser and Generator\n\nThere are a number of JSON parsers and generators for Particle products including the popular [SparkJson](https://github.com/menan/sparkjson) library and [JSMNSpark](https://github.com/menan/jsmnspark).\n\nI created yet another library because I wanted something lightweight. SparkJson creates piles of objects that are copies of the original data during parsing. [JSMN](https://github.com/zserge/jsmn) is very lightweight, but is kind of a pain to use.\n\nWhat I did was wrap JSMN with an easier to use C++ API, along with adding easy value accessors. \n\nI also added a JSON generator that's nearly as efficient as using sprintf, but much easier to use. It takes care of escaping quotes and special characters, and converts UTF-8 to JSON UTF-16 entities.\n\nThe parser and generator are separated internally so if you only need one or the other the linker will remove the unnecessary code automatically to save space.\n\nThe [full API documentation can be found here](http://rickkas7.github.io/JsonParserGeneratorRK/).\n\n## JSON Parser\n\nThe parser can be used in many situations, but it's particularly well-suited for handing responses from webhooks, including multi-part responses. \n\nThe parser can be used in two different ways: static allocation, where almost all of the memory location is done in advance, or dynamically.\n\nTo do it dynamically, just construct the [JsonParser](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_parser.html) object as a global or local variable:\n\n```\nJsonParser parser;\n```\n\nTo do it statically, you need to guess the maximum size of the data you want to receive and the maximum number of tokens it will have. Each object is one token, plus two tokens for each key/value pair. Each array is one token, plus one token for each value in the array.\n\nThis [JsonParserStatic](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_parser_static.html) example creates a static parser to parse up to 1024 bytes of data and 50 tokens:\n\n```\nJsonParserStatic<1024, 50> parser;\n```\n\nYou then typically add the data to parse using the [addData](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_buffer.html#a760cb5be42ed2d2ca9306b1109e76af3) or [addString](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_buffer.html#a61bf30ac6e1bd460f1e809d02a7d5ba4) method. If you're getting the data from a subscribe handler, you'll probably use addString.\n\n```\nparser.addString(data);\n```\n\nIf you have a pointer and length, the addData method can be used instead.\n\nThen, once all of the data has been added, call [parse](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_parser.html#ad528213e8600cbad4d85910b62fc033a). This is handy for webhooks where you may get a multipart response. Example 3 demonstrates this:\n\n```\nvoid subscriptionHandler(const char *event, const char *data) {\n\tint responseIndex = 0;\n\n\tconst char *slashOffset = strrchr(event, '/');\n\tif (slashOffset) {\n\t\tresponseIndex = atoi(slashOffset + 1);\n\t}\n\n\tif (responseIndex == 0) {\n\t\tjsonParser.clear();\n\t}\n\tjsonParser.addString(data);\n\n\tif (jsonParser.parse()) {\n\t\t// Looks valid (we received all parts)\n\n\t\t// This printing thing is just for testing purposes, you should use the commands to\n\t\t// process data\n\t\tprintJson(jsonParser);\n\t}\n}\n```\n\nSay you have this object:\n\n```\n{\n  \"t1\":\"abc\",\n  \"t2\":1234,\n  \"t3\":1234.5,\n  \"t4\":true,\n  \"t5\":false,\n  \"t6\":null,\n  \"t7\":\"\\\"quoted\\\"\"\n}\n```\n\nYou could read the value of t1 by using [getOuterValueByKey](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_parser.html#a38858994342cd2735b716b117bf8afdf) and this code:\n\n```\nString strValue;\nparser1.getOuterValueByKey(\"t1\", strValue);\n```\n\nThis also works for other data types:\n\n```\nint intValue;\nparser1.getOuterValueByKey(\"t2\", intValue)\n\nfloat floatValue;\nparser1.getOuterValueByKey(\"t3\", floatValue);\n\nbool boolValue;\nparser1.getOuterValueByKey(\"t4\", boolValue);\n```\n\nThere's also a fluent-style API that can make reading complex JSON easier. For example, given this fragment of JSON:\n\n```\n{\n\t\"response\": {\n\t\t\"version\": \"0.1\",\n\t\t\"termsofService\": \"http://www.wunderground.com/weather/api/d/terms.html\",\n\t\t\"features\": {\n\t\t\t\"forecast\": 1\n\t\t}\n\t},\n\t\"forecast\": {\n\t\t\"txt_forecast\": {\n\t\t\t\"date\": \"12:25 PM EST\",\n\t\t\t\"forecastday\": {\n\t\t\t\t\"period\": 7,\n\t\t\t\t\"icon\": \"nt_partlycloudy\",\n\t\t\t\t\"icon_url\": \"http://icons.wxug.com/i/c/k/nt_partlycloudy.gif\",\n\t\t\t\t\"title\": \"Saturday Night\",\n\t\t\t\t\"fcttext\": \"Partly cloudy early with increasing clouds overnight. Low 29F. Winds NW at 15 to 25 mph.\",\n\t\t\t\t\"fcttext_metric\": \"Partly cloudy early with increasing clouds overnight. Low -2C. Winds NW at 25 to 40 km/h.\",\n\t\t\t\t\"pop\": \"20\"\n\t\t\t}\n\t\t},\n```\n\n```\t\nString s = parser.getReference().key(\"response\").key(\"version\").valueString();\n// s == \"0.1\"\n\ns = parser.getReference().key(\"forecast\").key(\"txt_forecast\").key(\"date\").valueString();\n// s = \"12:25 PM EST\"\n\nint value = parser.getReference().key(\"forecast\").key(\"txt_forecast\").key(\"forecastday\").key(\"period\").valueInt();\n// value == 7\n```\n\nIf you have a complicated JSON file to decode, using the [JSON Parser Tool](http://rickkas7.github.io/jsonparser/) makes it easy. You paste in your JSON and it formats it nicely. Click on a row and will generate the fluent accessor to get that value!\n\n\n## JSON Generator\n\nThe JSON Generator is used to build valid JSON strings. While you can build JSON using sprintf, the JSON generator is able to double-quote escape strings, and escape double quotes within strings. It can also generate correct JSON unicode characters.\n\nThe most common use is to construct a static buffer to hold the JSON data for Particle.publish. Since this data is limited to 256 bytes, this is a reasonable approach using [JsonWriterStatic](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_writer_static.html):\n\n```\nJsonWriterStatic<256> jw;\n```\n\nYou can also dynamically allocate a buffer using the plain [JsonWriter](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_writer.html).\n\nThe JsonWriter handles nested objects and arrays, but does so without creating temporary copies of the objects. Because of this, it's necessary to use startObject(), startArray(), and finishObjectOrArray() so the objects are balanced properly.\n\nTo make this easier, the [JsonWriterAutoObject](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_writer_auto_object.html) can be instantiated on the stack. When the object goes out of scope, it will automatically close the object. You use it like this:\n\n```\n\t{\n\t\tJsonWriterAutoObject obj(&jw);\n\n\t\t// Add various types of data\n\t\tjw.insertKeyValue(\"a\", true);\n\t\tjw.insertKeyValue(\"b\", 1234);\n\t\tjw.insertKeyValue(\"c\", \"test\");\n\t}\n```\n\nThis will output the JSON data:\n\n```\n{\\\"a\\\":true,\\\"b\\\":1234,\\\"c\\\":\\\"test\\\"}\n```\n\nIf you are sending float or double values you may want to limit the number of decimal places to send. This is done using [setFloatPlaces](http://rickkas7.github.io/JsonParserGeneratorRK/class_json_writer.html#aecd4d984a49fe59b0c4d892fe6d1e791).\n\n## JsonModifier\n\nThe JsonModifier class (added in version 0.1.0) makes it possible to modify an existing object that has been parsed with JsonParser.\n\nYou will typically process a JSON object using a `JsonParser` object, `addString()` or `addData()` method, then `parse()`.\n\nAssuming your `JsonParser` is in the variable `jp` you then construct a temporary modifier object on the stack like this:\n\n```\nJsonModifier mod(jp);\n```\n\nThe most common thing to do is have a JSON object and you want to update the value, or insert the value if it does not exist:\n\n```\nmod.insertOrUpdateKeyValue(jp.getOuterObject(), \"a\", (int)1);\n```\n\nIf the input JSON was empty, it would then be:\n\n```\n{\"a\":1}\n```\n\nYou can add int, long, float, double, bool, and const char * objects this way.\n\n```\nmod.insertOrUpdateKeyValue(jp.getOuterObject(), \"b\", \"testing\");\n```\n\nThis would change the object to:\n\n```\n{\"a\":1,\"b\":\"testing\"}\n```\n\nUpdating an object will remove it from its current location and add it at the end of the object.\n\nAnother common function is `appendArrayValue()` which appends to an array.\n\nYou can also use `removeKeyValue()` and `removeArrayIndex()` to remove keys or array entries.\n\n\n## Examples\n\nThere are three Particle devices examples.\n\n### 1 - Parser\n\nThe parser example is a standalone test of parsing some JSON data. The data is built into the code, so just just run it and monitor the serial output to make sure the test passes.\n\nIt also demonstrates how to read simple values out of the JSON data.\n\n### 2 - Generator\n\nThe generator example is a standalone test of generating some JSON data. The data is built into the code, so just just run it and monitor the serial output to make sure the test passes.\n\nIt also demonstrates how to write JSON data.\n\n### 3 - Subscription\n\nThis example creates a subscription on the event jsonParserTest, so you can send it JSON data, and it will parse and print it to the debuggging serial. For example, if you published these three events:\n\n```\nparticle publish jsonParserTest '{\"a\":1234}' --private\nparticle publish jsonParserTest '{\"a\":1234,\"b\":\"test\"}' --private\nparticle publish jsonParserTest '{\"a\":1234,\"b\":\"test\":\"c\":[1,2,3]}' --private\n```\n\nYou'd get these three objects printed to debugging serial.\n\n```\n{\n  \"a\":1234\n}\n{\n  \"a\":1234,\n  \"b\":\"test\"\n}\n{\n  \"a\":1234,\n  \"b\":\"test\",\n  \"c\":  [\n    1,\n    2,\n    3\n  ]\n\n}\n\n```\n\nIt also demonstrates how to handle multi-part webhook responses.\n\n\n## Test code\n\nThe github repository also has code in the test directory. It can run an automated test of several sample data files to verify operation. It's run by doing something like:\n\n```\ncd test\nmake\n```\n\nOn Linux only, if you have valgrind installed, it can also do a build with valgrind checking to check for memory leaks and buffer overruns. It's run by doing:\n\n```\ncd test\nmake check\n```\n\nThe test code is also a reference of various ways you can call the API.\n\n## Version History\n\n### 0.1.4 (2020-12-23)\n\n- Added addChunkedData() method to support subscribing to multi-part webhook response events.\n\n### 0.1.3 (2020-09-22)\n\n- Added JsonWriter methods insertKeyArray() and insertKeyVector() to make it easier to add arrays.\n- Added JsonWriter methods insertArray() and insertVector() to make it easier to add arrays.\n\n### 0.1.1 (2020-05-14)\n\nFixed a bug where calling parse() on an empty buffer returns true. It should return false. See issue #7.\n\n### 0.1.0 (2019-09-18)\n\nAdded support for JsonModifier, a class to modify an existing JSON object in place, without making a copy of it.\n\n### 0.0.7 (2019-08-30)\n\nFixed a bug in the 3-subscription example. The check for the part number should use strrchr, not strchr, because it needs to \nfind the last slash before the part number for webhook multi-part responses.\n\n\n",
+  "allVersions": [
+    "0.1.4",
+    "0.1.3",
+    "0.1.2",
+    "0.1.1",
+    "0.1.0",
+    "0.0.7",
+    "0.0.6",
+    "0.0.5",
+    "0.0.4",
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

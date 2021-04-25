@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "AsyncPulseIn",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AsyncPulseIn/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "AsyncPulseIn",
+    "version": "0.0.2",
+    "installs": 4478,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "An asynchronous version of pulseIn for Particle Photon, Electron, etc.",
+    "paragraph": "The standard pulseIn function is blocking; this version is asynchronous which may be desirable in some programs.",
+    "url": "https://github.com/rickkas7/AsyncPulseIn",
+    "repository": "https://github.com/rickkas7/AsyncPulseIn.git",
+    "architectures": [
+      "particle-photon",
+      " particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AsyncPulseIn",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "AsyncPulseInTest": true
+          },
+          "electron": {
+            "AsyncPulseInTest": true
+          },
+          "argon": {
+            "AsyncPulseInTest": true
+          },
+          "boron": {
+            "AsyncPulseInTest": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "AsyncPulseInTest": true
+          },
+          "electron": {
+            "AsyncPulseInTest": true
+          },
+          "argon": {
+            "AsyncPulseInTest": true
+          },
+          "boron": {
+            "AsyncPulseInTest": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# AsyncPulseIn\n\nThis is an asynchronous version of pulseIn. It’s probably not exactly right for all use cases, but it seems to work.\n\nThe annoying thing about pulseIn(), a function inherited from Arduino, is that it’s blocking. Also, the current Particle implementation doesn’t allow you to set the timeout, currently 3 seconds. But even with a configurable timeout, I’m not fond of it being blocking.\n\nWhat this code does is use an interrupt to monitor the pin. It can catch exceptionally narrow pulses that way, pretty accurately.\n\nThe big question is: what do you do with those pulse width measurements? The problem with an interrupt handler is that there are huge number of restrictions of what you can do from your interrupt handler, so you want to minimize what you do there. What I  decided on was a circular buffer (FIFO) that remembers the recent pulse widths. This can handle the simple case where you trigger the sensor and measure one pulse, but also more complicated cases where you have multiple pulses coming in.\n\nYou typically create a global object like this:\n```cpp\n// Initialize the AsyncPulseIn object to listen on D2 and measure the width of the HIGH part of the pulse\nAsyncPulseIn asyncPulse(D2, HIGH);\n```\n\nNote that since it uses interrupts, there are some restrictions on what pins you can use. See:\nhttps://docs.particle.io/reference/firmware/photon/#attachinterrupt-\n\nThis is the code example to just print out all of the pulse info. This code was in `loop();`:\n```cpp\nAsyncPulseInPulseInfo pulseInfo;\nwhile(asyncPulse.getNextPulse(pulseInfo)) {\n    // We have a saved pulse\n    Serial.printlnf(\"millis=%lu width=%lu\", pulseInfo.startMillis, pulseInfo.widthMicros);\n}\n```\n\nThe main thing is that you call `getNextPulse()` out of loop and it returns the previously measured pulses. It does not block waiting for new pulses. This will require some restructuring over code ported directly from Arduino, but it will make your code much more efficient and predicable, not blocking loop to measure pulses.\n\nThe code is quite simple so feel free to just copy and paste the stuff directly into your code as it’s a reasonable template for a pulse-detecting interrupt service routine.\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

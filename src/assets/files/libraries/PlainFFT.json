@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "PlainFFT",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PlainFFT/archive/0.4.5.tar.gz"
+  },
+  "attributes": {
+    "name": "PlainFFT",
+    "version": "0.4.5",
+    "installs": 1604,
+    "license": "MIT",
+    "author": "Nikos Kouvelas <nko@eworx.gr>",
+    "sentence": "FFT library",
+    "url": "https://github.com/nkouvelas/nikos",
+    "repository": "https://github.com/nkouvelas/nikos.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PlainFFT",
+  "versions": {
+    "0.4.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# nikos\nnikos\n",
+  "allVersions": [
+    "0.4.5"
+  ]
+}

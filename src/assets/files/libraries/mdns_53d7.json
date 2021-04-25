@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "mdns_53d7",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/mdns_53d7/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "mdns_53d7",
+    "version": "1.0.0",
+    "installs": 149,
+    "license": "MIT license",
+    "author": "Krishnaraj Varma",
+    "sentence": "Adafruit CC3000_MDNS Library for Spark Core",
+    "url": "https://github.com/krvarma/mdns_sparkcore",
+    "repository": "https://github.com/krvarma/mdns_sparkcore.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/mdns_53d7",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "mdns": false
+          },
+          "electron": {
+            "mdns": false
+          },
+          "argon": {
+            "mdns": false
+          },
+          "boron": {
+            "mdns": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "mdns": false
+          },
+          "electron": {
+            "mdns": false
+          },
+          "argon": {
+            "mdns": false
+          },
+          "boron": {
+            "mdns": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Spark Core and MDNS\n-------------------\n\nHere is the Spark Core port of Adafruit MDNS library. The library provides the ability to setup a name for the Spark Core and resolve it. We can name the Core anything we want, the library will append \"**.local**\" to the name and we can access the Core using the URL \"*name*.local\".\n\nThe sample application names the Core as \"***myspark***\". If the MDNS is setup correctly then it creates a TCPServer on port 80. The Core can be accessed using the URL \"**http://myspark.local**\". The server simply prints a test message.\n\n**Requirement**\n\n 1. For Mac OSX support is built in through Bonjour already. \n 2. For Linux, install Avahi. \n 3. For Windows, install Bonjour.\n \n**Screenhots**\n\n![enter image description here][1]\n\n\n  [1]: https://raw.githubusercontent.com/krvarma/MDNS_SparkCore/master/screenshot.jpg",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

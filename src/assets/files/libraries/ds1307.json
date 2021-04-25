@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "ds1307",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ds1307/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "ds1307",
+    "version": "0.0.1",
+    "installs": 4660,
+    "license": "Public Domain",
+    "author": "JeeLabs, Technobly",
+    "sentence": "DS-1307 RTC library",
+    "url": "https://github.com/joscha/particle-ds-1307",
+    "repository": "https://github.com/joscha/particle-ds-1307.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/ds1307",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# RTC DS1307 library for Spark/Particle Core\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

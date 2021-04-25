@@ -1,0 +1,73 @@
+{
+  "type": "libraries",
+  "id": "EmonLib",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/EmonLib/archive/1.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "EmonLib",
+    "version": "1.1.2",
+    "installs": 24707,
+    "license": "MIT",
+    "author": "glynhudson <glyn.hudson@openenergymonitor.org>, toonnelissen <toon@appsaloon.be>",
+    "sentence": "Arduino Energy Monitoring Library - compatible with Arduino 1.0 - Ported to Spark",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/cards/libraries/e/EmonLib",
+  "versions": {
+    "1.1.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "electron": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "argon": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "boron": {
+            "current_only": true,
+            "voltage_and_current": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "electron": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "argon": {
+            "current_only": true,
+            "voltage_and_current": true
+          },
+          "boron": {
+            "current_only": true,
+            "voltage_and_current": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "                             _      _ _     \n                            | |    (_) |    \n   ___ _ __ ___   ___  _ __ | |     _| |__  \n  / _ \\ '_ ` _ \\ / _ \\| '_ \\| |    | | '_ \\\n |  __/ | | | | | (_) | | | | |____| | |_) |\n  \\___|_| |_| |_|\\___/|_| |_|______|_|_.__/\n\nArduino Energy Monitoring Library - For SparkCore\n*****************************************************************\n\nThis is the emonLib optimized for the SparkCore.\nThanks Glyn Hudson for writing this nice piece of code. If you want more info about this project:\nhttp://openenergymonitor.org/emon/\n\nForked from https://github.com/openenergymonitor/EmonLib\n\n# EmonLib\n\n## Examples\n\nMore info on: https://openenergymonitor.org/emon/buildingblocks/how-to-build-an-arduino-energy-monitor-measuring-current-only\n\n## Referenece\n\n### `EnergyMonitor`\n\n`EnergyMonitor emon;`\n\nCreates an object to interact with the current sensor.\nExample: current_only.ino\n\n### `current`\n\n`emon.current(input pin, calibration)`\n\nConnects the current sensor object with the correct pin and sets the calibration value.\nThis should be called once in `setup`\nExample: current_only.ino\n\n### `calcIrms`\n\n`double Irms = emon.calcIrms(number_of_samples)`\n\nCalculate the Irms for a number of samples. The function will read the amount of samples and return a double.\nExample: current_only.ino\n\n### `voltage`\n\n`emon.voltage(input pin, calibration, phase_shift)`\n\nExample: voltage_and_current.ino\nMore info: https://openenergymonitor.org/emon/buildingblocks/ct-and-ac-power-adaptor-installation-and-calibration-theory\n",
+  "allVersions": [
+    "1.1.2",
+    "1.0.14",
+    "1.0.13",
+    "0.0.13",
+    "0.0.12",
+    "0.0.11",
+    "0.0.10"
+  ]
+}

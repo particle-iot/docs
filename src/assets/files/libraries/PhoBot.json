@@ -1,0 +1,77 @@
+{
+  "type": "libraries",
+  "id": "PhoBot",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PhoBot/archive/0.0.11.tar.gz"
+  },
+  "attributes": {
+    "name": "PhoBot",
+    "version": "0.0.11",
+    "installs": 11068,
+    "license": "MIT",
+    "author": "Simon Monk <simon@monkmakes.com>",
+    "sentence": "A library for the MonkMakes PhoBot robot controller shield",
+    "url": "https://github.com/simonmonk/phobot",
+    "repository": "https://github.com/simonmonk/phobot.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PhoBot",
+  "versions": {
+    "0.0.11": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "electron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "argon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "boron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "electron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "argon": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          },
+          "boron": {
+            "MotorTest": false,
+            "WebControl": false,
+            "WebRover": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# PhoBot\nA Spark Photon library for the PhoBot robot controller shield from MonkMakes.\n\nIf you are using a Spark Core, you need the companion library PHOBOT_SPARKCORE instead of this one.\n",
+  "allVersions": [
+    "0.0.11"
+  ]
+}

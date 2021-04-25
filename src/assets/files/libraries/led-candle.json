@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "led-candle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/led-candle/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "led-candle",
+    "version": "1.0.1",
+    "installs": 88,
+    "license": "MIT",
+    "author": "Darryl Hodgins <darrylh@darrylh.ca>",
+    "sentence": "Simulate a flickering candle with an LED.",
+    "paragraph": "This library handles math and timing only.  You can implement any kind of RGB or single LED you like.",
+    "url": "https://github.com/darrylhodgins/particle-led-candle",
+    "repository": "https://github.com/darrylhodgins/particle-led-candle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/led-candle",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# led-candle\n\nSimulate a flickering candle with an LED.  Or two.  Or ten.\n\nThis library _only_ handles the math and timing.  It is up to you to implement an LED that suits your implementation.  You can do anything you like.  You might want to use this with an RGB LED.  Or you might want to use it with a single warm white LED.  You can even use an entire string of addressable LEDs and simulate a raging inferno.\n\n## Usage\n\n### With an RGB LED\n\nThe most basic example doesn't require any additional hardware for a Particle device with an on-board RGB LED to simulate a tiny flickering flame:\n\n```\n#include \"led-candle.h\"\n\nLedCandle rgbLedCandle;\n\nvoid setup() {\n\tRGB.control(true);\n}\n\nvoid loop() {\n\tRGB.color(rgbLedCandle.getColour());\n}\n```\n\n### With a single LED on a PWM pin\n\nConnect an LED and a resistor to Pin D2, and try this:\n\n```\n#include \"led-candle.h\"\n\n#define PIN_MONOCHROMATIC_LED D2\n\nLedCandle monochromaticLedCandle;\n\nvoid setup() {\n\t// Pick a PWM-capable pin.\n\tpinMode(PIN_MONOCHROMATIC_LED, OUTPUT);\n\tanalogWrite(PIN_MONOCHROMATIC_LED, 0);\n}\n\nvoid loop() {\n\tanalogWrite(PIN_MONOCHROMATIC_LED, monochromaticLedCandle.getMonochromaticValue());\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Configuration\n\nYou can override any of the default configuration with `#define` statements, before `#include \"led-candle.h\"`.\n\n### Options\n\n| Name | Default Value | Description |\n|------|---------------|---------|\n| `LEDCANDLE_BRIGHTNESS_BOTTOM_PERCENT` | `10`  | Percent chance the LED will suddenly fall to minimum brightness |\n| `LEDCANDLE_BRIGHTNESS_BOTTOM`         | `128` | Absolute minimum brightness value |\n| `LEDCANDLE_BRIGHTNESS_MIN`            | `128` | Minimum brightness value during \"normal\" flickering |\n| `LEDCANDLE_BRIGHTNESS_MAX`            | `255` | Maximum brightness value |\n| `LEDCANDLE_DOWN_MIN_MSECS`            | `20`  | Decreasing brightness will take place over a number of milliseconds in this range |\n| `LEDCANDLE_DOWN_MAX_MSECS`            | `250` | Decreasing brightness will take place over a number of milliseconds in this range |\n| `LEDCANDLE_UP_MIN_MSECS`              | `20`  | Increasing brightness will take place over a number of milliseconds in this range |\n| `LEDCANDLE_UP_MAX_MSECS`              | `250` | Increasing brightness will take place over a number of milliseconds in this range |\n| `LEDCANDLE_BRIGHT_HOLD_PERCENT`       | `20`  | Percent chance the color will hold unchanged after brightening |\n| `LEDCANDLE_BRIGHT_HOLD_MIN_MSECS`     | `0`   | When holding after brightening, hold for a number of milliseconds in this range |\n| `LEDCANDLE_BRIGHT_HOLD_MAX_MSECS`     | `100` | When holding after brightening, hold for a number of milliseconds in this range |\n| `LEDCANDLE_DIM_HOLD_PERCENT`          | `5`   | Percent chance the color will hold unchanged after dimming |\n| `LEDCANDLE_DIM_HOLD_MIN_MSECS`        | `0`   | When holding after dimming, hold for a number of milliseconds in this range |\n| `LEDCANDLE_DIM_HOLD_MAX_MSECS`        | `50`  | When holding after dimming, hold for a number of milliseconds in this range |\n\n### Example\n\nFor a dramatic flickering effect, adjust the minimum brightness:\n\n```\n#define LEDCANDLE_BRIGHTNESS_BOTTOM 25\n#define LEDCANDLE_BRIGHTNESS_MIN 25\n\n#include \"led-candle.h\"\n\n// ...etc\n```\n\n## Attribution\n\nThis library builds upon [code from Adafruit's Learning System](https://github.com/adafruit/Adafruit_Learning_System_Guides/tree/master/LED_Candles).",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
+}

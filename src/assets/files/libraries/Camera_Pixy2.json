@@ -1,0 +1,123 @@
+{
+  "type": "libraries",
+  "id": "Camera_Pixy2",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Camera_Pixy2/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Camera_Pixy2",
+    "version": "1.0.3",
+    "installs": 241,
+    "license": "GNU",
+    "author": "cmucam@cs.cmu.edu",
+    "sentence": "Library to use the Pixy2 camera with Particle-Devices",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/Camera_Pixy2",
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "electron": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "argon": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "boron": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "electron": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "argon": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          },
+          "boron": {
+            "ccc_hello_world": false,
+            "ccc_i2c_uart": false,
+            "ccc_pantilt": false,
+            "ccc_zumo_chase": false,
+            "line_get_all": false,
+            "line_hello_world": false,
+            "line_zumo_demo": false,
+            "test_other_functions": false,
+            "video_get_rgb": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "",
+  "allVersions": [
+    "1.0.3"
+  ]
+}
