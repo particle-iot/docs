@@ -149,7 +149,8 @@ exports.metalsmith = function () {
           assets: '/assets', 
           branch: gitBranch, 
           noIndex: (gitBranch == 'staging' || gitBranch == 'prerelease'), 
-          noScripts: noScripts } }
+          noScripts: noScripts,
+          src: path.join(__dirname, '../src') } }
     ]))
     // Inject the dnsTable into introduction.md so it can be used by the dnsTable helper
     .use(fileMetadata([
@@ -210,12 +211,12 @@ exports.metalsmith = function () {
         orderDynamicCollections: [
           'device-os',
           'developer-tools',
-          'cellular-connectivity',
           'device-cloud',
+          'cellular-connectivity',
+          'asset-tracking',
           'diagnostics',
           'product-tools',
           'integrations',
-          'asset-tracking',
           'hardware-projects',
           'learn-more'
         ]

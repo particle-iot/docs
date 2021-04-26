@@ -91,52 +91,11 @@ Updating your device firmware and Device OS can be done securely over the Partic
 
 ### Pricing Tiers
 
-#### Free Tier
-
-- Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
-- {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
-- No credit card required
-- Products can be prototyped in the Free tier
-- Device communication is paused<sup>1</sup> when the monthly limit is reached
-- Community support
-
-<sup>1</sup>During the transition period, a warning will be sent but communication will not be immediately paused.
-
-#### Growth Tier
-
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
-- Add as many blocks as you need for more Data Operations or more devices
-- No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
-- Email support
-- Available in Summer 2021
-
-#### Enterprise Tier
-
-- Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
-- Data Operations and cellular data are pooled across all devices annually
-- Discounts for higher Enterprise tier commitments
-- [Contact sales](https://particle.io/sales/) for more information
+{{blurb name="tiers"}}
 
 ### Data Operations
 
-The central billing element for both cellular and Wi-Fi is the Data Operation:
-
-- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size
-- The data has a maximum size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
-- Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
-- Certain retransmissions, as described below
-
-<sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
-
-The following do **not** count against your Data Operations limit:
-
-- Over-the-air firmware updates do not count against your Data Operations limit
-- Internal events such as device vitals (beginning with "particle" or "spark") do not count against your Data Operations limit
-- Acknowledgements, session negotiation, keep-alives etc. do not count against your Data Operations limit
-- Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
-- Particle cloud API calls do not count against your Data Operations limit
+{{blurb name="dataoperations"}}
 
 {{> dataoperationscalc}}
 
