@@ -1,12 +1,12 @@
 ---
-title: B Series B523 datasheet
+title: B Series B524/B523 datasheet
 layout: datasheet.hbs
 columns: two
 order: 3
-description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Cat 1
+description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B523 Datasheet <sup>006</sup>
+# B524/B523 Datasheet <sup>007</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -29,7 +29,9 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * LTE category 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13 
   * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
-  * Support for Europe only at this time
+  * 2G and 3G fallback (900, 1800, and 2100 MHz)
+  * Support for Europe only (B523)
+  * Support for Europe, Australia, and New Zealand (B524) at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -607,3 +609,4 @@ The bootloader allows you to easily update the user application via several diff
 | 004      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
 | 005      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
 | 006      | 23-Mar-2021 | RK | Pins 40 and 42 functions were reversed |
+| 007      | 26-Apr-2021 | RK | Added B524 model number |

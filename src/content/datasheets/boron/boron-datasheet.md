@@ -6,7 +6,7 @@ order: 1
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet <sup>(v005)</sup>
+# Boron Datasheet <sup>(v006)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -24,11 +24,11 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
- * u-blox SARA-R410-02B LTE modem (Boron LTE)
+ * u-blox SARA-R410-02B LTE modem (Boron LTE, BRN404 and BRN402)
   * LTE Cat M1 module with global hardware support (MVNO support for US only) 
   * 3GPP Release 13 LTE Cat M1 
   * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
- * u-blox SARA U201 2G/3G modem (Boron 2G/3G)
+ * u-blox SARA U201 2G/3G modem (Boron 2G/3G, BRN314 and BRN310)
   * HSPA/GSM with global hardware and SIM support 
   * Bands 800/850/900/1900/2100 MHz 
   * 3GPP Release 7 
@@ -604,7 +604,7 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 
 **BORON LTE (Cat M1) **
 
--   Model Number: BRN402
+-   Model Number: BRN404, BRM402
 -   RoHS
 -   CE
 -   PTCRB
@@ -613,7 +613,7 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 
 **BORON 2G/3G**
 
--   Model Number: BRN310
+-   Model Number: BRN314, BRN310
 -   RoHS
 -   CE
 -   FCC ID: 2AEMI-BRN310
@@ -720,6 +720,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v003     | 2020 Sep 01 | RK | Add EN pin information |
 | v004     | 16-Sep-2020 | RK | Added power consumption information |
 | v005     | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
+| v005     | 26-Apr-2021 | RK | Added BRN314 and BRN404 model numbers |
 
 ## Known Errata
 

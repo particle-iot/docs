@@ -1,12 +1,12 @@
 ---
-title: B Series B402 datasheet
+title: B Series B404/B402 datasheet
 layout: datasheet.hbs
 columns: two
 order: 2
-description: Datasheet for the Particle B Series B402 SoM, Gen 3 cellular LTE Cat M1
+description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B402 Datasheet <sup>(009)</sup>
+# B404/B402 Datasheet <sup>(010)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -27,7 +27,8 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 ### Features
 
  * u-blox SARA-R410-02B LTE modem
-  * LTE Cat M1 module with global hardware support (MVNO support for US only) 
+  * LTE Cat M1 module
+  * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
   * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
  * Nordic Semiconductor nRF52840 SoC 
@@ -547,3 +548,4 @@ The bootloader allows you to easily update the user application via several diff
 | 007      | 03-Feb-2021 | RK | Split u-blox schematics into two images |
 | 008      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
 | 009      | 23-Mar-2021 | RK | Pins 40 and 42 functions were reversed |
+| 010      | 26-Apr-2021 | RK | Added B404 model number |
