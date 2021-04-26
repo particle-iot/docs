@@ -135,7 +135,7 @@ service_address = ":1619"
 #   [inputs.webhooks.papertrail]
 #     path = "/papertrail"
 [inputs.webhooks.particle]
-  path = "/particle”
+  path = "/particle"
 ```
 
 Then restart Telegraf
