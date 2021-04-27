@@ -123,6 +123,8 @@ from the product team.
 |          **Team**          |                       |               |           |         |           |
 |      View Product team     | &check;               | &check;       | &check;   | &check; | &check;   |
 | Manage Product team        | &check;               | &check;       |           |         |           |
+|         **Fleet Health**   |                       |               |           |         |           |
+| View fleet health          | &check;               | &check;       | &check;   | &check; | &check;   |
 |         **Devices**        |                       |               |           |         |           |
 | View device                | &check;               | &check;       | &check;   | &check; | &check;   |
 | Subscribe to device events | &check;               | &check;       | &check;   | &check; | &check;   |
@@ -165,6 +167,8 @@ from the product team.
 |        **Settings**        |                       |               |           |         |           |
 | View Product settings      | &check;               | &check;       | &check;   | &check; | &check;   |
 | Edit Product settings      | &check;               | &check;       |           |         |           |
+|        **Billing & Usage** |                       |               |           |         |           |
+| View Billing & Usage       | &check;               | &check;       |           |         |           |
 
 ### Organization permissions
 
