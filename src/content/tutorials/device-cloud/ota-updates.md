@@ -241,13 +241,14 @@ deployment — devices that signal that they are available for an OTA
 receive the update immediately, while "busy" devices performing critical
 activities can defer the update until the next time they are ready. This
 results in maximum control and speed in fleet-wide firmware updates
-while still avoiding disrupting active devices. Intelligent Firmware Releases is available to Enterprise customers.
-[Interested in Intelligent Firmware
-Releases?](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases).
+while still avoiding disrupting active devices. 
 
 Check out this graphic for the differences in how Standard vs.
 Intelligent Releases function:
 <img src="/assets/images/standard-vs-intelligent.jpg" class="full-width tall" />
+
+Previously, Intelligent Firmware Releases were available only to Enterprise
+customers but now available to all products including those on the free tier.
 
 ### Release process
 
@@ -475,8 +476,8 @@ each device updating the next time it starts a new secure session with
 the Device Cloud. This is to ensure devices are not disrupted while in
 use as a result of the reset needed to begin running the new firmware.
 
-** Intelligent Firmware Releases** is a premium
-fleet-wide OTA mechanism that enables scaling customers
+** Intelligent Firmware Releases** is a 
+fleet-wide OTA mechanism that allows customers
 to predictably deliver fleet-wide firmware updates at _exactly_ the
 right time.
 
@@ -486,9 +487,6 @@ available devices, while busy devices can defer until they are ready.
 as a result of context awareness (compared to ~1w with Standard Release)
 - **Maximum control**: Leverage flexible Device OS APIs and cloud-side
 controls to define the opportune time to deliver an update
-
-Intelligent Firmware Releases is available to
-Enterprise customers. [Interested in Intelligent Firmware Releases?](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
 
 #### Context awareness to prevent disruption
 
@@ -551,9 +549,8 @@ would like to release to. Then, top opt-in to an Intelligent Firmware Release, c
 
 ![](/assets/images/ota-updates/intelligent-release.png)
 
-The "Intelligent" option will be enabled for scaling customers on
-Particle's Enterprise plan. If you are interested in enabling this
-feature for your fleet, please [reach out to us!](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
+The "Intelligent" option was previously only available on Enterprise
+customers but now available to all products including those on the free tier.
 
 Note that the Console describes that target devices that are **online**
 with **OTA updates enabled** would receive the new version of firmware
@@ -657,7 +654,7 @@ device.
 
 ### Notifications of pending OTA updates
 
-_Since Device OS 1.2.0, Enterprise only_.
+_Since Device OS 1.2.0_.
 
 [`System.updatesPending()`](/cards/firmware/ota-updates/system-updatespending/) is a boolean flag that will return whether a
 new version of Product firmware is available for the device. This is
@@ -668,7 +665,7 @@ also see an event published to the event stream in this case,
 `particle/device/updates/pending`.
 
 `System.updatesPending()` will only be set for devices belonging to a
-Product on an Enterprise plan.
+Product and using intelligent firmware updates.
 
 In this case, the OTA update will be prevented by the device. The device
 will emit an internal system event, `firmware_update_pending` and
@@ -828,7 +825,7 @@ void setup() {
 }
 
 void loop() {
-	// NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
+	// System.updatesPending() will only return true when used in a Product
 	if (isSafeToUpdate() && System.updatesPending()) {
 		System.enableUpdates();
 

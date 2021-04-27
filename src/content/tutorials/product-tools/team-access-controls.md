@@ -13,14 +13,13 @@ your team members. This is helpful when overseeing a team of
 people who should have varying permissions with respect to Particle
 devices in your fleets.
 
-Team Access Controls is an **Enterprise only** feature. If interested in
-this feature, please [consult our team of IoT
-experts](https://particle.io/sales).
-
 This guide breaks down into two parts:
 - A [summary of the available roles](#roles) and a description of each
 - A [permissions matrix](#permissions-matrix) for an in-depth look at what each role as
 access to
+
+Team access controls was previously available to enterprise customers only but
+is now available to all products.
 
 ## Roles
 
