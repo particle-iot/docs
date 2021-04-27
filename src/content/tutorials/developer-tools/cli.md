@@ -312,6 +312,8 @@ The overall flow when consuming a library goes like this
 
 These commands are described in more details in [the CLI reference](/reference/developer-tools/cli/#particle-library).
 
+Instead of the text search in the CLI, you can also use the [web-based library search](/cards/libraries/search/).
+
 ### library search
 
 The `library search` command allows you to search for libraries that are related to the text that you type in.

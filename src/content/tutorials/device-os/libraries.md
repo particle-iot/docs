@@ -23,6 +23,10 @@ In general, libraries in the Particle ecosystem have the following features:
 
 3. **Particle libraries are reliable.** In addition to building and sharing our own high quality libraries, Particle verifies and promotes high quality community libraries that are fully documented, perform reliably, and include a variety of usage examples. Using our official and verified libraries means you'll spend less time debugging and more time building your project.
 
+
+<a href="/cards/libraries/search/" class="button">Search and browse libraries</a>
+
+
 ## Kinds of libraries
 
 ### Public Libraries
@@ -156,6 +160,7 @@ An extended project can be created by using the CLI `particle project create` co
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
+- [Library Search](/cards/libraries/search/)
 - [Using libraries with the Web IDE](/tutorials/developer-tools/build/)
 - [Using libraries with the Particle Workbench](/tutorials/developer-tools/workbench/#particle-install-library)
 - [Using libraries with the Command Line Interface (CLI)](/tutorials/developer-tools/cli/)
