@@ -150,7 +150,7 @@ exports.metalsmith = function () {
           branch: gitBranch, 
           noIndex: (gitBranch == 'staging' || gitBranch == 'prerelease'), 
           noScripts: noScripts,
-          src: path.join(__dirname, '../src') } }
+          srcLocal: path.join(__dirname, '../src') } }
     ]))
     // Inject the dnsTable into introduction.md so it can be used by the dnsTable helper
     .use(fileMetadata([
