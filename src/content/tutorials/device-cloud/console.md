@@ -809,6 +809,20 @@ Typical settings in common scenarios:
 
 #### Data Usage
 
+A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
+
+You can estimate the number of data operations you will consume using this calculator. For more information on the Free Tier, Growth Tier, Blocks, and Data Operations, see [Pricing Tiers](/tutorials/device-cloud/introduction/#pricing).
+
+{{> dataoperationscalc}}
+
+{{collapse op="start" label="More information"}}
+
+**With Location Fusion**
+
+With Location Fusion (enhanced location) enabled, it's difficult to determine the data size, because it will be dependent on how many cellular and Wi-Fi networks are visible at your location. At the low end it's close to the size with Location Fusion disabled, at the high end it can be near 1024 bytes of payload, plus the additional overhead below.
+
+**Without Location Fusion**
+
 The location publish will vary in size depending on the trigger reason(s) and other factors, but this is a rough guideline.
 
 This is a typical location publish you can see in the console. It is 209 bytes. 
@@ -837,6 +851,8 @@ For time trigger, here are some general guidelines. These are just location publ
 | 1 day         |   15 KB |
 
 (Assumes 30 days in a month on average.)
+
+{{collapse op="end"}}
 
 
 ### Device Settings
