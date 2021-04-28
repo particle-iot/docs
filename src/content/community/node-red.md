@@ -2,7 +2,7 @@
 title: Node-RED
 layout: community.hbs
 columns: two
-order: 16
+order: 20
 ---
 
 # Node-RED
