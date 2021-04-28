@@ -18,6 +18,7 @@ Sparkfun created a standard for using I2C at 3.3V with a small, standardized con
  
 The [Qwiic](/community/qwiic/) page in the documentation has more information on various options available.
 
+![Qwiic BME280](/assets/images/qwiic/qwiic-bme280.jpg)
 
 ## ncd nodeLynk I2C
 
@@ -38,9 +39,19 @@ Also, ncd has a large selection of relay boards for Particle devices.
 
 Some evaluation boards, including the E Series and B Series SoM, include Grove connectors.
 
+![Grove Accessory Kit](/assets/images/accessories/grove-kit.jpg)
+
 ## Breadboards
 
-One common method of prototyping is to use solderless breadboards. 
+One common method of prototyping is to use solderless breadboards.
+
+While some chips are still available in DIP (dual in-line package) form, you will often use a breakout board. [Adafruit](https://adafruit.com) and [SparkFun](https://sparkfun.com) have a large number of breakout boards with sensors, displays, and more. Most are compatible with Particle devices. Most sensors designed to work with Arduino devices either will work out-of-the-box or require minor modifications to the software libraries.
+
+There are also a large number of breakout boards for popular devices available on Amazon, eBay, and AliExpress. These are of variable quality, but are often very inexpensive and will often work as well.
+
+This is an Adafruit BME280 breakout board, the same sensor as in the Sparkfun Qwiic picture, above.
+
+![BME280 Circuit](/assets/images/i2c-faq-bme280.jpg)
 
 ## Mikroe
 
@@ -50,5 +61,6 @@ The mikroeBUS includes I2C, SPI, serial, analog input (ADC), GPIO, PWM, and inte
 
 The [Mikroe community page](/community/mikroe/) has more information.
 
+![Mikroe Feather](/assets/images/prototyping/mikroe-feather.png)
 
 

@@ -12,7 +12,7 @@ order: 17
 
 The mikroBUS connector is has two rows of 8-pin 0.1" pitch headers. The Click boards can be approximately this size, or much longer if more space is needed. 
 
-Both the Feather and M.2 SoM Click shields have two mikroeBUS sockets.
+Both the Feather and Gen 3 M.2 SoM Click shields have two mikroeBUS sockets.
 
 - SPI (SCK, MOSI, MISO) is shared on both sockets, however each socket has its own CS pin (CS1, CS2).
 - I2C is shared on both sockets, but I2C is designed to be used that way.
@@ -21,12 +21,14 @@ Both the Feather and M.2 SoM Click shields have two mikroeBUS sockets.
 - The mikroeBUS socket has both 3.3V and 5V on it.
 - The RST1/RST2 pin is used by some click boards to reset the click board. It is unrelated to the nRF52 MCU RST line.
 
-There are a very large number of Click shields available, however there is no set of available libraries like the Sparkfun Qwiic line. One reason is that the Mikroe line is designed around generic ARM processors, not Arduino. While the Arduino library system is different than Particle, the translation is very straightforward and could be automated. There currently is no automatic translation of Mikroe libraries to Particle so they need to be done by hand.
+There are a very large number of Click shields available, however there is no set of available libraries like the Sparkfun Qwiic line. One reason is that the Mikroe line is designed around generic ARM processors, not Arduino. While the Arduino library system is different than Particle, the translation is very straightforward and was automated. There currently is no automatic translation of Mikroe libraries to Particle so they need to be done by hand.
 
 For some sensors, for example the TMP102 I2C temperature sensor, there is a library available in the [Particle community libraries](/cards/libraries/s/SparkFun-TMP102/).
 
 
 ## Feather Shield
+
+![Mikroe Feather](/assets/images/prototyping/mikroe-feather.png)
 
 The [Feather Click shield](https://www.mikroe.com/feather-click-shield) has sockets for an Argon or Boron, as well as two Click boards.
 
@@ -82,10 +84,9 @@ This table just shows the socket-specific pin mapping:
 | CS2 | D5 |
 
 
-
-
-
 ## Gen 3 SoM Shield
+
+![Mikroe Gen 3 SoM](/assets/images/prototyping/mikroe-som.png)
 
 The [Gen 3 SoM shield](https://www.mikroe.com/click-shield-for-particle-gen-3) connects a B Series SoM to mikroeBUS Click boards:
 
@@ -131,5 +132,44 @@ This table just shows the socket-specific pin mapping:
 | CS2 | D4 |
 
 
+## Example
 
+### Gen 3 SoM Shield with TMP102 temperature sensor
+
+This is a simple example that uses the [Thermo-3-click](https://www.mikroe.com/thermo-3-click) temperature sensor.
+
+- It uses I2C to communicate with TMP102 temperature sensor running at 3.3V
+- I2C Address 0x48. Can be reconfigured to 0x49 by moving a 0-ohm resistor
+- The INT pin is an output from the TMP102 to indicate a temperature alarm
+
+The INT pin on each Click board is wired separately to the MCU. The Particle pin is as follows:
+
+| Shield | Socket | INT Pin |
+| :--- | :---: | :---: |
+| M.2 SoM | #1 | D22 |
+| M.2 SoM | #2 | D23 |
+| Feather | #1 | A4 |
+| Feather | #2 | D6 |
+
+Using the INT pin for a temperature alarm is optional, however the example uses this feature.
+
+Here's the code
+
+{{> codebox content="/assets/files/prototyping/mikroe_temp.cpp" format="cpp" height="400"}}
+
+Be sure to add the **SparkFunTMP102** library to your project, such as by using **Particle: Install Library** in Particle Workbench.
+
+
+The USB serial debug log might look something like this:
+
+```
+0000080001 [app] INFO: tempF=73.1
+0000090001 [app] INFO: tempF=73.1
+0000100001 [app] INFO: tempF=73.2
+0000104373 [app] INFO: temperature alarm triggered
+0000110001 [app] INFO: tempF=75.2
+0000120001 [app] INFO: tempF=74.1
+0000126260 [app] INFO: temperature alarm cleared
+0000130001 [app] INFO: tempF=73.8
+```
 
