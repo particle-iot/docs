@@ -14,3 +14,7 @@ includeDefinitions: [api-helper, api-helper-usb]
 
 {{> usb-setup-done}}
 
+
+## Restore device over USB
+
+{{> usb-restore-device}}

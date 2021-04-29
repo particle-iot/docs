@@ -15,9 +15,13 @@ module.exports = function(context) {
     let versions = {};
     let versionNames = [];
 
-    const deviceRestoreDir = path.join(__dirname, '..', '..', 'src', 'assets', 'files', 'device-restore');
+    const filesDir = path.join(__dirname, '..', '..', 'src', 'assets', 'files');
+    
+    const info = JSON.parse(fs.readFileSync(path.join(filesDir, 'deviceRestore.json'), 'utf8'));
+    
+    const deviceRestoreDir = path.join(filesDir, 'device-restore');
 
-
+    /*
     fs.readdirSync(deviceRestoreDir, {withFileTypes:true}).forEach(function(dirent) {
         if (!dirent.isDirectory()) {
             return;
@@ -80,6 +84,7 @@ module.exports = function(context) {
         {name:'p1',title:'P1'},
         {name:'xenon',title:'Xenon'}
     ];
+    */
 
 	let html = '';
 
@@ -91,16 +96,16 @@ module.exports = function(context) {
 
     // console.log('versionNames', versionNames);
     html += '<tr><th>&nbsp;</th>';
-    platforms.forEach(function(platformObj) {
+    info.platforms.forEach(function(platformObj) {
         html += '<th>' + platformObj.title + '</th>';
     });
     html += '<tr>';
 
-    versionNames.forEach(function(version) {
+    info.versionNames.forEach(function(version) {
         html += '<tr><td>' + version + '</td>';
-        platforms.forEach(function(platformObj) {
+        info.platforms.forEach(function(platformObj) {
             html += '<td>';
-            if (versions[version].includes(platformObj.name)) {
+            if (info.versions[version].includes(platformObj.name)) {
                 if (mode == 'download') {
                     html += '<a href="/assets/files/device-restore/' + version + '/' + platformObj.name + '.hex" download>Download</a>';
                 }

@@ -49,6 +49,7 @@ var carriersUpdate = require('./carriers-update/carriers-update.js');
 var trackerSchema = require('./tracker-schema.js');
 var refCards = require('./refcards.js');
 var libraries = require('./libraries.js');
+var deviceRestoreInfo = require('./device-restore-info.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -131,6 +132,10 @@ exports.metalsmith = function () {
         ]
       })
     )
+    .use(deviceRestoreInfo({
+      sourceDir: '../src',
+      outputFile: '../src/assets/files/deviceRestore.json',
+    }))
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({
       destFile: 'content/reference/SDKs/javascript.md',
