@@ -115,7 +115,7 @@ an update responsibly and monitor fleet health for changes.
 - **Release by device groups**: Target a subset of your fleet to receive a new version of firmware. This is useful when your product has variants that require different device behaviors, or when wanting to phase out a single release over time to reduce risk.
 - **Intelligent firmware releases: Instead of waiting for devices to re-connect to receive an update, push a fleet-wide update as quickly as possible while still allowing the device control over the appropriate time to update.
 
-### The firmware "stack"
+### The firmware stack
 
 #### Device OS
 
@@ -232,8 +232,7 @@ devices *handshake* (beginning a new secure session) to deliver the OTA update t
 Standard Releases are the default mode of firmware releases, and
 delivery to all target devices is completed over an average period of about one week.
 
-**[Intelligent Firmware
-Releases](#intelligent-firmware-releases) are
+[Intelligent Firmware Releases](#intelligent-firmware-releases) are
 delivered based on individual device readiness**. It enables
 your team to predictably deliver fleet-wide firmware updates at _exactly_ the
 right time. Intelligent Releases add _context awareness_ to the
@@ -241,12 +240,10 @@ deployment — devices that signal that they are available for an OTA
 receive the update immediately, while "busy" devices performing critical
 activities can defer the update until the next time they are ready. This
 results in maximum control and speed in fleet-wide firmware updates
-while still avoiding disrupting active devices. Intelligent Firmware Releases is available to Enterprise customers.
-[Interested in Intelligent Firmware
-Releases?](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases).
-
+while still avoiding disrupting active devices. 
 Check out this graphic for the differences in how Standard vs.
 Intelligent Releases function:
+
 <img src="/assets/images/standard-vs-intelligent.jpg" class="full-width tall" />
 
 ### Release process
