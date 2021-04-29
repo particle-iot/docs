@@ -2925,6 +2925,12 @@ Note that `Cellular.on()` does not need to be called unless you have changed the
 Cellular.on();
 ```
 
+**Note:** `Cellular.on()` API is non-blocking on all platforms except for Electron with threading disabled.
+
+{{since when="2.1.0"}}
+
+[`Cellular.isOn()`](#ison-) can be used to actively wait for when the modem gets powered on. Alternatively network [system events](#system-events-reference) can be used to track the power state of the modem.
+
 ### off()
 
 {{api name1="Cellular.off"}}
@@ -2948,6 +2954,45 @@ You must call [`Particle.disconnect()`](#particle-disconnect-) before turning of
 
 This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode) (or `MANUAL`) as the cloud connection and cellular modem are managed by Device OS in `AUTOMATIC` mode.
 
+**Note:** `Cellular.off()` API is non-blocking on all platforms except for Electron with threading disabled.
+
+{{since when="2.1.0"}}
+
+[`Cellular.isOff()`](#isoff-) can be used to actively wait for when the modem gets powered off. Alternatively network [system events](#system-events-reference) can be used to track the power state of the modem.
+
+### isOn()
+
+{{api name1="Cellular.isOn"}}
+
+{{since when="2.1.0"}}
+
+This function will return `true` if the cellular modem is powered on and went through low level initialization. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Cellular.isOn();
+
+// EXAMPLE
+Cellular.on();
+waitFor(Cellular.isOn, 30000);
+```
+
+### isOff()
+
+{{api name1="Cellular.isOff"}}
+
+{{since when="2.1.0"}}
+
+This function will return `true` if the cellular modem is powered off. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Cellular.isOff();
+
+// EXAMPLE
+Cellular.off();
+waitFor(Cellular.isOff, 60000);
+```
 
 ### connect()
 
