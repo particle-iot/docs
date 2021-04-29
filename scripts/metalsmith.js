@@ -97,7 +97,8 @@ exports.metalsmith = function () {
     .use(msIf(
       environment === 'development',
       buildZip({
-        dir: '../src/assets/files/app-notes/'
+        dir: '../src/assets/files/app-notes/',
+        tmpDir: '../tmp'
     })))
     .use(msIf(
       environment === 'development',

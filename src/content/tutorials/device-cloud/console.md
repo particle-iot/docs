@@ -136,14 +136,37 @@ tutorial](/tutorials/integrations/azure-iot-hub/)
 - [Google Cloud Platform
 tutorial](/tutorials/integrations/google-cloud-platform/)
 
-### Billing
+## Billing & Usage
 
-The **Billing** page in the console now includes your personal sandbox. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the Growth Tier, this is in addition to devices included in your Growth Tier blocks.
+The **Billing & Usage** page shows billing information and data usage (data operations and cellular). 
+
+All accounts have a personal sandbox on the Free plan. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the Growth Tier, this is in addition to devices included in your Growth Tier blocks.
 
 From this page you can view the total number of devices and data operations consumed by your free sandbox devices.
 
-<img src="{{assets}}/images/console/sandbox.png" class="full-width"/>
+![Sandbox](/assets/images/console/sandbox.png)
 
+For users who are Administrators of an organization, selecting the organization then **Billing & Usage** icon shows the usage for all products within the organization.
+
+![Organization Billing](/assets/images/console/org-view.png)
+
+In the Growth and Enterprise tiers, usage is divided by the class of devices. For example: Wi-Fi and Cellular:
+
+![Wi-Fi and Cellular Usage](/assets/images/console/wifi-cellular-usage.png)
+
+
+Also Tracker devices, which have higher data allocations than other cellular devices:
+
+<div align="center"><img src="/assets/images/console/tracker-usage.png" class="small"></div>
+
+These panels turn yellow at 75% of your plan limits, and red when the limits have been reached.
+
+
+You can also quickly view your usage from the popup under your email address in the upper-right corner of the console window.
+
+<div align="center"><img src="/assets/images/console/usage-popup.png" class="small"></div>
+
+The numbers of devices and data operations will be updated within a half hour. Cellular data usage may be delayed for up to a week.
 
 ## Product Tools
 
@@ -611,6 +634,24 @@ You can update your credit card from the billing page by clicking on the "UPDATE
 ### Failed Payments
 
 If we attempt to charge your credit card and it fails, we do not immediately prevent you or your team from accessing your Device Management Console. We will continue to retry charging your card once every few days <strong>for a maximum of 3 retries</strong>. You will receive an email notification each time an attempt is made and fails. When you receive this notification, the best thing to avoid any interruption in service is to <a href="#updating-your-credit-card">update your credit card</a>.
+
+## Organizations
+
+An organization makes it easy to manage multiple products with shared team members and billing. Organizations are available in the Growth and Enterprise tiers. 
+
+If your account is a member of an organization, the **Sandbox** popup in the upper left corner of the Particle console lists the organizations you can select:
+
+<div align="center"><img src="/assets/images/console/org-popup.png" class="small"></div>
+
+Selecting an organization brings up the organization view, which typically has:
+
+- **Products** - the products in this organization.
+- **Team** - the users in this organization and their roles (administrators, developers, etc.).
+- **Billing & Usage** - only for users who have an Administrator role.
+
+![Organization View](/assets/images/console/org-view.png)
+
+You still have granular access control at the product level when using an organization. For example, if you have a contractor who is working on a single product you can grant developer access to that product only instead of all products in your organization.
 
 
 ## Asset Tracker Features

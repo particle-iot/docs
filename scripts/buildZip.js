@@ -7,6 +7,7 @@ var JSZip = require("jszip");
 
 let directoriesToProcess = [];
 let filesProcessed = 0;
+let tmpDir;
 
 /*
  * Generates the zip files to download the additional content for things like app notes
@@ -15,6 +16,11 @@ module.exports = function(options) {
 
 	return function(files, metalsmith, done) {
         
+        tmpDir = metalsmith.path(options.tmpDir);
+        if (!fs.existsSync(tmpDir)) {
+            fs.mkdirSync(tmpDir);
+        }
+
         const basePath = metalsmith.path(options.dir);
 
         fs.readdirSync(basePath, {withFileTypes:true}).forEach(function(dirent) {
@@ -42,33 +48,37 @@ function zipDir(dir, done) {
 
     var zip = new JSZip();
     filesProcessed = 0;
+
+    const finalPath = dir + '.zip';
+
+    const tmpPath = path.join(tmpDir, path.basename(dir) + '.zip');
     
     addRecursive(zip.folder(path.basename(dir)), dir, function() {
         if (filesProcessed == 0) {
-            if (fs.existsSync(dir + '.zip')) {
-                fs.unlinkSync(dir + '.zip');
+            if (fs.existsSync(finalPath)) {
+                fs.unlinkSync(finalPath);
             }
             done();
         }
         else {
             zip.generateNodeStream({type:'nodebuffer',streamFiles:true})
-            .pipe(fs.createWriteStream(dir + '.zip.tmp'))
+            .pipe(fs.createWriteStream(tmpPath))
             .on('finish', function () {
-                //console.log('generated ' + dir + '.zip');
-                if (fs.existsSync(dir + '.zip')) {
-                    const bufOld = fs.readFileSync(dir + '.zip');
-                    const bufNew = fs.readFileSync(dir + '.zip.tmp');
+                //console.log('generated ' + finalPath);
+                if (fs.existsSync(finalPath)) {
+                    const bufOld = fs.readFileSync(finalPath);
+                    const bufNew = fs.readFileSync(tmpPath);
 
                     if (bufOld.compare(bufNew) == 0) {
-                        fs.unlinkSync(dir + '.zip');
-                        fs.renameSync(dir + '.zip.tmp', dir + '.zip');
+                        fs.unlinkSync(finalPath);
+                        fs.renameSync(tmpPath, finalPath);
                     }
                     else {
-                        fs.unlinkSync(dir + '.zip.tmp');                        
+                        fs.unlinkSync(tmpPath);                        
                     }
                 }
                 else {
-                    fs.renameSync(dir + '.zip.tmp', dir + '.zip');
+                    fs.renameSync(tmpPath, finalPath);
                 }
 
                 done();
