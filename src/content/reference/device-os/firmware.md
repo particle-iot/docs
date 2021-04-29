@@ -18025,7 +18025,9 @@ Gen 3 devices implement a POSIX-style file system API to store files on the Litt
 The File System is not available on Gen 2 devices (Photon, P1, Electron, E Series).
 {{note op="end"}}
 
-### File System open 
+---
+
+### File System open
 
 {{api name1="open"}}
 
@@ -22167,7 +22169,7 @@ As an aside, it is interesting to note that for any integer x, ~x is the same as
 
 At times, the sign bit in a signed integer expression can cause some unwanted surprises.
 
-#### << (bitwise left shift), >> (bitwise right shift)
+#### bitwise shift
 
 There are two bit shift operators in C++: the left shift operator << and the right shift operator >>. These operators cause the bits in the left operand to be shifted left or right by the number of positions specified by the right operand.
 

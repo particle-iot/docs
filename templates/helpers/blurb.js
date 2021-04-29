@@ -10,7 +10,7 @@ module.exports = function(context) {
         return '';
     }
 
-    const source = fs.readFileSync(path.join(context.data.root.src, 'content', 'blurbs', name + '.md'), 'utf8');
+    const source = fs.readFileSync(path.join(context.data.root.srcLocal, 'content', 'blurbs', name + '.md'), 'utf8');
 
     var template = Handlebars.compile(source);
 
