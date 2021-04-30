@@ -49,8 +49,8 @@ $(document).ready(function () {
 
                 for(let tempPlatformObj of deviceRestoreInfo.platforms) {
                     if (tempPlatformObj.id == usbDevice.platformId) {
-                        if (deviceRestoreInfo.versionsByPlatform[tempPlatformObj.name]) {
-                            versionArray = deviceRestoreInfo.versionsByPlatform[tempPlatformObj.name];
+                        if (deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name]) {
+                            versionArray = deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name];
                             platformObj = tempPlatformObj;
                             break;
                         }
@@ -76,27 +76,46 @@ $(document).ready(function () {
         }));
 
 
-        const calculateBufferChecksum = function(buf) {
-            // Last byte of buf is the checksum, so don't include that in
-            // the checksum (buf.length - 1)
-            let sum = 0;
-            for(let ii = 0; ii < (buf.length - 1); ii++) {
-                sum += buf[ii];
-            }
-        
-            // Checksum is sum of all bytes, then two's complement
-            // (invert all of the bits and add 1)
-            return (~sum + 1) & 0xff;
-        }
-                
-
         if ($(restoreElem).on('click', async function () {
             const version = $(versionElem).val();
 
-            const hexUrl = '/assets/files/device-restore/' + version + '/' + platformObj.name + '.hex';
+            const zipUrl = '/assets/files/device-restore/' + version + '/' + platformObj.name + '.zip';
 
             setStatus('Downloading restore image...');
 
+            const zipFs = new zip.fs.FS();
+
+            await zipFs.importHttpContent(zipUrl);
+        
+            console.log('zipFs', zipFs);
+
+            // System parts
+            /*
+            for(let ii = 1; ii <= 3; ii++) {
+                const zipEntry = zipFs.find('system-part' + ii + '.bin');
+                if (!zipEntry) {
+                    break;
+                }
+                console.log('found system part ' + ii);
+
+                setStatus('Updating System Part ' + ii + '...');
+
+                const part = await zipEntry.getUint8Array();
+
+                await usbDevice.updateFirmware(part, {});
+
+                console.log('complete!');
+            }
+            */
+
+            // bootloader
+            
+            // softdevice
+
+            // user firmware
+
+
+            /*
             const hexTextResp = await fetch(hexUrl);
             const hexText = await hexTextResp.text();
     
@@ -196,6 +215,7 @@ $(document).ready(function () {
                 // Gen 3
 
             }
+            */
 
         }));
     }));
@@ -280,7 +300,7 @@ $(document).ready(function () {
     .then(response => response.json())
     .then(function(res) {
         deviceRestoreInfo = res;
-        // console.log('deviceRestoreInfo', deviceRestoreInfo);
+        console.log('deviceRestoreInfo', deviceRestoreInfo);
     });
 
 

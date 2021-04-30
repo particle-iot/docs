@@ -10,6 +10,8 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
     let versions = {};
     let versionNames = [];
 
+    let versionsZip = {};
+
     const deviceRestoreDir = path.join(sourceDir, 'assets', 'files', 'device-restore');
 
     fs.readdirSync(deviceRestoreDir, {withFileTypes:true}).forEach(function(dirent) {
@@ -17,12 +19,21 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
             return;
         }
         versions[dirent.name] = [];
+
         fs.readdirSync(path.join(deviceRestoreDir, dirent.name)).forEach(function(name) {
-            if (!name.endsWith('.hex')) {
+            if (name.length < 4) {
                 return;
             }
             const platform = name.substr(0, name.length - 4);
-            versions[dirent.name].push(platform);
+            if (name.endsWith('.hex')) {
+                versions[dirent.name].push(platform);
+            }
+            if (name.endsWith('.zip')) {
+                if (!versionsZip[dirent.name]) {
+                    versionsZip[dirent.name] = [];
+                }
+                versionsZip[dirent.name].push(platform);
+            }
         });
 
         if (versions[dirent.name].length > 0) {
@@ -69,6 +80,7 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
     output.versionNames = versionNames;
 
     output.versions = versions;
+    output.versionsZip = versionsZip;
 
     output.platforms = [
         {name:'argon', title:'Argon', id:12},
@@ -82,13 +94,13 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
         {name:'xenon', title:'Xenon', id:14}
     ];
 
-    output.versionsByPlatform = {};
+    output.versionsZipByPlatform = {};
     for(let platformObj of output.platforms) {
         const platform = platformObj.name;
-        output.versionsByPlatform[platform] = [];
+        output.versionsZipByPlatform[platform] = [];
         for(let version of output.versionNames) {
-            if (versions[version].includes(platform)) {
-                output.versionsByPlatform[platform].push(version);
+            if (versionsZip[version] && versionsZip[version].includes(platform)) {
+                output.versionsZipByPlatform[platform].push(version);
             }
         }
     }
