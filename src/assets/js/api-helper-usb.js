@@ -75,13 +75,71 @@ $(document).ready(function () {
             }        
         }));
 
+        const getDFUDescriptorProperties = function(device) {
+            // Attempt to read the DFU functional descriptor
+            // TODO: read the selected configuration's descriptor
+            return device.readConfigurationDescriptor(0).then(
+                data => {
+                    let configDesc = dfu.parseConfigurationDescriptor(data);
+                    let funcDesc = null;
+                    let configValue = device.settings.configuration.configurationValue;
+                    if (configDesc.bConfigurationValue == configValue) {
+                        for (let desc of configDesc.descriptors) {
+                            if (desc.bDescriptorType == 0x21 && desc.hasOwnProperty("bcdDFUVersion")) {
+                                funcDesc = desc;
+                                break;
+                            }
+                        }
+                    }
+    
+                    if (funcDesc) {
+                        return {
+                            WillDetach:            ((funcDesc.bmAttributes & 0x08) != 0),
+                            ManifestationTolerant: ((funcDesc.bmAttributes & 0x04) != 0),
+                            CanUpload:             ((funcDesc.bmAttributes & 0x02) != 0),
+                            CanDnload:             ((funcDesc.bmAttributes & 0x01) != 0),
+                            TransferSize:          funcDesc.wTransferSize,
+                            DetachTimeOut:         funcDesc.wDetachTimeOut,
+                            DFUVersion:            funcDesc.bcdDFUVersion
+                        };
+                    } else {
+                        return {};
+                    }
+                },
+                error => {}
+            );
+        }
+
+
+        const hexAddr8 = function(n) {
+            let s = n.toString(16)
+            while (s.length < 8) {
+                s = '0' + s;
+            }
+            return "0x" + s;
+        };
+
 
         if ($(restoreElem).on('click', async function () {
             const version = $(versionElem).val();
 
-            const zipUrl = '/assets/files/device-restore/' + version + '/' + platformObj.name + '.zip';
+            let moduleInfo;
+
+            setStatus('Downloading module info...');
+
+            await new Promise(function(resolve, reject) {
+                fetch('/assets/files/device-restore/' + version + '/' + platformObj.name + '.json')
+                .then(response => response.json())
+                .then(function(res) {
+                    moduleInfo = res;
+                    console.log('moduleInfo', moduleInfo);
+                    resolve();
+                });
+            });
 
             setStatus('Downloading restore image...');
+
+            const zipUrl = '/assets/files/device-restore/' + version + '/' + platformObj.name + '.zip';
 
             const zipFs = new zip.fs.FS();
 
@@ -89,8 +147,109 @@ $(document).ready(function () {
         
             console.log('zipFs', zipFs);
 
+            // const productId = usbDevice.productId;
+            const deviceId = usbDevice.id;
+            
+            if (!usbDevice.isInDfuMode) {
+                setStatus('Putting device into DFU mode...');
+                await usbDevice.enterDfuMode({noReconnectWait:true});
+
+                await new Promise(function(resolve, reject) {
+                    setTimeout(function() {
+                        resolve();
+                    }, 2000);
+                });
+            }
+
+            const nativeUsbDevices = await navigator.usb.getDevices()
+            console.log('nativeUsbDevice', nativeUsbDevices);
+
+            let nativeUsbDevice;
+            if (nativeUsbDevices.length > 0) {
+                for(let dev of nativeUsbDevices) {
+                    if (dev.serialNumber == deviceId) {
+                        nativeUsbDevice = dev;
+                        break;
+                    }
+                }
+            }
+            if (!nativeUsbDevice) {
+                setStatus('Unable to find device in DFU mode...');
+                // TODO: If the browser has never paired with the device in DFU mode,
+                // I think we need to prompt for that here
+                return;
+            }
+
+            const interfaces = dfu.findDeviceDfuInterfaces(nativeUsbDevice);
+            if (interfaces.length == 0 || interfaces[0].alternate.alternateSetting != 0) {
+                setStatus('Device did not respond with a valid DFU configuration...');
+                return;
+            }
+            const interface = interfaces[0];
+            
+
+            const dfuDevice = new dfu.Device(nativeUsbDevice, interface);
+
+            await dfuDevice.open();
+
+            const interfaceNames = await dfuDevice.readInterfaceNames();
+            console.log('interfaceNames', interfaceNames);
+            if (interface.name === null) {
+                let configIndex = interface.configuration.configurationValue;
+                let intfNumber = interface["interface"].interfaceNumber;
+                let alt = interface.alternate.alternateSetting;
+                interface.name = interfaceNames[configIndex][intfNumber][alt];
+            }
+
+            console.log('interface', interface);
+
+            // Both Gen 2 and Gen 3 devices always have these settings, so we don't need to retrieve them
+            // CanDnload: true, CanUpload: true, DFUVersion: 282 (0x11a), DetachTimeOut: 255, ManifestationTolerant: false, TransferSize: 4096, WillDetach: true
+            const desc = await getDFUDescriptorProperties(dfuDevice);
+
+            console.log('desc', desc);
+
+            dfuDevice.properties = desc;
+
+            if (desc.DFUVersion != 0x011a || dfuDevice.settings.alternate.interfaceProtocol != 0x02) {
+                setStatus('Device missing dfuse protocol');
+                return;
+            }
+
+            const dfuseDevice = new dfuse.Device(dfuDevice.device_, dfuDevice.settings);
+            if (dfuseDevice.memoryInfo) {
+                let totalSize = 0;
+                for (let segment of dfuseDevice.memoryInfo.segments) {
+                    totalSize += segment.end - segment.start;
+                }
+                memorySummary = `Selected memory region: ${dfuseDevice.memoryInfo.name} ${totalSize}`;
+                for (let segment of dfuseDevice.memoryInfo.segments) {
+                    let properties = [];
+                    if (segment.readable) {
+                        properties.push("readable");
+                    }
+                    if (segment.erasable) {
+                        properties.push("erasable");
+                    }
+                    if (segment.writable) {
+                        properties.push("writable");
+                    }
+                    let propertySummary = properties.join(", ");
+                    if (!propertySummary) {
+                        propertySummary = "inaccessible";
+                    }
+
+                    memorySummary += `\n${hexAddr8(segment.start)}-${hexAddr8(segment.end-1)} (${propertySummary})`;
+                }
+                console.log('memorySummary', memorySummary);
+                console.log('memoryInfo', dfuseDevice.memoryInfo);
+            }
+            console.log('dfuseDevice', dfuseDevice);
+
+            // 
+
             // System parts
-            /*
+            
             for(let ii = 1; ii <= 3; ii++) {
                 const zipEntry = zipFs.find('system-part' + ii + '.bin');
                 if (!zipEntry) {
@@ -102,18 +261,24 @@ $(document).ready(function () {
 
                 const part = await zipEntry.getUint8Array();
 
-                await usbDevice.updateFirmware(part, {});
+                try {
+                    await dfuseDevice.do_download(4096, part, false);
+                }
+                catch(e) {
+                    console.log('download failed', e);
+                }
+
+                // await usbDevice.updateFirmware(part, {});
 
                 console.log('complete!');
             }
-            */
-
-            // bootloader
+            
             
             // softdevice
 
             // user firmware
 
+            // bootloader - requires listening mode
 
             /*
             const hexTextResp = await fetch(hexUrl);
@@ -300,7 +465,7 @@ $(document).ready(function () {
     .then(response => response.json())
     .then(function(res) {
         deviceRestoreInfo = res;
-        console.log('deviceRestoreInfo', deviceRestoreInfo);
+        // console.log('deviceRestoreInfo', deviceRestoreInfo);
     });
 
 

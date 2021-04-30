@@ -149,6 +149,7 @@
   "versionsZip": {
     "1.4.4": [
       "argon",
+      "asom",
       "boron",
       "bsom",
       "electron",
@@ -162,7 +163,8 @@
       "bsom",
       "electron",
       "p1",
-      "photon"
+      "photon",
+      "xenon"
     ],
     "2.0.1": [
       "argon",
@@ -296,6 +298,8 @@
       "1.5.2",
       "1.4.4"
     ],
-    "xenon": []
+    "xenon": [
+      "1.5.2"
+    ]
   }
 }

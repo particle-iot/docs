@@ -2,7 +2,7 @@
 title: USB Test Tools
 layout: no-nav.hbs
 description: USB Test Tools
-includeDefinitions: [api-helper, api-helper-usb, zip]
+includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 ---
 
 # USB Test Tools
