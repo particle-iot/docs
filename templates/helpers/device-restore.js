@@ -55,11 +55,11 @@ module.exports = function(context) {
         }
         if (!aParts[3]) {
             // a is not an rc, but b is, so final goes first
-            return 1;
+            return -1;
         }
         if (!bParts[3]) {
             // a is not an rc, but b is, so final goes first
-            return -1;
+            return +1;
         }
         let cmp = aParts[3].localeCompare(bParts[3]);
         if (cmp != 0) {
