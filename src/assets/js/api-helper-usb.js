@@ -206,66 +206,72 @@ $(document).ready(function () {
                 return;
             }
             
+            const createDfuseDevice = async function(interface) {
+                const dfuDevice = new dfu.Device(nativeUsbDevice, interface);
 
-            const dfuDevice = new dfu.Device(nativeUsbDevice, interface);
-
-            await dfuDevice.open();
-
-            const interfaceNames = await dfuDevice.readInterfaceNames();
-            console.log('interfaceNames', interfaceNames);
-            if (interface.name === null) {
-                let configIndex = interface.configuration.configurationValue;
-                let intfNumber = interface["interface"].interfaceNumber;
-                let alt = interface.alternate.alternateSetting;
-                interface.name = interfaceNames[configIndex][intfNumber][alt];
-            }
-
-            console.log('interface', interface);
-
-            // Both Gen 2 and Gen 3 devices always have these settings, so we don't need to retrieve them
-            // CanDnload: true, CanUpload: true, DFUVersion: 282 (0x11a), DetachTimeOut: 255, ManifestationTolerant: false, TransferSize: 4096, WillDetach: true
-            const desc = await getDFUDescriptorProperties(dfuDevice);
-
-            console.log('desc', desc);
-
-            dfuDevice.properties = desc;
-
-            if (desc.DFUVersion != 0x011a || dfuDevice.settings.alternate.interfaceProtocol != 0x02) {
-                setStatus('Device missing dfuse protocol');
-                return;
-            }
-
-            const dfuseDevice = new dfuse.Device(dfuDevice.device_, dfuDevice.settings);
-            if (dfuseDevice.memoryInfo) {
-                let totalSize = 0;
-                for (let segment of dfuseDevice.memoryInfo.segments) {
-                    totalSize += segment.end - segment.start;
+                await dfuDevice.open();
+    
+                const interfaceNames = await dfuDevice.readInterfaceNames();
+                console.log('interfaceNames', interfaceNames);
+                if (interface.name === null) {
+                    let configIndex = interface.configuration.configurationValue;
+                    let intfNumber = interface["interface"].interfaceNumber;
+                    let alt = interface.alternate.alternateSetting;
+                    interface.name = interfaceNames[configIndex][intfNumber][alt];
                 }
-                memorySummary = `Selected memory region: ${dfuseDevice.memoryInfo.name} ${totalSize}`;
-                for (let segment of dfuseDevice.memoryInfo.segments) {
-                    let properties = [];
-                    if (segment.readable) {
-                        properties.push("readable");
-                    }
-                    if (segment.erasable) {
-                        properties.push("erasable");
-                    }
-                    if (segment.writable) {
-                        properties.push("writable");
-                    }
-                    let propertySummary = properties.join(", ");
-                    if (!propertySummary) {
-                        propertySummary = "inaccessible";
-                    }
-
-                    memorySummary += `\n${hexAddr8(segment.start)}-${hexAddr8(segment.end-1)} (${propertySummary})`;
+    
+                console.log('interface', interface);
+    
+                // Both Gen 2 and Gen 3 devices always have these settings, so we don't need to retrieve them
+                // CanDnload: true, CanUpload: true, DFUVersion: 282 (0x11a), DetachTimeOut: 255, ManifestationTolerant: false, TransferSize: 4096, WillDetach: true
+                const desc = await getDFUDescriptorProperties(dfuDevice);
+    
+                console.log('desc', desc);
+    
+                dfuDevice.properties = desc;
+    
+                if (desc.DFUVersion != 0x011a || dfuDevice.settings.alternate.interfaceProtocol != 0x02) {
+                    setStatus('Device missing dfuse protocol');
+                    return;
                 }
-                console.log('memorySummary', memorySummary);
-                console.log('memoryInfo', dfuseDevice.memoryInfo);
+    
+                const dfuseDevice = new dfuse.Device(dfuDevice.device_, dfuDevice.settings);
+                if (dfuseDevice.memoryInfo) {
+                    let totalSize = 0;
+                    for (let segment of dfuseDevice.memoryInfo.segments) {
+                        totalSize += segment.end - segment.start;
+                    }
+                    memorySummary = `Selected memory region: ${dfuseDevice.memoryInfo.name} ${totalSize}`;
+                    for (let segment of dfuseDevice.memoryInfo.segments) {
+                        let properties = [];
+                        if (segment.readable) {
+                            properties.push("readable");
+                        }
+                        if (segment.erasable) {
+                            properties.push("erasable");
+                        }
+                        if (segment.writable) {
+                            properties.push("writable");
+                        }
+                        let propertySummary = properties.join(", ");
+                        if (!propertySummary) {
+                            propertySummary = "inaccessible";
+                        }
+    
+                        memorySummary += `\n${hexAddr8(segment.start)}-${hexAddr8(segment.end-1)} (${propertySummary})`;
+                    }
+                    console.log('memorySummary', memorySummary);
+                    console.log('memoryInfo', dfuseDevice.memoryInfo);
+                }
+                console.log('dfuseDevice', dfuseDevice);
+                return dfuseDevice;
             }
-            console.log('dfuseDevice', dfuseDevice);
+
+            const dfuseDevice = await createDfuseDevice(interface);
+
 
             let partName;
+            let extPart;
 
             // 
             dfuseDevice.logProgress = function(done, total, func) {
@@ -319,13 +325,18 @@ $(document).ready(function () {
 
                         if (extInterface) {
                             // Gen 3
+                            extPart = part;
                         }
                         else {
                             // Gen 2
                             dfuseDevice.startAddress = 0x80C0000;
                             console.log(partName + ' startAddress=' + dfuseDevice.startAddress);
-                            await dfuseDevice.do_download(4096, part, {})
+                            await dfuseDevice.do_download(4096, part, {});
                         }
+                    }
+                    else {
+                        console.log(partName + ' startAddress=' + dfuseDevice.startAddress);
+                        await dfuseDevice.do_download(4096, part, {});
                     }
                 }
                 catch(e) {
@@ -339,29 +350,30 @@ $(document).ready(function () {
             
             $(progressElem).hide();
 
+            // await dfuseDevice.close();
+
+            {
+                if (extInterface && extPart) {
+                    // Gen 3
+                    const dfuseExtDevice =  await createDfuseDevice(extInterface);
+                    console.log('dfuseExtDevice', dfuseExtDevice);
+
+                    dfuseExtDevice.startAddress = 0x80289000;
+                    await dfuseExtDevice.do_download(4096, extPart, {});
+
+                    // await dfuseExtDevice.close();
+                }
+            }
+
             // Write 0xA5 to offset 1753 in alt 1 (DCT) 
             {
-                console.log('writting ota reboot flag');
+                console.log('writing ota reboot flag');
                 partName = 'ota flag';
 
-                const dfuAltDevice = new dfu.Device(nativeUsbDevice, altInterface);
-
-                await dfuAltDevice.open();
-    
-                const altInterfaceNames = await dfuAltDevice.readInterfaceNames();
-                if (altInterface.name === null) {
-                    let configIndex = altInterface.configuration.configurationValue;
-                    let intfNumber = altInterface["interface"].interfaceNumber;
-                    let alt = altInterface.alternate.alternateSetting;
-                    altInterface.name = altInterfaceNames[configIndex][intfNumber][alt];
-                }
-    
-                console.log('altInterface', altInterface);
-        
-                const dfuseAltDevice = new dfuse.Device(dfuAltDevice.device_, dfuAltDevice.settings);
+                const dfuseAltDevice = await createDfuseDevice(altInterface);
 
                 dfuseAltDevice.startAddress = 1753;
-
+                
                 let flag = new Uint8Array(1);
                 flag[0] = 0xA5;
                   
@@ -371,6 +383,8 @@ $(document).ready(function () {
                 catch(e) {
                     console.log('failed to set ota flag', e);
                 }
+
+                // await dfuseAltDevice.close();
             }
             
 

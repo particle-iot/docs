@@ -88,12 +88,12 @@ var dfuse = {};
             throw "Don't know how to handle data of len " + len;
         }
 
-        for(let triesLeft = 3; triesLeft >= 0; triesLeft--) {
+        for(let triesLeft = 4; triesLeft >= 0; triesLeft--) {
             try {
                 await this.download(payload, 0);
                 break;
             } catch (error) {                
-                if (triesLeft-- == 0 || error != 'stall') {
+                if (triesLeft == 0 || error != 'stall') {
                     throw "Error during special DfuSe command " + commandNames[command] + ":" + error;
                 }
                 console.log('dfuse error, retrying', error);
@@ -108,7 +108,7 @@ var dfuse = {};
 
         let status = await this.poll_until(state => (state != dfu.dfuDNBUSY));
         if (status.status != dfu.STATUS_OK) {
-            throw "Special DfuSe command " + commandName + " failed";
+            throw "Special DfuSe command failed";
         }
     };
 
@@ -244,7 +244,7 @@ var dfuse = {};
             await this.erase(startAddress, expected_size);    
         }
 
-        this.logInfo("Copying data from browser to DFU device");
+        this.logInfo("Copying data from browser to DFU device startAddress=" + startAddress + " expected_size=" + expected_size);
 
         let bytes_sent = 0;
         let address = startAddress;
@@ -252,9 +252,12 @@ var dfuse = {};
             const bytes_left = expected_size - bytes_sent;
             const chunk_size = Math.min(bytes_left, xfer_size);
 
+            console.log('bytes_left=' + bytes_left + ' chunk_size=' + chunk_size);
+
             let bytes_written = 0;
             let dfu_status;
             try {
+                console.log('about to SET_ADDRESS');
                 await this.dfuseCommand(dfuse.SET_ADDRESS, address, 4);
                 this.logDebug(`Set address to 0x${address.toString(16)}`);
                 bytes_written = await this.download(data.slice(bytes_sent, bytes_sent+chunk_size), 2);
