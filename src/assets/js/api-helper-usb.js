@@ -148,7 +148,7 @@ $(document).ready(function () {
         
             console.log('zipFs', zipFs);
 
-            // const productId = usbDevice.productId;
+            const productId = usbDevice.productId;
             const deviceId = usbDevice.id;
             
             if (!usbDevice.isInDfuMode) {
@@ -162,10 +162,12 @@ $(document).ready(function () {
                 });
             }
 
+            let nativeUsbDevice;
+
+            setStatus('Looking for device in DFU mode...');
             const nativeUsbDevices = await navigator.usb.getDevices()
             console.log('nativeUsbDevice', nativeUsbDevices);
 
-            let nativeUsbDevice;
             if (nativeUsbDevices.length > 0) {
                 for(let dev of nativeUsbDevices) {
                     if (dev.serialNumber == deviceId) {
@@ -175,9 +177,18 @@ $(document).ready(function () {
                 }
             }
             if (!nativeUsbDevice) {
-                setStatus('Unable to find device in DFU mode...');
-                // TODO: If the browser has never paired with the device in DFU mode,
-                // I think we need to prompt for that here
+                setStatus('Authorize access to the DFU device');   
+                
+                const filters = [
+                    {vendorId: 0x2b04, productId:(productId | 0xd000)}
+                ];
+                        
+                nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
+                console.log('nativeUsbDevice', nativeUsbDevice);
+            }
+
+            if (!nativeUsbDevice) {
+                setStatus('Unable to find device in DFU mode');
                 return;
             }
 
@@ -222,6 +233,7 @@ $(document).ready(function () {
     
                 console.log('interface', interface);
     
+                /*
                 // Both Gen 2 and Gen 3 devices always have these settings, so we don't need to retrieve them
                 // CanDnload: true, CanUpload: true, DFUVersion: 282 (0x11a), DetachTimeOut: 255, ManifestationTolerant: false, TransferSize: 4096, WillDetach: true
                 const desc = await getDFUDescriptorProperties(dfuDevice);
@@ -234,8 +246,10 @@ $(document).ready(function () {
                     setStatus('Device missing dfuse protocol');
                     return;
                 }
+                */
     
                 const dfuseDevice = new dfuse.Device(dfuDevice.device_, dfuDevice.settings);
+                /*
                 if (dfuseDevice.memoryInfo) {
                     let totalSize = 0;
                     for (let segment of dfuseDevice.memoryInfo.segments) {
@@ -263,6 +277,7 @@ $(document).ready(function () {
                     console.log('memorySummary', memorySummary);
                     console.log('memoryInfo', dfuseDevice.memoryInfo);
                 }
+                */
                 console.log('dfuseDevice', dfuseDevice);
                 return dfuseDevice;
             }
@@ -275,8 +290,6 @@ $(document).ready(function () {
 
             // 
             dfuseDevice.logProgress = function(done, total, func) {
-                console.log('logProgress done=' + done + ' total=' + total + ' func=' + func);
-
                 if (func == 'erase') {
                     $(progressElem).find('> label').text('Erasing ' + partName);
                 }
@@ -307,8 +320,6 @@ $(document).ready(function () {
                     continue;
                 }
 
-                console.log('found ' + partName);
-
                 setStatus('Updating ' + partName + '...');
 
                 let part = await zipEntry.getUint8Array();
@@ -330,12 +341,10 @@ $(document).ready(function () {
                         else {
                             // Gen 2
                             dfuseDevice.startAddress = 0x80C0000;
-                            console.log(partName + ' startAddress=' + dfuseDevice.startAddress);
                             await dfuseDevice.do_download(4096, part, {});
                         }
                     }
                     else {
-                        console.log(partName + ' startAddress=' + dfuseDevice.startAddress);
                         await dfuseDevice.do_download(4096, part, {});
                     }
                 }
@@ -354,6 +363,8 @@ $(document).ready(function () {
 
             {
                 if (extInterface && extPart) {
+                    partName = 'bootloader';
+
                     // Gen 3
                     const dfuseExtDevice =  await createDfuseDevice(extInterface);
                     console.log('dfuseExtDevice', dfuseExtDevice);
@@ -367,7 +378,6 @@ $(document).ready(function () {
 
             // Write 0xA5 to offset 1753 in alt 1 (DCT) 
             {
-                console.log('writing ota reboot flag');
                 partName = 'ota flag';
 
                 const dfuseAltDevice = await createDfuseDevice(altInterface);
@@ -387,113 +397,13 @@ $(document).ready(function () {
                 // await dfuseAltDevice.close();
             }
             
-
             setStatus('Resetting device...');
 
+            setTimeout(function() {
+                setStatus('');
+            }, 2000);
 
-            // bootloader - requires listening mode
 
-            /*
-            const hexTextResp = await fetch(hexUrl);
-            const hexText = await hexTextResp.text();
-    
-            setStatus('Processing restore image...');
-
-            let baseAddr = 0;
-        
-            let fullMemoryMap = new Uint8Array(1024 * 1024);
-
-            hexText.split(/[\r\n]/).forEach(function(lineData) {        
-                lineData = lineData.trim();
-                if (lineData.length == 0) {
-                    return;
-                }
-                if (lineData.charAt(0) != ':') {
-                    return;
-                }
-        
-                const buf = new Uint8Array(lineData.substr(1).match(/.{1,2}/g).map(byte => parseInt(byte, 16)))
-               
-                const len = buf[0]; 
-                const addr = (buf[1] << 8) | buf[2]; // Big Endian 16-bit
-                const recType = buf[3];
-                // data begins at 4
-                // checksum is last byte
-                const checksum = buf[4 + len];
-                
-                const calcChecksum = calculateBufferChecksum(buf);
-        
-                if (calcChecksum == checksum) {
-                    if (recType == 4 && len == 2) {
-                        // Extended linear address
-                        baseAddr = (buf[4] << 8) | buf[5]; // Big Endian 16-bit
-                        baseAddr <<= 16;
-                        // console.log('baseAddr=0x' + baseAddr.toString(16) + ' (' + baseAddr + ')');
-                    }
-
-                    // STM32 devices have 0x8000000 as the address of flash, and we want to ignore that
-                    baseAddr &= 0x07ffffff; 
-
-                    if (baseAddr < fullMemoryMap.byteLength) {
-                        for(let ii = 0; ii < len; ii++) {
-                            fullMemoryMap[baseAddr + addr + ii] = buf[4 + ii];
-                        }                
-                    }
-                    else {
-                        console.log('ignoring '+ (baseAddr + addr));
-                    }
-                    
-                    // console.log('len=0x' + padHex(len, 2) + ' addr=0x' + padHex(addr, 4) + ' recType=' + recType + ' checksum=0x' + padHex(checksum, 2) + ' ' + lineData);
-                }
-                else {
-                    // console.log('CHECKSUM ERROR! len=' + len + ' addr=' + addr + ' recType=' + recType + ' checksum=' + checksum + ' calcChecksum=' + calcChecksum);
-                }
-            });
-        
-            setStatus('Preparing to flash...');
-
-            if (platformObj.id == 6 || platformObj.id == 8) {
-                // Photon/P1
-                let part;
-
-                // System Part 1	0x8020000	0x8060000	256 KB
-                setStatus('Flashing system part 1...');
-                part = new Uint8Array(256 * 1024);
-                for(let ii = 0; ii < 256 * 1024; ii++) {
-                    part[ii] = fullMemoryMap[0x20000 + ii];
-                }
-                try {
-                    await usbDevice.updateFirmware(part, {});
-                }
-                catch(e) {
-                    console.log('exception', e);
-                }
-
-                // System Part 2	0x8060000	0x80A0000	256 KB
-                part = new Uint8Array(256 * 1024);
-                for(let ii = 0; ii < 256 * 1024; ii++) {
-                    part[ii] = fullMemoryMap[0x60000 + ii];
-                }
-                await usbDevice.updateFirmware(part, {});
-
-                // Bootloader	0x8000000	0x8004000	16 KB
-
-                // User Part	0x80A0000	0x80C0000	128 KB
-                part = new Uint8Array(128 * 1024);
-                for(let ii = 0; ii < 128 * 1024; ii++) {
-                    part[ii] = fullMemoryMap[0xa0000 + ii];
-                }
-                await usbDevice.updateFirmware(part, {});
-            }
-            else
-            if (platformObj.id == 10) {
-                // Electron/E Series
-            }
-            else {
-                // Gen 3
-
-            }
-            */
 
         }));
     }));

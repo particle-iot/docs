@@ -96,7 +96,7 @@ var dfuse = {};
                 if (triesLeft == 0 || error != 'stall') {
                     throw "Error during special DfuSe command " + commandNames[command] + ":" + error;
                 }
-                console.log('dfuse error, retrying', error);
+                this.logDebug('dfuse error, retrying', error);
 
                 await new Promise(function(resolve) {
                     setTimeout(function() {
@@ -252,12 +252,9 @@ var dfuse = {};
             const bytes_left = expected_size - bytes_sent;
             const chunk_size = Math.min(bytes_left, xfer_size);
 
-            console.log('bytes_left=' + bytes_left + ' chunk_size=' + chunk_size);
-
             let bytes_written = 0;
             let dfu_status;
             try {
-                console.log('about to SET_ADDRESS');
                 await this.dfuseCommand(dfuse.SET_ADDRESS, address, 4);
                 this.logDebug(`Set address to 0x${address.toString(16)}`);
                 bytes_written = await this.download(data.slice(bytes_sent, bytes_sent+chunk_size), 2);
