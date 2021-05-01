@@ -88,10 +88,22 @@ var dfuse = {};
             throw "Don't know how to handle data of len " + len;
         }
 
-        try {
-            await this.download(payload, 0);
-        } catch (error) {
-            throw "Error during special DfuSe command " + commandNames[command] + ":" + error;
+        for(let triesLeft = 3; triesLeft >= 0; triesLeft--) {
+            try {
+                await this.download(payload, 0);
+                break;
+            } catch (error) {                
+                if (triesLeft-- == 0 || error != 'stall') {
+                    throw "Error during special DfuSe command " + commandNames[command] + ":" + error;
+                }
+                console.log('dfuse error, retrying', error);
+
+                await new Promise(function(resolve) {
+                    setTimeout(function() {
+                        resolve();
+                    }, 1000);
+                });
+            }        
         }
 
         let status = await this.poll_until(state => (state != dfu.dfuDNBUSY));
@@ -189,7 +201,7 @@ var dfuse = {};
         let bytesErased = 0;
         const bytesToErase = endAddr - addr;
         if (bytesToErase > 0) {
-            this.logProgress(bytesErased, bytesToErase);
+            this.logProgress(bytesErased, bytesToErase, "erase");
         }
 
         while (addr < endAddr) {
@@ -200,7 +212,7 @@ var dfuse = {};
                 // Skip over the non-erasable section
                 bytesErased = Math.min(bytesErased + segment.end - addr, bytesToErase);
                 addr = segment.end;
-                this.logProgress(bytesErased, bytesToErase);
+                this.logProgress(bytesErased, bytesToErase, "erase");
                 continue;
             }
             const sectorIndex = Math.floor((addr - segment.start)/segment.sectorSize);
@@ -209,19 +221,14 @@ var dfuse = {};
             await this.dfuseCommand(dfuse.ERASE_SECTOR, sectorAddr, 4);
             addr = sectorAddr + segment.sectorSize;
             bytesErased += segment.sectorSize;
-            this.logProgress(bytesErased, bytesToErase);
+            this.logProgress(bytesErased, bytesToErase, "erase");
         }
     };
 
-    dfuse.Device.prototype.do_download = async function(xfer_size, data, manifestationTolerant) {
+    dfuse.Device.prototype.do_download = async function(xfer_size, data, options) {
         if (!this.memoryInfo || ! this.memoryInfo.segments) {
             throw "No memory map available";
         }
-
-        this.logInfo("Erasing DFU device memory");
-        
-        let bytes_sent = 0;
-        let expected_size = data.byteLength;
 
         let startAddress = this.startAddress;
         if (isNaN(startAddress)) {
@@ -230,10 +237,16 @@ var dfuse = {};
         } else if (this.getSegment(startAddress) === null) {
             this.logError(`Start address 0x${startAddress.toString(16)} outside of memory map bounds`);
         }
-        await this.erase(startAddress, expected_size);
+        let expected_size = data.byteLength;
+
+        if (!options.noErase) {
+            this.logInfo("Erasing DFU device memory");    
+            await this.erase(startAddress, expected_size);    
+        }
 
         this.logInfo("Copying data from browser to DFU device");
 
+        let bytes_sent = 0;
         let address = startAddress;
         while (bytes_sent < expected_size) {
             const bytes_left = expected_size - bytes_sent;
@@ -259,22 +272,24 @@ var dfuse = {};
             this.logDebug("Wrote " + bytes_written + " bytes");
             bytes_sent += bytes_written;
 
-            this.logProgress(bytes_sent, expected_size);
+            this.logProgress(bytes_sent, expected_size, "program");
         }
         this.logInfo(`Wrote ${bytes_sent} bytes`);
 
-        this.logInfo("Manifesting new firmware");
-        try {
-            await this.dfuseCommand(dfuse.SET_ADDRESS, startAddress, 4);
-            await this.download(new ArrayBuffer(), 0);
-        } catch (error) {
-            throw "Error during DfuSe manifestation: " + error;
-        }
-
-        try {
-            await this.poll_until(state => (state == dfu.dfuMANIFEST));
-        } catch (error) {
-            this.logError(error);
+        if (options.doManifestation) {
+            this.logInfo("Manifesting new firmware");
+            try {
+                await this.dfuseCommand(dfuse.SET_ADDRESS, startAddress, 4);
+                await this.download(new ArrayBuffer(), 0);
+            } catch (error) {
+                throw "Error during DfuSe manifestation: " + error;
+            }
+    
+            try {
+                await this.poll_until(state => (state == dfu.dfuMANIFEST));
+            } catch (error) {
+                this.logError(error);
+            }    
         }
     }
 

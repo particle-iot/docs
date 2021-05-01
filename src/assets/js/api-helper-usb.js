@@ -14,6 +14,7 @@ $(document).ready(function () {
         const selectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelect');
         const versionElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersion');
         const restoreElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceRestore');
+        const progressElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceProgress');
 
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbRestoreDeviceStatus').html(str);
@@ -181,11 +182,29 @@ $(document).ready(function () {
             }
 
             const interfaces = dfu.findDeviceDfuInterfaces(nativeUsbDevice);
-            if (interfaces.length == 0 || interfaces[0].alternate.alternateSetting != 0) {
+
+            console.log('interfaces', interfaces);
+            let interface;
+            let altInterface;
+            let extInterface;
+
+            for(const tempInterface of interfaces) {
+                if (tempInterface.alternate.alternateSetting == 0) {
+                    interface = tempInterface;
+                }
+                else
+                if (tempInterface.alternate.alternateSetting == 1) {
+                    altInterface = tempInterface;
+                }
+                else
+                if (tempInterface.alternate.alternateSetting == 2) {
+                    extInterface = tempInterface;
+                }
+            }
+            if (!interface || !altInterface) {
                 setStatus('Device did not respond with a valid DFU configuration...');
                 return;
             }
-            const interface = interfaces[0];
             
 
             const dfuDevice = new dfu.Device(nativeUsbDevice, interface);
@@ -246,37 +265,117 @@ $(document).ready(function () {
             }
             console.log('dfuseDevice', dfuseDevice);
 
+            let partName;
+
             // 
+            dfuseDevice.logProgress = function(done, total, func) {
+                console.log('logProgress done=' + done + ' total=' + total + ' func=' + func);
+
+                if (func == 'erase') {
+                    $(progressElem).find('> label').text('Erasing ' + partName);
+                }
+                else {
+                    $(progressElem).find('> label').text('Programming ' + partName);
+                }
+                const pct = (total != 0) ? (done * 100 / total) : 0;
+                $(progressElem).find('> progress').val(pct);
+            }
+
+            $(progressElem).show();
 
             // System parts
-            
-            for(let ii = 1; ii <= 3; ii++) {
-                const zipEntry = zipFs.find('system-part' + ii + '.bin');
+            const dfuParts = [
+                { name: 'system-part1' },
+                { name: 'system-part2' },
+                { name: 'system-part3' },
+                { name: 'bootloader' },
+                { name: 'softdevice' },
+                { name: 'tinker', reset:true },
+                { name: 'tracker-edge', reset:true }
+            ];
+            for(const dfuPart of dfuParts) {
+                partName = dfuPart.name;
+
+                const zipEntry = zipFs.find(partName + '.bin');
                 if (!zipEntry) {
-                    break;
+                    continue;
                 }
-                console.log('found system part ' + ii);
 
-                setStatus('Updating System Part ' + ii + '...');
+                console.log('found ' + partName);
 
-                const part = await zipEntry.getUint8Array();
+                setStatus('Updating ' + partName + '...');
+
+                let part = await zipEntry.getUint8Array();
 
                 try {
-                    await dfuseDevice.do_download(4096, part, false);
+                    dfuseDevice.startAddress = parseInt(moduleInfo[partName].prefixInfo.moduleStartAddy, 16);
+
+                    if ((moduleInfo[partName].prefixInfo.moduleFlags & 0x01) != 0) { // ModuleInfo.Flags.DROP_MODULE_INFO
+                        part = part.slice(24); // MODULE_PREFIX_SIZE
+                    }
+
+                    if (partName == 'bootloader') {
+                        // Flash to OTA region instead of actual location
+
+                        if (extInterface) {
+                            // Gen 3
+                        }
+                        else {
+                            // Gen 2
+                            dfuseDevice.startAddress = 0x80C0000;
+                            console.log(partName + ' startAddress=' + dfuseDevice.startAddress);
+                            await dfuseDevice.do_download(4096, part, {})
+                        }
+                    }
                 }
                 catch(e) {
-                    console.log('download failed', e);
+                    console.log(partName + 'download failed', e);
                 }
 
                 // await usbDevice.updateFirmware(part, {});
 
-                console.log('complete!');
+                console.log(partName + ' complete!');                
             }
             
-            
-            // softdevice
+            $(progressElem).hide();
 
-            // user firmware
+            // Write 0xA5 to offset 1753 in alt 1 (DCT) 
+            {
+                console.log('writting ota reboot flag');
+                partName = 'ota flag';
+
+                const dfuAltDevice = new dfu.Device(nativeUsbDevice, altInterface);
+
+                await dfuAltDevice.open();
+    
+                const altInterfaceNames = await dfuAltDevice.readInterfaceNames();
+                if (altInterface.name === null) {
+                    let configIndex = altInterface.configuration.configurationValue;
+                    let intfNumber = altInterface["interface"].interfaceNumber;
+                    let alt = altInterface.alternate.alternateSetting;
+                    altInterface.name = altInterfaceNames[configIndex][intfNumber][alt];
+                }
+    
+                console.log('altInterface', altInterface);
+        
+                const dfuseAltDevice = new dfuse.Device(dfuAltDevice.device_, dfuAltDevice.settings);
+
+                dfuseAltDevice.startAddress = 1753;
+
+                let flag = new Uint8Array(1);
+                flag[0] = 0xA5;
+                  
+                try {
+                    await dfuseAltDevice.do_download(4096, flag, {doManifestation:true, noErase:true});                    
+                }
+                catch(e) {
+                    console.log('failed to set ota flag', e);
+                }
+            }
+            
+
+            setStatus('Resetting device...');
+
 
             // bootloader - requires listening mode
 

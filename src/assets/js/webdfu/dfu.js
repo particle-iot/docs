@@ -85,11 +85,11 @@ var dfu = {};
         console.log(msg);
     };
 
-    dfu.Device.prototype.logProgress = function(done, total) {
+    dfu.Device.prototype.logProgress = function(done, total, func) {
         if (typeof total === 'undefined') {
-            console.log(done)
+            console.log(func + ' ' +done)
         } else {
-            console.log(done + '/' + total);
+            console.log(func + ' ' + done + '/' + total);
         }
     };
 
@@ -472,16 +472,45 @@ var dfu = {};
     dfu.Device.prototype.clrStatus = dfu.Device.prototype.clearStatus;
 
     dfu.Device.prototype.getStatus = function() {
-        return this.requestIn(dfu.GETSTATUS, 6).then(
-            data =>
-                Promise.resolve({
-                    "status": data.getUint8(0),
-                    "pollTimeout": data.getUint32(1, true) & 0xFFFFFF,
-                    "state": data.getUint8(4)
-                }),
-            error =>
-                Promise.reject("DFU GETSTATUS failed: " + error)
-        );
+        const origThis = this;
+
+        const makeRequest = function() {
+            return origThis.requestIn(dfu.GETSTATUS, 6).then(
+                data =>
+                    Promise.resolve({
+                        "status": data.getUint8(0),
+                        "pollTimeout": data.getUint32(1, true) & 0xFFFFFF,
+                        "state": data.getUint8(4)
+                    }),
+                error =>
+                    Promise.reject("DFU GETSTATUS failed: " + error)
+            );
+        } 
+
+        return new Promise(async function(resolve, reject) {
+            for(let triesLeft = 3; triesLeft >= 0; triesLeft--) {
+                try {
+                    const res = await makeRequest();
+                    resolve(res); 
+                    return;
+                }
+                catch(e) {
+                    console.log('getStatus exception', e);
+
+                    if (triesLeft == 0 || e != 'stall') {
+                        reject(e);
+                        return;
+                    }
+
+                    await new Promise(function(resolve) {
+                        setTimeout(function() {
+                            resolve();
+                        }, 1000);
+                    });
+                    console.log('retrying getstatus');
+                }                
+            }
+        });
     };
 
     dfu.Device.prototype.getState = function() {
@@ -514,7 +543,7 @@ var dfu = {};
 
         this.logInfo("Copying data from DFU device to browser");
         // Initialize progress to 0
-        this.logProgress(0);
+        this.logProgress(0, undefined, "upload");
 
         let result;
         let bytes_to_read;
@@ -527,9 +556,9 @@ var dfu = {};
                 bytes_read += result.byteLength;
             }
             if (Number.isFinite(max_size)) {
-                this.logProgress(bytes_read, max_size);
+                this.logProgress(bytes_read, max_size, "upload");
             } else {
-                this.logProgress(bytes_read);
+                this.logProgress(bytes_read, undefined, "upload");
             }
         } while ((bytes_read < max_size) && (result.byteLength == bytes_to_read));
 
@@ -565,7 +594,7 @@ var dfu = {};
         return this.poll_until(state => (state == idle_state));
     };
 
-    dfu.Device.prototype.do_download = async function(xfer_size, data, manifestationTolerant) {
+    dfu.Device.prototype.do_download = async function(xfer_size, data, options) {
         let bytes_sent = 0;
         let expected_size = data.byteLength;
         let transaction = 0;
@@ -573,7 +602,7 @@ var dfu = {};
         this.logInfo("Copying data from browser to DFU device");
 
         // Initialize progress to 0
-        this.logProgress(bytes_sent, expected_size);
+        this.logProgress(bytes_sent, expected_size, "download");
 
         while (bytes_sent < expected_size) {
             const bytes_left = expected_size - bytes_sent;
@@ -596,7 +625,7 @@ var dfu = {};
             this.logDebug("Wrote " + bytes_written + " bytes");
             bytes_sent += bytes_written;
 
-            this.logProgress(bytes_sent, expected_size);
+            this.logProgress(bytes_sent, expected_size, "download");
         }
 
         this.logDebug("Sending empty block");
@@ -609,7 +638,7 @@ var dfu = {};
         this.logInfo("Wrote " + bytes_sent + " bytes");
         this.logInfo("Manifesting new firmware");
 
-        if (manifestationTolerant) {
+        if (options.manifestationTolerant) {
             // Transition to MANIFEST_SYNC state
             let dfu_status;
             try {
