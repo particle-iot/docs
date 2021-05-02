@@ -84,9 +84,13 @@ $(document).ready(function () {
                 $(selectInfoElem).text(usbDevice.type + ' ' + usbDevice.id);
                 $(selectElem).text('Select a Different Device');
 
+                const lastVersion = $(versionElem).val();
                 $(versionElem).html('');
                 for(let ver of versionArray) {
                     versionElem.append('<option name="' + ver + '">' + ver + '</option>');
+                }
+                if (lastVersion && !lastVersion.startsWith('Select')) {
+                    $(versionElem).val(lastVersion);
                 }
                 
                 $(versionElem).prop('disabled', false);
@@ -95,7 +99,8 @@ $(document).ready(function () {
                 setStatus('Select version to restore');
             }
             catch(e) {
-                // console.log('no device selected', e);
+                setStatus('USB device not selected');
+                console.log('no device selected', e);
             }        
         }));
 

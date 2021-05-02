@@ -1,41 +1,34 @@
 ---
 title: Device Restore
-layout: device-restore.hbs
-description: Particle Debugger-based device restore over the web
+layout: no-nav.hbs
+description: Device restore over USB from a browser
+includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 ---
 
-# Device Restore (Experimental)
+# Device Restore over USB
 
-This experimental tool works with the Particle Debugger to allow a device to be completely restored to a known Device OS version in a single click and less than a minute, from a web browser!
+This experimental tool works like [`particle update`](/reference/developer-tools/cli/#particle-update) in the Particle CLI, except it works from your browser (no software install required) and it can upgrade or downgrade to different versions of Device OS. It works with both Gen 2 and Gen 3 devices. 
+
+There is also a version that implements [Device Restore over JTAG](/device-restore-jtag/) that works with the Particle debugger. It can restore devices that do not have a working bootloader (Dim D7 on Gen 2 devices) or have been completely erased.
 
 Important caveats:
 
-- This tool is experimental, and may not work properly. It could leave your device in a bad state.
-- You must [upgrade the firmware on your Particle Debugger](/datasheets/accessories/debugger/#upgrading-the-debugger) as the version from the factory does not have this functionality.
-- There is limited browser support on desktop: Chrome, Edge, and Opera. It does not work with Firefox or Safari. 
-- It should work on Mac, Windows, Linux, and Chromebook on supported browsers.
-- It should work on some Android phones that support USB OTG when using Chrome or Opera browsers.
+- This tool is experimental, and may not work properly.
+- It updates Device OS, the bootloader, soft device (on Gen 3), and Tinker (or Tracker Edge for Tracker devices) using DFU mode (blinking yellow).
+- There is limited browser support on desktop: Chrome and Opera. It does not work with Firefox or Safari. Chrome is recommended.
+- It should work on Chromebook, Mac, and Linux, on supported browsers.
+- It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers.
+- On Windows, it requires a Windows DFU device driver. If the driver has been installed, this tool should work on Chrome, Opera, and Edge.
 - It does not work on iOS (iPhone or iPad) as the hardware does not support USB OTG.
-- Web-based flashing only works reliably on Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM).
-- You must put the device in DFU mode (blinking yellow) before flashing. It's not using DFU mode, but SWD mode is disabled in normal operating mode or safe mode, but is enabled in DFU mode. If the device is non-responsive with no LED, you may still be able to flash it.
-- It takes about 3 minutes from a browser vs. 1 minute for drag-and-drop.
-- To just download the restore images and use other flashing methods, see the [JTAG Reference](/reference/developer-tools/jtag/).
-
-Still ready to go?
 
 ## Setup
 
-- Connect your Particle device to the debugger:
-  - Gen 3: Use the included 10-pin ribbon cable.
-  - Gen 2: [Follow the instructions here](/datasheets/accessories/debugger/#debugging-gen-2-platforms) to connect D6, D7, and GND to the debugger.
-- Connect the debugger to your computer or Chromebook
-- Or, for some Android phones, use a USB OTG adapter between the debugger and your phone.
-- Power your Particle device by USB or battery. It cannot be powered from the debugger.
-- Put your Particle device in DFU mode (blinking yellow) by holding down MODE and tapping RESET. Continue to hold down MODE while the status LED blinks magenta (red and blue at the same time) until it blinks yellow, then release MODE.
+- Connect your Particle device by USB to your computer.
+- Or, for some Android phones, use an USB OTG adapter between the Particle device and your phone.
 
 ## Restore!
 
-{{device-restore mode="flash"}}
+{{> usb-restore-device}}
 
 ## Special Notes for Downgrading
 
