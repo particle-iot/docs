@@ -12,6 +12,7 @@ $(document).ready(function () {
         const thisPartial = $(this);
 
         const selectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelect');
+        const selectInfoElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelectInfo');
         const versionElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersion');
         const restoreElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceRestore');
         const progressElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceProgress');
@@ -29,6 +30,16 @@ $(document).ready(function () {
         let usbDevice;
         let platformObj;
 
+        const resetRestorePanel = function() {
+            $(selectElem).text('Select Device');
+            $(selectInfoElem).html('');
+            $(progressElem).hide();
+            $(selectElem).prop('disabled', false);
+            $(versionElem).prop('disabled', true);
+            $(restoreElem).prop('disabled', true);
+        };
+    
+    
         if ($(selectElem).on('click', async function () {
             const filters = [
                 {vendorId: 0x2b04}
@@ -39,11 +50,17 @@ $(document).ready(function () {
                 $(versionElem).prop('disabled', true);
                 $(restoreElem).prop('disabled', true);
         
+                if (usbDevice) {
+                    $(selectInfoElem).html('');
+                    await usbDevice.close();
+                    usbDevice = null;
+                }
+
+                setStatus('Select device to restore...');
+
                 const nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
-                console.log('nativeUsbDevice', nativeUsbDevice);
         
                 usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
-                console.log('usbDevice', usbDevice);
         
                 // Find available versions for this device
                 let versionArray;
@@ -60,8 +77,13 @@ $(document).ready(function () {
                 
                 if (!versionArray) {
                     setStatus('No device restore images found for this device');
+                    await usbDevice.close();
+                    usbDevice = null;
                     return;
                 }
+                $(selectInfoElem).text(usbDevice.type + ' ' + usbDevice.id);
+                $(selectElem).text('Select a Different Device');
+
                 $(versionElem).html('');
                 for(let ver of versionArray) {
                     versionElem.append('<option name="' + ver + '">' + ver + '</option>');
@@ -70,9 +92,10 @@ $(document).ready(function () {
                 $(versionElem).prop('disabled', false);
                 $(restoreElem).prop('disabled', false);
         
+                setStatus('Select version to restore');
             }
             catch(e) {
-                console.log('no device selected', e);
+                // console.log('no device selected', e);
             }        
         }));
 
@@ -124,6 +147,10 @@ $(document).ready(function () {
         if ($(restoreElem).on('click', async function () {
             const version = $(versionElem).val();
 
+            $(restoreElem).prop('disabled', true);
+            $(selectElem).prop('disabled', true);
+            $(versionElem).prop('disabled', true);
+
             let moduleInfo;
 
             setStatus('Downloading module info...');
@@ -133,7 +160,6 @@ $(document).ready(function () {
                 .then(response => response.json())
                 .then(function(res) {
                     moduleInfo = res;
-                    console.log('moduleInfo', moduleInfo);
                     resolve();
                 });
             });
@@ -146,8 +172,6 @@ $(document).ready(function () {
 
             await zipFs.importHttpContent(zipUrl);
         
-            console.log('zipFs', zipFs);
-
             const productId = usbDevice.productId;
             const deviceId = usbDevice.id;
             
@@ -160,13 +184,16 @@ $(document).ready(function () {
                         resolve();
                     }, 2000);
                 });
+
+                // Close connection to the CDC mode device
+                await usbDevice.close();
+                usbDevice = null;
             }
 
             let nativeUsbDevice;
 
             setStatus('Looking for device in DFU mode...');
             const nativeUsbDevices = await navigator.usb.getDevices()
-            console.log('nativeUsbDevice', nativeUsbDevices);
 
             if (nativeUsbDevices.length > 0) {
                 for(let dev of nativeUsbDevices) {
@@ -184,17 +211,16 @@ $(document).ready(function () {
                 ];
                         
                 nativeUsbDevice = await navigator.usb.requestDevice({ filters: filters })
-                console.log('nativeUsbDevice', nativeUsbDevice);
             }
 
             if (!nativeUsbDevice) {
                 setStatus('Unable to find device in DFU mode');
+                resetRestorePanel();
                 return;
             }
 
             const interfaces = dfu.findDeviceDfuInterfaces(nativeUsbDevice);
 
-            console.log('interfaces', interfaces);
             let interface;
             let altInterface;
             let extInterface;
@@ -213,7 +239,8 @@ $(document).ready(function () {
                 }
             }
             if (!interface || !altInterface) {
-                setStatus('Device did not respond with a valid DFU configuration...');
+                setStatus('Device did not respond to DFU mode. It may work if you try again or manually enter DFU mode.');
+                resetRestorePanel();
                 return;
             }
             
@@ -223,7 +250,6 @@ $(document).ready(function () {
                 await dfuDevice.open();
     
                 const interfaceNames = await dfuDevice.readInterfaceNames();
-                console.log('interfaceNames', interfaceNames);
                 if (interface.name === null) {
                     let configIndex = interface.configuration.configurationValue;
                     let intfNumber = interface["interface"].interfaceNumber;
@@ -231,7 +257,6 @@ $(document).ready(function () {
                     interface.name = interfaceNames[configIndex][intfNumber][alt];
                 }
     
-                console.log('interface', interface);
     
                 /*
                 // Both Gen 2 and Gen 3 devices always have these settings, so we don't need to retrieve them
@@ -278,7 +303,10 @@ $(document).ready(function () {
                     console.log('memoryInfo', dfuseDevice.memoryInfo);
                 }
                 */
-                console.log('dfuseDevice', dfuseDevice);
+
+                dfuseDevice.logInfo = function(msg) {
+                };
+
                 return dfuseDevice;
             }
 
@@ -347,19 +375,17 @@ $(document).ready(function () {
                     else {
                         await dfuseDevice.do_download(4096, part, {});
                     }
+                    setStatus('Downloading ' + partName + ' complete!');
                 }
                 catch(e) {
-                    console.log(partName + 'download failed', e);
+                    setStatus('Downloading ' + partName + ' failed');
                 }
 
-                // await usbDevice.updateFirmware(part, {});
-
-                console.log(partName + ' complete!');                
             }
             
             $(progressElem).hide();
 
-            // await dfuseDevice.close();
+            await dfuseDevice.close();
 
             {
                 if (extInterface && extPart) {
@@ -367,12 +393,11 @@ $(document).ready(function () {
 
                     // Gen 3
                     const dfuseExtDevice =  await createDfuseDevice(extInterface);
-                    console.log('dfuseExtDevice', dfuseExtDevice);
 
                     dfuseExtDevice.startAddress = 0x80289000;
                     await dfuseExtDevice.do_download(4096, extPart, {});
 
-                    // await dfuseExtDevice.close();
+                    await dfuseExtDevice.close();
                 }
             }
 
@@ -389,21 +414,26 @@ $(document).ready(function () {
                   
                 try {
                     await dfuseAltDevice.do_download(4096, flag, {doManifestation:true, noErase:true});                    
+
+                    setStatus('Resetting device...');
+
+                    setTimeout(function() {
+                        setStatus('');
+                    }, 2000);        
                 }
                 catch(e) {
-                    console.log('failed to set ota flag', e);
+                    setStatus('Error setting device flags, manually reset device');
                 }
 
-                // await dfuseAltDevice.close();
+                await dfuseAltDevice.close();
             }
             
-            setStatus('Resetting device...');
+            if (usbDevice) {
+                await usbDevice.close();
+                usbDevice = null;
+            }
 
-            setTimeout(function() {
-                setStatus('');
-            }, 2000);
-
-
+            resetRestorePanel();
 
         }));
     }));
@@ -457,6 +487,8 @@ $(document).ready(function () {
                 else {
                     setStatus(typeIdStr + ' is in DFU mode.<br/>Put in normal operating mode, listening mode, or safe mode to mark setup done.');
                 }
+
+                await dev.close();
         
             }
             catch(e) {

@@ -37,6 +37,8 @@ Still ready to go?
 
 {{device-restore mode="flash"}}
 
+## Special Notes for Downgrading
 
+{{blurb name="downgrade"}}
 
 

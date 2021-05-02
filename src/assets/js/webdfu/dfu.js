@@ -86,11 +86,13 @@ var dfu = {};
     };
 
     dfu.Device.prototype.logProgress = function(done, total, func) {
+        /*
         if (typeof total === 'undefined') {
             console.log(func + ' ' +done)
         } else {
             console.log(func + ' ' + done + '/' + total);
         }
+        */
     };
 
     dfu.Device.prototype.open = async function() {
@@ -495,7 +497,7 @@ var dfu = {};
                     return;
                 }
                 catch(e) {
-                    console.log('getStatus exception', e);
+                    origThis.logDebug('getStatus exception', e);
 
                     if (triesLeft == 0 || e != 'stall') {
                         reject(e);
@@ -507,7 +509,7 @@ var dfu = {};
                             resolve();
                         }, 1000);
                     });
-                    console.log('retrying getstatus');
+                    origThis.logDebug('retrying getstatus');
                 }                
             }
         });

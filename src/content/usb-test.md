@@ -18,3 +18,7 @@ includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 ## Restore device over USB
 
 {{> usb-restore-device}}
+
+### Special Notes for Downgrading
+
+{{blurb name="downgrade"}}
