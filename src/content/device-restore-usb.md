@@ -19,7 +19,7 @@ There is also a version that implements [Device Restore over JTAG](/device-resto
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
 - It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers.
 - If you get an USB device not selected error on Windows, you may have a [Windows device driver issue](https://github.com/rickkas7/particle_notes/tree/master/fixing-windows-10-serial-drivers) that is hard, but not impossible, to fix.
-- If you get an USB device not selected error on Linux, you may need a udev rule. Download [99-particle.rules](/assets/files50-particle.rules) and copy it to /etc/udev/rules.d and reboot.
+- If you get an USB device not selected error on Linux, you may need a udev rule. Download [99-particle.rules](/assets/files/50-particle.rules) and copy it to /etc/udev/rules.d and reboot.
 - It does not work on iOS (iPhone or iPad) as the hardware does not support USB OTG.
 
 ## Setup
