@@ -99,7 +99,7 @@ $(document).ready(function () {
                 setStatus('Select version to restore');
             }
             catch(e) {
-                setStatus('USB device not selected');
+                setStatus('USB device not selected');                
                 console.log('no device selected', e);
             }        
         }));
