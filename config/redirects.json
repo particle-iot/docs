@@ -153,6 +153,7 @@
   "/datasheets/photon-shields": "/datasheets/accessories/legacy-accessories",
   "/datasheets/raspberrypi-datasheet": "/raspberry-pi",
   "/dev": "/reference/discontinued/dev",
+  "/device-restore": "/device-restore-jtag",
   "/diagnostics": "/tutorials/diagnostics/introduction",
   "/ethernet-featherwing": "/datasheets/accessories/gen3-accessories/#ethernet-featherwing",
   "/examples": "/tutorials",

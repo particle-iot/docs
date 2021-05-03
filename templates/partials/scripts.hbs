@@ -65,6 +65,10 @@
 {{#contains includeDefinitions 'api-helper-tracker'}}
 <script src='/assets/js/api-helper-tracker.js'></script>
 {{/contains}}
+{{#contains includeDefinitions 'api-helper-usb'}}
+<script src='/assets/js/particle-usb.bundle.js'></script>
+<script src='/assets/js/api-helper-usb.js'></script>
+{{/contains}}
 {{#contains includeDefinitions 'codemirror'}}
 <script src="/assets/files/codemirror/codemirror.js"></script>
 <script src="/assets/files/codemirror/jshint.js"></script>
@@ -78,6 +82,10 @@
 {{/contains}}
 {{#contains includeDefinitions 'usb-serial'}}
 <script src="/assets/js/usb-serial.js"></script>
+{{/contains}}
+{{#contains includeDefinitions 'webdfu'}}
+<script src="/assets/js/webdfu/dfu.js"></script>
+<script src="/assets/js/webdfu/dfuse.js"></script>
 {{/contains}}
 {{#contains includeDefinitions 'zip'}}
 <script src="/assets/js/zip-fs.min.js"></script>

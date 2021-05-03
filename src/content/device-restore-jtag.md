@@ -1,10 +1,10 @@
 ---
-title: Device Restore
+title: Device Restore JTAG
 layout: device-restore.hbs
 description: Particle Debugger-based device restore over the web
 ---
 
-# Device Restore (Experimental)
+# Device Restore JTAG
 
 This experimental tool works with the Particle Debugger to allow a device to be completely restored to a known Device OS version in a single click and less than a minute, from a web browser!
 
@@ -20,6 +20,7 @@ Important caveats:
 - You must put the device in DFU mode (blinking yellow) before flashing. It's not using DFU mode, but SWD mode is disabled in normal operating mode or safe mode, but is enabled in DFU mode. If the device is non-responsive with no LED, you may still be able to flash it.
 - It takes about 3 minutes from a browser vs. 1 minute for drag-and-drop.
 - To just download the restore images and use other flashing methods, see the [JTAG Reference](/reference/developer-tools/jtag/).
+- To flash a device using USB directly, without the Particle Debugger, see [Device Restore USB](/device-restore-usb/).
 
 Still ready to go?
 
@@ -37,6 +38,8 @@ Still ready to go?
 
 {{device-restore mode="flash"}}
 
+## Special Notes for Downgrading
 
+{{blurb name="downgrade"}}
 
 
