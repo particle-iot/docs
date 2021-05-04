@@ -2925,6 +2925,12 @@ Note that `Cellular.on()` does not need to be called unless you have changed the
 Cellular.on();
 ```
 
+**Note:** `Cellular.on()` API is non-blocking on all platforms except for Electron with threading disabled.
+
+{{since when="2.1.0"}}
+
+[`Cellular.isOn()`](#ison-) can be used to actively wait for when the modem gets powered on. Alternatively network [system events](#system-events-reference) can be used to track the power state of the modem.
+
 ### off()
 
 {{api name1="Cellular.off"}}
@@ -2948,6 +2954,45 @@ You must call [`Particle.disconnect()`](#particle-disconnect-) before turning of
 
 This should only be used with [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode) (or `MANUAL`) as the cloud connection and cellular modem are managed by Device OS in `AUTOMATIC` mode.
 
+**Note:** `Cellular.off()` API is non-blocking on all platforms except for Electron with threading disabled.
+
+{{since when="2.1.0"}}
+
+[`Cellular.isOff()`](#isoff-) can be used to actively wait for when the modem gets powered off. Alternatively network [system events](#system-events-reference) can be used to track the power state of the modem.
+
+### isOn()
+
+{{api name1="Cellular.isOn"}}
+
+{{since when="2.1.0"}}
+
+This function will return `true` if the cellular modem is powered on and went through low level initialization. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Cellular.isOn();
+
+// EXAMPLE
+Cellular.on();
+waitFor(Cellular.isOn, 30000);
+```
+
+### isOff()
+
+{{api name1="Cellular.isOff"}}
+
+{{since when="2.1.0"}}
+
+This function will return `true` if the cellular modem is powered off. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Cellular.isOff();
+
+// EXAMPLE
+Cellular.off();
+waitFor(Cellular.isOff, 60000);
+```
 
 ### connect()
 
@@ -18025,7 +18070,9 @@ Gen 3 devices implement a POSIX-style file system API to store files on the Litt
 The File System is not available on Gen 2 devices (Photon, P1, Electron, E Series).
 {{note op="end"}}
 
-### File System open 
+---
+
+### File System open
 
 {{api name1="open"}}
 
@@ -22167,7 +22214,7 @@ As an aside, it is interesting to note that for any integer x, ~x is the same as
 
 At times, the sign bit in a signed integer expression can cause some unwanted surprises.
 
-#### << (bitwise left shift), >> (bitwise right shift)
+#### bitwise shift
 
 There are two bit shift operators in C++: the left shift operator << and the right shift operator >>. These operators cause the bits in the left operand to be shifted left or right by the number of positions specified by the right operand.
 
@@ -22986,8 +23033,9 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|[v3.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.2)|-|-|-|-|
+|v2.1.x default releases|[v2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0)|-|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.1.0-rc.1)|-|-|-|-|-|-|
-|v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|-||-|-|-|
+|v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|-|-|-|-|-|
 |v2.0.x prereleases|[v2.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.1)|[v2.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.2)|[v2.0.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.3)|[v2.0.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.4)|-|-|-|
 |v1.5.x default releases|[v1.5.0](https://github.com/particle-iot/device-os/releases/tag/v1.5.0)|[v1.5.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1)|[v1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2)|-|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.1)|[v1.5.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.2)|[v1.5.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1-rc.1)|[v1.5.4-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.1)|[v1.5.4-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.2)|-|-|
@@ -23019,6 +23067,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.2](/reference/device-os/firmware/?fw_ver=3.0.0-rc.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v2.1.x default releases|[v2.1.0](/reference/device-os/firmware/?fw_ver=2.1.0&cli_ver=2.11.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](/reference/device-os/firmware/?fw_ver=2.1.0-rc.1&cli_ver=2.10.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.1](/reference/device-os/firmware/?fw_ver=2.0.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v2.0.x prereleases|[v2.0.0-rc.1](/reference/device-os/firmware/?fw_ver=2.0.0-rc.1&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.2](/reference/device-os/firmware/?fw_ver=2.0.0-rc.2&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.3](/reference/device-os/firmware/?fw_ver=2.0.0-rc.3&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.4](/reference/device-os/firmware/?fw_ver=2.0.0-rc.4&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|-|-|
@@ -23047,6 +23096,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v2.11.0 = 2.1.0
 v2.10.1 = 2.1.0-rc.1
 v2.10.0 = 2.0.1, 3.0.0-beta.1, 3.0.0-rc.1, 3.0.0-rc.2, 3.0.0
 v2.9.0  = 2.0.0
@@ -23236,6 +23286,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@2.10.0endif
 ##### @CLI_VER@2.10.1if
 ##### @CLI_VER@2.10.1endif
+##### @CLI_VER@2.11.0if
+##### @CLI_VER@2.11.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if

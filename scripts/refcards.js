@@ -28,9 +28,14 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
             // Any L2 or higher is an an anchor
             const spaceIndex = line.indexOf(' ');
 
-            const origTitle = line.substr(spaceIndex + 1).trim();
+            const origTitle = line.substr(spaceIndex + 1).trim().replace(/&/g, '&amp;');
 
-            const origAnchor = origTitle.toLowerCase().replace(/&/g, 'amp-').replace(/[^-A-Za-z0-9_]+/g, ' ').replace(/ +/g, '-');
+            let origAnchor = origTitle.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^\w]+/g, '-');
+            if (origAnchor === 'constructor') {
+                origAnchor += '-';
+            }
+
+            // const origAnchor = origTitle.toLowerCase().replace(/&/g, 'amp-').replace(/[^-A-Za-z0-9_]+/g, ' ').replace(/ +/g, '-');
 
             const origAnchorNoTrailingDash = origAnchor.replace(/[-]+$/g, '');
 

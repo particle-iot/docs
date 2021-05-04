@@ -242,11 +242,12 @@ This only works for SoftDevice, not for bootloader:
 
 While upgrades to Device OS are automatically handled by Safe Mode (breathing magenta), downgrades are not handled automatically. 
 
+
 ### USB - Downgrade
 
-By far the easiest way to downgrade is by USB in DFU mode (blinking yellow). This can generally be done in one version jump, with one exception:
+By far the easiest way to downgrade is by USB in DFU mode (blinking yellow). This can generally be done in one version jump, with the following exception:
 
-- For the Boron LTE (BRN402) and B Series SoM (B402), if you are downgrading from a 1.5.3 or later (including 2.0.0) to a version prior to 1.5.2, you must downgrade to 1.5.2, let the device connect to cellular, then complete the downgrade process to the desired version.
+{{blurb name="downgrade"}}
 
 The process to downgrade by USB is:
 
@@ -256,6 +257,9 @@ The process to downgrade by USB is:
 
 | Release | Notes |
 | :--- | :--- |
+| [3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0) | Feature Release |
+| [2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0) | Latest 2.0 LTS |
+| [2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1) | First 2.0 LTS |
 | [1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2) | Last version before 2.0 LTS |
 | [1.4.4](https://github.com/particle-iot/device-os/releases/tag/v1.4.4) | |
 | [1.2.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.1) | | 

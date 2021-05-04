@@ -46,6 +46,10 @@ The general procedure is:
 {{device-restore mode="download"}}
 
 
+## Special Notes for Downgrading
+
+{{blurb name="downgrade"}}
+
 ## Custom hex files
 
 Using the [Hex File Generator](/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.

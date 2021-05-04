@@ -209,6 +209,8 @@ To find the right library for your project, you can either search for it directl
 
 ![Search](/assets/images/libraries-guide-search.png)
 
+For additional search and browsing options, you can also use the [web-based library search tool](/cards/libraries/search/) in the documentation.
+
 **Browsing arrows**. Not sure what library you're looking for? Use the browsing arrows beneath the library list to view additional Particle libraries in our firmware library manager. Pagination also works with search results.
 
 ![Pagination](/assets/images/libraries-guide-pagination.png)
