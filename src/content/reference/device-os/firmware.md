@@ -1059,6 +1059,8 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 Synchronizing time does not consume Data Operations from your monthly or yearly quota. However, for cellular devices they do use cellular data, so unnecessary time synchronization can lead to increased data usage, which could result in hitting the monthly data limit for your account.
 
+For more information about real-time clocks on Particle devices, see [Learn more about real-time clocks](/tutorials/learn-more/real-time-clocks/).
+
 ### Particle.syncTimeDone()
 
 {{api name1="Particle.syncTimeDone"}}
@@ -14045,6 +14047,8 @@ void loop()
 }
 
 ```
+
+For more information about real-time clocks on Particle devices, see [Learn more about real-time clocks](/tutorials/learn-more/real-time-clocks/).
 
 ### Advanced
 
