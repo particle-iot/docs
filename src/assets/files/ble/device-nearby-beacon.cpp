@@ -52,7 +52,7 @@ void setAdvertisingData() {
 	advData.appendCustomData(buf, offset);
 
 	// Advertise every 100 milliseconds. Unit is 0.625 millisecond intervals.
-	BLE.setAdvertisingInterval(130);
+	BLE.setAdvertisingInterval(160);
 
 	// Continuously advertise
 	BLE.advertise(&advData);

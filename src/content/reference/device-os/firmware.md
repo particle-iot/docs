@@ -3498,6 +3498,7 @@ The following radio technologies are defined:
 - `NET_ACCESS_TECHNOLOGY_EDGE`: 2G RAT with EDGE
 - `NET_ACCESS_TECHNOLOGY_UMTS`/`NET_ACCESS_TECHNOLOGY_UTRAN`/`NET_ACCESS_TECHNOLOGY_WCDMA`: UMTS RAT
 - `NET_ACCESS_TECHNOLOGY_LTE`: LTE RAT
+- `NET_ACCESS_TECHNOLOGY_LTE_CAT_M1`: LTE Cat M1 RAT
 
 #### getStrength()
 
@@ -3535,7 +3536,9 @@ Log.info("Cellular signal quality: %.02f%%", sig.getQuality());
 
 Returns: `float`
 
-**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0. 
+
+LTE Cat M1 devices (SARA-R410M-02B modem) only return qual with Device OS 1.5.0 and later. Earlier versions returned 0.
 
 #### getStrengthValue()
 
@@ -3551,6 +3554,8 @@ Gets the raw signal strength value. This value is RAT-specific. See [`getAccessT
 
 - 2G RAT / 2G RAT with EDGE: RSSI in dBm. Range: [-111, -48] as specified in 3GPP TS 45.008 8.1.4.
 - UMTS RAT: RSCP in dBm. Range: [-121, -25] as specified in 3GPP TS 25.133 9.1.1.3.
+- LTE Cat M1 RAT: Range: [-141, -44] (dBm)
+- LTE Cat 1 RAT: Range: [-141, -44] (dBm)
 
 Returns: `float`
 
@@ -3569,6 +3574,8 @@ Gets the raw signal quality value. This value is RAT-specific. See [`getAccessTe
 - 2G RAT: Bit Error Rate (BER) in % as specified in 3GPP TS 45.008 8.2.4. Range: [0.14%, 18.10%]
 - 2G RAT with EDGE: log10 of Mean Bit Error Probability (BEP) as defined in 3GPP TS 45.008. Range: [-0.60, -3.60] as specified in 3GPP TS 45.008 10.2.3.3.
 - UMTS RAT: Ec/Io (dB) [-24.5, 0], as specified in 3GPP TS 25.133 9.1.2.3.
+- LTE Cat M1 RAT: Range: [-20, -3] (dB)
+- LTE Cat 1 RAT: Range: [-20, -3] (dB)
 
 Returns: `float`
 
@@ -15829,6 +15836,8 @@ The first example configures the cellular modem to both stay awake and for the n
 The second example adds the `SystemSleepNetworkFlag::INACTIVE_STANDBY` flag which keeps the cellular modem powered, but does not wake the MCU for received data. This is most similar to `SLEEP_NETWORK_STANDBY`.
 
 Note: You must not sleep longer than the keep-alive value, which by default is 23 minutes in order to wake on data received by cellular. The reason is that if data is not transmitted by the device before the keep-alive expires, the mobile network will remove the channel back to the device, so it can no longer receive data from the cloud. Fortunately in network sleep mode you can wake, transmit data, and go back to sleep in a very short period of time, under 2 seconds, to keep the connection alive without using significanly more battery power.
+
+If you are waking on network activity, be sure to wait for `Particle.connected()` to be true before entering sleep mode. If you device has not completely connected to the cloud, it will not be possible to wake from sleep by network activity.
 
 If you use `NETWORK_INTERFACE_CELLULAR` without `INACTIVE_STANDBY`, then data from the cloud to the device (function, variable, subscribe, OTA) will wake the device from sleep. However if you sleep for less than the keep-alive length, you can wake up with zero additional overhead. This is offers the fastest wake time with the least data usage.
 
