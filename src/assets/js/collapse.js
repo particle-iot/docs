@@ -37,6 +37,8 @@ $(document).ready(function() {
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
+
+			ga('send', 'event', 'Codebox', 'Codebox Download', contentUrl);
 		});
 
 		$(codeboxElem).find('.codeboxCopyButton').on('click', function() {
@@ -48,6 +50,8 @@ $(document).ready(function() {
 			t.select();
 			document.execCommand("copy");
 			document.body.removeChild(t);
+
+			ga('send', 'event', 'Codebox', 'Codebox Copy', $(codeboxElem).attr('data-content'));
 		});
 
 		$(codeboxElem).find('.codeboxWebIdeButton').on('click', function() {
@@ -57,6 +61,8 @@ $(document).ready(function() {
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
+
+			ga('send', 'event', 'Codebox', 'Codebox Open WebIDE', $(codeboxElem).attr('data-content'));
 		});
 		
 
@@ -79,6 +85,8 @@ $(document).ready(function() {
 			}
 				
 			apiHelper.flashDevice(device, $(thisCodeElem).text(), codeboxElem);		
+
+			ga('send', 'event', 'Codebox', 'Codebox Flash', $(codeboxElem).attr('data-content'));
 		});
 
 		$(codeboxElem).find('.codeboxUploadSchemaButton').on('click', function() {
@@ -97,6 +105,8 @@ $(document).ready(function() {
 			apiHelper.uploadSchemaCodebox(schema, product, 'default', function() {
 				
 			});
+
+			ga('send', 'event', 'Codebox', 'Codebox Upload Schema');
 		});
 		
 	});

@@ -10,6 +10,7 @@ $(document).ready(function () {
 
     if ($('.apiHelperUsbRestoreDevice').each(function() {
         const thisPartial = $(this);
+        const eventCategory = 'Device Restore USB';
 
         const selectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelect');
         const selectInfoElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelectInfo');
@@ -22,6 +23,7 @@ $(document).ready(function () {
         }
 
         if (!navigator.usb) {
+			ga('send', 'event', eventCategory, 'No WebUSB', navigator.userAgent);
             $(selectElem).prop('disabled', true);
             setStatus(noWebUsbError);
             return;
@@ -99,6 +101,7 @@ $(document).ready(function () {
                 setStatus('Select version to restore');
             }
             catch(e) {
+                ga('send', 'event', eventCategory, 'No WebUSB Device Selected');
                 setStatus('USB device not selected');                
                 console.log('no device selected', e);
             }        
@@ -157,6 +160,8 @@ $(document).ready(function () {
             $(versionElem).prop('disabled', true);
 
             let moduleInfo;
+
+            ga('send', 'event', eventCategory, 'DFU Restore Started', version + '/' + platformObj.name);
 
             setStatus('Downloading module info...');
 
@@ -219,6 +224,7 @@ $(document).ready(function () {
             }
 
             if (!nativeUsbDevice) {
+                ga('send', 'event', eventCategory, 'No USB Device Found');
                 setStatus('Unable to find device in DFU mode');
                 resetRestorePanel();
                 return;
@@ -437,6 +443,7 @@ $(document).ready(function () {
                 await usbDevice.close();
                 usbDevice = null;
             }
+            ga('send', 'event', eventCategory, 'DFU Restore Success', version + '/' + platformObj.name);
 
             resetRestorePanel();
 
@@ -445,6 +452,7 @@ $(document).ready(function () {
 
     if ($('.apiHelperUsbSetupDone').each(function () {
         const thisPartial = $(this);
+        const eventCategory = 'Setup Done USB';
 
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbSetupDoneStatus').html(str);
@@ -453,6 +461,7 @@ $(document).ready(function () {
         const selectElem = $(thisPartial).find('.apiHelperUsbSetupDoneSelect');
 
         if (!navigator.usb) {
+			ga('send', 'event', eventCategory, 'No WebUSB', navigator.userAgent);
             $(selectElem).prop('disabled', true);
             setStatus(noWebUsbError);
             return;
@@ -488,6 +497,7 @@ $(document).ready(function () {
                     await dev.setSetupDone(true);
             
                     setStatus('Marked setup done for ' + typeIdStr + '!');    
+                    ga('send', 'event', eventCategory, 'Setup Done Success');
                 }
                 else {
                     setStatus(typeIdStr + ' is in DFU mode.<br/>Put in normal operating mode, listening mode, or safe mode to mark setup done.');
@@ -497,6 +507,7 @@ $(document).ready(function () {
         
             }
             catch(e) {
+                ga('send', 'event', eventCategory, 'No WebUSB Device Selected');
                 console.log('no device selected', e);
             }        
         }));

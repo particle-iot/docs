@@ -199,12 +199,42 @@ apiHelper.getOrgProducts = async function(org) {
     });    
 };
 
+apiHelper.monitorUsage = function(options) {
+    let resultObj = {};
 
+    resultObj.startMs = Date.now()
+
+    const periodMinutes = options.periodMinutes || 1;
+
+    resultObj.done = function() {
+        if (resultObj.timer) {
+            clearInterval(resultObj.timer);
+            resultObj.timer = null;
+            ga('send', 'event', options.eventCategory, 'Finished');
+        }
+    };
+
+    resultObj.timer = setInterval(function() {
+
+        let durationMinutesStr = Math.floor((Date.now() - resultObj.startMs) / 60000).toString(); 
+        if (durationMinutesStr.length < 6) {
+            durationMinutesStr = '000000'.substr(0, 6 - durationMinutesStr.length) + durationMinutesStr;
+        }
+
+        ga('send', 'event', options.eventCategory, options.actionPrefix + durationMinutesStr);
+    }, periodMinutes * 60000);
+
+    ga('send', 'event', options.eventCategory, 'Started');
+
+    return resultObj;
+};
 
 $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
     }
+
+    const eventCategory = 'Docs SSO';
 
     apiHelper.auth = null;
 
@@ -224,12 +254,15 @@ $(document).ready(function() {
         const origUrl = window.location.href;
 
 		window.location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
+
+        ga('send', 'event', eventCategory, 'Login Started');
     });
 
     $('.apiHelperLogoutButton').on('click', function() {
         Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
         localStorage.removeItem('particleAuth');
         location.reload();
+        ga('send', 'event', eventCategory, 'Logged Out');
     });
 
     const cookie = Cookies.get('ember_simple_auth_session');
