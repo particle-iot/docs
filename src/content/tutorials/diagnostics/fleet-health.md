@@ -9,17 +9,6 @@ layout: tutorials.hbs
 
 # {{title}}
 
-
-{{box op="start"}}
-<p style="text-align:center;">Fleet Health is a feature available to
-customers on Particle's Enterprise plan. Interested in using this feature?</p>
-
-<a class="btn"
-href="https://particle.io/sales?utm_campaign=fleet-health-enterprise-contact&utm_source=docs&utm_medium=link"
-target="_blank" style="display:block;margin:0
-auto;width:200px;text-align:center">Talk to an expert</a>
-{{box op="end"}}
-
 As you begin deploying more connected devices in the field powered by
 Particle, it is important to have tools that give visibility into the overall functioning
 of the IoT fleet. These tools allow your team to effectively identify and
@@ -218,12 +207,5 @@ Filtering by Device OS version can help you identify patterns in
 connectivity health across Device OS versions running on devices in the
 fleet.
 
-{{box op="start"}}
-<p style="text-align:center;">Fleet Health is a feature available to
-customers on Particle's Enterprise plan. Interested in using this feature?</p>
-
-<a class="btn"
-href="https://particle.io/sales?utm_campaign=fleet-health-enterprise-contact&utm_source=docs&utm_medium=link"
-target="_blank" style="display:block;margin:0
-auto;width:200px;text-align:center">Talk to an expert</a>
-{{box op="end"}}
+Fleet health was previously only available to Enterprise customers but is 
+now available to all products.

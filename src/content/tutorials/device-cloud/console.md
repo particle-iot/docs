@@ -342,9 +342,8 @@ to a product device.
 target product devices to automatically download and run the firmware.
 The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
-delivered to a given device. If you are on the Enterprise plan with
-access to [device groups](/tutorials/product-tools/device-groups/),
-you can more safely roll out the firmware by targeting a subset of the
+delivered to a given device. You can also use [device groups](/tutorials/product-tools/device-groups/),
+to more safely roll out the firmware by targeting a subset of the
 fleet for release.
 
 The rest of this section contains details around how to go through this
