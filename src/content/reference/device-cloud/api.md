@@ -686,3 +686,7 @@ PUT /v1/products/:productIdOrSlug/customers/:customerEmail
 ```
 
 We've provided a [sample app using Heroku and PostgreSQL](https://github.com/particle-iot/password-reset-example). This can be used as-is, or you can use it as an example of how to add support into your existing server infrastructure. 
+
+
+## Service agreements and usage
+{{> api group=apiGroups.ServiceAgreements}}

@@ -5,6 +5,8 @@ $(document).ready(function() {
         return;
     }
 
+    const eventCategory = 'JSON Linter';
+
     apiHelper.jsonLinterGetValue = function(elem) {
         const index = parseInt($(elem).attr('data-index'));
         const codeMirror = apiHelper.jsonLinterCodeMirror[index];
@@ -148,11 +150,13 @@ $(document).ready(function() {
     $('.apiHelperJsonLinterPrettifyButton').on('click', function() {
         let parentElem = $(this).closest('.apiHelperJsonLinter');
         formatJson(parentElem, 2);
+        ga('send', 'event', eventCategory, 'Prettify');
     });
 
     $('.apiHelperJsonLinterCompactButton').on('click', function() {
         let parentElem = $(this).closest('.apiHelperJsonLinter');
         formatJson(parentElem, 0);
+        ga('send', 'event', eventCategory, 'Compact');
     });
 
     $('.apiHelperJsonLinterStringifyButton').on('click', function() {
@@ -168,6 +172,8 @@ $(document).ready(function() {
             
             let str = escapeUnicode(jsonCompact, false);
             codeMirror.setValue('"' + str + '"');
+
+            ga('send', 'event', eventCategory, 'Stringify');
         }  
         catch(e) {
         }
@@ -191,6 +197,8 @@ $(document).ready(function() {
         try {
             const jsonObj = JSON.parse(str);
             codeMirror.setValue(JSON.stringify(jsonObj, null, 2));
+
+            ga('send', 'event', eventCategory, 'Unstringify');
         }  
         catch(e) {
         }
@@ -204,6 +212,7 @@ $(document).ready(function() {
         const codeMirror = apiHelper.jsonLinterCodeMirror[index];
         let str = codeMirror.getValue();
         codeMirror.setValue(escapeUnicode(str, true));
+        ga('send', 'event', eventCategory, 'Escape Unicode');
     });
 
 });

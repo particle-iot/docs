@@ -4,7 +4,6 @@ $(document).ready(function() {
         return;
     }
 
-
     if ($('.apiHelperLedFunctionTest').length > 0 && apiHelper.auth) {
         apiHelper.deviceList($('.apiHelperLedFunctionTestSelect'), {
             deviceFilter: function(dev) {
@@ -28,12 +27,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'led', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
+                    ga('send', 'event', 'LED Function Test', 'Success');
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
+                    ga('send', 'event', 'LED Function Test', 'Error', err);
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');
@@ -75,12 +76,14 @@ $(document).ready(function() {
 
             apiHelper.particle.callFunction({ deviceId, name: 'setColor', argument: cmd, auth: apiHelper.auth.access_token  }).then(
                 function (data) {
+                    ga('send', 'event', 'LED Color Test', 'Success');
                     setStatus('Success! (' + data.body.return_value + ')');
                     setTimeout(function() {
                         setStatus('');
                     }, 4000);                
                 },
                 function (err) {
+                    ga('send', 'event', 'LED Color Test', 'Error', err);
                     setStatus('Error: ' + err);
                     setTimeout(function() {
                         setStatus('');

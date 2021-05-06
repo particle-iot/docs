@@ -429,6 +429,7 @@ $(document).ready(function() {
 
     $('.usbSerialConsole').each(function() {
         const usbSerialConsoleElem = $(this);
+        const eventCategory = 'USB Serial Console';
 
         const usbSerialConsoleControlsElem = $(usbSerialConsoleElem).find('.apiHelper');
         const usbSerialConsoleConnectButton = $(usbSerialConsoleElem).find('.apiHelperSerialConsoleConnect');
@@ -441,6 +442,8 @@ $(document).ready(function() {
         const usbSerialConsoleOutputDiv = $(usbSerialConsoleElem).find('.usbSerialConsoleOutput');
         const usbSerialConsoleTextAreaElem = $(usbSerialConsoleElem).find('textarea');
         
+        let monitor;
+
         const options = {
             showAllDevices: true,
             showDebugger: true
@@ -474,6 +477,10 @@ $(document).ready(function() {
         conn.onConnect = function() {
             appendText('Connected to USB serial\n');
             $(usbSerialConsoleSendButton).prop('disabled', false);    
+            if (monitor) {
+                monitor.done();
+            }
+            monitor = apiHelper.monitorUsage({ eventCategory, actionPrefix: 'USB Serial Usage '});
         };
 
         conn.onReceive = function(value) {
@@ -482,6 +489,9 @@ $(document).ready(function() {
 
         conn.onDisconnect = function(willReconnect) {
             $(usbSerialConsoleSendButton).prop('disabled', true);
+            if (monitor) {
+                monitor.done();
+            }
             if (willReconnect) {
                 appendText('Disconnected from USB serial, will attempt to reconnect\n');
             }
@@ -501,6 +511,7 @@ $(document).ready(function() {
             $(usbSerialConsoleControlsElem).hide();
             $(usbSerialConsoleOutputDiv).hide();
             setStatus('Web-based USB serial is only available on the Chrome web browser on Mac, Windows, Linux, and Chromebook, version 89 and later.');
+			ga('send', 'event', eventCategory, 'No WebSerial', navigator.userAgent);
             return;
         }
 
@@ -508,6 +519,8 @@ $(document).ready(function() {
             // Connect
             $(usbSerialConsoleConnectButton).prop('disabled', true);
             $(usbSerialConsoleDisconnectButton).prop('disabled', false);
+
+            ga('send', 'event', eventCategory, 'Connection Attempt');
             
             conn.connect({
                 showAllDevices: true,            
@@ -530,6 +543,7 @@ $(document).ready(function() {
             const str = $(usbSerialConsoleInputElem).val();
     
             conn.sendString(str + '\r\n');
+            ga('send', 'event', eventCategory, 'Data Sent');
         };
     
         $(usbSerialConsoleSendButton).on('click', async function() {

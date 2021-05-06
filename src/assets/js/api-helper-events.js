@@ -78,16 +78,21 @@ $(document).ready(function() {
         return;
     }
 
-    if ($('.apiHelperEventViewer').length > 0) {
-        if (!apiHelper.auth) {
-            $('.apiHelperEventViewerStatus').text('Log in to view events');
-            $('.apiHelperEventViewerControls').hide();
-            return;
-        }
+    if (!apiHelper.auth) {
+        $('.apiHelperEventViewerStatus').text('Log in to view events');
+        $('.apiHelperEventViewerControls').hide();
+        return;
+    }
 
-        $('.apiHelperEventViewerControls').show();
+    $('.apiHelperEventViewer').each(function() {
+        const thisPartial = $(this);
+        const eventCategory = 'Particle Event Viewer';
 
-        apiHelper.deviceList($('.apiHelperEventViewerDeviceSelect'), {
+        let monitor;
+
+        $(thisPartial).find('.apiHelperEventViewerControls').show();
+
+        apiHelper.deviceList($(thisPartial).find('.apiHelperEventViewerDeviceSelect'), {
             getTitle: function(dev) {
                 return dev.name + (dev.online ? '' : ' (offline)');
             },
@@ -98,29 +103,33 @@ $(document).ready(function() {
             }
         });    
 
-        $('.apiHelperEventViewerEnable').each(function(index) {
+        $(thisPartial).find('.apiHelperEventViewerEnable').each(function(index) {
             const parentSpan =  $(this).closest('span');
             const id = 'apiHelperEventViewerEnableCheckbox' + index;
             $(this).attr('id', id);
             $(parentSpan).find('label').attr('for', id);
         });
         
-        $('.apiHelperEventViewerEnable').change(function() {
+        $(thisPartial).find('.apiHelperEventViewerEnable').change(function() {
             if (this.checked) {
                 apiHelper.eventViewer.start(this);
+                monitor = apiHelper.monitorUsage({ eventCategory, actionPrefix: 'Event Monitor Usage '});
+            }
+            else {
+                monitor.done();
             }
         });
 
-        $('.apiHelperEventViewerDeviceSelect').change(function() {
+        $(thisPartial).find('.apiHelperEventViewerDeviceSelect').change(function() {
             apiHelper.eventViewer.updateFilter(this);
         });
 
-        $('.apiHelperEventViewerFilter').on('input', function() {
+        $(thisPartial).find('.apiHelperEventViewerFilter').on('input', function() {
             apiHelper.eventViewer.updateFilter(this);
         });
 
-        if ($('.apiHelperEventViewerOutput > table').length > 0) {
-            $('.apiHelperEventViewerOutput > table > tbody').on('click', function(ev) {
+        if ($(thisPartial).find('.apiHelperEventViewerOutput > table').length > 0) {
+            $(thisPartial).find('.apiHelperEventViewerOutput > table > tbody').on('click', function(ev) {
                 const thisTable = $(ev.target).closest('table');
                 $(thisTable).find('tr').removeClass('apiHelperSelectedRow');
 
@@ -130,6 +139,6 @@ $(document).ready(function() {
                 apiHelper.eventViewer.clickRow(thisRow);
             });
         }    
-    }
+    });
 
 });

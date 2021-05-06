@@ -26,6 +26,7 @@ The following cellular antennas are available:
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
+| Tracker One Cellular Antenna | | Tracker One | [Datasheet](/assets/pdfs/tracker-one-ant-cellular.pdf) |
 
 ### Compatible devices (Cellular)
 
@@ -165,6 +166,7 @@ The Particle 2.4 GHz W-Fi antenna is available in the [retail](https://store.par
 | :------ | :--- | :---- |
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
+| Tracker One Wi-Fi Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-wifi.pdf) |
 
 ### Compatible devices (Wi-Fi)
 
@@ -251,7 +253,7 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | :------ | :--- | :---- |
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
-
+| Tracker One BLE Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-ble.pdf) |
 
 ### Compatible devices (BLE)
 
@@ -342,7 +344,7 @@ The Particle NFC Antenna is available in the [retail](https://store.particle.io/
 | Antenna | SKU  | Links |
 | :------ | :--- | :---- | 
 | Particle NFC Antenna, [x1] | ANT-NFC | [Datasheet](/assets/datasheets/ANT-NFC.pdf) &#124; [Retail Store](https://store.particle.io/products/nfc-antenna) |
-
+| Tracker One NFC Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-nfc.pdf) |
 
 ### Compatible devices (NFC)
 

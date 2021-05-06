@@ -154,7 +154,13 @@ make sure that the user who created the access token is the owner of the
 device included in the request, and will only continue if the token has
 the proper permissions to call the function.
 
-For security purposes, most access tokens will expire after 90 days. Certain access tokens can be specifically set to *never expire*, like the one you can find in the settings pane of `build.particle.io`.
+The easiest way to create tokens is using the Particle CLI and the 
+[`particle token create`](/reference/developer-tools/cli/#particle-token-create) option.
+
+If you have multi-factor authentication (MFA) enabled on your account, you will 
+be required to supply the authentication code when you create the token using 
+your username and password, however the authentication code is not necessary 
+to use the token, so make sure you keep your tokens secure, especially non-expiring tokens.
 
 ### Customer access tokens
 

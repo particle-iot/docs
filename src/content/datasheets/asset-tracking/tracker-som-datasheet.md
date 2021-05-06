@@ -6,7 +6,7 @@ order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(013)</sup>
+# Tracker SoM Datasheet <sup>(014)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -22,7 +22,7 @@ description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 
 The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
-- LTE Cat 1 (EMEAA, Europe only at this time) or LTE Cat M1 (North America) cellular modem
+- LTE Cat 1 (selected countries in the EMEAA region) or LTE Cat M1 (North America) cellular modem
 - GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
 - Support for CAN bus and 5V power for CAN devices
 - Built-in Inertial Measurement Unit (IMU)
@@ -31,7 +31,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 | Model | Region |
 | :---- | :---   | 
 | T402 / T404 | North America |
-| T523 / T524 | Europe/Middle East/Africa/Asia; Europe only at this time |
+| T523 / T524 | Europe/Middle East/Africa/Asia (not all countries supported at this time) |
 
 ---
 
@@ -48,7 +48,9 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
   * Cat 1 bands supported: B1, B3, B7, B8, B20, B28
-  * Support for Europe only at this time
+  * 2G and 3G fallback (900, 1800, and 2100 MHz)
+  * Support for Europe only (T523)
+  * Support for Europe, Australia, and New Zealand (T524) at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM in SoC
@@ -1217,3 +1219,4 @@ The bootloader allows you to easily update the user application via several diff
 | 011      | 2002 Oct 01 | RK | Fixed VIN maximum voltage in text (is 17V not 12V) |
 | 012      | 2021 Feb 03 | RK | Change CAN output current to 370 mA |
 | 013      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
+| 014      | 2021 May 04 | RK | Added 2G/3G fallback information for T523/T524 |
