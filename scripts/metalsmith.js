@@ -54,7 +54,7 @@ var deviceRestoreInfo = require('./device-restore-info.js');
 var handlebars = require('handlebars');
 var prettify = require('prettify');
 prettify.register(handlebars);
- 
+  
 //disable autolinking
 function noop() { }
 noop.exec = noop;
