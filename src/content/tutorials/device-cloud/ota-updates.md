@@ -220,10 +220,20 @@ to a deployment of Particle devices. With a single action, you can
 target devices in the fleet to automatically receive a new version of
 product firmware.
 
-### Intelligent Firmware Releases
+### Standard vs. Intelligent Firmware Releases
 
-[**Intelligent Firmware Releases**](#intelligent-firmware-releases) are
-delivered based on individual device readiness. It enables
+Particle offers two types of firmware releases, **Standard** and
+**Intelligent**.
+
+**Standard Firmware Releases are delivered as devices reconnect to
+the cloud**. In order to avoid interrupting critical behaviors of
+deployed units, the Device Cloud waits until the next time targeted
+devices *handshake* (beginning a new secure session) to deliver the OTA update to the new version of firmware. This occurs a few seconds after the cloud connection is established.
+Standard Releases are the default mode of firmware releases, and
+delivery to all target devices is completed over an average period of about one week.
+
+[Intelligent Firmware Releases](#intelligent-firmware-releases) are
+delivered based on individual device readiness**. It enables
 your team to predictably deliver fleet-wide firmware updates at _exactly_ the
 right time. Intelligent Releases add _context awareness_ to the
 deployment — devices that signal that they are available for an OTA
@@ -231,19 +241,10 @@ receive the update immediately, while "busy" devices performing critical
 activities can defer the update until the next time they are ready. This
 results in maximum control and speed in fleet-wide firmware updates
 while still avoiding disrupting active devices. 
-
-Previously, Intelligent Firmware Releases were available only to Enterprise
-customers but are now available to all products including those on the free tier.
-**Standard firmware releases**, the former default, could take up to a week to reach all
-devices as updates were only delivered when a device did a handshake
-with the Particle cloud.
-
-The time to full deployment of a new firmware release is dramatically improved 
-by Intelligent Firmware Releases.
+Check out this graphic for the differences in how Standard vs.
+Intelligent Releases function:
 
 <img src="/assets/images/standard-vs-intelligent.jpg" class="full-width tall" />
-
-
 
 ### Release process
 
@@ -465,8 +466,14 @@ Particle Device Cloud
 
 ## Intelligent Firmware Releases
 
-**Intelligent Firmware Releases** is a 
-fleet-wide OTA mechanism that allows customers
+By default, firmware is sent to target devices as a _Standard Release_.
+Targeted device will receive the new version of firmware over time, with
+each device updating the next time it starts a new secure session with
+the Device Cloud. This is to ensure devices are not disrupted while in
+use as a result of the reset needed to begin running the new firmware.
+
+** Intelligent Firmware Releases** is a premium
+fleet-wide OTA mechanism that enables scaling customers
 to predictably deliver fleet-wide firmware updates at _exactly_ the
 right time.
 
@@ -476,6 +483,9 @@ available devices, while busy devices can defer until they are ready.
 as a result of context awareness (compared to ~1w with Standard Release)
 - **Maximum control**: Leverage flexible Device OS APIs and cloud-side
 controls to define the opportune time to deliver an update
+
+Intelligent Firmware Releases is available to
+Enterprise customers. [Interested in Intelligent Firmware Releases?](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
 
 #### Context awareness to prevent disruption
 
@@ -526,12 +536,23 @@ For more information, check out:
 - [Controlling OTA availability in Device OS](#controlling-ota-availability)
 - [OTA availability in the Console](#ota-availability-in-the-console)
 
-### Device updates
+### Marking a firmware release as intelligent
 
-Once you've released your firmware update to a device group or all devices
-in your fleet, the update process beings.
+To mark a version of firmware as an Intelligent Firmware Release, begin the release
+process as-normal. On the Firmware view of the Console for your product,
+identify the version of firmware you'd like to release, and click the
+**Release Firmware** link that appears on hover.
 
-Target devices that are **online**
+When the _Release Firmware_ modal appears, choose the group(s) that you
+would like to release to. Then, top opt-in to an Intelligent Firmware Release, check the checkbox signaling that you would like to deliver the firmware immediately to target devices:
+
+![](/assets/images/ota-updates/intelligent-release.png)
+
+The "Intelligent" option will be enabled for scaling customers on
+Particle's Enterprise plan. If you are interested in enabling this
+feature for your fleet, please [reach out to us!](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
+
+Note that the Console describes that target devices that are **online**
 with **OTA updates enabled** would receive the new version of firmware
 as quickly as possible.
 - A target device _must be online_ and connected to the Device Cloud to
@@ -545,6 +566,37 @@ returns `true` in application firmware. For more information, see the
 section below on [controlling OTA
 availability](#controlling-ota-availability).
 
+### Understanding the impact of Intelligent Firmware Releases
+
+After clicking **Next**, you will need to confirm that you understand
+the impact of the action that you are about to take:
+
+![](/assets/images/ota-updates/intelligent-release-confirm.png)
+
+What is most important to recognize is that **Intelligent Firmware
+Releases _can be disruptive_ to active devices**. That is, if a targeted
+device is online (connected to the Device Cloud) and [OTA updates have
+not been disabled](#disabling-ota-updates), the Device Cloud will
+trigger the OTA to occur at the time of release.
+
+For those fleet managers in which disrupting active devices is
+problematic, we strongly suggest implementing [OTA control
+behaviors](#controlling-ota-availability) in Device OS to properly
+coordinate when Intelligent Releases are delivered to target devices.
+
+When you check the checkbox to confirm the Intelligent Release, you can
+proceed with completing the release action. This will begin the process
+of rolling out the version of firmware to target devices immediately.
+
+_Note_: Devices that are offline are updated when they come back online
+again. This includes both devices that are using sleep modes to conserve
+battery power and devices that are currently out of range of
+connectivity, for example.
+
+In your firmware list, you should see the firmware version marked as an
+Intelligent Release:
+
+<img class="small" src="/assets/images/ota-updates/intelligent-release-list.png" />
 
 ## Controlling OTA availability
 
@@ -602,7 +654,7 @@ device.
 
 ### Notifications of pending OTA updates
 
-_Since Device OS 1.2.0_.
+_Since Device OS 1.2.0, Enterprise only_.
 
 [`System.updatesPending()`](/cards/firmware/ota-updates/system-updatespending/) is a boolean flag that will return whether a
 new version of Product firmware is available for the device. This is
@@ -613,7 +665,7 @@ also see an event published to the event stream in this case,
 `particle/device/updates/pending`.
 
 `System.updatesPending()` will only be set for devices belonging to a
-Product and using intelligent firmware updates.
+Product on an Enterprise plan.
 
 In this case, the OTA update will be prevented by the device. The device
 will emit an internal system event, `firmware_update_pending` and
@@ -773,7 +825,7 @@ void setup() {
 }
 
 void loop() {
-	// System.updatesPending() will only return true when used in a Product
+	// NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
 	if (isSafeToUpdate() && System.updatesPending()) {
 		System.enableUpdates();
 
