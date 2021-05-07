@@ -346,7 +346,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | Albania | ONE524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Australia | ONE524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Belarus | ONE524 | 2G, 3G, Cat1 | A1, MTS |
+| Belarus | ONE524 | 2G, 3G, Cat1 | A1 |
 | Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | ONE524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
 | Bulgaria | ONE524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
@@ -372,7 +372,6 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | Malta | ONE524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Mexico | ONE404 | M1 | AT&T |
 | Moldova | ONE524 | 2G, 3G, Cat1 | Moldcell, Orange |
-| Monaco | ONE524 | 2G, 3G, Cat1 | Monaco Telecom |
 | Montenegro | ONE524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Netherlands | ONE524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | ONE524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |

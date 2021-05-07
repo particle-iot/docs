@@ -538,7 +538,7 @@ The bootloader allows you to easily update the user application via several diff
 | Albania | B524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Australia | B524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Belarus | B524 | 2G, 3G, Cat1 | A1, MTS |
+| Belarus | B524 | 2G, 3G, Cat1 | A1 |
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | B524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
 | Bulgaria | B524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
@@ -562,7 +562,6 @@ The bootloader allows you to easily update the user application via several diff
 | Luxembourg | B524 | 2G, 3G, Cat1 | Orange, POST, Tango |
 | Malta | B524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Moldova | B524 | 2G, 3G, Cat1 | Moldcell, Orange |
-| Monaco | B524 | 2G, 3G, Cat1 | Monaco Telecom |
 | Montenegro | B524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Netherlands | B524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | B524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |

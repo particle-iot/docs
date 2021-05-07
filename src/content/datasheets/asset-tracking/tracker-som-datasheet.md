@@ -1107,7 +1107,7 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Albania | T524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Australia | T524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Belarus | T524 | 2G, 3G, Cat1 | A1, MTS |
+| Belarus | T524 | 2G, 3G, Cat1 | A1 |
 | Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
 | Bulgaria | T524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
@@ -1133,7 +1133,6 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Malta | T524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Mexico | T404 | M1 | AT&T |
 | Moldova | T524 | 2G, 3G, Cat1 | Moldcell, Orange |
-| Monaco | T524 | 2G, 3G, Cat1 | Monaco Telecom |
 | Montenegro | T524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Netherlands | T524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | T524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |

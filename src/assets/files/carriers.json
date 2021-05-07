@@ -4168,12 +4168,7 @@
       ],
       "noBands": [
         "LTE"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "Afghanistan",
@@ -4624,12 +4619,6 @@
     {
       "country": "Armenia",
       "carrier": "Beeline",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -5007,7 +4996,12 @@
         "2G-900",
         "3G-1",
         "LTE-3"
-      ]
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
+      }
     },
     {
       "country": "Azerbaijan",
@@ -5412,12 +5406,6 @@
     {
       "country": "Belarus",
       "carrier": "MTS",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.5
-      },
       "telefonicaPPU2020": {
         "partnerZone": 3,
         "allow3G": true,
@@ -5844,11 +5832,6 @@
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
-      },
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
       }
     },
     {
@@ -6298,12 +6281,6 @@
     {
       "country": "Cameroon",
       "carrier": "MTN",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -6607,12 +6584,6 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -6892,12 +6863,6 @@
     {
       "country": "Congo (Brazzaville)",
       "carrier": "Airtel",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "bands": [
         "2G-900",
         "3G-1"
@@ -6965,12 +6930,6 @@
     {
       "country": "Congo (Kinshasa)",
       "carrier": "Airtel",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "bands": [
         "2G-900",
         "3G-1"
@@ -7102,12 +7061,6 @@
     {
       "country": "Côte d'Ivoire",
       "carrier": "MTN",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -8168,12 +8121,6 @@
     {
       "country": "eSwatini",
       "carrier": "MTN",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -8599,12 +8546,6 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -8908,12 +8849,6 @@
       "carrier": "AirtelTigo",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -9173,12 +9108,6 @@
       "aliases": [
         "TeleGreenland"
       ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -9474,12 +9403,6 @@
     {
       "country": "Guinea",
       "carrier": "MTN",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -9492,12 +9415,6 @@
     {
       "country": "Guinea-Bissau",
       "carrier": "MTN",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -10176,12 +10093,7 @@
       ],
       "noBands": [
         "LTE"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "India",
@@ -11178,12 +11090,6 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
@@ -11287,12 +11193,7 @@
         "3G-1",
         "LTE-3",
         "LTE-20"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "Kuwait",
@@ -11934,12 +11835,6 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -12263,12 +12158,7 @@
       ],
       "noBands": [
         "LTE"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "Mauritania",
@@ -12496,12 +12386,6 @@
       "carrier": "Monaco Telecom",
       "sunset2G": "?",
       "sunset3G": "NA",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.5
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -12720,12 +12604,6 @@
       "note": "Lime is now Flow, owned by Cable & Wireless",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.45
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true
@@ -12835,12 +12713,6 @@
       "carrier": "Vodacom",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -12951,12 +12823,6 @@
     {
       "country": "Nepal",
       "carrier": "Nepal Telecom",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "bands": [
         "2G-900",
         "3G-1",
@@ -13342,12 +13208,6 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -13502,12 +13362,7 @@
         "3G-2",
         "LTE-3",
         "LTE-20"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "North Macedonia",
@@ -13668,12 +13523,6 @@
     {
       "country": "Oman",
       "carrier": "Omantel",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.45
-      },
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -14073,12 +13922,6 @@
       "carrier": "Personal",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "bands": [
         "2G-850",
         "3G-2",
@@ -14706,12 +14549,6 @@
       "carrier": "Vodafone",
       "sunset2G": "2025",
       "sunset3G": "2020",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "telefonicaPPU2020": {
         "partnerZone": 3,
         "allow3G": true,
@@ -15010,12 +14847,6 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "telefonicaBundle2018": {
         "partnerZone": 3,
         "allow2G": true,
@@ -15138,12 +14969,6 @@
     {
       "country": "Rwanda",
       "carrier": "MTN",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow2G": true,
@@ -15597,12 +15422,7 @@
         "3G-1",
         "LTE-3",
         "LTE-38"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "Saudi Arabia",
@@ -15636,12 +15456,6 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
@@ -15977,12 +15791,6 @@
     {
       "country": "Sint Maarten",
       "carrier": "TelCell",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -16446,12 +16254,6 @@
     {
       "country": "South Sudan",
       "carrier": "MTN",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "bands": [
         "2G-900",
         "3G-1"
@@ -16738,12 +16540,6 @@
       "carrier": "Telesur",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17194,12 +16990,6 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -17512,12 +17302,7 @@
         "3G-2",
         "3G-5",
         "LTE-7"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "Tunisia",
@@ -17753,12 +17538,6 @@
       "carrier": "Africell",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17771,12 +17550,6 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -17795,12 +17568,6 @@
       "carrier": "MTN",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -17931,12 +17698,7 @@
         "2G-1800",
         "3G-1",
         "LTE-7"
-      ],
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      }
+      ]
     },
     {
       "country": "Ukraine",
@@ -18472,12 +18234,6 @@
       "carrier": "Antel",
       "sunset2G": "No Plan",
       "sunset3G": "No Plan",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.4
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -18499,12 +18255,6 @@
       "carrier": "Claro",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -18872,12 +18622,6 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.35
-      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
