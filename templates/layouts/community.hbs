@@ -9,33 +9,9 @@
 
     <div class='content-root'>
       <div class='menubar'>
-      <ul class="nav guide-menu" data-swiftype-index="false">
-        {{#each community}}
-           <ul>
-              <li class="top-level {{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}">
-                {{#page-equal ../path.href ../path.name path.href path.name}}
-                  <span>{{{title}}}</span>
-                  {{#if ../../toc}}
-                    <i id="toggle-in-page-nav" class="ion-plus"></i>
-                  {{/if}}
-                {{else}}
-                  <a href="{{path.href}}{{path.name}}">{{{title}}}</a>
-                {{/page-equal}}
-              </li>
-                {{#page-equal ../path.href ../path.name path.href path.name}}
-                  {{#if ../../toc}}
-                    <div class="in-page-toc-container">
-                      <ul class="nav in-page-toc hide">
-                        {{#each ../../../toc}}
-                        <li class="middle-level" data-nav=""><a href="#{{id}}">{{{text}}}</a></li>
-                        {{/each}}
-                      </ul>
-                    </div>
-                  {{/if}}
-                {{/page-equal}}
-            </ul>
-        {{/each}}
-      </ul>
+        <div class="navMenu" data-swiftype-index="false">
+            {{{navigation}}}
+        </div>
       </div>
       <div class="page-body">
         <div class='content-inner'>

@@ -50,6 +50,7 @@ var trackerSchema = require('./tracker-schema.js');
 var refCards = require('./refcards.js');
 var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
+var navMenuGenerator = require('./nav_menu_generator.js');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -289,6 +290,9 @@ exports.metalsmith = function () {
     }))//end of collections/sections
     .use(planLimits({
       config: '../config/planLimits.json'
+    }))
+    .use(navMenuGenerator({      
+      contentDir: '../src/content',
     }))
     .use(refCards({
       contentDir: '../src/content',

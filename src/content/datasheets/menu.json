@@ -1,218 +1,342 @@
 {
-  "sections": [
+  "items": [
     {
       "dir": "asset-tracking",
-      "info": [
-        {
-          "dir": "tracker-som-datasheet.md"
-        },
-        {
-          "dir": "tracker-som-eval-board.md"
-        },
-        {
-          "dir": "tracker-one.md"
-        },
-        {
-          "dir": "tracker-m8-accessories.md"
-        },
-        {
-          "dir": "m8-temperature-humidity.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "tracker-som-datasheet",
+        "title": "Tracker SoM datasheet",
+        "href": "/datasheets/asset-tracking/tracker-som-datasheet/"
+      },
+      {
+        "dir": "tracker-som-eval-board",
+        "title": "Tracker SoM Evaluation Board",
+        "href": "/datasheets/asset-tracking/tracker-som-eval-board/"
+      },
+      {
+        "dir": "tracker-one",
+        "title": "Tracker One",
+        "href": "/datasheets/asset-tracking/tracker-one/"
+      },
+      {
+        "dir": "tracker-m8-accessories",
+        "title": "M8 Accessories",
+        "href": "/datasheets/asset-tracking/tracker-m8-accessories/"
+      },
+      {
+        "dir": "m8-temperature-humidity",
+        "title": "M8 Temperature/Humidity",
+        "href": "/datasheets/asset-tracking/m8-temperature-humidity/"
+      }
+    ],
     {
       "dir": "boron",
-      "info": [
-        {
-          "dir": "boron-datasheet.md"
-        },
-        {
-          "dir": "b402-datasheet.md"
-        },
-        {
-          "dir": "b523-datasheet.md"
-        },
-        {
-          "dir": "b-series-eval-board.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "boron-datasheet",
+        "title": "Boron datasheet",
+        "href": "/datasheets/boron/boron-datasheet/"
+      },
+      {
+        "dir": "b402-datasheet",
+        "title": "B Series B404/B402 datasheet",
+        "href": "/datasheets/boron/b402-datasheet/"
+      },
+      {
+        "dir": "b523-datasheet",
+        "title": "B Series B524/B523 datasheet",
+        "href": "/datasheets/boron/b523-datasheet/"
+      },
+      {
+        "dir": "b-series-eval-board",
+        "title": "B Series Evaluation Board",
+        "href": "/datasheets/boron/b-series-eval-board/"
+      }
+    ],
     {
       "dir": "electron",
-      "info": [
-        {
-          "dir": "electron-datasheet.md"
-        },
-        {
-          "dir": "e-series-datasheet.md"
-        },
-        {
-          "dir": "e-series-eval-board.md"
-        },
-        {
-          "dir": "e-series-system-integration-manual.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "electron-datasheet",
+        "title": "Electron datasheet",
+        "href": "/datasheets/electron/electron-datasheet/"
+      },
+      {
+        "dir": "e-series-datasheet",
+        "title": "E Series datasheet",
+        "href": "/datasheets/electron/e-series-datasheet/"
+      },
+      {
+        "dir": "e-series-eval-board",
+        "title": "E Series Evaluation Board",
+        "href": "/datasheets/electron/e-series-eval-board/"
+      },
+      {
+        "dir": "e-series-system-integration-manual",
+        "title": "E Series System Integration Manual",
+        "href": "/datasheets/electron/e-series-system-integration-manual/"
+      }
+    ],
     {
       "dir": "wi-fi",
-      "info": [
-        {
-          "dir": "argon-datasheet.md"
-        },
-        {
-          "dir": "photon-datasheet.md"
-        },
-        {
-          "dir": "p1-datasheet.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "argon-datasheet",
+        "title": "Argon datasheet",
+        "href": "/datasheets/wi-fi/argon-datasheet/"
+      },
+      {
+        "dir": "photon-datasheet",
+        "title": "Photon datasheet",
+        "href": "/datasheets/wi-fi/photon-datasheet/"
+      },
+      {
+        "dir": "p1-datasheet",
+        "title": "P1 datasheet",
+        "href": "/datasheets/wi-fi/p1-datasheet/"
+      }
+    ],
     {
       "dir": "certifications",
-      "info": [
-        {
-          "dir": "certification.md"
-        },
-        {
-          "dir": "antenna.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "certification",
+        "title": "Certifications",
+        "href": "/datasheets/certifications/certification/"
+      },
+      {
+        "dir": "antenna",
+        "title": "Antennas",
+        "href": "/datasheets/certifications/antenna/"
+      }
+    ],
     {
       "dir": "accessories",
-      "info": [
-        {
-          "dir": "debugger.md"
-        },
-        {
-          "dir": "gen3-accessories.md"
-        },
-        {
-          "dir": "legacy-accessories.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "debugger",
+        "title": "Debugger",
+        "href": "/datasheets/accessories/debugger/"
+      },
+      {
+        "dir": "gen3-accessories",
+        "title": "Gen 3 Accessories",
+        "href": "/datasheets/accessories/gen3-accessories/"
+      },
+      {
+        "dir": "legacy-accessories",
+        "title": "Legacy Accessories",
+        "href": "/datasheets/accessories/legacy-accessories/"
+      }
+    ],
     {
       "dir": "app-notes",
-      "info": [
-        {
-          "dir": "application-notes.md"
-        },
-        {
-          "dir": "technical-advisory-notices.md"
-        },
-        {
-          "dir": "an001-basic-som-design.md"
-        },
-        {
-          "dir": "an002-device-powerdown.md"
-        },
-        {
-          "dir": "an003-interpreting-cloud-debug.md"
-        },
-        {
-          "dir": "an004-interpreting-cloud-debug-2.md"
-        },
-        {
-          "dir": "an005-threading-explainer.md"
-        },
-        {
-          "dir": "an006-vehicle-power.md"
-        },
-        {
-          "dir": "an007-tower-info.md"
-        },
-        {
-          "dir": "an008-xenon-nordic-sdk.md"
-        },
-        {
-          "dir": "an009-firmware-examples.md"
-        },
-        {
-          "dir": "an010-finite-state-machines.md"
-        },
-        {
-          "dir": "an011-publish-to-google-sheets.md"
-        },
-        {
-          "dir": "an012-tracker-1wire.md"
-        },
-        {
-          "dir": "an013-tracker-gpio.md"
-        },
-        {
-          "dir": "an014-tracker-i2c-scanner.md"
-        },
-        {
-          "dir": "an015-tracker-breakout.md"
-        },
-        {
-          "dir": "an016-tracker-keypad-lcd.md"
-        },
-        {
-          "dir": "an017-tracker-can.md"
-        },
-        {
-          "dir": "an018-tracker-level.md"
-        },
-        {
-          "dir": "an019-tracker-prototype.md"
-        },
-        {
-          "dir": "an020-tracker-4-20ma.md"
-        },
-        {
-          "dir": "an021-tracker-4-20ma-quad.md"
-        },
-        {
-          "dir": "an022-tracker-sht3x-temperature-humidity.md"
-        },
-        {
-          "dir": "an023-watchdog-timers.md"
-        },
-        {
-          "dir": "an024-tracker-relay.md"
-        },
-        {
-          "dir": "an025-tracker-som-first-board.md"
-        },
-        {
-          "dir": "an026-tracker-current-solutions-accelerator.md"
-        },
-        {
-          "dir": "an027-tracker-buttons-leds.md"
-        },
-        {
-          "dir": "an028-stop-sleep-cellular.md"
-        },
-        {
-          "dir": "an029-wake-publish-sleep-cellular.md"
-        },
-        {
-          "dir": "an030-eeprom-samples.md"
-        },
-        {
-          "dir": "an031-enabling-wifi-rf-test-for-esp32.md"
-        },
-        {
-          "dir": "an032-calling-api-from-web-page.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "application-notes",
+        "title": "Application Notes",
+        "href": "/datasheets/app-notes/application-notes/"
+      },
+      {
+        "dir": "technical-advisory-notices",
+        "title": "Technical Advisory Notices",
+        "href": "/datasheets/app-notes/technical-advisory-notices/"
+      },
+      {
+        "dir": "an001-basic-som-design",
+        "title": "AN001 Basic SoM Design",
+        "href": "/datasheets/app-notes/an001-basic-som-design/"
+      },
+      {
+        "dir": "an002-device-powerdown",
+        "title": "AN002 Device Powerdown",
+        "href": "/datasheets/app-notes/an002-device-powerdown/"
+      },
+      {
+        "dir": "an003-interpreting-cloud-debug",
+        "title": "AN003 Interpreting Cloud Debug Logs",
+        "href": "/datasheets/app-notes/an003-interpreting-cloud-debug/"
+      },
+      {
+        "dir": "an004-interpreting-cloud-debug-2",
+        "title": "AN004 Interpreting Cloud Debug Logs 2",
+        "href": "/datasheets/app-notes/an004-interpreting-cloud-debug-2/"
+      },
+      {
+        "dir": "an005-threading-explainer",
+        "title": "AN005 Threading Explainer",
+        "href": "/datasheets/app-notes/an005-threading-explainer/"
+      },
+      {
+        "dir": "an006-vehicle-power",
+        "title": "AN006 Vehicle Power",
+        "href": "/datasheets/app-notes/an006-vehicle-power/"
+      },
+      {
+        "dir": "an007-tower-info",
+        "title": "AN007 Tower Info",
+        "href": "/datasheets/app-notes/an007-tower-info/"
+      },
+      {
+        "dir": "an008-xenon-nordic-sdk",
+        "title": "AN008 Xenon with the Nordic SDK",
+        "href": "/datasheets/app-notes/an008-xenon-nordic-sdk/"
+      },
+      {
+        "dir": "an009-firmware-examples",
+        "title": "AN009 Firmware Examples",
+        "href": "/datasheets/app-notes/an009-firmware-examples/"
+      },
+      {
+        "dir": "an010-finite-state-machines",
+        "title": "AN010 Finite State Machines",
+        "href": "/datasheets/app-notes/an010-finite-state-machines/"
+      },
+      {
+        "dir": "an011-publish-to-google-sheets",
+        "title": "AN011 Publish to Google Sheets",
+        "href": "/datasheets/app-notes/an011-publish-to-google-sheets/"
+      },
+      {
+        "dir": "an012-tracker-1wire",
+        "title": "AN012 Tracker 1-Wire",
+        "href": "/datasheets/app-notes/an012-tracker-1wire/"
+      },
+      {
+        "dir": "an013-tracker-gpio",
+        "title": "AN013 Tracker GPIO",
+        "href": "/datasheets/app-notes/an013-tracker-gpio/"
+      },
+      {
+        "dir": "an014-tracker-i2c-scanner",
+        "title": "AN014 Tracker I2C Scanner",
+        "href": "/datasheets/app-notes/an014-tracker-i2c-scanner/"
+      },
+      {
+        "dir": "an015-tracker-breakout",
+        "title": "AN015 Tracker Breakout",
+        "href": "/datasheets/app-notes/an015-tracker-breakout/"
+      },
+      {
+        "dir": "an016-tracker-keypad-lcd",
+        "title": "AN016 Tracker Keypad LCD",
+        "href": "/datasheets/app-notes/an016-tracker-keypad-lcd/"
+      },
+      {
+        "dir": "an017-tracker-can",
+        "title": "AN017 Tracker CAN",
+        "href": "/datasheets/app-notes/an017-tracker-can/"
+      },
+      {
+        "dir": "an018-tracker-level",
+        "title": "AN018 Tracker Tank Level Sensor",
+        "href": "/datasheets/app-notes/an018-tracker-level/"
+      },
+      {
+        "dir": "an019-tracker-prototype",
+        "title": "AN019 Tracker Prototype to Board",
+        "href": "/datasheets/app-notes/an019-tracker-prototype/"
+      },
+      {
+        "dir": "an020-tracker-4-20ma",
+        "title": "AN020 Tracker 4-20mA Sensor",
+        "href": "/datasheets/app-notes/an020-tracker-4-20ma/"
+      },
+      {
+        "dir": "an021-tracker-4-20ma-quad",
+        "title": "AN021 Tracker 4-20mA Sensor Quad",
+        "href": "/datasheets/app-notes/an021-tracker-4-20ma-quad/"
+      },
+      {
+        "dir": "an022-tracker-sht3x-temperature-humidity",
+        "title": "AN022 Tracker SHT3x Temperature/Humidity",
+        "href": "/datasheets/app-notes/an022-tracker-sht3x-temperature-humidity/"
+      },
+      {
+        "dir": "an023-watchdog-timers",
+        "title": "AN023 Watchdog Timers",
+        "href": "/datasheets/app-notes/an023-watchdog-timers/"
+      },
+      {
+        "dir": "an024-tracker-relay",
+        "title": "AN024 Tracker Relay",
+        "href": "/datasheets/app-notes/an024-tracker-relay/"
+      },
+      {
+        "dir": "an025-tracker-som-first-board",
+        "title": "AN025 Tracker SoM First Board",
+        "href": "/datasheets/app-notes/an025-tracker-som-first-board/"
+      },
+      {
+        "dir": "an026-tracker-current-solutions-accelerator",
+        "title": "AN026 Tracker Current Solutions Accelerator",
+        "href": "/datasheets/app-notes/an026-tracker-current-solutions-accelerator/"
+      },
+      {
+        "dir": "an027-tracker-buttons-leds",
+        "title": "AN027 Tracker Button and LEDs",
+        "href": "/datasheets/app-notes/an027-tracker-buttons-leds/"
+      },
+      {
+        "dir": "an028-stop-sleep-cellular",
+        "title": "AN028 Stop sleep cellular example",
+        "href": "/datasheets/app-notes/an028-stop-sleep-cellular/"
+      },
+      {
+        "dir": "an029-wake-publish-sleep-cellular",
+        "title": "AN029 Wake publish sleep example",
+        "href": "/datasheets/app-notes/an029-wake-publish-sleep-cellular/"
+      },
+      {
+        "dir": "an030-eeprom-samples",
+        "title": "AN030 EEPROM samples example",
+        "href": "/datasheets/app-notes/an030-eeprom-samples/"
+      },
+      {
+        "dir": "an031-enabling-wifi-rf-test-for-esp32",
+        "title": "AN031 Enabling Wi-Fi RF Test for ESP32",
+        "href": "/datasheets/app-notes/an031-enabling-wifi-rf-test-for-esp32/"
+      },
+      {
+        "dir": "an032-calling-api-from-web-page",
+        "title": "AN032 Calling API from Web Page",
+        "href": "/datasheets/app-notes/an032-calling-api-from-web-page/"
+      }
+    ],
     {
       "dir": "discontinued",
-      "info": [
-        {
-          "dir": "xenon-datasheet.md"
-        },
-        {
-          "dir": "core-datasheet.md"
-        },
-        {
-          "dir": "core-shields.md"
-        }
-      ]
-    }
+      "isSection": true
+    },
+    [
+      {
+        "dir": "xenon-datasheet",
+        "title": "Xenon datasheet",
+        "href": "/datasheets/discontinued/xenon-datasheet/"
+      },
+      {
+        "dir": "core-datasheet",
+        "title": "Core datasheet",
+        "href": "/datasheets/discontinued/core-datasheet/"
+      },
+      {
+        "dir": "core-shields",
+        "title": "Core shields and kits",
+        "href": "/datasheets/discontinued/core-shields/"
+      }
+    ]
   ]
 }

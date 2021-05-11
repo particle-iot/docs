@@ -135,7 +135,7 @@ async function run() {
         // console.log('collectionOrder', collectionOrder);
         let menuJson = {};
 
-        const processDir = function(dirToSearch) {
+        const processDir = function(dirToSearch, hrefPrefix) {
             console.log('processDir ' + dirToSearch);
 
             let ordering = [];
@@ -157,14 +157,25 @@ async function run() {
                 description: Integrating CAN Bus data with your Tracker One
                 ---
                 */
+                let obj = {
+                    dir:dirent.name.substr(0, dirent.name.length - 3)
+                };
 
                 const content = fs.readFileSync(path.join(dirToSearch, dirent.name), 'utf8');
 
-                const m = content.match(/\norder:[ \t]*([0-9]+)/);
+                let m = content.match(/\norder:[ \t]*([0-9]+)/);
                 if (m) {
                     // console.log('match', m[1]);
-                    ordering.push({name:dirent.name, order: m[1]})
+                    obj.order = m[1];
                 }
+                m = content.match(/\ntitle:[ \t]*([^\n]+)/);
+                if (m) {
+                    obj.title = m[1];
+                }
+                obj.href = hrefPrefix + '/' + obj.dir + '/';
+
+                ordering.push(obj);
+
             }
             ordering.sort(function(a, b) {
                 return a.order - b.order;
@@ -172,28 +183,32 @@ async function run() {
             // console.log('ordering', ordering);
             let dirInfo = [];
 
-            for(const obj of ordering) {
-                dirInfo.push({dir:obj.name});
+            for(let obj of ordering) {
+                delete obj.order;
+                dirInfo.push(obj);
             }
 
             return dirInfo;
         };
 
+
         if (collectionOrder && collectionOrder.length > 0) {
             // Two levels deep
-            menuJson.sections = [];
+            menuJson.items = [];
 
             for(let sectionName of collectionOrder) {
-                const dirInfo = processDir(path.join(srcDir, sectionName));
+                menuJson.items.push({dir:sectionName,isSection:true});
 
-                menuJson.sections.push({dir:sectionName, info:dirInfo});
+                const dirInfo = processDir(path.join(srcDir, sectionName), '/' + info.dir + '/' + sectionName);
+
+                menuJson.items.push(dirInfo);
             }
         }
         else {
             // Single level deep
-            const dirInfo = processDir(srcDir);
+            const dirInfo = processDir(srcDir, '/' + info.dir);
 
-            menuJson.info = dirInfo;
+            menuJson.items = dirInfo;
         }
 
         fs.writeFileSync(path.join(srcDir, 'menu.json'), JSON.stringify(menuJson, null, 2));

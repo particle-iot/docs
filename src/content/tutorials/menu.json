@@ -1,237 +1,369 @@
 {
-  "sections": [
+  "items": [
     {
       "dir": "device-os",
-      "info": [
-        {
-          "dir": "device-os.md"
-        },
-        {
-          "dir": "cloud-communication.md"
-        },
-        {
-          "dir": "led.md"
-        },
-        {
-          "dir": "usb-serial.md"
-        },
-        {
-          "dir": "libraries.md"
-        },
-        {
-          "dir": "bluetooth-le.md"
-        },
-        {
-          "dir": "json.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "device-os",
+        "title": "Device OS",
+        "href": "/tutorials/device-os/device-os/"
+      },
+      {
+        "dir": "cloud-communication",
+        "title": "Cloud Communication",
+        "href": "/tutorials/device-os/cloud-communication/"
+      },
+      {
+        "dir": "led",
+        "title": "Status LED and Device Modes",
+        "href": "/tutorials/device-os/led/"
+      },
+      {
+        "dir": "usb-serial",
+        "title": "USB Serial Debugging",
+        "href": "/tutorials/device-os/usb-serial/"
+      },
+      {
+        "dir": "libraries",
+        "title": "Firmware Libraries",
+        "href": "/tutorials/device-os/libraries/"
+      },
+      {
+        "dir": "bluetooth-le",
+        "title": "Bluetooth LE",
+        "href": "/tutorials/device-os/bluetooth-le/"
+      },
+      {
+        "dir": "json",
+        "title": "JSON",
+        "href": "/tutorials/device-os/json/"
+      }
+    ],
     {
       "dir": "developer-tools",
-      "info": [
-        {
-          "dir": "workbench.md"
-        },
-        {
-          "dir": "cli.md"
-        },
-        {
-          "dir": "tinker.md"
-        },
-        {
-          "dir": "two-step-authentication.md"
-        },
-        {
-          "dir": "build.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "workbench",
+        "title": "Workbench",
+        "href": "/tutorials/developer-tools/workbench/"
+      },
+      {
+        "dir": "cli",
+        "title": "Command Line",
+        "href": "/tutorials/developer-tools/cli/"
+      },
+      {
+        "dir": "tinker",
+        "title": "Tinker & Mobile App",
+        "href": "/tutorials/developer-tools/tinker/"
+      },
+      {
+        "dir": "two-step-authentication",
+        "title": "Two-Step Authentication",
+        "href": "/tutorials/developer-tools/two-step-authentication/"
+      },
+      {
+        "dir": "build",
+        "title": "Web IDE",
+        "href": "/tutorials/developer-tools/build/"
+      }
+    ],
     {
       "dir": "device-cloud",
-      "info": [
-        {
-          "dir": "introduction.md"
-        },
-        {
-          "dir": "ota-updates.md"
-        },
-        {
-          "dir": "console.md"
-        },
-        {
-          "dir": "webhooks.md"
-        },
-        {
-          "dir": "authentication.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/tutorials/device-cloud/introduction/"
+      },
+      {
+        "dir": "ota-updates",
+        "title": "OTA Firmware Updates",
+        "href": "/tutorials/device-cloud/ota-updates/"
+      },
+      {
+        "dir": "console",
+        "title": "Console",
+        "href": "/tutorials/device-cloud/console/"
+      },
+      {
+        "dir": "webhooks",
+        "title": "Webhooks",
+        "href": "/tutorials/device-cloud/webhooks/"
+      },
+      {
+        "dir": "authentication",
+        "title": "Authentication",
+        "href": "/tutorials/device-cloud/authentication/"
+      }
+    ],
     {
       "dir": "cellular-connectivity",
-      "info": [
-        {
-          "dir": "introduction.md"
-        },
-        {
-          "dir": "data.md"
-        },
-        {
-          "dir": "cellular-carriers.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/tutorials/cellular-connectivity/introduction/"
+      },
+      {
+        "dir": "data",
+        "title": "Cellular Data Guide",
+        "href": "/tutorials/cellular-connectivity/data/"
+      },
+      {
+        "dir": "cellular-carriers",
+        "title": "Cellular Carriers",
+        "href": "/tutorials/cellular-connectivity/cellular-carriers/"
+      }
+    ],
     {
       "dir": "asset-tracking",
-      "info": [
-        {
-          "dir": "introduction.md"
-        },
-        {
-          "dir": "setup.md"
-        },
-        {
-          "dir": "tracker-edge-firmware.md"
-        },
-        {
-          "dir": "tracker-configuration.md"
-        },
-        {
-          "dir": "location-fusion.md"
-        },
-        {
-          "dir": "tracker-sleep.md"
-        },
-        {
-          "dir": "tracker-one-expansion.md"
-        },
-        {
-          "dir": "m8-temperature-humidity.md"
-        },
-        {
-          "dir": "can-bus.md"
-        },
-        {
-          "dir": "tracker-eval-tutorials.md"
-        },
-        {
-          "dir": "tracker-som-first-board.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/tutorials/asset-tracking/introduction/"
+      },
+      {
+        "dir": "setup",
+        "title": "Setup",
+        "href": "/tutorials/asset-tracking/setup/"
+      },
+      {
+        "dir": "tracker-edge-firmware",
+        "title": "Tracker Edge Firmware",
+        "href": "/tutorials/asset-tracking/tracker-edge-firmware/"
+      },
+      {
+        "dir": "tracker-configuration",
+        "title": "Tracker Configuration",
+        "href": "/tutorials/asset-tracking/tracker-configuration/"
+      },
+      {
+        "dir": "location-fusion",
+        "title": "Location Fusion",
+        "href": "/tutorials/asset-tracking/location-fusion/"
+      },
+      {
+        "dir": "tracker-sleep",
+        "title": "Tracker Sleep",
+        "href": "/tutorials/asset-tracking/tracker-sleep/"
+      },
+      {
+        "dir": "tracker-one-expansion",
+        "title": "Tracker One Expansion",
+        "href": "/tutorials/asset-tracking/tracker-one-expansion/"
+      },
+      {
+        "dir": "m8-temperature-humidity",
+        "title": "M8 Temperature/Humidity",
+        "href": "/tutorials/asset-tracking/m8-temperature-humidity/"
+      },
+      {
+        "dir": "can-bus",
+        "title": "CAN Bus",
+        "href": "/tutorials/asset-tracking/can-bus/"
+      },
+      {
+        "dir": "tracker-eval-tutorials",
+        "title": "Tracker Eval Board Tutorials",
+        "href": "/tutorials/asset-tracking/tracker-eval-tutorials/"
+      },
+      {
+        "dir": "tracker-som-first-board",
+        "title": "Tracker SoM First Board",
+        "href": "/tutorials/asset-tracking/tracker-som-first-board/"
+      }
+    ],
     {
       "dir": "diagnostics",
-      "info": [
-        {
-          "dir": "introduction.md"
-        },
-        {
-          "dir": "device-vitals.md"
-        },
-        {
-          "dir": "fleet-health.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/tutorials/diagnostics/introduction/"
+      },
+      {
+        "dir": "device-vitals",
+        "title": "Device Vitals",
+        "href": "/tutorials/diagnostics/device-vitals/"
+      },
+      {
+        "dir": "fleet-health",
+        "title": "Fleet Health",
+        "href": "/tutorials/diagnostics/fleet-health/"
+      }
+    ],
     {
       "dir": "product-tools",
-      "info": [
-        {
-          "dir": "introduction.md"
-        },
-        {
-          "dir": "security.md"
-        },
-        {
-          "dir": "device-groups.md"
-        },
-        {
-          "dir": "development-devices.md"
-        },
-        {
-          "dir": "team-access-controls.md"
-        },
-        {
-          "dir": "sim-management.md"
-        },
-        {
-          "dir": "organizations.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/tutorials/product-tools/introduction/"
+      },
+      {
+        "dir": "security",
+        "title": "Security",
+        "href": "/tutorials/product-tools/security/"
+      },
+      {
+        "dir": "device-groups",
+        "title": "Device Groups",
+        "href": "/tutorials/product-tools/device-groups/"
+      },
+      {
+        "dir": "development-devices",
+        "title": "Development Devices",
+        "href": "/tutorials/product-tools/development-devices/"
+      },
+      {
+        "dir": "team-access-controls",
+        "title": "Team Access Controls",
+        "href": "/tutorials/product-tools/team-access-controls/"
+      },
+      {
+        "dir": "sim-management",
+        "title": "SIM Management",
+        "href": "/tutorials/product-tools/sim-management/"
+      },
+      {
+        "dir": "organizations",
+        "title": "Organizations",
+        "href": "/tutorials/product-tools/organizations/"
+      }
+    ],
     {
       "dir": "integrations",
-      "info": [
-        {
-          "dir": "introduction.md"
-        },
-        {
-          "dir": "google-cloud-platform.md"
-        },
-        {
-          "dir": "google-maps.md"
-        },
-        {
-          "dir": "azure-iot-hub.md"
-        },
-        {
-          "dir": "influxdata.md"
-        },
-        {
-          "dir": "questdb.md"
-        },
-        {
-          "dir": "ifttt.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/tutorials/integrations/introduction/"
+      },
+      {
+        "dir": "google-cloud-platform",
+        "title": "Google Cloud Platform",
+        "href": "/tutorials/integrations/google-cloud-platform/"
+      },
+      {
+        "dir": "google-maps",
+        "title": "Google Maps",
+        "href": "/tutorials/integrations/google-maps/"
+      },
+      {
+        "dir": "azure-iot-hub",
+        "title": "Azure IoT Hub",
+        "href": "/tutorials/integrations/azure-iot-hub/"
+      },
+      {
+        "dir": "influxdata",
+        "title": "InfluxData",
+        "href": "/tutorials/integrations/influxdata/"
+      },
+      {
+        "dir": "questdb",
+        "title": "QuestDB",
+        "href": "/tutorials/integrations/questdb/"
+      },
+      {
+        "dir": "ifttt",
+        "title": "IFTTT",
+        "href": "/tutorials/integrations/ifttt/"
+      }
+    ],
     {
       "dir": "hardware-projects",
-      "info": [
-        {
-          "dir": "hardware-examples.md"
-        },
-        {
-          "dir": "maker-kit.md"
-        },
-        {
-          "dir": "e-series-eval-kit.md"
-        },
-        {
-          "dir": "som-first-board.md"
-        }
-      ]
+      "isSection": true
     },
+    [
+      {
+        "dir": "hardware-examples",
+        "title": "Hardware Examples",
+        "href": "/tutorials/hardware-projects/hardware-examples/"
+      },
+      {
+        "dir": "maker-kit",
+        "title": "Maker Kit Tutorials",
+        "href": "/tutorials/hardware-projects/maker-kit/"
+      },
+      {
+        "dir": "e-series-eval-kit",
+        "title": "E Series Eval Kit Tutorials",
+        "href": "/tutorials/hardware-projects/e-series-eval-kit/"
+      },
+      {
+        "dir": "som-first-board",
+        "title": "B Series SoM First Board",
+        "href": "/tutorials/hardware-projects/som-first-board/"
+      }
+    ],
     {
       "dir": "learn-more",
-      "info": [
-        {
-          "dir": "about-i2c.md"
-        },
-        {
-          "dir": "about-serial.md"
-        },
-        {
-          "dir": "ethernet-featherwing.md"
-        },
-        {
-          "dir": "batteries.md"
-        },
-        {
-          "dir": "real-time-clocks.md"
-        },
-        {
-          "dir": "prototyping.md"
-        },
-        {
-          "dir": "beyond-prototyping.md"
-        },
-        {
-          "dir": "xenon-options.md"
-        },
-        {
-          "dir": "xenon-circuit-python.md"
-        }
-      ]
-    }
+      "isSection": true
+    },
+    [
+      {
+        "dir": "about-i2c",
+        "title": "About I2C",
+        "href": "/tutorials/learn-more/about-i2c/"
+      },
+      {
+        "dir": "about-serial",
+        "title": "About Serial",
+        "href": "/tutorials/learn-more/about-serial/"
+      },
+      {
+        "dir": "ethernet-featherwing",
+        "title": "Ethernet FeatherWing",
+        "href": "/tutorials/learn-more/ethernet-featherwing/"
+      },
+      {
+        "dir": "batteries",
+        "title": "Batteries",
+        "href": "/tutorials/learn-more/batteries/"
+      },
+      {
+        "dir": "real-time-clocks",
+        "title": "Real-time clocks",
+        "href": "/tutorials/learn-more/real-time-clocks/"
+      },
+      {
+        "dir": "prototyping",
+        "title": "Prototyping",
+        "href": "/tutorials/learn-more/prototyping/"
+      },
+      {
+        "dir": "beyond-prototyping",
+        "title": "Beyond Prototyping",
+        "href": "/tutorials/learn-more/beyond-prototyping/"
+      },
+      {
+        "dir": "xenon-options",
+        "title": "Using a Xenon without Mesh",
+        "href": "/tutorials/learn-more/xenon-options/"
+      },
+      {
+        "dir": "xenon-circuit-python",
+        "title": "CircuitPython on Xenon",
+        "href": "/tutorials/learn-more/xenon-circuit-python/"
+      }
+    ]
   ]
 }
