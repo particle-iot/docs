@@ -1,0 +1,237 @@
+{
+  "sections": [
+    {
+      "dir": "device-os",
+      "info": [
+        {
+          "dir": "device-os.md"
+        },
+        {
+          "dir": "cloud-communication.md"
+        },
+        {
+          "dir": "led.md"
+        },
+        {
+          "dir": "usb-serial.md"
+        },
+        {
+          "dir": "libraries.md"
+        },
+        {
+          "dir": "bluetooth-le.md"
+        },
+        {
+          "dir": "json.md"
+        }
+      ]
+    },
+    {
+      "dir": "developer-tools",
+      "info": [
+        {
+          "dir": "workbench.md"
+        },
+        {
+          "dir": "cli.md"
+        },
+        {
+          "dir": "tinker.md"
+        },
+        {
+          "dir": "two-step-authentication.md"
+        },
+        {
+          "dir": "build.md"
+        }
+      ]
+    },
+    {
+      "dir": "device-cloud",
+      "info": [
+        {
+          "dir": "introduction.md"
+        },
+        {
+          "dir": "ota-updates.md"
+        },
+        {
+          "dir": "console.md"
+        },
+        {
+          "dir": "webhooks.md"
+        },
+        {
+          "dir": "authentication.md"
+        }
+      ]
+    },
+    {
+      "dir": "cellular-connectivity",
+      "info": [
+        {
+          "dir": "introduction.md"
+        },
+        {
+          "dir": "data.md"
+        },
+        {
+          "dir": "cellular-carriers.md"
+        }
+      ]
+    },
+    {
+      "dir": "asset-tracking",
+      "info": [
+        {
+          "dir": "introduction.md"
+        },
+        {
+          "dir": "setup.md"
+        },
+        {
+          "dir": "tracker-edge-firmware.md"
+        },
+        {
+          "dir": "tracker-configuration.md"
+        },
+        {
+          "dir": "location-fusion.md"
+        },
+        {
+          "dir": "tracker-sleep.md"
+        },
+        {
+          "dir": "tracker-one-expansion.md"
+        },
+        {
+          "dir": "m8-temperature-humidity.md"
+        },
+        {
+          "dir": "can-bus.md"
+        },
+        {
+          "dir": "tracker-eval-tutorials.md"
+        },
+        {
+          "dir": "tracker-som-first-board.md"
+        }
+      ]
+    },
+    {
+      "dir": "diagnostics",
+      "info": [
+        {
+          "dir": "introduction.md"
+        },
+        {
+          "dir": "device-vitals.md"
+        },
+        {
+          "dir": "fleet-health.md"
+        }
+      ]
+    },
+    {
+      "dir": "product-tools",
+      "info": [
+        {
+          "dir": "introduction.md"
+        },
+        {
+          "dir": "security.md"
+        },
+        {
+          "dir": "device-groups.md"
+        },
+        {
+          "dir": "development-devices.md"
+        },
+        {
+          "dir": "team-access-controls.md"
+        },
+        {
+          "dir": "sim-management.md"
+        },
+        {
+          "dir": "organizations.md"
+        }
+      ]
+    },
+    {
+      "dir": "integrations",
+      "info": [
+        {
+          "dir": "introduction.md"
+        },
+        {
+          "dir": "google-cloud-platform.md"
+        },
+        {
+          "dir": "google-maps.md"
+        },
+        {
+          "dir": "azure-iot-hub.md"
+        },
+        {
+          "dir": "influxdata.md"
+        },
+        {
+          "dir": "questdb.md"
+        },
+        {
+          "dir": "ifttt.md"
+        }
+      ]
+    },
+    {
+      "dir": "hardware-projects",
+      "info": [
+        {
+          "dir": "hardware-examples.md"
+        },
+        {
+          "dir": "maker-kit.md"
+        },
+        {
+          "dir": "e-series-eval-kit.md"
+        },
+        {
+          "dir": "som-first-board.md"
+        }
+      ]
+    },
+    {
+      "dir": "learn-more",
+      "info": [
+        {
+          "dir": "about-i2c.md"
+        },
+        {
+          "dir": "about-serial.md"
+        },
+        {
+          "dir": "ethernet-featherwing.md"
+        },
+        {
+          "dir": "batteries.md"
+        },
+        {
+          "dir": "real-time-clocks.md"
+        },
+        {
+          "dir": "prototyping.md"
+        },
+        {
+          "dir": "beyond-prototyping.md"
+        },
+        {
+          "dir": "xenon-options.md"
+        },
+        {
+          "dir": "xenon-circuit-python.md"
+        }
+      ]
+    }
+  ]
+}

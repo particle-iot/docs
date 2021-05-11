@@ -1,0 +1,28 @@
+{
+  "info": [
+    {
+      "dir": "forum.md"
+    },
+    {
+      "dir": "feather.md"
+    },
+    {
+      "dir": "qwiic.md"
+    },
+    {
+      "dir": "mikroe.md"
+    },
+    {
+      "dir": "community.md"
+    },
+    {
+      "dir": "node-red.md"
+    },
+    {
+      "dir": "community-tools.md"
+    },
+    {
+      "dir": "contributing.md"
+    }
+  ]
+}

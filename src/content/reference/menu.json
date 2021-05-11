@@ -1,0 +1,96 @@
+{
+  "sections": [
+    {
+      "dir": "device-os",
+      "info": [
+        {
+          "dir": "firmware.md"
+        },
+        {
+          "dir": "versions.md"
+        }
+      ]
+    },
+    {
+      "dir": "developer-tools",
+      "info": [
+        {
+          "dir": "cli.md"
+        },
+        {
+          "dir": "jtag.md"
+        }
+      ]
+    },
+    {
+      "dir": "device-cloud",
+      "info": [
+        {
+          "dir": "api.md"
+        },
+        {
+          "dir": "webhooks.md"
+        }
+      ]
+    },
+    {
+      "dir": "SDKs",
+      "info": [
+        {
+          "dir": "javascript.md"
+        },
+        {
+          "dir": "ios.md"
+        },
+        {
+          "dir": "android.md"
+        }
+      ]
+    },
+    {
+      "dir": "asset-tracking",
+      "info": [
+        {
+          "dir": "tracker-edge-firmware.md"
+        }
+      ]
+    },
+    {
+      "dir": "hardware",
+      "info": [
+        {
+          "dir": "pin-info.md"
+        }
+      ]
+    },
+    {
+      "dir": "discontinued",
+      "info": [
+        {
+          "dir": "mesh.md"
+        },
+        {
+          "dir": "firmware-mesh.md"
+        },
+        {
+          "dir": "firmware-xenon.md"
+        },
+        {
+          "dir": "firmware-core.md"
+        },
+        {
+          "dir": "dev.md"
+        },
+        {
+          "dir": "windows.md"
+        },
+        {
+          "dir": "ldk-project.md"
+        },
+        {
+          "dir": "button.md"
+        }
+      ]
+    }
+  ]
+}

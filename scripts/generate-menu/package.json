@@ -1,0 +1,17 @@
+{
+    "name": "generate-menu",
+    "description": "One-time use tool to generate menu json files",
+    "version": "0.0.1",
+    "private": true,
+    "license": "MIT",
+    "author": "rick@particle.io",
+    "engines": {
+      "node": ">=8"
+    },
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+  }
+  

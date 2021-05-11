@@ -1,0 +1,28 @@
+{
+  "info": [
+    {
+      "dir": "argon.md"
+    },
+    {
+      "dir": "boron.md"
+    },
+    {
+      "dir": "b-som.md"
+    },
+    {
+      "dir": "photon.md"
+    },
+    {
+      "dir": "electron.md"
+    },
+    {
+      "dir": "workbench.md"
+    },
+    {
+      "dir": "isk-project.md"
+    },
+    {
+      "dir": "aqmk-project.md"
+    }
+  ]
+}

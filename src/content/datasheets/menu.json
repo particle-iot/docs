@@ -1,0 +1,218 @@
+{
+  "sections": [
+    {
+      "dir": "asset-tracking",
+      "info": [
+        {
+          "dir": "tracker-som-datasheet.md"
+        },
+        {
+          "dir": "tracker-som-eval-board.md"
+        },
+        {
+          "dir": "tracker-one.md"
+        },
+        {
+          "dir": "tracker-m8-accessories.md"
+        },
+        {
+          "dir": "m8-temperature-humidity.md"
+        }
+      ]
+    },
+    {
+      "dir": "boron",
+      "info": [
+        {
+          "dir": "boron-datasheet.md"
+        },
+        {
+          "dir": "b402-datasheet.md"
+        },
+        {
+          "dir": "b523-datasheet.md"
+        },
+        {
+          "dir": "b-series-eval-board.md"
+        }
+      ]
+    },
+    {
+      "dir": "electron",
+      "info": [
+        {
+          "dir": "electron-datasheet.md"
+        },
+        {
+          "dir": "e-series-datasheet.md"
+        },
+        {
+          "dir": "e-series-eval-board.md"
+        },
+        {
+          "dir": "e-series-system-integration-manual.md"
+        }
+      ]
+    },
+    {
+      "dir": "wi-fi",
+      "info": [
+        {
+          "dir": "argon-datasheet.md"
+        },
+        {
+          "dir": "photon-datasheet.md"
+        },
+        {
+          "dir": "p1-datasheet.md"
+        }
+      ]
+    },
+    {
+      "dir": "certifications",
+      "info": [
+        {
+          "dir": "certification.md"
+        },
+        {
+          "dir": "antenna.md"
+        }
+      ]
+    },
+    {
+      "dir": "accessories",
+      "info": [
+        {
+          "dir": "debugger.md"
+        },
+        {
+          "dir": "gen3-accessories.md"
+        },
+        {
+          "dir": "legacy-accessories.md"
+        }
+      ]
+    },
+    {
+      "dir": "app-notes",
+      "info": [
+        {
+          "dir": "application-notes.md"
+        },
+        {
+          "dir": "technical-advisory-notices.md"
+        },
+        {
+          "dir": "an001-basic-som-design.md"
+        },
+        {
+          "dir": "an002-device-powerdown.md"
+        },
+        {
+          "dir": "an003-interpreting-cloud-debug.md"
+        },
+        {
+          "dir": "an004-interpreting-cloud-debug-2.md"
+        },
+        {
+          "dir": "an005-threading-explainer.md"
+        },
+        {
+          "dir": "an006-vehicle-power.md"
+        },
+        {
+          "dir": "an007-tower-info.md"
+        },
+        {
+          "dir": "an008-xenon-nordic-sdk.md"
+        },
+        {
+          "dir": "an009-firmware-examples.md"
+        },
+        {
+          "dir": "an010-finite-state-machines.md"
+        },
+        {
+          "dir": "an011-publish-to-google-sheets.md"
+        },
+        {
+          "dir": "an012-tracker-1wire.md"
+        },
+        {
+          "dir": "an013-tracker-gpio.md"
+        },
+        {
+          "dir": "an014-tracker-i2c-scanner.md"
+        },
+        {
+          "dir": "an015-tracker-breakout.md"
+        },
+        {
+          "dir": "an016-tracker-keypad-lcd.md"
+        },
+        {
+          "dir": "an017-tracker-can.md"
+        },
+        {
+          "dir": "an018-tracker-level.md"
+        },
+        {
+          "dir": "an019-tracker-prototype.md"
+        },
+        {
+          "dir": "an020-tracker-4-20ma.md"
+        },
+        {
+          "dir": "an021-tracker-4-20ma-quad.md"
+        },
+        {
+          "dir": "an022-tracker-sht3x-temperature-humidity.md"
+        },
+        {
+          "dir": "an023-watchdog-timers.md"
+        },
+        {
+          "dir": "an024-tracker-relay.md"
+        },
+        {
+          "dir": "an025-tracker-som-first-board.md"
+        },
+        {
+          "dir": "an026-tracker-current-solutions-accelerator.md"
+        },
+        {
+          "dir": "an027-tracker-buttons-leds.md"
+        },
+        {
+          "dir": "an028-stop-sleep-cellular.md"
+        },
+        {
+          "dir": "an029-wake-publish-sleep-cellular.md"
+        },
+        {
+          "dir": "an030-eeprom-samples.md"
+        },
+        {
+          "dir": "an031-enabling-wifi-rf-test-for-esp32.md"
+        },
+        {
+          "dir": "an032-calling-api-from-web-page.md"
+        }
+      ]
+    },
+    {
+      "dir": "discontinued",
+      "info": [
+        {
+          "dir": "xenon-datasheet.md"
+        },
+        {
+          "dir": "core-datasheet.md"
+        },
+        {
+          "dir": "core-shields.md"
+        }
+      ]
+    }
+  ]
+}

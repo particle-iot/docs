@@ -1,0 +1,69 @@
+{
+  "sections": [
+    {
+      "dir": "particle-workshops",
+      "info": []
+    },
+    {
+      "dir": "particle-101-workshop",
+      "info": [
+        {
+          "dir": "introduction.md"
+        },
+        {
+          "dir": "prerequisites.md"
+        },
+        {
+          "dir": "a-lap-around-particle.md"
+        },
+        {
+          "dir": "claim-device.md"
+        },
+        {
+          "dir": "particle-primitives.md"
+        },
+        {
+          "dir": "primitives.md"
+        },
+        {
+          "dir": "device-cloud.md"
+        },
+        {
+          "dir": "ble.md"
+        },
+        {
+          "dir": "integrations.md"
+        },
+        {
+          "dir": "webhooks.md"
+        },
+        {
+          "dir": "debugging.md"
+        }
+      ]
+    },
+    {
+      "dir": "photon-maker-kit-workshop",
+      "info": [
+        {
+          "dir": "introduction.md"
+        },
+        {
+          "dir": "ch1.md"
+        },
+        {
+          "dir": "ch2.md"
+        },
+        {
+          "dir": "ch3.md"
+        },
+        {
+          "dir": "ch4.md"
+        },
+        {
+          "dir": "ch5.md"
+        }
+      ]
+    }
+  ]
+}
