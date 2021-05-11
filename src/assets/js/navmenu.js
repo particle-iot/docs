@@ -21,10 +21,10 @@ navMenu.scanHeaders = function () {
             if (level == 2) {
                 lastL2 = obj;
             }
-            else
+            
             if (level > 2) {
-                navMenu.useDisclosureTriangle = true;
                 if (lastL2) {
+                    navMenu.useDisclosureTriangle = true;
                     lastL2.hasDisclosureTriangle = true;
                 }
             }
@@ -101,6 +101,14 @@ navMenu.scanHeaders = function () {
 
                 $(e2).append(e3);
             }
+            else if (navMenu.useDisclosureTriangle) {
+                // This is a change in behavior from before. Now, if there are
+                // any disclosure triangles, entries without one are indented
+                // to the same level so the text is aligned.
+                e3 = document.createElement('span');
+                $(e3).addClass('navDisclosure');
+                $(e2).append(e3);
+            }
 
             e3 = document.createElement('a');
             $(e3).addClass('navLink')
@@ -160,20 +168,20 @@ navMenu.updateTOC = function() {
 
     console.log('hierarchy ', hierarchy);
 
+    // Change active links back to plain
+    $('.navLinkActive').removeClass('navLinkActive').addClass('navLink');
+
     // Collapse all sections
-    $('#navActiveContent i').removeClass('navActive');
-    $('#navActiveContent i').removeClass('ion-arrow-down-b');
-    $('#navActiveContent i').addClass('ion-arrow-right-b');
+    $('#navActiveContent i').removeClass('navActive').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
     $('.navMenu4').hide();
 
     // Expand the current section
-    $('.navL2' + hierarchy[0].id + ' i').removeClass('ion-arrow-right-b');
-    $('.navL2' + hierarchy[0].id + ' i').addClass('ion-arrow-down-b');
+    $('.navL2' + hierarchy[0].id + ' i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
     $('.navL3' + hierarchy[0].id).show();
 
-    for(let ii = 1; ii < hierarchy.length; ii++) {
+    for(let ii = 0; ii < hierarchy.length; ii++) {
         if (hierarchy[ii].tocElem) {
-            $(hierarchy[ii].tocElem).find('.navContent4').addClass('navActive');
+            $(hierarchy[ii].tocElem).find('a').removeClass('navLink').addClass('navLinkActive');
         }
     } 
 };

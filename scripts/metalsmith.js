@@ -291,9 +291,6 @@ exports.metalsmith = function () {
     .use(planLimits({
       config: '../config/planLimits.json'
     }))
-    .use(navMenuGenerator({      
-      contentDir: '../src/content',
-    }))
     .use(refCards({
       contentDir: '../src/content',
       sources: [
@@ -307,6 +304,9 @@ exports.metalsmith = function () {
       sourceDir: '../src/assets/files/libraries',
       searchIndex: '../build/assets/files/librarySearch.json',
       redirects: '../config/redirects.json'
+    }))
+    .use(navMenuGenerator({      
+      contentDir: '../src/content',
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link

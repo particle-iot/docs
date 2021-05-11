@@ -172,9 +172,21 @@ a.navLink {
     color: @spark-blue !important;
   }  
 }
-.navActive {
-  color: @NC_CYAN !important;
-};
+a.navLinkActive {
+  &:link {
+    color: @NC_CYAN !important;
+    font-weight: bold;
+  }
+  &:visited {
+    color: @NC_CYAN !important;
+    font-weight: bold;
+  }
+  &:hover {
+    color: @NC_CYAN !important;
+    font-weight: bold;
+  }  
+}
+
 
 
 /* Old Nav Menu */
