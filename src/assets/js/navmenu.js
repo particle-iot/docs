@@ -29,7 +29,7 @@ navMenu.scanHeaders = function () {
             if (level == 2) {
                 lastL2 = obj;
             }
-            
+
             if (level > 2) {
                 if (lastL2) {
                     navMenu.useDisclosureTriangle = true;
@@ -55,7 +55,7 @@ navMenu.scanHeaders = function () {
                 navMenu.currentHeader += 1;
             } else if (navMenu.currentHeader > 0 &&
                 scrollPosition < Math.floor($(navMenu.headers[navMenu.currentHeader].elem).position().top)) {
-                    navMenu.currentHeader -= 1;
+                navMenu.currentHeader -= 1;
             } else {
                 done = true;
             }
@@ -66,10 +66,28 @@ navMenu.scanHeaders = function () {
         }
     });
 
+    $('.navActive2').siblings('.navPlusMinus').on('click', function() {
+        const iconElem = $(this).find('i');
+
+        if ($(iconElem).hasClass('ion-minus')) {
+            // Is minus (content displayed), change to plus (content hidden)
+            $(iconElem).removeClass('ion-minus').addClass('ion-plus');
+            $('#navActiveContent').hide();
+        }
+        else {
+            // Is plus (content hidden, change to minus (content displayed)
+            $(iconElem).removeClass('ion-plus').addClass('ion-minus');
+            $('#navActiveContent').show();
+        }
+
+    });  
+
     // Build TOC HTML
     lastL2 = null;
 
-    for(let hdr of navMenu.headers) {
+    let hasActiveContent = false;
+
+    for (let hdr of navMenu.headers) {
         if (hdr.level == 2) {
             let e1, e2, e3, e4;
 
@@ -84,12 +102,12 @@ navMenu.scanHeaders = function () {
             if (hdr.hasDisclosureTriangle) {
                 e2 = document.createElement('div');
                 $(e2).addClass('navDisclosure');
-                
+
                 const iconElem = document.createElement('i');
                 $(iconElem).addClass('ion-arrow-right-b');
                 $(e2).append(iconElem);
 
-                $(e2).on('click', function() {
+                $(e2).on('click', function () {
                     if ($(iconElem).hasClass('ion-arrow-right-b')) {
                         // Was right, make down
                         $(iconElem).removeClass('ion-arrow-right-b');
@@ -99,7 +117,7 @@ navMenu.scanHeaders = function () {
                     else {
                         // Has down, make right
                         $(iconElem).removeClass('ion-arrow-down-b');
-                        $(iconElem).addClass('ion-arrow-right-b');                        
+                        $(iconElem).addClass('ion-arrow-right-b');
                         $('.navL3' + hdr.id).hide();
                     }
                 });
@@ -126,6 +144,7 @@ navMenu.scanHeaders = function () {
             $(e1).append(e2);
 
             $('#navActiveContent').append(e1);
+            hasActiveContent = true;
             hdr.tocElem = e1;
 
             lastL2 = hdr;
@@ -151,21 +170,25 @@ navMenu.scanHeaders = function () {
             $(e3).text($(hdr.elem).text());
             $(e2).append(e3);
             $(e1).append(e2);
-            
+
             $('#navActiveContent').append(e1);
+            hasActiveContent = true;
             $(e1).hide();
             hdr.tocElem = e1;
         }
+    }
 
+    if (!hasActiveContent) {
+        $('.navActive2').siblings('.navPlusMinus').hide();
     }
 };
 
-navMenu.updateTOC = function() {
+navMenu.updateTOC = function () {
     console.log('updateTOC', navMenu.headers[navMenu.currentHeader]);
-    
+
     let hierarchy = [];
     hierarchy.push(navMenu.headers[navMenu.currentHeader]);
-    for(let ii = navMenu.currentHeader - 1; ii >= 0; ii--) {
+    for (let ii = navMenu.currentHeader - 1; ii >= 0; ii--) {
         if (navMenu.headers[ii].level < hierarchy[0].level) {
             hierarchy.splice(0, 0, navMenu.headers[ii]);
         }
@@ -187,56 +210,31 @@ navMenu.updateTOC = function() {
     $('.navL2' + hierarchy[0].id + ' i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
     $('.navL3' + hierarchy[0].id).show();
 
-    for(let ii = 0; ii < hierarchy.length; ii++) {
+    for (let ii = 0; ii < hierarchy.length; ii++) {
         if (hierarchy[ii].tocElem) {
             $(hierarchy[ii].tocElem).find('a').removeClass('navLink').addClass('navLinkActive');
         }
-    } 
+    }
+    navMenu.scrollToActive();
 };
+
+navMenu.scrollToActive = function () {
+    const activeElem = $('.navLinkActive');
+    if (activeElem.length <= 0) {
+        return;
+    }
+    activeElem[0].scrollIntoView();  
+};
+
 
 navMenu.ready = function () {
     navMenu.scanHeaders();
+    navMenu.scrollToActive();
+
+
 };
 
 $(document).ready(function () {
     navMenu.ready();
 });
 
-
-
-/*
-    var content = $('.content-inner');
-    var headers = content.find('h2, h3');
-
-    if (headers.length === 0) {
-      return;
-    }
-
-    var twoLevelTOC = content.find('h2').length > 0;
-    var currentHeader = -1;
-
-    // When scrolling, find the closest header and synchronize which TOC
-    // entry is active
-    content.on('scroll', function() {
-      var scrollPosition = content.scrollTop();
-      var done = false;
-
-      var oldHeader = currentHeader;
-      while (!done) {
-        if (currentHeader < headers.length - 2 &&
-           scrollPosition >= Math.floor($(headers[currentHeader + 1]).position().top)) {
-          currentHeader += 1;
-        } else if (currentHeader > 0 &&
-                  scrollPosition < Math.floor($(headers[currentHeader]).position().top)) {
-          currentHeader -= 1;
-        } else {
-          done = true;
-        }
-      }
-
-      if (oldHeader !== currentHeader) {
-        navMenu.showTOC($(headers[currentHeader]));
-        Docs.updateTOC($(headers[currentHeader]), twoLevelTOC);
-      }
-    });
-    */

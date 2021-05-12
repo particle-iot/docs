@@ -80,6 +80,7 @@ function generateNavHtml(menuJson) {
 
         if (item.activeItem) {
             html += '<div class="navActive2">' + makeTitle(item) + '</div>';
+            html += '<div class="navPlusMinus"><i class="ion-minus"></i></div>';
         }
         else {
             html += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
@@ -96,31 +97,72 @@ function generateNavHtml(menuJson) {
 
     nav += '<div class="navMenuOuter">';
 
+    let itemsFlat = [];
+    let cardSections = [];
+
     for (const item of menuJson.items) {
         if (item.isCardSection) {
             nav += '<div class="navContainer">';
             nav += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
             nav += '</div>'; // navContainer
+            cardSections.push(item);
         }
-        else
-        if (item.isSection) {
+        else if (item.isSection) {
             // Multi-level section title
             nav += '<div class="navContainer"><div class="navMenu1">' + makeTitle(item) + '</div></div>';
         }
-        else
-            if (Array.isArray(item)) {
-                // Multi-level (like tutorials, reference, datasheets)
-                for (const itemInner of item) {
-                    nav += makeNavMenu2(itemInner, true);
+        else if (Array.isArray(item)) {
+            // Multi-level (like tutorials, reference, datasheets)
+            let hasActiveItem = false;
+            
+            for (const itemInner of item) {
+                nav += makeNavMenu2(itemInner, true);
+                itemsFlat.push(itemInner);
+                if (itemInner.activeItem) {
+                    hasActiveItem = true;
                 }
-                nav += '<div class="navSectionSpacer"></div>';
             }
-            else {
-                // Single level deep (like quickstart or community)
-                nav += makeNavMenu2(item, false);
+            nav += '<div class="navSectionSpacer"></div>';
+            
+            if (hasActiveItem && cardSections.length > 0) {
+                cardSections[cardSections.length - 1].activeSection = true;
             }
+        }
+        else {
+            // Single level deep (like quickstart or community)
+            nav += makeNavMenu2(item, false);
+            itemsFlat.push(item);
+        }
     }
     nav += '</div>'; // navMenuOuter
+
+    // Generate keyboard and swipe navigation directions for this page
+    let navigationInfo = {};
+
+    for(let ii = 0; ii < itemsFlat.length; ii++) {
+        if (itemsFlat[ii].activeItem) {
+            if (ii > 0) {
+                navigationInfo.prevLink = itemsFlat[ii - 1].href;
+            }
+            if ((ii + 1) < itemsFlat.length) {
+                navigationInfo.nextLink = itemsFlat[ii + 1].href;
+            }
+            break;
+        }
+    }
+    for(let ii = 0; ii < cardSections.length; ii++) {
+        if (cardSections[ii].activeSection) {
+            if (ii > 0) {
+                navigationInfo.prevGroup = cardSections[ii - 1].href;
+            }
+            if ((ii + 1) < itemsFlat.length) {
+                navigationInfo.nextGroup = cardSections[ii + 1].href;
+            }
+            break;
+        }
+    }
+    nav += '<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>';
+    
 
     return nav;
 }
