@@ -52,28 +52,25 @@ function generateNavMenu(fileObj, contentDir) {
         const isActiveItem = (item.dir === fileObj.path.name);
         let html = '';
         
-        if (isActiveItem) {
-            html += '<div class="navActive2">';
-        }
-        else {
-            html += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">';
-        }
+        html += '<div class="navContainer">';
 
         if (indent) {
-            html += '<span class="navIndent2">&nbsp;</span>'
+            html += '<div class="navIndent2">&nbsp;</div>'
         }
 
-        html += '<span>' + makeTitle(item) + '</span>';
-
-        if (!isActiveItem) {
-            html += '</a>';
+        if (isActiveItem) {
+            html += '<div class="navActive2">' + makeTitle(item) + '</div>';
+        }
+        else {
+            html += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
         }
 
-        html += '</div>';
+        html += '</div>'; // navContainer
 
-        if (isActiveItem){
+        if (isActiveItem) {
             html += '<div id="navActiveContent"></div>';
         }
+
         return html;
     };
 
@@ -82,7 +79,7 @@ function generateNavMenu(fileObj, contentDir) {
     for(const item of menuJson.items) {
         if (item.isSection) {
             // Multi-level section title
-            nav += '<div class="navMenu1">' + makeTitle(item) + '</div>';
+            nav += '<div class="navContainer"><div class="navMenu1">' + makeTitle(item) + '</div></div>';
         }
         else
         if (Array.isArray(item)) {

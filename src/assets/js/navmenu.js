@@ -66,49 +66,49 @@ navMenu.scanHeaders = function () {
             let e1, e2, e3, e4;
 
             e1 = document.createElement('div');
-            $(e1).addClass('navMenu3');
+            $(e1).addClass('navMenu3 navContainer');
+            $(e1).addClass('navL2' + hdr.id);
 
-            e2 = document.createElement('span');
+            e2 = document.createElement('div');
             $(e2).addClass('navIndent3');
             $(e1).append(e2);
 
-            e2 = document.createElement('span');
-            $(e2).addClass('navContent3');
-
             if (hdr.hasDisclosureTriangle) {
-                e3 = document.createElement('span');
-                $(e3).addClass('navDisclosure');
-                $(e2).addClass('navL2' + hdr.id);
+                e2 = document.createElement('div');
+                $(e2).addClass('navDisclosure');
                 
-                e4 = document.createElement('i');
-                $(e4).addClass('ion-arrow-right-b');
-                $(e3).append(e4);
+                const iconElem = document.createElement('i');
+                $(iconElem).addClass('ion-arrow-right-b');
+                $(e2).append(iconElem);
 
-                $(e3).on('click', function() {
-                    if ($(e4).hasClass('ion-arrow-right-b')) {
+                $(e2).on('click', function() {
+                    if ($(iconElem).hasClass('ion-arrow-right-b')) {
                         // Was right, make down
-                        $(e4).removeClass('ion-arrow-right-b');
-                        $(e4).addClass('ion-arrow-down-b');
+                        $(iconElem).removeClass('ion-arrow-right-b');
+                        $(iconElem).addClass('ion-arrow-down-b');
                         $('.navL3' + hdr.id).show();
                     }
                     else {
                         // Has down, make right
-                        $(e4).removeClass('ion-arrow-down-b');
-                        $(e4).addClass('ion-arrow-right-b');                        
+                        $(iconElem).removeClass('ion-arrow-down-b');
+                        $(iconElem).addClass('ion-arrow-right-b');                        
                         $('.navL3' + hdr.id).hide();
                     }
                 });
 
-                $(e2).append(e3);
+                $(e1).append(e2);
             }
             else if (navMenu.useDisclosureTriangle) {
                 // This is a change in behavior from before. Now, if there are
                 // any disclosure triangles, entries without one are indented
                 // to the same level so the text is aligned.
-                e3 = document.createElement('span');
-                $(e3).addClass('navDisclosure');
-                $(e2).append(e3);
+                e2 = document.createElement('div');
+                $(e2).addClass('navDisclosure');
+                $(e1).append(e2);
             }
+
+            e2 = document.createElement('div');
+            $(e2).addClass('navContent3');
 
             e3 = document.createElement('a');
             $(e3).addClass('navLink')
@@ -116,7 +116,7 @@ navMenu.scanHeaders = function () {
             $(e3).text($(hdr.elem).text());
             $(e2).append(e3);
             $(e1).append(e2);
-            
+
             $('#navActiveContent').append(e1);
             hdr.tocElem = e1;
 
@@ -127,14 +127,14 @@ navMenu.scanHeaders = function () {
             let e1, e2, e3;
 
             e1 = document.createElement('div');
-            $(e1).addClass('navMenu4');
+            $(e1).addClass('navMenu4 navContainer');
             $(e1).addClass('navL3' + lastL2.id);
 
-            e2 = document.createElement('span');
+            e2 = document.createElement('div');
             $(e2).addClass('navIndent4')
             $(e1).append(e2);
 
-            e2 = document.createElement('span');
+            e2 = document.createElement('div');
             $(e2).addClass('navContent4');
 
             e3 = document.createElement('a');
