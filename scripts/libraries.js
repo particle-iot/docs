@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { hide } = require('yargs');
 const lunr = require('lunr');
+const generateNavHtml = require('./nav_menu_generator.js').generateNavHtml;
 
 function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPath) {
     // console.log('processing libraries');    
@@ -88,7 +89,51 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         letters.push('other');
     }
 
+    const generateSpecialNavigation = function(menuJson, curSpecial) {
+        for(const tempSpecial of topSpecial) {
+            let obj = {
+                href: '/cards/libraries/' + topSpecialFilename(tempSpecial) + '/',
+                title: tempSpecial
+            };
 
+            if (curSpecial == tempSpecial) {
+                obj.activeItem == true;
+            }
+
+            menuJson.items.push(obj);
+        }    
+    };
+
+    const generateLetterNavigation = function(menuJson, lib) {
+        for (const curLetter of letters) {
+            let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
+
+            let obj = {
+                title:letterUC,
+                href:'/cards/libraries/' + curLetter + '/',
+                isCardSection: true
+            };
+            menuJson.items.push(obj);
+
+            if (lib && lib.letter == curLetter) {
+                let a = [];
+
+                for (let tempName of letterLibraries[lib.letter]) {
+                    let obj2 = {
+                        title: tempName,
+                        href: '/cards/libraries/' + curLetter + '/' + tempName + '/'    
+                    };
+
+                    if (tempName == lib.id) {
+                        obj2.activeItem = true;
+                    }
+                    a.push(obj2);
+                }
+
+                menuJson.items.push(a);
+            }
+        }
+    };
     // Build the content
     for (const name of libraryNames) {
         const lib = JSON.parse(fs.readFileSync(path.join(sourceDir, name + '.json')));
@@ -213,45 +258,13 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         newFile.contents = Buffer.from(md);
 
         // Generate navigation
-        newFile.navigation = '';
-        for(const curSpecial of topSpecial) {
-            newFile.navigation += '<ul class="static-toc">';
-            newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + topSpecialFilename(curSpecial) + '/">' + curSpecial + '</a></li>';
-            newFile.navigation += '</ul>';
-        }
+        let menuJson = {items:[]};
 
-        for (const curLetter of letters) {
-            let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
+        generateSpecialNavigation(menuJson);
 
-            newFile.navigation += '<ul class="static-toc">';
-            if (lib.letter == curLetter) {
-                newFile.navigation += '<li class="top-level active"><span>' + letterUC + '</span></li>';
+        generateLetterNavigation(menuJson, lib);
 
-                newFile.navigation += '<div class="in-page-toc-container">';
-                for (let tempName of letterLibraries[lib.letter]) {
-                    newFile.navigation += '<ul class="nav in-page-toc show">';
-
-                    if (tempName == lib.id) {
-                        newFile.navigation += '<li class="middle-level active"><span>' + tempName + '</span></li>';
-
-                        newFile.navigation += '<ul class="nav secondary-in-page-toc" style="display:block">';
-                        for (const curH2 of h2) {
-                            newFile.navigation += '<li data-secondary-nav><a href="#' + anchorFor(curH2) + '">' + curH2 + '</a></li>';
-                        }
-                        newFile.navigation += '</ul>';
-                    }
-                    else {
-                        newFile.navigation += '<li class="middle-level"><a href="/cards/libraries/' + curLetter + '/' + tempName + '">' + tempName + '</a></li>';
-                    }
-                    newFile.navigation += '</ul>';
-                }
-                newFile.navigation += '</div">';
-            }
-            else {
-                newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + letterUC + '</a></li>';
-            }
-            newFile.navigation += '</ul>';
-        }
+        newFile.navigation = generateNavHtml(menuJson);
 
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = thisCardsDir + '/' + letter + '/' + lib.id + '.md';
@@ -280,25 +293,12 @@ function createLibraries(options, files, sourceDir, redirectsPath, searchIndexPa
         newFile.contents = Buffer.from(md);
 
         // Generate navigation
-        newFile.navigation = '';
-        for(const tempSpecial of topSpecial) {
-            newFile.navigation += '<ul class="static-toc">';
+        let menuJson = {items:[]};
 
-            if (curSpecial == tempSpecial) {
-                newFile.navigation += '<li class="top-level active"><span>' + curSpecial + '</span></li>';
-            }
-            else {
-                newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + topSpecialFilename(tempSpecial) + '/">' + tempSpecial + '</a></li>';
-            }
-            newFile.navigation += '</ul>';
-        }
+        generateSpecialNavigation(menuJson, curSpecial);
+        generateLetterNavigation(menuJson)
 
-        for (const curLetter of letters) {
-            newFile.navigation += '<ul class="static-toc">';
-            let letterUC = curLetter.substr(0, 1).toUpperCase() + curLetter.substr(1);
-            newFile.navigation += '<li class="top-level"><a href="/cards/libraries/' + curLetter + '/">' + letterUC + '</a></li>';
-            newFile.navigation += '</ul>';
-        }
+        newFile.navigation = generateNavHtml(menuJson);
 
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = thisCardsDir + '/' + topSpecialFilename(curSpecial) + '.md';

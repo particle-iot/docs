@@ -8,13 +8,21 @@ navMenu.scanHeaders = function () {
 
     navMenu.useDisclosureTriangle = false;
 
+    let headerLevels = 'h2,h3';
+    let levelAdjust = 0;
+
+    if (location.href.includes('cards/firmware')) {
+        headerLevels = 'h4,h5';
+        levelAdjust = -2;
+    }
+
     let lastL2;
 
-    $(contentInner).find('h2,h3').each(function (index, elem) {
+    $(contentInner).find(headerLevels).each(function (index, elem) {
         // console.log('elem', elem);
         const id = $(elem).prop('id');
         if (id) {
-            const level = parseInt($(elem).prop('tagName').substr(1));
+            const level = parseInt($(elem).prop('tagName').substr(1)) + levelAdjust;
             let obj = { elem, id, level };
             navMenu.headers.push(obj);
 

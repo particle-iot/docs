@@ -50,7 +50,7 @@ var trackerSchema = require('./tracker-schema.js');
 var refCards = require('./refcards.js');
 var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
-var navMenuGenerator = require('./nav_menu_generator.js');
+const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');

@@ -34,13 +34,34 @@ function generateNavMenu(fileObj, contentDir) {
         return;
     }
 
-    const menuJson = JSON.parse(fs.readFileSync(menuPath), 'utf8');
+    let menuJson = JSON.parse(fs.readFileSync(menuPath), 'utf8');
+    for (let item of menuJson.items) {
+        if (Array.isArray(item)) {
+            // Multi-level (like tutorials, reference, datasheets)
+            for (let itemInner of item) {
+                if (itemInner.dir === fileObj.path.name) {
+                    itemInner.activeItem = true;
+                }
+            }
+        }
+        else {
+            // Single level deep (like quickstart or community)
+            if (item.dir === fileObj.path.name) {
+                item.activeItem = true;
+            }
+        }
+    }
 
+
+    fileObj.navigation = generateNavHtml(menuJson);
+}
+
+function generateNavHtml(menuJson) {
     // console.log('base=' + fileObj.path.base + ' topLevelName=' + topLevelName + ' sectionName=' + sectionName);
 
     let nav = '';
 
-    const makeTitle = function(item) {
+    const makeTitle = function (item) {
         let title = item.title || titleize(item.dir);
 
         title = title.replace('&', '&amp;');
@@ -48,17 +69,16 @@ function generateNavMenu(fileObj, contentDir) {
         return title;
     };
 
-    const makeNavMenu2 = function(item, indent) {
-        const isActiveItem = (item.dir === fileObj.path.name);
+    const makeNavMenu2 = function (item, indent) {
         let html = '';
-        
+
         html += '<div class="navContainer">';
 
         if (indent) {
             html += '<div class="navIndent2">&nbsp;</div>'
         }
 
-        if (isActiveItem) {
+        if (item.activeItem) {
             html += '<div class="navActive2">' + makeTitle(item) + '</div>';
         }
         else {
@@ -67,7 +87,7 @@ function generateNavMenu(fileObj, contentDir) {
 
         html += '</div>'; // navContainer
 
-        if (isActiveItem) {
+        if (item.activeItem) {
             html += '<div id="navActiveContent"></div>';
         }
 
@@ -76,26 +96,33 @@ function generateNavMenu(fileObj, contentDir) {
 
     nav += '<div class="navMenuOuter">';
 
-    for(const item of menuJson.items) {
+    for (const item of menuJson.items) {
+        if (item.isCardSection) {
+            nav += '<div class="navContainer">';
+            nav += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
+            nav += '</div>'; // navContainer
+        }
+        else
         if (item.isSection) {
             // Multi-level section title
             nav += '<div class="navContainer"><div class="navMenu1">' + makeTitle(item) + '</div></div>';
         }
         else
-        if (Array.isArray(item)) {
-            // Multi-level (like tutorials, reference, datasheets)
-            for(const itemInner of item) {
-                nav += makeNavMenu2(itemInner, true);
-            }            
-            nav += '<div class="navSectionSpacer"></div>';
-        }
-        else {
-            // Single level deep (like quickstart or community)
-            nav += makeNavMenu2(item, false);
-        }
+            if (Array.isArray(item)) {
+                // Multi-level (like tutorials, reference, datasheets)
+                for (const itemInner of item) {
+                    nav += makeNavMenu2(itemInner, true);
+                }
+                nav += '<div class="navSectionSpacer"></div>';
+            }
+            else {
+                // Single level deep (like quickstart or community)
+                nav += makeNavMenu2(item, false);
+            }
     }
     nav += '</div>'; // navMenuOuter
-    fileObj.navigation = nav;
+
+    return nav;
 }
 
 /*
@@ -130,13 +157,17 @@ fileObj {
 
 */
 
-module.exports = function(options) {
-
-	return function(files, metalsmith, done) {
-        Object.keys(files).forEach(function(fileName) {
+function metalsmith(options) {
+    return function (files, metalsmith, done) {
+        Object.keys(files).forEach(function (fileName) {
             generateNavMenu(files[fileName], metalsmith.path(options.contentDir));
         });
 
-		done();
-	};
+        done();
+    };
+}
+
+module.exports = {
+    metalsmith,
+    generateNavHtml
 };
