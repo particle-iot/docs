@@ -108,6 +108,7 @@ function generateNavHtml(menuJson) {
             nav += '<div class="navMenu2"><a href="' + item.href + '" class="navLink">' + makeTitle(item) + '</a></div>';
             nav += '</div>'; // navContainer
             cardSections.push(item);
+            itemsFlat.push(item);
         }
         else if (item.isSection) {
             // Multi-level section title
@@ -140,6 +141,7 @@ function generateNavHtml(menuJson) {
 
     // Generate keyboard and swipe navigation directions for this page
     let navigationInfo = {};
+    let itemFound = false;
 
     for(let ii = 0; ii < itemsFlat.length; ii++) {
         if (itemsFlat[ii].activeItem) {
@@ -149,20 +151,31 @@ function generateNavHtml(menuJson) {
             if ((ii + 1) < itemsFlat.length) {
                 navigationInfo.nextLink = itemsFlat[ii + 1].href;
             }
+            itemFound = true;
             break;
         }
     }
+    if (!itemFound && itemsFlat.length >= 2) {
+        navigationInfo.nextLink = itemsFlat[1].href;
+    }
+
+    itemFound = false;
     for(let ii = 0; ii < cardSections.length; ii++) {
         if (cardSections[ii].activeSection) {
             if (ii > 0) {
                 navigationInfo.prevGroup = cardSections[ii - 1].href;
             }
-            if ((ii + 1) < itemsFlat.length) {
+            if ((ii + 1) < cardSections.length) {
                 navigationInfo.nextGroup = cardSections[ii + 1].href;
             }
+            itemFound = true;
             break;
         }
     }
+    if (!itemFound && cardSections.length >= 2) {
+        navigationInfo.nextGroup = cardSections[1].href;
+    }
+
     nav += '<script>navigationInfo=' + JSON.stringify(navigationInfo) + '</script>';
     
 
@@ -186,7 +199,7 @@ fileObj {
   branch: 'feature/navigation',
   noIndex: false,
   noScripts: false,
-  srcLocal: '/Users/rickk/Documents/src/docs-merge/docs/src',
+  srcLocal: '/Users/rick/Documents/src/docs/src',
   development: true,
   path: {
     root: '',
