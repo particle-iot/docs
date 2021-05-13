@@ -23,7 +23,11 @@ navMenu.scanHeaders = function () {
         const id = $(elem).prop('id');
         if (id) {
             const level = parseInt($(elem).prop('tagName').substr(1)) + levelAdjust;
-            let obj = { elem, id, level };
+            let obj = { 
+                elem, 
+                id, 
+                level 
+            };
             navMenu.headers.push(obj);
 
             if (level == 2) {
@@ -93,7 +97,6 @@ navMenu.scanHeaders = function () {
 
             e1 = document.createElement('div');
             $(e1).addClass('navMenu3 navContainer');
-            $(e1).addClass('navL2' + hdr.id);
 
             e2 = document.createElement('div');
             $(e2).addClass('navIndent3');
@@ -107,18 +110,20 @@ navMenu.scanHeaders = function () {
                 $(iconElem).addClass('ion-arrow-right-b');
                 $(e2).append(iconElem);
 
+                const clickHdr = hdr;
+
                 $(e2).on('click', function () {
                     if ($(iconElem).hasClass('ion-arrow-right-b')) {
                         // Was right, make down
                         $(iconElem).removeClass('ion-arrow-right-b');
-                        $(iconElem).addClass('ion-arrow-down-b');
-                        $('.navL3' + hdr.id).show();
+                        $(iconElem).addClass('ion-arrow-down-b');                        
+                        $(clickHdr.tocChildren).show();
                     }
                     else {
                         // Has down, make right
                         $(iconElem).removeClass('ion-arrow-down-b');
                         $(iconElem).addClass('ion-arrow-right-b');
-                        $('.navL3' + hdr.id).hide();
+                        $(clickHdr.tocChildren).hide();
                     }
                 });
 
@@ -155,7 +160,6 @@ navMenu.scanHeaders = function () {
 
             e1 = document.createElement('div');
             $(e1).addClass('navMenu4 navContainer');
-            $(e1).addClass('navL3' + lastL2.id);
 
             e2 = document.createElement('div');
             $(e2).addClass('navIndent4')
@@ -175,6 +179,14 @@ navMenu.scanHeaders = function () {
             hasActiveContent = true;
             $(e1).hide();
             hdr.tocElem = e1;
+
+            if (lastL2) {
+                if (!lastL2.tocChildren) {
+                    lastL2.tocChildren = [];
+                }
+                lastL2.tocChildren.push(e1);
+            }
+
         }
     }
 
@@ -184,7 +196,6 @@ navMenu.scanHeaders = function () {
 };
 
 navMenu.updateTOC = function () {
-    console.log('updateTOC', navMenu.headers[navMenu.currentHeader]);
 
     let hierarchy = [];
     hierarchy.push(navMenu.headers[navMenu.currentHeader]);
@@ -197,8 +208,6 @@ navMenu.updateTOC = function () {
         }
     }
 
-    console.log('hierarchy ', hierarchy);
-
     // Change active links back to plain
     $('.navLinkActive').removeClass('navLinkActive').addClass('navLink');
 
@@ -207,8 +216,8 @@ navMenu.updateTOC = function () {
     $('.navMenu4').hide();
 
     // Expand the current section
-    $('.navL2' + hierarchy[0].id + ' i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
-    $('.navL3' + hierarchy[0].id).show();
+    $(hierarchy[0].tocElem).find('i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
+    $(hierarchy[0].tocChildren).show();
 
     for (let ii = 0; ii < hierarchy.length; ii++) {
         if (hierarchy[ii].tocElem) {
