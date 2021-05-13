@@ -8,7 +8,7 @@ navMenu.scanHeaders = function () {
 
     navMenu.useDisclosureTriangle = false;
 
-    let headerLevels = 'h2,h3';
+    let headerLevels = 'h2,h3,h4';
     let levelAdjust = 0;
 
     if (location.href.includes('cards/firmware')) {
@@ -88,8 +88,38 @@ navMenu.scanHeaders = function () {
 
     // Build TOC HTML
     lastL2 = null;
+    let lastL3;
 
     let hasActiveContent = false;
+
+    const createSimpleTocElem = function(hdr, level) {
+        let e1, e2, e3;
+
+        e1 = document.createElement('div');
+        $(e1).addClass('navMenu' + level  + ' navContainer');
+
+        e2 = document.createElement('div');
+        $(e2).addClass('navIndent' + level)
+        $(e1).append(e2);
+
+        e2 = document.createElement('div');
+        $(e2).addClass('navContent' + level);
+
+        e3 = document.createElement('a');
+        $(e3).addClass('navLink')
+        $(e3).prop('href', '#' + hdr.id);
+        $(e3).text($(hdr.elem).text());
+        $(e2).append(e3);
+        $(e1).append(e2);
+
+        $('#navActiveContent').append(e1);
+        hasActiveContent = true;
+
+        $(e1).hide();
+        hdr.tocElem = e1;
+
+        return e1;
+    }
 
     for (let hdr of navMenu.headers) {
         if (hdr.level == 2) {
@@ -154,39 +184,23 @@ navMenu.scanHeaders = function () {
 
             lastL2 = hdr;
         }
-        else
-        if (hdr.level == 3 && lastL2) {
-            let e1, e2, e3;
+        else if (hdr.level == 3 && lastL2) {
+            let elem = createSimpleTocElem(hdr, 4);
 
-            e1 = document.createElement('div');
-            $(e1).addClass('navMenu4 navContainer');
-
-            e2 = document.createElement('div');
-            $(e2).addClass('navIndent4')
-            $(e1).append(e2);
-
-            e2 = document.createElement('div');
-            $(e2).addClass('navContent4');
-
-            e3 = document.createElement('a');
-            $(e3).addClass('navLink')
-            $(e3).prop('href', '#' + hdr.id);
-            $(e3).text($(hdr.elem).text());
-            $(e2).append(e3);
-            $(e1).append(e2);
-
-            $('#navActiveContent').append(e1);
-            hasActiveContent = true;
-            $(e1).hide();
-            hdr.tocElem = e1;
-
-            if (lastL2) {
-                if (!lastL2.tocChildren) {
-                    lastL2.tocChildren = [];
-                }
-                lastL2.tocChildren.push(e1);
+            if (!lastL2.tocChildren) {
+                lastL2.tocChildren = [];
             }
+            lastL2.tocChildren.push(elem);
 
+            lastL3 = hdr;
+        }
+        else if (hdr.level == 4 && lastL3) {
+            let elem = createSimpleTocElem(hdr, 5);
+
+            if (!lastL3.tocChildren) {
+                lastL3.tocChildren = [];
+            }
+            lastL3.tocChildren.push(elem);
         }
     }
 
@@ -214,15 +228,16 @@ navMenu.updateTOC = function () {
     // Collapse all sections
     $('#navActiveContent i').removeClass('navActive').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
     $('.navMenu4').hide();
+    $('.navMenu5').hide();
 
     // Expand the current section
     $(hierarchy[0].tocElem).find('i').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
-    $(hierarchy[0].tocChildren).show();
 
     for (let ii = 0; ii < hierarchy.length; ii++) {
         if (hierarchy[ii].tocElem) {
             $(hierarchy[ii].tocElem).find('a').removeClass('navLink').addClass('navLinkActive');
         }
+        $(hierarchy[ii].tocChildren).show();
     }
     navMenu.scrollToActive();
 };
