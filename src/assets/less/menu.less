@@ -59,28 +59,6 @@
   }
 }
 
-.menubar .section {
-  padding: 0 10px;
-  overflow: hidden;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.menubar .sections {
-  padding: 20px 0 30px;
-}
-.menubar .section.no-line {
-  border-top: 0;
-  padding-top: 0;
-}
-.menubar ol {
-  list-style: inherit;
-  list-style-position: inside;
-  list-style-type: decimal;
-  li {
-    color: @gray;
-  }
-}
 
 div.navMenu {
   padding: 10px 20px;
@@ -90,7 +68,6 @@ div.navContainer {
   display: flex
 }
 
-/* New Nav Menu */
 div.navMenu1 {
   font-size: 16px;
   font-weight: bold;
@@ -203,55 +180,6 @@ a.navLinkActive {
 }
 
 
-
-/* Old Nav Menu */
-
-h3.guide-section-titles {
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: .7px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-
-
-/* GUIDE SPECIFIC MENU */
-ul.guide-menu {
-  padding-top: 10px;
-  ul.in-page-toc {
-    margin-left: 20px;
-  }
-  li.active-section {
-    overflow-x: visible;
-    li.active.top-level {
-      overflow-x: hidden;
-      padding-left: 20px;
-    }
-  }
-}
-/* END GUIDE SPEFIFIC MENU */
-
-.quickstart {
-}
-
-/* REFERENCE SPECIFIC MENU */
-.reference {
-  ul.in-page-toc {
-    display: none;
-  }
-}
-/* END REFERENCE SPECIFIC MENU */
-#toggle-in-page-nav {
-  color: @gray;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: .5em;
-  margin-top: -.5em;
-  .transition(color 0.2s);
-}
-
 .menubar li a,
 .menubar li a:visited {
   font-size: 16px;
@@ -271,69 +199,6 @@ ul.guide-menu {
       font-size: .875em;
       user-select: none;
   }
-}
-
-ul.in-page-toc {
-  margin: 5px 0 10px 10px;
-  &.hide {
-    display: none;
-  }
-  &.show {
-    display: block;
-  }
-  li {
-    text-overflow: ellipsis;
-    overflow-x: hidden;
-    padding: 2px 0;
-    i.toggle-secondary-toc {
-      color: @gray;
-      margin-right: 4px;
-      cursor: pointer;
-      .transition(color 0.2s);
-      width: 1em;
-      display: inline-block;
-      &:hover {
-        color: @spark-blue;
-      }
-    }
-    &.active {
-      a {
-        font-weight: bold;
-        color: @spark-blue;
-      }
-    }
-    a {
-      font-size: 14px;
-    }
-  }
-  .secondary-in-page-toc {
-    padding-left: 18px; // .875em (14px) + 4px
-    display: none;
-  }
-}
-
-.menubar li.active {
-  &.top-level {
-    padding: 5px;
-    background: @almost-white;
-    position: relative;
-    cursor: pointer;
-    margin: 0 -20px;
-    padding-left: 20px;
-    overflow-x: auto;
-    &:hover {
-      #toggle-in-page-nav {
-        color: @spark-blue;
-      }
-    }
-  }
-  span {
-    font-weight: bold;
-    color: @gray;
-  }
-}
-.guide-section {
-  margin-bottom: 15px;
 }
 
 @media print {

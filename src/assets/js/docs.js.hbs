@@ -65,119 +65,6 @@ Created by Zach Supalla.
     }
   };
 
-  /**
-   * Synchronize table of contents with page scroll position
-   */
-
-  Docs.setupTOCScrollSpy = function() {
-    var content = $('.content-inner');
-    var headers = content.find('h2, h3');
-
-    if (headers.length === 0) {
-      return;
-    }
-
-    var twoLevelTOC = content.find('h2').length > 0;
-    var currentHeader = -1;
-
-    // When scrolling, find the closest header and synchronize which TOC
-    // entry is active
-    content.on('scroll', function() {
-      var scrollPosition = content.scrollTop();
-      var done = false;
-
-      var oldHeader = currentHeader;
-      while (!done) {
-        if (currentHeader < headers.length - 2 &&
-           scrollPosition >= Math.floor($(headers[currentHeader + 1]).position().top)) {
-          currentHeader += 1;
-        } else if (currentHeader > 0 &&
-                  scrollPosition < Math.floor($(headers[currentHeader]).position().top)) {
-          currentHeader -= 1;
-        } else {
-          done = true;
-        }
-      }
-
-      if (oldHeader !== currentHeader) {
-        Docs.updateTOC($(headers[currentHeader]), twoLevelTOC);
-      }
-    });
-  };
-
-  Docs.updateTOC = function($currentHeader, twoLevelTOC) {
-    var elementId = $currentHeader.attr('id');
-
-    if ($currentHeader.prop('tagName') === 'H3') {
-      Docs.updateTOCforH3(elementId, twoLevelTOC);
-    } else {
-      Docs.updateTOCforH2(elementId);
-    }
-
-    Docs.expandInPageTOC();
-  };
-
-  Docs.updateTOCforH2 = function(elementId) {
-    // This is the menu li that corresponds to the h2 that was scrolled to
-    var $correspondingNavElement = $('ul.in-page-toc li[data-nav] a[href="#'+ elementId+'"]').parent('li');
-    Docs.expandPrimaryTOC($correspondingNavElement);
-  };
-
-  Docs.expandPrimaryTOC = function(correspondingNavElement) {
-    if (!correspondingNavElement || $(correspondingNavElement).closest('ul.static-toc').length) {
-      return;
-    }
-
-    // Remove active class
-    $('ul.in-page-toc li[data-nav]').removeClass('active')
-       // Show the secondary nav as collapsed
-      .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-    // Make the current nav element active
-    $(correspondingNavElement).addClass('active')
-       // Show the secondary nav as expanded
-      .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass(' ion-arrow-down-b');
-
-    // Hide all the other secondary in page tocs
-    $('ul.secondary-in-page-toc').hide()
-        // Make all secondary pages inactive
-        .find('li').removeClass('active');
-
-    // Show the secondary in page toc for this section
-    var $secondaryNav = $(correspondingNavElement).next('.secondary-in-page-toc');
-    if ($secondaryNav.length > 0) {
-      $secondaryNav.show();
-    }
-  };
-
-  Docs.updateTOCforH3 = function(elementId, twoLevelTOC) {
-    var dataSelector = twoLevelTOC ? 'data-secondary-nav' : 'data-nav';
-    // This is the menu li that corresponds to the h3 that was scrolled to
-    var $correspondingNavElement = $('li['+dataSelector+'] a[href="#'+elementId+ '"]').parent('li');
-
-    if (twoLevelTOC) {
-      // Make sure primary section is visible
-      var $parentli = $correspondingNavElement.parent().prev('li[data-nav]');
-      if (!$parentli.hasClass('active')) {
-        Docs.expandPrimaryTOC($parentli);
-      }
-    }
-
-    // Remove active class
-    $('li['+dataSelector+']').removeClass('active');
-    // Make the current nav element active
-    $correspondingNavElement.addClass('active');
-  };
-
-  Docs.expandInPageTOC = function() {
-    var inPageTOC = $('ul.in-page-toc');
-    var isExpanded = Docs.inPageTOCExpanded || inPageTOC.hasClass('show');
-    var isGuide = window.location.pathname.indexOf('/guide/') > -1;
-    if (!isExpanded && !isGuide) {
-      $('li.active').click();
-      Docs.inPageTOCExpanded = true;
-    }
-  };
-
   Docs.scrollToElement = function(element) {
     var $element = $(element);
     if ($element.length === 1) {
@@ -202,28 +89,6 @@ Created by Zach Supalla.
     };
   };
 
-  Docs.inPageTOCExpanded = false;
-
-  Docs.watchToggleInPageNav = function() {
-    $('li.top-level.active').on('click', function() {
-      $('ul.in-page-toc').toggleClass('show hide');
-      $(this).find('#toggle-in-page-nav').toggleClass('ion-plus ion-minus');
-    });
-  };
-
-  Docs.watchToggleSecondaryInPageNav = function() {
-    $('.toggle-secondary-toc').on('click', function() {
-      var $this = $(this);
-      var $parent = $this.parent();
-      if ($this.hasClass('ion-arrow-down-b')) {
-        $this.removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-        $parent.next('.secondary-in-page-toc').hide();
-      } else {
-        $this.removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
-        $parent.next('.secondary-in-page-toc').show();
-      }
-    });
-  };
 
   Docs._removeEmptyTokens = function removeEmptyTokens(token) {
     if (token.length > 0) {
@@ -307,18 +172,6 @@ Created by Zach Supalla.
   };
   
   /*
-  Docs.scrollNavToActive = function() {
-    if ($('.guide-menu').length == 0) {
-      return;
-    }
-    const activeElem = $('.guide-menu').find('li.active');
-    if (activeElem.length <= 0) {
-      return;
-    }
-    activeElem[0].scrollIntoView();
-
-  };
-
   Docs.enableZendeskWidget = function() {
 	// Enable only for wide displays, typically desktop.
     if ($(document).width() >= 750) {
@@ -354,15 +207,11 @@ Created by Zach Supalla.
   // Ok, then let's do it!
   Docs.rememberDevices();
   Docs.transform();
-  Docs.setupTOCScrollSpy();
   Docs.scrollToInternalLinks();
-  Docs.watchToggleInPageNav();
-  Docs.watchToggleSecondaryInPageNav();
   Docs.buildSearch();
   Docs.toggleNav();
   Docs.toggleShowing();
   Docs.catchRedirectLinks();
-  //Docs.scrollNavToActive();
   //Docs.enableZendeskWidget();
   if (prettyPrint) {
     prettyPrint();
