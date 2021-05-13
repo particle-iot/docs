@@ -219,11 +219,13 @@ navMenu.updateTOC = function () {
 };
 
 navMenu.scrollToActive = function () {
-    const activeElem = $('.navLinkActive');
-    if (activeElem.length <= 0) {
-        return;
+    let activeElem = $('.navLinkActive');
+    if (activeElem.length == 0) {
+        activeElem = $('.navActive2');
     }
-    activeElem[0].scrollIntoView();  
+    if (activeElem.length) {
+        activeElem[0].scrollIntoView();  
+    }
 };
 
 
