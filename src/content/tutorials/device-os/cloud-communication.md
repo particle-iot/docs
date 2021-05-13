@@ -1,9 +1,8 @@
 ---
 word: Cloud Communication
 title: Cloud Communication
-order: 4
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Introduction to Particle Device OS Cloud Communication Primitives
 includeDefinitions: [api-helper, api-helper-events, api-helper-extras, api-helper-primitives]
 ---

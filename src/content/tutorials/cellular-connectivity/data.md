@@ -1,8 +1,7 @@
 ---
 title: Cellular Data Guide
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 22
 description: Optimizing data using with Particle cellular devices
 ---
 

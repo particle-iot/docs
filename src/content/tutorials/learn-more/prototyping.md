@@ -1,9 +1,8 @@
 ---
 title: Prototyping
-order: 50
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Prototyping new designs
 ---
 

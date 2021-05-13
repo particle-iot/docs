@@ -1,8 +1,7 @@
 ---
 title: AN021 Tracker 4-20mA Sensor Quad
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 121
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN021 Tracker 4-20mA Sensor Quad

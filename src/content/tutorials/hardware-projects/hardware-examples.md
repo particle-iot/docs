@@ -1,9 +1,8 @@
 ---
 title: Hardware Examples
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
 redirects: true
-order: 90
 includeDefinitions: [api-helper, api-helper-extras]
 ---
 

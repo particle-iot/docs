@@ -1,8 +1,7 @@
 ---
 title: JSON
-order: 12
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Using JSON with Particle Devices
 includeDefinitions: [api-helper, api-helper-events, api-helper-json, api-helper-mustache, api-helper-primitives, codemirror]
 ---

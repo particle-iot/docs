@@ -1,8 +1,7 @@
 ---
 title: AN017 Tracker CAN
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 117
 includeDefinitions: [api-helper, api-helper-config, api-helper-tracker, zip]
 ---
 # AN017 Tracker CAN

@@ -1,8 +1,7 @@
 ---
 title: AN022 Tracker SHT3x Temperature/Humidity
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 122
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN022 Tracker SHT3x Temperature/Humidity

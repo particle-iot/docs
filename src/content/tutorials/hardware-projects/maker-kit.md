@@ -1,8 +1,7 @@
 ---
 title: Maker Kit Tutorials
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 100
 description: Tutorials for the Photon Maker Kit, a collection of sensors and accessories for the Particle Photon
 ---
 

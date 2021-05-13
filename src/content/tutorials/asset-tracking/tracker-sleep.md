@@ -1,8 +1,7 @@
 ---
 title: Tracker Sleep
 columns: two
-layout: tutorials.hbs
-order: 34
+layout: commonTwo.hbs
 description: Particle Tracker Sleep Support
 ---
 

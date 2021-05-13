@@ -1,8 +1,7 @@
 ---
 title: Feather
-layout: community.hbs
+layout: commonTwo.hbs
 columns: two
-order: 15
 ---
 
 

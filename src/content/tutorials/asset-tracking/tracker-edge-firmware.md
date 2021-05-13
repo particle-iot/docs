@@ -1,8 +1,7 @@
 ---
 title: Tracker Edge Firmware
 columns: two
-layout: tutorials.hbs
-order: 30
+layout: commonTwo.hbs
 description: Particle Tracker Edge Firmware
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---

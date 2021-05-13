@@ -1,8 +1,7 @@
 ---
 title: B Series B404/B402 datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 2
 description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 

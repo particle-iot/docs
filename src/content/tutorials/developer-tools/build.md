@@ -1,9 +1,8 @@
 ---
 title: Web IDE
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
 redirects: true
-order: 30
 description: Web-based IDE for programming your Particle IoT devices
 ---
 

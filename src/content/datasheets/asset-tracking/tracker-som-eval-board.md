@@ -1,8 +1,7 @@
 ---
 title: Tracker SoM Evaluation Board
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 5
 description: Datasheet for the Particle Tracker SoM evaluation board
 ---
 

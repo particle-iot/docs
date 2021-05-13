@@ -1,10 +1,9 @@
 ---
 word: CLI
 title: Command Line
-order: 22
 columns: two
 redirects: true
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Command line interface for managing your Particle devices for Windows, Mac OS, and Linux
 ---
 

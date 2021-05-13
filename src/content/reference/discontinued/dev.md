@@ -1,10 +1,9 @@
 ---
 word: Dev
 title: Desktop IDE (Dev)
-order: 30
 shared: true
 columns: two
-layout: reference.hbs
+layout: commonTwo.hbs
 description: Older desktop IDE for programming Particle devices for Windows and Mac OS (discontinued)
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: Resources
-layout: community.hbs
+layout: commonTwo.hbs
 columns: two
-order: 10
 ---
 
 

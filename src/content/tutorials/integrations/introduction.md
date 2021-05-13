@@ -1,8 +1,7 @@
 ---
 title: Introduction
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 90
 description: Using Integrations to access external services
 ---
 

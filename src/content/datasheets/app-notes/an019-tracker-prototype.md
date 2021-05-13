@@ -1,8 +1,7 @@
 ---
 title: AN019 Tracker Prototype to Board
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 119
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN019 Tracker Prototype to Board

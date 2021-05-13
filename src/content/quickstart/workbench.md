@@ -1,8 +1,7 @@
 ---
 title: Workbench
-layout: quickstart.hbs
+layout: commonTwo.hbs
 columns: two
-order: 10
 description: Getting started with Particle Workbench, desktop IDE for Windows, Mac OS, and Linux
 ---
 

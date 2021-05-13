@@ -1,10 +1,9 @@
 ---
 word: Console
 title: Console
-order: 31
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Web-based management for your Particle IoT devices
 ---
 

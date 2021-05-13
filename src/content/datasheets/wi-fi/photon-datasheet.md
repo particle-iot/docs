@@ -1,8 +1,7 @@
 ---
 title: Photon datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 2
 description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 ---
 

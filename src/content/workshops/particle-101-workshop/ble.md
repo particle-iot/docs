@@ -1,9 +1,8 @@
 ---
 word:  BLE on Particle Devices
 title: BLE Lab
-order: 8
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Lab 3 - Working with  BLE

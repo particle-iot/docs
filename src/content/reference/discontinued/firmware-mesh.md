@@ -2,7 +2,6 @@
 title: Device OS API - Mesh
 layout: reference.hbs
 columns: three
-order: 12
 description: Reference for discontinued Mesh features
 ---
 

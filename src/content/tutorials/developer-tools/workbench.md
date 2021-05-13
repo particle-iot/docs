@@ -1,9 +1,8 @@
 ---
 word: Workbench
 title: Workbench
-order: 20
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Desktop IDE for programming Particle IoT devices for Windows, Mac OS, and Linux
 ---
 

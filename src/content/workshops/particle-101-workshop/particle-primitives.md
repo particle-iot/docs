@@ -1,9 +1,8 @@
 ---
 word: Introducing Particle Primitives
 title: Particle Primitives
-order: 5
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Session 2 - The Particle Device OS, Cloud, Primitives, and BLE

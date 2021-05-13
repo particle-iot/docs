@@ -1,8 +1,7 @@
 ---
 title: AN026 Tracker Current Solutions Accelerator
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 126
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN026 Tracker Current Solutions Accelerator

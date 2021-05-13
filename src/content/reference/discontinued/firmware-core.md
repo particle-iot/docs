@@ -3,7 +3,6 @@ title: Device OS API - Core
 layout: reference.hbs
 columns: three
 setdevice: Core
-order: 20
 ---
 
 Device OS API - {{device}}

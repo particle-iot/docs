@@ -1,9 +1,8 @@
 ---
 word: Connecting the Particle Device Cloud to Azure
 title: Particle & Azure
-order: 4
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Session 3 - Connecting the Particle Device Cloud to Azure

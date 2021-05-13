@@ -1,8 +1,7 @@
 ---
 title: Technical Advisory Notices
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 3
 ---
 
 # Technical Advisory Notices

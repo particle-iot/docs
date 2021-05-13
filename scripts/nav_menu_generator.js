@@ -54,6 +54,8 @@ function generateNavMenu(fileObj, contentDir) {
 
 
     fileObj.navigation = generateNavHtml(menuJson);
+
+    fileObj.sectionTitle = titleize(topLevelName);
 }
 
 function generateNavHtml(menuJson) {

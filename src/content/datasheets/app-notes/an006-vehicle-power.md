@@ -1,8 +1,7 @@
 ---
 title: AN006 Vehicle Power
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 106
 ---
 # AN006 Vehicle Power
 

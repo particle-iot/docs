@@ -3,7 +3,6 @@ title: Device OS API
 layout: reference.hbs
 columns: three
 redirects: true
-order: 20
 description: Reference manual for the C++ API used by user firmware running on Particle IoT devices
 singlePage: true
 ---

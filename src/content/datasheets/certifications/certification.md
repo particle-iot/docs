@@ -1,8 +1,7 @@
 ---
 title: Certifications
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 60
 description: Information about certifications (FCC, IC, CE, UL, etc.) for Particle devices.
 ---
 

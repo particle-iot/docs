@@ -1,8 +1,7 @@
 ---
 title: AN029 Wake publish sleep example
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 129
 ---
 # AN029 Wake publish sleep firmware example
 

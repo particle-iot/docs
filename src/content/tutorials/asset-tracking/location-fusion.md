@@ -1,8 +1,7 @@
 ---
 title: Location Fusion
 columns: two
-layout: tutorials.hbs
-order: 33
+layout: commonTwo.hbs
 description: Particle Tracker Wi-Fi and Cellular Geolocation
 ---
 

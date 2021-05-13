@@ -1,9 +1,8 @@
 ---
 word: Particle CLI & Device Cloud
 title: CLI & Device Cloud Lab
-order: 7
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Lab 3: Using the Particle CLI & Exploring the Device Cloud API

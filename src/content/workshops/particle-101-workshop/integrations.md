@@ -1,9 +1,8 @@
 ---
 word: Particle Webhooks and Integrations
 title: Webhooks and Integrations
-order: 9
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Session 3 - Particle Webhooks and Integrations

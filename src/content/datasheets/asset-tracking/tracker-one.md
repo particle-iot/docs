@@ -1,8 +1,7 @@
 ---
 title: Tracker One
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 

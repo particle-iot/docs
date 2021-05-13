@@ -1,8 +1,7 @@
 ---
 title: AN023 Watchdog Timers
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 123
 ---
 # AN023 Watchdog Timers
 

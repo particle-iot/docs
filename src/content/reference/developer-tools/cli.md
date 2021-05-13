@@ -1,10 +1,9 @@
 ---
 word: CLI
 title: Command Line Interface (CLI)
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: three
 redirects: true
-order: 40
 description: Command line interface for managing your devices for Windows, Mac OS, and Linux
 ---
 

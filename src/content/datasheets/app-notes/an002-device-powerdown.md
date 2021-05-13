@@ -1,8 +1,7 @@
 ---
 title: AN002 Device Powerdown
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 102
 ---
 # AN002 Device Powerdown
 

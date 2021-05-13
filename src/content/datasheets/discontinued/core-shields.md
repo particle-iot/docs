@@ -1,8 +1,7 @@
 ---
 title: Core shields and kits
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 11
 ---
 
 # Shields and accessories

@@ -1,8 +1,7 @@
 ---
 title: AN016 Tracker Keypad LCD
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 116
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN016 Tracker Keypad LCD

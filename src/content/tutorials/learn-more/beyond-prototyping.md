@@ -1,9 +1,8 @@
 ---
 title: Beyond Prototyping
-order: 52
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Move beyond prototyping breadboards to custom printed circuit boards and SMD (surface mount device) technology
 ---
 

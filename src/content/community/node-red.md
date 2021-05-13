@@ -1,8 +1,7 @@
 ---
 title: Node-RED
-layout: community.hbs
+layout: commonTwo.hbs
 columns: two
-order: 20
 ---
 
 # Node-RED

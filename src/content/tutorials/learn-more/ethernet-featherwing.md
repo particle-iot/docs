@@ -1,9 +1,8 @@
 ---
 title: Ethernet FeatherWing
-order: 31
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Learn more about the Ethernet FeatherWing for Gen 3 Particle IoT devices (Argon, Boron)
 ---
 

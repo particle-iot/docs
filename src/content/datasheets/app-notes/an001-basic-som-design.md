@@ -1,8 +1,7 @@
 ---
 title: AN001 Basic SoM Design
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 101
 ---
 # AN001 - Basic SoM Design
 

@@ -1,10 +1,9 @@
 ---
 word: OTA
 title: OTA Firmware Updates
-order: 30
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Managing over-the-air (OTA) firmware updates for Particle IoT devices
 ---
 

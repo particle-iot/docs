@@ -1,9 +1,8 @@
 ---
 word: 2FA
 title: Two-Step Authentication
-order: 24
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Using two-step (2FA, MFA) authentication with your Particle account
 ---
 

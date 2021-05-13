@@ -1,10 +1,9 @@
 ---
 word: Fleet Health
 title: Fleet Health
-order: 3
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 ---
 
 # {{title}}

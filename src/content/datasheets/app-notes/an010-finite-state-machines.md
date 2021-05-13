@@ -1,8 +1,7 @@
 ---
 title: AN010 Finite State Machines
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 110
 ---
 # AN010 Finite State Machines
 

@@ -1,8 +1,7 @@
 ---
 title: M8 Accessories
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 20
 description: Datasheet for Tracker One M8 connector accessories
 ---
 

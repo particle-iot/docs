@@ -1,8 +1,7 @@
 ---
 title: Authentication
 columns: two
-layout: tutorials.hbs
-order: 36
+layout: commonTwo.hbs
 ---
 
 # Authentication

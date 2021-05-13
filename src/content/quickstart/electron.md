@@ -1,8 +1,7 @@
 ---
 title: Electron
-layout: quickstart.hbs
+layout: commonTwo.hbs
 columns: two
-order: 9
 setdevice: electron
 description: Getting started with your Particle Electron, Gen 2 cellular device
 ---

@@ -1,8 +1,7 @@
 ---
 title: Mesh Deprecation
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: two
-order: 10
 ---
 
 Particle Gen 3 devices (Argon, Boron, and Xenon) included support for Thread Mesh, a technology for short-range (10 meter) communication. This support will be discontinued beginning in March 2020.

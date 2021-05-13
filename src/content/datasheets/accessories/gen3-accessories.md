@@ -1,8 +1,7 @@
 ---
 title: Gen 3 Accessories
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 22
 description: Accessories for Particle Gen 3 devices including the Argon and Boron, and other Adafruit FeatherWing accessories.
 ---
 

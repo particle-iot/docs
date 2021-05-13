@@ -1,8 +1,7 @@
 ---
 title: AN012 Tracker 1-Wire
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 112
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN012 Tracker 1-Wire
