@@ -1,8 +1,7 @@
 ---
 title: IoT Starter Kit
-layout: quickstart.hbs
+layout: commonTwo.hbs
 columns: two
-order: 4
 ---
 
 # The Particle IoT Starter Kit

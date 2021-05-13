@@ -1,8 +1,7 @@
 ---
 title: AN015 Tracker Breakout
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 115
 ---
 # AN015 Tracker Breakout
 

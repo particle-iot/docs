@@ -1,8 +1,7 @@
 ---
 title: USB Serial Debugging
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 7
 description: USB Serial Debugging for Particle IoT devices
 includeDefinitions: [api-helper, api-helper-extras]
 ---

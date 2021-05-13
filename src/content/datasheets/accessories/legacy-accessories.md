@@ -1,8 +1,7 @@
 ---
 title: Legacy Accessories
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 30
 description: Accessories for Particle Photon and Electron devices (Gen 2)
 ---
 

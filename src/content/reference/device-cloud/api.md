@@ -2,7 +2,6 @@
 title: Cloud API
 layout: api.hbs
 columns: three
-order: 30
 description: Control and manage Particle IoT devices from the Internet with a REST API
 ---
 

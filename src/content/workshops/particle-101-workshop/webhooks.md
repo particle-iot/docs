@@ -1,9 +1,8 @@
 ---
 word: Particle Webhooks
 title: Webhooks Lab
-order: 10
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Lab 5: Introducing Particle Integrations & IFTTT

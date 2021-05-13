@@ -1,0 +1,30 @@
+{
+    "items":[
+        {
+            "title":"Home",
+            "link":"/"
+        },
+        {
+            "dir":"quickstart"
+        },
+        {
+            "dir":"tutorials"
+        },
+        {
+            "dir":"reference"
+        },
+        {
+            "dir":"datasheets"
+        },
+        {
+            "dir":"community"
+        },
+        {
+            "dir":"workshops"
+        },
+        {
+            "title":"Support",
+            "link":"https://support.particle.io/hc/en-us/"
+        }
+    ]
+}

@@ -1,8 +1,7 @@
 ---
 title: Qwiic (I2C)
-layout: community.hbs
+layout: commonTwo.hbs
 columns: two
-order: 16
 ---
 
 

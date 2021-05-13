@@ -1,8 +1,7 @@
 ---
 title: AN030 EEPROM samples example
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 130
 ---
 # AN030 EEPROM samples example
 

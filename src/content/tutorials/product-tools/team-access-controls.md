@@ -1,8 +1,7 @@
 ---
 title: Team Access Controls
 columns: two
-layout: tutorials.hbs
-order: 43
+layout: commonTwo.hbs
 description: Learn about team access controls, managing access different members of your product team
 ---
 

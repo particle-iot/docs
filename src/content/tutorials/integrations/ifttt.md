@@ -1,10 +1,9 @@
 ---
 word: IFTTT
 title: IFTTT
-order: 140
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Connecting the IFTTT (if this then that) to your Particle IoT device using the Particle Cloud
 ---
 

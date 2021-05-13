@@ -1,8 +1,7 @@
 ---
 title: Android SDK
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: three
-order: 30
 description: Manage your Particle IoT device from an Android phone
 sdkversion: 1.0.1
 devicesetupversion: 0.7.3

@@ -1,8 +1,7 @@
 ---
 title: AN007 Tower Info
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 107
 ---
 # AN007 Tower Info
 

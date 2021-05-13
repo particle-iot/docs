@@ -1,8 +1,7 @@
 ---
 title: M8 Temperature/Humidity
 columns: two
-layout: tutorials.hbs
-order: 42
+layout: commonTwo.hbs
 description: M8 Temperature/Humidity Tutorial
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---

@@ -1,8 +1,7 @@
 ---
 title: Tracker One Expansion
 columns: two
-layout: tutorials.hbs
-order: 40
+layout: commonTwo.hbs
 description: Adding features to the Tracker One
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: Tracker Edge Firmware
 columns: three
-layout: reference.hbs
-order: 10
+layout: commonTwo.hbs
 description: Particle Tracker Edge Firmware Reference
 ---
 

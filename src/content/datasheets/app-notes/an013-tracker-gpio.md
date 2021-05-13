@@ -1,8 +1,7 @@
 ---
 title: AN013 Tracker GPIO
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 113
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN013 Tracker GPIO

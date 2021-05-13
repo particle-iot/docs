@@ -1,9 +1,8 @@
 ---
 word: Particle Primitives
 title: Primitives Lab
-order: 6
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Lab 2: Working with Particle primitives & Grove Sensors

@@ -1,8 +1,7 @@
 ---
 title: Community Supported Clients
-layout: community.hbs
+layout: commonTwo.hbs
 columns: two
-order: 20
 ---
 
 # Community Supported Clients

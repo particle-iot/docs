@@ -1,8 +1,7 @@
 ---
 title: B Series SoM
-layout: quickstart.hbs
+layout: commonTwo.hbs
 columns: two
-order: 5
 description: Getting started with the B Series SoM with SoM Evaluation Board, Gen 3 cellular and BLE device
 ---
 

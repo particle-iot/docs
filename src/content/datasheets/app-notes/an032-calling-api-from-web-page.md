@@ -1,8 +1,7 @@
 ---
 title: AN032 Calling API from Web Page
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 132
 includeDefinitions: [api-helper]
 ---
 # AN032 Calling API from Web Page

@@ -1,10 +1,9 @@
 ---
 word: Device Vitals
 title: Device Vitals
-order: 2
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 redirects: true
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: Organizations
 columns: two
-layout: tutorials.hbs
-order: 50
+layout: commonTwo.hbs
 description: Learn about Organizations, an enterprise feature for easy management of multiple products
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: Device OS Versions
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: two
-order: 22
 description: Device OS versions, upgrades, and downgrades
 ---
 

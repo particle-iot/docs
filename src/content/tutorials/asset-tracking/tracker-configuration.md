@@ -1,8 +1,7 @@
 ---
 title: Tracker Configuration
 columns: two
-layout: tutorials.hbs
-order: 32
+layout: commonTwo.hbs
 description: Particle Tracker Configuration
 includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---

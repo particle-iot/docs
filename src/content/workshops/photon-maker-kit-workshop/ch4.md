@@ -1,9 +1,8 @@
 ---
 word: Visualizing sensor data in the cloud
 title: Data visualization
-order: 5
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Session 4 - Visualizing sensor data in the cloud

@@ -1,8 +1,7 @@
 ---
 title: AN005 Threading Explainer
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 105
 ---
 # AN005 Threading Explainer
 

@@ -1,8 +1,7 @@
 ---
 title: Photon
-layout: quickstart.hbs
+layout: commonTwo.hbs
 columns: two
-order: 8
 setdevice: photon
 description: Getting started with your Particle Photon, Gen 2 Wi-Fi device
 ---

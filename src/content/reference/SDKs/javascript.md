@@ -1,8 +1,7 @@
 ---
 title: Particle API JS (Javascript SDK)
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: three
-order: 10
 description: Manage your Particle IoT device your IoT device from a web browser or server (node.js) using Javascript
 ---
 

@@ -1,9 +1,8 @@
 ---
 title: Real-time clocks
-order: 42
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Learn more about real-time clocks (RTC) on Particle IoT devices
 ---
 

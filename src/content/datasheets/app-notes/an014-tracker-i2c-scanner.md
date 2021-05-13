@@ -1,8 +1,7 @@
 ---
 title: AN014 Tracker I2C Scanner
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 114
 ---
 # AN014 Tracker I2C Scanner
 

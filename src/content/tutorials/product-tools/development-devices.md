@@ -1,8 +1,7 @@
 ---
 title: Development Devices
 columns: two
-layout: tutorials.hbs
-order: 42
+layout: commonTwo.hbs
 description: Using Development Devices to rapidly iterate device firmware for Particle products
 ---
 

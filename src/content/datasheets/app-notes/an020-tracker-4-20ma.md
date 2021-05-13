@@ -1,8 +1,7 @@
 ---
 title: AN020 Tracker 4-20mA Sensor
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 120
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN020 Tracker 4-20mA Sensor

@@ -1,8 +1,7 @@
 ---
 title: E Series datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 7
 description: Datasheet for the Particle E Series, Gen 2 cellular mass-production module
 ---
 

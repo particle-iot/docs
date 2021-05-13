@@ -1,8 +1,7 @@
 ---
 title: Introduction
 columns: two
-layout: tutorials.hbs
-order: 10
+layout: commonTwo.hbs
 description: Learn about products on the Particle platform
 ---
 

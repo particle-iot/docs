@@ -1,8 +1,7 @@
 ---
 title: Device Groups
 columns: two
-layout: tutorials.hbs
-order: 41
+layout: commonTwo.hbs
 description: Using Device Groups for deploying product firmware to a subset of the Particle devices in your product
 ---
 

@@ -3,6 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 var cloneDeep = require('lodash').cloneDeep;
+const generateNavHtml = require('./nav_menu_generator.js').generateNavHtml;
+
 
 function createRefCards(options, files, fileName, cardMappingPath, redirectsPath) {
     // console.log('processing refCards for ' + fileName);
@@ -268,43 +270,27 @@ function createRefCards(options, files, fileName, cardMappingPath, redirectsPath
         newFile.contents = Buffer.from(contents); 
 
         // Generate navigation
-        newFile.navigation = '';
+        let menuJson = {items:[]};
+
         for(const tempL2 of allL2) {
-            newFile.navigation += '<ul class="static-toc">';
+            menuJson.items.push({title:tempL2.origTitle,href:tempL2.url,isCardSection:true});
+
             if (tempL2.url == section.curL2.url) {
-                newFile.navigation += '<li class="top-level active"><span>' + tempL2.origTitle + '</span></li>';
+                let a = [];
 
-                newFile.navigation += '<div class="in-page-toc-container">';
-                for(const tempSection of section.curL2.l3) {
-                    newFile.navigation += '<ul class="nav in-page-toc show">';
-
-                    if (tempSection.url === section.url) {
-                        newFile.navigation += '<li class="middle-level active"><span>' + section.origTitle + '</span></li>';
-
-                        if (tempSection.l4) {
-                            newFile.navigation += '<ul class="nav secondary-in-page-toc" style="display:block">';
-                            for(const tempL4 of tempSection.l4) {
-                                newFile.navigation += '<li data-secondary-nav><a href="#' + tempL4.origAnchor + '">' + tempL4.origTitle + '</a></li>';
-                            }
-                            newFile.navigation += '</ul>';
-                        }
+                for(const tempSection of tempL2.l3) {
+                    let obj = {title:tempSection.origTitle,href:tempSection.url};
+                    if (tempSection.url == newFile.path.href) {
+                        obj.activeItem = true;
                     }
-                    else {
-                        newFile.navigation += '<li class="middle-level"><a href="' + tempSection.url + '">' + tempSection.origTitle + '</a></li>';
-                    }
-
-
-                    newFile.navigation += '</ul>';
+                    a.push(obj);                                
                 }
-                newFile.navigation += '</div">';
-
+                menuJson.items.push(a);                                
             }
-            else {
-                newFile.navigation += '<li class="top-level"><a href="' + tempL2.url + '">' + tempL2.origTitle + '</a></li>';
-            }
-            newFile.navigation += '</ul>';
         }
-        
+
+        newFile.navigation = generateNavHtml(menuJson);
+
         // Save in metalsmith files so it the generated file will be converted to html
         const newPath = thisCardsDir + '/' + section.folder + '/' + section.file + '.md';
         files[newPath] = newFile;

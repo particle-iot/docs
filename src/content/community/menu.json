@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "dir": "forum",
+      "title": "Resources",
+      "href": "/community/forum/"
+    },
+    {
+      "dir": "feather",
+      "title": "Feather",
+      "href": "/community/feather/"
+    },
+    {
+      "dir": "qwiic",
+      "title": "Qwiic (I2C)",
+      "href": "/community/qwiic/"
+    },
+    {
+      "dir": "mikroe",
+      "title": "Mikroe",
+      "href": "/community/mikroe/"
+    },
+    {
+      "dir": "community",
+      "title": "Community Supported Clients",
+      "href": "/community/community/"
+    },
+    {
+      "dir": "node-red",
+      "title": "Node-RED",
+      "href": "/community/node-red/"
+    },
+    {
+      "dir": "community-tools",
+      "title": "Community Supported Tools",
+      "href": "/community/community-tools/"
+    },
+    {
+      "dir": "contributing",
+      "title": "Open Source",
+      "href": "/community/contributing/"
+    }
+  ]
+}

@@ -1,9 +1,8 @@
 ---
 word: Claim a Particle Device
 title: Claim Device Lab
-order: 4
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Lab 1: Claiming Your Particle Argon

@@ -1,8 +1,7 @@
 ---
 title: Boron datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 1
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 

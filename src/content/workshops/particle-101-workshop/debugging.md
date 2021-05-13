@@ -1,9 +1,8 @@
 ---
 word: One-Device Debugging
 title: Device Debugging Lab
-order: 11
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Lab 6: On-Device Debugging with Workbench

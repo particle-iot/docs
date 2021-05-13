@@ -1,8 +1,7 @@
 ---
 title: AN031 Enabling Wi-Fi RF Test for ESP32
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 131
 ---
 
 # AN031 Enabling Wi-Fi RF Test for ESP32

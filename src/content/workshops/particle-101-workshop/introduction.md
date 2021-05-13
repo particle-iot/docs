@@ -1,9 +1,8 @@
 ---
 word: Introduction
 title: Introduction
-order: 1
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # About This Workshop

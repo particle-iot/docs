@@ -1,8 +1,7 @@
 ---
 title: AN004 Interpreting Cloud Debug Logs 2
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 104
 ---
 # AN004 Interpreting Cloud Debug Logs 2
 

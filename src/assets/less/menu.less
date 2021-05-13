@@ -59,74 +59,145 @@
   }
 }
 
-.menubar .section {
-  padding: 0 10px;
-  overflow: hidden;
-  box-sizing: border-box;
-  width: 100%;
+
+div.navMenu {
+  padding: 10px 20px;
 }
 
-.menubar .sections {
-  padding: 20px 0 30px;
-}
-.menubar .section.no-line {
-  border-top: 0;
-  padding-top: 0;
-}
-.menubar ol {
-  list-style: inherit;
-  list-style-position: inside;
-  list-style-type: decimal;
-  li {
-    color: @gray;
-  }
+div.navContainer {
+  display: flex
 }
 
-
-h3.guide-section-titles {
+div.navMenu1 {
   font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: .7px;
   font-weight: bold;
+  margin-top: 2px;
   margin-bottom: 5px;
+  color: @NC_COOL_GRAY;
 }
 
+div.navMenu2 {
+  font-size: 16px;
+  color: @NC_COOL_GRAY;
+  padding-bottom: 3px;
+  width: 245px;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
-/* GUIDE SPECIFIC MENU */
-ul.guide-menu {
-  padding-top: 10px;
-  ul.in-page-toc {
-    margin-left: 20px;
+div.navActive2 {
+  font-size: 16px;
+  color: @NC_COOL_GRAY;
+  font-weight: bold;
+  padding-bottom: 3px;
+  width: 230px;
+  overflow: hidden;
+  white-space: nowrap;
+};
+
+div.navMenu3 {
+  font-size: 14px;
+  color: @NC_COOL_GRAY;
+  padding-bottom: 2px;
+  width: 245px;
+  overflow: hidden;
+  white-space: nowrap;
+};
+
+div.navMenu4 {
+  font-size: 14px;
+  color: @NC_COOL_GRAY;
+  padding-bottom: 2px;
+  width: 245px;
+  overflow: hidden;
+  white-space: nowrap;
+};
+
+div.navMenu5 {
+  font-size: 14px;
+  color: @NC_COOL_GRAY;
+  padding-bottom: 2px;
+  width: 245px;
+  overflow: hidden;
+  white-space: nowrap;
+};
+
+div.navSectionSpacer {
+  height: 10px;
+};
+
+div.navPlusMinus {
+  width: 15px;
+};
+
+div.navDisclosure {
+  width: 15px;
+};
+
+div.navIndent2 {
+  width: 15px;
+};
+
+div.navIndent3 {
+  width: 25px;
+};
+
+div.navContent3 {
+  width: 210px;
+  overflow: hidden;
+  white-space: nowrap;
+};
+
+div.navIndent4 {
+  width: 50px;
+};
+
+div.navContent4 {
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+};
+
+div.navIndent5 {
+  width: 65px;
+};
+
+div.navContent5 {
+  width: 185px;
+  overflow: hidden;
+  white-space: nowrap;
+};
+
+div.navContent {
+  overflow: hidden;
+};
+
+a.navLink {
+  &:link {
+    color: @NC_COOL_GRAY !important;
   }
-  li.active-section {
-    overflow-x: visible;
-    li.active.top-level {
-      overflow-x: hidden;
-      padding-left: 20px;
-    }
+  &:visited {
+    color: @NC_COOL_GRAY !important;
   }
+  &:hover {
+    color: @spark-blue !important;
+  }  
 }
-/* END GUIDE SPEFIFIC MENU */
-
-.quickstart {
-}
-
-/* REFERENCE SPECIFIC MENU */
-.reference {
-  ul.in-page-toc {
-    display: none;
+a.navLinkActive {
+  &:link {
+    color: @NC_CYAN !important;
+    font-weight: bold;
   }
+  &:visited {
+    color: @NC_CYAN !important;
+    font-weight: bold;
+  }
+  &:hover {
+    color: @NC_CYAN !important;
+    font-weight: bold;
+  }  
 }
-/* END REFERENCE SPECIFIC MENU */
-#toggle-in-page-nav {
-  color: @gray;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: .5em;
-  margin-top: -.5em;
-  .transition(color 0.2s);
-}
+
 
 .menubar li a,
 .menubar li a:visited {
@@ -147,69 +218,6 @@ ul.guide-menu {
       font-size: .875em;
       user-select: none;
   }
-}
-
-ul.in-page-toc {
-  margin: 5px 0 10px 10px;
-  &.hide {
-    display: none;
-  }
-  &.show {
-    display: block;
-  }
-  li {
-    text-overflow: ellipsis;
-    overflow-x: hidden;
-    padding: 2px 0;
-    i.toggle-secondary-toc {
-      color: @gray;
-      margin-right: 4px;
-      cursor: pointer;
-      .transition(color 0.2s);
-      width: 1em;
-      display: inline-block;
-      &:hover {
-        color: @spark-blue;
-      }
-    }
-    &.active {
-      a {
-        font-weight: bold;
-        color: @spark-blue;
-      }
-    }
-    a {
-      font-size: 14px;
-    }
-  }
-  .secondary-in-page-toc {
-    padding-left: 18px; // .875em (14px) + 4px
-    display: none;
-  }
-}
-
-.menubar li.active {
-  &.top-level {
-    padding: 5px;
-    background: @almost-white;
-    position: relative;
-    cursor: pointer;
-    margin: 0 -20px;
-    padding-left: 20px;
-    overflow-x: auto;
-    &:hover {
-      #toggle-in-page-nav {
-        color: @spark-blue;
-      }
-    }
-  }
-  span {
-    font-weight: bold;
-    color: @gray;
-  }
-}
-.guide-section {
-  margin-bottom: 15px;
 }
 
 @media print {

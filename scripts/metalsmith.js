@@ -18,7 +18,6 @@ var moveUp = require('metalsmith-move-up');
 var less = require('metalsmith-less');
 var ignore = require('metalsmith-ignore');
 var permalinks = require('metalsmith-permalinks');
-var collections = require('metalsmith-collections');
 var cleanCSS = require('metalsmith-clean-css');
 var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
@@ -50,6 +49,7 @@ var trackerSchema = require('./tracker-schema.js');
 var refCards = require('./refcards.js');
 var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
+const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -188,105 +188,6 @@ exports.metalsmith = function () {
     .use(helpers({
       directory: '../templates/helpers'
     }))
-// Group files into collections and add collection metadata
-    // This plugin is complex and buggy.
-    // It causes the duplicate nav bar bug during development with livereload
-    .use(collections({
-      quickstart: {
-        pattern: 'quickstart/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      reference: {
-        pattern: 'reference/:section/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'device-os',
-          'developer-tools',
-          'device-cloud',
-          'SDKs',
-          'asset-tracking',
-          'hardware',
-          'discontinued'
-        ]
-      },
-      tutorials: {
-        pattern: 'tutorials/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'device-os',
-          'developer-tools',
-          'device-cloud',
-          'cellular-connectivity',
-          'asset-tracking',
-          'diagnostics',
-          'product-tools',
-          'integrations',
-          'hardware-projects',
-          'learn-more'
-        ]
-      },
-      datasheets: {
-        pattern: 'datasheets/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'asset-tracking',
-          'boron',
-          'electron',
-          'wi-fi',
-          'certifications',
-          'accessories',
-          'app-notes',
-          'discontinued'
-        ]
-      },
-      community: {
-        pattern: 'community/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      workshops: {
-        pattern: 'workshops/:section/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'particle-workshops',
-          'mesh-101-workshop',
-          'photon-maker-kit-workshop'
-        ]
-      },
-      support: {
-        pattern: 'support/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'general',
-          'particle-devices-faq',
-          'particle-tools-faq',
-          'shipping-and-returns',
-          'wholesale-store',
-          'troubleshooting'
-        ]
-      },
-      supportBase: {
-        pattern: 'support/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      quickstart: {
-        pattern: 'quickstart/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      landing: {
-        pattern: '*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      }
-    }))//end of collections/sections
     .use(planLimits({
       config: '../config/planLimits.json'
     }))
@@ -303,6 +204,9 @@ exports.metalsmith = function () {
       sourceDir: '../src/assets/files/libraries',
       searchIndex: '../build/assets/files/librarySearch.json',
       redirects: '../config/redirects.json'
+    }))
+    .use(navMenuGenerator({      
+      contentDir: '../src/content',
     }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link

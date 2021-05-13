@@ -1,10 +1,9 @@
 ---
 word: JTAG
 title: Using SWD/JTAG
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: two
 redirects: true
-order: 50
 description: Using SWD/JTAG to program Particle Devices
 ---
 

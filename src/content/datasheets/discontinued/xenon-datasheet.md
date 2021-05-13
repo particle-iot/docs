@@ -1,8 +1,7 @@
 ---
 title: Xenon datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 2
 ---
 
 # Xenon Datasheet <sup>(v002)</sup>

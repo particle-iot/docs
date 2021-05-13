@@ -1,8 +1,7 @@
 ---
 title: B Series B524/B523 datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 3
 description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 

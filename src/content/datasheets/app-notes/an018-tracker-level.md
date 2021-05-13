@@ -1,8 +1,7 @@
 ---
 title: AN018 Tracker Tank Level Sensor
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 118
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN018 Tracker Tank Level Sensor

@@ -1,8 +1,7 @@
 ---
 title: Argon datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 1
 description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 

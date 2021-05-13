@@ -1,10 +1,9 @@
 ---
 word: Webhooks
 title: Webhooks
-order: 32
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Controlling external services on the Internet from Particle IoT devices using the Particle Cloud
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: Security
 columns: two
-layout: tutorials.hbs
-order: 40
+layout: commonTwo.hbs
 description: Learn about security on the Particle platform
 ---
 

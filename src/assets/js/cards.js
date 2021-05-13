@@ -1,64 +1,35 @@
 
 $(document).ready(function() {
+    
     const navigate = function(next, group) {
-        const guideMenu = $('ul.guide-menu');
-             
-        const topLevel = $(guideMenu).find('li.top-level');
 
-        let topIndex = -1;
-        for(let ii = 0; ii < topLevel.length; ii++) {
-            if ($($(topLevel)[ii]).hasClass('active')) {
-                topIndex = ii;
-                break;
-            }
-        }
-        if (topIndex < 0) {
+        if (!navigationInfo) {
             return;
         }
-
-        const middleLevel = $(guideMenu).find('li.middle-level');
-
-        let middleIndex = -1;
-        for(let ii = 0; ii < middleLevel.length; ii++) {
-            if ($($(middleLevel)[ii]).hasClass('active')) {
-                middleIndex = ii;
-                break;
-            }
-        }
-        if (middleIndex < 0) {
-            return;
-        }
-
 
         if (!group) {
             if (next) {
-                if (middleIndex < (middleLevel.length - 1)) {
-                    location.href = $(middleLevel[middleIndex + 1]).find('a').attr('href');
-                }
-                else {
-                    group = true;
+                if (navigationInfo.nextLink) {
+                    location.href = navigationInfo.nextLink;
                 }
             }
             else {
-                if (middleIndex > 0) {
-                    location.href = $(middleLevel[middleIndex - 1]).find('a').attr('href');
+                if (navigationInfo.prevLink) {
+                    location.href = navigationInfo.prevLink;
                 }
-                else {
-                    group = true;
-                }    
             }
         }
 
         if (group) {
             if (next) {
-                if (topIndex < (topLevel.length - 1)) {
-                    location.href = $(topLevel[topIndex + 1]).find('a').attr('href')
+                if (navigationInfo.nextGroup) {
+                    location.href = navigationInfo.nextGroup;
                 }
             }
             else {
-                if (topIndex > 0) {
-                    location.href = $(topLevel[topIndex - 1]).find('a').attr('href')
-                }    
+                if (navigationInfo.prevGroup) {
+                    location.href = navigationInfo.prevGroup;
+                }
             }
         }
     };
@@ -99,7 +70,7 @@ $(document).ready(function() {
                 navigate(false, false);
             }
         }    
-a    });    
+    });    
 
     
     $('body').on('keydown', function(ev) {
@@ -124,5 +95,5 @@ a    });
 
         }
     });
-
+    
 });

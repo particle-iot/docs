@@ -1,8 +1,7 @@
 ---
 title: Introduction
-order: 1
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Introduction to the Particle Cloud for Particle IoT devices
 ---
 

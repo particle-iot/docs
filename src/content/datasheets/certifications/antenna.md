@@ -1,8 +1,7 @@
 ---
 title: Antennas
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 70
 description: Information about antennas and certification
 ---
 

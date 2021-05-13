@@ -1,8 +1,7 @@
 ---
 title: Introduction
 columns: two
-layout: tutorials.hbs
-order: 10
+layout: commonTwo.hbs
 description: Introduction to Particle cellular devices and cellular standards
 ---
 

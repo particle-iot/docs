@@ -1,8 +1,7 @@
 ---
 title: Core datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 10
 ---
 
 # Spark Core Datasheet

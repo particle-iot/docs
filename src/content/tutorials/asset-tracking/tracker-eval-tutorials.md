@@ -1,8 +1,7 @@
 ---
 title: Tracker Eval Board Tutorials
 columns: two
-layout: tutorials.hbs
-order: 60
+layout: commonTwo.hbs
 description: Adding features to the Tracker Evaluation Board
 includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---

@@ -1,0 +1,112 @@
+{
+  "items": [
+    {
+      "dir": "particle-workshops",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "main",
+        "title": "About Particle Workshops",
+        "href": "/workshops/particle-workshops/main/"
+      }
+    ],
+    {
+      "dir": "particle-101-workshop",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/workshops/particle-101-workshop/introduction/"
+      },
+      {
+        "dir": "prerequisites",
+        "title": "Prerequisites",
+        "href": "/workshops/particle-101-workshop/prerequisites/"
+      },
+      {
+        "dir": "a-lap-around-particle",
+        "title": "Introducing Particle",
+        "href": "/workshops/particle-101-workshop/a-lap-around-particle/"
+      },
+      {
+        "dir": "claim-device",
+        "title": "Claim Device Lab",
+        "href": "/workshops/particle-101-workshop/claim-device/"
+      },
+      {
+        "dir": "particle-primitives",
+        "title": "Particle Primitives",
+        "href": "/workshops/particle-101-workshop/particle-primitives/"
+      },
+      {
+        "dir": "primitives",
+        "title": "Primitives Lab",
+        "href": "/workshops/particle-101-workshop/primitives/"
+      },
+      {
+        "dir": "device-cloud",
+        "title": "CLI & Device Cloud Lab",
+        "href": "/workshops/particle-101-workshop/device-cloud/"
+      },
+      {
+        "dir": "ble",
+        "title": "BLE Lab",
+        "href": "/workshops/particle-101-workshop/ble/"
+      },
+      {
+        "dir": "integrations",
+        "title": "Webhooks and Integrations",
+        "href": "/workshops/particle-101-workshop/integrations/"
+      },
+      {
+        "dir": "webhooks",
+        "title": "Webhooks Lab",
+        "href": "/workshops/particle-101-workshop/webhooks/"
+      },
+      {
+        "dir": "debugging",
+        "title": "Device Debugging Lab",
+        "href": "/workshops/particle-101-workshop/debugging/"
+      }
+    ],
+    {
+      "dir": "photon-maker-kit-workshop",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "introduction",
+        "title": "Introduction",
+        "href": "/workshops/photon-maker-kit-workshop/introduction/"
+      },
+      {
+        "dir": "ch1",
+        "title": "Claiming a device",
+        "href": "/workshops/photon-maker-kit-workshop/ch1/"
+      },
+      {
+        "dir": "ch2",
+        "title": "Publishing sensor data",
+        "href": "/workshops/photon-maker-kit-workshop/ch2/"
+      },
+      {
+        "dir": "ch3",
+        "title": "Particle & Azure",
+        "href": "/workshops/photon-maker-kit-workshop/ch3/"
+      },
+      {
+        "dir": "ch4",
+        "title": "Data visualization",
+        "href": "/workshops/photon-maker-kit-workshop/ch4/"
+      },
+      {
+        "dir": "ch5",
+        "title": "From Cloud to Device",
+        "href": "/workshops/photon-maker-kit-workshop/ch5/"
+      }
+    ]
+  ]
+}

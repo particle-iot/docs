@@ -1,8 +1,7 @@
 ---
 title: M8 Temperature/Humidity
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 22
 description: Datasheet for Tracker One M8 Temperature/Humidity Sensor
 ---
 
