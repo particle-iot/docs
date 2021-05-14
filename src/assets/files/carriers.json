@@ -8212,6 +8212,11 @@
         "allow3G": false,
         "allowCat1": false
       },
+      "koreAllNet": {
+        "allow2G": true,
+        "allow3G": false,
+        "allowCat1": false
+      },
       "bands": [
         "2G-900"
       ],
