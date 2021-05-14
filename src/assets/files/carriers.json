@@ -8204,6 +8204,24 @@
     },
     {
       "country": "Fiji",
+      "carrier": "Digicel",
+      "sunset2G": "?",
+      "sunset3G": "?",
+      "koreOneNet": {
+        "allow2G": true,
+        "allow3G": false,
+        "allowCat1": false
+      },
+      "bands": [
+        "2G-900"
+      ],
+      "noBands": [
+        "3G",
+        "LTE"
+      ]
+    },
+    {
+      "country": "Fiji",
       "carrier": "Vodafone",
       "sunset2G": "?",
       "sunset3G": "?",
@@ -12812,6 +12830,11 @@
       "carrier": "Digicel",
       "sunset2G": "?",
       "sunset3G": "?",
+      "koreOneNet": {
+        "allow2G": true,
+        "allow3G": false,
+        "allowCat1": false
+      },
       "bands": [
         "2G-900"
       ],
@@ -27678,8 +27701,7 @@
       "country": "Fiji",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Fiji",
@@ -27692,8 +27714,7 @@
       "country": "Fiji",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Fiji",
@@ -27734,8 +27755,7 @@
       "country": "Fiji",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Fiji",
@@ -34380,8 +34400,7 @@
       "country": "Nauru",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Nauru",
@@ -34394,8 +34413,7 @@
       "country": "Nauru",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Nauru",
@@ -34436,8 +34454,7 @@
       "country": "Nauru",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
+      "recommendation": "YES"
     },
     {
       "country": "Nauru",
