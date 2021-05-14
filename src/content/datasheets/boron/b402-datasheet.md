@@ -549,4 +549,4 @@ The bootloader allows you to easily update the user application via several diff
 | 008      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
 | 009      | 23-Mar-2021 | RK | Pins 40 and 42 functions were reversed |
 | 010      | 26-Apr-2021 | RK | Added B404 model number |
-| 011      | 14-May-2021 | RK | Corrected pins 40 and 42 again |
+| 011      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
