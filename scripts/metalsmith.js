@@ -59,7 +59,14 @@ prettify.register(handlebars);
 function noop() { }
 noop.exec = noop;
 var marked = require('marked');
-marked.InlineLexer.rules.gfm.url = noop;
+//marked.InlineLexer.rules.gfm.url = noop;
+marked.use({
+  tokenizer: {
+    url(src) {
+      // having nothing here disables gfm autolinks
+    },
+  },
+});
 
 var environment;
 

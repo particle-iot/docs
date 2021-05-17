@@ -188,7 +188,7 @@ gulp.task('assets', () => gulp.src(paths.assets)
 
 /* ---------------- Transfrom MD to PDF ---------------- */
 
-gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
+gulp.task('transfrom md to pdf', gulp.series('assets', 'css'), () => gulp.src(paths.md)
     .pipe(replace(/^---$[^]*?^---$/m, '')) // strip frontmatter
     .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
 	.pipe(ignore.include(filterUnchanged))
@@ -211,7 +211,7 @@ gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
 
 /* ---------------- */
 
-gulp.task('prepare dirs', () => {
+gulp.task('prepare dirs', (cb) => {
     del.sync(paths.build);
     if (!existsSync(paths.build)) {
         mkdirSync(paths.build);
@@ -219,9 +219,10 @@ gulp.task('prepare dirs', () => {
     if (!existsSync(paths.distrib)) {
         mkdirSync(paths.distrib);
     }
+    cb();
 });
 
-gulp.task('default', ['prepare dirs', 'assets', 'css', 'transfrom md to pdf'], () => {
+gulp.task('default', gulp.series('prepare dirs', 'assets', 'css', 'transfrom md to pdf'), (cb) => {
     // browserSync.init({
     //     server: {
     //         baseDir: paths.build,
@@ -232,4 +233,5 @@ gulp.task('default', ['prepare dirs', 'assets', 'css', 'transfrom md to pdf'], (
     // gulp.watch(paths.md, ['md']);
     // gulp.watch(paths.css, ['css']);
     // gulp.watch(paths.assets, ['assets']);
+    cb();
 });

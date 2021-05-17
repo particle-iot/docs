@@ -805,7 +805,7 @@ content-length: 59
 
 ### Receiving Complex Data
 
-Use template variables in both the request and response to interact with the [Google Maps Elevation API] (https://developers.google.com/maps/documentation/elevation/start).
+Use template variables in both the request and response to interact with the [Google Maps Elevation API](https://developers.google.com/maps/documentation/elevation/start).
 
 ```
 WEBHOOK
