@@ -16,7 +16,7 @@
         "pdf-generation": "gulp --gulpfile ./scripts/pdf-generation/pdf-generation-gulpfile.js"
     },
     "dependencies": {
-        "apidoc": "^0.28.0",
+        "apidoc": "^0.17.5",
         "autoprefixer": "^7.1.5",
         "clean-css": "^5.1.2",
         "del": "^3.0.0",
