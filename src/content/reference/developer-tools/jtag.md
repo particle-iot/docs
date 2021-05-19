@@ -390,4 +390,5 @@ As there has only been one Argon NCP image you should not need to upgrade it for
 | 0.0.6 | 2020-04-29 | Initial Release for Tracker |
 | 0.0.7 | 2020-12-22 | Required with Device OS 3.0.0-rc.1 and later, works with earlier Device OS |
 
-The 0.0.7 version is required to is 3.0.0-rc.1 and later. It will be upgraded OTA if required. The 0.0.7 version is compatible with all versions of Tracker Device OS, so you do not need to revert back to 0.0.6 to use Device OS 2.0.x or 1.5.4.
+The 0.0.7 version is required to is 3.0.0-rc.1 and later. It will be upgraded OTA if required. Prior to Device OS 3.0.0, the NCP was not used on the Tracker, so it is not necessary to downgrade, even when going back to Device OS 2.x or 1.5.4.
+

@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B524/B523 Datasheet <sup>008</sup>
+# B524/B523 Datasheet <sup>009</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -260,6 +260,18 @@ By default, the Tinker application firmware enables the use of the bq24195 PMIC 
 ```
 System.setPowerConfiguration(SystemPowerConfiguration());
 ```
+
+If you are using Ethernet with the B Series SoM, the following pins are used by Ethernet:
+
+| Device OS Pin | M.2 Pin | Ethernet Pin  |
+|:-------------:|:-------:|:--------------------------|
+| MISO          | 50      | SPI MISO                  |
+| MOSI          | 52      | SPI MOSI                  |
+| SCK           | 54      | SPI SCK                   |
+| A7            | 47      | nRESET                    |
+| D22           | 62      | nINTERRUPT                |
+| D8            | 48      | nCHIP SELECT              |
+
 
 ### LED status
 
@@ -610,3 +622,4 @@ The bootloader allows you to easily update the user application via several diff
 | 006      | 23-Mar-2021 | RK | Pins 40 and 42 functions were reversed |
 | 007      | 26-Apr-2021 | RK | Added B524 model number |
 | 008      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
+| 009      | 19-May-2021 | RK | List Ethernet reserved pins |

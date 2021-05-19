@@ -64,6 +64,15 @@ particle update
 
 Note that particle update actually updates Device OS to the version that was the default when the CLI version was created, and the binaries are stored in the CLI itself (not downloaded). Thus you may need to use `particle update-cli` to have it update itself. 
 
+### Browser DFU
+
+Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/device-restore-usb/) for more information.
+
+- There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
+- It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
+- It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers.
+
+
 ### Manually over USB
 
 It is also possible to update manually over USB. This allows for upgrades as well as downgrades, and operation while offline. 
@@ -154,7 +163,6 @@ A [hex file generator](/reference/developer-tools/jtag/#custom-hex-files) is ava
 Additional information can be found in the [JTAG and SWD Guide](/reference/developer-tools/jtag/).
 
 
-
 ### Using Particle Workbench
 
 In [Particle Workbench](/tutorials/developer-tools/workbench/) you can also choose to upgrade or downgrade Device OS when flashing code.
@@ -168,6 +176,12 @@ There are several caveats to this, however:
 - Workbench will not downgrade the bootloader. This generally will function, but the farther back you go in versions the more likely this is to not work. Downgrading the bootloader by USB is recommended as bootloader downgrades are never done by the cloud.
 - Workbench will not upgrade or downgrade the SoftDevice on Gen 3 platforms. This is not always required, but if it is you'll need to do so OTA or by USB.
 - Workbench will not upgrade or downgrade the Argon or Tracker SoM NCP, though this is almost never required.
+
+### NCP Upgrade
+
+The Argon and Tracker have a Network Coprocessor (NCP). This rarely needs to be updated manually, as it will be upgraded OTA if necessary. There is currently no scenario in which it would need to be downgraded.
+
+For more information see [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp).
 
 ### Less common scenarios
 
@@ -241,10 +255,17 @@ This only works for SoftDevice, not for bootloader:
 
 While upgrades to Device OS are automatically handled by Safe Mode (breathing magenta), downgrades are not handled automatically. 
 
+### USB Downgrade - Browser
 
-### USB - Downgrade
+Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/device-restore-usb/) for more information.
 
-By far the easiest way to downgrade is by USB in DFU mode (blinking yellow). This can generally be done in one version jump, with the following exception:
+- There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
+- It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
+- It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers.
+
+### USB Downgrade - Particle CLI
+
+You can downgrade USB in DFU mode (blinking yellow). This can generally be done in one version jump, with the following exception:
 
 {{blurb name="downgrade"}}
 
@@ -410,3 +431,5 @@ particle flash electron7 electron-bootloader@1.5.2+lto.bin
 
 Using a SWD/JTAG debugger such as the Particle Debugger, ST-LINK, or Segger J-Link, plus 
 [device restore images](/reference/developer-tools/jtag/#restore-binaries) make it restore a device to a known state or downgrade Device OS easily.
+
+With some combinations of browsers, an upgraded Particle Debugger, and a Gen 3 device, you can also do a [JTAG Device Restore](/device-restore-jtag/) with no software or app install required.

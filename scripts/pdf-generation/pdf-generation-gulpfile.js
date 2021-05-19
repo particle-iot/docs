@@ -188,10 +188,10 @@ gulp.task('assets', () => gulp.src(paths.assets)
 
 /* ---------------- Transfrom MD to PDF ---------------- */
 
-gulp.task('transfrom md to pdf', gulp.series('assets', 'css'), () => gulp.src(paths.md)
+gulp.task('transfrom md to pdf', () => gulp.src(paths.md)
     .pipe(replace(/^---$[^]*?^---$/m, '')) // strip frontmatter
     .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
-	.pipe(ignore.include(filterUnchanged))
+    .pipe(ignore.include(filterUnchanged))
     .pipe(replace(/{{imageOverlay (.*)}}/g, '<img $1>')) // Convert imageOverlay to img tags
     .pipe(replace(/{{box (.*)}}/g, '')) // Strip out box helper
     .pipe(replace(/{{api (.*)}}/g, '')) 

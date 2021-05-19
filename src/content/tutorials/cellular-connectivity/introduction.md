@@ -540,11 +540,11 @@ Some countries may require certification that has not been completed for all Par
 
 For example, since the LTE Cat M1 devices are intended for use in North America only, they only have FCC (United States) and IC (Canada) certification. While they may work in limited circumstances in Europe, they have not undergone EU certification. 
 
-The B524, T524, ONE524, etc. have all undergone EU certification as they are intended for use in Europe, however they are not certified for the US and Canada (also they will not work, because of band compatibility).
+The B524, T524, ONE524, etc. have all undergone EU certification as they are intended for use in Europe, however they are not certified for the US and Canada. Also they will not work, because of band compatibility.
 
 There may also be country-specific certifications that may not have been completed, for example SK in South Korea and MIC in Japan. There are others. A full list of certifications is available on the [certifications page](/datasheets/certifications/certification/).
 
-In addition to the Particle device being certified, the cellular modem may not be certified in some countries. For example, the EG91-E and EG91-EX were not certified by Quetel for use in China, because other modem models are recommended for use in China, as there are also band compatibility issues with the EG-91.
+In addition to the Particle device being certified, the cellular modem may not be certified in some countries. For example, the EG91-E and EG91-EX were not certified by Quetel for use in China, because other modem models are recommended for use in China, as there are also band compatibility issues with the EG91.
 
 ### Permanent roaming
 

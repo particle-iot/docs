@@ -7,7 +7,7 @@ description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 
 {{#unless pdf-generation}}
 
-# Photon Datasheet <sup>(v018)</sup>
+# Photon Datasheet <sup>(v019)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -147,19 +147,11 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 **Note:** This interface is not supported by the P0 module and cannot be used.
 
-There are three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
+There are three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart. 
 
 <div align=center><img src="/assets/images/photon_bt_coex.png" width=400></div>
 
-When two radios occupying the same frequency band are used in the same system, such as Wi-Fi and Bluetooth, a coexistence interface can be used to coordinate transmit activity, to ensure optimal performance by arbitrating conflicts between the two radios.
-
-| Pad # | PØ Pin Name | PØ Pin # | I/O | Description |
-| :-:|:-|:-:|:-:|:- |
-| 1 | BTCX_RF_ACTIVE | 9 | I | Signals Bluetooth is active |
-| 2 | BTCX_STATUS | 10 | I | Signals Bluetooth priority status and TX/RX direction |
-| 3 | BTCX_TXCONF | 11 | O | Output giving Bluetooth permission to TX |
-
-When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset.
+These pads would be used for the external coexistent interface to prevent simultaneous transmission on with an external radio, such as bluetooth, while the Wi-Fi radio is transmitting. However the Wi-Fi radio software that runs on the P0, Broadcom/Cypress WICED, never supported this feature, so it cannot be enabled.
 
 ---
 
@@ -713,6 +705,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v016 | 31-May-2018 | BW | Updated External Coexistence Interface section (unsupported) |
 | v017 | 16-Sep-2020 | RK | Added power consumption information |
 | v018 | 15-Mar-2021 | RK | Updated ordering information |
+| v019 | 19-May-2021 | RK | Updated External Coexistence Interface section |
 
 ## Known Errata
 

@@ -12907,6 +12907,19 @@ Parameters:
   * `period` : pattern period in milliseconds (`uint16_t`)
   * `priority` : status priority ([`LEDPriority`](#ledpriority-enum), default value is `LED_PRIORITY_NORMAL`)
 
+---
+
+{{note op="start" type="gen3"}}
+On Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM in Particle color scheme), the priority of breathing cyan is `LED_PRIORITY_NORMAL` so to override it with your own custom color scheme you should use `LED_PRIORITY_IMPORTANT`.
+{{note op="end"}}
+
+---
+
+{{note op="start" type="gen2"}}
+On Gen 2 devices (Photon, P1, Electron, E Series), the priority of breathing cyan is `LED_PRIORITY_BACKGROUND`. You can override it with `LED_PRIORITY_NORMAL` or `LED_PRIORITY_IMPORTANT`.
+{{note op="end"}}
+
+
 #### setColor()
 
 {{api name1="LEDStatus::setColor"}}

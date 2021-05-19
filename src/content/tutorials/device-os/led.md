@@ -793,6 +793,14 @@ particle device doctor
 
 Some tips for reducing the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
 
+**Assertion failure (10 blinks between 2 SOS patterns)**
+
+Assertion failure is triggered when a test for something that should never occur occurs, and there is no solution other than to SOS and restart.
+
+Code might do this if the internal state is invalid and not what is expected, for example. Or something that should never happen and is non-recoverable, for example if the system thread cannot be created.
+
+At the moment, all of the AssertionFailures are in things related to threads and the system thread, but that’s just because those are the only things that have been instrumented with an AssertionFailure panic.
+
 **Stack overflow (13 blinks between 2 SOS patterns)**
 
 Stack overflow occurs when you try to store too much data on the stack. The size is quite limited, and storing large temporary objects on the stack can cause problems.
