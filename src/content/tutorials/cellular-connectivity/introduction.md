@@ -200,12 +200,16 @@ The E Series module is a 2nd-generation cellular device that is reflow soldered 
 
 ## Cellular Carriers
 
-The Particle SIM supports many carriers around the world. The [list of mobile carriers](/tutorials/cellular-connectivity/cellular-carriers/) is the complete list, however it's important to note that there are  different Particle SIM cards that support a different set of carriers:
+The Particle SIM supports many carriers around the world. The [list of mobile carriers](/tutorials/cellular-connectivity/cellular-carriers/) is the complete list, however it's important to note that different Particle SIM cards that support a different set of carriers, which may also vary depending on the device.
 
-- Electron 2G, Electron 3G, and E Series 2G/3G (E310)
-- Boron 2G/3G
+- Boron 2G/3G EtherSIM BRN304 
+- Boron 2G/3G BRN302
+- B Series B524 EtherSIM (LTE Cat 1 Europe, Australia, and New Zealand)
 - B Series B523 (LTE Cat 1 Europe)
+- LTE Cat M1 EtherSIM (Boron LTE, B Series B404, E Series LTE E404, and Electron LTE ELC404)
 - LTE Cat M1 (Boron LTE, B Series B402, E Series LTE, and Electron LTE)
+- Electron ELC314 and E Series E314 EtherSIM
+- Electron 2G (G350), Electron 3G (U260 and U270), and E Series 2G/3G E310
 
 
 ### SIM cards
@@ -397,9 +401,11 @@ The list below is not complete; you should check with the carrier in your area t
 
 AT&T deactivated their 2G network at the end of 2016. Electron 2G devices can only use T-Mobile at this time.
 
-AT&T's 3G shutdown should occur in [early 2022](https://www.att.com/esupport/article.html#!/wireless/KM1324171?gsi=0pwb92). After this occurs, the Electron U260 and E Series E310 will only connect to T-Mobile in the United States.
+AT&T's 3G shutdown should occur in [February 2022](https://www.att.com/esupport/article.html#!/wireless/KM1324171?gsi=0pwb92). After this occurs, the Electron U260, Electron E313, and E Series E310 will only connect to T-Mobile in the United States.
 
-T-Mobile will begin to reallocate 3G spectrum in March 2020 so there could be reduced coverage. T-Mobile will deactivate their 2G network at the end of 2020.
+T-Mobile will begin to reallocate 3G spectrum in March 2020 so there could be reduced coverage, and will eliminate all 3G coverage by October 1, 2021.
+
+T-Mobile will deactivate their 2G network on December 31, 2022. At this point, all 2G/3G devices will cease to work in the United States.
 
 The Boron 2G/3G only connects to T-Mobile in the United States already (it cannot connect to AT&T using the built-in MFF2 Particle SIM).
 
@@ -408,8 +414,8 @@ In the United States we strongly recommend using LTE Cat M1. AT&T has committed 
 | After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G | LTE Cat M1 |
 | --- | --- | :--: | :--: | :--: | :--: | :---: |
 | End of 2016 | AT&T ended 2G service | T-Mobile | Both | Both | T-Mobile | AT&T |
-| End of 2020 | T-Mobile ends 2G service | &nbsp; | T-Mobile | T-Mobile | T-Mobile |  AT&T |
-| Early 2022 | AT&T ends 3G service | T-Mobile | T-Mobile | T-Mobile | T-Mobile |  AT&T |
+| February 2022 | AT&T ends 3G service | T-Mobile | T-Mobile | T-Mobile | T-Mobile |  AT&T |
+| End of 2022 | T-Mobile ends 2G service | None | None | None | None | AT&T |
 
 
 ### Europe
@@ -449,10 +455,12 @@ The Boron 2G/3G uses Telus in Canada:
 - 2G services on Telus has already ended.
 - 3G service on Telus will end at the end of 2025.
 
+By the end of 2025, Rogers, Telus, and Bell will have ended all 2G and 3G service, at which point the 2G/3G SKUs will no longer be able to connect. The LTE Cat M1 SKUs are recommended for use in North America for this reason.
+
 | After | Event | Electron 2G | Electron 3G | E Series 2G/3G | Boron 2G/3G
 | --- | --- | :--: | :--: | :--: | :--: |
-| End of 2020 | Rogers ends 2G service | &nbsp;| &check; | &check; | &check; |
-| End of 2025 | Rogers and Telus end 3G service | &nbsp; | &nbsp; | &nbsp; | &nbsp; | 
+| End of 2020 | Rogers ends 2G service (850 MHz) | &nbsp;| &check; | &check; | &check; |
+| End of 2025 | Rogers, Telus, and Bell end 3G service | &nbsp; | &nbsp; | &nbsp; | &nbsp; | 
 
 ### Limited 2G
 
@@ -466,7 +474,7 @@ These countries have a scheduled end to 2G service when using the Particle SIM c
 | Country | 2G End Date | 
 | --- | :---: |
 | Canada | End of 2020 |
-| United States | End of 2020 |
+| United States (AT&T) | End of 2020 |
 
 
 ### No 2G
@@ -479,6 +487,100 @@ These countries cannot use the Electron 2G at all:
 - Singapore
 - Taiwan
 
+## Does this device work in this country?
+
+This is a harder question to answer than you might think, as there are a number of factors.
+
+### Are you an enterprise customer?
+
+If you are an enterprise customer, or plan to be one in the future, you will likely want to take a conservative approach and use only the Particle recommended SKUs for regions and avoid the devices that are NRND (not recommended for new designs).
+
+The [Carrier List by Region](/tutorials/cellular-connectivity/cellular-carriers/?tab=FindDevice&showCarriers=true&showNRND=false&regionCountryRadio=region&region=United%20States%2C%20Canada%2C%20and%20Mexico) is a good place to start. In this section you can find the recommended models.
+
+If you need compatibility in two different countries, you can also find that information here. For example, if you need to work both the [United States and in the United Kingdom](/tutorials/cellular-connectivity/cellular-carriers/?tab=FindDevice&showCarriers=true&showNRND=false&regionCountryRadio=country&country=United%20States%2CUnited%20Kingdom) you will likely need two different SKUs, and this page shows which ones you should use.
+
+If you are an individual developer or hobbyist, you may be able to use some devices that would not be recommended for enterprise, as detailed below.
+
+### Radio compatibility
+
+The cellular modems all support a specific set of bands. The bands used vary by country, carrier, and technology (2G, 3G, LTE Cat 1, LTE Cat M1). There is currently no truly global SKU that supports all bands and all technologies. 
+
+While the Boron 2G/3G (BRN314 and BRN310) and E Series (E314 and E310) are global 2G/3G, they do not support LTE Cat M1. This can be an issue in the United States, where 2G and 3G service will end after 2022, at which point 2G/3G SKUs will no longer work in the United States. This is why the LTE Cat M1 variations (Boron BRN404 and BRN402, E Series E404 and E402) are recommended in the United States.
+
+The B Series SoM (B524, B523) and Tracker SoM (T524, T523, ONE524, ONE523) offer LTE Cat 1, 3G, and 2G, however the cellular modem (EG91-E or EG91-EX) only support the frequencies used in the EMEAA (Europe, Middle East, Africa, and Asia) region. These devices will not work at all in the United States, however there are different SKUs for the United States, Canada, and Mexico (B404, B402, T404, T402, ONE404, ONE402).
+
+Also note that the LTE Cat 1 EtherSIM models (B524, T524, ONE524) are only officially supported (for enterprise use) in Europe, Australia, and New Zealand. The earlier models (B523, T523, and ONE523) are only officially supported in Europe. However, for individual developers, you will likely be able to use these devices in much of the EMEAA region, subject to the remaining constraints below.
+
+
+### Carrier and band compatibility
+
+Additionally, the variation of the Particle SIM in a device will determine which carriers are supported. In general, particularly in Europe, the EtherSIM variations (B524, BRN314) will offer many more carriers than the earlier versions (B523, BRN310). 
+
+If you know the device you are interested in and the country, you can find detailed carrier information on the [country details page](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails).
+
+For example, the [B524 country details page for Germany](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=Germany&device=B%20Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(Europe%29%20EtherSIM) shows the details including which cellular bands are supported by which carriers. From this table you can see that Telekom uses bands B32 and B38, however the EG91-E cellular modem does not support these bands. However, there are many other bands supported, both on Telekom and other carriers, so coverage will likely be good.
+
+For comparison, using the [B524 in Brazil](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=Brazil&device=B%20Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(Europe%29%20EtherSIM) is not recommended. The reason is that 850 MHz (band B5) is commonly used to provide service in rural areas because the signals travel a longer distance. The higher frequencies (1800, 2100, and 2600 MHz) are more commonly used in urban areas, thus it is likely that the B524 will not work in many areas of Brazil.
+
+Likewise, even though Japan is part of the EMEAA region, the [B524 in Japan](http://localhost:8080/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=Japan&device=B%20Series%20B524%20LTE%20CAT1%2F3G%2F2G%20(Europe%29%20EtherSIM) is not recommended because so many of the bands used in Japan are not supported by the EG91-E.
+
+In the United States, LTE Cat M1 EtherSIM devices (Boron BRN404, B Series B404, Tracker T404 and ONE404, E Series E404, Electron ELC404) are a special case. The [country details for the United States](/tutorials/cellular-connectivity/cellular-carriers/?tab=CountryDetails&country=United%20States&device=Tracker%20T404%2FONE404%20LTE%20M1%20(NorAm%29%20EtherSIM) do not list T-Mobile as supported. The reason is that T-Mobile officially only supports LTE Cat NB1, which is different and not supported by Particle devices. However, many areas of the United States have unofficial T-Mobile LTE Cat M1 service, not advertised by T-Mobile. EtherSIM LTE Cat M1 devices will connect to T-Mobile or AT&T, whichever has a stronger signal. (Pre-2021 LTE Cat M1 devices cannot connect to T-Mobile at all with the built-in Particle SIM on those devices.)
+
+
+### Third-party SIMs
+
+Some devices, most notably the Boron, allow the use of a third-party SIM card. See [3rd-party SIM cards](/tutorials/cellular-connectivity/introduction/#3rd-party-sim-cards) for a full list. Third-party SIM cards are not recommended for enterprise use. Additionally, once you exceed the limits of the free plan, the price based on devices and data operations is the same whether you are using the Particle SIM or a 3rd-party SIM, so it's often not cost-effective.
+
+There may also be issues with certification and carrier approval as described below.
+
+
+### Certification
+
+Some countries may require certification that has not been completed for all Particle devices.
+
+For example, since the LTE Cat M1 devices are intended for use in North America only, they only have FCC (United States) and IC (Canada) certification. While they may work in limited circumstances in Europe, they have not undergone EU certification. 
+
+The B524, T524, ONE524, etc. have all undergone EU certification as they are intended for use in Europe, however they are not certified for the US and Canada (also they will not work, because of band compatibility).
+
+There may also be country-specific certifications that may not have been completed, for example SK in South Korea and MIC in Japan. There are others. A full list of certifications is available on the [certifications page](/datasheets/certifications/certification/).
+
+In addition to the Particle device being certified, the cellular modem may not be certified in some countries. For example, the EG91-E and EG91-EX were not certified by Quetel for use in China, because other modem models are recommended for use in China, as there are also band compatibility issues with the EG-91.
+
+### Permanent roaming
+
+All Particle SIM devices are considered to be roaming from the local operator's point-of-view. In some countries, local carriers may ban devices that are believed to be permanently roaming. This can happen without notice and the time limit may vary.
+
+The following countries are at risk for permanent roaming restrictions:
+
+- Brazil
+- China
+- India
+- Russia
+- Singapore
+- Turkey
+- UAE
+
+### Carrier certification
+
+This is mainly an issue with LTE Cat M1 devices in the United States. Both AT&T and Verizon require device manufacturers to test and obtain a certification for their devices to connect to their LTE Cat M1 networks. Particle has completed this process for AT&T, which then involves Particle uploading the IMEI numbers for all certified devices to AT&T so they will not be blocked from the network.
+
+Since Particle SIMs do not have support for Verizon, this process has not been completed for Verizon. The requirement for carrier certification and IMEI registration still applies, however, so if you are using a Verizon SIM or a 3rd-party SIM that supports Verizon (such as Hologram) you will still be banned from the Verizon LTE Cat M1 network, typically after a few days of use.
+
+### IMEI registration
+
+Some countries may have a requirement to register the IMEI of mobile devices, including both mobile phones and IoT devices. For example, Turkey and Indonesia. This may be waived for roaming devices (such as Particle devices), or it may apply to all devices, depending on the country.
+
+### LTE Cat M1 outside of the North America
+
+In addition to the other requirements, LTE Cat M1 devices may require additional software configuration of the cellular modem.
+
+The SARA-R410M cellular modem in the Boron LTE (BRN404) is configured for North American frequencies only. When used outside of this region, you may need to set the mobile network operator profile (AT+UMNOPROF) and/or specific band support (particularly in Europe) in order to connect.
+
+### 2G/3G Sunset 
+
+Certain countries and carriers are phasing out 2G and 3G service. This is a particularly immediate concern in the United States, which will no longer have any 2G or 3G service after 2022. 
+
+The section [2G and 3G sunset](/tutorials/cellular-connectivity/introduction/#2g-and-3g-sunset), above, has more details.
 
 ## Summary
 

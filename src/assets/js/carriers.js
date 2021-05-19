@@ -3,6 +3,33 @@ let carriers2 = {};
 //
 // By Device
 //
+carriers2.fromQuery = function(urlParams) {
+    const device = urlParams.get('device');
+    if (device) {
+        const deviceVal = $('#' + carriers2.options.deviceList + ' option').filter(function () { return $(this).html() === device; }).prop('value');
+
+        $('#' + carriers2.options.deviceList).val(deviceVal);
+    }
+
+    const region = urlParams.get('region');
+    if (region) {
+        const regionVal = $('#' + carriers2.options.regionList + ' option').filter(function () { return $(this).html() === region; }).prop('value');
+        $('#' + carriers2.options.regionList).val(regionVal);
+    }
+
+    carriers2.selectMenu();
+};
+
+carriers2.saveQuery = function() {
+    const deviceVal = $('#' + carriers2.options.deviceList).val();
+    const device = $('#' + carriers2.options.deviceList + ' option').filter(function () { return $(this).prop('value') === deviceVal; }).html();
+
+    const regionVal = $('#' + carriers2.options.regionList).val();
+    const region = $('#' + carriers2.options.regionList + ' option').filter(function () { return $(this).prop('value') === regionVal; }).html();
+
+    history.pushState(null, '', '?tab=ByDevice&device=' + encodeURIComponent(device) + '&region=' + encodeURIComponent(region));
+};
+
 carriers2.buildMenu = function() {
 
     {
@@ -40,6 +67,8 @@ carriers2.buildMenu = function() {
 };
 
 carriers2.selectMenu = function() {
+    carriers2.saveQuery();
+
     const values = $('#' + carriers2.options.deviceList).val().split(',');
     const skuFamilyObj = datastore.data.skuFamily[parseInt(values[0])].group[parseInt(values[1])];
 
@@ -156,6 +185,31 @@ carriers2.init = function(options, callback) {
 
 let rec2 = {};
 
+rec2.fromQuery = function(urlParams) {
+    const showCarriers = urlParams.get('showCarriers') == 'true';
+    $('#' + rec2.options.idBase+ 'ShowCarriers').prop('checked', showCarriers);
+
+    const showNRND = urlParams.get('showNRND') == 'true';
+    $('#' + rec2.options.idBase+ 'ShowNRND').prop('checked', showNRND);
+
+    rec2.regionSel.fromQuery(urlParams);
+};
+
+rec2.saveQuery = function() {
+    if (rec2.regionSel) {
+        const showCarriers = $('#' + rec2.options.idBase+ 'ShowCarriers').prop('checked');
+
+        const showNRND = $('#' + rec2.options.idBase+ 'ShowNRND').prop('checked');
+        
+        history.pushState(null, '', '?tab=FindDevice' +
+            '&showCarriers=' + (showCarriers ? 'true' : 'false') + 
+            '&showNRND=' + (showNRND ? 'true' : 'false') + 
+            '&' + rec2.regionSel.getQuery()
+        );
+    }
+};
+
+
 
 rec2.selectMenu = function() {
 
@@ -170,6 +224,8 @@ rec2.selectMenu = function() {
     const etherSimId = 4;
 
     const etherSimObj = datastore.findSimById(etherSimId);
+
+    rec2.saveQuery();
 
     $('#recDiv').html('');
 
@@ -493,8 +549,23 @@ const mapsApiKey = 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY';
 
 let familyMap = {};
 
+familyMap.fromQuery = function(urlParams) {
+    const family = urlParams.get('family');
+    if (family) {
+        $('#' + familyMap.options.familySelect).val(family);
+    }
+};
+
+familyMap.saveQuery = function() {
+    const family = $('#' + familyMap.options.familySelect).val();
+
+    history.pushState(null, '', '?tab=ModelMap&family=' + encodeURIComponent(family));
+};
+
 familyMap.drawMap = function() {
     const family = $('#' + familyMap.options.familySelect).val();
+
+    familyMap.saveQuery();
 
     const skuFamilyObj = datastore.findSkuFamily(family);
 
@@ -584,6 +655,30 @@ familyMap.init = function(options, callback) {
 //
 let countryDetails = {};
 
+countryDetails.fromQuery = function(urlParams) {
+    const device = urlParams.get('device');
+    if (device) {
+        const deviceVal = $('#' + countryDetails.options.deviceList + ' option').filter(function () { return $(this).html() === device; }).prop('value');
+
+        $('#' + countryDetails.options.deviceList).val(deviceVal);
+    }
+    const country = urlParams.get('country');
+    if (country) {
+        $('#' + countryDetails.options.countryField).val(country);   
+        countryDetails.onCountrySelected(country);
+    }
+};
+
+countryDetails.saveQuery = function() {
+    if (countryDetails.country) {
+        const deviceVal = $('#' + countryDetails.options.deviceList).val();
+        const device = $('#' + countryDetails.options.deviceList + ' option').filter(function () { return $(this).prop('value') === deviceVal; }).html();
+    
+        history.pushState(null, '', '?tab=CountryDetails&country=' + encodeURIComponent(countryDetails.country) + '&device=' + encodeURIComponent(device));    
+    }
+};
+
+
 countryDetails.buildMenu = function() {
     // Device Popup
     let html = '';
@@ -615,6 +710,10 @@ countryDetails.getSkuFamilyDevice = function() {
 
 countryDetails.onCountrySelected = function(country) {
     //$('#' + countryDetails.options.resultDiv).text('selected: ' + country);
+    countryDetails.country = country;
+
+    countryDetails.saveQuery();
+
     const countryObj = datastore.findCountryByName(country);
 
     $('#' + countryDetails.options.resultDiv).html('');
@@ -702,12 +801,17 @@ countryDetails.init = function(options, callback) {
 //
 // Initialization
 //
-const carrierSelectTabs = ['ByDevice', 'FindDevice', 'ModelMap', 'CountryDetails'];
+const carrierSelectTabs = {
+    'ByDevice':carriers2, 
+    'FindDevice':rec2, 
+    'ModelMap':familyMap, 
+    'CountryDetails':countryDetails
+};
 
 function carrierSelectTab(which) {
     $('div.countryPopup').css('visibility', 'hidden');
 
-    carrierSelectTabs.forEach(function(tab) {
+    Object.keys(carrierSelectTabs).forEach(function(tab) {
         if (which == tab) {
             $('#carrierTab' + tab).addClass('active');
             $('#carrier' + tab + 'Div').show();
@@ -717,17 +821,31 @@ function carrierSelectTab(which) {
             $('#carrier' + tab + 'Div').hide();
         }
     });
+    carrierSelectTabs[which].saveQuery();
+}
+
+function carrierLoadQuery(urlParams) {
+
+    const tab = urlParams.get('tab');
+    if (tab) {
+        carrierSelectTab(tab);
+        
+        carrierSelectTabs[tab].fromQuery(urlParams);
+    }
+
 }
 
 
 
 $(document).ready(function() {
-    carrierSelectTabs.forEach(function(tab) {
+    Object.keys(carrierSelectTabs).forEach(function(tab) {
         $('#carrierTab' + tab).on('click', function() {
             carrierSelectTab(tab);
         });
     });
 
+    // Remember the search parameters before they are replaced
+    const urlParams = new URLSearchParams(window.location.search);
 
     datastore.init({path:'/assets/files/carriers.json'}, function() {
         dataui.populateRegionSelectors();
@@ -758,7 +876,7 @@ $(document).ready(function() {
                         footnotesDiv:'countryDetailsFootnotesDiv'
                     },
                     function() {
-
+                        carrierLoadQuery(urlParams);
                     });
                 });   
     
