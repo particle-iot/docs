@@ -1,7 +1,18 @@
 <div class="codebox" data-content="{{content}}">
     <div class="codeboxBanner">
         <div class="codeboxBannerBox">
-            <div><button type="button" class="codeboxDownloadButton" >Download</button> &nbsp;
+            {{#if configSchema}}
+            <div class="apiHelper apiHelperConfigSchema" style="padding-bottom: 20px">
+                <table class="apiHelperProductSelectorTable">
+                    <tr class="apiHelperTrackerOrgRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization</td><td><select class="apiHelperTrackerOrgSelect apiHelperSelect"></select></td></tr>
+                    <tr class="apiHelperTrackerProductRow"><td class="apiHelperProductSelectorLabel">Product</td><td><select class="apiHelperTrackerProductSelect apiHelperSelect"></select></td></tr>
+                    <tr class="apiHelperTrackerDeviceRow"><td class="apiHelperProductSelectorLabel">Device</td><td><select class="apiHelperTrackerDeviceSelect apiHelperSelect" data-has-product-default="true"></select></td></tr>
+                    <tr><td colspan="2"><button type="button" class="codeboxUploadSchemaButton">Upload Schema</button></td></tr>
+                </table>
+            </div>
+            {{/if}}
+            <div style="padding-left: 4px">
+                <button type="button" class="codeboxDownloadButton" >Download</button> &nbsp;
                 <button type="button" class="codeboxCopyButton">Copy to Clipboard</button> &nbsp;
 
                 {{#if webide}}
@@ -14,14 +25,6 @@
                         <button type="button" class="codeboxFlashDeviceButton" disabled>Flash</button> &nbsp;
                     </span>
                 {{/if}}
-
-                {{#if configSchema}}
-                    <span class="codeboxConfigSchemaSpan" style="display: none"> &nbsp;&nbsp;
-                        <select class="codeboxConfigSchemaProductSelect"></select> 
-                        <button type="button" class="codeboxUploadSchemaButton">Upload Schema</button> &nbsp;
-                    </span>
-                {{/if}}
-
             </div>
             <div class="codeboxFlashStatus"></div>
         </div>

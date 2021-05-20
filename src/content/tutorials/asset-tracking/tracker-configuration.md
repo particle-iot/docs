@@ -301,6 +301,7 @@ To remove the Mine panel and restore the default schema use the **Restore Defaul
 
 {{> config-schema }}
 
+
 ### Console - Example
 
 This is what it looks like in the console. 
@@ -356,11 +357,13 @@ The C++ header file for the custom configuration class.
 
 {{> codebox content="/assets/files/tracker/example/MyConfig.h" format="cpp" height="300"}}
 
+
 #### MyConfig.cpp
 
 The C++ implementation file for the custom configuration class.
 
 {{> codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
+
 
 ### Digging In - Example
 

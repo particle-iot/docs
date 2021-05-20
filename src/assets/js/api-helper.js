@@ -187,6 +187,7 @@ apiHelper.getOrgs = async function() {
     });    
 };
 
+
 apiHelper.getOrgProducts = async function(org) {
     return await $.ajax({
         dataType: 'json',
@@ -198,6 +199,29 @@ apiHelper.getOrgProducts = async function(org) {
         url: 'https://api.particle.io/v1/orgs/' + org + '/products/'
     });    
 };
+
+
+apiHelper.filterByPlatformId = function(array, platformId) {
+    let results = [];
+
+    for(const obj of array) {
+        if (obj.platform_id == platformId) {
+            results.push(obj);
+        }
+    }
+
+    results.sort(function(a, b) {
+        return a.name.localeCompare(b.name);
+    });
+
+    return results;
+};
+
+apiHelper.filterByTrackerPlatform = function(array) {
+    return apiHelper.filterByPlatformId(array, 26);
+};
+
+
 
 apiHelper.monitorUsage = function(options) {
     let resultObj = {};

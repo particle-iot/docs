@@ -1,16 +1,29 @@
 <div class="apiHelper apiHelperLoggedIn apiHelperTrackerConfig apiHelperJsonLinter" style="display:none;">
     <div class="apiHelperBox">
-        <p>Product: <select class="apiHelperTrackerProductSelect apiHelperSelect"></select> &nbsp;
-        Device: <select class="apiHelperTrackerDeviceSelect apiHelperSelect"></select></p>
-
-        <p><button class="apiHelperTrackerConfigSet apiHelperButton">Update Configuration</button>&nbsp;&nbsp;
+        <div style="padding-top: 5px">
+            <table class="apiHelperProductSelectorTable">
+                <tr class="apiHelperTrackerOrgRow" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Organization</td>
+                    <td><select class="apiHelperTrackerOrgSelect apiHelperSelect"></select></td>
+                </tr>
+                <tr class="apiHelperTrackerProductRow">
+                    <td class="apiHelperProductSelectorLabel">Product</td>
+                    <td><select class="apiHelperTrackerProductSelect apiHelperSelect"></select></td>
+                </tr>
+                <tr class="apiHelperTrackerDeviceRow">
+                    <td class="apiHelperProductSelectorLabel">Device</td>
+                    <td><select class="apiHelperTrackerDeviceSelect apiHelperSelect"></select></td>
+                </tr>
+            </table>
+        </div>
+        <div style="padding-top: 5px">
+            <button class="apiHelperTrackerConfigSet apiHelperButton">Update Configuration</button>&nbsp;&nbsp;
             <button class="apiHelperTrackerConfigDefault apiHelperButton">Restore Product Default</button>&nbsp;&nbsp;
             Show: <select class="apiHelperTrackerConfigShow apiHelperSelect">
                 <option value="current">Current Configuration</option>
                 <option value="pending">Pending Configuration</option>
             </select>&nbsp;&nbsp;
-        </p>
-
+        </div>
         <div class="apiHelperTrackerConfigStatus"></div>
     </div>
     <div class="apiHelperJsonLinterEditor">

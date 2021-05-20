@@ -92,7 +92,7 @@ $(document).ready(function() {
 		$(codeboxElem).find('.codeboxUploadSchemaButton').on('click', function() {
 			const thisCodeElem = $(codeboxElem).find('code');
 
-			const product = $(codeboxElem).find('select.codeboxConfigSchemaProductSelect').val();
+			const product = $(codeboxElem).find('.apiHelperTrackerProductSelect').val();
 
 			const warning = 'Uploading a configuration schema replaces the existing configuration schema for all users of this product! An incorrect schema can cause errors opening your product in the console. A backup will be saved in your Downloads directory but you should still exercise caution.';
 			

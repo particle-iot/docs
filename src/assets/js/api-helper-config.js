@@ -116,43 +116,166 @@ apiHelper.getTrackerConfig = function(product, deviceId, completion) {
 
 };
 
+
 $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
     }
 
-    if ($('.apiHelperTrackerProductSelect').length > 0 && apiHelper.auth) {
-        $.ajax({
-            data: {
-                'access_token': apiHelper.auth.access_token
-            },
-            error: function(err) {
-                console.log('getting getting list of products ', err);
-            },
-            method: 'GET',
-            success: function (resp) {
-                let html = '';
-                resp.products.forEach(function(prod) {
-                    if (prod.platform_id == 26) {
-                        // Tracker
-                        html += '<option value="' + prod.id + '">' + prod.name + ' (' + prod.id + ')</option>';
-                    }
-                });
-                $('.apiHelperTrackerProductSelect').html(html);
+    let sandboxTrackerProducts = [];
 
-                if (html === '') {
-                    html = '<option disabled>No Tracker products available</option>'
-                    $('.codeboxConfigSchemaSpan').hide();
-                }
-                else {
-                    $('.codeboxConfigSchemaProductSelect').html(html);
-                    $('.codeboxConfigSchemaSpan').show();
-                    $('.apiHelperTrackerProductSelect').trigger('change');
-                }
 
-            },
-            url: 'https://api.particle.io/v1/user/products',
+    const trackerSchemeButtonElems = $('.apiHelperConfigSchemaUpload, .apiHelperConfigSchemaDownload, .apiHelperConfigSchemaDefault, ' + 
+        '.codeboxUploadSchemaButton, .apiHelperTrackerConfigSet, .apiHelperTrackerConfigDefault');
+
+    const buildTrackerDeviceMenu = function(product) {
+        if (!product) {
+            let html = '<option disabled>Select a product first</option>'
+            $('.apiHelperTrackerDeviceSelect').html(html);
+            $(trackerSchemeButtonElems).prop('disabled', true);
+            return;
+        }
+        const selectElems = $('.apiHelperTrackerDeviceSelect');
+
+        $(selectElems).each(function() {
+            const selectElem = $(this);
+            $(selectElem).html('');
+
+            if ($(selectElem).attr('data-has-product-default')) {
+                $(selectElem).append('<option value="default">Product Default</option>');
+            }
         });
+
+        let deviceList = [];
+
+        const fetchPage = function(page) {
+            apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product:product, page }).then(
+                function(data) {
+                    data.body.devices.forEach(function(dev) {
+                        if (dev.development) {
+                            deviceList.push(dev);
+                        }
+                    });
+
+                    if (page < data.body.meta.total_pages) {
+                        fetchPage(++page);
+                    }
+                    else {
+                        deviceList.sort(function(a,b) {
+                            return a.name.localeCompare(b.name);
+                        });
+
+                        let html = '';
+                        for(const dev of deviceList) {
+                            html += '<option value="' + dev.id + '">' + dev.name + '</option>';
+                        }
+                        $(selectElems).append(html);
+
+                        $(selectElems).trigger('change');
+                        $(trackerSchemeButtonElems).prop('disabled', false);
+                    }
+                },
+                function(err) {            
+                }
+            );            
+        }    
+        fetchPage(1);
+    };
+    const buildProductMenu = function(productArray, elems, options) {
+        if (!options) {
+            options = {};
+        }
+        let html = '';
+
+        if (productArray.length == 0) {
+            html = '<option disabled>No Tracker products available</option>'
+            buildTrackerDeviceMenu();
+            $(elems).html(html);
+        }        
+        else {
+            if (options.noSelectFirst) {
+                html += '<option value="" default>Select Product</option>'
+            }
+            for(const prod of productArray) {
+                html += '<option value="' + prod.id + '">' + prod.name + ' (' + prod.id + ')</option>';
+            }    
+
+            $(elems).html(html);
+
+            if (!options.noSelectFirst) {
+                $(elems).trigger('change');
+            }
+        }
+
+    };
+
+    apiHelper.getProducts().then(function(productsResp) {
+        sandboxTrackerProducts = apiHelper.filterByTrackerPlatform(productsResp.products);
+
+        buildProductMenu(sandboxTrackerProducts, $('.apiHelperTrackerProductSelect'), {});
+        if (sandboxTrackerProducts.length > 0) {
+            $('.apiHelperTrackerProductSelect').trigger('change');
+        }
+        else {
+            buildTrackerDeviceMenu();
+        }
+    });
+    
+
+    const productSelectElems = $('.apiHelperTrackerProductSelect');
+
+    if (productSelectElems.length > 0 && apiHelper.auth) {
+        apiHelper.getOrgs().then(function(orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+            
+            if (orgsData.organizations.length > 0) {
+                const orgSelectElems = $('.apiHelperTrackerOrgSelect');
+
+                let html = '<option value="sandbox" checked>Sandbox</option>';
+                for(let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(orgSelectElems).html(html);
+
+                $('.apiHelperTrackerOrgRow').show();
+
+                $(orgSelectElems).each(async function() {
+                    const orgSelectElem = $(this);
+
+
+                    $(orgSelectElem).on('change', async function() {
+                        const productSelectElems = $('.apiHelperTrackerProductSelect');
+
+                        const orgId = $(orgSelectElem).val();
+                        if (orgId != 'sandbox') {
+                            const orgProductsResp = await apiHelper.getOrgProducts(orgId);
+                        
+                            // Array is orgProductsResp.products
+                            // Each contains id and name
+        
+                            const orgTrackerProducts = apiHelper.filterByTrackerPlatform(orgProductsResp.products);
+
+                            buildProductMenu(orgTrackerProducts, productSelectElems, {noSelectFirst:true});
+                        }
+                        else {
+                            // 
+                            buildProductMenu(sandboxTrackerProducts, productSelectElems, {});
+                        }
+                    
+                        $(orgSelectElems).val(orgId);
+                    });
+
+                });
+            }
+            else {
+                $('.apiHelperTrackerOrgRow').hide();
+            }
+
+        });
+
+
+
     }
 
 
@@ -162,40 +285,11 @@ $(document).ready(function() {
         
         $(this).on('change', function() {
             const product = $(parentDiv).find('.apiHelperTrackerProductSelect').val();
-            if (!product) {
-                return;
-            }
-            const selectElem = $(parentDiv).find('.apiHelperTrackerDeviceSelect');
-            $(selectElem).html('');
+            
+            buildTrackerDeviceMenu(product);
 
-            if ($(selectElem).attr('data-has-product-default')) {
-                $(selectElem).append('<option value="default">Product Default</option>');
-            }
-
-            const fetchPage = function(page) {
-                apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product:product, page }).then(
-                    function(data) {
-                        let html = '';
-                        data.body.devices.forEach(function(dev) {
-                            if (dev.development) {
-                                html += '<option value="' + dev.id + '">' + dev.name + '</option>';
-                            }
-                        });
-                        $(selectElem).append(html);
-
-                        if (page < data.body.meta.total_pages) {
-                            fetchPage(++page);
-                        }
-                        else {
-                            $(selectElem).trigger('change');
-                        }
-                    },
-                    function(err) {            
-                    }
-                );            
-            }
-
-            fetchPage(1);
+            // Change all product popups to this value
+            $('.apiHelperTrackerProductSelect').val(product);
         });        
     });
 
@@ -209,35 +303,61 @@ $(document).ready(function() {
 
             const deviceSelectElem = $(trackerConfigElem).find('.apiHelperTrackerDeviceSelect');
 
+            const buttonElems = $(trackerConfigElem).find('.apiHelperTrackerConfigSet, .apiHelperTrackerConfigDefault');
 
             const getThisConfig = function() {
                 const product = $(trackerConfigElem).find('.apiHelperTrackerProductSelect').val();
                 if (!product) {
+                    $(buttonElems).prop('disabled', true);
+                    setStatus('No Tracker product selected');
                     return;
                 }
 
                 const deviceId = $(deviceSelectElem).val();
                 if (!deviceId) {
+                    $(buttonElems).prop('disabled', true);
+                    setStatus('No development devices in this product');
                     return;
                 }
 
                 apiHelper.getTrackerConfig(product, deviceId, function(configObj) {
 
+                    $(buttonElems).prop('disabled', false);
+
                     const showElem = $(trackerConfigElem).find('.apiHelperTrackerConfigShow');
 
                     let show = $(trackerConfigElem).find('.apiHelperTrackerConfigShow').val();
 
-                    if (!configObj.pending) {
-                        show = 'current';
-                        $(showElem).val(show);
-                        $(showElem).find('option[value="pending"]').attr('disabled', 'disabled');
+                    $(showElem).find('option[value="current"]').prop('disabled', !configObj.current);
+                    $(showElem).find('option[value="pending"]').prop('disabled', !configObj.pending);
+
+                    if (show == 'current') {
+                        if (configObj.pending) {
+                            show = 'pending';
+                        }
+                        else {
+                            show = '';
+                        }
                     }
                     else {
-                        $(showElem).find('option[value="pending"]').removeAttr('disabled');
+                        // pending
+                        if (configObj.current) {
+                            show = 'current';
+                        }
+                        else {
+                            show = '';
+                        }
+                    }
+                    $(trackerConfigElem).find('.apiHelperTrackerConfigShow').val(show);
+
+                    if (show) {
+                        apiHelper.jsonLinterSetValue(trackerConfigElem, JSON.stringify(configObj[show])); 
+                    }
+                    else {
+                        apiHelper.jsonLinterSetValue(trackerConfigElem, ''); 
+                        setStatus('No custom configuration');
                     }
 
-
-                    apiHelper.jsonLinterSetValue(trackerConfigElem, JSON.stringify(configObj[show])); 
                 });
             };
 
@@ -270,7 +390,6 @@ $(document).ready(function() {
                     data: data,
                     dataType: 'json',
                     error: function(err) {
-                        console.log('setTrackerConfig error', err);
                         let html = '';
                         
                         ga('send', 'event', 'Tracker Config', 'Set Error', err.responseJSON.message);
@@ -293,7 +412,6 @@ $(document).ready(function() {
                     },
                     method: 'PUT',
                     success: function (resp) {
-                        console.log('setTrackerConfig success', resp);
                         let html = '';
                         html += '<p>' + resp.message + '</p>';
                         if (resp.details) {
@@ -322,7 +440,7 @@ $(document).ready(function() {
     }
 
 
-    if (($('.apiHelperConfigSchema').length > 0 || $('.codeboxConfigSchemaSpan').length > 0) && apiHelper.auth) {
+    if (($('.apiHelperConfigSchema').length > 0) && apiHelper.auth) {
         // 
         const setStatus = function(configSchemaPartial, status) {
             $(configSchemaPartial).find('.apiHelperConfigSchemaStatus').html(status);
@@ -409,7 +527,6 @@ $(document).ready(function() {
             $.ajax({
                 data: '{}',
                 error: function(err) {
-                    // console.log('err', err);
                     ga('send', 'event', 'Tracker Schema', 'Restore Default Error', err.responseJSON.message);
                     setStatus(configSchemaPartial, 'Error deleting schema: ' + err.responseJSON.message + '.<br/>This is normal if there is no custom schema defined.');
                     setTimeout(function() {
