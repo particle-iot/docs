@@ -31,7 +31,7 @@ The first API we'll use is the [List Devices](/reference/device-cloud/api/#list-
 
 The Particle Cloud API mostly returns [JSON](/tutorials/device-os/json/), which is text-based structured data that is both machine-readable and human-readable. The link is to a tutorial if you need to come up to speed on the basics of JSON.
 
-{{> cloud-api-device-list height="400"}}
+{{> cloud-api-simple-get className="apiHelperCloudApiDeviceList" buttonName="Get Device List" height="400"}}
 
 Assuming the call completes successfully and you have devices in your account you'll notice a few things:
 
@@ -194,6 +194,11 @@ This is the calling a function example using the `Authorization` header:
 
 {{> cloud-api-function style="authHeader"}}
 
+This is the get variable example using the `Authorization` header:
+
+{{> cloud-api-get-variable style="authHeader"}}
+
+
 #### Form body
 
 The form body can be used with calls that require POST or PUT, like call a function. It cannot be used with GET operations as there is no body for GET.
@@ -233,9 +238,80 @@ $.ajax({
 });    
 ```
 
-The get device list example, above, put the access token in the query parameters in the URL.
+This is the get variable example using the query parameter:
 
-{{> cloud-api-device-list height="300"}}
+{{> cloud-api-get-variable style="query"}}
 
 ### Types of tokens
 
+### Access token safety
+
+**Don't commit access tokens to source control**
+
+If you have a public Github repostory you definitely don't want to check access tokens into your account!
+
+If your repository is private it's not as bad, but still it's best to use other techniques.
+
+
+**Avoid passing the access token on the command line**
+
+It's best to use environment variables instead of passing the access token as a command line argument in many cases.
+
+The reason is that on some systems, it's possible to see the processes created by other users, including their options. Also, the previous commands may be stored in unencrypted history files. These could expose your access token.
+
+
+## More languages
+
+This section shows how to make a list devices call from a number of different languages and environments.
+
+
+
+## More APIs
+
+
+## Product APIs
+
+### List Products
+
+{{> cloud-api-simple-get className="apiHelperCloudApiProductList" buttonName="List Products" height="300"}}
+
+### List Product Devices
+
+{{> cloud-api-list-product-devices height="400"}}
+
+
+## Organization APIs
+
+If you are in the growth or enterprise plans, you will have access to organizations. Your account will 
+have two or more spaces:
+
+- Sandbox, for your personal development, in the free tier (up to 100 devices)
+- An organization
+- There might be more than one organization, for example if a software contractor worked for more than one company
+
+If your account is a member of an organization, the **Sandbox** popup in the upper left corner of the Particle console lists the organizations you can select:
+
+<div align="center"><img src="/assets/images/console/org-popup.png" class="small"></div>
+
+While there are organization APIs for team members and billing, ones that are particularly handy are:
+
+- List organizations (for the user associated with this access token)
+- List products in organization
+
+Once you have the product ID of the product, you can then use the regular product APIs. It doesn't matter that if it's part of an organization or not; the product APIs for product devices, customers, etc. work the same.
+
+### List organizations
+
+{{> cloud-api-simple-get className="apiHelperCloudApiOrgList" buttonName="List Organizations" height="300"}}
+
+If you do not have access to any organizations, an empty array `[]` is returned in the result object:
+
+```json
+{
+  "organizations": []
+}
+```
+
+### List organization products
+
+{{> cloud-api-list-org-products height="300"}}
