@@ -98,6 +98,11 @@
         "href": "/tutorials/device-cloud/webhooks/"
       },
       {
+        "dir": "cloud-api",
+        "title": "Cloud API",
+        "href": "/tutorials/device-cloud/cloud-api/"
+      },
+      {
         "dir": "authentication",
         "title": "Authentication",
         "href": "/tutorials/device-cloud/authentication/"
