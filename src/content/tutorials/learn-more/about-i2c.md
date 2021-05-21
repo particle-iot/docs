@@ -93,7 +93,7 @@ The P1 module should not use I2C at 5V as there is an internal 2.1K hardware pul
 
 ### Pins
 
-On the all devices there is an I2C interface (Wire) on D0 and D1:
+On all devices there is an I2C interface (Wire) on D0 and D1:
 
 - DO: SDA
 - D1: SCL
