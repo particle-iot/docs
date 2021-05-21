@@ -67,11 +67,11 @@ There are other ways you can pass the access token, which will be discussed a li
 
 Another common tasks is to get the value of a Particle.variable using the [Get Variable API](/reference/device-cloud/api/#get-a-variable-value).
 
-To fully take advantage of this example you'll need firmware on one of your devices that returns a variable. This firmware is from the [cloud communication tutorial](/tutorials/device-os/cloud-communication/#variable) and is fully described there, but you don't need to fully understand how it works right now.
+To fully take advantage of this example you'll need firmware on one of your devices that returns a variable. This firmware combines the function and variable examples from the [cloud communication tutorial](/tutorials/device-os/cloud-communication/#variable). You don't need to fully understand how it works right now.
 
 You can select a device and flash it right here. Note that this will replace any existing user firmware on the device and there is no way to undo this operation. You'd need to locate and flash the old firmware back to the device to restore the old code, so make sure you select the correct device.
 
-{{> codebox content="/assets/files/cloud-communication/variable1.cpp" format="cpp" height="300" flash="true"}}
+{{> codebox content="/assets/files/cloud-communication/functionVar.cpp" format="cpp" height="300" flash="true"}}
 
 Once you've flashed the firmware above to a device, you can test it out:
 
@@ -104,13 +104,11 @@ If you request an invalid variable name, you'll also get a 404 error, but the JS
 
 Another common thing is to [call a function](/reference/device-cloud/api/#call-a-function). 
 
-To fully take advantage of this tutorial, you should use the [change LED color](/tutorials/device-os/cloud-communication/#function) firmware from the Device OS cloud communication tutorial.
-
-{{> codebox content="/assets/files/cloud-communication/function1.cpp" format="cpp" height="300" flash="true"}}
-
-Once you've flashed this code to a test device, you can now start using function calls.
+To fully take advantage of this tutorial, you should flash the code from the get a variable example, above to a test device. It supports testing function calls, too.
 
 {{> cloud-api-function}}
+
+With the default values, if the function call worked, the status LED on your test device should turn solid red for 10 seconds.
 
 You'll notice that the URL for calling a function is the same as for getting a variable. That works because calling a function uses POST and getting a variable uses GET, so the cloud knows which operation you want to do.
 
@@ -126,11 +124,22 @@ The JSON response for calling a function looks like this:
 {"id":"1f0030001647353236343033","connected":true,"return_value":1}
 ```
 
-The `return_value` is the integer returned by the `Particle.function` handler. The code above returns 1 if the value is a valid-looking RGB value. If you just pass, say **0** in the function parameter, the function still returns a 200 success, however you'll notice the `return_value` is 0 instead.
+The `return_value` is the integer returned by the `Particle.function` handler. The code above returns 1 if the value is a valid-looking RGB value. If you just pass, say **xxx** in the function parameter, the function still returns a 200 success, however you'll notice the `return_value` is 0 instead. This is dependent on how the user firmware is written, however. Some firmware may work the opposite way and return 0 on success and non-zero on error for a function call.
+
+
+#### POST body - JSON
+
+The example above uses JSON encoding, which makes things symmetrical as the response is always JSON.
+
+The request `Content-Type` is set to `application/json` and the data is a JSON encoded object:
+
+```json
+{"arg":"255,255,0"}
+```
 
 #### POST body - form URL encoded
 
-There are two common ways the POST body can be encoded. The form URL encoded method is the default for how web forms are encoded. It's also the format used when using curl with the `-d` option.
+The other way is form URL encoded method is the default for how web forms are encoded. It's also the format used when using curl with the `-d` option.
 
 The request `Content-Type` is set to `application/x-www-form-urlencoded` and the data is a series of key=value pairs, separate by `&`. For example:
 
@@ -138,15 +147,10 @@ The request `Content-Type` is set to `application/x-www-form-urlencoded` and the
 arg=255,255,0
 ```
 
-#### POST body - JSON
+This uses form encoding for the POST body:
 
-The other is JSON encoding, which makes things symmetrical as the response is always JSON.
+{{> cloud-api-function style="authHeaderForm"}}
 
-The request `Content-Type` is set to `application/json` and the data is a JSON encoded object:
-
-```json
-{"arg":"255,255,0"}
-```
 
 ## Access tokens
 
@@ -156,11 +160,82 @@ In order to make any API call, you need an access token. This represent both you
 
 Access tokens have an expiration date. It could be from seconds, to months, to never expiring. It's also possible to revoke an access token so it no longer has access to your account.
 
-One way to create an access token is to use the Particle CLI [`particle token create`](/reference/developer-tools/cli/#particle-token-create) command. 
+One way to create an access token is to use the Particle CLI [`particle token create`](/reference/developer-tools/cli/#particle-token-create) command. There are others, and more types of access tokens, discussed below.
 
-### Authorization header
+### Using an access token
 
-### Query parameter
+#### Authorization header
 
-### Form body
+One option for including the access token is including it in the `Authorization` header of the HTTP request. How you do this will depend both on the language and the method you are using for making the REST request. 
+
+For example, this is an example for browser-based Javascript using jQuery AJAX:
+
+```js
+$.ajax({
+    dataType: 'json',
+    error: function(jqXHR) {
+        // Error handing code here
+    },
+    headers: {
+        'Authorization': 'Bearer ' + accessToken,
+        'Accept': 'application/json'
+    },
+    method: 'GET',
+    success: function(resp, textStatus, jqXHR) {
+        // Success handling code here
+    },
+    url: 'https://api.particle.io/v1/devices/' + deviceId + '/' + variableName,
+});    
+```
+
+Note that the content of the `Authorization` header is the string `Bearer` followed by a space, then the access token.
+
+This is the calling a function example using the `Authorization` header:
+
+{{> cloud-api-function style="authHeader"}}
+
+#### Form body
+
+The form body can be used with calls that require POST or PUT, like call a function. It cannot be used with GET operations as there is no body for GET.
+
+The form URL encoded method is the default for how web forms are encoded. It's also the format used when using curl with the `-d` option.
+
+The request `Content-Type` is set to `application/x-www-form-urlencoded` and the data is a series of key=value pairs, separate by `&`. For example:
+
+```
+arg=255,255,0&access_token=ffff3e262d049ffffc97c5ffffff81cb84f9ffff
+```
+
+This is the call a function example with the arg parameter, but also adds in an `access_token`.
+
+This is an example of using form encoding instead of JSON, and including the access token in the form body:
+
+{{> cloud-api-function style="form"}}
+
+
+#### Query parameter
+
+For GET requests, you can include the access token at the end of the URL. This does not work for POST and PUT requests, so you cannot use this technique for calling a function, for example.
+
+This is what a query parameter would look like using jQuery:
+
+```js
+$.ajax({
+    dataType: 'json',
+    error: function(jqXHR) {
+        // Error handing code here
+    },
+    method: 'GET',
+    success: function(resp, textStatus, jqXHR) {
+        // Success handling code here
+    },
+    url: 'https://api.particle.io/v1/devices/?access_token=' + accessToken,
+});    
+```
+
+The get device list example, above, put the access token in the query parameters in the URL.
+
+{{> cloud-api-device-list height="300"}}
+
+### Types of tokens
 

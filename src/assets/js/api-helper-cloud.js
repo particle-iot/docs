@@ -13,6 +13,25 @@ $(document).ready(function() {
         }   
     };
 
+    const setRequest = function(parentElem, request) {
+        let requestStr = request.method + ' ' + request.url + '\n';
+        if (request.headers) {
+            for(const header in request.headers) {
+                requestStr += header + ': ' + request.headers[header] + '\n';
+            }    
+        }
+        if (request.contentType) {
+            requestStr += 'Content-Type: ' + request.contentType + '\n';
+        }
+
+        if (request.data) {
+            requestStr += '\n' + request.data;            
+        }
+
+        $(parentElem).find('.apiHelperApiRequest > pre').text(requestStr);
+        $(parentElem).find('.apiHelperApiRequest').show();
+    };
+
     apiHelper.deviceList($('.apiHelperCloudDeviceSelect'), {
         getTitle: function(dev) {
             return dev.name + ' (' + dev.id + ')' + (dev.online ? '' : ' (offline)');
@@ -37,16 +56,7 @@ $(document).ready(function() {
         $(thisElem).find('.apiHelperGetDeviceList').on('click', function() {
             setStatus('Requesting device list...');
 
-            const url = 'https://api.particle.io/v1/devices/?access_token=' + apiHelper.auth.access_token;
-            $(thisElem).find('.apiHelperApiRequest').text('GET ' + url);
-
-            const respElem = $(thisElem).find('.apiHelperApiResponse');
-            $(respElem).find('pre').text('');
-
-            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
-            $(outputJsonElem).hide();
-
-            $.ajax({
+            const request = {
                 dataType: 'json',
                 error: function(jqXHR) {
                     ga('send', 'event', 'List Devices', 'Error', jqXHR.responseJSON.error);
@@ -73,8 +83,18 @@ $(document).ready(function() {
                         $(respElem).show();
                     }
                 },
-                url
-            });    
+                url: 'https://api.particle.io/v1/devices/?access_token=' + apiHelper.auth.access_token
+            };
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);    
         
         });
     });
@@ -93,16 +113,7 @@ $(document).ready(function() {
             const deviceId = $(thisElem).find('.apiHelperCloudDeviceSelect').val();
             const variableName = $(thisElem).find('.apiHelperVariableName').val();
 
-            const url = 'https://api.particle.io/v1/devices/' + deviceId + '/' + variableName;
-            $(thisElem).find('.apiHelperApiRequest').text('GET ' + url);
-
-            const respElem = $(thisElem).find('.apiHelperApiResponse');
-            $(respElem).find('pre').text('');
-
-            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
-            $(outputJsonElem).hide();
-
-            $.ajax({
+            const request = {
                 dataType: 'json',
                 error: function(jqXHR) {
                     ga('send', 'event', 'Get Variable', 'Error', jqXHR.responseJSON.error);
@@ -127,8 +138,18 @@ $(document).ready(function() {
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
                     $(respElem).show();
                 },
-                url,
-            });    
+                url : 'https://api.particle.io/v1/devices/' + deviceId + '/' + variableName
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);    
 
         });
     });
@@ -147,19 +168,9 @@ $(document).ready(function() {
             const deviceId = $(thisElem).find('.apiHelperCloudDeviceSelect').val();
             const functionName = $(thisElem).find('.apiHelperFunctionName').val();
             const functionParameter = $(thisElem).find('.apiHelperFunctionParameter').val();
+            const style = $(thisElem).attr('data-style') || 'authHeader';
 
-            const url = 'https://api.particle.io/v1/devices/' + deviceId + '/' + functionName;
-            $(thisElem).find('.apiHelperApiRequest').text('POST ' + url);
-
-            const respElem = $(thisElem).find('.apiHelperApiResponse');
-            $(respElem).find('pre').text('');
-
-            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
-            $(outputJsonElem).hide();
-
-            $.ajax({
-                contentType: 'application/json',
-                data: JSON.stringify({arg:functionParameter}),
+            let request = {
                 dataType: 'json',
                 error: function(jqXHR) {
                     ga('send', 'event', 'Call function', 'Error', jqXHR.responseJSON.error);
@@ -168,10 +179,6 @@ $(document).ready(function() {
 
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
                     $(respElem).show();
-                },
-                headers: {
-                    'Authorization':'Bearer ' + apiHelper.auth.access_token,
-                    'Accept':'application/json'
                 },
                 method: 'POST',
                 success: function (resp, textStatus, jqXHR) {
@@ -184,8 +191,43 @@ $(document).ready(function() {
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
                     $(respElem).show();
                 },
-                url,
-            });    
+                url: 'https://api.particle.io/v1/devices/' + deviceId + '/' + functionName,
+            }
+
+            switch(style) {
+                case 'authHeader':
+                    request.headers = {
+                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                        'Accept':'application/json'
+                    };
+                    request.data = JSON.stringify({arg:functionParameter});
+                    request.contentType = 'application/json';
+                    break;
+
+                case 'authHeaderForm':
+                    request.headers = {
+                        'Authorization':'Bearer ' + apiHelper.auth.access_token,
+                        'Accept':'application/json'
+                    };
+                    request.data = 'arg=' + encodeURIComponent(functionParameter);
+                    request.contentType = 'application/x-www-form-urlencoded';
+                    break;
+    
+                case 'form':
+                    request.data = 'arg=' + encodeURIComponent(functionParameter) + '&access_token=' + apiHelper.auth.access_token;
+                    request.contentType = 'application/x-www-form-urlencoded';
+                    break;
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);    
 
         });
     });
