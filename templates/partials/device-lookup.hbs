@@ -1,4 +1,4 @@
-<div class="apiHelper apiHelperLoggedIn apiHelperDeviceLookup" style="display:none;" data-hidden="{{hidden}}">
+<div class="apiHelper apiHelperLoggedIn apiHelperDeviceLookup" style="display:none;" data-hidden="{{hidden}}" data-mode="{{mode}}">
     <div class="apiHelperBox">
         <p>Device ID: <input type="text" class="apiHelperDeviceLookupDeviceId" size="30"> 
             <button class="apiHelperDeviceLookupButton apiHelperButton" disabled>Lookup</button>
@@ -25,6 +25,14 @@
                 Device Name: <input type="text" class="apiHelperDeviceLookupRenameDeviceName" size="20"> 
                     <button class="apiHelperDeviceLookupRenameDeviceButton apiHelperButton">Rename Device</button>
                 <p class="apiHelperDeviceLookupResult"></p>
+            </div>
+            <div class="apiHelperDeviceLookupRemoveProductDiv" style="display:none">
+                <p><button class="apiHelperDeviceLookupRemoveProductButton apiHelperButton">Remove from Product</button></p>
+                <p class="apiHelperDeviceLookupRemoveProductStatus"></p>
+            </div>
+            <div class="apiHelperDeviceLookupUnclaimDeviceDiv" style="display:none">
+                <p><button class="apiHelperDeviceLookupUnclaimDeviceButton apiHelperButton">Unclaim Device</button><br/></p>
+                <p class="apiHelperDeviceLookupUnclaimDeviceStatus"></p>
             </div>
         </div>
     </div>

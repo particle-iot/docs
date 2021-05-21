@@ -5,7 +5,7 @@ shared: true
 columns: two
 layout: commonTwo.hbs
 description: Getting started with the Particle Cloud API
-includeDefinitions: [api-helper, api-helper-cloud, api-helper-json, codemirror]
+includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, api-helper-json, codemirror, usb-serial]
 ---
 
 # Cloud API Getting Started
@@ -273,12 +273,18 @@ This section shows how to make a list devices call from a number of different la
 
 ### List Products
 
+The list products API is a simple GET request that returns all products available in the sandbox for this user.
+
 {{> cloud-api-simple-get className="apiHelperCloudApiProductList" buttonName="List Products" height="300"}}
 
 ### List Product Devices
 
+The list product devices API lists the devices in the sandbox for this user.
+
 {{> cloud-api-list-product-devices height="400"}}
 
+The API also works for organization products, however the popup menu for selecting the product in this page 
+does not support that.
 
 ## Organization APIs
 
@@ -315,3 +321,63 @@ If you do not have access to any organizations, an empty array `[]` is returned 
 ### List organization products
 
 {{> cloud-api-list-org-products height="300"}}
+
+## Customer claiming
+
+Customer claiming is common for the Photon and P1 (Gen 2 Wi-Fi devices). While it can be used with cellular devices, it's more common to claim the devices to a single account, or leave them unclaimed. Most of the work is handled by the Photon Setup SDK, however if you want to understand what is going on, you may want to follow the tutorial this section.
+
+### Setup
+
+This tutorial is rather complicated and will require a few special things:
+
+- Photon (it will not work with other devices)
+- Chrome web browser (it will not work with Firefox, Safari, Edge, etc.)
+- You'll be creating a test product in your account during this tutorial
+- The process is similar for other devices, however the tutorial tools only work with the Photon because the way you set a claim code varies by device.
+
+#### Set up Wi-Fi 
+
+If you have not configured your Photon Wi-Fi, you should do that now. The Photon should be breathing cyan before you start.
+
+If the Photon is currently blinking dark blue (listening mode) without Wi-Fi configured, you can use the normal tools like `particle serial wifi` or the mobile apps, or try the Photon Wi-Fi setup control.
+
+{{> wifi-setup }}
+
+#### Find your Device ID
+
+You'll need the Device ID of your Photon.
+
+- Connect the Photon by USB to your computer
+
+- If the Photon is not in listening mode (blinking dark blue), and hold down the SETUP button until it is. 
+
+- You can use tools like `particle identify` Particle CLI command to find the Device ID. 
+
+- Or use the **Identify** button in this control:
+
+{{> usb-serial-tools}}
+
+
+#### Not a product device and unclaimed
+
+- The Photon must not already be a device product. If it is, go into your product, then devices, then unclaim device and then remove device from product.
+- If your Photon was previously a developer device in your account, you must unclaim it first. 
+- Or you can look up the claiming for your device using this control:
+
+{{> device-lookup mode="unclaim,removeProduct,noCheckOrgs"}}
+
+
+### Create a product
+
+Because you'll be adding and removing customers, devices, and using access tokens, you probably do not want to complete these steps in a production product. If you already have a test Photon project you can reuse that, or create one. You can easily delete it when you're done.
+
+
+
+### Create an oAuth client
+
+
+### Create a claim code
+
+
+### Use the claim code
+
