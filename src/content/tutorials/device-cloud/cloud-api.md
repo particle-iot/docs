@@ -371,13 +371,85 @@ You'll need the Device ID of your Photon.
 
 Because you'll be adding and removing customers, devices, and using access tokens, you probably do not want to complete these steps in a production product. If you already have a test Photon project you can reuse that, or create one. You can easily delete it when you're done.
 
+- Open the [console](https://console.particle.io)
+- Click on the **Products** icon in the left icon bar
+- Click the **New Product** button in the upper left corner of the window
+- Enter a product name, description, and set the product type to **Photon**.
 
+![](/assets/images/tutorials/customers-create-product.png)
 
 ### Create an oAuth client
 
+While there is an API for creating an oAuth client you'll likely need to do this only once, or at least rarely, so you'll probably do it manually.
+
+- If you're not in the products grid, click on the **Products** icon in the left icon bar
+- Click on the Photon product you want to use for testing
+- Click on the Authentication icon in the left icon bar
+- Note that there are two **Authentication** icons, one in your top-level of your account sandbox, and one inside your product. Make sure you use the one inside your product!
+
+![](/assets/images/tutorials/customers-authentication.png)
+
+Then, create an oAuth client:
+
+- Click **New Client** in the upper right corner of the window
+- Select **Two-Legged Auth (Server)**
+- Enter a name
+- Click **Get Client ID and Secret**
+
+![](/assets/images/tutorials/customers-create-client.png)
+
+The Client ID will always be in the **Authentication** tab, but the secret is only shown once in the dialog and it's impossible to get it back. If you lose it, you will need to delete the oAuth client and create a new one.
+
+Normally you would not enter your client secret into a web page, but in order to make the API calls using this secret using the controls in the documentation you will want to do that here:
+
+{{> cloud-api-auth-settings}}
+
+The secret is only stored in your browser for this session; when you close this browser tab it is no longer saved.
+
+### Create a product bearer token
+
+The client secret is not an access token! In order to use most product APIs, you will either need to use your own account token, or a product-specific token.
+
+{{> cloud-api-create-token}}
+
+You don't need to specify the Product ID when creating a product bearer token because it's implicit in the Client ID. Each Client ID is associated with a single product, which is why you can't use a Client ID created in the top level of your account sandbox.
+
+### Add the device to your product
+
+Normally you'll add devices in bulk from the console. When you order devices in tray or reel quantities you'll be emailed a file of Device IDs in your order and you can add these in bulk.
+
+For this tutorial, however, we'll import the single device we're setting up. 
+
+{{> cloud-api-import-device}}
+
+If you don't know the device ID, see [Find your Device ID](#find-your-device-id), above. If the access token field is blank, see [Create a product bearer token](#create-a-product-bearer-token), above.
+
+### Create a customer
 
 ### Create a claim code
 
+The next step is creating a claim code. The claim code associates a device that uses the claim code when connecting to the cloud with a two-legged shadow customer and product. This is one step that will require some custom code when you are implementing it on your infrastructure. This is also what links your server's customer authentication system with Particle, without exposing any personal information about your customer.
 
-### Use the claim code
+A claim code can also be used with simple auth customers and developer accounts, but this example does not demonstrate that. The Photon setup SDK takes care of that for you when you are using those modes.
+
+{{> cloud-api-create-claim-code}}
+
+**TODO: Fix this to use the customer access token!**
+
+### Set the claim code on the device
+
+With the Photon there are two ways you can set the claim code:
+
+- Over USB serial
+- Over Wi-Fi using SoftAP
+
+In both cases the device must be in listening mode (blinking dark blue). If it is not, hold down the SETUP button until the status LED blinks dark blue.
+
+#### Set claim code - USB serial
+
+
+#### Set claim code - Wi-Fi
+
+
+
 

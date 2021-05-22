@@ -1,32 +1,39 @@
 <div class="apiHelperCloudApiListProductDevices">
     <div class="apiHelper">
         <div class="apiHelperBox">
-            <div style="padding: 5px 0px 5px 0px">Product: <select class="apiHelperCloudProductSelect apiHelperSelect"></select></div>
-            <div style="padding: 5px 0px 5px 0px">Device ID: <input type="text" size="30" class="apiHelper_deviceId" value=""> (partial match, optional)</div>
-            <div style="padding: 5px 0px 5px 0px">Device Name: <input type="text" size="30" class="apiHelper_deviceName" value=""> (partial match, optional)</div>
-            <div style="padding: 5px 0px 5px 0px">Groups: <input type="text" size="30" class="apiHelper_groups" value=""> (group names, comma-separated, optional)</div>
-            <div style="padding: 5px 0px 5px 0px">Sort by Attribute: 
-                <select class="apiHelper_sortAttr apiHelperSelect">
-                    <option value="">Not specified</option>
-                    <option value="deviceId">Device ID</option>
-                    <option value="firmwareVersion">Firmware Version</option>
-                    <option value="lastConnection">Last Connection</option>
-                </select> (optional)</div>
-            <div style="padding: 5px 0px 5px 0px">Sort Direction: 
-                <select class="apiHelper_sortDir apiHelperSelect">
-                    <option value="">Not specified</option>
-                    <option value="asc">Ascending</option>
-                    <option value="desc">Descending</option>
-                </select> (optional)</div>
-            <div style="padding: 5px 0px 5px 0px">Quarantine Status: 
-                <select class="apiHelper_quarantined apiHelperSelect">
-                    <option value="">Not specified (list all devices)</option>
-                    <option value="true">List devices in quarantine</option>
-                    <option value="false">List devices not in quarantine</option>
-                </select> (optional)</div>
-            <div style="padding: 5px 0px 5px 0px">Page: <input type="text" size="30" class="apiHelper_page" value=""> (starts at 1, optional)</div>
-            <div style="padding: 5px 0px 5px 0px">Per Page: <input type="text" size="30" class="apiHelper_perPage" value=""> (25 if not set, optional)</div>
-            <div style="padding: 5px 0px 5px 0px"><button class="apiHelperActionButton">List Product Devices</button></div>
+            <table class="apiHelperTableNoMargin">
+                <tr><td class="apiHelperProductSelectorLabel">Product</td><td><select class="apiHelperCloudProductSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Device ID</td><td><input type="text" size="30" class="apiHelper_deviceId" value=""></td><td class="apiHelperProductSelectorLabel">(partial match, optional)</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Device Name</td><td><input type="text" size="30" class="apiHelper_deviceName" value=""></td><td class="apiHelperProductSelectorLabel">(partial match, optional)</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Groups</td><td><input type="text" size="30" class="apiHelper_groups" value=""></td><td class="apiHelperProductSelectorLabel">(device group names, comma-separated, optional)</td></tr>
+
+                <tr><td class="apiHelperProductSelectorLabel">Sort by Attribute</td><td>
+                    <select class="apiHelper_sortAttr apiHelperSelect">
+                        <option value="">Not specified</option>
+                        <option value="deviceId">Device ID</option>
+                        <option value="firmwareVersion">Firmware Version</option>
+                        <option value="lastConnection">Last Connection</option>
+                    </select>
+                </td><td class="apiHelperProductSelectorLabel">(optional)</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Sort Direction</td><td>
+                    <select class="apiHelper_sortDir apiHelperSelect">
+                        <option value="">Not specified</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </td><td class="apiHelperProductSelectorLabel">(optional)</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Quarantine Status</td><td>
+                    <select class="apiHelper_quarantined apiHelperSelect">
+                        <option value="">Not specified (list all devices)</option>
+                        <option value="true">List devices in quarantine</option>
+                        <option value="false">List devices not in quarantine</option>
+                    </select>
+                </td><td class="apiHelperProductSelectorLabel">(optional)</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Page</td><td><input type="text" size="10" class="apiHelper_page" value=""></td><td class="apiHelperProductSelectorLabel">(starts at 1, optional)</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Per Page</td><td><input type="text" size="10" class="apiHelper_perPage" value=""></td><td class="apiHelperProductSelectorLabel">(25 if not set, optional)</td></tr>
+                <tr><td colspan="3"><button class="apiHelperActionButton">List Product Devices</button></td></tr>
+            </table>
+
             <div class="apiHelperStatus" style="padding-top: 5px;"></div>
             <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>
             <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>

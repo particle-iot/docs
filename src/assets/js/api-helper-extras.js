@@ -415,7 +415,7 @@ $(document).ready(function() {
                     apiHelper.setCommonDevice(deviceId);
                 }
             }
-            else {
+            else if (!modeUnclaim) {
                 $(deviceLookupElem).find('.apiHelperDeviceLookupClaimDiv').show();
             }
         });
