@@ -426,6 +426,12 @@ If you don't know the device ID, see [Find your Device ID](#find-your-device-id)
 
 ### Create a customer
 
+{{> cloud-api-create-customer}}
+
+
+### Create an access token for an existing customer
+
+
 ### Create a claim code
 
 The next step is creating a claim code. The claim code associates a device that uses the claim code when connecting to the cloud with a two-legged shadow customer and product. This is one step that will require some custom code when you are implementing it on your infrastructure. This is also what links your server's customer authentication system with Particle, without exposing any personal information about your customer.
@@ -434,7 +440,6 @@ A claim code can also be used with simple auth customers and developer accounts,
 
 {{> cloud-api-create-claim-code}}
 
-**TODO: Fix this to use the customer access token!**
 
 ### Set the claim code on the device
 
@@ -445,11 +450,40 @@ With the Photon there are two ways you can set the claim code:
 
 In both cases the device must be in listening mode (blinking dark blue). If it is not, hold down the SETUP button until the status LED blinks dark blue.
 
-#### Set claim code - USB serial
-
-
 #### Set claim code - Wi-Fi
 
+In order to set the claim code by Wi-Fi you need to connect your computer to the Photon Wi-Fi (SoftAP). With the Photon in listening mode (blinking dark blue), connect to the Photon-XXXXXX Wi-Fi network. XXXXXX will be a 4 or 6-character alphanumeric code that matches a part of the serial number. This is how the Photon setup SDK does it from a mobile app.
 
+{{> cloud-api-photon-claim-wifi}}
+
+Because the connection needs to be made to the Photon by http (unencrypted), you'll get a security warning from your browser when using this control. This is normal.
+
+#### Set claim code - USB serial
+
+In order to set the claim code by USB serial you need to connect the Photon to your computer. It also must be in listening mode (blinking dark blue).
+
+{{> cloud-api-photon-claim-usb}}
+
+
+### Get Device Info
+
+{{> cloud-api-get-device-info}}
+
+If the claiming succeeded, you should note:
+
+- The "product_id" should match your Product ID
+- The "owner" should match your customer
+
+The information will not be updated until the device successfully connects to the cloud (breathing cyan) using the claim code.
+
+If you get a "The access token provided is invalid" error, the token may have timed out. Scroll up to [Create a product bearer token](#create-a-product-bearer-token) to create a new one.
+
+
+### List customers
+
+{{> cloud-api-list-customers}}
+
+
+### Delete customers
 
 
