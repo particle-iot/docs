@@ -260,15 +260,6 @@ It's best to use environment variables instead of passing the access token as a 
 The reason is that on some systems, it's possible to see the processes created by other users, including their options. Also, the previous commands may be stored in unencrypted history files. These could expose your access token.
 
 
-## More languages
-
-This section shows how to make a list devices call from a number of different languages and environments.
-
-
-
-## More APIs
-
-
 ## Product APIs
 
 ### List Products
@@ -431,6 +422,7 @@ If you don't know the device ID, see [Find your Device ID](#find-your-device-id)
 
 ### Create an access token for an existing customer
 
+{{> cloud-api-customer-token}}
 
 ### Create a claim code
 
@@ -464,6 +456,21 @@ In order to set the claim code by USB serial you need to connect the Photon to y
 
 {{> cloud-api-photon-claim-usb}}
 
+### More about claiming
+
+If the device is already online and breathing cyan you can do claim it to a customer account using the API, instead of a claim code. This may be helpful is some circumstances and does not require getting the claim to the device. There are a bunch of options, actually:
+
+- You can use an unclaimed product device. Caveat: unclaimed product devices cannot subscribe to events.
+- You can claim devices to a single account. This is common for cellular products.
+- You can claim devices to your account. This is common for Development Devices to make it easier to flash code from standard tools like Particle Workbench and the Web IDE.
+- Developer devices control their own firmware updates and do not get product fleet firmware flashes.
+- You can claim devices to a customer account using the API as well as using claim codes.
+
+This control allows you easily try out several of those things.
+
+{{> cloud-api-claiming}}
+
+Handy tip: You can log into a customer account from the Particle CLI using `particle login --token <access_token>`. When logged in this way, you can use `particle device add <device_id>` to add a device ID to an account, for example.
 
 ### Get Device Info
 
@@ -482,6 +489,11 @@ If you get a "The access token provided is invalid" error, the token may have ti
 ### List customers
 
 {{> cloud-api-list-customers}}
+
+### Customer test firmware
+
+In order to illustrate handling events, functions, variables, and subscribe with customers, this firmware should be flashed to a device in your product. You could do this OTA with a developer device, but since the device has already been set up as a customer device, it's easiest to just do this by USB. You could also do this as a product firmware release.
+
 
 
 ### Delete customers
