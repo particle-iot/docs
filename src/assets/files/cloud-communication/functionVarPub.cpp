@@ -16,15 +16,6 @@ int setColor(String cmd);
 int publishEvent(String cmd);
 void subscribeHandler(const char *event, const char *data);
 
-// This is how often to read the sensor (every 1 second)
-std::chrono::milliseconds sensorCheckPeriod = 1s;
-
-// This keeps track of the last time we published
-unsigned long lastSensorCheckMs;
-
-// The is is the variable where the sensor value is stored.
-int sensor;
-
 unsigned long colorSetTime = 0;
 std::chrono::milliseconds colorExpirationTime = 10s;
 
@@ -33,20 +24,13 @@ std::chrono::milliseconds colorExpirationTime = 10s;
 void setup()
 {
     Particle.subscribe("tAAzf9hy_subscribeTest", subscribeHandler);
-    Particle.variable("sensor", sensor);
+    Particle.variable("sensor", getSensor);
     Particle.function("setColor", setColor);
     Particle.function("publishEvent", publishEvent);
 }
 
 void loop()
 {
-    // Check to see if it's time to publish
-    if (millis() - lastSensorCheckMs >= sensorCheckPeriod.count())
-    {
-        lastSensorCheckMs = millis();
-
-        sensor = getSensor();
-    }
     if (colorSetTime != 0 && millis() - colorSetTime >= colorExpirationTime.count())
     {
         // Revert back to system color scheme
@@ -62,7 +46,11 @@ int getSensor()
     // requiring a sensor, we just return a random
     // value from 0 - 4095 like you'd get from an
     // analogRead() call
-    return rand() % 4096;
+    int result = rand() % 4096;
+
+    Log.info("getSensor returning %d", result);
+
+    return result;
 }
 
 

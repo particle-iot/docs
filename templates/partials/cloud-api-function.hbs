@@ -1,10 +1,26 @@
 <div class="apiHelperCloudApiFunction" data-style="{{style}}">
     <div class="apiHelper">
         <div class="apiHelperBox">
-            <div style="padding: 5px 0px 5px 0px">Device: <select class="apiHelperCloudDeviceSelect apiHelperCommonDevice apiHelperSelect"></select></div>
-            <div style="padding: 5px 0px 5px 0px">Function Name: <input type="text" size="20" class="apiHelperFunctionName" value="setColor"></div>
-            <div style="padding: 5px 0px 5px 0px">Parameter: <input type="text" size="60" class="apiHelperFunctionParameter" value="255,0,0"></div>
-            <div style="padding: 5px 0px 5px 0px"><button class="apiHelperCallFunction">Call Function</button></div>
+            <table class="apiHelperTableNoMargin">
+{{#if productToken}}
+                <tr><td class="apiHelperProductSelectorLabel">Product Access Token</td><td><input type="text" size="50" class="apiHelperAuthSettingsProductAccessToken" value=""></td><td>&nbsp;</td></tr>
+{{/if}}
+{{#if customerToken}}
+                <tr><td class="apiHelperProductSelectorLabel">Customer Access Token</td><td><input type="text" size="50" class="apiHelperAuthSettingsCustomerAccessToken" value=""></td><td>&nbsp;</td></tr>
+{{/if}}
+{{#if productId}}
+                <tr><td class="apiHelperProductSelectorLabel">Product ID</td><td><input type="text" size="10" class="apiHelperAuthSettingsProduct" value=""></td><td>&nbsp;</td></tr>
+{{/if}}
+{{#if deviceIdField}}
+                <tr><td class="apiHelperProductSelectorLabel">Device ID</td><td><input type="text" size="30" class="apiHelperDeviceLookupDeviceId" value=""></td><td class="apiHelperProductSelectorLabel"></td></tr>
+{{/if}}
+{{#if deviceSelect}}
+                <tr><td class="apiHelperProductSelectorLabel">Device</td><td><select class="apiHelperCloudDeviceSelect apiHelperCommonDevice apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+{{/if}}
+                <tr><td class="apiHelperProductSelectorLabel">Function Name</td><td><input type="text" size="20" class="apiHelperFunctionName" value="setColor"></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Parameter</td><td><input type="text" size="60" class="apiHelperFunctionParameter" value="255,0,0"></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel" colspan="2"><button class="apiHelperCallFunction">Call Function</button></td><td>&nbsp;</td></tr>
+            </table>
             <div class="apiHelperStatus" style="padding-top: 5px;"></div>
             <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>
             <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>

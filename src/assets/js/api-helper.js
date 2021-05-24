@@ -319,6 +319,7 @@ $(document).ready(function() {
     $('.apiHelperLogoutButton').on('click', function() {
         Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
         localStorage.removeItem('particleAuth');
+        $('.apiHelper').trigger('ssoLogout');
         location.reload();
         ga('send', 'event', eventCategory, 'Logged Out');
     });
