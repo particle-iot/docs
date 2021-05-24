@@ -800,6 +800,137 @@ $(document).ready(function () {
         });
     });
 
+
+
+    $('.apiHelperCloudApiGetDeviceInfo').each(function () {
+        const thisElem = $(this);
+        const gaCategory = 'GetDeviceInfo';
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+
+        $(actionButtonElem).on('click', async function () {
+            const accessToken = $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').val();
+            const productId = $(thisElem).find('.apiHelperAuthSettingsProduct').val();
+            const deviceId = $(thisElem).find('.apiHelperDeviceLookupDeviceId').val();
+
+            let url;
+            if (productId) {
+                url = 'https://api.particle.io/v1/products/' + productId + '/devices/' + deviceId;
+            }
+            else {
+                url = 'https://api.particle.io/v1/devices/' + deviceId;
+            }
+            
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+    });
+
+
+/*
+    $('.apiHelperCloudApiDeviceVitalsLast').each(function () {
+        const thisElem = $(this);
+        const gaCategory = 'Get Device Vitals Last';
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+
+        $(actionButtonElem).on('click', async function () {
+            const accessToken = $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').val();
+            const productId = $(thisElem).find('.apiHelperAuthSettingsProduct').val();
+            const deviceId = $(thisElem).find('.apiHelperDeviceLookupDeviceId').val();
+
+            let url;
+            if (productId) {
+                url = 'https://api.particle.io/v1/products/' + productId + '/devices/' + deviceId;
+            }
+            else {
+                url = 'https://api.particle.io/v1/devices/' + deviceId;
+            }
+            
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+    });
+*/
+
     $('.apiHelperCloudApiCreateCustomer').each(function () {
         const thisElem = $(this);
 
@@ -1230,70 +1361,6 @@ $(document).ready(function () {
                     }
                 });
             });        
-        });
-    });
-
-
-    $('.apiHelperCloudApiGetDeviceInfo').each(function () {
-        const thisElem = $(this);
-        const gaCategory = 'GetDeviceInfo';
-
-        const setStatus = function (status) {
-            $(thisElem).find('.apiHelperStatus').html(status);
-        };
-
-        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
-
-        $(actionButtonElem).on('click', async function () {
-            const accessToken = $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').val();
-            const productId = $(thisElem).find('.apiHelperAuthSettingsProduct').val();
-            const deviceId = $(thisElem).find('.apiHelperDeviceLookupDeviceId').val();
-
-            let url;
-            if (productId) {
-                url = 'https://api.particle.io/v1/products/' + productId + '/devices/' + deviceId;
-            }
-            else {
-                url = 'https://api.particle.io/v1/devices/' + deviceId;
-            }
-            
-            let request = {
-                dataType: 'json',
-                error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
-
-                    setStatus('Error ' + gaCategory);
-
-                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
-                    $(respElem).show();
-                },
-                headers: {
-                    'Authorization': 'Bearer ' + accessToken,
-                    'Accept': 'application/json'
-                },
-                method: 'GET',
-                success: function (resp, textStatus, jqXHR) {
-                    setStatus('');
-                    ga('send', 'event', gaCategory, 'Success');
-
-                    $(outputJsonElem).show();
-                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
-
-                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
-                    $(respElem).show();
-                },
-                url
-            }
-
-            setRequest(thisElem, request);
-
-            const respElem = $(thisElem).find('.apiHelperApiResponse');
-            $(respElem).find('pre').text('');
-
-            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
-            $(outputJsonElem).hide();
-
-            $.ajax(request);
         });
     });
 
