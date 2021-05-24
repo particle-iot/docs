@@ -20,7 +20,7 @@ The Particle Cloud API is a REST API that allows a computer or mobile device to 
 
 In many cases you'll use a library such as [Particle API JS](/reference/SDKs/javascript/) to make using the API easier, however the API is available to all languages that support REST APIs, which is basically all of them. For example, you might instead use Python, Ruby, or Java on the server-side, or you might use Kotlin, Swift, or Objective C++ in mobile apps. 
 
-You can also use the API directly from a terminal using a tool like curl, or from a web-based tool like [Postman](/reference/device-cloud/api/#postman).
+You can also use the API directly from a terminal or command prompt window using a tool like curl, or from a web-based tool like [Postman](/reference/device-cloud/api/#postman).
 
 
 ## Getting started
@@ -319,13 +319,13 @@ The main advantage of this token is that it's restricted to the specific product
 
 ### List products
 
-The list products API is a simple GET request that returns all products available in the sandbox for this user.
+The [list products](reference/device-cloud/api/#list-products) API is a simple GET request that returns all products available in the sandbox for this user.
 
 {{> cloud-api-simple-get className="apiHelperCloudApiProductList" buttonName="List Products" height="300"}}
 
 ### List product devices
 
-The list product devices API lists the devices in the sandbox for this user.
+The [list product devices](/reference/device-cloud/api/#list-devices-in-a-product) API lists the devices in the sandbox for this user.
 
 {{> cloud-api-list-product-devices height="400"}}
 
@@ -334,21 +334,21 @@ does not support that.
 
 #### Function (products)
 
-If you're calling a function from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
+If you're [calling a function](/reference/device-cloud/api/#call-a-function) from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
 {{> cloud-api-function productToken="1" productId="1" deviceIdField="1"}}
 
 
 #### Variables (product)
 
-If you're getting a variable from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
+If you're [getting a variable](/reference/device-cloud/api/#get-a-variable-value) from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
 {{> cloud-api-get-variable productToken="1" productId="1" deviceIdField="1"}}
 
 
 #### Publish (products)
 
-The same thing applies for publish, with a few additional constraints.
+The same thing applies for [publish](/reference/device-cloud/api/#publish-an-event), with a few additional constraints.
 
 If you're publishing events from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
@@ -492,7 +492,7 @@ You don't need to specify the Product ID when creating a product bearer token be
 
 Normally you'll add devices in bulk from the console. When you order devices in tray or reel quantities you'll be emailed a file of Device IDs in your order and you can add these in bulk.
 
-For this tutorial, however, we'll import the single device we're setting up. 
+For this tutorial, however, we'll [import the single device](/reference/device-cloud/api/#import-devices-into-product) we're setting up. 
 
 {{> cloud-api-import-device}}
 
@@ -500,18 +500,25 @@ If you don't know the device ID, see [Find your Device ID](#find-your-device-id)
 
 ### Create a customer
 
+This control uses the [create customer](/reference/device-cloud/api/#create-a-customer---client-credentials) API for two-legged shadow customers. The difference is that you control the identities and login mechanism for these users. In fact, you don't need to use real emails for these customers, so you don't have to expose any information about your users to Particle. The users do need to be unique, however. This control has a button **Use UUID** for using a UUID instead of an email to identify your customers securely.
+
+You can use real email addresses, your own customer ID numbers, etc. if you prefer.
+
 {{> cloud-api-create-customer}}
 
-
 ### Create an access token for an existing customer
+
+The previous API only works for new customers. If you know your customer identifier (email, UUID, etc.) you can generate a new access token using this API.
 
 {{> cloud-api-customer-token}}
 
 ### Create a claim code (customers)
 
-The next step is creating a claim code. The claim code associates a device that uses the claim code when connecting to the cloud with a two-legged shadow customer and product. This is one step that will require some custom code when you are implementing it on your infrastructure. This is also what links your server's customer authentication system with Particle, without exposing any personal information about your customer.
+The next step is [creating a claim code](/reference/device-cloud/api/#create-a-claim-code). The claim code associates a device that uses the claim code when connecting to the cloud with a two-legged shadow customer and product. This is one step that will require some custom code when you are implementing it on your infrastructure. This is also what links your server's customer authentication system with Particle, without exposing any personal information about your customer.
 
 A claim code can also be used with simple auth customers and developer accounts, but this example does not demonstrate that. The Photon setup SDK takes care of that for you when you are using those modes.
+
+Note that a claim code it only good for one hour, and if the device does not successfully get online (breathing cyan) within one hour you'll need to generate a new claim code.
 
 {{> cloud-api-create-claim-code}}
 
@@ -539,6 +546,23 @@ In order to set the claim code by USB serial you need to connect the Photon to y
 
 {{> cloud-api-photon-claim-usb}}
 
+
+### Get device info (customers)
+
+The [get device info](/reference/device-cloud/api/#get-device-information) is a good way to determine if the claiming succeeded.
+
+{{> cloud-api-get-device-info}}
+
+If the claiming succeeded, you should note:
+
+- The "product_id" should match your Product ID
+- The "owner" should match your customer
+
+The information will not be updated until the device successfully connects to the cloud (breathing cyan) using the claim code.
+
+If you get a "The access token provided is invalid" error, the token may have timed out. Scroll up to [Create a product bearer token](#create-a-product-bearer-token) to create a new one.
+
+
 ### More about customer claiming
 
 If the device is already online and breathing cyan you can do claim it to a customer account using the API, instead of a claim code. This may be helpful is some circumstances and does not require getting the claim code to the device. There are a bunch of options, actually:
@@ -553,25 +577,13 @@ This control allows you easily try out several of those things.
 
 {{> cloud-api-claiming}}
 
-Handy tip: You can log into a customer account from the Particle CLI using `particle login --token <access_token>`. When logged in this way, you can use `particle device add <device_id>` to add a device ID to an account, for example.
-
-### Get device info (customers)
-
-{{> cloud-api-get-device-info}}
-
-If the claiming succeeded, you should note:
-
-- The "product_id" should match your Product ID
-- The "owner" should match your customer
-
-The information will not be updated until the device successfully connects to the cloud (breathing cyan) using the claim code.
-
-If you get a "The access token provided is invalid" error, the token may have timed out. Scroll up to [Create a product bearer token](#create-a-product-bearer-token) to create a new one.
-
 
 ### List customers
 
+This API [lists the customers in your product](/reference/device-cloud/api/#list-customers-for-a-product). This is what the **Customers** icon in the console uses.
+
 {{> cloud-api-list-customers}}
+
 
 ### Access tokens for publish, function, etc. (customers)
 
@@ -597,7 +609,7 @@ You'll probably also want to monitor the product event stream in the [console](h
 
 #### Function (customers)
 
-When calling a Particle.function on the device, there are two ways:
+When [calling a Particle.function](reference/device-cloud/api/#call-a-function) on the device, there are two ways:
 
 If you're doing it from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
@@ -609,11 +621,11 @@ However, from a mobile app, you'll probably want to use a customer access token,
 
 #### Variables (customers)
 
-Variables work the same way.
+[Variables](/reference/device-cloud/api/#get-a-variable-value) work the same way.
 
 {{> cloud-api-get-variable productToken="1" productId="1" deviceIdField="1"}}
 
-xx
+From a mobile app or using a customer token:
 
 {{> cloud-api-get-variable customerToken="1" deviceIdField="1"}}
 
@@ -622,7 +634,7 @@ xx
 
 The same thing applies for publish, with a few additional constraints.
 
-If you're publishing events from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
+If you're publishing events from a back-end server, you'll probably want to use a product bearer token and the [product endpoint](/reference/device-cloud/api/#publish-a-product-event).
 
 - Unclaimed product devices cannot receive events, so they will not get an event published this way
 - Customer claimed devices will not receive these events!
@@ -631,13 +643,8 @@ If you're publishing events from a back-end server, you'll probably want to use 
 
 If you're publishing from a back-end server to customer claimed devices you need to create and use customer access tokens in order to publish events that can be received by devices that subscribe to them.
 
-If you're publishing from a mobile app, it can publish events using the device endpoint that also show up on the product event stream.
+If you're publishing from a mobile app, it can publish events using the [device endpoint](/reference/device-cloud/api/#publish-an-event) that also show up on the product event stream.
 
 {{> cloud-api-publish customerTest="1" eventName="tAAzf9hy_subscribeTest" eventData="testing!"}}
-
-
-
-
-
 
 
