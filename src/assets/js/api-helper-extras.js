@@ -123,6 +123,7 @@ $(document).ready(function() {
             $(deviceLookupElem).find('.apiHelperDeviceLookupStatus').html(status);                
         };
 
+        /*
         $(deviceLookupDeviceIdInputElem).on('input', function() {
             const deviceId = $(deviceLookupDeviceIdInputElem).val();
 
@@ -131,6 +132,7 @@ $(document).ready(function() {
 
             $(deviceLookupButtonElem).prop('disabled', !isValid);        
         });
+        */
 
         $(deviceLookupClaimButtonElem).on('click', async function() {
             $(deviceLookupClaimButtonElem).prop('disable', true);

@@ -207,7 +207,7 @@ This is the call a function example with the arg parameter, but also adds in an 
 
 This is an example of using form encoding instead of JSON, and including the access token in the form body:
 
-{{> cloud-api-function style="form"}}
+{{> cloud-api-function style="form" deviceSelect="1"}}
 
 
 #### Query parameter
@@ -233,8 +233,6 @@ $.ajax({
 This is the get variable example using the query parameter:
 
 {{> cloud-api-get-variable style="query" deviceSelect="1"}}
-
-### Types of tokens
 
 ### Access token safety
 
@@ -607,7 +605,7 @@ If you're doing it from a back-end server, you'll probably want to use a product
 
 However, from a mobile app, you'll probably want to use a customer access token, and the user endpoint. Note that the customer token cannot call the product APIs, but they can call the user endpoint, even though the device is a product device.
 
-{{> cloud-api-function customerToken="1" productId="1" deviceIdField="1"}}
+{{> cloud-api-function customerToken="1" deviceIdField="1"}}
 
 #### Variables (customers)
 
@@ -617,7 +615,7 @@ Variables work the same way.
 
 xx
 
-{{> cloud-api-get-variable customerToken="1" productId="1" deviceIdField="1"}}
+{{> cloud-api-get-variable customerToken="1" deviceIdField="1"}}
 
 
 #### Publish (customers)

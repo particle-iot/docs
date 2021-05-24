@@ -135,7 +135,7 @@ usbSerial.newConnection = function(options) {
 usbSerial.listeningCommand = function(options) {
     let listening = {};
 
-    listening.options = options || {};
+    listening.options = listening.baseOptions = options || {};
 
     listening.conn = usbSerial.newConnection(listening.options);
 
@@ -182,6 +182,9 @@ usbSerial.listeningCommand = function(options) {
     };
 
     listening.send = function(s) {
+        if (listening.options.logSend) {
+            listening.options.logSend(s);
+        }
         listening.conn.sendString(s);
     }
 
@@ -189,8 +192,12 @@ usbSerial.listeningCommand = function(options) {
         if (listening.options.onReceive) {
             listening.options.onReceive(str);
         }
+        if (listening.options.logReceive) {
+            listening.options.logReceive(str);
+        }
 
         listening.response += str;
+
 
         if (listening.options.match) {
             for(const match of listening.options.match) {
@@ -233,13 +240,18 @@ usbSerial.listeningCommand = function(options) {
     }
 
     listening.connect = function(options) {
-        listening.options = options;
-
-        listening.conn.connect(options);
+        listening.options = listening.connectOptions = {
+            ...options,
+            ...listening.baseOptions
+        };
+        listening.conn.connect(listening.options);
     };
 
     listening.start = function(options) {
-        listening.options = options;
+        listening.options = {
+            ...options,
+            ...listening.connectOptions
+        };
 
         if (!listening.options.timeout) {
             listening.options.timeout = 15000;
@@ -266,7 +278,7 @@ usbSerial.identify = function(listening, options) {
         options.onCompletion(results);
     };
 
-    listening.send('i');
+    listening.send('\ni');
     listening.start({
         match: [
             {
@@ -331,7 +343,7 @@ usbSerial.version = function(listening, options) {
         options.onCompletion(results);
     };
 
-    listening.send('v');
+    listening.send('\nv');
     listening.start({
         match: [
             {
@@ -356,7 +368,7 @@ usbSerial.macAddress = function(listening, options) {
         options.onCompletion(results);
     };
 
-    listening.send('m');
+    listening.send('\nm');
     listening.start({
         onLine: function(line) {
             const m = line.match(/[A-Fa-z0-9][A-Fa-z0-9]:[A-Fa-z0-9][A-Fa-z0-9]:[A-Fa-z0-9][A-Fa-z0-9]:[A-Fa-z0-9][A-Fa-z0-9]:[A-Fa-z0-9][A-Fa-z0-9]:[A-Fa-z0-9][A-Fa-z0-9]/);
@@ -379,7 +391,7 @@ usbSerial.setClaimCode = function(listening, options) {
         options.onCompletion(results);
     };
 
-    listening.send('C');
+    listening.send('\nC');
     listening.start({
         match: [
             {
@@ -400,7 +412,8 @@ usbSerial.setClaimCode = function(listening, options) {
         onTimeout: function() {
             results.timeout = true;
             completion();
-        }    
+        },    
+        ...options
     });
 };
 

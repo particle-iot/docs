@@ -163,7 +163,7 @@ $(document).ready(function () {
                 const request = {
                     dataType: 'json',
                     error: function (jqXHR) {
-                        ga('send', 'event', simpleGetConfig.gaAction, 'Error', jqXHR.responseJSON.error);
+                        ga('send', 'event', simpleGetConfig.gaAction, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
                         setStatus('Request failed');
 
                         $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
@@ -254,7 +254,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Get Variable', 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', 'Get Variable', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error retrieving variable');
 
@@ -320,7 +320,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Call function', 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', 'Call function', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error calling function');
 
@@ -423,7 +423,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error ' + gaCategory);
 
@@ -510,7 +510,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'List Product Devices', 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', 'List Product Devices', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error getting product device list');
 
@@ -583,7 +583,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'List Org Products', 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', 'List Org Products', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error getting organization products');
 
@@ -700,7 +700,7 @@ $(document).ready(function () {
                 data: 'grant_type=' + encodeURIComponent(grantType) + '&expires_in=' + encodeURIComponent(expiresIn),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Create Token', 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', 'Create Token', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error creating token');
 
@@ -763,7 +763,7 @@ $(document).ready(function () {
                 data: 'id=' + encodeURIComponent(deviceId),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Import Device', 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', 'Import Device', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error importing device');
 
@@ -837,7 +837,7 @@ $(document).ready(function () {
                 data,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Create Customer', 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', 'Create Customer', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error creating customer');
 
@@ -916,7 +916,7 @@ $(document).ready(function () {
                 data: objectToFormUrl(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error ' + gaCategory);
 
@@ -1032,7 +1032,7 @@ $(document).ready(function () {
                 data,
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', 'Create Claim Code', 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', 'Create Claim Code', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error creating claim code');
 
@@ -1095,7 +1095,7 @@ $(document).ready(function () {
                 data: JSON.stringify(dataObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error');
 
                     setStatus('Error in ' + gaCategory);
 
@@ -1178,14 +1178,25 @@ $(document).ready(function () {
             $(thisElem).find('.apiHelperStatus').html(status);
         };
 
+        const logElem = $(thisElem).find('.apiHelperLog > pre');
+
         const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
 
         let listening;
 
+        const appendLog = function(s) {
+            $(logElem).text($(logElem).text() + s);
+        };
+
         const beginListening = async function(cb) {
             if (!listening) {
-                listening = usbSerial.listeningCommand();
+                $(logElem).text('');
 
+                listening = usbSerial.listeningCommand({
+                    logSend: appendLog,
+                    logReceive: appendLog
+                });
+        
                 listening.connect({
                     showWifiListeningDevices:true,            
                     onConnect: function() {
@@ -1204,8 +1215,9 @@ $(document).ready(function () {
             beginListening(function(listening) {
                 usbSerial.setClaimCode(listening, {
                     onCompletion: function(results) {
-                        setOutput(results);       
-                    }
+                        setStatus('Completed');       
+                    },
+                    claimCode
                 });
             });        
         });
@@ -1248,7 +1260,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error ' + gaCategory);
 
@@ -1303,7 +1315,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error ' + gaCategory);
 
@@ -1358,7 +1370,7 @@ $(document).ready(function () {
                 data: 'id=' + encodeURIComponent(deviceId),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error ' + gaCategory);
 
@@ -1413,7 +1425,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error ' + gaCategory);
 
@@ -1464,7 +1476,7 @@ $(document).ready(function () {
                 data: JSON.stringify(requestBodyObj),
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error ' + gaCategory);
 
@@ -1516,7 +1528,7 @@ $(document).ready(function () {
             let request = {
                 dataType: 'json',
                 error: function (jqXHR) {
-                    ga('send', 'event', gaCategory, 'Error', jqXHR.responseJSON.error);
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
 
                     setStatus('Error ' + gaCategory);
 
