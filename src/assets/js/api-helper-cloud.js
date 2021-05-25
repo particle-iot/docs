@@ -305,7 +305,7 @@ $(document).ready(function () {
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
                     $(respElem).show();
                 },
-                url: opts.getDeviceIdUrl('device') + '/' + variableName
+                url: opts.getDeviceIdUrl('devices') + '/' + variableName
             }
 
             switch (style) {
@@ -371,7 +371,7 @@ $(document).ready(function () {
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
                     $(respElem).show();
                 },
-                url: opts.getDeviceIdUrl('device') + '/' + functionName
+                url: opts.getDeviceIdUrl('devices') + '/' + functionName
             }
 
             switch (style) {

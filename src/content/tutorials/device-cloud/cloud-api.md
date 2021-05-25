@@ -27,7 +27,7 @@ You can also use the API directly from a terminal or command prompt window using
 
 ### List devices
 
-The first API we'll use is the [List Devices](/reference/device-cloud/api/#list-devices). This is very easy to use as it's a GET operation (get data from the API) with no parameters. There's also an authentication token used behind the scenes, which will cover shortly.
+The first API we'll use is the [List Devices](/reference/device-cloud/api/#list-devices). This is easy to use as it's a GET operation (get data from the API) with no parameters. There's also an authentication token used behind the scenes, which will cover shortly.
 
 The Particle Cloud API mostly returns [JSON](/tutorials/device-os/json/), which is text-based structured data that is both machine-readable and human-readable. The link is to a tutorial if you need to come up to speed on the basics of JSON.
 
@@ -57,7 +57,7 @@ There are other ways you can pass the access token, which will be discussed a li
 
 ### Get variable
 
-Another common tasks is to get the value of a Particle.variable using the [Get Variable API](/reference/device-cloud/api/#get-a-variable-value).
+Another common task is to get the value of a Particle.variable using the [Get Variable API](/reference/device-cloud/api/#get-a-variable-value).
 
 To fully take advantage of this example you'll need firmware on one of your devices that returns a variable. This firmware combines the function and variable examples from the [cloud communication tutorial](/tutorials/device-os/cloud-communication/#variable). You don't need to fully understand how the firmware works right now.
 
