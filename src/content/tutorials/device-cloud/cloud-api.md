@@ -27,7 +27,7 @@ You can also use the API directly from a terminal or command prompt window using
 
 ### List devices
 
-The first API we'll use is the [List Devices](/reference/device-cloud/api/#list-devices). This is easy to use as it's a GET operation (get data from the API) with no parameters. There's also an authentication token used behind the scenes, which will cover shortly.
+The first API we'll use is the [list devices](/reference/device-cloud/api/#list-devices) API. It is easy to use as it's a GET operation (get data from the API) with no parameters. There's also an authentication token used behind the scenes, which will cover shortly.
 
 The Particle Cloud API mostly returns [JSON](/tutorials/device-os/json/), which is text-based structured data that is both machine-readable and human-readable. The link is to a tutorial if you need to come up to speed on the basics of JSON.
 
@@ -57,7 +57,7 @@ There are other ways you can pass the access token, which will be discussed a li
 
 ### Get variable
 
-Another common task is to get the value of a Particle.variable using the [Get Variable API](/reference/device-cloud/api/#get-a-variable-value).
+Another common task is to get the value of a [Particle.variable](/cards/firmware/cloud-functions/particle-variable/) using the [get variable](/reference/device-cloud/api/#get-a-variable-value) API.
 
 To fully take advantage of this example you'll need firmware on one of your devices that returns a variable. This firmware combines the function and variable examples from the [cloud communication tutorial](/tutorials/device-os/cloud-communication/#variable). You don't need to fully understand how the firmware works right now.
 
@@ -94,7 +94,7 @@ If you request an invalid variable name, you'll also get a 404 error, but the JS
 
 ### Call a function
 
-Another common thing is to do is [call a function](/reference/device-cloud/api/#call-a-function). 
+Another common thing is to do is [call a function](/reference/device-cloud/api/#call-a-function) that has been registered on a device using [Particle.function](/cards/firmware/cloud-functions/particle-function/). 
 
 To fully take advantage of this tutorial, you should flash the code from the get a variable example, above to a test device. It supports testing function calls, too.
 
@@ -410,13 +410,13 @@ You can use the [ping](/reference/device-cloud/api/#ping-a-device) API to send a
 
 {{> cloud-api-device-ping}}
 
-### Device Notes
+### Device notes
 
 You can retrieve device notes using the [get device information](/reference/device-cloud/api/#get-device-information) and set using the [add device notes](/reference/device-cloud/api/#add-device-notes) API.
 
 {{> cloud-api-device-notes}}
 
-### Device Vitals
+### Device vitals
 
 These examples show how to use the Device Vitals (Diagonstics) APIs. The Last Vitals just returns the single most recent record as JSON:
 

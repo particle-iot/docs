@@ -1018,7 +1018,6 @@ $(document).ready(function () {
             }
 
             const outputFormat = $(thisElem).find('input[name=deviceVitalsFormat]:checked').val();
-            console.log('outputFormat=' + outputFormat);
             let accept, dataType;
             if (outputFormat == 'csv') {
                 accept = 'text/csv';
