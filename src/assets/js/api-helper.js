@@ -221,7 +221,41 @@ apiHelper.filterByTrackerPlatform = function(array) {
     return apiHelper.filterByPlatformId(array, 26);
 };
 
+apiHelper.unclaimDevice = async function(deviceId) {
+    return await $.ajax({
+        dataType: 'json',
+        headers: {
+            'Accept':'application/json',
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+        },
+        method: 'DELETE',
+        url: 'https://api.particle.io/v1/devices/' + deviceId
+    });    
+};
 
+apiHelper.unclaimProductDevice = async function(deviceId, productId) {
+    return await $.ajax({
+        dataType: 'json',
+        headers: {
+            'Accept':'application/json',
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+        },
+        method: 'DELETE',
+        url: 'https://api.particle.io/v1/products/' + productId +'devices' + deviceId + '/owner'
+    });    
+};
+
+apiHelper.removeProductDevice = async function(deviceId, productId) {
+    return await $.ajax({
+        dataType: 'json',
+        headers: {
+            'Accept':'application/json',
+            'Authorization': 'Authorization: Bearer ' + apiHelper.auth.access_token
+        },
+        method: 'DELETE',
+        url: 'https://api.particle.io/v1/products/' + productId +'devices' + deviceId
+    });    
+};
 
 apiHelper.monitorUsage = function(options) {
     let resultObj = {};
@@ -285,6 +319,7 @@ $(document).ready(function() {
     $('.apiHelperLogoutButton').on('click', function() {
         Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
         localStorage.removeItem('particleAuth');
+        $('.apiHelper').trigger('ssoLogout');
         location.reload();
         ga('send', 'event', eventCategory, 'Logged Out');
     });
