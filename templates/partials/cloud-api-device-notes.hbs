@@ -1,4 +1,4 @@
-<div class="apiHelperCloudApiDeviceVitalsLast">
+<div class="apiHelperCloudApiDeviceNotes">
     <div class="apiHelper">
         <div class="apiHelperBox">
             <table class="apiHelperTableNoMargin">
@@ -11,8 +11,14 @@
                 <tr><td class="apiHelperProductSelectorLabel">Product ID</td><td><input type="text" size="10" class="apiHelperAuthSettingsProduct" value=""></td><td>&nbsp;</td></tr>
                 <tr><td class="apiHelperProductSelectorLabel">Device ID</td><td><input type="text" size="30" class="apiHelperDeviceLookupDeviceId" value=""></td><td class="apiHelperProductSelectorLabel"></td></tr>
                 <tr><td class="apiHelperProductSelectorLabel">Device</td><td><select class="apiHelperCloudDeviceSelect apiHelperCommonDevice apiHelperSelect"></select></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel" colspan="2"><button class="apiHelperActionButton">Get Device Vitals</button></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel" colspan="2">
+                    <button class="apiHelperGetButton">Get Device Notes</button> &nbsp;
+                    <button class="apiHelperSetButton">Set Device Notes</button>
+                    </td></tr>
             </table>
+            <div class="apiHelperCloudApiEdit">
+                <textarea rows="5" cols="60"></textarea>
+            </div>
             <div class="apiHelperStatus" style="padding-top: 5px;"></div>
             <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>
             <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>

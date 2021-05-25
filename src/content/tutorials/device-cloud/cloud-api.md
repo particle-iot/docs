@@ -396,6 +396,37 @@ If you do not have access to any organizations, an empty array `[]` is returned 
 
 {{> cloud-api-list-org-products height="300"}}
 
+## More APIs
+
+### Rename a device
+
+The [rename a device](/reference/device-cloud/api/#rename-a-device) API sets the device name.
+
+{{> cloud-api-device-name}}
+
+### Ping a device
+
+You can use the [ping](/reference/device-cloud/api/#ping-a-device) API to send a request to a device to see if it's online. This uses a CoAP request and response, not an ICMP ping.
+
+{{> cloud-api-device-ping}}
+
+### Device Notes
+
+You can retrieve device notes using the [get device information](/reference/device-cloud/api/#get-device-information) and set using the [add device notes](/reference/device-cloud/api/#add-device-notes) API.
+
+{{> cloud-api-device-notes}}
+
+### Device Vitals
+
+These examples show how to use the Device Vitals (Diagonstics) APIs. The Last Vitals just returns the single most recent record as JSON:
+
+{{> cloud-api-device-vitals-last}}
+
+The historical API returns all historical data for a date range (up to 1 month in the past), either as JSON or as CSV data.
+
+{{> cloud-api-device-vitals}}
+
+
 ## Customer claiming
 
 Customer claiming is common for the Photon and P1 (Gen 2 Wi-Fi devices). While it can be used with cellular devices, it's more common to claim the devices to a single account, or leave them unclaimed. Most of the work is handled by the Photon Setup SDK, however if you want to understand what is going on, you may want to follow the tutorial this section.

@@ -223,17 +223,50 @@ $(document).ready(function () {
         if (!result.accessToken) {
             result.accessToken = apiHelper.auth.access_token;
         }
-
-        if (result.productId) {
-            result.deviceUrlBase = 'https://api.particle.io/v1/products/' + result.productId + '/devices/' + result.deviceId;
-        }
-        else {
-            result.deviceUrlBase = 'https://api.particle.io/v1/devices/' + result.deviceId;
-        }
+        
+        result.getDeviceIdUrl = function(op) {
+            if (result.productId) {
+                return 'https://api.particle.io/v1/products/' + result.productId + '/' + op + '/' + result.deviceId;
+            }
+            else {
+                return 'https://api.particle.io/v1/' + op + '/' + result.deviceId;
+            }
+        };
 
         return result;
     };
 
+    const readCommonOptionsProdDevRadio = function(thisElem) {
+
+        let result = {};
+        
+        const prodDevMode = $(thisElem).find('.apiHelperProductDeveloperRadio').find('input[type=radio]:checked').val();
+        switch(prodDevMode) {
+            case 'prod':
+                result.productId = $(thisElem).find('.apiHelperAuthSettingsProduct').val();
+                result.deviceId = $(thisElem).find('.apiHelperDeviceLookupDeviceId').val();
+                result.accessToken = $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').val();                        
+                break;
+
+            case 'dev':
+                result.deviceId = $(thisElem).find('.apiHelperCloudDeviceSelect').val();
+                result.accessToken = apiHelper.auth.access_token;
+                break;
+        }
+
+        result.getDeviceIdUrl = function(op) {
+            switch(prodDevMode) {
+                case 'prod':
+                    return 'https://api.particle.io/v1/products/' + result.productId + '/' + op + '/' + result.deviceId;
+    
+                case 'dev':
+                    return 'https://api.particle.io/v1/' + op + '/' + result.deviceId;
+                }
+        };
+
+        return result;
+    
+    };
 
     $('.apiHelperCloudApiGetVariable').each(function () {
         const thisElem = $(this);
@@ -272,7 +305,7 @@ $(document).ready(function () {
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
                     $(respElem).show();
                 },
-                url: opts.deviceUrlBase + '/' + variableName
+                url: opts.getDeviceIdUrl('device') + '/' + variableName
             }
 
             switch (style) {
@@ -338,7 +371,7 @@ $(document).ready(function () {
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
                     $(respElem).show();
                 },
-                url: opts.deviceUrlBase + '/' + functionName
+                url: opts.getDeviceIdUrl('device') + '/' + functionName
             }
 
             switch (style) {
@@ -865,8 +898,50 @@ $(document).ready(function () {
         });
     });
 
+    $('.apiHelperProductDeveloperRadio').each(function(index) {
+        const thisElem = $(this);
 
-/*
+        const parentElem = $(thisElem).closest('div.apiHelperCloudApiDeviceVitalsLast');
+
+        const baseId = 'apiHelperProductDeveloperRadio' + index;
+
+        $(thisElem).find('input[value=prod]')
+            .prop('id', baseId + 'radioProd')
+            .prop('name', baseId)
+            .prop('checked', true)
+            .next()
+                .prop('for', baseId + 'radioProd');
+
+        $(thisElem).find('input[value=dev]')
+        .prop('id', baseId + 'radioDev')
+        .prop('name', baseId)
+        .next()
+            .prop('for', baseId + 'radioDev');
+    
+    });
+
+    const productDeveloperRadioChange = function(thisElem) {
+        $(thisElem).find('.apiHelperProductDeveloperRadio').find('input[type=radio]').on('change', function() {
+            switch($(this).val()) {
+                case 'prod':
+                    $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').parents('tr').show();
+                    $(thisElem).find('.apiHelperAuthSettingsProduct').parents('tr').show();
+                    $(thisElem).find('.apiHelperDeviceLookupDeviceId').parents('tr').show();
+                    $(thisElem).find('.apiHelperCloudDeviceSelect').parents('tr').hide();
+                    break;
+
+                case 'dev':
+                    $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').parents('tr').hide();
+                    $(thisElem).find('.apiHelperAuthSettingsProduct').parents('tr').hide();
+                    $(thisElem).find('.apiHelperDeviceLookupDeviceId').parents('tr').hide();
+                    $(thisElem).find('.apiHelperCloudDeviceSelect').parents('tr').show();
+                    break;
+            }
+        });        
+
+        $(thisElem).find('.apiHelperProductDeveloperRadio').find('input[type=radio]:checked').trigger('change');
+    };
+
     $('.apiHelperCloudApiDeviceVitalsLast').each(function () {
         const thisElem = $(this);
         const gaCategory = 'Get Device Vitals Last';
@@ -878,17 +953,7 @@ $(document).ready(function () {
         const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
 
         $(actionButtonElem).on('click', async function () {
-            const accessToken = $(thisElem).find('.apiHelperAuthSettingsProductAccessToken').val();
-            const productId = $(thisElem).find('.apiHelperAuthSettingsProduct').val();
-            const deviceId = $(thisElem).find('.apiHelperDeviceLookupDeviceId').val();
-
-            let url;
-            if (productId) {
-                url = 'https://api.particle.io/v1/products/' + productId + '/devices/' + deviceId;
-            }
-            else {
-                url = 'https://api.particle.io/v1/devices/' + deviceId;
-            }
+            const opts = readCommonOptionsProdDevRadio(thisElem);
             
             let request = {
                 dataType: 'json',
@@ -901,7 +966,7 @@ $(document).ready(function () {
                     $(respElem).show();
                 },
                 headers: {
-                    'Authorization': 'Bearer ' + accessToken,
+                    'Authorization': 'Bearer ' + opts.accessToken,
                     'Accept': 'application/json'
                 },
                 method: 'GET',
@@ -915,7 +980,7 @@ $(document).ready(function () {
                     $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
                     $(respElem).show();
                 },
-                url
+                url: opts.getDeviceIdUrl('diagnostics') + '/last'
             }
 
             setRequest(thisElem, request);
@@ -928,8 +993,323 @@ $(document).ready(function () {
 
             $.ajax(request);
         });
+
+        productDeveloperRadioChange(thisElem);
+        
     });
-*/
+
+
+    $('.apiHelperCloudApiDeviceVitals').each(function () {
+        const thisElem = $(this);
+        const gaCategory = 'Get Device Vitals';
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+
+        $(actionButtonElem).on('click', async function () {
+            const opts = readCommonOptionsProdDevRadio(thisElem);
+            
+            let dataObj = {
+                start_date: $(thisElem).find('.apiHelperDeviceLookupStartDate').val(),
+                end_date: $(thisElem).find('.apiHelperDeviceLookupEndDate').val()
+            }
+
+            const outputFormat = $(thisElem).find('input[name=deviceVitalsFormat]:checked').val();
+            console.log('outputFormat=' + outputFormat);
+            let accept, dataType;
+            if (outputFormat == 'csv') {
+                accept = 'text/csv';
+                dataType = 'text';
+            }
+            else {
+                accept = 'application/json';
+                dataType = 'json';
+            }
+
+            let request = {
+                dataType,
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + opts.accessToken,
+                    accept
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    if (outputFormat == 'csv') {
+                        var blob = new Blob([resp], {type: "text/plain;charset=utf-8"});
+                                                saveAs(blob, 'diagnostics.csv');
+                        
+                        setStatus('Saved csv data to Downloads');
+                    }
+                    else {
+                        $(outputJsonElem).show();
+                        setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+    
+                        $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                        $(respElem).show();    
+                    }
+                },
+                url: opts.getDeviceIdUrl('diagnostics')
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+
+        productDeveloperRadioChange(thisElem);
+
+        // Initial date values
+        const endDate = new Date();
+        $(thisElem).find('.apiHelperDeviceLookupEndDate').val(endDate.toISOString());
+
+        const startDate = new Date(endDate.getTime() - 7 * 24 * 3600 * 1000);
+        $(thisElem).find('.apiHelperDeviceLookupStartDate').val(startDate.toISOString()); 
+    });
+
+
+    $('.apiHelperCloudApiDeviceName').each(function () {
+        const thisElem = $(this);
+        const gaCategory = 'Device Rename';
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+
+        $(actionButtonElem).on('click', async function () {
+            const opts = readCommonOptionsProdDevRadio(thisElem);
+            
+            let dataObj = {
+                name: $(thisElem).find('.apiHelperDeviceName').val()
+            };
+
+            let request = {
+                contentType: 'application/json',
+                data: JSON.stringify(dataObj),
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + opts.accessToken,
+                    'Accept': 'application/json'
+                },
+                method: 'PUT',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: opts.getDeviceIdUrl('devices')
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+
+        productDeveloperRadioChange(thisElem);
+        
+    });
+
+    $('.apiHelperCloudApiDevicePing').each(function () {
+        const thisElem = $(this);
+        const gaCategory = 'Device Ping';
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+
+        $(actionButtonElem).on('click', async function () {
+            const opts = readCommonOptionsProdDevRadio(thisElem);
+            
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + opts.accessToken,
+                    'Accept': 'application/json'
+                },
+                method: 'PUT',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: opts.getDeviceIdUrl('devices') + '/ping'
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+
+        productDeveloperRadioChange(thisElem);
+        
+    });
+
+
+    $('.apiHelperCloudApiDeviceNotes').each(function () {
+        const thisElem = $(this);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        $($(thisElem).find('.apiHelperGetButton')).on('click', async function () {
+            const opts = readCommonOptionsProdDevRadio(thisElem);
+            const gaCategory = 'Device Notes Get';
+            
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + opts.accessToken,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+
+                    $(thisElem).find('.apiHelperCloudApiEdit > textarea').val(resp.notes);
+                },
+                url: opts.getDeviceIdUrl('devices')
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+
+        $($(thisElem).find('.apiHelperSetButton')).on('click', async function () {
+            const opts = readCommonOptionsProdDevRadio(thisElem);
+            const gaCategory = 'Device Notes Set';
+            
+            let dataObj = {
+                notes: $(thisElem).find('.apiHelperCloudApiEdit > textarea').val()
+            };
+
+            let request = {
+                contentType: 'application/json',
+                data: JSON.stringify(dataObj),
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + opts.accessToken,
+                    'Accept': 'application/json'
+                },
+                method: 'PUT',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: opts.getDeviceIdUrl('devices')
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+
+        productDeveloperRadioChange(thisElem);
+        
+    });
 
     $('.apiHelperCloudApiCreateCustomer').each(function () {
         const thisElem = $(this);
