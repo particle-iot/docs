@@ -27,6 +27,7 @@ var ignoreHosts = [
   'particle.hackster.io', // randomly 404s
   'cloud.ibm.com', // returns 401 if not logged in but this is OK
   '192.168.0.1',
+  'api.particle.io',
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';

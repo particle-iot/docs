@@ -56,13 +56,10 @@ var prettify = require('prettify');
 prettify.register(handlebars);
   
 //disable autolinking
+function noop() { }
+noop.exec = noop;
 var marked = require('marked');
-marked.use({
-  tokenizer: {
-    url: function(src) {
-    },
-  },
-});
+marked.InlineLexer.rules.gfm.url = noop;
 
 var environment;
 

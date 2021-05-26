@@ -2794,6 +2794,11 @@
         "through2": "^4.0.2"
       },
       "dependencies": {
+        "marked": {
+          "version": "2.0.5",
+          "resolved": "https://registry.npmjs.org/marked/-/marked-2.0.5.tgz",
+          "integrity": "sha512-yfCEUXmKhBPLOzEC7c+tc4XZdIeTdGoRCZakFMkCxodr7wDXqoapIME4wjcpBPJLNyUnKJ3e8rb8wlAgnLnaDw=="
+        },
         "plugin-error": {
           "version": "1.0.1",
           "resolved": "https://registry.npmjs.org/plugin-error/-/plugin-error-1.0.1.tgz",
@@ -4346,9 +4351,9 @@
       }
     },
     "marked": {
-      "version": "2.0.3",
-      "resolved": "https://registry.npmjs.org/marked/-/marked-2.0.3.tgz",
-      "integrity": "sha512-5otztIIcJfPc2qGTN8cVtOJEjNJZ0jwa46INMagrYfk0EvqtRuEHLsEe0LrFS0/q+ZRKT0+kXK7P2T1AN5lWRA=="
+      "version": "0.3.19",
+      "resolved": "https://registry.npmjs.org/marked/-/marked-0.3.19.tgz",
+      "integrity": "sha512-ea2eGWOqNxPcXv8dyERdSr/6FmzvWwzjMxpfGB/sbMccXoct+xY+YukPD+QTUZwyvK7BZwcr4m21WBOW41pAkg=="
     },
     "matchdep": {
       "version": "2.0.0",

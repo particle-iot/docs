@@ -33,7 +33,7 @@
         "jszip": "^3.6.0",
         "lodash": "^4.17.21",
         "lunr": "^2.3.9",
-        "marked": "^2.0.3",
+        "marked": "~0.3.1",
         "md5": "^2.2.1",
         "metalsmith": "^2.3.0",
         "metalsmith-autotoc": "git://github.com/particle-iot/metalsmith-autotoc",
