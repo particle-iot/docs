@@ -335,6 +335,11 @@
         "href": "/tutorials/learn-more/about-serial/"
       },
       {
+        "dir": "node-js",
+        "title": "Getting started with node.js",
+        "href": "/tutorials/learn-more/node-js/"
+      },
+      {
         "dir": "ethernet-featherwing",
         "title": "Ethernet FeatherWing",
         "href": "/tutorials/learn-more/ethernet-featherwing/"
