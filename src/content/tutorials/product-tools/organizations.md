@@ -7,17 +7,6 @@ description: Learn about Organizations, an enterprise feature for easy managemen
 
 # {{title}}
 
-{{box op="start"}}
-<p style="text-align:center;">Organizations is a feature available to
-customers on Particle's Enterprise plan.<br/>Interested in using this feature?</p>
-
-{{!-- TODO: Replace Contact Sales links with UTM links --}}
-<a class="btn"
-href="https://particle.io/sales"
-target="_blank" style="display:block;margin:0
-auto;width:200px;text-align:center">Talk to an expert</a>
-{{box op="end"}}
-
 **Organizations** equip companies deploying large fleets of Particle devices
 with sophisticated, Enterprise-grade administrative tools and
 capabilities.
@@ -27,6 +16,8 @@ distinct from any individual user, that can own many products, have a
 team, and a centralized billing account. With an Organization, you can:
 - **Centralize visibility and control** by housing many Particle projects underneath a single, shared account
 - **Collaborate at scale** through tiered team management and cascading role based access controls (RBAC)
+
+Organizations are available in the Growth and Enterprise Tiers. Products that were started in the Free Tier in an individual account can be migrated to an Organization when upgrading to Growth or Enterprise.
 
 ## Setting up your Organization
 
