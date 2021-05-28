@@ -6,6 +6,20 @@ let apiHelper = {};
 apiHelper.deviceListRefreshCallbacks = [];
 apiHelper.deviceListChangeCallbacks = [];
 
+
+apiHelper.confirmFlash = function() {
+    if (!apiHelper.flashConfirmed) {
+        const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
+
+        if (!confirm(warning)) {
+            return false;
+        }
+    
+        apiHelper.flashConfirmed = true;
+    }
+    return true;
+}
+
 apiHelper.deviceListRefresh = function(next) {
     if (apiHelper.fetchInProgress) {
         return;

@@ -21,14 +21,16 @@ module.exports = function(options) {
             fs.mkdirSync(tmpDir);
         }
 
-        const basePath = metalsmith.path(options.dir);
+        for(const dir of options.dirs) {
+            const basePath = metalsmith.path(dir);
 
-        fs.readdirSync(basePath, {withFileTypes:true}).forEach(function(dirent) {
-            if (dirent.isDirectory()) {
-                // console.log(dirent.name);
-                directoriesToProcess.push(path.join(basePath, dirent.name));
-            }
-        });
+            fs.readdirSync(basePath, {withFileTypes:true}).forEach(function(dirent) {
+                if (dirent.isDirectory()) {
+                    // console.log(dirent.name);
+                    directoriesToProcess.push(path.join(basePath, dirent.name));
+                }
+            });    
+        }
 
         processNext(done);
 	};

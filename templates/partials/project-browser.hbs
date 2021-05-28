@@ -1,0 +1,31 @@
+<div class="apiHelperProjectBrowser" data-project="{{project}}" data-default-file="{{default-file}}">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <p>
+                <button type="button" class="apiHelperProjectDownloadZipButton" >Download Full Project (.zip)</button> &nbsp;
+            {{#if flash}}
+                <span class="codeboxFlashDeviceSpan" style="display: none"> &nbsp;&nbsp;
+                    <select class="codeboxFlashDeviceSelect apiHelperCommonDevice"></select>
+                    <button type="button" class="codeboxFlashDeviceButton" disabled>Flash</button> &nbsp;
+                </span>
+            {{/if}}
+            </p>
+            <p>
+                <select class="apiHelperProjectSelect apiHelperSelect"></select> &nbsp;
+                <button type="button" class="apiHelperProjectDownloadButton" >Download</button> &nbsp;
+                <button type="button" class="apiHelperProjectCopyButton">Copy to Clipboard</button> &nbsp;
+            </p>
+            <div class="apiHelperProjectBrowserStatus"></div>
+        </div>
+    </div>
+    <div class="apiHelperProjectBrowserOutput">
+        <div class="apiHelperProjectBrowserOutputDiv" style="height:{{height}}px; overflow:scroll; display:none;"></div>
+        <div class="apiHelperProjectBrowserOutputPre" style="height:{{height}}px; overflow:scroll; display:none;"><pre class="codeboxPre"></pre></div>
+        <div class="apiHelperProjectBrowserOutputCode" style="height:{{height}}px; overflow:scroll; display:none;">
+            <pre class="codeboxPre"><code class="codebox lang-cpp">                
+            </code></pre>
+        </div>
+    </div>
+
+</div>
+

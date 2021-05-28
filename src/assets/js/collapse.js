@@ -74,16 +74,10 @@ $(document).ready(function() {
 				return;
 			}
 		
-			if (!apiHelper.flashConfirmed) {
-				const warning = 'Flashing firmware to a device replaces the existing user firmware binary on the device. This can only be undone by locating and flashing the previous firmware on the device.';
-		
-				if (!confirm(warning)) {
-					return;
-				}
-			
-				apiHelper.flashConfirmed = true;
-			}
-				
+            if (!apiHelper.confirmFlash()) {
+                return;
+            }
+							
 			apiHelper.flashDevice(device, $(thisCodeElem).text(), codeboxElem);		
 
 			ga('send', 'event', 'Codebox', 'Codebox Flash', $(codeboxElem).attr('data-content'));
