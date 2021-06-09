@@ -173,6 +173,8 @@ $(document).ready(function () {
             setStatus('');
 
             const outputKeys = {
+                'timezone': 'tz',
+                'timezone_offset': 'tzo',
                 'feels_like': 'ftemp',
                 'pressure': 'pres',
                 'humidity': 'hum',
@@ -206,9 +208,20 @@ $(document).ready(function () {
             let templateInclude = {};
 
             const updateTemplate = function() {
-                console.log('updateTemplate', templateInclude);
+                // console.log('updateTemplate', templateInclude);
 
                 let templateComponents = [];
+
+
+                if (templateInclude.top) {
+                    Object.keys(templateInclude.top).forEach(function(key) {
+                        templateComponents.push({
+                            inputKey: templateInclude.top[key].name,
+                            outputKey: templateInclude.top[key].outputKey,
+                            isString: templateInclude.top[key].isString
+                        });
+                    });    
+                }
 
                 if (templateInclude.current) {
                     Object.keys(templateInclude.current).forEach(function(key) {
@@ -229,7 +242,6 @@ $(document).ready(function () {
                     const selectElem = $(groupElem).find('select');
                     
                     let count = $(selectElem).val();
-                    console.log('count ' + group, count);
 
                     templateComponents.push({outputKey:group, arrayStart:true});
 
@@ -306,7 +318,6 @@ $(document).ready(function () {
                 let renderedTemplateObj;
                 try {
                     renderedTemplateObj = JSON.parse(renderedTemplateStr);
-                    console.log('renderedTemplateObj', renderedTemplateObj);
 
                     $(thisElem).find('.templateExpanded').show();
                     setCodeBox(thisElem, JSON.stringify(renderedTemplateObj, null, 2));
@@ -315,24 +326,96 @@ $(document).ready(function () {
                     setStatus('An error occurred rendering the template');
                 }
 
+                // Generate code
+                const sampleCodeElem = $(thisElem).find('.sampleCode');
+                $(sampleCodeElem).show();
+
+                let code = '';
+
+
+                code += 'void subscriptionHandler(const char *event, const char *data) {\n';
+                code += '\n';
+                code += '    JSONValue outerObj = JSONValue::parseCopy(data);\n';
+                code += '    while(iter.next()) {\n';
+
+                const codeForObject = function(indent, iterName, obj) {
+                    Object.keys(obj).forEach(function(key) {
+                        code += indent + '    if (' + iterName + '.name() == "' + obj[key].outputKey + '")\n';
+                        // code += indent + '        // ' + obj[key].name + '\n';
+                        
+                        let fmt;
+                        let acc = iterName + '.value()';
+                        if (obj[key].isString) {
+                            acc += '.toString().data()';
+                            fmt = '%s';
+                        }
+                        else {
+                            acc += '.toDouble()';
+                            fmt = '%lf';
+                        }
+                        code += indent + '        Log.info("' + obj[key].name + '=' + fmt + '", ' + acc + ');\n';
+                        
+                        code += indent + '    }\n';    
+                    });
+                };
+
+                if (templateInclude.top) {
+                    codeForObject('    ', 'iter', templateInclude.top);
+                }
+
+                if (templateInclude.current) {
+                    codeForObject('    ', 'iter', templateInclude.current);
+                }
+
+                ['minutely', 'hourly', 'daily'].forEach(function(group) {
+                    if (!templateInclude[group]) {
+                        return;
+                    }
+                    code += '        if (iter.name() == "' + group + '")\n';
+                    code += '            JSONArrayIterator iter2(iter.value());\n';
+                    code += '            for(size_t ii = 0; iter2.next(); ii++) {\n';
+                    code += '                Log.info("' + group + ' array index %u", ii);\n';
+                    code += '                JSONObjectIterator iter3(iter2.value());\n';
+                    code += '                while(iter3.next()) {\n';
+                    codeForObject('                ', 'iter3', templateInclude[group]);
+                    code += '                }\n';
+                    code += '            }\n';
+                    code += '        }\n';
+                });
+
+
+                /*
+                code += JSONObjectIterator iter(outerObj);
+                    while(iter.next()) {
+                        Log.info("key=%s value=%s", 
+                          (const char *) iter.name(), 
+                          (const char *) iter.value().toString());
+                    }
+*/
+                code += '    }\n';
+                code += '}\n';
+                
+                setCodeBox(sampleCodeElem, code);
                 
             };
-            
+                        
 
-            ['current', 'minutely', 'hourly', 'daily'].forEach(function(group) {
+            ['top', 'current', 'minutely', 'hourly', 'daily'].forEach(function(group) {
                 const groupElem = $(thisElem).find('.weather_' + group);
-                    
-                if (weatherData[group]) {
+                
+                const groupWeatherData = (group != 'top') ? weatherData[group] : weatherData;
+
+                if (groupWeatherData) {
                     let groupData;
-                    if (group == 'current') {
-                        groupData = weatherData[group];
+                    if (group == 'current' || group == 'top') {
+                        groupData = groupWeatherData;
                     }
                     else {
-                        groupData = weatherData[group][0];
+                        groupData = groupWeatherData[0];
 
                         const selectElem = $(groupElem).find('select');
                         $(selectElem).html('');
-                        for(let ii = 0; ii < weatherData[group].length; ii++) {
+                        for(let ii = 0; ii < groupWeatherData.length; ii++) {
                             const oneBasedString = (ii + 1).toString();
 
                             let optionElem = document.createElement('option');
@@ -352,15 +435,19 @@ $(document).ready(function () {
 
                     Object.keys(groupData).forEach(function(key) {
                         if (Array.isArray(groupData[key])) {
-                            Object.keys(groupData[key][0]).forEach(function(keyInner) {
-                                fields.push({name:key + '.0.' + keyInner, value:groupData[key][0][keyInner]});
-                            });
+                            if (group != 'top') {
+                                Object.keys(groupData[key][0]).forEach(function(keyInner) {
+                                    fields.push({name:key + '.0.' + keyInner, value:groupData[key][0][keyInner]});
+                                });
+                            }
                         }
                         else
                         if (typeof groupData[key] === 'object') {
-                            Object.keys(groupData[key]).forEach(function(keyInner) {
-                                fields.push({name:key + '.' + keyInner, value:groupData[key][keyInner]});
-                            });
+                            if (group != 'top') {
+                                Object.keys(groupData[key]).forEach(function(keyInner) {
+                                    fields.push({name:key + '.' + keyInner, value:groupData[key][keyInner]});
+                                });    
+                            }
                         }
                         else {
                             fields.push({name:key, value:groupData[key]});
@@ -422,22 +509,6 @@ $(document).ready(function () {
 
                         $(tbodyElem).append(trElem);
                     });
-
-                    //$(optionElem).prop('name', defaultFile);
-                    //$(optionElem).text(defaultFile);
-            
-                    let projectZip;
-
-                    switch(group) {
-                        case 'minutely':
-                            break;
-
-                        case 'hourly':
-                            break;
-
-                        case 'daily':
-                            break;
-                    }
 
                     $(groupElem).show();
                 }

@@ -40,13 +40,7 @@ We'll be using the "one call" API that requires your latitude and longitude. If 
 
 This control uses the OpenWeather [One Call API](https://openweathermap.org/api/one-call-api). It can return a great deal of information, and excluding the parts you don't care about can make the responses faster and a more reasonable size. The default setting of the checkboxes only includes the current and daily information. 
 
-The units setting is one of:
-
-| Setting | Temperature | Wind Speed |
-| :--- | :--- | :--- |
-| Standard | Kelvin | meters/sec |
-| Metric | Celsius | meters/sec |
-| Imperial (US) | Fahrenheit | miles/hour |
+The units setting is described in greater detail [below](#units) but you will probably want Metric or Imperial in the United States.
 
 The language is typically a two-character language code, such `fr` for French or `es` for Spanish. Other options are in the [language support](https://openweathermap.org/api/one-call-api#multi) section of the OpenWeather API documentation.
 
@@ -58,7 +52,7 @@ Once you click the **Get Weather** button it will make the API request and show 
 
 ### Paring down the output
 
-Even excluding some of the fields, you'll probably notice that the output is large. Including only the current and daily information, the output can exceed 6 kilobytes. If you are sending it to a Particle device, that can require 12 data operations.
+Even excluding some of the fields, you'll probably notice that the output is large. Including only the current and daily information, the output can exceed 4 kilobytes. If you are sending it to a Particle device, that can require 9 data operations.
 
 Including all fields, the output may exceed 38,617 bytes or 76 data operations if all of the data was sent your device! This is not only inefficient, but also prone to losing data and having a corrupted response.
 
@@ -66,8 +60,26 @@ In most cases, you'll only care about a small subset of the fields, and you can 
 
 {{> weather-field-selector }}
 
+#### Warning: Large Templates
 
+Large templates (greater than 512 bytes) can cause issues:
 
+- The generated sample code does not support multiple chunks
+- The built-in JSON parser will not parse JSON with more than 128 tokens (roughly each key/value pair is two tokens)
+
+It is possible to use JsonParserGeneratorRK to parse large JSON data with multiple chunks, but there isn't an automatic code generator for it.
+
+For this reason, you probably don't want to include the minutely data, as it's very large.
+
+#### Warning: Alerts
+
+Accessor code is not generated for alerts. There are several reasons:
+
+- The variable length array is difficult to handle in webhook response templates
+- The size is likely to exceed the 512 byte chunk size making using the built-in JSON parser difficult
+- There is no "push" mode for free alerts, so you would have to poll frequently, which is not efficient
+
+If you do want to handle alerts, it's probably best to create a separate webhook that only has the alerts (omits everything else), then send the entire JSON response back to the device. Recombine the parts and parse the JSON on the device. You could do this every 10 to 30 minutes for a single device for home use, but it doesn't scale very well.
 
 ## Creating a webhook
 
@@ -105,14 +117,47 @@ https://openweathermap.org/weather-conditions#How-to-get-icon-URL
 			"icon": "04d"
 		}]
 	},
-    ```
+```
+
+### Dates
+
+```json
+{
+	"dt": 1622628830,
+	"sunrise": 1622626005,
+	"sunset": 1622680331,
+}
+```
+
+Dates are represented in Unix timestamps (seconds past January 1, 1970) at UTC. This is the same as the default way time is stored on devices, and returned by functions such as `Time.now()`.
+
+In the example above, 1622628830 is Wednesday, June 2, 2021 09:26:45 UTC. In the eastern US timezone, that's 5:26:45 AM EDT.
+
+If you want to display the values in local time with daylight saving adjustments, you'll need to do this separately. One option is to use the [LocalTimeRK](https://github.com/rickkas7/LocalTimeRK) library.
+
+
+### Units
+
+The units setting in the request is one of:
+
+| Setting | Temperature | Wind Speed |
+| :--- | :--- | :--- |
+| Standard | Kelvin | meters/sec |
+| Metric | Celsius | meters/sec |
+| Imperial (US) | Fahrenheit | miles/hour |
 
 A number of fields are not unit-converted so if you want to use them with imperial units, you'll need to convert them yourself:
 
-| Field | Units (always metric) |
-| :--- | :--- |
-| `pressure` | hPa |
-| `visibility` | meters |
-| `rain` | millimeters |
-| `snow` | millimeters |
-| `precipitation` | millimeters |
+| Field | Units (always metric) | For US measurement in | Multiply By |
+| :--- | :--- | :--- | :--- |
+| `pressure` | hPa | inches of mercury (inHg) | 0.75 | 
+| `visibility` | meters | miles | 0.000621371 |
+| `rain` | millimeters | inches | 0.0393701 |
+| `snow` | millimeters | inches | 0.0393701 |
+| `precipitation` | millimeters | inches | 0.0393701 |
+
+
+### Icons
+
+
+
