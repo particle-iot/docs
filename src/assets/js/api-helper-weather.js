@@ -2,6 +2,9 @@
 $(document).ready(function () {
     // auth not required
 
+    let queryParams = {};
+    let responseTemplate;
+
     const localStorageKey = 'weatherApiDemo';
     let settings;
     try {
@@ -62,22 +65,6 @@ $(document).ready(function () {
         return result;
     }
 
-    /*
-    const addQueryParameters = function(thisElem, parameterArray, request) {
-        let queryParams = {};
-
-        parameterArray.forEach(function (which) {
-            const value = $(thisElem).find('.apiHelper_' + which).val();
-            if (value) {
-                queryParams[which] = value;
-            }
-        });
-
-        if (Object.keys(queryParams).length > 0) {
-            request.url += '?' + objectToFormUrl(queryParams);
-        }
-    }
-    */
 
     const setRequest = function (parentElem, request) {
         let requestStr = request.method + ' ' + request.url + '\n';
@@ -162,6 +149,125 @@ $(document).ready(function () {
         });
 
     });
+
+
+    const updateWebhook = function() {
+        $('.apiHelperWeatherWebhook').each(function() {
+            const thisElem = $(this);
+
+            const setStatus = function(str) {
+                $(thisElem).find('.apiHelperStatus').text(str);
+            }
+            setStatus('');
+
+            const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+            const eventNameInputElem = $(thisElem).find('.apiHelperEventNameInput');
+            const webhookOutputElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+
+            if (!responseTemplate || responseTemplate.length < 3) {
+                setStatus('Select fields to return to the device before generating a webhook.');
+                $(actionButtonElem).prop('disabled', true);
+                return;
+            }
+            if (!$(eventNameInputElem).val()) {
+                setStatus('Event name must not be empty.');
+                $(actionButtonElem).prop('disabled', true);
+                return;
+            }
+
+            $(actionButtonElem).prop('disabled', false);
+
+            const eventName = $(eventNameInputElem).val();
+
+            let webhookConfigObj = {
+                url: 'https://api.openweathermap.org/data/2.5/onecall',
+                noDefaults: true,
+                rejectUnauthorized: true,
+                event: eventName,
+                requestType: 'GET',
+                responseTopic: '{{PARTICLE_DEVICE_ID}}/{{PARTICLE_EVENT_NAME}}',
+                query: queryParams,
+                responseTemplate
+            }
+
+            //    auth: apiHelper.auth.access_token
+
+
+            setCodeBox(webhookOutputElem, JSON.stringify(webhookConfigObj, null, 2));
+            $(webhookOutputElem).show();
+
+            $(actionButtonElem).off('click');
+            $(actionButtonElem).on('click', async function() {
+                console.log('update webhook');
+
+                try {
+                    // List all webhooks
+                    const listResp = await apiHelper.particle.listWebhooks({ auth: apiHelper.auth.access_token });
+                    console.log('webhooks', listResp);
+
+                    // listResp.body = array
+                    // object in array has id and event
+                    let found = [];
+                    for(const obj of listResp.body) {
+                        if (obj.event === eventName) {
+                            found.push(obj);
+                        }
+                    }
+
+                    if (found.length > 0) {
+                        // Remove existing webhook
+                        for(const obj of found) {
+                            console.log('deleting', obj);
+                            await apiHelper.particle.deleteWebhook({ hookId: obj.id, auth: apiHelper.auth.access_token });
+                        }
+                    }
+                    
+                    // Create new one
+                    webhookConfigObj.integration_type = 'Webhook';
+                    console.log('webhookConfigObj', webhookConfigObj);
+
+                    let request = {
+                        contentType: 'application/json',
+                        data: JSON.stringify(webhookConfigObj),
+                        dataType: 'json',
+                        error: function (jqXHR) {
+        
+                            setStatus('Error creating webhook');
+        
+                            // $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                            // $(respElem).show();
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'POST',
+                        success: function (resp, textStatus, jqXHR) {
+                            setStatus('Webhook ' + (found.length ? 'updated' : 'created') + '!');
+                            ///ga('send', 'event', 'Create Token', 'Success');
+
+                            /*
+                            $(outputJsonElem).show();
+                            setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+        
+                            $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                            $(respElem).show();
+                            */
+                        },
+                        url: 'https://api.particle.io/v1/integrations'
+                    }
+                
+                    $.ajax(request);
+
+                }
+                catch(e) {
+                    setStatus('An error occurred updating the webhook');
+                    console.log('exception', e);
+                }
+            });
+        });
+        
+    };
 
     const updateFieldSelector = function(weatherData) {
         $('.apiHelperWeatherFieldSelector').each(function() {
@@ -266,46 +372,46 @@ $(document).ready(function () {
 
                 //console.log('templateComponents', templateComponents);
 
-                let template = '{';
+                responseTemplate = '{';
                 templateComponents.forEach(function(obj) {
                     if (obj.arrayStart) {
-                        template += '"' + obj.outputKey + '":[';
+                        responseTemplate += '"' + obj.outputKey + '":[';
                     }
                     else
                     if (obj.objectStart) {
-                        template += '{'
+                        responseTemplate += '{'
                     }
                     else 
                     if (obj.objectEnd) {
-                        template += ' }'
+                        responseTemplate += ' }'
                     }
                     else
                     if (obj.arrayEnd) {
-                        template += ']';
+                        responseTemplate += ']';
                     }
                     else {
-                        template += '"' + obj.outputKey + '":';
+                        responseTemplate += '"' + obj.outputKey + '":';
                         if (obj.isString) {
-                            template += '"{{{' + obj.inputKey + '}}}"';
+                            responseTemplate += '"{{{' + obj.inputKey + '}}}"';
                         }
                         else {
-                            template += '{{' + obj.inputKey + '}}';
+                            responseTemplate += '{{' + obj.inputKey + '}}';
                         }
                     }
 
                     if (!obj.arrayStart && !obj.objectStart && !obj.isLast) {
-                        template += ',';
+                        responseTemplate += ',';
                     }
                 });
-                template += ' }';
+                responseTemplate += ' }';
                 
-                // console.log('template', template);
+                // console.log('responseTemplate', responseTemplate);
                 const responseTemplateElem = $(thisElem).find('.responseTemplate');
                 $(responseTemplateElem).show();
-                $(responseTemplateElem).find('pre').text(template);
+                $(responseTemplateElem).find('pre').text(responseTemplate);
 
-                // Expand template
-                const compiledTemplate = Hogan.compile(template);
+                // Expand responseTemplate
+                const compiledTemplate = Hogan.compile(responseTemplate);
     
                 const renderedTemplateStr = compiledTemplate.render(weatherData);
 
@@ -329,6 +435,9 @@ $(document).ready(function () {
                 // Generate code
                 const sampleCodeElem = $(thisElem).find('.sampleCode');
                 $(sampleCodeElem).show();
+
+                // Update webhook
+                updateWebhook();
 
                 let code = '';
 
@@ -565,9 +674,7 @@ $(document).ready(function () {
                 },
                 url: 'https://api.openweathermap.org/data/2.5/onecall'
             }
-          
-            let queryParams = {};
-            
+                      
             const latLonParts = settings.latLon.split(',');
             queryParams.lat = latLonParts[0].trim();
             queryParams.lon = latLonParts[1].trim();
@@ -602,5 +709,6 @@ $(document).ready(function () {
 
         });
     });
+
 
 });

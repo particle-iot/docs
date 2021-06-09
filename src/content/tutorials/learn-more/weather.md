@@ -83,40 +83,74 @@ If you do want to handle alerts, it's probably best to create a separate webhook
 
 ## Creating a webhook
 
+The pattern for using the Weather API is:
 
-## Displaying the data
+- Particle device subscribes to webhook responses (in setup) using `Particle.subscribe()`.
+- Particle device uses `Particle.publish` to request weather data.
+- The webhook server detects this event, and makes an API request to the OpenWeather API, and collects the response.
+- The webhook server decodes the response and generates new data from it using the response template (mustache).
+- This new, smaller data is broken into 512 byte chunks and publishes it to the device.
+- The device picks the webhook response in its subscribe handler.
+- The device parses the response and does something with it, like update a display.
 
+{{> weather-api-webhook }}
 
-### Decoding the output
+You can use the **Create or Update Webhook** button to create or update the webhook in your account, or manually create one in the [Particle console](https://console.particle.io) and copy and paste the JSON into a **Custom Template**.
 
-The output from 
+## Test firmware
 
-https://openweathermap.org/weather-conditions#How-to-get-icon-URL
+This is sample device firmware that queries the weather once after the device connects to the cloud and prints the output to the serial debug log.
 
+{{> codebox content="/assets/files/hardware-examples/WeatherTest.cpp" format="cpp" height="500" flash="true"}}
+
+For example, I clicked the checkboxes for
+
+- temp
+- humidity (hum)
+
+In the Daily section: 
+- Include: 2
+- temp.day (day)
+- temp.night (night)
+
+The following output was printed to `particle serial monitor`:
 
 ```
-	"current": {
-		"dt": 1622628830,
-		"sunrise": 1622626005,
-		"sunset": 1622680331,
-		"temp": 51.21,
-		"feels_like": 50.16,
-		"pressure": 1024,
-		"humidity": 88,
-		"dew_point": 47.79,
-		"uvi": 0,
-		"clouds": 100,
-		"visibility": 10000,
-		"wind_speed": 3.71,
-		"wind_deg": 167,
-		"wind_gust": 3.49,
-		"weather": [{
-			"id": 804,
-			"main": "Clouds",
-			"description": "overcast clouds",
-			"icon": "04d"
-		}]
-	},
+0000008749 [app] INFO: key=temp value=23.38
+0000008749 [app] INFO: key=hum value=85
+0000008750 [app] INFO: daily index=0 key=day value=23.87
+0000008750 [app] INFO: daily index=0 key=night value=18.64
+0000008751 [app] INFO: daily index=1 key=day value=24.21
+0000008751 [app] INFO: daily index=1 key=night value=17.18
+```
+
+### Decoding the weather API output
+
+This is a portion of the Weather API output:
+
+```
+"current": {
+	"dt": 1622628830,
+	"sunrise": 1622626005,
+	"sunset": 1622680331,
+	"temp": 51.21,
+	"feels_like": 50.16,
+	"pressure": 1024,
+	"humidity": 88,
+	"dew_point": 47.79,
+	"uvi": 0,
+	"clouds": 100,
+	"visibility": 10000,
+	"wind_speed": 3.71,
+	"wind_deg": 167,
+	"wind_gust": 3.49,
+	"weather": [{
+		"id": 804,
+		"main": "Clouds",
+		"description": "overcast clouds",
+		"icon": "04d"
+	}]
+},
 ```
 
 ### Dates
@@ -155,9 +189,6 @@ A number of fields are not unit-converted so if you want to use them with imperi
 | `rain` | millimeters | inches | 0.0393701 |
 | `snow` | millimeters | inches | 0.0393701 |
 | `precipitation` | millimeters | inches | 0.0393701 |
-
-
-### Icons
 
 
 
