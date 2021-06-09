@@ -15,17 +15,23 @@ The [OpenWeather API](https://openweathermap.org/api) provides a convenient way 
 
 This tutorial will focus on a few specific APIs that are intended to be used with fixed locations, such as from your own home. The actual Weather API can be used in more complicated scenarios, like mobile devices and customer devices in various locations, but those use cases are a bit more complicated and aren't included in this tutorial.
 
+You should go through the steps in order, as subsequent sections rely on the previously completed steps.
+
 ### Log into Particle
 
 In order to take advantage of some of the interactive features of this page, you should log into your account if you are not already logged in:
 
 {{> sso}}
 
+
 ### OpenWeather API Key (appid)
 
-All OpenWeather API calls require an [API key](https://openweathermap.org/full-price#current), which is also referred to as the appid. This tutorial will work with the free plan but you must register to get your own API key.
+All OpenWeather API calls require an [API key](https://openweathermap.org/full-price#current), which is also referred to as the appid. This tutorial will work with the free plan but you must register to get your own API key. 
+
+Enter it here so it can be used to make API calls from this page. The key is only stored in your browser until you close this tab.
 
 {{> weather-api-key}}
+
 
 ### Your location
 
@@ -35,6 +41,9 @@ We'll be using the "one call" API that requires your latitude and longitude. If 
 
 - If you go to [Google Maps](https://maps.google.com) and click on the map, a small popup will appear on the map that includes the location name of where you clicked and the coordinates. 
 - You must enter the coordinates in decimal format. If you have the latitude and longitude in degrees, hour, minutes, and seconds you'll need to convert it to decimal format first.
+- This is used when making API calls from this page only. 
+- The location is only stored in your browser until you close this tab.
+
 
 ## Using the OpenWeather One Call API
 
@@ -50,13 +59,17 @@ Once you click the **Get Weather** button it will make the API request and show 
 
 {{> weather-api-one-call height="400"}}
 
+
 ### Paring down the output
 
 Even excluding some of the fields, you'll probably notice that the output is large. Including only the current and daily information, the output can exceed 4 kilobytes. If you are sending it to a Particle device, that can require 9 data operations.
 
 Including all fields, the output may exceed 38,617 bytes or 76 data operations if all of the data was sent your device! This is not only inefficient, but also prone to losing data and having a corrupted response.
 
-In most cases, you'll only care about a small subset of the fields, and you can send only those fields to your device. This feature is built into the Webhooks support in the Particle cloud and is known as mustache templates. The template are a little difficult to create by hand, so this tool can be used to automate the process:
+In most cases, you'll only care about a small subset of the fields, and you can send only those fields to your device. This feature is built into the Webhooks support in the Particle cloud and is known as mustache templates. The template are a little difficult to create by hand, so this tool can be used to automate the process.
+
+- Click the checkbox for each field that you want to send to your device.
+- For time-series fields (minutely, hourly, daily), specify how many entries to include and what fields to include.
 
 {{> weather-field-selector }}
 
@@ -75,9 +88,9 @@ For this reason, you probably don't want to include the minutely data, as it's v
 
 Accessor code is not generated for alerts. There are several reasons:
 
-- The variable length array is difficult to handle in webhook response templates
-- The size is likely to exceed the 512 byte chunk size making using the built-in JSON parser difficult
-- There is no "push" mode for free alerts, so you would have to poll frequently, which is not efficient
+- The variable length array is difficult to handle in webhook response templates.
+- The size is likely to exceed the 512 byte chunk size making using the built-in JSON parser difficult.
+- There is no "push" mode for free alerts, so you would have to poll frequently, which is not efficient.
 
 If you do want to handle alerts, it's probably best to create a separate webhook that only has the alerts (omits everything else), then send the entire JSON response back to the device. Recombine the parts and parse the JSON on the device. You could do this every 10 to 30 minutes for a single device for home use, but it doesn't scale very well.
 
@@ -189,6 +202,4 @@ A number of fields are not unit-converted so if you want to use them with imperi
 | `rain` | millimeters | inches | 0.0393701 |
 | `snow` | millimeters | inches | 0.0393701 |
 | `precipitation` | millimeters | inches | 0.0393701 |
-
-
 

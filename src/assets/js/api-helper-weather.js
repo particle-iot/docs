@@ -198,12 +198,10 @@ $(document).ready(function () {
 
             $(actionButtonElem).off('click');
             $(actionButtonElem).on('click', async function() {
-                console.log('update webhook');
 
                 try {
                     // List all webhooks
                     const listResp = await apiHelper.particle.listWebhooks({ auth: apiHelper.auth.access_token });
-                    console.log('webhooks', listResp);
 
                     // listResp.body = array
                     // object in array has id and event
@@ -217,14 +215,12 @@ $(document).ready(function () {
                     if (found.length > 0) {
                         // Remove existing webhook
                         for(const obj of found) {
-                            console.log('deleting', obj);
                             await apiHelper.particle.deleteWebhook({ hookId: obj.id, auth: apiHelper.auth.access_token });
                         }
                     }
                     
                     // Create new one
                     webhookConfigObj.integration_type = 'Webhook';
-                    console.log('webhookConfigObj', webhookConfigObj);
 
                     let request = {
                         contentType: 'application/json',
@@ -233,9 +229,6 @@ $(document).ready(function () {
                         error: function (jqXHR) {
         
                             setStatus('Error creating webhook');
-        
-                            // $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
-                            // $(respElem).show();
                         },
                         headers: {
                             'Authorization': 'Bearer ' + apiHelper.auth.access_token,
@@ -244,15 +237,7 @@ $(document).ready(function () {
                         method: 'POST',
                         success: function (resp, textStatus, jqXHR) {
                             setStatus('Webhook ' + (found.length ? 'updated' : 'created') + '!');
-                            ///ga('send', 'event', 'Create Token', 'Success');
-
-                            /*
-                            $(outputJsonElem).show();
-                            setCodeBox(thisElem, JSON.stringify(resp, null, 2));
-        
-                            $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
-                            $(respElem).show();
-                            */
+                            ga('send', 'event', 'Update Webhook', 'Success');
                         },
                         url: 'https://api.particle.io/v1/integrations'
                     }
@@ -443,13 +428,13 @@ $(document).ready(function () {
 
 
                 code += 'void subscriptionHandler(const char *event, const char *data) {\n';
-                code += '\n';
                 code += '    JSONValue outerObj = JSONValue::parseCopy(data);\n';
+                code += '    JSONObjectIterator iter(outerObj);\n';
                 code += '    while(iter.next()) {\n';
 
                 const codeForObject = function(indent, iterName, obj) {
                     Object.keys(obj).forEach(function(key) {
-                        code += indent + '    if (' + iterName + '.name() == "' + obj[key].outputKey + '")\n';
+                        code += indent + '    if (' + iterName + '.name() == "' + obj[key].outputKey + '") {\n';
                         // code += indent + '        // ' + obj[key].name + '\n';
                         
                         let fmt;
@@ -480,7 +465,7 @@ $(document).ready(function () {
                     if (!templateInclude[group]) {
                         return;
                     }
-                    code += '        if (iter.name() == "' + group + '")\n';
+                    code += '        if (iter.name() == "' + group + '") {\n';
                     code += '            JSONArrayIterator iter2(iter.value());\n';
                     code += '            for(size_t ii = 0; iter2.next(); ii++) {\n';
                     code += '                Log.info("' + group + ' array index %u", ii);\n';
@@ -492,15 +477,6 @@ $(document).ready(function () {
                     code += '        }\n';
                 });
 
-
-                /*
-                code += JSONObjectIterator iter(outerObj);
-                    while(iter.next()) {
-                        Log.info("key=%s value=%s", 
-                          (const char *) iter.name(), 
-                          (const char *) iter.value().toString());
-                    }
-*/
                 code += '    }\n';
                 code += '}\n';
                 
@@ -644,6 +620,16 @@ $(document).ready(function () {
 
        
         $(thisElem).find('.apiHelperActionButton').on('click', function () {
+            if (!settings.apiKey) {
+                console.log('Set your API key, above, before getting the weather.');
+                return;
+            }
+            if (!settings.latLon) {
+                console.log('Set your latitude and longitude, above, before getting the weather.');
+                return;
+            }
+
+
             setStatus('Requesting weather...');
 
             let request = {
