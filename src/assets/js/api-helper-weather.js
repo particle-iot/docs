@@ -263,6 +263,51 @@ $(document).ready(function () {
             }
             setStatus('');
 
+            const fieldDescriptions = {
+                dt: 'Timestamp (Unix time at UTC)',
+                sunrise: 'Time of sunrise (Unix time at UTC)',
+                sunset: 'Time of sunrise (Unix time at UTC)',
+                temp: 'Temperature (units vary)',
+                feels_like: 'Feels-like temperature (units vary)',
+                pressure: 'Atmospheric pressure at sea level, hPa',
+                humidity: 'Relative humidity, %',
+                dew_point: 'Dew point temperture (units vary)',
+                clouds: 'Cloudiness, %',
+                uvi: 'UV index',
+                visibility: 'Average visibility, meters',
+                wind_speed: 'Wind speed (units vary)',
+                wind_gust: 'Wind gust speed (units vary)',
+                wind_deg: 'Wind direction, degrees',
+                '1h': 'Rain or snow for the last hour, millimeters',
+                'weather.0.id': 'Weather condition ID',
+                'weather.0.main': 'Group of weather parameters (Rain, Snow, Extreme etc.)',
+                'weather.0.description': 'Weather condition description, localized text',
+                'weather.0.icon': 'Weather icon name',
+                precipitation: 'Precipitation volume, mm',
+                moonrise: 'The time of when the moon rises for this day, Unix, UTC',
+                moonset: 'The time of when the moon sets for this day, Unix, UTC',
+                moon_phase: 'Phase of the moon',
+                'temp.morn': 'Morning temperature (units vary)',  
+                'temp.day': 'Day temperature (units vary)',  
+                'temp.eve': 'Evening temperature (units vary)',  
+                'temp.night': 'Night temperature (units vary)',  
+                'temp.min': 'Minimum temperature (units vary)',  
+                'temp.max': 'Maximum temperature (units vary)',  
+                'feels_like.morn': 'Morning feels-like temperature (units vary)',  
+                'feels_like.day': 'Day feels-like temperature (units vary)',  
+                'feels_like.eve': 'Evening feels-like temperature (units vary)',  
+                'feels_like.night': 'Night feels-like temperature (units vary)',  
+                'feels_like.min': 'Minimum feels-like temperature (units vary)',  
+                'feels_like.max': 'Maximum feels-like temperature (units vary)',  
+                pop: 'Probability of precipitation',
+                rain: 'Precipitation volume, millimeters',
+                snow: 'Precipitation volume, millimeters',
+                lat: 'Location latitude',
+                lon: 'Location longitude',
+                timezone: 'Timezone name',
+                timezone_offset: 'Timezone offset from UTC in seconds'
+            };
+
             const outputKeys = {
                 'timezone': 'tz',
                 'timezone_offset': 'tzo',
@@ -591,6 +636,19 @@ $(document).ready(function () {
                             $(tdElem).text(outputKey);
                             $(trElem).append(tdElem);    
                         }
+                        {
+                            let tdElem = document.createElement('td');
+                        
+                            const desc = fieldDescriptions[obj.name];
+                            if (desc) {
+                                $(tdElem).text(desc);
+                            }
+                            else {
+                                $(tdElem).html('&nbsp;');
+                            }
+                            $(trElem).append(tdElem);    
+                        }
+
 
                         $(tbodyElem).append(trElem);
                     });

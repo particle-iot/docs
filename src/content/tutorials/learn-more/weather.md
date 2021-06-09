@@ -9,7 +9,7 @@ includeDefinitions: [api-helper, api-helper-json, api-helper-mustache, api-helpe
 
 # Using the OpenWeather API
 
-The [OpenWeather API](https://openweathermap.org/api) provides a convenient way to get weather information including current conditions and forecast information. In many cases, you can use the API for free. This tutorial shows how to use this specific API, however, the techniques for using webhooks and parsing the JSON data are useful for other REST APIs as well.
+The [OpenWeather API](https://openweathermap.org/api) provides a convenient way to get current weather and forecast information including current conditions and forecast information. In many cases, you can use the API for free. This tutorial shows how to use this specific API, however, the techniques for using webhooks and parsing the JSON data are useful for other REST APIs as well.
 
 ## Getting started
 
@@ -182,6 +182,8 @@ In the example above, 1622628830 is Wednesday, June 2, 2021 09:26:45 UTC. In the
 
 If you want to display the values in local time with daylight saving adjustments, you'll need to do this separately. One option is to use the [LocalTimeRK](https://github.com/rickkas7/LocalTimeRK) library.
 
+Another option is to send the `timezone_offset` from the Top-Level values returned from the Weather API. This will return the appropriate UTC offset for the time the API call was made, but will not return information about a change in adjustment if DST starts or ends during period covered by data.
+
 
 ### Units
 
@@ -202,4 +204,44 @@ A number of fields are not unit-converted so if you want to use them with imperi
 | `rain` | millimeters | inches | 0.0393701 |
 | `snow` | millimeters | inches | 0.0393701 |
 | `precipitation` | millimeters | inches | 0.0393701 |
+
+## Device-specific location
+
+In this tutorial thus far, we've encoded the location in the webhook. But what if you wanted device-specific location?
+
+You could use sources such as:
+
+- GNSS (GPS) with additional hardware
+- Cellular tower location using [Google Maps Device Locator](/tutorials/integrations/google-maps/)
+- Wi-Fi geolocation using [Google Maps Device Locator](/tutorials/integrations/google-maps/)
+
+### Sending the location in a request
+
+Where you get the latitude and longitude will vary, but the basic process is to send up JSON data instead of an empty string from your device. In other words, change this:
+
+```
+Particle.publish(EVENT_NAME, "", PRIVATE);
+```
+
+To something like this:
+
+```cpp
+double lat, lon;
+// Initialize lat and lon here!
+Particle.publish(EVENT_NAME, String::format("{\"lat\":%lf,\"lon\":%lf}", lat, lon), PRIVATE);
+```
+
+Then, in the query section of your webhook, you'd have something like this:
+
+```json
+  "query": {
+    "lat": "\{{lat}}",
+    "lon": "\{{lon}}",
+    "exclude": "minutely,hourly,alerts",
+    "units": "metric",
+```
+
+What this does is copy lat and lon from the webhook request data into the API call made to the OpenWeather API server.
+
+The rest of the code is unchanged.
 
