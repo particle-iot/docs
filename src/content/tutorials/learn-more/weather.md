@@ -205,6 +205,15 @@ A number of fields are not unit-converted so if you want to use them with imperi
 | `snow` | millimeters | inches | 0.0393701 |
 | `precipitation` | millimeters | inches | 0.0393701 |
 
+### Weather condition codes and icons
+
+These are described in the [OpenWeather API docs](https://openweathermap.org/weather-conditions).
+
+For example, the icon 01d is a clear sky during the day. 10d is rain.
+
+For each weather condition there's both a numeric id (500), a main category (Rain), and a description (light rain). The description is localized.
+
+
 ## Device-specific location
 
 In this tutorial thus far, we've encoded the location in the webhook. But what if you wanted device-specific location?
