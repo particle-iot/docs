@@ -1,0 +1,30 @@
+<div class="apiHelperWeatherOneCall">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <table class="apiHelperTableNoMargin">
+                <tr><td class="apiHelperProductSelectorLabel">Exclude</td><td>
+                    <input type="checkbox" id="weatherOneCall_current" /><label for="weatherOneCall_current">current</label><br />
+                    <input type="checkbox" id="weatherOneCall_minutely" checked /><label for="weatherOneCall_minutely">minutely</label><br />
+                    <input type="checkbox" id="weatherOneCall_hourly" checked /><label for="weatherOneCall_hourly">hourly</label><br />
+                    <input type="checkbox" id="weatherOneCall_daily" /><label for="weatherOneCall_daily">daily</label><br />
+                    <input type="checkbox" id="weatherOneCall_alerts" checked /><label for="weatherOneCall_alerts">alerts</label><br />
+                    </td><td class="apiHelperProductSelectorLabel">&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Units</td><td><select class="weatherUnitsSelect apiHelperSelect">
+                    <option value="standard">Standard</option>
+                    <option value="metric" selected>Metric</option>
+                    <option value="imperial">Imperial (US)</option>
+                    </select></td><td class="apiHelperProductSelectorLabel">&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Language</td><td><input type="text" size="10" class="apiHelperWeatherLangInput" value=""></td><td class="apiHelperProductSelectorLabel">Can leave blank</td></tr>
+                <tr><td colspan="3"><button class="apiHelperActionButton">Get Weather</button></td></tr>
+            </table>
+            <div class="apiHelperStatus"></div>
+            <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall" style="word-wrap: break-word"></pre></div>
+            <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>
+        </div>
+    </div>
+    <div class="apiHelperCloudApiOutputJson" style="height:{{height}}px; overflow:scroll; display:none">
+        <pre class="codeboxPre"><code class="codebox lang-json">                
+        </code></pre>
+    </div>
+</div>
+
