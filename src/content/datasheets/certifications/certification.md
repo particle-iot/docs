@@ -3,6 +3,7 @@ title: Certifications
 layout: commonTwo.hbs
 columns: two
 description: Information about certifications (FCC, IC, CE, UL, etc.) for Particle devices.
+includeDefinitions: [drift]
 ---
 
 
