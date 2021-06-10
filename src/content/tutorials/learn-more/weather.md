@@ -110,6 +110,8 @@ The pattern for using the Weather API is:
 
 You can use the **Create or Update Webhook** button to create or update the webhook in your account, or manually create one in the [Particle console](https://console.particle.io) and copy and paste the JSON into a **Custom Template**.
 
+Note that the webhook configuration contains your OpenWeather API key so you should not share it publicly.
+
 ## Test firmware
 
 This is sample device firmware that queries the weather once after the device connects to the cloud and prints the output to the serial debug log.
