@@ -1,8 +1,7 @@
 ---
 title: Internet Button
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: two
-order: 52
 ---
 
 # The Internet Button

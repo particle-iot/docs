@@ -1,8 +1,7 @@
 ---
 title: QuestDB
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 130
 description: Connecting QuestDB to your Particle IoT device using the Particle Cloud
 ---
 

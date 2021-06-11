@@ -1,8 +1,7 @@
 ---
 title: Tracker Edge Firmware
 columns: three
-layout: reference.hbs
-order: 10
+layout: commonTwo.hbs
 description: Particle Tracker Edge Firmware Reference
 ---
 
@@ -351,6 +350,7 @@ Some commands you can enter into the box:
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
 
 Using `regCommandCallback` is an alternative to using `Particle.function`. One advantage is that `cmd` handlers are always in JSON format and the JSON parameters are automatically parsed and passed to your callback. 
 
@@ -715,13 +715,13 @@ Disables wake-on-network mode.
 int wakeFor(SystemSleepFlag flag);
 ```
 
-Adds a [SystemSleepFlag](/reference/device-os/firmware/tracker-som/#flag-systemsleepconfiguration-) to the sleep settings.
+Adds a [SystemSleepFlag](/cards/firmware/sleep-sleep/flag-systemsleepconfiguration/) to the sleep settings.
 
 The only supported flag is:
 
 - `SystemSleepFlag::WAIT_CLOUD`
 
-You do not need to specify this as [graceful disconnect mode](/reference/device-os/firmware/tracker-som/#particle-setdisconnectoptions-) is used in Tracker Edge, and this also makes sure all cloud messages have been sent.
+You do not need to specify this as [graceful disconnect mode](/cards/firmware/cloud-functions/particle-setdisconnectoptions/) is used in Tracker Edge, and this also makes sure all cloud messages have been sent.
 
 ### pauseSleep() - TrackerSleep
 

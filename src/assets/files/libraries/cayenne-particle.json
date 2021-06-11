@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "cayenne-particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/cayenne-particle/archive/0.1.1.tar.gz"
+  },
+  "attributes": {
+    "name": "cayenne-particle",
+    "version": "0.1.1",
+    "installs": 2717,
+    "license": "MIT",
+    "author": "Eduardo",
+    "sentence": "Modified Cayenne Library for particle",
+    "url": "https://github.com/ecoqba/cayenne-particle",
+    "repository": "https://github.com/ecoqba/cayenne-particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/cayenne-particle",
+  "versions": {
+    "0.1.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "01_Cayenne": true
+          },
+          "electron": {
+            "01_Cayenne": true
+          },
+          "argon": {
+            "01_Cayenne": true
+          },
+          "boron": {
+            "01_Cayenne": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "01_Cayenne": true
+          },
+          "electron": {
+            "01_Cayenne": true
+          },
+          "argon": {
+            "01_Cayenne": true
+          },
+          "boron": {
+            "01_Cayenne": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Cayenne Particle\n\nUnofficial Particle library for Cayenne IoT. This is a heavily modified version\nof the blynk and Cayenne library to work with the Particle's Photon.\n",
+  "allVersions": [
+    "0.1.1"
+  ]
+}

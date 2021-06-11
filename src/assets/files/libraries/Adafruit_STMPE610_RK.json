@@ -1,0 +1,64 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_STMPE610_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_STMPE610_RK/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_STMPE610_RK",
+    "version": "1.0.1",
+    "installs": 16407,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "Library for Adafruit STMPE610/811 resistive touch screen controllers. Ported by rickkas7.",
+    "paragraph": "Install this library in addition to the display library for your hardware. Ported from https://github.com/adafruit/Adafruit_STMPE610 version 1.0.1",
+    "category": "Display",
+    "url": "https://github.com/rickkas7/Adafruit_STMPE6110_RK",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_STMPE610_RK",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "TouchTest": true
+          },
+          "electron": {
+            "TouchTest": true
+          },
+          "argon": {
+            "TouchTest": true
+          },
+          "boron": {
+            "TouchTest": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "TouchTest": true
+          },
+          "electron": {
+            "TouchTest": true
+          },
+          "argon": {
+            "TouchTest": true
+          },
+          "boron": {
+            "TouchTest": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit_STMPE610_RK\nPort of the Adafruit STMPE610 touch screen driver for Particle Argon, Boron, and Xenon\n",
+  "allVersions": [
+    "1.0.1"
+  ]
+}

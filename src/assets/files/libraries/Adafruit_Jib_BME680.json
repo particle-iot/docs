@@ -1,0 +1,62 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_Jib_BME680",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_Jib_BME680/archive/1.0.8.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_Jib_BME680",
+    "version": "1.0.8",
+    "installs": 420,
+    "license": "MIT License",
+    "author": "Kaga, Jib218",
+    "sentence": "Library for running Adafruit BME680 on Particle Photon via I2C. Possibility to adjust Gas Sensor.",
+    "url": "https://github.com/jib218/Adafruit_BME680-Particle.git",
+    "repository": "https://github.com/jib218/Adafruit_BME680-Particle.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_Jib_BME680",
+  "versions": {
+    "1.0.8": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit_BME680\n\nThis is a library for the Adafruit BME680 Humidity, Barometric Pressure, Temp and MOX Gas sensor\n\nDesigned specifically to work with the Adafruit BME680 Breakout\n\nhttp://www.adafruit.com/products/3660\n\nWritten by Adafruit Industries (https://github.com/adafruit/Adafruit_BME680) but\nmodified to work with Particle Photon & Core. All credits to them. \n\nModified by jib218 in order to make the gas heater optional.\n\n## Example Wiring ( I2C )\n\n| BME680 | Particle Photon |\n| --- | ---\n| VIN | 3v3\n| GND | GND\n| SCK | D1\n| SDI | D0\n",
+  "allVersions": [
+    "1.0.8",
+    "1.0.7"
+  ]
+}

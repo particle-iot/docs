@@ -1,8 +1,7 @@
 ---
 title: AN027 Tracker Button and LEDs
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 127
 ---
 # AN027 Tracker Button and LEDs
 

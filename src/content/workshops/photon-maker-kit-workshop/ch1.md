@@ -1,9 +1,8 @@
 ---
 word: Claiming Your Particle Device
 title: Claiming a device
-order: 2
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Session 1 - Claiming Your Particle Device
@@ -31,7 +30,7 @@ Once you've claimed your Photon, you'll use [Tinker](/guide/getting-started/tink
 1.  Create a new [Particle account](https://login.particle.io/signup)
 2.  Install the Particle [iOS](https://apps.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054) or [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) App
 3.  [Install the Particle CLI](/tutorials/developer-tools/cli/#install-the-particle-cli)
-4.  [Install the Particle Desktop IDE](/tutorials/developer-tools/dev/)
+4.  [Install the Particle Desktop IDE](/reference/discontinued/dev/)
 
 ## Mobile App Instructions
 

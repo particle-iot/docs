@@ -1,0 +1,68 @@
+{
+  "type": "libraries",
+  "id": "I2CSoilMoistureSensor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/I2CSoilMoistureSensor/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "I2CSoilMoistureSensor",
+    "version": "1.0.3",
+    "installs": 2408,
+    "license": "MIT",
+    "author": "Mike Morales",
+    "sentence": "Library to control Miceuz Soil Moisture Sensor (https://github.com/Miceuz/i2c-moisture-sensor)",
+    "paragraph": "Particle version of the Arduino library created by Ingo Fischer 11Nov2015 - https://github.com/Apollon77/I2CSoilMoistureSensor",
+    "url": "https://github.com/VintageGeek/I2CSoilMoistureSensor",
+    "repository": "https://github.com/VintageGeek/I2CSoilMoistureSensor.git",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/I2CSoilMoistureSensor",
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# I2CSoilMoistureSensor\r\n\r\nSimple Particle Library for the I2C Soil Moisture Sensor version from Chirp\r\n(https://github.com/Miceuz/i2c-moisture-sensor).  This readme and code is a conversion of the great work done by\r\nApollon77 who's original code can be found at https://github.com/Apollon77/I2CSoilMoistureSensor.  Most of the method descriptions left as is from his branch.\r\n\r\n## Where can I buy this sensor?\r\n\r\nMore informations at: https://www.tindie.com/products/miceuz/i2c-soil-moisture-sensor/.\r\nIf you have an older version of the ruggedized sensor and the wire colors don't match Miceuz's site, try this\r\n\r\nBlue = gnd  \r\nRed = vcc   \r\nYellow = scl  \r\nWhite = sda  \r\n\r\n## Version History\r\n### v1.0.3\r\n- Fixed example code - added wire command and other enhancements\r\n### v1.0.2\r\n- Fixed bug in getAddress. Was using 16bit read, should have been 8bit\r\n### v1.0.1\r\n- Updated properties, published to PCL\r\n### v1.0.0\r\n- Initial Release, published to the Particle Community Library (PCL)\r\n\r\n## Notes/Hints\r\nNone\r\n\r\n## Methods\r\n\r\n### Constructor I2CSoilMoistureSensor\r\nOptionally set sensor I2C address if different from default (0x20).  Per Miceuz's site, if you hot plug the sensor, your address may shift unexpectedly.  This happened to me (0x20 to 0x45).  You'll need to use a simple I2C Scanner to find your addresses and then issue a setAddress command to reset.\r\n\r\n\r\n### begin(bool wait)\r\nInitializes anything ... it does a reset.\r\nWhen used without parameter or parameter value is false then a\r\nwaiting time of at least 1 second is expected to give the sensor\r\nsome time to boot up.\r\nAlternatively use true as parameter and the method waits for a\r\nsecond and returns after that.\r\n\r\n### getCapacitance()\r\nReturn measured Soil Moisture Capacitance Moisture is somewhat linear. More moisture will\r\ngive you higher reading. Normally all sensors give about 200 - 300 as value in free air at\r\n5V supply.\r\n\r\n### setAddress(int addr, bool reset)\r\nChange I2C address of the sensor to the provided address (1..127) and do a reset after it\r\nin order for the new address to become effective if second parameter is true. Method\r\nreturns true if the new address is set successfully on sensor.\r\n\r\n### getAddress()\r\nReturn current Address of the Sensor\r\n\r\n### changeSensor(int addr, bool wait)\r\nChanges the address (1..127) of the sensor, this instance is trying to read from\r\nand do a reset after to initialize.\r\nThe second parameter is optional and tells the method to wait for a second to allow\r\nthe sensor to boot up.\r\n\r\n### startMeasureLight()\r\nStarts the measurement for the Light sensor. Wait at least 3 seconds till you call method\r\ngetLight to get the Light value.                *\r\n\r\n### getLight(bool wait)\r\nRead the Light Measurement from the sensor. When used without parameter or parameter value\r\nis false then a former call to method startMeasureLight and a waiting time of at least 3\r\nseconds is expected.\r\n\r\nAlternatively use true as parameter and the method does the call to startMeasureLight and\r\na 3 seconds delay automatically and no former call is needed.\r\n\r\nThe measurement gives 65535 in a dark room away form desk lamp - so more light, lower\r\nreading. When it's dark, it takes longer to measure light, reading the light register\r\nwhile measurement is in progress (e.g. wait time too short) will return the previous\r\nreading. Be aware, light sensor is pretty noisy.\r\n\r\n### getTemperature()\r\nRead the Temperature Measurement. Temperature is measured by the thermistor on the tip of\r\nthe sensor. Calculated absolute measurement accuracy is better than 2%. The returned value\r\nis in degrees Celsius with factor 10, so need to divide by 10 to get real value\r\n\r\n### sleep()\r\nPowers down the sensor. Use this function in order to save power inbetween measurements.\r\nYou need to have FW 2.3 from the Sensor to use this method.\r\n\r\n### isBusy()\r\nChecks if sensor is busy. Returns true if a measurement is running.\r\nYou need to have FW 2.3 from the Sensor to use this method.\r\n\r\n### resetSensor()\r\nResets sensor. Give the sensor 0.5-1 second time to boot up after reset.\r\n\r\n### getVersion()\r\nGet Firmware Version. 0x22 means 2.2\r\n\r\n## Examples\r\nYou can find examples in the examples folder of this library\r\n\r\n## LICENSE\r\nLicensed under the MIT license\r\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

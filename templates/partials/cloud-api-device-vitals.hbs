@@ -1,0 +1,35 @@
+<div class="apiHelperCloudApiDeviceVitals">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <table class="apiHelperTableNoMargin">
+                <tr><td>&nbsp;</td>
+                    <td class="apiHelperProductSelectorLabel apiHelperProductDeveloperRadio">
+                    <input type="radio" value="prod" /><label>Product</label> &nbsp;&nbsp;
+                    <input type="radio" value="dev" /><label>Developer</label> &nbsp;&nbsp;
+                    </td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Product Access Token</td><td><input type="text" size="50" class="apiHelperAuthSettingsProductAccessToken" value=""></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Product ID</td><td><input type="text" size="10" class="apiHelperAuthSettingsProduct" value=""></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Device ID</td><td><input type="text" size="30" class="apiHelperDeviceLookupDeviceId" value=""></td><td class="apiHelperProductSelectorLabel"></td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Device</td><td><select class="apiHelperCloudDeviceSelect apiHelperCommonDevice apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+
+                <tr><td>Output Format</td>
+                    <td class="apiHelperProductSelectorLabel">
+                    <input type="radio" name="deviceVitalsFormat" value="json" id="deviceVitalsJson" checked/><label for="deviceVitalsJson">JSON</label> &nbsp;&nbsp;
+                    <input type="radio" name="deviceVitalsFormat" value="csv" id="deviceVitalsCsv"/><label for="deviceVitalsCsv">CSV</label> &nbsp;&nbsp;
+                    </td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Start Date</td><td><input type="text" size="30" class="apiHelperDeviceLookupStartDate" value=""></td><td class="apiHelperProductSelectorLabel">yyyy-mm-ddThh:mm:ssZ</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">End Date</td><td><input type="text" size="30" class="apiHelperDeviceLookupEndDate" value=""></td><td class="apiHelperProductSelectorLabel">yyyy-mm-ddThh:mm:ssZ</td></tr>
+
+                <tr><td class="apiHelperProductSelectorLabel" colspan="2"><button class="apiHelperActionButton">Get Device Vitals</button></td><td>&nbsp;</td></tr>
+            </table>
+            <div class="apiHelperStatus" style="padding-top: 5px;"></div>
+            <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>
+            <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>
+        </div>
+    </div>
+    <div class="apiHelperCloudApiOutputJson" style="display:none">
+        <pre class="codeboxPre"><code class="codebox lang-json">                
+        </code></pre>
+    </div>
+</div>
+

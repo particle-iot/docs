@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "LSM9DS1_FIFO",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LSM9DS1_FIFO/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "LSM9DS1_FIFO",
+    "version": "1.0.0",
+    "installs": 89,
+    "license": "BSD",
+    "author": "Adafruit <info@adafruit.com>",
+    "maintainer": "Brandon Satrom <brandon@particle.io>",
+    "sentence": "Library for LSM9DS1 9-DOF sensor board, tuned for FIFO support.",
+    "paragraph": "Library for LSM9DS1 9-DOF sensor board, tuned for FIFO support.",
+    "category": "Sensors",
+    "url": "https://github.com/bsatrom/LSM9DS1_FIFO",
+    "repository": "https://github.com/bsatrom/LSM9DS1_FIFO",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/LSM9DS1_FIFO",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "lsm9ds1": false
+          },
+          "electron": {
+            "lsm9ds1": false
+          },
+          "argon": {
+            "lsm9ds1": false
+          },
+          "boron": {
+            "lsm9ds1": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "lsm9ds1": false
+          },
+          "electron": {
+            "lsm9ds1": false
+          },
+          "argon": {
+            "lsm9ds1": false
+          },
+          "boron": {
+            "lsm9ds1": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# LSM9DS1_FIFO\n\nThis library is a fork of the Adafruit_LSM9DS1 library, with changes made to enable FIFO accelerometer support on the LSM9DS1 at a 119Hz sample rate.\n\n---\n\nThis is a library for the Adafruit triple-axis accelerometer/magnetometer/gyroscope LSM9DS1  breakouts\n\nDesigned specifically to work with the Adafruit LSM9DS1 Breakout\n\n   *  https://www.adafruit.com/products/3387\n\nThese sensors use I2C to communicate, 2 pins are required to interface\nAdafruit invests time and resources providing this open source code, \nplease support Adafruit and open-source hardware by purchasing \nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams \n\nWritten by Kevin Townsend for Adafruit Industries. Modified by Brandon Satrom for Particle.\n\nBSD license, all text above must be included in any redistribution\nhttps://opensource.org/licenses/BSD-3-Clause\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

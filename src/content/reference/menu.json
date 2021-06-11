@@ -1,0 +1,141 @@
+{
+  "items": [
+    {
+      "dir": "device-os",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "firmware",
+        "title": "Device OS API",
+        "href": "/reference/device-os/firmware/"
+      },
+      {
+        "dir": "versions",
+        "title": "Device OS Versions",
+        "href": "/reference/device-os/versions/"
+      }
+    ],
+    {
+      "dir": "developer-tools",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "cli",
+        "title": "Command Line Interface (CLI)",
+        "href": "/reference/developer-tools/cli/"
+      },
+      {
+        "dir": "jtag",
+        "title": "Using SWD/JTAG",
+        "href": "/reference/developer-tools/jtag/"
+      }
+    ],
+    {
+      "dir": "device-cloud",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "api",
+        "title": "Cloud API",
+        "href": "/reference/device-cloud/api/"
+      },
+      {
+        "dir": "webhooks",
+        "title": "Webhooks",
+        "href": "/reference/device-cloud/webhooks/"
+      }
+    ],
+    {
+      "dir": "SDKs",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "javascript",
+        "title": "Particle API JS (Javascript SDK)",
+        "href": "/reference/SDKs/javascript/"
+      },
+      {
+        "dir": "ios",
+        "title": "iOS SDK",
+        "href": "/reference/SDKs/ios/"
+      },
+      {
+        "dir": "android",
+        "title": "Android SDK",
+        "href": "/reference/SDKs/android/"
+      }
+    ],
+    {
+      "dir": "asset-tracking",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "tracker-edge-firmware",
+        "title": "Tracker Edge Firmware",
+        "href": "/reference/asset-tracking/tracker-edge-firmware/"
+      }
+    ],
+    {
+      "dir": "hardware",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "pin-info",
+        "title": "Pin Info",
+        "href": "/reference/hardware/pin-info/"
+      }
+    ],
+    {
+      "dir": "discontinued",
+      "isSection": true
+    },
+    [
+      {
+        "dir": "mesh",
+        "title": "Mesh Deprecation",
+        "href": "/reference/discontinued/mesh/"
+      },
+      {
+        "dir": "firmware-mesh",
+        "title": "Device OS API - Mesh",
+        "href": "/reference/discontinued/firmware-mesh/"
+      },
+      {
+        "dir": "firmware-xenon",
+        "title": "Device OS API - Xenon",
+        "href": "/reference/discontinued/firmware-xenon/"
+      },
+      {
+        "dir": "firmware-core",
+        "title": "Device OS API - Core",
+        "href": "/reference/discontinued/firmware-core/"
+      },
+      {
+        "dir": "dev",
+        "title": "Desktop IDE (Dev)",
+        "href": "/reference/discontinued/dev/"
+      },
+      {
+        "dir": "windows",
+        "title": "Windows SDK",
+        "href": "/reference/discontinued/windows/"
+      },
+      {
+        "dir": "ldk-project",
+        "title": "Leak Detection Kit",
+        "href": "/reference/discontinued/ldk-project/"
+      },
+      {
+        "dir": "button",
+        "title": "Internet Button",
+        "href": "/reference/discontinued/button/"
+      }
+    ]
+  ]
+}

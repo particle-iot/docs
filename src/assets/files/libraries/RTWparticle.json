@@ -1,0 +1,73 @@
+{
+  "type": "libraries",
+  "id": "RTWparticle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/RTWparticle/archive/1.1.5.tar.gz"
+  },
+  "attributes": {
+    "name": "RTWparticle",
+    "version": "1.1.5",
+    "installs": 142,
+    "license": "GNU LGPL",
+    "author": "Martin Wahlberg<martinwahlberg@icloud.com>",
+    "sentence": "RTWparticle.h - Library for sending and recieving data over RTW. Created by Martin Wahlberg, January 18, 2019.",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/RTWparticle",
+  "versions": {
+    "1.1.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "test": false
+          },
+          "electron": {
+            "test": false
+          },
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "test": false
+          },
+          "electron": {
+            "test": false
+          },
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "spark_websockets\n================\n\nWebsockets implementation for Spark Core, ported from Arduino WebSocketClient\n\n\n\nHow to use :\n==============\n```\n#include Spark-Websockets/Spark-Websockets.h\n\nWebSocketClient client;\n\n\nvoid onMessage(WebSocketClient client, char* message) {\n  Serial.print(\"Received: \");\n  Serial.println(message);\n}\n\n\n/* This function is called once at start up ----------------------------------*/\nvoid setup()\n{\n\tSerial.begin(9600);\n\twhile(!Serial.available()); // Wait here until the user presses ENTER in the Serial Terminal\n\t\n\tclient.onMessage(onMessage);\n\tclient.connect(\"echo.websocket.org\");\n}\n\nvoid loop()\n{\n  client.monitor();\n\tdelay(3000);\n\tclient.send(\"Hello World!\");\n}\n\n```\n",
+  "allVersions": [
+    "1.1.5",
+    "1.1.4",
+    "1.1.3",
+    "1.1.2",
+    "1.1.1",
+    "1.1.0",
+    "1.0.9",
+    "1.0.8",
+    "1.0.7",
+    "1.0.6",
+    "1.0.5",
+    "1.0.4",
+    "1.0.3",
+    "1.0.1",
+    "0.3.6"
+  ]
+}

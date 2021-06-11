@@ -1,12 +1,11 @@
 ---
 title: Tracker SoM datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 4
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(013)</sup>
+# Tracker SoM Datasheet <sup>(015B1)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -22,7 +21,7 @@ description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 
 The AssetTracker SoM is a System-on-a-Module (SoM) with:
 
-- LTE Cat 1 (EMEAA, Europe only at this time) or LTE Cat M1 (North America) cellular modem
+- LTE Cat 1 (selected countries in the EMEAA region) or LTE Cat M1 (North America) cellular modem
 - GNSS (supports GPS, SBAS, QZSS, GLONASS, BeiDou, and Galileo) with up to 1.8m accuracy and untethered dead-reckoning 
 - Support for CAN bus and 5V power for CAN devices
 - Built-in Inertial Measurement Unit (IMU)
@@ -31,7 +30,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
 | Model | Region |
 | :---- | :---   | 
 | T402 / T404 | North America |
-| T523 / T524 | Europe/Middle East/Africa/Asia; Europe only at this time |
+| T523 / T524 | Europe/Middle East/Africa/Asia (not all countries supported at this time) |
 
 ---
 
@@ -43,12 +42,14 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * Support for battery-backup for almanac and ephemeris data
  * Quectel BG96-MC modem (T402 / T404)
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
-  * LTE FDD bands supported: B2，B4，B5, B12，B13, B14, B25，B26
- * Quectel EG91-EX modem (T523 / T524)
+  * LTE FDD bands supported: B1, B2，B3, B4，B5, B8, B12，B13, B18, B19, B20, B28
+   Quectel EG91-EX modem (T523 / T524)
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
   * Cat 1 bands supported: B1, B3, B7, B8, B20, B28
-  * Support for Europe only at this time
+  * 2G and 3G fallback (900, 1800, and 2100 MHz)
+  * Support for Europe only (T523)
+  * Support for Europe, Australia, and New Zealand (T524) at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM in SoC
@@ -865,17 +866,21 @@ The WIFI_BOOT pin enables programming mode.
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 |
-|     | EGPRS |
 | LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 12 (700 MHz)  |
 | | Band 13 (700 MHz)  |
-| | Band 14 (700 MHz)  |
+| | Band 28 (700 MHz)  |
+| | Band 20 (800 MHz)  |
 | | Band 5 (850 MHz)   |
+| | Band 18 (850 MHz)  |
+| | Band 19 (850 MHz)  |
 | | Band 26 (850 MHz)  |
+| | Band 8 (900 MHz)   |
 | | Band 4 (1700 MHz)  |
+| | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz)  |
-| | Band 25 (1900 MHz)  |
-| GSM Bands | EGSM850 (850 MHz) |
-| | DCS1900 (1900 MHz) |
+| | Band 25 (1900 MHz) |
+| | Band 1 (2100 MHz)  |
 
 #### ESP32
 
@@ -924,7 +929,7 @@ These specifications are based on the nRF52840 datasheet.
 
 - Rise and fall times based on simulations
 
-- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/tracker-som/#pinsetdrivestrength-) function.
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/cards/firmware/input-output/pinsetdrivestrength/) function.
 
 
 ## Mechanical specifications
@@ -1105,7 +1110,7 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Albania | T524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Australia | T524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Belarus | T524 | 2G, 3G, Cat1 | A1, MTS |
+| Belarus | T524 | 2G, 3G, Cat1 | A1 |
 | Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
 | Bulgaria | T524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
@@ -1131,7 +1136,6 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Malta | T524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Mexico | T404 | M1 | AT&T |
 | Moldova | T524 | 2G, 3G, Cat1 | Moldcell, Orange |
-| Monaco | T524 | 2G, 3G, Cat1 | Monaco Telecom |
 | Montenegro | T524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Netherlands | T524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | T524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
@@ -1217,3 +1221,5 @@ The bootloader allows you to easily update the user application via several diff
 | 011      | 2002 Oct 01 | RK | Fixed VIN maximum voltage in text (is 17V not 12V) |
 | 012      | 2021 Feb 03 | RK | Change CAN output current to 370 mA |
 | 013      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
+| 014      | 2021 May 04 | RK | Added 2G/3G fallback information for T523/T524 |
+| 015      | 2021 May 28 | RK | Corrected band list for T402/T404 (BG96) |

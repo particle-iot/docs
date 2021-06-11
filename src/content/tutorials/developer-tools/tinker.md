@@ -1,9 +1,8 @@
 ---
 title: Tinker & Mobile App
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
 devices: [ photon,electron,argon,boron,xenon]
-order: 23
 ---
 
 # Tinkering with "Tinker" - {{device}}

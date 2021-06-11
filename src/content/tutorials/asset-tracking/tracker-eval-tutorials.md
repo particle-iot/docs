@@ -1,9 +1,9 @@
 ---
 title: Tracker Eval Board Tutorials
 columns: two
-layout: tutorials.hbs
-order: 60
+layout: commonTwo.hbs
 description: Adding features to the Tracker Evaluation Board
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 
 # Tracker Eval Board Tutorials
@@ -22,6 +22,23 @@ Connect the sensor to the 4-pin ribbon cable and the other end to the evaluation
 
 ### Getting the Tracker Edge Firmware
 
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/tracker/Temperature.cpp" project="tracker-temperature" libraries="/assets/files/tracker/Temperature.dep"}}
+
+- Extract **tracker-temperature.zip** in your Downloads directory 
+- Open the **tracker-temperature** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+
+#### Manually
+
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -39,16 +56,13 @@ git submodule update --init --recursive
 - Run **Particle: Configure Workspace for Device**, select version 1.5.4-rc.1, 2.0.0-rc.3, or later, Tracker, and your device.
 - Run **Particle: Compile and Flash**.
 
-### Add the libraries
+#### Add the libraries
 
 From the command palette in Workbench, **Particle: Install Library** then enter **Grove_Temperature_And_Humidity_Sensor**. Repeat for **TemperatureHumidityValidatorRK**. 
 
 If you prefer to edit project.properties directly, add these:
 
-```
-dependencies.Grove_Temperature_And_Humidity_Sensor=1.0.7
-dependencies.TemperatureHumidityValidatorRK=0.0.1
-```
+{{> codebox content="/assets/files/tracker/Temperature.dep" height="100"}}
 
 The first library is the interface for the temperature sensor. 
 
@@ -56,82 +70,7 @@ Because the sensor has a tendency to return incorrect values but does not includ
 
 ### The Full Source
 
-```cpp
-#include "Particle.h"
-
-#include "tracker_config.h"
-#include "tracker.h"
-
-#include "Grove_Temperature_And_Humidity_Sensor.h"
-#include "TemperatureHumidityValidatorRK.h"
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_INFO },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-// Library: Grove_Temperature_And_Humidity_Sensor
-DHT tempSensor(A1);
-
-// Library: TemperatureHumidityValidatorRK
-TemperatureHumidityValidator validator;
-
-// Sample the temperature sensor every 2 seconds. This is done so the outlier values can be filtered out easily.
-const unsigned long CHECK_PERIOD_MS = 2000;
-unsigned long lastCheck = 0;
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
-
-
-void setup()
-{
-    Tracker::instance().init();
-    
-    // Callback to add key press information to the location publish
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
-
-    // Initialize temperature sensor
-    tempSensor.begin();
-
-    Particle.connect();
-}
-
-void loop()
-{
-    Tracker::instance().loop();
-
-    if (millis() - lastCheck >= CHECK_PERIOD_MS) {
-        lastCheck = millis();
-
-        validator.addSample(tempSensor.getTempCelcius(), tempSensor.getHumidity());
-
-        // Log.info("tempC=%f tempF=%f humidity=%f", validator.getTemperatureC(), validator.getTemperatureF(), validator.getHumidity());
-    }
-}
-
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
-{
-    float tempC = validator.getTemperatureC();
-    if (!isnan(tempC)) {
-        writer.name("temp").value(tempC, 2);
-    }
-
-    float hum = validator.getHumidity();
-    if (!isnan(hum)) {
-        writer.name("hum").value(hum, 1);
-    }
-
-}
-```
+{{> codebox content="/assets/files/tracker/Temperature.cpp" format="cpp" height="500"}}
 
 ### The Details
 
@@ -285,6 +224,22 @@ Instead of using D0/D1 for I2C like on other Particle devices, in this case we'l
 
 Note: All GPIO, ADC, and peripherals such as I2C, Serial, and SPI are 3.3V maximum and are **not** 5V tolerant. You must never use pull-ups to 5V on the I2C interface!
 
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/tracker/BME280.cpp" project="tracker-bme280" libraries="/assets/files/tracker/BME280.dep"}}
+
+- Extract **tracker-bme280.zip** in your Downloads directory 
+- Open the **tracker-bme280** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
+
 - Start with the base Tracker Edge firmware
 - Add and copy the **Adafruit_BME280_RK** library into the project:
 
@@ -295,74 +250,8 @@ $ particle library copy Adafruit_BME280_RK
 
 - Here's the source:
 
-```cpp
-#include "Particle.h"
+{{> codebox content="/assets/files/tracker/BME280.cpp" format="cpp" height="500"}}
 
-#include "tracker_config.h"
-#include "tracker.h"
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(PLATFORM_ID);
-PRODUCT_VERSION(1);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_INFO },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-#include "Adafruit_BME280.h"
-
-
-// Temperature, pressure, and humidity sensor
-Adafruit_BME280 bme(Wire3);
-bool hasSensor = false;
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
-
-void setup()
-{
-    // waitFor(Serial.isConnected, 10000);
-    // delay(2000);
-
-    Tracker::instance().init();
-
-    // Disable Serial1 and enable Wire3 (I2C) on the multi-function pins 
-    Serial1.end();
-    Wire3.begin();
-
-    // Initialize the BME280 sensor (I2C)
-    hasSensor = bme.begin(0x77);
-    Log.info("hasSensor=%d", hasSensor);
-
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
-
-
-    Particle.connect();
-}
-
-void loop()
-{
-    Tracker::instance().loop();
-}
-
-void locationGenerationCallback(JSONWriter &writer, 
-    LocationPoint &point, const void *context)
-{
-    if (hasSensor) {
-        writer.name("temp").value(bme.readTemperature(), 2); // degrees C
-        writer.name("pres").value(bme.readPressure() / 100.0, 2); // hPA
-        writer.name("hum").value(bme.readHumidity(), 2); // Relative humidity %        
-    }
-    else {
-        Log.info("no sensor");
-    }
-}
-
-```
 
 Most of it is boilerplate, but looking in more closely:
 

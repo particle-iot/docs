@@ -1,8 +1,7 @@
 ---
 title: AN011 Publish to Google Sheets
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 111
 ---
 # AN011 - Publish to Google Sheets
 

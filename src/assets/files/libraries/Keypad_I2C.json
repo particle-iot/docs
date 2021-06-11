@@ -1,0 +1,69 @@
+{
+  "type": "libraries",
+  "id": "Keypad_I2C",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Keypad_I2C/archive/0.2.11.tar.gz"
+  },
+  "attributes": {
+    "name": "Keypad_I2C",
+    "version": "0.2.11",
+    "installs": 7242,
+    "author": "Evan Simkowitz <esimkowitz@wustl.edu>, Mark Stanley <mstanley@technologist.com>, Alexander Brevig <alexanderbrevig@gmail.com>, Sandro Lange",
+    "maintainer": "Evan Simkowitz <esimkowitz@wustl.edu>",
+    "sentence": "Particle IDE library for using a keypad with an I2C I/O expander",
+    "paragraph": "Pins on Photons are scarce! Don't waste your pins on a keypad when you can connect it over I2C. This library allows makers to integrate a keypad into their project using two simple wires. Currently works with the Adafruit MCP23008 and MCP23017 I2C controllers.",
+    "url": "https://github.com/esimkowitz/Particle-Keypad-I2C",
+    "repository": "https://github.com/esimkowitz/Particle-Keypad-I2C.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "k",
+  "cardUrl": "/cards/libraries/k/Keypad_I2C",
+  "versions": {
+    "0.2.11": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "HelloKeypad": true
+          },
+          "electron": {
+            "HelloKeypad": true
+          },
+          "argon": {
+            "HelloKeypad": true
+          },
+          "boron": {
+            "HelloKeypad": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "HelloKeypad": true
+          },
+          "electron": {
+            "HelloKeypad": true
+          },
+          "argon": {
+            "HelloKeypad": true
+          },
+          "boron": {
+            "HelloKeypad": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Particle-Keypad-I2C\n============\nCopyright (c) 2017, Evan Simkowitz\n\nThe Key library is licensed under LGPLv2.1. The Keypad-I2C library is licensed under GPLv3. The Adafruit_MCP23008 library is under a BSD license. The Adafruit_MCP23017 library is under \na BSD license.\n\nParticle-Keypad-I2C is Evan Simkowitz's adaptation of Sandro Lange's Spark Core port of Alexander Brevig and Mark Stanley's Keyboard Arduino library. The Adafruit_MCP23008 library is Evan Simkowitz's Particle IDE port of Limor Fried/Ladyada's library for Adafruit Industries. The Adafruit_MCP23017 library is Paul Kourany's Particle IDE port of Limor Fried/Ladyada's library for Adafruit Industries.\n\nThis library allows for operation of a keypad over I2C. This library is compatible with the following Particle boards: Photon, P1, Electron, Core. Currently the supported I2C chips are the MCP23017 and MCP23008.\n\nI plan to add support for more I2C chips in the future so stay tuned! That said, if anyone wants to help me with that, I would be much obliged! Enjoy and please send pull requests if you add any functionality. \n",
+  "allVersions": [
+    "0.2.11",
+    "0.1.11",
+    "0.1.10",
+    "0.1.9",
+    "0.1.8",
+    "0.1.7",
+    "0.1.6",
+    "0.1.5"
+  ]
+}

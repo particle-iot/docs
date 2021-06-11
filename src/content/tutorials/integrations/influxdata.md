@@ -1,8 +1,7 @@
 ---
 title: InfluxData
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 130
 description: Connecting InfluxData to your Particle IoT device using the Particle Cloud
 ---
 
@@ -135,7 +134,7 @@ service_address = ":1619"
 #   [inputs.webhooks.papertrail]
 #     path = "/papertrail"
 [inputs.webhooks.particle]
-  path = "/particle”
+  path = "/particle"
 ```
 
 Then restart Telegraf

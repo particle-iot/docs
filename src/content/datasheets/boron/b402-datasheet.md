@@ -1,12 +1,11 @@
 ---
-title: B Series B402 datasheet
-layout: datasheet.hbs
+title: B Series B404/B402 datasheet
+layout: commonTwo.hbs
 columns: two
-order: 2
-description: Datasheet for the Particle B Series B402 SoM, Gen 3 cellular LTE Cat M1
+description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B402 Datasheet <sup>(008)</sup>
+# B404/B402 Datasheet <sup>(012)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -27,7 +26,8 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 ### Features
 
  * u-blox SARA-R410-02B LTE modem
-  * LTE Cat M1 module with global hardware support (MVNO support for US only) 
+  * LTE Cat M1 module
+  * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
   * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
  * Nordic Semiconductor nRF52840 SoC 
@@ -189,9 +189,9 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 37 | A3 | ADC3 | IO | P0.29| Analog input ADC3<sup>2</sup>, and digital GPIO. |
 | 38 | D10 | RX | IO | P0.08 | Primarily used as UART RX, but can also be used as a digital GPIO.	 | 
 | 39 | AGND | AGND | POWER | | System analog ground. |
-| 40 | D3 | RESERVED<sup>3</sup> | IO | P1.1 | UART flow control interface CTS, SCL1 (Wire1), SPI1 MOSI, and digital only GPIO. |
+| 40 | D3 | RESERVED<sup>3</sup> |IO | P1.1 | UART flow control CTS, SCL1 (Wire1), SPI1 MOSI, digital only GPIO. |
 | 41 | A4 | RESERVED<sup>3</sup> |IO | P0.30 | Analog input ADC4<sup>2</sup>, and digital GPIO. |
-| 42 | D2 | RESERVED<sup>3</sup> |IO | P1.2 | UART flow control interface RTS, SDA1 (Wire1), SPI1 SCK, and digital only GPIO. |
+| 42 | D2 | RESERVED<sup>3</sup> | IO | P1.2 | UART flow control RTS, SDA1 (Wire1), SPI1 SCK, digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | P0.31 | Analog input ADC5<sup>2</sup>, and digital GPIO.|
 | 44 | u-blox USB D+ | SOM0 | IO | | Data+ pin of the R410M USB port.|
 | 45 | A6 | RESERVED<sup>3</sup> | IO | P0.5| Analog input ADC6<sup>2</sup>, and digital GPIO. |
@@ -237,6 +237,18 @@ By default, the Tinker application firmware enables the use of the bq24195 PMIC 
 ```
 System.setPowerConfiguration(SystemPowerConfiguration());
 ```
+
+If you are using Ethernet with the B Series SoM, the following pins are used by Ethernet:
+
+| Device OS Pin | M.2 Pin | Ethernet Pin  |
+|:-------------:|:-------:|:--------------------------|
+| MISO          | 50      | SPI MISO                  |
+| MOSI          | 52      | SPI MOSI                  |
+| SCK           | 54      | SPI SCK                   |
+| A7            | 47      | nRESET                    |
+| D22           | 62      | nINTERRUPT                |
+| D8            | 48      | nCHIP SELECT              |
+
 
 ### LED status
 
@@ -396,7 +408,7 @@ These specifications are based on the nRF52840 datasheet.
 
 - Rise and fall times based on simulations
 
-- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/boron/#pinsetdrivestrength-) function.
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/cards/firmware/input-output/pinsetdrivestrength/) function.
 
 ## Mechanical specifications
 
@@ -482,6 +494,7 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 {{imageOverlay src="/assets/images/b-series/schematic-conn.png" alt="M.2 Connector"}}
 
+Note: The labels for CTS and RTS are reversed in this schematic.
 
 ### SIM and Flash
 
@@ -546,3 +559,7 @@ The bootloader allows you to easily update the user application via several diff
 | 006      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
 | 007      | 03-Feb-2021 | RK | Split u-blox schematics into two images |
 | 008      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
+| 009      | 23-Mar-2021 | RK | Pins 40 and 42 functions were reversed |
+| 010      | 26-Apr-2021 | RK | Added B404 model number |
+| 011      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
+| 012      | 19-May-2021 | RK | List Ethernet reserved pins |

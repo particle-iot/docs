@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "HC_SR04",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/HC_SR04/archive/0.0.12.tar.gz"
+  },
+  "attributes": {
+    "name": "HC_SR04",
+    "version": "0.0.12",
+    "installs": 50345,
+    "license": "MIT",
+    "author": "Simon Monk <simon@monkmakes.com>",
+    "sentence": "A library for the HC-SR04 ultrasonic rangefinder",
+    "url": "https://github.com/simonmonk/spark_hc_sr04",
+    "repository": "https://github.com/simonmonk/spark_hc_sr04.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/HC_SR04",
+  "versions": {
+    "0.0.12": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "HC_SR04_Variables": true
+          },
+          "electron": {
+            "HC_SR04_Variables": true
+          },
+          "argon": {
+            "HC_SR04_Variables": true
+          },
+          "boron": {
+            "HC_SR04_Variables": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "HC_SR04_Variables": true
+          },
+          "electron": {
+            "HC_SR04_Variables": true
+          },
+          "argon": {
+            "HC_SR04_Variables": true
+          },
+          "boron": {
+            "HC_SR04_Variables": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Spark_HC_SR04\nA Spark Photon/Core library for the HC-SR04 Ultrasonic Rangefinder\n",
+  "allVersions": [
+    "0.0.12",
+    "0.0.11",
+    "0.0.10"
+  ]
+}

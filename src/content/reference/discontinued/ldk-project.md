@@ -1,8 +1,7 @@
 ---
 title: Leak Detection Kit
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: two
-order: 50
 ---
 ## Getting started with leak detection
 

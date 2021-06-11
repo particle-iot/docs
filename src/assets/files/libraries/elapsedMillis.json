@@ -1,0 +1,62 @@
+{
+  "type": "libraries",
+  "id": "elapsedMillis",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/elapsedMillis/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "elapsedMillis",
+    "version": "0.0.2",
+    "installs": 63722,
+    "license": "Unknown",
+    "author": "Paul Kourany/PJRC.COM",
+    "sentence": "elapsedMillis for Particle devices",
+    "url": "https://github.com/pkourany/elapsedMillis",
+    "repository": "https://github.com/pkourany/elapsedMillis.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/cards/libraries/e/elapsedMillis",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "elapsedMillisDemo": true
+          },
+          "electron": {
+            "elapsedMillisDemo": true
+          },
+          "argon": {
+            "elapsedMillisDemo": true
+          },
+          "boron": {
+            "elapsedMillisDemo": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "elapsedMillisDemo": true
+          },
+          "electron": {
+            "elapsedMillisDemo": true
+          },
+          "argon": {
+            "elapsedMillisDemo": true
+          },
+          "boron": {
+            "elapsedMillisDemo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "elapsedMillis\n=============\n\n- Jan 2017, updated to Libraries 2.0\n- Adapted for Particle devices\n\nElapsed time types - for easy-to-use measurements of elapsed time\nhttp://www.pjrc.com/teensy/\nCopyright (c) 2011 PJRC.COM, LLC\n\nThese special variable types automatically increase as time elapses.\nIt's easy to check if a certain time has elapsed, while your program\nperforms other work or checks for user input. It is also very to handle\nmultiple tasks requiring different delays.\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

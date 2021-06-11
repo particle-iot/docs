@@ -1,9 +1,8 @@
 ---
 word: Prerequisites
 title: Prerequisites
-order: 2
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Before you start

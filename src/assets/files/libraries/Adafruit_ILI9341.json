@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_ILI9341",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_ILI9341/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_ILI9341",
+    "version": "1.0.3",
+    "installs": 32953,
+    "author": "Paupl Kourany / Adafruit",
+    "maintainer": "Paul Kourany / Adafruit <info@adafruit.com>",
+    "sentence": "Library for Adafruit ILI9341 displays using Adafruit_mfGFX",
+    "paragraph": "Library for Adafruit ILI9341 displays using Adafruit_mfGFX by Paul Kourany",
+    "category": "Display",
+    "url": "https://github.com/pkourany/Adafruit_ILI9341_IDE",
+    "repository": "https://github.com/pkourany/Adafruit_ILI9341_IDE.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_ILI9341",
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "graphicstest": true
+          },
+          "electron": {
+            "graphicstest": true
+          },
+          "argon": {
+            "graphicstest": true
+          },
+          "boron": {
+            "graphicstest": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "graphicstest": true
+          },
+          "electron": {
+            "graphicstest": true
+          },
+          "argon": {
+            "graphicstest": true
+          },
+          "boron": {
+            "graphicstest": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "This is a library for the Adafruit ILI9341 display products\r\n\r\nAdapted for Particle devices and to use Adafruit_mfGFX\r\nmultifont library by Paul Kourany\r\n\r\nThis library works with the Adafruit 2.8\" Touch Shield V2 (SPI)\r\n  ----> http://www.adafruit.com/products/1651\r\n \r\nCheck out the links above for our tutorials and wiring diagrams.\r\nThese displays use SPI to communicate, 4 or 5 pins are required\r\nto interface (RST is optional).\r\n\r\nAdafruit invests time and resources providing this open source code,\r\nplease support Adafruit and open-source hardware by purchasing\r\nproducts from Adafruit!\r\n\r\nWritten by Limor Fried/Ladyada for Adafruit Industries.\r\nMIT license, all text above must be included in any redistribution\r\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "0.9.4",
+    "0.9.1"
+  ]
+}

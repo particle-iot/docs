@@ -1,8 +1,7 @@
 ---
 title: AN010 Finite State Machines
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 110
 ---
 # AN010 Finite State Machines
 
@@ -27,7 +26,7 @@ Author: Rick
 
 This is the simplest example of a state machine, which we'll walk through:
 
-{{codebox content="/assets/files/app-notes/AN010/01-Simple/01-Simple.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN010/01-Simple/01-Simple.cpp" format="cpp" height="500"}}
 
 
 This is just the standard stuff to set the modes:
@@ -234,7 +233,7 @@ Upon waking up from sleep, we go into `STATE_WAIT_CONNECTED` state. We'll almost
 
 This example just shows what the code would look like if we didn't use a state machine. For a simple example like this it may look cleaner, but as your code gets more complex it can get unwieldy quickly!
 
-{{codebox content="/assets/files/app-notes/AN010/02-Linear/02-Linear.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN010/02-Linear/02-Linear.cpp" format="cpp" height="500"}}
 
 One example of the subtle gotchas that can occur: Say you decide to enable the `ApplicationWatchdog`. In each of the two inner delay loops you'd also have to add a call to `checkin()` otherwise the device could end up resetting if it was having trouble connecting. That's not necessary in the state machine examples because the code returns from `loop()` frequently.
 
@@ -242,7 +241,7 @@ One example of the subtle gotchas that can occur: Say you decide to enable the `
 
 This is basically the same as the **01-Simple** example except if uses an `if` statement instead of switch.
 
-{{codebox content="/assets/files/app-notes/AN010/03-If-Statement/03-If-Statement.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN010/03-If-Statement/03-If-Statement.cpp" format="cpp" height="500"}}
 
 
 ```
@@ -270,7 +269,7 @@ It's mostly just a matter of preference.
 
 While this example is pretty simple, you can imagine if you have a complex program, putting everything in `loop()` with a `switch` or `if` statement can get unwieldy!
 
-{{codebox content="/assets/files/app-notes/AN010/04-Case-Function/04-Case-Function.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN010/04-Case-Function/04-Case-Function.cpp" format="cpp" height="500"}}
 
 One common solution to this is to separate every state out into a separate function.
 
@@ -316,7 +315,7 @@ void stateWaitConnected() {
 
 One annoyance of the **04-Case-Function** example is that every time you add a new state you need to add an enum value, a case in the switch statement, and a function.
 
-{{codebox content="/assets/files/app-notes/AN010/05-Function-Pointer/05-Function-Pointer.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN010/05-Function-Pointer/05-Function-Pointer.cpp" format="cpp" height="500"}}
 
 One solution to this is to just dispense with the enum and use function pointers. This is used instead of the `State` variable in the previous examples.
 
@@ -368,7 +367,7 @@ void loop() {
 
 We have a new header file `MainStateMachine.h`. Here's what's in it:
 
-{{codebox content="/assets/files/app-notes/AN010/06-Class/MainStateMachine.h" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN010/06-Class/MainStateMachine.h" format="cpp" height="500"}}
 
 You normally declare the `MainStateMachine` as a global variable in your main source file. You should avoid doing much in the constructor, as there are limitations on what is safe at [global object construction time](https://docs.particle.io/reference/device-os/firmware/#global-object-constructors).
 
@@ -425,7 +424,7 @@ std::function<void(MainStateMachine&)> stateHandler = 0;
 
 ### MainStateMachine.cpp
 
-{{codebox content="/assets/files/app-notes/AN010/06-Class/MainStateMachine.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN010/06-Class/MainStateMachine.cpp" format="cpp" height="500"}}
 
 The **MainStateHander.cpp** file has as few interesting features.
 

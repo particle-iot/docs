@@ -9,7 +9,7 @@
  * That's it!
  */
 'use strict';
-
+ 
 var Metalsmith = require('metalsmith');
 var markdown = require('metalsmith-markdown');
 var layouts = require('metalsmith-layouts');
@@ -18,13 +18,13 @@ var moveUp = require('metalsmith-move-up');
 var less = require('metalsmith-less');
 var ignore = require('metalsmith-ignore');
 var permalinks = require('metalsmith-permalinks');
-var collections = require('metalsmith-collections');
 var cleanCSS = require('metalsmith-clean-css');
 var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
 var deviceFeatureFlags = require('./device_feature_flags');
+var planLimits = require('./planLimits');
 var redirects = require('./redirects');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
@@ -45,11 +45,17 @@ var fs = require('fs');
 var sitemap = require('./sitemap.js');
 var buildZip = require('./buildZip.js');
 var carriersUpdate = require('./carriers-update/carriers-update.js');
-
+var trackerSchema = require('./tracker-schema.js');
+var refCards = require('./refcards.js');
+var libraries = require('./libraries.js');
+var deviceRestoreInfo = require('./device-restore-info.js');
+const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
+const systemVersion = require('./system-version.js');
+ 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
 prettify.register(handlebars);
-
+  
 //disable autolinking
 function noop() { }
 noop.exec = noop;
@@ -89,9 +95,30 @@ exports.metalsmith = function () {
       'content/languages/**/*',
       'assets/images/**/*.ai'
     ]))
-    .use(buildZip({
-      dir: '../src/assets/files/app-notes/'
-    }))
+    .use(msIf(
+      environment === 'development',
+      buildZip({
+        dirs: [
+          '../src/assets/files/app-notes/',
+          '../src/assets/files/projects/',
+        ],
+        tmpDir: '../tmp'
+    })))
+    .use(msIf(
+      environment === 'development',
+      trackerSchema({
+        dir: '../src/assets/files/tracker/',
+        officialSchema: 'tracker-edge.json',        
+        defaultSchema: 'default-schema.json',
+        fragments: [
+          'engine-schema',
+          'test-schema'
+        ]
+    })))
+    .use(msIf(
+      environment === 'development',
+      systemVersion({
+      })))
     // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
@@ -114,6 +141,10 @@ exports.metalsmith = function () {
         ]
       })
     )
+    .use(deviceRestoreInfo({
+      sourceDir: '../src',
+      outputFile: '../src/assets/files/deviceRestore.json',
+    }))
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({
       destFile: 'content/reference/SDKs/javascript.md',
@@ -128,7 +159,12 @@ exports.metalsmith = function () {
     }))
     // Add properties to files that match the pattern
     .use(fileMetadata([
-      { pattern: 'content/**/*.md', metadata: { assets: '/assets', branch: gitBranch, noScripts: noScripts } }
+      { pattern: 'content/**/*.md', metadata: { 
+          assets: '/assets', 
+          branch: gitBranch, 
+          noIndex: (gitBranch == 'staging' || gitBranch == 'prerelease'), 
+          noScripts: noScripts,
+          srcLocal: path.join(__dirname, '../src') } }
     ]))
     // Inject the dnsTable into introduction.md so it can be used by the dnsTable helper
     .use(fileMetadata([
@@ -160,105 +196,26 @@ exports.metalsmith = function () {
     .use(helpers({
       directory: '../templates/helpers'
     }))
-    // Group files into collections and add collection metadata
-    // This plugin is complex and buggy.
-    // It causes the duplicate nav bar bug during development with livereload
-    .use(collections({
-      quickstart: {
-        pattern: 'quickstart/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      reference: {
-        pattern: 'reference/:section/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'device-os',
-          'developer-tools',
-          'device-cloud',
-          'SDKs',
-          'asset-tracking',
-          'hardware',
-          'discontinued'
-        ]
-      },
-      tutorials: {
-        pattern: 'tutorials/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'device-os',
-          'developer-tools',
-          'cellular-connectivity',
-          'device-cloud',
-          'diagnostics',
-          'product-tools',
-          'integrations',
-          'asset-tracking',
-          'hardware-projects',
-          'learn-more'
-        ]
-      },
-      datasheets: {
-        pattern: 'datasheets/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'asset-tracking',
-          'boron',
-          'electron',
-          'wi-fi',
-          'certifications',
-          'accessories',
-          'app-notes',
-          'discontinued'
-        ]
-      },
-      community: {
-        pattern: 'community/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      workshops: {
-        pattern: 'workshops/:section/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'particle-workshops',
-          'mesh-101-workshop',
-          'photon-maker-kit-workshop'
-        ]
-      },
-      support: {
-        pattern: 'support/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'general',
-          'particle-devices-faq',
-          'particle-tools-faq',
-          'shipping-and-returns',
-          'wholesale-store',
-          'troubleshooting'
-        ]
-      },
-      supportBase: {
-        pattern: 'support/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      quickstart: {
-        pattern: 'quickstart/*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      },
-      landing: {
-        pattern: '*md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-        ]
-      }
-    }))//end of collections/sections
+    .use(planLimits({
+      config: '../config/planLimits.json'
+    }))
+    .use(refCards({
+      contentDir: '../src/content',
+      sources: [
+        'reference/device-os/firmware.md'
+      ],
+      outputDir: 'cards',
+      cardMapping: '../config/card_mapping.json',
+      redirects: '../config/redirects.json'
+    }))
+    .use(libraries({
+      sourceDir: '../src/assets/files/libraries',
+      searchIndex: '../build/assets/files/librarySearch.json',
+      redirects: '../config/redirects.json'
+    }))
+    .use(navMenuGenerator({      
+      contentDir: '../src/content',
+    }))
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link
     .use(fork({
@@ -290,10 +247,12 @@ exports.metalsmith = function () {
       omitExtensions: ['.md'],
       omitTrailingSlashes: false
     }))
-    .use(function(files, metalsmith, done) {
+    .use(msIf(
+      environment === 'development',
+      function(files, metalsmith, done) {
       carriersUpdate.doUpdate(__dirname);
       done();
-    })
+    }))
     // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
     // any other files with a .hbs extension in the src folder
     .use(inPlace({
@@ -389,8 +348,10 @@ exports.server = function (callback) {
           '../templates/layouts/workshops.hbs': 'content/workshops/**/*.md',
           '../templates/layouts/landing.hbs': 'content/*.md',
           '../templates/layouts/main.hbs': 'content/index.md',
+          '../templates/helpers/**/*.hbs': 'content/**/*.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*': true,
+          '${source}/assets/files/**/*': true,
           '${source}/assets/images/**/*': true,
           '../config/device_features.json': 'content/**/*.md',
           '../api-service/src/**/*.js': 'content/reference/device-cloud/api.md',

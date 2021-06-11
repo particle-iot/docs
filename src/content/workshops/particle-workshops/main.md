@@ -1,6 +1,6 @@
 ---
 title: About Particle Workshops
-layout: workshops.hbs
+layout: commonTwo.hbs
 columns: two
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: B Series SoM First Board
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 120
 description: Tutorial for getting started making your first B Series M.2 SoM base board
 ---
 

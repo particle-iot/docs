@@ -1,8 +1,7 @@
 ---
 title: Introduction
-order: 1
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Introduction to the Particle Cloud for Particle IoT devices
 ---
 
@@ -44,7 +43,7 @@ Using feature like Particle Publish allows data to be sent to external servers u
 
 #### Particle.publish
 
-[Particle.publish](/reference/device-os/firmware/#particle-publish-) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
+[Particle.publish](/cards/firmware/cloud-functions/particle-publish/) allows an event to be sent from a device to the cloud, from the cloud to a device, or between devices. 
 
 When sent from the device to the cloud, publish can be used to send things like sensor data and trigger events on the cloud. Once in the cloud, the event can trigger a [webhook](/reference/device-cloud/webhooks/) that makes a connection to an external service or web server efficiently.
 
@@ -52,7 +51,7 @@ When sent from the device to the cloud, publish can be used to send things like 
 
 #### Particle.variable
 
-[Particle.variable](/reference/device-os/firmware/#particle-subscribe-) allows the cloud to query a value from the device.
+[Particle.variable](/cards/firmware/cloud-functions/particle-subscribe/) allows the cloud to query a value from the device.
 
 - For a publish, every time you publish, the data is sent up to the cloud.
 - For a variable, the current value is stored on the device, and is only sent when requested.
@@ -66,13 +65,13 @@ Depending on your situation, one or the other may be more efficient. Also note:
 
 #### Particle.subscribe
 
-[Particle.subscribe](/reference/device-os/firmware/#particle-subscribe-) allows a device to listen for an event from another device or the cloud.
+[Particle.subscribe](/cards/firmware/cloud-functions/particle-subscribe/) allows a device to listen for an event from another device or the cloud.
 
 Subscribing to private events is secure, as only devices in your account can send these events. Also, subscribe works across all connection types such as Wi-Fi and cellular, and does not require any firewall modifications for Wi-Fi networks in most cases.
 
 #### Particle.function
 
-[Particle.function](/reference/device-os/firmware/#particle-subscribe-) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
+[Particle.function](/cards/firmware/cloud-functions/particle-subscribe/) allows the cloud to send a request to a single device. This is handy if you want to control a device from the cloud side. 
 
 There is no ability for devices to send function calls to other devices; publish and subscribe should be used instead.
 
@@ -91,50 +90,11 @@ Updating your device firmware and Device OS can be done securely over the Partic
 
 ### Pricing Tiers
 
-#### Free Tier
-
-Cellular, Tracker, and Wi-Fi devices can be free to use!
-
-- Up to 100 devices, any mix of cellular and Wi-Fi
-- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
-- No credit card required
-- Products can be prototyped in the Free tier
-- Device communication is paused when the monthly limit is reached
-- Community support
-
-#### Growth Tier
-
-- A block includes 720K Data Operations (720,000) per month and up to 100 devices
-- Add as many blocks as you need for more Data Operations or more devices
-- No limit to the number of blocks you can purchase self-service
-- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased- Email support
-- Available in June 2021
-
-#### Enterprise Tier
-
-- Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
-- Data Operations and cellular data are pooled across all devices annually
-- Discounts for higher Enterprise tier commitments
-- [Contact sales](https://particle.io/sales/) for more information
+{{blurb name="tiers"}}
 
 ### Data Operations
 
-The central billing element for both cellular and Wi-Fi is the Data Operation:
-
-- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size (currently limited to 622 bytes per operation)
-- Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
-- Certain retransmissions, as described below
-
-<sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
-
-The following do **not** count against your Data Operations limit:
-
-- Over-the-air firmware updates do not count against your Data Operations limit
-- Internal events such as device vitals (beginning with "particle" or "spark") do not count against your Data Operations limit
-- Acknowledgements, session negotiation, keep-alives etc. do not count against your Data Operations limit
-- Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
-- Particle cloud API calls do not count against your Data Operations limit
+{{blurb name="dataoperations"}}
 
 {{> dataoperationscalc}}
 
@@ -142,12 +102,13 @@ The following do **not** count against your Data Operations limit:
 
 Blocks are a maximum number of Data Operations and devices per month in the Growth tier:
 
-- Up to 720K Data Operations (720,000)
-- Up to 100 devices
-- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased- Price varies for Wi-Fi, Cellular, and Tracker
+- Up to {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month 
+- Up to {{growthTierDevices}} devices
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
+- Price varies for Wi-Fi, Cellular, and Tracker
 - Add as many blocks are you need
 
-For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed 720K. 
+For example, if you have 150 devices you will need 2 blocks, even if your Data Operations do not yet exceed {{growthTierDataOperationsUnit}}. 
 
 Likewise, if you are using a million Data Operations per month, you will need 2 blocks, even of you have fewer than 100 devices.
 
@@ -155,7 +116,7 @@ Likewise, if you are using a million Data Operations per month, you will need 2 
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
-For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is {{freeTierDataOperationsCellularData}}, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
 
 ### Minimizing Data Operations
 
@@ -168,7 +129,7 @@ Rather than publish several independent variables, publish several related varia
 - Comma-separated values
 - JSON
 
-You're still limited to the 622 character maximum of a publish, but you can still store many values in a single publish.
+You're still limited to a maxmum publish size, but you can still store many values in a single publish. The limit is 622 to 1024 bytes of UTF-8 characters depending on Device OS version and sometimes the device; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
 
 #### Aggregate data by time
 
@@ -184,15 +145,6 @@ Or, if it changes by a significantly large amount for analog-like data using a c
 
 Or keep a mean value of samples and publish when the current sample deviates from the mean. This can be helpful if the value tends to creep up or down slowly and wouldn't trigger a change threshold, but accumulates over time.
 
-#### Use TCP
-
-For Wi-Fi devices in particular, large data transfers can be done using TCP to an external service.
-
-This also works over cellular, however you can still run into the cellular data cap if TCP is used extensively on cellular devices.
-
-#### Use UDP (on Wi-Fi)
-
-For a group of devices on a Wi-Fi LAN that need to communicate with each other, UDP or UDP multicast are good options. These provide a high data rate with a low latency, as the packets stay on the local LAN and do not have to go to the cloud. 
 
 ### Limits
 
@@ -216,9 +168,9 @@ There is no limit to the number of blocks you can purchase in the Growth tier, h
 
 #### What happens if I exceed the number of Data Operations?
 
-In the Free tier, if you need more Data Operations you will need to upgrade to the Growth tier. When you exceed 100K Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free tier. 
+In the Free tier, if you need more Data Operations you will need to upgrade to the Growth tier. When you exceed {{freeTierDataOperationsUnit}} Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free tier. 
 
-In the Growth tier, if you need more than 720K Data Operations across your fleet of devices per month, you can add another block.
+In the Growth tier, if you need more than {{growthTierDataOperationsUnit}} Data Operations across your fleet of devices per month, you can add another block.
 
 In the Enterprise tier, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
 
@@ -232,7 +184,7 @@ In the Enterprise tier, the amount of cellular data is pooled annually across al
 
 #### What is the maximum rate I can send data?
 
-[Publishes from a device](/reference/device-os/firmware/#particle-publish-) a limited to 1 per second, at the maximum publish payload size of 622 UTF-8 characters.
+[Publishes from a device](/cards/firmware/cloud-functions/particle-publish/) a limited to 1 per second, at the maximum publish payload size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/).
 
 There are no additional limits placed on webhooks. However, if the server you are sending to cannot process the data within 20 seconds or returns an error because it is overloaded, traffic to the server will be throttled, and the [events will be discarded](http://localhost:8080/reference/device-cloud/webhooks/#limits).
 
@@ -248,7 +200,7 @@ While there is no specific rate limit on variables and functions, there are prac
 | [Mobile SDK](/reference/SDKs/ios/#photon-setup-library) for white-label setup apps | &check; | &nbsp; |
 | USB configuration | &check; | &check; |
 | BLE configuration | &nbsp; | &check; |
-| [Soft AP](/reference/device-os/firmware/photon/#softap-http-pages) (configuration over Wi-Fi) | &check; | &nbsp; |
+| [Soft AP](/cards/firmware/softap-http-pages/softap-http-pages/) (configuration over Wi-Fi) | &check; | &nbsp; |
 | Static IP address support | &check; | &nbsp; |
 | WPA2 Enterprise support | &check; | &nbsp; |
 
@@ -300,7 +252,7 @@ The IP addresses used by the Particle cloud are subject to change without notice
 
 Gen 3 devices (Argon, Boron, B Series, Tracker SoM) and Gen 2 cellular devices (Electron, E Series) all use UDP port 5684, outbound. 
 
-While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/reference/device-os/firmware/argon/#particle-keepalive-) to keep the cloud connection active.
+While you rarely need to worry about this for cellular devices, for the Argon (Wi-Fi), if you are connecting from a network with a restrictive network firewall, the devices will connect to one of these IP addresses, port 5684, outbound. Like most UDP-based protocols (like DNS), your firewall generally creates a temporary port to allow packets back to the device without creating a permanent firewall port forwarding rule. The amount of time this port will remain active ranges from seconds to hours, and you may need to use [`Particle.keepAlive()`](/cards/firmware/cloud-functions/particle-keepalive/) to keep the cloud connection active.
 
 {{dnsTable key="udp"}}
 

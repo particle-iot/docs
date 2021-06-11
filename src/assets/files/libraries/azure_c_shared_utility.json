@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "azure_c_shared_utility",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/azure_c_shared_utility/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "azure_c_shared_utility",
+    "version": "0.0.3",
+    "installs": 614,
+    "license": "MIT",
+    "author": "dcristo@microsoft.com",
+    "sentence": "Experimental port - Azure C shared utility",
+    "url": "https://github.com/dcristoloveanu/azure-c-shared-utility-particleio",
+    "repository": "https://github.com/dcristoloveanu/azure-c-shared-utility-particleio.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/azure_c_shared_utility",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "main": false
+          },
+          "electron": {
+            "main": false
+          },
+          "argon": {
+            "main": false
+          },
+          "boron": {
+            "main": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Azure C Shared Utility\n\n*Warning: experimental port*\n\nazure-c-shared-utility is a C library providing common functionality for basic tasks (like string, list manipulation, IO, etc.).\n\nThis is a port of the library available at https://www.github.com/Azure/azure-c-shared-utility.git.",
+  "allVersions": [
+    "0.0.3"
+  ]
+}

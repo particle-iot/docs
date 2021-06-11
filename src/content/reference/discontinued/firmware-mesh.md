@@ -2,7 +2,6 @@
 title: Device OS API - Mesh
 layout: reference.hbs
 columns: three
-order: 12
 description: Reference for discontinued Mesh features
 ---
 
@@ -73,7 +72,7 @@ The return value is an int (integer), `SYSTEM_ERROR_NONE` if successful or `SYST
 
 `Mesh.on()` turns on the Mesh module. Useful when you've turned it off, and you changed your mind.
 
-Note that `Mesh.on()` does not need to be called unless you have changed the [system mode](/reference/device-os/firmware/#system-modes) or you have previously turned the Mesh module off.
+Note that `Mesh.on()` does not need to be called unless you have changed the [system mode](/cards/firmware/system-modes/system-modes/) or you have previously turned the Mesh module off.
 
 ### off()
 
@@ -177,7 +176,7 @@ void loop() {
 
 {{since when="1.5.0"}}
 
-You can also specify a value using [chrono literals](/reference/device-os/firmware/#chrono-literals), for example: `Mesh.setListenTimeout(5min)` for 5 minutes.
+You can also specify a value using [chrono literals](/cards/firmware/chrono-literals/chrono-literals/), for example: `Mesh.setListenTimeout(5min)` for 5 minutes.
 
 
 ### getListenTimeout()

@@ -14,45 +14,9 @@
     <div class='content-root'>
       <div class='menubar'>
 
-      <ul class="nav guide-menu" data-swiftype-index="false">
-        {{#each tutorials}}
-        <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
-          <h3 class="guide-section-titles" >{{{titleize section}}}</h3>
-            <ul type="1">
-              {{#each this}}
-                <li class="top-level {{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
-                  {{#page-equal ../../path.href ../../path.name path.href path.name}}
-                    <span>{{{title}}}</span>
-                    {{#if ../../../toc}}
-                      <i id="toggle-in-page-nav" class="ion-minus"></i>
-                    {{/if}}
-                  {{else}}
-                    <a href="{{path.href}}{{path.name}}">{{title}}</a>
-                  {{/page-equal}}
-                </li>
-                {{#page-equal ../../path.href ../../path.name path.href path.name}}
-                  {{#if ../../../toc}}
-                    <div class="in-page-toc-container">
-                      <ul class="nav in-page-toc show">
-                        {{#each ../../../../toc}}
-                        <li class="middle-level" data-nav="">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
-                          {{#if children}}
-                            <ul class="nav secondary-in-page-toc">
-                              {{#each children}}
-                                <li data-secondary-nav=""><a href="#{{id}}">{{{text}}}</a></li>
-                              {{/each}}
-                            </ul>
-                          {{/if}}
-                        {{/each}}
-                      </ul>
-                    </div>
-                  {{/if}}
-                {{/page-equal}}
-              {{/each}}
-            </ul>
-          </li>
-        {{/each}}
-      </ul>
+        <div class="navMenu" data-swiftype-index="false">
+            {{{navigation}}}
+        </div>
 
       </div>
       <div class="page-body">
@@ -76,11 +40,11 @@
         <table>
             <tr>
                 <td class="carrierFormLabel">Device:</td>
-                <td><select id="deviceList"></select></td>
+                <td><select id="deviceList" class="carrierListSelect"></select></td>
             </tr>
             <tr>
                 <td class="carrierFormLabel">Region:</td>
-                <td><select id="regionList"></select></td>
+                <td><select id="regionList" class="carrierListSelect"></select></td>
             </tr>
         </table>
     </form>
@@ -99,7 +63,7 @@
     <form>
         <div>
         <input type="radio" id="country2RegionRadio" name="country2Radio" value="region">
-        <label for="country2RegionRadio">Region <select id="country2RegionSel">
+        <label for="country2RegionRadio">Region <select id="country2RegionSel" class="carrierListSelect">
         </select></label>
         
         <input type="radio" id="country2CountryRadio" name="country2Radio" value="country">
@@ -129,7 +93,7 @@
           <tr>
               <td class="carrierFormLabel">Device Family:</td>
               <td>
-                  <select id="familyMapSelect">
+                  <select id="familyMapSelect" class="carrierListSelect">
                       <option value="tracker">Tracker</option>
                       <option value="b series">B Series SoM</option>
                       <option value="boron">Boron</option>
@@ -153,7 +117,7 @@
       <table>
         <tr>
           <td class="carrierFormLabel">Device:</td>
-          <td><select id="countryDetailDeviceList"></select></td>
+          <td><select id="countryDetailDeviceList" class="carrierListSelect"></select></td>
         </tr>
         <tr>
           <td class="carrierFormLabel">Country:</td>

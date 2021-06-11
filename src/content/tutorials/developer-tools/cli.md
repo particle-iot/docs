@@ -1,10 +1,9 @@
 ---
 word: CLI
 title: Command Line
-order: 22
 columns: two
 redirects: true
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Command line interface for managing your Particle devices for Windows, Mac OS, and Linux
 ---
 
@@ -311,6 +310,8 @@ The overall flow when consuming a library goes like this
 - compile your project - `particle compile`
 
 These commands are described in more details in [the CLI reference](/reference/developer-tools/cli/#particle-library).
+
+Instead of the text search in the CLI, you can also use the [web-based library search](/cards/libraries/search/).
 
 ### library search
 

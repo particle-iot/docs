@@ -1,0 +1,43 @@
+{
+  "type": "libraries",
+  "id": "RunningMedianST",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/RunningMedianST/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "RunningMedianST",
+    "version": "0.0.1",
+    "installs": 4702,
+    "license": "MIT",
+    "author": "Robert Mawrey <robert@sentientthings.com>",
+    "maintainer": "Robert Mawrey <robert@sentientthings.com>",
+    "sentence": "Sentient Things Running Median library for float and int32 values",
+    "paragraph": "Based on work by Rob Tillaart",
+    "category": "Other",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/RunningMedianST",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# RunningMedianST\r\nSentient Things Running Median Library\r\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

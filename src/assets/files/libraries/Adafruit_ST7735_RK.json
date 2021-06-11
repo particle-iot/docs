@@ -1,0 +1,64 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_ST7735_RK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_ST7735_RK/archive/1.2.8.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_ST7735_RK",
+    "version": "1.2.8",
+    "installs": 2532,
+    "author": "Adafruit",
+    "maintainer": "Adafruit <info@adafruit.com>",
+    "sentence": "This is a library for the Adafruit ST7735 and ST7789 SPI displays. Ported to Particle by rickkas7.",
+    "category": "Display",
+    "url": "https://github.com/rickkas7/Adafruit_ST7735_RK",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_ST7735_RK",
+  "versions": {
+    "1.2.8": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "BuildTest": true
+          },
+          "electron": {
+            "BuildTest": true
+          },
+          "argon": {
+            "BuildTest": true
+          },
+          "boron": {
+            "BuildTest": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "BuildTest": true
+          },
+          "electron": {
+            "BuildTest": true
+          },
+          "argon": {
+            "BuildTest": true
+          },
+          "boron": {
+            "BuildTest": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit-ST7735-RK\n\n*Port of Adafruit ST7735/ST7789 library for Particle devices*\n\nPorted from [Adafruit-ST7735-Library](https://github.com/adafruit/Adafruit-ST7735-Library), version 1.2.7.\n\nI've removed the examples because it's not possible to have dependencies for individual examples\nand the necessary libraries won't be included and the build will fail. Since other boards like\nthe miniTFTWing have their own examples, you should just test this library with those examples.\n\nYou can find the examples in the original library above if you need them.\n\n## Original ReadMe\n\nThis is a library for several Adafruit displays based on ST77* drivers.\n\n  Works with the Adafruit 1.8\" TFT Breakout w/SD card\n    ----> http://www.adafruit.com/products/358\n  The 1.8\" TFT shield\n    ----> https://www.adafruit.com/product/802\n  The 1.44\" TFT breakout\n    ----> https://www.adafruit.com/product/2088\n  as well as Adafruit raw 1.8\" TFT display\n    ----> http://www.adafruit.com/products/618\n \nCheck out the links above for our tutorials and wiring diagrams.\nThese displays use SPI to communicate, 4 or 5 pins are required to\ninterface (RST is optional).\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.\nMIT license, all text above must be included in any redistribution.\n\nRecent Arduino IDE releases include the Library Manager for easy installation. Otherwise, to download, click the DOWNLOAD ZIP button, uncompress and rename the uncompressed folder Adafruit_ST7735. Confirm that the Adafruit_ST7735 folder contains Adafruit_ST7735.cpp, Adafruit_ST7735.h and related source files. Place the Adafruit_ST7735 library folder your ArduinoSketchFolder/Libraries/ folder. You may need to create the Libraries subfolder if its your first library. Restart the IDE.\n\nAlso requires the Adafruit_GFX library for Arduino.\n\n# Version History\n\n### 1.2.8 (2020-08-02)\n\n- Upgrade to Adafruit_GFX_RK 1.5.8\n",
+  "allVersions": [
+    "1.2.8",
+    "1.2.7"
+  ]
+}

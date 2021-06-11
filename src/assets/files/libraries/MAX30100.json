@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "MAX30100",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MAX30100/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "MAX30100",
+    "version": "0.0.1",
+    "installs": 5033,
+    "license": "MIT",
+    "author": "Vignesh <viggi1000@gmail.com>",
+    "sentence": "Port of oxullo Intersecans library",
+    "url": "https://github.com/viggi1000/max30100_photon",
+    "repository": "https://github.com/viggi1000/max30100_photon.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MAX30100",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "MAX30100_Minimal": true
+          },
+          "electron": {
+            "MAX30100_Minimal": true
+          },
+          "argon": {
+            "MAX30100_Minimal": true
+          },
+          "boron": {
+            "MAX30100_Minimal": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "MAX30100_Minimal": true
+          },
+          "electron": {
+            "MAX30100_Minimal": true
+          },
+          "argon": {
+            "MAX30100_Minimal": true
+          },
+          "boron": {
+            "MAX30100_Minimal": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# max30100_photon\nPort of the Oxullo Interscans max30100 library for MAX30100 pulse ox, Heart Rate sensor for the Particle Photon.\n\nVerified to work on Photon, Not yet tested on Core or Electron.\n\nConnections are Vin-> 3.3V\n                Gnd->Gnd\n                SDA->D0\n                SCL->D1\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

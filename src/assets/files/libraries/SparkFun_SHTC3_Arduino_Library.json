@@ -1,0 +1,81 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_SHTC3_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_SHTC3_Arduino_Library/archive/1.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_SHTC3_Arduino_Library",
+    "version": "1.1.2",
+    "installs": 661,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "Library for the SHTC3 humidity and temperature sensor by Sensirion",
+    "paragraph": "Library for the SHTC3 humidity and temperature sensor by Sensirion. Read values raw or converted to floating point numbers with units. Enable/disable sleep mode while not being used",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_SHTC3_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_SHTC3_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_SHTC3_Arduino_Library",
+  "versions": {
+    "1.1.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example3_ChangingOptions": true,
+            "Example4_UsingCallback": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun SHTC3 Humidity and Temperature Sensor Library \n========================================\n\n[![SparkFun Humidity Sensor - SHTC3 (Qwiic)](https://cdn.sparkfun.com/assets/parts/1/5/3/3/0/16467-SparkFun_Humidity_Sensor_Breakout_-_SHTC3__Qwiic_-01.jpg)](https://www.sparkfun.com/products/16467)\n\n[*SparkFun Humidity Sensor - SHTC3 (Qwiic)*](https://www.sparkfun.com/products/16467)\n\n\nThis Arduino library allows you to take Humidity and Temperature readings using the SHTC3 sensor from Sensirion using the standard Wire (I2C) library built into Arduino. This means the library is compatible with any Arduino-compatible board that has I2C hardware. Key features of the library include the ability to return either raw ADC values or flaoting point values in %RH and deg C/deg F, data validity indicators based on CRC checking, and a unified return status format for easy error checking. For advanced users an on-return callback is implemented to illuminate the order of program execution. \n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE.\n* **library.properties** - General library properties for the Arduino package manager.\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-humidity-sensor-breakout---shtc3-qwiic-hookup-guide)** - Basic hookup guide for the Humidity Sensor - SHTC3 (Qwiic).\n\nProducts that use this Library \n---------------------------------\n* [SparkFun Humidity Sensor - SHTC3 (Qwiic)](https://www.sparkfun.com/products/16467)\n* [SparkX Humidity Sensor Breakout SHTC3 (Qwiic)](https://www.sparkfun.com/products/15074)\n\n\nVersion History\n---------------\n**1.0.0** - Initial release\n\nLicense Information\n-------------------\n\nThis product is _**open source**_!\n\nThe **code** is released under the GPL v3 license. See the included LICENSE.md for more information.\n\nDistributed as-is; no warranty is given.\n\n\\- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.1.2"
+  ]
+}

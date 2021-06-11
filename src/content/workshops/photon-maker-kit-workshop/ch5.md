@@ -1,9 +1,8 @@
 ---
 word: Controlling your devices from the cloud
 title: From Cloud to Device
-order: 6
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Session 5 - Controlling your devices from the cloud

@@ -3791,7 +3791,7 @@
 				{
 					"num":40,
 					"name":"D3",
-					"desc":"SPI1 MOSI, Serial1 CTS, PWM, GPIO, Wire1 SCL",
+					"desc":"SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3802,8 +3802,8 @@
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"spi":"SPI1 (MOSI)|MOSI. Use SPI1 object.",
-					"serial":"UART1_CTS|Options CTS hardware flow control for Serial1",
 					"i2c":"Wire1 (SCL)|SCL. Use Wire1 object.",
+					"serial":"UART1_CTS|Options CTS hardware flow control for Serial1",
 					"hardwarePin":"P1.01",
 					"somPin":"RESERVED"
 				},
@@ -3828,7 +3828,7 @@
 				{
 					"num":42,
 					"name":"D2",
-					"desc":"SPI1 SCK, Serial1 RTS, GPIO, Wire1 SDA",
+					"desc":"SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3839,8 +3839,8 @@
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"spi":"SPI1 (SCK)|SCK. Use SPI1 object.",
-					"i2c":"Wire1 (SDA)|SDA. Use Wire1 object.",
 					"serial":"UART1_RTS|Options RTS hardware flow control for Serial1",
+					"i2c":"Wire1 (SDA)|SDA. Use Wire1 object.",
 					"hardwarePin":"P1.02",
 					"somPin":"RESERVED"
 				},
@@ -4298,7 +4298,7 @@
 					"desc":"MODE button, has internal pull-up",
 					"isControl":true,
 					"is5VTolerant":false,
-					"hardwarePin":"P0.11",
+					"hardwarePin":"P0.25",
 					"somPin":"MODE"
 				},
 				{
@@ -4411,7 +4411,7 @@
 				{
 					"num":40,
 					"name":"D3",
-					"desc":"SPI1 MOSI, Serial1 CTS, PWM, GPIO, Wire1 SCL",
+					"desc":"SPI1 MOSI, Serial1 CTS, GPIO, Wire1 SCL",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4422,8 +4422,8 @@
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"spi":"SPI1 (MOSI)|MOSI. Use SPI1 object.",
-					"serial":"UART1_CTS|Options CTS hardware flow control for Serial1",
 					"i2c":"Wire1 (SCL)|SCL. Use Wire1 object.",
+					"serial":"UART1_CTS|Options CTS hardware flow control for Serial1",
 					"hardwarePin":"P1.01",
 					"somPin":"RESERVED"
 				},
@@ -4448,7 +4448,7 @@
 				{
 					"num":42,
 					"name":"D2",
-					"desc":"SPI1 SCK, Serial1 RTS, GPIO, Wire1 SDA",
+					"desc":"SPI1 SCK, Serial1 RTS, PWM, GPIO, Wire1 SDA",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4458,9 +4458,9 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"spi":"SPI1 (SCK)|SCK. Use SPI1 object.",
-					"i2c":"Wire1 (SDA)|SDA. Use Wire1 object.",
+					"spi":"SPI1 (SCK)|MOSI. Use SPI1 object.",
 					"serial":"UART1_RTS|Options RTS hardware flow control for Serial1",
+					"i2c":"Wire1 (SDA)|SCL. Use Wire1 object.",
 					"hardwarePin":"P1.02",
 					"somPin":"RESERVED"
 				},
@@ -4548,7 +4548,7 @@
 					"tone":false,
 					"spi":"SPI (SS)|SS. Use SPI object. This is only the default SS/CS pin, you can use any GPIO instead.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"hardwarePin":"P1.03",
+					"hardwarePin":"P0.7",
 					"somPin":"CS"
 				},
 
@@ -4567,7 +4567,7 @@
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"spi":"SPI (MISO)|MISO. Use SPI object.",
-					"hardwarePin":"P1.14",
+					"hardwarePin":"P1.8",
 					"somPin":"MISO"
 				},
 				{
@@ -4585,7 +4585,7 @@
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"spi":"SPI (MOSI)|MOSI. Use SPI object.",
-					"hardwarePin":"P1.13",
+					"hardwarePin":"P1.9",
 					"somPin":"MOSI"
 				},
 				{
@@ -4603,7 +4603,7 @@
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"spi":"SPI (SCK)|SCK. Use SPI object.",
-					"hardwarePin":"P1.15",
+					"hardwarePin":"P0.11",
 					"somPin":"SCK"
 				},
 				{
@@ -4612,7 +4612,7 @@
 					"desc":"RGB LED Red",
 					"isLED":true,
 					"is5VTolerant":false,
-					"hardwarePin":"P0.13",
+					"hardwarePin":"P0.16",
 					"hardwareTimer":"PWM0",
 					"somPin":"RED"
 				},
@@ -4629,7 +4629,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"hardwarePin":"P0.24",
+					"hardwarePin":"P1.1",
 					"somPin":"GPIO0"
 				},
 				{
@@ -4638,7 +4638,7 @@
 					"desc":"RGB LED Green",
 					"isLED":true,
 					"is5VTolerant":false,
-					"hardwarePin":"P0.14",
+					"hardwarePin":"P0.15",
 					"hardwareTimer":"PWM0",
 					"somPin":"GREEN"
 				},
@@ -4655,7 +4655,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"hardwarePin":"P1.09",
+					"hardwarePin":"P1.3",
 					"somPin":"GPIO1"
 				},
 				{
@@ -4664,7 +4664,7 @@
 					"desc":"RGB LED Blue",
 					"isLED":true,
 					"is5VTolerant":false,
-					"hardwarePin":"P0.15",
+					"hardwarePin":"P0.14",
 					"hardwareTimer":"PWM0",
 					"somPin":"BLUE"
 				},
@@ -4683,7 +4683,7 @@
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"spi":"SPI1 (MISO)|MISO. Use SPI1 object.",
 					"hardwareTimer":"PWM1",
-					"hardwarePin":"P1.08",
+					"hardwarePin":"P0.12",
 					"somPin":"PWM0"
 				},
 				{
@@ -4707,7 +4707,7 @@
 					"tone":"D4, D5, and D6 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"hardwareTimer":"PWM1",
-					"hardwarePin":"P1.10",
+					"hardwarePin":"P0.24",
 					"somPin":"PWM1"
 				},
 				{
@@ -4731,7 +4731,7 @@
 					"tone":"D4, D5, and D6 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"hardwareTimer":"PWM1",
-					"hardwarePin":"P1.11",
+					"hardwarePin":"P1.4",
 					"somPin":"PWM2"
 				},
 				{
@@ -4755,7 +4755,7 @@
 					"tone":false,
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
 					"hardwareTimer":"PWM0",
-					"hardwarePin":"P1.12",
+					"hardwarePin":"P0.13",
 					"somPin":"PWM3"
 				},
 				{
@@ -5206,7 +5206,7 @@
 					"serial":"UART1_RX|RX Use Serial1 object.",
 					"tone":"D8, D9 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"hardwarePin":"P0.06",
+					"hardwarePin":"P0.8",
 					"hardwareTimer":"PWM2"
 				},
 				{
@@ -5225,7 +5225,7 @@
 					"serial":"UART1_TX|TX Use Serial1 object.",
 					"tone":"D8, D9 must have the same frequency.",
 					"attachInterrupt":"Yes. You can only have 8 active interrupt pins.",
-					"hardwarePin":"P0.08",
+					"hardwarePin":"P0.06",
 					"hardwareTimer":"PWM2"
 				},
 				{

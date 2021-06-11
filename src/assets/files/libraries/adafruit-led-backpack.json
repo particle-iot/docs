@@ -1,0 +1,77 @@
+{
+  "type": "libraries",
+  "id": "adafruit-led-backpack",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/adafruit-led-backpack/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "adafruit-led-backpack",
+    "version": "1.0.0",
+    "installs": 22721,
+    "license": "MIT",
+    "author": "Tim Caswell <tim@creationix.com>",
+    "sentence": "Forked from Adafruit's LED Backpack library, for SparkCore",
+    "url": "https://github.com/creationix/spark-adafruit-led-backpack",
+    "repository": "https://github.com/creationix/spark-adafruit-led-backpack.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/adafruit-led-backpack",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "electron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "argon": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "boron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "electron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "argon": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          },
+          "boron": {
+            "8x8-bicolor": true,
+            "quadalphanum": true,
+            "sevenseg": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Spark Adafruit LED Backpack\n===========================\n\nForked from Adafruit's LED Backpack library, for SparkCore\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

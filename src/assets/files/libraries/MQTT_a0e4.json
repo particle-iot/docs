@@ -1,0 +1,68 @@
+{
+  "type": "libraries",
+  "id": "MQTT_a0e4",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MQTT_a0e4/archive/0.3.9.tar.gz"
+  },
+  "attributes": {
+    "name": "MQTT_a0e4",
+    "version": "0.3.9",
+    "installs": 973,
+    "license": "MIT",
+    "author": "hirotakaster",
+    "url": "https://github.com/truly-moody/mqtt",
+    "repository": "https://github.com/truly-moody/mqtt.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MQTT_a0e4",
+  "versions": {
+    "0.3.9": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "electron": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "argon": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "boron": {
+            "mqttqostest": true,
+            "mqtttest": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "electron": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "argon": {
+            "mqttqostest": true,
+            "mqtttest": true
+          },
+          "boron": {
+            "mqttqostest": true,
+            "mqtttest": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# MQTT for Photon, Spark Core\n<a href=\"http://mqtt.org/\" target=_blank>MQTT</a> publish/subscribe library for Photon, Spark Core version 0.3.8.\n\n## Source Code\nThis lightweight library source code are only 2 files. firmware -> MQTT.cpp, MQTT.h.\n\nApplication can use QOS0,1,2 and retain flag when send a publish message.\n\n## Example\nSome sample sketches for Spark Core and Photon included(firmware/examples/).\n - mqtttest.ino\t: simple pub/sub sample. \n - mqttqostest.ino : QoS1, QoS2 publish and callback sample.\n\n## Arduino compatible\nThis library is Arduino compatible. Arduino version is <a href=\"https://github.com/hirotakaster/MQTT/tree/arduino\">here</a>. \n",
+  "allVersions": [
+    "0.3.9"
+  ]
+}

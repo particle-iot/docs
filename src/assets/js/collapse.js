@@ -6,29 +6,104 @@ $(document).ready(function() {
 		var defaultValue = $(this).attr('value');
 
 		var switchTo = localStorage.getItem(genericCssClass) || defaultValue;
-    	collapseSelector(genericCssClass, switchTo);
+    	collapseSelector(null, genericCssClass, switchTo);
 	});
 	$('input.collapseForce').each(function(index) {
 		var genericCssClass = $(this).attr('name');
 		var defaultValue = $(this).attr('value');
 
-    	collapseSelector(genericCssClass, defaultValue);
+    	collapseSelector(null, genericCssClass, defaultValue);
 	});
 
-	$('code.codebox').each(function(index) {
-		var content = $(this).attr('data-content');
+	$('div.codebox').each(function(index) {
+		const codeboxElem = $(this);
 
-		var elem = $(this);
-
-		$.ajax({url:content, dataType:'text'})
+		$.ajax({url:$(codeboxElem).attr('data-content'), dataType:'text'})
   			.done(function(data) {
-				elem.text(data);
-				elem.removeClass('prettyprinted');
+				const thisCodeElem = $(codeboxElem).find('code');
+				$(thisCodeElem).text(data);
+				$(thisCodeElem).removeClass('prettyprinted');
 				if (prettyPrint) {
 					prettyPrint();
 				}
-			})
+		})
+
+		$(codeboxElem).find('.codeboxDownloadButton').on('click', function() {
+			const contentUrl = $(codeboxElem).attr('data-content');
+	
+			var a = document.createElement('a');
+			a.href = contentUrl;
+			a.download = contentUrl.split('/').pop();
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+
+			ga('send', 'event', 'Codebox', 'Codebox Download', contentUrl);
 		});
+
+		$(codeboxElem).find('.codeboxCopyButton').on('click', function() {
+			const thisCodeElem = $(codeboxElem).find('code');
+			
+			var t = document.createElement('textarea');
+			document.body.appendChild(t);
+			$(t).text($(thisCodeElem).text());
+			t.select();
+			document.execCommand("copy");
+			document.body.removeChild(t);
+
+			ga('send', 'event', 'Codebox', 'Codebox Copy', $(codeboxElem).attr('data-content'));
+		});
+
+		$(codeboxElem).find('.codeboxWebIdeButton').on('click', function() {
+			var a = document.createElement('a');
+			a.href = 'https://go.particle.io/shared_apps/' + $(this).attr('data-appid');
+			a.target = '_blank';
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+
+			ga('send', 'event', 'Codebox', 'Codebox Open WebIDE', $(codeboxElem).attr('data-content'));
+		});
+		
+
+		$(codeboxElem).find('.codeboxFlashDeviceButton').on('click', function() {
+			const thisCodeElem = $(codeboxElem).find('code');
+
+			const device = $(codeboxElem).find('select.codeboxFlashDeviceSelect').val();
+			if (!device || device == 'select') {
+				return;
+			}
+		
+            if (!apiHelper.confirmFlash()) {
+                return;
+            }
+							
+			apiHelper.flashDevice(device, $(thisCodeElem).text(), codeboxElem);		
+
+			ga('send', 'event', 'Codebox', 'Codebox Flash', $(codeboxElem).attr('data-content'));
+		});
+
+		$(codeboxElem).find('.codeboxUploadSchemaButton').on('click', function() {
+			const thisCodeElem = $(codeboxElem).find('code');
+
+			const product = $(codeboxElem).find('.apiHelperTrackerProductSelect').val();
+
+			const warning = 'Uploading a configuration schema replaces the existing configuration schema for all users of this product! An incorrect schema can cause errors opening your product in the console. A backup will be saved in your Downloads directory but you should still exercise caution.';
+			
+			if (!confirm(warning)) {
+				return;
+			}
+		
+			const schema = $(thisCodeElem).text();
+		
+			apiHelper.uploadSchemaCodebox(schema, product, 'default', function() {
+				
+			});
+
+			ga('send', 'event', 'Codebox', 'Codebox Upload Schema');
+		});
+		
+	});
 });
 
 function collapseToggle(id) {	 
@@ -44,15 +119,15 @@ function collapseToggle(id) {
 
 function collapseSelector(event, genericCssClass, switchTo) {
 
-	if (event.altKey) {
+	if (event && event.altKey) {
 		$('span.' + genericCssClass + 'optionHide').show();			
 	}
 
 	$('div.' + genericCssClass).hide();
 	$('div.' + genericCssClass + switchTo).show();			
 
-	$('input.' + genericCssClass).removeProp('checked');
-	$('input.' + genericCssClass + switchTo).prop('checked', 'checked');
+	$('input.' + genericCssClass).prop('checked', false);
+	$('input.' + genericCssClass + switchTo).prop('checked', true);
 
 	// Hide navigation menu items for sections that are hidden
 	$('div.in-page-toc-container').each(function(index, toc) {		
@@ -61,11 +136,13 @@ function collapseSelector(event, genericCssClass, switchTo) {
 			var hashOffset = href.lastIndexOf('#');
 			if (hashOffset >= 0) {
 				var hash = href.substring(hashOffset + 1);
-				if ($('#' + hash).is(':hidden')) {
-					$(anchor).parent('li').hide();
-				}
-				else {
-					$(anchor).parents('li').show();
+				if (hash) {
+					if ($('#' + hash).is(':hidden')) {
+						$(anchor).parent('li').hide();
+					}
+					else {
+						$(anchor).parents('li').show();
+					}	
 				}
 			}
 		});
@@ -102,20 +179,4 @@ function hideOverlay() {
 	$('#imageOverlay').hide();
 }
 
-function codeboxDownload(url) {
-	var a = document.createElement('a');
-	a.href = url;
-	a.download = url.split('/').pop();
-	document.body.appendChild(a);
-	a.click();
-	document.body.removeChild(a);
-}
 
-function codeboxCopy(id) {	
-	var t = document.createElement('textarea');
-	document.body.appendChild(t);
-	$(t).text($('#' + id).text());
-	t.select();
-	document.execCommand("copy");
-	document.body.removeChild(t);
-}

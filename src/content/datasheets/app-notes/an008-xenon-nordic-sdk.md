@@ -1,8 +1,7 @@
 ---
 title: AN008 Xenon with the Nordic SDK
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 108
 ---
 # AN008 Xenon with the Nordic SDK
 

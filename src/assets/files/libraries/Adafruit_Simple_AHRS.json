@@ -1,0 +1,33 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_Simple_AHRS",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_Simple_AHRS/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_Simple_AHRS",
+    "version": "0.0.3",
+    "installs": 198,
+    "license": "Choose a license",
+    "author": "Someone <email@somesite.com>",
+    "sentence": "Briefly describe this library",
+    "url": "https://github.com/voxels/adafruit_simple_ahrs",
+    "repository": "https://github.com/voxels/adafruit_simple_ahrs.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_Simple_AHRS",
+  "versions": {
+    "0.0.3": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "TODO: Describe your library and how to run the examples\n",
+  "allVersions": [
+    "0.0.3"
+  ]
+}

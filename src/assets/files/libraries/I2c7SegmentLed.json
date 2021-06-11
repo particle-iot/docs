@@ -1,0 +1,65 @@
+{
+  "type": "libraries",
+  "id": "I2c7SegmentLed",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/I2c7SegmentLed/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "I2c7SegmentLed",
+    "version": "1.0.1",
+    "installs": 380,
+    "license": "MIT",
+    "author": "Gary Muhonen <gary@dcity.org>",
+    "sentence": "Particle library for controlling I2C 7 Segment LED Displays",
+    "paragraph": "This library provides many functions to communicate with 7 Segment LED display modules. Functions such as clear, set brightness, move cursor, and print are available. This library only works with 7 segment LED displays that use the AMS AS1115 chip. This chip uses the I2C communication protocol. The library will work with 7 Segment displays up to 8 digits wide. See the README file for more details. A demo program (in the examples folder) demonstrates all of the functions in this library. More information: https://www.dcity.org/portfolio/i2c-7-segment-led-library/",
+    "category": "Display",
+    "url": "https://github.com/dcityorg/i2c-7-segment-led-library-particle",
+    "repository": "dcityorg/i2c-7-segment-led-library-particle",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/I2c7SegmentLed",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "I2c7SegmentLedDemo": true
+          },
+          "electron": {
+            "I2c7SegmentLedDemo": true
+          },
+          "argon": {
+            "I2c7SegmentLedDemo": true
+          },
+          "boron": {
+            "I2c7SegmentLedDemo": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "I2c7SegmentLedDemo": true
+          },
+          "electron": {
+            "I2c7SegmentLedDemo": true
+          },
+          "argon": {
+            "I2c7SegmentLedDemo": true
+          },
+          "boron": {
+            "I2c7SegmentLedDemo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "\n### I2c7SegmentLed - Particle library for controlling I²C 7 Segment Led Displays\n\n<div style=\"text-align: center;\">\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img  src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-7-segment-led-dot56inch/i2c-7-segment-led-dot56inch-seeeduino.jpg\" alt=\"i2c LED display\" width=\"300\" height=\"300\" />\n</div>\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img  src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-7-segment-led-dot56inch/i2c-7-segment-led-dot56inch-front.jpg\" alt=\"i2c LED display\" width=\"300\" height=\"300\" />\n</div>\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img  src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-7-segment-led-dot56inch/i2c-7-segment-led-dot56inch-back.jpg\" alt=\"i2c LED display\" width=\"300\" height=\"300\" />\n</div>\n</div>\n\n**[This link has details](https://www.dcity.org/portfolio/i2c-7-segment-led-library/) including:**\n* software library installation for use with Arduino, Particle and Raspberry Pi boards\n* list of functions available in these libraries\n* a demo program (which shows the usage of most library functions)\n* info on 7 segment LED displays that work with this software\n* hardware design for a backpack board for 7 segment LEDs, available on github\n* info on backpack “bare” pc boards available from OSH Park.\n\n**License Information**\nLicense Information is [here](https://www.dcity.org/license-information/).\n",
+  "allVersions": [
+    "1.0.1"
+  ]
+}

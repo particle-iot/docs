@@ -1,8 +1,7 @@
 ---
 title: Setup
 columns: two
-layout: tutorials.hbs
-order: 20
+layout: commonTwo.hbs
 description: Setting up your Particle Asset Tracer
 ---
 

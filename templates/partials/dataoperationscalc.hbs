@@ -22,10 +22,10 @@
 
 
 <script>
-const freeMaxDevices = 100;
-const freeDataOperations = 100000;
-const devicesPerBlock = 100;
-const dataOperationsPerBlock = 720000;
+const freeMaxDevices = {{freeTierDevices}};
+const freeDataOperations = {{freeTierDataOperationsValue}};
+const devicesPerBlock = {{growthTierDevices}};
+const dataOperationsPerBlock = {{growthTierDataOperationsValue}};
 
 var dataUnitCalc = {};
 
@@ -73,8 +73,8 @@ dataUnitCalc.update = function() {
             res1 = 'Can use the free tier!'
         }
         else {
-            const minBlocksOperations = Math.floor(dataOperations / dataOperationsPerBlock) + 1;
-            const minBlocksDevices = Math.floor(numDevices / devicesPerBlock) + 1;
+            const minBlocksOperations = Math.floor((dataOperations - 1) / dataOperationsPerBlock) + 1;
+            const minBlocksDevices = Math.floor((numDevices - 1) / devicesPerBlock) + 1;
 
             const blocks = Math.max(minBlocksOperations, minBlocksDevices);
 

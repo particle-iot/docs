@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "Monitor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Monitor/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Monitor",
+    "version": "0.0.2",
+    "installs": 92,
+    "license": "LGPL",
+    "author": "Richard Whitney <richard@particle.io>",
+    "sentence": "All the bits you need for the Spark Monitor",
+    "url": "https://github.com/jenesaisdiq/monitor",
+    "repository": "https://github.com/jenesaisdiq/monitor.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/Monitor",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_SimpleMonitor": false
+          },
+          "electron": {
+            "1_SimpleMonitor": false
+          },
+          "argon": {
+            "1_SimpleMonitor": false
+          },
+          "boron": {
+            "1_SimpleMonitor": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_SimpleMonitor": false
+          },
+          "electron": {
+            "1_SimpleMonitor": false
+          },
+          "argon": {
+            "1_SimpleMonitor": false
+          },
+          "boron": {
+            "1_SimpleMonitor": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "_The increasingly inaccurately named Spark Monitor makes it easy to see what your Particle device is doing, but does require some help from the firmware. This library provides the necessary compliance._\n",
+  "allVersions": [
+    "0.0.2"
+  ]
+}

@@ -1,9 +1,9 @@
 ---
 title: Tracker Configuration
 columns: two
-layout: tutorials.hbs
-order: 32
+layout: commonTwo.hbs
 description: Particle Tracker Configuration
+includeDefinitions: [api-helper, api-helper-config, api-helper-json, api-helper-tracker, codemirror, zip]
 ---
 
 # Tracker Configuration
@@ -63,6 +63,14 @@ The schema serves several purposes:
 
 Using a custom schema, you can add additional configuration elements, either to an existing group (location, sleep, etc.) or to a new custom group for your product (recommended). The new tabs or options are presented to all team members who have access to the product.
 
+If you are familiar with JSON Schema:
+
+- We do not support the `pattern` or `patternProperties` keywords
+- Remote schemas are not allowed
+- `additionalProperties` is always set to false for top-level fields
+- We've added two custom JSON Schema keywords: `minimumFirmwareVersion` and `maximumFirmwareVersion` that can be used to scope given settings to specific versions of the firmware
+
+
 ### Console
 
 The settings panels in the fleet configuration and device configuration, including all of the built-in settings, are defined using the configuration schema.
@@ -79,9 +87,9 @@ This picture shows how elements in the schema directly map to what you can see i
 
 ### Default Schema
 
-This is the full schema for Tracker Edge, as of version 11. You won't need to understand the whole thing yet, but this is what it looks like:
+This is the full schema for Tracker Edge, as of version 12. You won't need to understand the whole thing yet, but this is what it looks like:
 
-{{codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
+{{> codebox content="/assets/files/tracker/default-schema.json" format="json" height="300"}}
 
 
 ### Data types
@@ -95,9 +103,46 @@ The schema and support in Tracker Edge can include standard JSON data types, inc
 - Enumerations (a string with fixed options, a dropdown menu)
 - JSON objects (of the above types, with some limitations)
 
-There is a limit to the size of the data, as it needs to fit in a 622-byte publish. You should keep the data of a reasonable size and avoid overly lengthy JSON key names for this reason.
+There is a limit to the size of the data, as it needs to fit in a publish. You should keep the data of a reasonable size and avoid overly lengthy JSON key names for this reason. The publish size varies from 622 to 1024 bytes of UTF-8 characters depending on Device OS version; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/).
 
-### Getting an access token
+### Adding to the schema
+
+Here's an example from the [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can/) application note. This is the new schema fragment we'll add to the console:
+
+{{> codebox content="/assets/files/tracker/engine-schema-fragment.json" format="json" height="400"}}
+
+Of note:
+
+- Since adding a custom schema replaces the default schema, you must include all of the elements from the default schema. It does not merge the two automatically for you. The whole file is included below.
+- The new **engine** block goes directly in line and below the **tracker** block, which is the last configuration block (at the time of writing).
+- The new engine configuration includes two elements: Idle RPM speed and Publish period when running (milliseconds); both are integers.
+
+Here's the whole file so you can see exactly where the data goes when merged with the default schema.
+
+{{> sso}}
+
+{{> codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300" configSchema="true"}}
+
+If you set this schema you can go to the console and view your fleet configuration with the new panel!
+
+To remove the Engine panel and restore the default schema use the **Restore Default Schema** button:
+
+{{> config-schema }}
+
+
+### Viewing in the console
+
+This is what it looks like in the [console](https://console.particle.io):
+
+![Engine Settings](/assets/images/tracker/settings-engine.png)
+
+
+
+### Manually
+
+You can also do these steps manually:
+
+#### Getting an access token
 
 One easy way to get a temporary access token is to:
 
@@ -111,7 +156,7 @@ One easy way to get a temporary access token is to:
 
 You can also generate a token using oAuth client credentials. You can adjust the expiration time using this method, including making it non-expiring.
 
-### Backing up the schema
+#### Backing up the schema
 
 At this time, the schema can only be set using the Particle Cloud API. Examples are provided using `curl`, a common command-line program for making API calls.
 
@@ -136,59 +181,9 @@ curl -X GET 'https://api.particle.io/v1/products/:productId/config/:deviceId?acc
 - `:deviceId` with your Device ID that is set as a development device. 
 - `:accessToken` with a product access token, described above.
 
+#### Setting a custom schema
 
-### Adding to the schema
-
-```json
-"engine": {
-    "$id": "#/properties/engine",
-    "type": "object",
-    "title": "Engine",
-    "description": "CAN demo engine settings",
-    "default": {},
-    "properties": {
-        "idle": {
-            "$id": "#/properties/engine/properties/idle",
-            "type": "integer",
-            "title": "Idle RPM speed",
-            "description": "If engine RPM is less than this value, the engine will be considered to be idling",
-            "default": 1600,
-            "examples": [
-            ],
-            "minimum":0,
-            "maximum":10000
-        },
-        "fastpub": {
-            "$id": "#/properties/engine/properties/fastpub",
-            "type": "integer",
-            "title": "Publish period when running (milliseconds)",
-            "description": "Publish period when engine is not off or idling in milliseconds (0 = use default)",
-            "default": 0,
-            "examples": [
-            ],
-            "minimum":0,
-            "maximum":3600000
-        }
-    }
-}
-```
-
-Here's an example of adding a new **Engine** panel. Of note:
-
-- Since adding a custom schema replaces the default schema, you must include all of the elements from the default schema. It does not merge the two automatically for you. The whole file is included below.
-- The new **engine** block goes directly in line and below the **tracker** block, which is the last configuration block (at the time of writing).
-- The new engine configuration includes two elements: Idle RPM speed and Publish period when running (milliseconds); both are integers.
-
-Here's the whole file so you can see exactly where the data goes when merged with the default schema.
-
-{{codebox content="/assets/files/tracker/engine-schema.json" format="json" height="300"}}
-
-
-### Setting a custom schema
-
-The full example code for the engine configuration above can be found in the [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can/) application note.
-
-There is no UI for setting the configuration schema yet, you will need to set it using curl:
+There is no UI for setting the configuration in the console, but you, you will need to set it using curl:
 
 ```
 curl -X PUT 'https://api.particle.io/v1/products/:productId/config/:deviceId?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @engine-schema.json
@@ -208,13 +203,6 @@ curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=
 
 - `:productId` with your product ID
 - `:accessToken` with a product access token, described above.
-
-
-### Viewing in the console
-
-This is what it looks like in the [console](https://console.particle.io):
-
-![Engine Settings](/assets/images/tracker/settings-engine.png)
 
 
 ### Setting configuration
@@ -292,72 +280,13 @@ Here's an example of how you set up a custom schema and use it from firmware. It
 
 ### Schema - Example
 
-```json
-    "mine": {
-		"$id": "#/properties/mine",
-		"type": "object",
-		"title": "Mine",
-		"description": "My custom settings",
-		"default": {},
-		"properties": {
-		  "contrast": {
-			"$id": "#/properties/mine/properties/contrast",
-			"type": "integer",
-			"title": "Contrast",
-			"description": "Display contrast 0 - 255",
-			"default": 24,
-			"examples": [
-			  10
-			],
-			"minimum": 0,
-			"maximum": 255
-		  },
-		  "tempLow": {
-			"$id": "#/properties/mine/properties/tempLow",
-			"type": "number",
-			"title": "Low Temp",
-			"description": "Low temperature setting, degrees C",
-			"default": 0,
-			"minimum": -100,
-			"maximum": 200
-		  },
-		  "fruit": {
-			"$id": "#/properties/rgb/properties/fruit",
-			"type": "string",
-			"title": "Fruit",
-			"description": "Preferred fruit",
-			"default": "apple",
-			"enum": [
-			  "apple",
-			  "grape",
-			  "orange",
-			  "pear"
-			]
-		  },
-		  "message": {
-			"$id": "#/properties/rgb/properties/message",
-			"type": "string",
-			"title": "Message",
-			"description": "Custom display message",
-			"default": ""
-		  },
-		  "thing": {
-			"$id": "#/properties/mine/properties/thing",
-			"type": "boolean",
-			"title": "Enable Thing",
-			"description": "Using a boolean to enable or disable a thing",
-			"default": true
-		  }
-		}
-	  }
-	}
-```
+{{> codebox content="/assets/files/tracker/test-schema-fragment.json" format="json" height="400"}}
 
 Here's the whole schema:
 
-{{codebox content="/assets/files/tracker/test-schema.json" format="json" height="300"}}
+{{> codebox content="/assets/files/tracker/test-schema.json" format="json" height="300" configSchema="true"}}
 
-You can set it using curl or another tool to call the API:
+You can also set it using curl or another tool to call the API:
 
 ```
 curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=:accessToken' -H  'Content-Type: application/schema+json' -d @test-schema.json
@@ -368,6 +297,11 @@ curl -X PUT 'https://api.particle.io/v1/products/:productId/config?access_token=
 
 Be sure to use the full schema, not just the part with "Mine" as a custom schema replaces the default schema!
 
+To remove the Mine panel and restore the default schema use the **Restore Default Schema** button:
+
+{{> config-schema }}
+
+
 ### Console - Example
 
 This is what it looks like in the console. 
@@ -375,6 +309,24 @@ This is what it looks like in the console.
 ![](/assets/images/tracker/settings-example.png)
 
 ### Getting the Tracker Edge Firmware
+
+
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/tracker/example/main.cpp" project="config-sample"
+    src="/assets/files/tracker/example/MyConfig.cpp /assets/files/tracker/example/MyConfig.h" }}
+
+- Extract **tracker-config-example.zip** in your Downloads directory 
+- Open the **tracker-config-example** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
 
 The Tracker Edge firmware can be downloaded from Github:
 
@@ -396,20 +348,22 @@ git submodule update --init --recursive
 
 This is the Tracker Edge main source file. There are only three lines (all containing "MyConfig") added to the default main.cpp.
 
-{{codebox content="/assets/files/tracker/example/main.cpp" format="cpp" height="300"}}
+{{> codebox content="/assets/files/tracker/example/main.cpp" format="cpp" height="300"}}
 
 
 #### MyConfig.h
 
 The C++ header file for the custom configuration class.
 
-{{codebox content="/assets/files/tracker/example/MyConfig.h" format="cpp" height="300"}}
+{{> codebox content="/assets/files/tracker/example/MyConfig.h" format="cpp" height="300"}}
+
 
 #### MyConfig.cpp
 
 The C++ implementation file for the custom configuration class.
 
-{{codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
+{{> codebox content="/assets/files/tracker/example/MyConfig.cpp" format="cpp" height="300"}}
+
 
 ### Digging In - Example
 
@@ -633,3 +587,8 @@ MyConfig &MyConfig::instance() {
 
 The function to get the instance checks to see if it has been allocated. If it has not been allocated, it will be allocated using `new`. This should happen during `setup()`. In either case, the instance is returned.
 
+## Per-device configuration
+
+Tracker devices that are marked as development devices can have per-device configuration that overrides the product default configuration. In addition to using the console or curl, above, this tool makes it easy to view and edit the configuration in JSON format:
+
+{{> tracker-config row="6" cols="70"}}

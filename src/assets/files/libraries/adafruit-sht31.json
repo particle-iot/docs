@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "adafruit-sht31",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/adafruit-sht31/archive/0.0.7.tar.gz"
+  },
+  "attributes": {
+    "name": "adafruit-sht31",
+    "version": "0.0.7",
+    "installs": 61257,
+    "license": "GNU GPLv3",
+    "author": "Adafruit, brolly759",
+    "sentence": "Adafruit SHT31 port to Particle",
+    "url": "https://github.com/brolly759/adafruit_sht31",
+    "repository": "https://github.com/brolly759/adafruit_sht31.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/adafruit-sht31",
+  "versions": {
+    "0.0.7": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "SHT31test": true
+          },
+          "electron": {
+            "SHT31test": true
+          },
+          "argon": {
+            "SHT31test": true
+          },
+          "boron": {
+            "SHT31test": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "SHT31test": true
+          },
+          "electron": {
+            "SHT31test": true
+          },
+          "argon": {
+            "SHT31test": true
+          },
+          "boron": {
+            "SHT31test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit_SHT31\n<!-- START COMPATIBILITY TABLE -->\n\n## Compatibility\n\nMCU                | Tested Works | Doesn't Work | Not Tested  | Notes\n------------------ | :----------: | :----------: | :---------: | -----\nAtmega328 @ 16MHz  |      X       |             |            | \nAtmega328 @ 12MHz  |      X       |             |            | \nAtmega32u4 @ 16MHz |      X       |             |            | \nAtmega32u4 @ 8MHz  |      X       |             |            | \nESP8266            |      X       |             |            | \nAtmega2560 @ 16MHz |      X       |             |            | \nATSAM3X8E          |      X       |             |            | \nATSAM21D           |      X       |             |            | \nATtiny85 @ 16MHz   |      X       |             |            | \nATtiny85 @ 8MHz    |      X       |             |            | \nIntel Curie @ 32MHz |             |             |     X       | \nSTM32F2            |             |             |     X       | \n\n  * ATmega328 @ 16MHz : Arduino UNO, Adafruit Pro Trinket 5V, Adafruit Metro 328, Adafruit Metro Mini\n  * ATmega328 @ 12MHz : Adafruit Pro Trinket 3V\n  * ATmega32u4 @ 16MHz : Arduino Leonardo, Arduino Micro, Arduino Yun, Teensy 2.0\n  * ATmega32u4 @ 8MHz : Adafruit Flora, Bluefruit Micro\n  * ESP8266 : Adafruit Huzzah\n  * ATmega2560 @ 16MHz : Arduino Mega\n  * ATSAM3X8E : Arduino Due\n  * ATSAM21D : Arduino Zero, M0 Pro\n  * ATtiny85 @ 16MHz : Adafruit Trinket 5V\n  * ATtiny85 @ 8MHz : Adafruit Gemma, Arduino Gemma, Adafruit Trinket 3V\n\n<!-- END COMPATIBILITY TABLE -->\n",
+  "allVersions": [
+    "0.0.7"
+  ]
+}

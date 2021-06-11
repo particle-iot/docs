@@ -7,7 +7,10 @@
         "assets/images" 
     ],
     "priority":{
+        "cards/firmware":0.7,
+        "cards/libraries":0.2,
         "discontinued":0.1,
+        "reference/device-os/firmware.md":0.1,
         "support/":0.1,
         "xenon":0.2
     }

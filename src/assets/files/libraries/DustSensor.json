@@ -1,0 +1,57 @@
+{
+  "type": "libraries",
+  "id": "DustSensor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/DustSensor/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "DustSensor",
+    "version": "1.0.0",
+    "installs": 624,
+    "author": "blackcj",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/DustSensor",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Dust Sensor (PMS5003)\n\nThis air quality sensor measures PM2.5 dust concentration. It can be used in combination with the Particle Photon to store data and send a notification when poor quality air is detected.\n\n## Parts\n\n- [Dust Sensor](https://www.adafruit.com/product/3686)\n- [Particle Photon](https://www.adafruit.com/product/2721)\n- [Wires](https://www.adafruit.com/product/758)\n\n## Hookup\n\n![Image of Photon](images/photon_wiring.jpg)\n\n- VCC: The PMS5003 sensor requires 5v to power the fan. Plug it into VIN on the Particle Photon to get the 5v.\n- TX: (transmit) on the PMS5003 should be connected to RX (receive) on the Photon\n- GND: GND\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

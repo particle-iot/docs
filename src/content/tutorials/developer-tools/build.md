@@ -1,9 +1,8 @@
 ---
 title: Web IDE
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
 redirects: true
-order: 30
 description: Web-based IDE for programming your Particle IoT devices
 ---
 
@@ -208,6 +207,8 @@ To find the right library for your project, you can either search for it directl
 **Search**. To search for a library, begin typing in the search bar. Search results are ranked by match with the search term with a preference for official and verified libraries.
 
 ![Search](/assets/images/libraries-guide-search.png)
+
+For additional search and browsing options, you can also use the [web-based library search tool](/cards/libraries/search/) in the documentation.
 
 **Browsing arrows**. Not sure what library you're looking for? Use the browsing arrows beneath the library list to view additional Particle libraries in our firmware library manager. Pagination also works with search results.
 

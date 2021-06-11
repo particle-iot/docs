@@ -1,0 +1,70 @@
+{
+  "type": "libraries",
+  "id": "relay-lib",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/relay-lib/archive/3.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "relay-lib",
+    "version": "3.0.0",
+    "installs": 1549,
+    "license": "MIT",
+    "author": "Daniel Sullivan <mumblepins@gmail.com>",
+    "sentence": "A simple relay control library",
+    "url": "https://github.com/mumblepins/relay-lib",
+    "repository": "https://github.com/mumblepins/relay-lib.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/relay-lib",
+  "versions": {
+    "3.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "electron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "electron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "argon": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          },
+          "boron": {
+            "control-everything-shield-demo": false,
+            "relay-shield-demo": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "About\n===\nBasic relay control library.  Based off of http://awtfy.com/2011/07/14/a-too-simple-arduino-library-for-handling-the-seeeduino-relay-shield-and-generic-relays/\n",
+  "allVersions": [
+    "3.0.0",
+    "0.0.10"
+  ]
+}

@@ -1,9 +1,9 @@
 ---
 title: Tracker Edge Firmware
 columns: two
-layout: tutorials.hbs
-order: 30
+layout: commonTwo.hbs
 description: Particle Tracker Edge Firmware
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 
 # Tracker Edge Firmware
@@ -27,6 +27,15 @@ Instead of having to manually upload firmware that you write, by default new rel
 Once you've uploaded custom firmware to your product, the off-the-shelf releases will no longer be added.
 
 ## Getting the Tracker Edge Firmware
+
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge }}
+
+- Extract **tracker-edge.zip** in your Downloads directory 
+- Open the **tracker-edge** directory in Workbench; it is a pre-configured project directory.
+
+### Manually
 
 The Tracker Edge firmware can be downloaded from Github:
 
@@ -101,7 +110,7 @@ These are some standard Tracker include files that you will likely need:
 #include "tracker.h"
 ```
 
-This is the recommended [threading](/reference/device-os/firmware/tracker-som/#system-thread) and [system mode](/reference/device-os/firmware/tracker-som/#system-modes) to use. 
+This is the recommended [threading](/cards/firmware/system-thread/system-thread/) and [system mode](/cards/firmware/system-modes/system-modes/) to use. 
 
 ```cpp
 SYSTEM_THREAD(ENABLED);
@@ -184,7 +193,7 @@ Note the additions:
 
 - Calls `Tracker::instance().location.regLocGenCallback()` to register a location generation callback in `setup()`.
 - Adds a new function `locationGenerationCallback()`.
-- In the function adds a value to the loc object using the [JSON Writer API](/reference/device-os/firmware/tracker-som/#jsonwriter).
+- In the function adds a value to the loc object using the [JSON Writer API](/cards/firmware/json/jsonwriter/).
 
 If you look at the location event, you can see the new field for `speed` (in meters/second):
 
@@ -250,8 +259,8 @@ The Tracker One has three multi-function pins on the M8 port:
 
 | M8 Pin | Function   | Function  | Function  | 
 | :----: | :-------   | :-------  | :-------  | 
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | 
-| 6      | Serial1 RX | Wire3 SDA | GPIO D8   | 
+| 4      | Serial1 RX | Wire3 SDA | GPIO D9   | 
+| 5      | Serial1 TX | Wire3 SCL | GPIO D8   | 
 | 7      | Analog A3  |           | GPIO D3   | 
 
 
@@ -269,11 +278,11 @@ Wire3.begin();
 
 This feature is also available on the Tracker SoM, however on the Tracker SoM you have access to `Wire` on pins D0 an D1, so there is less of a need to use `Wire3`. Note that they map to the same I2C peripheral so you cannot use `Wire` and `Wire3` at the same time!
 
-If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/reference/device-os/firmware/tracker-som/#pinmode-), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
+If you do not enable `Serial1` or `Wire3`, you can use the pins are regular GPIO, including all [pin modes](/cards/firmware/input-output/pinmode/), `INPUT`, `INPUT_PULLUP`, `INPUT_PULLDOWN`, and `OUTPUT`.
 
 These pins have a 3.3V maximum and are **not** 5V tolerant!
 
-You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/RX/SDA, D9/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
 ## Using GitHub with Tracker Edge
 
@@ -387,6 +396,7 @@ Some commands you can enter into the box:
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
 

@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "HIH61XX",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/HIH61XX/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "HIH61XX",
+    "version": "0.0.1",
+    "installs": 4009,
+    "license": "GNU",
+    "author": "Geert Wille <geert@appstrakt.com>",
+    "sentence": "A library for using the HIH61XX in your project",
+    "url": "https://github.com/appstrakt/spark-hih61xx-library",
+    "repository": "https://github.com/appstrakt/spark-hih61xx-library.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/HIH61XX",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "basic-data-output": true
+          },
+          "electron": {
+            "basic-data-output": true
+          },
+          "argon": {
+            "basic-data-output": true
+          },
+          "boron": {
+            "basic-data-output": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "basic-data-output": true
+          },
+          "electron": {
+            "basic-data-output": true
+          },
+          "argon": {
+            "basic-data-output": true
+          },
+          "boron": {
+            "basic-data-output": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "HIH61XX Library for Spark Core\n===================\nHoneywell HumidIconTM Digital Humidity/Temperature Sensors: HIH6130/6131 and 6120/6121 Series is a digital output-type relative humidity (RH) and temperature sensor combined in the same package. The library uses I2C to connect to the sensor (see the Wire library). ***SPI can also be used, but is not implemented in this library***.\n\nNote\n----\nIf you have multiple devices connected to the I2C bus, remember that this device screws up the bus when it is not powered. One solution is to keep the device powered all the time. Another possible solution is to add an analog switch to physically disconnect the GND line or the SDA line to the device.\n\nThis library has been tested, but might still contain bugs, so please be careful.\n\nAbout\n-----\nThis project is based on https://code.google.com/p/arduino-hih61xx/ and is part of Tomas's work.",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

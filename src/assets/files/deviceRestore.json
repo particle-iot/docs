@@ -1,0 +1,305 @@
+{
+  "versionNames": [
+    "3.0.0",
+    "3.0.0-rc.2",
+    "3.0.0-rc.1",
+    "2.1.0",
+    "2.1.0-rc.1",
+    "2.0.1",
+    "1.5.2",
+    "1.4.4",
+    "1.2.1",
+    "1.1.1",
+    "1.0.1",
+    "0.9.0",
+    "0.7.0",
+    "0.6.4",
+    "0.6.3",
+    "0.5.5"
+  ],
+  "versions": {
+    "0.5.5": [
+      "electron",
+      "p1",
+      "photon"
+    ],
+    "0.6.3": [
+      "p1",
+      "photon"
+    ],
+    "0.6.4": [
+      "electron"
+    ],
+    "0.7.0": [
+      "electron",
+      "p1",
+      "photon"
+    ],
+    "0.9.0": [
+      "argon",
+      "boron",
+      "xenon"
+    ],
+    "1.0.1": [
+      "electron",
+      "p1",
+      "photon"
+    ],
+    "1.1.1": [
+      "argon",
+      "asom",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "xenon"
+    ],
+    "1.2.1": [
+      "argon",
+      "asom",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "xenon"
+    ],
+    "1.4.4": [
+      "argon",
+      "asom",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "xenon"
+    ],
+    "1.5.2": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "xenon"
+    ],
+    "2.0.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ],
+    "2.1.0": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ],
+    "2.1.0-rc.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ],
+    "3.0.0": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ],
+    "3.0.0-rc.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ],
+    "3.0.0-rc.2": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ]
+  },
+  "versionsZip": {
+    "1.4.4": [
+      "argon",
+      "asom",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon"
+    ],
+    "1.5.2": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "xenon"
+    ],
+    "2.0.1": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ],
+    "2.1.0": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ],
+    "3.0.0": [
+      "argon",
+      "b5som",
+      "boron",
+      "bsom",
+      "electron",
+      "p1",
+      "photon",
+      "tracker"
+    ]
+  },
+  "platforms": [
+    {
+      "name": "argon",
+      "title": "Argon",
+      "id": 12
+    },
+    {
+      "name": "boron",
+      "title": "Boron",
+      "id": 13
+    },
+    {
+      "name": "bsom",
+      "title": "B4xx",
+      "id": 23
+    },
+    {
+      "name": "b5som",
+      "title": "B5xx",
+      "id": 25
+    },
+    {
+      "name": "tracker",
+      "title": "Tracker",
+      "id": 26
+    },
+    {
+      "name": "electron",
+      "title": "Electron",
+      "id": 10
+    },
+    {
+      "name": "photon",
+      "title": "Photon",
+      "id": 6
+    },
+    {
+      "name": "p1",
+      "title": "P1",
+      "id": 8
+    },
+    {
+      "name": "xenon",
+      "title": "Xenon",
+      "id": 14
+    }
+  ],
+  "versionsZipByPlatform": {
+    "argon": [
+      "3.0.0",
+      "2.1.0",
+      "2.0.1",
+      "1.5.2",
+      "1.4.4"
+    ],
+    "boron": [
+      "3.0.0",
+      "2.1.0",
+      "2.0.1",
+      "1.5.2",
+      "1.4.4"
+    ],
+    "bsom": [
+      "3.0.0",
+      "2.1.0",
+      "2.0.1",
+      "1.5.2",
+      "1.4.4"
+    ],
+    "b5som": [
+      "3.0.0",
+      "2.1.0",
+      "2.0.1",
+      "1.5.2"
+    ],
+    "tracker": [
+      "3.0.0",
+      "2.1.0",
+      "2.0.1"
+    ],
+    "electron": [
+      "3.0.0",
+      "2.1.0",
+      "2.0.1",
+      "1.5.2",
+      "1.4.4"
+    ],
+    "photon": [
+      "3.0.0",
+      "2.1.0",
+      "2.0.1",
+      "1.5.2",
+      "1.4.4"
+    ],
+    "p1": [
+      "3.0.0",
+      "2.1.0",
+      "2.0.1",
+      "1.5.2",
+      "1.4.4"
+    ],
+    "xenon": [
+      "1.5.2"
+    ]
+  }
+}

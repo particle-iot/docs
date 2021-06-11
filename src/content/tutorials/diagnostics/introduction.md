@@ -1,9 +1,8 @@
 ---
 word: Introduction
 title: Introduction
-order: 1
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 redirects: true
 ---
 

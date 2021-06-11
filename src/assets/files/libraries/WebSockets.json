@@ -1,0 +1,33 @@
+{
+  "type": "libraries",
+  "id": "WebSockets",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/WebSockets/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "WebSockets",
+    "version": "0.1.0",
+    "installs": 614,
+    "license": "LGPLv2.1",
+    "author": "mdma <mat dot mcgowan+particle at gmail dot com>",
+    "sentence": "Websocket client and server.",
+    "url": "https://github.com/m-mcgowan/arduinowebsockets",
+    "repository": "https://github.com/m-mcgowan/arduinowebsockets.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/cards/libraries/w/WebSockets",
+  "versions": {
+    "0.1.0": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "WebSocket Server and Client for Arduino\r\n===========================================\r\n\r\na WebSocket Server and Client for Arduino based on RFC6455.\r\n\r\n \r\n##### Supported features of RFC6455 #####\r\n - text frame\r\n - binary frame\r\n - connection close\r\n - ping\r\n - pong\r\n \r\n##### Not supported features of RFC6455 #####\r\n - continuation frame\r\n  \r\n##### Limitations #####\r\n - max input length is limited to the ram size and the ```WEBSOCKETS_MAX_DATA_SIZE``` define\r\n - max output length has no limit (the hardware is the limit)\r\n - Client send big frames with mask 0x00000000 (on AVR all frames)\r\n \r\n ##### Limitations for Async #####\r\n - Functions called from within the context of the websocket event might not honor `yield()` and/or `delay()`.  See [this issue](https://github.com/Links2004/arduinoWebSockets/issues/58#issuecomment-192376395) for more info and a potential workaround.\r\n - wss / SSL is not possible.\r\n \r\n##### Supported Hardware #####\r\n - ESP8266 [Arduino for ESP8266](https://github.com/Links2004/Arduino)\r\n - ESP31B\r\n - ATmega328 with Ethernet Shield (ATmega branch) \r\n - ATmega328 with enc28j60 (ATmega branch) \r\n - ATmega2560 with Ethernet Shield (ATmega branch) \r\n - ATmega2560 with enc28j60 (ATmega branch) \r\n \r\n###### Note: ######\r\n\r\n  version 2.0 and up is not compatible with AVR/ATmega, check ATmega branch.\r\n  \r\n  Arduino for AVR not supports std namespace of c++.\r\n \r\n### wss / SSL ###\r\n supported for:\r\n - wss client on the ESP8266\r\n \r\n### ESP Async TCP ###\r\n\r\nThis libary can run in Async TCP mode on the ESP.\r\n\r\nThe mode can be aktivated in the ```WebSockets.h``` (see WEBSOCKETS_NETWORK_TYPE define).\r\n\r\n[ESPAsyncTCP](https://github.com/me-no-dev/ESPAsyncTCP) libary is required.\r\n\r\n### Issues ###\r\nSubmit issues to: https://github.com/Links2004/arduinoWebSockets/issues\r\n\r\n[![Join the chat at https://gitter.im/Links2004/arduinoWebSockets](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Links2004/arduinoWebSockets?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\r\n\r\n### License and credits ###\r\n\r\nThe library is licensed under [LGPLv2.1](https://github.com/Links2004/arduinoWebSockets/blob/master/LICENSE)\r\n\r\n[libb64](http://libb64.sourceforge.net/) written by Chris Venter. It is distributed under Public Domain see [LICENSE](https://github.com/Links2004/arduinoWebSockets/blob/master/src/libb64/LICENSE).\r\n",
+  "allVersions": [
+    "0.1.0"
+  ]
+}

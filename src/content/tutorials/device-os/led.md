@@ -1,10 +1,10 @@
 ---
 title: Status LED and Device Modes
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
 devices: [ boron,photon,electron,argon,xenon,tracker-som ]
-order: 2 
 description: Explanation of status LED codes and device modes for Particle IoT devices
+includeDefinitions: [device-animation]
 ---
 
 # Status LED - {{device}}
@@ -76,7 +76,7 @@ Solid yellow or solid green indicates normal operation on the Tracker.
 ## Standard Modes
 These modes are the typical behaviors you will see from your device on a regular basis. They are the light patterns of a healthy device.
 
-Here's the typical pattern of {{a-device}} after power up.
+Here's the typical pattern of after power up.
 
 {{#if has-cellular}}
 {{device-animation device "pattern"
@@ -637,7 +637,7 @@ In general it's better to structure your code so it always returns from loop(), 
 
 #### Solution 2: Enable SYSTEM_THREAD
 
-The other solution is to use [SYSTEM_THREAD](/reference/device-os/firmware/#system-thread) mode.
+The other solution is to use [SYSTEM_THREAD](/cards/firmware/system-thread/system-thread/) mode.
 
 ```
 SYSTEM_THREAD(ENABLED);
@@ -662,7 +662,7 @@ if (Particle.connected()) {
 {{#if has-wifi}}
 #### Side note: Wi-Fi only mode
 
-While all of the causes above were unintentionally causing breathing green, you can also do it on purpose. Using the [SEMI_AUTOMATIC or MANUAL system mode](/reference/device-os/firmware/#semi-automatic-mode) and only bringing up Wi-Fi and not the cloud will cause intentional breathing green. You would do this if you're sending data to a local server and not using the cloud at all, for example. 
+While all of the causes above were unintentionally causing breathing green, you can also do it on purpose. Using the [SEMI_AUTOMATIC or MANUAL system mode](/cards/firmware/system-modes/semi-automatic-mode/) and only bringing up Wi-Fi and not the cloud will cause intentional breathing green. You would do this if you're sending data to a local server and not using the cloud at all, for example. 
 {{/if}}
 
 {{collapse op="end"}}
@@ -792,6 +792,14 @@ particle device doctor
 {{/if}}
 
 Some tips for reducing the memory used by your firmware [can be found here](https://support.particle.io/hc/en-us/articles/360039741093/).
+
+**Assertion failure (10 blinks between 2 SOS patterns)**
+
+Assertion failure is triggered when a test for something that should never occur occurs, and there is no solution other than to SOS and restart.
+
+Code might do this if the internal state is invalid and not what is expected, for example. Or something that should never happen and is non-recoverable, for example if the system thread cannot be created.
+
+At the moment, all of the AssertionFailures are in things related to threads and the system thread, but that’s just because those are the only things that have been instrumented with an AssertionFailure panic.
 
 **Stack overflow (13 blinks between 2 SOS patterns)**
 

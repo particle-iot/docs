@@ -1,0 +1,39 @@
+{
+  "type": "libraries",
+  "id": "measurement",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/measurement/archive/0.4.0.tar.gz"
+  },
+  "attributes": {
+    "name": "measurement",
+    "version": "0.4.0",
+    "installs": 353,
+    "license": "MIT",
+    "author": "Douglas Johnson <particle@douglasjohnson.org>",
+    "sentence": "Measurements are tagged and timed values such as temperature.",
+    "paragraph": "Illustrates coding conventions of a Particle Library.",
+    "url": "none",
+    "architectures": [
+      "avr",
+      "spark-core",
+      "particle-photon",
+      "particle-p1"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/measurement",
+  "versions": {
+    "0.4.0": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "About\n===\n\nThis is the library for Measurements.  A Measurement is a tagged, time stamped value such as temperature.\n",
+  "allVersions": [
+    "0.4.0",
+    "0.0.2"
+  ]
+}

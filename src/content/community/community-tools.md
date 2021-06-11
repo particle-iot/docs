@@ -1,8 +1,7 @@
 ---
 title: Community Supported Tools
-layout: community.hbs
+layout: commonTwo.hbs
 columns: two
-order: 25
 ---
 
 # Community Supported Tools

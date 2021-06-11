@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "clickButton",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/clickButton/archive/1.0.9.tar.gz"
+  },
+  "attributes": {
+    "name": "clickButton",
+    "version": "1.0.9",
+    "installs": 71737,
+    "license": "GNU General Public License v3+",
+    "author": "Paul Kourany/raron, raronzen@gmail.com",
+    "sentence": "clickButton Library",
+    "url": "https://github.com/pkourany/clickButton",
+    "repository": "https://github.com/pkourany/clickButton.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/clickButton",
+  "versions": {
+    "1.0.9": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "clickButtonDemo": true
+          },
+          "electron": {
+            "clickButtonDemo": true
+          },
+          "argon": {
+            "clickButtonDemo": true
+          },
+          "boron": {
+            "clickButtonDemo": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "clickButtonDemo": true
+          },
+          "electron": {
+            "clickButtonDemo": true
+          },
+          "argon": {
+            "clickButtonDemo": true
+          },
+          "boron": {
+            "clickButtonDemo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "ClickButton\n===========\n- Jan 2016, update to Libraries 2.0\n\nA library that decodes multiple clicks on one button. Also copes with \nlong clicks and click-and-hold. \n \nUsage:\n-------\n\n```\nClickButton buttonObject(pin [LOW/HIGH, [CLICKBTN_PULLUP]]);\n```\n \nwhere LOW/HIGH denotes active LOW or HIGH button (default is LOW) \nCLICKBTN_PULLUP is only possible with active low buttons. \n \nReturned click counts:\n----------------------\n\n   A positive number denotes the number of (short) clicks after a released button\n   A negative number denotes the number of \"long\" clicks\n\n",
+  "allVersions": [
+    "1.0.9",
+    "1.0.8",
+    "1.0.7",
+    "1.0.6",
+    "1.0.5",
+    "1.0.4"
+  ]
+}

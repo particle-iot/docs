@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "NCD_Ethernet_Overlay",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/NCD_Ethernet_Overlay/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "NCD_Ethernet_Overlay",
+    "version": "1.0.1",
+    "installs": 2818,
+    "license": "MIT",
+    "author": "Travis Elliott w NCD.io",
+    "sentence": "Library for use with NCD Particle Ethernet Overlay.",
+    "paragraph": "This library allows user applications to communicate over the network via Ethernet.  It is built upon Wiznet's libraries for the Wiznet W5500.  Does not currently support Particle cloud communication via Ethernet.",
+    "url": "the URL of the project, like https://github.com/mygithub_user/my_repo",
+    "repository": "https://github.com/ControlEverythingCom/Wiznet-W5500-Particle",
+    "architectures": [
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/NCD_Ethernet_Overlay",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# NCD_Ethernet_Overlay\n\nA Particle library for the NCD Particle Ethernet Overlay shield.  Buy the Ethernet Overlay and see more at https://NCD.io\n\n## Usage\n\nTODO: Fill in information on hardware usage.\n\n## Documentation\n\nTODO: Describe `NCD_Ethernet_Overlay`\n\n## Contributing\n\nHere's how you can make changes to this library and eventually contribute those changes back.\n\nTo get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).\n\nChange the name of the library in `library.properties` to something different. You can add your name at then end.\n\nModify the sources in <src> and <examples> with the new behavior.\n\nTo compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).\n\nAfter your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add NCD_Ethernet_Overlay_myname` to add the library to a project on your machine or add the NCD_Ethernet_Overlay_myname library to a project on the Web IDE or Desktop IDE.\n\nAt this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library.\n\nIf you wish to make your library public, use `particle library publish` or `Publish` command.\n\n## LICENSE\nCopyright 2017 Travis Elliott\n\nLicensed under the <insert your choice of license here> license\n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
+}

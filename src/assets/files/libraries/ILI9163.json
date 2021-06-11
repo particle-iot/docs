@@ -1,0 +1,34 @@
+{
+  "type": "libraries",
+  "id": "ILI9163",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ILI9163/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "ILI9163",
+    "version": "0.0.2",
+    "installs": 354,
+    "license": "MIT",
+    "author": "Noah Rosamilia <ivoahivoah@gmail.com>",
+    "sentence": "ILI9163 display driver",
+    "url": "https://github.com/Ivoah/Particle_ILI9163",
+    "repository": "https://github.com/Ivoah/Particle_ILI9163.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/ILI9163",
+  "versions": {
+    "0.0.2": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "Particle library for using ILI9163 based displays.\n",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

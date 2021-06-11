@@ -1,8 +1,7 @@
 ---
 title: Tracker One Expansion
 columns: two
-layout: tutorials.hbs
-order: 40
+layout: commonTwo.hbs
 description: Adding features to the Tracker One
 ---
 
@@ -24,8 +23,8 @@ The 8-pin connector has these signals:
 | 1      | CAN_P      |           |           | IO<sup>2</sup> | Yellow |
 | 2      | VIN<sup>3</sup> |      |           | I | Red |
 | 3      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> | White | 
-| 4      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> | Green |
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> | Brown |
+| 4      | Serial1 RX | Wire3 SDA | GPIO D9   | IO<sup>1</sup> | Green |
+| 5      | Serial1 TX | Wire3 SCL | GPIO D8   | IO<sup>1</sup> | Brown |
 | 6      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O | Orange | 
 | 7      | CAN_N      |           |           | IO<sup>2</sup> | Blue |
 | 8      | GND        |           |           |   | Black | 
@@ -67,10 +66,10 @@ There are three multi-function pins:
 | M8 Pin | Function   | Function  | Function  | 
 | :----: | :-------   | :-------  | :-------  | 
 | 3      | Analog A3  |           | GPIO D3   | 
-| 4      | Serial1 RX | Wire3 SDA | GPIO D8   | 
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | 
+| 4      | Serial1 RX | Wire3 SDA | GPIO D9   | 
+| 5      | Serial1 TX | Wire3 SCL | GPIO D8   | 
 
-You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/RX/SDA, D9/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
 For example: If you are using `Serial1`, you cannot use `Wire3` (I2C) and can only use one other GPIO (`D3`). 
 
@@ -125,8 +124,8 @@ The color code is as follows:
 | 1      | CAN_P     | Yellow         | 
 | 2      | VIN       | Red            |
 | 3      | A3        | White          | 
-| 4      | TX_SDA_D8 | Green          | 
-| 5      | TX_SCL_D9 | Brown          | 
+| 4      | RX_SDA_D9 | Green          | 
+| 5      | TX_SCL_D8 | Brown          | 
 | 6      | CAN_5V    | Orange         | 
 | 7      | CAN_N     | Blue           | 
 | 8      | GND       | Black          | 

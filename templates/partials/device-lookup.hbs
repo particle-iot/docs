@@ -1,0 +1,40 @@
+<div class="apiHelper apiHelperLoggedIn apiHelperDeviceLookup" style="display:none;" data-hidden="{{hidden}}" data-mode="{{mode}}">
+    <div class="apiHelperBox">
+        <p>Device ID: <input type="text" class="apiHelperDeviceLookupDeviceId" size="30"> 
+            <button class="apiHelperDeviceLookupButton apiHelperButton">Lookup</button>
+        </p>
+        <div class="apiHelperDeviceLookupStatus"></div>
+        <div class="apiHelperDeviceLookupOutput" style="display:none">
+            <div class="apiHelperDeviceLookupClaimedMyAccount">Is the device claimed to my account? &nbsp;<span class="apiHelperDeviceLookupResult"></span></div>            
+            <div class="apiHelperDeviceLookupProduct" style="display:none;">Is the device in a product I have access to?<br/><span class="apiHelperDeviceLookupResult"></span></div>
+            <div class="apiHelperDeviceLookupOrg" style="display:none;">Is the device in an organization I have access to?<br/><span class="apiHelperDeviceLookupResult"></span></div>           
+            <div class="apiHelperDeviceLookupOutputDetails">
+                <table class="apiHelperTableNoMargin">
+                    <tbody></tbody>
+                </table>
+            </div>
+            <p>&nbsp;</p>
+            <div class="apiHelperDeviceLookupClaimDiv" style="display:none">
+                <p>Claiming a device adds it to your account. You can have up to 100 devices 
+                    in your account in the Free Tier. The device must be online and breathing 
+                    cyan and not be claimed to another account in order to claim it!</p>
+                <p><button class="apiHelperDeviceLookupClaimButton apiHelperButton">Claim Device</button></p>
+                <p class="apiHelperDeviceLookupResult"></p>
+            </div>
+            <div class="apiHelperDeviceLookupRenameDeviceDiv" style="display:none">
+                Device Name: <input type="text" class="apiHelperDeviceLookupRenameDeviceName" size="20"> 
+                    <button class="apiHelperDeviceLookupRenameDeviceButton apiHelperButton">Rename Device</button>
+                <p class="apiHelperDeviceLookupResult"></p>
+            </div>
+            <div class="apiHelperDeviceLookupRemoveProductDiv" style="display:none">
+                <p><button class="apiHelperDeviceLookupRemoveProductButton apiHelperButton">Remove from Product</button></p>
+                <p class="apiHelperDeviceLookupRemoveProductStatus"></p>
+            </div>
+            <div class="apiHelperDeviceLookupUnclaimDeviceDiv" style="display:none">
+                <p><button class="apiHelperDeviceLookupUnclaimDeviceButton apiHelperButton">Unclaim Device</button><br/></p>
+                <p class="apiHelperDeviceLookupUnclaimDeviceStatus"></p>
+            </div>
+        </div>
+    </div>
+</div>
+

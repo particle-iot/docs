@@ -1,10 +1,9 @@
 ---
 word: CLI
 title: Command Line Interface (CLI)
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: three
 redirects: true
-order: 40
 description: Command line interface for managing your devices for Windows, Mac OS, and Linux
 ---
 
@@ -286,7 +285,7 @@ $ particle compile e myapp.ino
 
 ---
 
-The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/device-os/firmware/#preprocessor).
+The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/cards/firmware/preprocessor/preprocessor/).
 
 If you want to build a library that can be used for both Arduino and Particle, here's a useful code snippet:
 

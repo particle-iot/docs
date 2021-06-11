@@ -1,24 +1,12 @@
 ---
 word: Fleet Health
 title: Fleet Health
-order: 3
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 ---
 
 # {{title}}
-
-
-{{box op="start"}}
-<p style="text-align:center;">Fleet Health is a feature available to
-customers on Particle's Enterprise plan. Interested in using this feature?</p>
-
-<a class="btn"
-href="https://particle.io/sales?utm_campaign=fleet-health-enterprise-contact&utm_source=docs&utm_medium=link"
-target="_blank" style="display:block;margin:0
-auto;width:200px;text-align:center">Talk to an expert</a>
-{{box op="end"}}
 
 As you begin deploying more connected devices in the field powered by
 Particle, it is important to have tools that give visibility into the overall functioning
@@ -71,7 +59,7 @@ different points in time.
 
 One of the 4 main device communication primitives is **publishing
 events**, which is done by adding
-[`Particle.publish()`](/reference/device-os/firmware/#particle-publish-)
+[`Particle.publish()`](/cards/firmware/cloud-functions/particle-publish/)
 to application firmware. Publishing events allows devices to send a
 message to the Device Cloud (i.e. the current location of an
 asset), which can be subscribed to by downstream systems.
@@ -122,7 +110,7 @@ identify which one is having an issue.
 
 Another device communication primitive is **Cloud Functions**, which are
 exposed using
-[`Particle.function()`](/reference/device-os/firmware/#particle-function-)
+[`Particle.function()`](/cards/firmware/cloud-functions/particle-function/)
 in application firmware. Cloud Functions allow you to instruct devices
 to take an action remotely.
 
@@ -143,7 +131,7 @@ with the [Online Devices](#online-devices) data.
 **Cloud Variables** is another device communication primitive that
 allows you to query devices for information locally. Variables are
 exposed using
-[`Particle.variable()`](/reference/device-os/firmware/#particle-variable-)
+[`Particle.variable()`](/cards/firmware/cloud-functions/particle-variable/)
 in application firmware.
 
 The Cloud Variable Requests metric measures _How many cloud variable
@@ -218,12 +206,5 @@ Filtering by Device OS version can help you identify patterns in
 connectivity health across Device OS versions running on devices in the
 fleet.
 
-{{box op="start"}}
-<p style="text-align:center;">Fleet Health is a feature available to
-customers on Particle's Enterprise plan. Interested in using this feature?</p>
-
-<a class="btn"
-href="https://particle.io/sales?utm_campaign=fleet-health-enterprise-contact&utm_source=docs&utm_medium=link"
-target="_blank" style="display:block;margin:0
-auto;width:200px;text-align:center">Talk to an expert</a>
-{{box op="end"}}
+Fleet health was previously only available to Enterprise customers but is 
+now available to all products.

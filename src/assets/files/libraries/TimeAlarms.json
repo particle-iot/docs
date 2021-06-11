@@ -1,0 +1,62 @@
+{
+  "type": "libraries",
+  "id": "TimeAlarms",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TimeAlarms/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "TimeAlarms",
+    "version": "0.0.3",
+    "installs": 50117,
+    "license": "LGPL 3.0",
+    "author": "Brian Ogilvie <bko@pobox.com>",
+    "sentence": "Port of TimeAlarms",
+    "url": "https://github.com/bkobkobko/sparktimealarms",
+    "repository": "https://github.com/bkobkobko/sparktimealarms.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TimeAlarms",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "TimeAlarmsExample": false
+          },
+          "electron": {
+            "TimeAlarmsExample": false
+          },
+          "argon": {
+            "TimeAlarmsExample": false
+          },
+          "boron": {
+            "TimeAlarmsExample": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "TimeAlarmsExample": false
+          },
+          "electron": {
+            "TimeAlarmsExample": false
+          },
+          "argon": {
+            "TimeAlarmsExample": false
+          },
+          "boron": {
+            "TimeAlarmsExample": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkTimeAlarms\n===============\n\nPort of PJRC's TimeAlarms Library using core Time.now\n\nPlease note that this library is not intended to work with the SparkTime NTP library.\n\nThis library only works with built-in core Time.now() initialized from the Spark Cloud.\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2"
+  ]
+}

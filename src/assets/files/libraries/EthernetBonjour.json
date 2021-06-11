@@ -1,0 +1,64 @@
+{
+  "type": "libraries",
+  "id": "EthernetBonjour",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/EthernetBonjour/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "EthernetBonjour",
+    "version": "1.0.1",
+    "installs": 189,
+    "license": "GNUGPL",
+    "author": "@moflome",
+    "sentence": "Bonjour MDNS ZeroConfigure service for Particle Photon, port of Arduino EthernetBonjour for use with Apple HomeKit",
+    "url": "https://github.com/moflo/EthernetBonjourParticle",
+    "repository": "https://github.com/moflo/EthernetBonjourParticle",
+    "architectures": [
+      "particle-photon"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "e",
+  "cardUrl": "/cards/libraries/e/EthernetBonjour",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# EthernetBonjour\n\nA Particle library for IP based MDNS services, for use with Apple's HomeKit.\n\n## Background\n\nThis Particle.io library is a port of the `EthernetBonjour` service for Arduino, copyright (C) 2010 Georg Kaindl. [http://gkaindl.com](http://gkaindl.com).\n\n\n## Usage\n\nConnect Photon hardware, add the EthernetBonjour library to your project and follow this simple example:\n\n```\n// Create a UDP service for use by MDNS\nUDP udp;\n\n// Create a TCP/HTTP service for local discovery and HAP accessory handling\nTCPServer server = TCPServer(80);\n\n// Create a EthernetBonjour service for MDNS registration & discovery\nEthernetBonjourClass Bonjour;\n\n\nvoid setup() {\n  Particle.publish(\"EthernetBonjour Setup\");\n\n  String localIP = WiFi.localIP();\n  Particle.publish(\"Announced from \", localIP );\n  \n  WiFi.connect();\n\n  server.begin();\n\n  // Initialize EthernetBonjour service with local UDP reference\n  Bonjour.setUDP( &udp );\n  \n  // Begin MDNS registration servcie with the name of the HAP accessory (will appear in Apple Home)\n  Bonjour.begin(\"particle\");\n\n  // Start MDNS registration with TCP based service, using special HAP TXT records encoded as c-string\n  Bonjour.addServiceRecord(\"particle._hap\",\n                                   80,\n                                   MDNSServiceTCP,\n                                   \"\\x4sf=1\\x14id=3C:33:1B:21:B3:00\\x6pv=1.0\\x04\\c#=1\\x04s#=1\\x4\\ff=0\\x04sf=1\\x0Bmd=particle\");\n\n}\n\n\nvoid loop() {\n\n  // Process MDNS UDP traffic once per loop\n  Bonjour.run();\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## Documentation\n\nMore information online at GitHub [https://github.com/moflo/EthernetBonjourParticle](https://github.com/moflo/EthernetBonjourParticle)\n\n\n## LICENSE\nCopyright (c) 2017 @moflome, copyright (C) 2010 Georg Kaindl.\n\nEthernetBonjour is free software: you can redistribute it and/or\nmodify it under the terms of the GNU Lesser General Public License\nas published by the Free Software Foundation, either version 3 of\nthe License, or (at your option) any later version.\n\nEthernetBonjour is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU Lesser General Public License for more details.\n\nYou should have received a copy of the GNU Lesser General Public\nLicense along with EthernetBonjour. If not, see\n<http://www.gnu.org/licenses/>.\n",
+  "allVersions": [
+    "1.0.1",
+    "1.0.0"
+  ]
+}

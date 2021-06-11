@@ -1,8 +1,7 @@
 ---
 title: Android SDK
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: three
-order: 30
 description: Manage your Particle IoT device from an Android phone
 sdkversion: 1.0.1
 devicesetupversion: 0.7.3
@@ -191,7 +190,7 @@ String defaultBuildString = myDevice.getDefaultBuild();
 ---
 
 #### Read Variables
-Accessing variables of [all the standard Particle Device Cloud types](/reference/device-os/firmware/#particle-variable-) (integers, strings, doubles, and booleans):
+Accessing variables of [all the standard Particle Device Cloud types](/cards/firmware/cloud-functions/particle-variable/) (integers, strings, doubles, and booleans):
 
 ```java
 // 'myDevice' here is a ParticleDevice instance

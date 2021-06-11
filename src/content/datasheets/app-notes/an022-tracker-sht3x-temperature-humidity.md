@@ -1,8 +1,8 @@
 ---
 title: AN022 Tracker SHT3x Temperature/Humidity
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 122
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN022 Tracker SHT3x Temperature/Humidity
 
@@ -118,6 +118,22 @@ Also be sure to use the SHT30, SHT31, etc.. The earlier sensors like the SHT10 a
 
 ### Getting the Tracker Edge Firmware
 
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN022/firmware/main.cpp" project="tracker-an022" libraries="/assets/files/app-notes/AN022/firmware/AN022.dep"}}
+
+- Extract **tracker-an022.zip** in your Downloads directory 
+- Open the **tracker-an022** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
+
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -137,7 +153,7 @@ git submodule update --init --recursive
 
 Make sure you've used the [**Mark As Development Device**](https://docs.particle.io/tutorials/product-tools/development-devices/) option for your Tracker device in your Tracker product. If you don't mark the device as a development device it will be flashed with the default or locked product firmware version immediately after connecting to the cloud, overwriting the application you just flashed.
 
-### Add the sht3x-i2c library
+#### Add the sht3x-i2c library
 
 From the command palette in Workbench, **Particle: Install Library** then enter **sht3x-i2c**.
 
@@ -145,72 +161,8 @@ The documentation for the library can be found [here](https://github.com/particl
 
 ### Customize main.cpp
 
-```cpp
-#include "Particle.h"
+{{> codebox content="/assets/files/app-notes/AN022/firmware/main.cpp" format="cpp" height="500"}}
 
-#include "tracker_config.h"
-#include "tracker.h"
-#include "sht3x-i2c.h"
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_INFO },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-Sht3xi2c sensor(Wire3, 0x44);
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context); // Forward declaration
-
-void setup()
-{
-    Tracker::instance().init();
-
-    // Register a location callback so we can add temperature and humidity information
-    // to location publishes
-    Tracker::instance().location.regLocGenCallback(locationGenerationCallback);
-    
-    // Turn on 5V output on M8 connector
-    pinMode(CAN_PWR, OUTPUT);
-    digitalWrite(CAN_PWR, HIGH);
-    delay(500);
-
-    sensor.begin(CLOCK_SPEED_400KHZ);
-    sensor.start_periodic();
-
-    Particle.connect();
-}
-
-void loop()
-{
-    Tracker::instance().loop();
-}
-
-void locationGenerationCallback(JSONWriter &writer, LocationPoint &point, const void *context)
-{
-    double temp, humid;
-
-    int err = sensor.get_reading(&temp, &humid);
-    if (err == 0)
-    {
-        writer.name("sh31_temp").value(temp);
-        writer.name("sh31_humid").value(humid);
-
-        Log.info("temp=%.2lf hum=%.2lf", temp, humid);
-    }
-    else {
-        Log.info("no sensor err=%d", err);
-    }
-}
-
-```
 
 ### Digging In
 

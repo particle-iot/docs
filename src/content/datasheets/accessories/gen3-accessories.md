@@ -1,8 +1,7 @@
 ---
 title: Gen 3 Accessories
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 22
 description: Accessories for Particle Gen 3 devices including the Argon and Boron, and other Adafruit FeatherWing accessories.
 ---
 
@@ -12,7 +11,7 @@ These accessories are for the Particle Gen 3 devices: Argon and Boron in the Ada
 
 ## Grove Starter Kit 
 
-<div align=center><img src="/assets/images/accessories/grove-mesh-starter-kit/grove-mesh-starter-kit.png" ></div>
+<div align=center><img src="/assets/images/accessories/grove-kit.jpg" ></div>
 
 The Grove starter kit is designed to make your first exploration into the world of sensing and actuating a breeze. The kit comes with seven different components that work out-of-the-box with Particle Gen 3 hardware and let you focus on learning the basics. Working with Starter Kit requires no soldering and minimal wiring. Simply connect the kit’s Grove Shield (the new co-developed FeatherWing adapter from Particle and SeeedStudio) to your Particle Gen 3 board and use the included cables to connect the adapter and the sensors and actuators that you want to use. It’s a plug-and-play experience.
 
@@ -57,7 +56,7 @@ For a short (~6 min) example of using the Grove Starter Kit, watch the video bel
 
 Button is a momentary push button. It contains one independent "momentary on/off" button. “Momentary” means that the button rebounds on its own after it is released. The button outputs a HIGH signal when pressed, and LOW when released.  The Sig marked on silk layer stands for signal while NC is not connected to anything. 
 
-It can be used on either a digital or analog input port, and the button is read using the primary digital I/O using the [digitalRead](/reference/device-os/firmware#digitalread-) function. The digitalRead function can be used on both digital and analog pins.
+It can be used on either a digital or analog input port, and the button is read using the primary digital I/O using the [digitalRead](/cards/firmware/input-output/digitalread/) function. The digitalRead function can be used on both digital and analog pins.
 
 Additional information available [here.](https://www.seeedstudio.com/Grove-Button-p-766.html)
 
@@ -67,7 +66,7 @@ Additional information available [here.](https://www.seeedstudio.com/Grove-Butto
 
 The rotary angle sensor produces analog output between 0 and Vcc (3.3VDC) on its D1 connector. The D2 connector is not used. The angular range is 300 degrees with a linear change in value. The resistance value is 10k ohms. This essentially is a potentiometer.
 
-It must be used on an analog input port, and the value is read using the primary analog input using the [analogRead](/reference/device-os/firmware#analogread-adc-) function.
+It must be used on an analog input port, and the value is read using the primary analog input using the [analogRead](/cards/firmware/input-output/analogread-adc/) function.
 
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Rotary_Angle_Sensor/)
 
@@ -100,7 +99,7 @@ Additional information available [here.](http://wiki.seeedstudio.com/Grove-Tempe
 
 Light sensor integrates a photo-resistor (light dependent resistor) to detect the intensity of light. The resistance of photo-resistor decreases when the intensity of light increases. A dual OpAmp chip LM358 on board produces voltage corresponding to intensity of light(i.e. based on resistance value). The output signal is analog value, the brighter the light is, the larger the value.
 
-It must be used on an analog input port, and the value is read using the primary analog input using the [analogRead](/reference/device-os/firmware#analogread-adc-) function.
+It must be used on an analog input port, and the value is read using the primary analog input using the [analogRead](/cards/firmware/input-output/analogread-adc/) function.
 
 This module can be used to build a light controlled switch i.e. switch off lights during day time and switch on lights during night time.
 
@@ -124,7 +123,7 @@ Additional information available [here.](http://wiki.seeedstudio.com/Grove-Chain
 
 Buzzer module has a piezo buzzer as the main component. The piezo can be connected to digital outputs, and will emit a tone when the output is HIGH. Alternatively, it can be connected to an pulse-width modulation output to generate various tones and effects.
 
-You can use the [pinMode](/reference/device-os/firmware#pinmode-) and [digitalWrite](/reference/device-os/firmware#digitalwrite-) functions to control the output.
+You can use the [pinMode](/cards/firmware/input-output/pinmode/) and [digitalWrite](/cards/firmware/input-output/digitalwrite/) functions to control the output.
 
 ```
 pinMode(D2, OUTPUT);
@@ -135,7 +134,7 @@ digitalWrite(D2, LOW);
 
 It can be used on a digital or analog port, as the analog inputs can also be used as digital outputs.
 
-An example using [tone](/reference/device-os/firmware#tone-) (PWM) to play a melody can be found [here](https://go.particle.io/shared_apps/5bc52086cb4e858acf001098). Not every pin is PWM compatible, so make sure you use a port that supports PWM.
+An example using [tone](/cards/firmware/advanced-i-o/tone/) (PWM) to play a melody can be found [here](https://go.particle.io/shared_apps/5bc52086cb4e858acf001098). Not every pin is PWM compatible, so make sure you use a port that supports PWM.
 
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-Buzzer/)
 
@@ -214,6 +213,8 @@ If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRES
 ## PoE (Power over Ethernet)
 
 ![PoE Board](/assets/images/poe-main.jpg)
+
+**The PoE adapter is discontinued and no longer available for sale. Existing PoE adapters will continue to work.**
 
 The PoE (Power over Ethernet) adapter for the Ethernet FeatherWing plugs into the Ethernet side of the FeatherWing. 
 

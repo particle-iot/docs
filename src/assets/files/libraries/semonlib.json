@@ -1,0 +1,39 @@
+{
+  "type": "libraries",
+  "id": "semonlib",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/semonlib/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "semonlib",
+    "version": "0.0.1",
+    "installs": 3005,
+    "author": "Chris Guy <chris_guy_84@hotmail.com>",
+    "sentence": "Spark port of open energy monitor emonlib",
+    "url": "https://github.com/newbray/semonlib",
+    "repository": "https://github.com/newbray/semonlib.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/semonlib",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "TODO: Describe your library and how to run the examples\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

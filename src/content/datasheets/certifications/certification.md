@@ -1,8 +1,7 @@
 ---
 title: Certifications
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 60
 description: Information about certifications (FCC, IC, CE, UL, etc.) for Particle devices.
 ---
 
@@ -111,7 +110,7 @@ FCC Part 15 Subpart B, Class B (sDoC):
 
 - [Test report](/assets/pdfs/elc314-fcc-part15b-test-report.pdf)
 
-#### Electron E402 and ELC404 LTE Cat M1 (R410M)
+#### Electron ELC402 and ELC404 LTE Cat M1 (R410M)
 
 FCC Part 15 Subpart B, Class B (sDoC):
 
@@ -352,7 +351,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
   
 - [ICES-003 Issue 6 Test report](/assets/pdfs/elc314-ices-3-6-test-report.pdf)
 
-#### Electron E402 and ELC404 LTE Cat M1 (R410M modem)
+#### Electron ELC402 and ELC404 LTE Cat M1 (R410M modem)
 
 - [ICES-003 Issue 6:2016, Class B](/assets/pdfs/electron402-fcc-part15b.pdf)
 - [ICES-003 Test report](/assets/pdfs/electron402-fcc-part15b-test-report.pdf)
@@ -485,7 +484,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 The CE mark is a mandatory conformity marking for certain products sold within the European Economic Area (EEA). It is analogous in that sense to the FCC marking used on devices sold within in the United States.
 
 ### Integration
-Both the Photon/PØ and P1 are certified and carry the CE marking. Section 1.3.1 of the [Guide to the R&TTE Directive 1999/5/EC](http://ec.europa.eu/growth/sectors/electrical-engineering/rtte-directive/) states the following regarding the attachment of antennas to a module that already has documentation of conformance:
+Both the Photon/PØ and P1 are certified and carry the CE marking. Section 1.3.1 of the Guide to the R&TTE Directive 1999/5/EC states the following regarding the attachment of antennas to a module that already has documentation of conformance:
 
 _"Manufacturers who place on the market products without an antenna or with an antenna that is intended to allow replacement have a responsibility to provide information on the general types and/or characteristics of antennas that may be used with their equipment in order that the overall radio equipment remains compliant. The guidance of the transmitter manufacturer has to be followed when they are installed."_
 
@@ -812,6 +811,12 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 #### Electron 2G (G350 modem)
 - Product has completed and passed all PTCRB test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 2G cellular solutions.
 
+#### Electron ELC402 LTE Cat M1 (R410M modem)
+- [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=43160)
+- [Certificate of Conformity](/assets/pdfs/elc402-ptcrb.pdf)
+- [OTA test report for network certification](/assets/pdfs/elc402-ota-att.pdf)
+
+
 #### E Series E310 (U201 modem)
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=39636)
 - [Certificate of Conformity](/assets/pdfs/electron/ptcrb-u201-certificate.pdf)
@@ -820,7 +825,7 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 #### E Series E402 LTE Cat M1 (R410M modem)
 - [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=41338)
 - [Certificate of Conformity](/assets/pdfs/e402-ptcrb.pdf)
-- [AT&T LTE Certification](/assets/pdfs/e402-ota-att.pdf)
+- [OTA test report for network certification](/assets/pdfs/e402-ota-att.pdf)
 
 #### Boron LTE Cat M1 BRN402 (R410M modem)
 
@@ -832,8 +837,7 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 
 #### Tracker SoM T402
 
-- [Certificate of Conformity](/assets/pdfs/t402-ptcrb.pdf
-)
+- [Certificate of Conformity](/assets/pdfs/t402-ptcrb.pdf)
 
 
 ## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>

@@ -1,0 +1,89 @@
+{
+  "type": "libraries",
+  "id": "particle-strip",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/particle-strip/archive/2.3.3.tar.gz"
+  },
+  "attributes": {
+    "name": "particle-strip",
+    "version": "2.3.3",
+    "installs": 364,
+    "license": "GNU LGPLv3",
+    "author": "DonGar,Adafruit,Technobly",
+    "sentence": "Control LED strips (Digital RGB, NeoPixel, DotStar, PWM LEDs)",
+    "paragraph": "An identical interface for all hardware, and able to drive multiple types of strands at once. Includes Pattern library to easily perform several animation patterns, report the current pattern as an event, and update patterns via Cloud RPC calls.",
+    "url": "https://github.com/DonGar/particle-strip",
+    "repository": "https://github.com/DonGar/particle-strip",
+    "architectures": [
+      "spark-core",
+      "particle-photon",
+      "particle-electron",
+      "particle-p1"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/particle-strip",
+  "versions": {
+    "2.3.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "combo": true,
+            "led": true,
+            "pattern": true
+          },
+          "electron": {
+            "combo": true,
+            "led": true,
+            "pattern": true
+          },
+          "argon": {
+            "combo": false,
+            "led": false,
+            "pattern": false
+          },
+          "boron": {
+            "combo": false,
+            "led": false,
+            "pattern": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "combo": true,
+            "led": true,
+            "pattern": true
+          },
+          "electron": {
+            "combo": true,
+            "led": true,
+            "pattern": true
+          },
+          "argon": {
+            "combo": false,
+            "led": false,
+            "pattern": false
+          },
+          "boron": {
+            "combo": false,
+            "led": false,
+            "pattern": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# particle-strip\n\nLibrary to drawing animations to various types of LED strips from a\n[Particle Core](https://store.particle.io/?product=spark-core)\n\nSupportedHardware:\n * LPD8806 RGB LEDs [Example](http://www.adafru.it/306)\n * NeoPixel [Example](http://www.adafru.it/1463)\n   * NeoPixel Strip - (WS2811/WS2812/WS2812B based)\n   * May also support (not tested on hardware)\n     * Radio Shack Tri-Color Strip with TM1803 controller 400kHz bitstream.\n     * TM1829 pixels\n * DotStar [Example](http://www.adafru.it/2238)\n\nGives a hardware independent interface for each type of strip. Can\nsupport multiple strips in parallel.\n\nContains a Pattern helper that can help with pattern animation for a\nnumber of standardized patterns.\n",
+  "allVersions": [
+    "2.3.3",
+    "2.3.2",
+    "2.3.1",
+    "2.3.0",
+    "2.2.0",
+    "2.1.0",
+    "2.0.0"
+  ]
+}

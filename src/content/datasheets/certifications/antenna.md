@@ -1,8 +1,7 @@
 ---
 title: Antennas
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 70
 description: Information about antennas and certification
 ---
 
@@ -26,6 +25,7 @@ The following cellular antennas are available:
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x1] | ANTELEC | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-antenna-1) |
 | Taoglas Cellular PCB Antenna 2G/3G 2.4dBi, [x50] | ANTELEC50 | Electron and E Series 2G/3G | [Datasheet](/assets/datasheets/PC104.07.0165C.pdf) |
+| Tracker One Cellular Antenna | | Tracker One | [Datasheet](/assets/pdfs/tracker-one-ant-cellular.pdf) |
 
 ### Compatible devices (Cellular)
 
@@ -67,10 +67,6 @@ The following devices have a cellular modem. The Tracker One includes a cellular
 | E Series LTE CAT-M1 (NorAm), Tray [x50] | E402TRAY50 | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
 | E Series LTE CAT-M1 (NorAm), Tray [x50] | E404TRAY50 | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | GA|
 | Electron 2G (Global), Tray [x50] | E350TRAY50 | &nbsp; | ANTELEC | &nbsp; | NRND|
-| Electron 2G/3G (Americas/Aus) Starter Kit, [x1] | E260KIT | &check; | ANTELEC | &nbsp; | NRND|
-| Electron 2G/3G (Americas/Aus), Tray [x50] | E260TRAY50 | &nbsp; | ANTELEC | &nbsp; | NRND|
-| Electron 2G/3G (EMEA) Starter Kit, [x1] | E270KIT | &check; | ANTELEC | &nbsp; | NRND|
-| Electron 2G/3G (EMEA), Tray [x50] | E270TRAY50 | &nbsp; | ANTELEC | &nbsp; | NRND|
 | Electron 2G/3G (Global - U201) , Tray [x50] | ELC314TY | &nbsp; | ANT-FLXU | &nbsp; | GA|
 | Electron LTE CAT-M1 (NorAm), [x1] | ELC402EA | &check; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
 | Electron LTE CAT-M1 (NorAm), Tray [x50] | ELC402TY | &nbsp; | ANT-FLXU | ANTCW2EA<sup>2</sup> | NRND|
@@ -132,7 +128,7 @@ Full certification of a device typically involves three different certifications
 
 3. [PTCRB](https://www.ptcrb.com/). This is a certification for cellular devices in the United States. If you use a similar antenna to the one Particle used during its tests, you may be able to avoid having to perform this certification again. 
 
-In the United States [this document from the FCC](https://apps.fcc.gov/kdb/GetAttachment.html?id=zVUUifMY6Doa%2BO3Sg0Nygw%3D%3D&desc=996369%20D04%20Module%20Integration%20Guide%20V01&tracking_number=44637) provides a great deal of information about the various certifications. The process is similar in Canada (IC). In the European Union you will need to have a test lab perform similar tests, but there isn't the equivalent of an FCC or IC identification number for the EU.
+In the United States [this document from the FCC](https://apps.fcc.gov/kdb/GetAttachment.html?id=bNCiEdkFEKnHsZF9GHCNdg%3D%3D&desc=996369%20D04%20Module%20Integration%20Guide%20V02&tracking_number=44637) provides a great deal of information about the various certifications. The process is similar in Canada (IC). In the European Union you will need to have a test lab perform similar tests, but there isn't the equivalent of an FCC or IC identification number for the EU.
 
 In order to avoid having to complete steps 2 and 3 again, a substitute antenna must:
 
@@ -169,6 +165,7 @@ The Particle 2.4 GHz W-Fi antenna is available in the [retail](https://store.par
 | :------ | :--- | :---- |
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
+| Tracker One Wi-Fi Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-wifi.pdf) |
 
 ### Compatible devices (Wi-Fi)
 
@@ -237,7 +234,7 @@ These devices do not have a Wi-Fi modem and therefore do not need a Wi-Fi antenn
 | B Series SoM | B402MEA, B402MTY, B404MEA, B404MTY, B523MEA, B523MTY, B524MEA, B524MTY|
 | Boron | BRN310KIT, BRN310TRAY50, BRN314KIT, BRN314TRAY50, BRN402, BRN402KIT, BRN402TRAY50, BRN404, BRN404KIT, BRN404TRAY50|
 | E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
-| Electron | E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
+| Electron | E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
 
 
 {{!-- END do not edit content above, it is automatically generated cee24faa-776d-11eb-9439-0242ac130002 --}}
@@ -255,7 +252,7 @@ The Particle 2.4 GHz BLE antenna is available in the [retail](https://store.part
 | :------ | :--- | :---- |
 | Particle Wi-Fi Antenna 2.4GHz, [x1] | ANT-FLXV2 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/wi-fi-or-mesh-2-4ghz-antenna) |
 | Particle Wi-Fi Antenna 2.4GHz, [x50] | ANT-FLXV2-50 | [Datasheet](/assets/datasheets/ANT-FLXV2.pdf) |
-
+| Tracker One BLE Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-ble.pdf) |
 
 ### Compatible devices (BLE)
 
@@ -328,7 +325,7 @@ These devices do not have a BLE radio and therefore do not need a BLE antenna.
 | Family | SKUs |
 | :----- | :--- |
 | E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
-| Electron | E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
+| Electron | E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH|
 | P Series | P0REEL, P1MOD10, P1REEL|
 
@@ -346,7 +343,7 @@ The Particle NFC Antenna is available in the [retail](https://store.particle.io/
 | Antenna | SKU  | Links |
 | :------ | :--- | :---- | 
 | Particle NFC Antenna, [x1] | ANT-NFC | [Datasheet](/assets/datasheets/ANT-NFC.pdf) &#124; [Retail Store](https://store.particle.io/products/nfc-antenna) |
-
+| Tracker One NFC Antenna | | [Datasheet](/assets/pdfs/tracker-one-ant-nfc.pdf) |
 
 ### Compatible devices (NFC)
 
@@ -418,7 +415,7 @@ These devices do not have an NFC radio and therefore do not need a NFC antenna.
 | Family | SKUs |
 | :----- | :--- |
 | E Series | E310KIT, E310MOD1, E310TRAY50, E313TY, E314KIT, E314MOD1, E314TRAY50, E402KIT, E402MOD1, E402TRAY50, E404KIT, E404MOD1, E404TRAY50|
-| Electron | E260KIT, E260TRAY50, E270KIT, E270TRAY50, E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
+| Electron | E350TRAY50, ELC314TY, ELC402EA, ELC402TY, ELC404TY|
 | Photon | PHNTRAYH, PHNTRAYNOH, PHOTONH|
 | P Series | P0REEL, P1MOD10, P1REEL|
 

@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "Temperature_Alarm",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Temperature_Alarm/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Temperature_Alarm",
+    "version": "1.0.0",
+    "installs": 570,
+    "license": "GNU",
+    "author": "Travis Elliott <travis@controleverything.com>",
+    "sentence": "Library serves as example for article SI7020_I2CBZ_Temp_Alarm on controleverything.com",
+    "url": "https://github.com/controleverythingcom/temperature_alarm",
+    "repository": "https://github.com/controleverythingcom/temperature_alarm.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/Temperature_Alarm",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "application": true
+          },
+          "electron": {
+            "application": true
+          },
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "application": true
+          },
+          "electron": {
+            "application": true
+          },
+          "argon": {
+            "application": true
+          },
+          "boron": {
+            "application": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# About\n\nThis Library is intended to be used in conjunction with the Control Anything article Temperature_Alarm.\n\nThe intention of this library is to make use of the SI7020-A20 Temperature/Humidity Sensor and PCA9536_I2CBZ I²C Mini Modules with Particle development web IDE as simple as possible for users.\n###Developer information\nNCD has been designing and manufacturing computer control products since 1995.  We have specialized in hardware design and manufacturing of Relay controllers for 20 years.  We pride ourselves as being the industry leader of computer control relay products.  Our products are proven reliable and we are very excited to support Particle.  For more information on NCD please visit www.controlanything.com\n\n###Requirements\n- SI7020-A20 I²C Humidity and Temperature Sensor ±4%RH ±.4°C I²C Mini Module\n- PCA9536 I²C Digital 3-Channel Input Output with Buzzer I²C Mini Module\n- I²C Shield for Particle Photon\n- Particle Core/Photon module\n- Knowledge base for developing and programming with Particle Core/Photon modules.\n\n### Version\n1.0.0\n\n### How to use this library\n\nThis is a fully implemented Library and is intended to be used as is.  Users may modify and use the library in any way they see fit.  The intended use is to search Community Libraries under Particle's WEB IDE for Temperature_Alarm.  Once found make sure the application tab is selected, then click Use This Example button on the left.  Then flash the firmware into your Particle Module.  For more information see [Particle's documentation] [sparkIncludeLibrary].\n\n### What it does\n\nThis library does two things.  It monitors the temperature using the SI7020-A20 temperature sensor.  Secondly it turns a buzzer on to indicate an alarm situation.  The alarm can trip when a temperature gets too high or too low. \n\nThe firmware publishes a function called AlarmLimit which takes a string argument.  This argument sets the alarm limit to turn the buzzer on.  The formwat for the alarm is for example: \nhigh;200.00\nlow;32.00\nThe first part of the argument indicates whether the alarm should trip when the temperature is above a limit or below a limit.  If high is passed as the first part the alarm will turn on when the temperature gets too high.  If low is passed as the first part the alarm will turn off when the temperature gets too low.\nThe second part of the argument is the temperature limit.  This should be a decimal formatted temperature such as 75.00\nThe first and second part of the arguments should always be seperated by a semi-colon as shown in the examples above.\n\nThis firmware also publishes the current temperature as a variable on Particle's server.\n\nLicense\n----\n\nGNU\n[sparkIncludeLibrary]:https://docs.particle.io/guide/getting-started/build/photon/",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

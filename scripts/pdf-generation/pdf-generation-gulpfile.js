@@ -73,6 +73,72 @@ function filterUnchanged(vf) {
 
 	return true;
 }
+/* ---------------- handlebars substitutions ---------------- */
+
+function sinceHandler(src) {
+    const when = src.match(/when=\"([^\"]+)\"/);
+    if (when && when.length >= 2 && when[1]) {
+        return '\n_Since ' + when[1] + '_:\n\n';
+    }
+    else {
+        return '';
+    }
+}
+
+function noteHandler(src) {
+    if (src.includes('op="end"')) {
+        return '';
+    }
+    const type = src.match(/type=\"([^\"]+)\"/);
+    if (type && type.length >= 2 && type[1]) {
+        let message = '';
+
+        if (type[1].indexOf("warning") >= 0) {
+            message = 'Warning:';
+        }
+        else
+        if (type[1].indexOf("note") >= 0) {
+            message = 'Note:';
+        }
+        else
+        if (type[1].indexOf("cellular") >= 0) {
+            if (type[1].indexOf("gen3") >= 0) {
+                message = 'Gen 3 Cellular Devices:';
+            }
+            else if (type[1].indexOf("gen2") >= 0) {
+                message = 'Gen 2 Cellular Devices:';
+            }
+            else {
+                message = 'Cellular Devices:';
+            }
+        }
+        else
+        if (type[1].indexOf("wifi") >= 0) {
+            if (type[1].indexOf("gen3") >= 0) {
+                message = 'Gen 3 Wi-Fi Devices:';
+            }
+            else if (type[1].indexOf("gen2") >= 0) {
+                message = 'Gen 2 Wi-Fi Devices:';
+            }
+            else {
+                message = 'Wi-Fi Devices:';
+            }
+        }
+        else
+        if (type[1].indexOf("gen3") >= 0) {
+            message = 'Gen 3 Devices:';
+        }
+        else
+        if (type[1].indexOf("gen2") >= 0) {
+            message = 'Gen 2 Devices:';
+        }
+
+        return '\n**' + message + '**\n\n';
+    }
+    else {
+        return '';
+    }
+}
 
 /* ---------------- wkHTMLtoPDF ---------------- */
 
@@ -122,12 +188,15 @@ gulp.task('assets', () => gulp.src(paths.assets)
 
 /* ---------------- Transfrom MD to PDF ---------------- */
 
-gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
+gulp.task('transfrom md to pdf', () => gulp.src(paths.md)
     .pipe(replace(/^---$[^]*?^---$/m, '')) // strip frontmatter
     .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
-	.pipe(ignore.include(filterUnchanged))
+    .pipe(ignore.include(filterUnchanged))
     .pipe(replace(/{{imageOverlay (.*)}}/g, '<img $1>')) // Convert imageOverlay to img tags
     .pipe(replace(/{{box (.*)}}/g, '')) // Strip out box helper
+    .pipe(replace(/{{api (.*)}}/g, '')) 
+    .pipe(replace(/{{since (.*)}}/g, sinceHandler)) 
+    .pipe(replace(/{{note (.*)}}/g, noteHandler)) 
     .pipe(replace(/\/assets\//g, '../assets/')) // fix relative paths
     .pipe(replace(/{{assets}}/g, '../assets')) // fix relative paths
     .pipe(replace(/{{!--(.*)--}}/g, '')) // Remove comments
@@ -142,7 +211,7 @@ gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
 
 /* ---------------- */
 
-gulp.task('prepare dirs', () => {
+gulp.task('prepare dirs', (cb) => {
     del.sync(paths.build);
     if (!existsSync(paths.build)) {
         mkdirSync(paths.build);
@@ -150,9 +219,10 @@ gulp.task('prepare dirs', () => {
     if (!existsSync(paths.distrib)) {
         mkdirSync(paths.distrib);
     }
+    cb();
 });
 
-gulp.task('default', ['prepare dirs', 'assets', 'css', 'transfrom md to pdf'], () => {
+gulp.task('default', gulp.series('prepare dirs', 'assets', 'css', 'transfrom md to pdf'), (cb) => {
     // browserSync.init({
     //     server: {
     //         baseDir: paths.build,
@@ -163,4 +233,5 @@ gulp.task('default', ['prepare dirs', 'assets', 'css', 'transfrom md to pdf'], (
     // gulp.watch(paths.md, ['md']);
     // gulp.watch(paths.css, ['css']);
     // gulp.watch(paths.assets, ['assets']);
+    cb();
 });

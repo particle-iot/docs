@@ -1,8 +1,7 @@
 ---
 title: Electron
-layout: quickstart.hbs
+layout: commonTwo.hbs
 columns: two
-order: 9
 setdevice: electron
 description: Getting started with your Particle Electron, Gen 2 cellular device
 ---
@@ -74,5 +73,5 @@ Since Electron is a cellular device and OTA usage consumes data, it&apos;s impor
 </p>
 
 
-For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/electron/).
+For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/).
 

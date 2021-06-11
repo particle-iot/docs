@@ -1,0 +1,57 @@
+{
+  "type": "libraries",
+  "id": "homekit-server",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/homekit-server/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "homekit-server",
+    "version": "0.0.1",
+    "installs": 166,
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/homekit-server",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Deprecated\n\nPlease see library `particle-hap`.\n",
+  "allVersions": [
+    "0.0.1",
+    "0.0.0"
+  ]
+}

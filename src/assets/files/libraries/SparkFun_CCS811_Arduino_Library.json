@@ -1,0 +1,121 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_CCS811_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_CCS811_Arduino_Library/archive/2.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_CCS811_Arduino_Library",
+    "version": "2.0.1",
+    "installs": 363,
+    "author": "SparkFun Electronics <techsupport@sparkfun.com>",
+    "maintainer": "SparkFun Electronics <sparkfun.com>",
+    "sentence": "An Arduino library to drive the AMS CCS811 by I2C.",
+    "paragraph": "The <a href=\"https://www.sparkfun.com/products/14193\">CCS811 Air Quality Breakout</a> is a digital gas sensor solution that senses a wide range of Total Volatile Organic Compounds (TVOCs), including equivalent carbon dioxide (eCO2) and metal oxide (MOX) levels. It is intended for indoor air quality monitoring in personal devices such as watches and phones, but we’ve put it on a breakout board so you can use it as a regular I2C device.",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_CCS811_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_CCS811_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_CCS811_Arduino_Library",
+  "versions": {
+    "2.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": false
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": false
+          },
+          "electron": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "argon": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          },
+          "boron": {
+            "Example1_BasicReadings": true,
+            "Example3_ThermistorCompensation": true,
+            "Example4_SetBaseline": true,
+            "Example5_WakeAndInterrupt": true,
+            "Example6_TwentyMinuteTest": true,
+            "Example7_SensitivityDemo": true,
+            "Example8_Core": true,
+            "Example9_AdvancedBegin": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun CCS811 Arduino Library\n========================================\n\n![SparkFun CCS811 Breakout](https://github.com/sparkfun/SparkFun_CCS811_Arduino_Library/blob/master/extras/readme_picture.jpg)\n\n[*SparkFun CCS811 (SEN-14193)*](https://www.sparkfun.com/products/14193)\n\nThis is an arduino IDE library to control the CCS811.\n\nThis has been tested with Arduino Uno, ESP32, and Teensy 3.2 using Arduino 1.8.1.\n\nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/extras** - Contains class diagrams for the driver.  Ignored by IDE.\n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nExamples\n--------------\n\n* BaselineOperator - Save and restore baselines to the EEPROM\n* BasicReadings - Get data from the CCS811 as fast as possible\n* BME280Compensated - Compensate the CCS811 with data from your BME280 sensor\n* Core - Shows how the underlying hardware object works\n* NTCCompensated - Compensate the CCS811 with data from a supplied NTC Thermistor\n* setEnvironmentalReadings - Compensate the CCS with random data\n* TwentyMinuteTest - Report data with timestamp.\n* WakeAndInterrupt - Shows how to use the nWake and nInt pins\n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/CCS811_Air_Quality_Breakout)** - Main repository (including hardware files) for the CCS811 Breakout.\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/ccs811-air-quality-breakout-hookup-guide)** - Basic hookup guide for the CCS811 Breakout.\n\nProducts that use this Library \n---------------------------------\n\n* [SEN-14193](https://www.sparkfun.com/)- CCS811 Breakout board\n\nVersion History\n---------------\n\n* [V 1.0.0](https://github.com/sparkfun/SparkFun_CCS811_Arduino_Library/tree/V_1.0.0) -- Initial commit of Arduino compatible library.\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease review the LICENSE.md file for license information. \n\nIf you have any questions or concerns on licensing, please contact techsupport@sparkfun.com.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n\n",
+  "allVersions": [
+    "2.0.1"
+  ]
+}

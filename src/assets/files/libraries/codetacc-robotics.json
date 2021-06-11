@@ -1,0 +1,109 @@
+{
+  "type": "libraries",
+  "id": "codetacc-robotics",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/codetacc-robotics/archive/0.0.12.tar.gz"
+  },
+  "attributes": {
+    "name": "codetacc-robotics",
+    "version": "0.0.12",
+    "installs": 272,
+    "license": "GNU GPLv3, BSD License for derivative works",
+    "author": "Joon-Yee Chuah <jchuah@tacc.utexas.edu>",
+    "sentence": "This library is designed to be used in the CODE @ TACC Summer 2016 Robotics curriculum, and wraps/provides compatibility for several Adafruit sensor libraries",
+    "url": "https://github.com/jchuahtacc/codetacc-robotics",
+    "repository": "https://github.com/jchuahtacc/codetacc-robotics.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/codetacc-robotics",
+  "versions": {
+    "0.0.12": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "electron": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "argon": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "boron": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "electron": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "argon": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          },
+          "boron": {
+            "1_robot": true,
+            "2_sensors": true,
+            "3_publish": true,
+            "4_handler": true,
+            "5_states": true,
+            "6_servos": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# CODE @ TACC Robotics library\n\n### Introduction\n\nThis library wraps functionality for several Adafruit Arduino shield libraries,\nas well as provides general compatibility to these libraries. Included is an\nexample ```robot.ino``` file, to be used as a project base for the\nCODE @ TACC Summer 2016 curriculum. Additional\nexamples may be included for operation of sensors.\n\n### CODE @ TACC\n\nCODE @ TACC is a summer residential program for rising juniors and seniors\nin high school, hosted by the Texas Advanced Computing Center at\nThe University of Texas at Austin. [You may view the open source curriculum\non GitHub.](https://github.com/CODE-at-TACC/summer-2016)\n",
+  "allVersions": [
+    "0.0.12",
+    "0.0.11",
+    "0.0.10",
+    "0.0.9",
+    "0.0.8",
+    "0.0.7",
+    "0.0.6",
+    "0.0.5",
+    "0.0.4"
+  ]
+}

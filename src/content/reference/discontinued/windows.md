@@ -1,8 +1,7 @@
 ---
 title: Windows SDK
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: three
-order: 40
 ---
 
 # {{title}}

@@ -1,0 +1,64 @@
+{
+  "type": "libraries",
+  "id": "uFire_SHT20",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/uFire_SHT20/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "uFire_SHT20",
+    "version": "1.0.0",
+    "installs": 687,
+    "author": "uFire",
+    "maintainer": "contact@ufire.co",
+    "sentence": "Measure atmospheric temperature and humdity.",
+    "paragraph": "Take temperature measurements from -40 to 125 C (-40 to 257 F) and humidity measurements from -40 to 125 C (-40 to 257 F) using the Sensiron SHT20 sensor. ",
+    "category": "Sensors",
+    "url": "https://ufire.co",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "u",
+  "cardUrl": "/cards/libraries/u/uFire_SHT20",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Minimal": true
+          },
+          "electron": {
+            "Minimal": true
+          },
+          "argon": {
+            "Minimal": true
+          },
+          "boron": {
+            "Minimal": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Minimal": true
+          },
+          "electron": {
+            "Minimal": true
+          },
+          "argon": {
+            "Minimal": true
+          },
+          "boron": {
+            "Minimal": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "### SHT20 Temperature and Humidity Sensor\n\nMeasure temperature and humidity with the Sensiron SHT20 sensor.    \n\n - **Temperature range**: -40 to 125 C(-40 to 257 F)\n- **Humidity range**: 0 to 100 % RH\n- **Temperature accuracy**: ± 0.5% C\n- **Humidity accuracy**: ± 5% RH\n- **Interface**: I2C\n- **Voltage range**: 2.1 - 3.6 V\n \n#### What it is\n\nAn SHT20 sensor in a plastic enclosure with a 1m length of cable. \n\nThe device uses the [Qwiic](https://www.sparkfun.com/qwiic) Connect System for wiring, it's an easy-to-use, polarized, push-to-fit connector. No more mistaken connections or soldering header pins. \n\n#### Using it\n\nRead the [documentation](https://ufire.co/docs/uFire_SHT20/) on the [specifications] of the device.\n\nThe library to use it is in the Arduino and Particle.io IDE. A [python](https://github.com/u-fire/uFire_SHT20/tree/master/python/RaspberryPi) and [rust](https://crates.io/crates/ufire_sht20) implementation for Raspberry Pi is available. \n\n```\n#include \"uFire_SHT20.h\"\nuFire_SHT20 sht20;\n\nfloat temp_c = sht20.temperature();\nfloat rh = sht20.humidity();\n```\n\n#### Buy it\n\nVisit [ufire.co](http://ufire.co) and buy a board and probe.\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "type": "libraries",
+  "id": "particle-dst",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/particle-dst/archive/0.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "particle-dst",
+    "version": "0.1.0",
+    "installs": 1248,
+    "license": "MIT",
+    "author": "Luca Morandini <luca.morandini98@gmail.com>",
+    "sentence": "DST switching made simple!",
+    "paragraph": "Write few lines of code to manually or automatically switch DST all over the world!",
+    "url": "https://github.com/lucamora/particle-dst",
+    "repository": "https://github.com/lucamora/particle-dst.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/particle-dst",
+  "versions": {
+    "0.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "electron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "argon": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "boron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "electron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "argon": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          },
+          "boron": {
+            "auto_switch": true,
+            "manual_switch": true,
+            "test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Particle-dst\nDST switching made simple!\n\n## What is it?\nParticle-dst is a simple Particle library that can be used to switch manually or automatically DST all over the world on Partcle devices!\n\n## Installation\nParticle-dst is easy to install because it is a normal Particle library.\nThere are three ways to install this library:\n\n### Command Line Interface ([CLI](https://www.particle.io/products/development-tools/particle-command-line-interface))\nFirst of all, go to your project directory:\n```bash\ncd /path/to/your/fantastic/project\n```\nThen install the library with the following command:\n```bash\nparticle library add particle-dst\n```\n\n### Web IDE ([Build](https://build.particle.io))\n\n### Desktop IDE ([Dev](https://www.particle.io/products/development-tools/particle-desktop-ide))\n\n## How to use it\n### 1) Limits definition\nThe library enable and disable DST using two limits that define the beginning and the end dates of DST in your country.\nLimits can be created using the specific type provided by the library:\n```C++\n// create the two limits\ndst_limit_t beginning;\ndst_limit_t end;\n\n// define beginning of DST\nbeginning.hour = 2;\nbeginning.day = DST::days::tue;\nbeginning.month = DST::months::feb;\nbeginning.occurrence = 2;\n\n// define end of DST\nend.hour = 3;\nend.day = DST::days::wed;\nend.month = DST::months::oct;\nend.occurrence = 2;\n```\n\nTo define days and months you can use the **[Particle numbering](https://docs.particle.io/reference/firmware/photon/#weekday-)** or you can easily use the **enumerators** provided by the library. *(The values will be converted to the Particle numbering)*\n```C++\nbeginning.day = DST::days::tue;\n// same as\nbeginning.day = 3; // tuesday\n```\n```C++\nbeginning.month = DST::months::feb;\n// same as\nbeginning.months = 2; // february\n```\n\nThe **occurrence** indicates in which week of the target month the DST change.\nIt could have positive and negative values to indicate if the occurrence is from the beginning or the end of the month:\n- **positive**: occurrence from the beginning of the month\n- **negative**: occurrence from the end of the month\n```C++\nbeginning.occurrence = 1; // first week\nbeginning.occurrence = -1; // last week\n```\n\n### 2) Initialization\nTo start using the library, initialize it with the two limits. The last parameter indicates the DST offset in your country.\n```C++\nDST dst;\ndst_limit_t beginning;\ndst_limit_t end;\n\nvoid setup() {\n  // initialize limits\n  // ...\n\n  dst.begin(beginning, end, 1); // DST adds 1 hour\n}\n```\n\n### 3) Usage\nThere are two methods to use this library: **manual** mode where the user application has to periodically check if the DST has changed or **automatic** mode where the library switch DST on its own.\n\n### Manual mode\nIn manual mode the user has to periodically trigger the library to check if DST changed.\nTo switch DST, simply call one method defined in the library:\n```C++\nbool enabled = dst.check();\n// returns true if DST is enabled and false if it is disabled\nSerial.printlnf(\"DST: %s\", enabled ? \"enabled\" : \"disabled\");\n```\n\n### Automatic mode\nIn automatic mode the library checks every hour if DST is enabled or disabled automatically without the need of any user interaction.\nSimply activate the automatic mode passing `true` to the `automatic()` method and you're done!\n\n_**NOTE:** You have to enable the automatic mode after the initialization of the library otherwise it will don't work!_\n```C++\ndst.begin(beginning, end, 1);\n// ...\n\ndst.automatic(true); // enable automatic mode\n```\nYou can disable the automatic mode whenever you want passing `false` to the `automatic()` method:\n```C++\ndst.automatic(false); // disable automatic mode\n```\n\n## Other features\nWith particle-dst you can get the timestamp of the beginning and the end of DST in the current year:\n```C++\nint beginning = dst.beginning();\n// example: 1487037600\n\nint end = dst.end();\n// example: 1507690800\n```\n\nMoreover it is possible to get a formatted string of the limits of the DST in the current year:\n```C++\nchar beginning[] = dst.beginning(\"%a, %d %B @ %R\");\n// example: Tue, 14 February @ 02:00\n\nchar end[] = dst.end(\"%a, %d %B @ %R\");\n// example: Wed, 11 October @ 03:00\n```\n\nThe library supports all the [Particle format strings](https://docs.particle.io/reference/firmware/photon/#format-):\n- `TIME_FORMAT_DEFAULT`\n- `TIME_FORMAT_ISO8601_FULL`\n- string based on `strftime()` (docs: http://www.cplusplus.com/reference/ctime/strftime/)\n\n## Help me\nI've tried to develop this library to be easy to use without having to write many lines of code for doing a simple activity.\nIf you have some suggestions or you found a bug (*oh no!*), please send me an e-mail at luca.morandini98@gmail.com!\n\nThat's all folks!\n\n#### Thanks and happy coding!\n",
+  "allVersions": [
+    "0.1.0"
+  ]
+}

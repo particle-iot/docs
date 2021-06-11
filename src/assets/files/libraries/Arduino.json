@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "Arduino",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Arduino/archive/0.0.10.tar.gz"
+  },
+  "attributes": {
+    "name": "Arduino",
+    "version": "0.0.10",
+    "installs": 68091,
+    "license": "MIT",
+    "author": "John Plocher <John.Plocher+git@gmail.com>",
+    "sentence": "A simple shim header that makes it easier to use Arduino sketches/libs with Particle",
+    "url": "https://github.com/plocher/arduino_h",
+    "repository": "https://github.com/plocher/arduino_h.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Arduino",
+  "versions": {
+    "0.0.10": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "# Arduino_h\nA shim header for Particle/Photon development\n",
+  "allVersions": [
+    "0.0.10"
+  ]
+}

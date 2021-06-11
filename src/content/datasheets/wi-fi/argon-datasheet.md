@@ -1,8 +1,7 @@
 ---
 title: Argon datasheet
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 1
 description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 
@@ -294,7 +293,7 @@ These specifications are based on the nRF52840 datasheet.
 | Pull-up resistance | R<sub>PU</sub> | | 11 |13 | 16 | kΩ |
 | Pull-down resistance | R<sub>PD</sub> | | 11 |13 | 16 | kΩ |
 
-GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/argon/#pinsetdrivestrength-) function.
+GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/cards/firmware/input-output/pinsetdrivestrength/) function.
 
 
 ## Mechanical specifications

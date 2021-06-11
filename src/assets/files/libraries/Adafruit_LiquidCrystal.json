@@ -1,0 +1,70 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_LiquidCrystal",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_LiquidCrystal/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_LiquidCrystal",
+    "version": "1.0.2",
+    "installs": 11365,
+    "license": "BSD",
+    "author": "Christian Vallières",
+    "sentence": "A fork of Adafruit LiquidCrystal library that support i2c / SPI character LCD backpack.",
+    "url": "https://github.com/mcnova/adafruit_liquidcrystal",
+    "repository": "https://github.com/mcnova/adafruit_liquidcrystal.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_LiquidCrystal",
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "electron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "argon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "boron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "electron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "argon": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          },
+          "boron": {
+            "LiquidCrystal_i2c": true,
+            "LiquidCrystal_spi": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit_LiquidCrystal\nA fork of Adafruit LiquidCrystal library that support i2c / SPI character LCD backpack.\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.0"
+  ]
+}

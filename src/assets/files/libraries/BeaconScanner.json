@@ -1,0 +1,74 @@
+{
+  "type": "libraries",
+  "id": "BeaconScanner",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/BeaconScanner/archive/0.4.0.tar.gz"
+  },
+  "attributes": {
+    "name": "BeaconScanner",
+    "version": "0.4.0",
+    "installs": 2903,
+    "license": "MIT",
+    "author": "Mariano Goluboff",
+    "sentence": "Scan BLE beacons",
+    "paragraph": "This library can be used in Gen3 Particle products to scan BLE beacons such as iBeacons or Kontakt asset tags.",
+    "url": "the URL of the project, like https://github.com/particle-iot/beacon-scanner-library",
+    "repository": "git repository for the project, like https://github.com/particle-iot/beacon-scanner-library.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/BeaconScanner",
+  "versions": {
+    "0.4.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "log": false,
+            "publish": false
+          },
+          "electron": {
+            "log": false,
+            "publish": false
+          },
+          "argon": {
+            "log": true,
+            "publish": true
+          },
+          "boron": {
+            "log": true,
+            "publish": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "log": false,
+            "publish": false
+          },
+          "electron": {
+            "log": false,
+            "publish": false
+          },
+          "argon": {
+            "log": true,
+            "publish": true
+          },
+          "boron": {
+            "log": true,
+            "publish": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Beacon Scanner\n\nThis library works with Particle Gen3 devices to scan for BLE advertisements and parses them for common beacon standards. Currently supported:\n* iBeacon\n* Eddystone UID, URL, and unencrypted TLM\n* Kontakt.io beacons (tested with Asset Tag S18-3)\n\n## Functions available\n\nThere are a few functions that an application can call depending on the needs of the use case.\n\n### Automatic Scan and Publish\n\nIn this mode, the library will scan for BLE advertisements, and use Particle.publish() to send the data to the cloud.\n\n    \n    void scanAndPublish(uint16_t duration, int flags, const char* eventName, PublishFlags pFlags, bool memory_saver)\n\n    duration: How long to collect data, in seconds\n    flags: Which type of beacons to publish. Use bitwise OR for multiple. e.g.: SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE\n    eventName: The cloud publish will use this event name, and add \"-ibeacon\",\"-kontakt\",\"-eddystone\"\n    pFlags: Flags for the publish, e.g.: PRIVATE\n    memory_saver: Default is false. If set to true, it will publish more often and use less memory. Caution, this means that some data might not be collected from beacons that advertise multiple times with different data.\n\nThe output of this on the console looks like (with eventName \"test\"):\n![](img/kontakt-example.png)\n\n![](img/ibeacon-example.png)\n\n### Get a Vector of the detected tags\n\nIf the application needs to get the data, rather than automatically publishing it, this can be accomplished by first running a scan using the following function:\n\n    void scan(uint16_t duration, int flags)\n\n    duration: How long to collect data, in seconds (default: 5)\n    flags: Which type of beacons to publish. Use bitwise OR for multiple. e.g.: SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE (default: all)\n\nAnd then the data for each supported type of advertiser can be retrieved as a Vector:\n\n    Vector<KontaktTag> getKontaktTags();\n    Vector<iBeacon> getiBeacons();\n    Vector<Eddystone> getEddystone();\n\n\n### A note on \"duration\"\n\nThis is how long the library will listen for beacons. However, during that time a beacon might advertise multiple times. The library will NOT publish every time the beacon advertises.\n\nFor a Kontakt tag, all the values will be based on the last received packet for each address detected.\n\nFor an iBeacon, all the values will be based on the last received packet except for RSSI. The RSSI will be an average of all the received values during the scan duration.\n\n## Typical usage\n\n    #include \"Particle.h\"\n    #include \"BeaconScanner.h\"\n\n    SYSTEM_THREAD(ENABLED);\n\n    Beaconscanner scanner;\n\n    void setup() {\n    }\n\n    unsigned long scannedTime = 0;\n\n    void loop() {\n        if (Particle.connected() && (millis() - scannedTime) > 10000) {\n            scannedTime = millis();\n            scanner.scanAndPublish(5, SCAN_KONTAKT | SCAN_IBEACON | SCAN_EDDYSTONE, \"test\", PRIVATE);\n        }\n    }\n\n## Examples\n\n* __Log:__ Starts a scan for iBeacons, Kontakt tags, and Eddystone beacons, and then logs the address, major, and minor of the beacons, address and temperature of the tags, and address of Eddystone\n* __Publish:__ Starts a scan which publishes all the types of devices\n",
+  "allVersions": [
+    "0.4.0",
+    "0.3.1",
+    "0.3.0",
+    "0.2.0",
+    "0.1.0"
+  ]
+}

@@ -1,8 +1,7 @@
 ---
 title: About Serial
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 14
 description: Learn more about the serial interface on your Particle IoT device
 ---
 
@@ -29,11 +28,12 @@ void loop() {
 }
 ```
 
-The `Serial.begin(9600);` call initializes the serial port. When you're using the USB serial, the value doesn't actually matter. Sometimes you'll see `Serial.begin(115200);` but it really runs at the same fast speed regardless.
+The `Serial.begin(9600);` call initializes the serial port. When you're using the USB serial, the value doesn't actually matter. Sometimes you'll see `Serial.begin(115200);` but it really runs at the same fast speed regardless. In fact, you
+can just omit the baud rate entirely and use `Serial.begin()`.
 
 The `Serial.printlnf` prints a formatted string to the debugging USB serial.
 
-The [documentation for Serial is here](/reference/device-os/firmware#serial).
+The [documentation for Serial is here](/cards/firmware/serial/serial/).
 
 ### Particle CLI 
 
@@ -88,6 +88,8 @@ screen /dev/cu.usbmodemFD1161
 
 Screen allows you you both send characters to the Photon or Electron as well as receive them from the USB serial device.
 
+To close (kill) a screen session, press Ctrl-A then press k. 
+
 ### Linux - using screen
 
 Find the serial port that is being used using the Terminal program command line:
@@ -105,6 +107,8 @@ screen /dev/ttyACM0
 ```
 
 Screen allows you you both send characters to the Photon or Electron as well as receive them from the USB serial device.
+
+To close (kill) a screen session, press Ctrl-A then press k. 
 
 ### Arduino IDE
 
@@ -179,7 +183,7 @@ When you connect a Photon another device, say an Arduino, the RX pin on the Phot
 
 ### Additional ports on the Electron
 
-The Electron has two additional UART serial ports that you can use, [Serial4 and Serial5](/reference/device-os/firmware/electron/#serial). 
+The Electron has two additional UART serial ports that you can use, [Serial4 and Serial5](/cards/firmware/serial/serial/). 
 
 - C0 Serial5 RX
 - C1 Serial5 TX
@@ -192,6 +196,18 @@ If you need Serial4 or Serial5 you'll need to enable the port by adding one or b
 #include "Serial4/Serial4.h"
 #include "Serial5/Serial5.h"
 ```
+
+## Adding more UART ports
+
+If you need more UART serial ports, you should use an I2C or SPI connected UART chip. It is not possible to use 
+a USB serial adapter connected to the Particle device USB port.
+
+The SC16IS740 and SC16IS750 work well with all Particle devices. The [SC16IS740RK](https://github.com/rickkas7/SC16IS740RK) 
+library works well on both Gen 2 and Gen 3 devices and the instructions can be found at that link.
+
+Searching for SC16IS750 will find a number of results for inexpensive breakout boards on 
+Amazon, eBay, or AliExpress.
+
 
 ## Serial logic levels
 
@@ -269,7 +285,7 @@ The available values are:
 - SERIAL_9N1
 - SERIAL_9N2
 
-You use these with the [Serial.begin](/reference/device-os/firmware/#begin-) call, for example:
+You use these with the [Serial.begin](/cards/firmware/pmic-power-management-ic/begin/) call, for example:
 
 ```
 Serial1.begin(9600, SERIAL_9N1);
@@ -284,7 +300,7 @@ They also only support 8 bits, 1 stop bit, and either none or even parity. No ot
 - SERIAL_8N1 - 8 data bits, no parity, 1 stop bit (default)
 - SERIAL_8E1 - 8 data bits, even parity, 1 stop bit
 
-You use these with the [Serial.begin](/reference/device-os/firmware/#begin-) call, for example:
+You use these with the [Serial.begin](/cards/firmware/pmic-power-management-ic/begin/) call, for example:
 
 ```
 Serial1.begin(9600);
@@ -615,5 +631,17 @@ void setup() {
   
   // Wait for a USB serial connection for up to 10 seconds
   waitFor(Serial.isConnected, 10000);
+}
+```
+
+If you are porting code from Arduino, sometimes you will see the following code. This is intended to
+wait for serial to be connected to by USB, but it does not work that way on Particle devices and you
+should instead use the `waitFor` method above.
+
+```cpp
+void setup() {
+  Serial.begin(9600);
+  
+  while(!Serial); // Do not do this
 }
 ```

@@ -1,8 +1,7 @@
 ---
 title: AN025 Tracker SoM First Board
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 125
 ---
 # AN025 Tracker SoM First Board
 

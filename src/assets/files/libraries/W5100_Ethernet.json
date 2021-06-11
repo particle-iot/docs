@@ -1,0 +1,141 @@
+{
+  "type": "libraries",
+  "id": "W5100_Ethernet",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/W5100_Ethernet/archive/1.1.5.tar.gz"
+  },
+  "attributes": {
+    "name": "W5100_Ethernet",
+    "version": "1.1.5",
+    "installs": 380,
+    "license": "GNU",
+    "author": "Various (see AUTHORS file for details)",
+    "maintainer": "Arduino <info@arduino.cc>",
+    "sentence": "Enables network connection (local and Internet) using the Arduino Ethernet Board or Shield.",
+    "paragraph": "Ported from arduino. With this library you can use the Arduino Ethernet (shield or board) to connect to Internet. The library provides both Client and server functionalities. The library permits you to connect to a local network also with DHCP and to resolve DNS.",
+    "category": "Communication",
+    "url": "http://www.arduino.cc/en/Reference/Ethernet",
+    "repository": "https://github.com/albertoteloko/W5100-Ethernet",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "w",
+  "cardUrl": "/cards/libraries/w/W5100_Ethernet",
+  "versions": {
+    "1.1.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "electron": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "argon": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "boron": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "electron": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "argon": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          },
+          "boron": {
+            "AdvancedChatServer": false,
+            "ChatServer": false,
+            "DhcpAddressPrinter": false,
+            "DhcpChatServer": false,
+            "TelnetClient": false,
+            "UDPSendReceiveString": false,
+            "UdpNtpClient": false,
+            "WebClient": false,
+            "WebClientRepeating": false,
+            "WebServer": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "= Ethernet Library for Particle =\n\nYou can connect to any W5100 arduino shield compatible. With the Arduino Ethernet Shield, this library allows an Arduino board to connect to the internet.\n\nIn order to select SPI port and CS pin:\n\n```c++\n#include <utility/w5100.h>\n\nW5100.spi(SPI1, D5);\n```\n\nFor more information about this library please visit us at\nhttp://www.arduino.cc/en/Reference/Ethernet\n\n== License ==\n\nCopyright (c) 2010 Arduino LLC. All right reserved.\n\nThis library is free software; you can redistribute it and/or\nmodify it under the terms of the GNU Lesser General Public\nLicense as published by the Free Software Foundation; either\nversion 2.1 of the License, or (at your option) any later version.\n\nThis library is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU\nLesser General Public License for more details.\n\nYou should have received a copy of the GNU Lesser General Public\nLicense along with this library; if not, write to the Free Software\nFoundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA\n",
+  "allVersions": [
+    "1.1.5",
+    "1.1.4",
+    "1.1.3",
+    "1.1.2"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "type": "libraries",
+  "id": "uFire_PAR_Sensor",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/uFire_PAR_Sensor/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "uFire_PAR_Sensor",
+    "version": "1.0.0",
+    "installs": 132,
+    "author": "uFire",
+    "maintainer": "contact@ufire.co",
+    "sentence": "Measure photosynthetically active radiation (PAR).",
+    "paragraph": "An I2C sensor to measure PAR in μmol/m²/s.",
+    "category": "Sensors",
+    "url": "https://ufire.co",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "u",
+  "cardUrl": "/cards/libraries/u/uFire_PAR_Sensor",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Minimal": true
+          },
+          "electron": {
+            "Minimal": true
+          },
+          "argon": {
+            "Minimal": true
+          },
+          "boron": {
+            "Minimal": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Minimal": true
+          },
+          "electron": {
+            "Minimal": true
+          },
+          "argon": {
+            "Minimal": true
+          },
+          "boron": {
+            "Minimal": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "### Photosynthetically Active Radiation Sensor\n - Spectral range: 400~700nm\n - Accuracy: ±5%\n - Range: 0 - 2500 μmol/m²/s\n - Response time: < 1 second\n - Interface: I2C\n - Voltage range: 3.3 - 5 V\n \n### What it is\n\nA PAR sensor in a waterproof aluminum enclosure with a 1.5m length of cable. The sensor comes pre-calibrated and doesn't require any subsequent recalibration. \n\nThe device uses the Qwiic Connect System for wiring, it's an easy-to-use, polarized, push-to-fit connector. No more mistaken connections or soldering header pins.\n\nIt comes with a small tripod and bubble level for easy deployment. \n\n### Using it\n\nThe [documentation](https://ufire.co/docs/uFire_PAR/) on the [specification](https://ufire.co/docs/uFire_PAR/#characteristics), and [setup](https://ufire.co/docs/uFire_PAR/#getting-started) of the sensor is available.\n\nThe Arduino IDE, PlatformIO, and Particle.io library is in the respective library manager. Any Arduino compatible board will work. Any Raspberry Pi 3, 4 or Zero will work as well. \n\nA [python](https://github.com/u-fire/uFire_PAR/tree/master/python/RaspberryPi) and [rust](https://crates.io/crates/ufire_par) library is available for the Raspberry Pi.\n\n```\n#include <uFire_PAR.h>\nuFire_PAR par;\npar.measurePAR();\n```\n\n#### Buy it\n\nVisit [ufire.co](http://ufire.co) and buy a board and probe.\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

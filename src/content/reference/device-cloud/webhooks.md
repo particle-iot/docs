@@ -1,8 +1,7 @@
 ---
 title: Webhooks
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: three
-order: 50
 description: Control external web services from your Particle IoT device using the Particle cloud
 ---
 
@@ -678,7 +677,13 @@ successions, the Particle Device Cloud will start to skip sending some
 events to lighten the load on the receiving server.  Specifically,
 Particle uses an adaptive algorithm to skip webhook attempts when
 more 4xx or 5xx HTTP status codes than 2xx HTTP status codes are
-returned by the receiving server.  After a cooldown period of a
+returned by the receiving server.  
+
+The server rating algorithm is per server hostname, and does not depend on the 
+webhook that generated it, the account, or the port number being 
+requested.
+
+After a cooldown period of a
 few seconds without errors, requests will be allowed to be made
 once again.  Events that were skipped will retried after 30
 seconds and 1 minute before being dropped.
@@ -800,7 +805,7 @@ content-length: 59
 
 ### Receiving Complex Data
 
-Use template variables in both the request and response to interact with the [Google Maps Elevation API] (https://developers.google.com/maps/documentation/elevation/start).
+Use template variables in both the request and response to interact with the [Google Maps Elevation API](https://developers.google.com/maps/documentation/elevation/start).
 
 ```
 WEBHOOK

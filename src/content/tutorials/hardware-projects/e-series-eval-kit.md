@@ -1,8 +1,7 @@
 ---
 title: E Series Eval Kit Tutorials
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 110
 description: Tutorials for the E Series evaluation board (Gen 2 cellular)
 ---
 

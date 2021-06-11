@@ -1,8 +1,7 @@
 ---
 title: CAN Bus
 columns: two
-layout: tutorials.hbs
-order: 50
+layout: commonTwo.hbs
 description: Integrating CAN Bus data with your Tracker One
 ---
 

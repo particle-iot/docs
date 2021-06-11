@@ -1,8 +1,8 @@
 ---
 title: AN026 Tracker Current Solutions Accelerator
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 126
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN026 Tracker Current Solutions Accelerator
 
@@ -49,6 +49,21 @@ Once running, the Tracker One will publish the current measured and it will be a
 
 ### Getting the Tracker Edge Firmware
 
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN026/main.cpp" project="tracker-an026"}}
+
+- Extract **tracker-an026.zip** in your Downloads directory 
+- Open the **tracker-an026** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+
+```
+particle library copy
+```
+
+#### Manually
+
+
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -71,51 +86,4 @@ Make sure you've used the [**Mark As Development Device**](https://docs.particle
 
 #### The Source - Current Solutions Accelerator
 
-```c++
-#include "Particle.h"
-
-#include "tracker_config.h"
-#include "tracker.h"
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-float readACCurrentValue()
-{
-  float ACCurrtntValue = 0;
-  float peakVoltage = 0;
-  float voltageVirtualValue = 0;  //Vrms
-
-  peakVoltage = 3.3*analogRead(A3)/4096;   //read peak voltage
-  voltageVirtualValue = peakVoltage * 0.707;    //change the peak voltage to the Virtual Value of voltage
-
-  //The circuit is amplified by 2 times, so it is divided by 2.
-  voltageVirtualValue /= 2;  
-  ACCurrtntValue = voltageVirtualValue * 20;
-
-  return ACCurrtntValue;
-}
-
-void loc_gen_cb(JSONWriter &writer, LocationPoint &point, const void *context)
-{
-    writer.name("current").value(readACCurrentValue());
-}
-
-void setup()
-{   
-    Tracker::instance().init();
-    Tracker::instance().location.regLocGenCallback(loc_gen_cb);
-    pinMode(CAN_PWR, OUTPUT);
-    digitalWrite(CAN_PWR, HIGH);
-
-    Particle.connect();
-}
-
-void loop()
-{
-    Tracker::instance().loop();
-}
-```
+{{> codebox content="/assets/files/app-notes/AN026/main.cpp" format="cpp" height="500"}}

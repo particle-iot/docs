@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_Si7021",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_Si7021/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_Si7021",
+    "version": "1.0.0",
+    "installs": 46914,
+    "license": "BSD",
+    "author": "Adafruit info@adafruit.com",
+    "sentence": "library for Si7021 humidity/temp sensor, Designed specifically to work with the Si7021 breakout in the Adafruit shop, modified for Particle Photon/Electron",
+    "url": "https://github.com/captigmu/adafruit_si7021",
+    "repository": "https://github.com/captigmu/adafruit_si7021.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_Si7021",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "si7021": true
+          },
+          "electron": {
+            "si7021": true
+          },
+          "argon": {
+            "si7021": true
+          },
+          "boron": {
+            "si7021": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "si7021": true
+          },
+          "electron": {
+            "si7021": true
+          },
+          "argon": {
+            "si7021": true
+          },
+          "boron": {
+            "si7021": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit Si7021\n===============\n\nDriver for Adafruit's Si7021 humidity / temp sensor breakout\n\nDesigned specifically to work with the Si7021 breakout in the adafruit shop\n\n   * https://www.adafruit.com/products/3251\n\nThis chip uses I2C to communicate, 2 pins are required to interface\n\nAdafruit invests time and resources providing this open source code,\nplease support Adafruit and open-source hardware by purchasing\nproducts from Adafruit!\n\nCheck out the links above for our tutorials and wiring diagrams\n\nWritten by Limor Fried/Ladyada for Adafruit Industries.  \nBSD license, all text above must be included in any redistribution\n\nSensor data sheet:\nhttps://www.silabs.com/Support%20Documents%2FTechnicalDocs%2FSi7021-A20.pdf\n\nModified for use as a community library for Particle Photon/Electron  RMB\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

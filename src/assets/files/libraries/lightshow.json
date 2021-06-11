@@ -1,0 +1,73 @@
+{
+  "type": "libraries",
+  "id": "lightshow",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/lightshow/archive/0.0.5.tar.gz"
+  },
+  "attributes": {
+    "name": "lightshow",
+    "version": "0.0.5",
+    "installs": 180,
+    "license": "MIT",
+    "author": "Jeremy Calloway <xntricweb@gmail.com>",
+    "sentence": "A neopixel helper library to show off some pretty colors.",
+    "url": "https://github.com/xntricweb/spark-lightshow",
+    "repository": "https://github.com/xntricweb/spark-lightshow.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/lightshow",
+  "versions": {
+    "0.0.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "_basic_lightshow": true,
+            "_lightshow-with-blynk": false
+          },
+          "electron": {
+            "_basic_lightshow": true,
+            "_lightshow-with-blynk": false
+          },
+          "argon": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "_basic_lightshow": true,
+            "_lightshow-with-blynk": false
+          },
+          "electron": {
+            "_basic_lightshow": true,
+            "_lightshow-with-blynk": false
+          },
+          "argon": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          },
+          "boron": {
+            "_basic_lightshow": false,
+            "_lightshow-with-blynk": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# spark-lightshow",
+  "allVersions": [
+    "0.0.5",
+    "0.0.4",
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

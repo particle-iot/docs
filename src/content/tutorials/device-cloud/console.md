@@ -1,10 +1,9 @@
 ---
 word: Console
 title: Console
-order: 31
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Web-based management for your Particle IoT devices
 ---
 
@@ -58,7 +57,7 @@ The left side of the page contains a real-time log of events passing through the
 #### How to publish events
 
 Publishing events can be achieved in multiple ways:
-- Using `particle.publish` in firmware ([docs](/reference/device-os/firmware/#particle-publish-))
+- Using `particle.publish` in firmware ([docs](/cards/firmware/cloud-functions/particle-publish/))
 - Using Particle API JS's `publishEvent` ([docs](/reference/SDKs/javascript/#publishevent))
 - Using the Publish event button in the Event Logs page:
 
@@ -136,18 +135,37 @@ tutorial](/tutorials/integrations/azure-iot-hub/)
 - [Google Cloud Platform
 tutorial](/tutorials/integrations/google-cloud-platform/)
 
-### Billing
+## Billing & Usage
 
-You should also use the Console to view and manage billing information.
-Some of the things to use the billing view for include:
+The **Billing & Usage** page shows billing information and data usage (data operations and cellular). 
 
-- Updating the credit card used to pay for Particle platform features
-- Viewing SIM card data usage, and managing the connectivity state of
-the SIM card
-- View product billing and usage information, device fleet size, and current plan
+All accounts have a personal sandbox on the Free plan. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the Growth Tier, this is in addition to devices included in your Growth Tier blocks.
 
-<img src="{{assets}}/images/console/billing-view.png"
-class="full-width"/>
+From this page you can view the total number of devices and data operations consumed by your free sandbox devices.
+
+![Sandbox](/assets/images/console/sandbox.png)
+
+For users who are Administrators of an organization, selecting the organization then **Billing & Usage** icon shows the usage for all products within the organization.
+
+![Organization Billing](/assets/images/console/org-view.png)
+
+In the Growth and Enterprise tiers, usage is divided by the class of devices. For example: Wi-Fi and Cellular:
+
+![Wi-Fi and Cellular Usage](/assets/images/console/wifi-cellular-usage.png)
+
+
+Also Tracker devices, which have higher data allocations than other cellular devices:
+
+<div align="center"><img src="/assets/images/console/tracker-usage.png" class="small"></div>
+
+These panels turn yellow at 75% of your plan limits, and red when the limits have been reached.
+
+
+You can also quickly view your usage from the popup under your email address in the upper-right corner of the console window.
+
+<div align="center"><img src="/assets/images/console/usage-popup.png" class="small"></div>
+
+The numbers of devices and data operations will be updated within a half hour. Cellular data usage may be delayed for up to a week.
 
 ## Product Tools
 
@@ -323,9 +341,8 @@ to a product device.
 target product devices to automatically download and run the firmware.
 The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
-delivered to a given device. If you are on the Enterprise plan with
-access to [device groups](/tutorials/product-tools/device-groups/),
-you can more safely roll out the firmware by targeting a subset of the
+delivered to a given device. You can also use [device groups](/tutorials/product-tools/device-groups/),
+to more safely roll out the firmware by targeting a subset of the
 fleet for release.
 
 The rest of this section contains details around how to go through this
@@ -575,11 +592,11 @@ To see all billing related information, you can click on the billing icon in the
 
 #### Free tier
 
-- Up to 100 devices, any mix of cellular and Wi-Fi
-- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
+- Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
+- {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
+- Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - No credit card required
-- Device communication is paused when the monthly limit is reached<sup>1</sup>
+- Device communication is paused<sup>1</sup> when the monthly limit is reached
 
 For more information see [Device Cloud - Introduction - Pricing](/tutorials/device-cloud/introduction/#pricing).
 
@@ -587,16 +604,16 @@ For more information see [Device Cloud - Introduction - Pricing](/tutorials/devi
 
 #### Free tier products
 
-Products can be prototyped in the Free tier at no charge. However, there is a limit of 100 devices for Free tier products. 
+Products can be prototyped in the Free tier at no charge. However, there is a limit of {{freeTierDevices}} devices for Free tier products. 
 
 #### Growth tier
 
-- A block includes 720K Data Operations (720,000) per month and up to 100 devices
+- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
-- Up to 360 MB of cellular data per month (1 GB for Tracker), pooled across all devices, for each block purchased
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
-- Available in June 2021
+- Available in Summer 2021
 
 In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data.
 
@@ -616,24 +633,23 @@ You can update your credit card from the billing page by clicking on the "UPDATE
 
 If we attempt to charge your credit card and it fails, we do not immediately prevent you or your team from accessing your Device Management Console. We will continue to retry charging your card once every few days <strong>for a maximum of 3 retries</strong>. You will receive an email notification each time an attempt is made and fails. When you receive this notification, the best thing to avoid any interruption in service is to <a href="#updating-your-credit-card">update your credit card</a>.
 
-### Configuring Your Product
+## Organizations
 
-In the **Settings** (gear) icon for your product, the following options are available:
+An organization makes it easy to manage multiple products with shared team members and billing. Organizations are available in the Growth and Enterprise tiers. 
 
-![Configuration page](/assets/images/product-settings.png)
+If your account is a member of an organization, the **Sandbox** popup in the upper left corner of the Particle console lists the organizations you can select:
 
-There are several ways new product devices can be handled:
+<div align="center"><img src="/assets/images/console/org-popup.png" class="small"></div>
 
-- The best option is to pre-add all device IDs to your product at manufacturing time, and use the **Quarantine** option.
+Selecting an organization brings up the organization view, which typically has:
 
-  - If you purchase devices in tray or reel quantities, you will be emailed a list of device IDs that can be imported into the console
-  - In smaller quantities, you can capture the device IDs when you initially set up your devices and add them individually
-  - If you wish to use [wildcard PRODUCT_IDs](/reference/device-os/firmware/boron/#product_id-) you must pre-add Device IDs to your product.
+- **Products** - the products in this organization.
+- **Team** - the users in this organization and their roles (administrators, developers, etc.).
+- **Billing & Usage** - only for users who have an Administrator role.
 
-- If you do not pre-add the device IDs, you will need to approve each device as it comes online when using **Quarantine** mode.
+![Organization View](/assets/images/console/org-view.png)
 
-- If you use the **Auto Approve** mode, then anyone who flashes firmware to their device that contains your product ID will join your product without any other authorization. 
-
+You still have granular access control at the product level when using an organization. For example, if you have a contractor who is working on a single product you can grant developer access to that product only instead of all products in your organization.
 
 
 ## Asset Tracker Features
@@ -832,6 +848,20 @@ Typical settings in common scenarios:
 
 #### Data Usage
 
+A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
+
+You can estimate the number of data operations you will consume using this calculator. For more information on the Free Tier, Growth Tier, Blocks, and Data Operations, see [Pricing Tiers](/tutorials/device-cloud/introduction/#pricing).
+
+{{> dataoperationscalc}}
+
+{{collapse op="start" label="More information"}}
+
+**With Location Fusion**
+
+With Location Fusion (enhanced location) enabled, it's difficult to determine the data size, because it will be dependent on how many cellular and Wi-Fi networks are visible at your location. At the low end it's close to the size with Location Fusion disabled, at the high end it can be near 1024 bytes of payload, plus the additional overhead below.
+
+**Without Location Fusion**
+
 The location publish will vary in size depending on the trigger reason(s) and other factors, but this is a rough guideline.
 
 This is a typical location publish you can see in the console. It is 209 bytes. 
@@ -861,6 +891,8 @@ For time trigger, here are some general guidelines. These are just location publ
 
 (Assumes 30 days in a month on average.)
 
+{{collapse op="end"}}
+
 
 ### Device Settings
 
@@ -882,6 +914,7 @@ Some commands you can enter into the box:
 | :------ | :--- |
 | `{"cmd":"enter_shipping"}` | Enter shipping mode |
 | `{"cmd":"get_loc"}` | Gets the location now (regardless of settings) |
+| `{"cmd":"reset"}` | Gracefully reset the device (Tracker Edge v13 and later) |
 
 Shipping mode powers off the device by disconnecting the battery. This allows a Tracker One to be shipped in a way that the battery does not discharge without having to open the case and disconnect the battery. Note that you can only get out of shipping mode by connecting the device to USB power or power by the M8 connector. It works on the Tracker SoM evaluation board, but is less useful there since it has physical power switches.
 

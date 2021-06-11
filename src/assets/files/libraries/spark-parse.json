@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "spark-parse",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/spark-parse/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "spark-parse",
+    "version": "0.0.3",
+    "installs": 215,
+    "author": "Ian Wells <ijw@cack.org.uk>",
+    "url": "https://github.com/iawells/spark-parse",
+    "repository": "https://github.com/iawells/spark-parse.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/spark-parse",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "parse_hex": true
+          },
+          "electron": {
+            "parse_hex": true
+          },
+          "argon": {
+            "parse_hex": true
+          },
+          "boron": {
+            "parse_hex": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "parse_hex": true
+          },
+          "electron": {
+            "parse_hex": true
+          },
+          "argon": {
+            "parse_hex": true
+          },
+          "boron": {
+            "parse_hex": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "spark-parse\n===========\n\nFunctions to help with parsing RPC arguments\n",
+  "allVersions": [
+    "0.0.3",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

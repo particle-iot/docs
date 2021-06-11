@@ -1,12 +1,11 @@
 ---
 title: Tracker One
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 6
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(015)</sup>
+# Tracker One<sup>(017)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -80,8 +79,8 @@ The Tracker One is a ready-to-go Tracker SoM carrier board with optional weather
 | 1      | CAN_P      |           |           | IO<sup>2</sup> | Yellow |
 | 2      | VIN<sup>3</sup> |      |           | I | Red |
 | 3      | Analog A3  |           | GPIO D3   | IO<sup>1</sup> | White | 
-| 4      | Serial1 RX | Wire3 SDA | GPIO D8   | IO<sup>1</sup> | Green |
-| 5      | Serial1 TX | Wire3 SCL | GPIO D9   | IO<sup>1</sup> | Brown |
+| 4      | Serial1 RX | Wire3 SDA | GPIO D9   | IO<sup>1</sup> | Green |
+| 5      | Serial1 TX | Wire3 SCL | GPIO D8   | IO<sup>1</sup> | Brown |
 | 6      | CAN_5V<sup>4</sup> |   | CAN_PWR   | O | Orange | 
 | 7      | CAN_N      |           |           | IO<sup>2</sup> | Blue |
 | 8      | GND        |           |           |   | Black | 
@@ -105,7 +104,7 @@ Note: Version 003 and earlier of this datasheet had a different pin numbering fo
 
 Additional information on M8 cables and connectors can be found in the [M8 Accessories Datasheet](/datasheets/asset-tracking/tracker-m8-accessories/).
 
-You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D8/RX/SDA, D9/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
+You must enable CAN_5V in order to use GPIO on M8 pins 3, 4, and 5 (A3, D9/RX/SDA, D8/TX/SCL) on the Tracker One. If CAN_5V is not powered, these pins are isolated from the MCU starting with version 1.1 of the Tracker One/Tracker Carrier Board (September 2020 and later). This is necessary to prevent an issue with shipping mode, see technical advisory note [TAN002](https://support.particle.io/hc/en-us/articles/360052713714).
 
 ---
 
@@ -119,8 +118,8 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | 2         | 1      | CAN_P     | Yellow         |  
 | 3         | 7      | CAN_N     | Blue           |  
 | 4         | 6      | CAN_5V    | Orange         |  
-| 5         | 5      | TX_SCL_D9 | Brown          |  
-| 6         | 4      | RX_SDA_D8 | Green          |  
+| 5         | 5      | TX_SCL_D8 | Brown          |  
+| 6         | 4      | RX_SDA_D9 | Green          |  
 | 7         | 3      | A3        | White          |  
 | 8         | 8      | GND       | Black          |  
 
@@ -133,8 +132,8 @@ The connector on the carrier board itself is is a [JST B8B-PH-SM4-TB(LF)(SN)](ht
 | USER | A1 | USER button | 
 | GNSS_LOCK | A2 | GNSS lock indicator |
 | GPIO1 | A3 | GPIO on power and I/O connector |
-| MCU TX | TX | MCU serial TX, GPIO D9, Wire3 SCL | 
-| MCU RX | RX | MCU serial RX, GPIO D8, Wire3 SDA | 
+| MCU TX | TX | MCU serial TX, GPIO D8, Wire3 SCL | 
+| MCU RX | RX | MCU serial RX, GPIO D9, Wire3 SDA | 
 
 Note: While the USER button exists inside the Tracker One, the Tracker One is a sealed unit and opening it will void the warranty and may affect certifications, thus it is not practical to use. It can be used with the Tracker Carrier Board.
 
@@ -346,7 +345,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | Albania | ONE524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Australia | ONE524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Belarus | ONE524 | 2G, 3G, Cat1 | A1, MTS |
+| Belarus | ONE524 | 2G, 3G, Cat1 | A1 |
 | Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | ONE524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
 | Bulgaria | ONE524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
@@ -372,7 +371,6 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | Malta | ONE524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Mexico | ONE404 | M1 | AT&T |
 | Moldova | ONE524 | 2G, 3G, Cat1 | Moldcell, Orange |
-| Monaco | ONE524 | 2G, 3G, Cat1 | Monaco Telecom |
 | Montenegro | ONE524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Netherlands | ONE524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | ONE524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
@@ -420,7 +418,51 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 
 ## Product Handling
 
+### FCC Interference Statement
+
+This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation.
+
+This device must not be co-located or operating in conjunction with any other antenna or transmitter.This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. 
+
+This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
+To comply with FCC’s RF radiation exposure limits for general population/uncontrolled exposure, this device must be installed to provide a separation distance of at least 20cm from all persons.
+
+WARNING: Any changes or modifications to this unit not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+
+This device must not be collocated or operating in conjunction with any other antenna or transmitter.
+
+### IC Interference Statement
+
+This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
+
+- this device may not cause interference.
+- this device must accept any interference, including interference that may cause undesired operation of the device.
+
+Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes:
+
+- l'appareil ne doit pas produire de brouillage, et
+- l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
+
+This Class B digital apparatus complies with Canadian ICES-003.
+
+Cet appareil numérique de la classe B est conforme à la norme NMB-003 du Canada.
+
+This device and its antenna(s) must not be co-located or operating in conjunction with any other antenna or transmitter, except tested built-in radios.
+
+Cet appareil et son antenne ne doivent pas être situés ou fonctionner en conjonction avec une autre antenne ou un autre émetteur, exception faites des radios intégrées qui ont été testées.
+ 
+This equipment complies with IC radiation exposure limits set forth for an uncontrolled environment. This equipment should be installed and operated with minimum distance 20cm between the radiator & your body.
+
+Cet équipement est conforme aux limites d'exposition aux rayonnements IC établies pour un environnement non contrôlé. Cet équipement doit être installé et utilisé avec un minimum de 20 cm de distance entre la source de rayonnement et votre corps.
+
 ### ESD Precautions
+
 The Tracker SoM contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling an module without proper ESD protection may destroy or damage it permanently. Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates the module. ESD precautions should be implemented on the application board where the B series is mounted. Failure to observe these precautions can result in severe damage to the module!
 
 ### Battery Warning
@@ -460,3 +502,5 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 013      | 2021 Feb 03 | RK | Change M8 CAN output current to 370 mA |
 | 014      | 2021 Feb 17 | RK | Tracker One v1.1 GPIO note, update schematics |
 | 015      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
+| 016      | 2021 Mar 23 | RK | Added FCC and IC interference statements |
+| 017      | 2021 Mar 29 | RK | D8 and D9 were reversed in some tables |

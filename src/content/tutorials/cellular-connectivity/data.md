@@ -1,8 +1,7 @@
 ---
 title: Cellular Data Guide
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 22
 description: Optimizing data using with Particle cellular devices
 ---
 
@@ -10,35 +9,16 @@ description: Optimizing data using with Particle cellular devices
 
 Particle provides a number of devices with cellular connectivity including the Tracker, Boron, B Series SoM, E Series, and Electron. These can provide access in areas without Wi-Fi and provide a more seamless solution that does not depend on being able to connect to your customer's Wi-Fi network, which may involve unexpected challenges. 
 
-### Free Tier
+### Pricing Tiers
 
-- Up to 100 devices, any mix of cellular and Wi-Fi
-- 100K Data Operations (100,000) per month, for both cellular and Wi-Fi, pooled across all devices
-- Up to 45 MB of cellular data per month, pooled across all devices, at no charge
-- No credit card required
-- Products can be prototyped in the Free tier
-- Device communication is paused<sup>1</sup> when the monthly limit is reached
-- Community support
-
-<sup>1</sup>During the transition period, a warning will be sent but communication will not be immediately paused.
+{{blurb name="tiers"}}
 
 ### Data Operations
 
-The central billing element for both cellular and Wi-Fi is the Data Operation:
+{{blurb name="dataoperations"}}
 
-- Each publish, subscribe, function, or variable consumes one Data Operation regardless of size (currently limited to 622 bytes per operation)
-- Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
-- Certain retransmissions, as described below
+{{> dataoperationscalc}}
 
-<sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
-
-The following do **not** count against your Data Operations limit:
-
-- Over-the-air firmware updates do not count against your Data Operations limit
-- Internal events such as device vitals (beginning with "particle" or "spark") do not count against your Data Operations limit
-- Acknowledgements, session negotiation, keep-alives etc. do not count against your Data Operations limit
-- Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
-- Particle cloud API calls do not count against your Data Operations limit
 
 #### Webhooks and other integrations
 
@@ -62,7 +42,9 @@ If the transmission is not acknowledged, it is possible that up to two more atte
 
 ### Cellular Data Limit
 
-For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is 45 MB, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
+For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is {{freeTierDataOperationsCellularData}} , pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services. This limit is high relative to the average size of Data Operations, so you probably won't need to worry about the exact number of bytes for each operation.
+
+In the growth tier, {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker) is included for each block purchased, per month.
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
@@ -106,7 +88,7 @@ There are lots of things you can do to save data!
 
 **Use Shorter Names** This applies to Particle.publish, .variable, and .function. Those longer names have to be sent to/from the cloud, so you're much better off using `Particle.publish("x")` than `Particle.publish("xylophone_is_now_playing_a_song")`. 
 
-**Use Serial() for Development** When you're first testing and debugging your code, you can avoid costly and embarrassing runaway data publishing scenarios by sending sensor readings, alerts, etc over a USB cable. Comment out your `Particle.publish()` line, add `Serial.begin(9600);` to `setup()` and instead use `Serial.println(your_data_here")` to log data out to a serial terminal. You can use [Particle Workbench](/quickstart/workbench/), the Arduino IDE, `screen` or any other terminal program. Find out more in the [Serial reference](/reference/device-os/firmware/#serial)
+**Use Serial() for Development** When you're first testing and debugging your code, you can avoid costly and embarrassing runaway data publishing scenarios by sending sensor readings, alerts, etc over a USB cable. Comment out your `Particle.publish()` line, add `Serial.begin(9600);` to `setup()` and instead use `Serial.println(your_data_here")` to log data out to a serial terminal. You can use [Particle Workbench](/quickstart/workbench/), the Arduino IDE, `screen` or any other terminal program. Find out more in the [Serial reference](/cards/firmware/serial/serial/)
 
 **Event-Driven Publishing** One of the very common structures we see in code is a loop() with a sensor reading, then a publish and delay. This calls the publish (and uses data) at some regular interval, but the data being reported may not have changed! Picture a temperature sensor in your yard- the temperature is unlikely to have changed much after 1 second, 1 minute, or even 10 minutes. The data-efficient thing to do is to save the temperature you last published and compare the current reading to that previous one. If it's more than a few degrees different, then publish the new one.
 
@@ -117,7 +99,7 @@ if(abs(temperature-lastTemperature)>5){
 }
 ```
 
-**Combining Publishes** Are you sending data that isn't time-critical? Consider combining many data points into a single publish. Instead of using the 100+ bytes of overhead for every data point, you'll only use it once and save a ton! Sample the data based on change or frequency, store them in a string or array, and then send them out as one publish when you've collected as many as you want (or fit in the 622 byte data field of a Particle.publish). We often add commas between data points so they're easy to separate.
+**Combining Publishes** Are you sending data that isn't time-critical? Consider combining many data points into a single publish. Instead of using the 100+ bytes of overhead for every data point, you'll only use it once and save a ton! Sample the data based on change or frequency, store them in a string or array, and then send them out as one publish when you've collected as many as you want (or fit in the data field of a Particle.publish). We often add commas between data points so they're easy to separate. The data has a maximum length of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/).
 
 ```
 Particle.publish("T", String::format("%d,%d,%d,%d,%d", temperatures[0],temperatures[1],temperatures[2],temperatures[3],temperatures[4]));
@@ -127,7 +109,7 @@ Particle.publish("T", String::format("%d,%d,%d,%d,%d", temperatures[0],temperatu
 
 **Use webhooks** Webhooks take a value that you Particle.publish and convert it into a HTTP request to an external server. If the external server is accepting connections by https (TLS/SSL), doing the TLS handshake from the webhook server greatly reduces the data usage from around 6K to the size of the publish, which might be as low as 100 bytes.
 
-**Use network sleep modes** If you are sleeping for 15 minutes or less, you can save data by keeping the cellular connection alive by using [network sleep](/reference/device-os/firmware/boron/#network-systemsleepconfiguration-). This can eliminate the negotiation that would occur to being the device back online after sleep.
+**Use network sleep modes** If you are sleeping for 15 minutes or less, you can save data by keeping the cellular connection alive by using [network sleep](/cards/firmware/sleep-sleep/network-systemsleepconfiguration/). This can eliminate the negotiation that would occur to being the device back online after sleep.
 
 **Update Device OS over USB** Using `particle update` over USB to upgrade your device's version of Device OS can save a significant amount of data over upgrading over-the-air.
 

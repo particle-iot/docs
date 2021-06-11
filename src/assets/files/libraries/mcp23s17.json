@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "mcp23s17",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/mcp23s17/archive/0.2.0.tar.gz"
+  },
+  "attributes": {
+    "name": "mcp23s17",
+    "version": "0.2.0",
+    "installs": 592,
+    "license": "The MIT License (MIT)",
+    "author": "Zachary J. Fields <zachary_fields@yahoo.com>",
+    "sentence": "A C++ wrapper for the Microchip MCP23S17.",
+    "paragraph": "This library provides an object based interface to an Microchip MCP23S17 connected via SPI. The object allows you to utilize the GPIO expansion functionality via the Wiring API (i.e. digitalRead, digitalWrite, pinMode, etc...).",
+    "url": "https://github.com/zfields/mcp23s17-wiring/",
+    "repository": "https://github.com/zfields/mcp23s17-wiring.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/mcp23s17",
+  "versions": {
+    "0.2.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Blink": true
+          },
+          "electron": {
+            "Blink": true
+          },
+          "argon": {
+            "Blink": true
+          },
+          "boron": {
+            "Blink": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Blink": true
+          },
+          "electron": {
+            "Blink": true
+          },
+          "argon": {
+            "Blink": true
+          },
+          "boron": {
+            "Blink": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# A C++ wrapper for the Microchip MCP23S17.\n\n## SAMPLES:\n```\n  /****************/\n /* Hello Blinky */\n/****************/\n#include \"mcp23s17/mcp23s17.h\"\n\nconst int LED_PIN = 7;\nmcp23s17 gpio_x(mcp23s17::HardwareAddress::HW_ADDR_0); // All addressing pins set to GND\n\nvoid setup (void) {\n    gpio_x.pinMode(LED_PIN, mcp23s17::PinMode::OUTPUT);\n}\n\nvoid loop (void) {\n    gpio_x.digitalWrite(LED_PIN, mcp23s17::PinLatchValue::HIGH);\n    delay(500);\n    gpio_x.digitalWrite(LED_PIN, mcp23s17::PinLatchValue::LOW);\n    delay(500);\n}\n```\n\n## TODO:\nImplement interrupts\n\n## ATTRIBUTION:\n- The makefiles used for compiling the Google Unit Test where taken from Google.\n\n## LICENSE:\n- The MIT License (MIT). Refer to the LICENSE file for more details.\n",
+  "allVersions": [
+    "0.2.0",
+    "0.1.0"
+  ]
+}

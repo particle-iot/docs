@@ -34,6 +34,17 @@ var collapseConfig = {
 			{'title':'Boron', 'tag':'Boron'}
 		]				
 	},
+	'hardwareTutorial':{
+		'prompt':'Select the type of Particle device you have:',
+		'defaultValue':'Photon',
+		'cssClass':'collapseHardwareTutorial',
+		'op':'hardwareTutorial',
+		'options':[
+			{'title':'Photon', 'tag':'Photon'},
+			{'title':'Electron', 'tag':'Electron'},
+			{'title':'Argon or Boron (Gen 3)', 'tag':'Gen3'}
+		]				
+	},
 	'simType':{
 		'prompt':'Select the type of cellular device you have:',
 		'defaultValue':'Electron',

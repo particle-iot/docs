@@ -1,8 +1,7 @@
 ---
 title: Azure IoT Hub
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 120
 description: Connecting the Azure IoT Hub to your Particle IoT device using the Particle Cloud
 ---
 

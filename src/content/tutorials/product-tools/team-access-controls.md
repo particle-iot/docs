@@ -1,8 +1,7 @@
 ---
 title: Team Access Controls
 columns: two
-layout: tutorials.hbs
-order: 43
+layout: commonTwo.hbs
 description: Learn about team access controls, managing access different members of your product team
 ---
 
@@ -13,14 +12,13 @@ your team members. This is helpful when overseeing a team of
 people who should have varying permissions with respect to Particle
 devices in your fleets.
 
-Team Access Controls is an **Enterprise only** feature. If interested in
-this feature, please [consult our team of IoT
-experts](https://particle.io/sales).
-
 This guide breaks down into two parts:
 - A [summary of the available roles](#roles) and a description of each
 - A [permissions matrix](#permissions-matrix) for an in-depth look at what each role as
 access to
+
+Team access controls was previously available to enterprise customers only but
+is now available to all products.
 
 ## Roles
 
@@ -120,62 +118,67 @@ from the product team.
 ### Product permissions
 
 | Action                     | Administrator (Owner) | Administrator | Developer | Support | View-only |
-|----------------------------|-----------------------|---------------|-----------|---------|-----------|
+|----------------------------|:---------------------:|:-------------:|:---------:|:-------:|:---------:|
 |          **Team**          |                       |               |           |         |           |
-|      View Product team     | X                     | X             | X         | X       | X         |
-| Manage Product team        | X                     | X             |           |         |           |
+|      View Product team     | &check;               | &check;       | &check;   | &check; | &check;   |
+| Manage Product team        | &check;               | &check;       |           |         |           |
+|         **Fleet Health**   |                       |               |           |         |           |
+| View fleet health          | &check;               | &check;       | &check;   | &check; | &check;   |
 |         **Devices**        |                       |               |           |         |           |
-| View device                | X                     | X             | X         | X       | X         |
-| Subscribe to device events | X                     | X             | X         | X       | X         |
-| View Device Vitals         | X                     | X             | X         | X       | X         |
-| Refresh Device Vitals      | X                     | X             | X         | X       |           |
-| Check device variables     | X                     | X             | X         | X       |           |
-| Call device functions      | X                     | X             | X         | X       |           |
-| Ping device                | X                     | X             | X         | X       |           |
-| Add devices to Product     | X                     | X             | X         |         |           |
-| Edit device info           | X                     | X             | X         |         |           |
-| Flash firmware to devices  | X                     | X             | X         |         |           |
-| Remove/unclaim devices     | X                     | X             | X         |         |           |
-| Create device group        | X                     | X             | X         |         |           |
-| Edit/delete device group   | X                     | X             | X         |         |           |
-| Publish event              | X                     | X             | X         |         |           |
+| View device                | &check;               | &check;       | &check;   | &check; | &check;   |
+| Subscribe to device events | &check;               | &check;       | &check;   | &check; | &check;   |
+| View Device Vitals         | &check;               | &check;       | &check;   | &check; | &check;   |
+| Refresh Device Vitals      | &check;               | &check;       | &check;   | &check; |           |
+| View Fleet Health          | &check;               | &check;       | &check;   | &check; | &check;   |
+| Check device variables     | &check;               | &check;       | &check;   | &check; |           |
+| Call device functions      | &check;               | &check;       | &check;   | &check; |           |
+| Ping device                | &check;               | &check;       | &check;   | &check; |           |
+| Add devices to Product     | &check;               | &check;       | &check;   |         |           |
+| Edit device info           | &check;               | &check;       | &check;   |         |           |
+| Flash firmware to devices  | &check;               | &check;       | &check;   |         |           |
+| Remove/unclaim devices     | &check;               | &check;       | &check;   |         |           |
+| Create device group        | &check;               | &check;       | &check;   |         |           |
+| Edit/delete device group   | &check;               | &check;       | &check;   |         |           |
+| Publish event              | &check;               | &check;       | &check;   |         |           |
 |        **SIM cards**       |                       |               |           |         |           |
-| View SIM card              | X                     | X             | X         | X       | X         |
-| Update SIM lifecycle state | X                     | X             | X         | X       |           |
-| Change SIM data limit      | X                     | X             | X         | X       |           |
-| Add new SIMs to Product    | X                     | X             | X         |         |           |
-| Remove SIMs from Product   | X                     | X             | X         |         |           |
+| View SIM card              | &check;               | &check;       | &check;   | &check; | &check;   |
+| Update SIM lifecycle state | &check;               | &check;       | &check;   | &check; |           |
+| Change SIM data limit      | &check;               | &check;       | &check;   | &check; |           |
+| Add new SIMs to Product    | &check;               | &check;       | &check;   |         |           |
+| Remove SIMs from Product   | &check;               | &check;       | &check;   |         |           |
 |        **Firmware**        |                       |               |           |         |           |
-| View Product firmware      | X                     | X             | X         | X       | X         |
-| Upload firmware version    | X                     | X             | X         |         |           |
-| Release firmware           | X                     | X             | X         |         |           |
-| Edit firmware info         | X                     | X             | X         |         |           |
+| View Product firmware      | &check;               | &check;       | &check;   | &check; | &check;   |
+| Upload firmware version    | &check;               | &check;       | &check;   |         |           |
+| Release firmware           | &check;               | &check;       | &check;   |         |           |
+| Edit firmware info         | &check;               | &check;       | &check;   |         |           |
 |      **Integrations**      |                       |               |           |         |           |
-| View Integrations          | X                     | X             | X         | X       | X         |
-| Create new Integration     | X                     | X             | X         |         |           |
-| Edit/delete Integration    | X                     | X             | X         |         |           |
+| View Integrations          | &check;               | &check;       | &check;   | &check; | &check;   |
+| Create new Integration     | &check;               | &check;       | &check;   |         |           |
+| Edit/delete Integration    | &check;               | &check;       | &check;   |         |           |
 |      **OAuth clients**     |                       |               |           |         |           |
-| View OAuth clients         | X                     | X             | X         | X       | X         |
-| Create OAuth client        | X                     | X             | X         |         |           |
-| Edit/delete OAuth client   | X                     | X             | X         |         |           |
+| View OAuth clients         | &check;               | &check;       | &check;   | &check; | &check;   |
+| Create OAuth client        | &check;               | &check;       | &check;   |         |           |
+| Edit/delete OAuth client   | &check;               | &check;       | &check;   |         |           |
 |        **Customers**       |                       |               |           |         |           |
-| View Customers             | X                     | X             | X         | X       | X         |
-| Create Customers           | X                     | X             | X         |         |           |
-| Edit/delete Customers      | X                     | X             | X         |         |           |
+| View Customers             | &check;               | &check;       | &check;   | &check; | &check;   |
+| Create Customers           | &check;               | &check;       | &check;   |         |           |
+| Edit/delete Customers      | &check;               | &check;       | &check;   |         |           |
 |        **Settings**        |                       |               |           |         |           |
-| View Product settings      | X                     | X             | X         | X       | X         |
-| Edit Product settings      | X                     | X             |           |         |           |
+| View Product settings      | &check;               | &check;       | &check;   | &check; | &check;   |
+| Edit Product settings      | &check;               | &check;       |           |         |           |
+|        **Billing & Usage** |                       |               |           |         |           |
+| View Billing & Usage       | &check;               | &check;       |           |         |           |
 
 ### Organization permissions
 
 | Action                                     | Administrator (Owner) | Administrator | Developer | Support | View-only |
-|--------------------------------------------|-----------------------|---------------|-----------|---------|-----------|
+|--------------------------------------------|:---------------------:|:-------------:|:---------:|:-------:|:---------:|
 |                **Team**                    |                       |               |           |         |           |
-| View org team                              | X                     | X             | X         | X       | X         |
-| Manage org team                            | X                     | X             |           |         |           |
+| View org team                              | &check;               | &check;       | &check;   | &check; | &check;   |
+| Manage org team                            | &check;               | &check;       |           |         |           |
 |           **Owned Products**               |                       |               |           |         |           |
-| Create new Product                         | X                     | X             | X         |         |           |
-| Administrator role for all Products in org | X                     | X             |           |         |           |
-| Developer role for all Products in org     |                       |               | X         |         |           |
-| Support role for all Products in org       |                       |               |           | X       |           |
-| View-only role for all Products in org     |                       |               |           |         | X         |
+| Create new Product                         | &check;               | &check;       | &check;   |         |           |
+| Administrator role for all Products in org | &check;               | &check;       |           |         |           |
+| Developer role for all Products in org     |                       |               | &check;   |         |           |
+| Support role for all Products in org       |                       |               |           | &check; |           |
+| View-only role for all Products in org     |                       |               |           |         | &check;   |

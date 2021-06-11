@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_PCD8544",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_PCD8544/archive/1.1.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_PCD8544",
+    "version": "1.1.1",
+    "installs": 1925,
+    "license": "BSD License",
+    "author": "Limor Fried/Ladyada / Paul Kourany",
+    "sentence": "Adafruit_PCD8544 Nokia 5110 LCD display library",
+    "url": "https://github.com/pkourany/Adafruit_PCD8544_IDE",
+    "repository": "https://github.com/pkourany/Adafruit_PCD8544_IDE.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_PCD8544",
+  "versions": {
+    "1.1.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Noika5110": true
+          },
+          "electron": {
+            "Noika5110": true
+          },
+          "argon": {
+            "Noika5110": true
+          },
+          "boron": {
+            "Noika5110": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Noika5110": true
+          },
+          "electron": {
+            "Noika5110": true
+          },
+          "argon": {
+            "Noika5110": true
+          },
+          "boron": {
+            "Noika5110": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "Adafruit-PCD8544-Nokia-5110-LCD-library\n=================================================\n\nNokia 5110 LCD library adapted for Spark Core by Paul Kourany, April 2014\n\n!!! Updated for new Core and Photon firmware (0.4.5), Sept 2015\n!!! Updated to Libraries 2.0, Jan 2017\n\nThis code compiles on the Particle web IDE\n\nRequirement\n-----------\n\nThis library requires the Adafruit_GFX library to be included in the user application.\n\n\nUsage\n-----\nTo use HARDWARE SPI, connect the display as follows for the demo program to run:\n\nSpark       Nokia 5110\nA5 (MOSI)     DIN\nA4 (MISO)      -\nA3 (SCK)      CLK\nA2 (SS)       CS\nD3            RST\nD2            D/C\nGND           GND\n3V3           VCC\n\nD3(RST) and D2(D/C) may be any pin but changes must be made to constructor line:\n\n```\n\tAdafruit_PCD8544(CS, DC, RST);\n\n\tdemo eg: Adafruit_PCD8544 display = Adafruit_PCD8544(SS, D2, D3);\n```\n\nTo use SOFTWARE SPI, connect the display as follows, the SCLK, DIN, DC, CS and RST lines must\nbe specifiec and connected to the display and the constructor called as follows:\n\n```\n\tAdafruit_PCD8544(SCLK, DIN, DC, CS, RST);\n\t\n\teg: Adafruit_PCD8544 display = Adafruit_PCD8544(A3, A5, D2, A2, D3);\n```  \n  \nNOTES:\n- Modified code for Particle Core and Photon compatibility\n- Added hardware and (fast) software SPI to fastSPIwrite()\n- Added new create object methods for HardwareSPI:\n\n  Adafruit_PCD8544 display = Adafruit_PCD8544(CS, DC, RST);\n    - Specify hardware SPI, chip select(CS pin), DC (data/command pin) and RST (reset pin)\n\n  Adafruit_PCD8544 display = Adafruit_PCD8544(DC, RST);\n    - Specify hardware SPI, NO chip select, DC (data/command pin) and RST (reset pin)\n\n- Existing create methods will use (fast) software SPI code\n- The existing slowSPIwrite() function which uses shiftOut() is not used anywhere in the library\n\n",
+  "allVersions": [
+    "1.1.1",
+    "1.1.0",
+    "1.0.0"
+  ]
+}

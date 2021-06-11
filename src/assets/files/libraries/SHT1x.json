@@ -1,0 +1,65 @@
+{
+  "type": "libraries",
+  "id": "SHT1x",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SHT1x/archive/1.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "SHT1x",
+    "version": "1.0.4",
+    "installs": 25512,
+    "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
+    "author": "Anurag Chugh <lithiumhead@gmail.com>",
+    "sentence": "SHT1x Temperature / Humidity Sensor Library for Spark Core",
+    "url": "https://github.com/lithiumhead/SHT1x",
+    "repository": "https://github.com/lithiumhead/SHT1x.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SHT1x",
+  "versions": {
+    "1.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SHT1x Temperature / Humidity Sensor Library for Spark Core\r\n=======================================================\r\n\r\nPorted to Spark Core by Anurag Chugh (https://github.com/lithiumhead) on 2014-10-15\r\n\r\nCopyright 2009 Jonathan Oxer jon@oxer.com.au / http://www.practicalarduino.com  \r\nCopyright 2008 Maurice Ribble ribblem@yahoo.com / http://www.glacialwanderer.com\r\n\r\nProvides a simple interface to the SHT1x series (SHT10, SHT11, SHT15)\r\nand SHT7x series (SHT71, SHT75) temperature / humidity sensors from\r\nSensirion, http://www.sensirion.com. These sensors use a \"2-wire\"\r\ncommunications buss that is similar to I2C and can co-exist on the same\r\nphysical wire as I2C devices.\r\n\r\nInstallation\r\n------------\r\nDownload the directory \"SHT1x\" and move it into the \"libraries\"\r\ndirectory inside your sketchbook directory, then restart the Arduino\r\nIDE. You will then see it listed under File->Examples->SHT1x.\r\n\r\nUsage\r\n-----\r\nThe library is instantiated as an object with methods provided to read\r\nrelative humidity and temperature. Include it in your sketch and then\r\ncreate an object, specifying the pins to use for communication with the\r\nsensor:\r\n\r\n    #include <SHT1x.h>\r\n    #define dataPin 10\r\n    #define clockPin 11\r\n    SHT1x sht1x(dataPin, clockPin);\r\n\r\nYou can then call methods on that object within your program. In this\r\nexample we created an object called \"sht1x\", but it could have been\r\ncalled whatever you like. A complete example program is included with\r\nthe library and can be accessed from the File->Examples->SHT1x menu.\r\n\r\n### readTemperatureC() ###\r\n\r\nReturns a float within the valid range of the sensor of -40 to +123.8C.\r\nA value of -40 is returned in the event of a communication error with\r\nthe sensor.\r\n\r\nExample:\r\n\r\n    float tempC = sht1x.readTemperatureC();\r\n\r\n### readTemperatureF() ###\r\n\r\nReturns a float within the valid range of the sensor of -40 to +254.9F.\r\nA value of -40 is returned in the event of a communication error with\r\nthe sensor.\r\n\r\nExample:\r\n\r\n    float tempF = sht1x.readTemperatureF();\r\n\r\n### readHumidity() ###\r\n\r\nReturns a float within the valid range of the sensor of 0 to 100%.\r\nA negative value is returned in the event of a communication error with\r\nthe sensor.\r\n\r\nExample:\r\n\r\n    float humidity = sht1x.readHumidity();\r\n",
+  "allVersions": [
+    "1.0.4",
+    "1.0.3",
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

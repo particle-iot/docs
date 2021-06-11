@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "TLC5940-Servo",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TLC5940-Servo/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "TLC5940-Servo",
+    "version": "0.0.1",
+    "installs": 634,
+    "license": "MIT",
+    "author": "Mark Beharrell <mark.beharrell@gmail.com>",
+    "sentence": "Basic Library to use a TLC5940 to control upto 16 servos",
+    "url": "https://github.com/beharrell/tlc5940-servo",
+    "repository": "https://github.com/beharrell/tlc5940-servo.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TLC5940-Servo",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "SimpleServo": false
+          },
+          "electron": {
+            "SimpleServo": false
+          },
+          "argon": {
+            "SimpleServo": false
+          },
+          "boron": {
+            "SimpleServo": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "SimpleServo": false
+          },
+          "electron": {
+            "SimpleServo": false
+          },
+          "argon": {
+            "SimpleServo": false
+          },
+          "boron": {
+            "SimpleServo": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "TLC5940 Servo Driver\n===\n\nTLC5940 is intended to be a LED driver [Data sheet](www.ti.com/lit/ds/symlink/tlc5940.pdf), in order to \ncontrol servos a pullup resistor (2.2K) must be added to each PWM output - see the schematic of Sparkfuns \n[breakout board](www.sparkfun.com/products/10616) or the following [page](http://letsmakerobots.com/node/35677)\nto see example circuits.\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

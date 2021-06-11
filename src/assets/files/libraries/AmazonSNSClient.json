@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "AmazonSNSClient",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AmazonSNSClient/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "AmazonSNSClient",
+    "version": "0.0.1",
+    "installs": 2188,
+    "license": "Apache 2.0 license",
+    "author": "Jinesh Varia <jvaria@amazon.com>",
+    "sentence": "Amazon SNS Client for Spark Core.",
+    "url": "https://github.com/jinman/amazonsnsclient",
+    "repository": "https://github.com/jinman/amazonsnsclient.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AmazonSNSClient",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "application": false
+          },
+          "electron": {
+            "application": false
+          },
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "application": false
+          },
+          "electron": {
+            "application": false
+          },
+          "argon": {
+            "application": false
+          },
+          "boron": {
+            "application": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Version 1 of the Experimental AWS SDK for Arduino\n\nAn experimental SDK for contacting AWS Services on Arduino-compatible devices. \n\n##Step 1: Create a SNS Topic\n\nWe are going to use a Topic with Email Subscription\n\n##Step 2: Import AmazonSNSClient Library\n\nContributed Libraries > \"AmazonSNSClient\"\n\n##Step 3: Open the Sample\n\napplication.cpp or ino file\n\n##Step 4: Modify Keys and WiFi info\n\nModify keys.cpp file and add your keys\nModify .ino file with Topic ARN\n\n##Step 5: Verify, Compile and Upload \n\nWire your connected device. After the wiring is finished, you should be able to connect two cables to your computer via usb, compile and upload the code with the Arduino IDE. ",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

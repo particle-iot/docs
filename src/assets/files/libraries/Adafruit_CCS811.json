@@ -1,0 +1,75 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_CCS811",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_CCS811/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_CCS811",
+    "version": "1.0.2",
+    "installs": 6677,
+    "author": "Adafruit",
+    "maintainer": "ScruffR at community.particle.io",
+    "sentence": "This is an Adafruit library for the CCS811 I2C gas sensor - ported for Particle",
+    "paragraph": "This is an Adafruit library for the CCS811 I2C gas sensor - ported for Particle.",
+    "category": "Sensors",
+    "url": "https://github.com/adafruit/Adafruit_CCS811",
+    "repository": "https://github.com/ScruffR/Adafruit_CCS811.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_CCS811",
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "electron": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "argon": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "boron": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "electron": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "argon": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          },
+          "boron": {
+            "CCS811_OLED_Demo": false,
+            "CCS811_test": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Adafruit CCS811 Library [![Build Status](https://travis-ci.org/adafruit/Adafruit_CCS811.svg?branch=master)](https://travis-ci.org/adafruit/Adafruit_CCS811)\r\n\r\n<img src=\"https://cdn-shop.adafruit.com/970x728/3566-00.jpg\" height=\"300\"/>\r\n\r\nThis is a library for the Adafruit CCS811 gas sensor breakout board:\r\n  * https://www.adafruit.com/product/3566\r\n \r\nCheck out the links above for our tutorials and wiring diagrams. This chip uses I2C to communicate\r\n\r\nAdafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!\r\n\r\nWritten by Dean Miller for Adafruit Industries.\r\nMIT license, all text above must be included in any redistribution\r\n",
+  "allVersions": [
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

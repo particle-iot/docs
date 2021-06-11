@@ -1,0 +1,37 @@
+{
+  "type": "libraries",
+  "id": "influxdb",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/influxdb/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "influxdb",
+    "version": "0.0.2",
+    "installs": 279,
+    "license": "MIT",
+    "author": "Wojtek Siudzinski <admin@suda.pl>",
+    "sentence": "InfluxDB data writer library",
+    "paragraph": "Allows sending data to InfluxDB instance.",
+    "category": "Other",
+    "url": "https://github.com/suda/particle-influxdb",
+    "repository": "suda/particle-influxdb",
+    "architectures": [
+      "spark-core,particle-photon,particle-p1,particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/influxdb",
+  "versions": {
+    "0.0.2": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "# InfluxDB library for Particle devices\n",
+  "allVersions": [
+    "0.0.2"
+  ]
+}

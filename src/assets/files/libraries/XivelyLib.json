@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "XivelyLib",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/XivelyLib/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "XivelyLib",
+    "version": "0.0.2",
+    "installs": 193,
+    "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
+    "author": "Davide Gironi <davide.gironi@gmail.com>",
+    "sentence": "A Spark.io to xively.com data logger library.",
+    "url": "https://github.com/davidegironi/spark-xivelylib",
+    "repository": "https://github.com/davidegironi/spark-xivelylib.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "x",
+  "cardUrl": "/cards/libraries/x/XivelyLib",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "XivelyLibSample": false
+          },
+          "electron": {
+            "XivelyLibSample": false
+          },
+          "argon": {
+            "XivelyLibSample": false
+          },
+          "boron": {
+            "XivelyLibSample": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "XivelyLibSample": false
+          },
+          "electron": {
+            "XivelyLibSample": false
+          },
+          "argon": {
+            "XivelyLibSample": false
+          },
+          "boron": {
+            "XivelyLibSample": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "About\n===\n\nA [Spark.io] (https://www.spark.io/) library to log data to [xively.com] (https://xively.com/).\n\nXively (formerly Cosm and before that Pachube) is an on-line database service allowing developers to connect sensor-derived data (e.g. energy and environment data from objects, devices & buildings) to the Web and to build their own applications based on that data.\nThis library provide methods to log datapoints of any type to a Xively feed through the use of a Spark Core.\n\nCopyright\n---\nCopyright (c) Davide Gironi, 2014<br/>\n[http://davidegironi.it] (http://davidegironi.it/)<br/>\n\nLicense\n---\nReleased under GPLv3.<br/>\nPlease refer to LICENSE file for licensing information.\n",
+  "allVersions": [
+    "0.0.2"
+  ]
+}

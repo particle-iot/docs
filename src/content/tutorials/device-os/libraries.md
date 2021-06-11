@@ -1,9 +1,8 @@
 ---
 word: Firmware Libraries
 title: Firmware Libraries
-order: 3 
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 description: Introduction to firmware libraries to access other services and hardware from your Particle IoT device firmware
 ---
 
@@ -22,6 +21,10 @@ In general, libraries in the Particle ecosystem have the following features:
 2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling NeoPixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
 
 3. **Particle libraries are reliable.** In addition to building and sharing our own high quality libraries, Particle verifies and promotes high quality community libraries that are fully documented, perform reliably, and include a variety of usage examples. Using our official and verified libraries means you'll spend less time debugging and more time building your project.
+
+
+<a href="/cards/libraries/search/" class="button">Search and browse libraries</a>
+
 
 ## Kinds of libraries
 
@@ -156,6 +159,7 @@ An extended project can be created by using the CLI `particle project create` co
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
+- [Library Search](/cards/libraries/search/)
 - [Using libraries with the Web IDE](/tutorials/developer-tools/build/)
 - [Using libraries with the Particle Workbench](/tutorials/developer-tools/workbench/#particle-install-library)
 - [Using libraries with the Command Line Interface (CLI)](/tutorials/developer-tools/cli/)

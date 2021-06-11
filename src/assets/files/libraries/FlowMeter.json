@@ -1,0 +1,57 @@
+{
+  "type": "libraries",
+  "id": "FlowMeter",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/FlowMeter/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "FlowMeter",
+    "version": "1.0.1",
+    "installs": 1945,
+    "author": "Derek",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "f",
+  "cardUrl": "/cards/libraries/f/FlowMeter",
+  "versions": {
+    "1.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# FlowMeter Library [![Version](https://img.shields.io/badge/FlowMeter-1.1.0-blue.svg 'still in beta')](https://github.com/sekdiy/FlowMeter) [![Build Status](https://travis-ci.org/sekdiy/FlowMeter.svg?branch=master)](https://travis-ci.org/sekdiy/FlowMeter) [![analytics](http://www.google-analytics.com/collect?v=1&t=pageview&dl=https%3A%2F%2Fgithub.com%2Fsekdiy%2FFlowMeter&cid=2238D739-76DE-4205-9768-2F3277FA2561&tid=UA-65656434-2&aip=1&dt=README)]()\n\n**FlowMeter** is an Arduino library that provides calibrated flow and volume measurement with flow sensors.\n\nYou can use it to count flow and volume of liquids and gases (although the documentation focuses on applications using liquids) and can support multiple flow sensors at the same time.\n\nIt also works as a totalizer, accumulating total volume and average flow rate over the run time of your project.\n\nA provision for calibration helps you to get the most out of your sensor. You can even estimate the recent and overall error margin.\n\nThe library is intended for use with flow sensors that provide a frequency output signal proportional to flow, although other types of sensors could be made to work.\n\n## A Simple Example\n\nGetting started with **FlowMeter** is easy. Take a look at this simple example:\n\n```c++\nvoid setup() {\n  // prepare serial communication\n  Serial.begin(9600);\n\n  // enable a call to a helper function on every rising edge\n  attachInterrupt(INT0, MeterISR, RISING);\n}\n\nvoid loop() {\n  // wait between output updates\n  delay(period);\n\n  // process the (possibly) counted ticks\n  Meter.tick(period);\n\n  // output some measurement result\n  Serial.print(\"Currently \");\n  Serial.print(Meter.getCurrentFlowrate());\n  Serial.print(\" l/min, \");\n  Serial.print(Meter.getTotalVolume());\n  Serial.println(\" l total.\");\n\n  //\n  // any other code can go here\n  //\n}\n```\n\nIn the above example, a flow sensor is assumed to be connected to the `INT0` pin. The corresponding object `Meter` is updated every `period` (in milliseconds, e.g. 1000ms).\n\nSo after every measurement `period`, the current *flow rate* and the total *volume* are printed out.\n\nPlease read on in the [examples](https://github.com/sekdiy/FlowMeter/wiki/Examples) section of the library's [documentation pages](https://github.com/sekdiy/FlowMeter/wiki).\n\n## Installing the library\n\nJust check out the [**FlowMeter**](https://github.com/sekdiy/FlowMeter) Repository on GitHub (or download the ZIP archive) and copy it to your `libraries/` folder (usually within your Arduino sketchbook).\n\nSee the [installation](https://github.com/sekdiy/FlowMeter/wiki/Installation) section in the [documentation pages](https://github.com/sekdiy/FlowMeter/wiki) for more.\n\n## Unit of measure\n\nThe **FlowMeter** library expresses flow in the unit **l/min**.\nMost units of measure can be derived by simple conversion (just try not to measure in [Sverdrups](https://en.wikipedia.org/wiki/Sverdrup)).\n\nAs an example, conversion between **l/min** and US **gal/min** can be done with a factor of *3.78541178*, conversion from **min**  to **s** with a factor of *60*.\n\n```math\n3.78541178 l/min ≈ 1 gal/min ≈ 0.0167 gal/s.\n```\n\nPlease make sure you consult the [documentation](https://github.com/sekdiy/FlowMeter/wiki/Properties) in order to further understand how the library works.\n\n## Should you calibrate your own sensor?\n\nThe **FlowMeter** library can be used with many different flow sensors right away. Some [sensor examples](https://github.com/sekdiy/FlowMeter/wiki/Sensors) are listed in the documentation.\n\nFor many projects you don't need to worry about calibration. But it still makes sense to be aware of the limitations that come with an uncalibrated sensor in a metering application.\n\nIt's easy to calibrate yourself. Preferrably you'd do this after installing the sensor into your project. The flow meter then benefits from increased precision within the viscosity and flow range of your application.\n\nThere's a [complete how-to](https://github.com/sekdiy/FlowMeter/wiki/Calibration) in the documentation.\n\n![Calibration Example: Irrigation with FS400A](https://github.com/sekdiy/FlowMeter/wiki/images/FS400A-calibration.jpg)\n\n## Documentation\n\nFor further details please take a look at the **FlowMeter** [documentation pages](https://github.com/sekdiy/FlowMeter/wiki).\n\nAlso, the library source code (in the folder [`src/`](src/)) and the examples (in the folder [`examples/`](examples/)) are fully documented.\n",
+  "allVersions": [
+    "1.0.1"
+  ]
+}

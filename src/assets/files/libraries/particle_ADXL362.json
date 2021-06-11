@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "particle_ADXL362",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/particle_ADXL362/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "particle_ADXL362",
+    "version": "0.0.1",
+    "installs": 355058,
+    "license": "GNU Lesser GPL v3",
+    "author": "Richard Whitney <richard@particle.io>",
+    "sentence": "Read orientation, acceleration and temperature from the ADXL362",
+    "url": "https://github.com/spark/ADXL362",
+    "repository": "spark/adxl362",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/particle_ADXL362",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "motion": true
+          },
+          "electron": {
+            "motion": true
+          },
+          "argon": {
+            "motion": true
+          },
+          "boron": {
+            "motion": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "motion": true
+          },
+          "electron": {
+            "motion": true
+          },
+          "argon": {
+            "motion": true
+          },
+          "boron": {
+            "motion": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ADXL362\nLibrary for the ADXL362 accelerometer factored out of the internet button library\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

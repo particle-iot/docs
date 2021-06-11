@@ -1,8 +1,7 @@
 ---
 title: AN028 Stop sleep cellular example
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 128
 ---
 # AN028 Stop sleep cellular example
 
@@ -119,7 +118,7 @@ if (publishFuture.isDone()) {
 
 ## The Code
 
-{{codebox content="/assets/files/app-notes/AN028/firmware/src/Stop-Sleep-Cellular.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN028/firmware/src/Stop-Sleep-Cellular.cpp" format="cpp" height="500"}}
 
 ## Code Walk-Through
 

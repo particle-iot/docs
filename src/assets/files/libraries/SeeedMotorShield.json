@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "SeeedMotorShield",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SeeedMotorShield/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "SeeedMotorShield",
+    "version": "0.0.1",
+    "installs": 584,
+    "license": "GNU GENERAL PUBLIC LICENSE",
+    "author": "Baker Al-Nakib",
+    "sentence": "Library for controling the DC Motor shield by Seeed",
+    "url": "https://github.com/bakuur/seeed-motor-shield-2.0",
+    "repository": "https://github.com/bakuur/seeed-motor-shield-2.0.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SeeedMotorShield",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "example": true
+          },
+          "electron": {
+            "example": true
+          },
+          "argon": {
+            "example": true
+          },
+          "boron": {
+            "example": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "#### Library for Seeed's Motor Shield 2.0 That works with Spark's Photon\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

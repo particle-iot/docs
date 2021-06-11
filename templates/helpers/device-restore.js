@@ -15,63 +15,11 @@ module.exports = function(context) {
     let versions = {};
     let versionNames = [];
 
-    const deviceRestoreDir = path.join(__dirname, '..', '..', 'src', 'assets', 'files', 'device-restore');
-
-
-    fs.readdirSync(deviceRestoreDir, {withFileTypes:true}).forEach(function(dirent) {
-        if (!dirent.isDirectory()) {
-            return;
-        }
-        versions[dirent.name] = [];
-        fs.readdirSync(path.join(deviceRestoreDir, dirent.name)).forEach(function(name) {
-            if (!name.endsWith('.hex')) {
-                return;
-            }
-            const platform = name.substr(0, name.length - 4);
-            versions[dirent.name].push(platform);
-        });
-
-        if (versions[dirent.name].length > 0) {
-            // console.log('versions ' + dirent.name, versions[dirent.name])
-            versionNames.push(dirent.name);
-        }
-    });
-
-
-    versionNames.sort(function(a,b) {
-        aParts = a.split('.');
-        bParts = b.split('.');
-        
-        for(let part = 0; part < 3; part++) {
-            // Reverse numeric sort (higher first)
-            let cmp = parseInt(bParts[part]) - parseInt(aParts[part]);
-            if (cmp != 0) {
-                return cmp;
-            }
-        }
-        let cmp = aParts[4].localeCompare(bParts[4]);
-        if (cmp != 0) {
-            return cmp;
-        }
-
-        cmp = parseInt(bParts[5]) - parseInt(aParts[5]);
-        if (cmp) {
-            return cmp;
-        }
-        return 0;
-    });
-
-    const platforms = [
-        {name:'argon',title:'Argon'},
-        {name:'boron',title:'Boron'},
-        {name:'bsom',title:'B4xx'},
-        {name:'b5som',title:'B5xx'},
-        {name:'tracker',title:'Tracker'},
-        {name:'electron',title:'Electron'},
-        {name:'photon',title:'Photon'},
-        {name:'p1',title:'P1'},
-        {name:'xenon',title:'Xenon'}
-    ];
+    const filesDir = path.join(__dirname, '..', '..', 'src', 'assets', 'files');
+    
+    const info = JSON.parse(fs.readFileSync(path.join(filesDir, 'deviceRestore.json'), 'utf8'));
+    
+    const deviceRestoreDir = path.join(filesDir, 'device-restore');
 
 	let html = '';
 
@@ -83,18 +31,20 @@ module.exports = function(context) {
 
     // console.log('versionNames', versionNames);
     html += '<tr><th>&nbsp;</th>';
-    platforms.forEach(function(platformObj) {
+    info.platforms.forEach(function(platformObj) {
         html += '<th>' + platformObj.title + '</th>';
     });
     html += '<tr>';
 
-    versionNames.forEach(function(version) {
+    info.versionNames.forEach(function(version) {
         html += '<tr><td>' + version + '</td>';
-        platforms.forEach(function(platformObj) {
+        info.platforms.forEach(function(platformObj) {
             html += '<td>';
-            if (versions[version].includes(platformObj.name)) {
+            if (info.versions[version].includes(platformObj.name)) {
                 if (mode == 'download') {
-                    html += '<a href="/assets/files/device-restore/' + version + '/' + platformObj.name + '.hex" download>Download</a>';
+                    const script = "ga('send', 'event', 'Download', 'Device Restore Hex Download', '" + version + "/" + platformObj.name + "'); return true;";
+
+                    html += '<a href="/assets/files/device-restore/' + version + '/' + platformObj.name + '.hex" download onclick="' + script + '">Download</a>';
                 }
                 else if (mode == 'flash') {
                     html += '<a onclick="startFlash(\'' + platformObj.name + '\', \'' + version + '\')">Flash!</a>';

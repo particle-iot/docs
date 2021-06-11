@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "I2cCharDisplay",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/I2cCharDisplay/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "I2cCharDisplay",
+    "version": "1.0.3",
+    "installs": 2442,
+    "license": "MIT",
+    "author": "Gary Muhonen <gary@dcity.org>",
+    "sentence": "I2C LCD and OLED Character Display Library.",
+    "paragraph": "Over 20 functions are available to make it easy to use LCD and OLED Displays. Functons such as clear, print, set brightness, and cursor blink are available. A demo program that demonstrates all of the functions is provided. This library will work with LCD and OLED character displays (e.g. 16x2, 20x2, 20x4, etc.). The LCD displays must use the commonly used HD44780 controller chip and have a I2C PCA8574 i/o expander chip on a backpack board (which gives the display I2C capability).  OLED display modules must have the commonly used US2066 controller chip (which has I2C built in). See the README file for more details. More information: https://www.dcity.org/portfolio/i2c-display-library/",
+    "category": "Display",
+    "url": "https://github.com/dcityorg/i2c-char-display-particle",
+    "repository": "dcityorg/i2c-char-display-particle",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "i",
+  "cardUrl": "/cards/libraries/i/I2cCharDisplay",
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "I2cCharDisplayDemo": true
+          },
+          "electron": {
+            "I2cCharDisplayDemo": true
+          },
+          "argon": {
+            "I2cCharDisplayDemo": true
+          },
+          "boron": {
+            "I2cCharDisplayDemo": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "I2cCharDisplayDemo": true
+          },
+          "electron": {
+            "I2cCharDisplayDemo": true
+          },
+          "argon": {
+            "I2cCharDisplayDemo": true
+          },
+          "boron": {
+            "I2cCharDisplayDemo": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "\n### I2cCharDisplay - Particle software library for controlling I²C character LCD and OLED Displays\n\n<div style=\"text-align: center;\">\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img class=\"size-thumbnail wp-image-175\" src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-oled-backpack-newhaven/newhaven-seeeduino.jpg\" alt=\"i2c oled backpack\" width=\"300\" height=\"200\" />\n</div>\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img class=\"size-thumbnail wp-image-175\" src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-oled-backpack-newhaven/i2c-oled-backpack-on-newhaven.jpg\" alt=\"i2c oled backpack\" width=\"300\" height=\"200\" />\n</div>\n<div style=\"display: inline-block; margin-right: 5px;\">\n<img class=\"size-thumbnail wp-image-176\" src=\"https://www.dcity.org/dcity/wp-content/uploads/projects/i2c-oled-backpack-newhaven/i2c-oled-backpack-newhaven.jpg\" alt=\"i2c oled backpack with display\" width=\"300\" height=\"200\" />\n</div>\n</div>\n\n**[This link has details](https://www.dcity.org/portfolio/i2c-display-library/) including:**\n* software library installation for use with Arduino, Particle and Raspberry Pi boards\n* list of functions available in these libraries\n* a demo program (which shows the usage of most library functions)\n* info on OLED and LCD character displays that work with this software\n* hardware design for a backpack board for LCDs and OLEDs, available on github\n* info on backpack “bare” pc boards available from OSH Park.\n\n**License Information**\nLicense Information is [here](https://www.dcity.org/license-information/).\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2"
+  ]
+}

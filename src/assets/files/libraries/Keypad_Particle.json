@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "Keypad_Particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Keypad_Particle/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Keypad_Particle",
+    "version": "1.0.0",
+    "installs": 14349,
+    "author": "Mark Stanley, Alexander Brevig",
+    "sentence": "A Particle port of the Keypad Arduino library by Mark Stanley and Alexander Brevig.",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "k",
+  "cardUrl": "/cards/libraries/k/Keypad_Particle",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "electron": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "argon": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "boron": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "electron": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "argon": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          },
+          "boron": {
+            "Detect_Key": true,
+            "Secret_Code": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Keypad_Particle\n\nA Particle library for Keypad_Particle\n\nUsed to read keypads such as [12-button keypad from SparkFun](https://www.sparkfun.com/products/8653)\n\n## Usage\n\nConnect keypad hardware, add the Keypad_Particle library to your project, and follow this simple example:\n\n```\n#include \"Keypad_Particle.h\"\n// set up keypad buttons\nconst byte ROWS = 4;\nconst byte COLS = 3;\nchar keys[ROWS][COLS] = {\n  {'1','2','3'},\n  {'4','5','6'},\n  {'7','8','9'},\n  {'*','0','#'}\n};\nbyte rowPins[ROWS] = { D3, D2, D1, D0 };\nbyte colPins[COLS] = { D6, D5, D4 };\n\n// create Keypad object variable called \"keypad\"\nKeypad_Particle keypad = Keypad_Particle( makeKeymap(keys), rowPins, colPins, ROWS, COLS );\n\nvoid setup(){\n  Serial.begin(9600);\n}\n  \nvoid loop(){\n  char key = keypad.getKey();\n  \n  if (key){\n    Serial.println(key);\n  }\n}\n```\n\nSee the [examples](examples) folder for more details.\n\n## LICENSE\nCopyright 2015 Mark Stanley, Alexander Brevig\n\nLicensed under the GNU General Public License\n",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

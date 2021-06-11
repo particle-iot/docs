@@ -1,0 +1,33 @@
+{
+  "type": "libraries",
+  "id": "Adafruit_VS1053_Photon",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit_VS1053_Photon/archive/1.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit_VS1053_Photon",
+    "version": "1.0.1",
+    "installs": 518,
+    "license": "BSD",
+    "author": "Limor Fried/Ladyada for Adafruit Industries, adapted for Spark Core by Paul Kourany",
+    "sentence": "This is a library for the Adafruit VS1053 Codec Breakout - specific version for the Particle Photon",
+    "url": "https://github.com/mctristan/adafruit_vs1053_library_photon",
+    "repository": "https://github.com/mctristan/adafruit_vs1053_library_photon.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit_VS1053_Photon",
+  "versions": {
+    "1.0.1": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "Adafruit VS1053 Codec Breakout\n==============================\n\n  This is a library for the Adafruit VS1053 Codec Breakout\n\n  Designed specifically to work with the Adafruit VS1053 Codec Breakout \n  ----> https://www.adafruit.com/products/1381\n\n  Adafruit invests time and resources providing this open source code, \n  please support Adafruit and open-source hardware by purchasing \n  products from Adafruit!\n\n  Written by Limor Fried/Ladyada for Adafruit Industries.  \n  BSD license, all text above must be included in any redistribution\n\nParticle Photon\n---------------\n\n  This version of the library includes some SPI fixes which are needed for the Photon in order to read from the SD card\n  \nSpark Core\n----------\n  \n  Adapted for Spark Core by Paul Kourany, Nov 24, 2014\n  \n  The adapted library makes use of SparkIntervalTimer which is a Spark\n  version of the Teensy3 IntervalTimer library.\n  \n  The Core version also sets the SPI clock to DIV8 (2.25Mhz)\n  \n  \n\n  \n",
+  "allVersions": [
+    "1.0.1"
+  ]
+}

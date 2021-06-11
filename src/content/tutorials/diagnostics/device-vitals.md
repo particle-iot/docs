@@ -1,10 +1,9 @@
 ---
 word: Device Vitals
 title: Device Vitals
-order: 2
 shared: true
 columns: two
-layout: tutorials.hbs
+layout: commonTwo.hbs
 redirects: true
 ---
 
@@ -234,7 +233,7 @@ seconds) at which vitals are to be sent to the cloud. If you don't pass
 an argument, vitals will be published once, immediately.
 
 For the full reference docs on `Particle.publishVitals()`, [click
-here](/reference/device-os/firmware/#particle-publishvitals-).
+here](/cards/firmware/cloud-functions/particle-publishvitals/).
 
 **Note**: You should take care when determining how often devices should
 send their vitals to the Device Cloud. There's a trade off to be made:

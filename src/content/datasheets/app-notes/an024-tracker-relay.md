@@ -1,8 +1,8 @@
 ---
 title: AN024 Tracker Relay
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 124
+includeDefinitions: [api-helper, api-helper-tracker, zip]
 ---
 # AN024 Tracker Relay
 
@@ -113,7 +113,25 @@ Finally, the BAS21 diode is a flyback diode to prevent current from the relay co
 
 ### Firmware - Quad Relay
 
+
 #### Getting the Tracker Edge Firmware - Quad Relay
+
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN024/firmware/quad.cpp" project="tracker-an024-quad" libraries="/assets/files/app-notes/AN024/firmware/AN024.dep"}}
+
+- Extract **tracker-an024-quad.zip** in your Downloads directory 
+- Open the **tracker-an024-quad** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
+
 
 The Tracker Edge firmware can be downloaded from Github:
 
@@ -137,71 +155,14 @@ git submodule update --init --recursive
 
 From the command palette in Workbench, **Particle: Install Library** then enter **M8RelayRK**. 
 
-If you prefer to edit project.properties directly, add these:
+If you prefer to edit project.properties directly, add this:
 
-```
-dependencies.M8RelayRK=0.0.1
-```
+{{> codebox content="/assets/files/app-notes/AN024/firmware/AN024.dep" height="100"}}
 
 ### The Source - Quad Relay
 
-```cpp
-#include "Particle.h"
+{{> codebox content="/assets/files/app-notes/AN024/firmware/quad.cpp" format="cpp" height="500"}}
 
-#include "tracker_config.h"
-#include "tracker.h"
-#include "M8RelayRK.h"
-
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_TRACE },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-M8Relay relays;
-
-int relayFunction(String extra);
-
-void setup()
-{
-    Tracker::instance().init();
-
-	Particle.function("relay", relayFunction);
-	relays.begin();
-
-    Particle.connect();
-}
-
-void loop()
-{
-     Tracker::instance().loop();
-}
-
-
-int relayFunction(String param) {
-	int res = -1;
-
-	int relayNum, value;
-	if (sscanf(param.c_str(), "%d,%d", &relayNum, &value) == 2) {
-		bool bResult = relays.relayOnOff((uint16_t)relayNum, (bool) value);
-		Log.info("relayNum=%d value=%d bResult=%d", relayNum, value, (int) bResult);
-		if (bResult) {
-			res = 0;
-		}
-	}
-
-	return res;
-}
-
-```
 
 ### Testing - Quad Relay
 
@@ -283,6 +244,24 @@ Finally, the BAS21 diode is a flyback diode to prevent current from the relay co
 
 #### Getting the Tracker Edge Firmware - Dual Latching Relay
 
+
+You can download a complete project for use with Particle Workbench as a zip file here:
+
+{{> tracker-edge main="/assets/files/app-notes/AN024/firmware/dual.cpp" project="tracker-an024-dual" libraries="/assets/files/app-notes/AN024/firmware/AN024.dep"}}
+
+- Extract **tracker-an024-dual.zip** in your Downloads directory 
+- Open the **tracker-an024-dual** folder in Workbench using **File - Open...**; it is a pre-configured project directory.
+- From the Command Palette (Command-Shift-P or Ctrl-Shift-P), use **Particle: Configure Project for Device**.
+- If you are building in the cloud, you can use **Particle: Cloud Flash** or **Particle: Cloud Compile**.
+- If you are building locally, open a CLI window using **Particle: Launch CLI** then:
+
+```
+particle library copy
+```
+
+#### Manually
+
+
 The Tracker Edge firmware can be downloaded from Github:
 
 [https://github.com/particle-iot/tracker-edge](https://github.com/particle-iot/tracker-edge)
@@ -307,70 +286,14 @@ Make sure you've used the [**Mark As Development Device**](https://docs.particle
 
 From the command palette in Workbench, **Particle: Install Library** then enter **M8RelayRK**. 
 
-If you prefer to edit project.properties directly, add these:
+If you prefer to edit project.properties directly, add this:
 
-```
-dependencies.M8RelayRK=0.0.1
-```
+{{> codebox content="/assets/files/app-notes/AN024/firmware/AN024.dep" height="100"}}
+
 
 #### The Source - Dual Latching Relay
 
-```cpp
-#include "Particle.h"
-
-#include "tracker_config.h"
-#include "tracker.h"
-#include "M8RelayRK.h"
-
-
-SYSTEM_THREAD(ENABLED);
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-PRODUCT_ID(TRACKER_PRODUCT_ID);
-PRODUCT_VERSION(TRACKER_PRODUCT_VERSION);
-
-SerialLogHandler logHandler(115200, LOG_LEVEL_TRACE, {
-    { "app.gps.nmea", LOG_LEVEL_INFO },
-    { "app.gps.ubx",  LOG_LEVEL_INFO },
-    { "ncp.at", LOG_LEVEL_TRACE },
-    { "net.ppp.client", LOG_LEVEL_INFO },
-});
-
-M8RelayLatching relays;
-int relayFunction(String extra);
-
-void setup()
-{
-    Tracker::instance().init();
-
-	Particle.function("relay", relayFunction);
-	relays.begin();
-
-    Particle.connect();
-}
-
-void loop()
-{
-     Tracker::instance().loop();
-}
-
-
-int relayFunction(String param) {
-	int res = -1;
-
-	int relayNum, value;
-	if (sscanf(param.c_str(), "%d,%d", &relayNum, &value) == 2) {
-		bool bResult = relays.relaySet((uint16_t)relayNum, (bool) value);
-		Log.info("relayNum=%d value=%d bResult=%d", relayNum, value, (int) bResult);
-		if (bResult) {
-			res = 0;
-		}
-	}
-
-	return res;
-}
-
-```
+{{> codebox content="/assets/files/app-notes/AN024/firmware/dual.cpp" format="cpp" height="500"}}
 
 ### Testing - Dual Latching Relay
 

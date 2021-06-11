@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "dir": "argon",
+      "title": "Argon",
+      "href": "/quickstart/argon/"
+    },
+    {
+      "dir": "boron",
+      "title": "Boron",
+      "href": "/quickstart/boron/"
+    },
+    {
+      "dir": "b-som",
+      "title": "B Series SoM",
+      "href": "/quickstart/b-som/"
+    },
+    {
+      "dir": "photon",
+      "title": "Photon",
+      "href": "/quickstart/photon/"
+    },
+    {
+      "dir": "electron",
+      "title": "Electron",
+      "href": "/quickstart/electron/"
+    },
+    {
+      "dir": "workbench",
+      "title": "Workbench",
+      "href": "/quickstart/workbench/"
+    },
+    {
+      "dir": "isk-project",
+      "title": "IoT Starter Kit",
+      "href": "/quickstart/isk-project/"
+    },
+    {
+      "dir": "aqmk-project",
+      "title": "Air Quality Monitoring Kit",
+      "href": "/quickstart/aqmk-project/"
+    }
+  ]
+}

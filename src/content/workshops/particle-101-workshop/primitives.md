@@ -1,9 +1,8 @@
 ---
 word: Particle Primitives
 title: Primitives Lab
-order: 6
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Lab 2: Working with Particle primitives & Grove Sensors
@@ -92,7 +91,7 @@ Now, you're ready to start using your first Grove component!
 
 ## Working with Particle Variables plus the Temperature & Humidity Sensor
 
-The Particle Device OS provides a simple way to access sensor values and device local state through the [variable primitive](/reference/device-os/firmware/argon/#particle-variable-). Registering an item of firmware state as a variable enables you to retrieve that state from the Particle Device Cloud. Let's explore this now with the help of the Grove Temperature and Humidity sensor.
+The Particle Device OS provides a simple way to access sensor values and device local state through the [variable primitive](/cards/firmware/cloud-functions/particle-variable/). Registering an item of firmware state as a variable enables you to retrieve that state from the Particle Device Cloud. Let's explore this now with the help of the Grove Temperature and Humidity sensor.
 
 ### Connect the Temperature sensor
 
@@ -222,7 +221,7 @@ Now that you've mastered Particle variables for reading sensor data, let's look 
 
 ## Working with Particle Functions and the Chainable LED
 
-As with Particle variables, the [function](/reference/device-os/firmware/photon/#particle-function-) primitive exposes our device to the Particle Device Cloud. Where variables expose state, functions expose actions.
+As with Particle variables, the [function](/cards/firmware/cloud-functions/particle-function/) primitive exposes our device to the Particle Device Cloud. Where variables expose state, functions expose actions.
 
 In this section, you'll use the Grove Chainable LED and the `Particle.function` command to take a heart-rate reading, on demand.
 
@@ -304,7 +303,7 @@ Particle.function("toggleLed", toggleLed);
 
 ## Working with Particle Publish & Subscribe plus a light sensor
 
-For the final section of this lab, you're going to explore the [Particle `pub/sub` primitives](/reference/device-os/firmware/photon/#particle-publish-), which allows inter-device (and app!) messaging through the Particle Device Cloud. You'll use the light sensor and publish messages to all listeners when light is detected.
+For the final section of this lab, you're going to explore the [Particle `pub/sub` primitives](/cards/firmware/cloud-functions/particle-publish/), which allows inter-device (and app!) messaging through the Particle Device Cloud. You'll use the light sensor and publish messages to all listeners when light is detected.
 
 ### Connect the Light sensor
 

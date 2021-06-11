@@ -2,7 +2,6 @@
 title: Cloud API
 layout: api.hbs
 columns: three
-order: 30
 description: Control and manage Particle IoT devices from the Internet with a REST API
 ---
 
@@ -56,6 +55,83 @@ curl "https://api.particle.io/v1/devices/mydevice/wakeup?access_token=1234" \
 In these docs, you'll see example calls written using a terminal program called [curl](https://curl.haxx.se/) which may already be available on your machine.
 
 The examples use form encoded data to make them easier to read and type but unless specified otherwise any endpoint can also accept a JSON object with the parameters as properties.
+
+## Postman
+
+In addition to using curl, you can use [Postman](https://www.postman.com/) a 3rd-party product that provides a web-based graphical interface for making API calls.
+
+To making using Postman significantly easier, download [postman.zip](/assets/files/postman.zip) and extract the two files:
+
+- Particle Device Cloud API.postman_collection.json
+- Particle Postman Environment.postman_environment.json
+
+Use the **Import** feature to import these two files into Postman.
+
+{{imageOverlay src="/assets/images/postman/import.png" alt="Import"}}
+
+Once you've imported the Particle Postman Environment you can select it from the popup in the upper right corner of the Postman workspace window.
+
+{{imageOverlay src="/assets/images/postman/set-environment.png" alt="Set Environment"}}
+
+
+### Authenticating with Postman
+
+Using a quickly expiring access token is a good way to maintain security when using Postman. You can easily do this using the [Particle CLI](/reference/developer-tools/cli/#particle-token-create).
+
+The parameter is the number of seconds, so 3600 is one hour. If you leave off the `--expires-in` option, the token will be good for 90 days. You can also create a non-expiring token.
+
+`
+particle token create --expires-in 3600
+`
+
+- To use this token, select **Particle Postman Environment** in the upper right corner of the Postman workspace  (1). 
+
+- Click the eye icon next to it to view the configuration (2).
+
+- Paste in the access token in the `access_token` field (3).
+
+{{imageOverlay src="/assets/images/postman/access-token.png" alt="Access Token" }}
+
+
+It's also possible to enter your username and password in the Postman environment, and also possible to generate the token from within Postman itself. However, these techniques are hard to use if you have multi-factor authentication (MFA) enabled on your Particle account. The CLI and `access_token` technique above works both with and without MFA enabled.
+
+### Example: List devices
+
+A good way to test out your access token is use **List devices**.
+
+- Open **Collections** then **Particle Device Cloud API** then **Devices** then **List devices**.
+
+- If you've entered the access_token in the previous step, there should be a small green circle on the **Authorization** tab.
+
+- Click the blue **Send** button.
+
+{{imageOverlay src="/assets/images/postman/list-devices.png" alt="List Devices" }}
+
+
+You should get output with information about your devices in the bottom pane.
+
+{{imageOverlay src="/assets/images/postman/list-output.png" alt="List Output" }}
+
+
+### Example: Calling a function
+
+- Open **Collections** then **Particle Device Cloud API** then **Devices** then **Call a function**.
+
+- In the **Params** tab, enter the device ID you want to call in **deviceid** and the function name in **functionName**. 
+In this case, we're using the Blink and LED firmware on the device, so it will respond to the **led** function.
+
+{{imageOverlay src="/assets/images/postman/function-name.png" alt="Function Name" }}
+
+
+- You don't need to enter anything in the **Authorization** tab, but this is how the data gets from the Environment into the API call.
+
+{{imageOverlay src="/assets/images/postman/authorization.png" alt="Authorization" }}
+
+- In this example, we're passing the value **on** in the **arg** parameter. This turns on the blue D7 LED on the device with the Blink and LED firmware.
+
+{{imageOverlay src="/assets/images/postman/call-function-body.png" alt="Call function" }}
+
+- Click **Send**. It will also show some output in the bottom pane if the device is online and is running the appropriate firmware.
 
 
 ## Authentication
@@ -200,7 +276,7 @@ There is an API rate limit of approximately 10 calls per second to api.particle.
 
 One situation that can cause problems is continuously monitoring variables for change. If you're polling every few seconds it's not a problem for a single device and variable. But if you are trying to monitor many devices, or have a classroom of students each polling their own device, you can easily exceed the API rate limit.
 
-Having the device call [Particle.publish](/reference/device-os/firmware/#particle-publish-) when the value changes may be more efficient.
+Having the device call [Particle.publish](/cards/firmware/cloud-functions/particle-publish/) when the value changes may be more efficient.
 
 #### Make sure you handle error conditions properly
 
@@ -539,13 +615,13 @@ The request identifier, used to make sure the event was received.
 
 ### Enhanced Location Events 
 
-The `enhanced_loc` event includes Location Fusion information, enhanced geolocation using Wi-Fi and/or cellular tower information. This can occur indoors, and in "urban canyons" where view of the GNSS satellites is obstructed.
+The `loc-enhanced` event includes Location Fusion information, enhanced geolocation using Wi-Fi and/or cellular tower information. This can occur indoors, and in "urban canyons" where view of the GNSS satellites is obstructed.
 
-Enhanced_loc events are generated by the Particle cloud, one for every loc event sent by the Tracker, with any additional location information added. The enhanced location can be monitored using webhooks or server-sent-events. Optionally, these events can also be sent to devices, to allow the device to act on the enhanced location information. See [location configuration](/tutorials/device-cloud/console/#location-settings).
+`loc-enhanced` events are generated by the Particle cloud, one for every `loc` event sent by the Tracker, with any additional location information added. The enhanced location can be monitored using webhooks or server-sent-events. Optionally, these events can also be sent to devices, to allow the device to act on the enhanced location information. See [location configuration](/tutorials/device-cloud/console/#location-settings).
 
-The enhanced_loc event will have data the same as the original loc event, such as: cmd, time, loc.lck, loc.cell, loc.bat, loc.temp, loc.time, loc.lat, loc.lon, loc.h_acc, and trig. 
+The `loc-enhanced` event will have data the same as the original `loc` event, such as: `cmd`, `time`, `loc.lck`, `loc.cell`, `loc.batt`, `loc.temp`, `loc.time`, `loc.lat`, `loc.lon`, `loc.h_acc`, and `trig`. 
 
-Note that loc.alt (altitude), loc.v_acc (vertical accuracy), loc.hd (heading), and loc.spd (speed) are not available for locations derived from location fusion, but if that information was in the original loc event from the GNSS, it will be preserved in the enhanced_loc event.
+Note that `loc.alt` (altitude), `loc.v_acc` (vertical accuracy), `loc.hd` (heading), and `loc.spd` (speed) are not available for locations derived from location fusion, but if that information was in the original `loc` event from the GNSS, it will be preserved in the `loc-enhanced` event.
 
 #### loc.src
 
@@ -609,3 +685,7 @@ PUT /v1/products/:productIdOrSlug/customers/:customerEmail
 ```
 
 We've provided a [sample app using Heroku and PostgreSQL](https://github.com/particle-iot/password-reset-example). This can be used as-is, or you can use it as an example of how to add support into your existing server infrastructure. 
+
+
+## Service agreements and usage
+{{> api group=apiGroups.ServiceAgreements}}

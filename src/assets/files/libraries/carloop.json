@@ -1,0 +1,83 @@
+{
+  "type": "libraries",
+  "id": "carloop",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/carloop/archive/2.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "carloop",
+    "version": "2.1.0",
+    "installs": 63001,
+    "license": "MIT",
+    "author": "Julien Vanier <julien@carloop.io>",
+    "sentence": "Carloop.io library for the Particle platform",
+    "url": "https://github.com/carloop/carloop-library",
+    "repository": "https://github.com/carloop/carloop-library.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/carloop",
+  "versions": {
+    "2.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "carloop_minimal": true,
+            "obd_blink": true,
+            "socketcan_serial": true
+          },
+          "electron": {
+            "carloop_minimal": true,
+            "obd_blink": true,
+            "socketcan_serial": true
+          },
+          "argon": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "boron": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "carloop_minimal": true,
+            "obd_blink": true,
+            "socketcan_serial": true
+          },
+          "electron": {
+            "carloop_minimal": true,
+            "obd_blink": true,
+            "socketcan_serial": true
+          },
+          "argon": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          },
+          "boron": {
+            "carloop_minimal": false,
+            "obd_blink": false,
+            "socketcan_serial": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# [Carloop](https://www.carloop.io)\n[![Build Status](https://travis-ci.org/carloop/carloop-library.svg?branch=master)](https://travis-ci.org/carloop/carloop-library)\n\nMake apps for your car using signals from OBD-II, CAN and GPS. Publish data online using the Particle platform.\n\nThe [hardware](https://github.com/carloop/hardware) and [software](https://github.com/carloop/carloop-library) is all open source!\n\n### _Don't have one yet? [Buy a Carloop here](https://store.carloop.io)_\n### _Have questions? [Ask the Carloop community.](https://community.carloop.io)_\n### _Want to learn about Car Hacking? [Read this book](https://store.carloop.io/products/car-hackers-handbook)_\n\n## Usage\n\n```\n#include \"carloop/carloop.h\"\nCarloop<CarloopRevision2> carloop;\n\nvoid setup()\n{\n    carloop.begin();\n}\n\nvoid loop()\n{\n    carloop.update();\n    CANMessage message;\n    if(carloop.can().receive(message)) {\n        // Do awesome things with message!\n    }\n}\n```\n\nSee complete examples in [the examples directory.](/examples)\n\n## Getting started\n\n[Follow these instructions on the community](https://community.carloop.io/t/carloop-demo-program/18) to create your first application using the Carloop library.\n\nLearn about programming with the Particle platform at <https://docs.particle.io>\n\nIf you want to add a GPS, we recommend [the GP-735](https://store.carloop.io/products/carloop-gps-with-cable)\n\n## Documentation\n\n### `Carloop` object\n\nCreate a global `Carloop` object and specify the hardware revision (`CarloopRevision2`). Find this information on the Carloop circuit board (R2.1 means revision 2).\n\nCall `begin()` in `setup()` and `update()` in `loop()`.\n\n```\nCarloop<CarloopRevision2> carloop;\n\nvoid setup() {\n  carloop.begin();\n}\n\nvoid loop() {\n  carloop.update();\n}\n```\n\n### `can()`\n\nRead and write raw CAN messages.\n\n```\nvoid setup() {\n    carloop.begin();\n    Serial.begin(9600);\n}\n\nvoid loop() {\n    carloop.update();\n    CANMessage message;\n    while(carloop.can().receive(message))\n    {\n        Serial.printf(\"ID %03x len %d\", message.id, message.length);\n        for(int i = 0; i < message.length; i++) {\n            Serial.printf(\"%02x \", message.data[i]);\n        }\n        Serial.print(\"\\n\");\n    }\n}\n```\n\n[See the documentation for the Particle CAN driver for more options.](https://docs.particle.io/reference/firmware/photon/#can-canbus-)\n\n### `gps()`\n\nIf you have a GPS connected to the Carloop, you access GPS function through the TinyGPS object with `carloop.gps()`. To ensure that the GPS location doesn't update in the middle of reading it, surround the block where you extract the GPS data in a `WITH_LOCK` block.\n\n```\nWITH_LOCK(carloop.gps()) {\n  float lat = carloop.gps().location.lat();\n  float lng = carloop.gps().location.lng();\n  bool gpsValid = carloop.gps().location.isValid();\n}\n```\n\n[See the TinyGPS library for detailed examples.](https://github.com/codegardenllc/tiny_gps_plus)\n\n### `battery()`\n\nThe voltage of the car battery. Make sure you call `carloop.update()` in the `loop()` function to update the battery voltage.\n\n```\nfloat battVoltage = carloop.battery();\n```\n\n## TODO\n\n- OBD PID decoder. `carloop[\"engine_speed\"]` to get engine speed.\n- OBD fault code reader.\n\n## License\n\nCopyright 2016-2017 1000 Tools, Inc. Distributed under the MIT license. See [LICENSE](/license) for details.\n\n",
+  "allVersions": [
+    "2.1.0",
+    "2.0.0",
+    "1.2.0",
+    "1.1.1",
+    "1.1.0",
+    "1.0.0",
+    "0.1.0"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "AudioGetAverageLib",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AudioGetAverageLib/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "AudioGetAverageLib",
+    "version": "0.0.1",
+    "installs": 852,
+    "license": "GPL v3 (http://www.gnu.org/licenses/gpl.html)",
+    "author": "Davide Gironi <davide.gironi@gmail.com>",
+    "sentence": "A Spark.io library to retrive RMS and Spl value from an audio input.",
+    "url": "https://github.com/davidegironi/spark-audiogetaveragelib",
+    "repository": "https://github.com/davidegironi/spark-audiogetaveragelib.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AudioGetAverageLib",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "AudioGetAverageLibSample": true
+          },
+          "electron": {
+            "AudioGetAverageLibSample": true
+          },
+          "argon": {
+            "AudioGetAverageLibSample": true
+          },
+          "boron": {
+            "AudioGetAverageLibSample": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "AudioGetAverageLibSample": true
+          },
+          "electron": {
+            "AudioGetAverageLibSample": true
+          },
+          "argon": {
+            "AudioGetAverageLibSample": true
+          },
+          "boron": {
+            "AudioGetAverageLibSample": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "About\n===\n\nA [Spark.io] (https://www.spark.io/) library to retrive RMS and Spl value from an audio input.\n\nThis library reads data from an ADC pin and returns the RMS value of the input simply using RMS avarage.\nThe root mean square (abbreviated RMS or rms), also known as the quadratic mean, is a statistical measure of the magnitude of a varying quantity.\nHere is simply implemented by getting samples, for each of them making the root, then the mean for all the collected samples, and finally square the result.\n\nCopyright\n---\nCopyright (c) Davide Gironi, 2014<br/>\n[http://davidegironi.it] (http://davidegironi.it/)<br/>\n\nLicense\n---\nReleased under GPLv3.<br/>\nPlease refer to LICENSE file for licensing information.\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

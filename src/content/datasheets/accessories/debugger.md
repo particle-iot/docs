@@ -1,8 +1,7 @@
 ---
 title: Debugger
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 20
 description: Particle Debugger
 ---
 

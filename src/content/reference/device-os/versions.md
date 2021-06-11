@@ -1,8 +1,7 @@
 ---
 title: Device OS Versions
-layout: reference.hbs
+layout: commonTwo.hbs
 columns: two
-order: 22
 description: Device OS versions, upgrades, and downgrades
 ---
 
@@ -64,6 +63,15 @@ particle update
 ```
 
 Note that particle update actually updates Device OS to the version that was the default when the CLI version was created, and the binaries are stored in the CLI itself (not downloaded). Thus you may need to use `particle update-cli` to have it update itself. 
+
+### Browser DFU
+
+Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/device-restore-usb/) for more information.
+
+- There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
+- It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
+- It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers.
+
 
 ### Manually over USB
 
@@ -137,7 +145,6 @@ particle flash --serial boron-bootloader@2.0.0.bin
 particle flash --serial boron-softdevice@2.0.0.bin
 ```
 
-
 ### Manually over SWD/JTAG
 
 On production lines, it's common to update devices using SWD/JTAG. This can be done with:
@@ -149,7 +156,12 @@ On production lines, it's common to update devices using SWD/JTAG. This can be d
 | Particle Debugger | &check; | &check; | &check; | &check; | &check; | Using openocd |
 | Segger J-LINK | &check; | &check; | &check; | &check; | &check; |  |
 
-Additional information can be found in the [JTAG and SWD Guide](https://support.particle.io/hc/en-us/articles/360039251414).
+You can use [device restore images](/reference/developer-tools/jtag/#restore-binaries) to restore a device to a known state using a SWD/JTAG debugger. This works for both upgrades and downgrades and is by far the fastest way to do this.
+
+A [hex file generator](/reference/developer-tools/jtag/#custom-hex-files) is available to take a device restore hex file and replace Tinker (or Tracker Edge) with your custom user firmware binary. This can make it very easy to mass-produce devices with exactly the version of Device OS and your firmware you want.
+
+Additional information can be found in the [JTAG and SWD Guide](/reference/developer-tools/jtag/).
+
 
 ### Using Particle Workbench
 
@@ -164,6 +176,12 @@ There are several caveats to this, however:
 - Workbench will not downgrade the bootloader. This generally will function, but the farther back you go in versions the more likely this is to not work. Downgrading the bootloader by USB is recommended as bootloader downgrades are never done by the cloud.
 - Workbench will not upgrade or downgrade the SoftDevice on Gen 3 platforms. This is not always required, but if it is you'll need to do so OTA or by USB.
 - Workbench will not upgrade or downgrade the Argon or Tracker SoM NCP, though this is almost never required.
+
+### NCP Upgrade
+
+The Argon and Tracker have a Network Coprocessor (NCP). This rarely needs to be updated manually, as it will be upgraded OTA if necessary. There is currently no scenario in which it would need to be downgraded.
+
+For more information see [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp).
 
 ### Less common scenarios
 
@@ -205,6 +223,8 @@ This should be done *after* upgrading system firmware.  The Electron bootloader 
 
 #### Updating SoftDevice and Bootloader
 
+Note: The SoftDevice .bin files provided on the Device OS Github release site are OTA binaries intended for use OTA or in --serial mode. They cannot be flashed directly to a device using SWD/JTAD because they have a Particle binary header that must be removed, and a Nordic preamble that must be inserted to flash directly via SWD.
+
 #### Via OTA
 
 1. Upgrade Device OS to 2.0.0
@@ -235,11 +255,19 @@ This only works for SoftDevice, not for bootloader:
 
 While upgrades to Device OS are automatically handled by Safe Mode (breathing magenta), downgrades are not handled automatically. 
 
-### USB - Downgrade
+### USB Downgrade - Browser
 
-By far the easiest way to downgrade is by USB in DFU mode (blinking yellow). This can generally be done in one version jump, with one exception:
+Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/device-restore-usb/) for more information.
 
-- For the Boron LTE (BRN402) and B Series SoM (B402), if you are downgrading from a 1.5.3 or later (including 2.0.0) to a version prior to 1.5.2, you must downgrade to 1.5.2, let the device connect to cellular, then complete the downgrade process to the desired version.
+- There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
+- It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
+- It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers.
+
+### USB Downgrade - Particle CLI
+
+You can downgrade USB in DFU mode (blinking yellow). This can generally be done in one version jump, with the following exception:
+
+{{blurb name="downgrade"}}
 
 The process to downgrade by USB is:
 
@@ -249,6 +277,9 @@ The process to downgrade by USB is:
 
 | Release | Notes |
 | :--- | :--- |
+| [3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0) | Feature Release |
+| [2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0) | Latest 2.0 LTS |
+| [2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1) | First 2.0 LTS |
 | [1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2) | Last version before 2.0 LTS |
 | [1.4.4](https://github.com/particle-iot/device-os/releases/tag/v1.4.4) | |
 | [1.2.1](https://github.com/particle-iot/device-os/releases/tag/v1.2.1) | | 
@@ -395,3 +426,10 @@ particle flash electron7 electron-bootloader@1.5.2+lto.bin
 - For Gen 3 devices, you may need to flash the SoftDevice.
 
 - Your device should now be online and successfully downgraded.
+
+### SWD/JTAG Device Restore
+
+Using a SWD/JTAG debugger such as the Particle Debugger, ST-LINK, or Segger J-Link, plus 
+[device restore images](/reference/developer-tools/jtag/#restore-binaries) make it restore a device to a known state or downgrade Device OS easily.
+
+With some combinations of browsers, an upgraded Particle Debugger, and a Gen 3 device, you can also do a [JTAG Device Restore](/device-restore-jtag/) with no software or app install required.

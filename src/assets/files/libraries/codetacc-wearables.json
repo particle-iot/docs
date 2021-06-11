@@ -1,0 +1,110 @@
+{
+  "type": "libraries",
+  "id": "codetacc-wearables",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/codetacc-wearables/archive/0.0.4.tar.gz"
+  },
+  "attributes": {
+    "name": "codetacc-wearables",
+    "version": "0.0.4",
+    "installs": 778,
+    "license": "GNU GPLv3, BSD License for derivative works",
+    "author": "Joon-Yee Chuah <jchuah@tacc.utexas.edu>",
+    "sentence": "This library is designed to be used in the CODE @ TACC Cloud Connected Wearables curriculum, and wraps/provides compatibility for several Adafruit sensor libraries",
+    "url": "https://github.com/jchuahtacc/codetacc-wearables",
+    "repository": "https://github.com/jchuahtacc/codetacc-wearables.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/codetacc-wearables",
+  "versions": {
+    "0.0.4": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "electron": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "argon": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "boron": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "electron": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "argon": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          },
+          "boron": {
+            "1_gpio": true,
+            "2_switches": true,
+            "3_analog": true,
+            "4_color": true,
+            "5_lux": true,
+            "6_accel": false,
+            "7_uv": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# CODE @ TACC Cloud Connected Wearables library\n\n### Introduction\n\nThis library wraps provides sample code for CODE @ TACC Cloud Connected Wearables curriculum.\nIn addition, it wraps several ports of libraries for Adafruit I2C sensor used in this curriculum.\n\n### CODE @ TACC\n\nCODE @ TACC is a STEM education program featuring robotics and maker camps that use the Particle.io\nInternet of Things platform. It is hosted by the Texas Advanced Computing Center at\nThe University of Texas at Austin. You may view our materials at [http://code.tacc.utexas.edu](https://code.tacc.utexas.edu).\n\n### Acknowledgements\n\nIncluded in this package are libraries from the following repos:\n- [wgbartley/Adafruit_SI1145_Library](https://github.com/wgbartley/Adafruit_SI1145_Library)\n- [kennethlimcp/spark-LSM9DS0](https://github.com/kennethlimcp/spark-LSM9DS0)\n- [krvarma/Adafruit_TCS34725_SparkCore](https://github.com/jchuahtacc/Adafruit_TCS34725_SparkCore)\n- [wgbartley/Adafruit_TSL2561](https://github.com/jchuahtacc/Adafruit_TSL2561)\n",
+  "allVersions": [
+    "0.0.4",
+    "0.0.3"
+  ]
+}

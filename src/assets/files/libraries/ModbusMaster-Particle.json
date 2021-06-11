@@ -1,0 +1,62 @@
+{
+  "type": "libraries",
+  "id": "ModbusMaster-Particle",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/ModbusMaster-Particle/archive/1.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "ModbusMaster-Particle",
+    "version": "1.0.3",
+    "installs": 5600,
+    "license": "APA2",
+    "author": "Philippe Hilger <phil@peergum.com>",
+    "sentence": "Alternate ModbusMaster library port from Arduino",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/ModbusMaster-Particle",
+  "versions": {
+    "1.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# ModbusMaster-Electron [![Build Status](https://travis-ci.org/peergum/ModbusMaster-Electron.svg?branch=master)](https://travis-ci.org/peergum/ModbusMaster-Electron)\nModbusMaster library for the Electron\n\nThis is a derived work from 4-20's library for Arduinos.\n\nDue to time constraint, specific parts/defines to Arduinos were removed, rather than adapted to the Electron environment.\nPlease feel free to improve, adapt or extend as necessary.\n\nCheers\nPhil.\n\n## Changelog\n* 1.0.2: improved performance, added example, allowed parity configuration\n* 1.0.3: increased inter-char timeout from 300ms to 500ms, and send a zero after setting speed for serial sync with sensors\n",
+  "allVersions": [
+    "1.0.3",
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

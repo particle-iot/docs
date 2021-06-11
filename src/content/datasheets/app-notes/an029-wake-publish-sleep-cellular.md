@@ -1,8 +1,7 @@
 ---
 title: AN029 Wake publish sleep example
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 129
 ---
 # AN029 Wake publish sleep firmware example
 
@@ -83,7 +82,7 @@ Other parameters are listed in the comments in the source and in the code walk-t
 
 ## The Code
 
-{{codebox content="/assets/files/app-notes/AN029/firmware/src/Wake-Publish-Sleep-Cellular.cpp" format="cpp" height="500"}}
+{{> codebox content="/assets/files/app-notes/AN029/firmware/src/Wake-Publish-Sleep-Cellular.cpp" format="cpp" height="500"}}
 
 
 ## Code walk-through

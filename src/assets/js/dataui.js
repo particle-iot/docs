@@ -309,6 +309,44 @@ dataui.setupRegionCountrySelector = function (regionSel, idBase, listChangeHandl
 
         regionSel.updateHandler();
     };
+
+    regionSel.fromQuery = function(urlParams) {
+        const regionCountryRadio = urlParams.get('regionCountryRadio');
+        if (regionCountryRadio === 'region') {
+            const region = urlParams.get('region');
+            if (region) {
+                const regionVal = $('#' + regionSel.idBase + 'RegionSel option').filter(function () { return $(this).html() === region; }).prop('value');
+                $('#' + regionSel.idBase + 'RegionSel').val(regionVal);
+            }
+            regionSel.focusRegion();
+        }
+        else
+        if (regionCountryRadio === 'country') {
+            const country = urlParams.get('country');
+            if (country) {
+                $('#' + regionSel.idBase + 'Text').val(country);
+            }
+            regionSel.focusCountries();            
+        }
+    };
+
+    regionSel.getQuery = function() {
+        let result = '';
+
+        if ($('#' + regionSel.idBase + 'RegionRadio').prop('checked')) {
+            result += 'regionCountryRadio=region';
+
+            const regionVal = $('#' + regionSel.idBase + 'RegionSel').val();
+            const region = $('#' + regionSel.idBase + 'RegionSel option').filter(function () { return $(this).prop('value') === regionVal; }).html();
+            result += '&region=' + encodeURIComponent(region);
+        }
+        if ($('#' + regionSel.idBase + 'CountryRadio').prop('checked')) {
+            result += 'regionCountryRadio=country';
+            result += '&country=' + encodeURIComponent($('#' + regionSel.idBase + 'Text').val());
+        }
+
+        return result;
+    };
     
     regionSel.updateHandler = function() {
 

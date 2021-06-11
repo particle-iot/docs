@@ -1,8 +1,7 @@
 ---
 title: Application Notes
-layout: datasheet.hbs
+layout: commonTwo.hbs
 columns: two
-order: 2
 ---
 
 # Application Notes

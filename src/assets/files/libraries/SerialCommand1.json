@@ -1,0 +1,68 @@
+{
+  "type": "libraries",
+  "id": "SerialCommand1",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SerialCommand1/archive/1.1.2.tar.gz"
+  },
+  "attributes": {
+    "name": "SerialCommand1",
+    "version": "1.1.2",
+    "installs": 122,
+    "license": "open source",
+    "author": "JC",
+    "sentence": "serical command",
+    "paragraph": "from teensy",
+    "url": "https://github.com/spark/uber-library-example",
+    "repository": "spark/uber-library-example",
+    "architectures": [
+      "avr",
+      "spark-core",
+      "particle-photon",
+      "particle-p1"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SerialCommand1",
+  "versions": {
+    "1.1.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": true
+          },
+          "electron": {
+            "usage": true
+          },
+          "argon": {
+            "usage": true
+          },
+          "boron": {
+            "usage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SerialCommand\n=============\nA Wiring/Arduino library to tokenize and parse commands received over a serial port. \n\nThe original version of this library was written by [Steven Cogswell](http://husks.wordpress.com) (published May 23, 2011 in his blog post [\"A Minimal Arduino Library for Processing Serial Commands\"](http://husks.wordpress.com/2011/05/23/a-minimal-arduino-library-for-processing-serial-commands/)).\n\nThis is a heavily modified version with smaller footprint and a cleaned up code by Stefan Rado.\n",
+  "allVersions": [
+    "1.1.2",
+    "1.0.0"
+  ]
+}

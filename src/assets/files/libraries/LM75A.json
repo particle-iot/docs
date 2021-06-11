@@ -1,0 +1,66 @@
+{
+  "type": "libraries",
+  "id": "LM75A",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/LM75A/archive/1.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "LM75A",
+    "version": "1.1.0",
+    "installs": 95,
+    "license": "MIT License",
+    "author": "Quentin Comte-Gaz",
+    "sentence": "I2C LM75A Temperature Sensor",
+    "paragraph": "Library for Arduino",
+    "url": "https://github.com/QuentinCG/Arduino-LM75A-Temperature-Sensor-Library",
+    "repository": "https://github.com/QuentinCG/Arduino-LM75A-Temperature-Sensor-Library.git",
+    "architectures": [
+      "particle-core",
+      "particle-photon",
+      "particle-electron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "l",
+  "cardUrl": "/cards/libraries/l/LM75A",
+  "versions": {
+    "1.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "usage": false
+          },
+          "electron": {
+            "usage": false
+          },
+          "argon": {
+            "usage": false
+          },
+          "boron": {
+            "usage": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# I2C LM75A Temperature Sensor\n\n## author\nQuentin Comte-Gaz\n\n## license\nMIT License\n\n## source\nhttps://github.com/QuentinCG/Arduino-LM75A-Temperature-Sensor-Library\n\n## Usage\nSee example\n\n## LICENSE\nCopyright 2018 Quentin Comte-Gaz\n\nLicensed under the MIT license\n",
+  "allVersions": [
+    "1.1.0"
+  ]
+}

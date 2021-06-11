@@ -1,9 +1,8 @@
 ---
 word: Introducing Particle
 title: Introducing Particle
-order: 3
 columns: two
-layout: workshops.hbs
+layout: commonTwo.hbs
 ---
 
 # Session 1 - A Lap Around Particle

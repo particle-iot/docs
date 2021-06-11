@@ -1,0 +1,70 @@
+{
+  "type": "libraries",
+  "id": "Adafruit-MotorShield-V2",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/Adafruit-MotorShield-V2/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "Adafruit-MotorShield-V2",
+    "version": "1.0.0",
+    "installs": 16445,
+    "license": "BSD",
+    "author": "TJ Hunter <tjhunter@gmail.com>",
+    "sentence": "A library for the Adafruit Motor Shield V2 for Particle devices",
+    "paragraph": "A library for the Adafruit Motor Shield V2 for Particle devices (Photon, Electron, P0, P1, E Series, Argon, Boron, Xenon)",
+    "url": "https://github.com/Hypnopompia/Spark-Adafruit_MotorShield_V2",
+    "repository": "https://github.com/Hypnopompia/Spark-Adafruit_MotorShield_V2",
+    "architectures": [
+      "particle-photon",
+      "particle-electron",
+      "particle-xenon",
+      "particle-argon",
+      "particle-boron"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/Adafruit-MotorShield-V2",
+  "versions": {
+    "1.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "adafruit-motorshielf-example": false
+          },
+          "electron": {
+            "adafruit-motorshielf-example": false
+          },
+          "argon": {
+            "adafruit-motorshielf-example": false
+          },
+          "boron": {
+            "adafruit-motorshielf-example": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "adafruit-motorshielf-example": false
+          },
+          "electron": {
+            "adafruit-motorshielf-example": false
+          },
+          "argon": {
+            "adafruit-motorshielf-example": false
+          },
+          "boron": {
+            "adafruit-motorshielf-example": false
+          }
+        }
+      }
+    }
+  },
+  "readme": " This is the library for the Adafruit Motor Shield V2 ported to\n the Spark Core. \n It supports DC motors & Stepper motors with microstepping as well\n as stacking-support. It is *not* compatible with the V1 library!\n\n It will only work with https://www.adafruit.com/products/1438\n \n Adafruit invests time and resources providing this open\n source code, please support Adafruit and open-source hardware\n by purchasing products from Adafruit!\n \n Written by Limor Fried/Ladyada for Adafruit Industries.\n Ported to the Spark Core by TJ Hunter\n BSD license, check LICENSE for more information.\n All text above must be included in any redistribution.\n\n See the following URL for help on connecting the Motor Shield\n to the spark core:\n\n https://community.spark.io/t/adafruit-motor-shield-v2-progress/5218\n",
+  "allVersions": [
+    "1.0.0",
+    "0.0.2",
+    "0.0.1"
+  ]
+}

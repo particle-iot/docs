@@ -1,8 +1,7 @@
 ---
 title: Introduction
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 90
 description: Using Integrations to access external services
 ---
 
@@ -17,7 +16,7 @@ Integrations provide a way of easily and efficiently interacting with an Interne
 
 <img src="/assets/images/PublishFlow.png" class="full-width"/>
 
-The typical flow is for your device to do a [`Particle.publish()`](/reference/device-os/firmware/#particle-publish-). This triggers an integration such as a webhook or Google Cloud Integration. For example, you could use this integration to store data in a cloud-based database, or update values in a dashboard. 
+The typical flow is for your device to do a [`Particle.publish()`](/cards/firmware/cloud-functions/particle-publish/). This triggers an integration such as a webhook or Google Cloud Integration. For example, you could use this integration to store data in a cloud-based database, or update values in a dashboard. 
 
 It's also possible for the integration to return data to the device.
 

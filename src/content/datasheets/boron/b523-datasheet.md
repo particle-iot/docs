@@ -1,12 +1,11 @@
 ---
-title: B Series B523 datasheet
-layout: datasheet.hbs
+title: B Series B524/B523 datasheet
+layout: commonTwo.hbs
 columns: two
-order: 3
-description: Datasheet for the Particle B Series B523 SoM, Gen 3 cellular LTE Cat 1
+description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B523 Datasheet <sup>005</sup>
+# B524/B523 Datasheet <sup>009</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -29,7 +28,9 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * LTE category 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13 
   * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
-  * Support for Europe only at this time
+  * 2G and 3G fallback (900, 1800, and 2100 MHz)
+  * Support for Europe only (B523)
+  * Support for Europe, Australia, and New Zealand (B524) at this time
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -199,7 +200,7 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 21 | GND | GND | POWER | | System ground. |
 | 22 | D0 | SDA | IO | P0.26 | I2C SDA, and digital only GPIO.|
 | 23 | A0 | ADC0 | IO | P0.3 | Analog input ADC0<sup>2</sup>, and digital GPIO. |
-| 32 | MODE | MODE | IO | P0.11 | Connected to the MODE button input, and digital only GPIO.|
+| 32 | MODE | MODE | IO | P0.25 | Connected to the MODE button input, and digital only GPIO.|
 | 33 | A1 | ADC1 | IO | P0.4 | Analog input ADC1<sup>2</sup>, and digital GPIO. |
 | 34 | RESET | RESET | I | | Active-low reset input. |
 | 35 | A2 | ADC2 | IO | P0.28| Analog input ADC2<sup>2</sup>, and digital GPIO. |
@@ -207,39 +208,39 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 37 | A3 | ADC3 | IO | P0.29| Analog input ADC3<sup>2</sup>, and digital GPIO. |
 | 38 | D10 | RX | IO | P0.08 | Primarily used as UART RX, but can also be used as a digital GPIO.	 | 
 | 39 | AGND | AGND | POWER | | System analog ground. |
-| 40 | D3 | RESERVED<sup>3</sup> | IO | P1.1 | UART flow control interface CTS, SCL1 (Wire1), SPI1 MOSI, and digital only GPIO. |
+| 40 | D3 | RESERVED<sup>3</sup> |IO | P1.10 | UART flow control CTS, SCL1 (Wire1), SPI1 MOSI, digital only GPIO. |
 | 41 | A4 | RESERVED<sup>3</sup> |IO | P0.30 | Analog input ADC4<sup>2</sup>, and digital GPIO. |
-| 42 | D2 | RESERVED<sup>3</sup> |IO | P1.2 | UART flow control interface RTS, SDA1 (Wire1), SPI1 SCK, and digital only GPIO. |
+| 42 | D2 | RESERVED<sup>3</sup> | IO | P1.02 | UART flow control RTS, SDA1 (Wire1), SPI1 SCK, digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | P0.31 | Analog input ADC5<sup>2</sup>, and digital GPIO.|
 | 44 | Quectel USB D+ | SOM0 | IO | | Data+ pin of the R410M USB port.|
 | 45 | A6 | RESERVED<sup>3</sup> | IO | P0.5| Analog input ADC6<sup>2</sup>, and digital GPIO. |
 | 46 | Quectel USB D- | SOM1 | IO ||  Data- pin of the R410M USB port.|
 | 47 | A7 | RESERVED<sup>3</sup> | IO | P0.2 | Analog input ADC7<sup>2</sup>, and digital GPIO.|
-| 48 | D8 | CS | IO | P1.3 | SPI interface CS, and digital only GPIO. | 
+| 48 | D8 | CS | IO | P0.7 | SPI interface CS, and digital only GPIO. | 
 | 49 | AGND | AGND | POWER	| | System analog ground.|
-| 50 | D11 | MISO | IO | P1.14 | SPI interface MISO, and digital only GPIO.|
+| 50 | D11 | MISO | IO | P1.8 | SPI interface MISO, and digital only GPIO.|
 | 51 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
-| 52 | D12 | MOSI | IO | P1.13| SPI interface MOSI, and digital only GPIO.| 
-| 53  | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
-| 54 | D13 | SCK | IO | P1.15| SPI interface SCK, and digital only GPIO. |
+| 52 | D12 | MOSI | IO | P1.9 | SPI interface MOSI, and digital only GPIO.| 
+| 53 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
+| 54 | D13 | SCK | IO | P0.11| SPI interface SCK, and digital only GPIO. |
 | 55 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 56 | GND | GND | POWER | | System analog ground. |
 | 57 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 58 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 59 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
 | 60 | NC | RESERVED<sup>3</sup> | NC | | Leave unconnected. |
-| 61 | RGBR | RED | IO | P0.13| Red pin of the RGB LED. | 
-| 62 | D22 | GPIO0 | IO | P0.24 | GPIO0, digital only. |
-| 63 | RGBG | GREEN | IO | P0.14 | Green pin of the RGB LED.|
-| 64 | D23 | GPIO1 | IO | P1.9 | GPIO1, digital only.|	
-| 65 | RGBB | BLUE | IO | P0.15 | Blue pin of the RGB LED.|
-| 66 | D4 | PWM0 | IO | P1.8 | SPI1 MISO, Digital only GPIO, and PWM0. |
+| 61 | RGBR | RED | IO | P0.16| Red pin of the RGB LED. | 
+| 62 | D22 | GPIO0 | IO | P1.1 | GPIO0, digital only. |
+| 63 | RGBG | GREEN | IO | P0.15 | Green pin of the RGB LED.|
+| 64 | D23 | GPIO1 | IO | P1.3 | GPIO1, digital only.|	
+| 65 | RGBB | BLUE | IO | P0.14 | Blue pin of the RGB LED.|
+| 66 | D4 | PWM0 | IO | P0.12 | SPI1 MISO, Digital only GPIO, and PWM0. |
 | 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
-| 68 | D5 | PWM1 | IO | P1.10| Digital only GPIO, and PWM1. |
+| 68 | D5 | PWM1 | IO | P0.24| Digital only GPIO, and PWM1. |
 | 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. |
-| 70 | D6 | PWM2 | IO | P1.11 | Digital only GPIO, and PWM2.|
+| 70 | D6 | PWM2 | IO | P1.4 | Digital only GPIO, and PWM2.|
 | 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
-| 72 | D7 | PWM3 | IO | P1.12| Digital only GPIO, and PWM3.|
+| 72 | D7 | PWM3 | IO | P0.13| Digital only GPIO, and PWM3.|
 | 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up. |
 | 74 | Quectel VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for R410M. 5V on this pin enables the Quectel USB interface.|
 | 75 | Quectel RI | SOM9<sup>4</sup> | IO ||  Ring indicator |
@@ -259,6 +260,18 @@ By default, the Tinker application firmware enables the use of the bq24195 PMIC 
 ```
 System.setPowerConfiguration(SystemPowerConfiguration());
 ```
+
+If you are using Ethernet with the B Series SoM, the following pins are used by Ethernet:
+
+| Device OS Pin | M.2 Pin | Ethernet Pin  |
+|:-------------:|:-------:|:--------------------------|
+| MISO          | 50      | SPI MISO                  |
+| MOSI          | 52      | SPI MOSI                  |
+| SCK           | 54      | SPI SCK                   |
+| A7            | 47      | nRESET                    |
+| D22           | 62      | nINTERRUPT                |
+| D8            | 48      | nCHIP SELECT              |
+
 
 ### LED status
 
@@ -420,7 +433,7 @@ These specifications are based on the nRF52840 datasheet.
 
 - Rise and fall times based on simulations
 
-- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/reference/device-os/firmware/boron/#pinsetdrivestrength-) function.
+- GPIO default to standard drive (2mA) but can be reconfigured to high drive (9mA) in Device OS 2.0.0 and later using the [`pinSetDriveStrength()`](/cards/firmware/input-output/pinsetdrivestrength/) function.
 
 ## Mechanical specifications
 
@@ -502,6 +515,7 @@ The M.2 edge connector is static sensitive and should be handled carefully. The 
 
 {{imageOverlay src="/assets/images/b-series/b523-schematic-conn.png" alt="M.2 connector"}}
 
+Note: The labels for CTS and RTS are reversed in this schematic.
 
 ### SIM and Flash
 
@@ -536,7 +550,7 @@ The bootloader allows you to easily update the user application via several diff
 | Albania | B524 | 2G, 3G, Cat1 | ALBtelecom, Telekom, Vodafone |
 | Australia | B524 | 3G, Cat1 | Optus, Telstra, Vodafone |
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
-| Belarus | B524 | 2G, 3G, Cat1 | A1, MTS |
+| Belarus | B524 | 2G, 3G, Cat1 | A1 |
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
 | Bosnia and Herzegovina | B524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
 | Bulgaria | B524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
@@ -560,7 +574,6 @@ The bootloader allows you to easily update the user application via several diff
 | Luxembourg | B524 | 2G, 3G, Cat1 | Orange, POST, Tango |
 | Malta | B524 | 2G, 3G, Cat1 | Go Mobile, Vodafone |
 | Moldova | B524 | 2G, 3G, Cat1 | Moldcell, Orange |
-| Monaco | B524 | 2G, 3G, Cat1 | Monaco Telecom |
 | Montenegro | B524 | 2G, 3G, Cat1 | Mtel, T-Mobile, Telenor |
 | Netherlands | B524 | 2G, 3G, Cat1 | KPN, T-Mobile, Vodafone |
 | New Zealand | B524 | 2G, 3G, Cat1 | 2degrees, Spark, Vodafone |
@@ -606,3 +619,7 @@ The bootloader allows you to easily update the user application via several diff
 | 003      | 16-Sep-2020 | RK | Added power consumption information |
 | 004      | 04-Jan-2021 | RK | Fix incorrect pin number on pogo pin diagram |
 | 005      | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
+| 006      | 23-Mar-2021 | RK | Pins 40 and 42 functions were reversed |
+| 007      | 26-Apr-2021 | RK | Added B524 model number |
+| 008      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
+| 009      | 19-May-2021 | RK | List Ethernet reserved pins |

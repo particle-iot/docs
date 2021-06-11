@@ -1,0 +1,61 @@
+{
+  "type": "libraries",
+  "id": "neopixel-dma",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/neopixel-dma/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "neopixel-dma",
+    "version": "0.0.1",
+    "installs": 248,
+    "license": "GNU GPLv3",
+    "author": "EkbDuffy",
+    "sentence": "An Implementation of NeoPixel Library with usind Direct Memory Access methods for the Spark Core",
+    "url": "https://github.com/ekbduffy/spark-neopixel-dma",
+    "repository": "https://github.com/ekbduffy/spark-neopixel-dma.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "n",
+  "cardUrl": "/cards/libraries/n/neopixel-dma",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "test": false
+          },
+          "electron": {
+            "test": false
+          },
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "test": false
+          },
+          "electron": {
+            "test": false
+          },
+          "argon": {
+            "test": false
+          },
+          "boron": {
+            "test": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Spark-Neopixel-DMA\n==================\n\nSparkCore-NeoPixel-DMA\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

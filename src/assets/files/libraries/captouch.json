@@ -1,0 +1,40 @@
+{
+  "type": "libraries",
+  "id": "captouch",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/captouch/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "captouch",
+    "version": "0.0.1",
+    "installs": 4895,
+    "license": "LGPL3",
+    "author": "David Greaves <david@dgreaves.com>",
+    "sentence": "Capacitative Touch sensor using just a 10M resistor",
+    "url": "https://github.com/lbt/captouch",
+    "repository": "https://github.com/lbt/captouch.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "c",
+  "cardUrl": "/cards/libraries/c/captouch",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {},
+          "electron": {},
+          "argon": {},
+          "boron": {}
+        }
+      },
+      "noExamples": true
+    }
+  },
+  "readme": "CapTouch is library to provide simple touch sensor for the Spark.\n\nA port of John van Saders' code to a library and a C++/Class based solution.\n\nSee: http://jvs.me/touch-sensing-on-the-spark-core/\n\nUsage:\n\n```c++\n\n#include \"captouch.h\"\n\n// Define which pins are connected with a 1-10M resistor.\n// The first pin will be connected to the touch sensor\n// and *must* be D0, D1, D2, D3, D4 A0, A1, A3, A4, A5, A6, A7\n// see: http://docs.spark.io/firmware/#interrupts-attachinterrupt\nCapTouch Touch(D4, D5);\n\nsetup() {\n    Touch.setup();\n}\n\nloop() {\n\n    CapTouch::Event touchEvent = Touch.getEvent();\n\n    if (touchEvent == CapTouch::TouchEvent) {\n\t\tdigitalWrite(D7, HIGH); // LED on\n    } else if (touchEvent == CapTouch::ReleaseEvent) {\n\t\tdigitalWrite(D7, LOW);  // LED off\n    }\n\n    delay(100);\n}\n\n```\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

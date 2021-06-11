@@ -1,0 +1,63 @@
+{
+  "type": "libraries",
+  "id": "dnsclient",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/dnsclient/archive/0.0.13.tar.gz"
+  },
+  "attributes": {
+    "name": "dnsclient",
+    "version": "0.0.13",
+    "installs": 369,
+    "license": "Apache License, version 2.0",
+    "author": "chris huitema",
+    "sentence": "DNS Lookup Client ported from Arduino to Spark",
+    "url": "https://github.com/hootie81/dnsclient",
+    "repository": "https://github.com/hootie81/dnsclient.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "d",
+  "cardUrl": "/cards/libraries/d/dnsclient",
+  "versions": {
+    "0.0.13": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "dnslookup": false
+          },
+          "electron": {
+            "dnslookup": false
+          },
+          "argon": {
+            "dnslookup": false
+          },
+          "boron": {
+            "dnslookup": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "dnslookup": false
+          },
+          "electron": {
+            "dnslookup": false
+          },
+          "argon": {
+            "dnslookup": false
+          },
+          "boron": {
+            "dnslookup": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "DNSClient\n=========\n\nDNS Client for Spark. \n\n\nOriginal code from Arduino Ethernet library, ported for use on Spark Core\n\nthe myUDP.h was written by a unknown person on the Spark Forums and overcomes an issue \nwith sending a UDP packet each time the write is called, now it is only sent \nwhen endPacket is called\n\nExample inluded, change the dnsServerIP to whatever DNS server you want to use\nand change serverName to the place you want to look up.\n\nThanks to everyone who helped make this work\n\n",
+  "allVersions": [
+    "0.0.13",
+    "0.0.12",
+    "0.0.10"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "type": "libraries",
+  "id": "MDNS",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/MDNS/archive/2.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "MDNS",
+    "version": "2.0.0",
+    "installs": 19825,
+    "license": "MIT",
+    "author": "Mark Hornsby <me@markhornsby.uk>",
+    "sentence": "Support for multicast name and DNS service registration",
+    "repository": "https://github.com/mrhornsby/spark-core-mdns.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "m",
+  "cardUrl": "/cards/libraries/m/MDNS",
+  "versions": {
+    "2.0.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "mdns": true
+          },
+          "electron": {
+            "mdns": false
+          },
+          "argon": {
+            "mdns": true
+          },
+          "boron": {
+            "mdns": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "mdns": true
+          },
+          "electron": {
+            "mdns": false
+          },
+          "argon": {
+            "mdns": true
+          },
+          "boron": {
+            "mdns": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "spark-core-mdns\n===============\n\nMulticast DNS and DNS-SD for the Spark Core\n",
+  "allVersions": [
+    "2.0.0",
+    "1.4.0",
+    "1.3.2",
+    "1.3.1",
+    "1.3.0",
+    "1.1.2",
+    "1.1.1",
+    "1.1.0",
+    "1.0.2",
+    "1.0.1",
+    "1.0.0"
+  ]
+}

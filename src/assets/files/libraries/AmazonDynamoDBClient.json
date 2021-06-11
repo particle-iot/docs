@@ -1,0 +1,70 @@
+{
+  "type": "libraries",
+  "id": "AmazonDynamoDBClient",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/AmazonDynamoDBClient/archive/0.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "AmazonDynamoDBClient",
+    "version": "0.0.2",
+    "installs": 237,
+    "license": "Apache 2.0 license",
+    "author": "Jinesh Varia <jvaria@amazon.com>",
+    "sentence": "Amazon DynamoDB Client for Spark Core.",
+    "url": "https://github.com/jinman/amazondynamodbclient",
+    "repository": "https://github.com/jinman/amazondynamodbclient.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "a",
+  "cardUrl": "/cards/libraries/a/AmazonDynamoDBClient",
+  "versions": {
+    "0.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "electron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "argon": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "boron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "electron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "argon": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          },
+          "boron": {
+            "SparkCore_Arduino_AmazonDynamoDB_Sample": false,
+            "application": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Version 1 of the Experimental AWS SDK for Arduino\n\nAn experimental SDK for contacting AWS Services on Arduino-compatible devices. \n\n##Step 1: Create Amazon DynamoDB Table.\n\nWe are going to use a Table with two columns \"device_id\" and \"time\"\n\n##Step 2: Import AmazonDynamoDB Contributed Library\n\nSketch > Contributed Libraries \"AmazonDynamoDBClient\"\n\n##Step 3: Open the Sample\n\nLoad the .ino or application.cpp file\n\n##Step 4: Modify Keys and WiFi info\n\nModify keys.cpp file and add your keys\nModify application.cpp file with your table details\n\n##Step 5: Verify, Compile and Upload \n\nWire your connected device. After the wiring is finished, you should be able to connect two cables to your computer via usb, compile and upload the code with the Arduino IDE. ",
+  "allVersions": [
+    "0.0.2",
+    "0.0.1"
+  ]
+}

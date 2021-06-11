@@ -1,0 +1,62 @@
+{
+  "type": "libraries",
+  "id": "hover",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/hover/archive/1.1.0.tar.gz"
+  },
+  "attributes": {
+    "name": "hover",
+    "version": "1.1.0",
+    "installs": 666,
+    "license": "BSD",
+    "author": "Emran Mahbub, Jonathan Li <support@gearseven.com>",
+    "sentence": "Hover is a development kit that lets you control your hardware projects with gestures and touch",
+    "url": "https://github.com/jonco91/hover_spark",
+    "repository": "https://github.com/jonco91/hover_spark.git",
+    "architectures": [],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "h",
+  "cardUrl": "/cards/libraries/h/hover",
+  "versions": {
+    "1.1.0": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "hover-example": false
+          },
+          "electron": {
+            "hover-example": false
+          },
+          "argon": {
+            "hover-example": false
+          },
+          "boron": {
+            "hover-example": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "hover-example": false
+          },
+          "electron": {
+            "hover-example": false
+          },
+          "argon": {
+            "hover-example": false
+          },
+          "boron": {
+            "hover-example": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "Spark Library for Hover (www.justhover.com)\n\nHover is a development kit that lets you control your hardware projects in a whole new way.\nWave goodbye to physical buttons. Hover detects hand movements in the air for touch-less interaction.\nIt also features five touch-sensitive regions for even more options. Hover uses I2C and 2 digital pins. It is compatible with Arduino, Raspberry Pi and Spark.\n\nWritten by Emran Mahbub and Jonathan Li for Gearseven Studios.\nBSD license, all text above must be included in any redistribution",
+  "allVersions": [
+    "1.1.0",
+    "1.0.0"
+  ]
+}

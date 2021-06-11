@@ -1,0 +1,81 @@
+{
+  "type": "libraries",
+  "id": "PowerShield",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/PowerShield/archive/0.0.5.tar.gz"
+  },
+  "attributes": {
+    "name": "PowerShield",
+    "version": "0.0.5",
+    "installs": 81963,
+    "license": "LGPL",
+    "author": "Mohit Bhoite <mohit@particle.io>",
+    "sentence": "The Power Shield allows a Particle device to be powered from different types of power sources. This library gives firmware access to the fuel gauge IC",
+    "paragraph": "Library to support the fuel gauge on the Power Shield",
+    "url": "https://github.com/spark/PowerShield",
+    "repository": "https://github.com/spark/PowerShield.git",
+    "architectures": [],
+    "visibility": "public",
+    "official": true,
+    "mine": false
+  },
+  "verification": "official",
+  "kind": "official library",
+  "letter": "p",
+  "cardUrl": "/cards/libraries/p/PowerShield",
+  "versions": {
+    "0.0.5": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "electron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "argon": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "boron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "electron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "argon": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          },
+          "boron": {
+            "1_Read_voltage_over_serial": true,
+            "2_Publish_voltage_readings": true,
+            "3_Interrupt_on_low_voltage": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Power Shield\n\n_The Power Shield library provides functions to use the on-board MAX17043 fuel guage via I2C_\n\n## Typical usage\n\nConnect a Photon to a Power Shield with a [3.7V LiPo battery](https://www.sparkfun.com/products/8483) and use the library to get the voltage and state of charge.\n\n```\n#include \"PowerShield.h\"\n\nPowerShield batteryMonitor;\n\nvoid setup() {\n    batteryMonitor.begin(); \n    batteryMonitor.quickStart();\n}\n  \nvoid loop() {\n    delay(5000);\n\n    float cellVoltage = batteryMonitor.getVCell();\n    float stateOfCharge = batteryMonitor.getSoC();\n\n    Particle.publish(\"voltage\", String(cellVoltage));\n    Particle.publish(\"soc\", String(stateOfCharge));\n}\n```\n\n## Examples\n\nSee [complete example](examples/sawtooth/sawtooth.ino) in the examples directory.\n\n1. [**Read voltage over serial:**](examples/1_Read_voltage_over_serial/1_Read_voltage_over_serial.cpp) In this example the Particle device sends the volatge and SoC readings over serial every 1 second\n2. [**Publish voltage readings:**](examples/2_Publish_voltage_readings/2_Publish_voltage_readings.cpp) In this example the Particle device publishes the voltage and SoC readings every 10 minutes and stays in deep sleep mode for the rest of the time\n\n## Reference\n\n### `PowerShield`\n\n`PowerShield batteryMonitor;`\n\nCreates an object to interact with the MAX17043 fuel gauge on the Power Shield.\n\n### `begin`\n\n`batteryMonitor.begin();`\n\nStarts communicating with the fuel gauge. Should normally be called once in `setup`.\n\n### `quickStart`\n\n`batteryMonitor.quickstart();`\n\nResume state of charge calculations. See Quick-Start in the [MAX17043 datasheet](http://datasheets.maximintegrated.com/en/ds/MAX17043-MAX17044.pdf) for details.\n\n### `getVCell`\n\n`float cellVoltage = batteryMonitor.getVCell();`\n\nReads the voltage of the single cell battery connected to the Power Shield. The range is 0 V to 5 V.\n\n### `getSoC`\n\n\n`float stateOfCharge = batteryMonitor.getSoC();`\n\nReads the state of charge of the single cell battery connected to the Power Shield, from 0% to 100%, so that you know when to send out an alert to replace/charge the battery.\n\n### `getVersion`\n\n`int version = batteryMonitor.getVersion();`\n\nThe version of the MAX17043 chip, currently 3.\n\n### `getCompensateValue`\n\nGets the configuration for battery chemistry. See `CONFIG` in the [MAX17043 datasheet](http://datasheets.maximintegrated.com/en/ds/MAX17043-MAX17044.pdf) for details.\n\n### `getAlertThreshold`\n\n`byte thereshold = batteryMonitor.getAlertThreshold();`\n\nGets the state of charge threshold (1 to 32%) that will generate a low pulse on pin D3 when the state of charge falls below this level.\n\nThe default threshold is 4%.\n\nFor the pulse to be generated the ALRT solder bridge needs to be closed on the Power Shield.\n\nTo trigger an interrupt on low battery, configure pin D3 for a falling\ninterrupt. See [the interrupt on low voltage example](examples/3_Interrupt_on_low_voltage/3_Interrupt_on_low_voltage.ino) for details.\n\n### `setAlertThreshold`\n\n`batteryMonitor.setAlertThreshold(threshold);`\n\nSets the state of charge threshold (1 to 32%) that will generate a pulse on D3.\n\n### `getAlert`\n\n`bool lowBatteryAlert = batteryMonitor.getAlert();`\n\nReturns true when the state of charge is below the alert threshold. Use this if you don't want to use the D3 pin as an low battery interrupt.\n\nOnce true, this will stay true, even if the battery is charged, until cleared by software with `clearAlert()`.\n\n### `clearAlert`\n\n`batteryMonitor.clearAlert();`\n\nClears the low voltage alert so that `getAlert()` returns false.\n\n### `reset`\n\n`batteryMonitor.reset();`\n\nReset the MAX17043 fuel gauge as if power had been removed.\n\n## Resource Utilization\n\nThe Power Shield uses pins D0, D1 (I2C) and D3 (if optional solder bridge is closed).\n\n\n## References\n\n- [Power Shield Documentation](http://docs.particle.io/photon/shields/#power-shield)\n- [MAX17043 datasheet](http://datasheets.maximintegrated.com/en/ds/MAX17043-MAX17044.pdf)\n\n## License\nCopyright 2015 Particle\n\nReleased under the LGPL license\n",
+  "allVersions": [
+    "0.0.5",
+    "0.0.1"
+  ]
+}

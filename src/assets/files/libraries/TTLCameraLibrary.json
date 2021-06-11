@@ -1,0 +1,36 @@
+{
+  "type": "libraries",
+  "id": "TTLCameraLibrary",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/TTLCameraLibrary/archive/1.0.0.tar.gz"
+  },
+  "attributes": {
+    "name": "TTLCameraLibrary",
+    "version": "1.0.0",
+    "installs": 103,
+    "author": "davidgs",
+    "maintainer": "davidgs <davidgs@davidgs.com>",
+    "sentence": "Library for VC0706-based Serial JPEG Cameras",
+    "paragraph": "Library for VC0706-based Serial JPEG Cameras",
+    "category": "Device Control",
+    "url": "https://github.com/davidgs/TTLCameraLibrary",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "t",
+  "cardUrl": "/cards/libraries/t/TTLCameraLibrary",
+  "versions": {
+    "1.0.0": {
+      "builds": {},
+      "noExamples": true
+    }
+  },
+  "readme": "",
+  "allVersions": [
+    "1.0.0"
+  ]
+}

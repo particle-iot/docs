@@ -27,6 +27,7 @@ var ignoreHosts = [
   'particle.hackster.io', // randomly 404s
   'cloud.ibm.com', // returns 401 if not logged in but this is OK
   '192.168.0.1',
+  'api.particle.io',
 ];
 var devices = ['photon', 'electron', 'argon', 'boron'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
@@ -79,6 +80,9 @@ function classifyUrl(item) {
 
 function shouldCrawl(qurl) {
   if (qurl.indexOf('#') === 0) {
+    return false;
+  }
+  if (qurl.startsWith('/reference/device-os/firmware/?')) {
     return false;
   }
   return true;
@@ -148,7 +152,11 @@ describe('Crawler', function() {
         // If the URL was external, save it in the download state
         saveUrlToCrawlerData(queueItem.url);
       }
-
+      if (!uriis.external && queueItem.url.includes('cards/libraries')) {
+        // Don't crawl the library readme pages
+        return false;
+      }
+      
       // addDownloadCondition must return true to download the body or false to stop after the header
       // uriis.external is true if the URL is *not* a localhost URL
       // So !uriis.external downloads only our own URL on our local server (our pages) and does not crawl

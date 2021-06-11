@@ -1,8 +1,7 @@
 ---
 title: Maker Kit Tutorials
-layout: tutorials.hbs
+layout: commonTwo.hbs
 columns: two
-order: 100
 description: Tutorials for the Photon Maker Kit, a collection of sensors and accessories for the Particle Photon
 ---
 
@@ -451,7 +450,7 @@ void getBusTimes() {
     Particle.publish("get_nextbus");
 }
 ```
-By keeping these functions separate from the main *loop()* function, code can be made much neater and more flexible. For more complex code, software timers are essential because they save you from having to weave timed events (which are sometimes blocking) into code that needs to run continuously. To learn more, read our [software timers guide](/reference/device-os/firmware/photon/#software-timers).
+By keeping these functions separate from the main *loop()* function, code can be made much neater and more flexible. For more complex code, software timers are essential because they save you from having to weave timed events (which are sometimes blocking) into code that needs to run continuously. To learn more, read our [software timers guide](/cards/firmware/software-timers/software-timers/).
 
 ### Troubleshooting
 
@@ -579,7 +578,7 @@ Particle.publish("conf_avail"); //publish to conf_avail webhook
 ```
 The name of the event being published matches the **event name** parameter in the webhook we just made.
 
-Check out the [Publish](/reference/device-os/firmware/photon/#particle-publish-),  [Subscribe](/reference/device-os/firmware/photon/#particle-subscribe-), and [Webhooks](/tutorials/device-cloud/webhooks/) documentation for more information.
+Check out the [Publish](/cards/firmware/cloud-functions/particle-publish/),  [Subscribe](/cards/firmware/cloud-functions/particle-subscribe/), and [Webhooks](/tutorials/device-cloud/webhooks/) documentation for more information.
 
 ### Set up the hardware
 On the PIR sensor itself, with the back of the PCB facing up, find the two small potentiometers. The one on the left controls the range of the sensor (3-7 meters), and the one on the right controls how long the sensor stays triggered once tripped (1.5 - 300 seconds). Set the range potentiometer to the size of your conference room, or just turn it all the way to the right if your conference room has no windows. Set the second potentiometer all the way to the left (counterclockwise) to maximize its timing resolution.
@@ -875,7 +874,7 @@ The second-to-last line publishes the data to the cloud:
 ```
 Particle.publish("temperature", temperature, PRIVATE); // publish to cloud
 ```
-This line publishes an **event** named "temperature" to the Particle cloud, which brings with it the data stored in the `temperature` variable. You can read more about publishing events [here](/reference/device-os/firmware/photon/#particle-publish-).
+This line publishes an **event** named "temperature" to the Particle cloud, which brings with it the data stored in the `temperature` variable. You can read more about publishing events [here](/cards/firmware/cloud-functions/particle-publish/).
 
 The default is to take a reading every five seconds, which is great for  for short-term projects and for testing this setup to make sure it works. If you want a longer interval once you get it working, change `delay(5000)` to something larger. Google spreadsheets can hold a maximum of 2000 rows, so the following line will take a reading every five minutes, which fits about a week's worth of readings into one sheet:
 ```
