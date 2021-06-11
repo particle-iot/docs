@@ -1,16 +1,67 @@
 <div class="apiHelperUsbRestoreDevice apiHelperUsb">
     <div class="apiHelper">
         <div class="apiHelperBox">
-            <p><button class="apiHelperUsbRestoreDeviceSelect apiHelperButton">Select Device</button></p>
-            <div class="apiHelperUsbRestoreDeviceSelectInfo"></div>
-            <p>Version: <select class="apiHelperUsbRestoreDeviceVersion apiHelperSelect" disabled><option>Select Device OS Version</option></select> &nbsp;
-                <button class="apiHelperUsbRestoreDeviceRestore apiHelperButton" disabled>Restore</button></p>
-            <div class="apiHelperUsbRestoreDeviceStatus">
-            </div>
-            <p class="apiHelperUsbRestoreDeviceProgress" style="display:none">
-                <label for="apiHelperUsbRestoreDeviceProgress">Progress: </label> <progress id="apiHelperUsbRestoreDeviceProgress" value="0" max="100"></progress>
-            </p>
+            <table class="apiHelperTableNoMargin">
+                <tr>
+                    <td colspan="2">
+                        <button class="apiHelperUsbRestoreDeviceSelect apiHelperButton">Select Device</button>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Install</td>
+                    <td>
+                        <select class="apiHelperUsbRestoreDeviceModeSelect apiHelperSelect">
+                            <option value="tinker">Tinker (Factory Default)</option>
+                            <option value="upload">Custom User Firmware Upload</option>
+                            <option value="url">Custom User Firmware from URL</option>
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="apiHelperUsbRestoreDeviceVersionTr">
+                    <td class="apiHelperProductSelectorLabel">Version</td>
+                    <td><select class="apiHelperUsbRestoreDeviceVersion apiHelperSelect" disabled><option>Select Device OS Version</option></select></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="apiHelperUsbRestoreDeviceFileTr" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Upload File</td>
+                    <td><label for="uploadUserBinary"><button>Select a user firmware binary (*.bin)</button></label>
+                        <input type="file" id="uploadUserBinary" accept=".bin" style="display:none"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="apiHelperUsbRestoreDeviceUrlTr" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">User Firmware URL</td>
+                    <td colspan="2"><input type="text" size="60" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="apiHelperUsbRestoreDeviceRestore apiHelperButton" disabled>Restore Device</button>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="apiHelperUsbRestoreDeviceSelectInfo">
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Status</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Progress</td>
+                    <td>
+                        <progress id="apiHelperUsbRestoreDeviceProgress" value="0" max="100"></progress>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
         </div>
+    </div>
+    <div class="apiHelperUsbRestoreDeviceOutputDiv">
     </div>
 </div>
 

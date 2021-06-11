@@ -7,16 +7,66 @@ $(document).ready(function () {
         'One alternative is to use the <a href="/tutorials/developer-tools/cli/">Particle CLI</a>.';
 
     let deviceRestoreInfo;
+    let versionInfo;
+
+    apiHelper.systemVersionToSemVer = function(sysVer) {
+        for(let obj of versionInfo.versions) {
+            if (obj.sys == sysVer) {
+                return obj.semVer;
+            }
+        }
+        return null;
+    };
+
+    apiHelper.semVerToSystemVersion = function(semVer) {
+        for(let obj of versionInfo.versions) {
+            if (obj.semVer == semVer) {
+                return obj.sys;
+            }
+        }
+        return 0;
+    };
+
+    apiHelper.platformIdToName = function(platformId) {
+        for(let tempPlatformObj of deviceRestoreInfo.platforms) {
+            if (tempPlatformObj.id == platformId) {
+                return tempPlatformObj.name;
+            }
+        }
+        return null;
+    };
+
+    apiHelper.findRestoreSemVer = function(platformId, sysVer) {
+        const platformName = apiHelper.platformIdToName(platformId);
+
+        const versionArray = deviceRestoreInfo.versionsZipByPlatform[platformName];
+        if (!versionArray) {
+            return null;
+        }
+
+        for(let ii = versionArray.length - 1; ii >= 0; ii--) {
+            if (apiHelper.semVerToSystemVersion(versionArray[ii]) >= sysVer) {
+                return versionArray[ii];
+            }
+        }
+        return null;
+    };
 
     if ($('.apiHelperUsbRestoreDevice').each(function() {
         const thisPartial = $(this);
         const eventCategory = 'Device Restore USB';
 
-        const selectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelect');
-        const selectInfoElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelectInfo');
-        const versionElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersion');
+        const selectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelect'); // button
+        const selectInfoElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelectInfo'); // status area
+        const versionElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersion'); // 
         const restoreElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceRestore');
         const progressElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceProgress');
+        const modeSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceModeSelect');
+
+        // Tabs
+        const versionTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersionTr');
+        const fileTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceFileTr');
+        const urlTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceUrlTr');
 
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbRestoreDeviceStatus').html(str);
@@ -28,6 +78,76 @@ $(document).ready(function () {
             setStatus(noWebUsbError);
             return;
         }
+
+        const selectFileLabel = $(fileTrElem).find('td > label');
+        $(selectFileLabel).find('> button').on('click', function() {
+            $(selectFileLabel).trigger('click');
+        });
+        $(fileTrElem).find('td > input').on('change', function() {
+            if (this.files.length == 1) {
+                const file = this.files[0];
+
+                console.log('file selected', file);
+
+                let fileReader = new FileReader();
+                fileReader.onload = function() {
+                    let dv = new DataView(fileReader.result);
+                    
+                    console.log('dataview', dv);
+
+                    const startAddr = dv.getUint32(0, true);
+                    console.log('startAddr=0x' + startAddr.toString(16));
+
+                    const endAddr = dv.getUint32(4, true);
+                    console.log('endAddr=0x' + endAddr.toString(16));
+
+                    const platformId = dv.getUint16(12, true);
+                    console.log('platformId=' + platformId);
+                    const platformName = apiHelper.platformIdToName(platformId);
+
+                    const moduleFunction = dv.getUint8(14);
+                    console.log('moduleFunction=' + moduleFunction + ' (must be 5)');
+
+                    const moduleIndex = dv.getUint8(15);
+                    console.log('moduleIndex=' + moduleIndex + ' (must be 1)');
+
+                    const systemVersion = dv.getUint16(18, true);
+                    console.log('systemVersion=' + systemVersion);
+                    const systemVersionSemVer = apiHelper.systemVersionToSemVer(systemVersion);
+
+                    const restoreSemVer = apiHelper.findRestoreSemVer(platformId, systemVersion);
+                    console.log('restoreSemVer=' + restoreSemVer);
+
+                    if (systemVersionSemVer != restoreSemVer) {
+                        console.log('not an exact system match');
+                    }
+                };
+                fileReader.readAsArrayBuffer(file);
+            
+            }
+        });
+
+        $(modeSelectElem).on('change', function() {
+            const mode = $(modeSelectElem).val();
+            $(versionTrElem).hide();
+            $(fileTrElem).hide();
+            $(urlTrElem).hide();
+
+            switch(mode) {
+                case 'tinker':
+                    $(versionTrElem).show();
+                    break;
+
+                case 'upload':
+                    $(fileTrElem).show();
+                    break;
+
+                case 'url':
+                    $(urlTrElem).show();
+                    break;
+            }
+        })
+
 
         let usbDevice;
         let platformObj;
@@ -533,12 +653,19 @@ $(document).ready(function () {
     }));
 
     fetch('/assets/files/deviceRestore.json')
-    .then(response => response.json())
-    .then(function(res) {
-        deviceRestoreInfo = res;
-        // console.log('deviceRestoreInfo', deviceRestoreInfo);
-    });
+        .then(response => response.json())
+        .then(function(res) {
+            deviceRestoreInfo = res;
+            // console.log('deviceRestoreInfo', deviceRestoreInfo);
+        });
 
+    // Download the module version to semver mapping table
+    fetch('/assets/files/versionInfo.json')
+        .then(response => response.json())
+        .then(function(res) {
+            versionInfo = res;
+            console.log('versionInfo', versionInfo);
+        });
 
 });
 
