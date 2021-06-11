@@ -361,6 +361,10 @@ $(document).ready(function () {
 
                 const restoreSemVer = apiHelper.findRestoreSemVer(platformId, systemVersion);
                 // console.log('restoreSemVer=' + restoreSemVer);
+                if (!restoreSemVer) {
+                    setStatus('Selected user binary file targets a Device OS version not supported by Device Restore');
+                    return;
+                }
 
                 if (systemVersionSemVer != restoreSemVer) {
                     // console.log('not an exact system match');
