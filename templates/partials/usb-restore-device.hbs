@@ -9,7 +9,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="apiHelperProductSelectorLabel">Install</td>
+                    <td class="apiHelperProductSelectorLabel">Restore Type</td>
                     <td>
                         <select class="apiHelperUsbRestoreDeviceModeSelect apiHelperSelect">
                             <option value="tinker">Tinker (Factory Default)</option>
@@ -26,9 +26,8 @@
                 </tr>
                 <tr class="apiHelperUsbRestoreDeviceFileTr" style="display:none">
                     <td class="apiHelperProductSelectorLabel">Upload File</td>
-                    <td><label for="uploadUserBinary"><button>Select a user firmware binary (*.bin)</button></label>
-                        <input type="file" id="uploadUserBinary" accept=".bin" style="display:none"></td>
-                    <td>&nbsp;</td>
+                    <td><input type="file" id="uploadUserBinary" accept=".bin"></td>
+                    <td class="apiHelperProductSelectorLabel">Choose a user firmware binary (*.bin)</td>
                 </tr>
                 <tr class="apiHelperUsbRestoreDeviceUrlTr" style="display:none">
                     <td class="apiHelperProductSelectorLabel">User Firmware URL</td>
@@ -46,14 +45,14 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="apiHelperProductSelectorLabel">Status</td>
-                    <td>&nbsp;</td>
+                    <td class="apiHelperUsbRestoreDeviceStatus" colspan="2"></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr class="apiHelperUsbRestoreDeviceProgressTr" style="display:none">
                     <td class="apiHelperProductSelectorLabel">Progress</td>
                     <td>
-                        <progress id="apiHelperUsbRestoreDeviceProgress" value="0" max="100"></progress>
+                        <span></span>
+                        <progress value="0" max="100"></progress>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
