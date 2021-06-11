@@ -7,16 +7,66 @@ $(document).ready(function () {
         'One alternative is to use the <a href="/tutorials/developer-tools/cli/">Particle CLI</a>.';
 
     let deviceRestoreInfo;
+    let versionInfo;
+
+    apiHelper.systemVersionToSemVer = function(sysVer) {
+        for(let obj of versionInfo.versions) {
+            if (obj.sys == sysVer) {
+                return obj.semVer;
+            }
+        }
+        return null;
+    };
+
+    apiHelper.semVerToSystemVersion = function(semVer) {
+        for(let obj of versionInfo.versions) {
+            if (obj.semVer == semVer) {
+                return obj.sys;
+            }
+        }
+        return 0;
+    };
+
+    apiHelper.platformIdToName = function(platformId) {
+        for(let tempPlatformObj of deviceRestoreInfo.platforms) {
+            if (tempPlatformObj.id == platformId) {
+                return tempPlatformObj.name;
+            }
+        }
+        return null;
+    };
+
+    apiHelper.findRestoreSemVer = function(platformId, sysVer) {
+        const platformName = apiHelper.platformIdToName(platformId);
+
+        const versionArray = deviceRestoreInfo.versionsZipByPlatform[platformName];
+        if (!versionArray) {
+            return null;
+        }
+
+        for(let ii = versionArray.length - 1; ii >= 0; ii--) {
+            if (apiHelper.semVerToSystemVersion(versionArray[ii]) >= sysVer) {
+                return versionArray[ii];
+            }
+        }
+        return null;
+    };
 
     if ($('.apiHelperUsbRestoreDevice').each(function() {
         const thisPartial = $(this);
         const eventCategory = 'Device Restore USB';
 
-        const selectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelect');
-        const selectInfoElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelectInfo');
-        const versionElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersion');
+        const selectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelect'); // button
+        const selectInfoElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSelectInfo'); // status area
+        const versionElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersion'); // 
         const restoreElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceRestore');
-        const progressElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceProgress');
+        const progressElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceProgressTr');
+        const modeSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceModeSelect');
+
+        // Tabs
+        const versionTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceVersionTr');
+        const fileTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceFileTr');
+        const urlTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceUrlTr');
 
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbRestoreDeviceStatus').html(str);
@@ -31,6 +81,7 @@ $(document).ready(function () {
 
         let usbDevice;
         let platformObj;
+        let userFirmwareBinary;
 
         const resetRestorePanel = function() {
             $(selectElem).text('Select Device');
@@ -40,7 +91,102 @@ $(document).ready(function () {
             $(versionElem).prop('disabled', true);
             $(restoreElem).prop('disabled', true);
         };
+
+        const checkRestoreButtonEnable = function() {
+            let disabled = true;
+
+            if (usbDevice) {
+                const mode = $(modeSelectElem).val();
+                switch(mode) {
+                    case 'tinker':
+                        disabled = !$(versionElem).val();
+                        if (disabled) {
+                            setStatus('Select version to restore');
+                        }
+                        break;
     
+                    case 'upload':
+                        disabled = !$(fileTrElem).find('td > input')[0].files.length;
+                        if (disabled) {
+                            setStatus('Select user firmware binary to use');
+                        }
+                        break;
+                    
+                    case 'customUrl':
+                    case 'url':
+                        disabled = !$(urlTrElem).find('td > input').val();
+                        if (disabled) {
+                            setStatus('Enter user firmware binary URL');
+                        }
+                        break;
+                }    
+                if (!disabled) {
+                    setStatus('Ready to restore');
+                }
+            }
+
+            $(restoreElem).prop('disabled', disabled);
+        };
+
+        const updateTabs = function() {
+            const mode = $(modeSelectElem).val();
+            $(versionTrElem).hide();
+            $(fileTrElem).hide();
+            $(urlTrElem).hide();
+
+            switch(mode) {
+                case 'tinker':
+                    $(versionTrElem).show();
+                    break;
+
+                case 'upload':
+                    $(fileTrElem).show();
+                    break;
+
+                case 'url':
+                    $(urlTrElem).show();
+                    break;
+
+                case 'customUrl':
+                    break;
+            }
+            checkRestoreButtonEnable();
+        }
+
+        $(modeSelectElem).on('change', updateTabs);
+
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('url')) {
+            let optionElem = document.createElement('option');
+            $(optionElem).text('Custom URL');
+            $(optionElem).prop('selected', true);
+            $(optionElem).prop('value', 'customUrl');
+            $(modeSelectElem).append(optionElem);
+
+            $(urlTrElem).find('td > input').val(urlParams.get('url'));
+            updateTabs();
+        }
+
+        $(urlTrElem).find('td > input').on('input', function() {
+            checkRestoreButtonEnable();
+        });
+
+        $(fileTrElem).find('td > input').on('change', function() {
+            if (this.files.length == 1) {
+                const file = this.files[0];
+
+                checkRestoreButtonEnable();
+                
+                let fileReader = new FileReader();
+                fileReader.onload = function() {
+                    userFirmwareBinary = fileReader.result;
+                };
+                fileReader.readAsArrayBuffer(file);
+            
+            }
+        });
+
+ 
     
         if ($(selectElem).on('click', async function () {
             const filters = [
@@ -96,9 +242,7 @@ $(document).ready(function () {
                 }
                 
                 $(versionElem).prop('disabled', false);
-                $(restoreElem).prop('disabled', false);
-        
-                setStatus('Select version to restore');
+                checkRestoreButtonEnable();
             }
             catch(e) {
                 ga('send', 'event', eventCategory, 'No WebUSB Device Selected');
@@ -151,9 +295,83 @@ $(document).ready(function () {
             return "0x" + s;
         };
 
-
         if ($(restoreElem).on('click', async function () {
-            const version = $(versionElem).val();
+
+            let version = $(versionElem).val();
+
+            if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {
+                setStatus('Downloading user firmware binary...');
+                const url = $(urlTrElem).find('td > input').val();
+                try {
+                    await new Promise(function(resolve, reject) {
+                        fetch(url)
+                            .then(response => response.arrayBuffer())
+                            .then(function(res) {
+                                userFirmwareBinary = res;
+                                resolve();
+                            })
+                            .catch(function(err) {
+                                console.log('error', err);
+                                setStatus('Unable to retrieve the user firmware binary URL');
+                                reject();
+                            });
+                    });    
+                }
+                catch(e) {
+                    return;
+                }
+                history.pushState(null, '', '?url=' + encodeURIComponent(url));
+            } 
+            else {
+                if (urlParams.has('url')) {
+                    history.pushState(null, '', '?');
+                }
+            }
+    
+            if (userFirmwareBinary) {
+                setStatus('Validating user firmware binary...');
+
+                let dv = new DataView(userFirmwareBinary);
+                    
+                const startAddr = dv.getUint32(0, true);
+                // console.log('startAddr=0x' + startAddr.toString(16));
+
+                const platformId = dv.getUint16(12, true);
+                const platformName = apiHelper.platformIdToName(platformId);
+                // console.log('platformId=' + platformId + ' platformName=' + platformName);
+                if (usbDevice.platformId != platformId) {
+                    setStatus('User firmware is for ' + platformName + ' but selected device is ' + apiHelper.platformIdToName(usbDevice.platformId));
+                    return;
+                }
+
+                const moduleFunction = dv.getUint8(14);
+                // console.log('moduleFunction=' + moduleFunction + ' (must be 5)');
+                const moduleIndex = dv.getUint8(15);
+                // console.log('moduleIndex=' + moduleIndex + ' (must be 1)');
+
+                if (moduleFunction != 5 || moduleIndex != 1) {
+                    setStatus('Selected binary file does not appear to contain user firmware');
+                    return;
+                }
+
+
+                const systemVersion = dv.getUint16(18, true);
+                // console.log('systemVersion=' + systemVersion);
+                const systemVersionSemVer = apiHelper.systemVersionToSemVer(systemVersion);
+
+                const restoreSemVer = apiHelper.findRestoreSemVer(platformId, systemVersion);
+                // console.log('restoreSemVer=' + restoreSemVer);
+                if (!restoreSemVer) {
+                    setStatus('Selected user binary file targets a Device OS version not supported by Device Restore');
+                    return;
+                }
+
+                if (systemVersionSemVer != restoreSemVer) {
+                    // console.log('not an exact system match');
+                }
+                version = restoreSemVer;
+            }
+
 
             $(restoreElem).prop('disabled', true);
             $(selectElem).prop('disabled', true);
@@ -185,6 +403,7 @@ $(document).ready(function () {
             const productId = usbDevice.productId;
             const deviceId = usbDevice.id;
             
+
             if (!usbDevice.isInDfuMode) {
                 setStatus('Putting device into DFU mode...');
                 await usbDevice.enterDfuMode({noReconnectWait:true});
@@ -325,18 +544,19 @@ $(document).ready(function () {
 
 
             let partName;
+            let genericPartName;
             let extPart;
 
             // 
             dfuseDevice.logProgress = function(done, total, func) {
                 if (func == 'erase') {
-                    $(progressElem).find('> label').text('Erasing ' + partName);
+                    $(progressElem).find('td > span').text('Erasing ' + genericPartName);
                 }
                 else {
-                    $(progressElem).find('> label').text('Programming ' + partName);
+                    $(progressElem).find('td > span').text('Programming ' + genericPartName);
                 }
                 const pct = (total != 0) ? (done * 100 / total) : 0;
-                $(progressElem).find('> progress').val(pct);
+                $(progressElem).find('td > progress').val(pct);
             }
 
             $(progressElem).show();
@@ -359,7 +579,13 @@ $(document).ready(function () {
                     continue;
                 }
 
-                setStatus('Updating ' + partName + '...');
+                if (userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
+                    genericPartName = 'custom user firmware';     
+                } else {
+                    genericPartName = partName;
+                }
+
+                setStatus('Updating ' + genericPartName + '...');
 
                 let part = await zipEntry.getUint8Array();
 
@@ -383,13 +609,17 @@ $(document).ready(function () {
                             await dfuseDevice.do_download(4096, part, {});
                         }
                     }
+                    else
+                    if (userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
+                        await dfuseDevice.do_download(4096, userFirmwareBinary, {});
+                    }
                     else {
                         await dfuseDevice.do_download(4096, part, {});
                     }
-                    setStatus('Downloading ' + partName + ' complete!');
+                    setStatus('Downloading ' + genericPartName + ' complete!');
                 }
                 catch(e) {
-                    setStatus('Downloading ' + partName + ' failed');
+                    setStatus('Downloading ' + genericPartName + ' failed');
                 }
 
             }
@@ -533,12 +763,18 @@ $(document).ready(function () {
     }));
 
     fetch('/assets/files/deviceRestore.json')
-    .then(response => response.json())
-    .then(function(res) {
-        deviceRestoreInfo = res;
-        // console.log('deviceRestoreInfo', deviceRestoreInfo);
-    });
+        .then(response => response.json())
+        .then(function(res) {
+            deviceRestoreInfo = res;
+            // console.log('deviceRestoreInfo', deviceRestoreInfo);
+        });
 
+    // Download the module version to semver mapping table
+    fetch('/assets/files/versionInfo.json')
+        .then(response => response.json())
+        .then(function(res) {
+            versionInfo = res;
+        });
 
 });
 
