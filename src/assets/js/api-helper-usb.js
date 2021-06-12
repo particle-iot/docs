@@ -300,6 +300,15 @@ $(document).ready(function () {
             let version = $(versionElem).val();
 
             if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {
+                setStatus('Confirming...');
+                const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
+                    'Make sure that it is from a reputable author and stored on a secure server. '
+                if (!confirm(msg)) {
+                    setStatus('Restore canceled');
+                    resetRestorePanel();
+                    return;
+                } 
+
                 setStatus('Downloading user firmware binary...');
                 const url = $(urlTrElem).find('td > input').val();
                 try {
