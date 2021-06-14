@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(014)</sup>
+# Tracker SoM Datasheet <sup>(015B1)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -42,8 +42,8 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
   * Support for battery-backup for almanac and ephemeris data
  * Quectel BG96-MC modem (T402 / T404)
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
-  * LTE FDD bands supported: B2，B4，B5, B12，B13, B14, B25，B26
- * Quectel EG91-EX modem (T523 / T524)
+  * LTE FDD bands supported: B1, B2，B3, B4，B5, B8, B12，B13, B18, B19, B20, B28
+   Quectel EG91-EX modem (T523 / T524)
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
   * Cat 1 bands supported: B1, B3, B7, B8, B20, B28
@@ -866,17 +866,21 @@ The WIFI_BOOT pin enables programming mode.
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 |
-|     | EGPRS |
 | LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 12 (700 MHz)  |
 | | Band 13 (700 MHz)  |
-| | Band 14 (700 MHz)  |
+| | Band 28 (700 MHz)  |
+| | Band 20 (800 MHz)  |
 | | Band 5 (850 MHz)   |
+| | Band 18 (850 MHz)  |
+| | Band 19 (850 MHz)  |
 | | Band 26 (850 MHz)  |
+| | Band 8 (900 MHz)   |
 | | Band 4 (1700 MHz)  |
+| | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz)  |
-| | Band 25 (1900 MHz)  |
-| GSM Bands | EGSM850 (850 MHz) |
-| | DCS1900 (1900 MHz) |
+| | Band 25 (1900 MHz) |
+| | Band 1 (2100 MHz)  |
 
 #### ESP32
 
@@ -1218,3 +1222,4 @@ The bootloader allows you to easily update the user application via several diff
 | 012      | 2021 Feb 03 | RK | Change CAN output current to 370 mA |
 | 013      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
 | 014      | 2021 May 04 | RK | Added 2G/3G fallback information for T523/T524 |
+| 015      | 2021 May 28 | RK | Corrected band list for T402/T404 (BG96) |

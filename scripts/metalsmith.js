@@ -50,7 +50,8 @@ var refCards = require('./refcards.js');
 var libraries = require('./libraries.js');
 var deviceRestoreInfo = require('./device-restore-info.js');
 const navMenuGenerator = require('./nav_menu_generator.js').metalsmith;
-
+const systemVersion = require('./system-version.js');
+ 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
 prettify.register(handlebars);
@@ -114,6 +115,10 @@ exports.metalsmith = function () {
           'test-schema'
         ]
     })))
+    .use(msIf(
+      environment === 'development',
+      systemVersion({
+      })))
     // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'

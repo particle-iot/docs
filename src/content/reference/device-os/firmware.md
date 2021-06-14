@@ -6276,8 +6276,6 @@ The `serialEvent` functions are called in between calls to the application `loop
 Since `serialEvent` functions are an
 extension of the application loop, it is ok to call any functions that you would also call from `loop()`. Because of this, there is little advantage to using serial events over just reading serial from loop(). 
 
-There is no advantage in using serial events over simply reading the serial port from loop.
-
 ```cpp
 // EXAMPLE - echo all characters typed over serial
 
@@ -8225,6 +8223,8 @@ HAL_I2C_Config acquireWireBuffer() {
     return config;
 }
 ```
+
+For devices with `Wire1` (Electron, E Series) or `Wire3` (Tracker SoM), the equivalent functions are `acquireWire1Buffer` and `acquireWire3Buffer`.
 
 
 ## CAN (CANbus)

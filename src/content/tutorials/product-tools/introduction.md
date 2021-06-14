@@ -31,33 +31,39 @@ Plus, cellular, Tracker, and Wi-Fi devices can be free to use!
 
 #### Products
 
-Products group devices with similar firmware and usage. You can use products with the Free tier above for prototyping, then expand to the Growth tier for production:
-
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
-- Add as many blocks as you need for more Data Operations or more devices
-- No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
-- Email support
+Products group devices with similar firmware and usage. You can use products with the Free tier above for prototyping, then expand to the Growth tier for production.
 
 Products allow a number of additional features over developer devices:
 
 - [Team members](/tutorials/device-cloud/console/#adding-team-members), so multiple accounts can work with your product.
 - [Product firmware](/tutorials/device-cloud/console/#rollout-firmware), so you can upgrade your fleet of devices automatically instead of one-by-one.
 - [Device groups](/tutorials/product-tools/device-groups/), so you can subdivide your fleet of devices with different firmware or features.
+- [Team access controls](/tutorials/product-tools/team-access-controls/), allowing you to grant specific permissions to team members.
+- [Fleet health](/tutorials/diagnostics/fleet-health/), for monitoring the status of your fleet of devices.
 
-You can start developing with a product for initial prototyping and testing and later import them to an organization when you scale to enterprise quantities.
+
+#### Growth Tier
+
+- [Organizations](/tutorials/product-tools/organizations/), allowing you have multiple products with hierarchical access controls and billing in the Growth and Enterprise Tiers.
+- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
+- Add as many blocks as you need for more Data Operations or more devices
+- No limit to the number of blocks you can purchase self-service
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
+- Email support
+- Available in Summer 2021
+
 
 #### Enterprise Features
 
 Once you move beyond self-service to an enterprise plan, you get features such as:
 
-- [Organizations](/tutorials/product-tools/organizations/), allowing you have multiple products with hierarchical access controls and billing.
-- [Team access controls](/tutorials/product-tools/team-access-controls/), allowing you to grant specific permissions to team members.
-- [Fleet health](/tutorials/diagnostics/fleet-health/), for monitoring the status of your fleet of devices.
 - [Intelligent OTA](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases), allowing fine-grained control of the fleet OTA process.
+- Enterprise tiers include a maximum number of devices, Data Operations, storage, and cellular data
+- Data Operations and cellular data are pooled across all devices annually
+- Discounts for higher Enterprise tier commitments
 - Service Level Agreements (SLA)
 - Dedicated support
-- Annual pooled Device Operations and cellular data limits
+- [Contact sales](https://particle.io/sales/) for more information
 
 
 ## Devices in Products

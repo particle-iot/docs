@@ -350,6 +350,11 @@
         "href": "/tutorials/learn-more/batteries/"
       },
       {
+        "dir": "weather",
+        "title": "Weather API",
+        "href": "/tutorials/learn-more/weather/"
+      },
+      {
         "dir": "real-time-clocks",
         "title": "Real-time clocks",
         "href": "/tutorials/learn-more/real-time-clocks/"

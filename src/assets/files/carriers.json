@@ -18816,14 +18816,18 @@
       "manufacturer": "quectel",
       "name": "North America LTE M1",
       "bands": [
+        "M1-1",
         "M1-2",
+        "M1-3",
         "M1-4",
         "M1-5",
+        "M1-8",
         "M1-12",
         "M1-13",
-        "M1-14",
-        "M1-25",
-        "M1-26"
+        "M1-18",
+        "M1-19",
+        "M1-20",
+        "M1-28"
       ],
       "technologies": [
         "M1"
