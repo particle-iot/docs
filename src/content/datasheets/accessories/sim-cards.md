@@ -53,6 +53,24 @@ As a general rule, tray quantity devices do not include a SIM card, however this
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | GA | |
 
 
+### Using SIMBLANKV2 in a Boron 2G/3G or Boron LTE
+
+It is technically possible to use an EtherSIM 4FF plastic SIM card in a Boron 2G/3G (BRN310) or a Boron LTE (BRN402) with the older (non-EtherSIM) MFF2 SMD SIM card. This could allow additional carriers in some cases, but is not recommended at fleet scale for the following reasons:
+
+- In the United States, Canada, and Mexico the Boron 2G/3G (BRN310) is not recommended due to the impending 3G shutdown. The EtherSIM will not extend the lifetime of this device.
+- In the United States, the EtherSIM does not officially add any carriers to the BRN402. The reason is that T-Mobile officially only supports LTE Cat NB1, which is different and not supported by Particle devices. However, many areas of the United States have unofficial T-Mobile LTE Cat M1 service, not advertised by T-Mobile. Using an EtherSIM in a BRN402 will add T-Mobile support which is not available on the built-in SIM on the BRN402. The EtherSIM does not add support for Verizon!
+- Note that EtherSIM support requires Device OS 2.0.0 or later, so if you are using an earlier version, you will also need to upgrade Device OS.
+
+If you are interested in using an EtherSIM 4FF plastic SIM card in a Boron, please note:
+
+- You will need to use the [`setActiveSim()`](/cards/firmware/cellular/setactivesim/) call to enable the external SIM card.
+- The setting is persistent across reset, user firmware upgrades, and Device OS upgrades.
+- If you set the SIM back to `INTERNAL_SIM` you must remove the physical SIM card on the BRN402 as just changing the setting in software is not sufficient and you will be unable to connect to cellular in this configuration.
+- It may be necessary to reset the cellular modem after changing the SIM card setting.
+- It is not practical to auto-detect the SIM card at startup as it could add a minute or longer to the startup time to switch the SIM card, reset the cellular modem, and wait for various timeouts.
+- If you are using a product, one option is to flash code to set the SIM by USB when you are at the device to insert the SIM card. If the device then connects to cellular, then the cloud will flash back the product firmware automatically then reboot again.
+
+
 #### Available countries and carriers
 
 A list of available countries and carriers can be found in the [carrier list](/tutorials/cellular-connectivity/cellular-carriers/?tab=ByDevice&device=Electron%20ELC314%202G%2F3G%20Global%20EtherSIM&region=All).

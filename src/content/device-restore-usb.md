@@ -31,6 +31,8 @@ There is also a version that implements [Device Restore over JTAG](/device-resto
 
 {{> usb-restore-device}}
 
+---
+
 ## Special Notes for Downgrading
 
 {{blurb name="downgrade"}}
