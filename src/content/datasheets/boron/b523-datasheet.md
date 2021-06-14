@@ -212,9 +212,9 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 41 | A4 | RESERVED<sup>3</sup> |IO | P0.30 | Analog input ADC4<sup>2</sup>, and digital GPIO. |
 | 42 | D2 | RESERVED<sup>3</sup> | IO | P1.02 | UART flow control RTS, SDA1 (Wire1), SPI1 SCK, digital only GPIO. |
 | 43 | A5 | RESERVED<sup>3</sup> |IO | P0.31 | Analog input ADC5<sup>2</sup>, and digital GPIO.|
-| 44 | Quectel USB D+ | SOM0 | IO | | Data+ pin of the R410M USB port.|
+| 44 | Quectel USB D+ | SOM0 | IO | | Data+ pin of the cellular modem USB port.|
 | 45 | A6 | RESERVED<sup>3</sup> | IO | P0.5| Analog input ADC6<sup>2</sup>, and digital GPIO. |
-| 46 | Quectel USB D- | SOM1 | IO ||  Data- pin of the R410M USB port.|
+| 46 | Quectel USB D- | SOM1 | IO ||  Data- pin of the cellular modem USB port.|
 | 47 | A7 | RESERVED<sup>3</sup> | IO | P0.2 | Analog input ADC7<sup>2</sup>, and digital GPIO.|
 | 48 | D8 | CS | IO | P0.7 | SPI interface CS, and digital only GPIO. | 
 | 49 | AGND | AGND | POWER	| | System analog ground.|
@@ -235,14 +235,14 @@ For maximum cross-module flexibility, you should try to use only the common pins
 | 64 | D23 | GPIO1 | IO | P1.3 | GPIO1, digital only.|	
 | 65 | RGBB | BLUE | IO | P0.14 | Blue pin of the RGB LED.|
 | 66 | D4 | PWM0 | IO | P0.12 | SPI1 MISO, Digital only GPIO, and PWM0. |
-| 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | | Leave unconnected, 1.8V/3V SIM Supply Output from R410M. |
+| 67 | SIM_VCC<sup>1</sup> | SOM5<sup>3</sup> | POWER | | Leave unconnected, 1.8V/3V SIM Supply Output from cellular modem. |
 | 68 | D5 | PWM1 | IO | P0.24| Digital only GPIO, and PWM1. |
-| 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Reset Output from R410M. |
+| 69 | SIM_RST<sup>1</sup> | SOM6<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Reset Output from cellular modem. |
 | 70 | D6 | PWM2 | IO | P1.4 | Digital only GPIO, and PWM2.|
-| 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Clock Output from R410M.|
+| 71 | SIM_CLK<sup>1</sup> | SOM7<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Clock Output from cellular modem.|
 | 72 | D7 | PWM3 | IO | P0.13| Digital only GPIO, and PWM3.|
-| 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Data I/O of R410m with internal 4.7 k pull-up. |
-| 74 | Quectel VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for R410M. 5V on this pin enables the Quectel USB interface.|
+| 73 | SIM_DATA<sup>1</sup> | SOM8<sup>3</sup> | IO | | Leave unconnected, 1.8V/3V SIM Data I/O of cellular modem with internal 4.7 k pull-up. |
+| 74 | Quectel VBUS | SOM2<sup>3</sup> | IO | | USB detect pin for cellular modem. 5V on this pin enables the Quectel USB interface.|
 | 75 | Quectel RI | SOM9<sup>4</sup> | IO ||  Ring indicator |
 
 <sup>1</sup>These pins are connected to the internal MFF2 SIM and should be left open. 

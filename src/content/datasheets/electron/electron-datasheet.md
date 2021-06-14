@@ -8,6 +8,8 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 
 # Electron Datasheet <sup>(v008)</sup>
 
+**PRE-RELEASE DRAFT 2021-06-14**
+
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -27,7 +29,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Features
 
- * U-blox SARA-U201/U260/U270 (3G with 2G fallback), G350 (2G), or R410M (LTE Cat M1) cellular module
+ * U-blox SARA-U201/U260/U270 (3G with 2G fallback), G350 (2G), or R410M/R510S (LTE Cat M1) cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
@@ -380,7 +382,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-The Electron is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B).
+The Electron is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B, R410M-03, or R510S-01B).
 
 Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
 
@@ -394,6 +396,7 @@ Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobil
 | U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, New Zealand, Nicaragua, Panama, Paraguay, Peru, Venezuela |
 | U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
 | R410M | United States, Canada, Mexico |
+| R510S | United States, Canada, Mexico |
 
 
 Please be sure to order a board that works in the country where you want to deploy your project.
@@ -423,7 +426,7 @@ Please be sure to order a board that works in the country where you want to depl
 
 
 
-#### LTE cellular characteristics for the SARA-R410M-02-B module
+#### LTE cellular characteristics for the SARA-R410M-02B module
 
 | Parameter | Value |
 | --- | --- |
@@ -445,6 +448,29 @@ Please be sure to order a board that works in the country where you want to depl
 | | Band 25 (1900 MHz)  |
 | | Band 1 (2100 MHz)  |
 | LTE TDD bands | Band 39 (1900 MHz) | 
+| Power class | Class 3 (23 dBm) |
+
+
+#### u-blox SARA-R510S-01B
+
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat M1 Half-Duplex |
+| LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 28 (700 MHz)  |
+| | Band 13 (750 MHz)  |
+| | Band 20 (800 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 18 (850 MHz)  |
+| | Band 5 (850 MHz) |
+| | Band 19 (850 MHz)  |
+| | Band 8 (900 MHz)  |
+| | Band 4 (1700 MHz) |
+| | Band 3 (1800 MHz)  |
+| | Band 2 (1900 MHz) |
+| | Band 25 (1900 MHz)  |
+| | Band 1 (2100 MHz)  |
 | Power class | Class 3 (23 dBm) |
 
 ---
@@ -657,6 +683,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Burkina Faso | ELC314 | 2G, 3G | Orange |
 | Cambodia | ELC314 | 2G, 3G | Metfone |
 | Canada | ELC404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Canada | ELC404X | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Cayman Islands | ELC314 | 2G, 3G | Flow |
 | Chile | ELC314 | 2G, 3G | Claro, Entel, Movistar |
 | Colombia | ELC314 | 2G, 3G | Movistar, Tigo |
@@ -708,6 +735,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Malaysia | ELC314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | ELC314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | ELC404 | M1 | AT&T |
+| Mexico | ELC404X | M1 | AT&T |
 | Moldova | ELC314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | ELC314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | ELC314 | 2G, 3G | Mtel, T-Mobile, Telenor |
@@ -758,6 +786,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | United Arab Emirates | ELC314 | 2G, 3G | du, Etisalat |
 | United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | ELC404 | M1 | AT&T |
+| United States | ELC404X | M1 | AT&T |
 | Uruguay | ELC314 | 2G, 3G | Movistar |
 | Uzbekistan | ELC314 | 2G, 3G | Beeline |
 | Venezuela | ELC314 | 2G, 3G | Movistar |
@@ -778,6 +807,7 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | GA | |
 | ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
+| ELC404XTY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | GA | |
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | NRND | ELC314TY|
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | ELC404EA|
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | ELC404TY|
