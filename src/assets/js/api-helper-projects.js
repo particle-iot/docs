@@ -93,10 +93,29 @@ $(document).ready(function() {
             $(outputPreElem).hide();
             $(outputDivElem).hide();
 
-            if (['cpp', 'c++', 'cxx', 'c', 'h', 'hpp'].includes(ext)) {
+            const langMap = {
+                'cpp': ['cpp', 'c++', 'cxx', 'c', 'h', 'hpp'],
+                'json': ['json'],
+                'js': ['js']
+            }
+            
+            let langFound;
+            for(const key in langMap) {
+                if (langMap[key].includes(ext)) {
+                    langFound = key;
+                    break;
+                }
+            }
+
+            if (langFound) {
                 $(outputCodeElem).show();
 
                 const thisCodeElem = $(outputCodeElem).find('code');
+                for(const key in langMap) {
+                    $(thisCodeElem).removeClass('lang-' + key);
+                }
+                $(thisCodeElem).addClass('lang-' + langFound);
+
                 $(thisCodeElem).text(text);
                 $(thisCodeElem).removeClass('prettyprinted');
                 if (prettyPrint) {

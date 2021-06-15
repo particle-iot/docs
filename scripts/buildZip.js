@@ -112,7 +112,7 @@ function addRecursive(zip, dir, done) {
                 addRecursive(zip.folder(dirent.name), path.join(dir, dirent.name), next);
             }
             else {
-                if (!dirent.name.startsWith('.')) {
+                if (!dirent.name.startsWith('.') || dirent.name == '.gitignore') {
                     //console.log('file ' + dirent.name);
                     fs.readFile(path.join(dir, dirent.name), function(err, data) {
                         if (err) throw err;

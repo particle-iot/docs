@@ -1,0 +1,13 @@
+{
+    "name": "node-empty",
+    "description": "Node.js tutorial empty project",
+    "private": true,
+    "engines": {
+        "node": ">=12"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}
