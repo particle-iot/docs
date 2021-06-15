@@ -382,18 +382,141 @@ npm install particle-api-js
 - It creates a `package-lock.json` file. You probably won't need to mess with this, but it's used to keep track of the dependencies of the project. If you are committing a project to Github source control, you should add the `package-lock.json` file.
 - It creates the `node_modules` directory. This contains the downloaded library, as well as all of the libraries it depends on. You should not commit this directory to source control.
 
+### List devices (Particle API)
 
+Now lets move on to something more useful, using the Particle cloud API to list the devices in our account.
 
-### Async/await
+{{> project-browser project="node-list-devices" default-file="app.js"}}
 
+If you download a full project .zip file as above, you'll need to install all of the dependencies. This is as easy as:
 
-### Promise
+```
+cd node-list-devices
+npm install
+```
 
-### Callbacks
+And then set your access token and run:
 
+```
+export PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
+node app.js
+```
+
+Or for Windows:
+
+```
+set PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
+node app.js
+```
+
+There are a bunch of new things in this code:
+
+These two lines will likely be be in every project you create that uses the particle-api-js. The `require` statement loads the library that you added to your package.json and installed using `npm install`. The second line creates an object to access the library. Different libraries will have different initialization strategies.
+
+```
+var Particle = require('particle-api-js');
+var particle = new Particle();
+```
+
+There's the access token loading and checking code:
+
+```
+const accessToken = process.env.PARTICLE_AUTH;
+if (!accessToken) {
+    console.log('You must specify the PARTICLE_AUTH environment variable');
+    process.exit(1);
+}
+```
+
+And finally the list devices code, which is another new code structure that requires closer examination.
+
+```
+particle.listDevices({ auth: accessToken }).then(
+    function (devices) {
+        console.log('Devices', devices);
+    },
+    function (err) {
+        console.log('List devices call failed', err);
+    }
+);
+```
+
+`particle.listDevices()` is a function call. This syntax means to call the `listDevices()` method in the `particle` object.
+
+The parameter is in both `()` and `{}`. The reason is this library uses named parameters. Instead of positional parameters where the first parameter means something, the second parameter something else, etc., this library names every parameter. In this case, there's only one parameter so it's not as important, but it's consistent across all of the functions and really becomes handy when there are optional parameters.
+
+The single parameter we pass in is called `auth` and it's initialized to our `accessToken` variable.
+
+Then there is the `then`. The listDevices API will do its work asynchronously, then it will either call the first function on success, or call the second function on error. That's a simplified explanation and we'll go into more details about later.
+
+It's also worth mentioning `console.log('Devices', devices)`. You'll notice there's a comma, not a `+` before `devices`. The `console.log()` function can either take a single string, or it can take a string and an object. The object will be pretty-printed in the output so you can see all of the contents!
+
+As was the case with the `setInterval` example earlier, remember that the inner functions are called later.
+
+#### Putting the main code in a function
+
+Sometimes it's useful to put the main code in a function, in this case `run()`. The function is declared, then it's called. It works the same as the previous example, it's just arranged differently.
+
+{{> project-browser project="node-list-devices2" default-file="app.js"}}
+
+Also, in this example instead of printing out the whole object, we iterate the list of devices in code and only print out the device name and device ID.
+
+```
+for(const dev of devices.body) {
+    console.log('name=' + dev.name + ' id=' + dev.id);
+}
+```
+
+- When the `devices` object is returned, it has a member named `body` that's the array of device objects.
+- Using a for - of loop we iterate that array, assigning `dev` to be the specific device we're looking at.
+- Then we print out the device name and device ID.
+
+#### List devices (await)
+
+There is a reason for this, and it's so you can write the code this way, instead:
+
+{{> project-browser project="node-list-devices3" default-file="app.js"}}
+
+- In this example, instead of declaring `function run()` we declare `async function run()`. 
+- This looks more like a regular function call without all of that `then()` stuff, but there's an `await` statement in it: `const devices = await particle.ListDevices()`.
+- The `await` means the code will (effectively) stop and wait until the asynchronous operation is complete, then continue to the next line of code.
+- This is often much more intuitive, especially for casual Javascript programmers.
+- You can only use `await` in an `async function` which is why we had to put the code inside a function. It can't be at the top level of a .js file.
+- Most of the remaining examples will use async/await.
 
 
 ### Custom list devices
+
+Of course if all you wanted to do was list devices you could just use the `particle list` CLI command. By doing it from Javascript we can do additional processing.
+
+{{> project-browser project="node-list-devices4" default-file="app.js"}}
+
+For example, we could check the online flag to only list devices that are online (though that's also available in the CLI).
+
+```
+for(const dev of devices.body) {
+    if (dev.online) {
+        console.log('name=' + dev.name + ' id=' + dev.id);
+    }
+}
+```
+
+#### Print devices that have not been heard from since a date
+
+This example uses the `last_heard` of the device object to list devices that we have not heard from since a specific date.
+
+{{> project-browser project="node-list-devices5" default-file="app.js"}}
+
+The code uses `Date.parse()` which parses a date in various formats (including the ISO 8601 format used by the cloud) and return the time in milliseconds since January 1, 1970 UTC. This is sort of like Unix time, but Unix time is in seconds, not milliseconds.
+
+
+#### Print csv of cellular devices
+
+This example generates csv (comma-separated value) data containing the device ID and the ICCID of the cellular devices in your account.
+
+{{> project-browser project="node-list-devices6" default-file="app.js"}}
+
+
 
 ### Accessing files on your computer
 
@@ -403,6 +526,15 @@ npm install particle-api-js
 
 
 ## More techniques
+
+
+### Async/await
+
+
+### Promise
+
+### Callbacks
+
 
 ### Using the Particle API directly
 
