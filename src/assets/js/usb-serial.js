@@ -493,6 +493,8 @@ $(document).ready(function() {
         const usbSerialConsoleConnectButton = $(usbSerialConsoleElem).find('.apiHelperSerialConsoleConnect');
         const usbSerialConsoleDisconnectButton = $(usbSerialConsoleElem).find('.apiHelperSerialConsoleDisconnect');
         const usbSerialConsoleClearButton = $(usbSerialConsoleElem).find('.apiHelperSerialConsoleClear');
+        const usbSerialConsoleCopyButton = $(usbSerialConsoleElem).find('.apiHelperSerialConsoleCopy');
+        const usbSerialConsoleDownloadButton = $(usbSerialConsoleElem).find('.apiHelperSerialConsoleDownload');
         const usbSerialConsoleSendButton = $(usbSerialConsoleElem).find('.apiHelperSerialConsoleSend');
         const usbSerialConsoleInputElem = $(usbSerialConsoleElem).find('.apiHelperSerialConsoleInput');
     
@@ -595,6 +597,20 @@ $(document).ready(function() {
 
         $(usbSerialConsoleClearButton).on('click', function() {
             $(usbSerialConsoleTextAreaElem).val('');
+        });
+
+        $(usbSerialConsoleCopyButton).on('click', function() {
+			var t = document.createElement('textarea');
+			document.body.appendChild(t);
+			$(t).text($(usbSerialConsoleTextAreaElem).val());
+			t.select();
+			document.execCommand("copy");
+			document.body.removeChild(t);
+        });
+
+        $(usbSerialConsoleDownloadButton).on('click', function() {
+            let blob = new Blob([$(usbSerialConsoleTextAreaElem).val()], {type:'text/plain'});
+            saveAs(blob, 'ConsoleOutput.txt');			
         });
         
         const sendInput = async function() {

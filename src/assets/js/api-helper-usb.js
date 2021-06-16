@@ -119,9 +119,13 @@ $(document).ready(function () {
                             setStatus('Enter user firmware binary URL');
                         }
                         break;
+
+                    case 'cloudDebug':
+                        disabled = false;
+                        break;
                 }    
                 if (!disabled) {
-                    setStatus('Ready to restore');
+                    setStatus('Ready to flash device');
                 }
             }
 
@@ -146,7 +150,8 @@ $(document).ready(function () {
                 case 'url':
                     $(urlTrElem).show();
                     break;
-
+                
+                case 'cloudDebug':
                 case 'customUrl':
                     break;
             }
@@ -299,6 +304,8 @@ $(document).ready(function () {
 
             let version = $(versionElem).val();
 
+            let downloadUrl;
+
             if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {
                 setStatus('Confirming...');
                 const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
@@ -308,12 +315,19 @@ $(document).ready(function () {
                     resetRestorePanel();
                     return;
                 } 
+                downloadUrl = $(urlTrElem).find('td > input').val();
+            }
+            if ($(modeSelectElem).val() == 'cloudDebug') {
+                const platformName = apiHelper.platformIdToName(usbDevice.platformId);
 
+                downloadUrl = '/assets/files/cloud-debug/' + platformName + '.bin';
+            }
+
+            if (downloadUrl) {
                 setStatus('Downloading user firmware binary...');
-                const url = $(urlTrElem).find('td > input').val();
                 try {
                     await new Promise(function(resolve, reject) {
-                        fetch(url)
+                        fetch(downloadUrl)
                             .then(response => response.arrayBuffer())
                             .then(function(res) {
                                 userFirmwareBinary = res;
@@ -329,7 +343,9 @@ $(document).ready(function () {
                 catch(e) {
                     return;
                 }
-                history.pushState(null, '', '?url=' + encodeURIComponent(url));
+                if ($(modeSelectElem).val() == 'url') {
+                    history.pushState(null, '', '?url=' + encodeURIComponent(downloadUrl));
+                }
             } 
             else {
                 if (urlParams.has('url')) {
