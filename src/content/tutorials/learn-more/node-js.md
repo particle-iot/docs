@@ -516,6 +516,23 @@ This example generates csv (comma-separated value) data containing the device ID
 
 {{> project-browser project="node-list-devices6" default-file="app.js"}}
 
+The code has a check for `dev.iccid`. If this field does not exist, then the body of the if won't be executed. That will cause it to not print Wi-Fi devices.
+
+```
+for(const dev of devices.body) {
+    if (dev.iccid) {
+        console.log(dev.id + ',' + dev.iccid);
+    }
+}
+```
+
+If you want to store it in a file, you must execute the command like this:
+
+```
+node app.js > devices.csv
+```
+
+The `>` redirects the output from the program to a file.
 
 
 ### Accessing files on your computer
