@@ -25,16 +25,16 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
- * u-blox SARA-R410M-02B or R410M-03 LTE modem
+ * u-blox SARA-R410M-02B or R410M-03 LTE modem (BRN402, BRN404)
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 20, 25, 26, 28, 39
- * u-blox SARA-R510S-01B LTE modem
+  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+ * u-blox SARA-R510S-01B LTE modem (BRN404X)
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28
+  * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
  * u-blox SARA U201 2G/3G modem (Boron 2G/3G, BRN314 and BRN310)
   * HSPA/GSM with global hardware and SIM support 
   * Bands 800/850/900/1900/2100 MHz 

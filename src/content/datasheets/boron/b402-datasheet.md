@@ -31,12 +31,12 @@ The B Series is designed to be integrated into your circuit board design, pluggi
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 20, 25, 26, 28, 39
+  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
  * u-blox SARA-R510S-01B LTE modem (B404X)
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28
+  * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -361,21 +361,14 @@ Boron has two radio modules.
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
-| | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
 #### u-blox SARA-R510S-01B
@@ -385,19 +378,12 @@ Boron has two radio modules.
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
-| | Band 20 (800 MHz)  |
 | | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
-| | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
-| | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
 | | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
 | Power class | Class 3 (23 dBm) |
 
 ---

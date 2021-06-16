@@ -413,50 +413,36 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 
 ---
 
-#### LTE cellular characteristics E404 & E402
+#### u-blox SARA-R410M-02B or R410M-03
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
-| | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
-| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
-#### LTE cellular characteristics E404X
+#### u-blox SARA-R510S-01B
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
-| | Band 20 (800 MHz)  |
 | | Band 26 (850 MHz)  |
-| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
-| | Band 19 (850 MHz)  |
-| | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
-| | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
 | | Band 25 (1900 MHz)  |
-| | Band 1 (2100 MHz)  |
 | Power class | Class 3 (23 dBm) |
 
 ---
