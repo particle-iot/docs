@@ -35,6 +35,9 @@ jobs:
   deploy-staging:
     docker:
       - image: 'cimg/python:3.6'
+        environment:
+          AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_STAGING
+          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_STAGING 
     steps:
       - aws-s3/sync:
           arguments: |
@@ -55,7 +58,7 @@ workflows:
       - deploy-staging:
           requires:
             - build
-#          filters:
-#            branches:
-#              only: staging
+          filters:
+            branches:
+              only: staging
 
