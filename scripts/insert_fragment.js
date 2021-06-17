@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var fs = require('fs');
+var path = require('path');
 
 module.exports = function(options) {
 	return function(files, metalsmith, done) {
@@ -10,11 +11,25 @@ module.exports = function(options) {
 		var fragment = options.fragment;
 		var preprocess = options.preprocess;
 
-		if (!fs.existsSync(src) || !dest || !fragment) {
+		const savePath = path.join(__dirname, '..', 'generated', path.basename(options.destFile));
+
+
+		if (!dest || !fragment) {
 			return done();
 		}
+		
+		var generatedContent;
 
-		var generatedContent = fs.readFileSync(src, 'utf8');
+		if (fs.existsSync(src)) {
+			generatedContent = fs.readFileSync(src, 'utf8');
+			fs.writeFileSync(savePath, generatedContent);
+		}
+		else {
+			if (!fs.existsSync(savePath)) {
+				return done();
+			}
+			generatedContent = fs.readFileSync(savePath, 'utf8');
+		}
 		if (typeof preprocess === 'function') {
 			generatedContent = preprocess(generatedContent);
 		}

@@ -3,6 +3,7 @@
 var apidoc = require('apidoc');
 var _ = require('lodash');
 var fs = require('fs');
+var path = require('path');
 
 function trimParam(string) {
   if (!string) {
@@ -164,9 +165,14 @@ function assignOrder(data) {
 module.exports = function(options) {
   return function(files, metalsmith, done) {
     var apiData = options.apis.map(function processApi(apiOptions) {
+      const savePath = path.join(__dirname, '..', 'generated', path.basename(apiOptions.src) + '.json');
       apiOptions.parse = true;
       apiOptions.src = metalsmith.path(apiOptions.src);
       if (!fs.existsSync(apiOptions.src)) {
+        if (fs.existsSync(savePath)) {
+          return JSON.parse(fs.readFileSync(savePath, 'utf8'));
+        }
+        
         return null;
       }
       var dirFiles = fs.readdirSync(apiOptions.src);
@@ -178,7 +184,7 @@ module.exports = function(options) {
       if (!apiReturn) {
         return new Error('Error');
       }
-
+      fs.writeFileSync(savePath, apiReturn.data);
       //console.log(apiReturn.data);
       return JSON.parse(apiReturn.data);
     }).reduce(function collectApiData(data, thisData) {
