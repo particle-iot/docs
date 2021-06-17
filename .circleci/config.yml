@@ -7,7 +7,7 @@ orbs:
   # Orbs reduce the amount of configuration required for common tasks. 
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
   node: circleci/node@4.1
-
+  aws-s3: circleci/aws-s3@2.0.0
 
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
@@ -32,23 +32,18 @@ jobs:
           name: Build
           command: npm test
 
-  deploy-prod:
-    steps:
-      - run: # Install the AWS CLI if it is not already included in the docker image
-          name: Install awscli
-          command: sudo pip install awscli
-      - run: # Deploy to S3 using the sync command
-          name: Deploy to S3
-          command: aws s3 sync build docs.particle.io
-
   deploy-staging:
+    docker:
+      - image: 'cimg/python:3.6'
     steps:
-      - run: # Install the AWS CLI if it is not already included in the docker image
-          name: Install awscli
-          command: sudo pip install awscli
-      - run: # Deploy to S3 using the sync command
-          name: Deploy to S3
-          command: aws s3 sync build docs.staging.particle.io
+      - aws-s3/sync:
+          arguments: |
+            --no-preserve \
+            --acl public-read \
+            --delete-removed --no-mime-magic --guess-mime-type \
+            --cache-control "max-age=300"
+          from: bucket
+          to: 's3://docs.staging.particle.io'
 
 
 workflows:
@@ -56,15 +51,10 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - deploy-prod:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master # Only deploys when the commit is on the Master branch
       - deploy-staging:
           requires:
             - build
           filters:
             branches:
               only: staging
+
