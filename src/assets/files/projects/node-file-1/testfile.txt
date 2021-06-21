@@ -1,0 +1,4 @@
+This is a text file
+2nd line of test file
+3rd line
+last line

@@ -10,6 +10,8 @@ if (!accessToken) {
 async function run() {
     const devices = await particle.listDevices({ auth: accessToken });
 
+    console.log('deviceId,iccid');
+    
     for(const dev of devices.body) {
         if (dev.iccid) {
             console.log(dev.id + ',' + dev.iccid);

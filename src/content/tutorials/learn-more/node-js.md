@@ -14,11 +14,15 @@ This document is a brief introduction to node.js and using the Particle Cloud AP
 
 ## Installation
 
-### Windows
+Just go to the [nodejs.org](https://nodejs.org/) page and follow the instructions to download and install. The LTS (long-term support) version is recommended.
 
-### Mac
+You may already have it installed; you can check from a command prompt or terminal window by entering the command:
 
-### Linux
+```
+node -v
+```
+
+The examples here require a minimum of version 12. The LTS version at the time of writing is 14.17.
 
 ## Hello world
 
@@ -125,6 +129,12 @@ If you're converting from the DOS command prompt for loop, that might look like 
 - The first value (1) is the start
 - The second value (1) is the increment
 - The third value (10) is end condition (inclusive)
+
+
+If you're coming from a Fortran background, it's not that different from:
+
+{{> codebox content="/assets/files/node-tutorial/for-loop.f95" format="js" height="200"}}
+
 
 #### while loop (top-test)
 
@@ -526,7 +536,7 @@ for(const dev of devices.body) {
 }
 ```
 
-If you want to store it in a file, you must execute the command like this:
+If you want to store it in a file, you can execute the command like this:
 
 ```
 node app.js > devices.csv
@@ -537,9 +547,221 @@ The `>` redirects the output from the program to a file.
 
 ### Accessing files on your computer
 
+Node.js programs running on your computer have access to your computer's file system directly, unlike Javascript programs running in your web browser. If you're automating operations across many devices, it's common to work with a file of device IDs one per line, performing some operation on each device sequentially. Fortunately, this is easy to do.
+
+
+#### Print lines of a file
+
+This isn't a very useful program, as your operating system can already do this (`cat` on Mac and Linux, `type` on Windows), but it shows how the file system API works.
+
+
+
+{{> project-browser project="node-file-1" default-file="app.js"}}
+
+Lines like these are how you import libraries into your node.js project. Sometimes you'll see `var` used instead of `const`. 
+
+The `fs` and `path` libraries are built into node.js so you don't need to `npm install` them. `require` is used for both built-in and 3rd-party libraries. There's also `import` which won't be covered in this tutorial.
+
+```
+const fs = require('fs');
+const path = require('path');
+```
+
+This construct is used to make a full pathname to a file relative to the directory our script is run from (node-file1). `path.join` joins two or more path components into a single path. It works with `..` and works with both Windows and Mac/Linux directory separators. The `__dirname` variable is built-in and is the directory the script runs from.
+
+```
+const testFilePath = path.join(__dirname, 'testfile.txt');
+```
+
+The node file system API is actually two similar APIs, an asynchronous one (with callbacks or promises) and a `Sync` API that effectively blocks during the operation. For our test took, synchronous is fine and easier to use.
+
+This command reads the entire file into RAM and returns it. The `utf8` parameter is so the data is read as text and stored in a string variable. Otherwise it's stored as binary data in a `Buffer` object.
+
+```
+const testFile = fs.readFileSync(testFilePath, 'utf8');
+```
+
+The reason we need a string is we then split it into lines, using `split('\n')` which splits on newline characters. Then we print out each line, which isn't all that useful but is just for illustration.
+
+```
+for(let line of testFile.split('\n')) {
+    console.log(line);
+}
+```
+
 ### Processing a list of devices
 
-### Command line options using yargs
+A more useful thing to do is process a file of Device IDs and act on each device in the list. In this example, we'll get the full device information which isn't all that useful, but it's just a template that you can use to put other things in that block of code. For example, you might claim devices this way, name devices, or change device groups.
+
+Sometimes instead of encoding the name of the file to process in the script, you want to pass it as command line arguments. There are multiple command line processing options, but we'll use yargs here.
+
+{{> project-browser project="node-file-2" default-file="app.js"}}
+
+The yargs library is already added to this project's `package.json` file but to add it to a new project you'd just:
+
+```
+npm install yargs
+```
+
+If you've downloaded the project and want to run it, you'll still need to install the pre-configured libraries:
+
+```
+npm install
+```
+
+To run it:
+
+```
+node app.js deviceIds.txt
+```
+
+This require line is a little different because the yargs library supports multiple APIs. We're only interested in the `argv` API, so we get only that one API this way:
+
+```
+const argv = require('yargs').argv
+```
+
+We'll store all of the Device IDs in an array in this example. This is how you declare an empty array.
+
+```
+let deviceIds = [];
+```
+
+You must pass one or more filenames on the command. This is a little error checking. The `argv._.length` syntax is weird, but argv defines a property named `_` so that's just how it works.
+
+The `process.exit(1)` causes the script to exit with an exit code of 1. It's pretty common to return 0 on success and non-zero on error, but not required. And oddly you don't need to require `process` like you do `fs` and `path`.
+
+```
+if (argv._.length == 0) {
+	console.log("file of device IDs is required");
+	process.exit(1);
+}
+```
+
+This loops through all of the files on the command line, in case there are more than 1.
+
+```
+for(const name of argv._) {
+	// console.log('processing ' + name);
+```
+
+This reads the file into memory as a string like we did in the previous example, except `name` comes from the command line options.
+
+```
+const fileContents = fs.readFileSync(name, 'utf8');
+```
+
+This is a regular expression. There are countless entire books on regular expressions, but in this case what it does is pick out strings of 24 hexadecimal characters from a line of the file. This is the standard format for Device IDs.
+
+```
+const re = /([A-Fa-f0-9]{24})/;
+```
+
+Iterate over each line of the input file;
+
+```
+for(const line of fileContents.split("\n")) {
+```
+
+Match line line against the regular expression. If there is a match add it to the array. If the line does not contain a valid-looking Device ID, skip this line.
+
+```
+const m = line.match(re);
+if (m) {
+    deviceIds.push(m[1]);
+}
+```
+
+And finally print out the results:
+
+```
+console.log('deviceIds', deviceIds);
+```
+
+The output should look like this:
+
+```
+% node app.js deviceIds.txt
+deviceIds [
+  'ffff612f63b2c4781c89ab05',
+  'ffff0a0efca0e86e6b69de49',
+  'ffff3d154257de8c99304d17',
+  'ffff421a72c782534ce79a1c',
+  'ffff992c347a2799c527474a',
+  'ffff84245bdd01f253cc2729',
+  'ffff927f5256473d4fe4d04c',
+  'ffffaa8514c8fac8c7800f0a',
+  'ffff228d18232080e34a488f',
+  'ffff0ff88dd054aed19aaaa8'
+]
+```
+
+The same techniques can be used to pick out other common things like ICCIDs, IMEIs, and serial numbers by adjusting the regular expression.
+
+### Reading a csv file
+
+Sometimes you'll have a comma-separated value file (csv). Resist the temptation to parse it by hand because there are good csv parsers available for node and dealing with escaped strings yourself is tedious and error-prone.
+
+{{> project-browser project="node-file-3" default-file="app.js"}}
+
+
+Some of the code should be familar from the last example. This example uses the [csv-parse](https://csv.js.org/parse/) library for node.js.
+
+```
+const csvParse = require('csv-parse/lib/sync');
+```
+
+Instead of iterating the lines of the file it's just passed off to the CSV parser library synchronous API. 
+
+```
+const fileContents = fs.readFileSync(name, 'utf8');
+
+const records = csvParse(fileContents, {
+    columns: true,
+    skip_empty_lines: true
+});
+
+allRecords = allRecords.concat(records);
+```	
+
+Using this library makes it easy to handle CSV files with a column key, like this:
+
+```
+deviceId,imei
+ffffccdf6d8afd8ad9a07bca68c032679497a815b4ff,89010004372529771299
+ffff0ca58d28b3b1025e519ead61f49ae8cf4f229479,89010002298444647953
+```
+
+The `csvParse()` method returns an array of records, with each element being an object with the column key and the data in the CSV. This means the data is tied to the labels and not the actual column order, in case the file format changes later.
+
+
+Full output:
+
+```
+% node app.js ids.csv
+allRecords [
+  {
+    deviceId: 'ffffccdf6d8afd8ad9a07bca68c032679497a815b4ff',
+    imei: '89010004372529771299'
+  },
+  {
+    deviceId: 'ffff0ca58d28b3b1025e519ead61f49ae8cf4f229479',
+    imei: '89010002298444647953'
+  },
+  {
+    deviceId: 'ffff2a0d08f176f66433c5fcbc48c589f8c771ebf22c',
+    imei: '89010006297990926908'
+  },
+  {
+    deviceId: 'ffffbcc12364ef4a96f7caff3d5e50149a1bf0fa7fff',
+    imei: '89010002431661878684'
+  }
+]
+ffffccdf6d8afd8ad9a07bca68c032679497a815b4ff
+ffff0ca58d28b3b1025e519ead61f49ae8cf4f229479
+ffff2a0d08f176f66433c5fcbc48c589f8c771ebf22c
+ffffbcc12364ef4a96f7caff3d5e50149a1bf0fa7fff
+```
 
 
 ## More techniques
