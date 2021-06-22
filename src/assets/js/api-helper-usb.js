@@ -636,6 +636,19 @@ $(document).ready(function () {
                     }
                     else
                     if (userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
+                        if (dfuseDevice.startAddress == 0xb4000 && userFirmwareBinary.byteLength < (129 * 1024)) {
+                            // Gen 3 256K binary. Erase the 128K binary slot because the new binary is < 128K
+                            // the 128K binary will still be there and have precedence, ignoring the new binary.
+                            const savedStart = dfuseDevice.startAddress;
+
+                            dfuseDevice.startAddress = 0xd4000;
+                            let emptyArray = new Uint8Array(1024);
+                            emptyArray.fill(0xff);
+                            await dfuseDevice.do_download(4096, emptyArray, {});
+
+                            dfuseDevice.startAddress = savedStart;
+                        }
+
                         await dfuseDevice.do_download(4096, userFirmwareBinary, {});
                     }
                     else {
