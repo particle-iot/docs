@@ -194,9 +194,10 @@ function generateHex(userBinFile, hexData) {
         const checksum = buf[4 + len];
 
         // User firmware binary locations:
-        // 0x00D4000 Gen 3
+        // 0x00b4000 Gen 3 (256K)
+        // 0x00d4000 Gen 3 (128K)
         // 0x8080000 Electron/E Series
-        // 0x80A0000 Photon/P1
+        // 0x80a0000 Photon/P1
 
 
         const calcChecksum = calculateBufferChecksum(buf);
@@ -221,8 +222,12 @@ function generateHex(userBinFile, hexData) {
             if (recType == 0) {
                 if (hexDataBaseAddrStart >= 0) {
 
+                    if (baseAddr == 0xb0000 && addr == 0x4000) {
+                        // console.log('start of gen 3 256K user part ' + hexDataOffset);
+                    }
+                    else
                     if (baseAddr == 0xd0000 && addr == 0x4000) {
-                        // console.log('start of gen 3 user part ' + hexDataOffset);
+                        // console.log('start of gen 3 128K user part ' + hexDataOffset);
                     }
                     else
                     if (baseAddr == 0x8080000 && addr == 0) {
@@ -318,7 +323,8 @@ function arrayBufferToHex(arrayBuffer, loadAddress) {
     // Both the baseAddress and address in the data record are 16-bit, and
     // are combined to make a 32-bit address. However, when loading a binary
     // file it's not always loaded on a 16-bit boundary! 
-    // For example, a Gen 3 user binary is loaded at 0xD4000.
+    // For example, a Gen 3 user binary is loaded at 0xD4000 (128K) or 
+    // 0xb4000 (256K) with Device OS 3.1 and later.
     // It does need to be an even multiple of the chunk size, but that's 16
     // bytes and should not be an issue.
     
