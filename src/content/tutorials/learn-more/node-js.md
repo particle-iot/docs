@@ -100,7 +100,7 @@ for(int ii = 0; ii < 10; ii++) {
 
 - Like C++, you can declare a variable within the loop construct. In C++ you need a type like `int` or `size_t` but Javascript variables don't have a type. You instead declare it with `let` or `var`.
 - Instead of using `sprintf` formatting like in our Particle device code, we just concatenate a string and number using `+` in Javascript.
-- We'll get into `let` vs. `var` later on, but in this example, either would work. The `let` and `const` statements were added in the ES6 version of Javascript, and many examples you find on the Internet will use `var` for compatibility with old versions.
+- There are both `let` vs. `var` but in this example, either would work. The `let` and `const` statements were added in the ES6 version of Javascript, and many examples you find on the Internet will use `var` for compatibility with old versions.
 
 Like C++, Javascript tends to use 0-based indexes in loops and in particular arrays, but making a 1-based loop is just as easy as C++:
 
@@ -269,8 +269,71 @@ console.log('add(3.5, 5.5) = ' + add(3.5, 5.5));
 
 Arrays are good when you have a sequence of values, but you'll also want to use objects and properties. These are a named key and its associated value, which can be any Javascript type (boolean, number, string, array, another object, or a function). Properties are often used to pass configuration data into functions in Javascript because named parameters are much more scalable than positional parameters as in C++.
 
+To declare an object in Javascript:
 
-TKTK
+```
+let myObj = {
+    "a":123,
+    "b":"testing!"
+}
+```
+
+If you understand JSON you'll immediately notice the similarities. However, Javascript is much more relaxed about syntax. You can use single or double quotes:
+
+```
+let myObj = {
+    'a':123,
+    'b':'testing!'
+}
+```
+
+And you can omit the quotes on the key if there are no special characters in it:
+
+```
+let myObj = {
+    a:123,
+    b:'testing!'
+}
+```
+
+This is a shorthand. You can explicitly declare each member if you want:
+
+```
+let myObj = {};
+myObj.a = 123;
+myObj.b = 'testing!';
+```
+
+One difference between Javascript and C++ is that square brackets can be used to access both arrays and objects. Note that the c is quoted here; if you didn't include the quotes the part inside the `[]` must be a variable, which is handy if you want to calculate which object property to read or write.
+
+```
+myObj['c'] = 'another element';
+```
+
+Objects can contain more objects and arrays, as well.
+
+```
+let myObj = {
+    a:123,
+    b:'testing!',
+    c:[5, 6, 7, 8],
+    d: {
+        aa: true
+        bb: 3.333
+    }
+}
+```
+
+Even functions:
+
+```
+let myObj = {
+    a:123,
+    b:'testing!',
+    callback: function(obj) {
+        console.log('callback called!', obj);
+    }
+```
 
 
 ## Asynchronous functions
@@ -303,7 +366,7 @@ The previous syntax is really common, however if you're coming from old-style C/
 
 {{> codebox content="/assets/files/node-tutorial/timer2.js" format="js" height="200"}}
 
-Also, if you're searching the web for node/Javascript examples you'll encounter arrow functions, which we'll get into later. The syntax looks like this and the code works the same:
+Also, if you're searching the web for node/Javascript examples you'll encounter arrow functions. The syntax looks like this and the code works the same:
 
 {{> codebox content="/assets/files/node-tutorial/timer3.js" format="js" height="200"}}
 
@@ -408,14 +471,14 @@ npm install
 And then set your access token and run:
 
 ```
-export PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
+export PARTICLE_AUTH=fffffff344ede465db1ce541461e41eb5219749d                     
 node app.js
 ```
 
 Or for Windows:
 
 ```
-set PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
+set PARTICLE_AUTH=fffffff344ede465db1ce541461e41eb5219749d
 node app.js
 ```
 
@@ -457,7 +520,7 @@ The parameter is in both `()` and `{}`. The reason is this library uses named pa
 
 The single parameter we pass in is called `auth` and it's initialized to our `accessToken` variable.
 
-Then there is the `then`. The listDevices API will do its work asynchronously, then it will either call the first function on success, or call the second function on error. That's a simplified explanation and we'll go into more details about later.
+Then there is the `then`. The listDevices API will do its work asynchronously, then it will either call the first function on success, or call the second function on error. That's a simplified explanation.
 
 It's also worth mentioning `console.log('Devices', devices)`. You'll notice there's a comma, not a `+` before `devices`. The `console.log()` function can either take a single string, or it can take a string and an object. The object will be pretty-printed in the output so you can see all of the contents!
 
@@ -683,16 +746,16 @@ The output should look like this:
 ```
 % node app.js deviceIds.txt
 deviceIds [
-  'ffff612f63b2c4781c89ab05',
-  'ffff0a0efca0e86e6b69de49',
-  'ffff3d154257de8c99304d17',
-  'ffff421a72c782534ce79a1c',
-  'ffff992c347a2799c527474a',
-  'ffff84245bdd01f253cc2729',
-  'ffff927f5256473d4fe4d04c',
-  'ffffaa8514c8fac8c7800f0a',
-  'ffff228d18232080e34a488f',
-  'ffff0ff88dd054aed19aaaa8'
+  'ffff8db41188ef384f6bc425',
+  'ffffeb93d65d7ac6005dbe64',
+  'ffff57a7aec00b13955458a5',
+  'ffff3e241d61256cd4b285de',
+  'ffff14031c46fa0d034800f9',
+  'ffffdaf61e1ec9e8b12dca3b',
+  'ffff04202004dac1dc1b52a3',
+  'ffff71a58aed2acbccec6a26',
+  'fffff006441bbb7fd0da24f9',
+  'ffff84b3e7f2c0a6d9ad93ba'
 ]
 ```
 
@@ -728,8 +791,9 @@ Using this library makes it easy to handle CSV files with a column key, like thi
 
 ```
 deviceId,imei
-ffffccdf6d8afd8ad9a07bca68c032679497a815b4ff,89010004372529771299
-ffff0ca58d28b3b1025e519ead61f49ae8cf4f229479,89010002298444647953
+ffffb83d01d2aae50a12a0b6,89010009533675340735
+ffff54e0aa399e010f5e5c25,89010004583001443088
+...
 ```
 
 The `csvParse()` method returns an array of records, with each element being an object with the column key and the data in the CSV. This means the data is tied to the labels and not the actual column order, in case the file format changes later.
@@ -741,26 +805,31 @@ Full output:
 % node app.js ids.csv
 allRecords [
   {
-    deviceId: 'ffffccdf6d8afd8ad9a07bca68c032679497a815b4ff',
-    imei: '89010004372529771299'
+    deviceId: 'ffffb83d01d2aae50a12a0b6',
+    imei: '89010009533675340735'
   },
   {
-    deviceId: 'ffff0ca58d28b3b1025e519ead61f49ae8cf4f229479',
-    imei: '89010002298444647953'
+    deviceId: 'ffff54e0aa399e010f5e5c25',
+    imei: '89010004583001443088'
   },
   {
-    deviceId: 'ffff2a0d08f176f66433c5fcbc48c589f8c771ebf22c',
-    imei: '89010006297990926908'
+    deviceId: 'ffff4a73a348c62c9a928361',
+    imei: '89010002073644760033'
   },
   {
-    deviceId: 'ffffbcc12364ef4a96f7caff3d5e50149a1bf0fa7fff',
-    imei: '89010002431661878684'
+    deviceId: 'ffff10ab47bb9c98d42dd93b',
+    imei: '89010007159791067705'
+  },
+  {
+    deviceId: 'ffff50f908d5104debc4563f',
+    imei: '89010008949712709354'
   }
 ]
-ffffccdf6d8afd8ad9a07bca68c032679497a815b4ff
-ffff0ca58d28b3b1025e519ead61f49ae8cf4f229479
-ffff2a0d08f176f66433c5fcbc48c589f8c771ebf22c
-ffffbcc12364ef4a96f7caff3d5e50149a1bf0fa7fff
+ffffb83d01d2aae50a12a0b6
+ffff54e0aa399e010f5e5c25
+ffff4a73a348c62c9a928361
+ffff10ab47bb9c98d42dd93b
+ffff50f908d5104debc4563f
 ```
 
 
