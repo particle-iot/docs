@@ -11,7 +11,7 @@ orbs:
 
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
-  build:  
+  build-deploy:  
     # These next lines define a Docker executor: https://circleci.com/docs/2.0/executor-types/
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
@@ -29,28 +29,30 @@ jobs:
       # - node/install-packages:
       #     pkg-manager: yarn 
       - run:
+          name: install AWS CLI (first install pip, the Python package manager)
+          command: |
+            apk add --update python python-dev py-pip build-base
+            pip install awscli
+
+      - run:
           name: Build
           command: npm test
 
-  deploy-staging:
-    docker:
-      - image: 'cimg/python:3.6'
-    steps:
-      - aws-s3/sync:
-          arguments: |
-            --dryrun \
-            --acl public-read \
-            --cache-control "max-age=300"
-          from: build
-          to: 's3://docs.staging.particle.io'
+      - deploy:
+          name: deploy to AWS
+          command: |
+            if [ "${CIRCLE_BRANCH}" = "circleci-project-setup" ]; then
+              aws s3 sync --dryrun --acl public-read --cache-control "max-age=300" \
+              build \
+              s3://docs.staging.particle.io
+            else
+              echo "Not master branch, dry run only"
+            fi
 
 
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
-      - deploy-staging:
-          requires:
-            - build
+      - build-deploy
 
