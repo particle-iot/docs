@@ -66,5 +66,5 @@ workflows:
             - build
           filters:
             branches:
-              only: circle-ci-project-setup
+              only: circleci-project-setup
 
