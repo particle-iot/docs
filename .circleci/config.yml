@@ -39,9 +39,7 @@ jobs:
       - aws-s3/sync:
           arguments: |
             --dryrun \
-            --no-preserve \
             --acl public-read \
-            --delete-removed --no-mime-magic --guess-mime-type \
             --cache-control "max-age=300"
           from: build
           to: 's3://docs.staging.particle.io'
