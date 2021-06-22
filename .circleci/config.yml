@@ -22,11 +22,6 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
-      - persist_to_workspace: 
-          root: .
-          paths:
-            - build
-
       # Checkout the code as the first step.
       - checkout
       # Next, the node orb's install-packages step will install the dependencies from a package.json.
@@ -39,13 +34,19 @@ jobs:
           name: Build
           command: npm test
 
+      - persist_to_workspace: 
+          root: workspace
+          paths:
+            - build
+
+
   deploy-staging:
     docker:
       - image: 'cimg/python:3.6'
     steps:
       - attach_workspace:
         # Must be absolute path or relative path from working_directory
-          at: .
+          at: workspace
       - aws-s3/sync:
           arguments: |
             --dryrun \
