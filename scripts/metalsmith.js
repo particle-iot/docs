@@ -300,7 +300,7 @@ exports.compress = function (callback) {
 
 exports.build = function (callback) {
   git.branch(function (str) {
-    gitBranch = process.env.TRAVIS_BRANCH || str;
+    gitBranch = process.env.CIRCLE_BRANCH || str;
     exports.metalsmith()
       .build(function (err, files) {
         if (err) {
@@ -316,7 +316,7 @@ exports.build = function (callback) {
 exports.test = function (callback) {
   var server = serve({ cache: 300, port: 8081 });
   git.branch(function (str) {
-    gitBranch = process.env.TRAVIS_BRANCH || str;
+    gitBranch = process.env.CIRCLE_BRANCH || str;
     generateSearch = true;
     exports.metalsmith()
       .use(server)
@@ -335,7 +335,7 @@ exports.test = function (callback) {
 exports.server = function (callback) {
   environment = 'development';
   git.branch(function (str) {
-    gitBranch = process.env.TRAVIS_BRANCH || str;
+    gitBranch = process.env.CIRCLE_BRANCH || str;
     exports.metalsmith().use(serve({ port: 8080 }))
       .use(watch({
         paths: {
