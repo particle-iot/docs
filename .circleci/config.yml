@@ -23,7 +23,7 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - persist_to_workspace: 
-          root: workspace
+          root: .
           paths:
             - build
 
@@ -45,7 +45,7 @@ jobs:
     steps:
       - attach_workspace:
         # Must be absolute path or relative path from working_directory
-          at: workspace
+          at: .
       - aws-s3/sync:
           arguments: |
             --dryrun \
