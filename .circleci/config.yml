@@ -35,7 +35,7 @@ jobs:
           command: npm test
 
       - persist_to_workspace: 
-          root: workspace
+          root: .
           paths:
             - build
 
@@ -46,13 +46,13 @@ jobs:
     steps:
       - attach_workspace:
         # Must be absolute path or relative path from working_directory
-          at: workspace
+          at: .
       - aws-s3/sync:
           arguments: |
             --dryrun \
             --acl public-read \
             --cache-control "max-age=300"
-          from: workspace/build
+          from: build
           to: 's3://docs.staging.particle.io'
 
 
