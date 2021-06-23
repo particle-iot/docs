@@ -28,7 +28,7 @@ The examples here require a minimum of version 12. The LTS version at the time o
 
 Not surprisingly we'll start with a Hello World example, which is really simple:
 
-{{> codebox content="/assets/files/node-tutorial/hello.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/hello.js" format="js"}}
 
 To run it, you create or download the hello.js file, then:
 
@@ -67,7 +67,7 @@ console.log("hello world!")
 
 The for loop construct looks like it does in C++, with three parts: initialization, test, and increment steps separated by semicolons:
 
-{{> codebox content="/assets/files/node-tutorial/for-loop.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/for-loop.js" format="js"}}
 
 To run it, you create or download the for-loop.js file, then:
 
@@ -104,7 +104,7 @@ for(int ii = 0; ii < 10; ii++) {
 
 Like C++, Javascript tends to use 0-based indexes in loops and in particular arrays, but making a 1-based loop is just as easy as C++:
 
-{{> codebox content="/assets/files/node-tutorial/for-loop1.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/for-loop1.js" format="js"}}
 
 This outputs:
 
@@ -123,42 +123,41 @@ testing 10
 
 If you're converting from the DOS command prompt for loop, that might look like this:
 
-{{> codebox content="/assets/files/node-tutorial/loop1.bat" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/loop1.bat" format="js"}}
 
 - `/L` is a incrementing loop
 - The first value (1) is the start
 - The second value (1) is the increment
 - The third value (10) is end condition (inclusive)
 
+If you're coming from a Fortran background, the for loop is called do:
 
-If you're coming from a Fortran background, it's not that different from:
-
-{{> codebox content="/assets/files/node-tutorial/for-loop.f95" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/for-loop.f95" format="js"}}
 
 
 #### while loop (top-test)
 
 You can do a `while` loop with a top test, like C++.
 
-{{> codebox content="/assets/files/node-tutorial/while-loop.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/while-loop.js" format="js"}}
 
 If you're coming from a Python background, the syntax is different, but the construct looks more or less the same:
 
-{{> codebox content="/assets/files/node-tutorial/while1.py" format="py" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/while1.py" format="py"}}
 
 
 #### do-while loop (bottom-test)
 
 You can do a `while` loop with a bottom test, like C++, too.
 
-{{> codebox content="/assets/files/node-tutorial/do-while-loop.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/do-while-loop.js" format="js"}}
 
 
 ### Conditionals
 
 Conditionals, `if` statements, work like C++:
 
-{{> codebox content="/assets/files/node-tutorial/if1.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/if1.js" format="js"}}
 
 Note that this code outputs this:
 
@@ -172,6 +171,96 @@ testing 8
 
 The reason is that the `if` statement uses the modulus operator `%` in modulo 2 to check for even numbers. This works the same as C++.
 
+#### if - else
+
+Like C++, there is also an if - else:
+
+```
+if (a >= 10) {
+    console.log('a was greater than or equal to 10');
+}
+else {
+    console.log('a was less than 10');
+}
+```
+
+And multiple conditions:
+
+```
+if (a >= 20) {
+    console.log('a was greater than or equal to 20');
+}
+else if (a >= 10) {
+    console.log('a was greater than or equal to 10');
+}
+else {
+    console.log('a was less than 10');
+}
+```
+
+This is different than shell/bash, which has an odd syntax:
+
+```
+if [$a -ge 20] 
+then
+    echo "a was greater than or equal to 20"
+elif [$a -ge 10]
+then
+    echo "a was greater than or equal to 20"
+else
+    echo "a was less than 10"
+fi
+```
+
+#### Bracket placement
+
+The placement of the curly brackets doesn't matter in Javascript or C++, but may start an argument with other programmers.
+
+```
+if (condition) 
+{
+    console.log('condition was true');
+}
+```
+
+Or omitted for single lines:
+
+```
+if (condition) 
+    console.log('condition was true');
+```
+
+
+### Comparison
+
+The comparison operators work like C++:
+
+| Operator | Description |
+| :---: | :--- |
+| `==` | Equal to |
+| `!=` | Not equal to |
+| `>` | Greater than |
+| `<` | Less than |
+| `>=` | Greater than or equal to |
+| `<=` | Less than or equal to |
+
+#### Comparing strings
+
+Unlike C++ native c-strings, you can compare Javascript strings for equality using `==` and `!=` instead of having to use a function like `strcmp()`.
+
+
+#### Equal type operators
+
+You'll see these used in many examples on the web:
+
+| Operator | Description |
+| :---: | :--- |
+| `===` | Equal to and same type |
+| `!==` | Not equal to or different type |
+
+The difference is that if you test `2 == "2"` the result is true. The have the same value, but a different type. The left-hand side is a number and the right-hand side is a string. 
+
+Using `2 === "2"` would return false because they have different types.
 
 ### Arrays
 
@@ -180,7 +269,7 @@ Arrays will be familiar to C++ programmers, but there are some differences:
 - You don't need to declare the size of a Javascript array, it automatically grows as needed
 - Arrays don't have a data type. In fact, each element can have a different type of data (string, number, boolean, etc.)
 
-{{> codebox content="/assets/files/node-tutorial/array1.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/array1.js" format="js"}}
 
 This outputs:
 
@@ -203,7 +292,7 @@ Of note in this example:
 
 The array style above is very C++-like, but there's a more Javascripty and less verbose way to do it, using the for - of statement:
 
-{{> codebox content="/assets/files/node-tutorial/array2.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/array2.js" format="js"}}
 
 The output is the same as above.
 
@@ -213,7 +302,7 @@ The output is the same as above.
 
 Incidentally, you can declare an array almost anywhere, and the array can contain other types of data. This works too!
 
-{{> codebox content="/assets/files/node-tutorial/loop2.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/loop2.js" format="js"}}
 
 Output:
 
@@ -229,25 +318,25 @@ There's another common way this is done, see [array with iterator function](#arr
 
 That syntax may look familar to DOS command prompt batch file users:
 
-{{> codebox content="/assets/files/node-tutorial/loop2.bat" format="bat" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/loop2.bat" format="bat"}}
 
 #### Python array loop
 
 Or Python users:
 
-{{> codebox content="/assets/files/node-tutorial/loop2.py" format="py" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/loop2.py" format="py"}}
 
 #### Unix Shell
 
 Or sh (or bash) users:
 
-{{> codebox content="/assets/files/node-tutorial/loop2.sh" format="sh" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/loop2.sh" format="sh"}}
 
 ### Functions
 
 Functions are declared using the `function` statement which can have 0 or more parameters, and optionally a return value.
 
-{{> codebox content="/assets/files/node-tutorial/function1.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/function1.js" format="js"}}
 
 This outputs:
 
@@ -340,7 +429,7 @@ let myObj = {
 
 Up to now things have been pretty simple syntax variations from other languages. Here's where things diverge and get more complicated.
 
-{{> codebox content="/assets/files/node-tutorial/timer1.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/timer1.js" format="js"}}
 
 This will output a new line every second;
 
@@ -364,21 +453,25 @@ There's a lot to unpack in this little bit of code.
 
 The previous syntax is really common, however if you're coming from old-style C/C++, this declaration of function style might be confusing. It's somewhat equivalent to this, which might be more familiar:
 
-{{> codebox content="/assets/files/node-tutorial/timer2.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/timer2.js" format="js"}}
 
 Also, if you're searching the web for node/Javascript examples you'll encounter arrow functions. The syntax looks like this and the code works the same:
 
-{{> codebox content="/assets/files/node-tutorial/timer3.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/timer3.js" format="js"}}
 
 #### Array with iterator function
 
 Remember this example for iterating an array earlier?
 
-{{> codebox content="/assets/files/node-tutorial/loop2.js" format="js" height="200"}}
+```js
+for(const e of ['apple', 'banana', 'cucumber']) {
+    console.log(e);
+}
+```
 
 There another common way this is handled in Javascript using `forEach`:
 
-{{> codebox content="/assets/files/node-tutorial/loop2b.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/loop2b.js" format="js"}}
 
 - An array is declared.
 - For each element in the array (`forEach`) call the specified function.
@@ -387,7 +480,7 @@ There another common way this is handled in Javascript using `forEach`:
 
 Or you can do this with arrow functions:
 
-{{> codebox content="/assets/files/node-tutorial/loop2c.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/loop2c.js" format="js"}}
 
 
 ## Simple techniques
@@ -405,7 +498,7 @@ For security reasons, the last one is usually the most secure, and is also how y
 
 You'll often put this boilerplate code at the top of your script:
 
-{{> codebox content="/assets/files/node-tutorial/auth1.js" format="js" height="200"}}
+{{> codebox content="/assets/files/node-tutorial/auth1.js" format="js"}}
 
 When you want to use your accessToken, for example with a Particle cloud API call, you just the `accessToken` variable.
 
@@ -636,7 +729,7 @@ This construct is used to make a full pathname to a file relative to the directo
 const testFilePath = path.join(__dirname, 'testfile.txt');
 ```
 
-The node file system API is actually two similar APIs, an asynchronous one (with callbacks or promises) and a `Sync` API that effectively blocks during the operation. For our test took, synchronous is fine and easier to use.
+The node file system API is actually two similar APIs, an asynchronous one (with callbacks or promises) and a `Sync` API that effectively blocks during the operation. For our test tool, synchronous is fine and easier to use.
 
 This command reads the entire file into RAM and returns it. The `utf8` parameter is so the data is read as text and stored in a string variable. Otherwise it's stored as binary data in a `Buffer` object.
 
@@ -831,28 +924,4 @@ ffff4a73a348c62c9a928361
 ffff10ab47bb9c98d42dd93b
 ffff50f908d5104debc4563f
 ```
-
-
-## More techniques
-
-
-### Async/await
-
-
-### Promise
-
-### Callbacks
-
-
-### Using the Particle API directly
-
-### Projects with multiple files
-
-### Delay
-
-There is no delay-like function built into Javascript. There are two techniques that are used instead:
-
-- `setTimer` with a callback
-- `setTimer` in a promise with async/await
-
 

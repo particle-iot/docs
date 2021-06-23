@@ -10,18 +10,18 @@ if (argv._.length == 0) {
 	process.exit(1);
 }
 
-for(const name of argv._) {
+for (const name of argv._) {
 	// console.log('processing ' + name);
-	
+
 	const fileContents = fs.readFileSync(name, 'utf8');
-	
+
 	const re = /([A-Fa-f0-9]{24})/;
 
-    for(const line of fileContents.split("\n")) {
-        const m = line.match(re);
-        if (m) {
+	for (const line of fileContents.split("\n")) {
+		const m = line.match(re);
+		if (m) {
 			deviceIds.push(m[1]);
-        }
+		}
 	}
 }
 

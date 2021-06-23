@@ -29,7 +29,7 @@
             <div class="codeboxFlashStatus"></div>
         </div>
     </div>
-    <div style="height:{{height}}px; overflow:scroll;">
+    <div {{#if height}}style="height:{{height}}px; overflow:scroll;"{{/if}}>
         <pre class="codeboxPre"><code class="codebox lang-{{format}}" data-content="{{content}}"></code></pre>
     </div>
 </div>

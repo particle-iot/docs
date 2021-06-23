@@ -23,13 +23,13 @@ for (const name of argv._) {
 	});
 
 	allRecords = allRecords.concat(records);
-}	
+}
 
 console.log('allRecords', allRecords);
 
 // If we only cared about the device IDs:
 
-for(const rec of allRecords) {
+for (const rec of allRecords) {
 	const deviceId = rec.deviceId;
 	console.log(deviceId);
 }
