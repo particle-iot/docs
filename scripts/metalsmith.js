@@ -95,15 +95,12 @@ exports.metalsmith = function () {
       'content/languages/**/*',
       'assets/images/**/*.ai'
     ]))
-    .use(msIf(
-      environment === 'development',
-      buildZip({
+    .use(buildZip({
         dirs: [
-          '../src/assets/files/app-notes/',
-          '../src/assets/files/projects/',
-        ],
-        tmpDir: '../tmp'
-    })))
+          'assets/files/app-notes/',
+          'assets/files/projects/',
+        ]
+    }))
     .use(msIf(
       environment === 'development',
       trackerSchema({

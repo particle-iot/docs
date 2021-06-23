@@ -1,0 +1,13 @@
+{
+    "name": "node-file",
+    "description": "Node.js file tutorial",
+    "private": true,
+    "engines": {
+        "node": ">=12"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}
