@@ -1,1 +1,478 @@
-[  {    "type": "get",    "url": "/v1/libraries",    "title": "List libraries",    "name": "listLibraries",    "description": "<p>List firmware libraries. This includes private libraries visibile only to the user.</p>",    "group": "Libraries_1",    "parameter": {      "fields": {        "Parameter": [          {            "group": "Parameter",            "type": "String",            "optional": true,            "field": "filter",            "description": "<p>Search for libraries with this partial name</p>"          },          {            "group": "Parameter",            "type": "String",            "allowedValues": [              "\"1\""            ],            "optional": true,            "field": "page",            "description": "<p>Page number</p>"          },          {            "group": "Parameter",            "type": "String",            "allowedValues": [              "\"10\""            ],            "optional": true,            "field": "limit",            "description": "<p>Items per page (max 100)</p>"          },          {            "group": "Parameter",            "type": "String",            "allowedValues": [              "\"popularity\""            ],            "optional": true,            "field": "sort",            "description": "<p>Sort order for results. Prefix with <code>-</code> for descending order.</p> <ul> <li><code>name</code></li> <li><code>installs</code></li> <li><code>popularity</code></li> <li><code>published</code></li> <li><code>updated</code></li> <li><code>created</code></li> <li><code>official</code></li> <li><code>verified</code></li> </ul>"          },          {            "group": "Parameter",            "type": "String",            "allowedValues": [              "\"all\""            ],            "optional": true,            "field": "scope",            "description": "<p>Which subset of libraries to list.</p> <ul> <li><code>all</code> to retrieve public libraries and any private libraries belonging to the user</li> <li><code>official</code> to retrieve official public libraries</li> <li><code>public</code> to retrieve public libraries</li> <li><code>mine</code> to retrieve only public libraries belonging to the current user</li> <li><code>private</code> to retrieve only private libraries (belonging to the current user).</li> </ul>"          },          {            "group": "Parameter",            "type": "String",            "optional": true,            "field": "excludeScopes",            "description": "<p>Which subsets of libraries to avoid listing, separated by comma. Same values as <code>scope</code>.</p>"          },          {            "group": "Parameter",            "type": "String",            "optional": true,            "field": "architectures",            "description": "<p>Architectures to list, separated by comma. Missing means all architectures.</p>"          }        ]      }    },    "success": {      "fields": {        "Success 200": [          {            "group": "Success 200",            "type": "Object[]",            "optional": false,            "field": "data",            "description": "<p>Array of library objects. Described in <a href=\"#get-library-details\">Get library details</a></p>"          }        ]      },      "examples": [        {          "title": "GET /v1/libraries?limit=2",          "content": "GET /v1/libraries?limit=2\nHTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      \"type\": \"libraries\",\n      \"id\": \"neopixel\",\n      \"links\": {\n        \"download\": \"https://library-archives.particle.io/libraries/neopixel/neopixel-0.0.10.tar.gz\"\n      },\n      \"attributes\": {\n        \"name\": \"neopixel\",\n        \"version\": \"0.0.10\",\n        \"installs\": 9125,\n        \"license\": \"GNU GPLv3\",\n        \"author\": \"Adafruit, Technobly\",\n        \"sentence\": \"An Implementation of Adafruit's NeoPixel Library for the Spark Core, Particle Photon, P1, Electron and RedBear Duo\",\n        \"url\": \"https://github.com/technobly/sparkcore-neopixel\",\n        \"repository\": \"https://github.com/technobly/sparkcore-neopixel.git\",\n        \"architectures\": [],\n        \"visibility\": \"public\",\n        \"official\": true,\n        \"mine\": false,\n        \"verified\": true\n      }\n    },\n    {\n      \"type\": \"libraries\",\n      \"id\": \"InternetButton\",\n      \"links\": {\n        \"download\": \"https://library-archives.particle.io/libraries/InternetButton/InternetButton-0.1.10.tar.gz\"\n      },\n      \"attributes\": {\n        \"name\": \"InternetButton\",\n        \"version\": \"0.1.10\",\n        \"installs\": 7660,\n        \"license\": \"LGPL\",\n        \"author\": \"Richard Whitney <richard@particle.io>\",\n        \"sentence\": \"Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`\",\n        \"url\": \"https://github.com/spark/internetbutton\",\n        \"repository\": \"https://github.com/spark/internetbutton.git\",\n        \"architectures\": [],\n        \"visibility\": \"public\",\n        \"official\": true,\n        \"mine\": false\n      }\n    }\n  ]\n}",          "type": "json"        }      ]    },    "header": {      "fields": {        "Header": [          {            "group": "Header",            "type": "String",            "optional": false,            "field": "Authorization",            "description": "<p>Access Token</p>"          }        ]      },      "examples": [        {          "title": "Authorization-Example",          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",          "type": "json"        }      ]    },    "examples": [      {        "title": "$ curl \"https://api.particle.io/v1/libraries?scope=official&sort=name&access_token=1234\"",        "content": "$ curl \"https://api.particle.io/v1/libraries?scope=official&sort=name&access_token=1234\"",        "type": "bash"      }    ],    "version": "0.0.0",    "filename": "/Users/rickk/Documents/src/docs-merge/docs/api-service-libraries/src/LibrariesController.js",    "groupTitle": "Libraries_1"  },  {    "type": "get",    "url": "/v1/libraries/:libraryName:",    "title": "Get library details",    "name": "getLibrary",    "description": "<p>Get details for a firmware library.</p>",    "group": "Libraries_2",    "parameter": {      "fields": {        "Parameter": [          {            "group": "Parameter",            "type": "String",            "optional": false,            "field": "libraryName",            "description": "<p>Name of library to retrieve (case insensitive)</p>"          },          {            "group": "Parameter",            "type": "String",            "allowedValues": [              "\"latest\""            ],            "optional": true,            "field": "version",            "description": "<p>Version to retrieve. Defaults to the latest version.</p>"          },          {            "group": "Parameter",            "type": "String",            "allowedValues": [              "\"all\""            ],            "optional": true,            "field": "scope",            "description": "<p>Which subset of versions to get.</p> <ul> <li><code>all</code></li> <li><code>public</code></li> <li><code>private</code></li> </ul>"          }        ]      }    },    "success": {      "fields": {        "Success 200": [          {            "group": "Success 200",            "type": "object",            "optional": false,            "field": "data",            "description": "<p>The library version in <a href=\"http://jsonapi.org/\">JSON API format</a></p>"          },          {            "group": "Success 200",            "type": "string",            "optional": false,            "field": "data.id",            "description": "<p>The name of the library</p>"          },          {            "group": "Success 200",            "type": "string",            "optional": false,            "field": "data.links.download",            "description": "<p>The URL to download the files for this library</p>"          },          {            "group": "Success 200",            "type": "string",            "optional": false,            "field": "data.attributes",            "description": "<p>Additional meta data for the library. Not all fields are available for every library.</p>"          }        ]      },      "examples": [        {          "title": "GET /v1/libraries/internetbutton",          "content": "GET /v1/libraries/internetbutton\nHTTP/1.1 200 OK\n{\n  \"data\": {\n    \"type\": \"libraries\",\n    \"id\": \"InternetButton\",\n    \"links\": {\n      \"download\": \"https://library-archives.particle.io/libraries/InternetButton/InternetButton-0.1.10.tar.gz\"\n    },\n    \"attributes\": {\n      \"name\": \"InternetButton\",\n      \"version\": \"0.1.10\",\n      \"installs\": 7660,\n      \"license\": \"LGPL\",\n      \"author\": \"Richard Whitney <richard@particle.io>\",\n      \"sentence\": \"Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`\",\n      \"url\": \"https://github.com/spark/internetbutton\",\n      \"repository\": \"https://github.com/spark/internetbutton.git\",\n      \"architectures\": [],\n      \"visibility\": \"public\",\n      \"official\": true,\n      \"mine\": false\n    }\n  }\n}",          "type": "json"        }      ]    },    "header": {      "fields": {        "Header": [          {            "group": "Header",            "type": "String",            "optional": false,            "field": "Authorization",            "description": "<p>Access Token</p>"          }        ]      },      "examples": [        {          "title": "Authorization-Example",          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",          "type": "json"        }      ]    },    "examples": [      {        "title": "$ curl \"https://api.particle.io/v1/libraries/internetbutton?access_token=1234\"",        "content": "$ curl \"https://api.particle.io/v1/libraries/internetbutton?access_token=1234\"",        "type": "bash"      }    ],    "version": "0.0.0",    "filename": "/Users/rickk/Documents/src/docs-merge/docs/api-service-libraries/src/LibrariesController.js",    "groupTitle": "Libraries_2"  },  {    "type": "get",    "url": "/v1/libraries/:libraryName:/versions",    "title": "Get library versions",    "name": "getLibraryVersions",    "description": "<p>Get details for all versions of a firmware library.</p>",    "group": "Libraries_3",    "parameter": {      "fields": {        "Parameter": [          {            "group": "Parameter",            "type": "String",            "optional": false,            "field": "libraryName",            "description": "<p>Name of library to retrieve (case insensitive)</p>"          },          {            "group": "Parameter",            "type": "String",            "allowedValues": [              "\"all\""            ],            "optional": true,            "field": "scope",            "description": "<p>Which subset of versions to get.</p> <ul> <li><code>all</code></li> <li><code>public</code></li> <li><code>private</code></li> </ul>"          }        ]      }    },    "success": {      "fields": {        "Success 200": [          {            "group": "Success 200",            "type": "Object[]",            "optional": false,            "field": "data",            "description": "<p>Array of library version objects. Described in <a href=\"#get-library-details\">Get library details</a></p>"          }        ]      },      "examples": [        {          "title": "GET /v1/libraries/internetbutton/versions",          "content": "GET /v1/libraries/internetbutton/versions\nHTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      \"type\": \"libraries\",\n      \"id\": \"InternetButton\",\n      \"links\": {\n        \"download\": \"https://library-archives.particle.io/libraries/InternetButton/InternetButton-0.1.9.tar.gz\"\n      },\n      \"attributes\": {\n        \"name\": \"InternetButton\",\n        \"version\": \"0.1.9\",\n        \"installs\": 7660,\n        \"license\": \"LGPL\",\n        \"author\": \"Richard Whitney <richard@particle.io>\",\n        \"sentence\": \"Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`\",\n        \"url\": \"https://github.com/spark/internetbutton\",\n        \"repository\": \"https://github.com/spark/internetbutton.git\",\n        \"architectures\": [],\n        \"visibility\": \"public\",\n        \"official\": true,\n        \"mine\": false\n      }\n    },\n    {\n      \"type\": \"libraries\",\n      \"id\": \"InternetButton\",\n      \"links\": {\n        \"download\": \"https://library-archives.particle.io/libraries/InternetButton/InternetButton-0.1.10.tar.gz\"\n      },\n      \"attributes\": {\n        \"name\": \"InternetButton\",\n        \"version\": \"0.1.10\",\n        \"installs\": 7660,\n        \"license\": \"LGPL\",\n        \"author\": \"Richard Whitney <richard@particle.io>\",\n        \"sentence\": \"Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`\",\n        \"url\": \"https://github.com/spark/internetbutton\",\n        \"repository\": \"https://github.com/spark/internetbutton.git\",\n        \"architectures\": [],\n        \"visibility\": \"public\",\n        \"official\": true,\n        \"mine\": false\n      }\n    }\n  ]\n}",          "type": "json"        }      ]    },    "header": {      "fields": {        "Header": [          {            "group": "Header",            "type": "String",            "optional": false,            "field": "Authorization",            "description": "<p>Access Token</p>"          }        ]      },      "examples": [        {          "title": "Authorization-Example",          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",          "type": "json"        }      ]    },    "version": "0.0.0",    "filename": "/Users/rickk/Documents/src/docs-merge/docs/api-service-libraries/src/LibrariesController.js",    "groupTitle": "Libraries_3"  },  {    "type": "post",    "url": "/v1/libraries/:libraryName:",    "title": "Upload library version",    "name": "uploadLibrary",    "description": "<p>Upload a private version of a firmware library. If the library doesn't exist it is created.</p> <p>The library will be validated and an error response returned if invalid.</p>",    "group": "Libraries_4",    "parameter": {      "fields": {        "Parameter": [          {            "group": "Parameter",            "type": "String",            "optional": false,            "field": "libraryName",            "description": "<p>Name of library to retrieve (case insensitive)</p>"          },          {            "group": "Parameter",            "type": "File",            "optional": false,            "field": "archive",            "description": "<p>A tar-gzip archive of all the files for the library.</p> <p>The meta data like name and version is taken from <code>library.properties.</code> See <a href=\"https://github.com/spark/uber-library-example\">the example library</a> for other files to include.</p>"          }        ]      }    },    "success": {      "fields": {        "Success 200": [          {            "group": "Success 200",            "type": "Object",            "optional": false,            "field": "data",            "description": "<p>The library version created. Described in <a href=\"#get-library-details\">Get library details</a></p>"          }        ]      },      "examples": [        {          "title": "POST /v1/libraries",          "content": "POST /v1/libraries\nHTTP/1.1 201 Created\n{\n  \"data\": {\n    \"type\": \"libraries\",\n    \"id\": \"testlib43\",\n    \"links\": {\n      \"download\": \"https://library-archives.particle.io/libraries/testlib43/testlib43-1.0.2.tar.gz\"\n    },\n    \"attributes\": {\n      \"name\": \"testlib43\",\n      \"version\": \"1.0.2\",\n      \"license\": \"MIT\",\n      \"author\": \"JV\",\n      \"sentence\": \"one sentence description of this library\",\n      \"url\": \"the URL of the project, like https://github.com/mygithub_user/my_repo\",\n      \"repository\": \"mygithub_user/my_repo\",\n      \"architectures\": [],\n      \"visibility\": \"private\"\n    }\n  }\n}",          "type": "json"        }      ]    },    "header": {      "fields": {        "Header": [          {            "group": "Header",            "type": "String",            "optional": false,            "field": "Authorization",            "description": "<p>Access Token</p>"          }        ]      },      "examples": [        {          "title": "Authorization-Example",          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",          "type": "json"        }      ]    },    "examples": [      {        "title": "$ curl -F \"archive=@library.tar.gz\" \"https://api.particle.io/v1/libraries?access_token=1234\"",        "content": "$ curl -F \"archive=@library.tar.gz\" \"https://api.particle.io/v1/libraries?access_token=1234\"",        "type": "bash"      }    ],    "error": {      "examples": [        {          "title": "POST /v1/libraries",          "content": "POST /v1/libraries\nHTTP/1.1 400 Bad Request\n{\n  \"errors\": [\n    {\n      \"message\": \"This version is not valid. Version must be greater than or equal to 1.0.2\"\n    }\n  ]\n}",          "type": "json"        }      ]    },    "version": "0.0.0",    "filename": "/Users/rickk/Documents/src/docs-merge/docs/api-service-libraries/src/LibrariesController.js",    "groupTitle": "Libraries_4"  },  {    "type": "patch",    "url": "/v1/libraries/:libraryName:",    "title": "Make a library version public",    "name": "publishLibrary",    "description": "<p>Make the latest private version of a firmware library public. You must do this before others can access your uploaded library.</p>",    "group": "Libraries_5",    "parameter": {      "fields": {        "Parameter": [          {            "group": "Parameter",            "type": "String",            "optional": false,            "field": "libraryName",            "description": "<p>Name of library to retrieve (case insensitive)</p>"          },          {            "group": "Parameter",            "type": "String",            "optional": false,            "field": "visibility",            "description": "<p>Must be set to <code>public</code> to publish a library.</p>"          }        ]      }    },    "success": {      "fields": {        "Success 200": [          {            "group": "Success 200",            "type": "Object",            "optional": false,            "field": "data",            "description": "<p>The library version published. Described in <a href=\"#get-library-details\">Get library details</a></p>"          }        ]      },      "examples": [        {          "title": "PATCH /v1/libraries/testlib43",          "content": "PATCH /v1/libraries/testlib43\nHTTP/1.1 200 OK\n{\n  \"data\": {\n    \"type\": \"libraries\",\n    \"id\": \"testlib43\",\n    \"links\": {\n      \"download\": \"https://library-archives.particle.io/libraries/testlib43/testlib43-1.0.2.tar.gz\"\n    },\n    \"attributes\": {\n      \"name\": \"testlib43\",\n      \"version\": \"1.0.2\",\n      \"license\": \"MIT\",\n      \"author\": \"JV\",\n      \"sentence\": \"one sentence description of this library\",\n      \"url\": \"the URL of the project, like https://github.com/mygithub_user/my_repo\",\n      \"repository\": \"mygithub_user/my_repo\",\n      \"architectures\": [],\n      \"visibility\": \"public\"\n    }\n  }\n}",          "type": "json"        }      ]    },    "header": {      "fields": {        "Header": [          {            "group": "Header",            "type": "String",            "optional": false,            "field": "Authorization",            "description": "<p>Access Token</p>"          }        ]      },      "examples": [        {          "title": "Authorization-Example",          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",          "type": "json"        }      ]    },    "examples": [      {        "title": "$ curl -X PATCH -d \"visibility=public\" \"https://api.particle.io/v1/libraries/testlib43?access_token=1234\"",        "content": "$ curl -X PATCH -d \"visibility=public\" \"https://api.particle.io/v1/libraries/testlib43?access_token=1234\"",        "type": "bash"      }    ],    "version": "0.0.0",    "filename": "/Users/rickk/Documents/src/docs-merge/docs/api-service-libraries/src/LibrariesController.js",    "groupTitle": "Libraries_5"  }]
+[
+  {
+    "type": "get",
+    "url": "/v1/libraries",
+    "title": "List libraries",
+    "name": "listLibraries",
+    "description": "<p>List firmware libraries. This includes private libraries visibile only to the user.</p>",
+    "group": "Libraries_1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "filter",
+            "description": "<p>Search for libraries with this partial name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"1\""
+            ],
+            "optional": true,
+            "field": "page",
+            "description": "<p>Page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"10\""
+            ],
+            "optional": true,
+            "field": "limit",
+            "description": "<p>Items per page (max 100)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"popularity\""
+            ],
+            "optional": true,
+            "field": "sort",
+            "description": "<p>Sort order for results. Prefix with <code>-</code> for descending order.</p> <ul> <li><code>name</code></li> <li><code>installs</code></li> <li><code>popularity</code></li> <li><code>published</code></li> <li><code>updated</code></li> <li><code>created</code></li> <li><code>official</code></li> <li><code>verified</code></li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"all\""
+            ],
+            "optional": true,
+            "field": "scope",
+            "description": "<p>Which subset of libraries to list.</p> <ul> <li><code>all</code> to retrieve public libraries and any private libraries belonging to the user</li> <li><code>official</code> to retrieve official public libraries</li> <li><code>public</code> to retrieve public libraries</li> <li><code>mine</code> to retrieve only public libraries belonging to the current user</li> <li><code>private</code> to retrieve only private libraries (belonging to the current user).</li> </ul>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "excludeScopes",
+            "description": "<p>Which subsets of libraries to avoid listing, separated by comma. Same values as <code>scope</code>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "architectures",
+            "description": "<p>Architectures to list, separated by comma. Missing means all architectures.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Array of library objects. Described in <a href=\"#get-library-details\">Get library details</a></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/libraries?limit=2",
+          "content": "GET /v1/libraries?limit=2\nHTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      \"type\": \"libraries\",\n      \"id\": \"neopixel\",\n      \"links\": {\n        \"download\": \"https://library-archives.particle.io/libraries/neopixel/neopixel-0.0.10.tar.gz\"\n      },\n      \"attributes\": {\n        \"name\": \"neopixel\",\n        \"version\": \"0.0.10\",\n        \"installs\": 9125,\n        \"license\": \"GNU GPLv3\",\n        \"author\": \"Adafruit, Technobly\",\n        \"sentence\": \"An Implementation of Adafruit's NeoPixel Library for the Spark Core, Particle Photon, P1, Electron and RedBear Duo\",\n        \"url\": \"https://github.com/technobly/sparkcore-neopixel\",\n        \"repository\": \"https://github.com/technobly/sparkcore-neopixel.git\",\n        \"architectures\": [],\n        \"visibility\": \"public\",\n        \"official\": true,\n        \"mine\": false,\n        \"verified\": true\n      }\n    },\n    {\n      \"type\": \"libraries\",\n      \"id\": \"InternetButton\",\n      \"links\": {\n        \"download\": \"https://library-archives.particle.io/libraries/InternetButton/InternetButton-0.1.10.tar.gz\"\n      },\n      \"attributes\": {\n        \"name\": \"InternetButton\",\n        \"version\": \"0.1.10\",\n        \"installs\": 7660,\n        \"license\": \"LGPL\",\n        \"author\": \"Richard Whitney <richard@particle.io>\",\n        \"sentence\": \"Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`\",\n        \"url\": \"https://github.com/spark/internetbutton\",\n        \"repository\": \"https://github.com/spark/internetbutton.git\",\n        \"architectures\": [],\n        \"visibility\": \"public\",\n        \"official\": true,\n        \"mine\": false\n      }\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/libraries?scope=official&sort=name&access_token=1234\"",
+        "content": "$ curl \"https://api.particle.io/v1/libraries?scope=official&sort=name&access_token=1234\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "/Users/rickk/Documents/src/docs-merge/api-service-libraries/src/LibrariesController.js",
+    "groupTitle": "Libraries_1"
+  },
+  {
+    "type": "get",
+    "url": "/v1/libraries/:libraryName:",
+    "title": "Get library details",
+    "name": "getLibrary",
+    "description": "<p>Get details for a firmware library.</p>",
+    "group": "Libraries_2",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "libraryName",
+            "description": "<p>Name of library to retrieve (case insensitive)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"latest\""
+            ],
+            "optional": true,
+            "field": "version",
+            "description": "<p>Version to retrieve. Defaults to the latest version.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"all\""
+            ],
+            "optional": true,
+            "field": "scope",
+            "description": "<p>Which subset of versions to get.</p> <ul> <li><code>all</code></li> <li><code>public</code></li> <li><code>private</code></li> </ul>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>The library version in <a href=\"http://jsonapi.org/\">JSON API format</a></p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.id",
+            "description": "<p>The name of the library</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.links.download",
+            "description": "<p>The URL to download the files for this library</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.attributes",
+            "description": "<p>Additional meta data for the library. Not all fields are available for every library.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/libraries/internetbutton",
+          "content": "GET /v1/libraries/internetbutton\nHTTP/1.1 200 OK\n{\n  \"data\": {\n    \"type\": \"libraries\",\n    \"id\": \"InternetButton\",\n    \"links\": {\n      \"download\": \"https://library-archives.particle.io/libraries/InternetButton/InternetButton-0.1.10.tar.gz\"\n    },\n    \"attributes\": {\n      \"name\": \"InternetButton\",\n      \"version\": \"0.1.10\",\n      \"installs\": 7660,\n      \"license\": \"LGPL\",\n      \"author\": \"Richard Whitney <richard@particle.io>\",\n      \"sentence\": \"Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`\",\n      \"url\": \"https://github.com/spark/internetbutton\",\n      \"repository\": \"https://github.com/spark/internetbutton.git\",\n      \"architectures\": [],\n      \"visibility\": \"public\",\n      \"official\": true,\n      \"mine\": false\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "$ curl \"https://api.particle.io/v1/libraries/internetbutton?access_token=1234\"",
+        "content": "$ curl \"https://api.particle.io/v1/libraries/internetbutton?access_token=1234\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "/Users/rickk/Documents/src/docs-merge/api-service-libraries/src/LibrariesController.js",
+    "groupTitle": "Libraries_2"
+  },
+  {
+    "type": "get",
+    "url": "/v1/libraries/:libraryName:/versions",
+    "title": "Get library versions",
+    "name": "getLibraryVersions",
+    "description": "<p>Get details for all versions of a firmware library.</p>",
+    "group": "Libraries_3",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "libraryName",
+            "description": "<p>Name of library to retrieve (case insensitive)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"all\""
+            ],
+            "optional": true,
+            "field": "scope",
+            "description": "<p>Which subset of versions to get.</p> <ul> <li><code>all</code></li> <li><code>public</code></li> <li><code>private</code></li> </ul>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Array of library version objects. Described in <a href=\"#get-library-details\">Get library details</a></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GET /v1/libraries/internetbutton/versions",
+          "content": "GET /v1/libraries/internetbutton/versions\nHTTP/1.1 200 OK\n{\n  \"data\": [\n    {\n      \"type\": \"libraries\",\n      \"id\": \"InternetButton\",\n      \"links\": {\n        \"download\": \"https://library-archives.particle.io/libraries/InternetButton/InternetButton-0.1.9.tar.gz\"\n      },\n      \"attributes\": {\n        \"name\": \"InternetButton\",\n        \"version\": \"0.1.9\",\n        \"installs\": 7660,\n        \"license\": \"LGPL\",\n        \"author\": \"Richard Whitney <richard@particle.io>\",\n        \"sentence\": \"Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`\",\n        \"url\": \"https://github.com/spark/internetbutton\",\n        \"repository\": \"https://github.com/spark/internetbutton.git\",\n        \"architectures\": [],\n        \"visibility\": \"public\",\n        \"official\": true,\n        \"mine\": false\n      }\n    },\n    {\n      \"type\": \"libraries\",\n      \"id\": \"InternetButton\",\n      \"links\": {\n        \"download\": \"https://library-archives.particle.io/libraries/InternetButton/InternetButton-0.1.10.tar.gz\"\n      },\n      \"attributes\": {\n        \"name\": \"InternetButton\",\n        \"version\": \"0.1.10\",\n        \"installs\": 7660,\n        \"license\": \"LGPL\",\n        \"author\": \"Richard Whitney <richard@particle.io>\",\n        \"sentence\": \"Functions to make the Internet Button easy to use! If you have an original SparkButton, make sure to use `begin(1)`\",\n        \"url\": \"https://github.com/spark/internetbutton\",\n        \"repository\": \"https://github.com/spark/internetbutton.git\",\n        \"architectures\": [],\n        \"visibility\": \"public\",\n        \"official\": true,\n        \"mine\": false\n      }\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "/Users/rickk/Documents/src/docs-merge/api-service-libraries/src/LibrariesController.js",
+    "groupTitle": "Libraries_3"
+  },
+  {
+    "type": "post",
+    "url": "/v1/libraries/:libraryName:",
+    "title": "Upload library version",
+    "name": "uploadLibrary",
+    "description": "<p>Upload a private version of a firmware library. If the library doesn't exist it is created.</p> <p>The library will be validated and an error response returned if invalid.</p>",
+    "group": "Libraries_4",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "libraryName",
+            "description": "<p>Name of library to retrieve (case insensitive)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "archive",
+            "description": "<p>A tar-gzip archive of all the files for the library.</p> <p>The meta data like name and version is taken from <code>library.properties.</code> See <a href=\"https://github.com/spark/uber-library-example\">the example library</a> for other files to include.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>The library version created. Described in <a href=\"#get-library-details\">Get library details</a></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "POST /v1/libraries",
+          "content": "POST /v1/libraries\nHTTP/1.1 201 Created\n{\n  \"data\": {\n    \"type\": \"libraries\",\n    \"id\": \"testlib43\",\n    \"links\": {\n      \"download\": \"https://library-archives.particle.io/libraries/testlib43/testlib43-1.0.2.tar.gz\"\n    },\n    \"attributes\": {\n      \"name\": \"testlib43\",\n      \"version\": \"1.0.2\",\n      \"license\": \"MIT\",\n      \"author\": \"JV\",\n      \"sentence\": \"one sentence description of this library\",\n      \"url\": \"the URL of the project, like https://github.com/mygithub_user/my_repo\",\n      \"repository\": \"mygithub_user/my_repo\",\n      \"architectures\": [],\n      \"visibility\": \"private\"\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "$ curl -F \"archive=@library.tar.gz\" \"https://api.particle.io/v1/libraries?access_token=1234\"",
+        "content": "$ curl -F \"archive=@library.tar.gz\" \"https://api.particle.io/v1/libraries?access_token=1234\"",
+        "type": "bash"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "POST /v1/libraries",
+          "content": "POST /v1/libraries\nHTTP/1.1 400 Bad Request\n{\n  \"errors\": [\n    {\n      \"message\": \"This version is not valid. Version must be greater than or equal to 1.0.2\"\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "/Users/rickk/Documents/src/docs-merge/api-service-libraries/src/LibrariesController.js",
+    "groupTitle": "Libraries_4"
+  },
+  {
+    "type": "patch",
+    "url": "/v1/libraries/:libraryName:",
+    "title": "Make a library version public",
+    "name": "publishLibrary",
+    "description": "<p>Make the latest private version of a firmware library public. You must do this before others can access your uploaded library.</p>",
+    "group": "Libraries_5",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "libraryName",
+            "description": "<p>Name of library to retrieve (case insensitive)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "visibility",
+            "description": "<p>Must be set to <code>public</code> to publish a library.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>The library version published. Described in <a href=\"#get-library-details\">Get library details</a></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "PATCH /v1/libraries/testlib43",
+          "content": "PATCH /v1/libraries/testlib43\nHTTP/1.1 200 OK\n{\n  \"data\": {\n    \"type\": \"libraries\",\n    \"id\": \"testlib43\",\n    \"links\": {\n      \"download\": \"https://library-archives.particle.io/libraries/testlib43/testlib43-1.0.2.tar.gz\"\n    },\n    \"attributes\": {\n      \"name\": \"testlib43\",\n      \"version\": \"1.0.2\",\n      \"license\": \"MIT\",\n      \"author\": \"JV\",\n      \"sentence\": \"one sentence description of this library\",\n      \"url\": \"the URL of the project, like https://github.com/mygithub_user/my_repo\",\n      \"repository\": \"mygithub_user/my_repo\",\n      \"architectures\": [],\n      \"visibility\": \"public\"\n    }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization-Example",
+          "content": "Authorization: \"Bearer 01234567890ABCDEF\"",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "$ curl -X PATCH -d \"visibility=public\" \"https://api.particle.io/v1/libraries/testlib43?access_token=1234\"",
+        "content": "$ curl -X PATCH -d \"visibility=public\" \"https://api.particle.io/v1/libraries/testlib43?access_token=1234\"",
+        "type": "bash"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "/Users/rickk/Documents/src/docs-merge/api-service-libraries/src/LibrariesController.js",
+    "groupTitle": "Libraries_5"
+  }
+]
