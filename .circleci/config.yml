@@ -9,11 +9,18 @@ jobs:
     docker:
       - image: cimg/node:12.22
     steps:
+      - restore_cache:
+          keys:
+            - v1-docs-{{ checksum "package-lock.json" }}
       - checkout
       - node/install-packages
       - run:
           name: Build
           command: npm test
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-docs-{{ checksum "package-lock.json" }}
       - persist_to_workspace: 
           root: .
           paths:
