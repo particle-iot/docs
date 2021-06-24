@@ -11,7 +11,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v1-docs-{{ checksum "package-lock.json" }}
+            - v1-docs-{{ checksum "npm-shrinkwrap.json" }}
       - checkout
       - node/install-packages
       - run:
@@ -20,7 +20,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-docs-{{ checksum "package-lock.json" }}
+          key: v1-docs-{{ checksum "npm-shrinkwrap.json" }}
       - persist_to_workspace: 
           root: .
           paths:
