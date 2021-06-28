@@ -150,7 +150,9 @@ The Boron has a dedicated 10 pin debug connector that exposes the SWD interface 
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -697,6 +699,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v004     | 16-Sep-2020 | RK | Added power consumption information |
 | v005     | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
 | v005     | 26-Apr-2021 | RK | Added BRN314 and BRN404 model numbers |
+| v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 
 ## Known Errata
 

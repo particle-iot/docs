@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404/B402 Datasheet <sup>(012)</sup>
+# B404/B402 Datasheet <sup>(013)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -131,7 +131,9 @@ The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -563,3 +565,4 @@ The bootloader allows you to easily update the user application via several diff
 | 010      | 26-Apr-2021 | RK | Added B404 model number |
 | 011      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
 | 012      | 19-May-2021 | RK | List Ethernet reserved pins |
+| 013      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |

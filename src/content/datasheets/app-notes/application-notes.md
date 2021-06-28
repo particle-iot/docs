@@ -43,6 +43,8 @@ in mains power applications.
 - [AN011 Publish to Google Sheets](/datasheets/app-notes/an011-publish-to-google-sheets) shows how you can publish directly to Google G Suite spreadsheets using webhooks.
 - [AN017 Tracker CAN](/datasheets/app-notes/an017-tracker-can) shows how to use the CAN bus for OBD-II to retrieve engine RPM and other useful techniques you may want to use in your own projects.
 - [AN023 Watchdog Timers](/datasheets/app-notes/an023-watchdog-timers) has information about watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
+- [AN032 Calling API from web page](/datasheets/app-notes/an032-calling-api-from-web-page) shows how to use the Particle cloud API from a web page.
+- [AN033 256K User Binaries](/datasheets/app-notes/an033-256K-user-binaries) has information about 256K user firmware binaries on Gen 3 devices with Device OS 3.1 and later.
 
 ## Firmware examples
 
@@ -114,6 +116,8 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN029 Wake, publish, then sleep for cellular devices](/datasheets/app-notes/an029-wake-publish-sleep-cellular)  provides an annotated code example for doing wake, publish, then sleep cycles with cellular devices.
 - [AN030 Saving samples in EEPROM](/datasheets/app-notes/an030-eeprom-samples) provides an annotated code example for using saving samples in EEPROM and publishing them when connected.
 - [AN031 Enabling Wi-Fi RF Test for ESP32](/datasheets/app-notes/an031-enabling-wifi-rf-test-for-esp32) provides instructions for conducting RF tests with the ESP32 Wi-Fi chip on the Argon development kit.
+- [AN032 Calling API from web page](/datasheets/app-notes/an032-calling-api-from-web-page) shows how to use the Particle cloud API from a web page.
+- [AN033 256K User Binaries](/datasheets/app-notes/an033-256K-user-binaries) has information about 256K user firmware binaries on Gen 3 devices with Device OS 3.1 and later.
 
 
 

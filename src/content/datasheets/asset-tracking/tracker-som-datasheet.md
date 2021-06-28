@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(015B1)</sup>
+# Tracker SoM Datasheet <sup>(016)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -276,7 +276,9 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -1223,3 +1225,4 @@ The bootloader allows you to easily update the user application via several diff
 | 013      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
 | 014      | 2021 May 04 | RK | Added 2G/3G fallback information for T523/T524 |
 | 015      | 2021 May 28 | RK | Corrected band list for T402/T404 (BG96) |
+| 016      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
