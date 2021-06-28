@@ -1,0 +1,17 @@
+{
+    "name": "node-devices-change-owner",
+    "description": "Node.js tutorial unclaim and reclaim device",
+    "private": true,
+    "engines": {
+        "node": ">=12"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "minimatch": "^3.0.4",
+        "particle-api-js": "^9.1.0",
+        "yargs": "^17.0.1"
+    },
+    "devDependencies": {}
+}

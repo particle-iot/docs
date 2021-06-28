@@ -403,11 +403,11 @@ Objects can contain more objects and arrays, as well.
 
 ```
 let myObj = {
-    a:123,
-    b:'testing!',
-    c:[5, 6, 7, 8],
+    a: 123,
+    b: 'testing!',
+    c: [5, 6, 7, 8],
     d: {
-        aa: true
+        aa: true,
         bb: 3.333
     }
 }
@@ -422,6 +422,22 @@ let myObj = {
     callback: function(obj) {
         console.log('callback called!', obj);
     }
+```
+
+Another thing you see sometimes is an single item in place of a key and value:
+
+```
+const options = { 
+    auth
+};
+```
+
+This means you create a key named `auth` with the value set to the value of the variable named `auth`. It's just shorthand for this:
+
+```
+const options = { 
+    "auth": auth
+};
 ```
 
 
@@ -520,9 +536,9 @@ node auth1.js
 
 To get an access token, you will often use the [`particle token create`](/reference/developer-tools/cli/#particle-token-create) command in the Particle CLI. Remember that the access token grants full access to your account, so make sure you keep it secure!
 
-### Adding a library
+### Adding a package
 
-One of the advantages of node is the huge number of available libraries. In order to use them, we'll change the structure of the projects we use in the examples.
+One of the advantages of node is the huge number of available packages or libraries. In order to use them, we'll change the structure of the projects we use in the examples.
 
 - Each project should be in a separate directory.
 - You need a `package.json` file at the top level of the directory. The file is mostly boilerplate for private projects like this. It will be updated as we add libraries, however, so it's still important.
@@ -530,13 +546,13 @@ One of the advantages of node is the huge number of available libraries. In orde
 
 {{> project-browser project="node-empty" default-file="package.json"}}
 
-To add a library, `cd` into the project directory (containing the package.json file), then:
+To add a package, `cd` into the project directory (containing the package.json file), then:
 
 ```
 npm install particle-api-js
 ```
 
-- This locates the `particle-api-js` library in the node project manager (npm) database and downloads and installs it in this project.
+- This locates the `particle-api-js` package in the node project manager (npm) database and downloads and installs it in this project.
 - It adds it to the `package.json` file;
 
 ```
@@ -546,7 +562,7 @@ npm install particle-api-js
 ```
 
 - It creates a `package-lock.json` file. You probably won't need to mess with this, but it's used to keep track of the dependencies of the project. If you are committing a project to Github source control, you should add the `package-lock.json` file.
-- It creates the `node_modules` directory. This contains the downloaded library, as well as all of the libraries it depends on. You should not commit this directory to source control.
+- It creates the `node_modules` directory. This contains the downloaded package, as well as all of the libraries it depends on. You should not commit this directory to source control.
 
 ### List devices (Particle API)
 
@@ -577,7 +593,7 @@ node app.js
 
 There are a bunch of new things in this code:
 
-These two lines will likely be be in every project you create that uses the particle-api-js. The `require` statement loads the library that you added to your package.json and installed using `npm install`. The second line creates an object to access the library. Different libraries will have different initialization strategies.
+These two lines will likely be be in every project you create that uses the particle-api-js. The `require` statement loads the package that you added to your package.json and installed using `npm install`. The second line creates an object to access the package. Different libraries will have different initialization strategies.
 
 ```
 var Particle = require('particle-api-js');
@@ -609,7 +625,7 @@ particle.listDevices({ auth: accessToken }).then(
 
 `particle.listDevices()` is a function call. This syntax means to call the `listDevices()` method in the `particle` object.
 
-The parameter is in both `()` and `{}`. The reason is this library uses named parameters. Instead of positional parameters where the first parameter means something, the second parameter something else, etc., this library names every parameter. In this case, there's only one parameter so it's not as important, but it's consistent across all of the functions and really becomes handy when there are optional parameters.
+The parameter is in both `()` and `{}`. The reason is this package uses named parameters. Instead of positional parameters where the first parameter means something, the second parameter something else, etc., this package names every parameter. In this case, there's only one parameter so it's not as important, but it's consistent across all of the functions and really becomes handy when there are optional parameters.
 
 The single parameter we pass in is called `auth` and it's initialized to our `accessToken` variable.
 
@@ -753,7 +769,7 @@ Sometimes instead of encoding the name of the file to process in the script, you
 
 {{> project-browser project="node-file-2" default-file="app.js"}}
 
-The yargs library is already added to this project's `package.json` file but to add it to a new project you'd just:
+The yargs package is already added to this project's `package.json` file but to add it to a new project you'd just:
 
 ```
 npm install yargs
@@ -771,7 +787,7 @@ To run it:
 node app.js deviceIds.txt
 ```
 
-This require line is a little different because the yargs library supports multiple APIs. We're only interested in the `argv` API, so we get only that one API this way:
+This require line is a little different because the yargs package supports multiple APIs. We're only interested in the `argv` API, so we get only that one API this way:
 
 ```
 const argv = require('yargs').argv
@@ -861,13 +877,13 @@ Sometimes you'll have a comma-separated value file (csv). Resist the temptation 
 {{> project-browser project="node-file-3" default-file="app.js"}}
 
 
-Some of the code should be familar from the last example. This example uses the [csv-parse](https://csv.js.org/parse/) library for node.js.
+Some of the code should be familar from the last example. This example uses the [csv-parse](https://csv.js.org/parse/) package for node.js.
 
 ```
 const csvParse = require('csv-parse/lib/sync');
 ```
 
-Instead of iterating the lines of the file it's just passed off to the CSV parser library synchronous API. 
+Instead of iterating the lines of the file it's just passed off to the CSV parser package synchronous API. 
 
 ```
 const fileContents = fs.readFileSync(name, 'utf8');
@@ -880,7 +896,7 @@ const records = csvParse(fileContents, {
 allRecords = allRecords.concat(records);
 ```	
 
-Using this library makes it easy to handle CSV files with a column key, like this:
+Using this package makes it easy to handle CSV files with a column key, like this:
 
 ```
 deviceId,imei
@@ -925,3 +941,219 @@ ffff10ab47bb9c98d42dd93b
 ffff50f908d5104debc4563f
 ```
 
+### Changing device ownership
+
+This is a starter script that you can tailor to your own purposes, but illustrates a bunch of techniques. It moves devices from one developer account to another account. 
+
+{{> project-browser project="node-device-change-owner" default-file="app.js" height="400"}}
+
+Install the dependencies:
+
+```
+cd node-device-change-owner
+npm install
+```
+
+You need access tokens for the old and new accounts, and then set them in the environment:
+
+For Mac and Linux:
+
+```
+export PARTICLE_AUTH_OLD=fffffff344ede465db1ce541461e41eb5219749d      
+export PARTICLE_AUTH_NEW=ffffff988ea2e0537b40ffe7cc36906f5b36a76c               
+```
+
+Or for Windows:
+
+```
+set PARTICLE_AUTH_OLD=fffffff344ede465db1ce541461e41eb5219749d
+set PARTICLE_AUTH_NEW=ffffff988ea2e0537b40ffe7cc36906f5b36a76c               
+```
+
+One handy way to get tokens is to open up the [console](https://console.particle.io), opening one in a separate incognito or private browsing window. Go into the **Events** tab and click the **View in Terminal** icon. The command that's printed includes an access token, and you can just copy that token for temporary use. That token is invalidated when you log out of the console.
+
+This example shows how to filter devices by name. You can test the filtering by using a command like:
+
+```
+node app.js --list "test*"
+```
+
+This will print out all of the devices whose names begin with "test". 
+
+To set this as the list of devices to process, use the `--set` option:
+
+```
+node app.js --list "test*" --set
+```
+
+This updates a file called `status.json` that contains the list of devices to process and the status. You can do this multiple times with different names and patterns to build the full list of devices.
+
+To run the unclaim and reclaim process:
+
+```
+node app.js --run
+```
+
+If an error occurs or devices are offline, you can repeat this as necessary until all devices are migrated.
+
+#### How it works
+
+The top of the file should be familiar from the [list devices](#list-devices-particle-api-) example, above, except it takes two access tokens instead of one.
+
+This is a new technique:
+
+- First we create a path to the status.json file in the script directory.
+
+- Then we initialize `status` to be an empty object.
+
+- If the status.json file exists, then we read the file (as a UTF-8 string), then parse it into a JSON object, and save it in the `status` object.
+
+```
+const statusPath = path.join(__dirname, 'status.json');
+let status = {};
+if (fs.existsSync(statusPath)) {
+    status = JSON.parse(fs.readFileSync(statusPath, 'utf8'));
+}
+```
+
+And there is also a function to save the current status object back into the file. We call this after updating it. You'll see something like this `JSON.stringify(status, null, 2)` frequently. It converts an object (`status`) into a JSON string. The parameters `null, 2` have the result of pretty-printing the output, with 2-space indentation. If you leave those out, it outputs a compact representation on a single line, which saves bytes but is hard to read.
+
+```
+function saveStatus() {
+    fs.writeFileSync(statusPath, JSON.stringify(status, null, 2));
+}
+```
+
+This part should be familiar; it get the list of devices in the account and iterates through them.
+
+```
+async function listDevices(pattern) {
+
+    const res = await particle.listDevices({ auth: accessTokenOld });
+    
+    for(let dev of res.body) {
+```
+
+If the device is not named, then it is skipped (continue). 
+
+```
+if (dev.name == null) {
+    continue;
+}
+```
+
+The next part uses the [minimatch package](https://www.npmjs.com/package/minimatch) to do filename-style matching such as * wildcards. If the device names does not match the pattern, it's skipped.
+
+```
+if (!minimatch(dev.name, pattern, { noglobstar: true, nocase: true })) {
+    continue;
+}
+```
+
+This block prints out the matching name, and adds the name and device ID to the status object that's saved to the status.json file.
+
+- `status.devices` is an array
+- `push()` is a built-in method of Javascript arrays to add an element at the end of the array.
+- In this case, the parameter is an object in `{}`
+- It has two members: `id` and `name`.
+
+```
+console.log(dev.name);
+if (argv.set) {
+    status.devices.push({
+        id: dev.id,
+        name: dev.name
+    });
+}
+```
+
+This handles the `--run` option. It gets the list of devices from the cloud. Note the parentheses around the `await`. This is necessary because you want to wait for the listDevices command to complete, then get the body out of the response.
+
+```
+async function run() {
+
+    const deviceArray = (await particle.listDevices({ auth: accessTokenOld })).body;
+```
+
+This iterates through the devices array in the status object. If the entry has been completed (`done` is set), then skip it.
+
+```
+for(let statusDev of status.devices) {
+    if (statusDev.done) {
+        continue;
+    }
+```
+
+This is a new technique: 
+
+- `filter()` is a method of Javascript arrays. It iterates the array and calls a function. if the function returns true, then the element is added to a new array that is returned. 
+
+- Instead using `function(dev)` this example uses an arrow function. 
+
+- For each element of `deviceArray` which is an array of devices in the old account, it checks to see if that entry's `id` (Device ID) matches the one we're processing in the `status` object. If it is, it's added to the resulting array (`match`).
+
+```
+const match = deviceArray.filter(dev => (dev.id == statusDev.id));
+```
+
+The syntax takes some getting used to, but it is much more compact this this, which is pretty much equivalent:
+
+```
+let match = [];
+for(const dev of deviceArray) {
+    if (dev.id == statusDev.id) {
+        match.push(dev);
+    }
+}
+```
+
+If there are no matches, then the device is not in the device list. This can happen if the device has already been unclaimed.
+
+```        
+if (match.length == 0) {
+    console.log('not in device list', statusDev);
+    continue;
+}
+```
+
+If the device is not online, we skip it, because you can't claim a device that is offline.
+
+```
+if (!match[0].online) {
+    console.log('not online', statusDev);
+    continue;
+}
+```
+
+This block of code does the unclaim. The try/catch handles any errors that occur so the error is logged, but the script will continue to run.
+
+```
+try {
+    // Unclaim
+    console.log('unclaiming ' + statusDev.name + ' ' + statusDev.id);
+    await particle.removeDevice({ deviceId: statusDev.id, auth: accessTokenOld });
+    statusDev.unclaimed = true;
+    saveStatus();
+}
+catch(e) {
+    console.log('unclaiming failed ' + statusDev.id, e);
+    continue;
+}
+```
+
+This block of code does the claim:
+
+```
+try {
+    // Claim
+    console.log('claiming ' + statusDev.name + ' ' + statusDev.id);
+    await particle.claimDevice({ deviceId: statusDev.id, auth: accessTokenNew });
+
+    statusDev.done = true;
+    saveStatus();
+}
+catch(e) {
+    console.log('claiming failed ' + statusDev.id, e);
+}
+
+```
