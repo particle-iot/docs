@@ -325,6 +325,11 @@
         "dir": "an033-256K-user-binaries",
         "title": "AN033 256K user binaries",
         "href": "/datasheets/app-notes/an033-256K-user-binaries/"
+      },
+      {
+        "dir": "an034-singleton",
+        "title": "AN034 Singleton",
+        "href": "/datasheets/app-notes/an034-singleton/"
       }
     ],
     {

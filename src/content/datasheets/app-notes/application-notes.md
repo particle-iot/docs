@@ -118,6 +118,8 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN031 Enabling Wi-Fi RF Test for ESP32](/datasheets/app-notes/an031-enabling-wifi-rf-test-for-esp32) provides instructions for conducting RF tests with the ESP32 Wi-Fi chip on the Argon development kit.
 - [AN032 Calling API from web page](/datasheets/app-notes/an032-calling-api-from-web-page) shows how to use the Particle cloud API from a web page.
 - [AN033 256K User Binaries](/datasheets/app-notes/an033-256K-user-binaries) has information about 256K user firmware binaries on Gen 3 devices with Device OS 3.1 and later.
+- [AN034 Singleton](/datasheets/app-notes/an034-singleton) includes information about using the singleton pattern for your classes.
+
 
 
 

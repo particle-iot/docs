@@ -91,6 +91,8 @@ This example shows how to control the behavior of CAN_PWR, the 5V supply for the
 
 Turning off CAN_PWR disconnects the external I/O using a bidirectional analog switch to avoid having leakage current affect the nRF52 MCU.
 
+For more information about the reason for using `Tracker::instance()` and the singleton pattern, see application note [AN034 singleton pattern](/datasheets/app-notes/an034-singleton/).
+
 
 ### loop() - Tracker
 
