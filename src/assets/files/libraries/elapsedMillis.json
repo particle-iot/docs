@@ -7,7 +7,7 @@
   "attributes": {
     "name": "elapsedMillis",
     "version": "0.0.2",
-    "installs": 63722,
+    "installs": 66658,
     "license": "Unknown",
     "author": "Paul Kourany/PJRC.COM",
     "sentence": "elapsedMillis for Particle devices",

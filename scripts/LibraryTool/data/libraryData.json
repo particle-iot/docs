@@ -200,6 +200,54 @@
             }
           }
         }
+      },
+      "1.0.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "01_Particle": true,
+              "02_Particle_Electron": false,
+              "03_Bluz_Direct": false
+            },
+            "electron": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            },
+            "argon": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            },
+            "boron": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "01_Particle": true,
+              "02_Particle_Electron": false,
+              "03_Bluz_Direct": false
+            },
+            "electron": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            },
+            "argon": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            },
+            "boron": {
+              "01_Particle": true,
+              "02_Particle_Electron": true,
+              "03_Bluz_Direct": false
+            }
+          }
+        }
       }
     }
   },
@@ -382,6 +430,110 @@
   "ArduinoJson": {
     "versions": {
       "6.17.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "electron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "argon": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            },
+            "boron": {
+              "JsonConfigFile": false,
+              "JsonFilterExample": false,
+              "JsonGeneratorExample": true,
+              "JsonHttpClient": false,
+              "JsonParserExample": false,
+              "JsonServer": false,
+              "JsonUdpBeacon": false,
+              "MsgPackParser": false,
+              "ProgmemExample": true,
+              "StringExample": false
+            }
+          }
+        }
+      },
+      "6.18.0": {
         "builds": {
           "2.0.1": {
             "photon": {
@@ -3808,6 +3960,62 @@
   "PublishQueueAsyncRK": {
     "versions": {
       "0.2.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-periodic": true,
+              "2-button-and-timer": true,
+              "3-test-suite": true,
+              "4-test-suite-posix": false
+            },
+            "electron": {
+              "1-periodic": true,
+              "2-button-and-timer": true,
+              "3-test-suite": true,
+              "4-test-suite-posix": false
+            },
+            "argon": {
+              "1-periodic": true,
+              "2-button-and-timer": true,
+              "3-test-suite": true,
+              "4-test-suite-posix": true
+            },
+            "boron": {
+              "1-periodic": true,
+              "2-button-and-timer": true,
+              "3-test-suite": true,
+              "4-test-suite-posix": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-periodic": true,
+              "2-button-and-timer": true,
+              "3-test-suite": true,
+              "4-test-suite-posix": false
+            },
+            "electron": {
+              "1-periodic": true,
+              "2-button-and-timer": true,
+              "3-test-suite": true,
+              "4-test-suite-posix": false
+            },
+            "argon": {
+              "1-periodic": true,
+              "2-button-and-timer": true,
+              "3-test-suite": true,
+              "4-test-suite-posix": true
+            },
+            "boron": {
+              "1-periodic": true,
+              "2-button-and-timer": true,
+              "3-test-suite": true,
+              "4-test-suite-posix": true
+            }
+          }
+        }
+      },
+      "0.2.4": {
         "builds": {
           "2.0.1": {
             "photon": {
@@ -11052,6 +11260,166 @@
             }
           }
         }
+      },
+      "0.2.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "000_EatingTheFood": true,
+              "001_ExploringTheTouchpads": true,
+              "002_EngagingConsistently": true,
+              "003_AvoidingUnlitTouchpads": true,
+              "004_LearningTheLights": true,
+              "005_MasteringTheLights": true,
+              "006_RespondingQuickly": true,
+              "007_LearningBrightness": true,
+              "008_LearningDoubleSequences": true,
+              "009_LearningLongerSequences": true,
+              "010_MatchingTwoColors": true,
+              "011_MatchingMoreColors": true,
+              "100_HelloAnimal": true,
+              "101_TestingSequence": true,
+              "102_TCPDebug": true,
+              "103_UDPDebug": true,
+              "104_AudioTest": true
+            },
+            "electron": {
+              "000_EatingTheFood": false,
+              "001_ExploringTheTouchpads": false,
+              "002_EngagingConsistently": false,
+              "003_AvoidingUnlitTouchpads": false,
+              "004_LearningTheLights": false,
+              "005_MasteringTheLights": false,
+              "006_RespondingQuickly": false,
+              "007_LearningBrightness": false,
+              "008_LearningDoubleSequences": false,
+              "009_LearningLongerSequences": false,
+              "010_MatchingTwoColors": false,
+              "011_MatchingMoreColors": false,
+              "100_HelloAnimal": false,
+              "101_TestingSequence": false,
+              "102_TCPDebug": false,
+              "103_UDPDebug": false,
+              "104_AudioTest": false
+            },
+            "argon": {
+              "000_EatingTheFood": true,
+              "001_ExploringTheTouchpads": true,
+              "002_EngagingConsistently": true,
+              "003_AvoidingUnlitTouchpads": true,
+              "004_LearningTheLights": true,
+              "005_MasteringTheLights": true,
+              "006_RespondingQuickly": true,
+              "007_LearningBrightness": true,
+              "008_LearningDoubleSequences": true,
+              "009_LearningLongerSequences": true,
+              "010_MatchingTwoColors": true,
+              "011_MatchingMoreColors": true,
+              "100_HelloAnimal": true,
+              "101_TestingSequence": true,
+              "102_TCPDebug": true,
+              "103_UDPDebug": true,
+              "104_AudioTest": true
+            },
+            "boron": {
+              "000_EatingTheFood": false,
+              "001_ExploringTheTouchpads": false,
+              "002_EngagingConsistently": false,
+              "003_AvoidingUnlitTouchpads": false,
+              "004_LearningTheLights": false,
+              "005_MasteringTheLights": false,
+              "006_RespondingQuickly": false,
+              "007_LearningBrightness": false,
+              "008_LearningDoubleSequences": false,
+              "009_LearningLongerSequences": false,
+              "010_MatchingTwoColors": false,
+              "011_MatchingMoreColors": false,
+              "100_HelloAnimal": false,
+              "101_TestingSequence": false,
+              "102_TCPDebug": false,
+              "103_UDPDebug": false,
+              "104_AudioTest": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "000_EatingTheFood": true,
+              "001_ExploringTheTouchpads": true,
+              "002_EngagingConsistently": true,
+              "003_AvoidingUnlitTouchpads": true,
+              "004_LearningTheLights": true,
+              "005_MasteringTheLights": true,
+              "006_RespondingQuickly": true,
+              "007_LearningBrightness": true,
+              "008_LearningDoubleSequences": true,
+              "009_LearningLongerSequences": true,
+              "010_MatchingTwoColors": true,
+              "011_MatchingMoreColors": true,
+              "100_HelloAnimal": true,
+              "101_TestingSequence": true,
+              "102_TCPDebug": true,
+              "103_UDPDebug": true,
+              "104_AudioTest": true
+            },
+            "electron": {
+              "000_EatingTheFood": false,
+              "001_ExploringTheTouchpads": false,
+              "002_EngagingConsistently": false,
+              "003_AvoidingUnlitTouchpads": false,
+              "004_LearningTheLights": false,
+              "005_MasteringTheLights": false,
+              "006_RespondingQuickly": false,
+              "007_LearningBrightness": false,
+              "008_LearningDoubleSequences": false,
+              "009_LearningLongerSequences": false,
+              "010_MatchingTwoColors": false,
+              "011_MatchingMoreColors": false,
+              "100_HelloAnimal": false,
+              "101_TestingSequence": false,
+              "102_TCPDebug": false,
+              "103_UDPDebug": false,
+              "104_AudioTest": false
+            },
+            "argon": {
+              "000_EatingTheFood": true,
+              "001_ExploringTheTouchpads": true,
+              "002_EngagingConsistently": true,
+              "003_AvoidingUnlitTouchpads": true,
+              "004_LearningTheLights": true,
+              "005_MasteringTheLights": true,
+              "006_RespondingQuickly": true,
+              "007_LearningBrightness": true,
+              "008_LearningDoubleSequences": true,
+              "009_LearningLongerSequences": true,
+              "010_MatchingTwoColors": true,
+              "011_MatchingMoreColors": true,
+              "100_HelloAnimal": true,
+              "101_TestingSequence": true,
+              "102_TCPDebug": true,
+              "103_UDPDebug": true,
+              "104_AudioTest": true
+            },
+            "boron": {
+              "000_EatingTheFood": false,
+              "001_ExploringTheTouchpads": false,
+              "002_EngagingConsistently": false,
+              "003_AvoidingUnlitTouchpads": false,
+              "004_LearningTheLights": false,
+              "005_MasteringTheLights": false,
+              "006_RespondingQuickly": false,
+              "007_LearningBrightness": false,
+              "008_LearningDoubleSequences": false,
+              "009_LearningLongerSequences": false,
+              "010_MatchingTwoColors": false,
+              "011_MatchingMoreColors": false,
+              "100_HelloAnimal": false,
+              "101_TestingSequence": false,
+              "102_TCPDebug": false,
+              "103_UDPDebug": false,
+              "104_AudioTest": false
+            }
+          }
+        }
       }
     }
   },
@@ -13749,6 +14117,46 @@
           }
         },
         "noExamples": true
+      },
+      "1.1.6": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "esp": false,
+              "particle": false
+            },
+            "electron": {
+              "esp": false,
+              "particle": false
+            },
+            "argon": {
+              "esp": false,
+              "particle": false
+            },
+            "boron": {
+              "esp": false,
+              "particle": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "esp": false,
+              "particle": false
+            },
+            "electron": {
+              "esp": false,
+              "particle": false
+            },
+            "argon": {
+              "esp": false,
+              "particle": false
+            },
+            "boron": {
+              "esp": false,
+              "particle": false
+            }
+          }
+        }
       }
     }
   },
@@ -14003,6 +14411,70 @@
             "boron": {
               "log": true,
               "publish": true
+            }
+          }
+        }
+      },
+      "1.2.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "lairdBt510Log": false,
+              "log": false,
+              "publish": false,
+              "tracker-callbacks": false,
+              "tracker-continuous": false
+            },
+            "electron": {
+              "lairdBt510Log": false,
+              "log": false,
+              "publish": false,
+              "tracker-callbacks": false,
+              "tracker-continuous": false
+            },
+            "argon": {
+              "lairdBt510Log": false,
+              "log": false,
+              "publish": false,
+              "tracker-callbacks": false,
+              "tracker-continuous": false
+            },
+            "boron": {
+              "lairdBt510Log": false,
+              "log": false,
+              "publish": false,
+              "tracker-callbacks": false,
+              "tracker-continuous": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "lairdBt510Log": false,
+              "log": false,
+              "publish": false,
+              "tracker-callbacks": false,
+              "tracker-continuous": false
+            },
+            "electron": {
+              "lairdBt510Log": false,
+              "log": false,
+              "publish": false,
+              "tracker-callbacks": false,
+              "tracker-continuous": false
+            },
+            "argon": {
+              "lairdBt510Log": false,
+              "log": false,
+              "publish": false,
+              "tracker-callbacks": false,
+              "tracker-continuous": false
+            },
+            "boron": {
+              "lairdBt510Log": false,
+              "log": false,
+              "publish": false,
+              "tracker-callbacks": false,
+              "tracker-continuous": false
             }
           }
         }
@@ -19258,6 +19730,46 @@
   "WaveshareEPaper29b": {
     "versions": {
       "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "EPaper29b": false,
+              "EPaper29bRotate": true
+            },
+            "electron": {
+              "EPaper29b": false,
+              "EPaper29bRotate": true
+            },
+            "argon": {
+              "EPaper29b": false,
+              "EPaper29bRotate": true
+            },
+            "boron": {
+              "EPaper29b": false,
+              "EPaper29bRotate": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "EPaper29b": false,
+              "EPaper29bRotate": true
+            },
+            "electron": {
+              "EPaper29b": false,
+              "EPaper29bRotate": true
+            },
+            "argon": {
+              "EPaper29b": false,
+              "EPaper29bRotate": true
+            },
+            "boron": {
+              "EPaper29b": false,
+              "EPaper29bRotate": true
+            }
+          }
+        }
+      },
+      "0.0.2": {
         "builds": {
           "2.0.1": {
             "photon": {
@@ -34241,6 +34753,70 @@
             }
           }
         }
+      },
+      "0.5.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "electron": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "argon": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "boron": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "electron": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "argon": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            },
+            "boron": {
+              "Wasm_Blink": false,
+              "Wasm_CoreMark": false,
+              "Wasm_Dino_ESP32_TDisplay": false,
+              "Wasm_Dino_PyBadge": false,
+              "Wasm_Fibonacci": true
+            }
+          }
+        }
       }
     }
   },
@@ -34982,6 +35558,750 @@
             "boron": {
               "1-simple": true,
               "2-test-suite": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeviceNameHelperRK": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "01-eeprom": true,
+              "02-retained": true,
+              "03-no-save": true,
+              "04-recheck": true,
+              "05-file": false
+            },
+            "electron": {
+              "01-eeprom": true,
+              "02-retained": true,
+              "03-no-save": true,
+              "04-recheck": true,
+              "05-file": false
+            },
+            "argon": {
+              "01-eeprom": true,
+              "02-retained": true,
+              "03-no-save": true,
+              "04-recheck": true,
+              "05-file": true
+            },
+            "boron": {
+              "01-eeprom": true,
+              "02-retained": true,
+              "03-no-save": true,
+              "04-recheck": true,
+              "05-file": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "01-eeprom": true,
+              "02-retained": true,
+              "03-no-save": true,
+              "04-recheck": true,
+              "05-file": false
+            },
+            "electron": {
+              "01-eeprom": true,
+              "02-retained": true,
+              "03-no-save": true,
+              "04-recheck": true,
+              "05-file": false
+            },
+            "argon": {
+              "01-eeprom": true,
+              "02-retained": true,
+              "03-no-save": true,
+              "04-recheck": true,
+              "05-file": true
+            },
+            "boron": {
+              "01-eeprom": true,
+              "02-retained": true,
+              "03-no-save": true,
+              "04-recheck": true,
+              "05-file": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "RemoteLogRK": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-Simple": true,
+              "2-Multicast": true,
+              "3-Publish": false,
+              "4-Server": true
+            },
+            "electron": {
+              "1-Simple": false,
+              "2-Multicast": false,
+              "3-Publish": false,
+              "4-Server": false
+            },
+            "argon": {
+              "1-Simple": true,
+              "2-Multicast": true,
+              "3-Publish": false,
+              "4-Server": true
+            },
+            "boron": {
+              "1-Simple": false,
+              "2-Multicast": false,
+              "3-Publish": false,
+              "4-Server": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-Simple": true,
+              "2-Multicast": true,
+              "3-Publish": false,
+              "4-Server": true
+            },
+            "electron": {
+              "1-Simple": false,
+              "2-Multicast": false,
+              "3-Publish": false,
+              "4-Server": false
+            },
+            "argon": {
+              "1-Simple": true,
+              "2-Multicast": true,
+              "3-Publish": false,
+              "4-Server": true
+            },
+            "boron": {
+              "1-Simple": false,
+              "2-Multicast": false,
+              "3-Publish": false,
+              "4-Server": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "LocalTimeRK": {
+    "versions": {
+      "0.0.4": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": true
+            },
+            "electron": {
+              "1-simple": true
+            },
+            "argon": {
+              "1-simple": true
+            },
+            "boron": {
+              "1-simple": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-simple": true
+            },
+            "electron": {
+              "1-simple": true
+            },
+            "argon": {
+              "1-simple": true
+            },
+            "boron": {
+              "1-simple": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "apis-analog": {
+    "versions": {
+      "1.0.6": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "usage": true
+            },
+            "electron": {
+              "usage": true
+            },
+            "argon": {
+              "usage": true
+            },
+            "boron": {
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "Adafruit_Bus_IO": {
+    "versions": {
+      "1.7.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "electron": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "argon": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "boron": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "electron": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "argon": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            },
+            "boron": {
+              "i2c_address_detect": true,
+              "i2c_readwrite": true,
+              "i2c_registers": true,
+              "i2corspi_register": true,
+              "spi_modetest": true,
+              "spi_readwrite": true,
+              "spi_register_bits": true,
+              "spi_registers": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "SmsWebhookRK": {
+    "versions": {
+      "0.0.2": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "01-simple": true
+            },
+            "electron": {
+              "01-simple": true
+            },
+            "argon": {
+              "01-simple": true
+            },
+            "boron": {
+              "01-simple": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "01-simple": true
+            },
+            "electron": {
+              "01-simple": true
+            },
+            "argon": {
+              "01-simple": true
+            },
+            "boron": {
+              "01-simple": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "BackgroundPublishRK": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-simple": true,
+              "2-tester": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-tester": true
+            },
+            "argon": {
+              "1-simple": true,
+              "2-tester": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-tester": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-simple": true,
+              "2-tester": true
+            },
+            "electron": {
+              "1-simple": true,
+              "2-tester": true
+            },
+            "argon": {
+              "1-simple": true,
+              "2-tester": true
+            },
+            "boron": {
+              "1-simple": true,
+              "2-tester": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "PublishQueuePosixRK": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "2-test-suite": false
+            },
+            "electron": {
+              "2-test-suite": false
+            },
+            "argon": {
+              "2-test-suite": false
+            },
+            "boron": {
+              "2-test-suite": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "2-test-suite": false
+            },
+            "electron": {
+              "2-test-suite": false
+            },
+            "argon": {
+              "2-test-suite": false
+            },
+            "boron": {
+              "2-test-suite": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "SparkFun_ADS1015_Arduino_Library": {
+    "versions": {
+      "2.3.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "Example1_ReadBasic": true,
+              "Example2_ChangeGain": true,
+              "Example3_Address": true,
+              "Example4_Differential": true,
+              "Example5_Alert": true,
+              "Example6_DisplayMillivolts": true
+            },
+            "electron": {
+              "Example1_ReadBasic": true,
+              "Example2_ChangeGain": true,
+              "Example3_Address": true,
+              "Example4_Differential": true,
+              "Example5_Alert": true,
+              "Example6_DisplayMillivolts": true
+            },
+            "argon": {
+              "Example1_ReadBasic": true,
+              "Example2_ChangeGain": true,
+              "Example3_Address": true,
+              "Example4_Differential": true,
+              "Example5_Alert": true,
+              "Example6_DisplayMillivolts": true
+            },
+            "boron": {
+              "Example1_ReadBasic": true,
+              "Example2_ChangeGain": true,
+              "Example3_Address": true,
+              "Example4_Differential": true,
+              "Example5_Alert": true,
+              "Example6_DisplayMillivolts": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "Example1_ReadBasic": true,
+              "Example2_ChangeGain": true,
+              "Example3_Address": true,
+              "Example4_Differential": true,
+              "Example5_Alert": true,
+              "Example6_DisplayMillivolts": true
+            },
+            "electron": {
+              "Example1_ReadBasic": true,
+              "Example2_ChangeGain": true,
+              "Example3_Address": true,
+              "Example4_Differential": true,
+              "Example5_Alert": true,
+              "Example6_DisplayMillivolts": true
+            },
+            "argon": {
+              "Example1_ReadBasic": true,
+              "Example2_ChangeGain": true,
+              "Example3_Address": true,
+              "Example4_Differential": true,
+              "Example5_Alert": true,
+              "Example6_DisplayMillivolts": true
+            },
+            "boron": {
+              "Example1_ReadBasic": true,
+              "Example2_ChangeGain": true,
+              "Example3_Address": true,
+              "Example4_Differential": true,
+              "Example5_Alert": true,
+              "Example6_DisplayMillivolts": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "barometer": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "HP20x_demo": false,
+              "usage": true
+            },
+            "electron": {
+              "HP20x_demo": false,
+              "usage": true
+            },
+            "argon": {
+              "HP20x_demo": false,
+              "usage": true
+            },
+            "boron": {
+              "HP20x_demo": false,
+              "usage": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "HP20x_demo": false,
+              "usage": true
+            },
+            "electron": {
+              "HP20x_demo": false,
+              "usage": true
+            },
+            "argon": {
+              "HP20x_demo": false,
+              "usage": true
+            },
+            "boron": {
+              "HP20x_demo": false,
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "PDMGen3_RK": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "1-audio-over-tcp": false,
+              "2-audio-over-tcp-16bit": false
+            },
+            "electron": {
+              "1-audio-over-tcp": false,
+              "2-audio-over-tcp-16bit": false
+            },
+            "argon": {
+              "1-audio-over-tcp": true,
+              "2-audio-over-tcp-16bit": true
+            },
+            "boron": {
+              "1-audio-over-tcp": true,
+              "2-audio-over-tcp-16bit": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "1-audio-over-tcp": false,
+              "2-audio-over-tcp-16bit": false
+            },
+            "electron": {
+              "1-audio-over-tcp": false,
+              "2-audio-over-tcp-16bit": false
+            },
+            "argon": {
+              "1-audio-over-tcp": true,
+              "2-audio-over-tcp-16bit": true
+            },
+            "boron": {
+              "1-audio-over-tcp": true,
+              "2-audio-over-tcp-16bit": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "ParticleGarage": {
+    "versions": {
+      "1.1.0": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "mqttUsage": false,
+              "usage": false
+            },
+            "electron": {
+              "mqttUsage": false,
+              "usage": false
+            },
+            "argon": {
+              "mqttUsage": false,
+              "usage": false
+            },
+            "boron": {
+              "mqttUsage": false,
+              "usage": false
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "mqttUsage": false,
+              "usage": false
+            },
+            "electron": {
+              "mqttUsage": false,
+              "usage": false
+            },
+            "argon": {
+              "mqttUsage": false,
+              "usage": false
+            },
+            "boron": {
+              "mqttUsage": false,
+              "usage": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "LogHandlers": {
+    "versions": {
+      "0.0.3": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "republish": true,
+              "usage": true
+            },
+            "electron": {
+              "republish": true,
+              "usage": true
+            },
+            "argon": {
+              "republish": true,
+              "usage": true
+            },
+            "boron": {
+              "republish": true,
+              "usage": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "republish": true,
+              "usage": true
+            },
+            "electron": {
+              "republish": true,
+              "usage": true
+            },
+            "argon": {
+              "republish": true,
+              "usage": true
+            },
+            "boron": {
+              "republish": true,
+              "usage": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "AB1805_RK": {
+    "versions": {
+      "0.0.1": {
+        "builds": {
+          "2.0.1": {
+            "photon": {
+              "01-minimal": true,
+              "02-typical": true,
+              "03-periodic-wake": false,
+              "04-selftest": false,
+              "05-hwtest": true,
+              "06-supercap": false,
+              "07-deep-power": false
+            },
+            "electron": {
+              "01-minimal": true,
+              "02-typical": true,
+              "03-periodic-wake": false,
+              "04-selftest": false,
+              "05-hwtest": true,
+              "06-supercap": false,
+              "07-deep-power": false
+            },
+            "argon": {
+              "01-minimal": true,
+              "02-typical": true,
+              "03-periodic-wake": true,
+              "04-selftest": true,
+              "05-hwtest": true,
+              "06-supercap": true,
+              "07-deep-power": true
+            },
+            "boron": {
+              "01-minimal": true,
+              "02-typical": true,
+              "03-periodic-wake": true,
+              "04-selftest": true,
+              "05-hwtest": true,
+              "06-supercap": true,
+              "07-deep-power": true
+            }
+          },
+          "1.5.2": {
+            "photon": {
+              "01-minimal": true,
+              "02-typical": true,
+              "03-periodic-wake": false,
+              "04-selftest": false,
+              "05-hwtest": true,
+              "06-supercap": false,
+              "07-deep-power": false
+            },
+            "electron": {
+              "01-minimal": true,
+              "02-typical": true,
+              "03-periodic-wake": false,
+              "04-selftest": false,
+              "05-hwtest": true,
+              "06-supercap": false,
+              "07-deep-power": false
+            },
+            "argon": {
+              "01-minimal": true,
+              "02-typical": true,
+              "03-periodic-wake": true,
+              "04-selftest": true,
+              "05-hwtest": true,
+              "06-supercap": true,
+              "07-deep-power": true
+            },
+            "boron": {
+              "01-minimal": true,
+              "02-typical": true,
+              "03-periodic-wake": true,
+              "04-selftest": true,
+              "05-hwtest": true,
+              "06-supercap": true,
+              "07-deep-power": true
             }
           }
         }

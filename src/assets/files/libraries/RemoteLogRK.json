@@ -1,0 +1,87 @@
+{
+  "type": "libraries",
+  "id": "RemoteLogRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/RemoteLogRK/archive/0.0.3.tar.gz"
+  },
+  "attributes": {
+    "name": "RemoteLogRK",
+    "version": "0.0.3",
+    "installs": 999,
+    "license": "MIT",
+    "author": "Rick Kaseguma <rickkas7@rickk.com>",
+    "sentence": "Remote logging for Particle devices",
+    "url": "https://github.com/rickkas7/RemoteLogRK",
+    "repository": "https://github.com/rickkas7/RemoteLogRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "r",
+  "cardUrl": "/cards/libraries/r/RemoteLogRK",
+  "versions": {
+    "0.0.3": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1-Simple": true,
+            "2-Multicast": true,
+            "3-Publish": false,
+            "4-Server": true
+          },
+          "electron": {
+            "1-Simple": false,
+            "2-Multicast": false,
+            "3-Publish": false,
+            "4-Server": false
+          },
+          "argon": {
+            "1-Simple": true,
+            "2-Multicast": true,
+            "3-Publish": false,
+            "4-Server": true
+          },
+          "boron": {
+            "1-Simple": false,
+            "2-Multicast": false,
+            "3-Publish": false,
+            "4-Server": false
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-Simple": true,
+            "2-Multicast": true,
+            "3-Publish": false,
+            "4-Server": true
+          },
+          "electron": {
+            "1-Simple": false,
+            "2-Multicast": false,
+            "3-Publish": false,
+            "4-Server": false
+          },
+          "argon": {
+            "1-Simple": true,
+            "2-Multicast": true,
+            "3-Publish": false,
+            "4-Server": true
+          },
+          "boron": {
+            "1-Simple": false,
+            "2-Multicast": false,
+            "3-Publish": false,
+            "4-Server": false
+          }
+        }
+      }
+    }
+  },
+  "readme": "# RemoteLogRK\n\n*Remote logging for Particle devices*\n\n- Repository: https://github.com/rickkas7/RemoteLogRK\n- [Full browsable API](https://rickkas7.github.io/RemoteLogRK/index.html)\n- License: MIT (can be used in open or closed-source projects, including commercial projects, with no attribution required)\n- Library: RemoteLogRK\n\n\nThis library provides several mechanisms for getting debugging logs (Log.info, Log.error, etc.) off the device:\n\n- Syslog UDP logging (cellular or Wi-Fi) sends the logs to a syslog server. This is ideal for using Solarwinds Papertrail.\n- Event logging (cellular or Wi-Fi) sends the logs out via Particle events.\n- Multicast UDP logging (Wi-Fi only) sends the logs out onto the local network where they are picked by by a multicast receiver.\n- TCP server logging (Wi-Fi only) provides recent logs when you connect over the network to the on-device server, along with live tail. \n\nA configurable buffer, which can be in regular or retained memory, can be used to hold log messages when not connected to the network, including the messages that are generating during cellular and cloud connection. When in retained memory, it's preserved across reset as well. A buffer of 2500 bytes is usually sufficient to log the messages during cloud connection, though you can make it larger if you have available RAM.\n\nWhile you can enable more than one server, you will probably only have one in most cases. \n\n## Logging Methods\n\n### Syslog UDP\n\n[Syslog](https://en.wikipedia.org/wiki/Syslog), System Logging Protocol, is a standard for transmitting system logs over a network. For Wi-Fi devices you can transmit to a server on your local network, such as a Linux server. Or you can use a cloud service. [Solarwinds Papertrail](https://www.papertrail.com/) is a popular one. \n\nThe nice thing about using a service like Papertrail is that the take care of storing and have a nice interface for live tail and searching the logs. The downside is that if you have anything more than the bare minimum of logs you'll need to pay for it, and when using UDP, the logs are not encrypted in transit, so you should avoid logging anything sensitive. \n\nPapertrail supports TLS/SSL encrypted syslog over TCP, but this library does not as the TLS library tends to use up most of the available flash on devices making it impractical.\n\n\n### Event \n\nEvent based logging buffers the logs in retained memory or regular memory, and then transits them once cloud connected. Multiple log messages can be combined into a single event, and are automatically rate limited to the one event per second rate limit.\n\nThe idea is that you'd collect these logs using Server Sent Events (SSE) or Webhooks and store them somewhere on your own server, or store them in a cloud-based database.\n\nThe advantage of events is that they are secure and take advantage of the Particle cloud encryption layer so there is little extra code or handshaking required. And event-based logging works on both cellular and Wi-Fi.\n\n### Multicast UDP\n\nThe Multicast UDP option is available for Wi-Fi devices. \n\nPros:\n- Small code\n- Efficient\n- Does not require a server with a fixed IP address\n\nCons:\n- Not authenticated or encrypted\n- Anyone on the LAN can monitor all logs in real time\n\n\n### TCP server\n\nThe TCP server option is available for Wi-Fi devices. It works the opposite of the other logging methods. The recent logs are accumulated locally, and when you connect to the TCP server the recent logs are returned, then the connection has a live tail of new logging entries. This is useful if you don't normally care about the logs, but if there's a problem you want to be able to connect to the device over the local LAN.\n\nThe disadvantage is that the transport is not encrypted, there is no authentication to connect to the server, and when using DHCP it's hard to know the IP address of the device you want to connect to. But it may be useful in some cases.\n\n\n## Version History\n\n### 0.0.3\n\n- Documentation\n- Added ability to set syslog host and port after construction\n\n### 0.0.2 (2021-02-15)\n\n- Added Papertrail (syslog UDP) logging\n- Changed retained memory structure to make it easier to implement readIndex in server handlers\n\n### 0.0.1 (2021-01-19)\n\n- Initial version\n\n",
+  "allVersions": [
+    "0.0.3"
+  ]
+}

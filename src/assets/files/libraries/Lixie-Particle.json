@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Lixie-Particle",
     "version": "1.4.1",
-    "installs": 168,
+    "installs": 188,
     "license": "GNU v3",
     "author": "Connor Nishijima",
     "sentence": "Allows for easy writing to Lixie Digit displays!",

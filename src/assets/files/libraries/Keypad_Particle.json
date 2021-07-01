@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Keypad_Particle",
     "version": "1.0.0",
-    "installs": 14349,
+    "installs": 15513,
     "author": "Mark Stanley, Alexander Brevig",
     "sentence": "A Particle port of the Keypad Arduino library by Mark Stanley and Alexander Brevig.",
     "architectures": [],

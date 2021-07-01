@@ -7,7 +7,7 @@
   "attributes": {
     "name": "can-mcp25x",
     "version": "1.0.0",
-    "installs": 109,
+    "installs": 165,
     "license": "The MIT License (MIT)",
     "author": "Loovee",
     "sentence": "Driver library to support Microchip MCP2515 and MCP25625 controllers",

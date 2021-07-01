@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PS2Communication",
     "version": "0.0.8",
-    "installs": 479,
+    "installs": 524,
     "license": "GNU Lesser General Public License",
     "author": "ScruffR",
     "sentence": "Basic PS/2 communication framework (Core/Photon/P1)",

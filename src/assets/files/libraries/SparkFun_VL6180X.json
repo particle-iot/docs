@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_VL6180X",
     "version": "1.0.2",
-    "installs": 1332,
+    "installs": 1361,
     "license": "[Creative Commons Share-alike 3.0](http://creativecommons.org/licenses/by-sa/3.0/)",
     "author": "Casey Kuhns @ SparkFun Electronics",
     "sentence": "Port of SparkFun VL6180X TOF sensor library to Photon",

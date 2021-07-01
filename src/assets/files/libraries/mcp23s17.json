@@ -7,7 +7,7 @@
   "attributes": {
     "name": "mcp23s17",
     "version": "0.2.0",
-    "installs": 592,
+    "installs": 634,
     "license": "The MIT License (MIT)",
     "author": "Zachary J. Fields <zachary_fields@yahoo.com>",
     "sentence": "A C++ wrapper for the Microchip MCP23S17.",

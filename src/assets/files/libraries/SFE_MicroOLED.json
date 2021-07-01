@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SFE_MicroOLED",
     "version": "1.2.7",
-    "installs": 1294,
+    "installs": 1406,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the <a href=\"https://www.sparkfun.com/products/13003\">SparkFun Micro OLED Breakout</a>.",

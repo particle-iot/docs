@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_BNO080_Arduino_Library",
     "version": "1.1.8",
-    "installs": 924,
+    "installs": 1451,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Qwiic VR IMU - BNO080/BNO085",

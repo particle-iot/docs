@@ -7,7 +7,7 @@
   "attributes": {
     "name": "adxl345",
     "version": "0.0.3",
-    "installs": 8574,
+    "installs": 9070,
     "license": "GNU",
     "author": "Kenneth Lim <kennethlimcp@gmail.com>",
     "url": "https://github.com/spark/spark-lib-adxl345",

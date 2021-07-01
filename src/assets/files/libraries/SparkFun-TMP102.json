@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-TMP102",
     "version": "1.0.0",
-    "installs": 1155,
+    "installs": 1402,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "Alex Wende <alex.wende@sparkfun.com>",
     "sentence": "A library to drive the Texas Instruments TMP102 by I2C.",

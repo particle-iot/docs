@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RunningAverage",
     "version": "0.0.1",
-    "installs": 27322,
+    "installs": 28676,
     "license": "GNU GPL 2.0",
     "author": "Lucas Choate <lucas@ingen-networks.com>",
     "sentence": "RunningAverage keeps a running average of your sampled data without blowing up your memory",

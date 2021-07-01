@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AzureMobileApp",
     "version": "0.1.0",
-    "installs": 378,
+    "installs": 406,
     "license": "GPL",
     "author": "Brian Sherwin <github:bsherwin>; Paul DeCarlo <github:toolboc>; Bill Fink <github:WhatsTheBigIT>",
     "sentence": "Library for abstracting Azure Mobile App Easy Tables REST Api for particle.io devices",

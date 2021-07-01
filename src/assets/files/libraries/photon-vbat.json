@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-vbat",
     "version": "0.0.3",
-    "installs": 5345,
+    "installs": 5411,
     "license": "MIT",
     "author": "Rick Kaseguma <rickkas7@rickk.com>",
     "sentence": "Utility to read the VBAT and temperature values from a STM32F2xx processor",

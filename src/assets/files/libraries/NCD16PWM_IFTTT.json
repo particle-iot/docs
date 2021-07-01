@@ -7,7 +7,7 @@
   "attributes": {
     "name": "NCD16PWM_IFTTT",
     "version": "0.0.1",
-    "installs": 607,
+    "installs": 644,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of NCD 16 channel Particle compatible PWM Controller",
