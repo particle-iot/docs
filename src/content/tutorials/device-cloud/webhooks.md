@@ -135,13 +135,15 @@ Congratulations! You've created a webhook successfully and gotten data from your
 
 ## Editing a webhook
 
-To edit a webhook, scroll to the bottom of any webhook page, and press the edit button.
+To edit a webhook, click on a webhook in the **Integrations** tab to view the webhook.
 
 ![Editing webhooks](/assets/images/integrations-webhook-edit.png)
 
-You will be presented with a form, containing the same inputs as the 'Create webhook' page.
+Clicking on the **Edit** button brings up a form with the same options as the 'Create webhook' page.
 
 ![Editing webhooks form](/assets/images/integrations-webhook-edit-form.png)
+
+The **Status** popup can be set to **Enabled** or **Disabled**. This can be used to temporarily disable a webhook.
 
 If you press 'Cancel', all the changes you made won't be persisted. Clicking on 'Save' updates the integration. When the webhook is fired, it should contain the new information.
 

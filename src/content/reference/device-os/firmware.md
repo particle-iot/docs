@@ -596,7 +596,7 @@ Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 Previously, there were overloads with a `ttl` (time-to-live) value. These have been deprecated as the ttl has never been supported by the Particle cloud. All events expire immediately if not subscribed to or exported from the Particle cloud using a webhook, integration like Google cloud, or the server-sent-events (SSE) stream. 
 
-
+Even if you use `NO_ACK` mode and do not check the result code from `Particle.publish()` it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if you publish while in the process of attempting to reconnect to the network. At a minimum, you should make sure that `Particle.connected()` returns true before publishing. Doing [publish operations from a separate worker thread](https://github.com/rickkas7/BackgroundPublishRK) is another option. 
 
 ### Particle.subscribe()
 
@@ -674,6 +674,10 @@ You should not call `Particle.subscribe()` from the constructor of a globally al
 Each event delivery attempt to a subscription handler uses one Data Operation from your monthly or yearly quota. Setting up the subscription does not use a Data Operations. You should take advantage of the event prefix to avoid delivering events that you do not need. If poor connectivity results in multiple attempts, it could result in multiple Data Operations, up to 3. If the device is currently marked as offline, then no attempt will be made and no Data Operations will be incurred.
 
 If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/device-cloud/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
+
+```cpp
+Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler, MY_DEVICES);
+```
 
 ---
 
@@ -919,6 +923,18 @@ While this function will disconnect from the Cloud, it will keep the connection 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. 
 Safe mode can be used to reconnect to the cloud.*
 
+### Clear Session
+
+When your device connects to the Particle cloud, if often can do so by resuming the previous session. This dramatically reduces the amount of data used, from around 5-6 Kbytes of data for a full handshake to hundreds of bytes of data for a resume. While a full session handshake does not use data operations, if done excessively it can impact the total data usage on cellular devices. Sessions are automatically renegotiated every 3 days for security reasons.
+
+Under normal circumstances you will never have to manually invalidate the current session. However, if you have a need to do so, this is the best way:
+
+```cpp
+auto opts = CloudDisconnectOptions().clearSession(true);
+Particle.disconnect(opts);
+```
+
+You may see references to `spark/device/session/end` in the community forums, however that method should not be used and may be deprecated in the future. The clearSession flag should be used instead.
 
 ### Particle.connected()
 
@@ -1174,6 +1190,9 @@ Returns the number of milliseconds since the device began running the current pr
 
 This function takes one optional argument:
 - `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
+
+It is possible that the call will block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread (as is the case for `Particle.timeSyncedLast()`) from a separate worker thread is a good workaround.
+
 
 ### Get Public IP
 
@@ -3474,6 +3493,11 @@ Cellular.resetDataUsage();
 
 `Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that allows you to determine signal strength (RSSI) and signal quality of the currently connected Cellular network.
 
+This function queries the cellular modem for the RSSI. This is normally quick, and does not use cellular data.
+
+However, it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread from a separate worker thread is a good workaround.
+
+
 ### CellularSignal Class
 
 {{api name1="CellularSignal"}}
@@ -3948,6 +3972,8 @@ There are 13 different enumerated AT command responses passed by the system into
 - `TYPE_TEXT`       = 0x500000
 - `TYPE_ABORTED`    = 0x600000
 
+
+It is possible that the call will block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread from a separate worker thread is a good workaround.
 
 ## Battery Voltage
 
@@ -7787,9 +7813,10 @@ The Tracker SoM allows an alternate mapping of the `Wire` (I2C interface) from D
 
 This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
 
-**Argon**
+**Argon and B Series SoM**
 
-Additionally, on the Argon, there is a second I2C port that can be used with the `Wire1` object. This a separate I2C peripheral and can be used at the same time as `Wire`.
+Additionally, on the Argon and B Series SoM there is a second I2C port that can be used with the `Wire1` object. This a separate I2C peripheral and can be used at the same time as `Wire`.
+
 * `SCL` => `D3`
 * `SDA` => `D2` 
 
@@ -7993,6 +8020,7 @@ Returns: `byte`, which indicates the status of the transmission:
 - 3: end of address transmission timeout
 - 4: data byte transfer timeout
 - 5: data byte transfer succeeded, busy timeout immediately after
+- 6: timeout waiting for peripheral to clear stop bit
 
 ### write()
 
@@ -18614,7 +18642,8 @@ Standard Firmware Releases are delivered the next time the device connects to th
 **Note**: Calling `System.disableUpdates()` and `System.enableUpdates()`
 for devices running Device OS version 1.2.0 or later will result in a
 message sent to the Device Cloud. This will result in a small amount of
-additional data usage each time they are called.
+additional cellular data usage each time they are called, but do not 
+count as a data operation for billing purposes.
 
 ### System.disableUpdates()
 ```cpp

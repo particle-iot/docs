@@ -603,7 +603,7 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Accepts",
+            "field": "Accept",
             "description": "<p>Must be set to &quot;application/schema+json&quot; for this endpoint</p>"
           }
         ]
@@ -612,7 +612,7 @@
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/products/1234/config/abc123?access_token=abc123\" \\",
-        "content": "$ curl \"https://api.particle.io/v1/products/1234/config/abc123?access_token=abc123\" \\\n       -H \"Accepts: application/schema+json\"",
+        "content": "$ curl \"https://api.particle.io/v1/products/1234/config/abc123?access_token=abc123\" \\\n       -H \"Accept: application/schema+json\"",
         "type": "bash"
       }
     ],
@@ -4268,8 +4268,8 @@
             "group": "Parameter",
             "type": "String",
             "optional": true,
-            "field": "device_id",
-            "description": "<p>The device ID to target the compilation</p>"
+            "field": "platform_id",
+            "description": "<p>The platform ID to target the compilation</p>"
           },
           {
             "group": "Parameter",
@@ -4291,7 +4291,7 @@
     "examples": [
       {
         "title": "$ curl -X POST \"https://api.particle.io/v1/binaries?access_token=1234\" \\",
-        "content": "$ curl -X POST \"https://api.particle.io/v1/binaries?access_token=1234\" \\\n       -F product_id=6 \\\n       -F \"file=@application.cpp;filename=application.cpp\" \\\n       -F \"file1=@lib/my_lib.cpp;filename=lib/my_lib.cpp\" \\\n       -F \"file2=@lib/my_lib.h;filename=lib/my_lib.h\"",
+        "content": "$ curl -X POST \"https://api.particle.io/v1/binaries?access_token=1234\" \\\n       -F platform_id=6 \\\n       -F \"file=@application.cpp;filename=application.cpp\" \\\n       -F \"file1=@lib/my_lib.cpp;filename=lib/my_lib.cpp\" \\\n       -F \"file2=@lib/my_lib.h;filename=lib/my_lib.h\"",
         "type": "bash"
       }
     ],
@@ -7634,7 +7634,7 @@
             "type": "Boolean",
             "optional": false,
             "field": "intelligent",
-            "description": "<p>[Enterprise only] Flag this firmware release as an intelligent release so that devices do not need to reconnect to the cloud to receive the update and that they are informed of pending updates when devices are not available for updating.</p>"
+            "description": "<p>Flag this firmware release as an intelligent release so that devices do not need to reconnect to the cloud to receive the update and that they are informed of pending updates when devices are not available for updating.</p>"
           }
         ]
       }
@@ -9262,7 +9262,7 @@
     "title": "Get data usage for product fleet",
     "name": "simFleetDataUsage",
     "group": "Sims_4",
-    "description": "<p>Get fleet-wide SIM card data usage for a product in the current billing period, broken out by day. Daily usage totals represent an aggregate of all SIM cards that make up the product. Note that data usage reports can be delayed up to 1 hour.</p>",
+    "description": "<p>Get fleet-wide SIM card data usage for a product in the current billing period, broken out by day. Daily usage totals represent an aggregate of all SIM cards that make up the product. Data usage reports can be delayed until the next day, and occasionally by several days.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -9432,7 +9432,7 @@
     "examples": [
       {
         "title": "Example request",
-        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/sims \\\n       -d sims[]=8934076500002586220 \\\n       -d country=US \\\n       -d access_token=1234",
+        "content": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/sims \\\n       -d sims[]=8934076500002586220 \\\n       -d access_token=1234",
         "type": "bash"
       }
     ],

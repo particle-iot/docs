@@ -11,6 +11,7 @@
   "/reference/device-os/firmware/#particle-publishvitals-": "/cards/firmware/cloud-functions/particle-publishvitals/",
   "/reference/device-os/firmware/#particle-connect-": "/cards/firmware/cloud-functions/particle-connect/",
   "/reference/device-os/firmware/#particle-disconnect-": "/cards/firmware/cloud-functions/particle-disconnect/",
+  "/reference/device-os/firmware/#clear-session": "/cards/firmware/cloud-functions/clear-session/",
   "/reference/device-os/firmware/#particle-connected-": "/cards/firmware/cloud-functions/particle-connected/",
   "/reference/device-os/firmware/#particle-disconnected-": "/cards/firmware/cloud-functions/particle-disconnected/",
   "/reference/device-os/firmware/#particle-setdisconnectoptions-": "/cards/firmware/cloud-functions/particle-setdisconnectoptions/",

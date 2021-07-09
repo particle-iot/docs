@@ -4,11 +4,13 @@ layout: commonTwo.hbs
 columns: two
 ---
 
-Particle Gen 3 devices (Argon, Boron, and Xenon) included support for Thread Mesh, a technology for short-range (10 meter) communication. This support will be discontinued beginning in March 2020.
+Particle Gen 3 devices (Argon, Boron, and Xenon) previously included support for Thread Mesh, a technology for short-range (10 meter) communication. 
+
+Mesh networking and the Xenon have been discontinued.
 
 | Date | Milestone |
 | ---  | --- |
-| March 2020 | Last Device OS release with mesh support (1.5.x) |
+| March 2020 | Last Device OS release with mesh support (1.5.2) |
 | April 30, 2020 | Last sale of Xenon devices<sup>1</sup> |
 | June 30, 2020 | End of customer support for mesh <sup>2</sup> | 
 | December 31, 2020 | Mobile apps, CLI, and cloud support for adding Xenons will be removed<sup>3</sup> |
@@ -39,7 +41,7 @@ After 2020 the mobile app support for creating mesh networks will be removed, so
 
 #### What happens after Device OS 1.5.x?
 
-Device OS 1.5.x, currently 1.5.2, will be the last version to contain Thread mesh networking support. After this release, there will not be any additional mesh-specific bug fixes or upgrades to the nRF52 Thread mesh networking stack.
+Device OS 1.5.2 is the last version to contain Thread mesh networking support. After this release, there will not be any additional mesh-specific bug fixes or upgrades to the nRF52 Thread mesh networking stack.
 
 Version 2.0.0 and later (there is no 1.6.x), have the ability to use a mesh network removed, and all Device OS API calls in the `Mesh` object have been removed.
 
