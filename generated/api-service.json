@@ -4266,7 +4266,7 @@
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Number",
             "optional": true,
             "field": "platform_id",
             "description": "<p>The platform ID to target the compilation</p>"
