@@ -434,7 +434,6 @@ The complete schematic and board files are open source and available on Particle
 | Barbados | BRN314 | 2G, 3G | Flow |
 | Belarus | BRN314 | 2G, 3G | A1 |
 | Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
-| Belize | BRN314 | 2G, 3G | Smart |
 | Bolivia | BRN314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
 | Brunei | BRN314 | 2G, 3G | DST |
@@ -472,18 +471,18 @@ The complete schematic and board files are open source and available on Particle
 | Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | BRN314 | 2G, 3G | Gibtel |
 | Greece | BRN314 | 2G, 3G | Cosmote, Vodafone, Wind |
-| Grenada | BRN314 | 2G, 3G | Flow |
+| Grenada | BRN314 | 2G | Flow |
 | Guadeloupe | BRN314 | 2G, 3G | Orange |
 | Guatemala | BRN314 | 2G, 3G | Claro, Movistar |
 | Guinea | BRN314 | 2G, 3G | MTN |
 | Guinea-Bissau | BRN314 | 2G, 3G | MTN |
-| Guyana | BRN314 | 2G, 3G | Digicel |
+| Guyana | BRN314 | 2G | Digicel |
 | Haiti | BRN314 | 2G, 3G | Digicel |
 | Honduras | BRN314 | 2G, 3G | Claro, Tigo |
 | Hong Kong | BRN314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | BRN314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | BRN314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | BRN314 | 2G, 3G | Airtel, Jio |
+| India | BRN314 | 2G, 3G | Airtel |
 | Indonesia | BRN314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | BRN314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | BRN314 | 2G, 3G | Hot Mobile, Orange, Pelephone |

@@ -347,14 +347,14 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | ONE524 | 2G, 3G, Cat1 | A1 |
 | Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | ONE524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | ONE524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | ONE524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | ONE524 | 2G, 3G | A1, Telenor, Vivacom |
 | Canada | ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Croatia | ONE524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | ONE524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | ONE524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | ONE524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | ONE524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | ONE524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | ONE524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | ONE524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | ONE524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |

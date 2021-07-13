@@ -554,13 +554,13 @@ The bootloader allows you to easily update the user application via several diff
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | B524 | 2G, 3G, Cat1 | A1 |
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | B524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | B524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | B524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | B524 | 2G, 3G | A1, Telenor, Vivacom |
 | Croatia | B524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | B524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | B524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | B524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | B524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | B524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | B524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | B524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |

@@ -1114,14 +1114,14 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | T524 | 2G, 3G, Cat1 | A1 |
 | Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | T524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | T524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | T524 | 2G, 3G | A1, Telenor, Vivacom |
 | Canada | T404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Croatia | T524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | T524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | T524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | T524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | T524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | T524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | T524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | T524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | T524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
