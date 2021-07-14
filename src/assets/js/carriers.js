@@ -771,7 +771,8 @@ countryDetails.onCountrySelected = function(country) {
             noBandNoPlan:'3',
             warnM1:'4'
         },
-        footnotesDiv: countryDetails.options.footnotesDiv
+        footnotesDiv: countryDetails.options.footnotesDiv,
+        showAllTechnologies: true
     }
     dataui.bandUseChangeHandler(tableId, [countryObj], simPlanObj.countryCarrierKey, modemObj, bandUseChangeOptions);
 

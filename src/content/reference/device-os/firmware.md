@@ -4489,7 +4489,7 @@ Additional information on which pins can be used for PWM output is available on 
 {{note op="start" type="gen3"}}
 On Gen 3 devices, the PWM frequency is from 5 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
 
-On Gen 3 Feather devices (Argon, Boron), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On Gen 3 Feather devices (Argon, Boron), pins A0, A1, A2, A3, A4, A5, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 3: Pins D2, D3, A4, and A5.
