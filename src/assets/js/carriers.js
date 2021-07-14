@@ -772,7 +772,8 @@ countryDetails.onCountrySelected = function(country) {
             warnM1:'4'
         },
         footnotesDiv: countryDetails.options.footnotesDiv,
-        showAllTechnologies: true
+        showAllTechnologies: true,
+        showM1: modemObj.technologies.includes('M1')
     }
     dataui.bandUseChangeHandler(tableId, [countryObj], simPlanObj.countryCarrierKey, modemObj, bandUseChangeOptions);
 

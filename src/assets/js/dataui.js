@@ -1,3 +1,4 @@
+
 let dataui = {};
 
 
@@ -1029,7 +1030,7 @@ dataui.sortCompareNumeric = function(a, b) {
     return parseInt(a) - parseInt(b);
 };
 
-dataui.collectModemBands = function(countryCarrierList, technologies) {
+dataui.collectModemBands = function(countryCarrierList, technologies, options) {
     let bandsUsed = {};
 
     bandsUsed.bands2G = [];
@@ -1063,7 +1064,7 @@ dataui.collectModemBands = function(countryCarrierList, technologies) {
                         bandsUsed.bandsAll.push(tagBand.replace('LTE', 'Cat1'));                
                     }                        
                 }
-                if (technologies && technologies.includes('M1')) {
+                if ((technologies && technologies.includes('M1')) || options.showM1) {
                     if (!bandsUsed.bandsM1.includes(band)) {
                         bandsUsed.bandsM1.push(band);
                         bandsUsed.bandsAll.push(tagBand.replace('LTE', 'M1'));                
@@ -1132,8 +1133,9 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
     });
 
     // Collect all of the bands used so filtered tables don't have a ridiculous number of columns
-    const bandsUsed = dataui.collectModemBands(countryCarrierFiltered, 
-        (options.showAllTechnologies ? null : modem.technologies));
+    const bandsUsed = dataui.collectModemBands(countryCarrierFiltered,
+        (options.showAllTechnologies ? null : modem.technologies),
+        options);
 
     // Generate the HTML
     {
