@@ -9016,6 +9016,7 @@ void loop() {
         Log.info("%d devices found", scanResults.size());
 
         for (int ii = 0; ii < scanResults.size(); ii++) {
+            // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
             Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
                     scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
                     scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5], scanResults[ii].rssi());
@@ -9048,6 +9049,7 @@ void loop() {
         Log.info("%d devices found", scanResults.size());
 
         for (int ii = 0; ii < scanResults.size(); ii++) {
+            // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
             Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
                     scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
                     scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5], scanResults[ii].rssi);
@@ -9069,6 +9071,17 @@ The [`BleScanResult`](#blescanresult) is described below. It contains:
 - `advertisingData` The advertising data sent by the device
 - `scanData` The scan data (optional)
 - `rssi` The signal strength of the advertising message.
+
+Prior to Device OS 3.0, these were member variables. 
+
+In Device OS 3.0 and later, they are methods, so you 
+must access them as:
+
+- `address()` The BLE address of the device
+- `advertisingData()` The advertising data sent by the device
+- `scanData()` The scan data (optional)
+- `rssi()` The signal strength of the advertising message.
+
 
 #### BLE.scan(callback)
 
@@ -9113,9 +9126,10 @@ void loop() {
 }
 
 void scanResultCallback(const BleScanResult *scanResult, void *context) {
-	Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
-			scanResult->address[0], scanResult->address[1], scanResult->address[2],
-			scanResult->address[3], scanResult->address[4], scanResult->address[5], scanResult->rssi);
+  // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
+  Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
+          scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
+          scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5], scanResults[ii].rssi());
 
 	String name = scanResult->advertisingData.deviceName();
 	if (name.length() > 0) {
@@ -9136,6 +9150,22 @@ The [`BleScanResult`](#blescanresult) is described below. It contains:
 - `advertisingData` The advertising data sent by the device
 - `scanData` The scan data (optional)
 - `rssi` The signal strength of the advertising message.
+
+Prior to Device OS 3.0, these were member variables. 
+
+In Device OS 3.0 and later, they are methods, so you 
+must access them as:
+
+- `address()` The BLE address of the device
+- `advertisingData()` The advertising data sent by the device
+- `scanData()` The scan data (optional)
+- `rssi()` The signal strength of the advertising message.
+
+For example:
+
+```
+len = scanResults[ii].advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
+```
 
 The `context` parameter is often used if you implement your scanResultCallback in a C++ object. You can store the object instance pointer (`this`) in the context.
 
@@ -10937,21 +10967,20 @@ When scanning, you get back one of:
 
 The following fields are provided:
 
-```
-// DEFINITION
-class BleScanResult {
-public:
-    BleAddress address;
-    BleAdvertisingData advertisingData;
-    BleAdvertisingData scanResponse;
-    int8_t rssi;
-};
-```
-
 - `address` The BLE address of the peripheral. You use this if you want to connect to it. See [`BleAddress`](#bleaddress).
 - `advertisingData` The advertising data provided by the peripheral. It's small (up to 31 bytes).
 - `scanResponse` The scan response data. This is an optional extra 31 bytes of data that can be provided by the peripheral. It requires an additional request to the peripheral, but is less overhead than connecting.
 - `rssi` The signal strength, which is a negative number of dBm. Numbers closer to 0 are a stronger signal.
+
+Prior to Device OS 3.0, these were member variables. 
+
+In Device OS 3.0 and later, they are methods, so you 
+must access them as:
+
+- `address()` The BLE address of the device
+- `advertisingData()` The advertising data sent by the device
+- `scanData()` The scan data (optional)
+- `rssi()` The signal strength of the advertising message.
 
 #### discoverAllCharacteristics
 
