@@ -555,6 +555,11 @@
     "title": "Get product schema",
     "name": "GetProductConfigSchema",
     "group": "Configuration_3",
+    "permission": [
+      {
+        "name": "configuration:get"
+      }
+    ],
     "description": "<p>Get the possible values that can be configured for this product, in JSON Schema format</p>",
     "header": {
       "fields": {
@@ -595,6 +600,11 @@
     "title": "Get device schema",
     "name": "GetDeviceConfigSchema",
     "group": "Configuration_4",
+    "permission": [
+      {
+        "name": "configuration:get"
+      }
+    ],
     "description": "<p>Get the possible values that can be configured for one device in this product, in JSON Schema format</p>",
     "header": {
       "fields": {
@@ -862,6 +872,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "customers:remove"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl -X DELETE \"https://api.particle.io/v1/products/:productIdOrSlug/customers/test@company.com\" \\",
@@ -1103,6 +1118,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "customers:list"
+      }
+    ],
     "group": "Customers_4",
     "header": {
       "fields": {
@@ -1375,6 +1395,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "customers:update"
+      }
+    ],
     "examples": [
       {
         "title": "Example Request",
@@ -1678,6 +1703,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices:release"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl -X DELETE https://api.particle.io/v1/devices/12345 \\",
@@ -1763,6 +1793,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl -X PUT https://api.particle.io/v1/devices/12345 \\",
@@ -1953,6 +1988,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?access_token=1234\"",
@@ -2067,6 +2107,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices:import"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/devices?access_token=12345\" \\",
@@ -2409,6 +2454,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices:get"
+      }
+    ],
     "name": "GetProductDevice",
     "description": "<p>Get basic information about a given device that is part of a product</p> <p>See <a href=\"#get-device-information\">Get device information</a> for the response attributes</p>",
     "group": "Devices_5",
@@ -2457,6 +2507,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices.variable:get"
+      }
+    ],
     "name": "GetDeviceVariable",
     "description": "<p>Request the current value of a variable exposed by the device. Variables can be read on a device you own, or for any device that is part of a product you are a team member of.</p>",
     "group": "Devices_6",
@@ -2565,6 +2620,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices.function:call"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl https://api.particle.io/v1/devices/0123456789abcdef01234567/gong \\",
@@ -2654,6 +2714,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices:ping"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl https://api.particle.io/v1/devices/0123456789abcdef01234567/ping \\",
@@ -2914,6 +2979,11 @@
     "url": "spark/device/diagnostics/update",
     "title": "Device vitals event",
     "name": "deviceVitals",
+    "permission": [
+      {
+        "name": "devices.diagnostics:update"
+      }
+    ],
     "description": "<p>The device publishes a Particle event named <code>spark/device/diagnostics/update</code> in response to <a href=\"#refresh-device-vitals\">a Device Cloud request to refresh device vitals</a>. The body of the event will contain the diagnostic vitals for the device. The payload of the diagnostics payload will differ per device type.</p> <p>To contextualize and interpret raw device vitals published by the device, please see the <a href=\"#get-device-vitals-metadata\">get device vitals metadata</a> API documentation.</p>",
     "group": "Diagnostics_2",
     "success": {
@@ -3391,6 +3461,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices.diagnostics:get"
+      }
+    ],
     "name": "getLastDeviceDiagnostics",
     "description": "<p>Returns the last device vitals payload sent by the device to the Device Cloud.</p>",
     "group": "Diagnostics_3",
@@ -3489,6 +3564,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices.diagnostics:get"
+      }
+    ],
     "header": {
       "fields": {
         "Header": [
@@ -3595,6 +3675,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices.diagnostics.metadata:get"
+      }
+    ],
     "name": "getMetadataForDeviceDiagnostics",
     "description": "<p>Contextualizes and allows for interpretation of <a href=\"#refresh-device-vitals\">device vitals</a>. The objects in the device vitals payload map to the metadata objects returned by this endpoint. Metadata will vary depending on the device type, and is subject to change as more is learned about device health.</p> <p>Each metadata object mapping to a device vital can include:</p> <ul> <li><code>title</code>: A friendly name.</li> <li><code>type</code>: The data type of the vital returned by the device. Can be set to <code>number</code> or <code>string</code>.</li> <li><code>units</code>: Information on the specific unit of measurement, including how to convert the raw vital into the preferred unit of measurement.</li> <li><code>ranges</code>: Establishes healthy vital ranges. If outside the healthy range, the vital will be marked in the &quot;warning&quot; state in the Console. Ranges help assert whether a reported vital is above/below a specified value, or use a ratio between two related vitals as an indicator of health.</li> <li><code>values</code>: Similar to <code>ranges</code>, but maps reported vitals with a <code>type</code> of <code>string</code> to determine a healthy or warning state.</li> <li><code>messages</code>: Helpful messages to provide analysis and interpretation of diagnostics test results. Also includes a description of the vital.</li> <li><code>priority</code>: Used for visual ordering of device vitals on the Console.</li> <li><code>describes</code>: Creates a relationship between two vitals used for visual arrangement on the Console.</li> </ul>",
     "group": "Diagnostics_5",
@@ -3661,6 +3746,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "sims.status:get"
+      }
+    ],
     "examples": [
       {
         "title": "Get cellular network status",
@@ -3994,6 +4084,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "events:get"
+      }
+    ],
     "name": "GetProductEvents",
     "group": "Events_4",
     "description": "<p>Open a stream of <a href=\"http://www.w3.org/TR/eventsource/\">Server Sent Events</a> for all public and private events for a product.</p>",
@@ -4142,6 +4237,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "events:send"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/events\" \\",
@@ -4716,6 +4816,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "groups:get"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -4809,6 +4914,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "groups:list"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -4881,6 +4991,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "groups:create"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -4960,6 +5075,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "groups:update"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [
@@ -5018,6 +5138,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "groups:remove"
+      }
+    ],
     "examples": [
       {
         "title": "Example request",
@@ -5172,6 +5297,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices:update"
+      }
+    ],
     "examples": [
       {
         "title": "Example request",
@@ -5240,6 +5370,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "groups.impact:get"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl https://api.particle.io/v1/products/:productIdOrSlug/impact?\\",
@@ -5305,6 +5440,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "integrations:get"
+      }
+    ],
     "examples": [
       {
         "title": "Get a product integration",
@@ -6762,6 +6902,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "locations:get"
+      }
+    ],
     "examples": [
       {
         "title": "Historical locations query with selected geo region, date range and device name filter",
@@ -6826,6 +6971,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "locations:get"
+      }
+    ],
     "examples": [
       {
         "title": "Historical locations query for a single device with selected geo region and date range",
@@ -7223,6 +7373,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "firmware:get"
+      }
+    ],
     "description": "<p>Get a specific version of product firmware</p>",
     "examples": [
       {
@@ -7351,6 +7506,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "firmware:list"
+      }
+    ],
     "description": "<p>List all versions of product firmware</p>",
     "examples": [
       {
@@ -7438,6 +7598,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "firmware:create"
+      }
+    ],
     "examples": [
       {
         "title": "Example request",
@@ -7509,6 +7674,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "firmware:update"
+      }
+    ],
     "description": "<p>Edit a specific product firmware version</p>",
     "examples": [
       {
@@ -7567,6 +7737,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "firmware.binary:get"
+      }
+    ],
     "description": "<p>Retrieve and download the original binary of a version of product firmware.</p>",
     "examples": [
       {
@@ -7639,6 +7814,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "firmware:release"
+      }
+    ],
     "description": "<p>Release a version of firmware to the fleet of product devices. When releasing as the product default, all non-development devices that are not individually locked to a version of product firmware will automatically download and run this version of firmware the next time they handshake with the cloud.</p> <p>You can also release firmware to specific groups for more fine-grained firmware management.</p> <p><strong>Note</strong>: Before releasing firmware for the first time, the firmware must be running on at least one device in your product fleet that has successfully re-connected to the Particle cloud.</p>",
     "examples": [
       {
@@ -7697,6 +7877,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "firmware:remove"
+      }
+    ],
     "description": "<p>Delete a version of product firmware that has never been released.</p>",
     "examples": [
       {
@@ -7788,6 +7973,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "products:get"
+      }
+    ],
     "group": "Products_2",
     "success": {
       "fields": {
@@ -7889,6 +8079,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "teams.users:list"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/team?access_token=123abc\"",
@@ -7937,6 +8132,71 @@
   {
     "type": "post",
     "url": "/v1/products/:productIdOrSlug/team",
+    "title": "Create an API user",
+    "name": "createProgrammaticUser",
+    "group": "Products_5",
+    "description": "<p>Create an API user with specified scopes. This API user will have a single non-expiring access token.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productIdOrSlug",
+            "description": "<p>Product ID or Slug</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "friendly_name",
+            "description": "<p>A friendly name used to recognise the user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "[String]",
+            "optional": false,
+            "field": "scopes",
+            "description": "<p>List of scopes to grant for this user</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example request",
+        "content": "$ curl \"https://api.particle.io/products/:productIdOrSlug/team?access_token=123abc\" \\\n       -H \"Content-Type: application/json\" \\\n       -d '{\n             \"friendly_name\": \"MyToken\",\n             \"scopes: [\"foo:bar\"]\n           }'",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "description": "<p>The created API user</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "POST /v1/products/:productIdOrSlug/team",
+          "content": "POST /v1/products/:productIdOrSlug/team\nHTTP/1.1 200 OK\n{\n\t \"ok\": true,\n\t \"created\": {\n\t\t\"username\": \"mytoken+sdfdsfdse34@api.particle.io\",\n     \"is_programmatic\": true,\n     \"tokens\": [\n       \"token\": \"abc123\"\n     ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/product.js",
+    "groupTitle": "Products_5"
+  },
+  {
+    "type": "post",
+    "url": "/v1/products/:productIdOrSlug/team",
     "title": "Invite team member",
     "name": "inviteUserToProductOrOrgTeam",
     "group": "Products_5",
@@ -7961,6 +8221,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "teams.users:invite"
+      }
+    ],
     "examples": [
       {
         "title": "Example request",
@@ -8018,6 +8283,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "teams.users:remove"
+      }
+    ],
     "header": {
       "fields": {
         "Header": [
@@ -8078,6 +8348,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "teams.users:update"
+      }
+    ],
     "header": {
       "fields": {
         "Header": [
@@ -8199,6 +8474,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices:remove"
+      }
+    ],
     "header": {
       "fields": {
         "Header": [
@@ -8408,7 +8688,7 @@
     "url": "/v1/orgs/:orgIdOrSlug/service_agreements",
     "title": "",
     "name": "getServiceAgreementsForOrganization",
-    "description": "<p>get the service agreements related to an organization</p>",
+    "description": "<p>Get the service agreements related to an organization</p>",
     "group": "ServiceAgreements_1",
     "parameter": {
       "fields": {
@@ -8443,6 +8723,11 @@
         }
       ]
     },
+    "permission": [
+      {
+        "name": "service_agreements:list"
+      }
+    ],
     "success": {
       "examples": [
         {
@@ -8678,6 +8963,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "sims:remove"
+      }
+    ],
     "examples": [
       {
         "title": "Release ownership of a SIM you own",
@@ -9192,6 +9482,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "sims.usage:get"
+      }
+    ],
     "examples": [
       {
         "title": "Data usage for a SIM you own",
@@ -9276,6 +9571,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "sims.usage:get"
+      }
+    ],
     "examples": [
       {
         "title": "$ curl \"https://api.particle.io/v1/products/:productIdOrSlug/sims/data_usage?access_token=1234\"",
@@ -9429,6 +9729,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "sims:import"
+      }
+    ],
     "examples": [
       {
         "title": "Example request",
@@ -9545,6 +9850,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "sims:update"
+      }
+    ],
     "examples": [
       {
         "title": "Reactivate SIM",
@@ -9841,6 +10151,11 @@
         ]
       }
     },
+    "permission": [
+      {
+        "name": "devices.diagnostics.summary:get"
+      }
+    ],
     "name": "getSummaryForDeviceDiagnostics",
     "description": "<p>Contextualizes and allows for interpretation of <a href=\"#refresh-device-vitals\">device vitals</a>. Builds an object for output to a graph</p>",
     "success": {
