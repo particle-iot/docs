@@ -4,6 +4,8 @@
 // normal cloud-connected mode
 // SYSTEM_MODE(MANUAL);
 
+SYSTEM_THREAD(ENABLED);
+
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
 const unsigned long UPDATE_INTERVAL_MS = 2000;
@@ -27,13 +29,13 @@ BleUuid batteryLevelService(BLE_SIG_UUID_BATTERY_SVC);
 // The battery_level characteristic shows the battery level of
 BleCharacteristic batteryLevelCharacteristic("bat", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A19), batteryLevelService);
 
-
 // We don't actually have a thermometer here, we just randomly adjust this value
 float lastValue = 37.0; // 98.6 deg F;
 
 uint8_t lastBattery = 100;
 
-void setup() {
+void setup()
+{
 	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
 
 	BLE.on();
@@ -54,11 +56,14 @@ void setup() {
 	BLE.advertise(&advData);
 }
 
-void loop() {
-	if (millis() - lastUpdate >= UPDATE_INTERVAL_MS) {
+void loop()
+{
+	if (millis() - lastUpdate >= UPDATE_INTERVAL_MS)
+	{
 		lastUpdate = millis();
 
-		if (BLE.connected()) {
+		if (BLE.connected())
+		{
 			uint8_t buf[6];
 
 			// The Temperature Measurement characteristic data is defined here:
@@ -87,30 +92,35 @@ void loop() {
 
 			// The battery starts at 100% and drops to 10% then will jump back up again
 			batteryLevelCharacteristic.setValue(&lastBattery, 1);
-			if (--lastBattery < 10) {
+			if (--lastBattery < 10)
+			{
 				lastBattery = 100;
 			}
 		}
 	}
 }
 
-float getTempC() {
+float getTempC()
+{
 	// Adjust this by a little bit each check so we can see it change
-	if (rand() > (RAND_MAX / 2)) {
+	if (rand() > (RAND_MAX / 2))
+	{
 		lastValue += 0.1;
 	}
-	else {
+	else
+	{
 		lastValue -= 0.1;
 	}
 
 	return lastValue;
 }
 
-uint32_t ieee11073_from_float(float temperature) {
+uint32_t ieee11073_from_float(float temperature)
+{
 	// This code is from the ARM mbed temperature demo:
 	// https://github.com/ARMmbed/ble/blob/master/ble/services/HealthThermometerService.h
 	// I'm pretty sure this only works for positive values of temperature, but that's OK for the health thermometer.
-	uint8_t  exponent = 0xFE; // Exponent is -2
+	uint8_t exponent = 0xFE; // Exponent is -2
 	uint32_t mantissa = (uint32_t)(temperature * 100);
 
 	return (((uint32_t)exponent) << 24) | mantissa;

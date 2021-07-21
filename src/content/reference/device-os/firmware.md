@@ -9690,7 +9690,7 @@ int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
 | `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
 | `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
 
-At this time, LESC pairing is not supported; only legacy pairing can be used. You can still specify LESC pairing, however it will fall back to "just works" mode which offers encryption but not authentication. You will not be prompted for the numeric comparison used in LESC pairing mode.
+LESC pairing is supported on Device OS 3.1 and later only.
 
 
 #### BLE.startPairing()
@@ -9741,7 +9741,7 @@ This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two 
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
-LESC is not supported at this time so you will probably not need to use this function.
+LESC pairing is supported in Device OS 3.1 and later only.
 
 
 #### BLE.setPairingPasskey()
@@ -9878,6 +9878,7 @@ The pairing status was updated. These fields may be of interest:
 - `event.payload.status.bonded`
 - `event.payload.status.lesc`
 
+LESC pairing is supported in Device OS 3.1 and later only.
 
 ##### BLEPairingEvent
 

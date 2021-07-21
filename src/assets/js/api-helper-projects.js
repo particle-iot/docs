@@ -3,6 +3,10 @@ $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
     }
+    let deviceRestoreInfo;
+
+
+
     $('.apiHelperProjectBrowser').each(function() {
         const thisElem = $(this);
         const gaCategory = 'Project Browser';
@@ -16,6 +20,7 @@ $(document).ready(function() {
         const outputPreElem = $(thisElem).find('.apiHelperProjectBrowserOutputPre');
         const outputDivElem = $(thisElem).find('.apiHelperProjectBrowserOutputDiv');
         const fileSelect = $(thisElem).find('.apiHelperProjectSelect');
+        const targetVersionSelect = $(thisElem).find('.apiHelperProjectTarget');
 
         const setStatus = function(str) {
             $('.apiHelperProjectBrowserStatus').text(str);
@@ -187,6 +192,7 @@ $(document).ready(function() {
 			if (!device || device == 'select') {
 				return;
 			}
+            console.log('device', device);
 		
             if (!apiHelper.confirmFlash()) {
                 return;
@@ -196,10 +202,18 @@ $(document).ready(function() {
             
             await getProjectZip();
 
+            console.log('projectZip.root', projectZip.root);
+
             let formData = new FormData();
 
+            let targetVersion = 'latest';
+            if ($(targetVersionSelect).length > 0) {
+                targetVersion = $(targetVersionSelect).val();
+            }
+            console.log('targetVersion', targetVersion);
+
             formData.append('deviceId', device);
-            // formData.append('build_target_version', 'latest');
+            formData.append('build_target_version', targetVersion);
             let fileNum = 0;
 
             const addDir = async function(path, zipDir) {
@@ -210,6 +224,7 @@ $(document).ready(function() {
                     }
                     else {
                         const blob = await d.getBlob('text/plain');
+                        console.log('adding file ' + p, blob);
                         formData.append('file' + (++fileNum), blob, p);
                     }
                 }
@@ -242,6 +257,7 @@ $(document).ready(function() {
                 method: 'PUT',
                 processData: false,
                 success: function (resp, textStatus, jqXHR) {
+                    console.log('success', textStatus);
                     ga('send', 'event', gaCategory, 'Flash Device Success');
                     if (startTimer) {
                         clearTimeout(startTimer);
@@ -260,6 +276,48 @@ $(document).ready(function() {
             $.ajax(request);
 		});
 
+        $('.apiHelperProjectTarget').each(async function() {
+            const thisTargetElem = $(this);
+            const targetOptions = $(thisTargetElem).attr('data-target');
+
+            let versionsArray = await apiHelper.getReleaseAndLatestRcVersionOnly();
+
+            versionsArray = versionsArray.filter(function(versionStr) {
+                const ver = apiHelper.parseVersionStr(versionStr);
+
+                switch(targetOptions) {
+                    case '3.1+':
+                        if (ver.major > 3) {
+                            return true;
+                        }
+                        else if (ver.major == 3 && ver.minor >= 1) {
+                            return true;
+                        }
+                        break;
+
+                    case '3.0+':
+                        if (ver.major >= 3) {
+                            return true;
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+                return false;
+            });
+
+            //console.log('versionsArray', versionsArray);
+
+            let html = '';
+            for(const ver of versionsArray) {
+                const optionElem = document.createElement('option');
+                $(optionElem).prop('name', ver);
+                $(optionElem).text(ver);
+                $(thisTargetElem).append(optionElem);                    
+            }
+
+        });
 
         const showDefaultFile = async function() {
             const path = projectUrlBase + '/' + $(fileSelect).val();
@@ -273,6 +331,7 @@ $(document).ready(function() {
 
         showDefaultFile();
     });
+
 
 });
 
