@@ -396,6 +396,10 @@ If you do not have access to any organizations, an empty array `[]` is returned 
 
 {{> cloud-api-list-org-products height="300"}}
 
+### List organization team members
+
+{{> cloud-api-list-org-team height="300"}}
+
 ## More APIs
 
 ### Rename a device

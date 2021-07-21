@@ -654,6 +654,79 @@ $(document).ready(function () {
         });
     });
 
+
+
+    $('.apiHelperCloudApiListOrgTeam').each(function () {
+        const thisElem = $(this);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+
+        apiHelper.getOrgs().then(function (orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+
+            if (orgsData.organizations.length > 0) {
+                let html = '';
+                for (let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(thisElem).find('.apiHelperCloudOrgSelect').html(html);
+            }
+            else {
+                setStatus('You do not have access to any organizations');
+                $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
+            }
+        });
+
+        $(thisElem).find('.apiHelperActionButton').on('click', function () {
+            setStatus('Requesting organization team members...');
+
+            const org = $(thisElem).find('.apiHelperCloudOrgSelect').val();
+
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', 'List Org Team', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error getting organization team members');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', 'List Org Team', 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: 'https://api.particle.io/v1/orgs/' + org + '/team/'
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+
+        });
+    });
+
     if ($('.apiHelperCloudApiAuthSettings').length > 0) {
 
         const buildProductsMenu = function () {

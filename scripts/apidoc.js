@@ -5,6 +5,8 @@ var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
 
+var apiScopes = [];
+
 function trimParam(string) {
   if (!string) {
     return string;
@@ -208,6 +210,15 @@ module.exports = function(options) {
     breakOutAlternativeOperations(apiData);
 
     apiData.forEach(function (route) {
+      if (route.permission) {
+        // permission: [ { name: 'devices.diagnostics.summary:get' } ],
+        for(const obj of route.permission) {
+          if (obj.name && !apiScopes.includes(obj.name)) {
+            apiScopes.push(obj.name);
+          }
+        }
+      }
+
       if (route.parameter) {
         trimParameters(route.parameter.fields);
       }
@@ -231,6 +242,13 @@ module.exports = function(options) {
     var destFile = files[options.destFile];
     if (destFile) {
       destFile.apiGroups = apiGroups;
+
+      destFile.scopeList = '<ul>';
+      apiScopes.sort();
+      for(const name of apiScopes) {
+        destFile.scopeList += '<li>' + name;
+      }
+      destFile.scopeList += '</ul>';
     }
     return done();
   };
