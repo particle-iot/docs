@@ -245,6 +245,21 @@ module.exports = function(options) {
 
       destFile.scopeList = '<ul>';
       apiScopes.sort();
+
+      const scopesFile = path.join(__dirname, '..', 'src', 'assets', 'files', 'userScopes.json');
+      let updateFile;
+      const newContents = JSON.stringify(apiScopes, null, 2);
+      if (fs.existsSync(scopesFile)) {
+        const oldContents = fs.readFileSync(scopesFile, 'utf8');
+        updateFile = (newContents != oldContents);
+      }
+      else {
+        updateFile = true;
+      }
+      if (updateFile) {
+        fs.writeFileSync(scopesFile, newContents);
+      }
+
       for(const name of apiScopes) {
         destFile.scopeList += '<li>' + name;
       }

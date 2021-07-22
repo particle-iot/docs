@@ -1,0 +1,29 @@
+<div class="apiHelperCloudApiUserCreate">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <table class="apiHelperTableNoMargin">
+                <tr><td>&nbsp;</td>
+                    <td class="apiHelperProductSelectorLabel apiHelperProductOrgRadio">
+                    <label><input type="radio" name="prodOrg" value="prod" checked />Product</label> &nbsp;&nbsp;
+                    <label><input type="radio" name="prodOrg" value="org" />Organization</label> &nbsp;&nbsp;
+                    </td><td>&nbsp;</td></tr>
+                <tr class="orgSelectorRow"><td class="apiHelperProductSelectorLabel">Organization</td><td><select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                <tr class="sandboxOrgRow"><td>&nbsp;</td>
+                    <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                    <label><input type="radio" name="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                    <label><input type="radio" name="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
+                    </td><td>&nbsp;</td></tr>
+                <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product</td><td><select class="apiHelperProductSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel" colspan="2"><button class="apiHelperActionButton">Create API User</button></td><td>&nbsp;</td></tr>
+            </table>
+            <div class="apiHelperStatus" style="padding-top: 5px;"></div>
+            <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>
+            <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>
+        </div>
+    </div>
+    <div class="apiHelperCloudApiOutputJson" style="display:none">
+        <pre class="codeboxPre"><code class="codebox lang-json">                
+        </code></pre>
+    </div>
+</div>
+

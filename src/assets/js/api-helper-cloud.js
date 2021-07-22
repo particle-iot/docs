@@ -2084,7 +2084,69 @@ $(document).ready(function () {
         });
         
     });
-/*
+
+    $('.apiHelperCloudApiUserCreate').each(function () {
+        const thisElem = $(this);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+
+        $(actionButtonElem).on('click', async function () {
+
+        });
+
+        $(thisElem).find('input[name=prodOrg]:radio').on('click', function() {
+            const which = $(this).val();
+
+            console.log('prodOrg radio clicked ' + which);
+
+            if (which == 'org') {
+                $(thisElem).find('.productSelectorRow').hide();
+                $(thisElem).find('.sandboxOrgRow').hide();
+            }
+            else {
+                $(thisElem).find('.productSelectorRow').show();
+                $(thisElem).find('.sandboxOrgRow').show();
+            }
+        });
+
+        $(thisElem).find('input[value=prod]:radio').trigger('click');
+
+
+        $(thisElem).find('input[name=sandboxOrg]:radio').on('click', function() {
+            const which = $(this).val();
+
+            console.log('sandboxOrg radio clicked ' + which);
+        });
+        $(thisElem).find('input[value=sandbox]:radio').trigger('click');
+ 
+        apiHelper.getOrgs().then(function (orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+
+            if (orgsData.organizations.length > 0) {
+                let html = '';
+                for (let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(thisElem).find('.apiHelperOrgSelect').html(html);
+            }
+            else {
+                // No orgs
+                $(thisElem).find('input[value=org]:radio').prop('disabled', true);
+                $(thisElem).find('.orgSelectorRow').hide();
+                $(thisElem).find('.sandboxOrgRow').hide();
+            }
+        });
+
+        $(thisElem).find('input')
+    });
+
+
+    /*
 <div class="apiHelperCloudApiClaiming">
     <div class="apiHelper">
         <div class="apiHelperBox">
