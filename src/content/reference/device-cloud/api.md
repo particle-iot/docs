@@ -67,6 +67,8 @@ To making using Postman significantly easier, download [postman.zip](/assets/fil
 
 Use the **Import** feature to import these two files into Postman.
 
+Last updated: July 2021.
+
 {{imageOverlay src="/assets/images/postman/import.png" alt="Import"}}
 
 Once you've imported the Particle Postman Environment you can select it from the popup in the upper right corner of the Postman workspace window.
