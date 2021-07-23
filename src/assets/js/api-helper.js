@@ -177,8 +177,55 @@ apiHelper.flashDevice = function(deviceId, code, codebox) {
 
 };
 
+apiHelper.cachedResult = function() {
+    let cachedResult = {};
+
+    cachedResult.queries = {};
+
+
+    cachedResult.get = function(opts) {
+        return new Promise(function(resolve, reject) {
+            if (!cachedResult.queries[opts]) {
+                cachedResult.queries[opts] = {opts};
+            }
+
+            if (cachedResult.queries[opts].result) {
+                resolve(cachedResult.queries[opts].result);
+            }
+            else
+            if (cachedResult.queries[opts].requests) {
+                cachedResult.queries[opts].requests.push({resolve,reject});
+            }
+            else {
+                cachedResult.queries[opts].requests = [{resolve,reject}];
+
+                $.ajax(opts)
+                .done(function(data, textStatus, jqXHR) {
+                    cachedResult.queries[opts].result = data;
+                    while(cachedResult.queries[opts].requests.length) {
+                        obj = cachedResult.queries[opts].requests.pop();
+                        obj.resolve(data);
+                    }
+                })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    while(cachedResult.queries[opts].requests.length) {
+                        obj = cachedResult.queries[opts].requests.pop();
+                        obj.reject(jqXHR);
+                    }
+                });
+            }
+
+        });
+
+    };
+
+    return cachedResult;
+}
+
+apiHelper.getProductsCache = apiHelper.cachedResult();
+
 apiHelper.getProducts = async function() {
-    return await $.ajax({
+    return await apiHelper.getProductsCache.get({
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -189,8 +236,10 @@ apiHelper.getProducts = async function() {
     });    
 };
 
+apiHelper.getOrgsCache = apiHelper.cachedResult();
+
 apiHelper.getOrgs = async function() {
-    return await $.ajax({
+    return await apiHelper.getOrgsCache.get({
         dataType: 'json',
         headers: {
             'Accept':'application/json',
@@ -198,12 +247,14 @@ apiHelper.getOrgs = async function() {
         },
         method: 'GET',
         url: 'https://api.particle.io/v1/orgs/'
-    });    
+    });
 };
 
 
+apiHelper.getOrgProductsCache = apiHelper.cachedResult();
+
 apiHelper.getOrgProducts = async function(org) {
-    return await $.ajax({
+    return await apiHelper.getOrgProductsCache.get({
         dataType: 'json',
         headers: {
             'Accept':'application/json',
