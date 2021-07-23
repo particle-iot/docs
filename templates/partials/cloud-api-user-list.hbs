@@ -1,4 +1,4 @@
-<div class="apiHelperCloudApiUserCreate">
+<div class="apiHelperCloudApiUserList">
     <div class="apiHelper">
         <div class="apiHelperBox">
             <table class="apiHelperTableNoMargin">
@@ -13,10 +13,9 @@
                     <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
                     </td><td>&nbsp;</td></tr>
                 <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization</td><td><select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
-                <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product</td><td colspan="2"><select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
-                <tr><td class="apiHelperProductSelectorLabel">Friendly Name</td><td><input type="text" size="20" class="apiHelperFriendlyName" value=""></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel">Scopes</td><td class="scopesCell0"></td><td class="scopesCell1"></td></tr>
-                <tr><td class="apiHelperProductSelectorLabel" colspan="2"><button class="apiHelperActionButton" disabled>Create API User</button></td><td>&nbsp;</td></tr>
+                <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product</td><td><select class="apiHelperProductSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel" colspan="2"><button class="apiHelperActionButton" disabled>List Users</button></td><td>&nbsp;</td></tr>
+                <tr class="deleteUserRow" style="display:none"><td class="apiHelperProductSelectorLabel" colspan="2"> <select class="apiHelperUserSelect apiHelperSelect"></select><button class="apiHelperDeleteButton" disabled>Delete User</button></td><td>&nbsp;</td></tr>
             </table>
             <div class="apiHelperStatus" style="padding-top: 5px;"></div>
             <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>

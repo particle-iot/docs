@@ -281,6 +281,8 @@ An API user account is a specific type of user account in the Particle platform 
 Currently, API users are created, updated and deleted via the REST API, and are visible in the console, in either the product team or organization view.
 API users cannot log into the console, administer users, receive emails - or generally do other things that are reserved for humans.
 
+The [API User Tutorial](/tutorials/device-cloud/cloud-api/#api-users) has interactive controls in the web page that allow you to easily create, list, and delete API users for products and organizations. These controls allow you to both easily perform these operations on your account, and also learn how the APIs work, without needing to use curl or Postman.
+
 ### Creating an API user
 
 Use an access token with permission to create users in your organization or product (administrator account).
