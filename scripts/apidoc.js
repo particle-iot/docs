@@ -5,6 +5,8 @@ var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
 
+var apiScopes = [];
+
 function trimParam(string) {
   if (!string) {
     return string;
@@ -208,6 +210,15 @@ module.exports = function(options) {
     breakOutAlternativeOperations(apiData);
 
     apiData.forEach(function (route) {
+      if (route.permission) {
+        // permission: [ { name: 'devices.diagnostics.summary:get' } ],
+        for(const obj of route.permission) {
+          if (obj.name && !apiScopes.includes(obj.name)) {
+            apiScopes.push(obj.name);
+          }
+        }
+      }
+
       if (route.parameter) {
         trimParameters(route.parameter.fields);
       }
@@ -231,6 +242,28 @@ module.exports = function(options) {
     var destFile = files[options.destFile];
     if (destFile) {
       destFile.apiGroups = apiGroups;
+
+      destFile.scopeList = '<ul>';
+      apiScopes.sort();
+
+      const scopesFile = path.join(__dirname, '..', 'src', 'assets', 'files', 'userScopes.json');
+      let updateFile;
+      const newContents = JSON.stringify(apiScopes, null, 2);
+      if (fs.existsSync(scopesFile)) {
+        const oldContents = fs.readFileSync(scopesFile, 'utf8');
+        updateFile = (newContents != oldContents);
+      }
+      else {
+        updateFile = true;
+      }
+      if (updateFile) {
+        fs.writeFileSync(scopesFile, newContents);
+      }
+
+      for(const name of apiScopes) {
+        destFile.scopeList += '<li>' + name;
+      }
+      destFile.scopeList += '</ul>';
     }
     return done();
   };

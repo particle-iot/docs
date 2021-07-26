@@ -67,6 +67,8 @@ To making using Postman significantly easier, download [postman.zip](/assets/fil
 
 Use the **Import** feature to import these two files into Postman.
 
+Last updated: July 2021.
+
 {{imageOverlay src="/assets/images/postman/import.png" alt="Import"}}
 
 Once you've imported the Particle Postman Environment you can select it from the popup in the upper right corner of the Postman workspace window.
@@ -267,6 +269,141 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
+
+## API Users
+
+An API user account is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. It allows the creation of tightly scoped users that are unable to do things that machines shouldn't need to do - like log into the console, or administer accounts. This allows you to better enforce the security principle of least privilege.
+
+### Overview - API users
+
+- An API user can be scoped to an organization or a product.
+- An API user can only have one valid access token associated with it at any one time.
+- If an API user's privileges change - the associated access token will change as well, to prevent scope creep.
+
+Currently, API users are created, updated and deleted via the REST API, and are visible in the console, in either the product team or organization view.
+API users cannot log into the console, administer users, receive emails - or generally do other things that are reserved for humans.
+
+The [API User Tutorial](/tutorials/device-cloud/cloud-api/#api-users) has interactive controls in the web page that allow you to easily create, list, and delete API users for products and organizations. These controls allow you to both easily perform these operations on your account, and also learn how the APIs work, without needing to use curl or Postman.
+
+### Creating an API user
+
+Use an access token with permission to create users in your organization or product (administrator account).
+Pass a request to the relevant endpoint with a friendly name, and the desired scope(s) for the user.
+
+---
+
+#### Create an API user scoped to an organization
+
+```
+curl "https://api.particle.io/v1/orgs/:orgIDorSlug/team?access_token=xxxx" \\
+	-H "Content-Type: application/json" \\
+	-d '{ \\
+		"friendly_name": "org api user", \\
+		"scopes": [ "devices:list" ] \\
+	}'
+```
+
+The resulting access token can then be used by programmatic processes. As always, access tokens are sensitive and should be treated as secrets.
+
+---
+
+#### Create an API user scoped to a product
+
+```
+curl "https://api.particle.io/v1/products/:productIDorSlug/team?access_token=xxxx" \\
+	-H "Content-Type: application/json" \\
+	-d '{ \\
+		"friendly_name": "product api user", \\
+		"scopes": [ "devices:list" ] \\
+	}'
+```
+
+The API will return an access token based on that user, for example:
+
+```
+{"ok":true,"created":{"username":"example-api-user+g7lvvcczos@api.particle.io","is_programmatic":true,"tokens":[{"token":"yyyyyyyyy"}]}}
+```
+
+---
+
+#### Multiple API user scopes
+
+```
+"scopes": [ "devices:list","sims:list" ]
+```
+
+Multiple scopes can be assigned to an API user as follows:
+
+#### Available API user scopes
+
+{{{scopeList}}}
+
+---
+
+### Determining API user scopes
+
+The Particle API documentation includes the required scopes needed to call a particular API function. To determine which scope(s) to assign your API user, determine the minimum set of API functions they should be able to call.
+
+### Updating an API user
+
+```
+curl -X PUT "https://api.particle.io/v1/products/12857/team/example-api-user+6fbl2q577b@api.particle.io?access_token=xxxxxx" \\
+	-H "Content-Type: application/json" \\
+	-d '{  \\
+		"friendly_name": "Updated API user",  \\
+		"scopes": [ "devices:list", "sims:list", "customers:list" ]  \\
+	}'
+```
+
+To modify the permissions associated with an API user, you must update the scopes via the REST API. Remember, when scopes assigned to a user change, the access token is updated and a fresh token is returned, to avoid scope creep. Depending on the scenario, it may be optimal to create a fresh user with updated permissions first, update the access token in use by the script/code/function, and then delete the old user.
+To update the API user, you pass in the full username, in this case example-api-user+6fbl2q577b@api.particle.io.
+
+
+### Listing API users
+
+```
+curl -X GET "https://api.particle.io/v1/products/12857/team/?access_token=xxxxxx" \\
+	-H "Content-Type: application/json"
+```
+
+Listing API users is done by getting the team member list of the product or for the organization. Both regular and API users are returned, however you can tell API users as they have the `is_programmatic` flag set to true in the user array element:
+
+```
+{
+  "ok": true,
+  "team": [
+    {
+      "username": "user@example.com",
+      "role": {
+        "id": "000000000000000000000002",
+        "name": "Administrator"
+      }
+    },
+	{
+		"username": "example-api-user+6fbl2q577b@api.particle.io",
+		"is_programmatic": true
+	}
+  ]
+}
+```
+
+### Deleting an API user
+
+```
+curl -X DELETE "https://api.particle.io/v1/products/12857/team/example-api-user+6fbl2q577b@api.particle.io?access_token=xxxxx"
+```
+
+To delete an API user and its associated access token, simply:
+
+
+### Errors - API users
+
+```
+{"error":"unauthorized","error_description":"API users are not allowed to call this endpoint"}
+```
+
+If an API user attempts to perform an action that it is not permitted to, a standard **400** unauthorized error is returned. In the event that an API user tries to hit an endpoint that no API user is authorized to access, then this error is returned:
+
 
 ## API rate limits
 

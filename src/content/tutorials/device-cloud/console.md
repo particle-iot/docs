@@ -254,6 +254,8 @@ Clicking this button will open up a modal where you can invite a team member by 
 
 Once your team member is successfully invited, they will receive an email notifying them of their invitation. The next time they log into their Console, they will have the option of accepting or declining the invitation. Remember that you can have up to 5 team members in the free Prototype tier, so go send some invites!
 
+[API Users](/reference/device-cloud/api/#api-users) are also displayed in the team members tab.
+
 Nice! Now you have a Product with a team.
 
 ### Your Product ID
