@@ -6,8 +6,6 @@
 // normal cloud-connected mode
 // SYSTEM_MODE(MANUAL);
 
-SYSTEM_THREAD(ENABLED);
-
 SerialLogHandler logHandler(LOG_LEVEL_TRACE);
 
 const size_t SCAN_RESULT_MAX = 30;
@@ -27,11 +25,6 @@ void setup() {
 	(void)logHandler; // Does nothing, just to eliminate the unused variable warning
 
 	BLE.on();
-
-#if SYSTEM_VERSION == SYSTEM_VERSION_v310
-	// This is required with 3.1.0 only
-	BLE.setScanPhy(BlePhy::BLE_PHYS_AUTO);
-#endif
 
 	display.setup();
 	display.clearDisplay();
@@ -71,20 +64,19 @@ void loop() {
 			size_t len;
 
 			// We're looking for devices that have a heart rate service (0x180D)
-			len = scanResults[ii].advertisingData().get(BleAdvertisingDataType::SERVICE_UUID_16BIT_COMPLETE, buf, BLE_MAX_ADV_DATA_LEN);
+			len = scanResults[ii].advertisingData.get(BleAdvertisingDataType::SERVICE_UUID_16BIT_COMPLETE, buf, BLE_MAX_ADV_DATA_LEN);
 			if (len > 0) {
 				//
-				Log.dump(LOG_LEVEL_INFO, buf, len);
 				for(size_t jj = 0; jj < len; jj += 2) {
 					if (*(uint16_t *)&buf[jj] == BLE_SIG_UUID_HEART_RATE_SVC) { // 0x180D
 						// Found a device with a heart rate service
 
 						Log.info("rssi=%d address=%02X:%02X:%02X:%02X:%02X:%02X ",
-								scanResults[ii].rssi(),
-								scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
-								scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5]);
+								scanResults[ii].rssi,
+								scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
+								scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5]);
 
-						peer = BLE.connect(scanResults[ii].address());
+						peer = BLE.connect(scanResults[ii].address);
 						if (peer.connected()) {
 							Log.info("successfully connected!");
 

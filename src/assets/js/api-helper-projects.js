@@ -202,15 +202,12 @@ $(document).ready(function() {
             
             await getProjectZip();
 
-            console.log('projectZip.root', projectZip.root);
-
             let formData = new FormData();
 
             let targetVersion = 'latest';
             if ($(targetVersionSelect).length > 0) {
                 targetVersion = $(targetVersionSelect).val();
             }
-            console.log('targetVersion', targetVersion);
 
             formData.append('deviceId', device);
             formData.append('build_target_version', targetVersion);
@@ -224,7 +221,6 @@ $(document).ready(function() {
                     }
                     else {
                         const blob = await d.getBlob('text/plain');
-                        console.log('adding file ' + p, blob);
                         formData.append('file' + (++fileNum), blob, p);
                     }
                 }
@@ -276,36 +272,53 @@ $(document).ready(function() {
             $.ajax(request);
 		});
 
-        $('.apiHelperProjectTarget').each(async function() {
+        $(thisElem).find('.apiHelperProjectTarget').each(async function() {
             const thisTargetElem = $(this);
             const targetOptions = $(thisTargetElem).attr('data-target');
 
             let versionsArray = await apiHelper.getReleaseAndLatestRcVersionOnly();
 
-            versionsArray = versionsArray.filter(function(versionStr) {
-                const ver = apiHelper.parseVersionStr(versionStr);
-
-                switch(targetOptions) {
-                    case '3.1+':
-                        if (ver.major > 3) {
+            if (targetOptions) {
+                versionsArray = versionsArray.filter(function(versionStr) {
+                    const ver = apiHelper.parseVersionStr(versionStr);                
+                    const targetVer = apiHelper.parseVersionStr(targetOptions);
+    
+                    if (targetOptions.startsWith('>=')) {
+                    const targetVer = apiHelper.parseVersionStr(targetOptions);
+                        if (ver.major > targetVer.major) {
                             return true;
                         }
-                        else if (ver.major == 3 && ver.minor >= 1) {
+                        else if (ver.major == targetVer.major && ver.minor >= targetVer.minor) {
                             return true;
                         }
-                        break;
-
-                    case '3.0+':
-                        if (ver.major >= 3) {
+                    }
+                    else if (targetOptions.startsWith('<')) {
+                        if (ver.major < targetVer.major) {
                             return true;
                         }
-                        break;
+                        else if (ver.major == targetVer.minor && ver.minor < targetVer.minor) {
+                            return true;
+                        }                
+                    }
+                    else if (targetOptions == '2.x') {
+                        if (ver.major == 2) {
+                            return true;
+                        }
+                    }
+                    else if (targetOptions == 'ble2') {
+                        // 1.3.0 to 2.x
+                        if (ver.major == 2) {
+                            return true;
+                        }
+                        else
+                        if (ver.major == 1 && ver.minor >= 3) {
+                            return true;
+                        }
+                    }
 
-                    default:
-                        break;
-                }
-                return false;
-            });
+                    return false;
+                });    
+            }
 
             //console.log('versionsArray', versionsArray);
 

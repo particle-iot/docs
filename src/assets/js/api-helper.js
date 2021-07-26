@@ -43,6 +43,15 @@ apiHelper.getDeviceRestoreInfo = function() {
 apiHelper.parseVersionStr = function(verStr) {
     let result = {};
 
+    // Remove and leading non-numbers
+    while(true) {
+        const c = verStr.charAt(0);
+        if (c >= '0' && c <= '9') {
+            break;
+        }
+        verStr = verStr.substr(1);
+    }
+
     const parts = verStr.split(/[-\\.]/);
     if (parts.length < 2) {
         return result;

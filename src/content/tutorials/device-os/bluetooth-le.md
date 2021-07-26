@@ -503,17 +503,11 @@ Both the Argon (in my case, though it works with all Particle Gen 3 devices) and
 - Flash the code to your Particle device.
 - It should automatically detect the heart rate monitor and display your BPM on the display.
 
-{{> project-browser project="ble-heartrate" default-file="src/ble-heartrate.cpp" flash="true" options="gen3" target="3.0+"}}
+{{> project-browser project="ble-heartrate" default-file="src/ble-heartrate.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
 
 **For earlier DeviceOS including 2.x LTS:**
 
-{{> codebox content="/assets/files/ble/heart-rate-oled.cpp" format="cpp" height="400"}}
-
-The code requires the oled-wing-adafruit library:
-
-```
-dependencies.oled-wing-adafruit=0.0.5
-```
+{{> project-browser project="ble-heartrate-2.x" default-file="src/ble-heartrate.cpp" height="400" flash="true" options="gen3" target="ble2"}}
 
 There is additional debugging information provided by USB serial debugging, for example using `particle serial monitor`.
 
@@ -526,15 +520,16 @@ In this demo you have an central device and two or more peripheral devices. Each
 
 **For Device OS 3.0 and later:**
 
-{{> codebox content="/assets/files/ble/device-nearby-central3.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-nearby-central" default-file="src/ble-nearby-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
 
 **For earlier DeviceOS including 2.x LTS**
 
-{{> codebox content="/assets/files/ble/device-nearby-central.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-nearby-central-2.x" default-file="src/ble-nearby-central.cpp" height="400" flash="true" options="gen3" target="ble2"}}
 
 #### Device Nearby Beacon
 
-{{> codebox content="/assets/files/ble/device-nearby-beacon.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-nearby-beacon" default-file="src/ble-nearby-beacon.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
 {{!-- this is disabled for now because of the limit of one peripheral device connection at a time in 1.3.0 --}}
 
@@ -585,7 +580,7 @@ The UART peripheral example shows how your Particle device can appear to be a BL
 
 These are available for both iOS and Android.
 
-{{> codebox content="/assets/files/ble/uart-peripheral.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-uart-peripheral" default-file="src/ble-uart-peripheral.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
 ### BLE log handler
 
@@ -609,18 +604,7 @@ To try it:
 
 ![BLE Logging](/assets/images/ble-logging.jpg)
 
-#### Main source file
-
-{{> codebox content="/assets/files/ble/main.cpp" format="cpp" height="400"}}
-
-
-#### BleLogging.cpp
-
-{{> codebox content="/assets/files/ble/BleLogging.cpp" format="cpp" height="400"}}
-
-#### BleLogging.h
-
-{{> codebox content="/assets/files/ble/BleLogging.h" format="cpp" height="400"}}
+{{> project-browser project="ble-logging" default-file="src/main.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
 
 ### UART central
@@ -629,9 +613,11 @@ It's less common, however the Particle device can also be the central device. Yo
 
 **For Device OS 3.0 and later:**
 
-{{> codebox content="/assets/files/ble/uart-central3.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-uart-central" default-file="src/ble-uart-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
 
 **For earlier DeviceOS including 2.x LTS:**
+
+{{> project-browser project="ble-uart-central-2.x" default-file="src/ble-uart-central.cpp" height="400" flash="true" options="gen3" target="ble2"}}
 
 {{> codebox content="/assets/files/ble/uart-central.cpp" format="cpp" height="400"}}
 
