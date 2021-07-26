@@ -192,7 +192,6 @@ $(document).ready(function() {
 			if (!device || device == 'select') {
 				return;
 			}
-            console.log('device', device);
 		
             if (!apiHelper.confirmFlash()) {
                 return;
@@ -253,7 +252,6 @@ $(document).ready(function() {
                 method: 'PUT',
                 processData: false,
                 success: function (resp, textStatus, jqXHR) {
-                    console.log('success', textStatus);
                     ga('send', 'event', gaCategory, 'Flash Device Success');
                     if (startTimer) {
                         clearTimeout(startTimer);

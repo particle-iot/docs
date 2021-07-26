@@ -3,7 +3,7 @@ title: Bluetooth LE
 columns: two
 layout: commonTwo.hbs
 description: Getting started with Bluetooth LE (BLE) on Particle IoT devices
-includeDefinitions: [api-helper, api-helper-extras,api-helper-projects,zip]
+includeDefinitions: [api-helper, api-helper-extras,api-helper-projects,ble-serial,zip]
 ---
 
 # Bluetooth LE (BLE)
@@ -605,6 +605,12 @@ To try it:
 ![BLE Logging](/assets/images/ble-logging.jpg)
 
 {{> project-browser project="ble-logging" default-file="src/main.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
+
+#### Web-based BLE
+
+In addition to the mobile apps above, if you are using the Chrome web browser on Mac, Windows 10, Linux, Chromebook, or Android, you can also view the logs over BLE from your web browser. (This is not available on Chrome on iPhone or iPad, or most other browsers.)
+
+{{> ble-serial-console}}
 
 
 ### UART central
