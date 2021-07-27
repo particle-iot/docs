@@ -593,6 +593,8 @@ To see the logs, you use a BLE UART compatible app. Two are:
 - Adafruit Bluefruit app 
 - Nordic BLE UART app
 
+There is also a web-based option, below.
+
 This code consists of the main application program and what is essentially a library to implement BLE log handling.
 
 To try it:
@@ -606,7 +608,7 @@ To try it:
 
 {{> project-browser project="ble-logging" default-file="src/main.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
-#### Web-based BLE
+#### Web-based BLE Serial Monitor
 
 In addition to the mobile apps above, if you are using the Chrome web browser on Mac, Windows 10, Linux, Chromebook, or Android, you can also view the logs over BLE from your web browser. (This is not available on Chrome on iPhone or iPad, or most other browsers.)
 
@@ -626,6 +628,54 @@ It's less common, however the Particle device can also be the central device. Yo
 {{> project-browser project="ble-uart-central-2.x" default-file="src/ble-uart-central.cpp" height="400" flash="true" options="gen3" target="ble2"}}
 
 {{> codebox content="/assets/files/ble/uart-central.cpp" format="cpp" height="400"}}
+
+### RSSI Meter
+
+This is a simple pair of applications that allow for simple testing of signal strength.
+
+The fixed point is the transmitter, and you'll be measuring the strength of the signal that it is transmitting. It's the BLE peripheral and it is constantly advertising a private service.
+
+The measuring device is the BLE central, and it looks for the peripheral every 500 milliseconds (twice per second) and measures the signal strength (RSSI). It displays this via the USB serial and also on an [Adafruit OLED display FeatherWing](/community/feather/#adafruit-featherwing-oled-display-128x32) (SSD1306).
+
+{{> project-browser project="ble-rssi-central" default-file="src/ble-rssi-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+{{> project-browser project="ble-rssi-peripheral" default-file="src/ble-rssi-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+### RSSI Meter (Long Range)
+
+This is the previous RSSI Meter example with BLE long-range (coded phy) enabled. This requires Device OS 3.1 or later.
+
+{{> project-browser project="ble-rssi-coded-central" default-file="src/ble-rssi-coded-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+{{> project-browser project="ble-rssi-coded-peripheral" default-file="src/ble-rssi-coded-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+### LESC Pairing - Simple
+
+This example shows how to do encrypted BLE communication using LESC Pairing in "just works" mode. This encrypts the data between the two devices, but does not authenticate, which requires some combination of displays and keypads or buttons. This requires Device OS 3.1 or later.
+
+{{> project-browser project="ble-lesc1-central" default-file="src/ble-lesc1-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+{{> project-browser project="ble-lesc1-peripheral" default-file="src/ble-lesc1-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+{{#if not-yet-working}}
+
+### Legacy Pairing - Numeric Yes-No
+
+This example shows how to do authenticated and encrypted BLE communication using Legacy Pairing with the Numeric Yes-No mode. This requires a display on one side, and a display and Yes-No buttons on the other.
+
+The actual display devices and buttons are not that important, and you can easily substitute other displays such as plain SSD1306 OLED displays, but the example code was tested on these displays:
+
+| | Peripheral | Central |
+| :--- | :---: | :---: |
+| Display | &check; | &check; |
+| Yes-No buttons | &nbsp; | &check; |
+| Model | [Joystick Color Display](/community/feather/#adafruit-color-tft-joystick-featherwing) | [128x32 OLED](/community/feather/#adafruit-featherwing-oled-display-128x32) |
+
+{{> project-browser project="ble-yesno-central" default-file="src/ble-yesno-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+{{> project-browser project="ble-yesno-peripheral" default-file="src/ble-yesno-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+{{/if}}
 
 ### Chrome Web BLE
 

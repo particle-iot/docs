@@ -1,5 +1,10 @@
 #include "Particle.h"
 
+// Included by AdafruitColorTFTJoystickFeatherWing
+#include "Adafruit_GFX.h"
+#include "Adafruit_ST7735.h"
+#include "Adafruit_miniTFTWing.h"
+
 SYSTEM_THREAD(ENABLED);
 
 SerialLogHandler logHandler;
@@ -10,11 +15,17 @@ void onPairingEvent(const BlePairingEvent& event, void* context);
 void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context);
 
 
-BleUuid serviceUuid("46dec950-efd2-44e3-abc3-bdfd08d63cfe");
+BleUuid serviceUuid("bdd5e81d-cb1d-487b-928e-52815c8feada");
 BleUuid counterCharacteristicUuid("520be804-2cc6-455e-b449-558a4555687e");
 
 // 
 BleCharacteristic counterCharacteristic("counter", BleCharacteristicProperty::WRITE, counterCharacteristicUuid, serviceUuid, onDataReceived, NULL);
+
+const pin_t TFT_CS = D2;
+const pin_t TFT_DC = D3;
+
+Adafruit_miniTFTWing ss;
+Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, -1 /* TFT_RST */);
 
 
 void setup() {
@@ -26,7 +37,7 @@ void setup() {
 	BLE.onDisconnected(disconnectedCallback, NULL);
 
 	BLE.setPairingIoCaps(BlePairingIoCaps::DISPLAY_ONLY);
-	BLE.setPairingAlgorithm(BlePairingAlgorithm::LESC_ONLY);
+	BLE.setPairingAlgorithm(BlePairingAlgorithm::LEGACY_ONLY);
 
 	BLE.onPairingEvent(onPairingEvent);
 
@@ -35,6 +46,20 @@ void setup() {
     BleAdvertisingData advData;
     advData.appendServiceUUID(serviceUuid);
     BLE.advertise(&advData);
+
+	if (ss.begin()) {
+		ss.tftReset();   // reset the display
+		ss.setBacklight(TFTWING_BACKLIGHT_ON);  // turn off the backlight
+
+		tft.initR(INITR_MINI160x80);   // initialize a ST7735S chip, mini display
+		Log.info("TFT initialized");
+
+		tft.setRotation(1);
+		tft.fillScreen(ST77XX_BLACK);
+	}
+	else {
+		Log.error("Display did not initialize");
+	}
 }
 
 void loop() {

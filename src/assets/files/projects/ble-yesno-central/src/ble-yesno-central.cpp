@@ -1,5 +1,6 @@
 #include "Particle.h"
 
+#include "oled-wing-adafruit.h"
 
 SYSTEM_THREAD(ENABLED);
 
@@ -12,7 +13,9 @@ void stateConnect();
 void stateRun();
 
 
-BleUuid serviceUuid("46dec950-efd2-44e3-abc3-bdfd08d63cfe");
+OledWingAdafruit display;
+
+BleUuid serviceUuid("bdd5e81d-cb1d-487b-928e-52815c8feada");
 BleUuid counterCharacteristicUuid("520be804-2cc6-455e-b449-558a4555687e");
 
 BlePeerDevice peer;
@@ -39,13 +42,20 @@ void setup() {
 	BLE.setScanPhy(BlePhy::BLE_PHYS_AUTO);
 #endif
 	BLE.setPairingIoCaps(BlePairingIoCaps::DISPLAY_YESNO);
-	BLE.setPairingAlgorithm(BlePairingAlgorithm::LESC_ONLY);
+	BLE.setPairingAlgorithm(BlePairingAlgorithm::LEGACY_ONLY);
 
 	BLE.onPairingEvent(onPairingEvent);
+
+	display.setup();
+
+	display.clearDisplay();
+	display.display();
 
 }
 
 void loop() {
+	display.loop();
+
 	switch(state) {
 		case State::SCAN:
 			state = State::WAIT;
@@ -75,13 +85,16 @@ void scanResultCallback(const BleScanResult *scanResult, void *context) {
 	BleUuid foundServiceUuid;
 	size_t svcCount = scanResult->advertisingData().serviceUUID(&foundServiceUuid, 1);
 	if (svcCount == 0 || !(foundServiceUuid == serviceUuid)) {
+		/*
 		Log.info("ignoring %02X:%02X:%02X:%02X:%02X:%02X, not our service",
 				scanResult->address()[0], scanResult->address()[1], scanResult->address()[2],
 				scanResult->address()[3], scanResult->address()[4], scanResult->address()[5]);
+		*/
 		return;
 	}
 
-	Log.info("found server %02X:%02X:%02X:%02X:%02X:%02X",
+	Log.info("found server rssi=%d addr=%02X:%02X:%02X:%02X:%02X:%02X",
+			scanResult->rssi(),
 			scanResult->address()[0], scanResult->address()[1], scanResult->address()[2],
 			scanResult->address()[3], scanResult->address()[4], scanResult->address()[5]);
 
@@ -136,6 +149,7 @@ void stateConnect() {
 
 	peer.getCharacteristicByUUID(counterCharacteristic, counterCharacteristicUuid);
 	
+	//BLE.setPairingPasskey(peer, (const uint8_t *)"123456");
 	BLE.startPairing(peer);
 
 	state = State::RUN;
@@ -158,9 +172,10 @@ void stateRun() {
 	}
 	stateTime = millis();
 
+	Log.info("sending counter=%d", counter);
     counterCharacteristic.setValue((const uint8_t *)&counter, sizeof(counter));
-	Log.info("sent counter=%d", counter);
 	counter++;
+
 }
 
 

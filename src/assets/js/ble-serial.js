@@ -62,14 +62,9 @@ $(document).ready(function() {
         const handleNotifications = function(event) {
             const value = event.target.value;
 
-            // var value = event.target.value.getUint8(0);
-            console.log('handleNotifications', value);
-
             const decoder = new TextDecoder('utf-8');
 
             appendText(decoder.decode(value.buffer));
-
-            // appendText
         }
 
         const onDisconnected = function() {
