@@ -8866,6 +8866,33 @@ int setAdvertisingParameters(const BleAdvertisingParams* params) const;
 
 See [`BleAdvertisingParameters`](#bleadvertisingparams) for more information.
 
+#### BLE.setAdvertisingPhy()
+
+{{api name1="BLE.setAdvertisingPhy"}}
+
+{{since when="3.1.0"}}
+
+Sets the advertising phy mode to allow for Coded Phy (long range mode). Supported in Device OS 3.1 and later only.
+
+```cpp
+// PROTOTYPE
+int setAdvertisingPhy(EnumFlags<BlePhy> phy) const;
+
+// EXAMPLE
+BLE.setAdvertisingPhy(BlePhy::BLE_PHYS_CODED);
+```
+
+The valid values are:
+
+- `BlePhy::BLE_PHYS_AUTO` (default)
+- `BlePhy::BLE_PHYS_1MBPS`
+- `BlePhy::BLE_PHYS_CODED` (long-range)
+
+You can only specify a single phy mode for advertising. You cannot logically OR multiple values on the advertiser as you can on the scanner.
+
+Coded Phy mode employs redundancy and error-correction, trading off speed in favor of noise immunity. In theory it could double the range achievable, but in practice you can expect closer to a 50% increase in range. 
+
+For an example of using this API, see the [RSSI Meter (Long Range)](/tutorials/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
 
 #### BLE.getScanResponseData()
 
@@ -9291,6 +9318,39 @@ int setScanParameters(const BleScanParams* params) const;
 
 See [`BleScanParams`](#blescanparams) for more information.
 
+#### BLE.setScanPhy()
+
+{{api name1="BLE.setScanPhy"}}
+
+{{since when="3.1.0"}}
+
+Sets the scanning phy mode to allow for Coded Phy (long range mode). Supported in Device OS 3.1 and later only.
+
+```cpp
+// PROTOTYPE
+int setScanPhy(EnumFlags<BlePhy> phy) const;
+
+// EXAMPLE
+BLE.setScanPhy(BlePhy::BLE_PHYS_CODED | BlePhy::BLE_PHYS_1MBPS);
+```
+
+The valid values are:
+
+- `BlePhy::BLE_PHYS_AUTO`
+- `BlePhy::BLE_PHYS_1MBPS`
+- `BlePhy::BLE_PHYS_CODED`
+
+You can logically OR the two values to scan for both phy modes. Do not combine `BLE_PHYS_AUTO` with other values, however.
+
+Note: In Device OS 3.0.0 (only), a bug sets an invalid default value for the scan mode, causing no devices to be found when scanning. To work around this issue, set the scan phy mode to automatic explictly in setup():
+
+```cpp
+BLE.setScanPhy(BlePhy::BLE_PHYS_AUTO);
+```
+
+For an example of using this API, see the [RSSI Meter (Long Range)](/tutorials/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
+
+
 #### BLE.connect()
 
 {{api name1="BLE.connect"}}
@@ -9690,7 +9750,7 @@ int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
 | `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
 | `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
 
-At this time, LESC pairing is not supported; only legacy pairing can be used. You can still specify LESC pairing, however it will fall back to "just works" mode which offers encryption but not authentication. You will not be prompted for the numeric comparison used in LESC pairing mode.
+LESC pairing is supported on Device OS 3.1 and later only.
 
 
 #### BLE.startPairing()
@@ -9741,7 +9801,7 @@ This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two 
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
-LESC is not supported at this time so you will probably not need to use this function.
+LESC pairing is supported in Device OS 3.1 and later only.
 
 
 #### BLE.setPairingPasskey()
@@ -9878,6 +9938,13 @@ The pairing status was updated. These fields may be of interest:
 - `event.payload.status.bonded`
 - `event.payload.status.lesc`
 
+LESC pairing is supported in Device OS 3.1 and later only.
+
+`BlePairingEventType::NUMERIC_COMPARISON`
+
+Numeric comparison mode is being used to pair devices in LESC pairing mode. You should display the passkey in the same was as `BlePairingEventType::PASSKEY_DISPLAY`.
+
+LESC pairing is supported in Device OS 3.1 and later only.
 
 ##### BLEPairingEvent
 

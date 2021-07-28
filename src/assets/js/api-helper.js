@@ -6,6 +6,123 @@ let apiHelper = {};
 apiHelper.deviceListRefreshCallbacks = [];
 apiHelper.deviceListChangeCallbacks = [];
 
+let deviceRestoreRequests;
+let deviceRestoreInfo;
+
+// Get the deviceRestoreInfo. Returns a promise that resolves immediately if the
+// data has already been retrieved or later once the data has been fetched.
+// Including the api-helper-version module will automatically start the fetch
+// so the delay should be minimal in most cases.
+apiHelper.getDeviceRestoreInfo = function() {
+    return new Promise(function(resolve, reject) {
+        if (deviceRestoreRequests == undefined) {
+            deviceRestoreRequests = [];
+
+            fetch('/assets/files/deviceRestore.json')
+            .then(response => response.json())
+            .then(function(res) {
+                deviceRestoreInfo = res;
+    
+                // Resolve any promises waiting for this data
+                while(deviceRestoreRequests.length) {
+                    deviceRestoreRequests.pop()(res);
+                }
+            });
+        }
+
+        if (deviceRestoreInfo) {
+            resolve(deviceRestoreInfo);
+        }
+        else {
+            deviceRestoreRequests.push(resolve);
+        }
+    });
+};
+
+// Parses a semver (like '3.0.0-rc.1' and returns the broken out parts)
+apiHelper.parseVersionStr = function(verStr) {
+    let result = {};
+
+    // Remove and leading non-numbers
+    while(true) {
+        const c = verStr.charAt(0);
+        if (c >= '0' && c <= '9') {
+            break;
+        }
+        verStr = verStr.substr(1);
+    }
+
+    const parts = verStr.split(/[-\\.]/);
+    if (parts.length < 2) {
+        return result;
+    }
+    result.major = parseInt(parts[0]);
+    if (parts.length > 1) {
+        result.minor = parseInt(parts[1]);
+    }
+    else {
+        result.minor = 0;
+    }
+
+    if (parts.length > 2) {
+        result.patch = parseInt(parts[2]);
+    }
+    else {
+        result.patch = 0;
+    }
+
+    if (parts.length > 4) {
+        result.pre = parseInt(parts[4]);
+    }
+
+    if (parts.length > 3) {
+        switch(parts[3]) {
+            case 'rc':
+                result.rc = result.pre;
+                break;
+
+            case 'alpha':
+                result.alpha = result.pre;
+                break;
+
+            case 'beta':
+                result.beta = result.pre;
+                break;
+
+            case 'test':
+                result.test = result.pre;
+                break;
+        }
+    }
+
+    return result;
+};
+
+apiHelper.getReleaseAndLatestRcVersionOnly = function() {
+    return new Promise(async function(resolve, reject) {
+        
+        const deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
+        
+        let hasRelease = false;
+
+        const versionsArray = deviceRestoreInfo.versionNames.filter(function(versionStr) {
+            const ver = apiHelper.parseVersionStr(versionStr);
+            if (typeof ver.pre == 'undefined') {
+                hasRelease = true;
+            }                
+            else {
+                // Is prerelease (rc, beta, etc.)
+                if (hasRelease) {
+                    return false;
+                }
+            }
+            return true;
+        });
+
+        return resolve(versionsArray);
+    });
+};
+
 
 apiHelper.confirmFlash = function() {
     if (!apiHelper.flashConfirmed) {
@@ -439,23 +556,60 @@ $(document).ready(function() {
             $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
             $('.codeboxFlashDeviceSpan').show();
 
-            apiHelper.deviceList($('.codeboxFlashDeviceSelect'), {
-                getTitle: function(dev) {
-                    return dev.name + (dev.online ? '' : ' (offline)');
-                },
-                hasRefresh: true,
-                hasSelectDevice: true,
-                onChange: function(elem) {
-                    const newVal = $(elem).val();
-                    $('.codeboxFlashDeviceSelect').val(newVal);
-                    if (newVal != 'select') {
-                        $('.codeboxFlashDeviceButton').removeAttr('disabled');
+            $('.codeboxFlashDeviceSelect').each(async function() {
+                const thisDeviceSelectElem = $(this);
+
+                let deviceSelectOptions = {};
+                const deviceSelectOptionsStr = $(thisDeviceSelectElem).attr('data-options');
+                if (deviceSelectOptionsStr) {
+                    for(const opt of deviceSelectOptionsStr.split(',')) {
+                        deviceSelectOptions[opt] = true;
                     }
-                    else {
-                        $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
-                    }            
                 }
-            });    
+
+                let deviceRestoreInfo = await apiHelper.getDeviceRestoreInfo();
+                
+                apiHelper.deviceList(thisDeviceSelectElem, {
+                    deviceFilter: function(dev) {
+                        if (deviceSelectOptions.gen3) {
+                            for(const platform of deviceRestoreInfo.platforms) {
+                                if (platform.id == dev.platform_id && !platform.discontinued) {
+                                    return platform.gen == 3;
+                                }
+                            }
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    },
+                    getTitle: function(dev) {
+                        let result;
+
+                        if (dev.name) {
+                            result = dev.name;
+                        }
+                        else {
+                            result = dev.id;
+                        }
+                        result += (dev.online ? '' : ' (offline)');
+                        return result;
+                    },                    hasRefresh: true,
+                    hasSelectDevice: true,
+                    onChange: function(elem) {
+                        const newVal = $(elem).val();
+                        $('.codeboxFlashDeviceSelect').val(newVal);
+                        if (newVal != 'select') {
+                            $('.codeboxFlashDeviceButton').removeAttr('disabled');
+                        }
+                        else {
+                            $('.codeboxFlashDeviceButton').attr('disabled', 'disabled');      
+                        }            
+                    }
+                });   
+            });
+
+ 
 
    
         }
@@ -465,6 +619,6 @@ $(document).ready(function() {
 
     }
 
-    
+
 });
 
