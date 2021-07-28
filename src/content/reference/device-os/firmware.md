@@ -8884,11 +8884,13 @@ BLE.setAdvertisingPhy(BlePhy::BLE_PHYS_CODED);
 
 The valid values are:
 
-- BlePhy::BLE_PHYS_AUTO (default, BLE_PHYS_1MBPS)
-- BlePhy::BLE_PHYS_1MBPS
-- BlePhy::BLE_PHYS_CODED (long-range)
+- `BlePhy::BLE_PHYS_AUTO` (default)
+- `BlePhy::BLE_PHYS_1MBPS`
+- `BlePhy::BLE_PHYS_CODED` (long-range)
 
 You can only specify a single phy mode for advertising. You cannot logically OR multiple values on the advertiser as you can on the scanner.
+
+Coded Phy mode employs redundancy and error-correction, trading off speed in favor of noise immunity. In theory it could double the range achievable, but in practice you can expect closer to a 50% increase in range. 
 
 For an example of using this API, see the [RSSI Meter (Long Range)](/tutorials/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
 
@@ -9334,11 +9336,11 @@ BLE.setScanPhy(BlePhy::BLE_PHYS_CODED | BlePhy::BLE_PHYS_1MBPS);
 
 The valid values are:
 
-- BlePhy::BLE_PHYS_AUTO
-- BlePhy::BLE_PHYS_1MBPS
-- BlePhy::BLE_PHYS_CODED
+- `BlePhy::BLE_PHYS_AUTO`
+- `BlePhy::BLE_PHYS_1MBPS`
+- `BlePhy::BLE_PHYS_CODED`
 
-You can logically OR the two values to scan for both phy modes. Do not combine BLE_PHYS_AUTO with other values, however.
+You can logically OR the two values to scan for both phy modes. Do not combine `BLE_PHYS_AUTO` with other values, however.
 
 Note: In Device OS 3.0.0 (only), a bug sets an invalid default value for the scan mode, causing no devices to be found when scanning. To work around this issue, set the scan phy mode to automatic explictly in setup():
 
