@@ -9083,6 +9083,15 @@ For example:
 len = scanResults[ii].advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
 ```
 
+In Device OS 3.1.0 only, you may get error -270 when attempting to scan. To work around this issue, add this to setup():
+
+```
+#if SYSTEM_VERSION == SYSTEM_VERSION_v310
+	// This is required with 3.1.0 only
+	BLE.setScanPhy(BlePhy::BLE_PHYS_AUTO);
+#endif
+```
+
 #### BLE.scan(Vector)
 
 The `Vector` version of scan does not require guessing the number of scan items ahead of time. However, it does dynamically allocate memory to hold all of the scan results.
