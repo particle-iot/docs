@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 
-# Argon Datasheet <sup>(v006)</sup>
+# Argon Datasheet <sup>(v007)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
@@ -120,7 +120,7 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE a
 | Digital | 20 | I/O |
 | Analog (ADC) | 6 | I |
 | UART | 1 | I/O |
-| SPI  | 1 | I/O |
+| SPI  | 2 | I/O |
 | I2C  | 2 | I/O |
 | USB  | 1 | I/O |
 | PWM  | 8| O |
@@ -473,6 +473,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v004     | 16-Sep-2020 | RK | Added power consumption information |
 | v005     | 15-Mar-2021 | RK | Updated ordering information |
 | v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
+| v007     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
 
 ## Known Errata
 

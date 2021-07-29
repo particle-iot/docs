@@ -45,6 +45,7 @@ in mains power applications.
 - [AN023 Watchdog Timers](/datasheets/app-notes/an023-watchdog-timers) has information about watchdog timers, and hardware and software designs for the TPL5010 and AB1805.
 - [AN032 Calling API from web page](/datasheets/app-notes/an032-calling-api-from-web-page) shows how to use the Particle cloud API from a web page.
 - [AN033 256K User Binaries](/datasheets/app-notes/an033-256K-user-binaries) has information about 256K user firmware binaries on Gen 3 devices with Device OS 3.1 and later.
+- [AN035 File System](/datasheets/app-notes/an035-file-system) includes information about using the LittleFS flash file system on Gen 3 devices.
 
 ## Firmware examples
 
@@ -119,6 +120,7 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN032 Calling API from web page](/datasheets/app-notes/an032-calling-api-from-web-page) shows how to use the Particle cloud API from a web page.
 - [AN033 256K User Binaries](/datasheets/app-notes/an033-256K-user-binaries) has information about 256K user firmware binaries on Gen 3 devices with Device OS 3.1 and later.
 - [AN034 Singleton](/datasheets/app-notes/an034-singleton) includes information about using the singleton pattern for your classes.
+- [AN035 File System](/datasheets/app-notes/an035-file-system) includes information about using the LittleFS flash file system on Gen 3 devices.
 
 
 

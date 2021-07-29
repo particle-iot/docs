@@ -6,12 +6,12 @@
   "asset-tracking/m8-temperature-humidity.md": "0b2b99825125d06c79e11436a3efc0fe",
   "asset-tracking/tracker-m8-accessories.md": "ca3beeadddc5d16f222c3efa0edf282d",
   "asset-tracking/tracker-one.md": "5a40d4a45ad6c3c2896b5c96994f2b22",
-  "asset-tracking/tracker-som-datasheet.md": "de47b83824a4355e455a20e544916936",
+  "asset-tracking/tracker-som-datasheet.md": "82decb83c59debec2c02d90eac09459a",
   "asset-tracking/tracker-som-eval-board.md": "44d1afdcd954cde55919adde50d769c4",
   "boron/b-series-eval-board.md": "47c82eb16987df4f8c959fc98572067f",
   "boron/b402-datasheet.md": "5ee8c5f608bfd508e43670720f3f56c4",
   "boron/b523-datasheet.md": "2e7feac23cdfbdd3d1032059195ac54a",
-  "boron/boron-datasheet.md": "464ae0bdf3ad69ad8b5a61526af29529",
+  "boron/boron-datasheet.md": "3eec2a0126561bcd74d6682f322cad64",
   "certifications/antenna.md": "ec22ff17f5e349f2102ed55208587540",
   "certifications/certification.md": "ecaafbdcbe00c769a66e62ba09aea725",
   "discontinued/core-datasheet.md": "0f0cf8b84fc9d5e56b28901c5d05014f",
@@ -21,7 +21,7 @@
   "electron/e-series-eval-board.md": "8bcccbf72bbc6f6408132a640ffe60ed",
   "electron/e-series-system-integration-manual.md": "1de90e8ea5620235ec79acf431d28e85",
   "electron/electron-datasheet.md": "1e9bc1723d4ebf134ee5c8bd638627ca",
-  "wi-fi/argon-datasheet.md": "d87ef8828a45b8560d1b746c851bf9de",
+  "wi-fi/argon-datasheet.md": "4756178b46b29892089b6e8c4e837747",
   "wi-fi/p1-datasheet.md": "59f05e82e766f48e86268f194d35e8f2",
   "wi-fi/photon-datasheet.md": "9a2a15320f84aef7c3e1ab54d3f78ef9"
 }

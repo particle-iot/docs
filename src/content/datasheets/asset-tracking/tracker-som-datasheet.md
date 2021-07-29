@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(016)</sup>
+# Tracker SoM Datasheet <sup>(017)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -949,7 +949,8 @@ Weight will be provided at a later date.
 
 ### Mechanical drawing
 
-Will be provided at a later date.
+{{imageOverlay src="/assets/images/at-som/dimensions.png" alt="Dimensons" class="full-width"}}
+
 
 Dimensions are in millimeters.
 
@@ -1225,4 +1226,5 @@ The bootloader allows you to easily update the user application via several diff
 | 013      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
 | 014      | 2021 May 04 | RK | Added 2G/3G fallback information for T523/T524 |
 | 015      | 2021 May 28 | RK | Corrected band list for T402/T404 (BG96) |
-| 016      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
+| 016      | 2021 Jun 28 | RK | Added Device OS 3.1 memory map information |
+| 017      | 2021 Jul 28 | RK | Added mechanical drawing |

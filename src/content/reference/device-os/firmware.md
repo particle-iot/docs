@@ -434,6 +434,8 @@ Public events could previously be received by anyone on the Internet, and anyone
 
 Each publish uses one Data Operation from your monthly or yearly quota. This is true for both WITH_ACK and NO_ACK modes.
 
+{{blurb name="publish"}}
+ 
 ---
 
 Publish an event with the given name and no data. 
@@ -699,6 +701,7 @@ with the cloud next time the device connects.
 
 Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once.
 
+
 ---
 
 Prior to August 2020, you could subscribe to the public event stream using `ALL_DEVICES`. This is no longer possible as the public event stream no longer exists. Likewise, `MY_DEVICES` is no longer necessary as that is the only option now.
@@ -717,6 +720,13 @@ Only devices that are claimed to an account can subscribe to events.
 - Unclaimed devices can send product events.
 - Unclaimed devices can receive function calls and variable requests from the product.
 - Unclaimed devices cannot receive events using Particle.subscribe.
+
+---
+
+Additionally:
+
+{{blurb name="publish"}}
+
 
 ### Particle.unsubscribe()
 
@@ -1831,6 +1841,8 @@ credentials.setSsid("My_Router")
 WiFi.setCredentials(credentials);
 ```
 
+The password is limited to 64 7-bit ASCII characters. If you pass in a longer password, only the first 64 characters will be saved.
+
 ---
 
 {{since when="0.7.0"}}
@@ -2574,6 +2586,8 @@ credentials.setPassword("mypassword");
 
 Parameters:
 - `password`: WEP/WPA/WPA2 access point password, or user password for PEAP/MSCHAPv2 authentication (string)
+
+The password is limited to 64 7-bit ASCII characters. If you pass in a longer password, only the first 64 characters will be saved.
 
 #### setChannel()
 
@@ -18212,6 +18226,8 @@ Gen 3 devices implement a POSIX-style file system API to store files on the Litt
 | :--- | :--- | :--- |
 | Tracker SoM | 1.5.4-rc.1 | 4 MB |
 | Argon, Boron, B Series SoM | 2.0.0-rc.1 | 2 MB |
+
+For more detailed information about the file system, see the application note [AN035 File System](/datasheets/app-notes/an035-file-system/).
 
 ---
 

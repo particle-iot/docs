@@ -448,6 +448,10 @@ Note: Cellular devices may indicate that the device is online for up to 46 minut
 {{> api group=apiGroups.Sims}}
 ## Events
 {{> api group=apiGroups.Events}}
+
+Also note:
+{{blurb name="publish"}}
+
 ## Integrations [Webhooks]
 {{> api group=apiGroups.Integrations}}
 ## Special Events

@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet <sup>(v007)</sup>
+# Boron Datasheet <sup>(v008)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -132,7 +132,7 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE a
 | Digital | 20 | I/O |
 | Analog (ADC) | 6 | I |
 | UART | 1 | I/O |
-| SPI  | 1 | I/O |
+| SPI  | 2 | I/O |
 | I2C  | 1 | I/O |
 | USB  | 1 | I/O |
 | PWM  | 8 | O |
@@ -717,6 +717,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v005     | 26-Apr-2021 | RK | Added BRN314 and BRN404 model numbers |
 | v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | v007     | 09-Jul-2021 | RK | Number of accessible I2C ports is 1, not 2 |
+| v008     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
 
 ## Known Errata
 
