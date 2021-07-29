@@ -25,20 +25,31 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
- * u-blox SARA-R410M-02B or R410M-03 LTE modem (BRN402, BRN404)
-  * LTE Cat M1 module
-  * Support for United States, Canada, and Mexico only
-  * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
- * u-blox SARA-R510S-01B LTE modem (BRN404X)
-  * LTE Cat M1 module
-  * Support for United States, Canada, and Mexico only
-  * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
- * u-blox SARA U201 2G/3G modem (Boron 2G/3G, BRN314 and BRN310)
-  * HSPA/GSM with global hardware and SIM support 
-  * Bands 800/850/900/1900/2100 MHz 
-  * 3GPP Release 7 
+#### Features - BRN402, BRN404 (Boron LTE)
+
+ * u-blox SARA-R410M-02B or R410M-03 LTE modem
+ * LTE Cat M1 module
+ * Support for United States, Canada, and Mexico only
+ * 3GPP Release 13 LTE Cat M1 
+ * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+
+#### Features - BRN404X (Boron LTE)
+
+ * u-blox SARA-R510S-01B LTE modem
+ * LTE Cat M1 module
+ * Support for United States, Canada, and Mexico only
+ * 3GPP Release 13 LTE Cat M1 
+ * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
+
+#### Features - BRN314, BRN310 (Boron 2G/3G)
+
+ * u-blox SARA U201 2G/3G modem
+ * HSPA/GSM with global hardware and SIM support 
+ * Bands 800/850/900/1900/2100 MHz 
+ * 3GPP Release 7
+
+#### Features - All Models
+
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 

@@ -24,13 +24,23 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Features
 
+#### Features - B524
  * Quectel EG91-E modem
-  * LTE category 1 module for EMEAA region 
-  * 3GPP E-UTRA Release 13 
-  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
-  * 2G and 3G fallback (900, 1800, and 2100 MHz)
-  * Support for Europe only (B523)
-  * Support for Europe, Australia, and New Zealand (B524) at this time
+ * LTE category 1 module for EMEAA region 
+ * 3GPP E-UTRA Release 13 
+ * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
+ * 2G and 3G fallback (900, 1800, and 2100 MHz)
+ * Support for Europe, Australia, and New Zealand (B524) at this time
+
+#### Features - B523
+ * Quectel EG91-E modem
+ * LTE category 1 module for EMEAA region 
+ * 3GPP E-UTRA Release 13 
+ * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
+ * 2G and 3G fallback (900, 1800, and 2100 MHz)
+ * Support for Europe only
+
+#### Features - All Models
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 

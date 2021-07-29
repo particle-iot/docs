@@ -27,16 +27,24 @@ The B Series is designed to be integrated into your circuit board design, pluggi
 
 ### Features
 
+#### Features - B402, B404
+
  * u-blox SARA-R410M-02B or R410M-03 LTE modem (B402, B404)
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
   * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+
+#### Features - B404X
+
  * u-blox SARA-R510S-01B LTE modem (B404X)
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
   * 3GPP Release 13 LTE Cat M1 
   * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
+
+#### Features - All Models
+
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
