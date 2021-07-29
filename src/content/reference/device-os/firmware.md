@@ -65,6 +65,7 @@ Instead of hardcoding these values, you should use these definitions:
 - `particle::protocol::MAX_EVENT_NAME_LENGTH`
 - `particle::protocol::MAX_EVENT_DATA_LENGTH`
 
+Additionally, some older Boron and B Series SoM with a SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes, see [Particle.maxEventDataSize()](/cards/firmware/cloud-functions/particle-maxeventdatasize/) for more information.
 
 ### Particle.variable()
 
@@ -738,6 +739,61 @@ Particle.unsubscribe();
 ```
 
 There is no function to unsubscribe a single event handler. 
+
+### Particle.maxEventDataSize()
+
+{{api name1="Particle.maxEventDataSize"}}
+
+{{since when="3.1.0"}}
+
+```cpp
+// PROTOTYPE
+int maxEventDataSize();
+
+// SYNTAX
+Log.info("eventDataSize=%d", Particle.maxEventDataSize());
+```
+
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
+
+
+### Particle.maxVariableValueSize()
+
+
+{{api name1="Particle.maxVariableValueSize"}}
+
+{{since when="3.1.0"}}
+
+```cpp
+// PROTOTYPE
+int maxVariableValueSize();
+
+// SYNTAX
+Log.info("maxVariableValueSize=%d", Particle.maxVariableValueSize());
+```
+
+Returns the maximum size of the string variable data.
+
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
+
+### Particle.maxFunctionArgumentSize()
+
+
+{{api name1="Particle.maxFunctionArgumentSize"}}
+
+{{since when="3.1.0"}}
+
+```cpp
+// PROTOTYPE
+int maxFunctionArgumentSize();
+
+// SYNTAX
+Log.info("maxFunctionArgumentSize=%d", Particle.maxFunctionArgumentSize());
+```
+
+Returns the maximum size of the function argument data.
+
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
 
 
 ### Particle.publishVitals()
