@@ -407,7 +407,75 @@ If an API user attempts to perform an action that it is not permitted to, a stan
 
 ## API rate limits
 
-There is an API rate limit of approximately 10 calls per second to api.particle.io from each public IP address. This limit is the total number of requests from a public IP address and does not depend on the access token or API endpoint used.
+The following API rate limits apply. Exceeding the rate limit will result in a 429 HTTP error response.
+
+#### All API functions - API rate limits
+
+- Maximum of 10,000 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- Can be increased for enterprise customers
+- All API Routes
+
+#### Create an Access Token - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- Can be increased for enterprise customers
+- API Route: POST /oauth/token
+
+#### Delete User Account - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: DELETE /v1/user
+
+#### Generate a Password Reset Token - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: POST /v1/user/password-reset
+
+#### Reset Password - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- API Route: PUT /v1/user/password-reset
+
+
+#### Get All Events - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- Can be increased for enterprise customers
+- API Route: GET /v1/events
+
+
+#### Subscribe to Server Sent Events - API rate limits
+
+- Maximum of 100 requests every 5 minutes
+- Limited by source IP address (public IP address)
+- Can be increased for enterprise customers
+- API Routes: 
+  - GET /v1/devices/events/                                                                     
+  - GET /v1/devices/:DeviceID/events/
+  - GET /v1/orgs/:OrgID/events/
+  - GET /v1/orgs/:OrgID/devices/:DeviceID/events/
+  - GET /v1/orgs/products/:ProductID/events/
+  - GET /v1/products/:ProductID/events/
+  - GET /v1/products/:ProductID/devices/:DeviceID/events/
+
+#### Open Server Sent Event Streams - API rate limits
+
+- A maximum of 100 simultaneous connections
+- Limited by source IP address (public IP address)
+
+#### Get Device data via Serial Number - API rate limits
+
+- Maximum of  of 50 requests every hour
+- Limited per user account that generated the access token
+- Can be increased for enterprise customers
+- API Route: GET /v1/serial_numbers/:SerialNumber
+
 
 #### Beware of monitoring variables for change
 
