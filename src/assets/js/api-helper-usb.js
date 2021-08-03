@@ -359,22 +359,22 @@ $(document).ready(function () {
                 let dv = new DataView(userFirmwareBinary);
                     
                 const startAddr = dv.getUint32(0, true);
-                // console.log('startAddr=0x' + startAddr.toString(16));
+                //console.log('startAddr=0x' + startAddr.toString(16));
 
                 const platformId = dv.getUint16(12, true);
                 const platformName = apiHelper.platformIdToName(platformId);
-                // console.log('platformId=' + platformId + ' platformName=' + platformName);
+                //console.log('platformId=' + platformId + ' platformName=' + platformName);
                 if (usbDevice.platformId != platformId) {
                     setStatus('User firmware is for ' + platformName + ' but selected device is ' + apiHelper.platformIdToName(usbDevice.platformId));
                     return;
                 }
 
                 const moduleFunction = dv.getUint8(14);
-                // console.log('moduleFunction=' + moduleFunction + ' (must be 5)');
+                //console.log('moduleFunction=' + moduleFunction + ' (must be 5)');
                 const moduleIndex = dv.getUint8(15);
-                // console.log('moduleIndex=' + moduleIndex + ' (must be 1)');
+                //console.log('moduleIndex=' + moduleIndex + ' (must be 1)');
 
-                if (moduleFunction != 5 || moduleIndex != 1) {
+                if (moduleFunction != 5 || (moduleIndex != 1 && moduleIndex != 2)) {
                     setStatus('Selected binary file does not appear to contain user firmware');
                     return;
                 }
