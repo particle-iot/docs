@@ -8516,9 +8516,9 @@
   {
     "type": "get",
     "url": "/v1/user/service_agreements",
-    "title": "",
+    "title": "Get user service agreements",
     "name": "getServiceAgreements",
-    "description": "<p>get the service agreements related to a user</p>",
+    "description": "<p>Get the service agreements related to a user</p>",
     "group": "ServiceAgreements_1",
     "header": {
       "fields": {
@@ -8686,7 +8686,7 @@
   {
     "type": "get",
     "url": "/v1/orgs/:orgIdOrSlug/service_agreements",
-    "title": "",
+    "title": "Get organization service agreements",
     "name": "getServiceAgreementsForOrganization",
     "description": "<p>Get the service agreements related to an organization</p>",
     "group": "ServiceAgreements_1",
