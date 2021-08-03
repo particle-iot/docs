@@ -281,7 +281,8 @@ rec2.selectMenu = function() {
                     if (skuObj.family == skuFamilyObj.family && 
                         skuObj.modem == cmsObj.modem &&
                         skuObj.sim == cmsObj.sim &&
-                        skuObj.lifecycle != 'Discontinued') {
+                        skuObj.lifecycle != 'Discontinued' &&
+                        skuObj.lifecycle != 'Hidden') {
                         skusForModemSimFamily.push(skuObj);
                     }
                 });

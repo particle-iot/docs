@@ -415,6 +415,10 @@ const path = require('path');
                 // Hide discontinued kits
                 return;
             }
+            if (skuObj.lifecycle == 'Hidden') {
+                // Hidden, whether a kit or not
+                return;
+            }
 
             if (options.filterFn) {
                 if (options.filterFn(skuObj)) {
@@ -482,7 +486,7 @@ const path = require('path');
             if (!skuObj.cellAnt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued') {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
                 return;
             }
 
@@ -538,7 +542,7 @@ const path = require('path');
             if (!skuObj.wifiAntInt && !skuObj.wifiAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued') {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
                 return;
             }
 
@@ -592,7 +596,7 @@ const path = require('path');
             if (!skuObj.bleAntInt && !skuObj.bleAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued') {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
                 return;
             }
 
@@ -645,7 +649,7 @@ const path = require('path');
             if (!skuObj.nfcAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued') {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
                 return;
             }
 
@@ -700,7 +704,7 @@ const path = require('path');
             if (!skuObj.gnssAntInt && !skuObj.gnssAntExt) {
                 return;
             }
-            if (skuObj.lifecycle == 'Discontinued') {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
                 return;
             }
 
@@ -752,7 +756,7 @@ const path = require('path');
 
         // Filter
         updater.datastore.data.skus.forEach(function(skuObj) {
-            if (skuObj.lifecycle == 'Discontinued') {
+            if (skuObj.lifecycle == 'Discontinued' || skuObj.lifecycle == 'Hidden') {
                 return;
             }
 
