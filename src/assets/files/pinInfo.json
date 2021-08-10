@@ -3899,7 +3899,7 @@
 				{
 					"num":47,
 					"name":"A7",
-					"desc":"A7 Analog in, GPIO",
+					"desc":"A7 Analog in, GPIO, Ethernet Reset",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3917,7 +3917,7 @@
 				{
 					"num":48,
 					"name":"D8",
-					"desc":"GPIO, SPI SS",
+					"desc":"GPIO, SPI SS, Ethernet CS",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -3999,7 +3999,7 @@
 				{
 					"num":62,
 					"name":"D22",
-					"desc":"GPIO",
+					"desc":"GPIO, Ethernet INT",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4519,7 +4519,7 @@
 				{
 					"num":47,
 					"name":"A7",
-					"desc":"A7 Analog in, GPIO",
+					"desc":"A7 Analog in, GPIO, Ethernet Reset",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4537,7 +4537,7 @@
 				{
 					"num":48,
 					"name":"D8",
-					"desc":"GPIO, SPI SS",
+					"desc":"GPIO, SPI SS, Ethernet CS",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,
@@ -4619,7 +4619,7 @@
 				{
 					"num":62,
 					"name":"D22",
-					"desc":"GPIO",
+					"desc":"GPIO, Ethernet INT",
 					"isIO":true,
 					"is5VTolerant":false,
 					"digitalRead":true,

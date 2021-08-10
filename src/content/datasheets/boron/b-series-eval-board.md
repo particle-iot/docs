@@ -61,8 +61,8 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | MicroSD | SD_MI | MISO | MISO |
 | | SD_CK | SCK | SCK |
 | | SD_MO | MOSI | MOSI |
-| | SD_CS | GPIO1 | D23 |
-| | SD_DET | PWM2 | D6 |
+| | SD_CS1 | PWM1 | D5 |
+| | SD_DECT | PWM2 | D6 |
 | D7 LED | USER | PWM3 | D7 |
 | | GND | GND | GND |
 
