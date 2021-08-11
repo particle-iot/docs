@@ -1033,7 +1033,7 @@ Dimensions are in millimeters.
 
 ### Layout Considerations
 
-Will be provided at a later date.
+For information on production soldering, stencils, and layout, see [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt).
 
 ---
 

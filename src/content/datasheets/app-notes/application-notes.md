@@ -25,6 +25,7 @@ USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
 - [AN024 Tracker Relay](/datasheets/app-notes/an024-tracker-relay) shows how to connect two different types of relays to the Tracker One using the M8 connector.
 - [AN025 Tracker SoM First Board](/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 - [AN027 Tracker Button and LEDs](/datasheets/app-notes/an027-tracker-buttons-leds) shows how to connect add a push button, two LEDs, a buzzer, and a 5V I2C port for the SHT30 temperature and humidity sensor to the Tracker One using the M8 connector.
+- [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt) includes information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.
 
 
 ## Solutions Accelerator Projects
@@ -78,6 +79,8 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN025 Tracker SoM First Board](/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 - [AN026 Tracker Current Solutions Accelerator](/datasheets/app-notes/an026-tracker-current-solutions-accelerator) shows how to measure AC current using the Tracker One via the M8 connector.
 - [AN027 Tracker Button and LEDs](/datasheets/app-notes/an027-tracker-buttons-leds) shows how to connect add a push button, two LEDs, a buzzer, and a 5V I2C port for the SHT30 temperature and humidity sensor to the Tracker One using the M8 connector.
+- [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt) includes information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.
+
 
 ## Certification
 
@@ -121,8 +124,4 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN033 256K User Binaries](/datasheets/app-notes/an033-256K-user-binaries) has information about 256K user firmware binaries on Gen 3 devices with Device OS 3.1 and later.
 - [AN034 Singleton](/datasheets/app-notes/an034-singleton) includes information about using the singleton pattern for your classes.
 - [AN035 File System](/datasheets/app-notes/an035-file-system) includes information about using the LittleFS flash file system on Gen 3 devices.
-
-
-
-
-
+- [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt) includes information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.
