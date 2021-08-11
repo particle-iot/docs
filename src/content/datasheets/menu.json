@@ -340,6 +340,11 @@
         "dir": "an036-lcc-module-smt",
         "title": "AN036 LCC Module SMT",
         "href": "/datasheets/app-notes/an036-lcc-module-smt/"
+      },
+      {
+        "dir": "an037-ethernet",
+        "title": "AN037 Ethernet",
+        "href": "/datasheets/app-notes/an037-ethernet/"
       }
     ],
     {

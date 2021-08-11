@@ -47,6 +47,7 @@ in mains power applications.
 - [AN032 Calling API from web page](/datasheets/app-notes/an032-calling-api-from-web-page) shows how to use the Particle cloud API from a web page.
 - [AN033 256K User Binaries](/datasheets/app-notes/an033-256K-user-binaries) has information about 256K user firmware binaries on Gen 3 devices with Device OS 3.1 and later.
 - [AN035 File System](/datasheets/app-notes/an035-file-system) includes information about using the LittleFS flash file system on Gen 3 devices.
+- [AN037 Ethernet](/datasheets/app-notes/an037-ethernet) includes tips for using Ethernet with Particle Gen 3 devices.
 
 ## Firmware examples
 
@@ -125,3 +126,5 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN034 Singleton](/datasheets/app-notes/an034-singleton) includes information about using the singleton pattern for your classes.
 - [AN035 File System](/datasheets/app-notes/an035-file-system) includes information about using the LittleFS flash file system on Gen 3 devices.
 - [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt) includes information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.
+- [AN037 Ethernet](/datasheets/app-notes/an037-ethernet) includes tips for using Ethernet with Particle Gen 3 devices.
+

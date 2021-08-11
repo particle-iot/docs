@@ -84,6 +84,8 @@ These pins are intended to be connected across using removable two-pin jumpers t
 | D0 | SDA | PM\_SDA | PMIC |
 | D1 | SCL | PM\_SCL | PMIC |
  
+For more information about Ethernet, see the application note [AN037 Ethernet](/datasheets/app-notes/an037-ethernet/).
+
 ---
 
 ### Power Jumpers

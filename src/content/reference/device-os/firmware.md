@@ -1356,6 +1356,8 @@ Ethernet is available on the Argon, Boron when used with the [Ethernet FeatherWi
 
 It is not available on Gen 2 devices (Photon, P1, Electron, and E Series).
 
+For more information about Ethernet, see the application note [AN037 Ethernet](/datasheets/app-notes/an037-ethernet/).
+
 {{note op="end"}}
 
 ---

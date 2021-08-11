@@ -209,6 +209,7 @@ The hardware design for this wing is completely open source. All the files are a
 
 If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
+For more information about Ethernet, see the application note [AN037 Ethernet](/datasheets/app-notes/an037-ethernet/).
 
 ## PoE (Power over Ethernet)
 
