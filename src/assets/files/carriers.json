@@ -8755,7 +8755,7 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -8763,20 +8763,19 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-8",

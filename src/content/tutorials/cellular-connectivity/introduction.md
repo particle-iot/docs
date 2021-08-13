@@ -420,7 +420,7 @@ In the United States we strongly recommend using LTE Cat M1. AT&T has committed 
 
 In some European countries, they're phasing out 3G and instead keeping 2G and LTE networks. All of the Particle 3G cellular devices can also connect to 2G networks, so compatibility will be maintained.
 
-For example, in Norway, Telenor is shutting down their 3G network at the end of 2020, but keeping their 2G network running until the end of 2025.
+For example, in Norway, Telenor shut down their 3G network at the end of 2020, but keeping their 2G network running until the end of 2025. In Germany, Telekom shut down their 3G network June 30, 2021 but will also keep 2G until end of 2025.
 
 
 ### Australia
