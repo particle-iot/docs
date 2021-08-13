@@ -236,6 +236,8 @@ Note that because the Ethernet FeatherWing with PoE supplies 5V to the device by
 
 The recommended cable for PoE is Cat 6 twisted pair with a maximum length of 100 meters (328 feet).
 
+The Eagle CAD design for the PoE adapter is open source. All the files are available on our [GitHub repository](https://github.com/particle-iot/ethernet-wing).
+
 ## Classic Adapter
 
 <div align=center><img src="/assets/images/accessories/classic-adapter.png" ></div>
