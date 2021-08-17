@@ -848,6 +848,83 @@ $(document).ready(function () {
         });
     });
 
+    $('.apiHelperCloudApiCreateTokenSimple').each(function () {
+        const thisElem = $(this);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        if (apiHelper.auth && apiHelper.auth.username) {
+            $(thisElem).find('.apiHelperAuthSettingsUsername').val(apiHelper.auth.username);
+        }
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const mfaTokenRow = $(thisElem).find('.apiHelperMfaTokenRow');
+        const accessTokenRow = $(thisElem).find('.apiHelperAccessTokenRow');
+
+        $(mfaTokenRow).hide();
+        $(accessTokenRow).hide();
+
+        let mfa_token;
+
+        $(actionButtonElem).on('click', async function () {
+            const expiresIn = $(thisElem).find('.apiHelperAuthSettingsExpiresIn').val();
+            const username = $(thisElem).find('.apiHelperAuthSettingsUsername').val();
+            const password = $(thisElem).find('.apiHelperAuthSettingsPassword').val();
+
+            let requestData;
+            if (mfa_token) {
+                requestData = 'grant_type=urn:custom:mfa-otp&mfa_token=' + encodeURIComponent(mfa_token) + '&otp=' + encodeURIComponent($(thisElem).find('.apiHelperAuthSettingsMfaOtpToken').val());
+            }
+            else {
+                requestData = 'grant_type=password&expires_in=' + expiresIn + '&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+            }
+
+            let request = {
+                contentType: 'application/x-www-form-urlencoded',
+                data: requestData,
+                dataType: 'json',
+                error: function (jqXHR) {
+                    if (jqXHR.status === 403) {
+                        // Got a 403 error, MFA required. Show the MFA/OTP page.
+                        mfa_token = jqXHR.responseJSON.mfa_token;
+                        $(thisElem).find('.apiHelperMfaTokenRow').show();
+                        return;
+                    }
+                    ga('send', 'event', 'Create Token Simple', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error creating token');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Basic ' + btoa('particle:particle'),
+                },
+                method: 'POST',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('Token created!');
+                    ga('send', 'event', 'Create Token Simple', 'Success');
+
+                    console.log('success ', resp);
+
+                    $(thisElem).find('.apiHelperAuthSettingsAccessToken').val(resp.access_token);
+                    $(accessTokenRow).show();
+
+                    mfa_token = null;
+                    $(mfaTokenRow).hide();
+                },
+                url: 'https://api.particle.io/oauth/token'
+            }
+
+            $(accessTokenRow).hide();
+
+            $.ajax(request);
+        });
+    });
+
     $('.apiHelperCloudApiImportDevice').each(function () {
         const thisElem = $(this);
 

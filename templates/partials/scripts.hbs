@@ -96,6 +96,10 @@
 <script src="/assets/js/CodeGenerator.js"></script>
 <script src="/assets/js/code-generator.js"></script>
 {{/contains}}
+{{#contains includeDefinitions 'stackblitz'}}
+<script src="https://unpkg.com/@stackblitz/sdk/bundles/sdk.umd.js"></script>
+<script src='/assets/js/api-helper-stackblitz.js'></script>
+{{/contains}}
 {{#contains includeDefinitions 'usb-serial'}}
 <script src="/assets/js/usb-serial.js"></script>
 {{/contains}}
