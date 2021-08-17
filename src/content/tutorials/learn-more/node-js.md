@@ -3,7 +3,7 @@ title: node.js getting started
 columns: two
 layout: commonTwo.hbs
 description: node.js getting started
-includeDefinitions: [api-helper,api-helper-projects,zip]
+includeDefinitions: [api-helper,api-helper-cloud,api-helper-projects,stackblitz,zip]
 ---
 
 # node.js getting started
@@ -12,9 +12,37 @@ Node.js is a scripting language that can be used to write back-end servers and c
 
 This document is a brief introduction to node.js and using the Particle Cloud API, designed for beginners moving from using things like curl and bash or MSDOS batch scripts to a more powerful, and, ultimately easier to use, full programming language environment.
 
-## Installation
+## Hello world - browser
 
-Just go to the [nodejs.org](https://nodejs.org/) page and follow the instructions to download and install. The LTS (long-term support) version is recommended.
+The examples in this page can be used either locally, on your computer with node.js installed, or right from your browser. 
+
+Click the **Try It!** button to open a new browser tab. This allows you to edit and run node.js scripts from your browser with no software install required. Browser-based examples work on Chrome and Edge on Mac, Windows, Linux, and Chromebook.
+
+{{> stackblitz-simple project="node-96ppvm"}}
+
+The window looks like this:
+
+![StackBlitz](/assets/images/stackblitz.png)
+
+1. You can view the code here, as well as edit it. Syntax checking, auto-completion, etc. are all included.
+
+2. The **Terminal** pane allow you to run the script and see the output. Type:
+
+```
+node index.js
+```
+
+to run the sample hello world app. Filename completion is available so you can type `i` then hit **Tab** to complete the rest of `index.js`. You can also use the **Up Arrow** or **Ctrl-P** to bring up previous commands in that you've typed in the Terminal window to repeat them.
+
+3. The **Download** icon allows you to download a zip copy of the project so you can run it on your computer's node.js instead of in a browser.
+
+The node.js scripts are run securely in your browser and no have access to files on your computer or other browser tabs. There are no browser extensions; it's all browser-based Javascript.
+
+When editing the code, don't forget to save your changes before running the script again (Command-S on the Mac and Ctrl-S on Windows and Linux). If you make changes to the file, it creates a copy ("fork") of the file and the URL changes so you don't need to worry about overwriting the public example. You can save and run the file without logging into Github, but changes will be lost when you close your browser window.
+
+## Installation - computer
+
+Just go to the [nodejs.org](https://nodejs.org/) page and follow the instructions to download and install. The LTS (long-term support) version is recommended. You do not need to do this if you're going to be running the examples in your browser using the **Try It** buttons.
 
 You may already have it installed; you can check from a command prompt or terminal window by entering the command:
 
@@ -24,11 +52,12 @@ node -v
 
 The examples here require a minimum of version 12. The LTS version at the time of writing is 14.17.
 
+
 ## Hello world
 
 Not surprisingly we'll start with a Hello World example, which is really simple:
 
-{{> codebox content="/assets/files/node-tutorial/hello.js" format="js"}}
+{{> codebox content="/assets/files/node-tutorial/hello.js" format="js" tryit="node-96ppvm"}}
 
 To run it, you create or download the hello.js file, then:
 
@@ -67,7 +96,7 @@ console.log("hello world!")
 
 The for loop construct looks like it does in C++, with three parts: initialization, test, and increment steps separated by semicolons:
 
-{{> codebox content="/assets/files/node-tutorial/for-loop.js" format="js"}}
+{{> codebox content="/assets/files/node-tutorial/for-loop.js" format="js" tryit="node-ukfnuw"}}
 
 To run it, you create or download the for-loop.js file, then:
 
@@ -157,7 +186,7 @@ You can do a `while` loop with a bottom test, like C++, too.
 
 Conditionals, `if` statements, work like C++:
 
-{{> codebox content="/assets/files/node-tutorial/if1.js" format="js"}}
+{{> codebox content="/assets/files/node-tutorial/if1.js" format="js" tryit="node-rui4w5"}}
 
 Note that this code outputs this:
 
@@ -269,7 +298,7 @@ Arrays will be familiar to C++ programmers, but there are some differences:
 - You don't need to declare the size of a Javascript array, it automatically grows as needed
 - Arrays don't have a data type. In fact, each element can have a different type of data (string, number, boolean, etc.)
 
-{{> codebox content="/assets/files/node-tutorial/array1.js" format="js"}}
+{{> codebox content="/assets/files/node-tutorial/array1.js" format="js" tryit="node-gypqca"}}
 
 This outputs:
 
@@ -445,7 +474,7 @@ const options = {
 
 Up to now things have been pretty simple syntax variations from other languages. Here's where things diverge and get more complicated.
 
-{{> codebox content="/assets/files/node-tutorial/timer1.js" format="js"}}
+{{> codebox content="/assets/files/node-tutorial/timer1.js" format="js" tryit="node-qwhvch"}}
 
 This will output a new line every second;
 
@@ -468,6 +497,8 @@ There's a lot to unpack in this little bit of code.
 - `'testing ' + counter++` takes the string `testing ` and appends the number from the post-increment of `counter`.
 
 The previous syntax is really common, however if you're coming from old-style C/C++, this declaration of function style might be confusing. It's somewhat equivalent to this, which might be more familiar:
+
+Press Ctrl-C to stop the script from running (this works for both computer-based node.js as well as the browser-based **Try It!** buttons).
 
 {{> codebox content="/assets/files/node-tutorial/timer2.js" format="js"}}
 
@@ -534,7 +565,17 @@ set PARTICLE_AUTH=27fdffffffffffffffffffffffffffffffff4259
 node auth1.js
 ```
 
+For the browser-based examples 
+
 To get an access token, you will often use the [`particle token create`](/reference/developer-tools/cli/#particle-token-create) command in the Particle CLI. Remember that the access token grants full access to your account, so make sure you keep it secure!
+
+### Create a token (browser-based)
+
+You can also create a token using this web-browser control. This creates a token for your account, which can access all devices in your sandbox as well as products and organizations you have access to. Be careful with this token! The username, password, and MFA OTP token (if required) are necessary to create a new token. You can't create another token from your single-sign-on login.
+
+{{> cloud-api-create-token-simple}}
+
+Copy and paste the token out of the Access Token field to use in locations where you need an access token. (The password is sent using a Particle Cloud API call using Javascript and TLS/SSL encryption.)
 
 ### Adding a package
 
@@ -568,7 +609,7 @@ npm install particle-api-js
 
 Now lets move on to something more useful, using the Particle cloud API to list the devices in our account.
 
-{{> project-browser project="node-list-devices" default-file="app.js"}}
+{{> project-browser project="node-list-devices" default-file="app.js" tryit="node-e4yhcg"}}
 
 If you download a full project .zip file as above, you'll need to install all of the dependencies. This is as easy as:
 
@@ -590,6 +631,8 @@ Or for Windows:
 set PARTICLE_AUTH=fffffff344ede465db1ce541461e41eb5219749d
 node app.js
 ```
+
+If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
 
 There are a bunch of new things in this code:
 
@@ -639,7 +682,7 @@ As was the case with the `setInterval` example earlier, remember that the inner 
 
 Sometimes it's useful to put the main code in a function, in this case `run()`. The function is declared, then it's called. It works the same as the previous example, it's just arranged differently.
 
-{{> project-browser project="node-list-devices2" default-file="app.js"}}
+{{> project-browser project="node-list-devices2" default-file="app.js" tryit="node-xejnpa"}}
 
 Also, in this example instead of printing out the whole object, we iterate the list of devices in code and only print out the device name and device ID.
 
@@ -653,11 +696,13 @@ for(const dev of devices.body) {
 - Using a for - of loop we iterate that array, assigning `dev` to be the specific device we're looking at.
 - Then we print out the device name and device ID.
 
+If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
+
 #### List devices (await)
 
 There is a reason for this, and it's so you can write the code this way, instead:
 
-{{> project-browser project="node-list-devices3" default-file="app.js"}}
+{{> project-browser project="node-list-devices3" default-file="app.js" tryit="node-qusk9m"}}
 
 - In this example, instead of declaring `function run()` we declare `async function run()`. 
 - This looks more like a regular function call without all of that `then()` stuff, but there's an `await` statement in it: `const devices = await particle.ListDevices()`.
@@ -666,12 +711,13 @@ There is a reason for this, and it's so you can write the code this way, instead
 - You can only use `await` in an `async function` which is why we had to put the code inside a function. It can't be at the top level of a .js file.
 - Most of the remaining examples will use async/await.
 
+If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
 
 ### Custom list devices
 
 Of course if all you wanted to do was list devices you could just use the `particle list` CLI command. By doing it from Javascript we can do additional processing.
 
-{{> project-browser project="node-list-devices4" default-file="app.js"}}
+{{> project-browser project="node-list-devices4" default-file="app.js" tryit="node-vwuyxf"}}
 
 For example, we could check the online flag to only list devices that are online (though that's also available in the CLI).
 
@@ -683,6 +729,9 @@ for(const dev of devices.body) {
 }
 ```
 
+If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
+
+
 #### Print devices that have not been heard from since a date
 
 This example uses the `last_heard` of the device object to list devices that we have not heard from since a specific date.
@@ -691,12 +740,13 @@ This example uses the `last_heard` of the device object to list devices that we 
 
 The code uses `Date.parse()` which parses a date in various formats (including the ISO 8601 format used by the cloud) and return the time in milliseconds since January 1, 1970 UTC. This is sort of like Unix time, but Unix time is in seconds, not milliseconds.
 
+If you are using the web-based **Try It!** button paste your access token in the index.js file where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI.
 
 #### Print csv of cellular devices
 
 This example generates csv (comma-separated value) data containing the device ID and the ICCID of the cellular devices in your account.
 
-{{> project-browser project="node-list-devices6" default-file="app.js"}}
+{{> project-browser project="node-list-devices6" default-file="app.js" tryit="node-d4andq"}}
 
 The code has a check for `dev.iccid`. If this field does not exist, then the body of the if won't be executed. That will cause it to not print Wi-Fi devices.
 
@@ -714,21 +764,18 @@ If you want to store it in a file, you can execute the command like this:
 node app.js > devices.csv
 ```
 
-The `>` redirects the output from the program to a file.
+The `>` redirects the output from the program to a file. This does not work with the Try It console.
 
 
 ### Accessing files on your computer
 
 Node.js programs running on your computer have access to your computer's file system directly, unlike Javascript programs running in your web browser. If you're automating operations across many devices, it's common to work with a file of device IDs one per line, performing some operation on each device sequentially. Fortunately, this is easy to do.
 
-
 #### Print lines of a file
 
 This isn't a very useful program, as your operating system can already do this (`cat` on Mac and Linux, `type` on Windows), but it shows how the file system API works.
 
-
-
-{{> project-browser project="node-file-1" default-file="app.js"}}
+{{> project-browser project="node-file-1" default-file="app.js" tryit="node-xeqaz1"}}
 
 Lines like these are how you import libraries into your node.js project. Sometimes you'll see `var` used instead of `const`. 
 
@@ -761,13 +808,15 @@ for(let line of testFile.split('\n')) {
 }
 ```
 
+When using the **Try It!** browser-based node.js, it's using the testfile.txt in the virtual machine, not on your computer. But you can edit the file in the virtual IDE in the browser.
+
 ### Processing a list of devices
 
 A more useful thing to do is process a file of Device IDs and act on each device in the list. In this example, we'll get the full device information which isn't all that useful, but it's just a template that you can use to put other things in that block of code. For example, you might claim devices this way, name devices, or change device groups.
 
 Sometimes instead of encoding the name of the file to process in the script, you want to pass it as command line arguments. There are multiple command line processing options, but we'll use yargs here.
 
-{{> project-browser project="node-file-2" default-file="app.js"}}
+{{> project-browser project="node-file-2" default-file="app.js" tryit="node-bev5an"}}
 
 The yargs package is already added to this project's `package.json` file but to add it to a new project you'd just:
 
@@ -775,7 +824,7 @@ The yargs package is already added to this project's `package.json` file but to 
 npm install yargs
 ```
 
-If you've downloaded the project and want to run it, you'll still need to install the pre-configured libraries:
+If you've downloaded the project and want to run it, you'll still need to install the pre-configured libraries when using node.js on your computer.
 
 ```
 npm install
@@ -785,6 +834,12 @@ To run it:
 
 ```
 node app.js deviceIds.txt
+```
+
+If using the **Try It!** button use:
+
+```
+node index.js deviceIds.txt
 ```
 
 This require line is a little different because the yargs package supports multiple APIs. We're only interested in the `argv` API, so we get only that one API this way:
@@ -870,14 +925,22 @@ deviceIds [
 
 The same techniques can be used to pick out other common things like ICCIDs, IMEIs, and serial numbers by adjusting the regular expression.
 
+
 ### Reading a csv file
 
 Sometimes you'll have a comma-separated value file (csv). Resist the temptation to parse it by hand because there are good csv parsers available for node and dealing with escaped strings yourself is tedious and error-prone.
 
-{{> project-browser project="node-file-3" default-file="app.js"}}
+{{> project-browser project="node-file-3" default-file="app.js" tryit="node-52bmyr"}}
 
+Some of the code should be familiar from the last example. 
 
-Some of the code should be familar from the last example. This example uses the [csv-parse](https://csv.js.org/parse/) package for node.js.
+Install the dependencies when using node.js on your computer:
+
+```
+npm install
+```
+
+This example uses the [csv-parse](https://csv.js.org/parse/) package for node.js.
 
 ```
 const csvParse = require('csv-parse/lib/sync');
@@ -945,9 +1008,9 @@ ffff50f908d5104debc4563f
 
 This is a starter script that you can tailor to your own purposes, but illustrates a bunch of techniques. It moves devices from one developer account to another account. 
 
-{{> project-browser project="node-device-change-owner" default-file="app.js" height="400"}}
+{{> project-browser project="node-device-change-owner" default-file="app.js" height="400" tryit="node-sncl8g"}}
 
-Install the dependencies:
+Install the dependencies when using node.js on your computer:
 
 ```
 cd node-device-change-owner
@@ -971,6 +1034,8 @@ set PARTICLE_AUTH_NEW=ffffff988ea2e0537b40ffe7cc36906f5b36a76c
 ```
 
 One handy way to get tokens is to open up the [console](https://console.particle.io), opening one in a separate incognito or private browsing window. Go into the **Events** tab and click the **View in Terminal** icon. The command that's printed includes an access token, and you can just copy that token for temporary use. That token is invalidated when you log out of the console.
+
+If you are using the web-based **Try It!** button paste your access token in the index.js file in the two locations where it says `PASTE_YOUR_ACCESS_TOKEN_HERE`. You can generate a temporary token using the [Create a token (browser-based))(#create-a-token-browser-based-) above, or use `particle token create` from the Particle CLI. 
 
 This example shows how to filter devices by name. You can test the filtering by using a command like:
 

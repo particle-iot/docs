@@ -21,6 +21,7 @@ $(document).ready(function() {
         const outputDivElem = $(thisElem).find('.apiHelperProjectBrowserOutputDiv');
         const fileSelect = $(thisElem).find('.apiHelperProjectSelect');
         const targetVersionSelect = $(thisElem).find('.apiHelperProjectTarget');
+        const tryItButton = $(thisElem).find('.apiHelperTryItButton');
 
         const setStatus = function(str) {
             $('.apiHelperProjectBrowserStatus').text(str);
@@ -31,6 +32,19 @@ $(document).ready(function() {
         $(optionElem).prop('name', defaultFile);
         $(optionElem).text(defaultFile);
         $(fileSelect).html(optionElem);
+
+        if (tryItButton && tryItButton.length) {
+            $(tryItButton).on('click', function() {
+                var a = document.createElement('a');
+                a.href = 'https://stackblitz.com/edit/' + $(this).attr('data-project') + '?devtoolsheight=33&file=index.js&hideNavigation=1%3B';
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+    
+                ga('send', 'event', gaCategory, 'Try It', $(tryItButton).attr('data-project'));    
+            });
+        }
 
         let projectZip;
 

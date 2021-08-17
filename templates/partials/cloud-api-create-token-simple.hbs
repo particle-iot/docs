@@ -1,0 +1,24 @@
+<div class="apiHelperCloudApiAuthSettings apiHelperCloudApiCreateTokenSimple">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <table class="apiHelperTableNoMargin">
+                <tr><td class="apiHelperProductSelectorLabel">User Email</td><td><input type="text" size="20" class="apiHelperAuthSettingsUsername" value=""></td><td class="apiHelperProductSelectorLabel">&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Password</td><td><input type="password" size="20" class="apiHelperAuthSettingsPassword" value=""></td><td class="apiHelperProductSelectorLabel">&nbsp;</td></tr>
+                <tr><td class="apiHelperProductSelectorLabel">Expires In</td><td><select class="apiHelperAuthSettingsExpiresIn apiHelperSelect">
+                    <option value="900">15 minutes</option>
+                    <option value="3600">1 hour</option>
+                    <option value="28800">8 hours</option>
+                    <option value="86400">1 day</option>
+                    <option value="2592000">30 days</option>
+                    <option value="7776000">90 days</option>
+                    <option value="0">Never</option>
+                    </select></td><td class="apiHelperProductSelectorLabel">&nbsp;</td></tr>
+                <tr class="apiHelperMfaTokenRow"><td class="apiHelperProductSelectorLabel">MFA OTP Token</td><td><input type="text" size="20" class="apiHelperAuthSettingsMfaOtpToken" value=""></td><td class="apiHelperProductSelectorLabel">(6 digits)</td></tr>
+                <tr><td colspan="3"><button class="apiHelperActionButton">Create token</button></td></tr>
+                <tr class="apiHelperAccessTokenRow"><td class="apiHelperProductSelectorLabel">Access Token</td><td><input type="text" size="50" class="apiHelperAuthSettingsAccessToken" value="" readonly></td><td class="apiHelperProductSelectorLabel">&nbsp;</td></tr>
+            </table>
+            <div class="apiHelperStatus" style="padding-top: 5px;"></div>
+        </div>
+    </div>
+</div>
+
