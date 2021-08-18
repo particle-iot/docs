@@ -250,6 +250,11 @@
         "dir": "organizations",
         "title": "Organizations",
         "href": "/tutorials/product-tools/organizations/"
+      },
+      {
+        "dir": "manufacturing-cellular",
+        "title": "Manufacturing - Cellular",
+        "href": "/tutorials/product-tools/manufacturing-cellular/"
       }
     ],
     {

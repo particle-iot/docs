@@ -345,6 +345,11 @@
         "dir": "an037-ethernet",
         "title": "AN037 Ethernet",
         "href": "/datasheets/app-notes/an037-ethernet/"
+      },
+      {
+        "dir": "an038-installing-specific-device-os",
+        "title": "AN038 Installing specific Device OS versions",
+        "href": "/datasheets/app-notes/an038-installing-specific-device-os/"
       }
     ],
     {

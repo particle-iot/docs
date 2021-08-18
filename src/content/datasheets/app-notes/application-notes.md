@@ -127,4 +127,5 @@ interpret cloud debugging logs to troubleshoot various common issues.
 - [AN035 File System](/datasheets/app-notes/an035-file-system) includes information about using the LittleFS flash file system on Gen 3 devices.
 - [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt) includes information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.
 - [AN037 Ethernet](/datasheets/app-notes/an037-ethernet) includes tips for using Ethernet with Particle Gen 3 devices.
+- [AN038 Installing specific Device OS versions](/datasheets/app-notes/an038-installing-specific-device-os) includes tips for installing a specific version of Device OS, typically during manufacturing.
 

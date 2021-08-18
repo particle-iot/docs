@@ -37,31 +37,55 @@ module.exports = function(context) {
     html += '<tr>';
 
     info.versionNames.forEach(function(version) {
-        html += '<tr><td>' + version + '</td>';
-        info.platforms.forEach(function(platformObj) {
-            html += '<td>';
-            if (info.versions[version].includes(platformObj.name)) {
-                if (mode == 'download') {
-                    const script = "ga('send', 'event', 'Download', 'Device Restore Hex Download', '" + version + "/" + platformObj.name + "'); return true;";
+        let row = '';
+        let hasItems = false;
 
-                    html += '<a href="/assets/files/device-restore/' + version + '/' + platformObj.name + '.hex" download onclick="' + script + '">Download</a>';
-                }
-                else if (mode == 'flash') {
-                    html += '<a onclick="startFlash(\'' + platformObj.name + '\', \'' + version + '\')">Flash!</a>';
-                }
-                else if (mode == 'radio') {
-                    html += '<input type="radio" name="imageFile" value="' + version + '/' + platformObj.name + '.hex" />';
+        row += '<tr><td>' + version + '</td>';
+        info.platforms.forEach(function(platformObj) {
+            row += '<td>';
+
+            if (mode == 'zip') {
+                if (info.versionsZip[version] && info.versionsZip[version].includes(platformObj.name)) {
+                    const script = "ga('send', 'event', 'Download', 'Device Restore Zip Download', '" + version + "/" + platformObj.name + "'); return true;";
+    
+                    row += '<a href="/assets/files/device-restore/' + version + '/' + platformObj.name + '.zip" download onclick="' + script + '">Download</a>';
+                    hasItems = true;
                 }
                 else {
-                    html += '&nbsp;';
+                    row += '&nbsp;';
                 }
             }
             else {
-                html += '&nbsp;';
+                if (info.versions[version].includes(platformObj.name)) {
+                    if (mode == 'download') {
+                        const script = "ga('send', 'event', 'Download', 'Device Restore Hex Download', '" + version + "/" + platformObj.name + "'); return true;";
+    
+                        row += '<a href="/assets/files/device-restore/' + version + '/' + platformObj.name + '.hex" download onclick="' + script + '">Download</a>';
+                        hasItems = true;
+                    }
+                    else if (mode == 'flash') {
+                        row += '<a onclick="startFlash(\'' + platformObj.name + '\', \'' + version + '\')">Flash!</a>';
+                        hasItems = true;
+                    }
+                    else if (mode == 'radio') {
+                        row += '<input type="radio" name="imageFile" value="' + version + '/' + platformObj.name + '.hex" />';
+                        hasItems = true;
+                    }
+                    else {
+                        row += '&nbsp;';
+                    }
+                }
+                else {
+                    row += '&nbsp;';
+                }    
             }
-            html += '</td>';
+            row += '</td>';
         });
-        html += '</tr>\n';
+        row += '</tr>\n';
+
+        if (hasItems) {
+            html += row;
+        }
     });
 
 
