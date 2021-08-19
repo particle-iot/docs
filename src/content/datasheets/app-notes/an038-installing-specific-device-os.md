@@ -23,7 +23,7 @@ There are a number of components that may need to be upgraded on a device, in ad
 
 <sup>1</sup>There is only one version of the Argon NCP firmware in production, so it does not need to upgraded.
 
-<sup>2</sup>The Tracker SoM NCP firmware was upgraded in Device OS 3.0.0, thus there are two versions in the field. It is not necessary or desirable to ever downgrade the Tracker NCP firmware, as the 3.0.0 version is backward compatible with earlier versions.
+<sup>2</sup>The Tracker SoM NCP firmware was upgraded in Device OS 3.0.0, thus there are two versions in the field. It is not necessary or desirable to ever downgrade the Tracker NCP firmware, as the 3.0.0 version is backward compatible with earlier versions. See [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp) for more information.
 
 There are a number of ways the Device OS version can be upgraded:
 
@@ -95,7 +95,7 @@ All versions are available in [Github Device OS Releases](https://github.com/par
 | System Parts | All | &check; | &check;<sup>2</sup> |
 | User Firmware | All | &check; | &check;<sup>2</sup> |
 
-<sup>1</sup> It's technically possible to flash the bootloader in DFU mode, however the process is complicated. Device Restore over USB uses this technique, however the CLI only supports this during `particle update` and not when manually flashing the bootloader. It requires two dfu-util commands that vary between devices and resetting the device.
+<sup>1</sup> It's technically possible to flash the bootloader in DFU mode, however the process is complicated. [Device Restore over USB](device-restore-usb/) uses this technique, however the CLI only supports this during `particle update` and not when manually flashing the bootloader. It requires two dfu-util commands that vary between devices and resetting the device.
 
 <sup>2</sup> While it's possible to flash system parts in listening mode (--serial), using DFU mode is generally more reliable. If you are downgrading in --serial mode, there are also additional restrictions, as the system parts must be flashed in reverse numerical order. Also, you can run into a situation where the device reboots too early in --serial mode, and completes the upgrade OTA, which defeats the purpose of flashing over USB first.
 

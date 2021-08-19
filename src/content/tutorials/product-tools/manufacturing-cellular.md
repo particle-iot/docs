@@ -160,12 +160,9 @@ if(!dct_read_app_data_copy(DCT_SETUP_DONE_OFFSET, &val, DCT_SETUP_DONE_SIZE) && 
 }
 ```
 
-It is also possible to do this using the Particle CLI and USB if you are using a USB-based setup flow.
+It is also possible to do this using the Particle CLI and USB if you are using a USB-based setup flow. If you skip this step, Gen 3 devices (Boron, B Series SoM, and Tracker SoM) will start in listening mode (blinking dark blue).
 
-Borons/B Series devices without this step will power on into Listening Mode (blinking Dark Blue).
-
-For the Tracker One and Tracker SoM, you will need to update the NCP (ESP32) firmware if you intend to use the Device OS 3.0.0 or later. It is not required for 2.x, but it is backwards compatible if you need to revert to 2.x from 3.x for any reason. This must be done over USB in listening mode (blinking dark blue, --serial).
-
+For the Tracker One and Tracker SoM, you will need to update the NCP (ESP32) firmware if you intend to use the Device OS 3.0.0 or later. It is not required for 2.x, but it is backwards compatible if you need to revert to 2.x from 3.x for any reason. This must be done over USB in listening mode (blinking dark blue, --serial). See [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp) for more information.
 
 
 Once your hex files are with your CM, enable your CM to pursue one of the following programmer strategies as detailed within our docs:
@@ -187,15 +184,15 @@ In some cases, you will not want to enable cellular at manufacturing time:
 - Your CM is located out of the area of service for the device (for example, LTE Cat M1 when your CM is in China)
 - You do not want to start the billing on the device until later.
 
-In this case, your manufacturing test firmware can use [manual mode](/cards/firmware/system-modes/manual-mode/) and only locally test the hardware and peripherals. It's still a good idea to perform antenna-related testing at this time, including a visual inspection of the u.Fl connector and/or using an RF meter to test the viability of this connection.
+In this case, your manufacturing test firmware can use [manual mode](/cards/firmware/system-modes/manual-mode/) and only locally test the hardware and peripherals. It's still a good idea to perform antenna-related testing at this time, including a visual inspection of the u.FL connector and/or using an RF meter to test the viability of this connection.
 
-If you do activate the SIM and use normally connectivity mode, the device will go through the normal sequence of blinking green, blinking cyan, fast blinking cyan, and finally breathing cyan. This provides the greatest confidence in the correct operation of the device, however it could also take up to 20 minutes.
+If you do activate the SIM and use normal connectivity mode, the device will go through the sequence of blinking green, blinking cyan, fast blinking cyan, and finally breathing cyan. This provides the greatest confidence in the correct operation of the device, however it could also take up to 20 minutes.
 
 Perform your suite of manufacturing tests, including on-board hardware tests, calibration and configuration processes, production tests, and/or power consumption tests.
 
 This is also a good time to record the firmware versions that you flashed to the device, as well as board versions.
 
-At test completion, push the result of the manufacturing tests to your internal database. If a test fails, perform the relevant failure analysis and take necessary action / retest as needed.
+At test completion, push the result of the manufacturing tests to your internal database. If a test fails, perform the relevant failure analysis and take necessary action and retest as needed.
 
 Flash your production application firmware, verify that the production binary was successfully flashed, and log the process as complete.
 
@@ -216,9 +213,9 @@ The device provisioning process can be performed with scripts as needed on devic
 
 This can be done through various means:
 
-- Taken from the list of Device IDs provided with your tray.
+- From the list of Device IDs provided with your tray.
 
-- You can use a data-matrix scanner to scan the Particle serial number sticker on the Particle device.
+- Using a data-matrix scanner to scan the Particle serial number sticker on the Particle device.
 
 This sticker contains the serial number. On Gen 3 devices, it also contains a space character, followed by the mobile secret, which you do not need for activation. 
 
@@ -235,7 +232,7 @@ curl "https://api.particle.io/v1/products/$PRODUCT_NUM/devices?access_token=$ACC
 -d id=$DEVICE_ID_OR_SERIAL_NUMBER
 ```
 
-Note: importing your device into a product will concurrently activate its SIM card (for all devices except 2G/3G Electron).
+Note: importing your device into a product will also activate its SIM card (for all devices except 2G/3G Electron).
 
 
 In addition to adding your device to a Product, we further recommend adding your device to a Product Device Group for a higher degree of control. Device Groups assist with targeted application firmware upgrades to smaller subsections of a Product Fleet, and can be of further use tracking manufacture build dates for easier debugging.
@@ -276,7 +273,7 @@ curl -X PUT "https://api.particle.io/v1/products/$PRODUCT_ID/devices/$DEVICE_ID"
 
 Claim the device to an administrator email associated with the product. At the time this document was written, claiming is required for webhook responses to work for that device.
 
-A generic administrator account is strongly recommended (eg. particle@businessname.com) across your entire Product and/or Organization structure for easy transfer of ownership and centralized billing.
+A generic administrator account is strongly recommended (eg. particle@company.com) across your entire Product and/or Organization structure for easy transfer of ownership and centralized billing.
 
 ```
 curl "https://api.particle.io/v1/devices 
@@ -295,7 +292,7 @@ After the Device ID has been retrieved, the provisioning process as outlined abo
 
 These steps can be automated using a script which can greatly speed up the process of performing the steps on multiple devices.
 
-Note the [Particle API rate limits](/reference/device-cloud/api/#api-rate-limits) when designing your scripts to do batch processing of many devices.
+Be aware of the [Particle API rate limits](/reference/device-cloud/api/#api-rate-limits) when designing your scripts to do batch processing of many devices.
 
 The following script is intended as an example for the batch provisioning of a list of devices. It is written in Bash and the first line has a -x that will produce a verbose output for debugging purposes.  In the manufacturing flow it may be necessary to remove this -x in order to capture only the responses from each API endpoint call.
 
