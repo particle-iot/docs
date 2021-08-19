@@ -97,6 +97,11 @@
     },
     [
       {
+        "dir": "product-updates-2021",
+        "title": "Product Updates 2021",
+        "href": "/reference/discontinued/product-updates-2021/"
+      },
+      {
         "dir": "mesh",
         "title": "Mesh Deprecation",
         "href": "/reference/discontinued/mesh/"

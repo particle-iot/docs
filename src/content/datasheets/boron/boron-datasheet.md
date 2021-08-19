@@ -7,6 +7,8 @@ description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 
 # Boron Datasheet <sup>(v008)</sup>
 
+**PRE-RELEASE DRAFT 2021-08-19**
+
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -23,14 +25,31 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
- * u-blox SARA-R410-02B LTE modem (Boron LTE, BRN404 and BRN402)
-  * LTE Cat M1 module with global hardware support (MVNO support for US only) 
-  * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
- * u-blox SARA U201 2G/3G modem (Boron 2G/3G, BRN314 and BRN310)
-  * HSPA/GSM with global hardware and SIM support 
-  * Bands 800/850/900/1900/2100 MHz 
-  * 3GPP Release 7 
+#### Features - BRN402, BRN404 (Boron LTE)
+
+ * u-blox SARA-R410M-02B or R410M-03 LTE modem
+ * LTE Cat M1 module
+ * Support for United States, Canada, and Mexico only
+ * 3GPP Release 13 LTE Cat M1 
+ * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+
+#### Features - BRN404X (Boron LTE)
+
+ * u-blox SARA-R510S-01B LTE modem
+ * LTE Cat M1 module
+ * Support for United States, Canada, and Mexico only
+ * 3GPP Release 13 LTE Cat M1 
+ * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
+
+#### Features - BRN314, BRN310 (Boron 2G/3G)
+
+ * u-blox SARA U201 2G/3G modem
+ * HSPA/GSM with global hardware and SIM support 
+ * Bands 800/850/900/1900/2100 MHz 
+ * 3GPP Release 7
+
+#### Features - All Models
+
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -132,10 +151,10 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE a
 | Digital | 20 | I/O |
 | Analog (ADC) | 6 | I |
 | UART | 1 | I/O |
-| SPI  | 2 | I/O |
-| I2C  | 1 | I/O |
+| SPI  | 1 | I/O |
+| I2C  | 2 | I/O |
 | USB  | 1 | I/O |
-| PWM  | 8 | O |
+| PWM  | 8| O |
 
 **Note:** All GPIOs are only rated at 3.3VDC max.
 
@@ -324,7 +343,7 @@ Nordic Semiconductor nRF52840 for BLE.
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-u-blox SARA U201 (2G/3G) and R410 (LTE Cat M1) for cellular.
+u-blox SARA U201 (2G/3G), R410 (LTE Cat M1), or R510 (LTE Cat M1) for cellular.
 
 
 | BORON  | Compatible Countries |
@@ -441,6 +460,7 @@ The complete schematic and board files are open source and available on Particle
 | Burkina Faso | BRN314 | 2G, 3G | Orange |
 | Cambodia | BRN314 | 2G, 3G | Metfone |
 | Canada | BRN404 | M1 | Bell Mobility, Rogers Wireless, Telus |
+| Canada | BRN404X | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Cayman Islands | BRN314 | 2G, 3G | Flow |
 | Chad | BRN314 | 2G, 3G | Airtel |
 | Chile | BRN314 | 2G, 3G | Claro, Entel, Movistar |
@@ -502,6 +522,7 @@ The complete schematic and board files are open source and available on Particle
 | Malaysia | BRN314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | BRN314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | BRN404 | M1 | AT&T |
+| Mexico | BRN404X | M1 | AT&T |
 | Moldova | BRN314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | BRN314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | BRN314 | 2G, 3G | Mtel, T-Mobile, Telenor |
@@ -558,6 +579,7 @@ The complete schematic and board files are open source and available on Particle
 | United Arab Emirates | BRN314 | 2G, 3G | du, Etisalat |
 | United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | BRN404 | M1 | AT&T |
+| United States | BRN404X | M1 | AT&T |
 | Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | BRN314 | 2G, 3G | Beeline |
 | Venezuela | BRN314 | 2G, 3G | Movistar |
@@ -582,6 +604,9 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | GA | |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | GA | |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | GA | |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | GA | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | NRND-US | BRN314TRAY50|
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | NRND | BRN314KIT|
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | BRN404|
@@ -718,7 +743,6 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | v007     | 09-Jul-2021 | RK | Number of accessible I2C ports is 1, not 2 |
 | v008     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
-
 ## Known Errata
 
 ## Contact
