@@ -19,18 +19,17 @@ In this section, you'll explore using [Particle Workbench](https://www.particle.
 
 ## Prepare for Debugging
 
-In order to perform step debugging and a few other features, you'll need to disable mesh and BLE support in your application firmware. This is to address a current limitation in software that DeviceOS depends on to handle real-time networking and communication.
+In order to perform step debugging and a few other features, you'll need to disable BLE support in your application firmware. This is to address a current limitation in software that Device OS depends on to handle real-time networking and communication.
 
-At the start of your `setup` function, add the following two lines to disable mesh and BLE during debugging. The `#if` preprocessor ensures that these commands are only compiled into the binary if you're running a debug build. 
+At the start of your `setup` function, add the following lines to disable BLE during debugging. The `#if` preprocessor ensures that these commands are only compiled into the binary if you're running a debug build. 
 
   ```cpp
   #if defined(DEBUG_BUILD)
-  Mesh.off();
   BLE.off();
   #endif
   ```
 
-Now, continue onto the next step. When you flash a debug build to your device, you'll automatically disable Mesh and BLE so you can perform step debugging. 
+Now, continue onto the next step. When you flash a debug build to your device, you'll automatically disable BLE so you can perform step debugging. 
 
 
 ## Connect the Particle Debugger

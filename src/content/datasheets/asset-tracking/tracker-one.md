@@ -347,14 +347,14 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | ONE524 | 2G, 3G, Cat1 | A1 |
 | Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | ONE524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | ONE524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | ONE524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | ONE524 | 2G, 3G | A1, Telenor, Vivacom |
 | Canada | ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Croatia | ONE524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | ONE524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | ONE524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | ONE524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | ONE524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | ONE524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | ONE524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | ONE524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | ONE524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
@@ -400,10 +400,8 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
 | ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | GA | |
-| ONE404MTY-NB | Tracker One LTE M1 (NorAm), no battery, Bulk [x40] | NORAM | BG96-MC | GA | |
 | ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
 | ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | GA | |
-| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), no battery, Bulk [x40] | EMEAA | EG91-EX | GA | |
 | ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | ONE404MEA|
 | ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | NRND | ONE404MTY|
 | ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | ONE524MEA|

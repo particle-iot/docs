@@ -3,6 +3,10 @@ $(document).ready(function() {
     if ($('.apiHelper').length == 0) {
         return;
     }
+    let deviceRestoreInfo;
+
+
+
     $('.apiHelperProjectBrowser').each(function() {
         const thisElem = $(this);
         const gaCategory = 'Project Browser';
@@ -16,6 +20,8 @@ $(document).ready(function() {
         const outputPreElem = $(thisElem).find('.apiHelperProjectBrowserOutputPre');
         const outputDivElem = $(thisElem).find('.apiHelperProjectBrowserOutputDiv');
         const fileSelect = $(thisElem).find('.apiHelperProjectSelect');
+        const targetVersionSelect = $(thisElem).find('.apiHelperProjectTarget');
+        const tryItButton = $(thisElem).find('.apiHelperTryItButton');
 
         const setStatus = function(str) {
             $('.apiHelperProjectBrowserStatus').text(str);
@@ -26,6 +32,19 @@ $(document).ready(function() {
         $(optionElem).prop('name', defaultFile);
         $(optionElem).text(defaultFile);
         $(fileSelect).html(optionElem);
+
+        if (tryItButton && tryItButton.length) {
+            $(tryItButton).on('click', function() {
+                var a = document.createElement('a');
+                a.href = 'https://stackblitz.com/edit/' + $(this).attr('data-project') + '?devtoolsheight=33&file=index.js&hideNavigation=1%3B';
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+    
+                ga('send', 'event', gaCategory, 'Try It', $(tryItButton).attr('data-project'));    
+            });
+        }
 
         let projectZip;
 
@@ -93,10 +112,29 @@ $(document).ready(function() {
             $(outputPreElem).hide();
             $(outputDivElem).hide();
 
-            if (['cpp', 'c++', 'cxx', 'c', 'h', 'hpp'].includes(ext)) {
+            const langMap = {
+                'cpp': ['cpp', 'c++', 'cxx', 'c', 'h', 'hpp'],
+                'json': ['json'],
+                'js': ['js']
+            }
+            
+            let langFound;
+            for(const key in langMap) {
+                if (langMap[key].includes(ext)) {
+                    langFound = key;
+                    break;
+                }
+            }
+
+            if (langFound) {
                 $(outputCodeElem).show();
 
                 const thisCodeElem = $(outputCodeElem).find('code');
+                for(const key in langMap) {
+                    $(thisCodeElem).removeClass('lang-' + key);
+                }
+                $(thisCodeElem).addClass('lang-' + langFound);
+
                 $(thisCodeElem).text(text);
                 $(thisCodeElem).removeClass('prettyprinted');
                 if (prettyPrint) {
@@ -179,8 +217,13 @@ $(document).ready(function() {
 
             let formData = new FormData();
 
+            let targetVersion = 'latest';
+            if ($(targetVersionSelect).length > 0) {
+                targetVersion = $(targetVersionSelect).val();
+            }
+
             formData.append('deviceId', device);
-            // formData.append('build_target_version', 'latest');
+            formData.append('build_target_version', targetVersion);
             let fileNum = 0;
 
             const addDir = async function(path, zipDir) {
@@ -241,6 +284,65 @@ $(document).ready(function() {
             $.ajax(request);
 		});
 
+        $(thisElem).find('.apiHelperProjectTarget').each(async function() {
+            const thisTargetElem = $(this);
+            const targetOptions = $(thisTargetElem).attr('data-target');
+
+            let versionsArray = await apiHelper.getReleaseAndLatestRcVersionOnly();
+
+            if (targetOptions) {
+                versionsArray = versionsArray.filter(function(versionStr) {
+                    const ver = apiHelper.parseVersionStr(versionStr);                
+                    const targetVer = apiHelper.parseVersionStr(targetOptions);
+    
+                    if (targetOptions.startsWith('>=')) {
+                    const targetVer = apiHelper.parseVersionStr(targetOptions);
+                        if (ver.major > targetVer.major) {
+                            return true;
+                        }
+                        else if (ver.major == targetVer.major && ver.minor >= targetVer.minor) {
+                            return true;
+                        }
+                    }
+                    else if (targetOptions.startsWith('<')) {
+                        if (ver.major < targetVer.major) {
+                            return true;
+                        }
+                        else if (ver.major == targetVer.minor && ver.minor < targetVer.minor) {
+                            return true;
+                        }                
+                    }
+                    else if (targetOptions == '2.x') {
+                        if (ver.major == 2) {
+                            return true;
+                        }
+                    }
+                    else if (targetOptions == 'ble2') {
+                        // 1.3.0 to 2.x
+                        if (ver.major == 2) {
+                            return true;
+                        }
+                        else
+                        if (ver.major == 1 && ver.minor >= 3) {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                });    
+            }
+
+            //console.log('versionsArray', versionsArray);
+
+            let html = '';
+            for(const ver of versionsArray) {
+                const optionElem = document.createElement('option');
+                $(optionElem).prop('name', ver);
+                $(optionElem).text(ver);
+                $(thisTargetElem).append(optionElem);                    
+            }
+
+        });
 
         const showDefaultFile = async function() {
             const path = projectUrlBase + '/' + $(fileSelect).val();
@@ -254,6 +356,7 @@ $(document).ready(function() {
 
         showDefaultFile();
     });
+
 
 });
 

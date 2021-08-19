@@ -7,7 +7,7 @@
   "attributes": {
     "name": "opcn2",
     "version": "1.3.1",
-    "installs": 2614,
+    "installs": 2631,
     "license": "MIT",
     "author": "David H Hagan <dhagan@mit.edu>",
     "sentence": "A simple library to operate the Alphasense OPC-N2 using a Particle Photon/Electron",

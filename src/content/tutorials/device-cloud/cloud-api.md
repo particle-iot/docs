@@ -396,6 +396,10 @@ If you do not have access to any organizations, an empty array `[]` is returned 
 
 {{> cloud-api-list-org-products height="300"}}
 
+### List organization team members
+
+{{> cloud-api-list-org-team height="300"}}
+
 ## More APIs
 
 ### Rename a device
@@ -426,6 +430,21 @@ The historical API returns all historical data for a date range (up to 1 month i
 
 {{> cloud-api-device-vitals}}
 
+## API Users
+
+An [API User Account](/reference/device-cloud/api/#api-users) is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. The controls in this section will allow you to add API users without having to use the `curl` command.
+
+{{> sso}}
+
+### Create API User
+
+{{> cloud-api-user-create}}
+
+### List or Delete API Users
+
+{{> cloud-api-user-list}}
+
+To delete an API user, list the users in the product or organization. If there are API users defined, a user selector and a **Delete User** button will appear.
 
 ## Customer claiming
 

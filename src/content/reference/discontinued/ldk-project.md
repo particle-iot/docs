@@ -5,7 +5,7 @@ columns: two
 ---
 ## Getting started with leak detection
 
-**Note:** The leak detection kit has been discontinued. If using a kit you have already purchased, be sure to select Device OS 1.5.2 or earlier when building. Later versions of Device OS do not support the Xenon.
+**Note:** The leak detection kit has been discontinued. Additionally, it is no longer possible to set up the mesh network to use the Xenon, see [mesh deprecation](/reference/discontinued/mesh/) for more information. The Argon can still be used as a single-sensor leak detector.
 
 Water might be the source of all life, but it can also be the source of a lot of discomfort if it gets to places it shouldn’t. A flooded basement, mold growth, damaged floors and ceilings, are all expensive problems that can result from leaks.
 

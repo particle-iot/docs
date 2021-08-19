@@ -3,6 +3,7 @@ title: Bluetooth LE
 columns: two
 layout: commonTwo.hbs
 description: Getting started with Bluetooth LE (BLE) on Particle IoT devices
+includeDefinitions: [api-helper, api-helper-extras,api-helper-projects,ble-serial,zip]
 ---
 
 # Bluetooth LE (BLE)
@@ -24,7 +25,16 @@ The B Series  SoM (system-on-a-module) requires the external BLE/Mesh antenna co
 
 A good introduction to BLE can be found in the [Adafruit tutorial](https://learn.adafruit.com/introduction-to-bluetooth-low-energy/introduction).
 
-BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. 
+BLE is supported in Device OS 1.3.1 and later. BLE support was in beta test in Device OS 1.3.0. It is not available in earlier Device OS versions. Additional features were added in Device OS 3.0 and 3.1.
+
+### Logging in
+
+You can interact directly with your device from this tutorial page by logging into your 
+Particle account in the box below. This is optional, as you can use Particle 
+Workbench or the Web IDE and other techniques directly, if you prefer.
+
+{{> sso }}
+
 
 ## Major concepts
 
@@ -183,7 +193,7 @@ The NULL parameter here is the context, an optional pointer value. If you implem
 
 Finally, the onDataReceived handler looks like this:
 
-```
+```cpp
 void onDataReceived(const uint8_t* data, size_t len, const BlePeerDevice& peer, void* context) {
     uint8_t flags = data[0];
 
@@ -343,7 +353,7 @@ When not connected to a central device, the peripheral device will continuously 
 
 Another more complicated example is the Health Thermometer peripheral example:
 
-```
+```cpp
 BleUuid healthThermometerService(0x1809);
 
 BleCharacteristic temperatureMeasurementCharacteristic("temp", BleCharacteristicProperty::NOTIFY, BleUuid(0x2A1C), healthThermometerService);
@@ -386,16 +396,14 @@ There are three parameters of interest:
 
 (From the [Getting Started with iBeacon](https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf) guide.)
 
-In other words, you'll assign a single UUID to all of the beacons in your fleet of beacons and figure out which one you're at using the major and minor values. When searching for an iBeacon, you need to know the UUID of the beacon you're looking for, so you don't want to assign too many. 
+In other words, you'll assign a single UUID to all of the beacons in your fleet of beacons and figure out which one you're at using the major and minor values. When searching for an iBeacon, you need to know the UUID of the beacon you're looking for, so you don't want to assign too many.
 
-Enabling iBeacon mode is easy:
 
-```
-void setup() {
-    iBeacon beacon(1, 2, "9c1b8bdc-5548-4e32-8a78-b9f524131206", -55);
-    BLE.advertise(beacon);
-}
-```
+Flash this code to a Gen 3 device:
+
+{{> codebox content="/assets/files/ble/iBeacon-example.cpp" format="cpp" height="300" flash="true"}}
+
+Enabling iBeacon mode is easy, just a few lines in setup().
 
 The parameters for the beacon are:
 
@@ -403,6 +411,10 @@ The parameters for the beacon are:
 - Minor version (2)
 - Application UUID ("9c1b8bdc-5548-4e32-8a78-b9f524131206")
 - Power measurement in dBm (-55)
+
+You define the major and minor for your particular application, and generate any random UUID.
+
+There are a number of iBeacon finding applications for iOS. I've used [Locate Beacon](https://apps.apple.com/us/app/locate-beacon/id738709014) successfully. Note: You must enter the Application UUID you want to search for; it can't arbitrarily find any iBeacon in range.
 
 
 ### Central Role
@@ -412,17 +424,16 @@ Using your Particle device in a central role allows you to do things like:
 - Detect when BLE beacons are nearby
 - Read data from BLE sensors
 
-There's also a special case of the central role: An **observer** only advertises, and does not accept any connections. 
+There's also a special case of the central role: An **observer** only looks for advertisers, and does not make any connections. 
 
-In Device OS 1.3.0, you can only connect to a single peripheral device at a time. This will be expanded to 3 devices in a later version.
+You can connect to up to thee devices at a time. (With Device OS 1.3.0, you can only connect to a single devices.)
 
 
 ### Pairing
 
+- Device OS 3.1.0 and later: Support for Bluetooth LE Secure Connection Pairing ("LESC Pairing"). This uses numeric comparison mode and Elliptic curve Diffie–Hellman (ECDH) encryption.
 - Device OS 3.0.0 and later: Support for "Legacy Pairing" passkey display or input modes (both central and peripheral).
 - Prior to Device OS 3.0.0: No support for secure pairing.
-- Bluetooth LE Secure Connection Pairing ("LESC Pairing") is not currently supported. This uses numeric comparison mode and 
-Elliptic curve Diffie–Hellman (ECDH) encryption.
 - Out-of-band authentication (such as by NFC) is not built-in.
 
 When pairing, there are two different things going on:
@@ -442,7 +453,7 @@ When using Legacy Pairing, both the initiator (typically the central device) and
 
 For example, if one side has a display and the other side has a keyboard, the connection can be authenticated since the passkey can be read off the display on one side and typed in on the keyboard on the other. The display and keypad could be on either side (central vs. peripheral).
 
-The Display Yes-No option is mostly useful with LESC Pairing, which is not currently supported. With LESC Pairing Yes-No mode, both sides need a display and one side needs a Yes-No button selection to confirm that both displays are showing the same number. No keyboard is necessary.
+The Display Yes-No option is mostly useful with LESC Pairing, which is supported in Device OS 3.1 and later only. With LESC Pairing Yes-No mode, both sides need a display and one side needs a Yes-No button selection to confirm that both displays are showing the same number. No keyboard is necessary.
 
 You normally use [`BLE.setPairingIoCaps`](/cards/firmware/bluetooth-le-ble/ble-class/#ble-setpairingiocaps-) so specify which features you have on your device (display, keyboard, etc.).
 
@@ -466,7 +477,7 @@ For this tutorial I'm using the **nRF Toolbox** mobile app from Nordic Semicondu
 
 Flash this code to a Gen 3 device:
 
-{{> codebox content="/assets/files/ble/body-thermometer.cpp" format="cpp" height="400"}}
+{{> codebox content="/assets/files/ble/body-thermometer.cpp" format="cpp" height="400" flash="true"}}
 
 
 - Run the **NRF Toolbox** app on your mobile phone. 
@@ -486,25 +497,17 @@ Both the Argon (in my case, though it works with all Particle Gen 3 devices) and
 
 ![Heart Rate Display](/assets/images/ble-heart-display.jpg)
 
-The code requires the oled-wing-adafruit library:
-
-```
-dependencies.oled-wing-adafruit=0.0.5
-```
-
-And the following code:
-
 **For Device OS 3.0 and later:**
-
-{{> codebox content="/assets/files/ble/heart-rate-oled3.cpp" format="cpp" height="400"}}
-
-**For earlier DeviceOS including 2.x LTS:**
-
-{{> codebox content="/assets/files/ble/heart-rate-oled.cpp" format="cpp" height="400"}}
 
 - Put on your heart rate monitor.
 - Flash the code to your Particle device.
 - It should automatically detect the heart rate monitor and display your BPM on the display.
+
+{{> project-browser project="ble-heartrate" default-file="src/ble-heartrate.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+**For earlier DeviceOS including 2.x LTS:**
+
+{{> project-browser project="ble-heartrate-2.x" default-file="src/ble-heartrate.cpp" height="400" flash="true" options="gen3" target="ble2"}}
 
 There is additional debugging information provided by USB serial debugging, for example using `particle serial monitor`.
 
@@ -517,15 +520,16 @@ In this demo you have an central device and two or more peripheral devices. Each
 
 **For Device OS 3.0 and later:**
 
-{{> codebox content="/assets/files/ble/device-nearby-central3.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-nearby-central" default-file="src/ble-nearby-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
 
 **For earlier DeviceOS including 2.x LTS**
 
-{{> codebox content="/assets/files/ble/device-nearby-central.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-nearby-central-2.x" default-file="src/ble-nearby-central.cpp" height="400" flash="true" options="gen3" target="ble2"}}
 
 #### Device Nearby Beacon
 
-{{> codebox content="/assets/files/ble/device-nearby-beacon.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-nearby-beacon" default-file="src/ble-nearby-beacon.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
 {{!-- this is disabled for now because of the limit of one peripheral device connection at a time in 1.3.0 --}}
 
@@ -576,7 +580,7 @@ The UART peripheral example shows how your Particle device can appear to be a BL
 
 These are available for both iOS and Android.
 
-{{> codebox content="/assets/files/ble/uart-peripheral.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-uart-peripheral" default-file="src/ble-uart-peripheral.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
 ### BLE log handler
 
@@ -589,6 +593,8 @@ To see the logs, you use a BLE UART compatible app. Two are:
 - Adafruit Bluefruit app 
 - Nordic BLE UART app
 
+There is also a web-based option, below.
+
 This code consists of the main application program and what is essentially a library to implement BLE log handling.
 
 To try it:
@@ -600,18 +606,13 @@ To try it:
 
 ![BLE Logging](/assets/images/ble-logging.jpg)
 
-#### Main source file
+{{> project-browser project="ble-logging" default-file="src/main.cpp" height="400" flash="true" options="gen3" target=">=1.3"}}
 
-{{> codebox content="/assets/files/ble/main.cpp" format="cpp" height="400"}}
+#### Web-based BLE Serial Monitor
 
+In addition to the mobile apps above, if you are using the Chrome web browser on Mac, Windows 10, Linux, Chromebook, or Android, you can also view the logs over BLE from your web browser. (This is not available on Chrome on iPhone or iPad, or most other browsers.)
 
-#### BleLogging.cpp
-
-{{> codebox content="/assets/files/ble/BleLogging.cpp" format="cpp" height="400"}}
-
-#### BleLogging.h
-
-{{> codebox content="/assets/files/ble/BleLogging.h" format="cpp" height="400"}}
+{{> ble-serial-console}}
 
 
 ### UART central
@@ -620,11 +621,61 @@ It's less common, however the Particle device can also be the central device. Yo
 
 **For Device OS 3.0 and later:**
 
-{{> codebox content="/assets/files/ble/uart-central3.cpp" format="cpp" height="400"}}
+{{> project-browser project="ble-uart-central" default-file="src/ble-uart-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
 
 **For earlier DeviceOS including 2.x LTS:**
 
+{{> project-browser project="ble-uart-central-2.x" default-file="src/ble-uart-central.cpp" height="400" flash="true" options="gen3" target="ble2"}}
+
 {{> codebox content="/assets/files/ble/uart-central.cpp" format="cpp" height="400"}}
+
+### RSSI Meter
+
+This is a simple pair of applications that allow for simple testing of signal strength.
+
+The fixed point is the transmitter, and you'll be measuring the strength of the signal that it is transmitting. It's the BLE peripheral and it is constantly advertising a private service.
+
+The measuring device is the BLE central, and it looks for the peripheral every 500 milliseconds (twice per second) and measures the signal strength (RSSI). It displays this via the USB serial and also on an [Adafruit OLED display FeatherWing](/community/feather/#adafruit-featherwing-oled-display-128x32) (SSD1306).
+
+{{> project-browser project="ble-rssi-central" default-file="src/ble-rssi-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+{{> project-browser project="ble-rssi-peripheral" default-file="src/ble-rssi-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+### RSSI Meter (Long Range)
+
+This is the previous RSSI Meter example with BLE long-range (coded phy) enabled. This requires Device OS 3.1 or later.
+
+{{> project-browser project="ble-rssi-coded-central" default-file="src/ble-rssi-coded-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+{{> project-browser project="ble-rssi-coded-peripheral" default-file="src/ble-rssi-coded-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+### LESC Pairing - Simple
+
+This example shows how to do encrypted BLE communication using LESC Pairing in "just works" mode. This encrypts the data between the two devices, but does not authenticate, which requires some combination of displays and keypads or buttons. This requires Device OS 3.1 or later.
+
+{{> project-browser project="ble-lesc1-central" default-file="src/ble-lesc1-central.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+{{> project-browser project="ble-lesc1-peripheral" default-file="src/ble-lesc1-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.1"}}
+
+{{#if not-yet-working}}
+
+### Legacy Pairing - Numeric Yes-No
+
+This example shows how to do authenticated and encrypted BLE communication using Legacy Pairing with the Numeric Yes-No mode. This requires a display on one side, and a display and Yes-No buttons on the other.
+
+The actual display devices and buttons are not that important, and you can easily substitute other displays such as plain SSD1306 OLED displays, but the example code was tested on these displays:
+
+| | Peripheral | Central |
+| :--- | :---: | :---: |
+| Display | &check; | &check; |
+| Yes-No buttons | &nbsp; | &check; |
+| Model | [Joystick Color Display](/community/feather/#adafruit-color-tft-joystick-featherwing) | [128x32 OLED](/community/feather/#adafruit-featherwing-oled-display-128x32) |
+
+{{> project-browser project="ble-yesno-central" default-file="src/ble-yesno-central.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+{{> project-browser project="ble-yesno-peripheral" default-file="src/ble-yesno-peripheral.cpp" height="400" flash="true" options="gen3" target=">=3.0"}}
+
+{{/if}}
 
 ### Chrome Web BLE
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Relay",
     "version": "1.1.2",
-    "installs": 508,
+    "installs": 549,
     "author": "Elias Santistevan",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the SparkFun Quad and Single Relay Boards",

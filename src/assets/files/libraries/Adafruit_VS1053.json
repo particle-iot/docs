@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_VS1053",
     "version": "0.0.1",
-    "installs": 3596,
+    "installs": 3622,
     "author": "Adafruit",
     "maintainer": "ScruffR <community.particle.io>",
     "sentence": "This is a library for the Adafruit VS1053 Codec Breakout and Music Maker Shields",

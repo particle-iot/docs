@@ -78,6 +78,9 @@
 {{#contains includeDefinitions 'api-helper-weather'}}
 <script src='/assets/js/api-helper-weather.js'></script>
 {{/contains}}
+{{#contains includeDefinitions 'ble-serial'}}
+<script src="/assets/js/ble-serial.js"></script>
+{{/contains}}
 {{#contains includeDefinitions 'codemirror'}}
 <script src="/assets/files/codemirror/codemirror.js"></script>
 <script src="/assets/files/codemirror/jshint.js"></script>
@@ -88,6 +91,14 @@
 {{/contains}}
 {{#contains includeDefinitions 'api-helper-mustache'}}
 <script src="/assets/js/hogan-3.0.2.amd.js"></script>
+{{/contains}}
+{{#contains includeDefinitions 'code-generator'}}
+<script src="/assets/js/CodeGenerator.js"></script>
+<script src="/assets/js/code-generator.js"></script>
+{{/contains}}
+{{#contains includeDefinitions 'stackblitz'}}
+<script src="https://unpkg.com/@stackblitz/sdk/bundles/sdk.umd.js"></script>
+<script src='/assets/js/api-helper-stackblitz.js'></script>
 {{/contains}}
 {{#contains includeDefinitions 'usb-serial'}}
 <script src="/assets/js/usb-serial.js"></script>

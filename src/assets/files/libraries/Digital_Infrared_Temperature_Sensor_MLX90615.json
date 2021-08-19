@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Digital_Infrared_Temperature_Sensor_MLX90615",
     "version": "0.0.1",
-    "installs": 132,
+    "installs": 168,
     "license": "MIT",
     "author": "Jack Shao <xuguang.shao@seeed.cc>",
     "maintainer": "Jack Shao <xuguang.shao@seeed.cc>",

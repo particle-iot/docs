@@ -79,3 +79,4 @@ With mezzanine expansion board installed:
 
 ![With mezzanine](/assets/images/app-notes/AN025/fb-with-mez.jpg)
 
+For information on production soldering and stencils, see [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt) for information about SMT processes for LCC (Leadless Chip Carrier) devices such as the Tracker SoM.

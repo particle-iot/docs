@@ -281,7 +281,8 @@ rec2.selectMenu = function() {
                     if (skuObj.family == skuFamilyObj.family && 
                         skuObj.modem == cmsObj.modem &&
                         skuObj.sim == cmsObj.sim &&
-                        skuObj.lifecycle != 'Discontinued') {
+                        skuObj.lifecycle != 'Discontinued' &&
+                        skuObj.lifecycle != 'Hidden') {
                         skusForModemSimFamily.push(skuObj);
                     }
                 });
@@ -771,7 +772,9 @@ countryDetails.onCountrySelected = function(country) {
             noBandNoPlan:'3',
             warnM1:'4'
         },
-        footnotesDiv: countryDetails.options.footnotesDiv
+        footnotesDiv: countryDetails.options.footnotesDiv,
+        showAllTechnologies: true,
+        showM1: modemObj.technologies.includes('M1')
     }
     dataui.bandUseChangeHandler(tableId, [countryObj], simPlanObj.countryCarrierKey, modemObj, bandUseChangeOptions);
 

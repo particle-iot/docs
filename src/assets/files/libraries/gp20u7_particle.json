@@ -7,7 +7,7 @@
   "attributes": {
     "name": "gp20u7_particle",
     "version": "1.0.3",
-    "installs": 4985,
+    "installs": 5009,
     "license": "MIT",
     "author": "Kevin Sidwar <kevin@sidwar.com>",
     "sentence": "A simple library for the GP20U7 GPS unit",

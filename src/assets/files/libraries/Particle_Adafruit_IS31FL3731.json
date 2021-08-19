@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Particle_Adafruit_IS31FL3731",
     "version": "1.0.3",
-    "installs": 616,
+    "installs": 634,
     "author": "Adafruit,Busticated",
     "maintainer": "Busticated <itsbusticated@gmail.com>",
     "sentence": "Particle library for the Adafruit IS31FL3731 Charlieplex LED driver and CharliePlex FeatherWing.",

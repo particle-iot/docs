@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SensorRK",
     "version": "1.0.3",
-    "installs": 11126,
+    "installs": 11793,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Required for all Adafruit Unified Sensor based libraries.",

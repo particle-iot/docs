@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LiquidCrystal",
     "version": "0.0.3",
-    "installs": 87878,
+    "installs": 93514,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly",
     "sentence": "LiquidCrystal on Spark Core",

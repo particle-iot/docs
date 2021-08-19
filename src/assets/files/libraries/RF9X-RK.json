@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RF9X-RK",
     "version": "0.0.5",
-    "installs": 5459,
+    "installs": 5900,
     "author": "rickkas7@rickkas7.com",
     "sentence": "Port of the RadioHead RF95/96/97/98 LoRa Packet radio driver for Particle",
     "url": "https://github.com/rickkas7/AdafruitDataLoggerRK",

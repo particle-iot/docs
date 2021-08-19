@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MQTT5",
     "version": "1.0.1",
-    "installs": 195,
+    "installs": 226,
     "license": "MIT",
     "author": "Thomas Peroutka <thomas.peroutka@gmail.com>",
     "url": "https://github.com/perotom/MQTT5",

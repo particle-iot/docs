@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(015B1)</sup>
+# Tracker SoM Datasheet <sup>(017)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -276,7 +276,9 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -947,7 +949,8 @@ Weight will be provided at a later date.
 
 ### Mechanical drawing
 
-Will be provided at a later date.
+{{imageOverlay src="/assets/images/at-som/dimensions.png" alt="Dimensons" class="full-width"}}
+
 
 Dimensions are in millimeters.
 
@@ -1030,7 +1033,7 @@ Dimensions are in millimeters.
 
 ### Layout Considerations
 
-Will be provided at a later date.
+For information on production soldering, stencils, and layout, see [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt).
 
 ---
 
@@ -1112,14 +1115,14 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | T524 | 2G, 3G, Cat1 | A1 |
 | Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | T524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | T524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | T524 | 2G, 3G | A1, Telenor, Vivacom |
 | Canada | T404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Croatia | T524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | T524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | T524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | T524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | T524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | T524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | T524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | T524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | T524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
@@ -1223,3 +1226,5 @@ The bootloader allows you to easily update the user application via several diff
 | 013      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
 | 014      | 2021 May 04 | RK | Added 2G/3G fallback information for T523/T524 |
 | 015      | 2021 May 28 | RK | Corrected band list for T402/T404 (BG96) |
+| 016      | 2021 Jun 28 | RK | Added Device OS 3.1 memory map information |
+| 017      | 2021 Jul 28 | RK | Added mechanical drawing |

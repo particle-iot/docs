@@ -538,7 +538,7 @@ To factory reset, hold down the MODE button and tap RESET. The status LED will b
 This will:
 
 - Restore the factory backup user firmware (if present)
-- Clear mesh credentials
+- Clear mesh credentials (1.5.2 and earlier)
 - Boron: Clear any saved APN and default to internal SIM
 - Argon: Clear Wi-Fi credentials
 - Ethernet: Clear the using Ethernet flag
@@ -772,6 +772,10 @@ Some causes of hard fault include:
 - Using an invalid pointer.
 - Memory corruption caused by freeing memory twice, overwriting the end of a block of memory, etc.
 - Making Wire (I2C) calls without calling `Wire.begin()`.
+
+**Exit (7 blinks between 2 SOS patterns)**
+
+This occurs if the standard C function abort() is called. In a Unix program, this would be used to abruptly stop the process. Device OS itself does not use this function, but the SOS can happen if user firmware calls abort() or _exit(). Since Particle devices only effectively support a single process, the user firmware, the effect is an SOS+7 and reboot. This could also happen if a library used abort().
 
 **Out of heap memory (8 blinks between 2 SOS patterns)**
 

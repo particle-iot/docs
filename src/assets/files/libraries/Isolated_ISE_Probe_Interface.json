@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Isolated_ISE_Probe_Interface",
     "version": "1.0.0",
-    "installs": 172,
+    "installs": 217,
     "author": "uFire",
     "maintainer": "justin@ufire.co",
     "sentence": "An isolated Ion Specific Electrode Probe Interface",

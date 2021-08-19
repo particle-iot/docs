@@ -159,7 +159,7 @@ void loop()
 }
 ```
 
-
+For more information about the reason for using `Tracker::instance()` and the singleton pattern, see application note [AN034 singleton pattern](/datasheets/app-notes/an034-singleton/).
 
 ## Adding to the location event
 

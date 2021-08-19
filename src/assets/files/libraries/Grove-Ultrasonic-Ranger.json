@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove-Ultrasonic-Ranger",
     "version": "1.0.2",
-    "installs": 19123,
+    "installs": 21240,
     "author": "Seeed Studio",
     "maintainer": "Seeed Studio <techsupport@seeed.cc>",
     "sentence": "Particle Xenon library for controlling Grove Ultrasonic Ranger, using gennal I/O communication.",

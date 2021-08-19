@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunMicroOLED",
     "version": "1.3.0",
-    "installs": 78930,
+    "installs": 81057,
     "license": "GPL v3",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A library to drive the SparkFun Photon Micro OLED shield.",

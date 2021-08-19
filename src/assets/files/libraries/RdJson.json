@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RdJson",
     "version": "1.0.12",
-    "installs": 2859,
+    "installs": 3106,
     "license": "MIT",
     "author": "Rob Dobson",
     "sentence": "Access JSON data on particle",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PMS3003",
     "version": "0.1.2",
-    "installs": 305,
+    "installs": 339,
     "license": "MIT",
     "author": "Wojtek Siudzinski <admin@suda.pl>",
     "sentence": "Library for PMS3003 air quality sensor.",

@@ -1,0 +1,15 @@
+{
+    "name": "node-file",
+    "description": "Node.js file tutorial",
+    "private": true,
+    "engines": {
+        "node": ">=12"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "yargs": "^17.0.1"
+    },
+    "devDependencies": {}
+}

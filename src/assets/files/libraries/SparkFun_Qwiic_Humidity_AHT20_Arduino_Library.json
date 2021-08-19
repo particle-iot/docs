@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_Qwiic_Humidity_AHT20_Arduino_Library",
     "version": "1.0.0",
-    "installs": 2889,
+    "installs": 3234,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "A library to drive ASAIT's new AHT20 temperature and humidity IC.",

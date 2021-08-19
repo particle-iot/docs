@@ -8,8 +8,6 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 
 # Electron Datasheet <sup>(v008)</sup>
 
-**PRE-RELEASE DRAFT 2021-06-14**
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -29,7 +27,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Features
 
- * U-blox SARA-U201/U260/U270 (3G with 2G fallback), G350 (2G), or R410M/R510S (LTE Cat M1) cellular module
+ * U-blox SARA-U201/U260/U270 (3G with 2G fallback), G350 (2G), or R410M (LTE Cat M1) cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
@@ -382,7 +380,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-The Electron is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B, R410M-03, or R510S-01B).
+The Electron is available in four different versions: A 2G version based on u-blox G350 cellular module, two 3G versions based on U260 and U270 modules, and a LTE Cat M1 model (R410M-02B).
 
 Some countries have already stopped supporting 2G, including Australia, Japan, Korea, Singapore, and Taiwan. The cellular carrier used by the Electron no longer supports 2G in New Zealand and Switzerland. The G350 cannot be used in these countries.
 
@@ -396,7 +394,6 @@ Note that LTE is LTE Cat M1, not the standard LTE (LTE Cat 1) used by your mobil
 | U260 | United States, Australia, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, New Zealand, Nicaragua, Panama, Paraguay, Peru, Venezuela |
 | U270 |  Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
 | R410M | United States, Canada, Mexico |
-| R510S | United States, Canada, Mexico |
 
 
 Please be sure to order a board that works in the country where you want to deploy your project.
@@ -424,36 +421,30 @@ Please be sure to order a board that works in the country where you want to depl
 | Band 2 (1900 MHz) | &check; | &check; | &nbsp; |
 |Power Class | Class 3 (24 dBm) |Class 3 (24 dBm) | Class 3 (24 dBm) |
 
-#### u-blox SARA-R410M-02B or R410M-03
+
+
+#### LTE cellular characteristics for the SARA-R410M-02-B module
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
+| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
-| Power class | Class 3 (23 dBm) |
-
-#### u-blox SARA-R510S-01B
-
-| Parameter | Value |
-| --- | --- |
-| Protocol stack | 3GPP Release 13 |
-| RAT | LTE Cat M1 Half-Duplex |
-| LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 13 (750 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 5 (850 MHz) |
-| | Band 4 (1700 MHz) |
-| | Band 2 (1900 MHz) |
 | | Band 25 (1900 MHz)  |
+| | Band 1 (2100 MHz)  |
+| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
 ---
@@ -642,12 +633,13 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
+| Afghanistan | ELC314 | 2G, 3G | MTN |
 | Albania | ELC314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
 | Algeria | ELC314 | 2G, 3G | Mobilis, Ooredoo |
 | Anguilla | ELC314 | 2G, 3G | Flow |
 | Antigua and Barbuda | ELC314 | 2G, 3G | Flow |
 | Argentina | ELC314 | 2G, 3G | Claro, Movistar, Personal |
-| Armenia | ELC314 | 2G, 3G | Ucom |
+| Armenia | ELC314 | 2G, 3G | Beeline, Ucom |
 | Australia | ELC314 | 3G | Optus, Telstra, Vodafone |
 | Austria | ELC314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | ELC314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
@@ -657,20 +649,21 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Barbados | ELC314 | 2G, 3G | Flow |
 | Belarus | ELC314 | 2G, 3G | A1 |
 | Belgium | ELC314 | 2G, 3G | Base, Orange, Proximus |
-| Belize | ELC314 | 2G, 3G | Smart |
 | Bolivia | ELC314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | ELC314 | 2G, 3G | BH Telecom, HT Eronet |
-| Brazil | ELC314 | 2G, 3G | TIM, Vivo |
 | Brunei | ELC314 | 2G, 3G | DST |
 | Bulgaria | ELC314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | ELC314 | 2G, 3G | Orange |
 | Cambodia | ELC314 | 2G, 3G | Metfone |
 | Canada | ELC404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Canada | ELC404X | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Cayman Islands | ELC314 | 2G, 3G | Flow |
+| Chad | ELC314 | 2G, 3G | Airtel |
 | Chile | ELC314 | 2G, 3G | Claro, Entel, Movistar |
 | Colombia | ELC314 | 2G, 3G | Movistar, Tigo |
+| Congo (Brazzaville) | ELC314 | 2G, 3G | Airtel |
+| Congo (Kinshasa) | ELC314 | 2G, 3G | Airtel |
 | Costa Rica | ELC314 | 2G, 3G | Movistar |
+| Côte d'Ivoire | ELC314 | 2G, 3G | MTN |
 | Croatia | ELC314 | 2G, 3G | Hrvatski Telekom, Tele2 |
 | Cyprus | ELC314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | ELC314 | 2G, 3G | O2, T-Mobile, Vodafone |
@@ -681,26 +674,30 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Egypt | ELC314 | 2G, 3G | Etisalat, Orange |
 | El Salvador | ELC314 | 2G, 3G | Claro, Telefonica |
 | Estonia | ELC314 | 2G, 3G | Elisa, Tele2, Telia |
+| eSwatini | ELC314 | 2G, 3G | MTN |
 | Ethiopia | ELC314 | 2G, 3G | Ethio Telecom |
 | Faroe Islands | ELC314 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | ELC314 | 2G, 3G | DNA, Elisa, Telia |
 | France | ELC314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | ELC314 | 2G, 3G | Digicel |
+| Gabon | ELC314 | 2G, 3G | Airtel |
 | Georgia | ELC314 | 2G, 3G | Beeline, Geocell |
 | Germany | ELC314 | 2G, 3G | O2, Telekom, Vodafone |
-| Ghana | ELC314 | 2G, 3G | MTN, Vodafone |
+| Ghana | ELC314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | ELC314 | 2G, 3G | Gibtel |
 | Greece | ELC314 | 2G, 3G | Cosmote, Vodafone, Wind |
-| Grenada | ELC314 | 2G, 3G | Flow |
+| Grenada | ELC314 | 2G | Flow |
 | Guadeloupe | ELC314 | 2G, 3G | Orange |
 | Guatemala | ELC314 | 2G, 3G | Claro, Movistar |
-| Guyana | ELC314 | 2G, 3G | Digicel |
+| Guinea | ELC314 | 2G, 3G | MTN |
+| Guinea-Bissau | ELC314 | 2G, 3G | MTN |
+| Guyana | ELC314 | 2G | Digicel |
 | Haiti | ELC314 | 2G, 3G | Digicel |
 | Honduras | ELC314 | 2G, 3G | Claro, Tigo |
 | Hong Kong | ELC314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | ELC314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | ELC314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | ELC314 | 2G, 3G | Airtel, Jio |
+| India | ELC314 | 2G, 3G | Airtel |
 | Indonesia | ELC314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | ELC314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | ELC314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
@@ -709,72 +706,79 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Japan | ELC314 | 3G | NTT DoCoMo, Softbank |
 | Jordan | ELC314 | 2G, 3G | Zain |
 | Kazakhstan | ELC314 | 2G, 3G | Beeline, K-Cell |
+| Kenya | ELC314 | 2G, 3G | Airtel |
 | Kuwait | ELC314 | 2G, 3G | Viva, Zain |
 | Kyrgyzstan | ELC314 | 2G, 3G | Beeline |
 | Latvia | ELC314 | 2G, 3G | Bite, LMT, Tele2 |
 | Liechtenstein | ELC314 | 2G, 3G | Mobilkom, Orange |
 | Lithuania | ELC314 | 2G, 3G | Bite, Omnitel, Tele2 |
 | Luxembourg | ELC314 | 2G, 3G | Orange, POST, Tango |
+| Malawi | ELC314 | 2G, 3G | Airtel |
 | Malaysia | ELC314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | ELC314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | ELC404 | M1 | AT&T |
-| Mexico | ELC404X | M1 | AT&T |
 | Moldova | ELC314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | ELC314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | ELC314 | 2G, 3G | Mtel, T-Mobile, Telenor |
+| Mozambique | ELC314 | 2G, 3G | Vodacom |
 | Myanmar | ELC314 | 2G, 3G | MPT, Telenor |
 | Namibia | ELC314 | 2G, 3G | Telecom Namibia |
 | Netherlands | ELC314 | 2G, 3G | KPN, T-Mobile, Vodafone |
 | New Zealand | ELC314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | ELC314 | 2G, 3G | Movistar |
-| Nigeria | ELC314 | 2G, 3G | 9mobile, Glo, MTN |
+| Nigeria | ELC314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | ELC314 | 2G, 3G | TDC, Telenor, Telia |
 | Oman | ELC314 | 2G, 3G | Ooredoo |
 | Pakistan | ELC314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | ELC314 | 2G, 3G | Jawwal |
 | Panama | ELC314 | 2G, 3G | Digicel, Movistar |
 | Papua New Guinea | ELC314 | 2G, 3G | bmobile |
-| Paraguay | ELC314 | 2G, 3G | Claro, Tigo, Vox |
+| Paraguay | ELC314 | 2G, 3G | Claro, Personal, Tigo, Vox |
 | Peru | ELC314 | 2G, 3G | Claro, Entel, Movistar |
 | Philippines | ELC314 | 2G, 3G | Globe, Smart |
 | Poland | ELC314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
 | Portugal | ELC314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | ELC314 | 2G, 3G | Claro |
-| Qatar | ELC314 | 2G, 3G | Ooredoo |
+| Qatar | ELC314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | ELC314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Russia | ELC314 | 2G, 3G | Beeline, Megafon, Tele2 |
-| Rwanda | ELC314 | 2G, 3G | Airtel |
+| Russia | ELC314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
+| Rwanda | ELC314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
 | Saint Lucia | ELC314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | ELC314 | 2G, 3G | Flow |
-| Saudi Arabia | ELC314 | 2G, 3G | STC |
+| Saudi Arabia | ELC314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | ELC314 | 2G, 3G | Telenor, VIP |
 | Singapore | ELC314 | 3G | SingTel, StarHub |
+| Sint Maarten | ELC314 | 2G, 3G | TelCell |
 | Slovakia | ELC314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | ELC314 | 2G, 3G | A1, Mobitel |
 | South Africa | ELC314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | ELC314 | 3G | KT, SK Telecom |
+| South Sudan | ELC314 | 2G, 3G | MTN |
 | Spain | ELC314 | 2G, 3G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | ELC314 | 2G, 3G | Dialog, Mobitel |
+| Suriname | ELC314 | 2G, 3G | Telesur |
 | Sweden | ELC314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | ELC314 | 2G, 3G | Salt, Sunrise, Swisscom |
 | Taiwan | ELC314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tajikistan | ELC314 | 2G, 3G | Beeline, Tcell |
+| Tanzania | ELC314 | 2G, 3G | Airtel |
 | Thailand | ELC314 | 2G, 3G | AIS, DTAC, True Move |
-| Trinidad and Tobago | ELC314 | 2G, 3G | Digicel |
+| Trinidad and Tobago | ELC314 | 2G, 3G | Digicel, TSTT |
 | Tunisia | ELC314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
 | Turkey | ELC314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
 | Turks and Caicos Islands | ELC314 | 2G, 3G | Flow |
-| Ukraine | ELC314 | 2G, 3G | Kyivstar, Life |
+| Uganda | ELC314 | 2G, 3G | Africell, Airtel, MTN |
+| Ukraine | ELC314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Arab Emirates | ELC314 | 2G, 3G | du, Etisalat |
 | United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | ELC404 | M1 | AT&T |
-| United States | ELC404X | M1 | AT&T |
-| Uruguay | ELC314 | 2G, 3G | Movistar |
+| Uruguay | ELC314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | ELC314 | 2G, 3G | Beeline |
 | Venezuela | ELC314 | 2G, 3G | Movistar |
 | Vietnam | ELC314 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Virgin Islands (British) | ELC314 | 2G, 3G | CCT, Flow |
+| Zambia | ELC314 | 2G, 3G | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated 0ca3e34e-76e2-11eb-9439-0242ac130002 --}}
@@ -790,7 +794,6 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 | :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | GA | |
 | ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
-| ELC404XTY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | GA | |
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 | NRND | ELC314TY|
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | ELC404EA|
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | ELC404TY|

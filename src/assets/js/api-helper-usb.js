@@ -119,9 +119,13 @@ $(document).ready(function () {
                             setStatus('Enter user firmware binary URL');
                         }
                         break;
+
+                    case 'cloudDebug':
+                        disabled = false;
+                        break;
                 }    
                 if (!disabled) {
-                    setStatus('Ready to restore');
+                    setStatus('Ready to flash device');
                 }
             }
 
@@ -146,7 +150,8 @@ $(document).ready(function () {
                 case 'url':
                     $(urlTrElem).show();
                     break;
-
+                
+                case 'cloudDebug':
                 case 'customUrl':
                     break;
             }
@@ -299,12 +304,30 @@ $(document).ready(function () {
 
             let version = $(versionElem).val();
 
+            let downloadUrl;
+
             if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {
+                setStatus('Confirming...');
+                const msg = 'This restore will use a custom binary downloaded from an external server. ' + 
+                    'Make sure that it is from a reputable author and stored on a secure server. '
+                if (!confirm(msg)) {
+                    setStatus('Restore canceled');
+                    resetRestorePanel();
+                    return;
+                } 
+                downloadUrl = $(urlTrElem).find('td > input').val();
+            }
+            if ($(modeSelectElem).val() == 'cloudDebug') {
+                const platformName = apiHelper.platformIdToName(usbDevice.platformId);
+
+                downloadUrl = '/assets/files/cloud-debug/' + platformName + '.bin';
+            }
+
+            if (downloadUrl) {
                 setStatus('Downloading user firmware binary...');
-                const url = $(urlTrElem).find('td > input').val();
                 try {
                     await new Promise(function(resolve, reject) {
-                        fetch(url)
+                        fetch(downloadUrl)
                             .then(response => response.arrayBuffer())
                             .then(function(res) {
                                 userFirmwareBinary = res;
@@ -320,7 +343,9 @@ $(document).ready(function () {
                 catch(e) {
                     return;
                 }
-                history.pushState(null, '', '?url=' + encodeURIComponent(url));
+                if ($(modeSelectElem).val() == 'url') {
+                    history.pushState(null, '', '?url=' + encodeURIComponent(downloadUrl));
+                }
             } 
             else {
                 if (urlParams.has('url')) {
@@ -334,22 +359,22 @@ $(document).ready(function () {
                 let dv = new DataView(userFirmwareBinary);
                     
                 const startAddr = dv.getUint32(0, true);
-                // console.log('startAddr=0x' + startAddr.toString(16));
+                //console.log('startAddr=0x' + startAddr.toString(16));
 
                 const platformId = dv.getUint16(12, true);
                 const platformName = apiHelper.platformIdToName(platformId);
-                // console.log('platformId=' + platformId + ' platformName=' + platformName);
+                //console.log('platformId=' + platformId + ' platformName=' + platformName);
                 if (usbDevice.platformId != platformId) {
                     setStatus('User firmware is for ' + platformName + ' but selected device is ' + apiHelper.platformIdToName(usbDevice.platformId));
                     return;
                 }
 
                 const moduleFunction = dv.getUint8(14);
-                // console.log('moduleFunction=' + moduleFunction + ' (must be 5)');
+                //console.log('moduleFunction=' + moduleFunction + ' (must be 5)');
                 const moduleIndex = dv.getUint8(15);
-                // console.log('moduleIndex=' + moduleIndex + ' (must be 1)');
+                //console.log('moduleIndex=' + moduleIndex + ' (must be 1)');
 
-                if (moduleFunction != 5 || moduleIndex != 1) {
+                if (moduleFunction != 5 || (moduleIndex != 1 && moduleIndex != 2)) {
                     setStatus('Selected binary file does not appear to contain user firmware');
                     return;
                 }
@@ -611,6 +636,19 @@ $(document).ready(function () {
                     }
                     else
                     if (userFirmwareBinary && (partName == 'tinker' || partName == 'tracker-edge')) {
+                        if (dfuseDevice.startAddress == 0xb4000 && userFirmwareBinary.byteLength < (129 * 1024)) {
+                            // Gen 3 256K binary. Erase the 128K binary slot because the new binary is < 128K
+                            // the 128K binary will still be there and have precedence, ignoring the new binary.
+                            const savedStart = dfuseDevice.startAddress;
+
+                            dfuseDevice.startAddress = 0xd4000;
+                            let emptyArray = new Uint8Array(1024);
+                            emptyArray.fill(0xff);
+                            await dfuseDevice.do_download(4096, emptyArray, {});
+
+                            dfuseDevice.startAddress = savedStart;
+                        }
+
                         await dfuseDevice.do_download(4096, userFirmwareBinary, {});
                     }
                     else {

@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B524/B523 Datasheet <sup>009</sup>
+# B524/B523 Datasheet <sup>010</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -159,7 +159,9 @@ The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -562,13 +564,13 @@ The bootloader allows you to easily update the user application via several diff
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | B524 | 2G, 3G, Cat1 | A1 |
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | B524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | B524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | B524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | B524 | 2G, 3G | A1, Telenor, Vivacom |
 | Croatia | B524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | B524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | B524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | B524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | B524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | B524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | B524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | B524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
@@ -633,3 +635,4 @@ The bootloader allows you to easily update the user application via several diff
 | 007      | 26-Apr-2021 | RK | Added B524 model number |
 | 008      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
 | 009      | 19-May-2021 | RK | List Ethernet reserved pins |
+| 010      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |

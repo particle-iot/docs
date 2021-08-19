@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Spark-Websockets",
     "version": "0.0.7",
-    "installs": 5393,
+    "installs": 5449,
     "license": "MIT",
     "author": "Ivan Davletshin <ekbduffy@gmail.com> and Austin Kurpuis",
     "sentence": "Spark Library to work with websockets",

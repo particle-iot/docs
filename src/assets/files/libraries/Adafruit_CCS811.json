@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_CCS811",
     "version": "1.0.2",
-    "installs": 6677,
+    "installs": 7673,
     "author": "Adafruit",
     "maintainer": "ScruffR at community.particle.io",
     "sentence": "This is an Adafruit library for the CCS811 I2C gas sensor - ported for Particle",

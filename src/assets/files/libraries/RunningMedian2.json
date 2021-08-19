@@ -7,7 +7,7 @@
   "attributes": {
     "name": "RunningMedian2",
     "version": "0.2.16",
-    "installs": 1906,
+    "installs": 2015,
     "author": "Rob dot Tillaart at gmail dot com",
     "maintainer": "Rob Tillaart <rob.tillaart@gmail.com>",
     "sentence": "The library stores the last N individual values in a buffer to select the median.",

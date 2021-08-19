@@ -7,8 +7,6 @@ description: Datasheet for the Particle E Series, Gen 2 cellular mass-production
 
 # E Series Module Datasheet <sup>(v003)</sup>
 
-**PRE-RELEASE DRAFT 2021-06-14**
-
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
 {{/unless}} {{!-- pdf-generation --}}
@@ -25,7 +23,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Features
 
- * U-blox SARA-U201, SARA-R410M, or SARA-R510S cellular module
+ * U-blox SARA-U201 or SARA-R410M cellular module
  * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
@@ -413,36 +411,28 @@ For a complete list of carriers and supported countries, see the [carrier guide]
 
 ---
 
-#### u-blox SARA-R410M-02B or R410M-03
+#### LTE cellular characteristics E404 & E402
 
 | Parameter | Value |
 | --- | --- |
 | Protocol stack | 3GPP Release 13 |
 | RAT | LTE Cat M1 Half-Duplex |
 | LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 17 (700 MHz)  |
 | | Band 28 (700 MHz)  |
 | | Band 13 (750 MHz)  |
 | | Band 20 (800 MHz)  |
+| | Band 26 (850 MHz)  |
+| | Band 18 (850 MHz)  |
 | | Band 5 (850 MHz) |
+| | Band 19 (850 MHz)  |
 | | Band 8 (900 MHz)  |
 | | Band 4 (1700 MHz) |
 | | Band 3 (1800 MHz)  |
 | | Band 2 (1900 MHz) |
-| Power class | Class 3 (23 dBm) |
-
-#### u-blox SARA-R510S-01B
-
-| Parameter | Value |
-| --- | --- |
-| Protocol stack | 3GPP Release 13 |
-| RAT | LTE Cat M1 Half-Duplex |
-| LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 13 (750 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 5 (850 MHz) |
-| | Band 4 (1700 MHz) |
-| | Band 2 (1900 MHz) |
 | | Band 25 (1900 MHz)  |
+| | Band 1 (2100 MHz)  |
+| LTE TDD bands | Band 39 (1900 MHz) | 
 | Power class | Class 3 (23 dBm) |
 
 ---
@@ -551,9 +541,9 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 |:---|:------------------------------|:---------------------|:-------------|:-----------|
 |E314|3G with 2G fallback (EtherSIM) |Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
 |E310|3G with 2G fallback (pre-2021) |Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
-|E404X|LTE M1 only (EtherSIM) |US, Canada, Mexico   |R510S-01B        |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28|
-|E404|LTE M1 only (EtherSIM) |US, Canada, Mexico    |R410M-02B or -03 |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 20, 25, 26, 28, 39|
-|E402|LTE M1 only (pre-2021) |US, Canada, Mexico    |R410M-02B        |LTE M1: 1, 2, 3, 4, 5, 8, 12, 13, 20, 25, 26, 28, 39|
+|E404|LTE M1 only (EtherSIM) |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
+|E402|LTE M1 only (pre-2021) |US, Canada, Mexico    |R410M-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
+
 
 ---
 
@@ -564,12 +554,13 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
+| Afghanistan | E314 | 2G, 3G | MTN |
 | Albania | E314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
 | Algeria | E314 | 2G, 3G | Mobilis, Ooredoo |
 | Anguilla | E314 | 2G, 3G | Flow |
 | Antigua and Barbuda | E314 | 2G, 3G | Flow |
 | Argentina | E314 | 2G, 3G | Claro, Movistar, Personal |
-| Armenia | E314 | 2G, 3G | Ucom |
+| Armenia | E314 | 2G, 3G | Beeline, Ucom |
 | Australia | E314 | 3G | Optus, Telstra, Vodafone |
 | Austria | E314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | E314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
@@ -579,20 +570,21 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Barbados | E314 | 2G, 3G | Flow |
 | Belarus | E314 | 2G, 3G | A1 |
 | Belgium | E314 | 2G, 3G | Base, Orange, Proximus |
-| Belize | E314 | 2G, 3G | Smart |
 | Bolivia | E314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | E314 | 2G, 3G | BH Telecom, HT Eronet |
-| Brazil | E314 | 2G, 3G | TIM, Vivo |
 | Brunei | E314 | 2G, 3G | DST |
 | Bulgaria | E314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | E314 | 2G, 3G | Orange |
 | Cambodia | E314 | 2G, 3G | Metfone |
 | Canada | E404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Canada | E404X | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Cayman Islands | E314 | 2G, 3G | Flow |
+| Chad | E314 | 2G, 3G | Airtel |
 | Chile | E314 | 2G, 3G | Claro, Entel, Movistar |
 | Colombia | E314 | 2G, 3G | Movistar, Tigo |
+| Congo (Brazzaville) | E314 | 2G, 3G | Airtel |
+| Congo (Kinshasa) | E314 | 2G, 3G | Airtel |
 | Costa Rica | E314 | 2G, 3G | Movistar |
+| Côte d'Ivoire | E314 | 2G, 3G | MTN |
 | Croatia | E314 | 2G, 3G | Hrvatski Telekom, Tele2 |
 | Cyprus | E314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | E314 | 2G, 3G | O2, T-Mobile, Vodafone |
@@ -603,26 +595,30 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Egypt | E314 | 2G, 3G | Etisalat, Orange |
 | El Salvador | E314 | 2G, 3G | Claro, Telefonica |
 | Estonia | E314 | 2G, 3G | Elisa, Tele2, Telia |
+| eSwatini | E314 | 2G, 3G | MTN |
 | Ethiopia | E314 | 2G, 3G | Ethio Telecom |
 | Faroe Islands | E314 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | E314 | 2G, 3G | DNA, Elisa, Telia |
 | France | E314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | E314 | 2G, 3G | Digicel |
+| Gabon | E314 | 2G, 3G | Airtel |
 | Georgia | E314 | 2G, 3G | Beeline, Geocell |
 | Germany | E314 | 2G, 3G | O2, Telekom, Vodafone |
-| Ghana | E314 | 2G, 3G | MTN, Vodafone |
+| Ghana | E314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | E314 | 2G, 3G | Gibtel |
 | Greece | E314 | 2G, 3G | Cosmote, Vodafone, Wind |
-| Grenada | E314 | 2G, 3G | Flow |
+| Grenada | E314 | 2G | Flow |
 | Guadeloupe | E314 | 2G, 3G | Orange |
 | Guatemala | E314 | 2G, 3G | Claro, Movistar |
-| Guyana | E314 | 2G, 3G | Digicel |
+| Guinea | E314 | 2G, 3G | MTN |
+| Guinea-Bissau | E314 | 2G, 3G | MTN |
+| Guyana | E314 | 2G | Digicel |
 | Haiti | E314 | 2G, 3G | Digicel |
 | Honduras | E314 | 2G, 3G | Claro, Tigo |
 | Hong Kong | E314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | E314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | E314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | E314 | 2G, 3G | Airtel, Jio |
+| India | E314 | 2G, 3G | Airtel |
 | Indonesia | E314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | E314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | E314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
@@ -631,72 +627,79 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Japan | E314 | 3G | NTT DoCoMo, Softbank |
 | Jordan | E314 | 2G, 3G | Zain |
 | Kazakhstan | E314 | 2G, 3G | Beeline, K-Cell |
+| Kenya | E314 | 2G, 3G | Airtel |
 | Kuwait | E314 | 2G, 3G | Viva, Zain |
 | Kyrgyzstan | E314 | 2G, 3G | Beeline |
 | Latvia | E314 | 2G, 3G | Bite, LMT, Tele2 |
 | Liechtenstein | E314 | 2G, 3G | Mobilkom, Orange |
 | Lithuania | E314 | 2G, 3G | Bite, Omnitel, Tele2 |
 | Luxembourg | E314 | 2G, 3G | Orange, POST, Tango |
+| Malawi | E314 | 2G, 3G | Airtel |
 | Malaysia | E314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | E314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | E404 | M1 | AT&T |
-| Mexico | E404X | M1 | AT&T |
 | Moldova | E314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | E314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | E314 | 2G, 3G | Mtel, T-Mobile, Telenor |
+| Mozambique | E314 | 2G, 3G | Vodacom |
 | Myanmar | E314 | 2G, 3G | MPT, Telenor |
 | Namibia | E314 | 2G, 3G | Telecom Namibia |
 | Netherlands | E314 | 2G, 3G | KPN, T-Mobile, Vodafone |
 | New Zealand | E314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | E314 | 2G, 3G | Movistar |
-| Nigeria | E314 | 2G, 3G | 9mobile, Glo, MTN |
+| Nigeria | E314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | E314 | 2G, 3G | TDC, Telenor, Telia |
 | Oman | E314 | 2G, 3G | Ooredoo |
 | Pakistan | E314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | E314 | 2G, 3G | Jawwal |
 | Panama | E314 | 2G, 3G | Digicel, Movistar |
 | Papua New Guinea | E314 | 2G, 3G | bmobile |
-| Paraguay | E314 | 2G, 3G | Claro, Tigo, Vox |
+| Paraguay | E314 | 2G, 3G | Claro, Personal, Tigo, Vox |
 | Peru | E314 | 2G, 3G | Claro, Entel, Movistar |
 | Philippines | E314 | 2G, 3G | Globe, Smart |
 | Poland | E314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
 | Portugal | E314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | E314 | 2G, 3G | Claro |
-| Qatar | E314 | 2G, 3G | Ooredoo |
+| Qatar | E314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | E314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Russia | E314 | 2G, 3G | Beeline, Megafon, Tele2 |
-| Rwanda | E314 | 2G, 3G | Airtel |
+| Russia | E314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
+| Rwanda | E314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | E314 | 2G, 3G | Flow |
 | Saint Lucia | E314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | E314 | 2G, 3G | Flow |
-| Saudi Arabia | E314 | 2G, 3G | STC |
+| Saudi Arabia | E314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | E314 | 2G, 3G | Telenor, VIP |
 | Singapore | E314 | 3G | SingTel, StarHub |
+| Sint Maarten | E314 | 2G, 3G | TelCell |
 | Slovakia | E314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | E314 | 2G, 3G | A1, Mobitel |
 | South Africa | E314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | E314 | 3G | KT, SK Telecom |
+| South Sudan | E314 | 2G, 3G | MTN |
 | Spain | E314 | 2G, 3G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | E314 | 2G, 3G | Dialog, Mobitel |
+| Suriname | E314 | 2G, 3G | Telesur |
 | Sweden | E314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | E314 | 2G, 3G | Salt, Sunrise, Swisscom |
 | Taiwan | E314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tajikistan | E314 | 2G, 3G | Beeline, Tcell |
+| Tanzania | E314 | 2G, 3G | Airtel |
 | Thailand | E314 | 2G, 3G | AIS, DTAC, True Move |
-| Trinidad and Tobago | E314 | 2G, 3G | Digicel |
+| Trinidad and Tobago | E314 | 2G, 3G | Digicel, TSTT |
 | Tunisia | E314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
 | Turkey | E314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
 | Turks and Caicos Islands | E314 | 2G, 3G | Flow |
-| Ukraine | E314 | 2G, 3G | Kyivstar, Life |
+| Uganda | E314 | 2G, 3G | Africell, Airtel, MTN |
+| Ukraine | E314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Arab Emirates | E314 | 2G, 3G | du, Etisalat |
 | United Kingdom | E314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | E404 | M1 | AT&T |
-| United States | E404X | M1 | AT&T |
-| Uruguay | E314 | 2G, 3G | Movistar |
+| Uruguay | E314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | E314 | 2G, 3G | Beeline |
 | Venezuela | E314 | 2G, 3G | Movistar |
 | Vietnam | E314 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Virgin Islands (British) | E314 | 2G, 3G | CCT, Flow |
+| Zambia | E314 | 2G, 3G | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated 2445e222-76e2-11eb-9439-0242ac130002 --}}
@@ -714,9 +717,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | GA | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
 | E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
-| E404XKIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R510 | GA | |
-| E404XMOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | GA | |
-| E404XTRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | GA | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 | NRND-US | |
 | E313TY | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 | NRND-US | |
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 | NRND | E314KIT|

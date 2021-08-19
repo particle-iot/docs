@@ -83,15 +83,15 @@ function updateDeviceRestoreInfo(sourceDir, outputFile) {
     output.versionsZip = versionsZip;
 
     output.platforms = [
-        {name:'argon', title:'Argon', id:12},
-        {name:'boron', title:'Boron', id:13},
-        {name:'bsom', title:'B4xx', id:23},
-        {name:'b5som', title:'B5xx', id:25},
-        {name:'tracker', title:'Tracker', id:26},
-        {name:'electron', title:'Electron', id:10},
-        {name:'photon', title:'Photon', id:6},
-        {name:'p1', title:'P1', id:8},
-        {name:'xenon', title:'Xenon', id:14}
+        {name:'argon', title:'Argon', id:12, gen:3},
+        {name:'boron', title:'Boron', id:13, gen:3},
+        {name:'bsom', title:'B4xx', id:23, gen:3},
+        {name:'b5som', title:'B5xx', id:25, gen:3},
+        {name:'tracker', title:'Tracker', id:26, gen:3},
+        {name:'electron', title:'Electron', id:10, gen:2},
+        {name:'photon', title:'Photon', id:6, gen:2},
+        {name:'p1', title:'P1', id:8, gen:2},
+        {name:'xenon', title:'Xenon', id:14, gen:3, discontinued:true}
     ];
 
     output.versionsZipByPlatform = {};

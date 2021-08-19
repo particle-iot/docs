@@ -654,6 +654,79 @@ $(document).ready(function () {
         });
     });
 
+
+
+    $('.apiHelperCloudApiListOrgTeam').each(function () {
+        const thisElem = $(this);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+
+        apiHelper.getOrgs().then(function (orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+
+            if (orgsData.organizations.length > 0) {
+                let html = '';
+                for (let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(thisElem).find('.apiHelperCloudOrgSelect').html(html);
+            }
+            else {
+                setStatus('You do not have access to any organizations');
+                $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
+            }
+        });
+
+        $(thisElem).find('.apiHelperActionButton').on('click', function () {
+            setStatus('Requesting organization team members...');
+
+            const org = $(thisElem).find('.apiHelperCloudOrgSelect').val();
+
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', 'List Org Team', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error getting organization team members');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', 'List Org Team', 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: 'https://api.particle.io/v1/orgs/' + org + '/team/'
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+
+        });
+    });
+
     if ($('.apiHelperCloudApiAuthSettings').length > 0) {
 
         const buildProductsMenu = function () {
@@ -770,6 +843,83 @@ $(document).ready(function () {
 
             const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
             $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+    });
+
+    $('.apiHelperCloudApiCreateTokenSimple').each(function () {
+        const thisElem = $(this);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        if (apiHelper.auth && apiHelper.auth.username) {
+            $(thisElem).find('.apiHelperAuthSettingsUsername').val(apiHelper.auth.username);
+        }
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const mfaTokenRow = $(thisElem).find('.apiHelperMfaTokenRow');
+        const accessTokenRow = $(thisElem).find('.apiHelperAccessTokenRow');
+
+        $(mfaTokenRow).hide();
+        $(accessTokenRow).hide();
+
+        let mfa_token;
+
+        $(actionButtonElem).on('click', async function () {
+            const expiresIn = $(thisElem).find('.apiHelperAuthSettingsExpiresIn').val();
+            const username = $(thisElem).find('.apiHelperAuthSettingsUsername').val();
+            const password = $(thisElem).find('.apiHelperAuthSettingsPassword').val();
+
+            let requestData;
+            if (mfa_token) {
+                requestData = 'grant_type=urn:custom:mfa-otp&mfa_token=' + encodeURIComponent(mfa_token) + '&otp=' + encodeURIComponent($(thisElem).find('.apiHelperAuthSettingsMfaOtpToken').val());
+            }
+            else {
+                requestData = 'grant_type=password&expires_in=' + expiresIn + '&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+            }
+
+            let request = {
+                contentType: 'application/x-www-form-urlencoded',
+                data: requestData,
+                dataType: 'json',
+                error: function (jqXHR) {
+                    if (jqXHR.status === 403) {
+                        // Got a 403 error, MFA required. Show the MFA/OTP page.
+                        mfa_token = jqXHR.responseJSON.mfa_token;
+                        $(thisElem).find('.apiHelperMfaTokenRow').show();
+                        return;
+                    }
+                    ga('send', 'event', 'Create Token Simple', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error creating token');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Basic ' + btoa('particle:particle'),
+                },
+                method: 'POST',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('Token created!');
+                    ga('send', 'event', 'Create Token Simple', 'Success');
+
+                    console.log('success ', resp);
+
+                    $(thisElem).find('.apiHelperAuthSettingsAccessToken').val(resp.access_token);
+                    $(accessTokenRow).show();
+
+                    mfa_token = null;
+                    $(mfaTokenRow).hide();
+                },
+                url: 'https://api.particle.io/oauth/token'
+            }
+
+            $(accessTokenRow).hide();
 
             $.ajax(request);
         });
@@ -2011,17 +2161,309 @@ $(document).ready(function () {
         });
         
     });
-/*
-<div class="apiHelperCloudApiClaiming">
-    <div class="apiHelper">
-        <div class="apiHelperBox">
-            <table class="apiHelperTableNoMargin">
-                <tr><td class="apiHelperProductSelectorLabel">Product Access Token</td><td><input type="text" size="50" class="apiHelperAuthSettingsProductAccessToken" value=""></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel">Product ID</td><td><input type="text" size="10" class="apiHelperAuthSettingsProduct" value=""></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel">Customer Access Token</td><td><input type="text" size="50" class="apiHelperAuthSettingsCustomerAccessToken" value=""></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel">Device ID</td><td><input type="text" size="30" class="apiHelperDeviceLookupDeviceId" value=""></td><td class="apiHelperProductSelectorLabel"></td></tr>
 
-*/
+    $('.apiHelperCloudApiUserCreate,.apiHelperCloudApiUserList').each(function () {
+        const thisElem = $(this);
+
+        const isCreate = $(thisElem).hasClass('apiHelperCloudApiUserCreate');
+        const isList = $(thisElem).hasClass('apiHelperCloudApiUserList');
+
+        const productSelectElem = $(thisElem).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisElem).find('.apiHelperOrgSelect');
+        const friendlyNameElem = isCreate ? $(thisElem).find('.apiHelperFriendlyName') : undefined;
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton,.apiHelperDeleteButton');
+
+        let curScopes = [];
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const showHideRows = function() {
+            const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
+            const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
+
+            if (prodOrgVal == 'prod') {
+                $(thisElem).find('.productSelectorRow').show();
+                $(thisElem).find('.sandboxOrgRow').show();
+
+                if (sandboxOrgVal == 'sandbox') {
+                    $(thisElem).find('.orgSelectorRow').hide();
+                }
+                else {
+                    // sandboxOrg == 'org'
+                    $(thisElem).find('.orgSelectorRow').show();
+                }
+            }
+            else {
+                // prodOrg == 'org'
+                $(thisElem).find('.productSelectorRow').hide();
+                $(thisElem).find('.sandboxOrgRow').hide();
+                $(thisElem).find('.orgSelectorRow').show();
+            }
+
+        };
+
+        const updateProductList = async function() {
+            showHideRows();
+
+            const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
+
+            let productsData;
+            if (sandboxOrgVal == 'sandbox') {
+                productsData = await apiHelper.getProducts();
+            }
+            else {
+                const orgId = $(orgSelectElem).val();
+                if (!orgId) {
+                    return;
+                }
+                productsData = await apiHelper.getOrgProducts(orgId);
+            }
+            productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            if (productsData.products.length > 0) {
+                let html = '';
+                for (let product of productsData.products) {
+                    html += '<option value="' + product.id + '">' + product.name + ' (' + product.id + ')</option>';
+                }
+                $(productSelectElem).html(html);
+
+                enableButton();
+            }
+            else {
+                setStatus('You do not have access to any products');
+                $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
+            }
+        };
+
+
+        const enableButton = function() {
+            const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
+            const productId = $(productSelectElem).val();
+
+            if (isCreate) {
+                curScopes = [];
+
+                $(thisElem).find('.scopeCheckbox:checked').each(function() {
+                    curScopes.push($(this).val());
+                });    
+
+                const friendlyName = $(friendlyNameElem).val();
+
+                if (curScopes.length > 0 && friendlyName.length > 0 && productId) {
+                    $(actionButtonElem).prop('disabled', false);
+                }
+                else {
+                    $(actionButtonElem).prop('disabled', true);
+                }
+            }
+
+            if (isList) {
+                if (prodOrgVal == 'prod') {
+                    if (productId) {
+                        $(actionButtonElem).prop('disabled', false);
+                    }
+                    else {
+                        $(actionButtonElem).prop('disabled', true);
+                    }
+                }
+                else {
+                    //const orgId = $(orgSelectElem).val();
+                    $(actionButtonElem).prop('disabled', false);
+                }
+            }
+
+        };
+
+        $(actionButtonElem).on('click', async function () {
+            const isDelete = $(this).hasClass('apiHelperDeleteButton');
+
+            const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
+            const productId = $(productSelectElem).val();
+            const orgId = $(orgSelectElem).val();
+            let gaCategory;
+            
+            let url;
+
+            if (prodOrgVal == 'prod') {
+                url = 'https://api.particle.io/v1/products/' + productId + '/team';
+            }
+            else {
+                // prodOrgVal == 'org'
+                url = 'https://api.particle.io/v1/orgs/' + orgId + '/team';                
+            }
+
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    if (isList && !isDelete) {
+                        // Update programmatic user for delete
+
+                        const users = resp.team.filter(obj => obj.is_programmatic);
+                        if (users.length) {
+                            for(const user of users) {
+                                let optionElem = document.createElement('option');
+                                $(optionElem).prop('value', user.username);
+                                $(optionElem).text(user.username);
+                                $(thisElem).find('.apiHelperUserSelect').append(optionElem);
+                            }
+                            $(thisElem).find('.apiHelperDeleteButton').prop('disabled', false);
+                            $(thisElem).find('.deleteUserRow').show();
+                        }
+                    }
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: url
+            }
+
+
+            if (isCreate) {
+                gaCategory = 'Create API User';
+
+                let reqData = {
+                    friendly_name: $(friendlyNameElem).val(),
+                    scopes: curScopes
+                };
+
+                request.contentType = 'application/json';
+                request.data = JSON.stringify(reqData);
+                request.method = 'POST';
+            }
+
+            if (isList && !isDelete) {
+                gaCategory = 'List API User';
+                request.method = 'GET';       
+            }
+            
+            if (isDelete) {
+                request.method = 'DELETE';
+                request.url += '/' + $(thisElem).find('.apiHelperUserSelect').val();
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+            
+            $(thisElem).find('.deleteUserRow').hide();
+
+            if (isList) {
+                $(thisElem).find('.apiHelperUserSelect').html('');
+                $(thisElem).find('.apiHelperDeleteButton').prop('disabled', true);
+            }
+
+
+            $.ajax(request);
+
+
+        });
+
+
+        $(thisElem).find('.prodOrg:radio').on('click', function() {
+            const selectedRadioElem = $(this);
+            $(thisElem).find('.prodOrg:radio').prop('checked', false);
+            $(selectedRadioElem).prop('checked', true);
+
+            showHideRows();
+        });
+
+        $(thisElem).find('.sandboxOrg:radio').on('click', function() {
+            const selectedRadioElem = $(this);
+            $(thisElem).find('.sandboxOrg:radio').prop('checked', false);
+            $(selectedRadioElem).prop('checked', true);
+
+            updateProductList();
+        });
+
+        $(orgSelectElem).on('change', updateProductList);
+
+        $(friendlyNameElem).on('input', enableButton);
+
+        updateProductList();
+
+        apiHelper.getOrgs().then(function (orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+
+            if (orgsData.organizations.length > 0) {
+                let html = '';
+                for (let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(thisElem).find('.apiHelperOrgSelect').html(html);
+
+                updateProductList();
+            }
+            else {
+                // No orgs
+                $(thisElem).find('input[value=org]:radio').prop('disabled', true);
+                $(thisElem).find('.orgSelectorRow').hide();
+                $(thisElem).find('.sandboxOrgRow').hide();
+            }
+        });
+
+        if (isCreate) {
+            fetch('/assets/files/userScopes.json')
+            .then(response => response.json())
+            .then(function(userScopes) {
+                const maxCols = 2;
+                let col = 0;
+                for(const scope of userScopes) {
+                    let labelElem = document.createElement('label');
+    
+                    let inputElem = document.createElement('input');
+                    $(inputElem).prop('type', 'checkbox');                            
+                    $(inputElem).prop('value', scope);
+                    $(inputElem).prop('class', 'scopeCheckbox');
+                    $(labelElem).append(inputElem);
+                    
+                    $(labelElem).append(scope);
+    
+                    $(labelElem).on('click', enableButton);
+    
+                    $(thisElem).find('.scopesCell' + col).append(labelElem);
+                    $(thisElem).find('.scopesCell' + col).append(document.createElement('br'));
+    
+                    col++;
+                    if (col >= maxCols) {
+                        col = 0;
+                    }
+                }
+            });    
+        }
+
+        if (isList) {
+            enableButton();
+        }
+
+    });
+
 
     loadSettings();
 

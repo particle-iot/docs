@@ -7,7 +7,7 @@
   "attributes": {
     "name": "photon-thermistor",
     "version": "3.1.3",
-    "installs": 43609,
+    "installs": 44505,
     "license": "LGPL",
     "author": "Paul Cowan <paul@monospacesoftware.com>",
     "sentence": "A thermistor library for Particle devices.",

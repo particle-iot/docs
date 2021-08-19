@@ -320,6 +320,31 @@
         "dir": "an032-calling-api-from-web-page",
         "title": "AN032 Calling API from Web Page",
         "href": "/datasheets/app-notes/an032-calling-api-from-web-page/"
+      },
+      {
+        "dir": "an033-256K-user-binaries",
+        "title": "AN033 256K user binaries",
+        "href": "/datasheets/app-notes/an033-256K-user-binaries/"
+      },
+      {
+        "dir": "an034-singleton",
+        "title": "AN034 Singleton",
+        "href": "/datasheets/app-notes/an034-singleton/"
+      },
+      {
+        "dir": "an035-file-system",
+        "title": "AN035 File System",
+        "href": "/datasheets/app-notes/an035-file-system/"
+      },
+      {
+        "dir": "an036-lcc-module-smt",
+        "title": "AN036 LCC Module SMT",
+        "href": "/datasheets/app-notes/an036-lcc-module-smt/"
+      },
+      {
+        "dir": "an037-ethernet",
+        "title": "AN037 Ethernet",
+        "href": "/datasheets/app-notes/an037-ethernet/"
       }
     ],
     {

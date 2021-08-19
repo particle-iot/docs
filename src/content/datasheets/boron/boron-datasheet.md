@@ -5,9 +5,7 @@ columns: two
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet <sup>(v006)</sup>
-
-**PRE-RELEASE DRAFT 2021-06-14**
+# Boron Datasheet <sup>(v008)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -25,31 +23,14 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
-#### Features - BRN402, BRN404 (Boron LTE)
-
- * u-blox SARA-R410M-02B or R410M-03 LTE modem
- * LTE Cat M1 module
- * Support for United States, Canada, and Mexico only
- * 3GPP Release 13 LTE Cat M1 
- * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
-
-#### Features - BRN404X (Boron LTE)
-
- * u-blox SARA-R510S-01B LTE modem
- * LTE Cat M1 module
- * Support for United States, Canada, and Mexico only
- * 3GPP Release 13 LTE Cat M1 
- * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
-
-#### Features - BRN314, BRN310 (Boron 2G/3G)
-
- * u-blox SARA U201 2G/3G modem
- * HSPA/GSM with global hardware and SIM support 
- * Bands 800/850/900/1900/2100 MHz 
- * 3GPP Release 7
-
-#### Features - All Models
-
+ * u-blox SARA-R410-02B LTE modem (Boron LTE, BRN404 and BRN402)
+  * LTE Cat M1 module with global hardware support (MVNO support for US only) 
+  * 3GPP Release 13 LTE Cat M1 
+  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+ * u-blox SARA U201 2G/3G modem (Boron 2G/3G, BRN314 and BRN310)
+  * HSPA/GSM with global hardware and SIM support 
+  * Bands 800/850/900/1900/2100 MHz 
+  * 3GPP Release 7 
  * Nordic Semiconductor nRF52840 SoC 
   * ARM Cortex-M4F 32-bit processor @ 64MHz 
   * 1MB flash, 256KB RAM 
@@ -151,10 +132,10 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE a
 | Digital | 20 | I/O |
 | Analog (ADC) | 6 | I |
 | UART | 1 | I/O |
-| SPI  | 1 | I/O |
-| I2C  | 2 | I/O |
+| SPI  | 2 | I/O |
+| I2C  | 1 | I/O |
 | USB  | 1 | I/O |
-| PWM  | 8| O |
+| PWM  | 8 | O |
 
 **Note:** All GPIOs are only rated at 3.3VDC max.
 
@@ -169,7 +150,9 @@ The Boron has a dedicated 10 pin debug connector that exposes the SWD interface 
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -341,7 +324,7 @@ Nordic Semiconductor nRF52840 for BLE.
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-u-blox SARA U201 (2G/3G), R410 (LTE Cat M1), or R510 (LTE Cat M1) for cellular.
+u-blox SARA U201 (2G/3G) and R410 (LTE Cat M1) for cellular.
 
 
 | BORON  | Compatible Countries |
@@ -435,12 +418,13 @@ The complete schematic and board files are open source and available on Particle
 
 | Country | Model | Technologies | Carriers |
 | :--- | :--- | :--- | :--- |
+| Afghanistan | BRN314 | 2G, 3G | MTN |
 | Albania | BRN314 | 2G, 3G | ALBtelecom, Telekom, Vodafone |
 | Algeria | BRN314 | 2G, 3G | Mobilis, Ooredoo |
 | Anguilla | BRN314 | 2G, 3G | Flow |
 | Antigua and Barbuda | BRN314 | 2G, 3G | Flow |
 | Argentina | BRN314 | 2G, 3G | Claro, Movistar, Personal |
-| Armenia | BRN314 | 2G, 3G | Ucom |
+| Armenia | BRN314 | 2G, 3G | Beeline, Ucom |
 | Australia | BRN314 | 3G | Optus, Telstra, Vodafone |
 | Austria | BRN314 | 2G, 3G | 3 (Drei), A1, T-Mobile |
 | Azerbaijan | BRN314 | 2G, 3G | Azercell, Bakcell, NAR Mobile |
@@ -450,20 +434,21 @@ The complete schematic and board files are open source and available on Particle
 | Barbados | BRN314 | 2G, 3G | Flow |
 | Belarus | BRN314 | 2G, 3G | A1 |
 | Belgium | BRN314 | 2G, 3G | Base, Orange, Proximus |
-| Belize | BRN314 | 2G, 3G | Smart |
 | Bolivia | BRN314 | 2G, 3G | NuevaTel |
 | Bosnia and Herzegovina | BRN314 | 2G, 3G | BH Telecom, HT Eronet |
-| Brazil | BRN314 | 2G, 3G | TIM, Vivo |
 | Brunei | BRN314 | 2G, 3G | DST |
 | Bulgaria | BRN314 | 2G, 3G | A1, Telenor, Vivacom |
 | Burkina Faso | BRN314 | 2G, 3G | Orange |
 | Cambodia | BRN314 | 2G, 3G | Metfone |
 | Canada | BRN404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Canada | BRN404X | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Cayman Islands | BRN314 | 2G, 3G | Flow |
+| Chad | BRN314 | 2G, 3G | Airtel |
 | Chile | BRN314 | 2G, 3G | Claro, Entel, Movistar |
 | Colombia | BRN314 | 2G, 3G | Movistar, Tigo |
+| Congo (Brazzaville) | BRN314 | 2G, 3G | Airtel |
+| Congo (Kinshasa) | BRN314 | 2G, 3G | Airtel |
 | Costa Rica | BRN314 | 2G, 3G | Movistar |
+| Côte d'Ivoire | BRN314 | 2G, 3G | MTN |
 | Croatia | BRN314 | 2G, 3G | Hrvatski Telekom, Tele2 |
 | Cyprus | BRN314 | 2G, 3G | Cytamobile-Vodafone, MTN, PrimeTel |
 | Czechia | BRN314 | 2G, 3G | O2, T-Mobile, Vodafone |
@@ -474,26 +459,30 @@ The complete schematic and board files are open source and available on Particle
 | Egypt | BRN314 | 2G, 3G | Etisalat, Orange |
 | El Salvador | BRN314 | 2G, 3G | Claro, Telefonica |
 | Estonia | BRN314 | 2G, 3G | Elisa, Tele2, Telia |
+| eSwatini | BRN314 | 2G, 3G | MTN |
 | Ethiopia | BRN314 | 2G, 3G | Ethio Telecom |
 | Faroe Islands | BRN314 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | BRN314 | 2G, 3G | DNA, Elisa, Telia |
 | France | BRN314 | 2G, 3G | Bouygues, Free Mobile, Orange, SFR |
 | French Guiana | BRN314 | 2G, 3G | Digicel |
+| Gabon | BRN314 | 2G, 3G | Airtel |
 | Georgia | BRN314 | 2G, 3G | Beeline, Geocell |
 | Germany | BRN314 | 2G, 3G | O2, Telekom, Vodafone |
-| Ghana | BRN314 | 2G, 3G | MTN, Vodafone |
+| Ghana | BRN314 | 2G, 3G | AirtelTigo, MTN, Vodafone |
 | Gibraltar | BRN314 | 2G, 3G | Gibtel |
 | Greece | BRN314 | 2G, 3G | Cosmote, Vodafone, Wind |
-| Grenada | BRN314 | 2G, 3G | Flow |
+| Grenada | BRN314 | 2G | Flow |
 | Guadeloupe | BRN314 | 2G, 3G | Orange |
 | Guatemala | BRN314 | 2G, 3G | Claro, Movistar |
-| Guyana | BRN314 | 2G, 3G | Digicel |
+| Guinea | BRN314 | 2G, 3G | MTN |
+| Guinea-Bissau | BRN314 | 2G, 3G | MTN |
+| Guyana | BRN314 | 2G | Digicel |
 | Haiti | BRN314 | 2G, 3G | Digicel |
 | Honduras | BRN314 | 2G, 3G | Claro, Tigo |
 | Hong Kong | BRN314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | BRN314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | BRN314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | BRN314 | 2G, 3G | Airtel, Jio |
+| India | BRN314 | 2G, 3G | Airtel |
 | Indonesia | BRN314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | BRN314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | BRN314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
@@ -502,72 +491,79 @@ The complete schematic and board files are open source and available on Particle
 | Japan | BRN314 | 3G | NTT DoCoMo, Softbank |
 | Jordan | BRN314 | 2G, 3G | Zain |
 | Kazakhstan | BRN314 | 2G, 3G | Beeline, K-Cell |
+| Kenya | BRN314 | 2G, 3G | Airtel |
 | Kuwait | BRN314 | 2G, 3G | Viva, Zain |
 | Kyrgyzstan | BRN314 | 2G, 3G | Beeline |
 | Latvia | BRN314 | 2G, 3G | Bite, LMT, Tele2 |
 | Liechtenstein | BRN314 | 2G, 3G | Mobilkom, Orange |
 | Lithuania | BRN314 | 2G, 3G | Bite, Omnitel, Tele2 |
 | Luxembourg | BRN314 | 2G, 3G | Orange, POST, Tango |
+| Malawi | BRN314 | 2G, 3G | Airtel |
 | Malaysia | BRN314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | BRN314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | BRN404 | M1 | AT&T |
-| Mexico | BRN404X | M1 | AT&T |
 | Moldova | BRN314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | BRN314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | BRN314 | 2G, 3G | Mtel, T-Mobile, Telenor |
+| Mozambique | BRN314 | 2G, 3G | Vodacom |
 | Myanmar | BRN314 | 2G, 3G | MPT, Telenor |
 | Namibia | BRN314 | 2G, 3G | Telecom Namibia |
 | Netherlands | BRN314 | 2G, 3G | KPN, T-Mobile, Vodafone |
 | New Zealand | BRN314 | 2G, 3G | 2degrees, Spark, Vodafone |
 | Nicaragua | BRN314 | 2G, 3G | Movistar |
-| Nigeria | BRN314 | 2G, 3G | 9mobile, Glo, MTN |
+| Nigeria | BRN314 | 2G, 3G | 9mobile, Airtel, Glo, MTN |
 | Norway | BRN314 | 2G, 3G | TDC, Telenor, Telia |
 | Oman | BRN314 | 2G, 3G | Ooredoo |
 | Pakistan | BRN314 | 2G, 3G | Mobilink, Telenor, Ufone, Warid |
 | Palestine | BRN314 | 2G, 3G | Jawwal |
 | Panama | BRN314 | 2G, 3G | Digicel, Movistar |
 | Papua New Guinea | BRN314 | 2G, 3G | bmobile |
-| Paraguay | BRN314 | 2G, 3G | Claro, Tigo, Vox |
+| Paraguay | BRN314 | 2G, 3G | Claro, Personal, Tigo, Vox |
 | Peru | BRN314 | 2G, 3G | Claro, Entel, Movistar |
 | Philippines | BRN314 | 2G, 3G | Globe, Smart |
 | Poland | BRN314 | 2G, 3G | Orange, Play, Plus, T-Mobile |
 | Portugal | BRN314 | 2G, 3G | NOS, TMN, Vodafone |
 | Puerto Rico | BRN314 | 2G, 3G | Claro |
-| Qatar | BRN314 | 2G, 3G | Ooredoo |
+| Qatar | BRN314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | BRN314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Russia | BRN314 | 2G, 3G | Beeline, Megafon, Tele2 |
-| Rwanda | BRN314 | 2G, 3G | Airtel |
+| Russia | BRN314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
+| Rwanda | BRN314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | BRN314 | 2G, 3G | Flow |
 | Saint Lucia | BRN314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | BRN314 | 2G, 3G | Flow |
-| Saudi Arabia | BRN314 | 2G, 3G | STC |
+| Saudi Arabia | BRN314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | BRN314 | 2G, 3G | Telenor, VIP |
 | Singapore | BRN314 | 3G | SingTel, StarHub |
+| Sint Maarten | BRN314 | 2G, 3G | TelCell |
 | Slovakia | BRN314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | BRN314 | 2G, 3G | A1, Mobitel |
 | South Africa | BRN314 | 2G, 3G | Cell C, MTN, Vodacom |
 | South Korea | BRN314 | 3G | KT, SK Telecom |
+| South Sudan | BRN314 | 2G, 3G | MTN |
 | Spain | BRN314 | 2G, 3G | Orange, Telefonica, Vodafone, Yoigo |
 | Sri Lanka | BRN314 | 2G, 3G | Dialog, Mobitel |
+| Suriname | BRN314 | 2G, 3G | Telesur |
 | Sweden | BRN314 | 2G, 3G | 3 (Tre), Tele2, Telenor, Telia |
 | Switzerland | BRN314 | 2G, 3G | Salt, Sunrise, Swisscom |
 | Taiwan | BRN314 | 3G | Chunghwa, FarEasTone, T Star, Taiwan Mobile |
 | Tajikistan | BRN314 | 2G, 3G | Beeline, Tcell |
+| Tanzania | BRN314 | 2G, 3G | Airtel |
 | Thailand | BRN314 | 2G, 3G | AIS, DTAC, True Move |
-| Trinidad and Tobago | BRN314 | 2G, 3G | Digicel |
+| Trinidad and Tobago | BRN314 | 2G, 3G | Digicel, TSTT |
 | Tunisia | BRN314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
 | Turkey | BRN314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
 | Turks and Caicos Islands | BRN314 | 2G, 3G | Flow |
-| Ukraine | BRN314 | 2G, 3G | Kyivstar, Life |
+| Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN |
+| Ukraine | BRN314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Arab Emirates | BRN314 | 2G, 3G | du, Etisalat |
 | United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | BRN404 | M1 | AT&T |
-| United States | BRN404X | M1 | AT&T |
-| Uruguay | BRN314 | 2G, 3G | Movistar |
+| Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | BRN314 | 2G, 3G | Beeline |
 | Venezuela | BRN314 | 2G, 3G | Movistar |
 | Vietnam | BRN314 | 2G, 3G | MobiFone, Viettel, Vinaphone |
 | Virgin Islands (British) | BRN314 | 2G, 3G | CCT, Flow |
+| Zambia | BRN314 | 2G, 3G | Airtel |
 
 
 {{!-- END do not edit content above, it is automatically generated 945c4c4c-76d1-11eb-9439-0242ac130002 --}}
@@ -586,9 +582,6 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | GA | |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | GA | |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | GA | |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | GA | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | NRND-US | BRN314TRAY50|
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | NRND | BRN314KIT|
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | BRN404|
@@ -722,6 +715,9 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v004     | 16-Sep-2020 | RK | Added power consumption information |
 | v005     | 15-Mar-2021 | RK | Updated model, carrier, ordering information |
 | v005     | 26-Apr-2021 | RK | Added BRN314 and BRN404 model numbers |
+| v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
+| v007     | 09-Jul-2021 | RK | Number of accessible I2C ports is 1, not 2 |
+| v008     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
 
 ## Known Errata
 
