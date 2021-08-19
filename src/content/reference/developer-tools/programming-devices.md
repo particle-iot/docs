@@ -1,12 +1,12 @@
 ---
-title: Installing specific Device OS versions
+title: Programming devices
 layout: commonTwo.hbs
 columns: two
 ---
 
 # {{title}}
 
-This document includes tips for installing a specific version of Device OS, typically during manufacturing.
+This document includes tips for installing a specific version of Device OS, typically during manufacturing, but can also be used for developer devices and testing.
 
 There are a number of components that may need to be upgraded on a device, in addition to user firmware:
 
