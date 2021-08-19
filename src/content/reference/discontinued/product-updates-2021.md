@@ -77,10 +77,10 @@ These SKUs are end-of-life and are no longer available. In some cases, a very si
 
 | Family | SKU | Temporary replacement | Long-term replacement |
 | :--- | | :--- | :--- | :--- |
-| Electron | E350, E260 (US, CA, MX) | ELC404X | B Series SoM B404X or Boron BRN404X |
-| Electron | E350, E260, E270 (Europe, AU, NZ) | ELC314 | B Series SoM B524 or Boron BRN314 |
+| Electron | E350, E260 (US, CA, MX) | ELC404X | Boron BRN404X or B Series SoM B404X |
+| Electron | E350, E260, E270 (Europe, AU, NZ) | ELC314 | Boron BRN314 or B Series SoM B524 |
 | Electron | E350, E260, E270 (elsewhere) | ELC314 | Boron BRN314 |
-| Electron | ELC402, ELC404 | ELC404X | B Series SoM B404X or Boron BRN404X |
+| Electron | ELC402, ELC404 | ELC404X | Boron BRN404X or B Series SoM B404X |
 | E Series | E402, E404 (US, CA, MX) | E404X | B Series SoM B404X or Boron BRN404X  |
 
 
@@ -104,8 +104,6 @@ The following SKUs are affected:
 | :--- | :--- | :--- |
 | Boron | BRN404, BRN402 | BRN404X |
 | B Series SoM | B404, B402 | BRN404X |
-| Tracker SoM | T404, T402 | T404X |
-| Tracker One | ONE404, ONE402 | ONE404X |
 
 ## Boron or B Series SoM?
 
@@ -162,12 +160,12 @@ In other areas, the Boron is the recommended upgrade. Neither is pin-compatible.
 
 | Family | SKU | Temporary replacement | Long-term replacement |
 | :--- | | :--- | :--- | :--- |
-| Electron | E350, E260 (US) | ELC404X | B Series SoM B404X or Boron BRN404X |
-| Electron | E350, E270 (Europe, AU, NZ) | ELC314 | B Series SoM B524 or Boron BRN314 |
+| Electron | E350, E260 (US) | ELC404X | Boron BRN404X or B Series SoM B404X |
+| Electron | E350, E270 (Europe, AU, NZ) | ELC314 | Boron BRN314 or B Series SoM B524 |
 | Electron | E350, E260, E270 (elsewhere) | ELC314 | Boron BRN314 |
-| Electron | ELC402, ELC404 (US) | ELC404X | B Series SoM B404X or Boron BRN404X |
-| Electron | ELC314 (US, CA, MX) | &nbsp; | B Series SoM B404X or Boron BRN404X |
-| Electron | ELC314 (Europe, AU, NZ) | &nbsp; | B Series SoM B524 or Boron BRN314 |
+| Electron | ELC402, ELC404 (US) | ELC404X | Boron BRN404X or B Series SoM B404X  |
+| Electron | ELC314 (US, CA, MX) | &nbsp; | Boron BRN404X or B Series SoM B404X |
+| Electron | ELC314 (Europe, AU, NZ) | &nbsp; | Boron BRN314 or B Series SoM B524 |
 | Electron | ELC314 (elsewhere) | &nbsp; | Boron BRN314 |
 | E Series | E402, E404 | E404X | B Series SoM B404X or Boron BRN404X  |
 | E Series | E404X | &nbsp; | B Series SoM B404X or Boron BRN404X  |
@@ -181,9 +179,9 @@ In other areas, the Boron is the recommended upgrade. Neither is pin-compatible.
 | Boron | BRN314 (elsewhere) | | (no change) |
 | B Series SoM | B404, B402 | | B404X |
 | B Series SoM | B523 | | B524 |
-| Tracker SoM | T404, T402 | | T404X | 
+| Tracker SoM | T402 | | T404 | 
 | Tracker SoM | T523 | | T524 | 
-| Tracker One | ONE404, ONE402 | | ONE404X | 
+| Tracker One | ONE402 | | ONE404 | 
 | Tracker One | ONE523 | | ONE524 | 
 
 The following are the recommended generally available (GA) products:
@@ -195,7 +193,7 @@ The following are the recommended generally available (GA) products:
 | B Series SoM | B524 | B Series SoM LTE Cat 1 with 2G/3G | Europe, AU, NZ |
 | B Series SoM | B404X | B Series SoM LTE Cat M1 | US, CA, MX |
 | Tracker SoM | T524 | Tracker SoM LTE Cat 1 with 2G/3G | Europe, AU, NZ |
-| Tracker SoM | T404X | Tracker SoM LTE Cat M1 | US, CA, MX |
+| Tracker SoM | T404 | Tracker SoM LTE Cat M1 | US, CA, MX |
 | Tracker One | ONE524 | Tracker One LTE Cat 1 with 2G/3G | Europe, AU, NZ |
-| Tracker One | ONE404X | Tracker One LTE Cat M1 | US, CA, MX |
+| Tracker One | ONE404 | Tracker One LTE Cat M1 | US, CA, MX |
 
