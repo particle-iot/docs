@@ -36,9 +36,9 @@ For small-scale deployments and testing you could also be taking assembled circu
 
 While OTA is the preferred solution for releasing firmware updates in the field, local flashing is the recommended technology for manufacturing.
 
-SWD/JTAG is the most efficient approach for flashing firmware to Particle devices at scale. Using a Segger J/LINK on a Gen 3 device it's possible to flash the bootloader, SoftDevice, Device OS, and user firmware binary in under 10 seconds total.
+- SWD/JTAG is the most efficient approach for flashing firmware to Particle devices at scale. Using a Segger J/LINK on a Gen 3 device it's possible to flash the bootloader, SoftDevice, Device OS, and user firmware binary in under 10 seconds total.
 
-Alternative workflows using the Particle CLI and a USB connection are supported as well. This is the recommended method for the Tracker One, which does not have SWD/JTAG available in the M8 connector. See the [programming devices](/reference/developer-tools/programming-devices/) for more information.
+- Alternative workflows using the Particle CLI and a USB connection are supported as well. This is the recommended method for the Tracker One, which does not have SWD/JTAG available in the M8 connector. See the [programming devices](/reference/developer-tools/programming-devices/) for more information.
 
 #### The device provisioning process is not necessarily performed simultaneously with the manufacturing process.
 
@@ -58,11 +58,11 @@ or:
 
 Incoming Quality Control or IQC is the step of validating that each part in the assembly is functional and meets quality requirements prior to assembly into the finished product.  This step may not be necessary if the part is simply removed and swapped for a new one.  However, if the part is soldered into the product thus making it difficult to remove and swap a new one into the finished product, then IQC may be required to first test the component before installing.  This is typically done for every part if the consequence of a faulty device is expensive, and done as spot-checking if less so.  The IQC test rig is typically a ZIF socket used to plug in a device, press a button and visually see a pass/fail.
 
-Said firmware should exercise the electronics on your production board, testing all analog connections and peripherals. This firmware should be compatible with your target production Device OS version. 
+- Manufacturing firmware should exercise the electronics on your production board, testing all analog connections and peripherals. This firmware should be compatible with your target production Device OS version. 
 
-It is recommended that [Particle Workbench](/tutorials/developer-tools/workbench/) be used to develop this manufacturing firmware (and your application firmware as well).
+- It is recommended that [Particle Workbench](/tutorials/developer-tools/workbench/) be used to develop this manufacturing firmware (and your application firmware as well).
 
-Particle does not have an example of manufacturing test firmware, given the variety of forms said firmware may take.
+Particle does not have an example of manufacturing test firmware, given the variety of forms it may take.
 
 
 #### For E Series and B Series implementations, an RGB Status LED is connected to the device in some way.
@@ -144,9 +144,9 @@ curl "https://api.particle.io/v1/products/$PRODUCT_NUM/sims"
 
 Our recommended practice suggests that each key component part of your assembly receives a QR/barcode. These identifiers should be linked to each other and to the Particle device serial number via some internal database of your design. In the provisioning section below, Particle recommends further storing the Serial Number as the device’s "Device Name" as it makes it easy to identify in the [Particle console](https://console.particle.io). 
 
-The operator scans each part, capturing the serial number as an input to a script running on the host computer. This script may hit an API endpoint to your Cloud (and therefore to this potential database of your design).
+- The operator scans each part, capturing the serial number as an input to a script running on the host computer. This script may hit an API endpoint to your Cloud (and therefore to this potential database of your design).
 
-The product is assembled and connected to your manufacturing test rig.
+- The product is assembled and connected to your manufacturing test rig.
 
 
 ## Programming
@@ -159,7 +159,7 @@ As stated above, programming is best done using JTAG, if possible.
 
 - Particle offers a Hex Generator Tool, allowing you to easily assemble images for target devices and Device OS versions.
 
-For Gen 3 devices (Boron, B Series), you will need to set the setup done bit as you are bypassing the conventional mobile provisioning flow. This is ideally done by adding the following lines of code to your manufacturing test firmware; this only needs to be done once.
+- For Gen 3 devices (Boron, B Series), you will need to set the setup done bit as you are bypassing the conventional mobile provisioning flow. This is ideally done by adding the following lines of code to your manufacturing test firmware; this only needs to be done once.
 
 ```
 uint8_t val = 0;
@@ -171,39 +171,37 @@ if(!dct_read_app_data_copy(DCT_SETUP_DONE_OFFSET, &val, DCT_SETUP_DONE_SIZE) && 
 
 It is also possible to do this using the Particle CLI and USB if you are using a USB-based setup flow. If you skip this step, Gen 3 devices (Boron, B Series SoM, and Tracker SoM) will start in listening mode (blinking dark blue). See [Programming devices](/reference/developer-tools/programming-devices/#usb-particle-cli-manually-) for more information.
 
-For the Tracker One and Tracker SoM, you will need to update the NCP (ESP32) firmware if you intend to use the Device OS 3.0.0 or later. It is not required for 2.x, but it is backwards compatible if you need to revert to 2.x from 3.x for any reason. This must be done over USB in listening mode (blinking dark blue, --serial). See [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp) for more information.
+- For the Tracker One and Tracker SoM, you will need to update the NCP (ESP32) firmware if you intend to use the Device OS 3.0.0 or later. It is not required for 2.x, but it is backwards compatible if you need to revert to 2.x from 3.x for any reason. This must be done over USB in listening mode (blinking dark blue, --serial). See [Argon and Tracker NCP](/reference/developer-tools/jtag/#argon-and-tracker-ncp) for more information.
 
 
-Once your hex files are with your CM, enable your CM to pursue one of the following programmer strategies as detailed within our docs:
+- Once your hex files are with your CM, enable your CM to pursue one of the following programmer strategies as detailed within our docs:
 
+  - [Particle Debugger with OpenOCD](/reference/developer-tools/jtag/#particle-debugger-with-openocd-via-particle-workbench-) (using Particle Workbench)
+  - [Particle Debugger with OpenOCD](/reference/developer-tools/jtag/#particle-debugger-with-openocd-via-particle-workbench-) (standalone)
+  - [Particle Debugger with drag-and-drop](/reference/developer-tools/jtag/#particle-debugger-with-drag-and-drop) (Gen 3 only)
+  - [Particle Debugger with web browser flash](/reference/developer-tools/jtag/#particle-debugger-with-drag-and-drop) (experimental, Gen 3 only)
+  - [Segger J-Link with Nordic nrfjprog](/reference/developer-tools/jtag/#segger-j-link-with-nordic-tools-nrfjprog-) (Gen 3 only)
+  - [Segger J-Link with Segger Tools](/reference/developer-tools/jtag/#segger-j-link-with-segger-tools) (Both Gen 2 and Gen 3)
+  - [ST-LINK/V2 with ST-LINK Software](/reference/developer-tools/jtag/#st-link-v2-with-st-link-software-for-windows) (Windows, Gen 2 only)
 
-- [Particle Debugger with OpenOCD](/reference/developer-tools/jtag/#particle-debugger-with-openocd-via-particle-workbench-) (using Particle Workbench)
-- [Particle Debugger with OpenOCD](/reference/developer-tools/jtag/#particle-debugger-with-openocd-via-particle-workbench-) (standalone)
-- [Particle Debugger with drag-and-drop](/reference/developer-tools/jtag/#particle-debugger-with-drag-and-drop) (Gen 3 only)
-- [Particle Debugger with web browser flash](/reference/developer-tools/jtag/#particle-debugger-with-drag-and-drop) (experimental, Gen 3 only)
-- [Segger J-Link with Nordic nrfjprog](/reference/developer-tools/jtag/#segger-j-link-with-nordic-tools-nrfjprog-) (Gen 3 only)
-- [Segger J-Link with Segger Tools](/reference/developer-tools/jtag/#segger-j-link-with-segger-tools) (Both Gen 2 and Gen 3)
-- [ST-LINK/V2 with ST-LINK Software](/reference/developer-tools/jtag/#st-link-v2-with-st-link-software-for-windows) (Windows, Gen 2 only)
-
-
-Flash manufacturing test application hex and allow your device to connect to the Particle Cloud.
+- Flash manufacturing test application hex and allow your device to connect to the Particle Cloud.
 
 In some cases, you will not want to enable cellular at manufacturing time:
 
-- Your CM is located out of the area of service for the device (for example, LTE Cat M1 when your CM is in China)
-- You do not want to start the billing on the device until later.
+  - Your CM is located out of the area of service for the device (for example, LTE Cat M1 when your CM is in China)
+  - You do not want to start the billing on the device until later.
 
 In this case, your manufacturing test firmware can use [manual mode](/cards/firmware/system-modes/manual-mode/) and only locally test the hardware and peripherals. It's still a good idea to perform antenna-related testing at this time, including a visual inspection of the u.FL connector and/or using an RF meter to test the viability of this connection.
 
 If you do activate the SIM and use normal connectivity mode, the device will go through the sequence of blinking green, blinking cyan, fast blinking cyan, and finally breathing cyan. This provides the greatest confidence in the correct operation of the device, however it could also take up to 20 minutes.
 
-Perform your suite of manufacturing tests, including on-board hardware tests, calibration and configuration processes, production tests, and/or power consumption tests.
+- Perform your suite of manufacturing tests, including on-board hardware tests, calibration and configuration processes, production tests, and/or power consumption tests.
 
-This is also a good time to record the firmware versions that you flashed to the device, as well as board versions.
+- This is also a good time to record the firmware versions that you flashed to the device, as well as board versions.
 
-At test completion, push the result of the manufacturing tests to your internal database. If a test fails, perform the relevant failure analysis and take necessary action and retest as needed.
+- At test completion, push the result of the manufacturing tests to your internal database. If a test fails, perform the relevant failure analysis and take necessary action and retest as needed.
 
-Flash your production application firmware, verify that the production binary was successfully flashed, and log the process as complete.
+- Flash your production application firmware, verify that the production binary was successfully flashed, and log the process as complete.
 
 ## Provisioning
 
@@ -211,9 +209,9 @@ Flash your production application firmware, verify that the production binary wa
 
 Device provisioning is typically performed asynchronously with the manufacturing process. This can be done prior to the manufacturing process if SIM activation is required, or afterward in the case of an out-of-region CM. 
 
-When you order Particle devices from the wholesale store in trays of 50, you will be emailed a list of the Device IDs and ICCIDs in your order. This can be uploaded to the [Particle console](https://console.particle.io/) in just a few clicks. In the **Devices** tab of your product select **Add Devices** then **Add Many Devices**.
+- When you order Particle devices from the wholesale store in trays of 50, you will be emailed a list of the Device IDs and ICCIDs in your order. This can be uploaded to the [Particle console](https://console.particle.io/) in just a few clicks. In the **Devices** tab of your product select **Add Devices** then **Add Many Devices**.
 
-For the Electron 2G/3G only: the SIM 4FF plastic nano SIM cards are not automatically associated with the device and you also must add the SIMs to your product separately. From the **SIM Cards** tab of your product, select **Import SIMs**. You will be emailed a file of the ICCIDs in your SIM card order when you order SIM cards in packs of 50 from the Particle wholesale store.
+- For the Electron 2G/3G only: the SIM 4FF plastic nano SIM cards are not automatically associated with the device and you also must add the SIMs to your product separately. From the **SIM Cards** tab of your product, select **Import SIMs**. You will be emailed a file of the ICCIDs in your SIM card order when you order SIM cards in packs of 50 from the Particle wholesale store.
 
 The device provisioning process can be performed with scripts as needed on devices, one-by-one. If that is your intention, consider the following steps an abstraction of the contents of a potential script, and see the next section for scripting suggestions.
 
@@ -242,14 +240,15 @@ curl "https://api.particle.io/v1/products/$PRODUCT_NUM/devices?access_token=$ACC
 
 Note: importing your device into a product will also activate its SIM card (for all devices except 2G/3G Electron).
 
+### Assign a device group
 
-In addition to adding your device to a Product, we further recommend adding your device to a Product Device Group for a higher degree of control. Device Groups assist with targeted application firmware upgrades to smaller subsections of a Product Fleet, and can be of further use tracking manufacture build dates for easier debugging.
+In addition to adding your device to a Product, we further recommend adding your device to a Product Device Group for a higher degree of control. Device Groups assist with targeted application firmware upgrades to smaller subsections of a Product Fleet, and can be of further use tracking manufacture build dates for easier debugging. This is optional.
 
 Many customers choose to apply a Group name of YYYYMMDD_XXXX denoting the year month day and quantity of devices in the shipment.  Some customers will include a hardware version number Group name, or one describing which number of sensors are included with the assembly.  
 
 Follow the guidelines on [group naming](/tutorials/product-tools/device-groups/).
 
-Create the group name, and if it exists take no actions:
+- Create the group name, and if it exists take no actions:
 
 ```
 curl "https://api.particle.io/v1/products/$3/groups" \
@@ -259,7 +258,7 @@ curl "https://api.particle.io/v1/products/$3/groups" \
 -d access_token=$ACCESS_TOKEN;
 ```
 
-Add the group name to the device:
+- Add the group name to the device:
 
 ```
 curl -X PUT "https://api.particle.io/v1/products/$PRODUCT_ID/devices" \
@@ -268,8 +267,9 @@ curl -X PUT "https://api.particle.io/v1/products/$PRODUCT_ID/devices" \
 -d "{ \"action\": \"groups\", \"devices\": [\"$DEVICE_ID\"], \"metadata\": { \"add\": [\"$GROUP_NAME\"] }}";
 ```
 
+### Assign a device name
 
-It is also recommended to give your device the same name as its serial number for easy mapping between the physical device and that seen in the Particle Console.  
+It is also recommended to give your device the same name as its serial number for easy mapping between the physical device and that seen in the Particle Console. This is optional, and of course you can choose a different naming scheme.
 
 This can be done by passing the Serial Number from step as the variable $DEVICE_NAME within the following curl command:
 
@@ -278,6 +278,8 @@ curl -X PUT "https://api.particle.io/v1/products/$PRODUCT_ID/devices/$DEVICE_ID"
     -d name=$DEVICE_NAME \
     -d access_token=$ACCESS_TOKEN;
 ```
+
+### Claim the device
 
 Claim the device to an administrator email associated with the product. At the time this document was written, claiming is required for webhook responses to work for that device.
 
@@ -288,6 +290,8 @@ curl "https://api.particle.io/v1/devices
 -d id=$DEVICE_ID 
 -d access_token=$ACCESS_TOKEN"
 ```
+
+You can skip the claiming step if you will be using devices in unclaimed state. If using unclaimed devices, the devices will not be able to subscribe to private events, but it still can receive function and variable requests.
 
 ## Scripting the provisioning process
 
