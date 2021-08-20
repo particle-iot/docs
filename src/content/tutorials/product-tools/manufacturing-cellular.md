@@ -13,7 +13,7 @@ This document is designed to identify best practices for manufacturing products 
 
 The following assumptions are made for using this document:
 
-- The assembly is using a Particle cellular device.
+#### The assembly is using a Particle cellular device.
 
 It is assumed that you have incorporated one of the following Particle SKUs into your end product:
 
@@ -27,12 +27,12 @@ It is assumed that you have incorporated one of the following Particle SKUs into
 | Electron | Gen 2 | ELC404, ELC314, E270, E260, E350 |
 
 
-- There is one Contract Manufacturer (CM) handling final assembly of the product.
+#### There is one Contract Manufacturer (CM) handling assembly of the product.
 
 For small-scale deployments and testing you could also be taking assembled circuit boards and preparing the final assembly, such as putting the circuit boards in the enclosure and connecting any cables, yourself.
 
 
-- Devices are programmed via SWD/JTAG where possible.
+#### Devices are programmed via SWD/JTAG where possible.
 
 While OTA is the preferred solution for releasing firmware updates in the field, local flashing is the recommended technology for manufacturing.
 
@@ -40,10 +40,21 @@ SWD/JTAG is the most efficient approach for flashing firmware to Particle device
 
 Alternative workflows using the Particle CLI and a USB connection are supported as well. This is the recommended method for the Tracker One, which does not have SWD/JTAG available in the M8 connector. See the [programming devices](/reference/developer-tools/programming-devices/) for more information.
 
-- The device provisioning (device claiming & import, SIM activation & import) process is not necessarily performed simultaneously with the manufacturing process.
+#### The device provisioning process is not necessarily performed simultaneously with the manufacturing process.
+
+Device provisioning (device claiming & import, SIM activation & import) is typically done one of two ways:
+
+- (Customer) Bulk SIM activation and provisioning performed in advance of manufacturing process.
+- (CM) Assembly and programming.
+
+or:
+
+- (Customer) Bulk SIM activation performed in advance of manufacturing process.
+- (CM) Assembly and programming.
+- (Customer) Device Import/Claiming/Renaming/Group Assignment performed simultaneously with or after the manufacturing process.
 
 
-- Manufacturing test firmware has been prepared in accordance with the principles of Incoming Quality Control.
+#### Manufacturing test firmware has been prepared in accordance with the principles of Incoming Quality Control.
 
 Incoming Quality Control or IQC is the step of validating that each part in the assembly is functional and meets quality requirements prior to assembly into the finished product.  This step may not be necessary if the part is simply removed and swapped for a new one.  However, if the part is soldered into the product thus making it difficult to remove and swap a new one into the finished product, then IQC may be required to first test the component before installing.  This is typically done for every part if the consequence of a faulty device is expensive, and done as spot-checking if less so.  The IQC test rig is typically a ZIF socket used to plug in a device, press a button and visually see a pass/fail.
 
@@ -54,14 +65,14 @@ It is recommended that [Particle Workbench](/tutorials/developer-tools/workbench
 Particle does not have an example of manufacturing test firmware, given the variety of forms said firmware may take.
 
 
-- For E Series and B Series implementations, an RGB Status LED is connected to the device in some way.
+#### For E Series and B Series implementations, an RGB Status LED is connected to the device in some way.
 
 Particle recommends putting an LED on all baseboards; without one it can be difficult to quickly assess the functionality of the Particle device. At the very least, we strongly recommend adding a test header or test points on the board so one can access the RGB LEDs, reset, mode, and USB from a debugging adapter. 
 
 
 ## Manufacturing Procedure
 
-The following procedure involves commands from the host computer via the Particle Command Line Interface (CLI) and via curl to a series of Particle Cloud API endpoints. The CLI performs device programming and curl commands perform device provisioning. It is typical for each suite of commands to be wrapped into shell scripts (such as bash for Linux, Mac, or Windows with Windows Subsystem for Linux enabled), MSDOS batch files (.bat), or a node.js scripts.
+The following procedure involves commands from the host computer via the Particle Command Line Interface (CLI) and via curl to a series of Particle Cloud API endpoints. The CLI performs device programming and curl commands perform device provisioning. It is typical for each suite of commands to be wrapped into a shell script (such as bash for Linux, Mac, or Windows with Windows Subsystem for Linux enabled), MSDOS batch file (.bat), or a node.js script.
 
 This procedure is divided into the following sections:
 
@@ -200,20 +211,9 @@ Flash your production application firmware, verify that the production binary wa
 
 Device provisioning is typically performed asynchronously with the manufacturing process. This can be done prior to the manufacturing process if SIM activation is required, or afterward in the case of an out-of-region CM. 
 
-Device provisioning is typically done one of two ways:
-
-  - (Customer) Bulk SIM activation and provisioning performed in advance of manufacturing process.
-  - (CM) Assembly and programming.
-
-or:
-
-  - (Customer) Bulk SIM activation performed in advance of manufacturing process.
-  - (CM) Assembly and programming.
-  - (Customer) Device Import/Claiming/Renaming/Group Assignment performed simultaneously with or after the manufacturing process.
-
-
 When you order Particle devices from the wholesale store in trays of 50, you will be emailed a list of the Device IDs and ICCIDs in your order. This can be uploaded to the [Particle console](https://console.particle.io/) in just a few clicks. In the **Devices** tab of your product select **Add Devices** then **Add Many Devices**.
 
+For the Electron 2G/3G only: the SIM 4FF plastic nano SIM cards are not automatically associated with the device and you also must add the SIMs to your product separately. From the **SIM Cards** tab of your product, select **Import SIMs**. You will be emailed a file of the ICCIDs in your SIM card order when you order SIM cards in packs of 50 from the Particle wholesale store.
 
 The device provisioning process can be performed with scripts as needed on devices, one-by-one. If that is your intention, consider the following steps an abstraction of the contents of a potential script, and see the next section for scripting suggestions.
 
