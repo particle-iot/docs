@@ -1131,6 +1131,41 @@ const path = require('path');
                         return updater.generateFamilySkus('e series'); 
                     } 
                 }
+            ]
+        },
+        {
+            path:'/tutorials/learn-more/gen2-cellular-migration.md', 
+            updates:[
+                {
+                    guid:'0f0d9a27-0176-4f7d-8006-75cf7c3f5072', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('boron'); 
+                    } 
+                },
+                {
+                    guid:'295a969b-7ffa-4f84-8234-7e4cb38d1f10', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('b series'); 
+                    } 
+                },
+                {
+                    guid:'d833e557-5289-450c-92cf-a6eedec30bd8', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('tracker'); 
+                    } 
+                },
+                {
+                    guid:'7a6e03da-072c-4955-922a-288e9609292a', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('electron'); 
+                    } 
+                },
+                {
+                    guid:'d5825d70-1978-4172-a917-9127c8879f4e', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('e series'); 
+                    } 
+                }
 
                 
             ]
