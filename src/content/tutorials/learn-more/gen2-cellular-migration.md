@@ -7,7 +7,7 @@ description: Learn more about migrating from Gen 2 to Gen 3 cellular devices
 
 # {{title}}
 
-This document has information on migrating designs based on the Gen 2 cellular devices (Electron, E Series) to Gen 3 cellular devices (Boron, B Series SoM, Tracker SoM). There are not pin-compatible replacements to make this migration, and there are some necessary hardware tradeoffs and design changes that may be required for some features.
+This document has information on migrating designs based on the Gen 2 cellular devices (Electron, E Series) to Gen 3 cellular devices (Boron, B Series SoM, Tracker SoM). There are not pin-compatible replacements to make this migration, and there are some necessary hardware tradeoffs and design changes that may be required for some features. However, there are also several advantages of migrating to the latest generation of cellular devices.
 
 ## Gen 2 overview
 
@@ -156,6 +156,11 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 
 The B Series SoM (system-on-a-module) is similar to the Boron in that it is a 3rd-generation cellular device. It plugs into an M.2 NGFF connector on your custom circuit board and is intended for mass production use.
 
+- [B Series SoM First Board](/tutorials/hardware-projects/som-first-board/) is a simple SoM base board powered by USB only, no battery support.
+
+- [AN001 Basic SoM Design](/datasheets/app-notes/an001-basic-som-design) is a simple SoM base board. Like a Boron it can be powered by LiPo battery, USB, or an external DC supply. It includes: RGB LED, bq24195 PMIC, MAX17043 Fuel Gauge, USB Connector, LiPo Connector (JST-PH), and M.2 SoM Connector.
+
+Even though the B Series SoM is more difficult to prototype with than the Boron, the B Series module is designed for enterprise deployment and production at scale. The larger width of the module allows for a wider selection of cellular modems, which is why there's LTE Cat 1 (with 2G/3G fallback) for the B Series SoM but not for the Boron. The Quectel EG91-E modem is physically too wide to fit in the Boron (Adafruit feather) form-factor.
 
 #### Country Compatibility - B Series SoM
 
@@ -200,6 +205,10 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 - IMU (accelerometer)
 - Real-time clock
 - Hardware watchdog
+
+In addition to using the Tracker One assembled module, the following application note can help with creating your first board that uses the bare Tracker SoM module.
+
+- [AN025 Tracker SoM First Board](http://localhost:8080/datasheets/app-notes/an025-tracker-som-first-board) contains the Eagle CAD files for creating your first Tracker SoM base board design.
 
 #### Country Compatibility - Tracker SoM
 
@@ -268,6 +277,25 @@ Note that the T524 only supports EMEAA cellular frequencies and thus it cannot c
 | Particle Cellular Flex Antenna 2G/3G/LTE 4.7dBi, [x50] | ANTCW2TY | Tracker, B Series, E Series | [Datasheet](/assets/datasheets/ANTCW2EA.pdf) |
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x1]| ANT-FLXU | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf) &#124; [Retail Store](https://store.particle.io/collections/shields-and-kits/products/cellular-flex-antenna-2g-3g-m1-nb1) |
 | Taoglas Cellular Flex Antenna 2G/3G/LTE 5dBi, [x50] | ANT-FLXU-50 | Boron and Electron/E Series LTE M1 | [Datasheet](/assets/datasheets/FXUB63.07.0150C.pdf)|
+
+
+
+## Software Differences
+
+### User firmware binary size
+
+One major advantage of Gen 3 devices is that user firmware binaries in Device OS 3.1.0 and later can be up to 256 Kbytes, instead of 128 Kbytes in earlier version of Device OS and on Gen 2 devices. The larger firmware binary support will not be added to Gen 2 in the future, and will only be available on Gen 3 devices.
+
+### Flash file system
+
+There is a flash file system (2 MB except on the Tracker which is 4 MB) for storing user data, on Gen 3 devices only.
+
+### Combined and resumable OTA
+
+On Gen 3 devices, over-the-air (OTA) updates have two features that can improve the speed and reliability of OTA updates:
+
+- Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
+- Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning if interrupted.
 
 
 ## Hardware differences
@@ -412,7 +440,392 @@ The microcontroller is different in Gen 2 vs. Gen 3 devices:
 - The Boron has the debug connector on top of the module.
 - The B Series SoM has SWD on pads on the bottom of the SoM. The evaluation board connects to these with pogo pins and breaks out to the same 2x5 connector that is on the Boron.
 
+### PMIC and Fuel Gauge
+
+The Electron, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
+
+On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
+
+
+
 ## Cellular Differences
+
+### Carriers
+
+
+{{!-- BEGIN do not edit content below, it is automatically generated 0c8fb8e4-0420-11ec-9a03-0242ac130003 --}}
+
+| Country | Carrier | Gen 2 | Boron 2G/3G | B524/T524 | LTE M1 |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| Afghanistan | MTN | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Afghanistan | Roshan | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Albania | ALBtelecom | &nbsp; | &check; | &check; | &nbsp; |
+| Albania | Telekom | &nbsp; | &check; | &check; | &nbsp; |
+| Albania | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
+| Algeria | Mobilis | &check; | &check; | &nbsp; | &nbsp; |
+| Algeria | Ooredoo | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Anguilla | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Antigua and Barbuda | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Argentina | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Argentina | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| Argentina | Personal | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Armenia | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Armenia | Ucom | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Aruba | Setar | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Australia | Optus | &check; | &check; | &check; | &nbsp; |
+| Australia | Telstra | &check; | &check; | &check; | &nbsp; |
+| Australia | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
+| Austria | 3 (Drei) | &check; | &check; | &check; | &nbsp; |
+| Austria | A1 | &check; | &check; | &check; | &nbsp; |
+| Austria | T-Mobile | &check; | &check; | &check; | &nbsp; |
+| Azerbaijan | Azercell | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Azerbaijan | Bakcell | &check; | &check; | &nbsp; | &nbsp; |
+| Azerbaijan | NAR Mobile | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Bahamas | Aliv | &check; | &check; | &nbsp; | &nbsp; |
+| Bahamas | BTC Bahamas | &check; | &check; | &nbsp; | &nbsp; |
+| Bahrain | Batelco | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Bahrain | Zain | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Bangladesh | Bangalink | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Bangladesh | GrameenPhone | &check; | &check; | &nbsp; | &nbsp; |
+| Barbados | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Belarus | A1 | &check; | &check; | &check; | &nbsp; |
+| Belarus | MTS | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Belgium | Base | &check; | &check; | &check; | &nbsp; |
+| Belgium | Mobistar | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Belgium | Orange | &nbsp; | &check; | &check; | &nbsp; |
+| Belgium | Proximus | &check; | &check; | &check; | &nbsp; |
+| Belize | Smart | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Bermuda | CellOne | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Bolivia | NuevaTel | &check; | &check; | &nbsp; | &nbsp; |
+| Bolivia | Tigo | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Bosnia and Herzegovina | BH Telecom | &check; | &check; | &check; | &nbsp; |
+| Bosnia and Herzegovina | HT Eronet | &nbsp; | &check; | &check; | &nbsp; |
+| Botswana | BeMobile | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Brazil | Vivo | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Brunei | DST | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Bulgaria | A1 | &check; | &check; | &check; | &nbsp; |
+| Bulgaria | Telenor | &check; | &check; | &check; | &nbsp; |
+| Bulgaria | Vivacom | &check; | &check; | &check; | &nbsp; |
+| Burkina Faso | Orange | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Cabo Verde | CVMóvel | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Cambodia | Metfone | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Cameroon | MTN | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Canada | Bell Mobility | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
+| Canada | Rogers Wireless | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
+| Canada | Sasktel | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Canada | Telus | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
+| Canada | Videotron | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Cayman Islands | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Chad | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Chile | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Chile | Entel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Chile | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| China | China Mobile | &check; | &nbsp; | &nbsp; | &nbsp; |
+| China | China Unicom | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Colombia | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| Colombia | Tigo | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Congo (Brazzaville) | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Congo (Brazzaville) | MTN | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Congo (Kinshasa) | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Costa Rica | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| Côte d'Ivoire | MTN | &check; | &check; | &nbsp; | &nbsp; |
+| Croatia | Croatian Telecom | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Croatia | Hrvatski Telekom | &nbsp; | &check; | &check; | &nbsp; |
+| Croatia | Tele2 | &check; | &check; | &check; | &nbsp; |
+| Croatia | VIPnet | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Curaçao | Digicel | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Curaçao | UTS | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Cyprus | Cytamobile-Vodafone | &check; | &check; | &nbsp; | &nbsp; |
+| Cyprus | MTN | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Cyprus | PrimeTel | &check; | &check; | &nbsp; | &nbsp; |
+| Czechia | O2 | &check; | &check; | &check; | &nbsp; |
+| Czechia | T-Mobile | &check; | &check; | &check; | &nbsp; |
+| Czechia | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Denmark | 3 (Tre) | &check; | &check; | &check; | &nbsp; |
+| Denmark | TDC | &nbsp; | &check; | &check; | &nbsp; |
+| Denmark | Telenor | &check; | &check; | &check; | &nbsp; |
+| Denmark | Telia | &check; | &check; | &check; | &nbsp; |
+| Dominica | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Dominican Republic | Altice Dominicana | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Dominican Republic | Claro | &check; | &check; | &nbsp; | &nbsp; |
+| Dominican Republic | Viva | &check; | &check; | &nbsp; | &nbsp; |
+| Ecuador | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Ecuador | Movistar | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Ecuador | Otecel | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Egypt | Etisalat | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Egypt | Orange | &check; | &check; | &nbsp; | &nbsp; |
+| El Salvador | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
+| El Salvador | Telefonica | &check; | &check; | &nbsp; | &nbsp; |
+| Estonia | Elisa | &nbsp; | &check; | &check; | &nbsp; |
+| Estonia | Tele2 | &check; | &check; | &check; | &nbsp; |
+| Estonia | Telia | &check; | &check; | &check; | &nbsp; |
+| eSwatini | MTN | &check; | &check; | &nbsp; | &nbsp; |
+| Ethiopia | Ethio Telecom | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Faroe Islands | Faroese Telecom | &nbsp; | &check; | &check; | &nbsp; |
+| Faroe Islands | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
+| Finland | DNA | &check; | &check; | &check; | &nbsp; |
+| Finland | Elisa | &nbsp; | &check; | &check; | &nbsp; |
+| Finland | Telia | &check; | &check; | &check; | &nbsp; |
+| France | Bouygues | &check; | &check; | &check; | &nbsp; |
+| France | Free Mobile | &nbsp; | &check; | &check; | &nbsp; |
+| France | Orange | &check; | &check; | &check; | &nbsp; |
+| France | SFR | &check; | &check; | &check; | &nbsp; |
+| French Guiana | Digicel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Gabon | Airtel | &check; | &check; | &nbsp; | &nbsp; |
+| Georgia | Beeline | &check; | &check; | &nbsp; | &nbsp; |
+| Georgia | Geocell | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Germany | O2 | &check; | &check; | &check; | &nbsp; |
+| Germany | Telekom | &check; | &check; | &check; | &nbsp; |
+| Germany | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Ghana | AirtelTigo | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Ghana | MTN | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Ghana | Vodafone | &check; | &check; | &nbsp; | &nbsp; |
+| Gibraltar | Gibtel | &check; | &check; | &check; | &nbsp; |
+| Greece | Cosmote | &check; | &check; | &check; | &nbsp; |
+| Greece | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Greece | Wind | &check; | &check; | &check; | &nbsp; |
+| Greenland | Tele | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Grenada | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Guadeloupe | Orange | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Guatemala | Claro | &check; | &check; | &nbsp; | &nbsp; |
+| Guatemala | Movistar | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Guinea | MTN | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Guinea-Bissau | MTN | &check; | &check; | &nbsp; | &nbsp; |
+| Guyana | Digicel | &check; | &check; | &nbsp; | &nbsp; |
+| Haiti | Digicel | &check; | &check; | &nbsp; | &nbsp; |
+| Honduras | Claro | &check; | &check; | &nbsp; | &nbsp; |
+| Honduras | Tigo | &check; | &check; | &nbsp; | &nbsp; |
+| Hong Kong | CMHK | &check; | &check; | &nbsp; | &nbsp; |
+| Hong Kong | CSL | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Hong Kong | SmarTone | &check; | &check; | &nbsp; | &nbsp; |
+| Hungary | Magyar Telekom | &check; | &check; | &check; | &nbsp; |
+| Hungary | Telenor | &check; | &check; | &check; | &nbsp; |
+| Hungary | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Iceland | Nova | &check; | &check; | &check; | &nbsp; |
+| Iceland | Siminn | &check; | &check; | &check; | &nbsp; |
+| Iceland | Vodafone | &check; | &check; | &check; | &nbsp; |
+| India | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| India | Jio | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Indonesia | Indosat | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Indonesia | Telkomsel | &check; | &check; | &nbsp; | &nbsp; |
+| Indonesia | XL Axiata | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Ireland | 3 (Tre) | &check; | &check; | &check; | &nbsp; |
+| Ireland | Meteor | &nbsp; | &check; | &check; | &nbsp; |
+| Ireland | O2 | &nbsp; | &check; | &check; | &nbsp; |
+| Ireland | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Israel | Cellcom | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Israel | Hot Mobile | &check; | &check; | &nbsp; | &nbsp; |
+| Israel | Orange | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Israel | Partner | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Israel | Pelephone | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Italy | TIM | &check; | &check; | &check; | &nbsp; |
+| Italy | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Italy | Wind | &check; | &check; | &check; | &nbsp; |
+| Jamaica | Digicel | &check; | &check; | &nbsp; | &nbsp; |
+| Jamaica | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Japan | KDDI | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Japan | NTT DoCoMo | &check; | &check; | &nbsp; | &nbsp; |
+| Japan | Softbank | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Jersey | Airtel-Vodafone | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Jersey | Jersey Telecom | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Jordan | Zain | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Kazakhstan | Beeline | &check; | &check; | &nbsp; | &nbsp; |
+| Kazakhstan | K-Cell | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Kenya | Airtel | &check; | &check; | &nbsp; | &nbsp; |
+| Kuwait | Viva | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Kuwait | Wataniya | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Kuwait | Zain | &check; | &check; | &nbsp; | &nbsp; |
+| Kyrgyzstan | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Latvia | Bite | &nbsp; | &check; | &check; | &nbsp; |
+| Latvia | LMT | &check; | &check; | &check; | &nbsp; |
+| Latvia | Tele2 | &check; | &check; | &check; | &nbsp; |
+| Liechtenstein | Mobilkom | &check; | &check; | &check; | &nbsp; |
+| Liechtenstein | Orange | &nbsp; | &check; | &check; | &nbsp; |
+| Lithuania | Bite | &nbsp; | &check; | &check; | &nbsp; |
+| Lithuania | Omnitel | &check; | &check; | &check; | &nbsp; |
+| Lithuania | Tele2 | &check; | &check; | &check; | &nbsp; |
+| Luxembourg | Orange | &check; | &check; | &check; | &nbsp; |
+| Luxembourg | POST | &check; | &check; | &check; | &nbsp; |
+| Luxembourg | Tango | &check; | &check; | &check; | &nbsp; |
+| Madagascar | Airtel | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Malawi | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Malaysia | Celcom | &check; | &check; | &nbsp; | &nbsp; |
+| Malaysia | DiGi | &check; | &check; | &nbsp; | &nbsp; |
+| Malaysia | Maxis | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Malta | Go Mobile | &check; | &check; | &check; | &nbsp; |
+| Malta | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Mexico | AT&T | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
+| Mexico | Movistar | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Mexico | Telcel | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Moldova | Moldcell | &nbsp; | &check; | &check; | &nbsp; |
+| Moldova | Orange | &check; | &check; | &check; | &nbsp; |
+| Mongolia | Mobicom | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Mongolia | Unitel | &check; | &check; | &nbsp; | &nbsp; |
+| Montenegro | Mtel | &check; | &check; | &check; | &nbsp; |
+| Montenegro | T-Mobile | &check; | &check; | &check; | &nbsp; |
+| Montenegro | Telenor | &nbsp; | &check; | &check; | &nbsp; |
+| Montserrat | Flow | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Morocco | Inwi | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Mozambique | Vodacom | &check; | &check; | &nbsp; | &nbsp; |
+| Myanmar | MPT | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Myanmar | Telenor | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Namibia | Telecom Namibia | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Netherlands | KPN | &check; | &check; | &check; | &nbsp; |
+| Netherlands | T-Mobile | &check; | &check; | &check; | &nbsp; |
+| Netherlands | Vodafone | &check; | &check; | &check; | &nbsp; |
+| New Zealand | 2degrees | &check; | &check; | &check; | &nbsp; |
+| New Zealand | Spark | &check; | &check; | &check; | &nbsp; |
+| New Zealand | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Nicaragua | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| Niger | Celtel | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Nigeria | 9mobile | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Nigeria | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Nigeria | Celtel Nigeria | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Nigeria | Etisalat | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Nigeria | Glo | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Nigeria | MTN | &check; | &check; | &nbsp; | &nbsp; |
+| North Macedonia | T-Mobile | &check; | &nbsp; | &nbsp; | &nbsp; |
+| North Macedonia | Vip operator | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Norway | Network Norway | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Norway | TDC | &nbsp; | &check; | &check; | &nbsp; |
+| Norway | Telenor | &check; | &check; | &check; | &nbsp; |
+| Norway | Telia | &check; | &check; | &check; | &nbsp; |
+| Oman | Omantel | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Oman | Ooredoo | &check; | &check; | &nbsp; | &nbsp; |
+| Pakistan | Mobilink | &check; | &check; | &nbsp; | &nbsp; |
+| Pakistan | Telenor | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Pakistan | Ufone | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Pakistan | Warid | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Palestine | Jawwal | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Panama | Digicel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Panama | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| Papua New Guinea | bmobile | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Paraguay | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Paraguay | Personal | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Paraguay | Tigo | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Paraguay | Vox | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Peru | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Peru | Entel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Peru | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| Philippines | Globe | &check; | &check; | &nbsp; | &nbsp; |
+| Philippines | Smart | &check; | &check; | &nbsp; | &nbsp; |
+| Poland | Era | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Poland | Orange | &check; | &check; | &check; | &nbsp; |
+| Poland | Play | &check; | &check; | &check; | &nbsp; |
+| Poland | Plus | &nbsp; | &check; | &check; | &nbsp; |
+| Poland | T-Mobile | &nbsp; | &check; | &check; | &nbsp; |
+| Portugal | NOS | &check; | &check; | &check; | &nbsp; |
+| Portugal | TMN | &check; | &check; | &check; | &nbsp; |
+| Portugal | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Puerto Rico | Claro | &check; | &check; | &nbsp; | &nbsp; |
+| Qatar | Ooredoo | &check; | &check; | &nbsp; | &nbsp; |
+| Qatar | Vodafone | &check; | &check; | &nbsp; | &nbsp; |
+| Réunion | SFR | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Romania | DigiMobil | &nbsp; | &check; | &check; | &nbsp; |
+| Romania | Orange | &check; | &check; | &check; | &nbsp; |
+| Romania | Telekom Romania | &nbsp; | &check; | &check; | &nbsp; |
+| Romania | Vodafone | &check; | &check; | &check; | &nbsp; |
+| Russia | Beeline | &check; | &check; | &nbsp; | &nbsp; |
+| Russia | Megafon | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Russia | MTS | &check; | &check; | &nbsp; | &nbsp; |
+| Russia | Tele2 | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Rwanda | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Rwanda | MTN | &check; | &check; | &nbsp; | &nbsp; |
+| Saint Kitts and Nevis | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Saint Lucia | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Saint Vincent and the Grenadines | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Saudi Arabia | Al Jawal | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Saudi Arabia | Mobily | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Saudi Arabia | STC | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Saudi Arabia | Zain | &check; | &check; | &nbsp; | &nbsp; |
+| Serbia | Telenor | &check; | &check; | &check; | &nbsp; |
+| Serbia | VIP | &check; | &check; | &check; | &nbsp; |
+| Seychelles | Airtel | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Singapore | SingTel | &check; | &check; | &nbsp; | &nbsp; |
+| Singapore | StarHub | &check; | &check; | &nbsp; | &nbsp; |
+| Sint Maarten | TelCell | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Slovakia | O2 | &check; | &check; | &check; | &nbsp; |
+| Slovakia | Orange | &check; | &check; | &check; | &nbsp; |
+| Slovakia | T-Mobile | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Slovakia | Telekom | &nbsp; | &check; | &check; | &nbsp; |
+| Slovenia | A1 | &nbsp; | &check; | &check; | &nbsp; |
+| Slovenia | Mobitel | &check; | &check; | &check; | &nbsp; |
+| Slovenia | SI Mobil | &check; | &nbsp; | &nbsp; | &nbsp; |
+| South Africa | Cell C | &nbsp; | &check; | &nbsp; | &nbsp; |
+| South Africa | MTN | &check; | &check; | &nbsp; | &nbsp; |
+| South Africa | Vodacom | &check; | &check; | &nbsp; | &nbsp; |
+| South Korea | KT | &check; | &check; | &nbsp; | &nbsp; |
+| South Korea | LG U+ | &nbsp; | &check; | &nbsp; | &nbsp; |
+| South Korea | SK Telecom | &check; | &check; | &nbsp; | &nbsp; |
+| South Sudan | MTN | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Spain | Orange | &nbsp; | &check; | &check; | &nbsp; |
+| Spain | Telefonica | &check; | &check; | &check; | &nbsp; |
+| Spain | Vodafone | &nbsp; | &check; | &check; | &nbsp; |
+| Spain | Yoigo | &nbsp; | &check; | &check; | &nbsp; |
+| Sri Lanka | Dialog | &check; | &check; | &nbsp; | &nbsp; |
+| Sri Lanka | Mobitel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Suriname | Digicel | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Suriname | Telesur | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Sweden | 3 (Tre) | &check; | &check; | &check; | &nbsp; |
+| Sweden | Tele2 | &check; | &check; | &check; | &nbsp; |
+| Sweden | Telenor | &check; | &check; | &check; | &nbsp; |
+| Sweden | Telia | &nbsp; | &check; | &check; | &nbsp; |
+| Switzerland | Salt | &check; | &check; | &check; | &nbsp; |
+| Switzerland | Sunrise | &check; | &check; | &check; | &nbsp; |
+| Switzerland | Swisscom | &nbsp; | &check; | &check; | &nbsp; |
+| Taiwan | Chunghwa | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Taiwan | FarEasTone | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Taiwan | T Star | &check; | &check; | &nbsp; | &nbsp; |
+| Taiwan | Taiwan Mobile | &check; | &check; | &nbsp; | &nbsp; |
+| Tajikistan | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Tajikistan | Tcell | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Tanzania | Airtel | &check; | &check; | &nbsp; | &nbsp; |
+| Tanzania | Vodacom | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Thailand | AIS | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Thailand | DTAC | &check; | &check; | &nbsp; | &nbsp; |
+| Thailand | True Move | &check; | &check; | &nbsp; | &nbsp; |
+| Trinidad and Tobago | Digicel | &check; | &check; | &nbsp; | &nbsp; |
+| Trinidad and Tobago | TSTT | &check; | &check; | &nbsp; | &nbsp; |
+| Tunisia | Orange Tunisie | &check; | &check; | &nbsp; | &nbsp; |
+| Tunisia | Tunisie Telecom | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Turkey | Türk Telekom | &check; | &check; | &nbsp; | &nbsp; |
+| Turkey | Turkcell | &check; | &check; | &nbsp; | &nbsp; |
+| Turkey | Vodafone | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Turks and Caicos Islands | Flow | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Uganda | Africell | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Uganda | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Uganda | MTN | &check; | &check; | &nbsp; | &nbsp; |
+| Ukraine | Kyivstar | &check; | &check; | &nbsp; | &nbsp; |
+| Ukraine | Life | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Ukraine | MTS | &nbsp; | &check; | &nbsp; | &nbsp; |
+| United Arab Emirates | du | &check; | &check; | &nbsp; | &nbsp; |
+| United Arab Emirates | Etisalat | &check; | &check; | &nbsp; | &nbsp; |
+| United Kingdom | 3 | &check; | &check; | &check; | &nbsp; |
+| United Kingdom | EE | &nbsp; | &check; | &check; | &nbsp; |
+| United Kingdom | Manx | &nbsp; | &check; | &check; | &nbsp; |
+| United Kingdom | O2 | &check; | &check; | &check; | &nbsp; |
+| United Kingdom | Sure | &nbsp; | &check; | &check; | &nbsp; |
+| United Kingdom | Vodafone | &check; | &check; | &check; | &nbsp; |
+| United States | Alaska Wireless | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| United States | AT&T | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
+| United States | T-Mobile (USA) | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| United States | Union Telephone | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Uruguay | Antel | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Uruguay | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Uruguay | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| Uzbekistan | Beeline | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Venezuela | Movistar | &check; | &check; | &nbsp; | &nbsp; |
+| Vietnam | MobiFone | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Vietnam | Viettel | &check; | &check; | &nbsp; | &nbsp; |
+| Vietnam | Vinaphone | &check; | &check; | &nbsp; | &nbsp; |
+| Virgin Islands (British) | CCT | &nbsp; | &check; | &nbsp; | &nbsp; |
+| Virgin Islands (British) | Flow | &check; | &check; | &nbsp; | &nbsp; |
+| Yemen | MTN Yemen | &check; | &nbsp; | &nbsp; | &nbsp; |
+| Zambia | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
+
+
+{{!-- END do not edit content above, it is automatically generated d833e557-5289-450c-92cf-a6eedec30bd8 --}}
+
 
 
 ### SIM cards
@@ -442,24 +855,5 @@ The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano S
 | E Series 2G/3G | E314 E310 | &nbsp; | &check; |
 | E Series LTE (Cat M1) | E404 E402 | &nbsp; | &check; |
 
-- Devices without a Nano SIM card socket cannot be used with a 3rd-party SIM card. 
+- Devices that do not have a nano SIM card socket (4FF) cannot be used with a 3rd-party SIM card. 
 - 3rd-party SIM cards are not recommended for product deployments at scale.
-
-## Software Differences
-
-### User firmware binary size
-
-One major advantage of Gen 3 devices is that user firmware binaries in Device OS 3.1.0 and later can be up to 256 Kbytes, instead of 128 Kbytes in earlier version of Device OS and on Gen 2 devices. The larger firmware binary support will not be added to Gen 2 in the future, and will only be available on Gen 3 devices.
-
-### Flash file system
-
-As mentioned earlier, there is a flash file system (2 MB except on the Tracker which is 4 MB) for storing user data, on Gen 3 devices only.
-
-### Combined and resumable OTA
-
-On Gen 3 devices, over-the-air (OTA) updates have two features that can improve the speed and reliability of OTA updates:
-
-- Combined OTA can combine Device OS and user firmware updates into a single binary that requires only one download and one reboot to install.
-- Resumable OTA allows an update to resume from the point it stopped, instead of starting over from the beginning.
-
-These features are only available on Gen 3 and will not be available on Gen 2.

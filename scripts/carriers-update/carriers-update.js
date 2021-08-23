@@ -802,6 +802,97 @@ const path = require('path');
         return md;    
     };
 
+    updater.generateGen2Migration = function() {
+        let md = '';
+
+        // Rows: Country - Carrier
+        // Columns: Country, Carrier, Gen 2, Boron 2G/3G, B524/T524, LTE M1
+
+        md += '| Country | Carrier | Gen 2 | Boron 2G/3G | B524/T524 | LTE M1 |\n';
+        md += '| :--- | :--- | :---: | :---: | :---: | :---: |\n'
+
+        updater.datastore.data.countryCarrier.forEach(function(ccObj) {
+            let row = '';
+            let hasCheck = false;
+
+            if (!ccObj.telefonicaPPU2020 || ccObj.telefonicaPPU2020.prohibited) {
+                if (!ccObj.supersim || ccObj.supersim.prohibited) {
+                    // Not Telefonica and not Twilio
+                    return;
+                }
+            }
+
+            row += '| ' + ccObj.country + ' | ' + ccObj.carrier + ' | ';
+
+            if (ccObj.telefonicaPPU2020 && !ccObj.telefonicaPPU2020.prohibited) {
+                // Has Telefonica
+                let cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'U201', 1);
+                if (cmsObj && cmsObj.recommendation == 'YES') {
+                    row += '&check; | ';
+                    hasCheck = true;
+                }
+                else {
+                    row += '&nbsp; | ';
+                }
+            }
+            else {
+                row += '&nbsp; | ';
+            }
+
+
+            if (ccObj.supersim && !ccObj.supersim.prohibited) {
+                // Has supersim
+                let cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'U201', 4);
+                if (cmsObj) {
+                    if (cmsObj.recommendation == 'YES') {
+                        row += '&check; | ';
+                        hasCheck = true;
+                    }
+                    else 
+                    if (cmsObj.recommendation == 'NRND') {
+                        row += '<sup>NRND</sup> | ';
+                        hasCheck = true;
+                    }
+                    else {
+                        row += '&nbsp; | ';
+                    }
+
+                }
+                else {
+                    row += '&nbsp; | ';
+                }
+
+                cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'EG91-E', 4);
+                if (cmsObj && cmsObj.recommendation == 'YES') {
+                    row += '&check; | ';
+                    hasCheck = true;
+                }
+                else {
+                    row += '&nbsp; | ';
+                }
+                
+
+                cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'R410', 4);
+                if (cmsObj && cmsObj.recommendation == 'YES' && ccObj.supersim.allowM1) {
+                    row += '&check; |';
+                    hasCheck = true;
+                }
+                else {
+                    row += '&nbsp; |';
+                }
+                
+            }
+            else {
+                row += '&nbsp; | &nbsp; | &nbsp; |';
+            }
+            if (hasCheck) {
+                md += row + '\n';
+            }
+        });
+
+        return md;
+    };
+
 
     updater.docsToUpdate = [
         {
@@ -1164,6 +1255,12 @@ const path = require('path');
                     guid:'d5825d70-1978-4172-a917-9127c8879f4e', 
                     generatorFn:function() {
                         return updater.generateFamilySkus('e series'); 
+                    } 
+                },
+                {
+                    guid:'0c8fb8e4-0420-11ec-9a03-0242ac130003',
+                    generatorFn:function() {
+                        return updater.generateGen2Migration(); 
                     } 
                 }
 
