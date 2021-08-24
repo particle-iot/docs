@@ -55,7 +55,6 @@ Though the form-factor is different than the Electron, they are nearly identical
 
 - Wire (D0/D1) and Wire1 (C4/D5) connect to the same I2C peripheral and only one can be used at a time.
 
-
 #### SKUs - E Series
 
 
@@ -99,7 +98,7 @@ Though the form-factor is different than the Electron, they are nearly identical
 
 #### Antennas - Gen 2
 
-Note that there are antenna differences between some Gen 2 and Gen 3 models, and a different antenna may be required.
+There are antenna differences between some Gen 2 and Gen 3 models, and a different antenna may be required.
 
 | Antenna | SKU | Details | Links |
 | :----- | :--- | :------ | :---- |
@@ -166,8 +165,7 @@ Even though the B Series SoM is more difficult to prototype with than the Boron,
 
 - The B Series SoM LTE Cat M1 (B404) is only recommended for use in the United States, Canada, and Mexico. 
 - The B Series LTE Cat 1 with 2G/3G fallback (B524) is only recommended in Europe, Australia, and New Zealand.
-
-Note that the T524 only supports EMEAA cellular frequencies and thus it cannot connect in most locations in the Americas. It does not work at all in the United States.
+- The B Series SoM B524 only supports EMEAA cellular frequencies and thus it cannot connect in most locations in the Americas. It does not work at all in the United States.
 
 #### Peripherals and GPIO - B Series SoM
 
@@ -205,6 +203,7 @@ The Asset Tracker SoM is a castellated SoM designed to be used with the Tracker 
 - IMU (accelerometer)
 - Real-time clock
 - Hardware watchdog
+- Wi-Fi (geolocation only, no Wi-Fi network support)
 
 In addition to using the Tracker One assembled module, the following application note can help with creating your first board that uses the bare Tracker SoM module.
 
@@ -214,8 +213,7 @@ In addition to using the Tracker One assembled module, the following application
 
 - The Tracker SoM LTE Cat M1 (T404) is only recommended for use in the United States, Canada, and Mexico. 
 - The Tracker LTE Cat 1 with 2G/3G fallback (T524) is only recommended in Europe, Australia, and New Zealand.
-
-Note that the T524 only supports EMEAA cellular frequencies and thus it cannot connect in most locations in the Americas. It does not work at all in the United States; you must use the T404 in the United States.
+- The Tracker SoM T524 only supports EMEAA cellular frequencies and thus it cannot connect in most locations in the Americas. It does not work at all in the United States.
 
 #### Peripherals and GPIO - Tracker SoM
 
@@ -300,6 +298,33 @@ On Gen 3 devices, over-the-air (OTA) updates have two features that can improve 
 
 ## Hardware differences
 
+
+### MCU
+
+The microcontroller is different in Gen 2 vs. Gen 3 devices:
+
+| Measure | Gen 2 | Gen 3 |
+| :--- | :---: | :---: |
+| MCU | STM32F205 | nRF52840 |
+| Manufacturer | ST Microelectronics | Nordic Semiconductor |
+| Processor | ARM Cortex M3 | ARM Cortex M4F |
+| Speed | 120 MHz | 64 MHz |
+| RAM | 128 KB | 256 KB | 
+| Flash (MCU) | 1 MB | 1 MB |
+| Flash (external) | &nbsp; | 4 MB<sup>1</sup> |
+| Hardware floating point | &nbsp; | &check; |
+
+- <sup>1</sup>8 MB on the Tracker SoM. Most of this space is reserved by the system and only a portion if it is available to user applications as a flash file system.
+- Not all RAM is available to user applications. The Device OS firmware uses a portion of it.
+
+### BLE (Bluetooth LE)
+
+- Bluetooth LE (BLE 5.0) is supported on Gen 3 devices but not Gen 2.
+
+### NFC Tag
+
+- NFC tag mode is supported on Gen 3 devices but not Gen 2.
+
 ### GPIO
 
 There are fewer available GPIO pins on Gen 3 devices. If you need a large number of GPIO pins, an external GPIO expander connected by I2C or SPI is a good option.
@@ -315,6 +340,7 @@ The other difference in the GPIO between Gen 2 and Gen 3 is with 5V tolerance. W
 **You must not connect 5V peripherals to a Gen 3 device.** This includes GPIO, ports (serial, I2C, SPI), and ADC. 
 
 Interfacing with 5V peripherals can be done with a level shifter, a MOSFET, or a 5V GPIO expander.
+
 
 ### Serial (UART)
 
@@ -360,6 +386,80 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 | LIN_SLAVE_10B | 8 data bits, no parity, 1 stop bit, LIN Slave mode with 10-bit break detection | &check; | &nbsp; |
 | LIN_SLAVE_11B | 8 data bits, no parity, 1 stop bit, LIN Slave mode with 11-bit break detection | &check; | &nbsp; |
 
+- Using an I2C or SPI UART like the SC16IS750 is also a good way to add support for other bit length, parity, and stop bit options on Gen 3 devices.
+
+### PWM (pulse width modulation)
+
+#### PWM - Gen 2
+
+On Gen 2 devices, the PWM frequency is from 1 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
+
+On the Electron and E Series, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX, TX, B0, B1, B2, B3, C4, and C5 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+
+The PWM frequency must be the same for pins in the same timer group.
+
+On the Electron and E Series, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
+
+#### PWM - Gen 3
+
+On Gen 3 devices, the PWM frequency is from 5 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
+
+On Gen 3 Feather devices (Boron), pins A0, A1, A2, A3, A4, A5, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 3: Pins D2, D3, A4, and A5.
+- Group 2: Pins A0, A1, A2, and A3.
+- Group 1: Pins D4, D5, D6, and D8.
+- Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
+On the Boron SoM, pins D4, D5, D7, A0, A1, A6, and A7 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 2: Pins A0, A1, A6, and A7.
+- Group 1: Pins D4, D5, and D6.
+- Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
+On the Tracker SoM, pins D0 - D9 can be used for PWM. Note that pins A0 - A7 are the same physical pin as D0 - D7. D8 is shared with TX (Serial1) and D9 is shared with RX (Serial1). When used for PWM, pins are assigned a PWM group. Each group must share the same frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 3: RGB LED
+- Group 2: D8 (TX), D9 (RX)
+- Group 1: D4, D5, D6, D7
+- Group 1: D0, D1, D2, D3
+
+It is also possible to add an external PWM driver such as the PCA9685 which adds 16 outputs via I2C. You can add 62 of these to a single I2C bus for 992 PWM outputs! The [Adafruit_PWMServoDriver](https://docs.particle.io/cards/libraries/a/Adafruit_PWMServoDriver/) library supports this chip on all Particle devices.
+
+### Interrupts
+
+#### Interrupts - Gen 2
+
+Not supported on the Electron/E series (you can't use attachInterrupt on these pins):
+
+  - D0, A5 (shared with MODE button)
+  - D7 (shared with BATT_INT_PC13)
+  - C1 (shared with RXD_UC)
+  - C2 (shared with RI_UC)
+
+No restrictions on the Electron/E Series (all of these can be used at the same time):
+
+  - D5, D6
+
+Shared on the Electron/E Series (only one pin for each bullet item can be used at the same time):
+
+  - D1, A4, B1
+  - D2, A0, A3
+  - D3, DAC
+  - D4, A1
+  - A2, C0
+  - A7 (WKP), B2, B4
+  - B0, C5
+  - B3, B5
+  - C3, TX
+  - C4, RX
+
+
+#### Interrupts - Gen 3
+
+There is a limit of 8 pins with interrupt handlers, however the selection of pins is not restricted.
 
 ### DAC
 
@@ -387,38 +487,6 @@ There are more UART ports on the Gen 2 devices than Gen 3. If you need more hard
 - The Tracker SoM includes CAN via a MCP25625 CAN interface with integrated transceiver.
 - Both the MCP2515 and MCP25625 work with [the library](https://github.com/particle-iot/can-mcp25x) used on the Tracker and can be used to add CAN to other Gen 3 devices.
 
-### MCU
-
-The microcontroller is different in Gen 2 vs. Gen 3 devices:
-
-| Measure | Gen 2 | Gen 3 |
-| :--- | :---: | :---: |
-| MCU | STM32F205 | nRF52840 |
-| Manufacturer | ST Microelectronics | Nordic Semiconductor |
-| Processor | ARM Cortex M3 | ARM Cortex M4F |
-| Speed | 120 MHz | 64 MHz |
-| RAM | 128 KB | 256 KB | 
-| Flash (MCU) | 1 MB | 1 MB |
-| Flash (external) | &nbsp; | 4 MB<sup>1</sup> |
-| Hardware floating point | &nbsp; | &check; |
-
-- <sup>1</sup>8 MB on the Tracker One. Most of this space is reserved by the system and only a portion if it is available to user applications as a flash file system.
-- Not all RAM is available to user applications. The Device OS firmware uses a portion of it.
-
-### BLE (Bluetooth LE)
-
-- Bluetooth LE (BLE 5.0) is supported on Gen 3 devices but not Gen 2.
-
-### NFC Tag
-
-- NFC tag mode is supported on Gen 3 devices but not Gen 2.
-
-### Flash file system
-
-- Gen 3 devices have a user-accessible flash file system with a POSIX API.
-- It is 2 MB on the Boron and B Series SoM, and 4 MB on the Tracker SoM.
-- Gen 2 devices do not have an available file system for storing data.
-
 ### Sleep Modes
 
 - In general, Gen 3 devices use less power in all modes.
@@ -429,9 +497,10 @@ The microcontroller is different in Gen 2 vs. Gen 3 devices:
 
 ### RTC (Real-time clock)
 
-- The E Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature is difficult to access on the Electron (requires removing a resistor on the module) amd does not exist on Gen 3 devices.
+- The E Series module has the ability to use an external lithium coin cell or supercap to power the RTC when the MCU is unpowered. This feature is difficult to access on the Electron (requires removing a resistor on the module) and does not exist on Gen 3 devices.
 - The RTC on Gen 3 devices is not really a real-time clock. It's basically just a counter, and some advanced wakeup features are not possible on Gen 3 devices. These features were not enabled by Device OS on Gen 2 devices, either, so this is generally not an issue.
 - On Gen 3 devices, in `HIBERNATE` sleep mode the RTC does not run, so it is not possible to wake by time, and the system clock will not be set until you connect to the cloud again. `ULTRA_LOW_POWER` is recommended instead.
+- The Tracker SoM has a separate real-time clock and watchdog (AM1805) chip allowing it to wake from `HIBERNATE` based on time.
 
 ### SWD/JTAG
 
@@ -440,13 +509,28 @@ The microcontroller is different in Gen 2 vs. Gen 3 devices:
 - The Boron has the debug connector on top of the module.
 - The B Series SoM has SWD on pads on the bottom of the SoM. The evaluation board connects to these with pogo pins and breaks out to the same 2x5 connector that is on the Boron.
 
+#### JTAG pin warning - Gen 2
+
+On Gen 2 devices, beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external devices. After reset, these pins will be briefly taken over for JTAG/SWD, before being restored to the default high-impedance INPUT state during boot.
+
+- D3, D5, and D7 are pulled high with a pull-up
+- D6 is pulled low with a pull-down
+- D4 is left floating
+
+The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. Using STARTUP will not prevent this! 
+
+This is not an issue with Gen 3 devices that have dedicated SWD pins.
+
 ### PMIC and Fuel Gauge
 
 The Electron, E Series, Boron, and Tracker SoM all include the PMIC (bq24195) and battery fuel gauge (MAX17043) on the module itself.
 
 On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you are powering by an external power supply and not using a battery, you can omit the components entirely.
 
+### USB differences
 
+- Gen 2 devices can emulate a USB mouse or keyboard over the USB port. This feature is not available on Gen 3.
+- Gen 2 devices can support two separate USB serial emulation streams over the USB port. Gen 3 devices only support the normal `Serial` interface.
 
 ## Cellular Differences
 
@@ -455,7 +539,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 
 {{!-- BEGIN do not edit content below, it is automatically generated 0c8fb8e4-0420-11ec-9a03-0242ac130003 --}}
 
-| Country | Carrier | Gen 2 | Boron 2G/3G | B524/T524 | LTE M1 |
+| Country | Carrier | Gen 2 | BRN314 | B524/T524 | LTE Cat M1 |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | Afghanistan | MTN | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Afghanistan | Roshan | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -510,10 +594,10 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Cabo Verde | CVMóvel | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Cambodia | Metfone | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Cameroon | MTN | &check; | &nbsp; | &nbsp; | &nbsp; |
-| Canada | Bell Mobility | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
-| Canada | Rogers Wireless | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
+| Canada | Bell Mobility | &check; | <sup>NRND</sup> | &nbsp; | &check; |
+| Canada | Rogers Wireless | &check; | <sup>NRND</sup> | &nbsp; | &check; |
 | Canada | Sasktel | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
-| Canada | Telus | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
+| Canada | Telus | &check; | <sup>NRND</sup> | &nbsp; | &check; |
 | Canada | Videotron | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Cayman Islands | Flow | &check; | &check; | &nbsp; | &nbsp; |
 | Chad | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
@@ -654,8 +738,8 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Malaysia | Maxis | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Malta | Go Mobile | &check; | &check; | &check; | &nbsp; |
 | Malta | Vodafone | &check; | &check; | &check; | &nbsp; |
-| Mexico | AT&T | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
-| Mexico | Movistar | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| Mexico | AT&T | &check; | <sup>NRND</sup> | &nbsp; | &check; |
+| Mexico | Movistar | &check; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Mexico | Telcel | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Moldova | Moldcell | &nbsp; | &check; | &check; | &nbsp; |
 | Moldova | Orange | &check; | &check; | &check; | &nbsp; |
@@ -807,8 +891,8 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | United Kingdom | Sure | &nbsp; | &check; | &check; | &nbsp; |
 | United Kingdom | Vodafone | &check; | &check; | &check; | &nbsp; |
 | United States | Alaska Wireless | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
-| United States | AT&T | &nbsp; | <sup>NRND</sup> | &nbsp; | &check; |
-| United States | T-Mobile (USA) | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
+| United States | AT&T | &check; | <sup>NRND</sup> | &nbsp; | &check; |
+| United States | T-Mobile (USA) | &check; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | United States | Union Telephone | &nbsp; | <sup>NRND</sup> | &nbsp; | &nbsp; |
 | Uruguay | Antel | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Uruguay | Claro | &nbsp; | &check; | &nbsp; | &nbsp; |
@@ -838,6 +922,7 @@ There are two different kinds of SIM cards, depending on the device.
 The MFF2 embedded SIM card is best for harsh conditions as it's more robust than the plastic card and connector. It is not a programmed eSIM, however. It's basically the same as the Particle SIM card, except in an SMD form-factor. It cannot be reprogrammed to support other carriers.
 
 The Boron has both a MFF2 Particle SIM soldered to the board and an empty nano SIM card holder that can be used for 3rd-party SIM cards. 
+
 
 | Device | Model | Nano SIM Card | MFF2 SMD SIM | 
 | --- | :--- | :---: | :---: | 

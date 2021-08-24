@@ -808,7 +808,7 @@ const path = require('path');
         // Rows: Country - Carrier
         // Columns: Country, Carrier, Gen 2, Boron 2G/3G, B524/T524, LTE M1
 
-        md += '| Country | Carrier | Gen 2 | Boron 2G/3G | B524/T524 | LTE M1 |\n';
+        md += '| Country | Carrier | Gen 2 | BRN314 | B524/T524 | LTE Cat M1 |\n';
         md += '| :--- | :--- | :---: | :---: | :---: | :---: |\n'
 
         updater.datastore.data.countryCarrier.forEach(function(ccObj) {
@@ -827,13 +827,14 @@ const path = require('path');
             if (ccObj.telefonicaPPU2020 && !ccObj.telefonicaPPU2020.prohibited) {
                 // Has Telefonica
                 let cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'U201', 1);
-                if (cmsObj && cmsObj.recommendation == 'YES') {
+                if (cmsObj && (cmsObj.recommendation == 'YES' || cmsObj.recommendation == 'NRND')) {
                     row += '&check; | ';
                     hasCheck = true;
                 }
                 else {
                     row += '&nbsp; | ';
                 }
+
             }
             else {
                 row += '&nbsp; | ';
