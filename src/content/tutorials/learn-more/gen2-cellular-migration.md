@@ -471,7 +471,7 @@ There is a limit of 8 pins with interrupt handlers, however the selection of pin
 
 - On Gen 2, Wire (D0/D1) and Wire1 (C4/D5) connect to the same I2C peripheral and only one can be used at a time.
 - On the Boron, there is only one available I2C interface (D0/D1).
-- On the B Series SoM, there are two available independent I2C interfaces (D0/D1 and D2/D3)
+- On the B Series SoM, there are two available independent I2C interfaces (D0/D1 and D2/D3).
 - On the Tracker SoM, Wire (D0/D1) and Wire3 (TX/RX) connect to the same I2C peripheral and only one can be used at a time. This feature is mainly because TX/RX are exposed on the M8 connector on the Tracker One, and this allows the port to be switched between I2C and UART serial modes.
 
 ### SPI
@@ -910,7 +910,7 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 
 ### SIM cards
 
-There are two different kinds of SIM cards, depending on the device.
+There are two different kinds of SIM cards, depending on the device:
 
 - Nano (4FF) SIM card holder that accepts a physical SIM card
 - MFF2 embedded SMD SIM soldered to the device
