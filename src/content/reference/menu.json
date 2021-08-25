@@ -27,6 +27,11 @@
         "href": "/reference/developer-tools/cli/"
       },
       {
+        "dir": "programming-devices",
+        "title": "Programming devices",
+        "href": "/reference/developer-tools/programming-devices/"
+      },
+      {
         "dir": "jtag",
         "title": "Using SWD/JTAG",
         "href": "/reference/developer-tools/jtag/"

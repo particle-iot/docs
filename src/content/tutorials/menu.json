@@ -250,6 +250,11 @@
         "dir": "organizations",
         "title": "Organizations",
         "href": "/tutorials/product-tools/organizations/"
+      },
+      {
+        "dir": "manufacturing-cellular",
+        "title": "Manufacturing - Cellular",
+        "href": "/tutorials/product-tools/manufacturing-cellular/"
       }
     ],
     {
@@ -338,6 +343,11 @@
         "dir": "node-js",
         "title": "node.js getting started",
         "href": "/tutorials/learn-more/node-js/"
+      },
+      {
+        "dir": "gen2-cellular-migration",
+        "title": "Gen 2 cellular migration",
+        "href": "/tutorials/learn-more/gen2-cellular-migration/"
       },
       {
         "dir": "ethernet-featherwing",

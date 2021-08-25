@@ -802,6 +802,98 @@ const path = require('path');
         return md;    
     };
 
+    updater.generateGen2Migration = function() {
+        let md = '';
+
+        // Rows: Country - Carrier
+        // Columns: Country, Carrier, Gen 2, Boron 2G/3G, B524/T524, LTE M1
+
+        md += '| Country | Carrier | Gen 2 | BRN314 | B524/T524 | LTE Cat M1 |\n';
+        md += '| :--- | :--- | :---: | :---: | :---: | :---: |\n'
+
+        updater.datastore.data.countryCarrier.forEach(function(ccObj) {
+            let row = '';
+            let hasCheck = false;
+
+            if (!ccObj.telefonicaPPU2020 || ccObj.telefonicaPPU2020.prohibited) {
+                if (!ccObj.supersim || ccObj.supersim.prohibited) {
+                    // Not Telefonica and not Twilio
+                    return;
+                }
+            }
+
+            row += '| ' + ccObj.country + ' | ' + ccObj.carrier + ' | ';
+
+            if (ccObj.telefonicaPPU2020 && !ccObj.telefonicaPPU2020.prohibited) {
+                // Has Telefonica
+                let cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'U201', 1);
+                if (cmsObj && (cmsObj.recommendation == 'YES' || cmsObj.recommendation == 'NRND')) {
+                    row += '&check; | ';
+                    hasCheck = true;
+                }
+                else {
+                    row += '&nbsp; | ';
+                }
+
+            }
+            else {
+                row += '&nbsp; | ';
+            }
+
+
+            if (ccObj.supersim && !ccObj.supersim.prohibited) {
+                // Has supersim
+                let cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'U201', 4);
+                if (cmsObj && (ccObj.supersim.allow2G || ccObj.supersim.allow3G)) {
+                    if (cmsObj.recommendation == 'YES') {
+                        row += '&check; | ';
+                        hasCheck = true;
+                    }
+                    else 
+                    if (cmsObj.recommendation == 'NRND') {
+                        row += '<sup>NRND</sup> | ';
+                        hasCheck = true;
+                    }
+                    else {
+                        row += '&nbsp; | ';
+                    }
+
+                }
+                else {
+                    row += '&nbsp; | ';
+                }
+
+                cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'EG91-E', 4);
+                if (cmsObj && cmsObj.recommendation == 'YES' && (ccObj.supersim.allow2G || ccObj.supersim.allow3G || ccObj.supersim.allowCat1)) {
+                    row += '&check; | ';
+                    hasCheck = true;
+                }
+                else {
+                    row += '&nbsp; | ';
+                }
+                
+
+                cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'R410', 4);
+                if (cmsObj && cmsObj.recommendation == 'YES' && ccObj.supersim.allowM1) {
+                    row += '&check; |';
+                    hasCheck = true;
+                }
+                else {
+                    row += '&nbsp; |';
+                }
+                
+            }
+            else {
+                row += '&nbsp; | &nbsp; | &nbsp; |';
+            }
+            if (hasCheck) {
+                md += row + '\n';
+            }
+        });
+
+        return md;
+    };
+
 
     updater.docsToUpdate = [
         {
@@ -1129,6 +1221,47 @@ const path = require('path');
                     guid:'d5825d70-1978-4172-a917-9127c8879f4e', 
                     generatorFn:function() {
                         return updater.generateFamilySkus('e series'); 
+                    } 
+                }
+            ]
+        },
+        {
+            path:'/tutorials/learn-more/gen2-cellular-migration.md', 
+            updates:[
+                {
+                    guid:'0f0d9a27-0176-4f7d-8006-75cf7c3f5072', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('boron'); 
+                    } 
+                },
+                {
+                    guid:'295a969b-7ffa-4f84-8234-7e4cb38d1f10', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('b series'); 
+                    } 
+                },
+                {
+                    guid:'d833e557-5289-450c-92cf-a6eedec30bd8', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('tracker'); 
+                    } 
+                },
+                {
+                    guid:'7a6e03da-072c-4955-922a-288e9609292a', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('electron'); 
+                    } 
+                },
+                {
+                    guid:'d5825d70-1978-4172-a917-9127c8879f4e', 
+                    generatorFn:function() {
+                        return updater.generateFamilySkus('e series'); 
+                    } 
+                },
+                {
+                    guid:'0c8fb8e4-0420-11ec-9a03-0242ac130003',
+                    generatorFn:function() {
+                        return updater.generateGen2Migration(); 
                     } 
                 }
 
