@@ -15957,6 +15957,12 @@ Specifies wake on pin. The mode is:
 
 You can use `.gpio()` multiple times to wake on any of multiple pins, with the limitations below.
 
+If you are using `RISING` mode, then an internal pull-down, equivalent to `INPUT_PULLDOWN` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices.
+
+If you are using `FALLING` mode, then an internal pull-up, equivalent to `INPUT_PULLUP` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices.
+
+This pull can be an issue if you are connecting the wake pin to a voltage divider! Using `CHANGE` mode does not add pull and can be used to work around this. Make sure the pin is not left floating when using `CHANGE`.
+
 ---
 
 ```cpp
