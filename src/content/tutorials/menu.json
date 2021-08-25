@@ -345,6 +345,11 @@
         "href": "/tutorials/learn-more/node-js/"
       },
       {
+        "dir": "gen2-cellular-migration",
+        "title": "Gen 2 cellular migration",
+        "href": "/tutorials/learn-more/gen2-cellular-migration/"
+      },
+      {
         "dir": "ethernet-featherwing",
         "title": "Ethernet FeatherWing",
         "href": "/tutorials/learn-more/ethernet-featherwing/"
