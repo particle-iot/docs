@@ -844,7 +844,7 @@ const path = require('path');
             if (ccObj.supersim && !ccObj.supersim.prohibited) {
                 // Has supersim
                 let cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'U201', 4);
-                if (cmsObj) {
+                if (cmsObj && (ccObj.supersim.allow2G || ccObj.supersim.allow3G)) {
                     if (cmsObj.recommendation == 'YES') {
                         row += '&check; | ';
                         hasCheck = true;
@@ -864,7 +864,7 @@ const path = require('path');
                 }
 
                 cmsObj = updater.datastore.findCountryModemSim(ccObj.country, 'EG91-E', 4);
-                if (cmsObj && cmsObj.recommendation == 'YES') {
+                if (cmsObj && cmsObj.recommendation == 'YES' && (ccObj.supersim.allow2G || ccObj.supersim.allow3G || ccObj.supersim.allowCat1)) {
                     row += '&check; | ';
                     hasCheck = true;
                 }

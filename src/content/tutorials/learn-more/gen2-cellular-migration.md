@@ -578,7 +578,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Belgium | Mobistar | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Belgium | Orange | &nbsp; | &check; | &check; | &nbsp; |
 | Belgium | Proximus | &check; | &check; | &check; | &nbsp; |
-| Belize | Smart | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Bermuda | CellOne | &check; | &nbsp; | &nbsp; | &nbsp; |
 | Bolivia | NuevaTel | &check; | &check; | &nbsp; | &nbsp; |
 | Bolivia | Tigo | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -689,7 +688,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Iceland | Siminn | &check; | &check; | &check; | &nbsp; |
 | Iceland | Vodafone | &check; | &check; | &check; | &nbsp; |
 | India | Airtel | &nbsp; | &check; | &nbsp; | &nbsp; |
-| India | Jio | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Indonesia | Indosat | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Indonesia | Telkomsel | &check; | &check; | &nbsp; | &nbsp; |
 | Indonesia | XL Axiata | &nbsp; | &check; | &nbsp; | &nbsp; |
@@ -707,7 +705,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | Italy | Wind | &check; | &check; | &check; | &nbsp; |
 | Jamaica | Digicel | &check; | &check; | &nbsp; | &nbsp; |
 | Jamaica | Flow | &check; | &check; | &nbsp; | &nbsp; |
-| Japan | KDDI | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Japan | NTT DoCoMo | &check; | &check; | &nbsp; | &nbsp; |
 | Japan | Softbank | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Jersey | Airtel-Vodafone | &check; | &nbsp; | &nbsp; | &nbsp; |
@@ -839,7 +836,6 @@ On the B Series SoM, the PMIC and fuel gauge are optional. For example, if you a
 | South Africa | MTN | &check; | &check; | &nbsp; | &nbsp; |
 | South Africa | Vodacom | &check; | &check; | &nbsp; | &nbsp; |
 | South Korea | KT | &check; | &check; | &nbsp; | &nbsp; |
-| South Korea | LG U+ | &nbsp; | &check; | &nbsp; | &nbsp; |
 | South Korea | SK Telecom | &check; | &check; | &nbsp; | &nbsp; |
 | South Sudan | MTN | &nbsp; | &check; | &nbsp; | &nbsp; |
 | Spain | Orange | &nbsp; | &check; | &check; | &nbsp; |
