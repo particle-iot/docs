@@ -1110,6 +1110,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
+- It will also update the [ApplicationWatchdog](/cards/firmware/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
 
 ### Particle.syncTime()
 
@@ -14803,7 +14804,7 @@ void setup() {
 
 void loop() {
   while (some_long_process_within_loop) {
-    wd->checkin(); // resets the AWDT count
+    ApplicationWatchdog::checkin(); // resets the AWDT count
   }
 }
 // AWDT count reset automatically after loop() ends
@@ -14812,6 +14813,8 @@ void loop() {
 A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes. If not enough stack memory is allocated, the application will crash due to a Stack Overflow. The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
+
+The `Particle.process()` function calls `ApplicationWatchdog::checkin()` internally, so you can also use that to service the application watchdog.
 
 ---
 

@@ -185,6 +185,8 @@ FCC Part 15 Subpart B, Class B (sDoC):
 - [Certificate of Conformity](/assets/pdfs/argon-fcc-part15b.pdf)
 - [Test report](/assets/pdfs/argon-fcc-part15b-test-report.pdf)
 
+
+
 #### Boron 2G/3G (BRN310 and BRN314)
 
 802.15.4 certification:
@@ -540,14 +542,15 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 #### Argon
 
-- [Summary](/assets/pdfs/argon-ce-summary.pdf)
-- [EMC Test Report](/assets/pdfs/argon-ce-emc-test-report.pdf)
-- [RED Mesh Test Report](/assets/pdfs/argon-mesh-ce-test-report.pdf)
+- [Summary](/assets/pdfs/argon-ce-summary.pdf) (updated 2021-08)
+- [EMC Test Report](/assets/pdfs/argon-ce-emc-test-report.pdf) (updated 2021-08)
+- [RED Mesh Test Report](/assets/pdfs/argon-mesh-ce-test-report.pdf) (updated 2021-08)
 - [RED Wi-Fi Test Report](/assets/pdfs/argon-wifi-ce-test-report.pdf)
 - [RED NFC Test Report](/assets/pdfs/argon-nfc-ce-test-report.pdf)
 - [EN-60950 Test Report](/assets/pdfs/argon-EN60950-test-report.pdf)
-- [EN-62311 Test Report](/assets/pdfs/argon-EN62311-test-report.pdf)
-- [EN-62479 Test Report](/assets/pdfs/argon-EN62479-test-report.pdf)
+- [EN-62311 Test Report](/assets/pdfs/argon-EN62311-test-report.pdf) (updated 2021-08)
+- [EN-62368-1 Test Report](/assets/pdfs/argon-EN62368-1.pdf) (updated 2021-08)
+- [EN-62479 Test Report](/assets/pdfs/argon-EN62479-test-report.pdf) (updated 2021-08)
 - [RoHS 3.0 Test Report](/assets/pdfs/argon-rohs.pdf)
 
 #### Boron 2G/3G (BRN310 and BRN314)
