@@ -1,6 +1,6 @@
 ---
 title: Cloud Debug
-layout: no-nav.hbs
+layout: commonTwo.hbs
 description: Tool for debugging cloud connection issues
 includeDefinitions: [api-helper, api-helper-usb, webdfu, zip, usb-serial]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Device Restore USB
-layout: no-nav.hbs
+layout: commonTwo.hbs
 description: Device restore over USB from a browser
 includeDefinitions: [api-helper, api-helper-usb, webdfu, zip]
 ---
