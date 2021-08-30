@@ -13,7 +13,7 @@ includeDefinitions: [api-helper, api-helper-usb, webdfu, zip, usb-serial]
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
 - It should work on some Android phones that support USB OTG when using Chrome, Opera, or Samsung Internet browsers.
-- For additional tips, see the [Device Restore](/device-restore-usb/) page.
+- For additional tips, see the [Device Restore](/tools/device-programming/device-restore-usb/) page.
 
 ### Setup
 

@@ -17,7 +17,7 @@ Say, for example, you're communicating with a LCD display for your device. If yo
 
 A common design in Arduino is to create a global variable for the class in your main application file. This works, however there are some caveats:
 
-The main issue is with global object constructors. There are numerous limitations on what you can include in a [global object constructor](/reference/device-os/firmware/#global-object-constructors) because the order of initialization is not guaranteed by the C++ compiler. It's completely non-deterministic, so making even minor changes will sometimes cause the order to change unexpectedly. This can also be an issues on compiler upgrades.
+The main issue is with global object constructors. There are numerous limitations on what you can include in a [global object constructor](/cards/firmware/global-object-constructors/global-object-constructors/) because the order of initialization is not guaranteed by the C++ compiler. It's completely non-deterministic, so making even minor changes will sometimes cause the order to change unexpectedly. This can also be an issues on compiler upgrades.
 
 Additionally, once more than one module needs the object, things start to get tricky. You need to pass an object reference to each module that needs it, which can run into a circular dependency problem. Accessing the global with `extern` can run into the global object constructor ordering issue.
 

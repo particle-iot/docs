@@ -131,7 +131,7 @@ things like the Web IDE and documentation at the same time.
 
 <div align="center">
 <br />
-<a href="/usb-serial/" target="_blank" class="button">Open Web Serial</a>
+<a href="/tools/troubleshooting/usb-serial/" target="_blank" class="button">Open Web Serial</a>
 </div>
 
 

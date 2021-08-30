@@ -51,7 +51,7 @@ The general procedure is:
 
 ## Custom hex files
 
-Using the [Hex File Generator](/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
+Using the [Hex File Generator](/tools/device-programming/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
 
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 
@@ -215,7 +215,7 @@ All you need to do is:
 
 ![Particle Debugger](/assets/images/accessories/debugger.png)
 
-You can try the [experimental web browser based Particle Debugger interface](/device-restore/). This experimental feature has numerous caveats, but it's pretty neat.
+You can try the [experimental web browser based Particle Debugger interface](/tools/device-programming/device-restore-jtag/). This experimental feature has numerous caveats, but it's pretty neat.
 
 - This tool is experimental, and may not work properly. It could leave your device in a bad state (but you can fix it with one of the other techniques if it happens).
 - You must [upgrade the firmware on your Particle Debugger](/datasheets/accessories/debugger/#upgrading-the-debugger) as the version from the factory does not have this functionality.
@@ -226,7 +226,7 @@ You can try the [experimental web browser based Particle Debugger interface](/de
 - It is only recommended for Gen 3 devices (Argon, Boron, B Series SoM, Tracker SoM). It does not work reliably on Gen 2.
 - It takes about 3 minutes to restore a device.
 
-<a href="/device-restore/" class="button">Web Browser Device Restore</a>
+<a href="/tools/device-programming/device-restore-jtag/" class="button">Web Browser Device Restore</a>
 
 
 ## Particle Debugger with OpenOCD (standalone)

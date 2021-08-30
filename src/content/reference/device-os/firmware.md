@@ -16,7 +16,7 @@ Device OS API
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
 
-It is also available [divided into small sections](/cards/firmware/) if you prefer that style. 
+It is also available [divided into small sections](/cards/firmware/introduction/introduction/) if you prefer that style. 
 Small sections also work better on mobile devices and small tablets.
 {{else}}
 You are viewing the multi-page version of the Device OS API reference manual.
