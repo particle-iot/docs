@@ -332,12 +332,6 @@ The [list product devices](/reference/device-cloud/api/#list-devices-in-a-produc
 The API also works for organization products, however the popup menu for selecting the product in this page 
 does not support that.
 
-### Move a product device
-
-This control moves devices from a developer sandbox into a product.
-
-{{> cloud-api-product-device-move}}
-
 ### Function (products)
 
 If you're [calling a function](/reference/device-cloud/api/#call-a-function) from a back-end server, you'll probably want to use a product bearer token and the product endpoint.

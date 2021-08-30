@@ -1,4 +1,3 @@
-const { config } = require("yargs");
 
 $(document).ready(function () {
     if ($('.apiHelper').length == 0) {
@@ -2295,7 +2294,6 @@ $(document).ready(function () {
             }
             else {
                 // No orgs
-                console.log('no orgs');
                 $(thisElem).find('input[value=org]:radio').prop('disabled', true);
                 $(thisElem).find('.orgSelectorRow').hide();
                 $(thisElem).find('.sandboxOrgRow').hide();
@@ -2314,11 +2312,15 @@ $(document).ready(function () {
         const deviceSelectorTableElem = $(thisElem).find('.deviceSelector');
         const selectAllButton = $(thisElem).find('.apiHelperSelectAllButton');
         const selectNoneButton = $(thisElem).find('.apiHelperSelectNoneButton');
+        const outputElem = $(thisElem).find('.apiHelperCloudApiOutput');
 
         let deviceInfo = [];
 
         const setStatus = function (status) {
             $(thisElem).find('.apiHelperStatus').html(status);
+        };
+        const appendOutput = function(s) {
+            $(outputElem).find('> pre').append(s);
         };
 
         const updateDeviceSelection = function() {
@@ -2338,8 +2340,6 @@ $(document).ready(function () {
         };
 
         const updateDeviceListData = function(deviceList) {
-            console.log('updateDeviceListData', deviceList);
-
             $(deviceSelectorTableElem).find('> tbody').html('');
             deviceInfo = [];
 
@@ -2384,10 +2384,6 @@ $(document).ready(function () {
                 $(actionButtonElem).prop('disabled', true);
                 return;
             }
-
-
-            // console.log('updateDeviceList devOrProductVal=' + devOrProductVal + ' sourceProduct=' + sourceProduct + ' destinationProduct=' +destinationProduct);
-
             
             if (devOrProductVal == 'dev') {
                 let deviceList = [];
@@ -2467,7 +2463,6 @@ $(document).ready(function () {
             if (!productId || !platformId) {
                 return;
             }
-            console.log('destination product change ' + platformId);
 
             $(productSourceElem).data('filterNotProductId', productId);
             $(productSourceElem).data('filterPlatformId', platformId);
@@ -2500,9 +2495,14 @@ $(document).ready(function () {
                 return;
             }
             const msg = 'Are you sure you want to move ' + numSelected + ' devices into product ' + destinationProduct + '?';
-            if (!config(msg)) {
+            if (!confirm(msg)) {
                 return;
             } 
+
+            $(outputElem).find('> pre').html('');
+            $(outputElem).show();
+
+            appendOutput( 'Moving ' + numSelected + ' devices into product ' + destinationProduct + '\n');
 
             // Move devices!
             for(const di of deviceInfo) {
@@ -2517,7 +2517,12 @@ $(document).ready(function () {
                         product: sourceProduct,
                         auth: apiHelper.auth.access_token 
                     });
-                    console.log('remove result', res);
+                    if (res.statusCode >= 200 && res.statusCode < 300) {
+                        appendOutput('Removing ' + di.id + ' from ' + sourceProduct + ' succeeded\n');
+                    }
+                    else {
+                        appendOutput('Removing ' + di.id + ' failed (code=' + res.statusCode + ')\n');
+                    }
                 }
 
 
@@ -2527,8 +2532,15 @@ $(document).ready(function () {
                     product: destinationProduct,
                     auth: apiHelper.auth.access_token 
                 });
-                console.log('add result', res);
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    appendOutput('Adding ' + di.id + ' to ' + destinationProduct + ' succeeded\n');
+                }
+                else {
+                    appendOutput('Adding ' + di.id + ' failed (code=' + res.statusCode + ')\n');
+                }
             }
+
+            appendOutput('Done!\n');
 
             updateDeviceList();
         });
