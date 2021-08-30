@@ -46,6 +46,17 @@
                 "title": "BLE Serial Console",
                 "href": "/tools/troubleshooting/ble-serial"
             }  
+        ],
+        {
+            "dir": "product-tools",
+            "isSection": true
+        },
+        [
+            {
+                "dir": "device-move",
+                "title": "Move devices into a product",
+                "href": "/tools/product-tools/device-move"
+            }
         ]
     ]
 }
