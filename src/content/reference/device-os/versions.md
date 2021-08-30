@@ -66,7 +66,7 @@ Note that particle update actually updates Device OS to the version that was the
 
 ### Browser DFU
 
-Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/device-restore-usb/) for more information.
+Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/tools/device-programming/device-restore-usb/) for more information.
 
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
@@ -257,7 +257,7 @@ While upgrades to Device OS are automatically handled by Safe Mode (breathing ma
 
 ### USB Downgrade - Browser
 
-Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/device-restore-usb/) for more information.
+Certain browsers can do a DFU upgrade or downgrade right from the browser page with no software or app install. See [Device Restore USB](/tools/device-programming/device-restore-usb/) for more information.
 
 - There is limited browser support on desktop: Chrome, Opera, and Edge. It does not work with Firefox or Safari. Chrome is recommended.
 - It should work on Chromebook, Mac, Linux, and Windows 10 on supported browsers.
@@ -432,4 +432,4 @@ particle flash electron7 electron-bootloader@1.5.2+lto.bin
 Using a SWD/JTAG debugger such as the Particle Debugger, ST-LINK, or Segger J-Link, plus 
 [device restore images](/reference/developer-tools/jtag/#restore-binaries) make it restore a device to a known state or downgrade Device OS easily.
 
-With some combinations of browsers, an upgraded Particle Debugger, and a Gen 3 device, you can also do a [JTAG Device Restore](/device-restore-jtag/) with no software or app install required.
+With some combinations of browsers, an upgraded Particle Debugger, and a Gen 3 device, you can also do a [JTAG Device Restore](/tools/device-programming/device-restore-jtag/) with no software or app install required.

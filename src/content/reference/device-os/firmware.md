@@ -16,7 +16,7 @@ Device OS API
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
 
-It is also available [divided into small sections](/cards/firmware/) if you prefer that style. 
+It is also available [divided into small sections](/cards/firmware/introduction/introduction/) if you prefer that style. 
 Small sections also work better on mobile devices and small tablets.
 {{else}}
 You are viewing the multi-page version of the Device OS API reference manual.
@@ -23277,7 +23277,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|[v3.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.2)|-|-|-|-|
-|v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|-|-|-|-|-|-|
+|v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|[v2.2.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.2)|-|-|-|-|-|
 |v2.1.x default releases|[v2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0)|-|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.1.0-rc.1)|-|-|-|-|-|-|
 |v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|-|-|-|-|-|
@@ -23314,7 +23314,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.2](/reference/device-os/firmware/?fw_ver=3.0.0-rc.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|[v2.2.0-rc.2](/reference/device-os/firmware/?fw_ver=2.2.0-rc.2&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v2.1.x default releases|[v2.1.0](/reference/device-os/firmware/?fw_ver=2.1.0&cli_ver=2.11.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](/reference/device-os/firmware/?fw_ver=2.1.0-rc.1&cli_ver=2.10.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.1](/reference/device-os/firmware/?fw_ver=2.0.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
@@ -23344,7 +23344,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1
+v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
 v2.11.0 = 2.1.0
 v2.10.1 = 2.1.0-rc.1
 v2.10.0 = 2.0.1, 3.0.0-beta.1, 3.0.0-rc.1, 3.0.0-rc.2, 3.0.0
