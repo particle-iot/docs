@@ -32,20 +32,31 @@
                 <tbody class="apiHelperDeviceSelector">
                 </tbody>
             </table>
-            <table class="deviceSelector apiHelperTableNoMargin">
-                <thead>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>Device Id</td>
-                        <td>Device Name</td>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <div>
-                    <button class="apiHelperSelectAllButton" disabled>Select All Devices</button> &nbsp;
-                    <button class="apiHelperSelectNoneButton" disabled>Select No Devices</button>
+            <div class="deviceTableAndButtons" style="display:none">
+                <table class="deviceSelector apiHelperTableNoMargin">
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Device ID</td>
+                            <td>Device Name</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div>
+                        <button class="apiHelperSelectAllButton" disabled>Select All Devices</button> &nbsp;
+                        <button class="apiHelperSelectNoneButton" disabled>Select No Devices</button>
+                </div>
+            </div>
+            <div class="noDevices" style="display:none">
+                <table class="apiHelperTableNoMargin">
+                    <tbody>
+                        <tr>
+                            <td>No devices to move.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div><button class="apiHelperActionButton" disabled>Move Devices</button></div>
             <div class="apiHelperStatus" style="padding-top: 5px;"></div>

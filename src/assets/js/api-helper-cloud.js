@@ -2252,9 +2252,9 @@ $(document).ready(function () {
                     }
                     html += '<option value="' + product.id + '">' + product.name + ' (' + product.id + ')</option>';
                 }
+
                 $(productSelectElem).html(html);
 
-                //enableButton();
             }
             else {
                 $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
@@ -2370,6 +2370,14 @@ $(document).ready(function () {
                 });
 
             }
+            if (deviceList.length == 0) {
+                $(thisElem).find('.deviceTableAndButtons').hide();
+                $(thisElem).find('.noDevices').show();
+            }
+            else {
+                $(thisElem).find('.deviceTableAndButtons').show();
+                $(thisElem).find('.noDevices').hide();
+            }
             updateDeviceSelection();
         };
 
@@ -2382,6 +2390,8 @@ $(document).ready(function () {
 
             if ((devOrProductVal == 'product' && !sourceProduct) || !destinationProduct) {
                 $(actionButtonElem).prop('disabled', true);
+                $(thisElem).find('.deviceTableAndButtons').hide();
+                $(thisElem).find('.noDevices').hide();
                 return;
             }
             
