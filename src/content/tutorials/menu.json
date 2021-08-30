@@ -222,6 +222,11 @@
         "href": "/tutorials/product-tools/introduction/"
       },
       {
+        "dir": "first-product",
+        "title": "First product",
+        "href": "/tutorials/product-tools/first-product/"
+      },
+      {
         "dir": "security",
         "title": "Security",
         "href": "/tutorials/product-tools/security/"
