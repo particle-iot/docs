@@ -27,6 +27,11 @@
         },
         [
             {
+                "dir": "lookup",
+                "title": "Lookup Tools",
+                "href": "/tools/troubleshooting/lookup"
+            },
+            {
                 "dir": "cloud-debug",
                 "title": "Cloud Debug",
                 "href": "/tools/troubleshooting/cloud-debug"

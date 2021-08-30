@@ -347,6 +347,8 @@
   "/support/wholesale-store/wholesale-products": "https://support.particle.io/hc/",
   "/tinker": "/tutorials/developer-tools/tinker",
   "/tools": "/tools/device-programming/device-restore-usb",
+  "/tools/device-programming": "/tools/device-programming/device-restore-usb",
+  "/tools/troubleshooting": "/tools/troubleshooting/lookup",
   "/troubleshooting": "/tutorials/device-os/led",
   "/tutorials": "/tutorials/device-os/device-os",
   "/tutorials/asset-tracking/": "/tutorials/asset-tracking/introduction",
