@@ -2236,20 +2236,48 @@ $(document).ready(function () {
                 return a.name.localeCompare(b.name);
             });
 
+            //console.log('productsData', productsData);
+
             if (productsData.products.length > 0) {
                 let html = '';
                 const filterNotProductId = $(thisElem).data('filterNotProductId');
                 const filterPlatformId = $(thisElem).data('filterPlatformId');
+                const filterEmpty = !!$(thisElem).attr('data-filter-empty');
+                const filterCellular = !!$(thisElem).attr('data-cellular');
 
                 for (let product of productsData.products) {
+                    if (filterEmpty && product.device_count == 0) {
+                        continue;
+                    }
                     if (filterPlatformId) {
                         if (product.platform_id != filterPlatformId) {
+                            continue;
+                        }
+                    }
+                    if (filterCellular) {
+                        let cellular = false;
+
+                        switch (product.platform_id) {
+                            case 10: // electron
+                            case 13: // boron
+                            case 23: // bsom
+                            case 25: // bsom
+                            case 26: // tracker
+                                cellular = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                        
+                        if (!cellular) {
                             continue;
                         }
                     }
                     if (filterNotProductId && product.id == filterNotProductId) {
                         continue;
                     }
+
                     html += '<option value="' + product.id + '">' + product.name + ' (' + product.id + ')</option>';
                 }
 
