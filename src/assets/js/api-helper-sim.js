@@ -17,6 +17,8 @@ $(document).ready(function() {
         const graphTypeSelectElem = $(thisElem).find('.graphTypeSelect');
         const dateSpanElem = $(thisElem).find('.dateSpan');
         const dateInputElem = $(thisElem).find('.dateInput');
+        const iccidSpanElem = $(thisElem).find('.iccidSpan');
+        const iccidInputElem = $(thisElem).find('.iccidInput');
 
         const setStatus = function (status) {
             $(thisElem).find('.apiHelperStatus').html(status);
@@ -211,108 +213,25 @@ $(document).ready(function() {
 
         };
 
-        const largestFleetDataUsersGraph = function(config) {
+        const simsLargestMonthlyDataUsageGraph = function(config) {
 
-            // Create an index by date
-            let dateToIndex = {};
-            let zeroArray = [];
-            let index = 0;
-            for(const usage of usageData.fleetUsage.usage_by_day) {
-                dateToIndex[usage.date] = index++;
-                zeroArray.push(0);
-            }
-
-            // Calculate the highest data users in the fleet
-            let usageAllDatesSims = [];
+            let simsByUsage = [];
             for(const iccid in usageData.simUsage) {
-                for(const usage of usageData.simUsage[iccid]) {
-                    usageAllDatesSims.push({iccid, mbs_used: usage.mbs_used });
+                const usageArray = usageData.simUsage[iccid];
+                const monthlyUsage = usageArray[usageArray.length - 1].mbs_used_cumulative;
+
+                if (monthlyUsage > 0) {
+                    simsByUsage.push({
+                        iccid,
+                        monthlyUsage
+                    });    
                 }
             }
 
-            usageAllDatesSims.sort(function(a, b) {
-                return b.mbs_used - a.mbs_used;
-            });
+            simsByUsage.sort(function(a, b) {
+                return b.monthlyUsage - a.monthlyUsage;
+            });            
 
-            // Pick out the SIMs with the largest use to keep track of separately
-            let largeUsageSims = {};
-            let colorIndex = 0;
-            for(const usage of usageAllDatesSims) {
-                if (usage.mbs_used == 0) {
-                    break;
-                }
-                if (!(usage.iccid in largeUsageSims)) {
-                    largeUsageSims[usage.iccid] = {
-                        usage: zeroArray.slice(),
-                        colorIndex: colorIndex++
-                    };
-                }
-            
-                if (colorIndex >= 10) {
-                    break;
-                }
-            }
-
-            for(const iccid in usageData.simUsage) {
-                for(const usage of usageData.simUsage[iccid]) {
-                    if (iccid in largeUsageSims) {
-                        largeUsageSims[iccid].usage[dateToIndex[usage.date]] = usage.mbs_used;
-                    }
-                }
-            }
-            console.log('largeUsageSims', largeUsageSims);
-
-            let samples = [];
-
-            config.type = 'bar';
-
-            config.data.labels = [];
-
-            config.data.datasets = [];
-            
-            for(const usage of usageData.fleetUsage.usage_by_day) {
-                config.data.labels.push(usage.date);
-            }
-
-            for(const iccid in largeUsageSims) {
-                
-                config.data.datasets.push({
-                    label: iccid,
-                    data: largeUsageSims[iccid].usage,
-                    backgroundColor: colorSet10[largeUsageSims[iccid].colorIndex]
-                });
-                
-            }
-            /*
-
-            for(const iccid of largeUsageSims) {
-            }
-            */
-
-            /*
-            {
-                label: 'Daily fleet usage (MB)',
-                data: samples,
-                fill: false,
-                backgroundColor: colorOther,
-                tension: 0.1
-            }]
-            */
-
-            for(const usage of usageData.fleetUsage.usage_by_day) {
-                config.data.labels.push(usage.date);
-                samples.push(usage.mbs_used);
-            }
-
-            config.options.scales = {
-                xAxes: [{ stacked: true }],
-                yAxes: [{ stacked: true }]
-            }
-
-        };
-
-        const dailyFleetQuintileGraph = function(config) {
-            /*
             let samples = [];
 
             config.type = 'bar';
@@ -320,23 +239,71 @@ $(document).ready(function() {
             config.data.labels = [];
 
             config.data.datasets = [{
-                label: 'Daily fleet usage (MB)',
+                label: 'SIMs with largest monthly data usage (MB)',
                 data: samples,
                 fill: false,
                 backgroundColor: colorDefault,
                 tension: 0.1
             }]
 
-            for(const usage of usageData.fleetUsage.usage_by_day) {
-                config.data.labels.push(usage.date);
-                samples.push(usage.mbs_used);
+            for(const obj of simsByUsage) {
+                config.data.labels.push(obj.iccid);
+                samples.push(obj.monthlyUsage);
             }
-            */
+
+            config.options.onClick = function(e) {
+                const points = cellularChart.getElementsAtEventForMode(e, 'nearest', {
+                    intersect: true
+                }, false);
+    
+                if (points.length) {
+                    const index = points[0].index;
+                    
+                    setTimeout(function() {
+                        $(iccidInputElem).val(config.data.labels[index]);
+                        $(graphTypeSelectElem).val('dailyUsageForSim');
+                        $(graphTypeSelectElem).trigger('change');    
+                    }, 10);
+                }
+            };
+        };
+
+        const dailyUsageForSimGraph = function(config) {
+            $(iccidSpanElem).show();
+
+            const iccid = $(iccidInputElem).val();
+            if (!usageData.simUsage[iccid]) {
+                return;
+            }
+
+            let samples = [];
+
+            config.type = 'bar';
+
+            config.data.labels = [];
+
+            config.data.datasets = [{
+                label: 'Daily usage for a SIM (MB)',
+                data: samples,
+                fill: false,
+                backgroundColor: colorDefault,
+                tension: 0.1
+            }]
+
+            for(const obj of usageData.simUsage[iccid]) {
+                config.data.labels.push(obj.date);
+                samples.push(obj.mbs_used);
+            }
 
         };
 
         $(dateInputElem).on('input', function() {
             console.log('date changed ' + $(dateInputElem).val());
+            $(graphTypeSelectElem).trigger('change');
+        });
+
+        $(iccidInputElem).on('input', function() {
+            console.log('iccid changed ' + $(iccidInputElem).val());
             $(graphTypeSelectElem).trigger('change');
         });
 
@@ -354,6 +321,7 @@ $(document).ready(function() {
             };
 
             $(dateSpanElem).hide();
+            $(iccidSpanElem).hide();
 
             switch(graphType) {
                 case 'dailyFleetCumulative':
@@ -368,13 +336,14 @@ $(document).ready(function() {
                     largestDataUsersOnDateGraph(config);
                     break;
 
-                case 'largestFleetDataUsers':
-                    largestFleetDataUsersGraph(config);
+                case 'simsLargestMonthlyDataUsage':
+                    simsLargestMonthlyDataUsageGraph(config);
                     break;
 
-                case 'dailyFleetQuintile':
-                    dailyFleetQuintileGraph(config);
+                case 'dailyUsageForSim':
+                    dailyUsageForSimGraph(config);
                     break;
+
             }
 
             
