@@ -89,6 +89,8 @@ $(document).ready(function() {
 
         const colorDefault = colorSet10[4];
 
+        const colorOther = '#e5e5e5';
+
         const dailyFleetCumulativeGraph = function(config) {
             let samples = [];
 
@@ -167,11 +169,8 @@ $(document).ready(function() {
             $(dateSpanElem).show();
 
             const date = $(dateInputElem).val();
-            console.log('largestDataUsersOnDateGraph' + date);
 
             let usageForDate = [];
-
-            console.log('usageData', usageData);
 
             // Aggregate usage by SIM for the specified date
             for(const iccid in usageData.simUsage) {
@@ -190,8 +189,6 @@ $(document).ready(function() {
             const largestUsageForDate = usageForDate.filter(function(elem, index) {
                 return (index < 20) && elem.mbs_used > 0;
             });
-
-            console.log('largestUsageForDate', largestUsageForDate);
 
             let samples = [];
 
@@ -215,7 +212,103 @@ $(document).ready(function() {
         };
 
         const largestFleetDataUsersGraph = function(config) {
-            // Calculate the 10 highest data users in the fleet
+
+            // Create an index by date
+            let dateToIndex = {};
+            let zeroArray = [];
+            let index = 0;
+            for(const usage of usageData.fleetUsage.usage_by_day) {
+                dateToIndex[usage.date] = index++;
+                zeroArray.push(0);
+            }
+
+            // Calculate the highest data users in the fleet
+            let usageAllDatesSims = [];
+            for(const iccid in usageData.simUsage) {
+                for(const usage of usageData.simUsage[iccid]) {
+                    usageAllDatesSims.push({iccid, mbs_used: usage.mbs_used });
+                }
+            }
+
+            usageAllDatesSims.sort(function(a, b) {
+                return b.mbs_used - a.mbs_used;
+            });
+
+            // Pick out the SIMs with the largest use to keep track of separately
+            let largeUsageSims = {};
+            let colorIndex = 0;
+            for(const usage of usageAllDatesSims) {
+                if (usage.mbs_used == 0) {
+                    break;
+                }
+                if (!(usage.iccid in largeUsageSims)) {
+                    largeUsageSims[usage.iccid] = {
+                        usage: zeroArray.slice(),
+                        colorIndex: colorIndex++
+                    };
+                }
+            
+                if (colorIndex >= 10) {
+                    break;
+                }
+            }
+
+            for(const iccid in usageData.simUsage) {
+                for(const usage of usageData.simUsage[iccid]) {
+                    if (iccid in largeUsageSims) {
+                        largeUsageSims[iccid].usage[dateToIndex[usage.date]] = usage.mbs_used;
+                    }
+                }
+            }
+            console.log('largeUsageSims', largeUsageSims);
+
+            let samples = [];
+
+            config.type = 'bar';
+
+            config.data.labels = [];
+
+            config.data.datasets = [];
+            
+            for(const usage of usageData.fleetUsage.usage_by_day) {
+                config.data.labels.push(usage.date);
+            }
+
+            for(const iccid in largeUsageSims) {
+                
+                config.data.datasets.push({
+                    label: iccid,
+                    data: largeUsageSims[iccid].usage,
+                    backgroundColor: colorSet10[largeUsageSims[iccid].colorIndex]
+                });
+                
+            }
+            /*
+
+            for(const iccid of largeUsageSims) {
+            }
+            */
+
+            /*
+            {
+                label: 'Daily fleet usage (MB)',
+                data: samples,
+                fill: false,
+                backgroundColor: colorOther,
+                tension: 0.1
+            }]
+            */
+
+            for(const usage of usageData.fleetUsage.usage_by_day) {
+                config.data.labels.push(usage.date);
+                samples.push(usage.mbs_used);
+            }
+
+            config.options.scales = {
+                xAxes: [{ stacked: true }],
+                yAxes: [{ stacked: true }]
+            }
+
         };
 
         const dailyFleetQuintileGraph = function(config) {
