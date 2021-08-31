@@ -14,12 +14,16 @@ $(document).ready(function() {
         const downloadDataButtonElem = $(thisElem).find('.downloadData');
         const searchModeElem = $(thisElem).find('.searchMode');
         const usageGraphsDivElem = $(thisElem).find('.usageGraphsDiv');
+        const graphTypeSelectElem = $(thisElem).find('.graphTypeSelect');
+        const dateSpanElem = $(thisElem).find('.dateSpan');
+        const dateInputElem = $(thisElem).find('.dateInput');
 
         const setStatus = function (status) {
             $(thisElem).find('.apiHelperStatus').html(status);
         };
 
         let usageData = {};
+        let cellularChart;
 
         $(productSelector).data('onChange', function() {
 
@@ -66,9 +70,232 @@ $(document).ready(function() {
             }
         });
 
+        const colorSet10 = [
+            '#d9ed92',
+            '#b5e48c',
+            '#99d98c',
+            '#76c893',
+            '#52b69a',
+            '#34a0a4',
+            '#168aad',
+            '#1a759f',
+            '#1e6091',
+            '#184e77'
+        ];
+
+        const colorSet5 = colorSet10.filter(function(elem, index) {
+            return (index % 2) == 1;
+        });
+
+        const colorDefault = colorSet10[4];
+
+        const dailyFleetCumulativeGraph = function(config) {
+            let samples = [];
+
+            config.type = 'line';
+
+            config.data.labels = [];
+
+            config.data.datasets = [{
+                label: 'Daily fleet cumulative usage (MB)',
+                data: samples,
+                fill: false,
+                borderColor: colorDefault,
+                tension: 0.1
+            }]
+
+            for(const usage of usageData.fleetUsage.usage_by_day) {
+                config.data.labels.push(usage.date);
+                samples.push(usage.mbs_used_cumulative);
+            }
+
+            config.options.onClick = function(e) {
+                const points = cellularChart.getElementsAtEventForMode(e, 'nearest', {
+                    intersect: true
+                }, false);
+    
+                if (points.length) {
+                    const index = points[0].index;
+    
+                    setTimeout(function() {
+                        $(dateInputElem).val(config.data.labels[index]);
+                        $(graphTypeSelectElem).val('largestDataUsersOnDate');
+                        $(graphTypeSelectElem).trigger('change');    
+                    }, 10);
+                }
+            };
+        };
+
+        const dailyFleetUsageGraph = function(config) {
+            let samples = [];
+
+            config.type = 'bar';
+
+            config.data.labels = [];
+
+            config.data.datasets = [{
+                label: 'Daily fleet usage (MB)',
+                data: samples,
+                fill: false,
+                backgroundColor: colorDefault,
+                tension: 0.1
+            }]
+
+            for(const usage of usageData.fleetUsage.usage_by_day) {
+                config.data.labels.push(usage.date);
+                samples.push(usage.mbs_used);
+            }
+
+            config.options.onClick = function(e) {
+                const points = cellularChart.getElementsAtEventForMode(e, 'nearest', {
+                    intersect: true
+                }, false);
+    
+                if (points.length) {
+                    const index = points[0].index;
+                    
+                    setTimeout(function() {
+                        $(dateInputElem).val(config.data.labels[index]);
+                        $(graphTypeSelectElem).val('largestDataUsersOnDate');
+                        $(graphTypeSelectElem).trigger('change');    
+                    }, 10);
+                }
+            };
+    
+        };
+        const largestDataUsersOnDateGraph = function(config) {
+            $(dateSpanElem).show();
+
+            const date = $(dateInputElem).val();
+            console.log('largestDataUsersOnDateGraph' + date);
+
+            let usageForDate = [];
+
+            console.log('usageData', usageData);
+
+            // Aggregate usage by SIM for the specified date
+            for(const iccid in usageData.simUsage) {
+                for(const usage of usageData.simUsage[iccid]) {
+                    if (usage.date == date) {
+                        usageForDate.push({iccid, mbs_used: usage.mbs_used });
+                        break;
+                    }
+                }
+            }
+
+            usageForDate.sort(function(a, b) {
+                return b.mbs_used - a.mbs_used;
+            });
+
+            const largestUsageForDate = usageForDate.filter(function(elem, index) {
+                return (index < 20) && elem.mbs_used > 0;
+            });
+
+            console.log('largestUsageForDate', largestUsageForDate);
+
+            let samples = [];
+
+            config.type = 'bar';
+
+            config.data.labels = [];
+
+            config.data.datasets = [{
+                label: 'Largest data users on date',
+                data: samples,
+                fill: false,
+                backgroundColor: colorDefault,
+                tension: 0.1
+            }]
+
+            for(const usage of largestUsageForDate) {
+                config.data.labels.push(usage.iccid);
+                samples.push(usage.mbs_used);
+            }
+
+        };
+
+        const largestFleetDataUsersGraph = function(config) {
+            // Calculate the 10 highest data users in the fleet
+        };
+
+        const dailyFleetQuintileGraph = function(config) {
+            /*
+            let samples = [];
+
+            config.type = 'bar';
+
+            config.data.labels = [];
+
+            config.data.datasets = [{
+                label: 'Daily fleet usage (MB)',
+                data: samples,
+                fill: false,
+                backgroundColor: colorDefault,
+                tension: 0.1
+            }]
+
+            for(const usage of usageData.fleetUsage.usage_by_day) {
+                config.data.labels.push(usage.date);
+                samples.push(usage.mbs_used);
+            }
+            */
+
+        };
+
+        $(dateInputElem).on('input', function() {
+            console.log('date changed ' + $(dateInputElem).val());
+            $(graphTypeSelectElem).trigger('change');
+        });
+
+        $(graphTypeSelectElem).on('change', function() {
+            const graphType = $(graphTypeSelectElem).val();
+
+            if (cellularChart) {
+                cellularChart.destroy();
+                cellularChart = null;
+            }
+
+            let config = {
+                data: {},
+                options: {}
+            };
+
+            $(dateSpanElem).hide();
+
+            switch(graphType) {
+                case 'dailyFleetCumulative':
+                    dailyFleetCumulativeGraph(config);
+                    break;
+
+                case 'dailyFleetUsage':
+                    dailyFleetUsageGraph(config);
+                    break;
+
+                case 'largestDataUsersOnDate':
+                    largestDataUsersOnDateGraph(config);
+                    break;
+
+                case 'largestFleetDataUsers':
+                    largestFleetDataUsersGraph(config);
+                    break;
+
+                case 'dailyFleetQuintile':
+                    dailyFleetQuintileGraph(config);
+                    break;
+            }
+
+            
+
+            cellularChart = new Chart(
+                document.getElementById('cellularChart'),
+                config
+            );
+
+        });
+
         const showGraphs = function() {
-            console.log('showGraphs');
             $(usageGraphsDivElem).show();
+            $(graphTypeSelectElem).trigger('change');
         };
 
         $(thisElem).on('dragenter', function(e) {

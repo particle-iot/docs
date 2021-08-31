@@ -19,5 +19,19 @@
         </div>
         <div class="apiHelperStatus" style="padding-top: 5px;"></div>
         <div><progress class="progressBar" max="100" value="0" style="display:none"></progress></div>
+        <div class="usageGraphsDiv">
+            <p><select class="graphTypeSelect apiHelperSelect">
+                    <option value="dailyFleetCumulative" selected>Daily fleet cumulative usage</option>
+                    <option value="dailyFleetUsage">Daily fleet usage</option>
+                    <option value="largestDataUsersOnDate">Largest data users on date</option>
+                    <option value="largestFleetDataUsers">Large fleet data users</option>
+                    <option value="dailyFleetQuintile">Daily fleet usage by quintile</option>
+                </select>
+            <span class="dateSpan" style="display:none">Date: <input type="text" length="10" class="dateInput"></input> (YYYY-MM-DD)</span>    
+            </p>
+        </div>
     </div>
+</div>
+<div>
+    <canvas id="cellularChart"></canvas>
 </div>
