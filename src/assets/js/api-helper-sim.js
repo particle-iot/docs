@@ -17,8 +17,6 @@ $(document).ready(function() {
         Object.assign(fullState, productState);
         Object.assign(fullState, graphState);
 
-        console.log('fullState', fullState);
-
         let query = '';
         let sep = '?';
         for(const key in fullState) {
@@ -41,7 +39,8 @@ $(document).ready(function() {
         const progressBarElem = $(thisElem).find('.progressBar');
         const postRetrieveActionsElem = $(thisElem).find('.postRetrieveActions');
         const downloadDataButtonElem = $(thisElem).find('.downloadData');
-        const searchModeElem = $(thisElem).find('.searchMode');
+        const restoreFileInput = $(thisElem).find('.apiHelperRestoreFileInput');
+        const restoreDataButtonElem = $(thisElem).find('.restoreData');
         const usageGraphsDivElem = $(thisElem).find('.usageGraphsDiv');
         const graphTypeSelectElem = $(thisElem).find('.graphTypeSelect');
         const dateSpanElem = $(thisElem).find('.dateSpan');
@@ -62,9 +61,9 @@ $(document).ready(function() {
         const loadSavedUsageData = function() {
             const savedUsage = sessionStorage.getItem(JSON.stringify(productState));
             if (savedUsage) {
-                console.log('have savedUsage in sessionStorage');
                 usageData = JSON.parse(savedUsage);
                 $(postRetrieveActionsElem).show();
+                $(downloadDataButtonElem).prop('disabled', false);
                 $(graphTypeSelectElem).trigger('change');
                 return true;
             }
@@ -81,7 +80,6 @@ $(document).ready(function() {
             for(const [key, value] of urlParams) {
                 querySettings[key] = value;
             }
-            console.log('querySettings', querySettings);
 
             $(productSelector).data('loadQuerySettings')(querySettings);
 
@@ -131,9 +129,7 @@ $(document).ready(function() {
             setStatus('');
 
             $(productSelector).data('saveQuerySettings')(productState);
-            console.log('productState', productState);
             if (loadSavedUsageData()) {
-                console.log('have saved usage data');
                 return;
             }
 
@@ -577,12 +573,7 @@ $(document).ready(function() {
             e.preventDefault();
         });
 
-        $(thisElem).on('drop', function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-
-            const files = e.originalEvent.dataTransfer.files;
-
+        const restoreFile = function(files) {
             for(file of files) {
                 if (file.type == 'application/json') {
                     //$(searchModeElem).hide();
@@ -605,6 +596,15 @@ $(document).ready(function() {
                     break;
                 }
             }
+        };
+
+        $(thisElem).on('drop', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            const files = e.originalEvent.dataTransfer.files;
+
+            restoreFile(files);
            
         });
 
@@ -614,6 +614,16 @@ $(document).ready(function() {
 
             let blob = new Blob([JSON.stringify(usageData, null, 2)], {type:'application/json'});
             saveAs(blob, 'fleetUsage.json');
+        });
+
+        $(restoreFileInput).on('change', function() {
+
+            restoreFile(this.files);
+
+        });
+
+        $(restoreDataButtonElem).on('click', function() {
+            $(restoreFileInput).click();
         });
 
 
@@ -640,12 +650,12 @@ $(document).ready(function() {
 
             // Save data in session storage so we can efficiently go forward and backward in history
             sessionStorage.setItem(JSON.stringify(productState), JSON.stringify(usageData));
-            console.log('saving usageData in sessionStorage ');
 
             setStatus('Get data complete!');
             $(progressBarElem).hide();
 
             $(postRetrieveActionsElem).show();
+            $(downloadDataButtonElem).prop('disabled', false);
 
             showGraphs();
         }
@@ -681,9 +691,9 @@ $(document).ready(function() {
             $(progressBarElem).hide();
             $(postRetrieveActionsElem).hide();
             $(usageGraphsDivElem).hide();
+            $(downloadDataButtonElem).prop('disabled', true);
 
             $(productSelector).data('saveQuerySettings')(productState);
-            console.log('productState', productState);
     
             usageData.productId = $(productSelector).data('getProductId')();
 

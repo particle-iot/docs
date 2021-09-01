@@ -12,9 +12,13 @@
                     <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product</td><td><select class="apiHelperProductSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
                 </tbody>            
             </table>
-            <div><button class="apiHelperActionButton" disabled>Get Usage Data</button></div>
+            <div>
+                <button class="apiHelperActionButton" disabled>Get Usage Data</button> &nbsp;&nbsp;| &nbsp;&nbsp;
+                <button class="downloadData" disabled>Save Usage Data</button> &nbsp;
+                <input type="file" class="apiHelperRestoreFileInput" accept="*.json" style="display:none">
+                <button class="restoreData">Restore Usage Data</button>
+            </div>
             <div class="postRetrieveActions" style="display:none">
-                <button class="downloadData">Download Usage Data</button>
             </div>
         </div>
         <div class="apiHelperStatus" style="padding-top: 5px;"></div>

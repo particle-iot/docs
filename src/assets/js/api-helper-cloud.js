@@ -908,8 +908,6 @@ $(document).ready(function () {
                     setStatus('Token created!');
                     ga('send', 'event', 'Create Token Simple', 'Success');
 
-                    console.log('success ', resp);
-
                     $(thisElem).find('.apiHelperAuthSettingsAccessToken').val(resp.access_token);
                     $(accessTokenRow).show();
 
@@ -2237,8 +2235,6 @@ $(document).ready(function () {
                 return a.name.localeCompare(b.name);
             });
 
-            //console.log('productsData', productsData);
-
             if (productsData.products.length > 0) {
                 let html = '';
                 const filterNotProductId = $(thisElem).data('filterNotProductId');
@@ -2340,15 +2336,12 @@ $(document).ready(function () {
         $(thisElem).data('loadQuerySettings', function(stateObj) {
             queryState = stateObj;
 
-            console.log('loadQuerySettings', queryState);
-
-            if (queryState.sandboxOrg){
-                $(thisElem).find('.sandboxOrg:radio').prop('checked', false);
-                $(thisElem).find('.sandboxOrg:radio[value="' + queryState.sandboxOrg + '"]').prop('checked', true);
-                $(thisElem).find('.sandboxOrg').trigger('change');
+            if (queryState.sandboxOrg) {
+                $(thisElem).find('.sandboxOrg:radio[value="' + queryState.sandboxOrg + '"]').trigger('click');
             }
             if (queryState.orgId && orgsData) {
                 $(orgSelectElem).val(queryState.orgId);
+                $(orgSelectElem).trigger('change');
             }
             
             if (queryState.productId && productsData) {
