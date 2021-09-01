@@ -134,7 +134,7 @@ void setup()
 
     // Change to normal mode to allow messages to be transmitted. If you don't do this,
     // the CAN chip will be in loopback mode.
-    canInterface.setMode(MODE_NORMAL);   
+    canInterface.setMode(MCP_MODE_NORMAL);   
 
     // Connect to the cloud!
     Particle.connect();
