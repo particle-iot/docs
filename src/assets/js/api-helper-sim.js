@@ -19,10 +19,16 @@ $(document).ready(function() {
         const dateInputElem = $(thisElem).find('.dateInput');
         const iccidSpanElem = $(thisElem).find('.iccidSpan');
         const iccidInputElem = $(thisElem).find('.iccidInput');
+        const cellularTableElem = $('#cellularTable');
+        const cellularChartInstructionsElem = $('#cellularChartInstructions');
 
         const setStatus = function (status) {
             $(thisElem).find('.apiHelperStatus').html(status);
         };
+
+        const setInstructions = function(s) {
+            $(cellularChartInstructionsElem).text(s);
+        }
 
         let usageData = {};
         let cellularChart;
@@ -42,9 +48,7 @@ $(document).ready(function() {
                     product: usageData.productId,
                     auth: apiHelper.auth.access_token 
                 }).then(
-                    function(res) {
-                        console.log('res', res);
-                
+                    function(res) {                
                         if (res.statusCode == 200) {
                             // res.body.total_active_sim_cards
                             // res.body.total_mbs_used
@@ -89,7 +93,7 @@ $(document).ready(function() {
             return (index % 2) == 1;
         });
 
-        const colorDefault = colorSet10[4];
+        const colorDefault = '#4face9';
 
         const colorOther = '#e5e5e5';
 
@@ -128,6 +132,8 @@ $(document).ready(function() {
                     }, 10);
                 }
             };
+
+            setInstructions('Click on a point to view the usage details for that date');
         };
 
         const dailyFleetUsageGraph = function(config) {
@@ -165,12 +171,21 @@ $(document).ready(function() {
                     }, 10);
                 }
             };
+
+            setInstructions('Click on a bar to view the usage details for that date');
     
         };
         const largestDataUsersOnDateGraph = function(config) {
             $(dateSpanElem).show();
 
-            const date = $(dateInputElem).val();
+            let date = $(dateInputElem).val();
+            if (!date && usageData.fleetUsage.usage_by_day.length > 0) {
+                date = usageData.fleetUsage.usage_by_day[0].date;
+                $(dateInputElem).val(date);
+            }
+            if (!date) {
+                return;
+            }
 
             let usageForDate = [];
 
@@ -211,6 +226,25 @@ $(document).ready(function() {
                 samples.push(usage.mbs_used);
             }
 
+            setInstructions('');
+            config.options.onClick = function(e) {
+                const points = cellularChart.getElementsAtEventForMode(e, 'nearest', {
+                    intersect: true
+                }, false);
+    
+                if (points.length) {
+                    const index = points[0].index;
+                    
+                    setTimeout(function() {
+                        $(iccidInputElem).val(config.data.labels[index]);
+                        $(graphTypeSelectElem).val('dailyUsageForSim');
+                        $(graphTypeSelectElem).trigger('change');    
+                    }, 10);
+                }
+            };
+
+            setInstructions('Click on a bar to view usage for that SIM for the month');
+            
         };
 
         const simsLargestMonthlyDataUsageGraph = function(config) {
@@ -266,15 +300,56 @@ $(document).ready(function() {
                     }, 10);
                 }
             };
+
+            setInstructions('Click on a bar to view details for that SIM');
+
         };
+
+
+        const simpleTable = function(obj) {
+
+            const tableElem = document.createElement('table');
+
+            const tbodyElem = document.createElement('tbody');
+
+            let trElem;
+            
+            for(key in obj) {
+                const value = obj[key];
+
+                const trElem = document.createElement('tr');
+
+                let tdElem;
+
+                tdElem = document.createElement('td');
+                $(tdElem).text(key);
+                trElem.appendChild(tdElem);
+
+                tdElem = document.createElement('td');
+                $(tdElem).text(value);
+                trElem.appendChild(tdElem);
+
+                tbodyElem.appendChild(trElem);                
+            }
+
+            tableElem.appendChild(tbodyElem);
+
+            return tableElem;
+        }
 
         const dailyUsageForSimGraph = function(config) {
             $(iccidSpanElem).show();
 
-            const iccid = $(iccidInputElem).val();
+            let iccid = $(iccidInputElem).val();
+            if (!iccid && usageData.simUsage.length > 0) {
+                iccid = Object.keys(usageData.simUsage)[0];
+                $(iccidInputElem).val(iccid);
+            }
             if (!usageData.simUsage[iccid]) {
                 return;
             }
+            $(cellularTableElem).html('');
+            $(cellularTableElem).show();
 
             let samples = [];
 
@@ -295,15 +370,33 @@ $(document).ready(function() {
                 samples.push(obj.mbs_used);
             }
 
+            setInstructions('');
+
+            // ICCID information table
+            let tableData = {};
+
+            tableData['ICCID'] = iccid;
+
+            for(const sim of usageData.simList) {
+                if (sim._id == iccid) {
+                    tableData['Device ID'] = sim.last_device_id;
+                    tableData['Device Name'] = sim.last_device_name;
+                }
+            }
+
+            const usageArray = usageData.simUsage[iccid];
+            tableData['Monthly Usage'] = usageArray[usageArray.length - 1].mbs_used_cumulative;
+
+            $(cellularTableElem).html(simpleTable(tableData));
+            
         };
 
+
         $(dateInputElem).on('input', function() {
-            console.log('date changed ' + $(dateInputElem).val());
             $(graphTypeSelectElem).trigger('change');
         });
 
         $(iccidInputElem).on('input', function() {
-            console.log('iccid changed ' + $(iccidInputElem).val());
             $(graphTypeSelectElem).trigger('change');
         });
 
@@ -322,6 +415,7 @@ $(document).ready(function() {
 
             $(dateSpanElem).hide();
             $(iccidSpanElem).hide();
+            $(cellularTableElem).hide();
 
             switch(graphType) {
                 case 'dailyFleetCumulative':
@@ -346,12 +440,12 @@ $(document).ready(function() {
 
             }
 
-            
-
-            cellularChart = new Chart(
-                document.getElementById('cellularChart'),
-                config
-            );
+            if (!config.noChart) {
+                cellularChart = new Chart(
+                    document.getElementById('cellularChart'),
+                    config
+                );    
+            }
 
         });
 
@@ -428,26 +522,16 @@ $(document).ready(function() {
 
             $(postRetrieveActionsElem).show();
 
-            console.log('simUsage', usageData.simUsage);
             showGraphs();
         }
 
-        $(actionButtonElem).on('click', function() {
-            $(actionButtonElem).prop('disabled', true);
-            $(progressBarElem).hide();
-            $(postRetrieveActionsElem).hide();
-            $(usageGraphsDivElem).hide();
-
-            usageData.productId = $(productSelector).data('getProductId')();
-
+        const getListOfSimCards = function() {
             setStatus('Getting list of SIM cards...');
             usageData.simList = [];
 
             const fetchPage = function(page) {
                 apiHelper.particle.listSIMs({ auth: apiHelper.auth.access_token, product:usageData.productId, perPage:100, page }).then(
                     function(data) {
-                        console.log('data', data);
-
                         data.body.sims.forEach(function(sim) {
                             usageData.simList.push(sim);
                         });
@@ -465,6 +549,30 @@ $(document).ready(function() {
                 );            
             }    
             fetchPage(1);
+        }
+
+        $(actionButtonElem).on('click', function() {
+            $(actionButtonElem).prop('disabled', true);
+            $(progressBarElem).hide();
+            $(postRetrieveActionsElem).hide();
+            $(usageGraphsDivElem).hide();
+
+            usageData.productId = $(productSelector).data('getProductId')();
+
+            setStatus('Getting team members...');
+            usageData.teamList = [];
+
+            apiHelper.particle.listTeamMembers({ auth: apiHelper.auth.access_token, product:usageData.productId }).then(
+                function(data) {
+                    usageData.teamList = data.body.team;
+
+                    // Done
+                    getListOfSimCards();
+                },
+                function(err) {            
+                }
+            );            
+
         });
 
     });

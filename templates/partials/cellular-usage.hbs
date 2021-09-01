@@ -20,21 +20,25 @@
         <div class="apiHelperStatus" style="padding-top: 5px;"></div>
         <div><progress class="progressBar" max="100" value="0" style="display:none"></progress></div>
         <div class="usageGraphsDiv">
-            <p><select class="graphTypeSelect apiHelperSelect">
-                    <option value="dailyFleetCumulative" selected>Daily fleet cumulative usage</option>
+            <div><select class="graphTypeSelect apiHelperSelect">
                     <option value="dailyFleetUsage">Daily fleet usage</option>
-                    <option value="largestDataUsersOnDate">Largest data users on date</option>
+                    <option value="dailyFleetCumulative" selected>Daily fleet cumulative usage</option>
                     <option value="simsLargestMonthlyDataUsage">SIMs with largest monthly data usage</option>
+                    <option value="largestDataUsersOnDate">Largest data users on date</option>
                     <option value="dailyUsageForSim">Daily usage for a single SIM</option>
                 </select>
-            </p>
-            <p>
-                <span class="dateSpan" style="display:none">Date: <input type="text" size="10" class="dateInput"></input> (YYYY-MM-DD)</span>    
-                <span class="iccidSpan" style="display:none">SIM ICCID: <input type="text" size="24" class="iccidInput"></input></span>
-            </p>
+            </div>
+            <div style="padding-top: 6px;">
+                <div class="dateSpan" style="display:none">Date: <input type="text" size="10" class="dateInput"></input> (YYYY-MM-DD)</div>    
+                <div class="iccidSpan" style="display:none">SIM ICCID: <input type="text" size="24" class="iccidInput"></input></div>
+            </div>
         </div>
     </div>
 </div>
 <div>
     <canvas id="cellularChart"></canvas>
+</div>
+<div id="cellularTable" style="display:none">
+</div>
+<div id="cellularChartInstructions" style="font-size: small">
 </div>
