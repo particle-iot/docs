@@ -4,6 +4,35 @@ $(document).ready(function() {
         return;
     }
 
+    // Remember the search parameters before they are replaced
+    let urlParams = new URLSearchParams(window.location.search);
+
+    let productState = {};
+    let graphState = {};
+    let lastQuery = '';
+
+    const pushHistoryState = function() {
+
+        let fullState = {};
+        Object.assign(fullState, productState);
+        Object.assign(fullState, graphState);
+
+        console.log('fullState', fullState);
+
+        let query = '';
+        let sep = '?';
+        for(const key in fullState) {
+            const value = fullState[key];
+
+            query += sep + key + '=' + encodeURIComponent(value);
+            sep = '&';
+        }
+        if (query && query != lastQuery) {
+            history.pushState(null, '', query);
+            lastQuery = query;
+        }
+    }
+
     $('.apiHelperCellularUsage').each(function () {
         const thisElem = $(this);
 
@@ -30,6 +59,67 @@ $(document).ready(function() {
             $(cellularChartInstructionsElem).text(s);
         }
 
+        const loadSavedUsageData = function() {
+            const savedUsage = sessionStorage.getItem(JSON.stringify(productState));
+            if (savedUsage) {
+                console.log('have savedUsage in sessionStorage');
+                usageData = JSON.parse(savedUsage);
+                $(postRetrieveActionsElem).show();
+                $(graphTypeSelectElem).trigger('change');
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+
+        const loadQuerySettings = function() {
+            // Load query settings
+
+            let querySettings = {};
+            for(const [key, value] of urlParams) {
+                querySettings[key] = value;
+            }
+            console.log('querySettings', querySettings);
+
+            $(productSelector).data('loadQuerySettings')(querySettings);
+
+            let triggerChange = false;
+
+            if (loadSavedUsageData()) {
+                triggerChange = true;
+            }
+
+            if (querySettings.iccid) {
+                $(iccidInputElem).val(querySettings.iccid);
+                triggerChange = true;
+            }
+
+            if (querySettings.date) {
+                $(dateInputElem).val(querySettings.date);
+                triggerChange = true;
+            }
+
+            if (querySettings.graphType) {
+                if ($(graphTypeSelectElem).val() != querySettings.graphType) {
+                    $(graphTypeSelectElem).val(querySettings.graphType);
+                    triggerChange = true;
+                }
+            }
+
+            if (triggerChange) {
+                $(graphTypeSelectElem).trigger('change');
+            }
+        }
+
+        window.addEventListener('popstate', function(event) {
+            urlParams = new URLSearchParams(window.location.search);
+            
+            loadQuerySettings();
+        });
+
+
         let usageData = {};
         let cellularChart;
 
@@ -39,6 +129,13 @@ $(document).ready(function() {
 
             usageData.fleetUsage = null;
             setStatus('');
+
+            $(productSelector).data('saveQuerySettings')(productState);
+            console.log('productState', productState);
+            if (loadSavedUsageData()) {
+                console.log('have saved usage data');
+                return;
+            }
 
             $(actionButtonElem).prop('disabled', !usageData.productId);
             $(usageGraphsDivElem).hide();
@@ -134,6 +231,8 @@ $(document).ready(function() {
             };
 
             setInstructions('Click on a point to view the usage details for that date');
+            pushHistoryState();
+
         };
 
         const dailyFleetUsageGraph = function(config) {
@@ -173,7 +272,8 @@ $(document).ready(function() {
             };
 
             setInstructions('Click on a bar to view the usage details for that date');
-    
+            pushHistoryState();
+
         };
         const simUsageOnDateGraph = function(config) {
             $(dateSpanElem).show();
@@ -186,6 +286,7 @@ $(document).ready(function() {
             if (!date) {
                 return;
             }
+            graphState.date = date;
 
             let usageForDate = [];
 
@@ -247,7 +348,8 @@ $(document).ready(function() {
             };
 
             setInstructions('Click on a bar to view usage for that SIM for the month');
-            
+            pushHistoryState();
+
         };
 
         const simsLargestMonthlyDataUsageGraph = function(config) {
@@ -305,6 +407,7 @@ $(document).ready(function() {
             };
 
             setInstructions('Click on a bar to view details for that SIM');
+            pushHistoryState();
 
         };
 
@@ -353,6 +456,7 @@ $(document).ready(function() {
             }
             $(cellularTableElem).html('');
             $(cellularTableElem).show();
+            graphState.iccid = iccid;
 
             let samples = [];
 
@@ -391,7 +495,7 @@ $(document).ready(function() {
             tableData['Monthly Usage'] = usageArray[usageArray.length - 1].mbs_used_cumulative;
 
             $(cellularTableElem).html(simpleTable(tableData));
-            
+            pushHistoryState();
         };
 
 
@@ -409,6 +513,14 @@ $(document).ready(function() {
             if (cellularChart) {
                 cellularChart.destroy();
                 cellularChart = null;
+            }
+
+            $(usageGraphsDivElem).show();
+
+            graphState = {graphType};
+
+            if (!usageData || !usageData.simUsage || !usageData.fleetUsage) {
+                return;
             }
 
             let config = {
@@ -449,7 +561,6 @@ $(document).ready(function() {
                     config
                 );    
             }
-
         });
 
         const showGraphs = function() {
@@ -474,12 +585,17 @@ $(document).ready(function() {
 
             for(file of files) {
                 if (file.type == 'application/json') {
-                    $(searchModeElem).hide();
+                    //$(searchModeElem).hide();
 
                     let reader = new FileReader();
 
                     reader.onload = function(e) {
                         usageData = JSON.parse(e.target.result);
+
+                        if (usageData.productState) {
+                            productState = usageData.productState;
+                            $(productSelector).data('loadQuerySettings')(productState);
+                        }
 
                         setStatus('Loaded previously saved data for ' + usageData.simList.length + ' SIMs');
                         showGraphs();
@@ -493,7 +609,9 @@ $(document).ready(function() {
         });
 
 
-        $(downloadDataButtonElem).on('click', function() {
+        $(downloadDataButtonElem).on('click', function() {            
+            usageData.productState = productState;
+
             let blob = new Blob([JSON.stringify(usageData, null, 2)], {type:'application/json'});
             saveAs(blob, 'fleetUsage.json');
         });
@@ -519,6 +637,10 @@ $(document).ready(function() {
                 }
                 $(progressBarElem).prop('value', ++ii);
             }
+
+            // Save data in session storage so we can efficiently go forward and backward in history
+            sessionStorage.setItem(JSON.stringify(productState), JSON.stringify(usageData));
+            console.log('saving usageData in sessionStorage ');
 
             setStatus('Get data complete!');
             $(progressBarElem).hide();
@@ -560,6 +682,9 @@ $(document).ready(function() {
             $(postRetrieveActionsElem).hide();
             $(usageGraphsDivElem).hide();
 
+            $(productSelector).data('saveQuerySettings')(productState);
+            console.log('productState', productState);
+    
             usageData.productId = $(productSelector).data('getProductId')();
 
             setStatus('Getting team members...');
@@ -577,6 +702,8 @@ $(document).ready(function() {
             );            
 
         });
+
+        loadQuerySettings();
 
     });
 });

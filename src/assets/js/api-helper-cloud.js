@@ -2170,6 +2170,7 @@ $(document).ready(function () {
 
         let productsData;
         let orgsData;
+        let queryState;
 
         const showHideRows = function() {
             const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
@@ -2283,6 +2284,10 @@ $(document).ready(function () {
 
                 $(productSelectElem).html(html);
 
+                if (queryState.productId) {
+                    $(productSelectElem).val(queryState.productId);
+                }
+
             }
             else {
                 $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
@@ -2316,7 +2321,11 @@ $(document).ready(function () {
                 for (let org of orgsData.organizations) {
                     html += '<option value="' + org.id + '">' + org.name + '</option>';
                 }
-                $(thisElem).find('.apiHelperOrgSelect').html(html);
+                $(orgSelectElem).html(html);
+
+                if (queryState.orgId) {
+                    $(orgSelectElem).val(queryState.orgId);
+                }
 
                 updateProductList();
             }
@@ -2327,6 +2336,38 @@ $(document).ready(function () {
                 $(thisElem).find('.sandboxOrgRow').hide();
             }
         });
+
+        $(thisElem).data('loadQuerySettings', function(stateObj) {
+            queryState = stateObj;
+
+            console.log('loadQuerySettings', queryState);
+
+            if (queryState.sandboxOrg){
+                $(thisElem).find('.sandboxOrg:radio').prop('checked', false);
+                $(thisElem).find('.sandboxOrg:radio[value="' + queryState.sandboxOrg + '"]').prop('checked', true);
+                $(thisElem).find('.sandboxOrg').trigger('change');
+            }
+            if (queryState.orgId && orgsData) {
+                $(orgSelectElem).val(queryState.orgId);
+            }
+            
+            if (queryState.productId && productsData) {
+                $(productSelectElem).val(queryState.productId);
+                $(productSelectElem).trigger('change');
+            }
+            
+        });
+        $(thisElem).data('saveQuerySettings', function(stateObj) {
+            stateObj.sandboxOrg = $(thisElem).find('.sandboxOrg:checked').val();
+            if (stateObj.sandboxOrg == 'org') {
+                stateObj.orgId = $(orgSelectElem).val();
+            }
+            else {
+                delete stateObj.orgId;
+            }
+            stateObj.productId = $(productSelectElem).val();
+        });
+
 
     });
 
