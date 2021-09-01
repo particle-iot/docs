@@ -908,8 +908,6 @@ $(document).ready(function () {
                     setStatus('Token created!');
                     ga('send', 'event', 'Create Token Simple', 'Success');
 
-                    console.log('success ', resp);
-
                     $(thisElem).find('.apiHelperAuthSettingsAccessToken').val(resp.access_token);
                     $(accessTokenRow).show();
 
@@ -2170,6 +2168,7 @@ $(document).ready(function () {
 
         let productsData;
         let orgsData;
+        let queryState;
 
         const showHideRows = function() {
             const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
@@ -2240,20 +2239,50 @@ $(document).ready(function () {
                 let html = '';
                 const filterNotProductId = $(thisElem).data('filterNotProductId');
                 const filterPlatformId = $(thisElem).data('filterPlatformId');
+                const filterEmpty = !!$(thisElem).attr('data-filter-empty');
+                const filterCellular = !!$(thisElem).attr('data-cellular');
 
                 for (let product of productsData.products) {
+                    if (filterEmpty && product.device_count == 0) {
+                        continue;
+                    }
                     if (filterPlatformId) {
                         if (product.platform_id != filterPlatformId) {
+                            continue;
+                        }
+                    }
+                    if (filterCellular) {
+                        let cellular = false;
+
+                        switch (product.platform_id) {
+                            case 10: // electron
+                            case 13: // boron
+                            case 23: // bsom
+                            case 25: // bsom
+                            case 26: // tracker
+                                cellular = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                        
+                        if (!cellular) {
                             continue;
                         }
                     }
                     if (filterNotProductId && product.id == filterNotProductId) {
                         continue;
                     }
+
                     html += '<option value="' + product.id + '">' + product.name + ' (' + product.id + ')</option>';
                 }
 
                 $(productSelectElem).html(html);
+
+                if (queryState.productId) {
+                    $(productSelectElem).val(queryState.productId);
+                }
 
             }
             else {
@@ -2288,7 +2317,11 @@ $(document).ready(function () {
                 for (let org of orgsData.organizations) {
                     html += '<option value="' + org.id + '">' + org.name + '</option>';
                 }
-                $(thisElem).find('.apiHelperOrgSelect').html(html);
+                $(orgSelectElem).html(html);
+
+                if (queryState.orgId) {
+                    $(orgSelectElem).val(queryState.orgId);
+                }
 
                 updateProductList();
             }
@@ -2299,6 +2332,35 @@ $(document).ready(function () {
                 $(thisElem).find('.sandboxOrgRow').hide();
             }
         });
+
+        $(thisElem).data('loadQuerySettings', function(stateObj) {
+            queryState = stateObj;
+
+            if (queryState.sandboxOrg) {
+                $(thisElem).find('.sandboxOrg:radio[value="' + queryState.sandboxOrg + '"]').trigger('click');
+            }
+            if (queryState.orgId && orgsData) {
+                $(orgSelectElem).val(queryState.orgId);
+                $(orgSelectElem).trigger('change');
+            }
+            
+            if (queryState.productId && productsData) {
+                $(productSelectElem).val(queryState.productId);
+                $(productSelectElem).trigger('change');
+            }
+            
+        });
+        $(thisElem).data('saveQuerySettings', function(stateObj) {
+            stateObj.sandboxOrg = $(thisElem).find('.sandboxOrg:checked').val();
+            if (stateObj.sandboxOrg == 'org') {
+                stateObj.orgId = $(orgSelectElem).val();
+            }
+            else {
+                delete stateObj.orgId;
+            }
+            stateObj.productId = $(productSelectElem).val();
+        });
+
 
     });
 

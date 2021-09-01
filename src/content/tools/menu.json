@@ -53,6 +53,11 @@
         },
         [
             {
+                "dir": "cellular-usage",
+                "title": "Cellular data usage",
+                "href": "/tools/product-tools/cellular-usage"
+            },
+            {
                 "dir": "device-move",
                 "title": "Move devices into a product",
                 "href": "/tools/product-tools/device-move"
