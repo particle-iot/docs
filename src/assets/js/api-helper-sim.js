@@ -190,6 +190,8 @@ $(document).ready(function() {
 
         const colorOther = '#e5e5e5';
 
+        const colorNoData = '#ffafcc';
+
         const dailyFleetCumulativeGraph = function(config) {
             let samples = [];
 
@@ -494,6 +496,93 @@ $(document).ready(function() {
             pushHistoryState();
         };
 
+        const dailySimNoDataGraph = function(config) {
+            $(cellularTableElem).html('');
+            $(cellularTableElem).show();
+
+            setInstructions('');
+
+            // 
+            let ignoreDate = [];
+            for(const usage of usageData.fleetUsage.usage_by_day) {
+                if (usage.mbs_used == 0) {
+                    ignoreDate.push(usage.date);
+                }   
+            }
+
+            let trElem;
+            let tdElem;
+
+            const tableElem = document.createElement('table');
+
+            const theadElem = document.createElement('thead');
+            trElem = document.createElement('tr');
+
+            tdElem = document.createElement('td');
+            $(tdElem).text('ICCID');
+            trElem.appendChild(tdElem);
+
+            for(const usage of usageData.fleetUsage.usage_by_day) {
+                if (!ignoreDate.includes(usage.date)) {
+                    tdElem = document.createElement('td');
+
+                    const lastDash = usage.date.lastIndexOf('-');
+                    if (lastDash) {
+                        $(tdElem).text(usage.date.substr(lastDash + 1));
+                    }
+
+                    trElem.appendChild(tdElem);
+                }
+            }
+            theadElem.appendChild(trElem);                
+
+            tableElem.appendChild(theadElem);
+
+            const tbodyElem = document.createElement('tbody');
+
+            for(const iccid in usageData.simUsage) {
+                let hasNoUsageOnDates = false;
+
+                for(const usage of usageData.simUsage[iccid]) {
+                    if (usage.mbs_used == 0 && !ignoreDate.includes(usage.date)) {
+                        hasNoUsageOnDates = true;
+                        break;
+                    }
+                }
+
+                if (hasNoUsageOnDates) {
+                    trElem = document.createElement('tr');
+
+                    tdElem = document.createElement('td');
+                    $(tdElem).text(iccid);
+                    trElem.appendChild(tdElem);
+
+                    for(const usage of usageData.simUsage[iccid]) {
+                        if (!ignoreDate.includes(usage.date)) {
+                            tdElem = document.createElement('td');
+                            if (usage.mbs_used == 0) {
+                                $(tdElem).attr('style', 'background-color:' + colorNoData);
+                            }
+                            $(tdElem).html('&nbsp;');
+                            trElem.appendChild(tdElem);
+                        }
+                    }    
+
+                    $(trElem).on('click', function() {
+                        $(iccidInputElem).val(iccid);
+                        $(graphTypeSelectElem).val('dailyUsageForSim');
+                        $(graphTypeSelectElem).trigger('change');    
+                    });
+
+                    tbodyElem.appendChild(trElem);                        
+                }
+            }
+
+            tableElem.appendChild(tbodyElem);
+
+            $(cellularTableElem).html(tableElem);
+            pushHistoryState();
+        };
 
         $(dateInputElem).on('input', function() {
             $(graphTypeSelectElem).trigger('change');
@@ -549,9 +638,13 @@ $(document).ready(function() {
                     dailyUsageForSimGraph(config);
                     break;
 
+                case 'dailySimNoData':
+                    dailySimNoDataGraph(config);
+                    break;
+
             }
 
-            if (!config.noChart) {
+            if (config.type && config.data) {
                 cellularChart = new Chart(
                     document.getElementById('cellularChart'),
                     config
