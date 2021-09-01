@@ -127,7 +127,7 @@ $(document).ready(function() {
     
                     setTimeout(function() {
                         $(dateInputElem).val(config.data.labels[index]);
-                        $(graphTypeSelectElem).val('largestDataUsersOnDate');
+                        $(graphTypeSelectElem).val('simUsageOnDate');
                         $(graphTypeSelectElem).trigger('change');    
                     }, 10);
                 }
@@ -166,7 +166,7 @@ $(document).ready(function() {
                     
                     setTimeout(function() {
                         $(dateInputElem).val(config.data.labels[index]);
-                        $(graphTypeSelectElem).val('largestDataUsersOnDate');
+                        $(graphTypeSelectElem).val('simUsageOnDate');
                         $(graphTypeSelectElem).trigger('change');    
                     }, 10);
                 }
@@ -175,7 +175,7 @@ $(document).ready(function() {
             setInstructions('Click on a bar to view the usage details for that date');
     
         };
-        const largestDataUsersOnDateGraph = function(config) {
+        const simUsageOnDateGraph = function(config) {
             $(dateSpanElem).show();
 
             let date = $(dateInputElem).val();
@@ -203,8 +203,8 @@ $(document).ready(function() {
                 return b.mbs_used - a.mbs_used;
             });
 
-            const largestUsageForDate = usageForDate.filter(function(elem, index) {
-                return (index < 20) && elem.mbs_used > 0;
+            usageForDate = usageForDate.filter(function(elem, index) {
+                return (index < 15) && elem.mbs_used > 0;
             });
 
             let samples = [];
@@ -214,19 +214,22 @@ $(document).ready(function() {
             config.data.labels = [];
 
             config.data.datasets = [{
-                label: 'Largest data users on date',
+                label: 'Largest SIM usage on date',
                 data: samples,
                 fill: false,
                 backgroundColor: colorDefault,
                 tension: 0.1
             }]
 
-            for(const usage of largestUsageForDate) {
+            for(const usage of usageForDate) {
                 config.data.labels.push(usage.iccid);
                 samples.push(usage.mbs_used);
             }
 
             setInstructions('');
+
+            config.options.indexAxis = 'y';
+
             config.options.onClick = function(e) {
                 const points = cellularChart.getElementsAtEventForMode(e, 'nearest', {
                     intersect: true
@@ -426,8 +429,8 @@ $(document).ready(function() {
                     dailyFleetUsageGraph(config);
                     break;
 
-                case 'largestDataUsersOnDate':
-                    largestDataUsersOnDateGraph(config);
+                case 'simUsageOnDate':
+                    simUsageOnDateGraph(config);
                     break;
 
                 case 'simsLargestMonthlyDataUsage':
