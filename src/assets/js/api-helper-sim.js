@@ -109,6 +109,8 @@ $(document).ready(function() {
             if (triggerChange) {
                 $(graphTypeSelectElem).trigger('change');
             }
+
+            $(actionButtonElem).prop('disabled', !usageData.productId);
         }
 
         window.addEventListener('popstate', function(event) {
@@ -689,6 +691,7 @@ $(document).ready(function() {
                     break;
                 }
             }
+            $(actionButtonElem).prop('disabled', false);
         };
 
         $(thisElem).on('drop', function(e) {
@@ -747,6 +750,7 @@ $(document).ready(function() {
             setStatus('Get data complete!');
             $(progressBarElem).hide();
 
+            $(actionButtonElem).prop('disabled', false);
             $(postRetrieveActionsElem).show();
             $(downloadDataButtonElem).prop('disabled', false);
 
