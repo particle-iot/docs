@@ -332,21 +332,21 @@ The [list product devices](/reference/device-cloud/api/#list-devices-in-a-produc
 The API also works for organization products, however the popup menu for selecting the product in this page 
 does not support that.
 
-#### Function (products)
+### Function (products)
 
 If you're [calling a function](/reference/device-cloud/api/#call-a-function) from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
 {{> cloud-api-function productToken="1" productId="1" deviceIdField="1"}}
 
 
-#### Variables (product)
+### Variables (product)
 
 If you're [getting a variable](/reference/device-cloud/api/#get-a-variable-value) from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
 {{> cloud-api-get-variable productToken="1" productId="1" deviceIdField="1"}}
 
 
-#### Publish (products)
+### Publish (products)
 
 The same thing applies for [publish](/reference/device-cloud/api/#publish-an-event), with a few additional constraints.
 

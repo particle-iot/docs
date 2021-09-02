@@ -908,8 +908,6 @@ $(document).ready(function () {
                     setStatus('Token created!');
                     ga('send', 'event', 'Create Token Simple', 'Success');
 
-                    console.log('success ', resp);
-
                     $(thisElem).find('.apiHelperAuthSettingsAccessToken').val(resp.access_token);
                     $(accessTokenRow).show();
 
@@ -2161,6 +2159,468 @@ $(document).ready(function () {
         });
         
     });
+
+    $('.apiHelperOrgProductSelector').each(function() {
+        const thisElem = $(this);
+
+        const productSelectElem = $(thisElem).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisElem).find('.apiHelperOrgSelect');
+
+        let productsData;
+        let orgsData;
+        let queryState;
+
+        const showHideRows = function() {
+            const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
+
+            $(thisElem).find('.productSelectorRow').show();
+
+            if (orgsData && orgsData.organizations.length > 0) {
+                $(thisElem).find('.sandboxOrgRow').show();
+
+                if (sandboxOrgVal == 'sandbox') {
+                    $(thisElem).find('.orgSelectorRow').hide();
+                }
+                else {
+                    // sandboxOrg == 'org'
+                    $(thisElem).find('.orgSelectorRow').show();
+                }    
+            }
+            else {
+                $(thisElem).find('.sandboxOrgRow').hide();
+                $(thisElem).find('.orgSelectorRow').hide();
+            }
+
+        };
+
+        $(thisElem).data('getProductId', function() {
+            return parseInt($(productSelectElem).val());
+        });
+        $(thisElem).data('getPlatformId', function() {
+            if (!productsData) {
+                return null;
+            }
+            const productId = parseInt($(productSelectElem).val());
+            for (let product of productsData.products) {
+                if (product.id == productId) {
+                    return product.platform_id;
+                }
+            }
+            return null;
+        });
+
+
+        const onChange = function() {
+            if ($(thisElem).data('onChange')) {
+                $(thisElem).data('onChange')();
+            }
+        };
+
+        const updateProductList = async function() {
+            showHideRows();
+
+            const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
+
+            if (sandboxOrgVal == 'sandbox') {
+                productsData = await apiHelper.getProducts();
+            }
+            else {
+                const orgId = $(orgSelectElem).val();
+                if (!orgId) {
+                    return;
+                }
+                productsData = await apiHelper.getOrgProducts(orgId);
+            }
+            productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            if (productsData.products.length > 0) {
+                let html = '';
+                const filterNotProductId = $(thisElem).data('filterNotProductId');
+                const filterPlatformId = $(thisElem).data('filterPlatformId');
+                const filterEmpty = !!$(thisElem).attr('data-filter-empty');
+                const filterCellular = !!$(thisElem).attr('data-cellular');
+
+                for (let product of productsData.products) {
+                    if (filterEmpty && product.device_count == 0) {
+                        continue;
+                    }
+                    if (filterPlatformId) {
+                        if (product.platform_id != filterPlatformId) {
+                            continue;
+                        }
+                    }
+                    if (filterCellular) {
+                        let cellular = false;
+
+                        switch (product.platform_id) {
+                            case 10: // electron
+                            case 13: // boron
+                            case 23: // bsom
+                            case 25: // bsom
+                            case 26: // tracker
+                                cellular = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                        
+                        if (!cellular) {
+                            continue;
+                        }
+                    }
+                    if (filterNotProductId && product.id == filterNotProductId) {
+                        continue;
+                    }
+
+                    html += '<option value="' + product.id + '">' + product.name + ' (' + product.id + ')</option>';
+                }
+
+                $(productSelectElem).html(html);
+
+                if (queryState.productId) {
+                    $(productSelectElem).val(queryState.productId);
+                }
+
+            }
+            else {
+                $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
+            }
+
+            onChange();
+        };
+        $(thisElem).data('updateProductList', updateProductList);
+
+        $(thisElem).find('.sandboxOrg:radio').on('click', function() {
+            const selectedRadioElem = $(this);
+            $(thisElem).find('.sandboxOrg:radio').prop('checked', false);
+            $(selectedRadioElem).prop('checked', true);
+
+            updateProductList();
+        });
+
+        $(productSelectElem).on('change', onChange);
+
+        $(orgSelectElem).on('change', updateProductList);
+
+        updateProductList();
+
+        apiHelper.getOrgs().then(function (data) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+            orgsData = data;
+
+            if (orgsData.organizations.length > 0) {
+                let html = '';
+                for (let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(orgSelectElem).html(html);
+
+                if (queryState.orgId) {
+                    $(orgSelectElem).val(queryState.orgId);
+                }
+
+                updateProductList();
+            }
+            else {
+                // No orgs
+                $(thisElem).find('input[value=org]:radio').prop('disabled', true);
+                $(thisElem).find('.orgSelectorRow').hide();
+                $(thisElem).find('.sandboxOrgRow').hide();
+            }
+        });
+
+        $(thisElem).data('loadQuerySettings', function(stateObj) {
+            queryState = stateObj;
+
+            if (queryState.sandboxOrg) {
+                $(thisElem).find('.sandboxOrg:radio[value="' + queryState.sandboxOrg + '"]').trigger('click');
+            }
+            if (queryState.orgId && orgsData) {
+                $(orgSelectElem).val(queryState.orgId);
+                $(orgSelectElem).trigger('change');
+            }
+            
+            if (queryState.productId && productsData) {
+                $(productSelectElem).val(queryState.productId);
+                $(productSelectElem).trigger('change');
+            }
+            
+        });
+        $(thisElem).data('saveQuerySettings', function(stateObj) {
+            stateObj.sandboxOrg = $(thisElem).find('.sandboxOrg:checked').val();
+            if (stateObj.sandboxOrg == 'org') {
+                stateObj.orgId = $(orgSelectElem).val();
+            }
+            else {
+                delete stateObj.orgId;
+            }
+            stateObj.productId = $(productSelectElem).val();
+        });
+
+
+    });
+
+    $('.apiHelperCloudProductDeviceMove').each(function () {
+        const thisElem = $(this);
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const devOrProductSelectorElem = $(thisElem).find('.devOrProductSelector');
+        const productSourceElem = $(thisElem).find('.apiHelperProductSource');
+        const productDestinationElem = $(thisElem).find('.apiHelperProductDestination');
+        const deviceSelectorTableElem = $(thisElem).find('.deviceSelector');
+        const selectAllButton = $(thisElem).find('.apiHelperSelectAllButton');
+        const selectNoneButton = $(thisElem).find('.apiHelperSelectNoneButton');
+        const outputElem = $(thisElem).find('.apiHelperCloudApiOutput');
+
+        let deviceInfo = [];
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+        const appendOutput = function(s) {
+            $(outputElem).find('> pre').append(s);
+        };
+
+        const updateDeviceSelection = function() {
+            let numSelected = 0;
+
+            if (deviceInfo) {
+                for(const di of deviceInfo) {
+                    if ($(di.checkbox).prop('checked')) {
+                        numSelected++;
+                    }
+                }    
+            }
+            $(selectAllButton).prop('disabled', deviceInfo.length == 0 || numSelected == deviceInfo.length);
+            $(selectNoneButton).prop('disabled', deviceInfo.length == 0 || numSelected == 0);
+            
+            $(actionButtonElem).prop('disabled', numSelected == 0);
+        };
+
+        const updateDeviceListData = function(deviceList) {
+            $(deviceSelectorTableElem).find('> tbody').html('');
+            deviceInfo = [];
+
+            for(const dev of deviceList) {
+                const row = document.createElement('tr');
+
+                let col = document.createElement('td');
+                let checkbox = document.createElement('input');
+                $(checkbox).attr('type', 'checkbox');
+                $(checkbox).on('click', updateDeviceSelection);
+                col.appendChild(checkbox);
+                row.appendChild(col);
+
+                col = document.createElement('td');
+                $(col).text(dev.id);
+                row.appendChild(col);
+
+                col = document.createElement('td');
+                $(col).text(dev.name ? dev.name : '');
+                row.appendChild(col);
+
+                $(deviceSelectorTableElem).find('> tbody').append(row);
+
+                deviceInfo.push({
+                    id: dev.id,
+                    checkbox,
+                    row
+                });
+
+            }
+            if (deviceList.length == 0) {
+                $(thisElem).find('.deviceTableAndButtons').hide();
+                $(thisElem).find('.noDevices').show();
+            }
+            else {
+                $(thisElem).find('.deviceTableAndButtons').show();
+                $(thisElem).find('.noDevices').hide();
+            }
+            updateDeviceSelection();
+        };
+
+        const updateDeviceList = function() {
+            const devOrProductVal = $(devOrProductSelectorElem).find('.devOrProduct:checked').val();
+
+            const sourceProduct = $(productSourceElem).find('.apiHelperProductSelect').val();
+            const destinationProduct = $(productDestinationElem).find('.apiHelperProductSelect').val();
+            const platformId = $(productDestinationElem).data('getPlatformId')();
+
+            if ((devOrProductVal == 'product' && !sourceProduct) || !destinationProduct) {
+                $(actionButtonElem).prop('disabled', true);
+                $(thisElem).find('.deviceTableAndButtons').hide();
+                $(thisElem).find('.noDevices').hide();
+                return;
+            }
+            
+            if (devOrProductVal == 'dev') {
+                let deviceList = [];
+                apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
+                    function(data) {
+                        data.body.forEach(function(dev) {
+                            if (dev.platform_id == platformId && dev.product_id == platformId) {
+                                deviceList.push(dev);
+                            }
+                        });
+                        updateDeviceListData(deviceList);
+                    },
+                    function(err) {
+                    }
+                );
+            }
+            else {
+                let deviceList = [];
+
+                const fetchPage = function(page) {
+                    apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product:sourceProduct, page }).then(
+                        function(data) {
+                            data.body.devices.forEach(function(dev) {
+                                deviceList.push(dev);
+                            });
+        
+                            if (page < data.body.meta.total_pages) {
+                                fetchPage(++page);
+                            }
+                            else {
+                                updateDeviceListData(deviceList);
+                            }
+                        },
+                        function(err) {            
+                        }
+                    );            
+                }    
+                fetchPage(1);
+            }
+
+        };
+    
+        $(selectAllButton).on('click', function() {
+            for(const di of deviceInfo) {
+                $(di.checkbox).prop('checked', true);
+            }
+            updateDeviceSelection();
+        });
+
+        $(selectNoneButton).on('click', function() {
+            for(const di of deviceInfo) {
+                $(di.checkbox).prop('checked', false);
+            }
+            updateDeviceSelection();
+        });
+
+        $(devOrProductSelectorElem).find('.devOrProduct:radio').on('click', function() {
+            const selectedRadioElem = $(this);
+            $(devOrProductSelectorElem).find('.devOrProduct:radio').prop('checked', false);
+            $(selectedRadioElem).prop('checked', true);
+
+            const isDev = $(selectedRadioElem).val() == 'dev';
+            if (isDev) {
+                $(productSourceElem).hide();
+            }
+            else {
+                $(productSourceElem).show();
+            }
+            updateDeviceList();
+        });
+
+        $(productSourceElem).data('onChange', updateDeviceList);
+
+        $(productDestinationElem).data('onChange', function() {
+            const productId = $(productDestinationElem).data('getProductId')();
+            const platformId = $(productDestinationElem).data('getPlatformId')();
+            if (!productId || !platformId) {
+                return;
+            }
+
+            $(productSourceElem).data('filterNotProductId', productId);
+            $(productSourceElem).data('filterPlatformId', platformId);
+
+            $(productSourceElem).data('updateProductList')();
+
+            updateDeviceList();
+        });
+
+        $(actionButtonElem).on('click', async function () {
+            const devOrProductVal = $(devOrProductSelectorElem).find('.devOrProduct:checked').val();
+
+            const sourceProduct = $(productSourceElem).find('.apiHelperProductSelect').val();
+            const destinationProduct = $(productDestinationElem).find('.apiHelperProductSelect').val();
+
+            $(actionButtonElem).prop('disabled', true);
+
+            if (!deviceInfo) {
+                return;
+            }
+            
+            let numSelected = 0;
+
+            for(const di of deviceInfo) {
+                if ($(di.checkbox).prop('checked')) {
+                    numSelected++;
+                }
+            }    
+            if (!numSelected) {
+                return;
+            }
+            const msg = 'Are you sure you want to move ' + numSelected + ' devices into product ' + destinationProduct + '?';
+            if (!confirm(msg)) {
+                return;
+            } 
+
+            $(outputElem).find('> pre').html('');
+            $(outputElem).show();
+
+            appendOutput( 'Moving ' + numSelected + ' devices into product ' + destinationProduct + '\n');
+
+            // Move devices!
+            for(const di of deviceInfo) {
+                if (!$(di.checkbox).prop('checked')) {
+                    continue;
+                }
+
+                if (devOrProductVal == 'product') {
+                    // Remove from old product
+                    const res = await apiHelper.particle.removeDevice({ 
+                        deviceId: di.id,
+                        product: sourceProduct,
+                        auth: apiHelper.auth.access_token 
+                    });
+                    if (res.statusCode >= 200 && res.statusCode < 300) {
+                        appendOutput('Removing ' + di.id + ' from ' + sourceProduct + ' succeeded\n');
+                    }
+                    else {
+                        appendOutput('Removing ' + di.id + ' failed (code=' + res.statusCode + ')\n');
+                    }
+                }
+
+
+                // Add device into product
+                const res = await apiHelper.particle.addDeviceToProduct({ 
+                    deviceId: di.id,
+                    product: destinationProduct,
+                    auth: apiHelper.auth.access_token 
+                });
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    appendOutput('Adding ' + di.id + ' to ' + destinationProduct + ' succeeded\n');
+                }
+                else {
+                    appendOutput('Adding ' + di.id + ' failed (code=' + res.statusCode + ')\n');
+                }
+            }
+
+            appendOutput('Done!\n');
+
+            updateDeviceList();
+        });
+
+
+
+    });
+
 
     $('.apiHelperCloudApiUserCreate,.apiHelperCloudApiUserList').each(function () {
         const thisElem = $(this);
