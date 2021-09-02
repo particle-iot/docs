@@ -50,8 +50,6 @@ Products allow a number of additional features over developer devices:
 - No limit to the number of blocks you can purchase self-service
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
-- Available in Summer 2021
-
 
 #### Enterprise Features
 
