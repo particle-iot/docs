@@ -7,7 +7,7 @@
   "attributes": {
     "name": "CarriotsAPI",
     "version": "0.1.1",
-    "installs": 649,
+    "installs": 667,
     "license": "MIT",
     "author": "Ricardo Pereira <github@ricardopereira.es>",
     "sentence": "Particle Photon library to publish data streams on Carriots API",

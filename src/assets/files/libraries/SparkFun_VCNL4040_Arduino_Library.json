@@ -1,0 +1,105 @@
+{
+  "type": "libraries",
+  "id": "SparkFun_VCNL4040_Arduino_Library",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/SparkFun_VCNL4040_Arduino_Library/archive/1.0.2.tar.gz"
+  },
+  "attributes": {
+    "name": "SparkFun_VCNL4040_Arduino_Library",
+    "version": "1.0.2",
+    "installs": 188,
+    "author": "SparkFun Electronics",
+    "maintainer": "SparkFun Electronics",
+    "sentence": "Library for the SparkFun Qwiic Proximity Sensor 20cm - VCNL4040",
+    "paragraph": "The VCNL4040 is a simple IR presence and ambient light sensor. This sensor is excellent for detecting if something has appeared in front of the sensor. We often see this type of sensor on automatic towel dispensers, automatic faucets, etc. You can detect objects qualitatively up to 20cm away. This means you can detect if something is there, and if it is closer or further away since the last reading, but it's difficult to say it is 7.2cm away. If you need quantitative distance readings (for example sensing that an object is 177mm away) check out the SparkFun Time of Flight (ToF) sensors with mm accuracy.",
+    "category": "Sensors",
+    "url": "https://github.com/sparkfun/SparkFun_VCNL4040_Arduino_Library",
+    "repository": "https://github.com/sparkfun/SparkFun_VCNL4040_Arduino_Library",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "s",
+  "cardUrl": "/cards/libraries/s/SparkFun_VCNL4040_Arduino_Library",
+  "versions": {
+    "1.0.2": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "Example1_ProximityReadings": true,
+            "Example2_IsSomethingThere": true,
+            "Example3_AmbientLight": true,
+            "Example4_AllReadings": true,
+            "Example5_AdvancedSettings": true,
+            "Example8_UnitTester": true
+          },
+          "electron": {
+            "Example1_ProximityReadings": true,
+            "Example2_IsSomethingThere": true,
+            "Example3_AmbientLight": true,
+            "Example4_AllReadings": true,
+            "Example5_AdvancedSettings": true,
+            "Example8_UnitTester": true
+          },
+          "argon": {
+            "Example1_ProximityReadings": true,
+            "Example2_IsSomethingThere": true,
+            "Example3_AmbientLight": true,
+            "Example4_AllReadings": true,
+            "Example5_AdvancedSettings": true,
+            "Example8_UnitTester": true
+          },
+          "boron": {
+            "Example1_ProximityReadings": true,
+            "Example2_IsSomethingThere": true,
+            "Example3_AmbientLight": true,
+            "Example4_AllReadings": true,
+            "Example5_AdvancedSettings": true,
+            "Example8_UnitTester": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "Example1_ProximityReadings": true,
+            "Example2_IsSomethingThere": true,
+            "Example3_AmbientLight": true,
+            "Example4_AllReadings": true,
+            "Example5_AdvancedSettings": true,
+            "Example8_UnitTester": true
+          },
+          "electron": {
+            "Example1_ProximityReadings": true,
+            "Example2_IsSomethingThere": true,
+            "Example3_AmbientLight": true,
+            "Example4_AllReadings": true,
+            "Example5_AdvancedSettings": true,
+            "Example8_UnitTester": true
+          },
+          "argon": {
+            "Example1_ProximityReadings": true,
+            "Example2_IsSomethingThere": true,
+            "Example3_AmbientLight": true,
+            "Example4_AllReadings": true,
+            "Example5_AdvancedSettings": true,
+            "Example8_UnitTester": true
+          },
+          "boron": {
+            "Example1_ProximityReadings": true,
+            "Example2_IsSomethingThere": true,
+            "Example3_AmbientLight": true,
+            "Example4_AllReadings": true,
+            "Example5_AdvancedSettings": true,
+            "Example8_UnitTester": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "SparkFun VCNL4040 Proximity Sensor Library\n===========================================================\n\n![SparkFun Proximity Sensor (Qwiic) - VCNL4040](https://cdn.sparkfun.com/assets/parts/1/3/5/9/2/15177-SparkFun_Proximity_Sensor_Breakout_-_20cm__VCNL4040__Qwiic_-01.jpg)\n\n[*SparkFun Proximity Sensor Breakout - 20cm, VCNL4040 (Qwiic) (SEN-15177)*](https://www.sparkfun.com/products/15177)\n\nThe VCNL4040 is a simple IR presence and ambient light sensor. This sensor is excellent for detecting if something has appeared in front of the sensor. We often see this type of sensor on automatic towel dispensers, automatic faucets, etc. You can detect objects qualitatively up to 20cm away. This means you can detect if something is there, and if it is closer or further away since the last reading, but it's difficult to say it is 7.2cm away. If you need quantitative distance readings (for example sensing that an object is 177mm away) check out the SparkFun Time of Flight (ToF) sensors with mm accuracy.\n  \nRepository Contents\n-------------------\n\n* **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. \n* **/src** - Source files for the library (.cpp, .h).\n* **keywords.txt** - Keywords from this library that will be highlighted in the Arduino IDE. \n* **library.properties** - General library properties for the Arduino package manager. \n\nDocumentation\n--------------\n\n* **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.\n* **[Product Repository](https://github.com/sparkfun/Qwiic_Proximity_Sensor)** - Main repository (including hardware files)\n* **[Hookup Guide](https://learn.sparkfun.com/tutorials/qwiic-proximity-sensor-vcnl4040-hookup-guide)** - Hookup guide for getting started with the SparkFun VCNL4040 Proximity Sensor.\n\nLicense Information\n-------------------\n\nThis product is _**open source**_! \n\nPlease use, reuse, and modify these files as you see fit. Please maintain attribution to SparkFun Electronics and release anything derivative under the same license.\n\nDistributed as-is; no warranty is given.\n\n- Your friends at SparkFun.\n",
+  "allVersions": [
+    "1.0.2"
+  ]
+}

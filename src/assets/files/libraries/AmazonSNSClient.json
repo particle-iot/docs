@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AmazonSNSClient",
     "version": "0.0.1",
-    "installs": 2213,
+    "installs": 2233,
     "license": "Apache 2.0 license",
     "author": "Jinesh Varia <jvaria@amazon.com>",
     "sentence": "Amazon SNS Client for Spark Core.",

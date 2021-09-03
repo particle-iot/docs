@@ -7,7 +7,7 @@
   "attributes": {
     "name": "unit-test",
     "version": "0.1.3",
-    "installs": 1426,
+    "installs": 1446,
     "license": "MIT",
     "author": "mdma https://community.spark.io/users/mdma",
     "sentence": "Unit testing on the spark",

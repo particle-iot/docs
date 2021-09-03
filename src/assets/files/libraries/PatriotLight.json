@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PatriotLight",
     "version": "5.1.0",
-    "installs": 2176,
+    "installs": 2197,
     "license": "BSD",
     "author": "Ron Lisle",
     "sentence": "Extend Patriot IoT to support lights.",

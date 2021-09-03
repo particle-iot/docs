@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_MAX31855",
     "version": "0.0.2",
-    "installs": 27392,
+    "installs": 27628,
     "license": "BSD",
     "author": "Adafruit, Technobly",
     "sentence": "Adafruit MAX31885 Library ported to Spark Core.",

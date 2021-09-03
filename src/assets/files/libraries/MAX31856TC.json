@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MAX31856TC",
     "version": "0.0.30",
-    "installs": 3379,
+    "installs": 3429,
     "license": "CC BY-SA 3.0",
     "author": "John Calcote <john.calcote@gmail.com>",
     "sentence": "A library for controlling and reading thermocouple probes using a MAX31856 chip",

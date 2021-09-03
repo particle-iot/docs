@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFunLSM9DS1",
     "version": "1.1.3",
-    "installs": 33817,
+    "installs": 34027,
     "license": "MIT",
     "author": "Jim Lindblom <jim@sparkfun.com>",
     "sentence": "A library to drive the LSM9DS1 9DoF.",

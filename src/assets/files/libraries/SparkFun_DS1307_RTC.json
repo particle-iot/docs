@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_DS1307_RTC",
     "version": "1.0.1",
-    "installs": 531,
+    "installs": 561,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "The DS1307 is an I2C-based real-time clock (RTC).",

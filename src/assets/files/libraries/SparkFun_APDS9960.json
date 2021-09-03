@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_APDS9960",
     "version": "0.0.1",
-    "installs": 4481,
+    "installs": 4527,
     "license": "GNU",
     "author": "SparkFun_APDS9960",
     "sentence": "Spark Library to work with SparkFun_APDS-9960",
