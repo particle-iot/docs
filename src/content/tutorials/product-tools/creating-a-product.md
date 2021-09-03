@@ -7,7 +7,9 @@ description: Creating your first Particle product
 
 # {{title}}
 
-Even if you're not ready to scale your product, it's worthwhile to start by creating a product. You'll eventually need one to scale above 100 devices, and you will almost certainly want one for other reasons:
+Even if you're not ready to scale your product yet, it's worthwhile to start by creating a product. In order to use the Growth or Enterprise tier to scale to more than 100 devices, or add additional cellular data, you'll need a product. 
+
+But even if you won't be scaling, you will almost certainly want one for other reasons:
 
 - [Fleet deployment](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases), so you can release firmware to many devices at the same time.
 - Upgrade firmware on offline devices, so devices can receive updates when they reconnect to the cloud.
