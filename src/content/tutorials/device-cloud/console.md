@@ -158,7 +158,7 @@ Also Tracker devices, which have higher data allocations than other cellular dev
 
 <div align="center"><img src="/assets/images/console/tracker-usage.png" class="small"></div>
 
-These panels turn yellow at 75% of your plan limits, and red when the limits have been reached.
+These panels turn yellow at 70% of your plan limits, and red when the limits have been reached.
 
 
 You can also quickly view your usage from the popup under your email address in the upper-right corner of the console window.
@@ -169,7 +169,7 @@ The numbers of devices and data operations will be updated within a half hour. C
 
 ### Billing limits
 
-You will receive warnings by email, and as a pop-up, and in the **Billing & Usage** tab in the console at 75%, 90%, and 100% of the allowable data operations. 
+You will receive warnings by email, and as a pop-up, and in the **Billing & Usage** tab in the console at 70%, 90%, and 100% of the allowable data operations. 
 
 In the free plan, once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
 
@@ -177,9 +177,9 @@ In the growth plan, once you reach the 100% limit an additional block will be ad
 
 ### Upgrading to the growth tier
 
-Following the link from the emails or **Billing & Usage** page leads to a contact form to initiate the upgrade process. A representative will contact you by telephone to complete the upgrade process to growth tier.
+Following the [link from the emails](https://www.particle.io/upgradetogrowth/) or **Billing & Usage** page leads to a contact form to initiate the upgrade process. A representative will contact you by telephone to complete the upgrade process to growth tier.
 
-When you upgrade to the growth tier, you will get an organization, which is the collection of products and accounts in your plan. The usage limits in the growth tier apply monthly across all products in your organization. 
+When you upgrade to the growth tier, you will get an organization, which is the collection of products and accounts in your plan. The usage limits in the growth tier apply monthly across all products of the same type in your organization. Some limits vary between cellular, Wi-Fi, and tracker products. 
 
 Additionally, all organization members still have a private sandbox in their account and can still have their own 100 free devices that do not count against your growth plan limits. 
 
@@ -636,7 +636,7 @@ Products can be prototyped in the Free tier at no charge. However, there is a li
 
 In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
 
-You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 75%, 90%, and 100% of the allowable data operations for your current number of blocks. Once you reach the 100% limit, an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
+You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations for your current number of blocks. Once you reach the 100% limit, an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
 
 In the Growth and Enterprise tiers, you will also have access to an **Organization**, which allows finer access control to multiple products. 
 
