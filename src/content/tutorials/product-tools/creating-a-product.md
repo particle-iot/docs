@@ -10,7 +10,7 @@ description: Creating your first Particle product
 Even if you're not ready to scale your product, it's worthwhile to start by creating a product. You'll eventually need one to scale above 100 devices, and you will almost certainly want one for other reasons:
 
 - [Fleet deployment](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases), so you can release firmware to many devices at the same time.
-- Upgrade offline devices, so devices can receive updates when they reconnect to the cloud.
+- Upgrade firmware on offline devices, so devices can receive updates when they reconnect to the cloud.
 - [Teams](/tutorials/product-tools/team-access-controls/), so multiple users can work with the product devices.
 - [API users](/reference/device-cloud/api/#api-users), to allow fine-grained access control to Particle APIs from your servers.
 
@@ -43,7 +43,7 @@ The Electron and E Series, however, are the same platform and can share a single
 
 The owner is the user who initially created the product. To transfer a product to another user later requires a support ticket, so it's best to choose this wisely to begin. Some common scenarios:
 
-- If you're a sole proprietor, you may just create the product with your own email and Particle account, or create a separate account for better security.
+- If you're a sole proprietor, you may create the product with your own email and Particle account, or create a separate account for better security.
 
 - If you're a company, you may want to create a shared email or group to be the owner of all of the company products. This eliminates the need to transfer ownership if the person who created the account leaves the company.
 
@@ -77,18 +77,16 @@ One major difference between developer devices and products is with device claim
 
 ### Workbench
 
-[Particle Workbench](/tutorials/developer-tools/workbench/) is the recommended tool for creating and building product firmware. Using a source code control system like Github with Workbench has a number of benefits:
+[Particle Workbench](/tutorials/developer-tools/workbench/) is the recommended tool for creating and building product firmware. Using a source code control system like git with Workbench has a number of benefits:
 
 - Full log of every code change that has been made.
 - Great support for teams, including merging changes made by multiple team members.
 - Release management to keep track of your software releases to your product device fleet.
 - Better flexibility for libraries and shared code.
 
-Additionally, there is good integration between Github and Microsoft Visual Studio Code (vscode, which is what underlies Particle Workbench), making it easy to use Github.
+Additionally, there is good integration between git and Microsoft Visual Studio Code (vscode, which is what underlies Particle Workbench), making it easy to use git.
 
-Note that you can have private projects (repositories) in Github where you only allow certain users access, even in the free tier of Github.
-
-Each developer will have their own Github account. This could either be the same account email used for their Particle account, or a separate Github account at a different email. They do not need to be the same.
+One popular provider of git source code repositories is Github. You can have private projects (repositories) in Github where you only allow certain users access, even in the free tier of Github. Each developer will have their own Github account. This could either be the same account email used for their Particle account, or a separate Github account at a different email. They do not need to be the same.
 
 Or course you can use other source code control systems if you prefer.
 
@@ -100,7 +98,7 @@ Particle Workbench supports two ways of compiling your source code:
 
 - Local compiler toolchain uses the same compiler toolchain (gcc ARM) as the cloud compiler, but loads the native versions of the toolchain for Windows, Linux, or Mac onto your computer and does the compilation on your computer. Your source code does not leave your computer in this scenario.
 
-The local compiler may be necessary for very large projects, but otherwise you can generally switch back and forth between cloud and local without difficulties. On Windows in particular, the first build will take a very long time because all of Device OS needs to be built. The launching of the compiler, which must be done a very large number of times, occurs much more quickly under Linux and Mac, which is why those local builds are faster. When possible, we recommend using Linux or Mac.
+The local compiler may be necessary for very large projects, but otherwise you can generally switch back and forth between cloud and local without difficulties. On Windows in particular, the first build will take a very long time because all of Device OS needs to be built. The launching of the compiler, which must be done a very large number of times, occurs much more quickly under Linux and Mac, which is why those local builds are faster. When possible, we recommend using Linux or Mac for this reason.
 
 ### Web IDE
 
@@ -135,11 +133,11 @@ git submodule update --init --recursive
 ```
 
 - This is the technique used by the Tracker Edge firmware to pull in libraries into the lib directory of Tracker Edge projects.
-- It leverages Github for storing libraries, instead of the Particle library system.
-- Because of this, it's also easier to use your own fork of a public library with your own changes.
+- It leverages git for storing libraries, instead of the Particle library system.
+- Because of this, it's significantly easier to use your own fork of a public library with your own changes.
 - It's a good way to share proprietary code between your own projects.
 
-For example, if you have a custom set of proprietary utilities in your company that are shared between multiple projects, the Particle library system is not ideal because there are only two levels of access: public (everyone) and private (one account). Since there are no team or organization libraries, using Github is often a better way to control access to the libraries.
+For example, if you have a custom set of proprietary utilities in your company that are shared between multiple projects, the Particle library system is not ideal because there are only two levels of access: public (everyone) and private (one account). Since there are no team or organization libraries, using git is often a better way to control access to the libraries that  are not public.
 
 It works well to create the lib directory in your project, then use submodules for each "library" that you want to include in your project. This is how the [Tracker Edge firmware](https://github.com/particle-iot/tracker-edge) is designed. Within each "library" it should follow the format of Particle libraries, that is to say containing a directory called "src" with the source code for that submodule.
 
@@ -172,7 +170,7 @@ Once the product firmware passes the development and initial testing, it may be 
 
 To do this, you build a firmware binary (in Workbench, Web IDE, or CLI), then upload it to the console. Then you can release it to a single device or device group. This exercises the whole upgrade process in the same way that it would be for your customers.
 
-If you don't have a dedicated QA department, you still could use this model if you have a team of developers that share devices for testing code just before wide-scale deployment.
+If you don't have a dedicated QA department, you still could use this model if you have a team of developers that share devices for testing code before wide-scale deployment.
 
 ### Release to fleet
 
@@ -180,7 +178,7 @@ Finally, once you've tested the binary and upgrade process, you can then flash t
 
 ## Events
 
-Events, using [`Particle.publish()`](/cards/firmware/cloud-functions/particle-publish/) from a device or from the cloud API, are a way to communicate from one device to many subscribers. By default, events are private, meaning they go only to the same owner account as it was sent from. For devices, this is the account that claimed the device. For the API, this is the account that created the access token.
+Events, using [`Particle.publish()`](/cards/firmware/cloud-functions/particle-publish/), from a device or from the cloud API, are a way to communicate from one device to many subscribers. By default, events are private, meaning they go only to the same owner account as it was sent from. For devices, this is the account that claimed the device. For the API, this is the account that created the access token.
 
 Since unclaimed product devices don't have a device owner, they cannot receive private events. This includes events sent from other devices, the cloud API, or webhook responses.
 
@@ -196,7 +194,7 @@ Within [the console](https://console.particle.io) there are a number of Events p
 
 #### Developer events
 
-- In the top level of the console, **Events** displays the events for that account, including from devices claimed to that account or generated from the API using the developer events endpoint. You will not see unclaimed product device events here.
+- In the top level of the console, **Events** tab displays the events for that account, including from devices claimed to that account or generated from the API using the developer events endpoint and an access token for this user. You will not see unclaimed product device events here.
 
 - In the top level of the console, if you select the **Devices** tab and then open the device, there will be a log of events generated by that device. Note that this will not show integration response events.
 
