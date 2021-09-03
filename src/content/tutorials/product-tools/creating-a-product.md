@@ -18,7 +18,7 @@ But even if you won't be scaling, you will almost certainly want one for other r
 
 Starting out by creating a product first will simplify things later, and also prevent having to reconfigure things, especially if you plan on using webhooks or external servers. For example, if you are using the Particle cloud API from an external server, the API endpoints are different for products than developer devices. However, once you start with product endpoints (even for a product with a single device), you can scale through the free and growth tiers, all the way up to enterprise, without having to change your code.
 
-You can create products in the free tier, and the product and devices are still free. There is a limit of 100 devices in a free product.
+You can create products in the free tier, and the product and devices are still free. There is a limit of 100 devices in a product in the free developer sandbox, but there are no limits in the growth and enterprise plans.
 
 
 ## Setting up your product
