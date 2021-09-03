@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PopComms",
     "version": "0.0.1",
-    "installs": 146,
+    "installs": 160,
     "author": "Michael Scroggin",
     "architectures": [],
     "dependencies": {

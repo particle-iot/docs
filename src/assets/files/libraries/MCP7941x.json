@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP7941x",
     "version": "0.0.4",
-    "installs": 3790,
+    "installs": 3953,
     "license": "MIT",
     "author": "Robert Mawrey <robert@sentientthings.com>",
     "maintainer": "Robert Mawrey <robert@sentientthings.com>",

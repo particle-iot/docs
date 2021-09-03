@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TFT_eSPI",
     "version": "0.16.15",
-    "installs": 416,
+    "installs": 449,
     "author": "Bodmer",
     "architectures": [],
     "visibility": "public",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "uCamIII",
     "version": "0.0.5",
-    "installs": 1953,
+    "installs": 1972,
     "license": "MIT",
     "author": "ScruffR",
     "sentence": "Library to support 4DSystems uCam-III camera",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SDL_Arduino_INA3221",
     "version": "1.2.1",
-    "installs": 1689,
+    "installs": 1835,
     "author": "SwitchDoc Labs",
     "architectures": [],
     "visibility": "public",

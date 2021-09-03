@@ -7,7 +7,7 @@
   "attributes": {
     "name": "spark-streaming",
     "version": "0.0.1",
-    "installs": 304,
+    "installs": 330,
     "license": "MIT",
     "author": "Kyle Bowerman <kyle.bowerman@gmail.com>",
     "sentence": "Port of Arduino Streaming.h to spark, originaly from Mikal Hart",

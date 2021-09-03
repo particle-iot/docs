@@ -7,7 +7,7 @@
   "attributes": {
     "name": "thermistor-library",
     "version": "0.0.5",
-    "installs": 12198,
+    "installs": 12281,
     "license": "MIT",
     "author": "Garrett Bartley <wgb@wgb.me>",
     "sentence": "A simple class for calculating temperature from simple 10K negative temperature coefficient (NTC) thermistors.",

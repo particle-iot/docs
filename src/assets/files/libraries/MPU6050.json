@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MPU6050",
     "version": "1.0.3",
-    "installs": 72023,
+    "installs": 72735,
     "license": "MIT license",
     "author": "Paul Kourany / Jeff Rowberg / James Hagerman",
     "sentence": "MPU6050 IMU library",

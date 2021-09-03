@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_9DoF_IMU_Breakout_ICM_20948",
     "version": "1.0.5",
-    "installs": 158,
+    "installs": 187,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "sentence": "Use the low-power high-resolution ICM 20948 9 DoF IMU from Invensense with I2C or SPI. Includes a portable C skeleton",
     "paragraph": "The <a href=\"https://www.invensense.com/products/motion-tracking/9-axis/icm-20948/\">SparkFun 9DoF IMU Breakout </a> uses the Invensense <a href=\"https://www.invensense.com/products/motion-tracking/9-axis/icm-20948/\">ICM-20948</a> -- a system-in-package featuring acceleration full-scales of ±2 / ±4 / ±8 / ±16 (g), rotational full-scales of ±250 / ±500 / ±1000 / ±2000 (°/sec) and a magnetic field full scale of ±4800 µT. The ICM-20948 can be accessed via either I2C (400 kHz) or SPI (7 MHz)",

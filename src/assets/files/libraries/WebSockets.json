@@ -7,7 +7,7 @@
   "attributes": {
     "name": "WebSockets",
     "version": "0.1.0",
-    "installs": 640,
+    "installs": 675,
     "license": "LGPLv2.1",
     "author": "mdma <mat dot mcgowan+particle at gmail dot com>",
     "sentence": "Websocket client and server.",
