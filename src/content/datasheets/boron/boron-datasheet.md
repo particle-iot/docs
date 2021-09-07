@@ -575,18 +575,18 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 
 {{!-- BEGIN do not edit content below, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | GA | |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | GA | |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | GA | |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | NRND-US | BRN314TRAY50|
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | NRND | BRN314KIT|
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | BRN404|
-| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | NRND | BRN404KIT|
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | BRN404TRAY50|
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | GA | |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | GA | |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | &check; | GA | |
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND-US | BRN314TRAY50|
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | BRN314KIT|
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | BRN404|
+| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 |  | NRND | BRN404KIT|
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404TRAY50|
 
 
 {{!-- END do not edit content above, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}

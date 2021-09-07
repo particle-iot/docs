@@ -539,7 +539,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 {{!-- BEGIN do not edit content below, it is automatically generated c9a47b1a-7751-11eb-9439-0242ac130002 --}}
 
 | SKU | Description | Region | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | PHNTRAYH | Photon with Headers, Tray [x50] | Global | GA | |
 | PHNTRAYNOH | Photon without Headers, Tray [x50] | Global | GA | |
 | PHOTONH | Photon with Headers, [x1] | Global | GA | |
