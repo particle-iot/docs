@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LIDAR",
     "version": "1.0.0",
-    "installs": 145,
+    "installs": 161,
     "author": "Ben",
     "architectures": [],
     "visibility": "public",

@@ -141,7 +141,7 @@ The Electron, E Series, Photon and P1 have SWD on pins D7, D5, and optionally RE
 
 If you want to use SWD/JTAG see the [JTAG Reference](/reference/developer-tools/jtag/). The most common method is to generate an Intel Hex File (.hex) containing all of the binaries, including your user firmware binary. 
 
-Using the [Hex File Generator](/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
+Using the [Hex File Generator](/tools/device-programming/hex-generator/), you can take one of the base restore images, replace Tinker with your own user firmware, and download the resulting hex file. This makes it easy to flash devices with known firmware quickly and easily.
 
 This is an excellent option if your contract manufacturer will be programming your devices as they will likely be able to use the .hex files and a SWD/JTAG programmer to easily reprogram your devices. This can be done with the standard JTAG programmer software and does not require the Particle toolchains or Particle CLI be installed.
 

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "BlingButton",
     "version": "0.0.2",
-    "installs": 144,
+    "installs": 161,
     "license": "MIT",
     "author": "Punam Dahiya <punamdahiya@yahoo.com>",
     "sentence": "A simple library that connects over Wifi to Particle cloud service and enable exchange of messages with paired device",

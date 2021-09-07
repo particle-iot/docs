@@ -7,7 +7,7 @@
   "attributes": {
     "name": "captouch",
     "version": "0.0.1",
-    "installs": 4925,
+    "installs": 4997,
     "license": "LGPL3",
     "author": "David Greaves <david@dgreaves.com>",
     "sentence": "Capacitative Touch sensor using just a 10M resistor",

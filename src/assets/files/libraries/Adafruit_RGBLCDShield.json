@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_RGBLCDShield",
     "version": "0.0.10",
-    "installs": 11238,
+    "installs": 11729,
     "license": "BSD",
     "author": "Mumblepins/Adafruit",
     "sentence": "Port of Adafruit RGB LCD Shield Library (https://github.com/adafruit/Adafruit-RGB-LCD-Shield-Library)",

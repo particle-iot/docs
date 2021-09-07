@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LSM6",
     "version": "1.0.0",
-    "installs": 766,
+    "installs": 788,
     "author": "Pololu",
     "maintainer": "Pololu <inbox@pololu.com>",
     "sentence": "LSM6 accelerometer and gyro library",

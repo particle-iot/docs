@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_BNO055_RK",
     "version": "1.1.8",
-    "installs": 4069,
+    "installs": 4185,
     "author": "Adafruit <info@adafruit.com>",
     "maintainer": "Adafruit <info@adafruit.com>",
     "sentence": "Library for the Adafruit BNO055 Absolute Orientation Sensor.",

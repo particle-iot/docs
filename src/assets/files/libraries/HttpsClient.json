@@ -7,7 +7,7 @@
   "attributes": {
     "name": "HttpsClient",
     "version": "1.0.0",
-    "installs": 917,
+    "installs": 966,
     "author": "amcewen",
     "architectures": [],
     "visibility": "public",

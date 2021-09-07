@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SegmentDriver",
     "version": "1.0.0",
-    "installs": 1340,
+    "installs": 1362,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of AS1115 3 character LED 7 segment driver I²C Mini Module",

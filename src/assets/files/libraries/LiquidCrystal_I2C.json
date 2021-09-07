@@ -7,7 +7,7 @@
   "attributes": {
     "name": "LiquidCrystal_I2C",
     "version": "1.0.3",
-    "installs": 3417,
+    "installs": 3533,
     "author": "mwah",
     "architectures": [],
     "visibility": "public",

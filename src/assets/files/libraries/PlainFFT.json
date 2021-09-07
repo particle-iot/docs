@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PlainFFT",
     "version": "0.4.5",
-    "installs": 1631,
+    "installs": 1651,
     "license": "MIT",
     "author": "Nikos Kouvelas <nko@eworx.gr>",
     "sentence": "FFT library",

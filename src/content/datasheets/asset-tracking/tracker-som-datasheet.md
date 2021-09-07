@@ -1165,16 +1165,16 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 
 {{!-- BEGIN do not edit content below, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
-| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
-| T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | GA | |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | GA | |
-| T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | T404MEA|
-| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | NRND | T404MTY|
-| T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | T524MEA|
-| T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | NRND | T524MTY|
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | &check; | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
+| T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | NRND | T404MEA|
+| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | NRND | T404MTY|
+| T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | T524MEA|
+| T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX |  | NRND | T524MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "neopixel-dma",
     "version": "0.0.1",
-    "installs": 297,
+    "installs": 342,
     "license": "GNU GPLv3",
     "author": "EkbDuffy",
     "sentence": "An Implementation of NeoPixel Library with usind Direct Memory Access methods for the Spark Core",

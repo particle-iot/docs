@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_RTClib_RK",
     "version": "1.2.1",
-    "installs": 8900,
+    "installs": 9332,
     "author": "Adafruit",
     "maintainer": "Adafruit <info@adafruit.com>",
     "paragraph": "A fork of Adafruit's port (https://github.com/adafruit/RTClib) of Jeelab's fantastic RTC library ported to Particle by rickkas7",

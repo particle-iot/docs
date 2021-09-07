@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DMD",
     "version": "0.0.3",
-    "installs": 891,
+    "installs": 912,
     "license": "Unknown",
     "author": "Paul Kourany",
     "sentence": "Freetronics Dot Matrix Display library for Particle",

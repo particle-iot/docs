@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_ADS1015_Arduino_Library",
     "version": "2.3.0",
-    "installs": 222,
+    "installs": 243,
     "author": "SparkFun Electronics <techsupport@sparkfun.com>",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "Library for the ADS1015 ADC to I2C converter used on the SparkFun Qwiic 12-bit ADC and Flex Glove Controller.",

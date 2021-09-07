@@ -197,12 +197,45 @@ $(document).ready(function() {
 
         $(deviceLookupButtonElem).on('click', async function() {
             $(deviceLookupElem).find('.apiHelperDeviceLookupOutput').show();
-            const deviceId = $(deviceLookupDeviceIdInputElem).val();
+
+            let deviceId;
+            const input = $(deviceLookupDeviceIdInputElem).val().trim();
+
+            if (!deviceId) {
+                // See if the input field contains a Device ID (24 character hex)
+                const re = /([A-Fa-f0-9]{24})/;
+                const m = input.match(re);
+                if (m) {
+                    deviceId = m[1];
+                }    
+            }
+
+            if (!deviceId) {
+                // Try looking for a serial number (alphanumerics, stop at space to skip mobile secret)
+                const re = /([A-Za-z0-9]+)/;
+                const m = input.match(re);
+                if (m) {
+                    // Lookup serial number
+                    const serialNumber = m[1];
+
+                    const res = await apiHelper.particle.lookupSerialNumber({serialNumber, auth: apiHelper.auth.access_token});
+                    console.log('serial number result', res);
+                    if (res && res.body && res.body.ok) {
+                        deviceId = res.body.device_id;
+                        // iccid, platform_id
+                    }
+                }
+            }
+
+            if (!deviceId) {
+                setStatus('No Device ID or Serial Number found');
+                return;
+            }
 
             $(deviceLookupElem).find('.apiHelperDeviceLookupResult').html('');
             $(deviceLookupDetailBodyElem).html('');
 
-    
+            $(deviceLookupElem).find('.apiHelperDeviceLookupClaimedMyAccount').show();
             $(deviceLookupElem).find('.apiHelperDeviceLookupProduct').hide();
             $(deviceLookupElem).find('.apiHelperDeviceLookupOrg').hide();
             $(deviceLookupElem).find('.apiHelperDeviceLookupClaimDiv').hide();

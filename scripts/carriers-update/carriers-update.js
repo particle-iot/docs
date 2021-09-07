@@ -449,22 +449,23 @@ const path = require('path');
 
         md += '| SKU | Description | Region ';
         if (!skuFamilyObj.wifi) {
-            md += ' | Modem ';
+            md += ' | Modem | EtherSIM';
         }
         md += '| Lifecycle | Replacement |\n';
 
         //
-        md += '| :--- | | :--- | :--- ';
+        md += '| :--- | :--- | :--- ';
         if (!skuFamilyObj.wifi) {
-            md += ' | :--- ';
+            md += ' | :--- | :---: ';
         }
-        md += '| :--- | :--- | :--- |\n';
+        md += '| :--- | :--- |\n';
 
         skus.forEach(function(skuObj) {
             md += '| ' + skuObj.name + ' | ' + skuObj.desc + ' | ' + updater.skuRegionReadable[skuObj.skuRegion];
 
             if (!skuFamilyObj.wifi) {
                 md += ' | ' + skuObj.modem;
+                md += ' | ' + ((skuObj.sim == 4) ? '&check;' : '');
             }
 
             md += ' | ' + skuObj.lifecycle + ' | ' + (skuObj.replacement ? skuObj.replacement : '') + '|\n'; 

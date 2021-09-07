@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DeviceNameHelperRK",
     "version": "0.0.1",
-    "installs": 1594,
+    "installs": 2768,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Library for accessing the Particle device name easily",

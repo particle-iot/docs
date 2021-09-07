@@ -16,7 +16,7 @@ Device OS API
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
 
-It is also available [divided into small sections](/cards/firmware/) if you prefer that style. 
+It is also available [divided into small sections](/cards/firmware/introduction/introduction/) if you prefer that style. 
 Small sections also work better on mobile devices and small tablets.
 {{else}}
 You are viewing the multi-page version of the Device OS API reference manual.
@@ -1110,6 +1110,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
+- It will also update the [ApplicationWatchdog](/cards/firmware/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
 
 ### Particle.syncTime()
 
@@ -14803,7 +14804,7 @@ void setup() {
 
 void loop() {
   while (some_long_process_within_loop) {
-    wd->checkin(); // resets the AWDT count
+    ApplicationWatchdog::checkin(); // resets the AWDT count
   }
 }
 // AWDT count reset automatically after loop() ends
@@ -14812,6 +14813,8 @@ void loop() {
 A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes. If not enough stack memory is allocated, the application will crash due to a Stack Overflow. The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
+
+The `Particle.process()` function calls `ApplicationWatchdog::checkin()` internally, so you can also use that to service the application watchdog.
 
 ---
 
@@ -15956,6 +15959,12 @@ Specifies wake on pin. The mode is:
 - CHANGE
 
 You can use `.gpio()` multiple times to wake on any of multiple pins, with the limitations below.
+
+If you are using `RISING` mode, then an internal pull-down, equivalent to `INPUT_PULLDOWN` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices.
+
+If you are using `FALLING` mode, then an internal pull-up, equivalent to `INPUT_PULLUP` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices.
+
+This pull can be an issue if you are connecting the wake pin to a voltage divider! Using `CHANGE` mode does not add pull and can be used to work around this. Make sure the pin is not left floating when using `CHANGE`.
 
 ---
 
@@ -23268,7 +23277,7 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|[v3.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.2)|-|-|-|-|
-|v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|-|-|-|-|-|-|
+|v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|[v2.2.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.2)|-|-|-|-|-|
 |v2.1.x default releases|[v2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0)|-|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.1.0-rc.1)|-|-|-|-|-|-|
 |v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|-|-|-|-|-|
@@ -23305,7 +23314,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.2](/reference/device-os/firmware/?fw_ver=3.0.0-rc.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|[v2.2.0-rc.2](/reference/device-os/firmware/?fw_ver=2.2.0-rc.2&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v2.1.x default releases|[v2.1.0](/reference/device-os/firmware/?fw_ver=2.1.0&cli_ver=2.11.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](/reference/device-os/firmware/?fw_ver=2.1.0-rc.1&cli_ver=2.10.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.1](/reference/device-os/firmware/?fw_ver=2.0.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
@@ -23335,7 +23344,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1
+v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
 v2.11.0 = 2.1.0
 v2.10.1 = 2.1.0-rc.1
 v2.10.0 = 2.0.1, 3.0.0-beta.1, 3.0.0-rc.1, 3.0.0-rc.2, 3.0.0

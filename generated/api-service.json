@@ -3,7 +3,7 @@
     "type": "post",
     "url": "/oauth/token",
     "title": "Generate an access token",
-    "description": "<p>Creates an access token that gives you access to the Cloud API.</p> <p>You must give a valid OAuth client ID and secret in HTTP Basic Auth or in the <code>client_id</code> and <code>client_secret</code> parameters. For controlling your own developer account, you can use <code>particle:particle</code>. Otherwise use a valid OAuth Client ID and Secret. This endpoint doesn't accept JSON requests, only form encoded requests. See <a href=\"#oauth-clients\">OAuth Clients</a>.</p>",
+    "description": "<p>Creates an access token that gives you access to the Cloud API.</p> <p>You must give a valid OAuth client ID and secret in HTTP Basic Auth or in the <code>client_id</code> and <code>client_secret</code> parameters. For controlling your own developer account, you can use <code>particle:particle</code>. Otherwise use a valid OAuth Client ID and Secret. This endpoint doesn't accept JSON requests, only form encoded requests. See <a href=\"#oauth-clients\">OAuth Clients</a>.</p> <p>Refresh tokens only work for product tokens, and even then they are not particularly useful. In order to generate a new access token from the refresh token you still need the client ID and secret. Because of this, it's simpler to just generate a new token, and then you don't need to remember and keep secure the refresh token. Also refresh tokens have a lifetime of 14 days, much shorter than the default access token lifetime of 90 days.</p>",
     "group": "Authentication_1",
     "header": {
       "fields": {

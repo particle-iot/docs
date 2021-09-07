@@ -215,6 +215,12 @@ Note that the default power-up state of the AB1805 nIRQ2/PSW is to pull this lin
 
 You should only use the EN pin for deep power down in extenuating circumstances, such as extended failure to connect. Under normal circumstances, a cloud session can be resumed when waking up from sleep. However, on Gen 3 devices, if you remove power using EN, the retained memory is cleared, as is the session context, so renegotiation is required. This may use 5K to 6K of data on every deep power down and also lengthen the amount of time required to connect, using more power.
 
+Additionally:
+
+- Powering down the modem unexpectedly can cause modem bricking in rare cases. There is no way to recover from this.
+- If period is too short, it can cause aggressive reconnection. This is especially problematic if the device enters rolling reboot due to a bug in the user firmware.
+- Possible issues with OTA, depending on how its implemented. Resumable OTA requires that the system go to sleep gracefully in order to properly synchronize the download state.
+
 ### About the EN pin and RESET
 
 While using the EN pin on the Feather will completely power down the MCU, you must be careful of one special case:
