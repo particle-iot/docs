@@ -32,6 +32,7 @@ The Electron is a 2nd-generation device designed to easily plug into a solderles
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | ELC314TY | Electron 2G/3G (Global - U201) , Tray [x50] | Global | U201 | &check; | GA | |
 | ELC404TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
+| ELC404XTY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | E350TRAY50 | Electron 2G (Global), Tray [x50] | Global | G350 |  | NRND | ELC314TY|
 | ELC402EA | Electron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | ELC404EA|
 | ELC402TY | Electron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | ELC404TY|
@@ -68,6 +69,9 @@ Though the form-factor is different than the Electron, they are nearly identical
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | &check; | GA | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
 | E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
+| E404XKIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R510 | &check; | GA | |
+| E404XMOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
+| E404XTRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | NRND-US | |
 | E313TY | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | NRND-US | |
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|
@@ -139,6 +143,9 @@ The Boron is the 3rd-generation cellular device in a prototyping form factor. It
 | BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
 | BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | &check; | GA | |
 | BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | &check; | GA | |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND-US | BRN314TRAY50|
 | BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | BRN314KIT|
 | BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | BRN404|
@@ -180,6 +187,8 @@ Even though the B Series SoM is more difficult to prototype with than the Boron,
 | :--- | :--- | :---  | :--- | :---: | :--- | :--- |
 | B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
 | B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | &check; | GA | |
 | B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
 | B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|

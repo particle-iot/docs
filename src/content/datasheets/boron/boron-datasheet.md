@@ -38,8 +38,10 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * u-blox SARA-R510S-01B LTE modem
  * LTE Cat M1 module
  * Support for United States, Canada, and Mexico only
- * 3GPP Release 13 LTE Cat M1 
- * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
+ * 3GPP Release 14 LTE Cat M1 
+ * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
+
+<sup>1</sup> Not all bands enabled in software by default
 
 #### Features - BRN314, BRN310 (Boron 2G/3G)
 
@@ -332,9 +334,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-Boron has two radio modules.
+Boron has two radio modules, the nRF52 MCU BLE radio, and a cellular module, depending on the model.
 
-Nordic Semiconductor nRF52840 for BLE.
+#### Nordic Semiconductor nRF52840 for BLE.
 
 | Feature | Description|
 | :-------|:---------- |
@@ -343,13 +345,72 @@ Nordic Semiconductor nRF52840 for BLE.
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-u-blox SARA U201 (2G/3G), R410 (LTE Cat M1), or R510 (LTE Cat M1) for cellular.
+#### u-blox SARA-U201 (2G/3G)
 
+|Parameter | Value | 
+|:---|:---|
+|Protocol stack| 3GPP Release 7 | 
+|MS Class | Class B | 
+|Bands | GSM 850 MHz |
+| | E-GSM 900 MHz|
+| | DCS 1800 MHz |
+| | PCS 1900 MHz | 
+|Power Class | Class 4 (33 dBm) for 850/900 bands |
+| | Class 1 (30 dBm) for 1800/1900 bands|
 
-| BORON  | Compatible Countries |
-|:-------|:---------------------|
-|2G/3G   | Worldwide            |
-|LTE     | USA, Canada, and Mexico (LTE Cat M1) |
+- Global 2G/3G.
+- Not recommended for use in the United States due to the shutdown of 2G and 3G networks in 2022.
+
+#### u-blox SARA-R410M-02B or R410M-03
+
+| Parameter | Value |
+| --- | --- |
+| Protocol stack | 3GPP Release 13 |
+| RAT | LTE Cat M1 Half-Duplex |
+| LTE FDD Bands | Band 12 (700 MHz) |
+| | Band 28 (700 MHz)  |
+| | Band 13 (750 MHz)  |
+| | Band 20 (800 MHz)  |
+| | Band 5 (850 MHz) |
+| | Band 8 (900 MHz)  |
+| | Band 4 (1700 MHz) |
+| | Band 3 (1800 MHz)  |
+| | Band 2 (1900 MHz) |
+| Power class | Class 3 (23 dBm) |
+
+- LTE Cat M1 for United States, Canada, and Mexico.
+- Not all bands are enabled in software by default. 
+- Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
+
+#### u-blox SARA-R510S-01B
+
+| Parameter | Value | FCC Certified | 
+| --- | --- | :---: | 
+| Protocol stack | 3GPP Release 14 | |
+| RAT | LTE Cat M1 Half-Duplex | |
+| LTE FDD Bands | Band 71 (600 MHz) | &nbsp; |
+| | Band 12 (700 MHz) | &check; |
+| | Band 28 (700 MHz)  | &check; |
+| | Band 85 (700 MHz)  | &nbsp; |
+| | Band 13 (750 MHz)  | &check; |
+| | Band 20 (800 MHz)  | &check; |
+| | Band 5 (850 MHz) | &check; |
+| | Band 18 (850 MHz) | &nbsp; |
+| | Band 19 (850 MHz) | &nbsp; |
+| | Band 26 (850 MHz)  | &nbsp; |
+| | Band 8 (900 MHz)  | &check; |
+| | Band 4 (1700 MHz) | &check; |
+| | Band 3 (1800 MHz)  | &check; |
+| | Band 2 (1900 MHz) | &check; |
+| | Band 25 (1900 MHz)  | &nbsp; |
+| | Band 1 (2100 MHz)  | &nbsp; |
+| Power class | Class 3 (23 dBm) | &nbsp; |
+
+- LTE Cat M1 for United States, Canada, and Mexico.
+- Not all bands are enabled in software by default. 
+- FCC Certification in the United States only tests bands in use in the United States.
+- Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
+
 
 ### I/O Characteristics 
 
@@ -597,21 +658,21 @@ Borons are available from [store.particle.io](https://store.particle.io/) in sin
 
 {{!-- BEGIN do not edit content below, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
-| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | GA | |
-| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | GA | |
-| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
-| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | GA | |
-| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
-| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | GA | |
-| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | GA | |
-| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | GA | |
-| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | NRND-US | BRN314TRAY50|
-| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | NRND | BRN314KIT|
-| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | BRN404|
-| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | NRND | BRN404KIT|
-| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | BRN404TRAY50|
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| BRN314KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 | &check; | GA | |
+| BRN314TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 | &check; | GA | |
+| BRN404 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
+| BRN404KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 | &check; | GA | |
+| BRN404TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
+| BRN404X | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
+| BRN404XKIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R510 | &check; | GA | |
+| BRN404XTRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
+| BRN310TRAY50 | Boron 2G/3G (Global), Tray [x50] | Global | U201 |  | NRND-US | BRN314TRAY50|
+| BRN310KIT | Boron 2G/3G (Global) Starter Kit, [x1] | Global | U201 |  | NRND | BRN314KIT|
+| BRN402 | Boron LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | BRN404|
+| BRN402KIT | Boron LTE CAT-M1 (NorAm) Starter Kit, [x1] | NORAM | R410 |  | NRND | BRN404KIT|
+| BRN402TRAY50 | Boron LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | BRN404TRAY50|
 
 
 {{!-- END do not edit content above, it is automatically generated 281acdea-76ce-11eb-9439-0242ac130002 --}}

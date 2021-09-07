@@ -40,8 +40,10 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * u-blox SARA-R510S-01B LTE modem (B404X)
   * LTE Cat M1 module
   * Support for United States, Canada, and Mexico only
-  * 3GPP Release 13 LTE Cat M1 
-  * Cat M1 bands: 2, 4, 5, 12, 13, 25 and 26
+  * 3GPP Release 14 LTE Cat M1 
+  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
+
+<sup>1</sup> Not all bands enabled in software by default
 
 #### Features - All Models
 
@@ -356,7 +358,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-Boron has two radio modules.
+The B Series SoM has two radio modules.
 
 #### nRF52840
 - Bluetooth® 5, 2.4 GHz
@@ -381,20 +383,38 @@ Boron has two radio modules.
 | | Band 2 (1900 MHz) |
 | Power class | Class 3 (23 dBm) |
 
+- LTE Cat M1 for United States, Canada, and Mexico.
+- Not all bands are enabled in software by default. 
+- Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
+
 #### u-blox SARA-R510S-01B
 
-| Parameter | Value |
-| --- | --- |
-| Protocol stack | 3GPP Release 13 |
-| RAT | LTE Cat M1 Half-Duplex |
-| LTE FDD Bands | Band 12 (700 MHz) |
-| | Band 13 (750 MHz)  |
-| | Band 26 (850 MHz)  |
-| | Band 5 (850 MHz) |
-| | Band 4 (1700 MHz) |
-| | Band 2 (1900 MHz) |
-| | Band 25 (1900 MHz)  |
-| Power class | Class 3 (23 dBm) |
+| Parameter | Value | FCC Certified | 
+| --- | --- | :---: | 
+| Protocol stack | 3GPP Release 14 | |
+| RAT | LTE Cat M1 Half-Duplex | |
+| LTE FDD Bands | Band 71 (600 MHz) | &nbsp; |
+| | Band 12 (700 MHz) | &check; |
+| | Band 28 (700 MHz)  | &check; |
+| | Band 85 (700 MHz)  | &nbsp; |
+| | Band 13 (750 MHz)  | &check; |
+| | Band 20 (800 MHz)  | &check; |
+| | Band 5 (850 MHz) | &check; |
+| | Band 18 (850 MHz) | &nbsp; |
+| | Band 19 (850 MHz) | &nbsp; |
+| | Band 26 (850 MHz)  | &nbsp; |
+| | Band 8 (900 MHz)  | &check; |
+| | Band 4 (1700 MHz) | &check; |
+| | Band 3 (1800 MHz)  | &check; |
+| | Band 2 (1900 MHz) | &check; |
+| | Band 25 (1900 MHz)  | &nbsp; |
+| | Band 1 (2100 MHz)  | &nbsp; |
+| Power class | Class 3 (23 dBm) | &nbsp; |
+
+- LTE Cat M1 for United States, Canada, and Mexico
+- Not all bands are enabled in software by default. 
+- FCC Certification in the United States only tests bands in use in the United States.
+- Particle LTE Cat M1 devices are not certified for use in Europe or other countries that follow EU certification requirements.
 
 ---
 
@@ -561,14 +581,14 @@ The bootloader allows you to easily update the user application via several diff
 
 {{!-- BEGIN do not edit content below, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
-| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | GA | |
-| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | GA | |
-| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | GA | |
-| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | GA | |
-| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | NRND | B404MEA|
-| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | NRND | B404MTY|
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| B404MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
+| B404MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
+| B404XMEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
+| B404XMTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
+| B402MEA | B Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 |  | NRND | B404MEA|
+| B402MTY | B Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 |  | NRND | B404MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 91d8b83c-76ce-11eb-9439-0242ac130002 --}}

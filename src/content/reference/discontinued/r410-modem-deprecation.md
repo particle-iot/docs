@@ -19,3 +19,9 @@ The following SKUs are affected:
 | Boron | BRN404, BRN402 | BRN404X |
 | B Series SoM | B404, B402 | BRN404X |
 
+## R510S Advantages
+
+- u-blox long term support and roadmap stability
+- 3GPP Release 14 LTE Cat M1 vs. Release 13 on the R410
+- Additional band support
+
