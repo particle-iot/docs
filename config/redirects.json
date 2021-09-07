@@ -1,6 +1,8 @@
 {
   "/api": "/reference/device-cloud/api",
   "/b402": "/reference/device-cloud/b-series",
+  "/b404": "/reference/device-cloud/b-series",
+  "/b404x": "/reference/device-cloud/b-series",
   "/ble-serial": "/tools/troubleshooting/ble-serial",
   "/build": "/tutorials/developer-tools/build",
   "/cards/firmware": "/cards/firmware/introduction/introduction",
