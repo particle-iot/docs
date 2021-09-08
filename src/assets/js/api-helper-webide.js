@@ -57,6 +57,7 @@ $(document).ready(function() {
         const loadApplications = function() {
             //console.log('applications', applications);
             $(exportOptionsElem).show();
+            $(appsTableElem).show();
 
             const sortBy = $(sortByElem).val();
 
@@ -145,10 +146,16 @@ $(document).ready(function() {
 
         $($('.apiHelper')[0]).on('ssoLogout', function() {
             sessionStorage.removeItem(sessionStorageKey);
+
+            applications = [];
+            loadApplications();
         });
 
         $(getProjectsButtonElem).on('click', function() {
             $(getProjectsButtonElem).prop('disabled', true);
+
+            $(exportOptionsElem).hide();
+            $(appsTableElem).hide();
 
             const request = {
                 dataType: 'json',
