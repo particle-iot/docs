@@ -38,3 +38,11 @@ This tool makes it easy to export projects from the [Particle Web IDE](https://b
   - Open the command palette and select **Particle: Launch CLI**.
   - Use the `particle library copy` command to install libraries locally.
   - This is not necessary if you will be doing cloud builds.
+
+## Learn More
+
+- To install Workbench and get a brief overview of the features, see the [Workbench Quickstart](/quickstart/workbench/).
+- For a more in-depth explanation of the features, see the [Workbench Tutorial](/tutorials/developer-tools/workbench/).
+- See also [FAQ and Tips](https://support.particle.io/hc/en-us/articles/1260801313350-Troubleshooting-Particle-Workbench).
+- And [Troubleshooting](https://support.particle.io/hc/en-us/articles/1260801313350-Troubleshooting-Particle-Workbench).
+
