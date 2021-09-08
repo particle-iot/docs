@@ -8881,9 +8881,9 @@
   {
     "type": "put",
     "url": "/v1/sims/:iccid",
-    "title": "Update SIM data limit",
+    "title": "Update SIM data limit (deprecated)",
     "group": "Sims_10",
-    "description": "<p>Update the data limit of a SIM card. The data limit represents the maximum data consumption before the SIM is paused until the beginning of the next billing period</p>",
+    "description": "<p>This API has been deprecated as there is no per-SIM data limit at this time.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -9816,7 +9816,7 @@
     "url": "/v1/sims/:iccid",
     "title": "Reactivate SIM",
     "group": "Sims_9",
-    "description": "<p>Re-enables a SIM card to connect to a cell tower. Do this if you'd like to reactivate a SIM that you have deactivated, or when unpausing a SIM that has reached its monthly data limit. When unpausing a SIM, you should also pass <code>mb_limit</code> with the request to raise the SIM card's monthly data limit.</p>",
+    "description": "<p>Re-enables a SIM card to connect to a cell tower. Do this if you'd like to reactivate a SIM that you have deactivated.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -9838,14 +9838,14 @@
             "type": "Number",
             "optional": true,
             "field": "mb_limit",
-            "description": "<p>Optionally also set a new data limit in megabytes. This is useful when unpausing</p>"
+            "description": "<p>Deprecated. It is not possible to set a per-SIM data limit at this time.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "productIdOrSlug",
-            "description": "<p>Product ID or slug. <em>Product endpoint only</em> a SIM after it has reached its monthly data limit, to raise it's monthly limit for continued usage</p>"
+            "description": "<p>Product ID or slug. <em>Product endpoint only</em></p>"
           }
         ]
       }

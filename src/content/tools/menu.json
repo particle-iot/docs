@@ -19,6 +19,11 @@
                 "dir": "hex-generator",
                 "title": "Hex Generator",
                 "href": "/tools/device-programming/hex-generator"
+            },
+            {
+                "dir": "web-ide-exporter",
+                "title": "Web IDE Exporter",
+                "href": "/tools/device-programming/web-ide-exporter"
             }
         ],
         {

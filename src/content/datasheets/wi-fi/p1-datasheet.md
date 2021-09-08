@@ -532,7 +532,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 {{!-- BEGIN do not edit content below, it is automatically generated 797577ac-7751-11eb-9439-0242ac130002 --}}
 
 | SKU | Description | Region | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | P1MOD10 | P1 Wi-Fi Module, Cut tape [x10] | Global | GA | |
 | P1REEL | P1 Wi-Fi Module, Reel [x500] | Global | GA | |
 

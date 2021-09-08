@@ -352,7 +352,7 @@ Argon are available from [store.particle.io](https://store.particle.io/) in sing
 {{!-- BEGIN do not edit content below, it is automatically generated 81ddccf2-774f-11eb-9439-0242ac130002 --}}
 
 | SKU | Description | Region | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | GA | |
 | ARG-STRTKT | Argon Starter Kit [x1] | Global | GA | |
 | ARGN-H | Argon [x1] | Global | GA | |

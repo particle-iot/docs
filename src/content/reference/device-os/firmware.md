@@ -5891,32 +5891,6 @@ Returns the charge voltage register. This is the direct register value from the 
 
 ---
 
-### Fault Register
-
-#### isWatchdogFault()
-
-{{api name1="PMIC::isWatchdogFault"}}
-
-`bool isWatchdogFault();`
-
-#### getChargeFault()
-
-{{api name1="PMIC::getChargeFault"}}
-
-`byte getChargeFault();`
-
-#### isBatFault()
-
-{{api name1="PMIC::isBatFault"}}
-
-`bool isBatFault();`
-
-#### getNTCFault()
-
-{{api name1="PMIC::getNTCFault"}}
-
-`byte getNTCFault();`
-
 
 ## Serial
 (inherits from [`Stream`](#stream-class))
