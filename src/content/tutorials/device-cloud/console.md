@@ -139,7 +139,7 @@ tutorial](/tutorials/integrations/google-cloud-platform/)
 
 The **Billing & Usage** page shows billing information and data usage (data operations and cellular). 
 
-All accounts have a personal sandbox on the Free plan. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the Growth Tier, this is in addition to devices included in your Growth Tier blocks.
+All accounts have a personal sandbox on the free plan. The sandbox can include up to 100 cellular and Wi-Fi devices (in any combination, not to exceed 100 total), free of charge. For the growth tier, this is in addition to devices included in your growth tier blocks.
 
 From this page you can view the total number of devices and data operations consumed by your free sandbox devices.
 
@@ -158,7 +158,7 @@ Also Tracker devices, which have higher data allocations than other cellular dev
 
 <div align="center"><img src="/assets/images/console/tracker-usage.png" class="small"></div>
 
-These panels turn yellow at 75% of your plan limits, and red when the limits have been reached.
+These panels turn yellow at 70% of your plan limits, and red when the limits have been reached.
 
 
 You can also quickly view your usage from the popup under your email address in the upper-right corner of the console window.
@@ -166,6 +166,24 @@ You can also quickly view your usage from the popup under your email address in 
 <div align="center"><img src="/assets/images/console/usage-popup.png" class="small"></div>
 
 The numbers of devices and data operations will be updated within a half hour. Cellular data usage may be delayed for up to a week.
+
+### Billing limits
+
+You will receive warnings by email, and as a pop-up, and in the **Billing & Usage** tab in the console at 70%, 90%, and 100% of the allowable data operations. 
+
+In the free plan, once you reach the 100% limit you have three days to switch the the Growth plan, or data will be stopped until the end of your billing month. It will automatically resume on the free plan at the beginning of the next billing month, still on the free plan, if you do not upgrade.
+
+In the growth plan, once you reach the 100% limit an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
+
+### Upgrading to the growth tier
+
+Following the [link from the emails](https://www.particle.io/upgradetogrowth/) or **Billing & Usage** page leads to a contact form to initiate the upgrade process. A representative will contact you by telephone to complete the upgrade process to growth tier.
+
+When you upgrade to the growth tier, you will get an organization, which is the collection of products and accounts in your plan. The usage limits in the growth tier apply monthly across all products of the same type in your organization. Some limits vary between cellular, Wi-Fi, and tracker products. 
+
+Additionally, all organization members still have a private sandbox in their account and can still have their own 100 free devices that do not count against your growth plan limits. 
+
+If you already have your devices in a product, the entire product can be moved into your growth organization without affecting the customers, access tokens, or cloud API endpoints, so this should be a relatively easy transition.
 
 ## Product Tools
 
@@ -602,7 +620,7 @@ To see all billing related information, you can click on the billing icon in the
 
 For more information see [Device Cloud - Introduction - Pricing](/tutorials/device-cloud/introduction/#pricing).
 
-<sup>1</sup>During the transition period, a warning will be sent but communication will not be immediately paused.
+<sup>1</sup>{{blurb name="free-warnings"}}
 
 #### Free tier products
 
@@ -615,9 +633,10 @@ Products can be prototyped in the Free tier at no charge. However, there is a li
 - No limit to the number of blocks you can purchase self-service
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
 - Email support
-- Available in Summer 2021
 
-In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data.
+In the Growth tier, usage is measured by blocks. You can choose how many blocks you initially want to purchase in advance. It is also possible to add blocks if you run out of Data Operations, available devices, or cellular data. 
+
+You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations for your current number of blocks. Once you reach the 100% limit, an additional block will be added to your plan. Starting at the next billing month your plan will include these additional block(s) and you will be billed accordingly. There is no additional charge at the time of the overage; it occurs only on the next billing cycle.
 
 In the Growth and Enterprise tiers, you will also have access to an **Organization**, which allows finer access control to multiple products. 
 
@@ -852,7 +871,7 @@ Typical settings in common scenarios:
 
 A location publish uses one data operation to send the location data to the Particle cloud. If you subscribe to enhanced location events on the device, an additional data operation will be used.
 
-You can estimate the number of data operations you will consume using this calculator. For more information on the Free Tier, Growth Tier, Blocks, and Data Operations, see [Pricing Tiers](/tutorials/device-cloud/introduction/#pricing).
+You can estimate the number of data operations you will consume using this calculator. For more information on the free tier, growth tier, blocks, and data operations, see [Pricing Tiers](/tutorials/device-cloud/introduction/#pricing).
 
 {{> dataoperationscalc}}
 
