@@ -6,6 +6,10 @@ redirects: true
 description: Web-based IDE for programming your Particle IoT devices
 ---
 
+The Particle Web IDE makes it easy to write code, compile, and flash devices over-the-air (OTA) right from a web browser!
+
+For larger projects, development teams, and products, we recommend [Particle Workbench](/workbench) instead of the Web IDE. If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
+
 Flash Apps with the Particle Web IDE
 ===
 

@@ -6,7 +6,7 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 ---
 
 
-# Electron Datasheet <sup>(v008)</sup>
+# Electron Datasheet <sup>(v009)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
@@ -357,7 +357,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 29.5 | 33.3 | 34.6 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 26.8 | 42.6 | 786 | mA |
@@ -374,6 +374,10 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 1.94 | 2.55 | 3.21 | mA |
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 108 | 114 | 121 | uA |
 | HIBERNATE mode sleep, RTC wake-up | I<sub>hib_rtc</sub> | 108 | 114 | 120 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 
 ---
@@ -939,6 +943,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v006     | 31-Jul-2019   | RK     |  Added LTE information |
 | v007 | 16-Sep-2020 | RK | Added power consumption information |
 | v008 | 24-Feb-2021 | RK | Added ELC314 information |
+| v009 | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 
 ## Known Errata
 

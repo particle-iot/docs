@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404/B402 Datasheet <sup>(013)</sup>
+# B404/B402 Datasheet <sup>(014)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
@@ -311,7 +311,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 4.48 | 4.71 | 5.17 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 5.1 | 45.2 | 166 | mA |
@@ -336,6 +336,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 23.6 | 26.0 | 29.7 | uA |
 | HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 23.9 | 26.5 | 30.5 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 ---
 
@@ -566,3 +569,4 @@ The bootloader allows you to easily update the user application via several diff
 | 011      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
 | 012      | 19-May-2021 | RK | List Ethernet reserved pins |
 | 013      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
+| 014      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |

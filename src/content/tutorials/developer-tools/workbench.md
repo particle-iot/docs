@@ -56,7 +56,6 @@ You can install and uninstall different versions of Device OS (and dependencies)
 
 ![Dependency Manager](/assets/images/workbench/dependency-manager.png)
 
-
 ### Working with Particle Projects
 
 You can initialize a new project with the command, `Particle: Create New Project`. Doing so will open a new a Visual Studio Code folder preconfigured with everything needed to begin developing your Particle project, like Tasks, C++ IntelliSense, Commands, files and folders. Note that these are designed to only work when editing Particle projects as to not muddy up the rest of your editing experience.
@@ -673,6 +672,8 @@ Shows who you are logged in as. A small popup window will display in the lower r
 {{!-- See ch25559 --}}
 
 ### From the Particle Web IDE
+
+If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
 
 One big change from the Web IDE is the lack of the icon bar on the left. Most replacements are available from the Command Palette (`cmd+shift+p` on Mac OS or `ctrl+shift+p` on Linux and Windows).
 

@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(017)</sup>
+# Tracker SoM Datasheet <sup>(018)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -111,10 +111,10 @@ This pin is the output of the on-board 3.3V switching regulator that powers the 
 #### RTC_BAT
 This is the supply to the real-time clock battery backup. 1.4 to 3.6V. 
 
-| Voltage | Typical Current | Maximum Current | Unit |
-| :---:   | ---:            | ---:            | :--- |
-| 3.0V    | 56              | 330             | nA   |
-| 1.8V    | 52              | 290             | nA   |
+| Voltage | Typical Current | Peak Current | Unit |
+| :---:   | ---:            | ---:         | :--- |
+| 3.0V    | 56              | 330          | nA   |
+| 1.8V    | 52              | 290          | nA   |
 
 If the RTC battery is not used, connect RTC_BAT to ground.
 
@@ -541,7 +541,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption (T402)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.35 | 3.38 | 4.39 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | | 21.3 | 277 | mA |
@@ -575,11 +575,15 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 151 | 590 | uA |
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 121 | 477 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
 ---
 
 ### Power consumption (T523)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.22 | 3.24 | 3.26 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 18.9 | 22.0 | 136 | mA |
@@ -613,6 +617,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 144 | 580 | uA |
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | 8.76 | 133 | 386 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 ---
 
@@ -1228,3 +1235,4 @@ The bootloader allows you to easily update the user application via several diff
 | 015      | 2021 May 28 | RK | Corrected band list for T402/T404 (BG96) |
 | 016      | 2021 Jun 28 | RK | Added Device OS 3.1 memory map information |
 | 017      | 2021 Jul 28 | RK | Added mechanical drawing |
+| 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |

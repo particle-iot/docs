@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 ---
 
-# Boron Datasheet <sup>(v008)</sup>
+# Boron Datasheet <sup>(v009)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
@@ -250,7 +250,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption (Boron 2G/3G)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Peak Current, 3G | I<sub>Li+ pk</sub> | | | 800 | mA |
 | Peak Current, 2G | I<sub>Li+ pk</sub> | | | 1800 | mA |
@@ -278,11 +278,15 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 139 | 147 | 163 | uA |
 | Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 70 | 75 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
 ---
 
 ### Power consumption (Boron LTE)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Peak Current | I<sub>Li+ pk</sub> | 120 |  | 490 | mA |
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.89 | 3.90 | 3.92 | mA |
@@ -308,6 +312,10 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 98.7 | 106 | 118 | uA |
 | HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 99.4 | 106 | 120 | uA |
 | Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 70 | 75 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 ---
 
@@ -718,6 +726,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | v007     | 09-Jul-2021 | RK | Number of accessible I2C ports is 1, not 2 |
 | v008     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
+| v009     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 
 ## Known Errata
 
