@@ -8,6 +8,8 @@ includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, api-helpe
 
 This control moves devices into a product from your developer sandbox or from another product.
 
+{{> sso}}
+
 {{> cloud-api-product-device-move}}
 
 **Moving a device into a product may have billing implications**, especially when moving devices from the free developer sandbox into a growth tier product, where additional devices could require additional blocks to accommodate the added devices. 

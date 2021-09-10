@@ -2280,7 +2280,7 @@ $(document).ready(function () {
 
                 $(productSelectElem).html(html);
 
-                if (queryState.productId) {
+                if (queryState && queryState.productId) {
                     $(productSelectElem).val(queryState.productId);
                 }
 
@@ -2319,7 +2319,7 @@ $(document).ready(function () {
                 }
                 $(orgSelectElem).html(html);
 
-                if (queryState.orgId) {
+                if (queryState && queryState.orgId) {
                     $(orgSelectElem).val(queryState.orgId);
                 }
 
