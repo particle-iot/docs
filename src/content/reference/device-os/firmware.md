@@ -4109,7 +4109,7 @@ Returns the battery voltage as a `float`. Returns -1.0 if the fuel gauge cannot 
 
 ```cpp
 // PROTOTYPE
-float getSoC() 
+float getSoC(); 
 
 // EXAMPLE
 FuelGauge fuel;
