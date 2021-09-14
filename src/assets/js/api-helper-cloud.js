@@ -2479,6 +2479,9 @@ $(document).ready(function () {
                     apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product:sourceProduct, page }).then(
                         function(data) {
                             data.body.devices.forEach(function(dev) {
+                                if (dev.quarantined || dev.denied) {
+                                    return;
+                                }
                                 deviceList.push(dev);
                             });
         
