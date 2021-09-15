@@ -102,7 +102,7 @@ If this is your first time using Pub/Sub, you will need to enable the Pub/Sub AP
 
 #### Give Particle Permission to Publish to your Topic
 
-Once created, check the checkbox next to your topic name, and click on the "Permissions" button. Then, in the "Add members" box, paste in **particle-public@particle-public.iam.gserviceaccount.com**. Choose **Pub/Sub Publisher** from the the "Select a role" dropdown. When you're done, click "Add." Congrats, you're all done!
+Once created, check the checkbox next to your topic name, and click on the "Permissions" button. Then, in the "Add members" box, paste in `particle-public@particle-public.iam.gserviceaccount.com`. Choose **Pub/Sub Publisher** from the the "Select a role" dropdown. When you're done, click "Add." Congrats, you're all done!
 
 <img src="/assets/images/gcp-add-permissions.png" class="full-width" alt="Add Particle's Service Account to your Google Cloud Topic"/>
 
