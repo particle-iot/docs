@@ -17320,17 +17320,20 @@
       "telefonicaBundle2018": {
         "partnerZone": 2,
         "allow3G": true,
-        "allow2G": true
+        "allow2G": true,
+        "roamingRestrictions": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true
+        "allow2G": true,
+        "roamingRestrictions": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "rank": "Secondary"
+        "rank": "Secondary",
+        "roamingRestrictions": true
       },
       "bands": [
         "2G-900",
@@ -17355,12 +17358,14 @@
       "telefonicaBundle2018": {
         "partnerZone": 2,
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "roamingRestrictions": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "roamingRestrictions": true
       },
       "bands": [
         "2G-900",
@@ -17385,11 +17390,13 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "rank": "Primary"
+        "rank": "Primary",
+        "roamingRestrictions": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true
+        "allow3G": true,
+        "roamingRestrictions": true
       },
       "bands": [
         "2G-900",
@@ -21915,8 +21922,8 @@
       "country": "Albania",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Albania",
@@ -21936,7 +21943,8 @@
       "country": "Albania",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Albania",
@@ -21961,7 +21969,8 @@
       "country": "Albania",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Algeria",
@@ -22102,8 +22111,8 @@
       "country": "Andorra",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Andorra",
@@ -22123,7 +22132,8 @@
       "country": "Andorra",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Andorra",
@@ -22150,7 +22160,8 @@
       "country": "Andorra",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22177,7 +22188,8 @@
       "country": "Angola",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22190,14 +22202,15 @@
       "country": "Angola",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22217,7 +22230,8 @@
       "country": "Angola",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22230,7 +22244,8 @@
       "country": "Angola",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22243,7 +22258,8 @@
       "country": "Angola",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Anguilla",
@@ -23762,7 +23778,8 @@
       "country": "Benin",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
@@ -23774,14 +23791,15 @@
       "country": "Benin",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
@@ -23801,7 +23819,8 @@
       "country": "Benin",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
@@ -23813,7 +23832,8 @@
       "country": "Benin",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
@@ -23826,7 +23846,8 @@
       "country": "Benin",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Bermuda",
@@ -24703,7 +24724,8 @@
       "country": "Burundi",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Burundi",
@@ -24716,7 +24738,8 @@
       "country": "Burundi",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Burundi",
@@ -24757,7 +24780,8 @@
       "country": "Burundi",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Burundi",
@@ -24911,8 +24935,8 @@
       "country": "Cambodia",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cambodia",
@@ -24932,7 +24956,8 @@
       "country": "Cambodia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cambodia",
@@ -24957,7 +24982,8 @@
       "country": "Cambodia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cameroon",
@@ -24984,7 +25010,8 @@
       "country": "Cameroon",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cameroon",
@@ -24997,7 +25024,8 @@
       "country": "Cameroon",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cameroon",
@@ -25037,7 +25065,8 @@
       "country": "Cameroon",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cameroon",
@@ -27128,7 +27157,8 @@
       "country": "Equatorial Guinea",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Equatorial Guinea",
@@ -27141,7 +27171,8 @@
       "country": "Equatorial Guinea",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Equatorial Guinea",
@@ -27182,7 +27213,8 @@
       "country": "Equatorial Guinea",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Equatorial Guinea",
@@ -27518,8 +27550,8 @@
       "country": "Faroe Islands",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Faroe Islands",
@@ -27539,7 +27571,8 @@
       "country": "Faroe Islands",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Faroe Islands",
@@ -27564,7 +27597,8 @@
       "country": "Faroe Islands",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Fiji",
@@ -28052,7 +28086,8 @@
       "country": "Gambia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
@@ -28065,14 +28100,15 @@
       "country": "Gambia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
@@ -28092,7 +28128,8 @@
       "country": "Gambia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
@@ -28105,7 +28142,8 @@
       "country": "Gambia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
@@ -28118,7 +28156,8 @@
       "country": "Gambia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Georgia",
@@ -28599,7 +28638,8 @@
       "country": "Greenland",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Greenland",
@@ -28612,7 +28652,8 @@
       "country": "Greenland",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Greenland",
@@ -28652,7 +28693,8 @@
       "country": "Greenland",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Greenland",
@@ -28936,7 +28978,8 @@
       "country": "Guam",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Guam",
@@ -30023,8 +30066,8 @@
       "country": "India",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "India",
@@ -30044,7 +30087,8 @@
       "country": "India",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "India",
@@ -30070,7 +30114,8 @@
       "country": "India",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Indonesia",
@@ -30306,8 +30351,8 @@
       "country": "Iraq",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Iraq",
@@ -30327,7 +30372,8 @@
       "country": "Iraq",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Iraq",
@@ -30354,7 +30400,8 @@
       "country": "Iraq",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Ireland",
@@ -31044,8 +31091,8 @@
       "country": "Jordan",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Jordan",
@@ -31065,7 +31112,8 @@
       "country": "Jordan",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Jordan",
@@ -31090,7 +31138,8 @@
       "country": "Jordan",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kazakhstan",
@@ -31300,7 +31349,8 @@
       "country": "Kiribati",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kiribati",
@@ -31313,7 +31363,8 @@
       "country": "Kiribati",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kiribati",
@@ -31354,7 +31405,8 @@
       "country": "Kiribati",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kiribati",
@@ -31395,7 +31447,8 @@
       "country": "Kosovo",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kosovo",
@@ -31408,7 +31461,8 @@
       "country": "Kosovo",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kosovo",
@@ -31449,7 +31503,8 @@
       "country": "Kosovo",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kosovo",
@@ -31886,8 +31941,8 @@
       "country": "Lebanon",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lebanon",
@@ -31907,7 +31962,8 @@
       "country": "Lebanon",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lebanon",
@@ -31934,7 +31990,8 @@
       "country": "Lebanon",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lesotho",
@@ -31960,7 +32017,8 @@
       "country": "Lesotho",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lesotho",
@@ -31972,7 +32030,8 @@
       "country": "Lesotho",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lesotho",
@@ -32012,7 +32071,8 @@
       "country": "Lesotho",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lesotho",
@@ -32794,7 +32854,8 @@
       "country": "Mali",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
@@ -32807,14 +32868,15 @@
       "country": "Mali",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
@@ -32834,7 +32896,8 @@
       "country": "Mali",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
@@ -32847,7 +32910,8 @@
       "country": "Mali",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
@@ -32860,7 +32924,8 @@
       "country": "Mali",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Malta",
@@ -32969,26 +33034,26 @@
     {
       "country": "Martinique",
       "modem": "EG91-E",
-      "sim": 2,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
-    },
-    {
-      "country": "Martinique",
-      "modem": "EG91-E",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Martinique",
-      "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
       "reason": "May work on Digicel"
     },
     {
       "country": "Martinique",
+      "modem": "EG91-E",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Martinique",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "recommendation": "POSS",
+      "reason": "May work on Digicel"
+    },
+    {
+      "country": "Martinique",
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
@@ -33095,8 +33160,8 @@
       "country": "Mauritania",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritania",
@@ -33116,7 +33181,8 @@
       "country": "Mauritania",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritania",
@@ -33143,7 +33209,8 @@
       "country": "Mauritania",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritius",
@@ -33191,8 +33258,8 @@
       "country": "Mauritius",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritius",
@@ -33212,7 +33279,8 @@
       "country": "Mauritius",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritius",
@@ -33239,7 +33307,8 @@
       "country": "Mauritius",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mayotte",
@@ -33550,7 +33619,8 @@
       "country": "Monaco",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Monaco",
@@ -33563,7 +33633,8 @@
       "country": "Monaco",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Monaco",
@@ -33604,7 +33675,8 @@
       "country": "Monaco",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Monaco",
@@ -33879,7 +33951,8 @@
       "country": "Montserrat",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Montserrat",
@@ -34219,8 +34292,8 @@
       "country": "Namibia",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Namibia",
@@ -34240,7 +34313,8 @@
       "country": "Namibia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Namibia",
@@ -34266,7 +34340,8 @@
       "country": "Namibia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nauru",
@@ -34388,7 +34463,8 @@
       "country": "Nepal",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
@@ -34401,14 +34477,15 @@
       "country": "Nepal",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
@@ -34428,7 +34505,8 @@
       "country": "Nepal",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
@@ -34441,7 +34519,8 @@
       "country": "Nepal",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
@@ -34454,7 +34533,8 @@
       "country": "Nepal",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Netherlands",
@@ -34851,7 +34931,8 @@
       "country": "Niger",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Niger",
@@ -34863,7 +34944,8 @@
       "country": "Niger",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Niger",
@@ -34902,7 +34984,8 @@
       "country": "Niger",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Niger",
@@ -37475,8 +37558,8 @@
       "country": "Senegal",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Senegal",
@@ -37496,7 +37579,8 @@
       "country": "Senegal",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Senegal",
@@ -37523,7 +37607,8 @@
       "country": "Senegal",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Serbia",
@@ -37754,8 +37839,8 @@
       "country": "Sierra Leone",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Sierra Leone",
@@ -37775,7 +37860,8 @@
       "country": "Sierra Leone",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Sierra Leone",
@@ -37802,7 +37888,8 @@
       "country": "Sierra Leone",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Singapore",
@@ -38294,7 +38381,8 @@
       "country": "Somalia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Somalia",
@@ -38307,7 +38395,8 @@
       "country": "Somalia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Somalia",
@@ -38348,7 +38437,8 @@
       "country": "Somalia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Somalia",
@@ -39595,8 +39685,8 @@
       "country": "Togo",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Togo",
@@ -39616,7 +39706,8 @@
       "country": "Togo",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Togo",
@@ -39642,7 +39733,8 @@
       "country": "Togo",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Tonga",
@@ -41460,7 +41552,8 @@
       "country": "Zimbabwe",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
@@ -41473,14 +41566,15 @@
       "country": "Zimbabwe",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
@@ -41500,7 +41594,8 @@
       "country": "Zimbabwe",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
@@ -41513,7 +41608,8 @@
       "country": "Zimbabwe",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
@@ -41526,7 +41622,8 @@
       "country": "Zimbabwe",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     }
   ],
   "recommendation": [
