@@ -77,7 +77,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 - [Electronic Code of Federal Regulation for Telecommunications, Part 15: Radio Frequencies Devices](http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&SID=a9f9d244cc20be8b56099003689d6cc3&rgn=div5&view=text&node=47:1.0.1.1.16&idno=47)
 - [Additional details about Part 15](https://www.fcc.gov/oet/ea/rfdevice)
-- [Additional guidance on types of certification you may need](https://apps.fcc.gov/kdb/GetAttachment.html?id=zVUUifMY6Doa%2BO3Sg0Nygw%3D%3D&desc=996369%20D04%20Module%20Integration%20Guide%20V01&tracking_number=44637)
+- [Additional guidance on types of certification you may need](https://apps.fcc.gov/oetcf/kdb/forms/FTSSearchResultPage.cfm?id=44637&switch=P)
 
 ### Documentation
 
