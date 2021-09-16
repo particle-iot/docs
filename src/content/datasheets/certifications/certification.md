@@ -511,9 +511,15 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Test Reports](/assets/pdfs/new-certs/ce/photon-ce-test-reports-201708.zip)
 - [RoHS 3.0 Test Report](/assets/pdfs/photon-rohs.pdf)
 
-#### P1 Module - (updated 6/19/2018)
-- [Declaration of Conformity](/assets/pdfs/new-certs/ce/p1-declaration.pdf)
-- [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf)
+#### P1 Module
+- [Summary](/assets/pdfs/p1-ce-summary.pdf) (2021-09-16)
+- [EN 300-328 Test Report](/assets/pdfs/p1-EN300-328-test-report.pdf) (2021-09-16)
+- [EN 301-489 Test Report](/assets/pdfs/p1-EN301-489-test-report.pdf) (2021-09-16)
+- [EN62311 and EN50665 Test Report](/assets/pdfs/p1-EN62311-test-report.pdf) (2021-09-16)
+- [EN62368 Test Report](/assets/pdfs/p1-EN62368-test-report.pdf) (2021-09-16)
+- [RoHS Test Repot](/assets/pdfs/p1-rohs.pdf) (2021-09-16)
+- [Declaration of Conformity](/assets/pdfs/new-certs/ce/p1-declaration.pdf) (2018-06-19)
+- [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf) (2018-06-19)
 
 #### Electron U270
 - [Certificate of Conformity](/assets/pdfs/electron/ce-u270-certificate.pdf)
@@ -583,19 +589,19 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-62479 Test Report](/assets/pdfs/xenon-EN62479-test-report.pdf)
 - [RoHS 3.0 Test Report](/assets/pdfs/xenon-rohs.pdf)
 
-#### B Series SoM B523
+#### B Series SoM B524/B523
 
-- [Summary](/assets/pdfs/b523-ce-summary.pdf)
-- [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf)
-- [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf)
-- [RED Cellular Test Report](/assets/pdfs/b523-cellular-ce-test-report.pdf)
-- [EN 300 328 Test Report](/assets/pdfs/b523-EN300-328-test-report.pdf) (2.4 GHz ISM band)
-- [EN 300 330 Test Report](/assets/pdfs/b523-EN300-330-test-report.pdf) (NFC)
-- [EN 301 489 Test Report](/assets/pdfs/b523-EN301-489-test-report.pdf)
-- [EN 301 511 Test Report](/assets/pdfs/b523-EN301-511-test-report.pdf) (GSM)
-- [EN-62311 Test Report](/assets/pdfs/b523-EN62311-test-report.pdf)
-- [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950)
-- [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
+- [Summary](/assets/pdfs/b523-ce-summary.pdf) (updated 2021-09-16)
+- [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf) (updated 2021-09-16)
+- [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf) (updated 2021-09-16)
+- [RED Cellular Test Report](/assets/pdfs/b523-cellular-ce-test-report.pdf) (updated 2021-09-16)
+- [EN 300 328 Test Report](/assets/pdfs/b523-EN300-328-test-report.pdf) (2.4 GHz ISM band) (updated 2021-09-16)
+- [EN 300 330 Test Report](/assets/pdfs/b523-EN300-330-test-report.pdf) (NFC) (updated 2021-09-16)
+- [EN 301 489 Test Report](/assets/pdfs/b523-EN301-489-test-report.pdf) (updated 2021-09-16)
+- [EN 301 511 Test Report](/assets/pdfs/b523-EN301-511-test-report.pdf) (GSM) (updated 2021-09-16)
+- [EN-62311 Test Report](/assets/pdfs/b523-EN62311-test-report.pdf) (updated 2021-09-16)
+- [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950) (updated 2021-09-16)
+- [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf) (updated 2021-09-16)
 
 
 #### Tracker SoM T523
@@ -692,6 +698,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/photon-rohs.pdf)
 - [Test Reports](/assets/pdfs/p0-rohs-test-reports.zip)
+
+#### P1
+
+- [Test Report](/assets/pdfs/p1-rohs.pdf) (2021-09-16)
 
 #### Electron U260/U270/G350
 

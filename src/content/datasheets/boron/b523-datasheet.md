@@ -140,7 +140,7 @@ There are some optional B523 module specific I/O:
 
 ### JTAG and SWD 
 
-The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your B523 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
 {{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
 
