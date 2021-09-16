@@ -44,13 +44,15 @@ The Photon as well as the PØ/P1 Modules are covered under certifications from t
 
  - The **P1 Module** is also certified as a single-modular transmitter that carries a modular grant, and is certified for integration into multiple host end products by the FCC.
 
-Any host product incorporating the Photon/PØ or P1 modules does not require additional testing or authorization for the Wi-Fi transmitter as long as:
+Any host product incorporating the Photon/PØ or P1 modules generally does not require additional intentional radiator testing of the Wi-Fi transmitter as long as:
 - An antenna of the same type **and** equal or lesser gain to the antenna used for certification is used on the product.  
 - Any restrictions found in the grants are followed in the OEM's end product integration of Particle hardware.
 
 The Photon/PØ and P1 modules were certified with antennas of the following gain:
 - **Photon/PØ Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
 - **P1 Module**: On-board antenna (printed trace). Deployment with external antenna leveraging the onboard U.FL requires verification of certification.
+
+Note that your completed device will still likely require unintentional radiator (Part B) testing of your completed assembly.
 
 ### Customer Responsibilities
 Even though we've certified the Photon and PØ/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:
