@@ -23,9 +23,6 @@ For an introduction to Tracker Edge Firmware, see the [Tracker Edge Tutorial](/t
 The `Tracker` object is a singleton that you access using `Tracker::instance()`. You must call the `init()` method from `setup()` and the `loop()` method on every loop.
 
 ```
-// INCLUDE
-#include "tracker.h"
-
 // EXAMPLE
 #include "Particle.h"
 
