@@ -43,7 +43,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * Quectel BG96-MC modem (T402 / T404)
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
   * LTE FDD bands supported: B1, B2，B3, B4，B5, B8, B12，B13, B18, B19, B20, B28
-   Quectel EG91-EX modem (T523 / T524)
+ * Quectel EG91-EX modem (T523 / T524)
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
   * Cat 1 bands supported: B1, B3, B7, B8, B20, B28
