@@ -23,12 +23,20 @@ The list can be found on the support site in the [Technical Advisory Notices](ht
 ### Boron/B Series SoM
 
 - [TAN001 - SARA-R410M "124-day"](https://support.particle.io/hc/en-us/articles/360052556854-TAN001-SARA-R410M-124-day-)
+- [TAN003 - B402 RF Circuit Component](https://support.particle.io/hc/en-us/articles/1260801078410)
+- [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](https://support.particle.io/hc/en-us/articles/1260802113569)
+- [TAN005 - SARA-R410-02B-03](https://support.particle.io/hc/en-us/articles/4407211331739)
 
 ### Electron/E Series
 
 - [TAN001 - SARA-R410M "124-day"](https://support.particle.io/hc/en-us/articles/360052556854-TAN001-SARA-R410M-124-day-)
+- [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](https://support.particle.io/hc/en-us/articles/1260802113569)
+- [TAN005 - SARA-R410-02B-03](https://support.particle.io/hc/en-us/articles/4407211331739)
 
 ## Numerical List
 
 - [TAN001 - SARA-R410M "124-day"](https://support.particle.io/hc/en-us/articles/360052556854-TAN001-SARA-R410M-124-day-)
 - [TAN002 - Tracker One v1.0 Shipping Mode](https://support.particle.io/hc/en-us/articles/360052713714-TAN002-Tracker-One-v1-0-Shipping-Mode)
+- [TAN003 - B402 RF Circuit Component](https://support.particle.io/hc/en-us/articles/1260801078410)
+- [TAN004 - Power-off Recommendations for SARA R410M-Equipped Devices](https://support.particle.io/hc/en-us/articles/1260802113569)
+- [TAN005 - SARA-R410-02B-03](https://support.particle.io/hc/en-us/articles/4407211331739)
