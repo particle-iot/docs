@@ -701,7 +701,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Hong Kong | ELC314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | ELC314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | ELC314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | ELC314 | 2G, 3G | Airtel |
 | Indonesia | ELC314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | ELC314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | ELC314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
@@ -745,14 +744,12 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Puerto Rico | ELC314 | 2G, 3G | Claro |
 | Qatar | ELC314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | ELC314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Russia | ELC314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
 | Rwanda | ELC314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
 | Saint Lucia | ELC314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | ELC314 | 2G, 3G | Flow |
 | Saudi Arabia | ELC314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | ELC314 | 2G, 3G | Telenor, VIP |
-| Singapore | ELC314 | 3G | SingTel, StarHub |
 | Sint Maarten | ELC314 | 2G, 3G | TelCell |
 | Slovakia | ELC314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | ELC314 | 2G, 3G | A1, Mobitel |
@@ -770,11 +767,9 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Thailand | ELC314 | 2G, 3G | AIS, DTAC, True Move |
 | Trinidad and Tobago | ELC314 | 2G, 3G | Digicel, TSTT |
 | Tunisia | ELC314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
-| Turkey | ELC314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
 | Turks and Caicos Islands | ELC314 | 2G, 3G | Flow |
 | Uganda | ELC314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | ELC314 | 2G, 3G | Kyivstar, Life, MTS |
-| United Arab Emirates | ELC314 | 2G, 3G | du, Etisalat |
 | United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | ELC404 | M1 | AT&T |
 | Uruguay | ELC314 | 2G, 3G | Antel, Claro, Movistar |

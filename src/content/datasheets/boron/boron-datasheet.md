@@ -490,7 +490,6 @@ The complete schematic and board files are open source and available on Particle
 | Hong Kong | BRN314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | BRN314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | BRN314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | BRN314 | 2G, 3G | Airtel |
 | Indonesia | BRN314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | BRN314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | BRN314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
@@ -534,14 +533,12 @@ The complete schematic and board files are open source and available on Particle
 | Puerto Rico | BRN314 | 2G, 3G | Claro |
 | Qatar | BRN314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | BRN314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Russia | BRN314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
 | Rwanda | BRN314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | BRN314 | 2G, 3G | Flow |
 | Saint Lucia | BRN314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | BRN314 | 2G, 3G | Flow |
 | Saudi Arabia | BRN314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | BRN314 | 2G, 3G | Telenor, VIP |
-| Singapore | BRN314 | 3G | SingTel, StarHub |
 | Sint Maarten | BRN314 | 2G, 3G | TelCell |
 | Slovakia | BRN314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | BRN314 | 2G, 3G | A1, Mobitel |
@@ -559,11 +556,9 @@ The complete schematic and board files are open source and available on Particle
 | Thailand | BRN314 | 2G, 3G | AIS, DTAC, True Move |
 | Trinidad and Tobago | BRN314 | 2G, 3G | Digicel, TSTT |
 | Tunisia | BRN314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
-| Turkey | BRN314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
 | Turks and Caicos Islands | BRN314 | 2G, 3G | Flow |
 | Uganda | BRN314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | BRN314 | 2G, 3G | Kyivstar, Life, MTS |
-| United Arab Emirates | BRN314 | 2G, 3G | du, Etisalat |
 | United Kingdom | BRN314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | BRN404 | M1 | AT&T |
 | Uruguay | BRN314 | 2G, 3G | Antel, Claro, Movistar |

@@ -5822,7 +5822,7 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -5848,7 +5848,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.15,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "bands": [
         "2G-1800",
@@ -5872,7 +5872,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
@@ -6684,7 +6684,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
@@ -6723,7 +6723,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaPPU2020": {
         "partnerZone": 5,
@@ -10011,7 +10011,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.2,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "koreAllNet": {
         "allow2G": true,
@@ -10064,7 +10064,7 @@
         "allow3G": false,
         "allowCat1": true,
         "paygRate": 0.1,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "bands": [
         "LTE-3",
@@ -14688,7 +14688,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
@@ -14739,7 +14739,7 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -14769,7 +14769,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.4,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
@@ -14845,7 +14845,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
@@ -15661,7 +15661,7 @@
         "allowCat1": true,
         "paygRate": 0.2,
         "allowM1": true,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
@@ -15696,7 +15696,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.3,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
@@ -17311,30 +17311,6 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "paygRate": 0.1,
-        "roamingRestrictions": true
-      },
-      "telefonicaBundle2018": {
-        "partnerZone": 2,
-        "allow3G": true,
-        "allow2G": true,
-        "roamingRestrictions": true
-      },
-      "telefonicaPPU2020": {
-        "partnerZone": 1,
-        "allow3G": true,
-        "allow2G": true,
-        "roamingRestrictions": true
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "rank": "Secondary",
-        "roamingRestrictions": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17348,25 +17324,6 @@
       "country": "Turkey",
       "carrier": "Turkcell",
       "lteM1": true,
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.1,
-        "roamingRestrictions": true
-      },
-      "telefonicaBundle2018": {
-        "partnerZone": 2,
-        "allow2G": true,
-        "allow3G": true,
-        "roamingRestrictions": true
-      },
-      "telefonicaPPU2020": {
-        "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true,
-        "roamingRestrictions": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17381,23 +17338,6 @@
       "carrier": "Vodafone",
       "sunset2G": "2025",
       "sunset3G": "2020",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "paygRate": 0.1,
-        "roamingRestrictions": true
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "rank": "Primary",
-        "roamingRestrictions": true
-      },
-      "koreOneNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "roamingRestrictions": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17688,7 +17628,7 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.3,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
@@ -17718,7 +17658,7 @@
         "allowCat1": true,
         "paygRate": 0.25,
         "allowM1": true,
-        "roamingRestrictions": true
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
@@ -24406,7 +24346,7 @@
       "country": "Brazil",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -30046,7 +29986,7 @@
       "country": "India",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -30059,7 +29999,7 @@
       "country": "India",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -30100,7 +30040,7 @@
       "country": "India",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -36593,7 +36533,7 @@
       "country": "Russia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -36607,7 +36547,7 @@
       "country": "Russia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -36647,7 +36587,7 @@
       "country": "Russia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -37915,7 +37855,7 @@
       "country": "Singapore",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -37928,7 +37868,7 @@
       "country": "Singapore",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -37968,7 +37908,7 @@
       "country": "Singapore",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -40039,41 +39979,43 @@
       "country": "Turkey",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "roaming restrictions"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "roaming restrictions"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "R410",
       "sim": 3,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Turkey",
@@ -40086,20 +40028,22 @@
       "country": "Turkey",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES",
-      "reason": "roaming restrictions"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
@@ -40112,7 +40056,8 @@
       "country": "Turkey",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -40419,7 +40364,7 @@
       "country": "United Arab Emirates",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -40433,7 +40378,7 @@
       "country": "United Arab Emirates",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -40474,7 +40419,7 @@
       "country": "United Arab Emirates",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES",
+      "recommendation": "NR",
       "reason": "roaming restrictions"
     },
     {
@@ -41698,6 +41643,20 @@
           ]
         }
       ]
+    }
+  ],
+  "roamingRestrictions": [
+    {
+      "id": "hide",
+      "description": "Restrictions are so severe that the country should not be listed"
+    },
+    {
+      "id": "warn",
+      "description": "Permanent roaming restrictions"
+    },
+    {
+      "id": "poss",
+      "description": "There may be roaming restrictions"
     }
   ]
 }
