@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(018)</sup>
+# Tracker SoM Datasheet <sup>(019)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -700,7 +700,7 @@ GNSS GPIO:
 - CAN bus pins are disconnected when device is unpowered
 - High-ESD protection on CANH and CANL, meets IEC61000-4-2 up to ±8 kV
 - Very low standby current, 10 uA, typical
-- 5V step-up converter (XCL9142F40CER), 370 mA maximum
+- 5V step-up converter (XC9142F50CER), 370 mA maximum
 - CAN terminator resistor is not included
 
 CAN GPIO:
@@ -1236,3 +1236,4 @@ The bootloader allows you to easily update the user application via several diff
 | 016      | 2021 Jun 28 | RK | Added Device OS 3.1 memory map information |
 | 017      | 2021 Jul 28 | RK | Added mechanical drawing |
 | 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
+| 019      | 2021 Sep 23 | RK | Corrected part number for CAN step-up converter |
