@@ -124,6 +124,16 @@ For cellular devices, there is a data limit depending on your tier. For the Free
 
 There are many possible steps for minimizing the number of Data Operations that you use, and will tend to be specific to your use case. Some options to consider:
 
+#### Publish changed values only
+
+In some cases, it may be useful to only publish values when they change, instead of periodically. Each publish uses a data operation.
+
+#### Avoid polling variables frequently
+
+Each request of a Particle.variable uses a data operation. If you are doing this constantly and frequently, this can use a large number of data operations. 
+
+If multiple things (web pages, mobile apps, etc.) are all polling a variable, each one uses a data operation. Using publish is generally more efficient because the device will only use one data operation per value sent, regardless of the number of things viewing the event by webhook or SSE. 
+
 #### Combine fields
 
 Rather than publish several independent variables, publish several related variables at once in a single publish. Some common methods include:
@@ -131,7 +141,7 @@ Rather than publish several independent variables, publish several related varia
 - Comma-separated values
 - JSON
 
-You're still limited to a maxmum publish size, but you can still store many values in a single publish. The limit is 622 to 1024 bytes of UTF-8 characters depending on Device OS version and sometimes the device; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
+You're still limited to a maximum publish size, but you can still store many values in a single publish. The limit is 622 to 1024 bytes of UTF-8 characters depending on Device OS version and sometimes the device; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
 
 #### Aggregate data by time
 
@@ -147,6 +157,17 @@ Or, if it changes by a significantly large amount for analog-like data using a c
 
 Or keep a mean value of samples and publish when the current sample deviates from the mean. This can be helpful if the value tends to creep up or down slowly and wouldn't trigger a change threshold, but accumulates over time.
 
+#### Beware when subscribing
+
+When subscribing to events on-device, every event that's delivered to the device is a data operation. If many devices are sending events to all devices, this can add up to be a large number of events.
+
+#### Beware of webhook response subscription
+
+Similarly, in most cases you want only the device that triggered the webhook to get its response. To do this, prefix the hook-response and hook-error responses with the device ID as described [here](/reference/device-cloud/webhooks/#responsetopic). 
+
+Also each 512 byte response chunk counts as a data operation, so minimizing the size of the response can save data operations.
+
+If the data being returned in JSON, sometimes you can filter out only the information you need using [mustache templates](/tutorials/device-os/json/#mustache-variables).
 
 ### Limits
 
