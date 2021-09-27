@@ -3,6 +3,7 @@ title: Creating a Product
 columns: two
 layout: commonTwo.hbs
 description: Creating your first Particle product
+includeDefinitions: [api-helper, api-helper-extras]
 ---
 
 # {{title}}
@@ -233,6 +234,50 @@ One use-case of a device owner integration is when a developer is making a new o
 
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
 
+## Device lists
 
+The device lists can be confusing because there are multiple device lists with sometimes confusing information.
 
+### Sandbox devices
 
+![Sandbox Devices](/assets/images/console/sandbox-devices.png)
+
+When you first open the console the sandbox device view is what you see. 
+
+If you have access to organizations in the growth or enterprise plans, the popup (1) allows you to choose between sandbox, your own free space to work with devices and products, or your organization.
+
+The devices icon (2) shows the device list.
+
+**The device list shows all devices that are claimed to your account**
+
+This can lead to confusion because there is a limit of 100 devices in the free sandbox. However, there can be signficantly larger number of devices in this list because it also shows product and organization product devices that are claimed to your account. These organization products devices do not count against your device limit, but do show up in this list.
+
+### Sandbox products
+
+![Sandbox Products](/assets/images/console/sandbox-product.png)
+
+The sandbox product icon (2) shows all of the products you have access to, either as the product owner, or as a team member of a sandbox product that another user owns. 
+
+When you start out developing products, this is likely where they will appear.
+
+If the product is an organization product, see below.
+
+### Organization product devices
+
+![Organization Devices](/assets/images/console/org-devices.png)
+
+If you have access to organizations and select your organization (1), then select a product (2), and the product devices icon (3), then you'll see the device list for that organization product.
+
+In a product (organization or sandbox), it's often possible to leave the devices unclaimed. This is the case for all Tracker devices with the default Tracker Edge software. Thus **none** is a valid value in the **Owner** column. Another common scenario is for all product devices to be claimed to a single account, in which case the owner will be the same for most devices.
+
+Note that if you have an organization product device claimed to your account, it will appear here as well as in your sandbox devices view! This is the organization product view for the product Rick-Tracker, which contains devices that also show up in Rick's sandbox device list (above).
+
+![Organization Devices](/assets/images/console/org-devices-2.png)
+
+### Device list details
+
+This tool can help you decode what's being displayed in the sandbox device list for you account:
+
+{{> sso }}
+
+{{> device-list }}

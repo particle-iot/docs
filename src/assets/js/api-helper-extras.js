@@ -105,6 +105,342 @@ $(document).ready(function() {
 
     }
 
+    $('.apiHelperDeviceList').each(function() {
+        const thisPartial = $(this);
+        const gaCategory = 'deviceList'
+
+        const actionButtonElem = $(thisPartial).find('.apiHelperActionButton');
+        const outputElem = $(thisPartial).find('.deviceListOutput');
+        let deviceRestoreInfo;
+        let deviceList = [];
+        let sandboxProducts = [];
+        let orgList = [];
+        let productIndex = {};
+        let platformNames = {};
+
+        const setStatus = function(status) {
+            $(thisPartial).find('.apiHelperStatus').html(status);                
+        };
+
+        const renderList = function(list, prod) {
+
+            const ulElem = document.createElement('ul'); 
+            if (list.length == 0) {
+                let liElem = document.createElement('li');
+                $(liElem).text('No devices');
+                $(ulElem).append(liElem);                    
+                $(outputElem).append(ulElem);                    
+                return;
+            }
+            else {
+                let liElem = document.createElement('li');
+                $(liElem).text(list.length + ' devices');
+                $(ulElem).append(liElem);                    
+
+                if (prod) {
+                    liElem = document.createElement('li');
+                    if (prod.orgName) {
+                        $(liElem).text('Organization product (' + prod.orgName + ')');    
+                    }
+                    else {
+                        $(liElem).text('Sandbox product');    
+                    }
+                    $(ulElem).append(liElem);                    
+                }
+
+                $(ulElem).append(liElem);                    
+            }
+            $(outputElem).append(ulElem);                    
+
+            const tableElem = document.createElement('table');
+
+            const columns = [
+                {
+                    'key':'id',
+                    'title': 'Device ID'
+                },
+                {
+                    'key':'name',
+                    'title': 'Device Name'
+                },
+                {
+                    'key':'platform_id',
+                    'title': 'Platform'
+                },
+                {
+                    'key':'last_handshake_at',
+                    'title': 'Last Handshake'
+                },
+                {
+                    'key':'system_firmware_version',
+                    'title': 'Device OS'
+                }
+            ];
+
+            {
+                const theadElem = document.createElement('thead');
+
+                const trElem = document.createElement('tr');
+
+                for(const c of columns) {
+                    const thElem = document.createElement('th');
+                    $(thElem).text(c.title);
+                    $(trElem).append(thElem);
+                }
+    
+                $(theadElem).append(trElem);
+    
+                $(tableElem).append(theadElem);                    
+            }
+
+            const tbodyElem = document.createElement('tbody');
+
+            for(const dev of list) {
+                const trElem = document.createElement('tr');
+
+                for(const c of columns) {
+                    const tdElem = document.createElement('td');
+
+                    switch(c.key) {
+                        case 'platform_id':
+                            if (platformNames[dev[c.key]]) {
+                                $(tdElem).text(platformNames[dev[c.key]]);
+                            }
+                            else {
+                                $(tdElem).text(dev[c.key]);
+                            }
+                            break;
+
+                        case 'last_handshake_at':
+                            {
+                                let s = dev[c.key].replace('T', ' ');
+                                let off = s.lastIndexOf('.');
+                                s = s.substr(0, off);
+                                $(tdElem).text(s);
+                            }
+                            break;
+
+                        default:
+                            $(tdElem).text(dev[c.key]);
+                            break;
+
+                    }
+
+                    $(trElem).append(tdElem);
+                }
+
+
+                $(tbodyElem).append(trElem);
+            }
+
+            $(tableElem).append(tbodyElem);
+
+            $(outputElem).append(tableElem);                    
+
+        };
+
+        const displayList = function() {
+            $(actionButtonElem).prop('disable', false);
+
+            setStatus('');
+
+            // Break out devices by product
+            let sandboxDevices = [];
+            let productDevices = {};
+            let sandboxProductCount = 0;
+            let orgProductCount = 0;
+
+            for(const d of deviceList) {
+                if (d.product_id == d.platform_id) {
+                    sandboxDevices.push(d);
+                }
+                else {
+                    if (!productDevices[d.product_id]) {
+                        productDevices[d.product_id] = [];
+                    }
+                    productDevices[d.product_id].push(d);
+                    if (productIndex[d.product_id].orgName) {
+                        orgProductCount++;
+                    }
+                    else {
+                        sandboxProductCount++;
+                    }
+                }
+            }
+
+            $(outputElem).html('');
+
+            let sectionElem = document.createElement('h3');
+            $(sectionElem).text('Developer sandbox (non-product) devices');
+            $(outputElem).append(sectionElem);
+            renderList(sandboxDevices, null);
+
+            for(const productId in productDevices) {
+                sectionElem = document.createElement('h3');
+                $(sectionElem).text('Product ' + productIndex[productId].name + ' (' + productId + ')');
+                $(outputElem).append(sectionElem);    
+
+                renderList(productDevices[productId], productIndex[productId]);
+            }
+
+            {
+                let sectionElem = document.createElement('h3');
+                $(sectionElem).text('Total Devices');                
+                $(outputElem).append(sectionElem);
+    
+                const ulElem = document.createElement('ul'); 
+
+                let liElem = document.createElement('li');
+                $(liElem).text('Developer sandbox (non-product) devices: ' + sandboxDevices.length);
+                $(ulElem).append(liElem);                    
+
+                liElem = document.createElement('li');
+                $(liElem).text('Sandbox product devices: ' + sandboxProductCount);
+                $(ulElem).append(liElem);                    
+
+                liElem = document.createElement('li');
+                $(liElem).text('Organization product devices: ' + orgProductCount);
+                $(ulElem).append(liElem);                    
+
+                $(outputElem).append(ulElem);                    
+
+            }
+        };
+
+        const listOrgProducts = function(index) {
+            if (index >= orgList.length) {
+                displayList();
+                return;
+            }
+
+            setStatus('Getting organization products for ' + orgList[index].name + '...');
+
+            const request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    setStatus('Listing organization products failed');
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    orgList[index].products = resp.products;
+
+                    for(const p of orgList[index].products) {
+                        productIndex[p.id] = {
+                            name: p.name,
+                            platform_id: p.platform_id,
+                            sandbox: false,
+                            orgId: orgList[index].id,
+                            orgName: orgList[index].name
+                        };                     
+                    }
+
+                    listOrgProducts(index + 1);
+                },
+                url: 'https://api.particle.io/v1/orgs/' + orgList[index].id + '/products/'
+            };
+
+            $.ajax(request);            
+        };
+
+        const listOrgs = function() {
+            setStatus('Getting organizations...');
+
+            const request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    setStatus('Listing organizations failed');
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    orgList = resp.organizations
+
+                    listOrgProducts(0);
+                },
+                url: 'https://api.particle.io/v1/orgs/'
+            };
+
+            $.ajax(request);
+
+        };
+
+
+        const listProducts = function() {
+            setStatus('Getting sandbox products...');
+            const request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    setStatus('Listing products failed');
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    sandboxProducts = resp.products;
+                    
+                    for(const p of sandboxProducts) {
+                        productIndex[p.id] = {
+                            name: p.name,
+                            platform_id: p.platform_id,
+                            sandbox: true
+                        };                     
+                    }
+
+                    listOrgs();
+                },
+                url: 'https://api.particle.io/v1/user/products/'
+            };
+
+            $.ajax(request);
+
+        };
+
+        const listDevices = function() {
+            setStatus('Getting sandbox devices...');
+
+            fetch('/assets/files/deviceRestore.json')
+                .then(response => response.json())
+                .then(function(res) {
+                    deviceRestoreInfo = res;
+                    for(const p of deviceRestoreInfo.platforms) {
+                        platformNames[p.id] = p.title;
+                    }
+                });
+
+            apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
+                function(data) {
+                    deviceList = data.body;
+
+                    listProducts();
+                },
+                function(err) {
+                    setStatus('Error retrieving device list');
+                    $(actionButtonElem).prop('disable', false);
+                }
+            );
+        };
+
+
+        $(actionButtonElem).on('click', async function() {
+            $(actionButtonElem).prop('disable', true);
+
+
+            listDevices();
+        });
+
+
+    });
+
+
     $('.apiHelperDeviceLookup').each(function() {
         const deviceLookupElem = $(this);
 
@@ -219,7 +555,7 @@ $(document).ready(function() {
                     const serialNumber = m[1];
 
                     const res = await apiHelper.particle.lookupSerialNumber({serialNumber, auth: apiHelper.auth.access_token});
-                    console.log('serial number result', res);
+
                     if (res && res.body && res.body.ok) {
                         deviceId = res.body.device_id;
                         // iccid, platform_id
