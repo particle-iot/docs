@@ -54,6 +54,8 @@ The owner is the user who initially created the product. To transfer a product t
 
 - When you get to the growth or enterprise tier you have an organization, which is your collection of products that belong to your company. Products can be moved into that organization easily from the product configuration.
 
+- Changing the owner of a product from one user to another requires a [support ticket](https://support.particle.io/). Changing the email address of an account, which moves all of the devices, webhooks, products, and source in the Web IDE, can be done from account settings.
+
 ### Team setup
 
 Each team member will have their own email and Particle account. You can add their Particle accounts to the product from the product [Team Configuration](/tutorials/device-cloud/console/#adding-team-members).
@@ -106,6 +108,8 @@ The local compiler may be necessary for very large projects, but otherwise you c
 ### Web IDE
 
 The Particle Web IDE can be used to create product firmware, but it's recommended that you use Particle Workbench. It's difficult to share code between multiple users in the Web IDE, and there is no version control.
+
+If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
 
 ### Particle CLI
 
@@ -230,9 +234,11 @@ Unclaimed product devices cannot receive the response from a product webhook, bu
 
 An integration in the device owner's account can also trigger for a product device event. This is generally not the best place to put the integration, even if you are claiming devices to a single account, as it means development devices must be claimed to the shared account, which is inconvenient for OTA flashing during development.
 
-One use-case of a device owner integration is when a developer is making a new or upgraded product webhook. They could implement it in their own account and test, then copy and paste it into the production product integration when released to the fleet.
+Also all team members can access product integrations with their own login. They would need to log in as the device owner account to see a device owner integration.
 
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
+
+To copy or move a device owner integration into a product, you can use the [integration copy tool](/tools/product-tools/integration-copy/).
 
 ## Device lists
 
@@ -281,3 +287,6 @@ This tool can help you decode what's being displayed in the sandbox device list 
 {{> sso }}
 
 {{> device-list }}
+
+
+

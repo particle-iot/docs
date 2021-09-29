@@ -2630,6 +2630,329 @@ $(document).ready(function () {
     });
 
 
+    $('.apiHelperCloudIntegrationMove').each(function () {
+        const thisElem = $(this);
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const productDestinationElem = $(thisElem).find('.apiHelperProductDestination');
+        const integrationTableAndButtonsElem = $(thisElem).find('.integrationTableAndButtons');
+        const integrationSelectorElem = $(thisElem).find('.integrationSelector');
+        const copyModeElem = $(thisElem).find('.copyMode');
+        const outputElem = $(thisElem).find('.apiHelperCloudApiOutput');
+
+        let integrationList;
+        let integrationListElems;
+        let integrationListDest;
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+        const appendOutput = function(s) {
+            $(outputElem).find('> pre').append(s);
+        };
+
+        const updateAlreadyExists = function() {
+            if (!integrationList || !integrationListDest) {
+                return;
+            }
+            for(let ii = 0; ii < integrationList.length; ii++) {
+                let found = false;
+                for(const itemDest of integrationListDest) {
+                    if (itemDest.event == integrationList[ii].event) {
+                        found = true;
+                    }
+                }
+                
+                if (found) {
+                    $(integrationListElems[ii].alreadyExistsElem).html('&check;');
+                }
+                else {
+                    $(integrationListElems[ii].alreadyExistsElem).html('&nbsp;');                    
+                }
+            }
+        };
+
+        const updateIntegrationSelection = function() {
+
+            let numSelected = 0;
+
+            for(const item of integrationListElems) {
+                if ($(item.checkboxElem).prop('checked')) {
+                    numSelected++;
+                }
+            }    
+            $(actionButtonElem).prop('disabled', (actionButtonElem == 0));
+        };
+
+        const updateIntegrationList = function() {
+
+            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token }).then(
+                function(data) {
+                    integrationList = data.body;
+
+                    integrationListElems = [];
+
+                    $(integrationSelectorElem).find('> tbody').html('');
+        
+                    for(let ii = 0; ii < integrationList.length; ii++) {
+                        const rowElem = document.createElement('tr');
+        
+                        let col = document.createElement('td');
+                        let checkboxElem = document.createElement('input');
+                        $(checkboxElem).attr('type', 'checkbox');
+                        $(checkboxElem).on('click', updateIntegrationSelection);
+                        col.appendChild(checkboxElem);
+                        rowElem.appendChild(col);
+        
+                        col = document.createElement('td');
+                        $(col).text(integrationList[ii].event);
+                        rowElem.appendChild(col);
+        
+                        col = document.createElement('td');
+                        $(col).text(integrationList[ii].integration_type);
+                        rowElem.appendChild(col);
+
+                        col = document.createElement('td');
+                        $(col).attr('style', 'text-align: center;');
+                        $(col).html(integrationList[ii].disabled ? '&check;' : '&nbsp;');
+                        rowElem.appendChild(col);
+
+                        const alreadyExistsElem = document.createElement('td');
+                        $(alreadyExistsElem).attr('style', 'text-align: center;');
+                        rowElem.appendChild(alreadyExistsElem);
+
+                        $(integrationSelectorElem).find('> tbody').append(rowElem);
+        
+                        integrationListElems.push({
+                            alreadyExistsElem,
+                            checkboxElem,
+                            rowElem
+                        });   
+                    }
+                    if (integrationList.length == 0) {
+                        setStatus('No integrations in developer sandbox');
+                        $(integrationTableAndButtonsElem).hide();
+                    }
+                    else {
+                        $(integrationTableAndButtonsElem).show();
+                    } 
+                    updateAlreadyExists();
+                },
+                function(err) {
+
+                }
+            );
+
+
+        };
+    
+        const requestDestIntegrationList = function() {
+            const productId = $(productDestinationElem).data('getProductId')();
+            if (!productId) {
+                return;
+            }
+
+            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token, product: productId }).then(
+                function(data) {
+                    integrationListDest = data.body;
+
+                    updateAlreadyExists();
+                },
+                function(err) {
+                }
+            );   
+        };
+
+        $(productDestinationElem).data('onChange', requestDestIntegrationList);
+
+        $(actionButtonElem).on('click', async function () {
+            const destinationProduct = $(productDestinationElem).find('.apiHelperProductSelect').val();
+
+            $(actionButtonElem).prop('disabled', true);
+
+            const copyMode = $(copyModeElem).val();
+
+            if (!integrationList) {
+                return;
+            }
+
+            const keysToSkip = [
+                'created_at',
+                'disabled',
+                'errors',
+                'id',
+                'logs'
+            ];
+
+            let numSelected = 0;
+
+            for(let ii = 0; ii < integrationListElems.length; ii++) {
+                if (!$(integrationListElems[ii].checkboxElem).prop('checked')) {
+                    numSelected++;
+                }
+            }    
+            if (numSelected == 0) {
+                return;
+            }
+
+            const msg = 'Are you sure you want to copy ' + numSelected + ' integrations into product ' + destinationProduct + '?';
+
+            if (!confirm(msg)) {
+                return;
+            } 
+
+            $(outputElem).find('> pre').html('');
+            $(outputElem).show();
+
+            for(let ii = 0; ii < integrationListElems.length; ii++) {
+                if (!$(integrationListElems[ii].checkboxElem).prop('checked')) {
+                    continue;
+                }
+
+                try {
+                    // Copy this integration
+                    const integrationId = integrationList[ii].id;
+
+                    let toAdd = {};
+
+                    for(const key in integrationList[ii]) {
+                        if (!keysToSkip.includes(key)) {
+                            const value = integrationList[ii][key];
+                            toAdd[key] = value;
+                        }
+                    }
+
+                    if (copyMode == 'disableDest') {
+                        toAdd.disabled = true;
+                    }
+
+
+                    // Create copy
+                    let newIntegrationId;
+
+                    await new Promise(function(resolve, reject) {
+                        const request = {
+                            dataType: 'json',
+                            data: JSON.stringify(toAdd),
+                            error: function (jqXHR) {
+                                reject();
+                            },
+                            headers: {
+                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            method: 'POST',
+                            success: function (resp, textStatus, jqXHR) {
+                                resolve();
+                                newIntegrationId = resp.id;
+                            },
+                            url: 'https://api.particle.io/v1/products/' + destinationProduct + '/integrations'
+                        }
+            
+                        $.ajax(request);
+                    });
+
+                    appendOutput('Copied ' + integrationList[ii].event + '\n');
+
+                    // Disable in destination (this does not work if you set it during creation)
+                    if (copyMode == 'disableDest') {
+                        toAdd.disabled = true;
+
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                data: JSON.stringify(toAdd),
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                method: 'PUT',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/products/' + destinationProduct + '/integrations/' + newIntegrationId
+                            }
+                
+                            $.ajax(request);
+                        });
+
+                        appendOutput('Disabled ' + integrationList[ii].event + ' in destination\n');
+                    }
+
+                    // Modify original
+                    if (copyMode == 'disableSource' && !integrationList[ii].disabled) {
+                        toAdd.disabled = true;
+
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                data: JSON.stringify(toAdd),
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                method: 'PUT',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                            }
+                
+                            $.ajax(request);
+                        });
+
+                        appendOutput('Disabled ' + integrationList[ii].event + ' in source\n');
+                    }
+                    else
+                    if (copyMode == 'deleteSource') {
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                },
+                                method: 'DELETE',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                            }
+                
+                            $.ajax(request);
+                        });
+                        appendOutput('Deleted ' + integrationList[ii].event + ' from source\n');
+                    }
+                }
+                catch(e) {
+                    appendOutput('Failed to copy ' + integrationList[ii].event + '\n');
+                }
+
+            }
+
+            appendOutput('Done!\n');
+            $(actionButtonElem).prop('disabled', false);
+
+            updateIntegrationList();
+            requestDestIntegrationList();
+        });
+
+        updateIntegrationList();
+
+    });
+
     $('.apiHelperCloudApiUserCreate,.apiHelperCloudApiUserList').each(function () {
         const thisElem = $(this);
 
