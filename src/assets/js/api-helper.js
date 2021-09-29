@@ -302,31 +302,33 @@ apiHelper.cachedResult = function() {
 
     cachedResult.get = function(opts) {
         return new Promise(function(resolve, reject) {
-            if (!cachedResult.queries[opts]) {
-                cachedResult.queries[opts] = {opts};
+            const cacheKey = JSON.stringify(opts);
+            
+            if (!cachedResult.queries[cacheKey]) {
+                cachedResult.queries[cacheKey] = {opts};
             }
 
-            if (cachedResult.queries[opts].result) {
-                resolve(cachedResult.queries[opts].result);
+            if (cachedResult.queries[cacheKey].result) {
+                resolve(cachedResult.queries[cacheKey].result);
             }
             else
-            if (cachedResult.queries[opts].requests) {
-                cachedResult.queries[opts].requests.push({resolve,reject});
+            if (cachedResult.queries[cacheKey].requests) {
+                cachedResult.queries[cacheKey].requests.push({resolve,reject});
             }
             else {
-                cachedResult.queries[opts].requests = [{resolve,reject}];
+                cachedResult.queries[cacheKey].requests = [{resolve,reject}];
 
                 $.ajax(opts)
                 .done(function(data, textStatus, jqXHR) {
-                    cachedResult.queries[opts].result = data;
-                    while(cachedResult.queries[opts].requests.length) {
-                        obj = cachedResult.queries[opts].requests.pop();
+                    cachedResult.queries[cacheKey].result = data;
+                    while(cachedResult.queries[cacheKey].requests.length) {
+                        obj = cachedResult.queries[cacheKey].requests.pop();
                         obj.resolve(data);
                     }
                 })
                 .fail(function(jqXHR, textStatus, errorThrown) {
-                    while(cachedResult.queries[opts].requests.length) {
-                        obj = cachedResult.queries[opts].requests.pop();
+                    while(cachedResult.queries[cacheKey].requests.length) {
+                        obj = cachedResult.queries[cacheKey].requests.pop();
                         obj.reject(jqXHR);
                     }
                 });
