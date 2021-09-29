@@ -6,6 +6,8 @@ description: Move devices into a product
 includeDefinitions: [api-helper, api-helper-cloud,  api-helper-extras, api-helper-json, codemirror, usb-serial]
 ---
 
+# {{title}}
+
 This control moves devices into a product from your developer sandbox or from another product.
 
 {{> sso}}

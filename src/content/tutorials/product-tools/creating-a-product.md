@@ -54,6 +54,8 @@ The owner is the user who initially created the product. To transfer a product t
 
 - When you get to the growth or enterprise tier you have an organization, which is your collection of products that belong to your company. Products can be moved into that organization easily from the product configuration.
 
+- Changing the owner of a product from one user to another requires a [support ticket](https://support.particle.io/). Changing the email address of an account, which moves all of the devices, webhooks, products, and source in the Web IDE, can be done from account settings.
+
 ### Team setup
 
 Each team member will have their own email and Particle account. You can add their Particle accounts to the product from the product [Team Configuration](/tutorials/device-cloud/console/#adding-team-members).
@@ -106,6 +108,8 @@ The local compiler may be necessary for very large projects, but otherwise you c
 ### Web IDE
 
 The Particle Web IDE can be used to create product firmware, but it's recommended that you use Particle Workbench. It's difficult to share code between multiple users in the Web IDE, and there is no version control.
+
+If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
 
 ### Particle CLI
 
@@ -230,7 +234,7 @@ Unclaimed product devices cannot receive the response from a product webhook, bu
 
 An integration in the device owner's account can also trigger for a product device event. This is generally not the best place to put the integration, even if you are claiming devices to a single account, as it means development devices must be claimed to the shared account, which is inconvenient for OTA flashing during development.
 
-One use-case of a device owner integration is when a developer is making a new or upgraded product webhook. They could implement it in their own account and test, then copy and paste it into the production product integration when released to the fleet.
+Also all team members can access product integrations with their own login. They would need to log in as the device owner account to see a device owner integration.
 
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
 
@@ -281,3 +285,41 @@ This tool can help you decode what's being displayed in the sandbox device list 
 {{> sso }}
 
 {{> device-list }}
+
+## Migrating to growth
+
+When you migrate to the growth plan, you generally just move your product into the growth plan with no changes. However, if you blurred the lines between developer devices and product devices during the development of your product, you can run into minor issues that you will need to correct first.
+
+### No product
+
+If you did not create a product at all, you will need to create one. All of the decisions mentioned above will apply, and this may require code changes.
+
+- You will need to adjust your workflow to include uploading product firmware releases and releasing them to your fleet. In the unusual situation where each device in your product has its own unique firmware, you can use the **Mark as Development Device** to allow each device to have its own firmware that you flash manually instead of using fleet firmware.
+
+- You will need to add devices to your product. For cellular devices, also their SIM cards. The [Move devices into a product](/tools/product-tools/device-move) tool can simplify this process.
+
+- You may or may not want to change device claiming. See [device claiming](#device-claiming), above.
+
+- If you are using integrations such as webhooks, you may want to move your integrations into your product, see [integrations](#integrations), above.
+
+- Cloud API endpoints are different for developer devices vs. product devices. If you are using the cloud API to access devices changes will be necessary.
+
+- If you have created oAuth tokens for your developer account you will need to generate new product-specific oAuth tokens for use with your product.
+
+This is why we recommend creating a product very early in development, because making these changes later tends to be somewhat disruptive.
+
+### Moving your product
+
+When you are ready to migrate to growth, one of the questions you will asked is which products you want to move into your organization. This is usually done once during the migration process, but you can move individual products into your organization later with a [support ticket](https://support.particle.io/).
+
+When you move a product into your organization:
+
+- Devices stay online the entire time with no interruption.
+- Webhooks will continue to function .
+- Cloud API endpoints remain unchanged.
+- Product access tokens issued before the change will continue to work.
+
+
+
+
+

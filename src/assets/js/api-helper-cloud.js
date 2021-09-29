@@ -2625,6 +2625,201 @@ $(document).ready(function () {
     });
 
 
+    $('.apiHelperCloudIntegrationMove').each(function () {
+        const thisElem = $(this);
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const productDestinationElem = $(thisElem).find('.apiHelperProductDestination');
+        const integrationTableAndButtonsElem = $(thisElem).find('.integrationTableAndButtons');
+        const integrationSelectorElem = $(thisElem).find('.integrationSelector');
+        const copyModeElem = $(thisElem).find('.copyMode');
+        const outputElem = $(thisElem).find('.apiHelperCloudApiOutput');
+
+        let integrationList;
+        let integrationListElems;
+        let integrationListDest;
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+        const appendOutput = function(s) {
+            $(outputElem).find('> pre').append(s);
+        };
+
+        const updateAlreadyExists = function() {
+            if (!integrationList || !integrationListDest) {
+                return;
+            }
+            for(let ii = 0; ii < integrationList.length; ii++) {
+                let found = false;
+                for(const itemDest of integrationListDest) {
+                    if (itemDest.event == integrationList[ii].event) {
+                        found = true;
+                    }
+                }
+                
+                if (found) {
+                    $(integrationListElems[ii].alreadyExistsElem).html('&check;');
+                }
+                else {
+                    $(integrationListElems[ii].alreadyExistsElem).html('&nbsp;');                    
+                }
+            }
+        };
+
+        const updateIntegrationSelection = function() {
+            console.log('updateIntegrationSelection');
+
+            let numSelected = 0;
+
+            for(const item of integrationListElems) {
+                if ($(item.checkboxElem).prop('checked')) {
+                    numSelected++;
+                }
+            }    
+            $(actionButtonElem).prop('disabled', (actionButtonElem == 0));
+        };
+
+        const updateIntegrationList = function() {
+
+            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token }).then(
+                function(data) {
+                    integrationList = data.body;
+                    console.log('integrations', integrationList);
+
+                    integrationListElems = [];
+
+                    $(integrationSelectorElem).find('> tbody').html('');
+        
+                    for(let ii = 0; ii < integrationList.length; ii++) {
+                        const rowElem = document.createElement('tr');
+        
+                        let col = document.createElement('td');
+                        let checkboxElem = document.createElement('input');
+                        $(checkboxElem).attr('type', 'checkbox');
+                        $(checkboxElem).on('click', updateIntegrationSelection);
+                        col.appendChild(checkboxElem);
+                        rowElem.appendChild(col);
+        
+                        col = document.createElement('td');
+                        $(col).text(integrationList[ii].event);
+                        rowElem.appendChild(col);
+        
+                        col = document.createElement('td');
+                        $(col).text(integrationList[ii].integration_type);
+                        rowElem.appendChild(col);
+
+                        col = document.createElement('td');
+                        $(col).attr('style', 'text-align: center;');
+                        $(col).html(integrationList[ii].disabled ? '&check;' : '&nbsp;');
+                        rowElem.appendChild(col);
+
+                        const alreadyExistsElem = document.createElement('td');
+                        $(alreadyExistsElem).attr('style', 'text-align: center;');
+                        rowElem.appendChild(alreadyExistsElem);
+
+                        $(integrationSelectorElem).find('> tbody').append(rowElem);
+        
+                        integrationListElems.push({
+                            alreadyExistsElem,
+                            checkboxElem,
+                            rowElem
+                        });   
+                    }
+                    if (integrationList.length == 0) {
+                        setStatus('No integrations in developer sandbox');
+                        $(integrationTableAndButtonsElem).hide();
+                    }
+                    else {
+                        $(integrationTableAndButtonsElem).show();
+                    } 
+                    updateAlreadyExists();
+                },
+                function(err) {
+
+                }
+            );
+
+
+        };
+    
+        $(productDestinationElem).data('onChange', function() {
+            const productId = $(productDestinationElem).data('getProductId')();
+            if (!productId) {
+                return;
+            }
+
+            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token, product: productId }).then(
+                function(data) {
+                    integrationListDest = data.body;
+                    console.log('integrationListDest', integrationListDest);
+
+                    updateAlreadyExists();
+                },
+                function(err) {
+                }
+            );                
+        });
+
+        $(actionButtonElem).on('click', async function () {
+            const destinationProduct = $(productDestinationElem).find('.apiHelperProductSelect').val();
+
+            $(actionButtonElem).prop('disabled', true);
+
+            const copyMode = $(copyModeElem).val();
+            console.log('copyMode=' + copyMode);
+
+            if (!integrationList) {
+                return;
+            }
+
+            const keysToSkip = [
+                'created_at',
+                'errors',
+                'id',
+                'logs'
+            ];
+
+            let numSelected = 0;
+
+            for(let ii = 0; ii < integrationListElems.length; ii++) {
+                if (!$(integrationListElems[ii].checkboxElem).prop('checked')) {
+                    numSelected++;
+                }
+            }    
+            if (numSelected == 0) {
+                return;
+            }
+
+            const msg = 'Are you sure you want to copy ' + numSelected + ' integrations into product ' + destinationProduct + '?';
+
+            if (!confirm(msg)) {
+                return;
+            } 
+
+            $(outputElem).find('> pre').html('');
+            $(outputElem).show();
+
+            for(let ii = 0; ii < integrationListElems.length; ii++) {
+                if (!$(integrationListElems[ii].checkboxElem).prop('checked')) {
+                    continue;
+                }
+
+                // Copy this integration
+                console.log('copy', integrationList[ii]);
+
+                
+            }
+
+            appendOutput('Done!\n');
+
+            updateIntegrationList();
+        });
+
+        updateIntegrationList();
+
+    });
+
     $('.apiHelperCloudApiUserCreate,.apiHelperCloudApiUserList').each(function () {
         const thisElem = $(this);
 
