@@ -2423,6 +2423,11 @@ $(document).ready(function () {
                 $(col).text(dev.name ? dev.name : '');
                 row.appendChild(col);
 
+                col = document.createElement('td');
+                $(col).attr('style', 'text-align: center;')
+                $(col).html(dev.online ? '&check;' : '&nbsp;');
+                row.appendChild(col);
+
                 $(deviceSelectorTableElem).find('> tbody').append(row);
 
                 deviceInfo.push({
