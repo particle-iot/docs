@@ -2673,7 +2673,6 @@ $(document).ready(function () {
         };
 
         const updateIntegrationSelection = function() {
-            console.log('updateIntegrationSelection');
 
             let numSelected = 0;
 
@@ -2690,7 +2689,6 @@ $(document).ready(function () {
             apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token }).then(
                 function(data) {
                     integrationList = data.body;
-                    console.log('integrations', integrationList);
 
                     integrationListElems = [];
 
@@ -2748,7 +2746,7 @@ $(document).ready(function () {
 
         };
     
-        $(productDestinationElem).data('onChange', function() {
+        const requestDestIntegrationList = function() {
             const productId = $(productDestinationElem).data('getProductId')();
             if (!productId) {
                 return;
@@ -2757,14 +2755,15 @@ $(document).ready(function () {
             apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token, product: productId }).then(
                 function(data) {
                     integrationListDest = data.body;
-                    console.log('integrationListDest', integrationListDest);
 
                     updateAlreadyExists();
                 },
                 function(err) {
                 }
-            );                
-        });
+            );   
+        };
+
+        $(productDestinationElem).data('onChange', requestDestIntegrationList);
 
         $(actionButtonElem).on('click', async function () {
             const destinationProduct = $(productDestinationElem).find('.apiHelperProductSelect').val();
@@ -2772,7 +2771,6 @@ $(document).ready(function () {
             $(actionButtonElem).prop('disabled', true);
 
             const copyMode = $(copyModeElem).val();
-            console.log('copyMode=' + copyMode);
 
             if (!integrationList) {
                 return;
@@ -2780,6 +2778,7 @@ $(document).ready(function () {
 
             const keysToSkip = [
                 'created_at',
+                'disabled',
                 'errors',
                 'id',
                 'logs'
@@ -2810,15 +2809,144 @@ $(document).ready(function () {
                     continue;
                 }
 
-                // Copy this integration
-                console.log('copy', integrationList[ii]);
+                try {
+                    // Copy this integration
+                    const integrationId = integrationList[ii].id;
 
+                    let toAdd = {};
+
+                    for(const key in integrationList[ii]) {
+                        if (!keysToSkip.includes(key)) {
+                            const value = integrationList[ii][key];
+                            toAdd[key] = value;
+                        }
+                    }
+
+                    if (copyMode == 'disableDest') {
+                        toAdd.disabled = true;
+                    }
+
+
+                    // Create copy
+                    let newIntegrationId;
+
+                    await new Promise(function(resolve, reject) {
+                        const request = {
+                            dataType: 'json',
+                            data: JSON.stringify(toAdd),
+                            error: function (jqXHR) {
+                                reject();
+                            },
+                            headers: {
+                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            method: 'POST',
+                            success: function (resp, textStatus, jqXHR) {
+                                resolve();
+                                newIntegrationId = resp.id;
+                            },
+                            url: 'https://api.particle.io/v1/products/' + destinationProduct + '/integrations'
+                        }
+            
+                        $.ajax(request);
+                    });
+
+                    appendOutput('Copied ' + integrationList[ii].event + '\n');
+
+                    // Disable in destination (this does not work if you set it during creation)
+                    if (copyMode == 'disableDest') {
+                        toAdd.disabled = true;
+
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                data: JSON.stringify(toAdd),
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                method: 'PUT',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/products/' + destinationProduct + '/integrations/' + newIntegrationId
+                            }
                 
+                            $.ajax(request);
+                        });
+
+                        appendOutput('Disabled ' + integrationList[ii].event + ' in destination\n');
+                    }
+
+                    // Modify original
+                    if (copyMode == 'disableSource' && !integrationList[ii].disabled) {
+                        toAdd.disabled = true;
+
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                data: JSON.stringify(toAdd),
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                method: 'PUT',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                            }
+                
+                            $.ajax(request);
+                        });
+
+                        appendOutput('Disabled ' + integrationList[ii].event + ' in source\n');
+                    }
+                    else
+                    if (copyMode == 'deleteSource') {
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                },
+                                method: 'DELETE',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                            }
+                
+                            $.ajax(request);
+                        });
+                        appendOutput('Deleted ' + integrationList[ii].event + ' from source\n');
+                    }
+                }
+                catch(e) {
+                    appendOutput('Failed to copy ' + integrationList[ii].event + '\n');
+                }
+
             }
 
             appendOutput('Done!\n');
+            $(actionButtonElem).prop('disabled', false);
 
             updateIntegrationList();
+            requestDestIntegrationList();
         });
 
         updateIntegrationList();
