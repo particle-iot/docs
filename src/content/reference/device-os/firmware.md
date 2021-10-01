@@ -696,6 +696,8 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
+See [special webhook events](/reference/device-cloud/api/#special-webhook-events) for more details about handling multipart responses from a webhook in your subscription handler.
+
 **NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
