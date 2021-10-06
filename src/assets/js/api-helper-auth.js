@@ -48,7 +48,7 @@ $(document).ready(function() {
     if (cookie) {
         try {
             const json = JSON.parse(cookie);
-            if (json.authenticated) {
+            if (json.authenticated && json.authenticated.username) {
                 auth = json.authenticated;
             }
         }
