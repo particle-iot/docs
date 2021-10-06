@@ -72,11 +72,21 @@ If you are absolutely sure you want to move devices from a product to another pr
 
 ### Device claiming
 
-Moving a product from your sandbox into the growth organization does not affect device claiming! In general, you should leave claiming as-is, at least for now.
+Moving a product from your sandbox into the growth organization does not affect device claiming! In general, you should leave claiming as-is, at least initially. 
+
+See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide for more information.
 
 ### User-level oAuth tokens
 
 If you are using oAuth tokens created via the Authentication tab in a user account (when moving from developer sandbox) or in a product (when moving to a different product), these tokens will no longer work when using the new product. You must create new oAuth tokens from a new client ID and secret created in the destination product. It's not possible to transfer oAuth tokens between accounts or products. 
 
 Authentication tokens created using `particle token create` from the product owner's account will continue to work after migrating to growth, assuming the the original product owner is also a team member of the organization or product.
+
+Authentication tokens created from an oAuth client ID and secret within the product will continue to function after the product is moved to a growth or enterprise organization.
+
+### Product owner webhooks
+
+If you created the webhooks in the product owner account and claimed all devices to the product owner account, this will still function uninterrupted when migrating to growth, as long as you don't change device claiming. As long as the devices are added to the growth organization product, the data operations incurred for webhook responses will be counted in the organization, even though the webhook is in the developer sandbox.
+
+However, if you change the device claiming you may need to move the webhook into the product. The product is generally the best place to put webhooks for product devices, and is required if you are using unclaimed product devices or customer claimed devices.
 
