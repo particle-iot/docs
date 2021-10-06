@@ -76,6 +76,7 @@ $(document).ready(function() {
                 $(this).show();
             }
         });
+        $('#userMenuLabel').text('Logged In');
 
         $('#userMenuLoggedInAs').text('Logged in as ' + auth.username)
 
@@ -91,10 +92,12 @@ $(document).ready(function() {
             $(aElem).text('Log in...');
             $(aElem).on('click', handleLogin);
             $('#userMenuLoggedInAs').append(aElem);
+            $('#userMenuLabel').text('Log In');
         }
         else {
             $('.apiHelperFakeAuth').show();
             $('#userMenuLoggedInAs').text('Not logged in');
+            $('#userMenuLabel').text('Not Logged In');
         }
         $('#userMenuEditAccount').hide();
         $('#userMenuLogout').hide();
