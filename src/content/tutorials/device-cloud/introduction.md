@@ -114,40 +114,6 @@ Likewise, if you are using a million Data Operations per month, you will need 2 
 
 If you exceed the number of data operations or cellular data usage for the number of blocks you have purchased this billing month, additional block(s) will be charged at the start of the next billing month to account for your current usage. You are not billed a prorated block at the time of the overage, and you will only be billed on your normal billing date for full blocks.
 
-### Migrating to growth
-
-When you migrate to the growth plan, you generally just move your product into the growth plan with no changes. However, if you blurred the lines between developer devices and product devices during the development of your product, you can run into minor issues that you will need to correct first.
-
-#### No product
-
-If you did not create a product at all, you will need to create one. The [creating a product guide](/tutorials/product-tools/creating-a-product/) can help with this.
-
-- You will need to adjust your workflow to include uploading product firmware releases and releasing them to your fleet. In the unusual situation where each device in your product has its own unique firmware, you can use the **Mark as Development Device** to allow each device to have its own firmware that you flash manually instead of using fleet firmware.
-
-- You will need to add devices to your product. For cellular devices, also their SIM cards. The [Move devices into a product](/tools/product-tools/device-move) tool can simplify this process.
-
-- You may or may not want to change device claiming. See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide.
-
-- If you are using integrations such as webhooks, you may want to move your integrations into your product, see [integrations](/tutorials/product-tools/creating-a-product/#integrations), in the creating a product guide.
-
-- Cloud API endpoints are different for developer devices vs. product devices. If you are using the cloud API to access devices, changes will be necessary.
-
-- If you have created oAuth tokens for your developer account you will need to generate new product-specific oAuth tokens for use with your product.
-
-This is why we recommend creating a product very early in development, because making these changes later tends to be somewhat disruptive.
-
-#### Moving your product
-
-When you are ready to migrate to growth, one of the questions you will asked is which products you want to move into your organization. This is usually done once during the migration process, but you can move individual products into your organization later with a [support ticket](https://support.particle.io/).
-
-When you move a product into your organization:
-
-- Devices stay online the entire time with no interruption.
-- Webhooks will continue to function.
-- Cloud API endpoints remain unchanged.
-- Product access tokens issued before the change will continue to work.
-
-
 ### Non-Particle cloud traffic
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).

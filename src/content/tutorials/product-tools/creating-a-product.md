@@ -78,6 +78,8 @@ One major difference between developer devices and products is with device claim
 
 - Developer team members may want to claim the test devices on their desks to their own account rather than a single account or customer account. This simplifies flashing firmware to their devices.
 
+If you are using integrations, the choices made here affect where to put your integration. In most cases, you should put the integration in your product. If you are claiming all devices to a single account you could possibly put the integration there, however it's still generally better to put the integration in the product. If you are using unclaimed product devices or customer claiming, you must put the integration in your product.
+
 ## Development Tools
 
 ### Workbench
@@ -218,11 +220,15 @@ If you open a product (either sandbox or organization), you will see similar tab
 
 - Inside a product, if you select **Integrations**, when you open an integration you can see the 10 most recent requests and response that triggered the integration, but no other events.
 
-## Integrations
+## Communicating with your servers
+
+A common need is to have events from your Particle devices trigger external services, possibly in your own server or cloud server, or a 3rd-party service.
+
+### Integrations
 
 If you are using Integrations, including Webhooks, there are two different places you can create them, which can lead to confusion.
 
-### Product integrations
+#### Product integrations
 
 The recommended location for webhooks for product devices is within the product configuration. Product integrations can be triggered for any device in the product device fleet, including development devices and unclaimed devices. Make sure you are opening the Integrations tab after going into the product to see this list.
 
@@ -230,7 +236,7 @@ This is necessary if you are using product customers, where claiming will occur 
 
 Unclaimed product devices cannot receive the response from a product webhook, but they can still send to the webhook.
 
-### Device owner integrations
+#### Device owner integrations
 
 An integration in the device owner's account can also trigger for a product device event. This is generally not the best place to put the integration, even if you are claiming devices to a single account, as it means development devices must be claimed to the shared account, which is inconvenient for OTA flashing during development.
 
@@ -239,6 +245,70 @@ Also all team members can access product integrations with their own login. They
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
 
 To copy or move a device owner integration into a product, you can use the [integration copy tool](/tools/product-tools/integration-copy/).
+
+### Server Sent Events (SSE)
+
+Two common ways Particle devices can trigger external services are webhooks and Server Sent Events (SSE).
+
+The SSE event stream works by having your server make an outbound https (encrypted) connection to the Particle API service. This connection is kept open, and if new events arrive, they are immediately passed down this stream. There are a number of advantages to this:
+
+- Works for developer and product event streams.
+- Can get all events, or a subset of events by prefix filter.
+- Works from a network behind a firewall or NAT typically with no changes required (no port forwarding).
+- You do not need TLS/SSL server certificates for encrypted communication, because the connection is outbound.
+- You do not need separate authentication; Particle API tokens are used for authentication.
+- It's efficient - the connection only needs to be established and authenticated once.
+
+While this sounds great, there are some issues that can occur that make it less than ideal for large device fleets and make webhooks more attractive:
+
+- You can only have one server accepting events with SSE. With webhooks you can have multiple servers behind a load balancer for both server redundancy as well as load sharing.
+- If the SSE stream fails for any reason, you could end up losing events. It can take up to a minute to detect that this has happened in some cases.
+
+### Google Pubsub
+
+One option that's somewhere between SSE and webhooks is Google Publish and Subscribe (pubsub). This uses a feature of the Google cloud, which may incur additional charges from Google but has a number of advantages:
+
+- The Google pubsub receiver is redundant, load-balanced, and highly available.
+- Your server can be network behind a firewall or NAT typically with no changes required (no port forwarding).
+- Or your server can be in the Google cloud, if you prefer.
+- You do not need TLS/SSL server certificates for encrypted communication, because the connection is outbound.
+- You do not need separate authentication; Google cloud authentication is used.
+- Google subscriptions have confirmed delivery. If your server is down, the events will be queued in the Google cloud and will be received when you next connect.
+- Because of confirmed delivery, you can have multiple servers receiving the events and they will round-robin handling events with each event only being handled once.
+
+## Changing the product owner
+
+The product owner is the account that owns a product. It can either be a user account (sandbox product), or it can be an organization (growth or enterprise product). When you migrate to growth, you provide a list of products you want to move into the organization:
+
+- Billing for the organization will be the responsibility of organization.
+- The product will no longer be limited to 100 devices.
+- Exceeding the data operation or cellular data limits will add additional blocks instead of pausing the account.
+- Device connectivity will continue uninterrupted.
+
+Device claiming is not affected by the move. If the devices were claimed to the original product owner that will remain unchanged. However even though the devices appear in the product owner's sandbox device list, devices that are part of the organization product do not count against the 100 device limit! You can use the [device list details tool](/tutorials/product-tools/creating-a-product/#device-list-details) to see which devices count against the limits.
+
+Integrations such as webhooks defined in the old product owner account will continue to function if the devices are still claimed to the product owner.
+
+## Changing the product owner email
+
+Another possibility is changing the product owner's email. This affects:
+
+- All products owned by that user will now be associated with the new email.
+- All device claims will be will now be associated with the new email.
+- All access tokens continue to function unchanged.
+- Integrations move the new account email.
+- Applications in the Web IDE are moved to the new account email.
+- Devices stay online uninterrupted.
+- API access remains unchanged.
+
+This option is ideal if you are contractor developing a product for a company, then handing it off.
+
+- You create a Particle account for each project you are working on using a unique email in your domain, Google mail, etc.
+- Upon completion of the project and handoff, you change the account email to a domain controlled by the company that now owns the project, products, devices, etc.
+- Before transferring, disable multi-factor authentication (MFA), if enabled.
+- Upon transferring the password will be unchanged, but the receiver can reset the password using their email.
+
+In the scenario where the contractor passes off ownership but still needs access for maintenance, the contractor can add themselves as a team member using a different email that will continue to work after changing the product owner email.
 
 ## Device lists
 
@@ -289,4 +359,6 @@ This tool can help you decode what's being displayed in the sandbox device list 
 {{> device-list }}
 
 
+## Next steps
 
+When you're ready to expand beyond prototyping, see [scaling your product](/tutorials/product-tools/scaling-your-product/) for tips of growing your product.
