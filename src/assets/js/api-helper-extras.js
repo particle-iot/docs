@@ -117,6 +117,7 @@ $(document).ready(function() {
         let orgList = [];
         let productIndex = {};
         let platformNames = {};
+        let sandboxPlatforms = {};
 
         const setStatus = function(status) {
             $(thisPartial).find('.apiHelperStatus').html(status);                
@@ -250,9 +251,18 @@ $(document).ready(function() {
             let sandboxProductCount = 0;
             let orgProductCount = 0;
 
+            sandboxPlatforms = {};
+
             for(const d of deviceList) {
                 if (d.product_id == d.platform_id) {
                     sandboxDevices.push(d);
+
+                    if (platformNames[d.platform_id]) {
+                        if (!sandboxPlatforms[d.platform_id]) {
+                            sandboxPlatforms[d.platform_id] = [];
+                        }
+                        sandboxPlatforms[d.platform_id].push(d.id);    
+                    }
                 }
                 else {
                     if (!productDevices[d.product_id]) {
@@ -274,6 +284,37 @@ $(document).ready(function() {
             $(sectionElem).text('Developer sandbox (non-product) devices');
             $(outputElem).append(sectionElem);
             renderList(sandboxDevices, null);
+
+            if (Object.keys(sandboxPlatforms).length > 0) {
+                sectionElem = document.createElement('h4');
+                $(sectionElem).text('Download developer sandbox (non-product) device lists')
+                $(outputElem).append(sectionElem);    
+
+                const ulElem = document.createElement('ul');
+
+                for(const platformId in sandboxPlatforms) {
+                    const liElem = document.createElement('li');
+                    const aElem = document.createElement('a');
+
+                    const platformDeviceList = sandboxPlatforms[platformId];
+
+                    $(aElem).text(platformNames[platformId] + ' device list');
+                    $(aElem).on('click', function() {
+                        const exportText = platformDeviceList.join('\n');
+
+                        let blob = new Blob([exportText], {type:'text/plain'});
+                        saveAs(blob, 'devices.txt');			
+                    });
+                    $(liElem).append(aElem);
+
+                    const textElem = document.createTextNode(' (' + platformDeviceList.length + ' devices)');
+                    $(liElem).append(textElem);
+
+                    $(ulElem).append(liElem);
+                }
+                
+                $(outputElem).append(ulElem);    
+            }
 
             for(const productId in productDevices) {
                 sectionElem = document.createElement('h3');
