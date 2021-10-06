@@ -227,6 +227,11 @@
         "href": "/tutorials/product-tools/creating-a-product/"
       },
       {
+        "dir": "scaling-your-product",
+        "title": "Scaling Your Product",
+        "href": "/tutorials/product-tools/scaling-your-product/"
+      },
+      {
         "dir": "security",
         "title": "Security",
         "href": "/tutorials/product-tools/security/"
