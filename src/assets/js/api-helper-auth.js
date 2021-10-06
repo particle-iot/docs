@@ -5,27 +5,31 @@ $(document).ready(function() {
     let auth = null;
 
     const handleLogin = function() {
-        const origUrl = window.location.href;
-
-		window.location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
-
         ga('send', 'event', eventCategory, 'Login Started');
+
+        const origUrl = window.location.href;
+		window.location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
     };
 
     const handleEditAccount = function() {
-        const origUrl = window.location.href;
-
-		window.location.href = 'https://login.particle.io/account-info?redirect=' + encodeURI(origUrl); 
-
         ga('send', 'event', eventCategory, 'Edit Account');
+
+        const origUrl = window.location.href;
+		window.location.href = 'https://login.particle.io/account-info?redirect=' + encodeURI(origUrl); 
     };
 
     const handleLogout = function() {
-        Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
+        ga('send', 'event', eventCategory, 'Logged Out');
         localStorage.removeItem('particleAuth');
+
+        const origUrl = window.location.href;
+		window.location.href = 'https://login.particle.io/logout?redirect=' + encodeURI(origUrl); 
+
+        /*
+        Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
         $('.apiHelper').trigger('ssoLogout');
         location.reload();
-        ga('send', 'event', eventCategory, 'Logged Out');
+        */
     };
 
     $('.apiHelperFakeAuthButton').on('click', function() {
