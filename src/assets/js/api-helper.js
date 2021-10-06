@@ -476,80 +476,9 @@ $(document).ready(function() {
         return;
     }
 
-    const eventCategory = 'Docs SSO';
-
-    apiHelper.auth = null;
-
     // ready is only called if there are components that use the apiHelper
 
     apiHelper.particle = new Particle();
-
-    $('.apiHelperFakeAuthButton').on('click', function() {
-        const authData = prompt('JSON authentication data:');
-        if (authData) {
-            localStorage.setItem('particleAuth', authData);
-            location.reload();
-        }
-    });
-    
-    $('.apiHelperLoginButton').on('click', function() {
-        const origUrl = window.location.href;
-
-		window.location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
-
-        ga('send', 'event', eventCategory, 'Login Started');
-    });
-
-    $('.apiHelperLogoutButton').on('click', function() {
-        Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
-        localStorage.removeItem('particleAuth');
-        $('.apiHelper').trigger('ssoLogout');
-        location.reload();
-        ga('send', 'event', eventCategory, 'Logged Out');
-    });
-
-    const cookie = Cookies.get('ember_simple_auth_session');
-    if (cookie) {
-        try {
-            const json = JSON.parse(cookie);
-            if (json.authenticated) {
-                apiHelper.auth = json.authenticated;
-            }
-        }
-        catch(e) {
-        }
-    }
-    const fakeAuth = localStorage.getItem('particleAuth');
-    if (fakeAuth) {
-        try {
-            apiHelper.auth = JSON.parse(fakeAuth);
-        }
-        catch(e) {
-        }
-    }
-
-    $('.apiHelperLoggedIn').hide();
-    $('.apiHelperCouldSSO').hide();
-    $('.apiHelperFakeAuth').hide();
-
-    if (apiHelper.auth) {
-        $('.apiHelperUser').text(apiHelper.auth.username);
-
-        $('.apiHelperLoggedIn').each(function() {
-            if ($(this).attr('data-hidden') != 'true') {
-                $(this).show();
-            }
-        });
-    }
-    else
-    if (window.location.hostname.endsWith('particle.io')) {
-        $('.apiHelperCouldSSO').show();
-    }
-    else {
-        $('.apiHelperFakeAuth').show();
-    }
-
-
 
     if ($('.codeboxFlashDeviceSpan').length > 0) {
         
