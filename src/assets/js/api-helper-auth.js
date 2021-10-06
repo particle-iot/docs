@@ -95,7 +95,7 @@ $(document).ready(function() {
         $('#userMenuEditAccount').hide();
         $('#userMenuLogout').hide();
     }
-    if (apiHelper) {
+    if (typeof apiHelper != 'undefined') {
         apiHelper.auth = auth;
     }
 });
