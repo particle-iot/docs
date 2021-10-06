@@ -84,8 +84,8 @@ $(document).ready(function() {
             $('.apiHelperCouldSSO').show();
 
             const aElem = document.createElement('a');
-            aElem.text('Log in...');
-            aElem.on('click', handleLogin);
+            $(aElem).text('Log in...');
+            $(aElem).on('click', handleLogin);
             $('#userMenuLoggedInAs').append(aElem);
         }
         else {
