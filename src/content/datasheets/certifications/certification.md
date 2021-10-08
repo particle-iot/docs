@@ -514,7 +514,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [RoHS 3.0 Test Report](/assets/pdfs/photon-rohs.pdf)
 
 #### P1 Module
-- [Summary](/assets/pdfs/p1-ce-summary.pdf) (2021-09-16)
+- [Summary](/assets/pdfs/p1-ce-summary2.pdf) (2021-09-16)
 - [EN 300-328 Test Report](/assets/pdfs/p1-EN300-328-test-report.pdf) (2021-09-16)
 - [EN 301-489 Test Report](/assets/pdfs/p1-EN301-489-test-report.pdf) (2021-09-16)
 - [EN62311 and EN50665 Test Report](/assets/pdfs/p1-EN62311-test-report.pdf) (2021-09-16)
