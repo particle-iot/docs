@@ -118,13 +118,17 @@ $(document).ready(function() {
         let productIndex = {};
         let platformNames = {};
         let sandboxPlatforms = {};
+        let userInfo;
+        let allProductDevices = {};
+        let sandboxProductCount = 0;
 
         const setStatus = function(status) {
             $(thisPartial).find('.apiHelperStatus').html(status);                
         };
 
-        const renderList = function(list, prod) {
+        const renderList = function(list, prod, columns) {
 
+        
             const ulElem = document.createElement('ul'); 
             if (list.length == 0) {
                 let liElem = document.createElement('li');
@@ -144,9 +148,36 @@ $(document).ready(function() {
                         $(liElem).text('Organization product (' + prod.orgName + ')');    
                     }
                     else {
-                        $(liElem).text('Sandbox product');    
+                        if (prod.mine) {
+                            $(liElem).text('Sandbox product owned by me');    
+                        }
+                        else {
+                            $(liElem).text('Sandbox product owned by ' + prod.user);    
+                        }
                     }
-                    $(ulElem).append(liElem);                    
+                    $(ulElem).append(liElem);  
+                    
+                    if (!prod.orgName) {
+                        liElem = document.createElement('li');
+                        if (prod.mine) {
+                            $(liElem).text('All devices in the product count against my device limit');    
+                        }
+                        else {
+                            $(liElem).text('Product devices do not count against device limit (only my devices shown below)');    
+                        }
+                        $(ulElem).append(liElem);  
+                    }
+                    
+                    
+                    liElem = document.createElement('li');
+                    if (platformNames[prod.platform_id]) {
+                        $(liElem).text(platformNames[prod.platform_id] + ' product');
+                    }
+                    else {
+                        $(liElem).text('Platform ' + prod.platform_id);
+                    }             
+                    $(ulElem).append(liElem);         
+                
                 }
 
                 $(ulElem).append(liElem);                    
@@ -155,28 +186,14 @@ $(document).ready(function() {
 
             const tableElem = document.createElement('table');
 
-            const columns = [
-                {
-                    'key':'id',
-                    'title': 'Device ID'
-                },
-                {
-                    'key':'name',
-                    'title': 'Device Name'
-                },
-                {
-                    'key':'platform_id',
-                    'title': 'Platform'
-                },
-                {
-                    'key':'last_handshake_at',
-                    'title': 'Last Handshake'
-                },
-                {
-                    'key':'system_firmware_version',
-                    'title': 'Device OS'
-                }
-            ];
+            const columnTitles = {
+                'id': 'Device ID',
+                'name': 'Device Name',
+                'platform_id': 'Platform',
+                'owner': 'Owner',
+                'last_handshake_at': 'Last Handshake',
+                'system_firmware_version': 'Device OS'
+            };
 
             {
                 const theadElem = document.createElement('thead');
@@ -185,7 +202,7 @@ $(document).ready(function() {
 
                 for(const c of columns) {
                     const thElem = document.createElement('th');
-                    $(thElem).text(c.title);
+                    $(thElem).text(columnTitles[c]);
                     $(trElem).append(thElem);
                 }
     
@@ -202,19 +219,19 @@ $(document).ready(function() {
                 for(const c of columns) {
                     const tdElem = document.createElement('td');
 
-                    switch(c.key) {
+                    switch(c) {
                         case 'platform_id':
-                            if (platformNames[dev[c.key]]) {
-                                $(tdElem).text(platformNames[dev[c.key]]);
+                            if (platformNames[dev[c]]) {
+                                $(tdElem).text(platformNames[dev[c]]);
                             }
                             else {
-                                $(tdElem).text(dev[c.key]);
+                                $(tdElem).text(dev[c]);
                             }
                             break;
 
                         case 'last_handshake_at':
                             {
-                                let s = dev[c.key].replace('T', ' ');
+                                let s = dev[c].replace('T', ' ');
                                 let off = s.lastIndexOf('.');
                                 s = s.substr(0, off);
                                 $(tdElem).text(s);
@@ -222,7 +239,9 @@ $(document).ready(function() {
                             break;
 
                         default:
-                            $(tdElem).text(dev[c.key]);
+                            if (dev[c]) {
+                                $(tdElem).text(dev[c]);
+                            }
                             break;
 
                     }
@@ -248,7 +267,6 @@ $(document).ready(function() {
             // Break out devices by product
             let sandboxDevices = [];
             let productDevices = {};
-            let sandboxProductCount = 0;
             let orgProductCount = 0;
 
             sandboxPlatforms = {};
@@ -272,9 +290,6 @@ $(document).ready(function() {
                     if (productIndex[d.product_id].orgName) {
                         orgProductCount++;
                     }
-                    else {
-                        sandboxProductCount++;
-                    }
                 }
             }
 
@@ -283,7 +298,7 @@ $(document).ready(function() {
             let sectionElem = document.createElement('h3');
             $(sectionElem).text('Developer sandbox (non-product) devices');
             $(outputElem).append(sectionElem);
-            renderList(sandboxDevices, null);
+            renderList(sandboxDevices, null, ['id', 'name', 'platform_id', 'last_handshake_at', 'system_firmware_version']);
 
             if (Object.keys(sandboxPlatforms).length > 0) {
                 sectionElem = document.createElement('h4');
@@ -321,7 +336,12 @@ $(document).ready(function() {
                 $(sectionElem).text('Product ' + productIndex[productId].name + ' (' + productId + ')');
                 $(outputElem).append(sectionElem);    
 
-                renderList(productDevices[productId], productIndex[productId]);
+                if (productIndex[productId].mine) {
+                    renderList(allProductDevices[productId], productIndex[productId], ['id', 'name', 'owner', 'last_handshake_at', 'system_firmware_version']);
+                }
+                else {
+                    renderList(productDevices[productId], productIndex[productId], ['id', 'name', 'owner', 'last_handshake_at', 'system_firmware_version']);
+                }
             }
 
             {
@@ -412,6 +432,44 @@ $(document).ready(function() {
 
         };
 
+        const listProductDevicesPage = function(index, page) {
+            apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product: sandboxProducts[index].id, page }).then(
+                function(data) {
+                    sandboxProductCount += data.body.devices.length;
+                    for(const d of data.body.devices) {
+                        allProductDevices[sandboxProducts[index].id].push(d);
+                    }
+                     
+                    if (page < data.body.meta.total_pages) {
+                        listProductDevicesPage(index, page + 1);
+                    }
+                    else {
+                        listProductDevices(index + 1);
+                    }
+                },
+                function(err) {
+                    setStatus('Error retrieving product device list');
+                    $(actionButtonElem).prop('disable', false);
+                }
+            );
+
+
+        };
+        const listProductDevices = function(index) {
+            while(index < sandboxProducts.length && sandboxProducts[index].user != userInfo.username) {
+                index++;
+            }
+
+            if (index >= sandboxProducts.length) {
+                listOrgs();
+                return;
+            }
+            setStatus('Getting sandbox product devices for ' + sandboxProducts[index].name + '...');
+
+            allProductDevices[sandboxProducts[index].id] = [];
+
+            listProductDevicesPage(index, 1);
+        };
 
         const listProducts = function() {
             setStatus('Getting sandbox products...');
@@ -431,12 +489,14 @@ $(document).ready(function() {
                     for(const p of sandboxProducts) {
                         productIndex[p.id] = {
                             name: p.name,
+                            user: p.user,
                             platform_id: p.platform_id,
-                            sandbox: true
+                            sandbox: true,
+                            mine: (p.user == userInfo.username)
                         };                     
                     }
 
-                    listOrgs();
+                    listProductDevices(0);
                 },
                 url: 'https://api.particle.io/v1/user/products/'
             };
@@ -455,19 +515,35 @@ $(document).ready(function() {
                     for(const p of deviceRestoreInfo.platforms) {
                         platformNames[p.id] = p.title;
                     }
+                    platformNames[0] = 'Core';
                 });
 
-            apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
+            apiHelper.particle.getUserInfo({ auth: apiHelper.auth.access_token }).then(
                 function(data) {
-                    deviceList = data.body;
+                    userInfo = data.body;
 
-                    listProducts();
+                    apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
+                        function(data) {
+                            deviceList = data.body;
+                            for(let d of deviceList) {
+                                d.owner = userInfo.username;
+                            }
+        
+                            listProducts();
+                        },
+                        function(err) {
+                            setStatus('Error retrieving device list');
+                            $(actionButtonElem).prop('disable', false);
+                        }
+                    );
+        
                 },
                 function(err) {
-                    setStatus('Error retrieving device list');
+                    setStatus('Error retrieving user information (access token may have expired)');
                     $(actionButtonElem).prop('disable', false);
                 }
-            );
+            )
+
         };
 
 
