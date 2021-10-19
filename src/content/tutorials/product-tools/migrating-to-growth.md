@@ -35,13 +35,17 @@ includeDefinitions: [api-helper, api-helper-extras]
 
 ## Starting the process
 
-**Sign up at [upgrade to growth](https://www.particle.io/upgradetogrowth/) with your email address.**
+**Sign up at the [upgrade to growth page](https://www.particle.io/upgradetogrowth/).**
 
-A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to growth tier.
+A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to growth tier. This process can take several business days. We will ensure that your service is not impacted during this time.
+
+<div  align="center">
+<a href="https://www.particle.io/upgradetogrowth/"  target="_blank" class="button">UPGRADE TO GROWTH</a>
+</div>
 
 ## Getting ready for migration
 
-### Migration is done at the product level
+### You must create a product
 
 **All devices in the growth plan must be in a product.**
 
@@ -52,9 +56,13 @@ A representative will contact you by email to schedule an appointment for a tele
 - [API users](/reference/device-cloud/api/#api-users), to allow fine-grained access control to Particle APIs from your servers.
 {{collapse op="end"}}
 
-If you have already done this, you're most of the way there! Just make a note of the products you want to move to the growth plan. You can move one or more products; you can move all or just some of your products.
+**If you have already done this, you're most of the way there!**
 
-You can continue to have free tier products as long as they are within the free tier limits. In fact, each member of your organization still has a free tier sandbox that they can use for personal and development devices and do not add your growth plan bill.
+{{collapse op="start" label="Tell me more about migrating products"}}
+- Just make a note of the products you want to move to the growth plan. You can move one or more products; you can move all or just some of your products.
+- You can continue to have free tier products as long as they are within the free tier limits. In fact, each member of your organization still has a free tier sandbox that they can use for personal and development devices and do not add your growth plan bill.
+- If you need to create a product, see the [creating a product](/tutorials/product-tools/creating-a-product/).
+{{collapse op="end"}}
 
 ### You will be asked for...
 
@@ -85,11 +93,12 @@ When you move a product into your organization:
 **Device claiming is not affected by moving products into an organization.**
 
 {{collapse op="start" label="Tell me more about device claiming"}}
-If the devices were claimed to the original product owner that will remain unchanged. However even though the devices appear in the product owner's sandbox device list, devices that are part of the organization product do not count against the 100 device limit! You can use the [device list details tool](/tutorials/product-tools/creating-a-product/#device-list-details) to see which devices count against the limits.
 
-Integrations such as webhooks defined in the old product owner account will continue to function if the devices are still claimed to the product owner.
-
-See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide for more information.
+- If the devices were claimed to the original product owner that will remain unchanged. 
+- Even though the devices appear in the product owner's sandbox device list, devices that are part of the organization product do not count against the 100 device limit! 
+- You can use the [device list details tool](/tutorials/product-tools/creating-a-product/#device-list-details) to see which devices count against the limits.
+- Integrations such as webhooks defined in the old product owner account will continue to function if the devices are still claimed to the product owner.
+- See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide for more information.
 {{collapse op="end"}}
 
 ### Team members
