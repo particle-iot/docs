@@ -8,7 +8,7 @@ includeDefinitions: [api-helper, api-helper-extras]
 
 # {{title}}
 
-The free tier provides free access for Wi-Fi and cellular devices, but there are limits.
+**The free tier provides free access for Wi-Fi and cellular devices, but there are limits.**
 
 {{collapse op="start" label="What are the free tier limits?"}}
 - Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
@@ -17,25 +17,25 @@ The free tier provides free access for Wi-Fi and cellular devices, but there are
 - Device communication is paused when a monthly limit is reached
 {{collapse op="end"}}
 
-When you go beyond the limits for number of devices, data operations, or cellular data, you will need to migrate to the growth plan.
+**When you go beyond the limits for number of devices, data operations, or cellular data, you will need to migrate to the growth plan.**
 
 {{collapse op="start" label="What is a data operation?"}}
 {{blurb name="dataoperations"}}
 {{collapse op="end"}}
 
-In the growth tier, there are no limits to the number of devices, data operations, or cellular data, however you will be charged for blocks of usage monthly.
+**In the growth tier, there are no limits to the number of devices, data operations, or cellular data, however you will be charged for blocks of usage monthly.**
 
 {{collapse op="start" label="What is a block?"}}
 - A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
 - Add as many blocks as you need for more Data Operations or more devices
 - No limit to the number of blocks you can purchase self-service
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
-- Each block is $299 per month
+- Each block is {{growthBlockPrice}} per month.
 {{collapse op="end"}}
 
 ## Starting the process
 
-Sign up at [upgrade to growth](https://www.particle.io/upgradetogrowth/) with your email address. 
+**Sign up at [upgrade to growth](https://www.particle.io/upgradetogrowth/) with your email address.**
 
 A representative will contact you by email to schedule an appointment for a telephone call to complete the upgrade process to growth tier.
 
@@ -43,7 +43,7 @@ A representative will contact you by email to schedule an appointment for a tele
 
 ### Migration is done at the product level
 
-All devices in the growth plan must be in a product.
+**All devices in the growth plan must be in a product.**
 
 {{collapse op="start" label="What are the benefits of using a product?"}}
 - [Fleet deployment](/tutorials/device-cloud/ota-updates/#intelligent-firmware-releases), so you can release firmware to many devices at the same time.
@@ -69,6 +69,7 @@ An organization groups together one or more products so they:
 - Organization level users that have access to all products
 - You can still have product level users with access to specific products, if needed
 - There is no per-product fee for products in your growth organization, however the devices, data operations, and cellular data usage by the devices in those products count against your organization's total usage.
+- A user can belong to multiple organizations if needed.
 {{collapse op="end"}}
 
 ### When the move occurs...
@@ -81,7 +82,7 @@ When you move a product into your organization:
 - Product access tokens issued before the change will continue to work.
 - Customers such two-legged shadow customers will continue to work with the same access tokens.
 
-Device claiming is not affected by the move. 
+**Device claiming is not affected by moving products into an organization.**
 
 {{collapse op="start" label="Tell me more about device claiming"}}
 If the devices were claimed to the original product owner that will remain unchanged. However even though the devices appear in the product owner's sandbox device list, devices that are part of the organization product do not count against the 100 device limit! You can use the [device list details tool](/tutorials/product-tools/creating-a-product/#device-list-details) to see which devices count against the limits.
@@ -95,7 +96,7 @@ See [device claiming](/tutorials/product-tools/creating-a-product/#device-claimi
 
 ### No product
 
-If all of your devices are still in the developer sandbox, there are a few steps you will need to do before migration. The [creating a product guide](/tutorials/product-tools/creating-a-product/) can help with this.
+**If all of your devices are still in the developer sandbox, there are a few steps you will need to do before migration. The [creating a product guide](/tutorials/product-tools/creating-a-product/) can help with this.**
 
 {{collapse op="start" label="Tell me more about creating a product"}}
 - You will need to adjust your workflow to include uploading product firmware releases and releasing them to your fleet. In the unusual situation where each device in your product has its own unique firmware, you can use the **Mark as Development Device** to allow each device to have its own firmware that you flash manually instead of using fleet firmware.
@@ -114,7 +115,7 @@ If all of your devices are still in the developer sandbox, there are a few steps
 
 ### Moving a product vs. moving devices
 
-Whenever possible you should move an entire product into your organization on the growth plan. This is generally painless and has no interruption in service.
+**Whenever possible you should move entire product(s) into your organization on the growth plan. This is generally painless and has no interruption in service.**
 
 {{collapse op="start" label="I think I need to move devices between products"}}
 Moving individual devices from one product to another can present certain issues that can be disruptive:
@@ -134,7 +135,7 @@ If you are absolutely sure you want to move devices from a product to another pr
 
 ### User-level oAuth tokens
 
-If you are using oAuth tokens created via the Authentication tab in a user account (when moving from developer sandbox) or in a product (when moving to a different product), these tokens will no longer work when using the new product. 
+**If you are using oAuth tokens created via the Authentication tab in a user account (when moving from developer sandbox) or in a product (when moving to a different product), these tokens will no longer work when using the new product.**
 
 {{collapse op="start" label="Tell me more about auth tokens"}}
 You must create new oAuth tokens from a new client ID and secret created in the destination product. It's not possible to transfer oAuth tokens between accounts or products. 
@@ -146,7 +147,7 @@ Authentication tokens created from an oAuth client ID and secret within the prod
 
 ### Product owner webhooks
 
-If you created the webhooks in the product owner account and claimed all devices to the product owner account, this will still function uninterrupted when migrating to growth, as long as you don't change device claiming. 
+**If you created the webhooks in the product owner account and claimed all devices to the product owner account, this will still function uninterrupted when migrating to growth, as long as you don't change device claiming.**
 
 {{collapse op="start" label="Tell me more about product owner webhooks"}}
 As long as the devices are added to the growth organization product, the data operations incurred for webhook responses will be counted in the organization, even though the webhook is in the developer sandbox.
@@ -168,19 +169,21 @@ The [device list tool](/tutorials/product-tools/creating-a-product/#device-list-
 
 ## More about billing
 
-All billing is by blocks:
+**Billing is measured in blocks.**
 
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month
-- Up to {{growthTierDevices}} devices
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices
-- Each block is $299 per month
+{{collapse op="start" label="Tell me more about billing blocks"}}
+- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month.
+- Up to {{growthTierDevices}} devices.
+- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices.
+- Each block is {{growthBlockPrice}} per month.
 
 If you exceed any limit, you will need another block. You can't just buy more data operations, or more cellular data, for example.
 
 When another block is needed:
 
-- You are not billed until the next billing cycle, so no proration is needed.
+- You are not billed until the next billing cycle; no proration is needed.
 - If you exceed the number of blocks you had purchased at the beginning of this billing month, the new larger number of blocks will be the number of blocks purchased for the all future months.
+{{collapse op="end"}}
 
 You can find out your fleet usage in the [Billing & Usage](/tutorials/device-cloud/console/#billing-amp-usage) panel in the console if you are an organization administrator. 
 
