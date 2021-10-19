@@ -92,6 +92,20 @@ Integrations such as webhooks defined in the old product owner account will cont
 See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide for more information.
 {{collapse op="end"}}
 
+### Team members
+
+**You can configure team members at both the product and organization level from the console if you are an administrator.**
+
+{{collapse op="start" label="Tell me more about team members"}}
+
+- If you have team members in your product from the free sandbox tier, they will continue to work after migration.
+- You may prefer to create team members in your organization so they'll have access to all current and future products by default.
+- You may still want to use product team members to grant access to one product only. For example, you might do this for a contractor who is hired to help with one specific project.
+
+Learn more in the [teams documentation](/tutorials/product-tools/team-access-controls/).
+{{collapse op="end"}}
+
+
 ## Possible migration issues
 
 ### No product
