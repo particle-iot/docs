@@ -8,30 +8,23 @@ includeDefinitions: [api-helper, api-helper-extras]
 
 # {{title}}
 
-**The free tier provides free access for Wi-Fi and cellular devices, but there are limits.**
+Particle provides, free, growth, and enterprise plans.
+
+**The free plan is a place for prototyping products. It is free of charge, but there are limits on the number of devices and data operations you can use.**
 
 {{collapse op="start" label="What are the free tier limits?"}}
-- Up to {{freeTierDevices}} devices, any mix of cellular and Wi-Fi
+- Up to {{freeTierDevices}} devices, any mix of cellular, Wi-Fi, and Tracker devices
 - {{freeTierDataOperationsUnit}} Data Operations ({{freeTierDataOperationsComma}}) per month, for both cellular and Wi-Fi, pooled across all devices
 - Up to {{freeTierDataOperationsCellularData}} of cellular data per month, pooled across all devices, at no charge
 - Device communication is paused when a monthly limit is reached
 {{collapse op="end"}}
 
-**When you go beyond the limits for number of devices, data operations, or cellular data, you will need to migrate to the growth plan.**
+**The growth plan provides a way to scale past the limits of the free plan. There are no limits to the number of devices, data operations, or cellular data.**
 
 {{collapse op="start" label="What is a data operation?"}}
 {{blurb name="dataoperations"}}
 {{collapse op="end"}}
 
-**In the growth tier, there are no limits to the number of devices, data operations, or cellular data, however you will be charged for blocks of usage monthly.**
-
-{{collapse op="start" label="What is a block?"}}
-- A block includes {{growthTierDataOperationsUnit}} Data Operations ({{growthTierDataOperationsComma}}) per month and up to {{growthTierDevices}} devices
-- Add as many blocks as you need for more Data Operations or more devices
-- No limit to the number of blocks you can purchase self-service
-- Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices, for each block purchased
-- Each block is {{growthBlockPrice}} per month.
-{{collapse op="end"}}
 
 ## Starting the process
 
@@ -88,7 +81,7 @@ When you move a product into your organization:
 - Webhooks will continue to function.
 - Cloud API endpoints remain unchanged.
 - Product access tokens issued before the change will continue to work.
-- Customers such two-legged shadow customers will continue to work with the same access tokens.
+- Customer claiming, typically used with Wi-Fi devices, will continue to work with the same access tokens.
 
 **Device claiming is not affected by moving products into an organization.**
 
@@ -100,6 +93,7 @@ When you move a product into your organization:
 - Integrations such as webhooks defined in the old product owner account will continue to function if the devices are still claimed to the product owner.
 - See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide for more information.
 {{collapse op="end"}}
+
 
 ### Team members
 
