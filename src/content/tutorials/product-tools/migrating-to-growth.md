@@ -193,6 +193,7 @@ The [device list tool](/tutorials/product-tools/creating-a-product/#device-list-
 - Up to {{growthTierDevices}} devices.
 - Up to {{growthTierDataOperationsCellularData}} of cellular data per month ({{growthTierDataOperationsTrackerData}} for Tracker), pooled across all devices.
 - Each block is {{growthBlockPrice}} per month.
+- Blocks are specific to cellular, Tracker, or Wi-Fi. Usage is aggregated for all devices in all products in your growth organization of the same class. For example, Electrons, Borons, and B Series are all cellular devices that can share the same block even though they are in different products.
 
 If you exceed any limit, you will need another block. You can't just buy more data operations, or more cellular data, for example.
 
