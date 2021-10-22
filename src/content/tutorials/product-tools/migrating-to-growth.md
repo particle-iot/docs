@@ -118,7 +118,7 @@ Learn more in the [teams documentation](/tutorials/product-tools/team-access-con
 {{collapse op="start" label="Tell me more about creating a product"}}
 - You will need to adjust your workflow to include uploading product firmware releases and releasing them to your fleet. In the unusual situation where each device in your product has its own unique firmware, you can use the **Mark as Development Device** to allow each device to have its own firmware that you flash manually instead of using fleet firmware.
 
-- You will need to add devices to your product. For cellular devices, also their SIM cards. The [Move devices into a product](/tools/product-tools/device-move) tool can simplify this process.
+- You will need to add devices to your product. For cellular devices, also their SIM cards. The [Move devices into a product](https://github.com/particle-iot/node-example-device-move) script can simplify this process.
 
 - You may or may not want to change device claiming. See [device claiming](/tutorials/product-tools/creating-a-product/#device-claiming) in the creating a product guide.
 
@@ -143,7 +143,7 @@ Moving individual devices from one product to another can present certain issues
 
 - It can be confusing to move devices that are offline, because devices will enter quarantine in the old product for a period of time before they self-correct and move themselves into their new product.
 
-If you are absolutely sure you want to move devices from a product to another product you can use the [move devices into a product](/tools/product-tools/device-move) tool, however be sure to read all of the caveats on that page before doing so.
+If you are absolutely sure you want to move devices from a product to another product you can use the [move devices into a product](https://github.com/particle-iot/node-example-device-move) script, however be sure to read all of the caveats on that page before doing so.
 
 - If you want to move entire products from the free tier into your your organization later, you can do so with a [support ticket](https://support.particle.io/). 
 - Team members with administrative access can create new products in your organization directly from the console at any time.

@@ -63,11 +63,6 @@
                 "href": "/tools/product-tools/cellular-usage"
             },
             {
-                "dir": "device-move",
-                "title": "Move devices into a product",
-                "href": "/tools/product-tools/device-move"
-            },
-            {
                 "dir": "integration-copy",
                 "title": "Copy integrations",
                 "href": "/tools/product-tools/integration-copy"

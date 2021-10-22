@@ -348,6 +348,7 @@
   "/tinker": "/tutorials/developer-tools/tinker",
   "/tools": "/tools/device-programming/device-restore-usb",
   "/tools/device-programming": "/tools/device-programming/device-restore-usb",
+  "/tools/product-tools/device-move": "https://github.com/particle-iot/node-example-device-move",
   "/tools/troubleshooting": "/tools/troubleshooting/lookup",
   "/tools/troubleshooting/lookup/usb-serial": "/tools/troubleshooting/usb-serial",
   "/troubleshooting": "/tutorials/device-os/led",
