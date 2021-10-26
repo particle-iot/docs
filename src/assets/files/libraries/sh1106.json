@@ -7,7 +7,7 @@
   "attributes": {
     "name": "sh1106",
     "version": "0.0.2",
-    "installs": 8222,
+    "installs": 8429,
     "license": "MIT",
     "author": "Dan Milligan modified by Dustin Sellinger ",
     "sentence": "A library for the SH1106 chipset via I2C",

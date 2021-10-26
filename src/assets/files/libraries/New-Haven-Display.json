@@ -7,7 +7,7 @@
   "attributes": {
     "name": "New-Haven-Display",
     "version": "1.1.4",
-    "installs": 144,
+    "installs": 223,
     "license": "Public Domain",
     "author": "Chip McClelland",
     "sentence": "Simple Library for the New Haven NHD0420CW-Ax3 Display",

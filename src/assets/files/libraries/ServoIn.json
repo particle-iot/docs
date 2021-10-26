@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ServoIn",
     "version": "1.0.2",
-    "installs": 1031,
+    "installs": 1374,
     "license": "GPL3",
     "author": "rnash",
     "sentence": "Class to read servo signals from a typical RC system.",

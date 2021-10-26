@@ -7,7 +7,7 @@
   "attributes": {
     "name": "nrf8001-ble-uart-spark-io",
     "version": "0.6.6",
-    "installs": 642,
+    "installs": 741,
     "license": "MIT",
     "author": "Nordic Semiconductor ASA",
     "sentence": "A library for using the Nordic Semiconductor nRF8001 board as a BLE UART or as BLE mesh entry point. Can be used to send WiFi credentials to the Spark Core from a phone. See GitHub repository for instructions on wiring.",

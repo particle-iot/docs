@@ -483,8 +483,6 @@ as a result of context awareness (compared to ~1w with Standard Release)
 - **Maximum control**: Leverage flexible Device OS APIs and cloud-side
 controls to define the opportune time to deliver an update
 
-Intelligent Firmware Releases is available to
-Enterprise customers. [Interested in Intelligent Firmware Releases?](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
 
 #### Context awareness to prevent disruption
 
@@ -546,10 +544,6 @@ When the _Release Firmware_ modal appears, choose the group(s) that you
 would like to release to. Then, top opt-in to an Intelligent Firmware Release, check the checkbox signaling that you would like to deliver the firmware immediately to target devices:
 
 ![](/assets/images/ota-updates/intelligent-release.png)
-
-The "Intelligent" option will be enabled for scaling customers on
-Particle's Enterprise plan. If you are interested in enabling this
-feature for your fleet, please [reach out to us!](https://www.particle.io/sales/?utm_source=console&utm_content=intelligent-firmware-releases)
 
 Note that the Console describes that target devices that are **online**
 with **OTA updates enabled** would receive the new version of firmware
@@ -653,8 +647,6 @@ device.
 
 ### Notifications of pending OTA updates
 
-_Since Device OS 1.2.0, Enterprise only_.
-
 [`System.updatesPending()`](/cards/firmware/ota-updates/system-updatespending/) is a boolean flag that will return whether a
 new version of Product firmware is available for the device. This is
 helpful in the case when updates have been disabled for a device (by
@@ -663,12 +655,13 @@ to be notified that there is a pending update for the device. You will
 also see an event published to the event stream in this case,
 `particle/device/updates/pending`.
 
-`System.updatesPending()` will only be set for devices belonging to a
-Product on an Enterprise plan.
-
 In this case, the OTA update will be prevented by the device. The device
 will emit an internal system event, `firmware_update_pending` and
 `System.updatesPending()` will evaluate to `true`.
+
+This feature was added in Device OS 1.2.0 but was of limited use for non-enterprise customers 
+who did not have Intelligent OTA available. As of June 2020, Intelligent OTA is available on 
+all pricing tiers.
 
 ### OTA availability in the Console
 
@@ -824,7 +817,6 @@ void setup() {
 }
 
 void loop() {
-	// NB: System.updatesPending() should only be used in a Product on the Enterprise Plan
 	if (isSafeToUpdate() && System.updatesPending()) {
 		System.enableUpdates();
 

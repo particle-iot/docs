@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MiniShift-Particle",
     "version": "1.0.0",
-    "installs": 115,
+    "installs": 133,
     "license": "See 'LICENSE' file",
     "author": "Gregory Fenton and ArachnidLabs",
     "sentence": "ArachnidLabs MiniShift library for Particle devices",

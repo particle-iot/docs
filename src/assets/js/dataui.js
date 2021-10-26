@@ -1,3 +1,4 @@
+
 let dataui = {};
 
 
@@ -1029,7 +1030,7 @@ dataui.sortCompareNumeric = function(a, b) {
     return parseInt(a) - parseInt(b);
 };
 
-dataui.collectModemBands = function(countryCarrierList, technologies) {
+dataui.collectModemBands = function(countryCarrierList, technologies, options) {
     let bandsUsed = {};
 
     bandsUsed.bands2G = [];
@@ -1038,42 +1039,37 @@ dataui.collectModemBands = function(countryCarrierList, technologies) {
     bandsUsed.bandsM1 = [];
     bandsUsed.bandsAll = [];
 
-    if (!technologies) {
-        return bandsUsed;
-    }
-
     // Collect all bands used
     countryCarrierList.forEach(function(obj) {
         obj.bands.forEach(function(tagBand) {
             const tag = dataui.bandGetTag(tagBand);
             const band = dataui.bandGetBand(tagBand);
 
-            if (tag == '2G' && technologies.includes(tag)) {
+            if (tag == '2G' && (!technologies || technologies.includes(tag))) {
                 if (!bandsUsed.bands2G.includes(band)) {
                     bandsUsed.bands2G.push(band);
                     bandsUsed.bandsAll.push(tagBand);
                 }
             }
-            if (tag == '3G' && technologies.includes(tag)) {
+            if (tag == '3G' && (!technologies || technologies.includes(tag))) {
                 if (!bandsUsed.bands3G.includes(band)) {
                     bandsUsed.bands3G.push(band);
                     bandsUsed.bandsAll.push(tagBand);                
                 }
             }
             if (tag == 'LTE') {
-                if (technologies.includes('Cat1')) {
+                if (!technologies || technologies.includes(tag)) {
                     if (!bandsUsed.bandsCat1.includes(band)) {
                         bandsUsed.bandsCat1.push(band);
                         bandsUsed.bandsAll.push(tagBand.replace('LTE', 'Cat1'));                
                     }                        
                 }
-                if (technologies.includes('M1')) {
+                if ((technologies && technologies.includes('M1')) || options.showM1) {
                     if (!bandsUsed.bandsM1.includes(band)) {
                         bandsUsed.bandsM1.push(band);
                         bandsUsed.bandsAll.push(tagBand.replace('LTE', 'M1'));                
                     }                                            
                 }
-
             }
         });
     });
@@ -1137,7 +1133,9 @@ dataui.bandUseChangeHandler = function(tableId, countryList, planKey, modem, opt
     });
 
     // Collect all of the bands used so filtered tables don't have a ridiculous number of columns
-    const bandsUsed = dataui.collectModemBands(countryCarrierFiltered, modem.technologies);
+    const bandsUsed = dataui.collectModemBands(countryCarrierFiltered,
+        (options.showAllTechnologies ? null : modem.technologies),
+        options);
 
     // Generate the HTML
     {

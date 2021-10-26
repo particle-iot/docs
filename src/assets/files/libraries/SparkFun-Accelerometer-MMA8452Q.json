@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun-Accelerometer-MMA8452Q",
     "version": "1.1.0",
-    "installs": 2974,
+    "installs": 3107,
     "author": "SparkFun Electronics",
     "maintainer": "SparkFun Electronics",
     "sentence": "Basic I2C functionality of the MMA8452Q Accelerometer Breakout (https://www.sparkfun.com/products/12756)",

@@ -1,0 +1,71 @@
+{
+  "type": "libraries",
+  "id": "BackgroundPublishRK",
+  "links": {
+    "download": "https://api.particle.io/v1/libraries/BackgroundPublishRK/archive/0.0.1.tar.gz"
+  },
+  "attributes": {
+    "name": "BackgroundPublishRK",
+    "version": "0.0.1",
+    "installs": 1138,
+    "license": "MIT",
+    "author": "rickkas7@rickkas7.com",
+    "sentence": "Library for publishing from a background thread on Particle devices",
+    "url": "https://github.com/rickkas7/BackgroundPublishRK",
+    "repository": "https://github.com/rickkas7/BackgroundPublishRK.git",
+    "architectures": [
+      "*"
+    ],
+    "visibility": "public",
+    "mine": false
+  },
+  "kind": "community library",
+  "letter": "b",
+  "cardUrl": "/cards/libraries/b/BackgroundPublishRK",
+  "versions": {
+    "0.0.1": {
+      "builds": {
+        "2.0.1": {
+          "photon": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "argon": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true
+          }
+        },
+        "1.5.2": {
+          "photon": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "electron": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "argon": {
+            "1-simple": true,
+            "2-tester": true
+          },
+          "boron": {
+            "1-simple": true,
+            "2-tester": true
+          }
+        }
+      }
+    }
+  },
+  "readme": "# Background Publish\n\nBackground publish is a Particle firmware library that makes it easy to do `Particle.publish` from a background thread. This can be helpful in assuring that your loop() stays responsive, even if you have connection problems. This is most commonly an issue with cellular devices in fringe areas and for mobile cellular devices.\n\nDoing a `Particle.publish` from regular loop code can cause delays, ranging from a few seconds to at worst nearly 5 minutes. For near-real-time applications this can be unacceptable. This library assures that you can request a publish and it will not block.\n\nThis library does not support queuing of multiple events; that will be handled by a different library. This only handles the basic case of single-event background publish and is very light-weight.\n\n## Simple Example\n\nHere's a simple example:\n\n```\n#include \"Particle.h\"\n\n#include \"BackgroundPublish.h\"\n\nSYSTEM_MODE(SEMI_AUTOMATIC);\nSYSTEM_THREAD(ENABLED);\n\nSerialLogHandler logHandler;\n\nconst char *eventName = \"publishTest\";\nint counter = 0;\nconst unsigned long PUBLISH_INTERVAL_MS = 30000;\nunsigned long lastPublish = 0;\n\nvoid publishCallback(publish_status_t status, const char *eventName, const char *eventData, const void *context);\n\nvoid setup() {\n\t// This must be called from setup() to start the background publishing thread\n\tBackgroundPublish::instance().start();\n\tParticle.connect();\n}\n\nvoid loop() {\n\tif (millis() - lastPublish >= PUBLISH_INTERVAL_MS) {\n\t\tlastPublish = millis();\n\n\t\t// This code runs every PUBLISH_INTERVAL_MS (currently 30 seconds)\n\n\t\tchar data[64];\n\t\tsnprintf(data, sizeof(data), \"test %d\", ++counter);\n\n\t\t// Use BackgroundPublish::instance().publish instead of Particle.publish\n\t    bool bResult = BackgroundPublish::instance().publish(eventName, data, PRIVATE | WITH_ACK, publishCallback);\n\t    Log.info(\"publish returned %d\", bResult);\n\t}\n}\n\nvoid publishCallback(publish_status_t status, const char *eventName, const char *eventData, const void *context) {\n\tLog.info(\"publishCallback status=%d\", status);\n}\n\n``` \n\nBasically, instead of calling:\n\n```\nbool bResult = Particle.publish(eventName, data, PRIVATE | WITH_ACK);\n```\n\nYou instead call:\n\n```\nbool bResult = backgroundPublish.publish(eventName, data, PRIVATE | WITH_ACK, publishCallback);\n```\n\nThis uses an optional asynchronous callback function to know whether the publish went out or not. This typically takes up to 20 seconds, though in some rare cases it could take up to 5 minutes.\n\nThere are a few cases with `backgroundPublish.publish()` returns `false` immediately:\n\n- If the library has not been started or `name` is NULL, then this function returns false.\n- If there is already a publish in progress, then this function returns false.\n\nOtherwise, the function returns `true` and the optional callback will be called later with a boolean `succeeded` value.\n\nIt's common to use `WITH_ACK`, which will yield a fairly reliable definition of success. If you use `NO_ACK` then success merely means an attempt was made to publish the event, not that it was actually sent successfully.\n\nFailure will occur if:\n\n- The cloud is not connected. This should return failure quickly with 1.4.x. It may take longer with older versions of Device OS.\n- The event cannot be sent by the timeout (about 20 seconds).\n\n## Full API\n\nBackground publish class. You typically instantiate one of these as a global variable.\n\n## Members\n\n---\n\n### void BackgroundPublish::start() \n\nStart the background publish thread. Required!\n\n```\nvoid start()\n```\n\nYou typically call this from setup() using:\n\n```cpp\nBackgroundPublish::instance().start();\n```\n\n---\n\n### void BackgroundPublish::stop() \n\nStop the background publish thread.\n\n```\nvoid stop()\n```\n\nNormally you start it and never stop it, but this method is provided for special cases.\n\n---\n\n### bool BackgroundPublish::publish(const char * name, const char * data, PublishFlags flags, PublishCompletedCallback cb, const void * context) \n\nPublish method. Use this instead of Particle.publish().\n\n```\nbool publish(const char * name, const char * data, PublishFlags flags, PublishCompletedCallback cb, const void * context)\n```\n\n#### Parameters\n* `name` Event name to publish (required)\n\n* `data` Event data (optional). Must be a c-string (null-terminated) if non-NULL. Maximum length varies by Device OS, currently 622 bytes. Note that the data must be UTF-8; you cannot send arbitrary binary data!\n\n* `flags` The publish flash. Default = PRIVATE. You will often use `PRIVATE | WITH_ACK` but can also use `PRIVATE | NO_ACK`.\n\n* `cb` The callback function to call when the publish completes. Optional. Pass NULL or omit the parameter if you don't need a callback. It can be a C function or a C++11 lambda.\n\n* `context` Optional parameter passed to the callback. You can store a C++ object instance or a state structure pointer here.\n\n---\n\n### void BackgroundPublish::lock() \n\nUsed internally to mutex lock to safely access data structures from multiple threads.\n\n```\nvoid lock()\n```\n\nYou do not need to use this under normal circumstances as publish() handles this internally.\n\n---\n\n### void BackgroundPublish::unlock() \n\nUsed internally to mutex lock to safely access data structures from multiple threads.\n\n```\nvoid unlock()\n```\n\n\n## Revision History\n\n\n### 0.0.1 (2021-04-16)\n\n- Initial version\n\n",
+  "allVersions": [
+    "0.0.1"
+  ]
+}

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_SH1106_0",
     "version": "0.1.0",
-    "installs": 2051,
+    "installs": 2599,
     "license": "Whatever Adafruit uses",
     "author": "Adafruit, wonho-maker, Paul Kourney, Gerrit Coetzee",
     "sentence": "Port of wonho-maker's SH1106 port of Adafruit's SSD1306 OLED library based on Paul Kourney's port of the same libray. Anyway, you can run your SSH1106 OLED's now. Don't know which boards this doesn't work for.",

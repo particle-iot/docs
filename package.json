@@ -11,7 +11,6 @@
         "start": "node ./scripts/server.js",
         "test": "node ./node_modules/mocha/bin/mocha ./test/crawler.js --reporter dot",
         "build": "node ./scripts/build.js",
-        "update-api": "./scripts/update-api.sh --force",
         "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'",
         "pdf-generation": "gulp --gulpfile ./scripts/pdf-generation/pdf-generation-gulpfile.js"
     },
@@ -30,7 +29,7 @@
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.6.1",
         "handlebars": "^4.7.7",
-        "jszip": "^3.6.0",
+        "jszip": "^3.7.0",
         "lodash": "^4.17.21",
         "lunr": "^2.3.9",
         "marked": "~0.3.1",

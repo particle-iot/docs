@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SparkFun_AS3935_Lightning_Detector_Arduino_Library",
     "version": "1.4.1",
-    "installs": 322,
+    "installs": 399,
     "author": "Elias Santistevan",
     "maintainer": "SparkFun Electronics <sparkfun.com>",
     "sentence": "This is an Arduino Library for the AS3935 Lightning Detector by AMS",

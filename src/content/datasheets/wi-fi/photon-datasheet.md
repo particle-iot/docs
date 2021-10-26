@@ -7,7 +7,7 @@ description: Datasheet for the Particle Photon, Gen 2 Wi-Fi development kit
 
 {{#unless pdf-generation}}
 
-# Photon Datasheet <sup>(v019)</sup>
+# Photon Datasheet <sup>(v020)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -327,7 +327,7 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 ---
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 53.3 | 54.6 | 55.7 | mA |
 | Operating Current (uC on, Wi-Fi on but not connected) | I<sub>wifi_idle</sub> | 32.1 | 60.4 | 302 | mA |
@@ -343,6 +343,10 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 | ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 2.11 | 2.83 | 3.33 | mA |
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 45.0 | 114 | 319 | uA |
 | HIBERNATE mode sleep, RTC wake-up | I<sub>hib_rtc</sub> | 44.7 | 114 | 319 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 
 ### Wi-Fi Specifications
@@ -539,7 +543,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 {{!-- BEGIN do not edit content below, it is automatically generated c9a47b1a-7751-11eb-9439-0242ac130002 --}}
 
 | SKU | Description | Region | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | PHNTRAYH | Photon with Headers, Tray [x50] | Global | GA | |
 | PHNTRAYNOH | Photon without Headers, Tray [x50] | Global | GA | |
 | PHOTONH | Photon with Headers, [x1] | Global | GA | |
@@ -706,6 +710,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v017 | 16-Sep-2020 | RK | Added power consumption information |
 | v018 | 15-Mar-2021 | RK | Updated ordering information |
 | v019 | 19-May-2021 | RK | Updated External Coexistence Interface section |
+| v020 | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 
 ## Known Errata
 

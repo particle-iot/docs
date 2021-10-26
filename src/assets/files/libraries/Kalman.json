@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Kalman",
     "version": "0.0.6",
-    "installs": 2139,
+    "installs": 2185,
     "license": "GNU",
     "author": "Kristian Lauszus (TKJ Electronics) <kristianl@tkjelectronics.com>",
     "sentence": "Spark Library to work with Kalman Filters",

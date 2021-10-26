@@ -5,8 +5,6 @@ The central billing element for both cellular and Wi-Fi is the Data Operation:
 - Stored data, such as Tracker geolocation data, consume one Data Operation per location point saved<sup>1</sup>
 - Certain retransmissions, as described below
 
-<sup>1</sup>During the transition period, stored data will not be measured, however the publish from the device will be measured.
-
 The following do **not** count against your Data Operations limit:
 
 - Over-the-air firmware updates do not count against your Data Operations limit
@@ -14,3 +12,5 @@ The following do **not** count against your Data Operations limit:
 - Acknowledgements, session negotiation, keep-alives etc. do not count against your Data Operations limit
 - Webhooks and server-sent-events (SSE) themselves do not count against your Data Operations limit, but the triggering event or response could
 - Particle cloud API calls do not count against your Data Operations limit
+
+<sup>1</sup>You will receive warnings by email, and as a pop-up and in the [**Billing & Usage**](https://console.particle.io/billing) tab in the console at 70%, 90%, and 100% of the allowable data operations. In the Free Plan you will have an opportunity to upgrade to the Growth Plan. In the Growth Plan, additional blocks can be added to allow for more data operations.

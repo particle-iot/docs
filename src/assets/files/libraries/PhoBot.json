@@ -7,7 +7,7 @@
   "attributes": {
     "name": "PhoBot",
     "version": "0.0.11",
-    "installs": 11068,
+    "installs": 11297,
     "license": "MIT",
     "author": "Simon Monk <simon@monkmakes.com>",
     "sentence": "A library for the MonkMakes PhoBot robot controller shield",

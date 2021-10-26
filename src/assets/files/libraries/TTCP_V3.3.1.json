@@ -7,7 +7,7 @@
   "attributes": {
     "name": "TTCP_V3.3.1",
     "version": "0.1.0",
-    "installs": 224,
+    "installs": 258,
     "license": "MIT",
     "author": "hirotakaster, zhongjin",
     "sentence": "TTCP protocol support version 3.3.1 with examples",

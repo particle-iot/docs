@@ -7,7 +7,7 @@
   "attributes": {
     "name": "AssetTracker2",
     "version": "0.3.1",
-    "installs": 3949,
+    "installs": 4067,
     "license": "none",
     "author": "Lynd Wieman",
     "sentence": "A library to support the Particle Asset Tracker 2 using a driver for the Ublox M8Q GPS receiver.",

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "codetacc-wearables",
     "version": "0.0.4",
-    "installs": 778,
+    "installs": 830,
     "license": "GNU GPLv3, BSD License for derivative works",
     "author": "Joon-Yee Chuah <jchuah@tacc.utexas.edu>",
     "sentence": "This library is designed to be used in the CODE @ TACC Cloud Connected Wearables curriculum, and wraps/provides compatibility for several Adafruit sensor libraries",

@@ -1,0 +1,73 @@
+<div class="apiHelperCloudProductDeviceMove">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <table class="apiHelperTableNoMargin">
+                <tbody class="apiHelperOrgProductSelector apiHelperProductDestination">
+                    <tr><td colspan="3" class="apiHelperLargeTitle">Move devices to product:</td></tr>
+                    <tr class="sandboxOrgRow" style="display:none">
+                        <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                        <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                        <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
+                        </td><td>&nbsp;</td></tr>
+                    <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                    <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
+                </tbody>
+                <tbody class="devOrProductSelector">
+                    <tr><td colspan="3" class="apiHelperLargeTitle">From:</td></tr>
+                    <tr class="devOrProductRow">
+                        <td class="apiHelperProductSelectorLabel apiHelperDevOrProductRadio">
+                        <label><input type="radio" class="devOrProduct" value="product" checked/>Product</label> &nbsp;&nbsp;
+                        <label><input type="radio" class="devOrProduct" value="dev" />Developer Devices</label> &nbsp;&nbsp;
+                        </td><td>&nbsp;</td></tr>
+                </tbody>
+                <tbody class="apiHelperOrgProductSelector apiHelperProductSource" data-filter-empty="1">
+                    <tr class="sandboxOrgRow" style="display:none">
+                        <td class="apiHelperProductSelectorLabel apiHelperSandboxOrgRadio">
+                        <label><input type="radio" class="sandboxOrg" value="sandbox" checked />Sandbox Product</label> &nbsp;&nbsp;
+                        <label><input type="radio" class="sandboxOrg" value="org" />Organization Product</label> &nbsp;&nbsp;
+                        </td><td>&nbsp;</td></tr>
+                    <tr class="orgSelectorRow" style="display:none"><td class="apiHelperProductSelectorLabel">Organization &nbsp;<select class="apiHelperOrgSelect apiHelperSelect"></select></td><td>&nbsp;</td></tr>
+                    <tr class="productSelectorRow"><td class="apiHelperProductSelectorLabel">Product &nbsp;<select class="apiHelperProductSelect apiHelperSelect"></select></td></tr>
+                </tbody>
+                <tbody class="apiHelperDeviceSelector">
+                </tbody>
+            </table>
+            <div class="deviceTableAndButtons" style="display:none">
+                <table class="deviceSelector apiHelperTableNoMargin">
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Device ID</td>
+                            <td>Device Name</td>
+                            <td>Online</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div>
+                        <button class="apiHelperSelectAllButton" disabled>Select All Devices</button> &nbsp;
+                        <button class="apiHelperSelectNoneButton" disabled>Select No Devices</button>
+                </div>
+            </div>
+            <div class="noDevices" style="display:none">
+                <table class="apiHelperTableNoMargin">
+                    <tbody>
+                        <tr>
+                            <td>No devices to move.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div><button class="apiHelperActionButton" disabled>Move Devices</button></div>
+            <div class="apiHelperStatus" style="padding-top: 5px;"></div>
+            <div class="apiHelperApiRequest" style="padding-top: 8px; display:none">Request:<br/><pre class="apiHelperMonoSmall"></pre></div>
+            <div class="apiHelperApiResponse" style="display:none">Response:<br/><pre class="apiHelperMonoSmall"></pre></div>
+        </div>
+    </div>
+    <div class="apiHelperCloudApiOutput" style="display:none">
+        <pre class="codeboxPre">            
+        </pre>
+    </div>
+</div>
+

@@ -4129,8 +4129,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -4168,7 +4167,11 @@
       ],
       "noBands": [
         "LTE"
-      ]
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true
+      }
     },
     {
       "country": "Afghanistan",
@@ -4187,14 +4190,10 @@
         "allow2G": true
       },
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900"
@@ -4373,7 +4372,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -4515,19 +4513,16 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.15
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-850",
@@ -4619,6 +4614,12 @@
     {
       "country": "Armenia",
       "carrier": "Beeline",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.35
+      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -4632,8 +4633,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -4695,7 +4695,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -5279,8 +5278,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-1800",
@@ -5298,7 +5296,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -5323,7 +5320,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.15
       },
       "telefonicaBundle2018": {
@@ -5334,13 +5330,11 @@
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
@@ -5492,7 +5486,6 @@
       "carrier": "Orange",
       "lteM1": true,
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -5566,8 +5559,6 @@
       "country": "Belize",
       "carrier": "Smart",
       "supersim": {
-        "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.35
       },
@@ -5611,8 +5602,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -5659,13 +5649,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-1900",
@@ -5682,8 +5670,7 @@
       "sunset3G": "NA",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-1900",
@@ -5745,7 +5732,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.35
       },
       "telefonicaBundle2018": {
@@ -5781,8 +5767,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -5832,6 +5817,12 @@
         "allow2G": true,
         "allow3G": true,
         "allowLTE": true
+      },
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -5856,7 +5847,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.15
+        "paygRate": 0.15,
+        "roamingRestrictions": "warn"
       },
       "bands": [
         "2G-1800",
@@ -5879,7 +5871,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
@@ -5916,8 +5909,7 @@
       "sunset3G": "No Plan",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -5974,32 +5966,27 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -6021,26 +6008,22 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
@@ -6063,25 +6046,21 @@
       "supersim": {
         "preferredRate": true,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -6111,7 +6090,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "bands": [
@@ -6168,8 +6146,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -6193,8 +6170,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -6204,8 +6180,7 @@
       "sunset3G": "NA",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -6223,13 +6198,11 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -6245,7 +6218,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.2
       },
       "bands": [
@@ -6479,7 +6451,6 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -6562,14 +6533,10 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900"
@@ -6584,15 +6551,18 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "koreAllNet": {
+      "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true
+        "paygRate": 0.35
+      },
+      "koreAllNet": {
+        "allow2G": true,
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -6713,7 +6683,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
@@ -6751,7 +6722,8 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       },
       "telefonicaPPU2020": {
         "partnerZone": 5,
@@ -6863,6 +6835,11 @@
     {
       "country": "Congo (Brazzaville)",
       "carrier": "Airtel",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "bands": [
         "2G-900",
         "3G-1"
@@ -6878,13 +6855,11 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -6930,6 +6905,11 @@
     {
       "country": "Congo (Kinshasa)",
       "carrier": "Airtel",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "bands": [
         "2G-900",
         "3G-1"
@@ -7061,6 +7041,12 @@
     {
       "country": "Côte d'Ivoire",
       "carrier": "MTN",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.4
+      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -7132,26 +7118,22 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -7217,13 +7199,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -7260,31 +7240,26 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -7323,7 +7298,6 @@
       "country": "Cyprus",
       "carrier": "PrimeTel",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -7332,13 +7306,11 @@
       "telefonicaBundle2018": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": true
       },
       "bands": [
@@ -7478,7 +7450,6 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -7750,7 +7721,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
@@ -7761,7 +7731,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
@@ -7886,13 +7855,11 @@
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -7907,14 +7874,12 @@
       "country": "Egypt",
       "carrier": "Orange",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
         "partnerZone": 5,
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -7934,18 +7899,15 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-850",
@@ -7962,8 +7924,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -8121,6 +8082,11 @@
     {
       "country": "eSwatini",
       "carrier": "MTN",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.4
+      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -8169,8 +8135,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -8181,18 +8146,15 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -8247,7 +8209,6 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
@@ -8529,18 +8490,15 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.2
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -8569,6 +8527,11 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -8581,13 +8544,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -8603,9 +8564,7 @@
       "sunset2G": "?",
       "sunset3G": "NA",
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900"
@@ -8796,7 +8755,7 @@
       "lteM1": true,
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
+        "allow3G": false,
         "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1,
@@ -8804,20 +8763,19 @@
       },
       "telefonicaBundle2018": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allow2G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 1,
-        "allow3G": true,
+        "allow3G": false,
         "allow2G": true,
         "allowCat1": true
       },
       "bands": [
         "2G-900",
         "2G-1800",
-        "3G-1",
         "LTE-3",
         "LTE-7",
         "LTE-8",
@@ -8872,10 +8830,14 @@
       "carrier": "AirtelTigo",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
@@ -8907,7 +8869,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -8921,8 +8882,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -8936,7 +8896,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
@@ -8952,13 +8911,11 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -9156,7 +9113,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -9180,20 +9136,14 @@
       "sunset3G": "?",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.15
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
-        "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
@@ -9214,13 +9164,11 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -9239,13 +9187,11 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -9381,13 +9327,11 @@
       "sunset3G": "2025",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-1800",
@@ -9426,6 +9370,11 @@
     {
       "country": "Guinea",
       "carrier": "MTN",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.4
+      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -9438,6 +9387,11 @@
     {
       "country": "Guinea-Bissau",
       "carrier": "MTN",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -9463,14 +9417,10 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900"
@@ -9487,8 +9437,6 @@
       "sunset3G": "NA",
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.25
       },
       "telefonicaBundle2018": {
@@ -9500,9 +9448,7 @@
         "allow2G": true
       },
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900"
@@ -9521,7 +9467,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.25
       },
       "telefonicaPPU2020": {
@@ -9531,8 +9476,7 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -9550,8 +9494,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -9698,18 +9641,15 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
         "partnerZone": 2,
-        "allow3G": true,
         "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
         "allowCat1": true
       },
       "bands": [
@@ -9950,7 +9890,6 @@
       "sunset2G": "NA",
       "sunset3G": "No Plan",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
@@ -9958,11 +9897,9 @@
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
         "allowCat1": false
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -10073,7 +10010,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.2
+        "paygRate": 0.2,
+        "roamingRestrictions": "warn"
       },
       "koreAllNet": {
         "allow2G": true,
@@ -10122,10 +10060,11 @@
       "country": "India",
       "carrier": "Jio",
       "supersim": {
-        "allow2G": true,
-        "allow3G": true,
+        "allow2G": false,
+        "allow3G": false,
         "allowCat1": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       },
       "bands": [
         "LTE-3",
@@ -10199,13 +10138,11 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Backup"
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -10350,7 +10287,6 @@
         "Three"
       ],
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -10401,7 +10337,6 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -10413,7 +10348,6 @@
         "2G"
       ],
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       }
@@ -10465,8 +10399,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -10608,13 +10541,11 @@
       "sunset2G": "NA",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -10930,13 +10861,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -10948,8 +10877,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -10959,8 +10887,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -11113,6 +11040,11 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
@@ -11125,8 +11057,7 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -11173,9 +11104,7 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900",
@@ -11334,18 +11263,15 @@
       "supersim": {
         "preferredRate": true,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -11531,7 +11457,6 @@
       "sunset2G": "2021",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -11809,18 +11734,15 @@
       "telefonicaPPU2020": {
         "partnerZone": 5,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -11831,8 +11753,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -11842,8 +11763,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -11858,15 +11778,18 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "koreAllNet": {
+      "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true
+        "paygRate": 0.35
+      },
+      "koreAllNet": {
+        "allow2G": true,
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -11883,8 +11806,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -12047,7 +11969,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "preferredRate": true,
         "paygRate": 0.1
       },
@@ -12059,13 +11980,11 @@
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Backup"
       },
       "bands": [
@@ -12082,7 +12001,6 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Primary"
@@ -12141,13 +12059,11 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -12275,8 +12191,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-850",
@@ -12410,7 +12325,6 @@
       "sunset2G": "?",
       "sunset3G": "NA",
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -12463,13 +12377,11 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.25
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
@@ -12489,7 +12401,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
@@ -12505,13 +12416,11 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -12529,13 +12438,11 @@
       "telefonicaPPU2020": {
         "partnerZone": 2,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -12547,8 +12454,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -12636,14 +12542,10 @@
         "allow2G": true
       },
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-850"
@@ -12736,6 +12638,11 @@
       "carrier": "Vodacom",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.4
+      },
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -12748,13 +12655,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -12982,7 +12887,6 @@
       "carrier": "2degrees",
       "sunset2G": "2018-03-31",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.2
@@ -13014,7 +12918,6 @@
       "sunset3G": "No Plan",
       "lteM1": true,
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -13032,7 +12935,6 @@
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "rank": "Secondary"
@@ -13119,7 +13021,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
@@ -13130,13 +13031,11 @@
       "telefonicaPPU2020": {
         "partnerZone": 1,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-850",
@@ -13153,14 +13052,10 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900"
@@ -13195,9 +13090,7 @@
       "sunset2G": "?",
       "sunset3G": "NA",
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900"
@@ -13236,10 +13129,14 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -13294,7 +13191,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -13314,7 +13210,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.3
       },
       "bands": [
@@ -13334,7 +13229,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.25
       },
       "telefonicaBundle2018": {
@@ -13350,7 +13244,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -13608,7 +13501,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaPPU2020": {
@@ -13667,8 +13559,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -13724,13 +13615,11 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -13756,9 +13645,7 @@
       "sunset2G": "?",
       "sunset3G": "NA",
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900",
@@ -13816,13 +13703,11 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.25
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-1800",
@@ -13881,8 +13766,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -13893,8 +13777,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -13904,8 +13787,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-850",
@@ -13924,18 +13806,15 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.15
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-1900",
@@ -13950,6 +13829,12 @@
       "carrier": "Personal",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.35
+      },
       "bands": [
         "2G-850",
         "3G-2",
@@ -13972,8 +13857,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -14577,6 +14461,12 @@
       "carrier": "Vodafone",
       "sunset2G": "2025",
       "sunset3G": "2020",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.35
+      },
       "telefonicaPPU2020": {
         "partnerZone": 3,
         "allow3G": true,
@@ -14609,8 +14499,7 @@
       "sunset3G": "No Plan",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -14639,13 +14528,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -14800,7 +14687,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
@@ -14850,7 +14738,8 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true
+        "allowCat1": true,
+        "roamingRestrictions": "warn"
       }
     },
     {
@@ -14875,6 +14764,13 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.4,
+        "roamingRestrictions": "warn"
+      },
       "telefonicaBundle2018": {
         "partnerZone": 3,
         "allow2G": true,
@@ -14948,7 +14844,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.1
+        "paygRate": 0.1,
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 3,
@@ -14977,8 +14874,7 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -14990,13 +14886,18 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
       "country": "Rwanda",
       "carrier": "MTN",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.4
+      },
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow2G": true,
@@ -15020,8 +14921,7 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -15171,7 +15071,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -15196,19 +15095,16 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.15
       },
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
@@ -15274,7 +15170,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -15450,7 +15345,12 @@
         "3G-1",
         "LTE-3",
         "LTE-38"
-      ]
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
+      }
     },
     {
       "country": "Saudi Arabia",
@@ -15484,6 +15384,12 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.35
+      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow2G": true,
@@ -15534,8 +15440,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -15755,7 +15660,8 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.2,
-        "allowM1": true
+        "allowM1": true,
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
@@ -15789,7 +15695,8 @@
       "supersim": {
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.3
+        "paygRate": 0.3,
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
@@ -15819,6 +15726,12 @@
     {
       "country": "Sint Maarten",
       "carrier": "TelCell",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.35
+      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -16076,13 +15989,11 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -16282,6 +16193,12 @@
     {
       "country": "South Sudan",
       "carrier": "MTN",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.4
+      },
       "bands": [
         "2G-900",
         "3G-1"
@@ -16432,8 +16349,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -16484,8 +16400,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -16546,13 +16461,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -16568,6 +16481,11 @@
       "carrier": "Telesur",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -16797,18 +16715,15 @@
       "sunset3G": "2024-12-31",
       "telefonicaBundle2018": {
         "partnerZone": 3,
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "telefonicaPPU2020": {
         "partnerZone": 2,
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
       "koreAllNet": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       },
@@ -16825,7 +16740,6 @@
         "2G"
       ],
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true
       }
@@ -16984,7 +16898,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.15
       },
       "bands": [
@@ -17018,6 +16931,11 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "paygRate": 0.35
+      },
       "telefonicaBundle2018": {
         "partnerZone": 5,
         "allow3G": true,
@@ -17030,8 +16948,7 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -17080,13 +16997,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -17221,14 +17136,10 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "koreOneNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900"
@@ -17258,8 +17169,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -17277,7 +17187,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.1
       },
       "telefonicaBundle2018": {
@@ -17292,13 +17201,11 @@
       },
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-850",
@@ -17330,7 +17237,12 @@
         "3G-2",
         "3G-5",
         "LTE-7"
-      ]
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
+      }
     },
     {
       "country": "Tunisia",
@@ -17356,8 +17268,7 @@
       "telefonicaPPU2020": {
         "partnerZone": 5,
         "allow3G": true,
-        "allow2G": true,
-        "allowCat1": true
+        "allow2G": true
       },
       "bands": [
         "2G-900",
@@ -17369,8 +17280,7 @@
       ],
       "supersim": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       }
     },
     {
@@ -17401,28 +17311,6 @@
       ],
       "sunset2G": "?",
       "sunset3G": "?",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.1
-      },
-      "telefonicaBundle2018": {
-        "partnerZone": 2,
-        "allow3G": true,
-        "allow2G": true
-      },
-      "telefonicaPPU2020": {
-        "partnerZone": 1,
-        "allow3G": true,
-        "allow2G": true
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "rank": "Secondary"
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17436,24 +17324,6 @@
       "country": "Turkey",
       "carrier": "Turkcell",
       "lteM1": true,
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.1,
-        "allowM1": true
-      },
-      "telefonicaBundle2018": {
-        "partnerZone": 2,
-        "allow2G": true,
-        "allow3G": true
-      },
-      "telefonicaPPU2020": {
-        "partnerZone": 1,
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17468,23 +17338,6 @@
       "carrier": "Vodafone",
       "sunset2G": "2025",
       "sunset3G": "2020",
-      "supersim": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "paygRate": 0.1
-      },
-      "koreAllNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true,
-        "rank": "Primary"
-      },
-      "koreOneNet": {
-        "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
-      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17566,6 +17419,12 @@
       "carrier": "Africell",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.4
+      },
       "bands": [
         "2G-900",
         "2G-1800",
@@ -17578,10 +17437,14 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "koreAllNet": {
+      "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true
+        "paygRate": 0.35
+      },
+      "koreAllNet": {
+        "allow2G": true,
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -17596,6 +17459,12 @@
       "carrier": "MTN",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.4
+      },
       "telefonicaBundle2018": {
         "partnerZone": 4,
         "allow3G": true,
@@ -17726,7 +17595,12 @@
         "2G-1800",
         "3G-1",
         "LTE-7"
-      ]
+      ],
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true
+      }
     },
     {
       "country": "Ukraine",
@@ -17735,8 +17609,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -17754,7 +17627,8 @@
         "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
-        "paygRate": 0.3
+        "paygRate": 0.3,
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
@@ -17783,7 +17657,8 @@
         "allow3G": true,
         "allowCat1": true,
         "paygRate": 0.25,
-        "allowM1": true
+        "allowM1": true,
+        "roamingRestrictions": "warn"
       },
       "telefonicaBundle2018": {
         "partnerZone": 4,
@@ -17814,7 +17689,6 @@
       "sunset2G": "?",
       "sunset3G": "?",
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "preferredRate": true,
@@ -18028,7 +17902,6 @@
       "sunset3G": "2021-12-31",
       "lteM1": true,
       "supersim": {
-        "allow2G": true,
         "allow3G": true,
         "allowCat1": true,
         "allowM1": true,
@@ -18262,6 +18135,12 @@
       "carrier": "Antel",
       "sunset2G": "No Plan",
       "sunset3G": "No Plan",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.4
+      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -18283,6 +18162,12 @@
       "carrier": "Claro",
       "sunset2G": "?",
       "sunset3G": "?",
+      "supersim": {
+        "allow2G": true,
+        "allow3G": true,
+        "allowCat1": true,
+        "paygRate": 0.35
+      },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
@@ -18376,8 +18261,7 @@
       "sunset3G": "NA",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -18395,8 +18279,7 @@
       "sunset3G": "?",
       "koreAllNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-850",
@@ -18453,7 +18336,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.2
       },
       "bands": [
@@ -18471,7 +18353,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.2
       },
       "telefonicaBundle2018": {
@@ -18526,13 +18407,11 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.15
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -18552,7 +18431,6 @@
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Primary"
       },
       "bands": [
@@ -18577,7 +18455,6 @@
       "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "paygRate": 0.15
       },
       "telefonicaBundle2018": {
@@ -18588,13 +18465,11 @@
       "telefonicaPPU2020": {
         "partnerZone": 4,
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "koreAllNet": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true,
         "rank": "Secondary"
       },
       "bands": [
@@ -18650,15 +18525,18 @@
       "carrier": "Airtel",
       "sunset2G": "?",
       "sunset3G": "?",
-      "koreAllNet": {
+      "supersim": {
         "allow2G": true,
         "allow3G": true,
-        "allowCat1": true
+        "paygRate": 0.35
+      },
+      "koreAllNet": {
+        "allow2G": true,
+        "allow3G": true
       },
       "koreOneNet": {
         "allow2G": true,
-        "allow3G": true,
-        "allowCat1": true
+        "allow3G": true
       },
       "bands": [
         "2G-900",
@@ -20391,35 +20269,6 @@
       "gnssAntIntInc": true
     },
     {
-      "name": "ONE404MTY-NB",
-      "desc": "Tracker One LTE M1 (NorAm), no battery, Bulk [x40]",
-      "lifecycle": "GA",
-      "modem": "BG96-MC",
-      "multiple": true,
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "simMff2": true,
-      "family": "tracker",
-      "gen": "3",
-      "skuClass": "production",
-      "skuRegion": "noram",
-      "cellAnt": "1",
-      "cellAntInc": true,
-      "wifiAntInt": "1",
-      "wifiAntIntInc": true,
-      "wifiAntExt": false,
-      "bleAntInt": true,
-      "bleAntIntInc": true,
-      "bleAntExt": false,
-      "bleAntExtInc": false,
-      "nfcAntExt": true,
-      "nfcAntExtInc": true,
-      "gnssAntInt": true,
-      "gnssAntIntInc": true
-    },
-    {
       "name": "ONE523MEA",
       "desc": "Tracker One LTE CAT1/3G/2G (Europe), [x1]",
       "lifecycle": "NRND",
@@ -20521,35 +20370,6 @@
         40
       ],
       "simMff2": true,
-      "family": "tracker",
-      "gen": "3",
-      "skuClass": "production",
-      "skuRegion": "emeaa",
-      "cellAnt": "1",
-      "cellAntInc": true,
-      "wifiAntInt": "1",
-      "wifiAntIntInc": true,
-      "wifiAntExt": false,
-      "bleAntInt": true,
-      "bleAntIntInc": true,
-      "bleAntExt": false,
-      "bleAntExtInc": false,
-      "nfcAntExt": true,
-      "nfcAntExtInc": true,
-      "gnssAntInt": true,
-      "gnssAntIntInc": true
-    },
-    {
-      "name": "ONE524MTY-NB",
-      "desc": "Tracker One CAT1/3G/2G (Europe), no battery, Bulk [x40]",
-      "lifecycle": "GA",
-      "modem": "EG91-EX",
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "simMff2": true,
-      "multiple": true,
       "family": "tracker",
       "gen": "3",
       "skuClass": "production",
@@ -22042,8 +21862,8 @@
       "country": "Albania",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Albania",
@@ -22063,7 +21883,8 @@
       "country": "Albania",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Albania",
@@ -22088,7 +21909,8 @@
       "country": "Albania",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Algeria",
@@ -22229,8 +22051,8 @@
       "country": "Andorra",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Andorra",
@@ -22250,7 +22072,8 @@
       "country": "Andorra",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Andorra",
@@ -22277,7 +22100,8 @@
       "country": "Andorra",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22304,7 +22128,8 @@
       "country": "Angola",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22317,14 +22142,15 @@
       "country": "Angola",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22344,7 +22170,8 @@
       "country": "Angola",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22357,7 +22184,8 @@
       "country": "Angola",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Angola",
@@ -22370,7 +22198,8 @@
       "country": "Angola",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Anguilla",
@@ -23889,7 +23718,8 @@
       "country": "Benin",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
@@ -23901,14 +23731,15 @@
       "country": "Benin",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
@@ -23928,7 +23759,8 @@
       "country": "Benin",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
@@ -23940,7 +23772,8 @@
       "country": "Benin",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Benin",
@@ -23952,99 +23785,100 @@
     {
       "country": "Benin",
       "modem": "U270",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "EG91-E",
+      "sim": 2,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "EG91-E",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "G350",
+      "sim": 1,
+      "recommendation": "NRND",
+      "reason": "2G-only model discontinued"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "R410",
+      "sim": 3,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "U201",
+      "sim": 1,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "U201",
+      "sim": 2,
+      "recommendation": "YES"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "U201",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Bermuda",
+      "modem": "U260",
       "sim": 1,
       "recommendation": "NRND"
     },
     {
       "country": "Bermuda",
-      "modem": "BG96-MC",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "BG96-MC",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "EG91-E",
-      "sim": 2,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "EG91-E",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "EG91-EX",
-      "sim": 2,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "EG91-EX",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "G350",
-      "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "R410",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "R410",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "U201",
-      "sim": 1,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "U201",
-      "sim": 2,
-      "recommendation": "YES"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "U201",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "country not supported by SIM"
-    },
-    {
-      "country": "Bermuda",
-      "modem": "U260",
-      "sim": 1,
-      "recommendation": "NRND"
-    },
-    {
-      "country": "Bermuda",
       "modem": "U270",
       "sim": 1,
       "recommendation": "NR",
@@ -24444,7 +24278,7 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Brazil",
@@ -24457,8 +24291,8 @@
       "country": "Brazil",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work with partial band support on TIM and Vivo"
+      "recommendation": "NR",
+      "reason": "Limited band compatibility, roaming restrictions"
     },
     {
       "country": "Brazil",
@@ -24471,8 +24305,8 @@
       "country": "Brazil",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "May work with partial band support on TIM and Vivo"
+      "recommendation": "NR",
+      "reason": "Limited band compatibility, roaming restrictions"
     },
     {
       "country": "Brazil",
@@ -24493,7 +24327,7 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Brazil",
@@ -24512,7 +24346,8 @@
       "country": "Brazil",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "Brazil",
@@ -24829,7 +24664,8 @@
       "country": "Burundi",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Burundi",
@@ -24842,7 +24678,8 @@
       "country": "Burundi",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Burundi",
@@ -24883,7 +24720,8 @@
       "country": "Burundi",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Burundi",
@@ -25037,8 +24875,8 @@
       "country": "Cambodia",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cambodia",
@@ -25058,7 +24896,8 @@
       "country": "Cambodia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cambodia",
@@ -25083,7 +24922,8 @@
       "country": "Cambodia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cameroon",
@@ -25110,7 +24950,8 @@
       "country": "Cameroon",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cameroon",
@@ -25123,7 +24964,8 @@
       "country": "Cameroon",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cameroon",
@@ -25163,7 +25005,8 @@
       "country": "Cameroon",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Cameroon",
@@ -25658,7 +25501,7 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "China",
@@ -27254,7 +27097,8 @@
       "country": "Equatorial Guinea",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Equatorial Guinea",
@@ -27267,7 +27111,8 @@
       "country": "Equatorial Guinea",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Equatorial Guinea",
@@ -27308,7 +27153,8 @@
       "country": "Equatorial Guinea",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Equatorial Guinea",
@@ -27644,8 +27490,8 @@
       "country": "Faroe Islands",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Faroe Islands",
@@ -27665,7 +27511,8 @@
       "country": "Faroe Islands",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Faroe Islands",
@@ -27690,7 +27537,8 @@
       "country": "Faroe Islands",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Fiji",
@@ -28178,7 +28026,8 @@
       "country": "Gambia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
@@ -28191,14 +28040,15 @@
       "country": "Gambia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
@@ -28218,7 +28068,8 @@
       "country": "Gambia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
@@ -28231,7 +28082,8 @@
       "country": "Gambia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Gambia",
@@ -28244,7 +28096,8 @@
       "country": "Gambia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Georgia",
@@ -28725,7 +28578,8 @@
       "country": "Greenland",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Greenland",
@@ -28738,7 +28592,8 @@
       "country": "Greenland",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Greenland",
@@ -28778,7 +28633,8 @@
       "country": "Greenland",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Greenland",
@@ -29062,7 +28918,8 @@
       "country": "Guam",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Guam",
@@ -30117,130 +29974,135 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+    },
+    {
+      "country": "India",
+      "modem": "EG91-E",
+      "sim": 2,
+      "recommendation": "POSS"
+    },
+    {
+      "country": "India",
+      "modem": "EG91-E",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
+    },
+    {
+      "country": "India",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "recommendation": "POSS"
+    },
+    {
+      "country": "India",
+      "modem": "EG91-EX",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
+    },
+    {
+      "country": "India",
+      "modem": "G350",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "India",
+      "modem": "R410",
+      "sim": 3,
+      "recommendation": "NR",
       "reason": "LTE M1 not recommended outside of NorAm"
     },
     {
       "country": "India",
+      "modem": "R410",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
+    },
+    {
+      "country": "India",
+      "modem": "U201",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "India",
+      "modem": "U201",
+      "sim": 2,
+      "recommendation": "YES"
+    },
+    {
+      "country": "India",
+      "modem": "U201",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
+    },
+    {
+      "country": "India",
+      "modem": "U260",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "India",
+      "modem": "U270",
+      "sim": 1,
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
+    },
+    {
+      "country": "Indonesia",
+      "modem": "BG96-MC",
+      "sim": 3,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Indonesia",
+      "modem": "BG96-MC",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm"
+    },
+    {
+      "country": "Indonesia",
       "modem": "EG91-E",
       "sim": 2,
       "recommendation": "POSS"
     },
     {
-      "country": "India",
+      "country": "Indonesia",
       "modem": "EG91-E",
       "sim": 4,
       "recommendation": "POSS"
     },
     {
-      "country": "India",
+      "country": "Indonesia",
       "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS"
     },
     {
-      "country": "India",
+      "country": "Indonesia",
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "POSS"
     },
     {
-      "country": "India",
+      "country": "Indonesia",
       "modem": "G350",
       "sim": 1,
       "recommendation": "NRND",
       "reason": "2G-only model discontinued"
     },
     {
-      "country": "India",
-      "modem": "R410",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "India",
-      "modem": "R410",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "India",
-      "modem": "U201",
-      "sim": 1,
-      "recommendation": "YES"
-    },
-    {
-      "country": "India",
-      "modem": "U201",
-      "sim": 2,
-      "recommendation": "YES"
-    },
-    {
-      "country": "India",
-      "modem": "U201",
-      "sim": 4,
-      "recommendation": "YES"
-    },
-    {
-      "country": "India",
-      "modem": "U260",
-      "sim": 1,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "India",
-      "modem": "U270",
-      "sim": 1,
-      "recommendation": "NRND"
-    },
-    {
-      "country": "Indonesia",
-      "modem": "BG96-MC",
-      "sim": 3,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Indonesia",
-      "modem": "BG96-MC",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
-    },
-    {
-      "country": "Indonesia",
-      "modem": "EG91-E",
-      "sim": 2,
-      "recommendation": "POSS"
-    },
-    {
-      "country": "Indonesia",
-      "modem": "EG91-E",
-      "sim": 4,
-      "recommendation": "POSS"
-    },
-    {
-      "country": "Indonesia",
-      "modem": "EG91-EX",
-      "sim": 2,
-      "recommendation": "POSS"
-    },
-    {
-      "country": "Indonesia",
-      "modem": "EG91-EX",
-      "sim": 4,
-      "recommendation": "POSS"
-    },
-    {
-      "country": "Indonesia",
-      "modem": "G350",
-      "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
-    },
-    {
       "country": "Indonesia",
       "modem": "R410",
       "sim": 3,
@@ -30429,8 +30291,8 @@
       "country": "Iraq",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Iraq",
@@ -30450,7 +30312,8 @@
       "country": "Iraq",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Iraq",
@@ -30477,7 +30340,8 @@
       "country": "Iraq",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Ireland",
@@ -31167,8 +31031,8 @@
       "country": "Jordan",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Jordan",
@@ -31188,7 +31052,8 @@
       "country": "Jordan",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Jordan",
@@ -31213,7 +31078,8 @@
       "country": "Jordan",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kazakhstan",
@@ -31423,7 +31289,8 @@
       "country": "Kiribati",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kiribati",
@@ -31436,7 +31303,8 @@
       "country": "Kiribati",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kiribati",
@@ -31477,7 +31345,8 @@
       "country": "Kiribati",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kiribati",
@@ -31518,7 +31387,8 @@
       "country": "Kosovo",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kosovo",
@@ -31531,7 +31401,8 @@
       "country": "Kosovo",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kosovo",
@@ -31572,7 +31443,8 @@
       "country": "Kosovo",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Kosovo",
@@ -32009,8 +31881,8 @@
       "country": "Lebanon",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lebanon",
@@ -32030,7 +31902,8 @@
       "country": "Lebanon",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lebanon",
@@ -32057,7 +31930,8 @@
       "country": "Lebanon",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lesotho",
@@ -32083,7 +31957,8 @@
       "country": "Lesotho",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lesotho",
@@ -32095,7 +31970,8 @@
       "country": "Lesotho",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lesotho",
@@ -32135,7 +32011,8 @@
       "country": "Lesotho",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Lesotho",
@@ -32917,7 +32794,8 @@
       "country": "Mali",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
@@ -32930,14 +32808,15 @@
       "country": "Mali",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
@@ -32957,7 +32836,8 @@
       "country": "Mali",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
@@ -32970,7 +32850,8 @@
       "country": "Mali",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mali",
@@ -32983,7 +32864,8 @@
       "country": "Mali",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Malta",
@@ -33092,26 +32974,26 @@
     {
       "country": "Martinique",
       "modem": "EG91-E",
-      "sim": 2,
-      "recommendation": "POSS",
-      "reason": "May work on Digicel"
-    },
-    {
-      "country": "Martinique",
-      "modem": "EG91-E",
-      "sim": 4,
-      "recommendation": "NR",
-      "reason": "bands not supported by modem"
-    },
-    {
-      "country": "Martinique",
-      "modem": "EG91-EX",
       "sim": 2,
       "recommendation": "POSS",
       "reason": "May work on Digicel"
     },
     {
       "country": "Martinique",
+      "modem": "EG91-E",
+      "sim": 4,
+      "recommendation": "NR",
+      "reason": "bands not supported by modem"
+    },
+    {
+      "country": "Martinique",
+      "modem": "EG91-EX",
+      "sim": 2,
+      "recommendation": "POSS",
+      "reason": "May work on Digicel"
+    },
+    {
+      "country": "Martinique",
       "modem": "EG91-EX",
       "sim": 4,
       "recommendation": "NR",
@@ -33218,8 +33100,8 @@
       "country": "Mauritania",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritania",
@@ -33239,7 +33121,8 @@
       "country": "Mauritania",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritania",
@@ -33266,7 +33149,8 @@
       "country": "Mauritania",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritius",
@@ -33314,8 +33198,8 @@
       "country": "Mauritius",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritius",
@@ -33335,7 +33219,8 @@
       "country": "Mauritius",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mauritius",
@@ -33362,7 +33247,8 @@
       "country": "Mauritius",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Mayotte",
@@ -33673,7 +33559,8 @@
       "country": "Monaco",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Monaco",
@@ -33686,7 +33573,8 @@
       "country": "Monaco",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Monaco",
@@ -33727,7 +33615,8 @@
       "country": "Monaco",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Monaco",
@@ -34002,7 +33891,8 @@
       "country": "Montserrat",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Montserrat",
@@ -34342,8 +34232,8 @@
       "country": "Namibia",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Namibia",
@@ -34363,7 +34253,8 @@
       "country": "Namibia",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Namibia",
@@ -34389,7 +34280,8 @@
       "country": "Namibia",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nauru",
@@ -34511,7 +34403,8 @@
       "country": "Nepal",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
@@ -34524,14 +34417,15 @@
       "country": "Nepal",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
@@ -34551,7 +34445,8 @@
       "country": "Nepal",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
@@ -34564,7 +34459,8 @@
       "country": "Nepal",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Nepal",
@@ -34577,7 +34473,8 @@
       "country": "Nepal",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Netherlands",
@@ -34974,7 +34871,8 @@
       "country": "Niger",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Niger",
@@ -34986,7 +34884,8 @@
       "country": "Niger",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Niger",
@@ -35025,7 +34924,8 @@
       "country": "Niger",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Niger",
@@ -36620,7 +36520,7 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Russia",
@@ -36633,8 +36533,8 @@
       "country": "Russia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "Not officially supported, may work but is untested"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "Russia",
@@ -36647,8 +36547,8 @@
       "country": "Russia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "Not officially supported, may work but is untested"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "Russia",
@@ -36669,7 +36569,7 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Russia",
@@ -36687,7 +36587,8 @@
       "country": "Russia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "Russia",
@@ -37597,8 +37498,8 @@
       "country": "Senegal",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Senegal",
@@ -37618,7 +37519,8 @@
       "country": "Senegal",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Senegal",
@@ -37645,7 +37547,8 @@
       "country": "Senegal",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Serbia",
@@ -37876,8 +37779,8 @@
       "country": "Sierra Leone",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Sierra Leone",
@@ -37897,7 +37800,8 @@
       "country": "Sierra Leone",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Sierra Leone",
@@ -37924,7 +37828,8 @@
       "country": "Sierra Leone",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Singapore",
@@ -37938,7 +37843,7 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Singapore",
@@ -37950,7 +37855,8 @@
       "country": "Singapore",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "Singapore",
@@ -37962,7 +37868,8 @@
       "country": "Singapore",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "Singapore",
@@ -37982,8 +37889,8 @@
       "country": "Singapore",
       "modem": "R410",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Singapore",
@@ -38001,7 +37908,8 @@
       "country": "Singapore",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "Singapore",
@@ -38413,7 +38321,8 @@
       "country": "Somalia",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Somalia",
@@ -38426,7 +38335,8 @@
       "country": "Somalia",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Somalia",
@@ -38467,7 +38377,8 @@
       "country": "Somalia",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Somalia",
@@ -39714,8 +39625,8 @@
       "country": "Togo",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Togo",
@@ -39735,7 +39646,8 @@
       "country": "Togo",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Togo",
@@ -39761,7 +39673,8 @@
       "country": "Togo",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Tonga",
@@ -40060,70 +39973,77 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "EG91-E",
       "sim": 2,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "EG91-EX",
       "sim": 2,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "R410",
       "sim": 3,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "R410",
       "sim": 4,
-      "recommendation": "POSS",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "recommendation": "NR",
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "U201",
       "sim": 2,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turkey",
@@ -40136,7 +40056,8 @@
       "country": "Turkey",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "not recommended due to permanent roaming restrictions"
     },
     {
       "country": "Turks and Caicos Islands",
@@ -40430,7 +40351,7 @@
       "modem": "BG96-MC",
       "sim": 4,
       "recommendation": "NR",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "United Arab Emirates",
@@ -40443,7 +40364,8 @@
       "country": "United Arab Emirates",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "United Arab Emirates",
@@ -40456,7 +40378,8 @@
       "country": "United Arab Emirates",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "United Arab Emirates",
@@ -40477,7 +40400,7 @@
       "modem": "R410",
       "sim": 4,
       "recommendation": "POSS",
-      "reason": "LTE M1 not recommended outside of NorAm"
+      "reason": "LTE M1 not recommended outside of NorAm, roaming restrictions"
     },
     {
       "country": "United Arab Emirates",
@@ -40496,7 +40419,8 @@
       "country": "United Arab Emirates",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "roaming restrictions"
     },
     {
       "country": "United Arab Emirates",
@@ -41573,7 +41497,8 @@
       "country": "Zimbabwe",
       "modem": "EG91-E",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
@@ -41586,14 +41511,15 @@
       "country": "Zimbabwe",
       "modem": "EG91-EX",
       "sim": 4,
-      "recommendation": "POSS"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
       "modem": "G350",
       "sim": 1,
-      "recommendation": "NRND",
-      "reason": "2G-only model discontinued"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
@@ -41613,7 +41539,8 @@
       "country": "Zimbabwe",
       "modem": "U201",
       "sim": 1,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
@@ -41626,7 +41553,8 @@
       "country": "Zimbabwe",
       "modem": "U201",
       "sim": 4,
-      "recommendation": "YES"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     },
     {
       "country": "Zimbabwe",
@@ -41639,7 +41567,8 @@
       "country": "Zimbabwe",
       "modem": "U270",
       "sim": 1,
-      "recommendation": "NRND"
+      "recommendation": "NR",
+      "reason": "country not supported by SIM"
     }
   ],
   "recommendation": [
@@ -41714,6 +41643,20 @@
           ]
         }
       ]
+    }
+  ],
+  "roamingRestrictions": [
+    {
+      "id": "hide",
+      "description": "Restrictions are so severe that the country should not be listed"
+    },
+    {
+      "id": "warn",
+      "description": "Permanent roaming restrictions"
+    },
+    {
+      "id": "poss",
+      "description": "There may be roaming restrictions"
     }
   ]
 }

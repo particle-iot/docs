@@ -20,7 +20,7 @@
       <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
       <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
       <a class="nav {{#contains path.href 'community'}}active{{/contains}}" href="/community">Community</a>
-      <a class="nav {{#contains path.href 'workshops'}}active{{/contains}}" href="/workshops">Workshops</a>
+      <a class="nav {{#contains path.href 'tools'}}active{{/contains}}" href="/tools">Tools</a>
       <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="https://support.particle.io/hc/">Support</a>
     </div>
 
@@ -36,7 +36,7 @@
         <li><a href="/reference">Reference</a></li>
         <li><a href="/datasheets">Datasheets</a></li>
         <li><a href="/community">Community</a></li>
-        <li><a href="/workshops">Workshops</a></li>
+        <li><a href="/tools">Tools</a></li>
         <li><a href="https://support.particle.io/hc/">Support</a></li>
       </ul>
     </div>
@@ -52,9 +52,21 @@
       </div>
     </div>
 
+    <div class="dropdown narrow">
+      <a id="userMenu" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon ion-person"></i><span id="userMenuLabel">User</span></a>
+      <ul class="dropdown-menu pull-right" aria-labelledby="userMenu">
+        <li id="userMenuLoggedInAs" class="loginMenuItem"></li>
+        <li><a href="https://console.particle.io" target="_blank">Console</a></li>
+        <li id="userMenuEditAccount"><a>Edit Account</a></li>
+        <li id="userMenuLogout"><a>Logout</a></li>
+      </ul>
+    </div>
+
+    {{!-- Currently disabled always due to lack of use
     {{#unless noEditButton}}
     <a href='{{edit-link branch path.href path.name}}' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
     {{/unless}}
+    --}}
 
   </div>
 </div>

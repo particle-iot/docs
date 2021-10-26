@@ -77,11 +77,19 @@ The response JSON contains a number of things, but the most important is `result
 
 #### Device offline
 
-If you try to get a variable from a device that is offline, it will fail with a 404 error and a JSON response of:
+If you try to get a variable from a device that is offline, it will fail with a 408 timed out error and a JSON response of:
 
 ```json
 {"ok":false,"error":"timed out"}
 ```
+
+The timeout can take two different forms:
+
+- If the device is known by the cloud to be offline, the call may fail with a 408 immediately, or at least quickly.
+
+- If the device is believed to be online, but is not responding, it can take 30 seconds for the timeout to occur.
+
+If you are calling the cloud API from your server, be sure to take into account that both can occur. In particular, don't retry a timeout from the failure reply, because you may end up making an excessive number of API calls and getting rate limited. Be sure to have a back-off period before retrying.
 
 #### Invalid variable name
 
@@ -108,7 +116,7 @@ The other difference is that the body of the POST contains the function paramete
 
 Using the setColor example, the parameter is an RGB value. **255,0,0** is red. **0,255,0** is green. **0,0,255** is blue. Try mixing some colors!
 
-Like the get variable example, if the device is offline, you'll get a 404 error. Likewise, if you specify an invalid function name, you'll also get a 404, with a different JSON body.
+Like the get variable example, if the device is offline, you'll get a 408 timed out error. If you specify an invalid function name, you'll also get a 404, with a different JSON body.
 
 The JSON response for calling a function looks like this:
 
@@ -118,6 +126,13 @@ The JSON response for calling a function looks like this:
 
 The `return_value` is the integer returned by the `Particle.function` handler. The code above returns 1 if the value is a valid-looking RGB value. If you just pass, say **xxx** in the function parameter, the function still returns a 200 success, however you'll notice the `return_value` is 0 instead. This is dependent on how the user firmware is written, however. Some firmware may work the opposite way and return 0 on success and non-zero on error for a function call.
 
+The timeout can take two different forms:
+
+- If the device is known by the cloud to be offline, the call may fail with a 408 immediately, or at least quickly.
+
+- If the device is believed to be online, but is not responding, it can take 30 seconds for the timeout to occur.
+
+If you are calling the cloud API from your server, be sure to take into account that both can occur. In particular, don't retry a timeout from the failure reply, because you may end up making an excessive number of API calls and getting rate limited. Be sure to have a back-off period before retrying.
 
 #### POST body - JSON
 
@@ -332,21 +347,21 @@ The [list product devices](/reference/device-cloud/api/#list-devices-in-a-produc
 The API also works for organization products, however the popup menu for selecting the product in this page 
 does not support that.
 
-#### Function (products)
+### Function (products)
 
 If you're [calling a function](/reference/device-cloud/api/#call-a-function) from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
 {{> cloud-api-function productToken="1" productId="1" deviceIdField="1"}}
 
 
-#### Variables (product)
+### Variables (product)
 
 If you're [getting a variable](/reference/device-cloud/api/#get-a-variable-value) from a back-end server, you'll probably want to use a product bearer token and the product endpoint.
 
 {{> cloud-api-get-variable productToken="1" productId="1" deviceIdField="1"}}
 
 
-#### Publish (products)
+### Publish (products)
 
 The same thing applies for [publish](/reference/device-cloud/api/#publish-an-event), with a few additional constraints.
 
@@ -396,6 +411,10 @@ If you do not have access to any organizations, an empty array `[]` is returned 
 
 {{> cloud-api-list-org-products height="300"}}
 
+### List organization team members
+
+{{> cloud-api-list-org-team height="300"}}
+
 ## More APIs
 
 ### Rename a device
@@ -426,6 +445,21 @@ The historical API returns all historical data for a date range (up to 1 month i
 
 {{> cloud-api-device-vitals}}
 
+## API Users
+
+An [API User Account](/reference/device-cloud/api/#api-users) is a specific type of user account in the Particle platform that is designed to replace using 'human' accounts for programmatic tasks. The controls in this section will allow you to add API users without having to use the `curl` command.
+
+{{> sso}}
+
+### Create API User
+
+{{> cloud-api-user-create}}
+
+### List or Delete API Users
+
+{{> cloud-api-user-list}}
+
+To delete an API user, list the users in the product or organization. If there are API users defined, a user selector and a **Delete User** button will appear.
 
 ## Customer claiming
 

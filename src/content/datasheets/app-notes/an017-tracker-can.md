@@ -262,10 +262,10 @@ If you were making a real product, you might even make the CAN bus speed a cloud
 ```cpp
 // Change to normal mode to allow messages to be transmitted. If you don't do this,
 // the CAN chip will be in loopback mode.
-canInterface.setMode(MODE_NORMAL);   
+canInterface.setMode(MCP_MODE_NORMAL);   
 ```
 
-Make sure you always set the CAN mode to `MODE_NORMAL`!
+Make sure you always set the CAN mode to `MCP_MODE_NORMAL`, otherwise it will stay in loopback mode and not send any data to other devices!
 
 ```cpp
 // Must call this on every loop
@@ -561,15 +561,15 @@ canInterface.setMode(MCP_NORMAL);
 After:
 
 ```cpp
-canInterface.setMode(MODE_NORMAL);   
+canInterface.setMode(MCP_MODE_NORMAL);   
 ```
 
 | Before | After | Numeric | 
 | :--- | :--- | :--- | 
-| MCP_NORMAL | MODE_NORMAL | 0x00 |
-| MCP_SLEEP | MODE_SLEEP | 0x20 |
-| MCP_LOOPBACK | MODE_LOOPBACK | 0x40 |
-| MCP_LISTENONLY | MODE_LISTENONLY | 0x60 |
+| MCP_NORMAL | MCP_MODE_NORMAL | 0x00 |
+| MCP_SLEEP | MCP_MODE_SLEEP | 0x20 |
+| MCP_LOOPBACK | MCP_MODE_LOOPBACK | 0x40 |
+| MCP_LISTENONLY | MCP_MODE_LISTENONLY | 0x60 |
 
 
 ### readMsgBuf

@@ -7,7 +7,7 @@
   "attributes": {
     "name": "SI7020-A20_CE",
     "version": "1.0.0",
-    "installs": 1529,
+    "installs": 1597,
     "license": "GNU",
     "author": "Travis Elliott <travis@controlanything.com>",
     "sentence": "Library intended for the operation of www.ControlEverything.com SI7020-A20 temperature sensor Mini module",

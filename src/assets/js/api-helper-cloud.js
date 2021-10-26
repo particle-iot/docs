@@ -654,6 +654,79 @@ $(document).ready(function () {
         });
     });
 
+
+
+    $('.apiHelperCloudApiListOrgTeam').each(function () {
+        const thisElem = $(this);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+
+        apiHelper.getOrgs().then(function (orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+
+            if (orgsData.organizations.length > 0) {
+                let html = '';
+                for (let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(thisElem).find('.apiHelperCloudOrgSelect').html(html);
+            }
+            else {
+                setStatus('You do not have access to any organizations');
+                $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
+            }
+        });
+
+        $(thisElem).find('.apiHelperActionButton').on('click', function () {
+            setStatus('Requesting organization team members...');
+
+            const org = $(thisElem).find('.apiHelperCloudOrgSelect').val();
+
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', 'List Org Team', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error getting organization team members');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                method: 'GET',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', 'List Org Team', 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: 'https://api.particle.io/v1/orgs/' + org + '/team/'
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+
+            $.ajax(request);
+
+        });
+    });
+
     if ($('.apiHelperCloudApiAuthSettings').length > 0) {
 
         const buildProductsMenu = function () {
@@ -770,6 +843,81 @@ $(document).ready(function () {
 
             const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
             $(outputJsonElem).hide();
+
+            $.ajax(request);
+        });
+    });
+
+    $('.apiHelperCloudApiCreateTokenSimple').each(function () {
+        const thisElem = $(this);
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        if (apiHelper.auth && apiHelper.auth.username) {
+            $(thisElem).find('.apiHelperAuthSettingsUsername').val(apiHelper.auth.username);
+        }
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const mfaTokenRow = $(thisElem).find('.apiHelperMfaTokenRow');
+        const accessTokenRow = $(thisElem).find('.apiHelperAccessTokenRow');
+
+        $(mfaTokenRow).hide();
+        $(accessTokenRow).hide();
+
+        let mfa_token;
+
+        $(actionButtonElem).on('click', async function () {
+            const expiresIn = $(thisElem).find('.apiHelperAuthSettingsExpiresIn').val();
+            const username = $(thisElem).find('.apiHelperAuthSettingsUsername').val();
+            const password = $(thisElem).find('.apiHelperAuthSettingsPassword').val();
+
+            let requestData;
+            if (mfa_token) {
+                requestData = 'grant_type=urn:custom:mfa-otp&mfa_token=' + encodeURIComponent(mfa_token) + '&otp=' + encodeURIComponent($(thisElem).find('.apiHelperAuthSettingsMfaOtpToken').val());
+            }
+            else {
+                requestData = 'grant_type=password&expires_in=' + expiresIn + '&username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+            }
+
+            let request = {
+                contentType: 'application/x-www-form-urlencoded',
+                data: requestData,
+                dataType: 'json',
+                error: function (jqXHR) {
+                    if (jqXHR.status === 403) {
+                        // Got a 403 error, MFA required. Show the MFA/OTP page.
+                        mfa_token = jqXHR.responseJSON.mfa_token;
+                        $(thisElem).find('.apiHelperMfaTokenRow').show();
+                        return;
+                    }
+                    ga('send', 'event', 'Create Token Simple', 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error creating token');
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': 'Basic ' + btoa('particle:particle'),
+                },
+                method: 'POST',
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('Token created!');
+                    ga('send', 'event', 'Create Token Simple', 'Success');
+
+                    $(thisElem).find('.apiHelperAuthSettingsAccessToken').val(resp.access_token);
+                    $(accessTokenRow).show();
+
+                    mfa_token = null;
+                    $(mfaTokenRow).hide();
+                },
+                url: 'https://api.particle.io/oauth/token'
+            }
+
+            $(accessTokenRow).hide();
 
             $.ajax(request);
         });
@@ -2011,17 +2159,1102 @@ $(document).ready(function () {
         });
         
     });
-/*
-<div class="apiHelperCloudApiClaiming">
-    <div class="apiHelper">
-        <div class="apiHelperBox">
-            <table class="apiHelperTableNoMargin">
-                <tr><td class="apiHelperProductSelectorLabel">Product Access Token</td><td><input type="text" size="50" class="apiHelperAuthSettingsProductAccessToken" value=""></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel">Product ID</td><td><input type="text" size="10" class="apiHelperAuthSettingsProduct" value=""></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel">Customer Access Token</td><td><input type="text" size="50" class="apiHelperAuthSettingsCustomerAccessToken" value=""></td><td>&nbsp;</td></tr>
-                <tr><td class="apiHelperProductSelectorLabel">Device ID</td><td><input type="text" size="30" class="apiHelperDeviceLookupDeviceId" value=""></td><td class="apiHelperProductSelectorLabel"></td></tr>
 
-*/
+    $('.apiHelperOrgProductSelector').each(function() {
+        const thisElem = $(this);
+
+        const productSelectElem = $(thisElem).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisElem).find('.apiHelperOrgSelect');
+
+        let productsData;
+        let orgsData;
+        let queryState;
+
+        const showHideRows = function() {
+            const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
+
+            $(thisElem).find('.productSelectorRow').show();
+
+            if (orgsData && orgsData.organizations.length > 0) {
+                $(thisElem).find('.sandboxOrgRow').show();
+
+                if (sandboxOrgVal == 'sandbox') {
+                    $(thisElem).find('.orgSelectorRow').hide();
+                }
+                else {
+                    // sandboxOrg == 'org'
+                    $(thisElem).find('.orgSelectorRow').show();
+                }    
+            }
+            else {
+                $(thisElem).find('.sandboxOrgRow').hide();
+                $(thisElem).find('.orgSelectorRow').hide();
+            }
+
+        };
+
+        $(thisElem).data('getProductId', function() {
+            return parseInt($(productSelectElem).val());
+        });
+        $(thisElem).data('getPlatformId', function() {
+            if (!productsData) {
+                return null;
+            }
+            const productId = parseInt($(productSelectElem).val());
+            for (let product of productsData.products) {
+                if (product.id == productId) {
+                    return product.platform_id;
+                }
+            }
+            return null;
+        });
+
+
+        const onChange = function() {
+            if ($(thisElem).data('onChange')) {
+                $(thisElem).data('onChange')();
+            }
+        };
+
+        const updateProductList = async function() {
+            showHideRows();
+
+            const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
+
+            if (sandboxOrgVal == 'sandbox') {
+                productsData = await apiHelper.getProducts();
+            }
+            else {
+                const orgId = $(orgSelectElem).val();
+                if (!orgId) {
+                    return;
+                }
+                productsData = await apiHelper.getOrgProducts(orgId);
+            }
+            productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            if (productsData.products.length > 0) {
+                let html = '';
+                const filterNotProductId = $(thisElem).data('filterNotProductId');
+                const filterPlatformId = $(thisElem).data('filterPlatformId');
+                const filterEmpty = !!$(thisElem).attr('data-filter-empty');
+                const filterCellular = !!$(thisElem).attr('data-cellular');
+
+                for (let product of productsData.products) {
+                    if (filterEmpty && product.device_count == 0) {
+                        continue;
+                    }
+                    if (filterPlatformId) {
+                        if (product.platform_id != filterPlatformId) {
+                            continue;
+                        }
+                    }
+                    if (filterCellular) {
+                        let cellular = false;
+
+                        switch (product.platform_id) {
+                            case 10: // electron
+                            case 13: // boron
+                            case 23: // bsom
+                            case 25: // bsom
+                            case 26: // tracker
+                                cellular = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                        
+                        if (!cellular) {
+                            continue;
+                        }
+                    }
+                    if (filterNotProductId && product.id == filterNotProductId) {
+                        continue;
+                    }
+
+                    html += '<option value="' + product.id + '">' + product.name + ' (' + product.id + ')</option>';
+                }
+
+                $(productSelectElem).html(html);
+
+                if (queryState && queryState.productId) {
+                    $(productSelectElem).val(queryState.productId);
+                }
+
+            }
+            else {
+                $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
+            }
+
+            onChange();
+        };
+        $(thisElem).data('updateProductList', updateProductList);
+
+        $(thisElem).find('.sandboxOrg:radio').on('click', function() {
+            const selectedRadioElem = $(this);
+            $(thisElem).find('.sandboxOrg:radio').prop('checked', false);
+            $(selectedRadioElem).prop('checked', true);
+
+            updateProductList();
+        });
+
+        $(productSelectElem).on('change', onChange);
+
+        $(orgSelectElem).on('change', updateProductList);
+
+        updateProductList();
+
+        apiHelper.getOrgs().then(function (data) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+            orgsData = data;
+
+            if (orgsData.organizations.length > 0) {
+                let html = '';
+                for (let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(orgSelectElem).html(html);
+
+                if (queryState && queryState.orgId) {
+                    $(orgSelectElem).val(queryState.orgId);
+                }
+
+                updateProductList();
+            }
+            else {
+                // No orgs
+                $(thisElem).find('input[value=org]:radio').prop('disabled', true);
+                $(thisElem).find('.orgSelectorRow').hide();
+                $(thisElem).find('.sandboxOrgRow').hide();
+            }
+        });
+
+        $(thisElem).data('loadQuerySettings', function(stateObj) {
+            queryState = stateObj;
+
+            if (queryState.sandboxOrg) {
+                $(thisElem).find('.sandboxOrg:radio[value="' + queryState.sandboxOrg + '"]').trigger('click');
+            }
+            if (queryState.orgId && orgsData) {
+                $(orgSelectElem).val(queryState.orgId);
+                $(orgSelectElem).trigger('change');
+            }
+            
+            if (queryState.productId && productsData) {
+                $(productSelectElem).val(queryState.productId);
+                $(productSelectElem).trigger('change');
+            }
+            
+        });
+        $(thisElem).data('saveQuerySettings', function(stateObj) {
+            stateObj.sandboxOrg = $(thisElem).find('.sandboxOrg:checked').val();
+            if (stateObj.sandboxOrg == 'org') {
+                stateObj.orgId = $(orgSelectElem).val();
+            }
+            else {
+                delete stateObj.orgId;
+            }
+            stateObj.productId = $(productSelectElem).val();
+        });
+
+
+    });
+
+    $('.apiHelperCloudProductDeviceMove').each(function () {
+        const thisElem = $(this);
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const devOrProductSelectorElem = $(thisElem).find('.devOrProductSelector');
+        const productSourceElem = $(thisElem).find('.apiHelperProductSource');
+        const productDestinationElem = $(thisElem).find('.apiHelperProductDestination');
+        const deviceSelectorTableElem = $(thisElem).find('.deviceSelector');
+        const selectAllButton = $(thisElem).find('.apiHelperSelectAllButton');
+        const selectNoneButton = $(thisElem).find('.apiHelperSelectNoneButton');
+        const outputElem = $(thisElem).find('.apiHelperCloudApiOutput');
+
+        let deviceInfo = [];
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+        const appendOutput = function(s) {
+            $(outputElem).find('> pre').append(s);
+        };
+
+        const updateDeviceSelection = function() {
+            let numSelected = 0;
+
+            if (deviceInfo) {
+                for(const di of deviceInfo) {
+                    if ($(di.checkbox).prop('checked')) {
+                        numSelected++;
+                    }
+                }    
+            }
+            $(selectAllButton).prop('disabled', deviceInfo.length == 0 || numSelected == deviceInfo.length);
+            $(selectNoneButton).prop('disabled', deviceInfo.length == 0 || numSelected == 0);
+            
+            $(actionButtonElem).prop('disabled', numSelected == 0);
+        };
+
+        const updateDeviceListData = function(deviceList) {
+            $(deviceSelectorTableElem).find('> tbody').html('');
+            deviceInfo = [];
+
+            for(const dev of deviceList) {
+                const row = document.createElement('tr');
+
+                let col = document.createElement('td');
+                let checkbox = document.createElement('input');
+                $(checkbox).attr('type', 'checkbox');
+                $(checkbox).on('click', updateDeviceSelection);
+                col.appendChild(checkbox);
+                row.appendChild(col);
+
+                col = document.createElement('td');
+                $(col).text(dev.id);
+                row.appendChild(col);
+
+                col = document.createElement('td');
+                $(col).text(dev.name ? dev.name : '');
+                row.appendChild(col);
+
+                col = document.createElement('td');
+                $(col).attr('style', 'text-align: center;')
+                $(col).html(dev.online ? '&check;' : '&nbsp;');
+                row.appendChild(col);
+
+                $(deviceSelectorTableElem).find('> tbody').append(row);
+
+                deviceInfo.push({
+                    id: dev.id,
+                    checkbox,
+                    row
+                });
+
+            }
+            if (deviceList.length == 0) {
+                $(thisElem).find('.deviceTableAndButtons').hide();
+                $(thisElem).find('.noDevices').show();
+            }
+            else {
+                $(thisElem).find('.deviceTableAndButtons').show();
+                $(thisElem).find('.noDevices').hide();
+            }
+            updateDeviceSelection();
+        };
+
+        const updateDeviceList = function() {
+            const devOrProductVal = $(devOrProductSelectorElem).find('.devOrProduct:checked').val();
+
+            const sourceProduct = $(productSourceElem).find('.apiHelperProductSelect').val();
+            const destinationProduct = $(productDestinationElem).find('.apiHelperProductSelect').val();
+            const platformId = $(productDestinationElem).data('getPlatformId')();
+
+            if ((devOrProductVal == 'product' && !sourceProduct) || !destinationProduct) {
+                $(actionButtonElem).prop('disabled', true);
+                $(thisElem).find('.deviceTableAndButtons').hide();
+                $(thisElem).find('.noDevices').hide();
+                return;
+            }
+            
+            if (devOrProductVal == 'dev') {
+                let deviceList = [];
+                apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token }).then(
+                    function(data) {
+                        data.body.forEach(function(dev) {
+                            if (dev.platform_id == platformId && dev.product_id == platformId) {
+                                deviceList.push(dev);
+                            }
+                        });
+                        updateDeviceListData(deviceList);
+                    },
+                    function(err) {
+                    }
+                );
+            }
+            else {
+                let deviceList = [];
+
+                const fetchPage = function(page) {
+                    apiHelper.particle.listDevices({ auth: apiHelper.auth.access_token, product:sourceProduct, page }).then(
+                        function(data) {
+                            data.body.devices.forEach(function(dev) {
+                                if (dev.quarantined || dev.denied) {
+                                    return;
+                                }
+                                deviceList.push(dev);
+                            });
+        
+                            if (page < data.body.meta.total_pages) {
+                                fetchPage(++page);
+                            }
+                            else {
+                                updateDeviceListData(deviceList);
+                            }
+                        },
+                        function(err) {            
+                        }
+                    );            
+                }    
+                fetchPage(1);
+            }
+
+        };
+    
+        $(selectAllButton).on('click', function() {
+            for(const di of deviceInfo) {
+                $(di.checkbox).prop('checked', true);
+            }
+            updateDeviceSelection();
+        });
+
+        $(selectNoneButton).on('click', function() {
+            for(const di of deviceInfo) {
+                $(di.checkbox).prop('checked', false);
+            }
+            updateDeviceSelection();
+        });
+
+        $(devOrProductSelectorElem).find('.devOrProduct:radio').on('click', function() {
+            const selectedRadioElem = $(this);
+            $(devOrProductSelectorElem).find('.devOrProduct:radio').prop('checked', false);
+            $(selectedRadioElem).prop('checked', true);
+
+            const isDev = $(selectedRadioElem).val() == 'dev';
+            if (isDev) {
+                $(productSourceElem).hide();
+            }
+            else {
+                $(productSourceElem).show();
+            }
+            updateDeviceList();
+        });
+
+        $(productSourceElem).data('onChange', updateDeviceList);
+
+        $(productDestinationElem).data('onChange', function() {
+            const productId = $(productDestinationElem).data('getProductId')();
+            const platformId = $(productDestinationElem).data('getPlatformId')();
+            if (!productId || !platformId) {
+                return;
+            }
+
+            $(productSourceElem).data('filterNotProductId', productId);
+            $(productSourceElem).data('filterPlatformId', platformId);
+
+            $(productSourceElem).data('updateProductList')();
+
+            updateDeviceList();
+        });
+
+        $(actionButtonElem).on('click', async function () {
+            const devOrProductVal = $(devOrProductSelectorElem).find('.devOrProduct:checked').val();
+
+            const sourceProduct = $(productSourceElem).find('.apiHelperProductSelect').val();
+            const destinationProduct = $(productDestinationElem).find('.apiHelperProductSelect').val();
+
+            $(actionButtonElem).prop('disabled', true);
+
+            if (!deviceInfo) {
+                return;
+            }
+            
+            let numSelected = 0;
+
+            for(const di of deviceInfo) {
+                if ($(di.checkbox).prop('checked')) {
+                    numSelected++;
+                }
+            }    
+            if (!numSelected) {
+                return;
+            }
+            const msg = 'Are you sure you want to move ' + numSelected + ' devices into product ' + destinationProduct + '?';
+            if (!confirm(msg)) {
+                return;
+            } 
+
+            $(outputElem).find('> pre').html('');
+            $(outputElem).show();
+
+            appendOutput( 'Moving ' + numSelected + ' devices into product ' + destinationProduct + '\n');
+
+            // Move devices!
+            for(const di of deviceInfo) {
+                if (!$(di.checkbox).prop('checked')) {
+                    continue;
+                }
+
+                if (devOrProductVal == 'product') {
+                    // Remove from old product
+                    const res = await apiHelper.particle.removeDevice({ 
+                        deviceId: di.id,
+                        product: sourceProduct,
+                        auth: apiHelper.auth.access_token 
+                    });
+                    if (res.statusCode >= 200 && res.statusCode < 300) {
+                        appendOutput('Removing ' + di.id + ' from ' + sourceProduct + ' succeeded\n');
+                    }
+                    else {
+                        appendOutput('Removing ' + di.id + ' failed (code=' + res.statusCode + ')\n');
+                    }
+                }
+
+
+                // Add device into product
+                const res = await apiHelper.particle.addDeviceToProduct({ 
+                    deviceId: di.id,
+                    product: destinationProduct,
+                    auth: apiHelper.auth.access_token 
+                });
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    appendOutput('Adding ' + di.id + ' to ' + destinationProduct + ' succeeded\n');
+                }
+                else {
+                    appendOutput('Adding ' + di.id + ' failed (code=' + res.statusCode + ')\n');
+                }
+            }
+
+            appendOutput('Done!\n');
+
+            updateDeviceList();
+        });
+
+
+
+    });
+
+
+    $('.apiHelperCloudIntegrationMove').each(function () {
+        const thisElem = $(this);
+
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton');
+        const productDestinationElem = $(thisElem).find('.apiHelperProductDestination');
+        const integrationTableAndButtonsElem = $(thisElem).find('.integrationTableAndButtons');
+        const integrationSelectorElem = $(thisElem).find('.integrationSelector');
+        const copyModeElem = $(thisElem).find('.copyMode');
+        const outputElem = $(thisElem).find('.apiHelperCloudApiOutput');
+
+        let integrationList;
+        let integrationListElems;
+        let integrationListDest;
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+        const appendOutput = function(s) {
+            $(outputElem).find('> pre').append(s);
+        };
+
+        const updateAlreadyExists = function() {
+            if (!integrationList || !integrationListDest) {
+                return;
+            }
+            for(let ii = 0; ii < integrationList.length; ii++) {
+                let found = false;
+                for(const itemDest of integrationListDest) {
+                    if (itemDest.event == integrationList[ii].event) {
+                        found = true;
+                    }
+                }
+                
+                if (found) {
+                    $(integrationListElems[ii].alreadyExistsElem).html('&check;');
+                }
+                else {
+                    $(integrationListElems[ii].alreadyExistsElem).html('&nbsp;');                    
+                }
+            }
+        };
+
+        const updateIntegrationSelection = function() {
+
+            let numSelected = 0;
+
+            for(const item of integrationListElems) {
+                if ($(item.checkboxElem).prop('checked')) {
+                    numSelected++;
+                }
+            }    
+            $(actionButtonElem).prop('disabled', (actionButtonElem == 0));
+        };
+
+        const updateIntegrationList = function() {
+
+            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token }).then(
+                function(data) {
+                    integrationList = data.body;
+
+                    integrationListElems = [];
+
+                    $(integrationSelectorElem).find('> tbody').html('');
+        
+                    for(let ii = 0; ii < integrationList.length; ii++) {
+                        const rowElem = document.createElement('tr');
+        
+                        let col = document.createElement('td');
+                        let checkboxElem = document.createElement('input');
+                        $(checkboxElem).attr('type', 'checkbox');
+                        $(checkboxElem).on('click', updateIntegrationSelection);
+                        col.appendChild(checkboxElem);
+                        rowElem.appendChild(col);
+        
+                        col = document.createElement('td');
+                        $(col).text(integrationList[ii].event);
+                        rowElem.appendChild(col);
+        
+                        col = document.createElement('td');
+                        $(col).text(integrationList[ii].integration_type);
+                        rowElem.appendChild(col);
+
+                        col = document.createElement('td');
+                        $(col).attr('style', 'text-align: center;');
+                        $(col).html(integrationList[ii].disabled ? '&check;' : '&nbsp;');
+                        rowElem.appendChild(col);
+
+                        const alreadyExistsElem = document.createElement('td');
+                        $(alreadyExistsElem).attr('style', 'text-align: center;');
+                        rowElem.appendChild(alreadyExistsElem);
+
+                        $(integrationSelectorElem).find('> tbody').append(rowElem);
+        
+                        integrationListElems.push({
+                            alreadyExistsElem,
+                            checkboxElem,
+                            rowElem
+                        });   
+                    }
+                    if (integrationList.length == 0) {
+                        setStatus('No integrations in developer sandbox');
+                        $(integrationTableAndButtonsElem).hide();
+                    }
+                    else {
+                        $(integrationTableAndButtonsElem).show();
+                    } 
+                    updateAlreadyExists();
+                },
+                function(err) {
+
+                }
+            );
+
+
+        };
+    
+        const requestDestIntegrationList = function() {
+            const productId = $(productDestinationElem).data('getProductId')();
+            if (!productId) {
+                return;
+            }
+
+            apiHelper.particle.listIntegrations({ auth: apiHelper.auth.access_token, product: productId }).then(
+                function(data) {
+                    integrationListDest = data.body;
+
+                    updateAlreadyExists();
+                },
+                function(err) {
+                }
+            );   
+        };
+
+        $(productDestinationElem).data('onChange', requestDestIntegrationList);
+
+        $(actionButtonElem).on('click', async function () {
+            const destinationProduct = $(productDestinationElem).find('.apiHelperProductSelect').val();
+
+            $(actionButtonElem).prop('disabled', true);
+
+            const copyMode = $(copyModeElem).val();
+
+            if (!integrationList) {
+                return;
+            }
+
+            const keysToSkip = [
+                'created_at',
+                'disabled',
+                'errors',
+                'id',
+                'logs'
+            ];
+
+            let numSelected = 0;
+
+            for(let ii = 0; ii < integrationListElems.length; ii++) {
+                if (!$(integrationListElems[ii].checkboxElem).prop('checked')) {
+                    numSelected++;
+                }
+            }    
+            if (numSelected == 0) {
+                return;
+            }
+
+            const msg = 'Are you sure you want to copy ' + numSelected + ' integrations into product ' + destinationProduct + '?';
+
+            if (!confirm(msg)) {
+                return;
+            } 
+
+            $(outputElem).find('> pre').html('');
+            $(outputElem).show();
+
+            for(let ii = 0; ii < integrationListElems.length; ii++) {
+                if (!$(integrationListElems[ii].checkboxElem).prop('checked')) {
+                    continue;
+                }
+
+                try {
+                    // Copy this integration
+                    const integrationId = integrationList[ii].id;
+
+                    let toAdd = {};
+
+                    for(const key in integrationList[ii]) {
+                        if (!keysToSkip.includes(key)) {
+                            const value = integrationList[ii][key];
+                            toAdd[key] = value;
+                        }
+                    }
+
+                    if (copyMode == 'disableDest') {
+                        toAdd.disabled = true;
+                    }
+
+
+                    // Create copy
+                    let newIntegrationId;
+
+                    await new Promise(function(resolve, reject) {
+                        const request = {
+                            dataType: 'json',
+                            data: JSON.stringify(toAdd),
+                            error: function (jqXHR) {
+                                reject();
+                            },
+                            headers: {
+                                'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            method: 'POST',
+                            success: function (resp, textStatus, jqXHR) {
+                                resolve();
+                                newIntegrationId = resp.id;
+                            },
+                            url: 'https://api.particle.io/v1/products/' + destinationProduct + '/integrations'
+                        }
+            
+                        $.ajax(request);
+                    });
+
+                    appendOutput('Copied ' + integrationList[ii].event + '\n');
+
+                    // Disable in destination (this does not work if you set it during creation)
+                    if (copyMode == 'disableDest') {
+                        toAdd.disabled = true;
+
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                data: JSON.stringify(toAdd),
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                method: 'PUT',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/products/' + destinationProduct + '/integrations/' + newIntegrationId
+                            }
+                
+                            $.ajax(request);
+                        });
+
+                        appendOutput('Disabled ' + integrationList[ii].event + ' in destination\n');
+                    }
+
+                    // Modify original
+                    if (copyMode == 'disableSource' && !integrationList[ii].disabled) {
+                        toAdd.disabled = true;
+
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                data: JSON.stringify(toAdd),
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                method: 'PUT',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                            }
+                
+                            $.ajax(request);
+                        });
+
+                        appendOutput('Disabled ' + integrationList[ii].event + ' in source\n');
+                    }
+                    else
+                    if (copyMode == 'deleteSource') {
+                        await new Promise(function(resolve, reject) {
+                            const request = {
+                                dataType: 'json',
+                                error: function (jqXHR) {
+                                    reject();
+                                },
+                                headers: {
+                                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                                    'Accept': 'application/json',
+                                },
+                                method: 'DELETE',
+                                success: function (resp, textStatus, jqXHR) {
+                                    resolve();
+                                },
+                                url: 'https://api.particle.io/v1/integrations/' + integrationId
+                            }
+                
+                            $.ajax(request);
+                        });
+                        appendOutput('Deleted ' + integrationList[ii].event + ' from source\n');
+                    }
+                }
+                catch(e) {
+                    appendOutput('Failed to copy ' + integrationList[ii].event + '\n');
+                }
+
+            }
+
+            appendOutput('Done!\n');
+            $(actionButtonElem).prop('disabled', false);
+
+            updateIntegrationList();
+            requestDestIntegrationList();
+        });
+
+        updateIntegrationList();
+
+    });
+
+    $('.apiHelperCloudApiUserCreate,.apiHelperCloudApiUserList').each(function () {
+        const thisElem = $(this);
+
+        const isCreate = $(thisElem).hasClass('apiHelperCloudApiUserCreate');
+        const isList = $(thisElem).hasClass('apiHelperCloudApiUserList');
+
+        const productSelectElem = $(thisElem).find('.apiHelperProductSelect');
+        const orgSelectElem = $(thisElem).find('.apiHelperOrgSelect');
+        const friendlyNameElem = isCreate ? $(thisElem).find('.apiHelperFriendlyName') : undefined;
+        const actionButtonElem = $(thisElem).find('.apiHelperActionButton,.apiHelperDeleteButton');
+
+        let curScopes = [];
+
+        const setStatus = function (status) {
+            $(thisElem).find('.apiHelperStatus').html(status);
+        };
+
+        const showHideRows = function() {
+            const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
+            const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
+
+            if (prodOrgVal == 'prod') {
+                $(thisElem).find('.productSelectorRow').show();
+                $(thisElem).find('.sandboxOrgRow').show();
+
+                if (sandboxOrgVal == 'sandbox') {
+                    $(thisElem).find('.orgSelectorRow').hide();
+                }
+                else {
+                    // sandboxOrg == 'org'
+                    $(thisElem).find('.orgSelectorRow').show();
+                }
+            }
+            else {
+                // prodOrg == 'org'
+                $(thisElem).find('.productSelectorRow').hide();
+                $(thisElem).find('.sandboxOrgRow').hide();
+                $(thisElem).find('.orgSelectorRow').show();
+            }
+
+        };
+
+        const updateProductList = async function() {
+            showHideRows();
+
+            const sandboxOrgVal = $(thisElem).find('.sandboxOrg:checked').val();
+
+            let productsData;
+            if (sandboxOrgVal == 'sandbox') {
+                productsData = await apiHelper.getProducts();
+            }
+            else {
+                const orgId = $(orgSelectElem).val();
+                if (!orgId) {
+                    return;
+                }
+                productsData = await apiHelper.getOrgProducts(orgId);
+            }
+            productsData.products.sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            if (productsData.products.length > 0) {
+                let html = '';
+                for (let product of productsData.products) {
+                    html += '<option value="' + product.id + '">' + product.name + ' (' + product.id + ')</option>';
+                }
+                $(productSelectElem).html(html);
+
+                enableButton();
+            }
+            else {
+                setStatus('You do not have access to any products');
+                $(thisElem).find('.apiHelperActionButton').prop('disabled', true);
+            }
+        };
+
+
+        const enableButton = function() {
+            const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
+            const productId = $(productSelectElem).val();
+
+            if (isCreate) {
+                curScopes = [];
+
+                $(thisElem).find('.scopeCheckbox:checked').each(function() {
+                    curScopes.push($(this).val());
+                });    
+
+                const friendlyName = $(friendlyNameElem).val();
+
+                if (curScopes.length > 0 && friendlyName.length > 0 && productId) {
+                    $(actionButtonElem).prop('disabled', false);
+                }
+                else {
+                    $(actionButtonElem).prop('disabled', true);
+                }
+            }
+
+            if (isList) {
+                if (prodOrgVal == 'prod') {
+                    if (productId) {
+                        $(actionButtonElem).prop('disabled', false);
+                    }
+                    else {
+                        $(actionButtonElem).prop('disabled', true);
+                    }
+                }
+                else {
+                    //const orgId = $(orgSelectElem).val();
+                    $(actionButtonElem).prop('disabled', false);
+                }
+            }
+
+        };
+
+        $(actionButtonElem).on('click', async function () {
+            const isDelete = $(this).hasClass('apiHelperDeleteButton');
+
+            const prodOrgVal = $(thisElem).find('.prodOrg:checked').val();
+            const productId = $(productSelectElem).val();
+            const orgId = $(orgSelectElem).val();
+            let gaCategory;
+            
+            let url;
+
+            if (prodOrgVal == 'prod') {
+                url = 'https://api.particle.io/v1/products/' + productId + '/team';
+            }
+            else {
+                // prodOrgVal == 'org'
+                url = 'https://api.particle.io/v1/orgs/' + orgId + '/team';                
+            }
+
+            let request = {
+                dataType: 'json',
+                error: function (jqXHR) {
+                    ga('send', 'event', gaCategory, 'Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
+
+                    setStatus('Error ' + gaCategory);
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders() + '\n' + jqXHR.responseText);
+                    $(respElem).show();
+                },
+                headers: {
+                    'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                    'Accept': 'application/json'
+                },
+                success: function (resp, textStatus, jqXHR) {
+                    setStatus('');
+                    ga('send', 'event', gaCategory, 'Success');
+
+                    $(outputJsonElem).show();
+                    setCodeBox(thisElem, JSON.stringify(resp, null, 2));
+
+                    if (isList && !isDelete) {
+                        // Update programmatic user for delete
+
+                        const users = resp.team.filter(obj => obj.is_programmatic);
+                        if (users.length) {
+                            for(const user of users) {
+                                let optionElem = document.createElement('option');
+                                $(optionElem).prop('value', user.username);
+                                $(optionElem).text(user.username);
+                                $(thisElem).find('.apiHelperUserSelect').append(optionElem);
+                            }
+                            $(thisElem).find('.apiHelperDeleteButton').prop('disabled', false);
+                            $(thisElem).find('.deleteUserRow').show();
+                        }
+                    }
+
+                    $(respElem).find('pre').text(jqXHR.status + ' ' + jqXHR.statusText + '\n' + jqXHR.getAllResponseHeaders());
+                    $(respElem).show();
+                },
+                url: url
+            }
+
+
+            if (isCreate) {
+                gaCategory = 'Create API User';
+
+                let reqData = {
+                    friendly_name: $(friendlyNameElem).val(),
+                    scopes: curScopes
+                };
+
+                request.contentType = 'application/json';
+                request.data = JSON.stringify(reqData);
+                request.method = 'POST';
+            }
+
+            if (isList && !isDelete) {
+                gaCategory = 'List API User';
+                request.method = 'GET';       
+            }
+            
+            if (isDelete) {
+                request.method = 'DELETE';
+                request.url += '/' + $(thisElem).find('.apiHelperUserSelect').val();
+            }
+
+            setRequest(thisElem, request);
+
+            const respElem = $(thisElem).find('.apiHelperApiResponse');
+            $(respElem).find('pre').text('');
+
+            const outputJsonElem = $(thisElem).find('.apiHelperCloudApiOutputJson');
+            $(outputJsonElem).hide();
+            
+            $(thisElem).find('.deleteUserRow').hide();
+
+            if (isList) {
+                $(thisElem).find('.apiHelperUserSelect').html('');
+                $(thisElem).find('.apiHelperDeleteButton').prop('disabled', true);
+            }
+
+
+            $.ajax(request);
+
+
+        });
+
+
+        $(thisElem).find('.prodOrg:radio').on('click', function() {
+            const selectedRadioElem = $(this);
+            $(thisElem).find('.prodOrg:radio').prop('checked', false);
+            $(selectedRadioElem).prop('checked', true);
+
+            showHideRows();
+        });
+
+        $(thisElem).find('.sandboxOrg:radio').on('click', function() {
+            const selectedRadioElem = $(this);
+            $(thisElem).find('.sandboxOrg:radio').prop('checked', false);
+            $(selectedRadioElem).prop('checked', true);
+
+            updateProductList();
+        });
+
+        $(orgSelectElem).on('change', updateProductList);
+
+        $(friendlyNameElem).on('input', enableButton);
+
+        updateProductList();
+
+        apiHelper.getOrgs().then(function (orgsData) {
+            // No orgs: orgsData.organizations empty array
+            // Object in array orgsData.organizations: id, slug, name
+
+            if (orgsData.organizations.length > 0) {
+                let html = '';
+                for (let org of orgsData.organizations) {
+                    html += '<option value="' + org.id + '">' + org.name + '</option>';
+                }
+                $(thisElem).find('.apiHelperOrgSelect').html(html);
+
+                updateProductList();
+            }
+            else {
+                // No orgs
+                $(thisElem).find('input[value=org]:radio').prop('disabled', true);
+                $(thisElem).find('.orgSelectorRow').hide();
+                $(thisElem).find('.sandboxOrgRow').hide();
+            }
+        });
+
+        if (isCreate) {
+            fetch('/assets/files/userScopes.json')
+            .then(response => response.json())
+            .then(function(userScopes) {
+                const maxCols = 2;
+                let col = 0;
+                for(const scope of userScopes) {
+                    let labelElem = document.createElement('label');
+    
+                    let inputElem = document.createElement('input');
+                    $(inputElem).prop('type', 'checkbox');                            
+                    $(inputElem).prop('value', scope);
+                    $(inputElem).prop('class', 'scopeCheckbox');
+                    $(labelElem).append(inputElem);
+                    
+                    $(labelElem).append(scope);
+    
+                    $(labelElem).on('click', enableButton);
+    
+                    $(thisElem).find('.scopesCell' + col).append(labelElem);
+                    $(thisElem).find('.scopesCell' + col).append(document.createElement('br'));
+    
+                    col++;
+                    if (col >= maxCols) {
+                        col = 0;
+                    }
+                }
+            });    
+        }
+
+        if (isList) {
+            enableButton();
+        }
+
+    });
+
 
     loadSettings();
 

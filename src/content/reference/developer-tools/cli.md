@@ -693,6 +693,8 @@ $ particle serial wifi
 
 You will need to use this command to set up a device using WPA2 Enterprise and services like EduRoam that use it. See [this article](https://support.particle.io/hc/en-us/articles/360039741153) for more information.
 
+Note: Argons cannot connect to a Wi-Fi network with a hidden SSID, even using the CLI. The reason is that prior to connecting, a Wi-Fi scan is done to find the BSSID with the strongest signal and connect to that. Otherwise, on network with multiple access points, the Argon would not necessarily connect to the best AP.
+
 
 ### particle serial list
 
@@ -772,73 +774,6 @@ Modules
 If you see any `FAIL` entries, there is likely a missing dependency, such as a bootloader that needs to be upgraded. Normally this will be corrected automatically over-the-air, but if you cannot connect to the cloud the dependency cannot be fixed OTA.
 
 The version numbers in the output can be mapped to common version numbers using [this table](https://github.com/particle-iot/device-os/blob/develop/system/system-versions.md). For example, system version 1512 is more commonly known as 1.5.2.
-
-
-## particle mesh
-
-Mesh network management from the CLI.
-
-**The mesh networking features described in this section will be supported only through December 31, 2020.**
-
-See [mesh deprecation](/reference/discontinued/mesh/) for more information.
-
-_These commands require Device OS 0.9.0 through 1.5.2. Versions older and newer than that do not include mesh support._
-
-_On Windows, these commands require the latest drivers. See the [CLI installation guide](/tutorials/developer-tools/cli/#using-windows) for details._
-
-
-### particle mesh create
-
-Create a new network
-
-```
-particle mesh create <network name> <device> [--channel=N] [--password=...] [--yes]
-```
-
-
-### particle mesh add
-
-Add a device to the current network of an assisting device
-
-```
-particle mesh add <new device> <assisting device> [--password=...] [--yes]
-```
-
-
-### particle mesh remove
-
-Remove a device from its current network
-
-```
-particle mesh remove <device> [--yes]
-```
-
-
-### particle mesh list
-
-List all registered networks and their devices
-
-```
-particle mesh list [network] [--networks-only]
-```
-
-
-### particle mesh info
-
-Get the current device's network
-
-```
-particle mesh info <device>
-```
-
-
-### particle mesh scan
-
-Scan for networks
-
-```
-particle mesh scan <device>
-```
 
 
 ## particle usb

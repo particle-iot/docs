@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Arduino_LSM9DS1",
     "version": "1.0.0",
-    "installs": 115,
+    "installs": 156,
     "author": "Arduino <info@arduino.cc>",
     "maintainer": "Brandon Satrom <brandon@particle.io>",
     "sentence": "Allows you to read the accelerometer, magnetometer and gyroscope values from the LSM9DS1 IMU for Particle Devices.",

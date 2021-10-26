@@ -7,7 +7,7 @@
   "attributes": {
     "name": "DAC121C08X",
     "version": "0.1.2",
-    "installs": 1535,
+    "installs": 1770,
     "license": "MIT",
     "author": "David H Hagan",
     "sentence": "Add support for a default i2c address.",

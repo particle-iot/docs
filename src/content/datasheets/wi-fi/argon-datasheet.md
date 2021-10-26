@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 
-# Argon Datasheet <sup>(v005)</sup>
+# Argon Datasheet <sup>(v008)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
@@ -120,7 +120,7 @@ It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a BLE a
 | Digital | 20 | I/O |
 | Analog (ADC) | 6 | I |
 | UART | 1 | I/O |
-| SPI  | 1 | I/O |
+| SPI  | 2 | I/O |
 | I2C  | 2 | I/O |
 | USB  | 1 | I/O |
 | PWM  | 8| O |
@@ -138,7 +138,9 @@ The Argon has a dedicated 10 pin debug connector that exposes the SWD interface 
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -228,7 +230,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.1 | 3.52 | 3.58 | mA |
 | Operating Current (uC on, radio connected but idle) | I<sub>wifi_cloud_idle</sub> | 20.5 | 25.8 | 219 | mA |
@@ -250,6 +252,10 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 64.7 | 161 | uA |
 | HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 65.0 | 159 | uA |
 | Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 20 | 30 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 
 ### Radio specifications
@@ -350,7 +356,7 @@ Argon are available from [store.particle.io](https://store.particle.io/) in sing
 {{!-- BEGIN do not edit content below, it is automatically generated 81ddccf2-774f-11eb-9439-0242ac130002 --}}
 
 | SKU | Description | Region | Lifecycle | Replacement |
-| :--- | | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | ARG-AQKT | Argon Air Quality Monitor Kit [x1] | Global | GA | |
 | ARG-STRTKT | Argon Starter Kit [x1] | Global | GA | |
 | ARGN-H | Argon [x1] | Global | GA | |
@@ -470,6 +476,9 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v003     | 2020 Sep 01 | RK | Add EN pin information |
 | v004     | 16-Sep-2020 | RK | Added power consumption information |
 | v005     | 15-Mar-2021 | RK | Updated ordering information |
+| v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
+| v007     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
+| v008     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 
 ## Known Errata
 

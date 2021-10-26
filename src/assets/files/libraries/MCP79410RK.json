@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MCP79410RK",
     "version": "0.0.4",
-    "installs": 814,
+    "installs": 888,
     "license": "MIT",
     "author": "rickkas7@rickkas7.com",
     "sentence": "Particle driver for MCP79410 RTC",

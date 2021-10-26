@@ -86,19 +86,18 @@ In practice, this feature was vary rarely intentionally used and frequently unin
 Updating your device firmware and Device OS can be done securely over the Particle cloud connection that's used for the other device cloud features.
 
 
-## Pricing
 
-### Pricing Tiers
+## Pricing Tiers
 
 {{blurb name="tiers"}}
 
-### Data Operations
+## Data Operations
 
 {{blurb name="dataoperations"}}
 
 {{> dataoperationscalc}}
 
-### Blocks
+## Blocks
 
 Blocks are a maximum number of Data Operations and devices per month in the Growth tier:
 
@@ -112,32 +111,44 @@ For example, if you have 150 devices you will need 2 blocks, even if your Data O
 
 Likewise, if you are using a million Data Operations per month, you will need 2 blocks, even of you have fewer than 100 devices.
 
-### Non-Particle cloud traffic
+If you exceed the number of data operations or cellular data usage for the number of blocks you have purchased this billing month, additional block(s) will be charged at the start of the next billing month to account for your current usage. You are not billed a prorated block at the time of the overage, and you will only be billed on your normal billing date for full blocks.
+
+## Non-Particle cloud traffic
 
 For Wi-Fi devices (Photon, P1, Argon) there is no limit for direct TCP or UDP data communications, or services that are based on direct communication such as [Blynk](https://blynk.io/).
 
 For cellular devices, there is a data limit depending on your tier. For the Free tier, the cellular data limit is {{freeTierDataOperationsCellularData}}, pooled across all devices, which includes all data usage including Data Operations, OTA code flash, overhead, and 3rd-party services.
 
-### Minimizing Data Operations
+## Minimizing Data Operations
 
 There are many possible steps for minimizing the number of Data Operations that you use, and will tend to be specific to your use case. Some options to consider:
 
-#### Combine fields
+### Publish changed values only
+
+In some cases, it may be useful to only publish values when they change, instead of periodically. Each publish uses a data operation.
+
+### Avoid polling variables frequently
+
+Each request of a Particle.variable uses a data operation. If you are doing this constantly and frequently, this can use a large number of data operations. 
+
+If multiple things (web pages, mobile apps, etc.) are all polling a variable, each one uses a data operation. Using publish is generally more efficient because the device will only use one data operation per value sent, regardless of the number of things viewing the event by webhook or SSE. 
+
+### Combine fields
 
 Rather than publish several independent variables, publish several related variables at once in a single publish. Some common methods include:
 
 - Comma-separated values
 - JSON
 
-You're still limited to a maxmum publish size, but you can still store many values in a single publish. The limit is 622 to 1024 bytes of UTF-8 characters depending on Device OS version and sometimes the device; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
+You're still limited to a maximum publish size, but you can still store many values in a single publish. The limit is 622 to 1024 bytes of UTF-8 characters depending on Device OS version and sometimes the device; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/)
 
-#### Aggregate data by time
+### Aggregate data by time
 
 If you need a time series of data, but latency is acceptable, you can aggregate data by time.
 
 Instead of publishing once per second, you could accumulate 10 samples and send 10 every 10 seconds, reducing the number of publishes. 
 
-#### Only transmit changed data
+### Only transmit changed data
 
 In some cases, you may want to only publish data when it changes. 
 
@@ -145,10 +156,21 @@ Or, if it changes by a significantly large amount for analog-like data using a c
 
 Or keep a mean value of samples and publish when the current sample deviates from the mean. This can be helpful if the value tends to creep up or down slowly and wouldn't trigger a change threshold, but accumulates over time.
 
+### Beware when subscribing
 
-### Limits
+When subscribing to events on-device, every event that's delivered to the device is a data operation. If many devices are sending events to all devices, this can add up to be a large number of events.
 
-#### Where can I check my usage limits?
+### Beware of webhook response subscription
+
+Similarly, in most cases you want only the device that triggered the webhook to get its response. To do this, prefix the hook-response and hook-error responses with the device ID as described [here](/reference/device-cloud/webhooks/#responsetopic). 
+
+Also each 512 byte response chunk counts as a data operation, so minimizing the size of the response can save data operations.
+
+If the data being returned in JSON, sometimes you can filter out only the information you need using [mustache templates](/tutorials/device-os/json/#mustache-variables).
+
+## Limits
+
+### Where can I check my usage limits?
 
 The [Particle Console](https://console.particle.io) lists the three limits you will most likely encounter:
 
@@ -158,7 +180,7 @@ The [Particle Console](https://console.particle.io) lists the three limits you w
 
 Note that the cellular data usage is not real-time. It can take at least 24 hours, and in some cases may lag several days behind actual usage.
 
-#### What happens if I need more than 100 devices?
+### What happens if I need more than 100 devices?
 
 You cannot add more than 100 devices to the Free tier. You instead will need to upgrade to the Growth tier. 
 
@@ -166,7 +188,7 @@ You can have any number of devices in the Growth tier, but you will need to purc
 
 There is no limit to the number of blocks you can purchase in the Growth tier, however upgrading to an enterprise contract can reduce the cost.
 
-#### What happens if I exceed the number of Data Operations?
+### What happens if I exceed the number of Data Operations?
 
 In the Free tier, if you need more Data Operations you will need to upgrade to the Growth tier. When you exceed {{freeTierDataOperationsUnit}} Data Operations, all Data Operations for both cellular and Wi-Fi will stop until the end of the billing month, when they will be resumed. You cannot add more Data Operations to the Free tier. 
 
@@ -174,7 +196,7 @@ In the Growth tier, if you need more than {{growthTierDataOperationsUnit}} Data 
 
 In the Enterprise tier, the number of Data Operations is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
 
-#### What happens if I exceed the cellular data quota?
+### What happens if I exceed the cellular data quota?
 
 In the Free tier, if you exceed the pooled monthly data quota, all SIMs in your account will be paused until the end of the billing month, when they will be resumed. It is not possible to add more data to the Free tier.
 
@@ -182,7 +204,7 @@ In the Growth tier, if you exceed the pooled monthly data quota, you can add an 
 
 In the Enterprise tier, the amount of cellular data is pooled annually across all devices, instead of monthly in the Free and Growth tiers.
 
-#### What is the maximum rate I can send data?
+### What is the maximum rate I can send data?
 
 [Publishes from a device](/cards/firmware/cloud-functions/particle-publish/) a limited to 1 per second, at the maximum publish payload size of 622 to 1024 bytes of UTF-8 characters; see [API Field Limits](/cards/firmware/cloud-functions/overview-of-api-field-limits/).
 

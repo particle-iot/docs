@@ -16,7 +16,7 @@ Device OS API
 {{#if singlePage}}
 You are viewing the single-page version of the Device OS API reference manual.
 
-It is also available [divided into small sections](/cards/firmware/) if you prefer that style. 
+It is also available [divided into small sections](/cards/firmware/introduction/introduction/) if you prefer that style. 
 Small sections also work better on mobile devices and small tablets.
 {{else}}
 You are viewing the multi-page version of the Device OS API reference manual.
@@ -65,6 +65,7 @@ Instead of hardcoding these values, you should use these definitions:
 - `particle::protocol::MAX_EVENT_NAME_LENGTH`
 - `particle::protocol::MAX_EVENT_DATA_LENGTH`
 
+Additionally, some older Boron and B Series SoM with a SARA-R410M-02B modem (LTE Cat M1) may have a limit of 782 bytes instead of 1024 bytes, see [Particle.maxEventDataSize()](/cards/firmware/cloud-functions/particle-maxeventdatasize/) for more information.
 
 ### Particle.variable()
 
@@ -434,6 +435,8 @@ Public events could previously be received by anyone on the Internet, and anyone
 
 Each publish uses one Data Operation from your monthly or yearly quota. This is true for both WITH_ACK and NO_ACK modes.
 
+{{blurb name="publish"}}
+ 
 ---
 
 Publish an event with the given name and no data. 
@@ -596,7 +599,7 @@ Particle.publish(String eventName, String data, int ttl, PublishFlags flags);
 
 Previously, there were overloads with a `ttl` (time-to-live) value. These have been deprecated as the ttl has never been supported by the Particle cloud. All events expire immediately if not subscribed to or exported from the Particle cloud using a webhook, integration like Google cloud, or the server-sent-events (SSE) stream. 
 
-
+Even if you use `NO_ACK` mode and do not check the result code from `Particle.publish()` it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if you publish while in the process of attempting to reconnect to the network. At a minimum, you should make sure that `Particle.connected()` returns true before publishing. Doing [publish operations from a separate worker thread](https://github.com/rickkas7/BackgroundPublishRK) is another option. 
 
 ### Particle.subscribe()
 
@@ -675,6 +678,10 @@ Each event delivery attempt to a subscription handler uses one Data Operation fr
 
 If you have multiple devices that subscribe to a hook-response but only want to monitor the response to their own request, as opposed to any device in the account sharing the webhook, you should include the Device ID in the custom hook response as described [here](/reference/device-cloud/webhooks/#responsetopic). This will assure that you will not consume Data Operations for webhooks intended for other devices.
 
+```cpp
+Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler, MY_DEVICES);
+```
+
 ---
 
 A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans". The maximum length of the subscribe prefix is 64 characters.
@@ -689,11 +696,14 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
+See [special webhook events](/reference/device-cloud/api/#special-webhook-events) for more details about handling multipart responses from a webhook in your subscription handler.
+
 **NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once.
+
 
 ---
 
@@ -714,6 +724,13 @@ Only devices that are claimed to an account can subscribe to events.
 - Unclaimed devices can receive function calls and variable requests from the product.
 - Unclaimed devices cannot receive events using Particle.subscribe.
 
+---
+
+Additionally:
+
+{{blurb name="publish"}}
+
+
 ### Particle.unsubscribe()
 
 Removes all subscription handlers previously registered with `Particle.subscribe()`.
@@ -724,6 +741,61 @@ Particle.unsubscribe();
 ```
 
 There is no function to unsubscribe a single event handler. 
+
+### Particle.maxEventDataSize()
+
+{{api name1="Particle.maxEventDataSize"}}
+
+{{since when="3.1.0"}}
+
+```cpp
+// PROTOTYPE
+int maxEventDataSize();
+
+// SYNTAX
+Log.info("eventDataSize=%d", Particle.maxEventDataSize());
+```
+
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
+
+
+### Particle.maxVariableValueSize()
+
+
+{{api name1="Particle.maxVariableValueSize"}}
+
+{{since when="3.1.0"}}
+
+```cpp
+// PROTOTYPE
+int maxVariableValueSize();
+
+// SYNTAX
+Log.info("maxVariableValueSize=%d", Particle.maxVariableValueSize());
+```
+
+Returns the maximum size of the string variable data.
+
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
+
+### Particle.maxFunctionArgumentSize()
+
+
+{{api name1="Particle.maxFunctionArgumentSize"}}
+
+{{since when="3.1.0"}}
+
+```cpp
+// PROTOTYPE
+int maxFunctionArgumentSize();
+
+// SYNTAX
+Log.info("maxFunctionArgumentSize=%d", Particle.maxFunctionArgumentSize());
+```
+
+Returns the maximum size of the function argument data.
+
+Returns the maximum size of the data payload for events. This is normally specified per platform, however Boron and B Series SoM with a SARA-R410M-02B that have an older version of the modem firmware (02.03 and earlier), the limit is 782 instead of 1024 bytes due to modem firmware limitations. 
 
 
 ### Particle.publishVitals()
@@ -919,6 +991,18 @@ While this function will disconnect from the Cloud, it will keep the connection 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. 
 Safe mode can be used to reconnect to the cloud.*
 
+### Clear Session
+
+When your device connects to the Particle cloud, if often can do so by resuming the previous session. This dramatically reduces the amount of data used, from around 5-6 Kbytes of data for a full handshake to hundreds of bytes of data for a resume. While a full session handshake does not use data operations, if done excessively it can impact the total data usage on cellular devices. Sessions are automatically renegotiated every 3 days for security reasons.
+
+Under normal circumstances you will never have to manually invalidate the current session. However, if you have a need to do so, this is the best way:
+
+```cpp
+auto opts = CloudDisconnectOptions().clearSession(true);
+Particle.disconnect(opts);
+```
+
+You may see references to `spark/device/session/end` in the community forums, however that method should not be used and may be deprecated in the future. The clearSession flag should be used instead.
 
 ### Particle.connected()
 
@@ -1028,6 +1112,7 @@ You can also specify a value using [chrono literals](#chrono-literals), for exam
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
+- It will also update the [ApplicationWatchdog](/cards/firmware/application-watchdog/application-watchdog/) timer using `ApplicationWatchdog::checkin()`.
 
 ### Particle.syncTime()
 
@@ -1175,6 +1260,9 @@ Returns the number of milliseconds since the device began running the current pr
 This function takes one optional argument:
 - `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
 
+It is possible that the call will block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread (as is the case for `Particle.timeSyncedLast()`) from a separate worker thread is a good workaround.
+
+
 ### Get Public IP
 
 Using this feature, the device can programmatically know its own public IP address.
@@ -1270,6 +1358,8 @@ void setup() {
 Ethernet is available on the Argon, Boron when used with the [Ethernet FeatherWing](/datasheets/accessories/gen3-accessories/#ethernet-featherwing/) or with the B Series SoM with the evaluation board or the equivalent circuitry on your base board.
 
 It is not available on Gen 2 devices (Photon, P1, Electron, and E Series).
+
+For more information about Ethernet, see the application note [AN037 Ethernet](/datasheets/app-notes/an037-ethernet/).
 
 {{note op="end"}}
 
@@ -1811,6 +1901,8 @@ credentials.setSsid("My_Router")
            .setPassword("wepistheworst");
 WiFi.setCredentials(credentials);
 ```
+
+The password is limited to 64 7-bit ASCII characters. If you pass in a longer password, only the first 64 characters will be saved.
 
 ---
 
@@ -2555,6 +2647,8 @@ credentials.setPassword("mypassword");
 
 Parameters:
 - `password`: WEP/WPA/WPA2 access point password, or user password for PEAP/MSCHAPv2 authentication (string)
+
+The password is limited to 64 7-bit ASCII characters. If you pass in a longer password, only the first 64 characters will be saved.
 
 #### setChannel()
 
@@ -3474,6 +3568,11 @@ Cellular.resetDataUsage();
 
 `Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that allows you to determine signal strength (RSSI) and signal quality of the currently connected Cellular network.
 
+This function queries the cellular modem for the RSSI. This is normally quick, and does not use cellular data.
+
+However, it is possible that the call will still block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread from a separate worker thread is a good workaround.
+
+
 ### CellularSignal Class
 
 {{api name1="CellularSignal"}}
@@ -3949,6 +4048,8 @@ There are 13 different enumerated AT command responses passed by the system into
 - `TYPE_ABORTED`    = 0x600000
 
 
+It is possible that the call will block for an indeterminate amount of time, possibly for as long as 10 minutes. This can occur if the system thread is busy trying to reconnect to cellular and is unable to do so. Doing operations that access the cellular modem or require access to the system thread from a separate worker thread is a good workaround.
+
 ## Battery Voltage
 
 The Argon device does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
@@ -4010,7 +4111,7 @@ Returns the battery voltage as a `float`. Returns -1.0 if the fuel gauge cannot 
 
 ```cpp
 // PROTOTYPE
-float getSoC() 
+float getSoC(); 
 
 // EXAMPLE
 FuelGauge fuel;
@@ -4463,7 +4564,7 @@ Additional information on which pins can be used for PWM output is available on 
 {{note op="start" type="gen3"}}
 On Gen 3 devices, the PWM frequency is from 5 Hz to `analogWriteMaxFrequency(pin)` (default is 500 Hz).
 
-On Gen 3 Feather devices (Argon, Boron), pins A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+On Gen 3 Feather devices (Argon, Boron), pins A0, A1, A2, A3, A4, A5, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
 frequency and resolution, but individual pins in the group can have a different duty cycle.
 
 - Group 3: Pins D2, D3, A4, and A5.
@@ -5791,32 +5892,6 @@ Returns the charge voltage register. This is the direct register value from the 
 `bool getVsysStat();`
 
 ---
-
-### Fault Register
-
-#### isWatchdogFault()
-
-{{api name1="PMIC::isWatchdogFault"}}
-
-`bool isWatchdogFault();`
-
-#### getChargeFault()
-
-{{api name1="PMIC::getChargeFault"}}
-
-`byte getChargeFault();`
-
-#### isBatFault()
-
-{{api name1="PMIC::isBatFault"}}
-
-`bool isBatFault();`
-
-#### getNTCFault()
-
-{{api name1="PMIC::getNTCFault"}}
-
-`byte getNTCFault();`
 
 
 ## Serial
@@ -7787,9 +7862,10 @@ The Tracker SoM allows an alternate mapping of the `Wire` (I2C interface) from D
 
 This is primarily use with the Tracker One as TX/RX are exposed by the external M8 connector. By using `Wire3.begin()` you can repurpose these pins as I2C, allowing external expansion by I2C instead of serial.
 
-**Argon**
+**Argon and B Series SoM**
 
-Additionally, on the Argon, there is a second I2C port that can be used with the `Wire1` object. This a separate I2C peripheral and can be used at the same time as `Wire`.
+Additionally, on the Argon and B Series SoM there is a second I2C port that can be used with the `Wire1` object. This a separate I2C peripheral and can be used at the same time as `Wire`.
+
 * `SCL` => `D3`
 * `SDA` => `D2` 
 
@@ -7993,6 +8069,7 @@ Returns: `byte`, which indicates the status of the transmission:
 - 3: end of address transmission timeout
 - 4: data byte transfer timeout
 - 5: data byte transfer succeeded, busy timeout immediately after
+- 6: timeout waiting for peripheral to clear stop bit
 
 ### write()
 
@@ -8838,6 +8915,33 @@ int setAdvertisingParameters(const BleAdvertisingParams* params) const;
 
 See [`BleAdvertisingParameters`](#bleadvertisingparams) for more information.
 
+#### BLE.setAdvertisingPhy()
+
+{{api name1="BLE.setAdvertisingPhy"}}
+
+{{since when="3.1.0"}}
+
+Sets the advertising phy mode to allow for Coded Phy (long range mode). Supported in Device OS 3.1 and later only.
+
+```cpp
+// PROTOTYPE
+int setAdvertisingPhy(EnumFlags<BlePhy> phy) const;
+
+// EXAMPLE
+BLE.setAdvertisingPhy(BlePhy::BLE_PHYS_CODED);
+```
+
+The valid values are:
+
+- `BlePhy::BLE_PHYS_AUTO` (default)
+- `BlePhy::BLE_PHYS_1MBPS`
+- `BlePhy::BLE_PHYS_CODED` (long-range)
+
+You can only specify a single phy mode for advertising. You cannot logically OR multiple values on the advertiser as you can on the scanner.
+
+Coded Phy mode employs redundancy and error-correction, trading off speed in favor of noise immunity. In theory it could double the range achievable, but in practice you can expect closer to a 50% increase in range. 
+
+For an example of using this API, see the [RSSI Meter (Long Range)](/tutorials/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
 
 #### BLE.getScanResponseData()
 
@@ -8958,6 +9062,15 @@ For example:
 len = scanResults[ii].advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
 ```
 
+In Device OS 3.1.0 only, you may get error -270 when attempting to scan. To work around this issue, add this to setup():
+
+```
+#if SYSTEM_VERSION == SYSTEM_VERSION_v310
+	// This is required with 3.1.0 only
+	BLE.setScanPhy(BlePhy::BLE_PHYS_AUTO);
+#endif
+```
+
 #### BLE.scan(Vector)
 
 The `Vector` version of scan does not require guessing the number of scan items ahead of time. However, it does dynamically allocate memory to hold all of the scan results.
@@ -8988,6 +9101,7 @@ void loop() {
         Log.info("%d devices found", scanResults.size());
 
         for (int ii = 0; ii < scanResults.size(); ii++) {
+            // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
             Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
                     scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
                     scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5], scanResults[ii].rssi());
@@ -9020,6 +9134,7 @@ void loop() {
         Log.info("%d devices found", scanResults.size());
 
         for (int ii = 0; ii < scanResults.size(); ii++) {
+            // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
             Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
                     scanResults[ii].address[0], scanResults[ii].address[1], scanResults[ii].address[2],
                     scanResults[ii].address[3], scanResults[ii].address[4], scanResults[ii].address[5], scanResults[ii].rssi);
@@ -9041,6 +9156,17 @@ The [`BleScanResult`](#blescanresult) is described below. It contains:
 - `advertisingData` The advertising data sent by the device
 - `scanData` The scan data (optional)
 - `rssi` The signal strength of the advertising message.
+
+Prior to Device OS 3.0, these were member variables. 
+
+In Device OS 3.0 and later, they are methods, so you 
+must access them as:
+
+- `address()` The BLE address of the device
+- `advertisingData()` The advertising data sent by the device
+- `scanData()` The scan data (optional)
+- `rssi()` The signal strength of the advertising message.
+
 
 #### BLE.scan(callback)
 
@@ -9085,9 +9211,10 @@ void loop() {
 }
 
 void scanResultCallback(const BleScanResult *scanResult, void *context) {
-	Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
-			scanResult->address[0], scanResult->address[1], scanResult->address[2],
-			scanResult->address[3], scanResult->address[4], scanResult->address[5], scanResult->rssi);
+  // For Device OS 2.x and earlier, use scanResults[ii].address[0], etc. without the ()
+  Log.info("MAC: %02X:%02X:%02X:%02X:%02X:%02X | RSSI: %dBm",
+          scanResults[ii].address()[0], scanResults[ii].address()[1], scanResults[ii].address()[2],
+          scanResults[ii].address()[3], scanResults[ii].address()[4], scanResults[ii].address()[5], scanResults[ii].rssi());
 
 	String name = scanResult->advertisingData.deviceName();
 	if (name.length() > 0) {
@@ -9108,6 +9235,22 @@ The [`BleScanResult`](#blescanresult) is described below. It contains:
 - `advertisingData` The advertising data sent by the device
 - `scanData` The scan data (optional)
 - `rssi` The signal strength of the advertising message.
+
+Prior to Device OS 3.0, these were member variables. 
+
+In Device OS 3.0 and later, they are methods, so you 
+must access them as:
+
+- `address()` The BLE address of the device
+- `advertisingData()` The advertising data sent by the device
+- `scanData()` The scan data (optional)
+- `rssi()` The signal strength of the advertising message.
+
+For example:
+
+```
+len = scanResults[ii].advertisingData().get(BleAdvertisingDataType::MANUFACTURER_SPECIFIC_DATA, buf, BLE_MAX_ADV_DATA_LEN);
+```
 
 The `context` parameter is often used if you implement your scanResultCallback in a C++ object. You can store the object instance pointer (`this`) in the context.
 
@@ -9232,6 +9375,39 @@ int setScanParameters(const BleScanParams* params) const;
 ```
 
 See [`BleScanParams`](#blescanparams) for more information.
+
+#### BLE.setScanPhy()
+
+{{api name1="BLE.setScanPhy"}}
+
+{{since when="3.1.0"}}
+
+Sets the scanning phy mode to allow for Coded Phy (long range mode). Supported in Device OS 3.1 and later only.
+
+```cpp
+// PROTOTYPE
+int setScanPhy(EnumFlags<BlePhy> phy) const;
+
+// EXAMPLE
+BLE.setScanPhy(BlePhy::BLE_PHYS_CODED | BlePhy::BLE_PHYS_1MBPS);
+```
+
+The valid values are:
+
+- `BlePhy::BLE_PHYS_AUTO`
+- `BlePhy::BLE_PHYS_1MBPS`
+- `BlePhy::BLE_PHYS_CODED`
+
+You can logically OR the two values to scan for both phy modes. Do not combine `BLE_PHYS_AUTO` with other values, however.
+
+Note: In Device OS 3.0.0 (only), a bug sets an invalid default value for the scan mode, causing no devices to be found when scanning. To work around this issue, set the scan phy mode to automatic explictly in setup():
+
+```cpp
+BLE.setScanPhy(BlePhy::BLE_PHYS_AUTO);
+```
+
+For an example of using this API, see the [RSSI Meter (Long Range)](/tutorials/device-os/bluetooth-le/#rssi-meter-long-range-) in the BLE tutorial.
+
 
 #### BLE.connect()
 
@@ -9632,7 +9808,7 @@ int setPairingAlgorithm(BlePairingAlgorithm algorithm) const;
 | `BlePairingAlgorithm::LEGACY_ONLY` | Legacy Pairing mode only |
 | `BlePairingAlgorithm::LESC_ONLY` | Bluetooth LE Secure Connection Pairing (LESC) only  |
 
-At this time, LESC pairing is not supported; only legacy pairing can be used. You can still specify LESC pairing, however it will fall back to "just works" mode which offers encryption but not authentication. You will not be prompted for the numeric comparison used in LESC pairing mode.
+LESC pairing is supported on Device OS 3.1 and later only.
 
 
 #### BLE.startPairing()
@@ -9683,7 +9859,7 @@ This is used with `BlePairingEventType::NUMERIC_COMPARISON` to confirm that two 
 
 The results is 0 (`SYSTEM_ERROR_NONE`) on success, or a non-zero error code on failure.
 
-LESC is not supported at this time so you will probably not need to use this function.
+LESC pairing is supported in Device OS 3.1 and later only.
 
 
 #### BLE.setPairingPasskey()
@@ -9820,6 +9996,13 @@ The pairing status was updated. These fields may be of interest:
 - `event.payload.status.bonded`
 - `event.payload.status.lesc`
 
+LESC pairing is supported in Device OS 3.1 and later only.
+
+`BlePairingEventType::NUMERIC_COMPARISON`
+
+Numeric comparison mode is being used to pair devices in LESC pairing mode. You should display the passkey in the same was as `BlePairingEventType::PASSKEY_DISPLAY`.
+
+LESC pairing is supported in Device OS 3.1 and later only.
 
 ##### BLEPairingEvent
 
@@ -10909,21 +11092,20 @@ When scanning, you get back one of:
 
 The following fields are provided:
 
-```
-// DEFINITION
-class BleScanResult {
-public:
-    BleAddress address;
-    BleAdvertisingData advertisingData;
-    BleAdvertisingData scanResponse;
-    int8_t rssi;
-};
-```
-
 - `address` The BLE address of the peripheral. You use this if you want to connect to it. See [`BleAddress`](#bleaddress).
 - `advertisingData` The advertising data provided by the peripheral. It's small (up to 31 bytes).
 - `scanResponse` The scan response data. This is an optional extra 31 bytes of data that can be provided by the peripheral. It requires an additional request to the peripheral, but is less overhead than connecting.
 - `rssi` The signal strength, which is a negative number of dBm. Numbers closer to 0 are a stronger signal.
+
+Prior to Device OS 3.0, these were member variables. 
+
+In Device OS 3.0 and later, they are methods, so you 
+must access them as:
+
+- `address()` The BLE address of the device
+- `advertisingData()` The advertising data sent by the device
+- `scanData()` The scan data (optional)
+- `rssi()` The signal strength of the advertising message.
 
 #### discoverAllCharacteristics
 
@@ -14598,7 +14780,7 @@ void setup() {
 
 void loop() {
   while (some_long_process_within_loop) {
-    wd->checkin(); // resets the AWDT count
+    ApplicationWatchdog::checkin(); // resets the AWDT count
   }
 }
 // AWDT count reset automatically after loop() ends
@@ -14607,6 +14789,8 @@ void loop() {
 A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed. This is generally too small, and it's best to use a minimum of 1536 bytes. If not enough stack memory is allocated, the application will crash due to a Stack Overflow. The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
+
+The `Particle.process()` function calls `ApplicationWatchdog::checkin()` internally, so you can also use that to service the application watchdog.
 
 ---
 
@@ -15751,6 +15935,12 @@ Specifies wake on pin. The mode is:
 - CHANGE
 
 You can use `.gpio()` multiple times to wake on any of multiple pins, with the limitations below.
+
+If you are using `RISING` mode, then an internal pull-down, equivalent to `INPUT_PULLDOWN` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices.
+
+If you are using `FALLING` mode, then an internal pull-up, equivalent to `INPUT_PULLUP` is added to the pin before sleep. This is approximately 13K on Gen 3 devices and 40K on Gen 2 devices.
+
+This pull can be an issue if you are connecting the wake pin to a voltage divider! Using `CHANGE` mode does not add pull and can be used to work around this. Make sure the pin is not left floating when using `CHANGE`.
 
 ---
 
@@ -18089,6 +18279,8 @@ Gen 3 devices implement a POSIX-style file system API to store files on the Litt
 | Tracker SoM | 1.5.4-rc.1 | 4 MB |
 | Argon, Boron, B Series SoM | 2.0.0-rc.1 | 2 MB |
 
+For more detailed information about the file system, see the application note [AN035 File System](/datasheets/app-notes/an035-file-system/).
+
 ---
 
 {{note op="start" type="gen2"}}
@@ -18614,7 +18806,8 @@ Standard Firmware Releases are delivered the next time the device connects to th
 **Note**: Calling `System.disableUpdates()` and `System.enableUpdates()`
 for devices running Device OS version 1.2.0 or later will result in a
 message sent to the Device Cloud. This will result in a small amount of
-additional data usage each time they are called.
+additional cellular data usage each time they are called, but do not 
+count as a data operation for billing purposes.
 
 ### System.disableUpdates()
 ```cpp
@@ -23056,11 +23249,17 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.1.x releases|[v3.1.0](https://github.com/particle-iot/device-os/releases/tag/v3.1.0)|-|-|-|-|-|-|
+|v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|[v3.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.2)|-|-|-|-|
+|v2.3.x default releases|-|-|-|-|-|-|-|
+|v2.3.x prereleases|[v2.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.3.0-rc.1)|-|-|-|-|-|-|
+|v2.2.x default releases|[v2.2.0](https://github.com/particle-iot/device-os/releases/tag/v2.2.0)|-|-|-|-|-|-|
+|v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|[v2.2.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.2)|-|-|-|-|-|
 |v2.1.x default releases|[v2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0)|-|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.1.0-rc.1)|-|-|-|-|-|-|
-|v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|-|-|-|-|-|
+|v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|[v2.0.2](https://github.com/particle-iot/device-os/releases/tag/v2.0.2)|-|-|-|-|
 |v2.0.x prereleases|[v2.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.1)|[v2.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.2)|[v2.0.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.3)|[v2.0.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.4)|-|-|-|
 |v1.5.x default releases|[v1.5.0](https://github.com/particle-iot/device-os/releases/tag/v1.5.0)|[v1.5.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1)|[v1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2)|-|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.1)|[v1.5.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.2)|[v1.5.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1-rc.1)|[v1.5.4-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.1)|[v1.5.4-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.2)|-|-|
@@ -23090,11 +23289,17 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v3.1.x releases|[v3.1.0](/reference/device-os/firmware/?fw_ver=3.1.0&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.2](/reference/device-os/firmware/?fw_ver=3.0.0-rc.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v2.3.x default releases|-|-|-|-|-|-|
+|v2.3.x prereleases|[v2.3.0-rc.1](/reference/device-os/firmware/?fw_ver=2.3.0-rc.1&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v2.2.x default releases|[v2.2.0](/reference/device-os/firmware/?fw_ver=2.2.0&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|[v2.2.0-rc.2](/reference/device-os/firmware/?fw_ver=2.2.0-rc.2&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v2.1.x default releases|[v2.1.0](/reference/device-os/firmware/?fw_ver=2.1.0&cli_ver=2.11.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](/reference/device-os/firmware/?fw_ver=2.1.0-rc.1&cli_ver=2.10.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
-|v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.1](/reference/device-os/firmware/?fw_ver=2.0.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.1](/reference/device-os/firmware/?fw_ver=2.0.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.2](/reference/device-os/firmware/?fw_ver=2.0.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v2.0.x prereleases|[v2.0.0-rc.1](/reference/device-os/firmware/?fw_ver=2.0.0-rc.1&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.2](/reference/device-os/firmware/?fw_ver=2.0.0-rc.2&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.3](/reference/device-os/firmware/?fw_ver=2.0.0-rc.3&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.4](/reference/device-os/firmware/?fw_ver=2.0.0-rc.4&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v1.5.x default releases|[v1.5.0](/reference/device-os/firmware/?fw_ver=1.5.0&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1](/reference/device-os/firmware/?fw_ver=1.5.1&cli_ver=2.5.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1](/reference/device-os/firmware/?fw_ver=1.5.2&cli_ver=2.6.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](/reference/device-os/firmware/?fw_ver=1.5.0-rc.1&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.0-rc.2](/reference/device-os/firmware/?fw_ver=1.5.0-rc.2&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1-rc.1](/reference/device-os/firmware/?fw_ver=1.5.1-rc.1&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.4-rc.1](/reference/device-os/firmware/?fw_ver=1.5.4-rc.1&cli_ver=2.6.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.4-rc.2](/reference/device-os/firmware/?fw_ver=1.5.4-rc.2&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|-|
@@ -23121,9 +23326,11 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v2.15.0 = 2.2.0, 2.3.0-rc.1
+v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
 v2.11.0 = 2.1.0
 v2.10.1 = 2.1.0-rc.1
-v2.10.0 = 2.0.1, 3.0.0-beta.1, 3.0.0-rc.1, 3.0.0-rc.2, 3.0.0
+v2.10.0 = 2.0.1, 3.0.0-beta.1, 3.0.0-rc.1, 3.0.0-rc.2, 3.0.0, 2.0.2
 v2.9.0  = 2.0.0
 v2.8.1  = 1.5.4-rc.2, 2.0.0-rc.3, 2.0.0-rc.4
 v2.7.2  = 2.0.0-rc.1, 2.0.0-rc.2
@@ -23225,8 +23432,12 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@2.0.0endif
 ##### @FW_VER@2.1.0if
 ##### @FW_VER@2.1.0endif
+##### @FW_VER@2.2.0if
+##### @FW_VER@2.2.0endif
 ##### @FW_VER@3.0.0if
 ##### @FW_VER@3.0.0endif
+##### @FW_VER@3.1.0if
+##### @FW_VER@3.1.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -23313,6 +23524,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@2.10.1endif
 ##### @CLI_VER@2.11.0if
 ##### @CLI_VER@2.11.0endif
+##### @CLI_VER@2.12.0if
+##### @CLI_VER@2.12.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if

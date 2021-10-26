@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit_ILI9341",
     "version": "1.0.3",
-    "installs": 32953,
+    "installs": 34166,
     "author": "Paupl Kourany / Adafruit",
     "maintainer": "Paul Kourany / Adafruit <info@adafruit.com>",
     "sentence": "Library for Adafruit ILI9341 displays using Adafruit_mfGFX",

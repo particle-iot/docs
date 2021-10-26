@@ -7,7 +7,7 @@
   "attributes": {
     "name": "uFire_SHT20",
     "version": "1.0.0",
-    "installs": 687,
+    "installs": 768,
     "author": "uFire",
     "maintainer": "contact@ufire.co",
     "sentence": "Measure atmospheric temperature and humdity.",

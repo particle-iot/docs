@@ -19,6 +19,16 @@
 			</ul>
         {{/if}}
 
+		{{#if permission}}
+			<ul class='api-attributes api-header' data-title='Required Scope'>
+				{{#each permission}}
+					<li>
+						<div class='field-desc'><code>{{{name}}}</code></div>
+					</li>
+				{{/each}}
+			</ul>
+        {{/if}}
+
 		{{#if parameter.fields}}
 			<ul class='api-attributes api-request' data-title='Request Arguments'>
 				{{#each parameter.fields.Parameter}}

@@ -65,6 +65,17 @@ $(document).ready(function() {
 			ga('send', 'event', 'Codebox', 'Codebox Open WebIDE', $(codeboxElem).attr('data-content'));
 		});
 		
+		$(codeboxElem).find('.codeboxTryItButton').on('click', function() {
+			var a = document.createElement('a');
+			a.href = 'https://stackblitz.com/edit/' + $(this).attr('data-project') + '?devtoolsheight=33&file=index.js&hideNavigation=1%3B';
+			a.target = '_blank';
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+
+			ga('send', 'event', 'Codebox', 'Codebox Try It', $(codeboxElem).attr('data-project'));
+		});
+
 
 		$(codeboxElem).find('.codeboxFlashDeviceButton').on('click', function() {
 			const thisCodeElem = $(codeboxElem).find('code');

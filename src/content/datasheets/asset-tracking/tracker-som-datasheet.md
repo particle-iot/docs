@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Tracker SoM Cellular GNSS module
 ---
 
-# Tracker SoM Datasheet <sup>(015B1)</sup>
+# Tracker SoM Datasheet <sup>(019)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-som-datasheet.pdf"}}
@@ -43,7 +43,7 @@ The AssetTracker SoM is a System-on-a-Module (SoM) with:
  * Quectel BG96-MC modem (T402 / T404)
   * LTE Cat M1 module for North America (United States, Canada, and Mexico) 
   * LTE FDD bands supported: B1, B2，B3, B4，B5, B8, B12，B13, B18, B19, B20, B28
-   Quectel EG91-EX modem (T523 / T524)
+ * Quectel EG91-EX modem (T523 / T524)
   * LTE Cat 1 module for EMEAA region 
   * 3GPP E-UTRA Release 13
   * Cat 1 bands supported: B1, B3, B7, B8, B20, B28
@@ -111,10 +111,10 @@ This pin is the output of the on-board 3.3V switching regulator that powers the 
 #### RTC_BAT
 This is the supply to the real-time clock battery backup. 1.4 to 3.6V. 
 
-| Voltage | Typical Current | Maximum Current | Unit |
-| :---:   | ---:            | ---:            | :--- |
-| 3.0V    | 56              | 330             | nA   |
-| 1.8V    | 52              | 290             | nA   |
+| Voltage | Typical Current | Peak Current | Unit |
+| :---:   | ---:            | ---:         | :--- |
+| 3.0V    | 56              | 330          | nA   |
+| 1.8V    | 52              | 290          | nA   |
 
 If the RTC battery is not used, connect RTC_BAT to ground.
 
@@ -276,7 +276,9 @@ This interface can be used to debug your code or reprogram your bootloader, devi
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -539,7 +541,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption (T402)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.35 | 3.38 | 4.39 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | | 21.3 | 277 | mA |
@@ -573,11 +575,15 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 151 | 590 | uA |
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 121 | 477 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
 ---
 
 ### Power consumption (T523)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.22 | 3.24 | 3.26 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 18.9 | 22.0 | 136 | mA |
@@ -611,6 +617,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 144 | 580 | uA |
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | 8.76 | 133 | 386 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 ---
 
@@ -691,7 +700,7 @@ GNSS GPIO:
 - CAN bus pins are disconnected when device is unpowered
 - High-ESD protection on CANH and CANL, meets IEC61000-4-2 up to ±8 kV
 - Very low standby current, 10 uA, typical
-- 5V step-up converter (XCL9142F40CER), 370 mA maximum
+- 5V step-up converter (XC9142F50CER), 370 mA maximum
 - CAN terminator resistor is not included
 
 CAN GPIO:
@@ -947,7 +956,8 @@ Weight will be provided at a later date.
 
 ### Mechanical drawing
 
-Will be provided at a later date.
+{{imageOverlay src="/assets/images/at-som/dimensions.png" alt="Dimensons" class="full-width"}}
+
 
 Dimensions are in millimeters.
 
@@ -1030,7 +1040,7 @@ Dimensions are in millimeters.
 
 ### Layout Considerations
 
-Will be provided at a later date.
+For information on production soldering, stencils, and layout, see [AN036 LCC Module SMT](/datasheets/app-notes/an036-lcc-module-smt).
 
 ---
 
@@ -1112,14 +1122,14 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 | Austria | T524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | T524 | 2G, 3G, Cat1 | A1 |
 | Belgium | T524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | T524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | T524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | T524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | T524 | 2G, 3G | A1, Telenor, Vivacom |
 | Canada | T404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Croatia | T524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | T524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | T524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | T524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | T524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | T524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | T524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | T524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | T524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
@@ -1162,16 +1172,16 @@ Cet équipement est conforme aux limites d'exposition aux rayonnements IC établ
 
 {{!-- BEGIN do not edit content below, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
-| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
-| T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | GA | |
-| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
-| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | GA | |
-| T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | T404MEA|
-| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | NRND | T404MTY|
-| T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | T524MEA|
-| T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | NRND | T524MTY|
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| T404MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC | &check; | GA | |
+| T404MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC | &check; | GA | |
+| T524MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| T524MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX | &check; | GA | |
+| T402MEA | Tracker SoM LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | NRND | T404MEA|
+| T402MTY | Tracker SoM LTE M1 (NorAm), Tray [x50] | NORAM | BG96-MC |  | NRND | T404MTY|
+| T523MEA | Tracker SoM LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | T524MEA|
+| T523MTY | Tracker SoM LTE CAT1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-EX |  | NRND | T524MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 04ad48d4-76d7-11eb-9439-0242ac130002 --}}
@@ -1223,3 +1233,7 @@ The bootloader allows you to easily update the user application via several diff
 | 013      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
 | 014      | 2021 May 04 | RK | Added 2G/3G fallback information for T523/T524 |
 | 015      | 2021 May 28 | RK | Corrected band list for T402/T404 (BG96) |
+| 016      | 2021 Jun 28 | RK | Added Device OS 3.1 memory map information |
+| 017      | 2021 Jul 28 | RK | Added mechanical drawing |
+| 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
+| 019      | 2021 Sep 23 | RK | Corrected part number for CAN step-up converter |

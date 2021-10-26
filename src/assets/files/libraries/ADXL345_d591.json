@@ -7,7 +7,7 @@
   "attributes": {
     "name": "ADXL345_d591",
     "version": "0.1.1",
-    "installs": 1351,
+    "installs": 1426,
     "license": "GPLv3",
     "author": "Kenneth Lim",
     "sentence": "ADXL345 3-axes accelerometer",

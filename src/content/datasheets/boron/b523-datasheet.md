@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B524 and B523 SoM, Gen 3 cellular LTE Cat 1
 ---
 
-# B524/B523 Datasheet <sup>009</sup>
+# B524/B523 Datasheet <sup>011</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b523-datasheet.pdf"}}
@@ -140,7 +140,7 @@ There are some optional B523 module specific I/O:
 
 ### JTAG and SWD 
 
-The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your B523 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
 {{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
 
@@ -149,7 +149,9 @@ The B523 module has 4 pads at the bottom exposing the SWD interface of the nRF52
 ### nRF52840 Flash Layout Overview
 
  - Bootloader (48KB, @0xF4000)
- - User Application (128KB, @0xD4000)
+ - User Application
+   - 256KB @ 0xB4000 (Device OS 3.1 and later)
+   - 128KB @ 0xD4000 (Device OS 3.0 and earlier)
  - System (656KB, @0x30000)
  - SoftDevice (192KB)
 
@@ -334,7 +336,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 4.47 | 4.48 | 4.51 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 17.5 | 34.2 | 744 | mA |
@@ -359,6 +361,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 29.7 | 430 | uA |
 | HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 30.8 | 441 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 ---
 
@@ -552,13 +557,13 @@ The bootloader allows you to easily update the user application via several diff
 | Austria | B524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | B524 | 2G, 3G, Cat1 | A1 |
 | Belgium | B524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | B524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | B524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | B524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | B524 | 2G, 3G | A1, Telenor, Vivacom |
 | Croatia | B524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | B524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | B524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | B524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | B524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | B524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | B524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | B524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | B524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
@@ -598,12 +603,12 @@ The bootloader allows you to easily update the user application via several diff
 
 {{!-- BEGIN do not edit content below, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
-| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | GA | |
-| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | GA | |
-| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | NRND | B524MEA|
-| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | NRND | B524MTY|
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| B524MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E | &check; | GA | |
+| B524MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E | &check; | GA | |
+| B523MEA | B Series LTE CAT-1/3G/2G (Europe) [x1] | EMEAA | EG91-E |  | NRND | B524MEA|
+| B523MTY | B Series LTE CAT-1/3G/2G (Europe), Tray [x50] | EMEAA | EG91-E |  | NRND | B524MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated ea841986-76ce-11eb-9439-0242ac130002 --}}
@@ -623,3 +628,5 @@ The bootloader allows you to easily update the user application via several diff
 | 007      | 26-Apr-2021 | RK | Added B524 model number |
 | 008      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
 | 009      | 19-May-2021 | RK | List Ethernet reserved pins |
+| 010      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
+| 011      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |

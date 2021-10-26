@@ -7,7 +7,7 @@
   "attributes": {
     "name": "particle-strip",
     "version": "2.3.3",
-    "installs": 364,
+    "installs": 405,
     "license": "GNU LGPLv3",
     "author": "DonGar,Adafruit,Technobly",
     "sentence": "Control LED strips (Digital RGB, NeoPixel, DotStar, PWM LEDs)",

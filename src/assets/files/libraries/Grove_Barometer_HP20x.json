@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Grove_Barometer_HP20x",
     "version": "1.0.0",
-    "installs": 282,
+    "installs": 683,
     "license": "MIT",
     "author": "Seeed Studio",
     "sentence": "Arduino library to control Grove barometer HP20x.",

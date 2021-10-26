@@ -7,6 +7,12 @@
  * The frontmatter (stuff between --- at the top of the file) is added as additional properties.
  * When all the plugins are done running, the files object is written to the destination directory.
  * That's it!
+ * 
+ * Instead of using update-api.sh, now just clone api-service, api-service-libraries, and particle-api-js
+ * into the directory above docs, so all three projects are peers. If the directories exist they will 
+ * be used to rebuild the generate documentation. If not, the saved version of the digested docs will be
+ * used, so the private source does not need to be accessed during a normal build, but the build will
+ * still have all of the content that would normally be there.
  */
 'use strict';
  
@@ -95,15 +101,12 @@ exports.metalsmith = function () {
       'content/languages/**/*',
       'assets/images/**/*.ai'
     ]))
-    .use(msIf(
-      environment === 'development',
-      buildZip({
+    .use(buildZip({
         dirs: [
-          '../src/assets/files/app-notes/',
-          '../src/assets/files/projects/',
-        ],
-        tmpDir: '../tmp'
-    })))
+          'assets/files/app-notes/',
+          'assets/files/projects/',
+        ]
+    }))
     .use(msIf(
       environment === 'development',
       trackerSchema({
@@ -129,13 +132,13 @@ exports.metalsmith = function () {
         destFile: 'content/reference/device-cloud/api.md',
         apis: [
           {
-            src: '../api-service/',
-            config: '../api-service/',
+            src: '../../api-service/',
+            config: '../../api-service/',
             includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
           },
           {
-            src: '../api-service-libraries/',
-            config: '../api-service/',
+            src: '../../api-service-libraries/',
+            config: '../../api-service/',
             includeFilters: ['.*Controller\\.js$']
           },
         ]
@@ -148,7 +151,7 @@ exports.metalsmith = function () {
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({
       destFile: 'content/reference/SDKs/javascript.md',
-      srcFile: '../particle-api-js/docs/api.md',
+      srcFile: '../../particle-api-js/docs/api.md',
       fragment: 'GENERATED_JAVASCRIPT_DOCS',
       preprocess: javascriptDocsPreprocess,
     }))
@@ -300,7 +303,7 @@ exports.compress = function (callback) {
 
 exports.build = function (callback) {
   git.branch(function (str) {
-    gitBranch = process.env.TRAVIS_BRANCH || str;
+    gitBranch = process.env.CIRCLE_BRANCH || str;
     exports.metalsmith()
       .build(function (err, files) {
         if (err) {
@@ -316,7 +319,7 @@ exports.build = function (callback) {
 exports.test = function (callback) {
   var server = serve({ cache: 300, port: 8081 });
   git.branch(function (str) {
-    gitBranch = process.env.TRAVIS_BRANCH || str;
+    gitBranch = process.env.CIRCLE_BRANCH || str;
     generateSearch = true;
     exports.metalsmith()
       .use(server)
@@ -335,7 +338,7 @@ exports.test = function (callback) {
 exports.server = function (callback) {
   environment = 'development';
   git.branch(function (str) {
-    gitBranch = process.env.TRAVIS_BRANCH || str;
+    gitBranch = process.env.CIRCLE_BRANCH || str;
     exports.metalsmith().use(serve({ port: 8080 }))
       .use(watch({
         paths: {

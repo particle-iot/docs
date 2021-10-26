@@ -7,7 +7,7 @@
   "attributes": {
     "name": "MAX30100",
     "version": "0.0.1",
-    "installs": 5033,
+    "installs": 5238,
     "license": "MIT",
     "author": "Vignesh <viggi1000@gmail.com>",
     "sentence": "Port of oxullo Intersecans library",

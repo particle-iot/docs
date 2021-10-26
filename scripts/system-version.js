@@ -5,14 +5,16 @@ const https = require('https');
 async function generateSystemVersionInfo(options, done) {
     const versionInfoPath = path.join(__dirname, '..', 'src', 'assets', 'files', 'versionInfo.json');
 
+    let oldVersionInfoStr = '';
     let oldVersionInfo = {};
     if (fs.existsSync(versionInfoPath)) {
-        oldVersionInfo = JSON.parse(fs.readFileSync(versionInfoPath, 'utf8'));
+        oldVersionInfoStr = fs.readFileSync(versionInfoPath, 'utf8');
+        oldVersionInfo = JSON.parse(oldVersionInfoStr);
     }
 
     // Check current data to see if the file should be downloaded again
     let now = Math.floor(Date.now() / 1000);
-    if (oldVersionInfo.update < (now - 86400)) {
+    if (!oldVersionInfo || !oldVersionInfo.updated || oldVersionInfo.updated < (now - 86400)) {
 
         // Download from Github
         const url = 'https://raw.githubusercontent.com/particle-iot/device-os/develop/system/system-versions.md';
@@ -67,8 +69,9 @@ async function generateSystemVersionInfo(options, done) {
         // Update JSON data on disk
         // console.log('versionInfo', versionInfo);
         const versionInfoStr = JSON.stringify(versionInfo, null, 2);
-        if (JSON.stringify(oldVersionInfo) != versionInfoStr) {
+        if (oldVersionInfoStr != versionInfoStr) {
             fs.writeFileSync(versionInfoPath, versionInfoStr);
+            console.log('updated versionInfo data');
         }
 
         // Update tables in docs?

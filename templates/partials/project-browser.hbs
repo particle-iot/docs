@@ -1,11 +1,17 @@
-<div class="apiHelperProjectBrowser" data-project="{{project}}" data-default-file="{{default-file}}">
+<div class="apiHelperProjectBrowser" data-project="{{project}}" data-default-file="{{default-file}}" data-options="{{options}}">
     <div class="apiHelper">
         <div class="apiHelperBox">
             <p>
                 <button type="button" class="apiHelperProjectDownloadZipButton" >Download Full Project (.zip)</button> &nbsp;
+            {{#if tryit}}
+                <button type="button" class="apiHelperTryItButton" data-project="{{tryit}}">Try It!</button> &nbsp;
+            {{/if}}
             {{#if flash}}
                 <span class="codeboxFlashDeviceSpan" style="display: none"> &nbsp;&nbsp;
-                    <select class="codeboxFlashDeviceSelect apiHelperCommonDevice"></select>
+                    <select class="codeboxFlashDeviceSelect apiHelperCommonDevice" data-options="{{options}}"></select>
+            {{#if target}}
+                    <select class="apiHelperProjectTarget apiHelperSelect24" data-target="{{target}}"></select> 
+            {{/if}}
                     <button type="button" class="codeboxFlashDeviceButton" disabled>Flash</button> &nbsp;
                 </span>
             {{/if}}

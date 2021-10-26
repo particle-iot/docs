@@ -222,6 +222,16 @@
         "href": "/tutorials/product-tools/introduction/"
       },
       {
+        "dir": "creating-a-product",
+        "title": "Creating a Product",
+        "href": "/tutorials/product-tools/creating-a-product/"
+      },
+      {
+        "dir": "migrating-to-growth",
+        "title": "Migrating to Growth Plan",
+        "href": "/tutorials/product-tools/migrating-to-growth/"
+      },
+      {
         "dir": "security",
         "title": "Security",
         "href": "/tutorials/product-tools/security/"
@@ -250,6 +260,11 @@
         "dir": "organizations",
         "title": "Organizations",
         "href": "/tutorials/product-tools/organizations/"
+      },
+      {
+        "dir": "manufacturing-cellular",
+        "title": "Manufacturing - Cellular",
+        "href": "/tutorials/product-tools/manufacturing-cellular/"
       }
     ],
     {
@@ -333,6 +348,16 @@
         "dir": "about-serial",
         "title": "About Serial",
         "href": "/tutorials/learn-more/about-serial/"
+      },
+      {
+        "dir": "node-js",
+        "title": "node.js getting started",
+        "href": "/tutorials/learn-more/node-js/"
+      },
+      {
+        "dir": "gen2-cellular-migration",
+        "title": "Gen 2 cellular migration",
+        "href": "/tutorials/learn-more/gen2-cellular-migration/"
       },
       {
         "dir": "ethernet-featherwing",

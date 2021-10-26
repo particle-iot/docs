@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Arduino_KeyPadLCD_Shield",
     "version": "0.0.12",
-    "installs": 1396,
+    "installs": 1460,
     "license": "GNU GPLv3",
     "author": "Adafruit, Technobly, ScruffR",
     "sentence": "Library to use the Arduino KeyPad LCD Shield on Particle devices and the Particle Shield shield (based on LiquidCrystal lib)",

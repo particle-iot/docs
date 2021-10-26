@@ -7,7 +7,7 @@
   "attributes": {
     "name": "Adafruit-MotorShield-V2",
     "version": "1.0.0",
-    "installs": 16445,
+    "installs": 18427,
     "license": "BSD",
     "author": "TJ Hunter <tjhunter@gmail.com>",
     "sentence": "A library for the Adafruit Motor Shield V2 for Particle devices",

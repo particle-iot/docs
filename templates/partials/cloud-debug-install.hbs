@@ -1,0 +1,64 @@
+<div class="apiHelperUsbRestoreDevice apiHelperUsb">
+    <div class="apiHelper">
+        <div class="apiHelperBox">
+            <table class="apiHelperTableNoMargin">
+                <tr>
+                    <td colspan="2">
+                        <button class="apiHelperUsbRestoreDeviceSelect apiHelperButton">Select Device</button>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="apiHelperProductSelectorLabel">Install</td>
+                    <td>
+                        <select class="apiHelperUsbRestoreDeviceModeSelect apiHelperSelect">
+                            <option value="cloudDebug">Cloud Debug firmware</option>
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="apiHelperUsbRestoreDeviceVersionTr" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Version</td>
+                    <td><select class="apiHelperUsbRestoreDeviceVersion apiHelperSelect" disabled><option>Select Device OS Version</option></select></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="apiHelperUsbRestoreDeviceFileTr" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Upload File</td>
+                    <td><input type="file" id="uploadUserBinary" accept=".bin"></td>
+                    <td class="apiHelperProductSelectorLabel">Choose a user firmware binary (*.bin)</td>
+                </tr>
+                <tr class="apiHelperUsbRestoreDeviceUrlTr" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">User Firmware URL</td>
+                    <td colspan="2"><input type="text" size="60" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="apiHelperUsbRestoreDeviceRestore apiHelperButton" disabled>Install</button>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="apiHelperUsbRestoreDeviceSelectInfo">
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="apiHelperUsbRestoreDeviceStatus" colspan="2"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="apiHelperUsbRestoreDeviceProgressTr" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Progress</td>
+                    <td>
+                        <span></span>
+                        <progress value="0" max="100"></progress>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div class="apiHelperUsbRestoreDeviceOutputDiv">
+    </div>
+</div>
+

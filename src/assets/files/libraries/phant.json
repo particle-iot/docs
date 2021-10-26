@@ -7,7 +7,7 @@
   "attributes": {
     "name": "phant",
     "version": "0.0.4",
-    "installs": 157,
+    "installs": 198,
     "license": "GPL v3",
     "author": "Romain MP <romain.mp@gmail.com>",
     "sentence": "A simple library to send data to a Phant server",

@@ -10,7 +10,7 @@ description: Move beyond prototyping breadboards to custom printed circuit board
 
 *Going from solderless breadboards to SMD components across Particle devices*
 
-### Solderless breadboards 1
+## Solderless breadboards 1
 
 One of the most common ways to start building your project is to use a solderless breadboard. Here's my switch demo circuit in pure prototyping mode. There's an [RGB LED](https://www.sparkfun.com/products/10821) and an [LED button](https://www.sparkfun.com/products/10440) to the right of the Argon. This version uses long flexible wires, which are easy to set up and are easily reusable.
 
@@ -37,7 +37,7 @@ Because the LED button switch pins don't line up with the holes on a solderless 
 | 2 | 100 ohm resistor | | |
 
 
-### Solderless breadboards 2
+## Solderless breadboards 2
 
 One way to dress up your project is to switch to solid wires. It's a bit more work, but it certainly looks more professional and is good for projects you want to keep as-is.
 
@@ -50,7 +50,7 @@ I used a combination of [pre-formed wires](https://www.amazon.com/gp/product/B07
 ![Solid wires](/assets/images/beyond-prototyping/solidwire3.jpg)
 
 
-### Perma-Proto
+## Perma-Proto
 
 Once you've built and tested your solderless breadboard with solid wires, the next step up is an [Adafruit Perma-Proto](https://www.adafruit.com/product/1609) board. It has the same wiring as a solderless breadboard, but you solder the wires in place.
 
@@ -78,7 +78,7 @@ All you need to do is transfer over the component and wires and solder them to t
 
 
 
-### Feather prototyping board
+## Feather prototyping board
 
 One of the nice features of the Gen 3 prototyping devices is the use of the [Adafruit Feather form-factor](https://learn.adafruit.com/adafruit-feather/feather-specification). Not only does this allow the devices to be easily swapped, but there are a large number of accessories like displays, GPS modules, and sensors already built in the Feather form-factor. Using a doubler, tripler, or quadrupler, you can add these to your project with no loose wires and no soldering!
 
@@ -92,7 +92,7 @@ And the board itself:
 ![Feather Prototype Board](/assets/images/beyond-prototyping/feather-proto3.jpg)
 
 
-### Feather PTH board (through-hole components)
+## Feather PTH board (through-hole components)
 
 While the previous soldered boards all work fine, you can really make things look professional with a custom printed circuit board. This one uses hand-soldered through-hole components. It's referred to a PTH, plated through-hole.
 
@@ -116,7 +116,7 @@ Here are the components soldered in place. It's way faster to solder the compone
 
 ![Custom PTH board](/assets/images/beyond-prototyping/pth2.jpg)
 
-### Feather SMD components board
+## Feather SMD components board
 
 The next step up is to switch to use SMD (surface mount device) components. The switch button is still through-hole soldered, but the resistors and LED are SMD. 
 
@@ -167,7 +167,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 
 
 
-### Wing under-mount board
+## Wing under-mount board
 
 You don't need to make your boards into the actual FeatherWing form-factor. You can make an under-mount board as well. This is handy for larger designs. 
 
@@ -196,7 +196,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 
 
 
-### Photon (Gen 2 Wi-Fi)
+## Photon (Gen 2 Wi-Fi)
 
 The Photon board is a lot like the under-mount FeatherWing board, but it has two [12-pin headers](https://www.digikey.com/product-detail/en/sullins-connector-solutions/PPTC121LFBN-RC/S6100-ND/807231) to fit a Photon.
 
@@ -219,7 +219,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 | 2 | 68 ohm resistor 0603 | [Panasonic](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF68R0V/P68.0HCT-ND/1746805) | |
 
 
-### Electron (Gen 2 cellular)
+## Electron (Gen 2 cellular)
 
 The Electron board is nearly identical to the Photon, except it has [18-pin headers](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC181LFBN-RC/810156) instead of 12-pin. In fact, you can plug in a Photon into the Electron board if you align the pins on the left, leaving the unused socket pins on the right closest to the switch.
 
@@ -239,7 +239,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 
 
 
-### P1 (Gen 2 Wi-Fi SMD)
+## P1 (Gen 2 Wi-Fi SMD)
 
 Making a board for the P1 module is more difficult than the devices we've used so far. It's recommended that you include:
 
@@ -280,7 +280,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 | 1 | 10-pin JTAG Connector | [Samtek SAM8796-ND](https://www.digikey.com/products/en?keywords=SAM8796-ND) | $2.90 |
 | 2 | Tactile switch | [C&K PTS645SH50SMTR92](https://www.digikey.com/product-detail/en/c-k/PTS645SH50SMTR92-LFS/CKN9085CT-ND/1146817) | $0.21 |
 
-### E Series (Gen 2 cellular SMD)
+## E Series (Gen 2 cellular SMD)
 
 The E Series Gen 2 cellular module is about the same level of effort as the P1. It has a built-in voltage regulator and PMIC, but you need to add a battery connector.
 
@@ -310,6 +310,7 @@ The Eagle CAD schematic and board files are in the **eagle** directory in the [G
 | 2 | RGB LED | [Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/9094273) | $0.19 |
 | 4 | 33 ohm resistor 0603 | [Panasonic](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF33R0V/P33.0HCT-ND/1746765) | | 
 | 4 | 68 ohm resistor 0603 | [Panasonic](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-3EKF68R0V/P68.0HCT-ND/1746805) | |
+| 3 | 1K resistor 0603 | [Panasonic](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PB3D1001V/P20283CT-ND/6214538) | |
 | 1 | 10K ohm resistor 0603 | [Panasonic](https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERJ-PA3J103V/P10KBZCT-ND/5036237) | |
 | 1 | USB Micro B connector | [Amphenol FCI 10118194-0001LF](https://www.digikey.com/products/en?keywords=609-4618-1-nd) | $0.42|
 | 2 | Tactile switch | [E-Switch TL3305AF160QG](https://www.digikey.com/product-detail/en/e-switch/TL3305AF160QG/EG5350CT-ND/5816195) | $0.20 |
@@ -436,7 +437,7 @@ The code depends on the **LedSwitchRK** library.
 dependencies.LedSwitchRK=0.0.2
 ```
 
-## Test Firmware
+### Test Firmware
 
 To make it easier to test a single device, I use the test firmware below.
 

@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(017)</sup>
+# Tracker One<sup>(018)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -264,7 +264,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 
 ### Power consumption (Tracker One 402)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>startup</sub> |  |  |  | mA |
 | Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> |  |  |  | mA |
@@ -296,11 +296,15 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 185 | 669 | uA |
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 230 | 636 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
 ---
 
 ### Power consumption (Tracker One 523)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>startup</sub> | 24.2 | 132 | 689 | mA |
 | Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 51.2 | 112 | 594 | mA |
@@ -332,6 +336,9 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 178 | 544  | uA |
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 222 | 608  | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 ---
 
@@ -347,14 +354,14 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | Austria | ONE524 | 2G, 3G, Cat1 | 3 (Drei), A1, T-Mobile |
 | Belarus | ONE524 | 2G, 3G, Cat1 | A1 |
 | Belgium | ONE524 | 2G, 3G, Cat1 | Base, Orange, Proximus |
-| Bosnia and Herzegovina | ONE524 | 2G, 3G, Cat1 | BH Telecom, HT Eronet |
-| Bulgaria | ONE524 | 2G, 3G, Cat1 | A1, Telenor, Vivacom |
+| Bosnia and Herzegovina | ONE524 | 2G, 3G | BH Telecom, HT Eronet |
+| Bulgaria | ONE524 | 2G, 3G | A1, Telenor, Vivacom |
 | Canada | ONE404 | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Croatia | ONE524 | 2G, 3G, Cat1 | Hrvatski Telekom, Tele2 |
 | Czechia | ONE524 | 2G, 3G, Cat1 | O2, T-Mobile, Vodafone |
 | Denmark | ONE524 | 2G, 3G, Cat1 | 3 (Tre), TDC, Telenor, Telia |
 | Estonia | ONE524 | 2G, 3G, Cat1 | Elisa, Tele2, Telia |
-| Faroe Islands | ONE524 | 2G, 3G, Cat1 | Faroese Telecom, Vodafone |
+| Faroe Islands | ONE524 | 2G, 3G | Faroese Telecom, Vodafone |
 | Finland | ONE524 | 2G, 3G, Cat1 | DNA, Elisa, Telia |
 | France | ONE524 | 2G, 3G, Cat1 | Bouygues, Free Mobile, Orange, SFR |
 | Germany | ONE524 | 2G, 3G, Cat1 | O2, Telekom, Vodafone |
@@ -396,18 +403,16 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 
 {{!-- BEGIN do not edit content below, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
 
-| SKU | Description | Region  | Modem | Lifecycle | Replacement |
-| :--- | | :--- | :---  | :--- | :--- | :--- | :--- |
-| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | GA | |
-| ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | GA | |
-| ONE404MTY-NB | Tracker One LTE M1 (NorAm), no battery, Bulk [x40] | NORAM | BG96-MC | GA | |
-| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | GA | |
-| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | GA | |
-| ONE524MTY-NB | Tracker One CAT1/3G/2G (Europe), no battery, Bulk [x40] | EMEAA | EG91-EX | GA | |
-| ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | NRND | ONE404MEA|
-| ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | NRND | ONE404MTY|
-| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | NRND | ONE524MEA|
-| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | NRND | ONE524MTY|
+| SKU | Description | Region  | Modem | EtherSIM| Lifecycle | Replacement |
+| :--- | :--- | :---  | :--- | :---: | :--- | :--- |
+| ONE404MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC | &check; | GA | |
+| ONE404MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC | &check; | GA | |
+| ONE524MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX | &check; | GA | |
+| ONE524MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX | &check; | GA | |
+| ONE402MEA | Tracker One LTE M1 (NorAm), [x1] | NORAM | BG96-MC |  | NRND | ONE404MEA|
+| ONE402MTY | Tracker One LTE M1 (NorAm), Bulk [x40] | NORAM | BG96-MC |  | NRND | ONE404MTY|
+| ONE523MEA | Tracker One LTE CAT1/3G/2G (Europe), [x1] | EMEAA | EG91-EX |  | NRND | ONE524MEA|
+| ONE523MTY | Tracker One CAT1/3G/2G (Europe), Bulk [x40] | EMEAA | EG91-EX |  | NRND | ONE524MTY|
 
 
 {{!-- END do not edit content above, it is automatically generated 9aef0d9c-76d6-11eb-9439-0242ac130002 --}}
@@ -504,3 +509,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 015      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
 | 016      | 2021 Mar 23 | RK | Added FCC and IC interference statements |
 | 017      | 2021 Mar 29 | RK | D8 and D9 were reversed in some tables |
+| 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |
