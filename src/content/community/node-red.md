@@ -312,7 +312,7 @@ Since presumably you're wanting to use this with Particle devices, you'll want t
 
 ![Rules Manage Palette](/assets/images/rules-engine/manage-palette.png)
 
-- In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particle** in the search box (2). Then add the **@particle/node-red-confib-particle-official** node by clicking **Install** (3).
+- In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particle** in the search box (2). Then add the **@particle/node-red-contrib-particle-official** node by clicking **Install** (3).
 
 ![Rules Install](/assets/images/rules-engine/install.png)
 
@@ -431,7 +431,7 @@ To add the nodes you need into your new Node-RED instance, click the **hamburger
 
 ![Rules Manage Palette](/assets/images/rules-engine/manage-palette.png)
 
-In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particle** in the search box (2). Then add the **@particle/node-red-confib-particle-official** node by clicking **Install** (3).
+In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particle** in the search box (2). Then add the **@particle/node-red-contrib-particle-official** node by clicking **Install** (3).
 
 ![Rules Install](/assets/images/rules-engine/install.png)
 
@@ -527,7 +527,7 @@ To add the nodes you need into your new Node-RED instance, click the **hamburger
 ![Rules Manage Palette](/assets/images/rules-engine/manage-palette.png)
 
 
-In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particlel** in the search box (2). Then add the **@particle/node-red-confib-particle-official** node by clicking **Install** (3).
+In the **User Settings** window in the **Palette** tab, select **Install** (1) then enter the name, like **particlel** in the search box (2). Then add the **@particle/node-red-contrib-particle-official** node by clicking **Install** (3).
 
 ![Rules Install](/assets/images/rules-engine/install.png)
 

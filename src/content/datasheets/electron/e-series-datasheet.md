@@ -629,7 +629,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Hong Kong | E314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | E314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | E314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | E314 | 2G, 3G | Airtel |
 | Indonesia | E314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | E314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | E314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
@@ -674,14 +673,12 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Puerto Rico | E314 | 2G, 3G | Claro |
 | Qatar | E314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | E314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Russia | E314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
 | Rwanda | E314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | E314 | 2G, 3G | Flow |
 | Saint Lucia | E314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | E314 | 2G, 3G | Flow |
 | Saudi Arabia | E314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | E314 | 2G, 3G | Telenor, VIP |
-| Singapore | E314 | 3G | SingTel, StarHub |
 | Sint Maarten | E314 | 2G, 3G | TelCell |
 | Slovakia | E314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | E314 | 2G, 3G | A1, Mobitel |
@@ -699,11 +696,9 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Thailand | E314 | 2G, 3G | AIS, DTAC, True Move |
 | Trinidad and Tobago | E314 | 2G, 3G | Digicel, TSTT |
 | Tunisia | E314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
-| Turkey | E314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
 | Turks and Caicos Islands | E314 | 2G, 3G | Flow |
 | Uganda | E314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | E314 | 2G, 3G | Kyivstar, Life, MTS |
-| United Arab Emirates | E314 | 2G, 3G | du, Etisalat |
 | United Kingdom | E314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | E404 | M1 | AT&T |
 | United States | E404X | M1 | AT&T |

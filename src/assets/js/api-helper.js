@@ -302,31 +302,33 @@ apiHelper.cachedResult = function() {
 
     cachedResult.get = function(opts) {
         return new Promise(function(resolve, reject) {
-            if (!cachedResult.queries[opts]) {
-                cachedResult.queries[opts] = {opts};
+            const cacheKey = JSON.stringify(opts);
+            
+            if (!cachedResult.queries[cacheKey]) {
+                cachedResult.queries[cacheKey] = {opts};
             }
 
-            if (cachedResult.queries[opts].result) {
-                resolve(cachedResult.queries[opts].result);
+            if (cachedResult.queries[cacheKey].result) {
+                resolve(cachedResult.queries[cacheKey].result);
             }
             else
-            if (cachedResult.queries[opts].requests) {
-                cachedResult.queries[opts].requests.push({resolve,reject});
+            if (cachedResult.queries[cacheKey].requests) {
+                cachedResult.queries[cacheKey].requests.push({resolve,reject});
             }
             else {
-                cachedResult.queries[opts].requests = [{resolve,reject}];
+                cachedResult.queries[cacheKey].requests = [{resolve,reject}];
 
                 $.ajax(opts)
                 .done(function(data, textStatus, jqXHR) {
-                    cachedResult.queries[opts].result = data;
-                    while(cachedResult.queries[opts].requests.length) {
-                        obj = cachedResult.queries[opts].requests.pop();
+                    cachedResult.queries[cacheKey].result = data;
+                    while(cachedResult.queries[cacheKey].requests.length) {
+                        obj = cachedResult.queries[cacheKey].requests.pop();
                         obj.resolve(data);
                     }
                 })
                 .fail(function(jqXHR, textStatus, errorThrown) {
-                    while(cachedResult.queries[opts].requests.length) {
-                        obj = cachedResult.queries[opts].requests.pop();
+                    while(cachedResult.queries[cacheKey].requests.length) {
+                        obj = cachedResult.queries[cacheKey].requests.pop();
                         obj.reject(jqXHR);
                     }
                 });
@@ -474,80 +476,9 @@ $(document).ready(function() {
         return;
     }
 
-    const eventCategory = 'Docs SSO';
-
-    apiHelper.auth = null;
-
     // ready is only called if there are components that use the apiHelper
 
     apiHelper.particle = new Particle();
-
-    $('.apiHelperFakeAuthButton').on('click', function() {
-        const authData = prompt('JSON authentication data:');
-        if (authData) {
-            localStorage.setItem('particleAuth', authData);
-            location.reload();
-        }
-    });
-    
-    $('.apiHelperLoginButton').on('click', function() {
-        const origUrl = window.location.href;
-
-		window.location.href = 'https://login.particle.io/login?redirect=' + encodeURI(origUrl); 
-
-        ga('send', 'event', eventCategory, 'Login Started');
-    });
-
-    $('.apiHelperLogoutButton').on('click', function() {
-        Cookies.remove('ember_simple_auth_session', { path: '/', domain: '.particle.io' });
-        localStorage.removeItem('particleAuth');
-        $('.apiHelper').trigger('ssoLogout');
-        location.reload();
-        ga('send', 'event', eventCategory, 'Logged Out');
-    });
-
-    const cookie = Cookies.get('ember_simple_auth_session');
-    if (cookie) {
-        try {
-            const json = JSON.parse(cookie);
-            if (json.authenticated) {
-                apiHelper.auth = json.authenticated;
-            }
-        }
-        catch(e) {
-        }
-    }
-    const fakeAuth = localStorage.getItem('particleAuth');
-    if (fakeAuth) {
-        try {
-            apiHelper.auth = JSON.parse(fakeAuth);
-        }
-        catch(e) {
-        }
-    }
-
-    $('.apiHelperLoggedIn').hide();
-    $('.apiHelperCouldSSO').hide();
-    $('.apiHelperFakeAuth').hide();
-
-    if (apiHelper.auth) {
-        $('.apiHelperUser').text(apiHelper.auth.username);
-
-        $('.apiHelperLoggedIn').each(function() {
-            if ($(this).attr('data-hidden') != 'true') {
-                $(this).show();
-            }
-        });
-    }
-    else
-    if (window.location.hostname.endsWith('particle.io')) {
-        $('.apiHelperCouldSSO').show();
-    }
-    else {
-        $('.apiHelperFakeAuth').show();
-    }
-
-
 
     if ($('.codeboxFlashDeviceSpan').length > 0) {
         

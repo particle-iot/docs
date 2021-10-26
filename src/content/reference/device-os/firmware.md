@@ -696,6 +696,8 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
+See [special webhook events](/reference/device-cloud/api/#special-webhook-events) for more details about handling multipart responses from a webhook in your subscription handler.
+
 **NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will overwrite the subscribe buffer, corrupting the data! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
@@ -4109,7 +4111,7 @@ Returns the battery voltage as a `float`. Returns -1.0 if the fuel gauge cannot 
 
 ```cpp
 // PROTOTYPE
-float getSoC() 
+float getSoC(); 
 
 // EXAMPLE
 FuelGauge fuel;
@@ -5890,32 +5892,6 @@ Returns the charge voltage register. This is the direct register value from the 
 `bool getVsysStat();`
 
 ---
-
-### Fault Register
-
-#### isWatchdogFault()
-
-{{api name1="PMIC::isWatchdogFault"}}
-
-`bool isWatchdogFault();`
-
-#### getChargeFault()
-
-{{api name1="PMIC::getChargeFault"}}
-
-`byte getChargeFault();`
-
-#### isBatFault()
-
-{{api name1="PMIC::isBatFault"}}
-
-`bool isBatFault();`
-
-#### getNTCFault()
-
-{{api name1="PMIC::getNTCFault"}}
-
-`byte getNTCFault();`
 
 
 ## Serial
@@ -23277,10 +23253,13 @@ Please go to GitHub to read the Changelog for your desired firmware version (Cli
 |v3.1.x prereleases|[v3.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.1.0-rc.1)|-|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](https://github.com/particle-iot/device-os/releases/tag/v3.0.0)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-beta.1)|[v3.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.1)|[v3.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v3.0.0-rc.2)|-|-|-|-|
+|v2.3.x default releases|-|-|-|-|-|-|-|
+|v2.3.x prereleases|[v2.3.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.3.0-rc.1)|-|-|-|-|-|-|
+|v2.2.x default releases|[v2.2.0](https://github.com/particle-iot/device-os/releases/tag/v2.2.0)|-|-|-|-|-|-|
 |v2.2.x prereleases|[v2.2.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.1)|[v2.2.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.2.0-rc.2)|-|-|-|-|-|
 |v2.1.x default releases|[v2.1.0](https://github.com/particle-iot/device-os/releases/tag/v2.1.0)|-|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.1.0-rc.1)|-|-|-|-|-|-|
-|v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|-|-|-|-|-|
+|v2.0.x default releases|[v2.0.0](https://github.com/particle-iot/device-os/releases/tag/v2.0.0)|[v2.0.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.1)|[v2.0.2](https://github.com/particle-iot/device-os/releases/tag/v2.0.2)|-|-|-|-|
 |v2.0.x prereleases|[v2.0.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.1)|[v2.0.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.2)|[v2.0.0-rc.3](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.3)|[v2.0.0-rc.4](https://github.com/particle-iot/device-os/releases/tag/v2.0.0-rc.4)|-|-|-|
 |v1.5.x default releases|[v1.5.0](https://github.com/particle-iot/device-os/releases/tag/v1.5.0)|[v1.5.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1)|[v1.5.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.2)|-|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.1)|[v1.5.0-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.0-rc.2)|[v1.5.1-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.1-rc.1)|[v1.5.4-rc.1](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.1)|[v1.5.4-rc.2](https://github.com/particle-iot/device-os/releases/tag/v1.5.4-rc.2)|-|-|
@@ -23314,10 +23293,13 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |v3.1.x prereleases|[v3.1.0-rc.1](/reference/device-os/firmware/?fw_ver=3.1.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v3.0.x releases|[v3.0.0](/reference/device-os/firmware/?fw_ver=3.0.0&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v3.0.x prereleases|[v3.0.0-beta.1](/reference/device-os/firmware/?fw_ver=3.0.0-beta.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.1](/reference/device-os/firmware/?fw_ver=3.0.0-rc.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v3.0.0-rc.2](/reference/device-os/firmware/?fw_ver=3.0.0-rc.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v2.3.x default releases|-|-|-|-|-|-|
+|v2.3.x prereleases|[v2.3.0-rc.1](/reference/device-os/firmware/?fw_ver=2.3.0-rc.1&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|v2.2.x default releases|[v2.2.0](/reference/device-os/firmware/?fw_ver=2.2.0&cli_ver=2.15.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.2.x prereleases|[v2.2.0-rc.1](/reference/device-os/firmware/?fw_ver=2.2.0-rc.1&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|[v2.2.0-rc.2](/reference/device-os/firmware/?fw_ver=2.2.0-rc.2&cli_ver=2.12.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v2.1.x default releases|[v2.1.0](/reference/device-os/firmware/?fw_ver=2.1.0&cli_ver=2.11.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
 |v2.1.x prereleases|[v2.1.0-rc.1](/reference/device-os/firmware/?fw_ver=2.1.0-rc.1&cli_ver=2.10.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
-|v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.1](/reference/device-os/firmware/?fw_ver=2.0.1&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v2.0.x default releases|[v2.0.0](/reference/device-os/firmware/?fw_ver=2.0.0&cli_ver=2.9.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.1](/reference/device-os/firmware/?fw_ver=2.0.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|[v2.0.2](/reference/device-os/firmware/?fw_ver=2.0.2&cli_ver=2.10.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v2.0.x prereleases|[v2.0.0-rc.1](/reference/device-os/firmware/?fw_ver=2.0.0-rc.1&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.2](/reference/device-os/firmware/?fw_ver=2.0.0-rc.2&cli_ver=2.7.2&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.3](/reference/device-os/firmware/?fw_ver=2.0.0-rc.3&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|[v2.0.0-rc.4](/reference/device-os/firmware/?fw_ver=2.0.0-rc.4&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v1.5.x default releases|[v1.5.0](/reference/device-os/firmware/?fw_ver=1.5.0&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1](/reference/device-os/firmware/?fw_ver=1.5.1&cli_ver=2.5.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1](/reference/device-os/firmware/?fw_ver=1.5.2&cli_ver=2.6.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v1.5.x prereleases|[v1.5.0-rc.1](/reference/device-os/firmware/?fw_ver=1.5.0-rc.1&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.0-rc.2](/reference/device-os/firmware/?fw_ver=1.5.0-rc.2&cli_ver=2.1.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.1-rc.1](/reference/device-os/firmware/?fw_ver=1.5.1-rc.1&cli_ver=2.3.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.4-rc.1](/reference/device-os/firmware/?fw_ver=1.5.4-rc.1&cli_ver=2.6.0&electron_parts=3#programming-and-debugging-notes)|[v1.5.4-rc.2](/reference/device-os/firmware/?fw_ver=1.5.4-rc.2&cli_ver=2.8.1&electron_parts=3#programming-and-debugging-notes)|-|
@@ -23344,10 +23326,11 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v2.15.0 = 2.2.0, 2.3.0-rc.1
 v2.12.0 = 3.1.0, 3.1.0-rc.1, 2.2.0-rc.1, 2.2.0-rc.2
 v2.11.0 = 2.1.0
 v2.10.1 = 2.1.0-rc.1
-v2.10.0 = 2.0.1, 3.0.0-beta.1, 3.0.0-rc.1, 3.0.0-rc.2, 3.0.0
+v2.10.0 = 2.0.1, 3.0.0-beta.1, 3.0.0-rc.1, 3.0.0-rc.2, 3.0.0, 2.0.2
 v2.9.0  = 2.0.0
 v2.8.1  = 1.5.4-rc.2, 2.0.0-rc.3, 2.0.0-rc.4
 v2.7.2  = 2.0.0-rc.1, 2.0.0-rc.2

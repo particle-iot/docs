@@ -6,7 +6,7 @@ description: Datasheet for the Particle Electron, Gen 2 cellular development kit
 ---
 
 
-# Electron Datasheet <sup>(v008)</sup>
+# Electron Datasheet <sup>(v009)</sup>
 
 **PRE-RELEASE DRAFT 2021-06-14**
 
@@ -359,7 +359,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 29.5 | 33.3 | 34.6 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 26.8 | 42.6 | 786 | mA |
@@ -376,6 +376,10 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | ULP mode sleep, RTC wake-up | I<sub>ulp_intrtc</sub> | 1.94 | 2.55 | 3.21 | mA |
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 108 | 114 | 121 | uA |
 | HIBERNATE mode sleep, RTC wake-up | I<sub>hib_rtc</sub> | 108 | 114 | 120 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 
 ---
@@ -707,7 +711,6 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Hong Kong | ELC314 | 2G, 3G | CMHK, CSL, SmarTone |
 | Hungary | ELC314 | 2G, 3G | Magyar Telekom, Telenor, Vodafone |
 | Iceland | ELC314 | 2G, 3G | Nova, Siminn, Vodafone |
-| India | ELC314 | 2G, 3G | Airtel |
 | Indonesia | ELC314 | 2G, 3G | Indosat, Telkomsel, XL Axiata |
 | Ireland | ELC314 | 2G, 3G | 3 (Tre), Meteor, O2, Vodafone |
 | Israel | ELC314 | 2G, 3G | Hot Mobile, Orange, Pelephone |
@@ -752,14 +755,12 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Puerto Rico | ELC314 | 2G, 3G | Claro |
 | Qatar | ELC314 | 2G, 3G | Ooredoo, Vodafone |
 | Romania | ELC314 | 2G, 3G | DigiMobil, Orange, Telekom Romania, Vodafone |
-| Russia | ELC314 | 2G, 3G | Beeline, Megafon, MTS, Tele2 |
 | Rwanda | ELC314 | 2G, 3G | Airtel, MTN |
 | Saint Kitts and Nevis | ELC314 | 2G, 3G | Flow |
 | Saint Lucia | ELC314 | 2G, 3G | Flow |
 | Saint Vincent and the Grenadines | ELC314 | 2G, 3G | Flow |
 | Saudi Arabia | ELC314 | 2G, 3G | Mobily, STC, Zain |
 | Serbia | ELC314 | 2G, 3G | Telenor, VIP |
-| Singapore | ELC314 | 3G | SingTel, StarHub |
 | Sint Maarten | ELC314 | 2G, 3G | TelCell |
 | Slovakia | ELC314 | 2G, 3G | O2, Orange, Telekom |
 | Slovenia | ELC314 | 2G, 3G | A1, Mobitel |
@@ -777,11 +778,9 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | Thailand | ELC314 | 2G, 3G | AIS, DTAC, True Move |
 | Trinidad and Tobago | ELC314 | 2G, 3G | Digicel, TSTT |
 | Tunisia | ELC314 | 2G, 3G | Orange Tunisie, Tunisie Telecom |
-| Turkey | ELC314 | 2G, 3G | Türk Telekom, Turkcell, Vodafone |
 | Turks and Caicos Islands | ELC314 | 2G, 3G | Flow |
 | Uganda | ELC314 | 2G, 3G | Africell, Airtel, MTN |
 | Ukraine | ELC314 | 2G, 3G | Kyivstar, Life, MTS |
-| United Arab Emirates | ELC314 | 2G, 3G | du, Etisalat |
 | United Kingdom | ELC314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | ELC404 | M1 | AT&T |
 | United States | ELC404X | M1 | AT&T |
@@ -952,6 +951,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v006     | 31-Jul-2019   | RK     |  Added LTE information |
 | v007 | 16-Sep-2020 | RK | Added power consumption information |
 | v008 | 24-Feb-2021 | RK | Added ELC314 information |
+| v009 | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 
 ## Known Errata
 

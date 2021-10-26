@@ -120,6 +120,7 @@ carriers2.selectMenu = function() {
         countryCarrierFiltered.push(ccObj);
     });
 
+    let warnRoaming = false;
 
     countryCarrierFiltered.forEach(function(ccObj) {
         let html = '';
@@ -144,7 +145,13 @@ carriers2.selectMenu = function() {
 
             if (ccObj[countryCarrierKey]['allow' + tech]) {
                 allow = true;
-                cell = '&check;'; 
+                if (!ccObj[countryCarrierKey].roamingRestrictions) {
+                    cell = '&check;'; 
+                }
+                else {
+                    cell = '<sup>*</sup>'; 
+                    warnRoaming = true;
+                }
             }
             html += '<td>' + cell + '</td>';
         });
@@ -155,7 +162,16 @@ carriers2.selectMenu = function() {
         html += '</tr>';
 
         $('#' + carriers2.options.table + ' > tbody').append(html);
+
     });
+
+    if (warnRoaming) {
+        $('#byDeviceRoamingWarning').show();
+    }
+    else {
+        $('#byDeviceRoamingWarning').hide();
+    }
+
 }
 
 

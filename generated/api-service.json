@@ -1586,37 +1586,6 @@
     "groupTitle": "Devices_12"
   },
   {
-    "type": "post",
-    "url": "/v1/devices",
-    "title": "Provision a new device ID",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "product_id",
-            "description": "<p>Product that allows self-provisioning</p>"
-          }
-        ]
-      }
-    },
-    "name": "ProvisionDevice",
-    "description": "<p>Create a new device ID</p>",
-    "group": "Devices_13",
-    "examples": [
-      {
-        "title": "$ curl https://api.particle.io/v1/devices \\",
-        "content": "$ curl https://api.particle.io/v1/devices \\\n       -d product_id=31 \\\n       -d access_token=1234",
-        "type": "bash"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "/Users/rickk/Documents/src/docs-merge/api-service/src/views/api.js",
-    "groupTitle": "Devices_13"
-  },
-  {
     "type": "delete",
     "url": "/v1/products/:productIdOrSlug/devices/:deviceID",
     "title": "Remove device from product",
@@ -8881,9 +8850,9 @@
   {
     "type": "put",
     "url": "/v1/sims/:iccid",
-    "title": "Update SIM data limit",
+    "title": "Update SIM data limit (deprecated)",
     "group": "Sims_10",
-    "description": "<p>Update the data limit of a SIM card. The data limit represents the maximum data consumption before the SIM is paused until the beginning of the next billing period</p>",
+    "description": "<p>This API has been deprecated as there is no per-SIM data limit at this time.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -9816,7 +9785,7 @@
     "url": "/v1/sims/:iccid",
     "title": "Reactivate SIM",
     "group": "Sims_9",
-    "description": "<p>Re-enables a SIM card to connect to a cell tower. Do this if you'd like to reactivate a SIM that you have deactivated, or when unpausing a SIM that has reached its monthly data limit. When unpausing a SIM, you should also pass <code>mb_limit</code> with the request to raise the SIM card's monthly data limit.</p>",
+    "description": "<p>Re-enables a SIM card to connect to a cell tower. Do this if you'd like to reactivate a SIM that you have deactivated.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -9838,14 +9807,14 @@
             "type": "Number",
             "optional": true,
             "field": "mb_limit",
-            "description": "<p>Optionally also set a new data limit in megabytes. This is useful when unpausing</p>"
+            "description": "<p>Deprecated. It is not possible to set a per-SIM data limit at this time.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "productIdOrSlug",
-            "description": "<p>Product ID or slug. <em>Product endpoint only</em> a SIM after it has reached its monthly data limit, to raise it's monthly limit for continued usage</p>"
+            "description": "<p>Product ID or slug. <em>Product endpoint only</em></p>"
           }
         ]
       }

@@ -17,9 +17,7 @@
 <script src='/assets/js/bootstrap-dropdown.js'></script>
 <script src='/assets/js/prettify.js'></script>
 <script src='/assets/js/svg.min.js'></script>
-{{#contains includeDefinitions 'api-helper'}}
 <script src="/assets/js/js.cookie-2.2.1.min.js"></script>
-{{/contains}}
 <!-- Custom -->
 <script type="text/javascript" src="https://s3.amazonaws.com/redirect.particle.io/redirect-banner.js"></script>
 <script type="text/javascript" src="/assets/js/handlebars-runtime.js"></script>
@@ -37,6 +35,7 @@
 <script src="/assets/js/FileSaver.min.js"></script>
 <script src='/assets/js/api-helper.js'></script>
 {{/contains}}
+<script src='/assets/js/api-helper-auth.js'></script>
 {{#contains includeDefinitions 'api-helper-cloud'}}
 <script src='/assets/js/api-helper-cloud.js'></script>
 {{/contains}}
@@ -80,6 +79,9 @@
 {{/contains}}
 {{#contains includeDefinitions 'api-helper-weather'}}
 <script src='/assets/js/api-helper-weather.js'></script>
+{{/contains}}
+{{#contains includeDefinitions 'api-helper-webide'}}
+<script src='/assets/js/api-helper-webide.js'></script>
 {{/contains}}
 {{#contains includeDefinitions 'ble-serial'}}
 <script src="/assets/js/ble-serial.js"></script>

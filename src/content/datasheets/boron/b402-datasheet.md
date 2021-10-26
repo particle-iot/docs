@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle B Series B404X, B404 and B402 SoM, Gen 3 cellular LTE Cat M1
 ---
 
-# B404X/B404/B402 Datasheet <sup>(012)</sup>
+# B404X/B404/B402 Datasheet <sup>(014)</sup>
 
 **PRE-RELEASE DRAFT 2021-08-19**
 
@@ -139,7 +139,7 @@ There are some optional B402 module specific I/O:
 
 ### JTAG and SWD 
 
-The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your E402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
+The B402 module has 4 pads at the bottom exposing the SWD interface of the nRF52840. This interface can be used to debug your code or reprogram your B402 bootloader, device OS, or the user firmware. We use 4 pogo-pins connecting to these pads during production for firmware flashing.
 
 {{imageOverlay src="/assets/images/b-series/pogo-pins.png" alt="Pogo Pins"}}
 
@@ -328,7 +328,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 4.48 | 4.71 | 5.17 | mA |
 | Operating Current (uC on, cellular on but not connected) | I<sub>cell_idle</sub> | 5.1 | 45.2 | 166 | mA |
@@ -353,6 +353,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | 23.6 | 26.0 | 29.7 | uA |
 | HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | 23.9 | 26.5 | 30.5 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 ---
 
@@ -611,3 +614,4 @@ The bootloader allows you to easily update the user application via several diff
 | 011      | 14-May-2021 | RK | Pins 40 and 42 were not actually reversed |
 | 012      | 19-May-2021 | RK | List Ethernet reserved pins |
 | 013      | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
+| 014      | 10-Sep-2021 | RK | Changed wording of peak vs. max current |

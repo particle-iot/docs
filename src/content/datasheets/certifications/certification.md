@@ -36,7 +36,7 @@ The FCC (Federal Communications Commission) is an independent agency of the U.S.
 
 ### Integration
 
-The Photon as well as the PØ/P1 Modules are covered under certifications from the FCC. Certified radio modules comply with the "Intentional Radiator" portion (Part 15c) of FCC certification.
+The Photon as well as the PØ/P1 Modules are covered under certifications from the FCC. Certified radio modules comply with the **Intentional Radiator** portion (Part 15c) of FCC certification.
 
  - The **Photon** is certified as a single-modular transmitter that carries a modular grant. Modular certified radio modules are allowed for integration into multiple host end products by the FCC.
 
@@ -44,13 +44,15 @@ The Photon as well as the PØ/P1 Modules are covered under certifications from t
 
  - The **P1 Module** is also certified as a single-modular transmitter that carries a modular grant, and is certified for integration into multiple host end products by the FCC.
 
-Any host product incorporating the Photon/PØ or P1 modules does not require additional testing or authorization for the Wi-Fi transmitter as long as:
+Any host product incorporating the Photon/PØ or P1 modules generally does not require additional **intentional radiator** (Part C) testing of the Wi-Fi transmitter as long as:
 - An antenna of the same type **and** equal or lesser gain to the antenna used for certification is used on the product.  
 - Any restrictions found in the grants are followed in the OEM's end product integration of Particle hardware.
 
 The Photon/PØ and P1 modules were certified with antennas of the following gain:
 - **Photon/PØ Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
 - **P1 Module**: On-board antenna (printed trace). Deployment with external antenna leveraging the onboard U.FL requires verification of certification.
+
+Note that your completed device will still likely require **unintentional radiator** (Part B) testing of your completed assembly.
 
 ### Customer Responsibilities
 Even though we've certified the Photon and PØ/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:
@@ -77,7 +79,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 - [Electronic Code of Federal Regulation for Telecommunications, Part 15: Radio Frequencies Devices](http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&SID=a9f9d244cc20be8b56099003689d6cc3&rgn=div5&view=text&node=47:1.0.1.1.16&idno=47)
 - [Additional details about Part 15](https://www.fcc.gov/oet/ea/rfdevice)
-- [Additional guidance on types of certification you may need](https://apps.fcc.gov/kdb/GetAttachment.html?id=zVUUifMY6Doa%2BO3Sg0Nygw%3D%3D&desc=996369%20D04%20Module%20Integration%20Guide%20V01&tracking_number=44637)
+- [Additional guidance on types of certification you may need](https://apps.fcc.gov/oetcf/kdb/forms/FTSSearchResultPage.cfm?id=44637&switch=P)
 
 ### Documentation
 
@@ -511,9 +513,15 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Test Reports](/assets/pdfs/new-certs/ce/photon-ce-test-reports-201708.zip)
 - [RoHS 3.0 Test Report](/assets/pdfs/photon-rohs.pdf)
 
-#### P1 Module - (updated 6/19/2018)
-- [Declaration of Conformity](/assets/pdfs/new-certs/ce/p1-declaration.pdf)
-- [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf)
+#### P1 Module
+- [Summary](/assets/pdfs/p1-ce-summary2.pdf) (2021-09-16)
+- [EN 300-328 Test Report](/assets/pdfs/p1-EN300-328-test-report.pdf) (2021-09-16)
+- [EN 301-489 Test Report](/assets/pdfs/p1-EN301-489-test-report.pdf) (2021-09-16)
+- [EN62311 and EN50665 Test Report](/assets/pdfs/p1-EN62311-test-report.pdf) (2021-09-16)
+- [EN62368 Test Report](/assets/pdfs/p1-EN62368-test-report.pdf) (2021-09-16)
+- [RoHS Test Repot](/assets/pdfs/p1-rohs.pdf) (2021-09-16)
+- [Declaration of Conformity](/assets/pdfs/new-certs/ce/p1-declaration.pdf) (2018-06-19)
+- [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf) (2018-06-19)
 
 #### Electron U270
 - [Certificate of Conformity](/assets/pdfs/electron/ce-u270-certificate.pdf)
@@ -583,19 +591,19 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [EN-62479 Test Report](/assets/pdfs/xenon-EN62479-test-report.pdf)
 - [RoHS 3.0 Test Report](/assets/pdfs/xenon-rohs.pdf)
 
-#### B Series SoM B523
+#### B Series SoM B524/B523
 
-- [Summary](/assets/pdfs/b523-ce-summary.pdf)
-- [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf)
-- [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf)
-- [RED Cellular Test Report](/assets/pdfs/b523-cellular-ce-test-report.pdf)
-- [EN 300 328 Test Report](/assets/pdfs/b523-EN300-328-test-report.pdf) (2.4 GHz ISM band)
-- [EN 300 330 Test Report](/assets/pdfs/b523-EN300-330-test-report.pdf) (NFC)
-- [EN 301 489 Test Report](/assets/pdfs/b523-EN301-489-test-report.pdf)
-- [EN 301 511 Test Report](/assets/pdfs/b523-EN301-511-test-report.pdf) (GSM)
-- [EN-62311 Test Report](/assets/pdfs/b523-EN62311-test-report.pdf)
-- [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950)
-- [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf)
+- [Summary](/assets/pdfs/b523-ce-summary.pdf) (updated 2021-09-16)
+- [EMC Test Report](/assets/pdfs/b523-ce-emc-test-report.pdf) (updated 2021-09-16)
+- [RED BLE Test Report](/assets/pdfs/b523-ble-ce-test-report.pdf) (updated 2021-09-16)
+- [RED Cellular Test Report](/assets/pdfs/b523-cellular-ce-test-report.pdf) (updated 2021-09-16)
+- [EN 300 328 Test Report](/assets/pdfs/b523-EN300-328-test-report.pdf) (2.4 GHz ISM band) (updated 2021-09-16)
+- [EN 300 330 Test Report](/assets/pdfs/b523-EN300-330-test-report.pdf) (NFC) (updated 2021-09-16)
+- [EN 301 489 Test Report](/assets/pdfs/b523-EN301-489-test-report.pdf) (updated 2021-09-16)
+- [EN 301 511 Test Report](/assets/pdfs/b523-EN301-511-test-report.pdf) (GSM) (updated 2021-09-16)
+- [EN-62311 Test Report](/assets/pdfs/b523-EN62311-test-report.pdf) (updated 2021-09-16)
+- [EN-62368 Test Report](/assets/pdfs/b523-EN62368-test-report.pdf) (supersedes EN-60950) (updated 2021-09-16)
+- [RoHS 3.0 Test Report](/assets/pdfs/b523-rohs.pdf) (updated 2021-09-16)
 
 
 #### Tracker SoM T523
@@ -692,6 +700,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [RoHS 3.0 Test Reports](/assets/pdfs/photon-rohs.pdf)
 - [Test Reports](/assets/pdfs/p0-rohs-test-reports.zip)
+
+#### P1
+
+- [Test Report](/assets/pdfs/p1-rohs.pdf) (2021-09-16)
 
 #### Electron U260/U270/G350
 

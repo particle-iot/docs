@@ -205,6 +205,7 @@ In this example, the event that triggered the webhook, `get_temp`, would result 
 
 It is worth mentioning that you can override the default response event name if you'd like. This is useful for product webhooks when you'd like to ensure that only the device that triggered the webhook receives its response. [More on that here](#product-webhook-responses).
 
+See [special webhook events](/reference/device-cloud/api/#special-webhook-events) for more details about handling multipart responses.
 
 ## What data gets sent?
 

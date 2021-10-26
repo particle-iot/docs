@@ -670,6 +670,7 @@ The parts may arrive out of order. This has always been the case if retransmissi
 
 There is no express indication of how many parts there are. Any part less than 512 bytes is the last part, however if the data is a multiple of 512 bytes, then it will be impossible to tell. Some formats like JSON will only be parsable after all parts have been received.
 
+Each chunk is a separate publish from the cloud point-of-view. Each chunk uses one data operation for each Particle device it is subscribed by. Furthermore, on all devices (except the Photon and P1), each chunk has a maximum of 3 retries at the CoAP level, but no further checks are done to insure delivery. These chunks are sent out rapidly, faster than the 1 second per publish limit. Thus if you have a large number of chunks, it is likely that some may not be received by the device, especially in areas with poor cellular connectivity. There is no way to get lost chunks retransmitted.
 
 These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/device-cloud/api/#get-a-stream-of-events) to see these events.
 

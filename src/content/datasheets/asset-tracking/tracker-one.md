@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle One Enclosure and Carrier Board
 ---
 
-# Tracker One<sup>(017)</sup>
+# Tracker One<sup>(018)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/tracker-one.pdf"}}
@@ -264,7 +264,7 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 
 ### Power consumption (Tracker One 402)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>startup</sub> |  |  |  | mA |
 | Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> |  |  |  | mA |
@@ -296,11 +296,15 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 185 | 669 | uA |
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 230 | 636 | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
+
 ---
 
 ### Power consumption (Tracker One 523)
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>startup</sub> | 24.2 | 132 | 689 | mA |
 | Operating Current (uC on, cellular connecting to cloud) | I<sub>cell_conn_cloud</sub> | 51.2 | 112 | 594 | mA |
@@ -332,6 +336,9 @@ Note: The Tracker Carrier Board has a smaller bottom tab to provide space for th
 | HIBERNATE mode sleep, IMU wake-up | I<sub>hib_imu</sub> | | 178 | 544  | uA |
 | HIBERNATE mode sleep, CAN wake-up | I<sub>hib_can</sub> | | 222 | 608  | uA |
 
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 ---
 
@@ -502,3 +509,4 @@ Any WEEE marked waste products must not be mixed with general household waste, b
 | 015      | 2021 Mar 15 | RK | Updated model, carrier, ordering information |
 | 016      | 2021 Mar 23 | RK | Added FCC and IC interference statements |
 | 017      | 2021 Mar 29 | RK | D8 and D9 were reversed in some tables |
+| 018      | 2021 Sep 10 | RK | Changed wording of peak vs. max current |

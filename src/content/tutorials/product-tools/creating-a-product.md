@@ -3,6 +3,7 @@ title: Creating a Product
 columns: two
 layout: commonTwo.hbs
 description: Creating your first Particle product
+includeDefinitions: [api-helper, api-helper-extras]
 ---
 
 # {{title}}
@@ -53,6 +54,8 @@ The owner is the user who initially created the product. To transfer a product t
 
 - When you get to the growth or enterprise tier you have an organization, which is your collection of products that belong to your company. Products can be moved into that organization easily from the product configuration.
 
+- Changing the owner of a product from one user to another requires a [support ticket](https://support.particle.io/). Changing the email address of an account, which moves all of the devices, webhooks, products, and source in the Web IDE, can be done from account settings.
+
 ### Team setup
 
 Each team member will have their own email and Particle account. You can add their Particle accounts to the product from the product [Team Configuration](/tutorials/device-cloud/console/#adding-team-members).
@@ -74,6 +77,8 @@ One major difference between developer devices and products is with device claim
 - Customer claiming. This is a more common for Wi-Fi products that create separate customer accounts for each customer. These can either be simple auth or two-legged shadow customers. It is also possible, but less common, to use this option for cellular devices.
 
 - Developer team members may want to claim the test devices on their desks to their own account rather than a single account or customer account. This simplifies flashing firmware to their devices.
+
+If you are using integrations, the choices made here affect where to put your integration. In most cases, you should put the integration in your product. If you are claiming all devices to a single account you could possibly put the integration there, however it's still generally better to put the integration in the product. If you are using unclaimed product devices or customer claiming, you must put the integration in your product.
 
 ## Development Tools
 
@@ -105,6 +110,8 @@ The local compiler may be necessary for very large projects, but otherwise you c
 ### Web IDE
 
 The Particle Web IDE can be used to create product firmware, but it's recommended that you use Particle Workbench. It's difficult to share code between multiple users in the Web IDE, and there is no version control.
+
+If you are currently using the Web IDE and want to migrate to using Workbench, you can use the [Web IDE Export Tool](/tools/device-programming/web-ide-exporter/) to export your projects for use with Workbench.
 
 ### Particle CLI
 
@@ -213,11 +220,15 @@ If you open a product (either sandbox or organization), you will see similar tab
 
 - Inside a product, if you select **Integrations**, when you open an integration you can see the 10 most recent requests and response that triggered the integration, but no other events.
 
-## Integrations
+## Communicating with your servers
+
+A common need is to have events from your Particle devices trigger external services, possibly in your own server or cloud server, or a 3rd-party service.
+
+### Integrations
 
 If you are using Integrations, including Webhooks, there are two different places you can create them, which can lead to confusion.
 
-### Product integrations
+#### Product integrations
 
 The recommended location for webhooks for product devices is within the product configuration. Product integrations can be triggered for any device in the product device fleet, including development devices and unclaimed devices. Make sure you are opening the Integrations tab after going into the product to see this list.
 
@@ -225,14 +236,129 @@ This is necessary if you are using product customers, where claiming will occur 
 
 Unclaimed product devices cannot receive the response from a product webhook, but they can still send to the webhook.
 
-### Device owner integrations
+#### Device owner integrations
 
 An integration in the device owner's account can also trigger for a product device event. This is generally not the best place to put the integration, even if you are claiming devices to a single account, as it means development devices must be claimed to the shared account, which is inconvenient for OTA flashing during development.
 
-One use-case of a device owner integration is when a developer is making a new or upgraded product webhook. They could implement it in their own account and test, then copy and paste it into the production product integration when released to the fleet.
+Also all team members can access product integrations with their own login. They would need to log in as the device owner account to see a device owner integration.
 
 Beware: If you have two integrations, one in the owner account and one in the product, both can fire if they have the same event trigger!
 
+To copy or move a device owner integration into a product, you can use the [integration copy tool](/tools/product-tools/integration-copy/).
+
+### Server Sent Events (SSE)
+
+Two common ways Particle devices can trigger external services are webhooks and Server Sent Events (SSE).
+
+The SSE event stream works by having your server make an outbound https (encrypted) connection to the Particle API service. This connection is kept open, and if new events arrive, they are immediately passed down this stream. There are a number of advantages to this:
+
+- Works for developer and product event streams.
+- Can get all events, or a subset of events by prefix filter.
+- Works from a network behind a firewall or NAT typically with no changes required (no port forwarding).
+- You do not need TLS/SSL server certificates for encrypted communication, because the connection is outbound.
+- You do not need separate authentication; Particle API tokens are used for authentication.
+- It's efficient - the connection only needs to be established and authenticated once.
+
+While this sounds great, there are some issues that can occur that make it less than ideal for large device fleets and make webhooks more attractive:
+
+- You can only have one server accepting events with SSE. With webhooks you can have multiple servers behind a load balancer for both server redundancy as well as load sharing.
+- If the SSE stream fails for any reason, you could end up losing events. It can take up to a minute to detect that this has happened in some cases.
+
+### Google Pubsub
+
+One option that's somewhere between SSE and webhooks is Google Publish and Subscribe (pubsub). This uses a feature of the Google cloud, which may incur additional charges from Google but has a number of advantages:
+
+- The Google pubsub receiver is redundant, load-balanced, and highly available.
+- Your server can be network behind a firewall or NAT typically with no changes required (no port forwarding).
+- Or your server can be in the Google cloud, if you prefer.
+- You do not need TLS/SSL server certificates for encrypted communication, because the connection is outbound.
+- You do not need separate authentication; Google cloud authentication is used.
+- Google subscriptions have confirmed delivery. If your server is down, the events will be queued in the Google cloud and will be received when you next connect.
+- Because of confirmed delivery, you can have multiple servers receiving the events and they will round-robin handling events with each event only being handled once.
+
+## Changing the product owner
+
+The product owner is the account that owns a product. It can either be a user account (sandbox product), or it can be an organization (growth or enterprise product). When you migrate to growth, you provide a list of products you want to move into the organization:
+
+- Billing for the organization will be the responsibility of organization.
+- The product will no longer be limited to 100 devices.
+- Exceeding the data operation or cellular data limits will add additional blocks instead of pausing the account.
+- Device connectivity will continue uninterrupted.
+
+Device claiming is not affected by the move. If the devices were claimed to the original product owner that will remain unchanged. However even though the devices appear in the product owner's sandbox device list, devices that are part of the organization product do not count against the 100 device limit! You can use the [device list details tool](/tutorials/product-tools/creating-a-product/#device-list-details) to see which devices count against the limits.
+
+Integrations such as webhooks defined in the old product owner account will continue to function if the devices are still claimed to the product owner.
+
+## Changing the product owner email
+
+Another possibility is changing the product owner's email. This affects:
+
+- All products owned by that user will now be associated with the new email.
+- All device claims will be will now be associated with the new email.
+- All access tokens continue to function unchanged.
+- Integrations move the new account email.
+- Applications in the Web IDE are moved to the new account email.
+- Devices stay online uninterrupted.
+- API access remains unchanged.
+
+This option is ideal if you are contractor developing a product for a company, then handing it off.
+
+- You create a Particle account for each project you are working on using a unique email in your domain, Google mail, etc.
+- Upon completion of the project and handoff, you change the account email to a domain controlled by the company that now owns the project, products, devices, etc.
+- Before transferring, disable multi-factor authentication (MFA), if enabled.
+- Upon transferring the password will be unchanged, but the receiver can reset the password using their email.
+
+In the scenario where the contractor passes off ownership but still needs access for maintenance, the contractor can add themselves as a team member using a different email that will continue to work after changing the product owner email.
+
+## Device lists
+
+The device lists can be confusing because there are multiple device lists with sometimes confusing information.
+
+### Sandbox devices
+
+![Sandbox Devices](/assets/images/console/sandbox-devices.png)
+
+When you first open the console the sandbox device view is what you see. 
+
+If you have access to organizations in the growth or enterprise plans, the popup (1) allows you to choose between sandbox, your own free space to work with devices and products, or your organization.
+
+The devices icon (2) shows the device list.
+
+**The device list shows all devices that are claimed to your account**
+
+This can lead to confusion because there is a limit of 100 devices in the free sandbox. However, there can be signficantly larger number of devices in this list because it also shows product and organization product devices that are claimed to your account. These organization products devices do not count against your device limit, but do show up in this list.
+
+### Sandbox products
+
+![Sandbox Products](/assets/images/console/sandbox-product.png)
+
+The sandbox product icon (2) shows all of the products you have access to, either as the product owner, or as a team member of a sandbox product that another user owns. 
+
+When you start out developing products, this is likely where they will appear.
+
+If the product is an organization product, see below.
+
+### Organization product devices
+
+![Organization Devices](/assets/images/console/org-devices.png)
+
+If you have access to organizations and select your organization (1), then select a product (2), and the product devices icon (3), then you'll see the device list for that organization product.
+
+In a product (organization or sandbox), it's often possible to leave the devices unclaimed. This is the case for all Tracker devices with the default Tracker Edge software. Thus **none** is a valid value in the **Owner** column. Another common scenario is for all product devices to be claimed to a single account, in which case the owner will be the same for most devices.
+
+Note that if you have an organization product device claimed to your account, it will appear here as well as in your sandbox devices view! This is the organization product view for the product Rick-Tracker, which contains devices that also show up in Rick's sandbox device list (above).
+
+![Organization Devices](/assets/images/console/org-devices-2.png)
+
+### Device list details
+
+This tool can help you decode what's being displayed in the sandbox device list for you account:
+
+{{> sso }}
+
+{{> device-list }}
 
 
+## Next steps
 
+When you're ready to expand beyond prototyping, see [scaling your product](/tutorials/product-tools/scaling-your-product/) for tips of growing your product.

@@ -5,7 +5,7 @@ columns: two
 description: Datasheet for the Particle Argon, Gen 3 Wi-Fi development kit
 ---
 
-# Argon Datasheet <sup>(v007)</sup>
+# Argon Datasheet <sup>(v008)</sup>
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
@@ -230,7 +230,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power consumption
 
-| Parameter | Symbol | Min | Typ | Max | Unit |
+| Parameter | Symbol | Min | Typ | Peak | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
 | Operating Current (uC on, peripherals and radio disabled) | I<sub>idle</sub> | 3.1 | 3.52 | 3.58 | mA |
 | Operating Current (uC on, radio connected but idle) | I<sub>wifi_cloud_idle</sub> | 20.5 | 25.8 | 219 | mA |
@@ -252,6 +252,10 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | HIBERNATE mode sleep, GPIO wake-up | I<sub>hib_gpio</sub> | | 64.7 | 161 | uA |
 | HIBERNATE mode sleep, analog wake-up | I<sub>hib_analog</sub> | | 65.0 | 159 | uA |
 | Power disabled (EN pin = LOW) | I<sub>disable</sub> |  | 20 | 30 | uA |
+
+<sup>1</sup>The min, and particularly peak, values may consist of very short transients.
+The typical (typ) values are the best indicator of overall power consumption over time. The 
+peak values indicate the absolute minimum capacity of the power supply necessary, not overall consumption.
 
 
 ### Radio specifications
@@ -474,6 +478,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v005     | 15-Mar-2021 | RK | Updated ordering information |
 | v006     | 28-Jun-2021 | RK | Added Device OS 3.1 memory map information |
 | v007     | 28-Jul-2021 | RK | Corrected number of SPI ports (2) in peripherals and GPIO |
+| v008     | 10-Sep-2021 | RK | Changed wording of peak vs. max current |
 
 ## Known Errata
 

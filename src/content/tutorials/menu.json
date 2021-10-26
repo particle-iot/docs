@@ -227,6 +227,11 @@
         "href": "/tutorials/product-tools/creating-a-product/"
       },
       {
+        "dir": "migrating-to-growth",
+        "title": "Migrating to Growth Plan",
+        "href": "/tutorials/product-tools/migrating-to-growth/"
+      },
+      {
         "dir": "security",
         "title": "Security",
         "href": "/tutorials/product-tools/security/"
