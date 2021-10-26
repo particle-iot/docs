@@ -68,6 +68,10 @@ $(document).ready(function () {
         const fileTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceFileTr');
         const urlTrElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceUrlTr');
 
+        // Setup done
+        const setupBitTrElem =  $(thisPartial).find('.apiHelperUsbRestoreSetupBitTr');
+        const setupBitSelectElem = $(thisPartial).find('.apiHelperUsbRestoreDeviceSetupBit');
+
         const setStatus = function(str) {
             $(thisPartial).find('.apiHelperUsbRestoreDeviceStatus').html(str);
         }
@@ -90,6 +94,7 @@ $(document).ready(function () {
             $(selectElem).prop('disabled', false);
             $(versionElem).prop('disabled', true);
             $(restoreElem).prop('disabled', true);
+            $(setupBitTrElem).hide();
         };
 
         const checkRestoreButtonEnable = function() {
@@ -202,6 +207,7 @@ $(document).ready(function () {
                 $(selectElem).prop('disabled', false);
                 $(versionElem).prop('disabled', true);
                 $(restoreElem).prop('disabled', true);
+                $(setupBitTrElem).hide();
         
                 if (usbDevice) {
                     $(selectInfoElem).html('');
@@ -217,9 +223,11 @@ $(document).ready(function () {
         
                 // Find available versions for this device
                 let versionArray;
+                let isGen3 = false;
 
                 for(let tempPlatformObj of deviceRestoreInfo.platforms) {
                     if (tempPlatformObj.id == usbDevice.platformId) {
+                        isGen3 = (tempPlatformObj.gen == 3);
                         if (deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name]) {
                             versionArray = deviceRestoreInfo.versionsZipByPlatform[tempPlatformObj.name];
                             platformObj = tempPlatformObj;
@@ -244,6 +252,10 @@ $(document).ready(function () {
                 }
                 if (lastVersion && !lastVersion.startsWith('Select')) {
                     $(versionElem).val(lastVersion);
+                }
+
+                if (isGen3) {
+                    $(setupBitTrElem).show();
                 }
                 
                 $(versionElem).prop('disabled', false);
@@ -304,6 +316,8 @@ $(document).ready(function () {
 
             let version = $(versionElem).val();
 
+            const setupBit = $(setupBitSelectElem).val();
+            
             let downloadUrl;
 
             if ($(modeSelectElem).val() == 'url' || $(modeSelectElem).val() == 'customUrl') {
@@ -682,9 +696,33 @@ $(document).ready(function () {
 
             // Write 0xA5 to offset 1753 in alt 1 (DCT) 
             {
-                partName = 'ota flag';
 
                 const dfuseAltDevice = await createDfuseDevice(altInterface);
+
+
+                if (extInterface && setupBit != 'unchanged') {
+                    // setup done on gen3
+                    partName = 'setup done';
+               
+                    dfuseAltDevice.startAddress = 0x1fc6;
+                
+                    let flag = new Uint8Array(1);
+                    flag[0] = (setupBit == 'done') ? 0x01 : 0xff;
+                      
+                    try {
+                        await dfuseAltDevice.do_download(4096, flag, {doManifestation:false, noErase:true});                    
+        
+                        setTimeout(function() {
+                            setStatus('');
+                        }, 1000);        
+                    }
+                    catch(e) {
+                        setStatus('Error setting setup flag');
+                    }
+    
+                }
+
+                partName = 'ota flag';
 
                 dfuseAltDevice.startAddress = 1753;
                 

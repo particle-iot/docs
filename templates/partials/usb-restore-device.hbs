@@ -33,6 +33,15 @@
                     <td class="apiHelperProductSelectorLabel">User Firmware URL</td>
                     <td colspan="2"><input type="text" size="60" /></td>
                 </tr>
+                <tr class="apiHelperUsbRestoreSetupBitTr" style="display:none">
+                    <td class="apiHelperProductSelectorLabel">Setup Bit</td>
+                    <td><select class="apiHelperUsbRestoreDeviceSetupBit apiHelperSelect">
+                        <option value="unchanged" selected>Leave value unchanged</option>
+                        <option value="done">Mark setup done (run firmware normally)</option>
+                        <option value="notDone">Mark setup not done (go into listening mode)</option>
+                    </select></td>
+                    <td>&nbsp;</td>
+                </tr>
                 <tr>
                     <td colspan="2">
                         <button class="apiHelperUsbRestoreDeviceRestore apiHelperButton" disabled>Restore Device</button>
