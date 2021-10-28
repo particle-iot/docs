@@ -99,6 +99,16 @@
         "href": "/datasheets/wi-fi/photon-datasheet/"
       },
       {
+        "dir": "p2-datasheet",
+        "title": "P2 datasheet",
+        "href": "/datasheets/wi-fi/p2-datasheet/"
+      },
+      {
+        "dir": "p2-migration-guide",
+        "title": "P2 migration guide",
+        "href": "/datasheets/wi-fi/p2-migration-guide/"
+      },
+      {
         "dir": "p1-datasheet",
         "title": "P1 datasheet",
         "href": "/datasheets/wi-fi/p1-datasheet/"
