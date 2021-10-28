@@ -7,7 +7,7 @@ description: Datasheet for the Particle Boron, Gen 3 cellular development kit
 
 # Boron Datasheet <sup>(v009)</sup>
 
-**PRE-RELEASE DRAFT 2021-08-19**
+**PRE-RELEASE DRAFT 2021-10-27**
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}

@@ -587,7 +587,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Burkina Faso | E314 | 2G, 3G | Orange |
 | Cambodia | E314 | 2G, 3G | Metfone |
 | Canada | E404 | M1 | Bell Mobility, Rogers Wireless, Telus |
-| Canada | E404X | M1 | Bell Mobility, Rogers Wireless, Telus |
 | Cayman Islands | E314 | 2G, 3G | Flow |
 | Chad | E314 | 2G, 3G | Airtel |
 | Chile | E314 | 2G, 3G | Claro, Entel, Movistar |
@@ -648,7 +647,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Malaysia | E314 | 2G, 3G | Celcom, DiGi, Maxis |
 | Malta | E314 | 2G, 3G | Go Mobile, Vodafone |
 | Mexico | E404 | M1 | AT&T |
-| Mexico | E404X | M1 | AT&T |
 | Moldova | E314 | 2G, 3G | Moldcell, Orange |
 | Mongolia | E314 | 2G, 3G | Mobicom, Unitel |
 | Montenegro | E314 | 2G, 3G | Mtel, T-Mobile, Telenor |
@@ -701,7 +699,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | Ukraine | E314 | 2G, 3G | Kyivstar, Life, MTS |
 | United Kingdom | E314 | 2G, 3G | 3, EE, Manx, O2, Sure, Vodafone |
 | United States | E404 | M1 | AT&T |
-| United States | E404X | M1 | AT&T |
 | Uruguay | E314 | 2G, 3G | Antel, Claro, Movistar |
 | Uzbekistan | E314 | 2G, 3G | Beeline |
 | Venezuela | E314 | 2G, 3G | Movistar |
@@ -725,9 +722,6 @@ The E series employs a [MAX17043](https://datasheets.maximintegrated.com/en/ds/M
 | E404KIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R410 | &check; | GA | |
 | E404MOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R410 | &check; | GA | |
 | E404TRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R410 | &check; | GA | |
-| E404XKIT | E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1] | NORAM | R510 | &check; | GA | |
-| E404XMOD1 | E Series LTE CAT-M1 (NorAm), [x1] | NORAM | R510 | &check; | GA | |
-| E404XTRAY50 | E Series LTE CAT-M1 (NorAm), Tray [x50] | NORAM | R510 | &check; | GA | |
 | E310TRAY50 | E Series 2G/3G (Global - E310), Tray [x50] | Global | U201 |  | NRND-US | |
 | E313TY | E Series 2G/3G (Global - E313), Tray [x50] | Global | U201 |  | NRND-US | |
 | E310KIT | E Series 2G/3G (Global - E310) Evaluation Kit, [x1] | Global | U201 |  | NRND | E314KIT|

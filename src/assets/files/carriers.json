@@ -20221,63 +20221,6 @@
       "cellAntAlt": "ANTCW2EA"
     },
     {
-      "name": "E404XKIT",
-      "desc": "E Series LTE CAT-M1 (NorAm) Evaluation Kit, [x1]",
-      "lifecycle": "GA",
-      "modem": "R510",
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "simMff2": true,
-      "multiple": false,
-      "family": "e series",
-      "gen": "2",
-      "skuClass": "eval",
-      "skuRegion": "noram",
-      "cellAnt": "ANT-FLXU",
-      "cellAntInc": true,
-      "cellAntAlt": "ANTCW2EA"
-    },
-    {
-      "name": "E404XMOD1",
-      "desc": "E Series LTE CAT-M1 (NorAm), [x1]",
-      "lifecycle": "GA",
-      "modem": "R510",
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "simMff2": true,
-      "multiple": false,
-      "family": "e series",
-      "gen": "2",
-      "skuClass": "production",
-      "skuRegion": "noram",
-      "cellAnt": "ANT-FLXU",
-      "cellAntInc": true,
-      "cellAntAlt": "ANTCW2EA"
-    },
-    {
-      "name": "E404XTRAY50",
-      "desc": "E Series LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
-      "modem": "R510",
-      "multiple": true,
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "simMff2": true,
-      "family": "e series",
-      "gen": "2",
-      "skuClass": "production",
-      "skuRegion": "noram",
-      "cellAnt": "ANT-FLXU",
-      "cellAntInc": false,
-      "cellAntAlt": "ANTCW2EA"
-    },
-    {
       "name": "ELC314TY",
       "desc": "Electron 2G/3G (Global - U201) , Tray [x50]",
       "lifecycle": "GA",
@@ -20340,25 +20283,6 @@
       "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
       "lifecycle": "GA",
       "modem": "R410",
-      "multiple": true,
-      "sim": 4,
-      "simPlans": [
-        40
-      ],
-      "simMff2": true,
-      "family": "electron",
-      "gen": "2",
-      "skuClass": "production",
-      "skuRegion": "noram",
-      "cellAnt": "ANT-FLXU",
-      "cellAntInc": false,
-      "cellAntAlt": "ANTCW2EA"
-    },
-    {
-      "name": "ELC404XTY",
-      "desc": "Electron LTE CAT-M1 (NorAm), Tray [x50]",
-      "lifecycle": "GA",
-      "modem": "R510",
       "multiple": true,
       "sim": 4,
       "simPlans": [
@@ -21368,17 +21292,6 @@
       "name": "E Series",
       "group": [
         {
-          "name": "E Series E404X LTE M1 (NorAm) EtherSIM",
-          "short": [
-            "E404X"
-          ],
-          "region": "noram",
-          "lifecycle": "GA",
-          "sim": 4,
-          "simPlan": 40,
-          "modem": "R510"
-        },
-        {
           "name": "E Series E404 LTE M1 (NorAm) EtherSIM",
           "short": [
             "E404"
@@ -21440,17 +21353,6 @@
       "family": "electron",
       "name": "Electron",
       "group": [
-        {
-          "name": "Electron ELC404X LTE M1 (NorAm) EtherSIM",
-          "short": [
-            "ELC404X"
-          ],
-          "region": "noram",
-          "lifecycle": "GA",
-          "sim": 4,
-          "simPlan": 40,
-          "modem": "R510"
-        },
         {
           "name": "Electron ELC404 LTE M1 (NorAm) EtherSIM",
           "short": [

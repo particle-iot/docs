@@ -7,7 +7,7 @@ description: Datasheet for the Particle B Series B404X, B404 and B402 SoM, Gen 3
 
 # B404X/B404/B402 Datasheet <sup>(014)</sup>
 
-**PRE-RELEASE DRAFT 2021-08-19**
+**PRE-RELEASE DRAFT 2021-10-27**
 
 {{#unless pdf-generation}}
 {{downloadButton url="/assets/pdfs/datasheets/b402-datasheet.pdf"}}
