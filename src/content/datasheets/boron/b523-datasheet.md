@@ -30,6 +30,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * 3GPP E-UTRA Release 13 
  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
  * 2G and 3G fallback (900, 1800, and 2100 MHz)
+ * Embedded Particle EtherSIM (B524)
  * Support for Europe, Australia, and New Zealand (B524) at this time
 
 #### Features - B523
@@ -38,6 +39,7 @@ The B Series is designed to be integrated into your circuit board design, pluggi
  * 3GPP E-UTRA Release 13 
  * Cat 1 bands supported: 1, 3, 7, 8, 20, 28A
  * 2G and 3G fallback (900, 1800, and 2100 MHz)
+ * Embedded Particle SIM (B523)
  * Support for Europe only
 
 #### Features - All Models

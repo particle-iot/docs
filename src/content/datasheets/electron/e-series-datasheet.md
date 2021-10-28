@@ -34,6 +34,8 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Open source software design
  * Real-time operation system (RTOS)
  * FCC, CE and IC certified
+ * Embedded Particle EtherSIM (E314, E404, E404X)
+ * Embedded Particle SIM (E310, E402)
 
 
 ## Interfaces

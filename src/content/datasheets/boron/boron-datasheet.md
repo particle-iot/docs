@@ -32,6 +32,8 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * Support for United States, Canada, and Mexico only
  * 3GPP Release 13 LTE Cat M1 
  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+ * Embedded Particle EtherSIM (BRN404)
+ * Embedded Particle SIM (BRN402)
 
 #### Features - BRN404X (Boron LTE)
 
@@ -40,6 +42,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * Support for United States, Canada, and Mexico only
  * 3GPP Release 14 LTE Cat M1 
  * Cat M1 bands: 1, 2, 3, 4, 5, 8, 12, 13, 18, 19, 20, 25, 26, 28, 66, 71, 85<sup>1</sup>
+ * Embedded Particle EtherSIM (BRN404X)
 
 <sup>1</sup> Not all bands enabled in software by default
 
@@ -49,6 +52,8 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
  * HSPA/GSM with global hardware and SIM support 
  * Bands 800/850/900/1900/2100 MHz 
  * 3GPP Release 7
+ * Embedded Particle EtherSIM (BRN314)
+ * Embedded Particle SIM (BRN310)
 
 #### Features - All Models
 
