@@ -1366,7 +1366,6 @@ const { option } = require('yargs');
             }
         }
 
-
         if (options.style == 'modulePins') {
             md += '| Pin | Pin Name | Description | MCU |\n';
             md += '| :---: | :--- | :--- | :---: |\n'
@@ -1803,6 +1802,62 @@ const { option } = require('yargs');
                             filterFn:function(skuObj) {
                                 return !skuObj.name.startsWith('P1');
                             }        
+                        }); 
+                    } 
+                }
+            ]
+        },
+        {
+            path:'/datasheets/wi-fi/p2-datasheet.md', 
+            updates:[
+                {
+                    guid:'a201cbf3-f21d-4b34-ac10-a713ef5a857e', 
+                    generatorFn:function(){
+                        return updater.generateFamilySkus('p series', {
+                            filterFn:function(skuObj) {
+                                return !skuObj.name.startsWith('P2');
+                            }        
+                        }); 
+                    } 
+                },
+                {
+                    guid: '8bd904e1-0088-488c-9fbb-e695d7643949',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'pinFunction',
+                            platform: 32
+                        }); 
+                    } 
+                },
+                {
+                    guid:'5c5c78ef-c99c-49b7-80f4-19196b90ecfe', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'modulePins',
+                            platform: 32
+                        }); 
+                    } 
+                }
+            ]            
+        },
+        {
+            path:'/datasheets/wi-fi/p2-migration-guide.md', 
+            updates:[ 
+                {
+                    guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-migration-removed',
+                            platform: 32
+                        }); 
+                    } 
+                },
+                {
+                    guid:'0f8940d5-5d0b-4f16-bfa2-1666616ba9ef', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-migration-added',
+                            platform: 32
                         }); 
                     } 
                 }
@@ -2330,6 +2385,8 @@ const { option } = require('yargs');
     updater.doUpdate = function(scriptsDir, files) {
 
         const pathPrefix = path.resolve(scriptsDir, '../src/content');
+
+        updater.pinInfo = JSON.parse(fs.readFileSync(path.resolve(scriptsDir, '../src/assets/files/pinInfo.json'), 'utf8'));
 
         updater.datastore.data = JSON.parse(fs.readFileSync(path.resolve(scriptsDir, '../src/assets/files/carriers.json'), 'utf8'));
 

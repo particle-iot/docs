@@ -263,7 +263,9 @@ function loadTableView() {
 	$('#pinTableDiv').show();
 
 	var sortByTag = $('#tableSortBySelect').val();
-
+	
+	// pins is the array of all pins for the platform. Each entry in the array is an object 
+	// that describes that one pin
 	var pins = objectForPlatform[platformName].pins;
 
 	var sortedPinsIndex = [];
@@ -280,19 +282,23 @@ function loadTableView() {
 	// sort the array. If the sortByTag is 'num' (pin number) then convert to an int using
 	// parseInt so they in numerical order, not ASCII order. Otherwise, sort by ASCII order.
 	sortedPinsIndex.sort(function(a,b) {
+		// a and b are indexes into the pins array
 		var aa;
 		var bb;
 		
 		if (sortByTag == 'normal') {
+			// Sort by array index
 			aa = a;
 			bb = b;
 		}
 		else
 		if (sortByTag == 'num') {
+			// Sort by the value of the num field of the objects in the pins array
 			aa = parseInt(pins[a][sortByTag]);
 			bb = parseInt(pins[b][sortByTag]);
 		}
 		else {
+			// Sort in ASCII order by the sortByTag field of the objects in the pins array
 			aa = pins[a][sortByTag];
 			bb = pins[b][sortByTag];
 		}
@@ -379,6 +385,8 @@ function loadComparison(numComparison) {
 	// Get the pins array for the device (details) or left device (comparison)
 	var platformNameLeft = $('#deviceSelect').val();
 	
+	// pinsLeft is the array of all pins the left platform
+	// Each element in the array is an object that describes one pin
 	var pinsLeft = objectForPlatform[platformNameLeft].pins;
 
 	pinsArray.push(pinsLeft);
@@ -387,13 +395,13 @@ function loadComparison(numComparison) {
 		// If doing comparison, add the right device
 		var platformNameRight = $('#device2Select').val();
 		
+		// pinsRight is the array of all pins the right platform
+		// Each element in the array is an object that describes one pin
 		var pinsRight = objectForPlatform[platformNameRight].pins;
 		
 		pinsArray.push(pinsRight);
 	}
 
-
-	
 	$('#pinDetailDiv').html('');
 	$('#pinDetailDiv').show();
 
@@ -417,6 +425,9 @@ function loadComparison(numComparison) {
 	
 	// Iterate the pin lists and find all pins that have the sortByTag and add them
 	pinsArray.forEach(function(pins, index) {
+		// pins is an array of pins for a platform
+		// index is 0 for left or only platform
+		// index is 1 for right if doing a comparison
 		for(var ii = 0; ii < pins.length; ii++) {
 			if (pins[ii].hasOwnProperty(sortByTag)) {
 				var value = pins[ii][sortByTag];
@@ -436,18 +447,36 @@ function loadComparison(numComparison) {
 						infoByValue[value] = [];
 					}
 					var added = false;
-					for(var jj = 0; jj < infoByValue[value].length; jj++) {
-						if (infoByValue[value][jj].name == pins[ii].name) {
-							infoByValue[value][jj][index] = pins[ii];
-							added = true;
-							break;
+					if (sortByTag != 'num') {
+						for(var jj = 0; jj < infoByValue[value].length; jj++) {
+							if (infoByValue[value][jj].name == pins[ii].name) {
+								infoByValue[value][jj][index] = pins[ii];
+								added = true;
+								break;
+							}
 						}
+						if (!added) {
+							var obj = {};
+							obj.name = pins[ii].name;
+							obj[index] = pins[ii];
+							infoByValue[value].push(obj);						
+						}	
 					}
-					if (!added) {
-						var obj = {};
-						obj.name = pins[ii].name;
-						obj[index] = pins[ii];
-						infoByValue[value].push(obj);						
+					else {
+						for(var jj = 0; jj < infoByValue[value].length; jj++) {
+							if (infoByValue[value][jj].name == pins[ii].num) {
+								infoByValue[value][jj][index] = pins[ii];
+								added = true;
+								break;
+							}
+						}
+						if (!added) {
+							var obj = {};
+							obj.name = pins[ii].name;
+							obj[index] = pins[ii];
+							infoByValue[value].push(obj);						
+						}
+	
 					}
 				}
 			}
@@ -551,7 +580,8 @@ function loadComparison(numComparison) {
 		var value = sortByValues[ii];
 				
 		for(var jj = 0; jj < infoByValue[value].length; jj++) {
-			var title = (sortByTag == 'name') ? value : value + ' (' + infoByValue[value][jj].name + ')';
+			var title = value;
+			// (sortByTag == 'name') ? value : value + ' (' + infoByValue[value][jj].name + ')';
 			tb.cell(0, curRow++).withClass('pinInfoHeader').withAttr('colspan', '3').appendText(title);
 			
 			for(var kk = 0; kk < infoByValue[value][jj].details.length; kk++) {
