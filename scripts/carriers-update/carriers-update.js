@@ -895,6 +895,139 @@ const path = require('path');
         return md;
     };
 
+    updater.generatePinInfo = function(options) {
+        const platformInfo = updater.pinInfo.platforms.find(p => p.id == options.platform);
+        if (!platformInfo) {
+            return '';
+        }
+
+        let md = '';
+
+        if (options.style == 'pinFunction') {
+            const functionCols = [["hardwareADC"], ["i2c","swd"], ["spi"], ["serial"]];
+
+            md += '| Pin Name | Module Pin |';
+            for(const colInfo of functionCols) {
+                md += '  |';
+            }
+            md += ' MCU |\n';
+
+            md += '| :--- | :---: |';
+            for(const colInfo of functionCols) {
+                md += ' :---: |';
+            }
+            md += ':---: |\n'
+
+            let pins = [];
+            for(const pin of platformInfo.pins) {
+                pins.push(pin);
+            }
+            pins.sort(function(a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            for(const pin of pins) {
+                md += '| ' + pin.name + ' | ' + pin.num + ' | ';
+                
+                for(const colInfo of functionCols) {
+                    let added = false;
+                    for(const key of colInfo) {
+                        if (pin[key]) {
+                            added = true;
+                            let s = pin[key];
+                            const barIndex = s.indexOf('|');
+                            if (barIndex > 0) {
+                                s = s.substr(0, barIndex);
+                            }
+                            md += s + ' | ';
+                            break;
+                        }
+                    }
+                    if (!added) {
+                        md += '  | ';
+                    }
+                }
+                
+                md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }
+        }
+
+        if (options.style == 'modulePins') {
+            md += '| Pin | Pin Name | Description | MCU |\n';
+            md += '| :---: | :--- | :--- | :---: |\n'
+
+            let pins = [];
+            for(const pin of platformInfo.pins) {
+                pins.push(pin);
+                if (pin.morePins) {
+                    for(const pinNum of pin.morePins) {
+                        let pinCopy = Object.assign({}, pin);
+                        pinCopy.num = pinNum;
+                        pins.push(pinCopy);
+                    }
+                }
+            }        
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' | ' + (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }
+        }
+
+        if (options.style == 'p2-migration-removed') {
+            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+
+            let pins = [];
+            for(const pin of oldPlatformInfo.pins) {
+                if (pin.name != 'NC') {
+                    if (!platformInfo.pins.find(p => p.num == pin.num)) {
+                        pins.push(pin);
+                    }
+                }
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            md += '| Pin | Pin Name | Description |\n';
+            md += '| :---: | :--- | :--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' |\n';
+            }
+
+        }
+
+        if (options.style == 'p2-migration-added') {
+            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+
+            let pins = [];
+            for(const pin of platformInfo.pins) {
+                if (pin.name != 'NC') {
+                    if (!oldPlatformInfo.pins.find(p => p.num == pin.num)) {
+                        pins.push(pin);
+                    }
+                }
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            md += '| Pin | Pin Name | Description |\n';
+            md += '| :---: | :--- | :--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' |\n';
+            }
+
+        }
+        return md;
+    };
 
     updater.docsToUpdate = [
         {
@@ -1099,6 +1232,62 @@ const path = require('path');
                             filterFn:function(skuObj) {
                                 return !skuObj.name.startsWith('P1');
                             }        
+                        }); 
+                    } 
+                }
+            ]
+        },
+        {
+            path:'/datasheets/wi-fi/p2-datasheet.md', 
+            updates:[
+                {
+                    guid:'a201cbf3-f21d-4b34-ac10-a713ef5a857e', 
+                    generatorFn:function(){
+                        return updater.generateFamilySkus('p series', {
+                            filterFn:function(skuObj) {
+                                return !skuObj.name.startsWith('P2');
+                            }        
+                        }); 
+                    } 
+                },
+                {
+                    guid: '8bd904e1-0088-488c-9fbb-e695d7643949',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'pinFunction',
+                            platform: 32
+                        }); 
+                    } 
+                },
+                {
+                    guid:'5c5c78ef-c99c-49b7-80f4-19196b90ecfe', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'modulePins',
+                            platform: 32
+                        }); 
+                    } 
+                }
+            ]            
+        },
+        {
+            path:'/datasheets/wi-fi/p2-migration-guide.md', 
+            updates:[ 
+                {
+                    guid:'6c533551-bce6-4c2e-b248-c7274f4b1b22', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-migration-removed',
+                            platform: 32
+                        }); 
+                    } 
+                },
+                {
+                    guid:'0f8940d5-5d0b-4f16-bfa2-1666616ba9ef', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-migration-added',
+                            platform: 32
                         }); 
                     } 
                 }
@@ -1346,6 +1535,8 @@ const path = require('path');
     updater.doUpdate = function(scriptsDir) {
 
         const pathPrefix = path.resolve(scriptsDir, '../src/content');
+
+        updater.pinInfo = JSON.parse(fs.readFileSync(path.resolve(scriptsDir, '../src/assets/files/pinInfo.json'), 'utf8'));
 
         updater.datastore.data = JSON.parse(fs.readFileSync(path.resolve(scriptsDir, '../src/assets/files/carriers.json'), 'utf8'));
 

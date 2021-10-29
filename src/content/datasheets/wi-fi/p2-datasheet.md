@@ -147,20 +147,136 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ### Pin markings
 
-[To be provided at a later date.]
+<div align=center><img src="/assets/images/p1-pin-numbers.png" width=600></div>
 
-### Pin description
+### GPIO and port listing
 
-[To be provided at a later date.]
+{{!-- BEGIN do not edit content below, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
 
-### Pinout diagram
+| Pin Name | Module Pin |  |  |  |  | MCU |
+| :--- | :---: | :---: | :---: | :---: | :---: |:---: |
+| 3V3_IO | 5 |   |   |   |   |  |
+| 3V3_RF | 2 |   |   |   |   |  |
+| A0 | 50 | ADC_4 |   |   |   | PB[1] |
+| A1 | 43 | ADC_4 |   |   |   | PB[2] |
+| A2 | 49 | ADC_3 |   |   |   | PB[7] |
+| A5 | 23 | ADC_0 |   | SPI (MOSI) |   | PB[4] |
+| D0 | 36 |   | Wire (SDA) |   |   | PB[6] |
+| D1 | 35 |   | Wire (SCL) |   |   | PB[5] |
+| D11 | 30 |   |   |   |   | PA[15] |
+| D2 | 45 |   |   | SPI1 (MOSI) | Serial2 (RTS) | PA[16] |
+| D3 | 51 |   |   | SPI1 (MISO) | Serial2 (CTS) | PA[17] |
+| D4 | 52 |   |   | SPI1 (SCK) | Serial2 (RX) | PA[18] |
+| D5 | 53 |   |   | SPI1 (SS) | Serial2 (TX) | PA[19] |
+| D6 | 55 |   | SWCLK |   |   | PB[3] |
+| D7 | 54 |   | SWDIO |   |   | PA[27] |
+| D8 | 24 |   |   |   |   | PA[28] |
+| GND | 1 |   |   |   |   |  |
+| NC | 8 |   |   |   |   |  |
+| RGBB | 31 |   |   |   |   | PB[22] |
+| RGBG | 32 |   |   |   |   | PB[23] |
+| RGBR | 29 |   |   |   |   | PA[30] |
+| RST | 34 |   |   |   |   | CHIP_EN |
+| RX | 63 |   |   |   | Serial1 (RX)  | PA[8] |
+| S0 | 40 |   |   | SPI (MOSI) |   | PA[12] |
+| S1 | 41 |   |   | SPI (MISO) |   | PA[13] |
+| S2 | 42 |   |   | SPI (SCK) |   | PA[14] |
+| S3 | 44 |   |   |   |   | PB[26] |
+| S4 | 47 |   |   |   |   | PA[0] |
+| S5 | 48 |   |   |   |   | PB[29] |
+| S6 | 33 |   |   |   |   | PB[31] |
+| SETUP | 46 |   |   |   |   | PA[4] |
+| TX | 64 |   |   |   | Serial1 (TX) | PA[7] |
+| USBDATA- | 62 |   |   |   |   | PA[25] |
+| USBDATA+ | 61 |   |   |   |   | PA[26] |
+| VBAT_MEAS | 12 |   |   |   |   |  |
 
-[To be provided at a later date.]
 
-### Complete P1 Module Pin Listing
+{{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
 
-[To be provided at a later date.]
 
+## Complete module pin listing
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- | :---: |
+| 1 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 2 | 3V3_RF | 3.3V power to RF module |  |
+| 3 | 3V3_RF | 3.3V power to RF module |  |
+| 4 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 5 | 3V3_IO | 3.3V power to MCU IO. |  |
+| 6 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 7 | NC | No connection. Do not connect anything to this pin. |  |
+| 8 | NC | No connection. Do not connect anything to this pin. |  |
+| 9 | NC | No connection. Do not connect anything to this pin. |  |
+| 10 | NC | No connection. Do not connect anything to this pin. |  |
+| 11 | NC | No connection. Do not connect anything to this pin. |  |
+| 12 | VBAT_MEAS | Battery voltage measurement (optional). |  |
+| 13 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 14 | NC | No connection. Do not connect anything to this pin. |  |
+| 15 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 16 | NC | No connection. Do not connect anything to this pin. |  |
+| 17 | NC | No connection. Do not connect anything to this pin. |  |
+| 18 | NC | No connection. Do not connect anything to this pin. |  |
+| 19 | NC | No connection. Do not connect anything to this pin. |  |
+| 20 | NC | No connection. Do not connect anything to this pin. |  |
+| 21 | NC | No connection. Do not connect anything to this pin. |  |
+| 22 | NC | No connection. Do not connect anything to this pin. |  |
+| 23 | A5 | A5 Analog in, GPIO, PWM, SPI. | PB[4] |
+| 24 | D8 | GPIO, PWM. (Was DAC/A6 on P1.) | PA[28] |
+| 25 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 28 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 29 | RGBR | RGB LED Red | PA[30] |
+| 30 | D11 | GPIO. (Was WKP/A7 on P1.) | PA[15] |
+| 31 | RGBB | RGB LED Blue | PB[22] |
+| 32 | RGBG | RGB LED Green | PB[23] |
+| 33 | S6 | S6 GPIO. (Was P1S6/TESTMODE on P1.) | PB[31] |
+| 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
+| 35 | D1 | D1 GPIO, PWM, I2C | PB[5] |
+| 36 | D0 | D0 GPIO, PWM, I2C | PB[6] |
+| 37 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 38 | NC | No connection. Do not connect anything to this pin. |  |
+| 39 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 40 | S0 | S0 GPIO, PWM, SPI. (Was P1S0 on P1.) | PA[12] |
+| 41 | S1 | S1 GPIO, PWM, SPI. (Was P1S1 on P1.) | PA[13] |
+| 42 | S2 | S2 GPIO, SPI. (Was P1S2 on P1.) | PA[14] |
+| 43 | A1 | A1 Analog in, GPIO | PB[2] |
+| 44 | S3 | S3 GPIO. (Was P1S3 on P1.) | PB[26] |
+| 45 | D2 | D2 GPIO, Serial2, SPI1 | PA[16] |
+| 46 | SETUP | SETUP button, has internal pull-up. Pin number constant is BTN. | PA[4] |
+| 47 | S4 | S4 GPIO. (Was P1S4 on P1.) | PA[0] |
+| 48 | S5 | S5 GPIO. (Was P1S5 on P1.) | PB[29] |
+| 49 | A2 | A2 Analog in, PWM, GPIO | PB[7] |
+| 50 | A0 | A0 Analog in, GPIO | PB[1] |
+| 51 | D3 | D3 GPIO, Serial2, SPI1 | PA[17] |
+| 52 | D4 | D4 GPIO, Serial2, SPI1 | PA[18] |
+| 53 | D5 | D5 GPIO, Serial2, SPI1 | PA[19] |
+| 54 | D7 | D7 GPIO | PA[27] |
+| 55 | D6 | D6 GPIO | PB[3] |
+| 56 | NC | No connection. Do not connect anything to this pin. |  |
+| 57 | NC | No connection. Do not connect anything to this pin. |  |
+| 58 | NC | No connection. Do not connect anything to this pin. |  |
+| 59 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 60 | NC | No connection. Do not connect anything to this pin. |  |
+| 61 | USBDATA+ | USB Data+ | PA[26] |
+| 62 | USBDATA- | USB Data- | PA[25] |
+| 63 | RX | Serial1 RX (received data), GPIO | PA[8] |
+| 64 | TX | Serial1 TX (transmitted data), GPIO | PA[7] |
+| 65 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 66 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 67 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 68 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 69 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 70 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 71 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 72 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 73 | GND | Ground. Be sure you connect all P1 ground pins. |  |
+| 74 | NC | No connection. Do not connect anything to this pin. |  |
+| 75 | NC | No connection. Do not connect anything to this pin. |  |
+
+
+{{!-- END do not edit content above, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
 
 
 ## Technical specification
@@ -217,6 +333,17 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 ## Ordering information
 
 [To be provided at a later date.]
+
+P2 modules are available from [store.particle.io](https://store.particle.io/) as cut tape in quantities of 10 each.
+
+{{!-- BEGIN do not edit content below, it is automatically generated a201cbf3-f21d-4b34-ac10-a713ef5a857e --}}
+
+| SKU | Description | Region | Lifecycle | Replacement |
+| :--- | :--- | :--- | :--- | :--- |
+
+
+{{!-- END do not edit content above, it is automatically generated a201cbf3-f21d-4b34-ac10-a713ef5a857e --}}
+
 
 ## Qualification and approvals
 

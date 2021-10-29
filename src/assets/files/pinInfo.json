@@ -1132,7 +1132,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":true,
-					"serial":"UART_LOG_TXD|TX. Use Serial1 object.",
+					"serial":"Serial1 (TX)|TX. Use Serial1 object.",
 					"hardwarePin":"PA[7]",
 					"mcuPin":7
 				},
@@ -1149,7 +1149,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":true,
-					"serial":"UART_LOG_RXD|RX. Use Serial1 object.",
+					"serial":"Serial1 (RX) |RX. Use Serial1 object.",
 					"hardwarePin":"PA[8]",
 					"mcuPin":8
 				},
@@ -1178,7 +1178,7 @@
 					"digitalRead":true,
 					"digitalWrite":true,
 					"analogRead":false,
-					"analogWriteDAC":true,
+					"analogWriteDAC":false,
 					"analogWritePWM":true,
 					"tone":true,
 					"attachInterrupt":true,
@@ -1306,7 +1306,7 @@
 					"tone":false,
 					"attachInterrupt":true,
 					"spi":"SPI1 (MOSI)|MOSI. Use SPI1 object.",
-					"serial":"HS_UART0_RTS|RTS. Use Serial2 object. Flow control optional.",
+					"serial":"Serial2 (RTS)|RTS. Use Serial2 object. Flow control optional.",
 					"hardwarePin":"PA[16]",
 					"mcuPin":29
 				},
@@ -1324,7 +1324,7 @@
 					"tone":false,
 					"attachInterrupt":true,
 					"spi":"SPI1 (MISO)|MISO. Use SPI1 object.",
-					"serial":"HS_UART0_CTS|CTS. Use Serial2 object. Flow control optional.",
+					"serial":"Serial2 (CTS)|CTS. Use Serial2 object. Flow control optional.",
 					"hardwarePin":"PA[17]",
 					"mcuPin":30
 				},
@@ -1341,7 +1341,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":true,
-					"serial":"HS_UART0_RXD|RXD. Use Serial2 object.",
+					"serial":"Serial2 (RX)|RX. Use Serial2 object.",
 					"spi":"SPI1 (SCK)|SCK. Use SPI1 object.",
 					"hardwarePin":"PA[18]",
 					"mcuPin":31
@@ -1359,7 +1359,7 @@
 					"analogWritePWM":false,
 					"tone":false,
 					"attachInterrupt":true,
-					"serial":"HS_UART0_TXD|TXD. Use Serial2 object.",
+					"serial":"Serial2 (TX)|TX. Use Serial2 object.",
 					"spi":"SPI1 (SS)|SS. Use SPI1 object. Can use any pin for SPI1 SS/CS however.",
 					"hardwarePin":"PA[19]",
 					"mcuPin":32
@@ -1592,7 +1592,8 @@
 					"name":"GND",
 					"desc":"Ground. Be sure you connect all P1 ground pins.",
 					"isPower":true,
-					"morePins":[4,6,13,15,25,28,37,39,59,65,66,67,68,69,70,71,72,73]
+					"morePins":[4,6,13,15,25,28,37,39,59,65,66,67,68,69,70,71,72,73],
+					"showInTable":false
 				},
 				{
 					"num":2,
@@ -1627,7 +1628,7 @@
 				}
 			],
 			"diagram":{
-				"columns":["num", "name", ["isPower", "hardwareADC", "i2c"], ["spi","swd"], ["serial"], ["hardwareTimer"], ["dac"], "hardwarePin"]
+				"columns":["num", "name", ["hardwareADC"], ["i2c","swd"], ["spi"], ["serial"], "hardwarePin"]
 			}
 		},
 		{
