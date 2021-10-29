@@ -901,6 +901,102 @@ const path = require('path');
             return '';
         }
 
+        let detailsForTag = {};
+        for(const d of updater.pinInfo.details) {
+            detailsForTag[d.tag] = d;
+        }
+
+        const expandMorePins = function(pinArray) {
+            let pins = [];
+            for(const pin of pinArray) {
+                pins.push(pin);
+                if (pin.morePins) {
+                    for(const pinNum of pin.morePins) {
+                        let pinCopy = Object.assign({}, pin);
+                        pinCopy.num = pinNum;
+                        pins.push(pinCopy);
+                    }
+                }
+            }        
+            return pins;
+        }
+
+
+        // Some fields use the format "short|a much longer description" using a vertical bar to
+        // separate the parts.
+        // This function gets the short (first) part or the whole string if there is no |.
+        const getShortName = function(t) {
+            if (typeof t == 'number') {
+                return t.toString();
+            }
+            else
+            if (typeof t != 'string') {
+                return t;
+            }
+            
+            var index = t.indexOf("|");
+            if (index > 0) {
+                return t.substring(0, index); 
+            }
+            else {
+                return t;
+            }
+        }
+
+        // Some fields use the format "short|a much longer description" using a vertical bar to
+        // separate the parts.
+        // This function gets the long (last) part or the whole string if there is no |.
+        const getLongDesc = function(t) {
+            if (typeof t == 'number') {
+                return t.toString();
+            }
+            else
+            if (typeof t != 'string') {
+                return t;
+            }
+
+            var index = t.indexOf("|");
+            if (index > 0) {
+                return t.substring(index + 1);
+            }
+            else {
+                return t;
+            }
+            
+        }
+
+        const getPinInfo = function(pinArray, pinNum) {
+            for(const p of pinArray) {
+                if (p.num == pinNum) {
+                    return p;
+                }
+            }
+            return {
+                pin: pinNum,
+                name: 'NC',
+                desc: 'Leave unconnected'
+            }
+        };
+
+        const getPinUsage = function(p) {
+            if (typeof p != 'undefined') {
+                if (p === true) {
+                    return 'Yes';
+                }
+                else
+                if (p === false) {
+                    return 'No';
+                }
+                else {
+                    return getLongDesc(p);
+                }
+            }
+            else {
+                return 'n/a';
+            }
+        };
+
+
         let md = '';
 
         if (options.style == 'pinFunction') {
@@ -927,6 +1023,10 @@ const path = require('path');
             });
 
             for(const pin of pins) {
+                if (pin.isPower) {
+                    continue;
+                }
+                
                 md += '| ' + pin.name + ' | ' + pin.num + ' | ';
                 
                 for(const colInfo of functionCols) {
@@ -952,21 +1052,12 @@ const path = require('path');
             }
         }
 
+
         if (options.style == 'modulePins') {
             md += '| Pin | Pin Name | Description | MCU |\n';
             md += '| :---: | :--- | :--- | :---: |\n'
 
-            let pins = [];
-            for(const pin of platformInfo.pins) {
-                pins.push(pin);
-                if (pin.morePins) {
-                    for(const pinNum of pin.morePins) {
-                        let pinCopy = Object.assign({}, pin);
-                        pinCopy.num = pinNum;
-                        pins.push(pinCopy);
-                    }
-                }
-            }        
+            let pins = expandMorePins(platformInfo.pins);    
 
             pins.sort(function(a, b) {
                 return a.num - b.num;
@@ -1026,6 +1117,176 @@ const path = require('path');
             }
 
         }
+        
+        if (options.style == 'p2-full-comparison') {
+            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+
+            const comparisonTags = [
+                'name',
+                'altName',
+                'desc',
+                'digitalRead',
+                'digitalWrite',
+                'analogRead',
+                'analogWriteDAC',
+                'analogWritePWM',
+                'tone',
+                'serial',
+                'spi',
+                'i2c',
+                'attachInterrupt',
+                'can',
+                'i2s',
+                'is5VTolerant',
+                'jtag',
+                'swd'      
+            ];
+
+
+            const p1pins = expandMorePins(oldPlatformInfo.pins);
+            const p2pins = expandMorePins(platformInfo.pins);
+
+            for(let pinNum = 1; pinNum <= 72; pinNum++) {
+                let p1pin = getPinInfo(p1pins, pinNum);
+                let p2pin = getPinInfo(p2pins, pinNum);
+                
+                if (p1pin.name == p2pin.name) {
+                    md += '#### Module Pin ' + pinNum + ' (' + p1pin.name + ')\n';
+                }
+                else {
+                    md += '#### Module Pin ' + pinNum + '\n';
+                }
+
+                let hasChanges = false;
+                for(const tag of comparisonTags) {
+                    if (!p1pin[tag] && !p2pin[tag]) {
+                        continue;
+                    }
+
+                   if (getPinUsage(p1pin[tag]) != getPinUsage(p2pin[tag])) {
+                       hasChanges = true;
+                       break;
+                   }
+                }
+
+                if (hasChanges) {
+                    md += '| | P1 | P2 |\n';
+                    md += '| :--- | :--- | :--- |\n';
+    
+                    for(const tag of comparisonTags) {
+                        if (!p1pin[tag] && !p2pin[tag]) {
+                            continue;
+                        }
+    
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(p1pin[tag]) + ' | ' + getPinUsage(p2pin[tag]) + '|\n';
+    
+                    }    
+                }
+                else {
+                    md += '| | Unchanged between P1 and P2 |\n';
+                    md += '| :--- | :--- |\n';
+
+                    for(const tag of comparisonTags) {
+                        if (!p1pin[tag] && !p2pin[tag]) {
+                            continue;
+                        }
+    
+                        md += '| ' + detailsForTag[tag].label + ' | ' + getPinUsage(p1pin[tag]) + '|\n';
+                    }    
+
+                }
+ 
+            }
+
+        }
+
+        if (options.style == 'p2-port-comparison') {
+            // options.port
+            const oldPlatformInfo = updater.pinInfo.platforms.find(p => p.id == 8);
+
+            const p1pins = expandMorePins(oldPlatformInfo.pins);
+            const p2pins = expandMorePins(platformInfo.pins);
+
+            md += '| Pin | P1 Pin Name | P1 ' + options.label + ' | P2 Pin Name | P2 ' + options.label  + ' |\n';
+            md += '| :---: | :--- | :--- | :--- | :--- |\n'
+
+            const portColumnValue = function(value) {
+                if (value) {
+                    if (options.useShortName) {
+                        return getShortName(value);
+                    }
+                    else {
+                        return '&check;';
+                    }
+                }
+                else {
+                    return '&nbsp;';
+                }
+            } 
+
+            for(let pinNum = 1; pinNum <= 72; pinNum++) {
+                let p1pin = getPinInfo(p1pins, pinNum);
+                let p2pin = getPinInfo(p2pins, pinNum);
+
+                if (!p1pin[options.port] && !p2pin[options.port]) {
+                    // Neither device supports this port on this pin
+                    continue;
+                }
+                md += '| ' + pinNum + ' | ' + p1pin.name + ' | ' + portColumnValue(p1pin[options.port]) + ' | ';
+                md += p2pin.name + ' | ' + portColumnValue(p2pin[options.port]) + ' | \n';
+            }            
+        }
+
+        if (options.style == 'interfacePins') {
+            // options.interface
+
+            let pins = [];
+            for(const pin of platformInfo.pins) {
+                if (pin[options.interface]) {
+                    pins.push(pin);
+                }
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            md += '| Pin | Pin Name | Description | Interface | MCU |\n';
+            md += '| :---: | :--- | :--- | :--- |:--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' | ';
+                
+                md += getShortName(pin[options.interface]) + ' | ';
+
+                md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }
+        }
+
+        if (options.style == 'interfaceTypePins') {
+            // options.interface
+
+            let pins = [];
+            for(const pin of platformInfo.pins) {
+                if (pin[options.interface]) {
+                    pins.push(pin);
+                }
+            }
+
+            pins.sort(function(a, b) {
+                return a.num - b.num;
+            });
+
+            md += '| Pin | Pin Name | Description | MCU |\n';
+            md += '| :---: | :--- | :--- |:--- |\n'
+    
+            for(const pin of pins) {
+                md += '| ' + pin.num + ' | ' + pin.name + ' | ' + pin.desc + ' | ';
+                
+                md += (pin.hardwarePin ? pin.hardwarePin : '') + ' |\n';
+            }
+        }
+
         return md;
     };
 
@@ -1267,6 +1528,76 @@ const path = require('path');
                             platform: 32
                         }); 
                     } 
+                },
+                {
+                    guid:'cd89fea9-4917-4af5-bfd0-4bdaa400545c',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platform: 32,
+                            interface: 'serial'
+                        }); 
+                    }                     
+                },
+                {
+                    guid:'c48b830e-f222-4a5d-a34f-14973ce84e22',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platform: 32,
+                            interface: 'spi'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'5b55adb8-1e32-4518-b01e-eadf4e67a262',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platform: 32,
+                            interface: 'i2c'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'ed5c8a8d-6f7f-4253-be72-a45e7316421e',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platform: 32,
+                            interface: 'hardwareADC'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'51e324e1-6f8a-43d5-aad2-f7cbbb699804',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfaceTypePins',
+                            platform: 32,
+                            interface: 'isUSB'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'e5794e03-d007-4420-be1f-b62ca2788442',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfaceTypePins',
+                            platform: 32,
+                            interface: 'isLED'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfaceTypePins',
+                            platform: 32,
+                            interface: 'isControl'
+                        }); 
+                    } 
                 }
             ]            
         },
@@ -1290,7 +1621,96 @@ const path = require('path');
                             platform: 32
                         }); 
                     } 
-                }
+                },
+                {
+                    guid:'aa218eb3-5975-4ba6-b26d-2a5d43c5378e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-full-comparison',
+                            platform: 32
+                        }); 
+                    } 
+                },
+                {
+                    guid:'0fc429e8-585e-4f36-9874-e3fa37a1136e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'a7091023-5382-4496-8bfc-727593f0d426', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'analogRead',
+                            label: 'ADC'
+                        }); 
+                    }
+                },
+                {
+                    guid:'c7f59d46-dca3-4376-b885-0b4ca924a28b', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'serial',
+                            label: 'Serial',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'9327b9b9-21fd-46fd-a406-8c249ade9688', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'2ee8f339-68a5-4d9c-b6b9-0f359038d704', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'analogWriteDAC',
+                            label: 'DAC'
+                        }); 
+                    }
+                },
+                {
+                    guid:'aaf618d9-4053-490d-8b3b-2ef6118592d6', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'can',
+                            label: 'CAN'
+                        }); 
+                    }
+                },
+                {
+                    guid:'8d8e7a73-c60c-4b04-8039-c5f8a7072f39', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'i2s',
+                            label: 'I2S',
+                            useShortName: true
+                        }); 
+                    }
+                }                
             ]
         },
         {
