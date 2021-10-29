@@ -55,16 +55,6 @@ description: Datasheet for the Particle P2, Wi-Fi mass-production module
 
 ---
 
-### Peripherals and GPIO
-
-[To be provided at a later date.]
-
-### RGB LED, SETUP and RESET button
-
-When using the P2 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/tutorials/device-os/led/). By default the RGB LED outputs are configured for a Common Anode type of LED. 
-
----
-
 ### SWD/JTAG
 
 The P2 module supports programming and debugging use SWD (Serial Wire Debug) on pins D6 and D7.
@@ -145,6 +135,16 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ## Pin and button definition
 
+| Peripheral Type | Qty | Input(I) / Output(O) |
+| :-:|:-:|:-:|
+| Digital | 23 | I/O |
+| Analog (ADC) | 4 | I |
+| SPI | 2 | I/O |
+| I2C | 1 | I/O |
+| USB | 1 | I/O |
+| PWM | 7 | O |
+
+
 ### Pin markings
 
 <div align=center><img src="/assets/images/p1-pin-numbers.png" width=600></div>
@@ -155,8 +155,6 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 | Pin Name | Module Pin |  |  |  |  | MCU |
 | :--- | :---: | :---: | :---: | :---: | :---: |:---: |
-| 3V3_IO | 5 |   |   |   |   |  |
-| 3V3_RF | 2 |   |   |   |   |  |
 | A0 | 50 | ADC_4 |   |   |   | PB[1] |
 | A1 | 43 | ADC_4 |   |   |   | PB[2] |
 | A2 | 49 | ADC_3 |   |   |   | PB[7] |
@@ -171,8 +169,6 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | D6 | 55 |   | SWCLK |   |   | PB[3] |
 | D7 | 54 |   | SWDIO |   |   | PA[27] |
 | D8 | 24 |   |   |   |   | PA[28] |
-| GND | 1 |   |   |   |   |  |
-| NC | 8 |   |   |   |   |  |
 | RGBB | 31 |   |   |   |   | PB[22] |
 | RGBG | 32 |   |   |   |   | PB[23] |
 | RGBR | 29 |   |   |   |   | PA[30] |
@@ -189,13 +185,156 @@ echo -en "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | TX | 64 |   |   |   | Serial1 (TX) | PA[7] |
 | USBDATA- | 62 |   |   |   |   | PA[25] |
 | USBDATA+ | 61 |   |   |   |   | PA[26] |
-| VBAT_MEAS | 12 |   |   |   |   |  |
 
 
 {{!-- END do not edit content above, it is automatically generated 8bd904e1-0088-488c-9fbb-e695d7643949 --}}
 
+### ADC (Analog to Digital Converter)
 
-## Complete module pin listing
+The P2 supports four ADC inputs.
+
+{{!-- BEGIN do not edit content below, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- |:--- |
+| 23 | A5 | A5 Analog in, GPIO, PWM, SPI. | ADC_0 | PB[4] |
+| 43 | A1 | A1 Analog in, GPIO | ADC_4 | PB[2] |
+| 49 | A2 | A2 Analog in, PWM, GPIO | ADC_3 | PB[7] |
+| 50 | A0 | A0 Analog in, GPIO | ADC_4 | PB[1] |
+
+
+{{!-- END do not edit content above, it is automatically generated ed5c8a8d-6f7f-4253-be72-a45e7316421e --}}
+
+- ADC inputs are single-ended and limited to 0 to 3.3V
+- Resolution is 12 bits
+
+### UART serial
+
+The P2 supports two UART serial interfaces. 
+
+{{!-- BEGIN do not edit content below, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- |:--- |
+| 45 | D2 | D2 GPIO, Serial2, SPI1 | Serial2 (RTS) | PA[16] |
+| 51 | D3 | D3 GPIO, Serial2, SPI1 | Serial2 (CTS) | PA[17] |
+| 52 | D4 | D4 GPIO, Serial2, SPI1 | Serial2 (RX) | PA[18] |
+| 53 | D5 | D5 GPIO, Serial2, SPI1 | Serial2 (TX) | PA[19] |
+| 63 | RX | Serial1 RX (received data), GPIO | Serial1 (RX)  | PA[8] |
+| 64 | TX | Serial1 TX (transmitted data), GPIO | Serial1 (TX) | PA[7] |
+
+
+{{!-- END do not edit content above, it is automatically generated cd89fea9-4917-4af5-bfd0-4bdaa400545c --}}
+
+- The UART pins are 3.3V and must not be connected directly to a RS-232C port or to a 5V TTL serial port
+- Hardware flow control is optional; if not used then the RTS and CTS pins can be used as regular GPIO
+- Serial1 uses the RTL872x UART_LOG peripheral
+- Serial2 uses the RTL872x HS_UART0 peripheral
+
+### SPI
+
+The P2 supports two SPI (serial peripheral interconnect) ports.
+
+{{!-- BEGIN do not edit content below, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- |:--- |
+| 23 | A5 | A5 Analog in, GPIO, PWM, SPI. | SPI (MOSI) | PB[4] |
+| 40 | S0 | S0 GPIO, PWM, SPI. (Was P1S0 on P1.) | SPI (MOSI) | PA[12] |
+| 41 | S1 | S1 GPIO, PWM, SPI. (Was P1S1 on P1.) | SPI (MISO) | PA[13] |
+| 42 | S2 | S2 GPIO, SPI. (Was P1S2 on P1.) | SPI (SCK) | PA[14] |
+| 45 | D2 | D2 GPIO, Serial2, SPI1 | SPI1 (MOSI) | PA[16] |
+| 51 | D3 | D3 GPIO, Serial2, SPI1 | SPI1 (MISO) | PA[17] |
+| 52 | D4 | D4 GPIO, Serial2, SPI1 | SPI1 (SCK) | PA[18] |
+| 53 | D5 | D5 GPIO, Serial2, SPI1 | SPI1 (SS) | PA[19] |
+
+
+{{!-- END do not edit content above, it is automatically generated c48b830e-f222-4a5d-a34f-14973ce84e22 --}}
+
+- The SPI port is 3.3V and must not be connected directly to devices that drive MISO at 5V
+- If not using a SPI port, its pins can be used as GPIO
+- Any pins can be used as the SPI chip select
+- Multiple devices can generally share a single SPI port
+- SPI uses the RTL872x SPI1 peripheral (25 MHz maximum speed)
+- SPI1 uses the RTL872x SPI0 peripheral (50 MHz maximum speed)
+
+
+### I2C
+
+The P2 supports one I2C (two-wire serial interface) port.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 5b55adb8-1e32-4518-b01e-eadf4e67a262 --}}
+
+| Pin | Pin Name | Description | Interface | MCU |
+| :---: | :--- | :--- | :--- |:--- |
+| 35 | D1 | D1 GPIO, PWM, I2C | Wire (SCL) | PB[5] |
+| 36 | D0 | D0 GPIO, PWM, I2C | Wire (SDA) | PB[6] |
+
+
+{{!-- END do not edit content above, it is automatically generated 5b55adb8-1e32-4518-b01e-eadf4e67a262 --}}
+
+- The I2C port is 3.3V and must not be connected directly a 5V I2C bus
+- Maximum bus speed is 400 kHz
+- External pull-up resistors are required for I2C
+- If not using I2C, pins D0 and D1 can be used as GPIO
+
+### USB
+
+The P2 supports a USB interface for programming the device and for USB serial (CDC) communications. The module itself does not contain a USB connector; you typically add a micro USB or USB C connector on your base board. It is optional but recommended.
+
+{{!-- BEGIN do not edit content below, it is automatically generated 51e324e1-6f8a-43d5-aad2-f7cbbb699804 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- |:--- |
+| 61 | USBDATA+ | USB Data+ | PA[26] |
+| 62 | USBDATA- | USB Data- | PA[25] |
+
+
+{{!-- END do not edit content above, it is automatically generated 51e324e1-6f8a-43d5-aad2-f7cbbb699804 --}}
+
+
+### RGB LED
+
+The P2 supports an external common anode RGB LED. 
+
+One common LED that meets the requirements is the 
+[Cree CLMVC-FKA-CL1D1L71BB7C3C3](https://www.digikey.com/product-detail/en/cree-inc/CLMVC-FKA-CL1D1L71BB7C3C3/CLMVC-FKA-CL1D1L71BB7C3C3CT-ND/) 
+which is inexpensive and easily procured. You need to add three current limiting resistors. With this LED, we typically use 1K ohm current limiting resistors. 
+These are much larger than necessary. They make the LED less blinding but still provide sufficient current to light the LEDs. 
+If you want maximum brightness you should use the calculated values - 33 ohm on red, and 66 ohm on green and blue.
+
+A detailed explanation of different color codes of the RGB system LED can be found [here](/tutorials/device-os/led/).
+
+The use of the RGB LED is optional, however it is highly recommended as troubleshooting the device without the LED is very difficult.
+
+{{!-- BEGIN do not edit content below, it is automatically generated e5794e03-d007-4420-be1f-b62ca2788442 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- |:--- |
+| 29 | RGBR | RGB LED Red | PA[30] |
+| 31 | RGBB | RGB LED Blue | PB[22] |
+| 32 | RGBG | RGB LED Green | PB[23] |
+
+
+{{!-- END do not edit content above, it is automatically generated e5794e03-d007-4420-be1f-b62ca2788442 --}}
+
+
+### SETUP and RESET button
+
+It is highly recommended that you add SETUP and RESET buttons to your base board using momentary switches that connect to GND. These are necessary to change the operating mode of the device, for example to enter listening or DFU mode.
+
+{{!-- BEGIN do not edit content below, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
+
+| Pin | Pin Name | Description | MCU |
+| :---: | :--- | :--- |:--- |
+| 34 | RST | Hardware reset. Pull low to reset; can leave unconnected in normal operation. | CHIP_EN |
+| 46 | SETUP | SETUP button, has internal pull-up. Pin number constant is BTN. | PA[4] |
+
+
+{{!-- END do not edit content above, it is automatically generated a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9 --}}
+
+
+### Complete module pin listing
 
 {{!-- BEGIN do not edit content below, it is automatically generated 5c5c78ef-c99c-49b7-80f4-19196b90ecfe --}}
 

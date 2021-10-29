@@ -1366,6 +1366,7 @@ const { option } = require('yargs');
             }
         }
 
+
         if (options.style == 'modulePins') {
             md += '| Pin | Pin Name | Description | MCU |\n';
             md += '| :---: | :--- | :--- | :---: |\n'
@@ -1837,6 +1838,76 @@ const { option } = require('yargs');
                             platform: 32
                         }); 
                     } 
+                },
+                {
+                    guid:'cd89fea9-4917-4af5-bfd0-4bdaa400545c',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platform: 32,
+                            interface: 'serial'
+                        }); 
+                    }                     
+                },
+                {
+                    guid:'c48b830e-f222-4a5d-a34f-14973ce84e22',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platform: 32,
+                            interface: 'spi'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'5b55adb8-1e32-4518-b01e-eadf4e67a262',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platform: 32,
+                            interface: 'i2c'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'ed5c8a8d-6f7f-4253-be72-a45e7316421e',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfacePins',
+                            platform: 32,
+                            interface: 'hardwareADC'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'51e324e1-6f8a-43d5-aad2-f7cbbb699804',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfaceTypePins',
+                            platform: 32,
+                            interface: 'isUSB'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'e5794e03-d007-4420-be1f-b62ca2788442',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfaceTypePins',
+                            platform: 32,
+                            interface: 'isLED'
+                        }); 
+                    } 
+                },
+                {
+                    guid:'a4b4a564-7178-4ba6-a98e-7b7ac5c8eeb9',
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'interfaceTypePins',
+                            platform: 32,
+                            interface: 'isControl'
+                        }); 
+                    } 
                 }
             ]            
         },
@@ -1860,7 +1931,96 @@ const { option } = require('yargs');
                             platform: 32
                         }); 
                     } 
-                }
+                },
+                {
+                    guid:'aa218eb3-5975-4ba6-b26d-2a5d43c5378e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-full-comparison',
+                            platform: 32
+                        }); 
+                    } 
+                },
+                {
+                    guid:'0fc429e8-585e-4f36-9874-e3fa37a1136e', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'analogWritePWM',
+                            label: 'PWM',
+                        }); 
+                    } 
+                },
+                {
+                    guid:'a7091023-5382-4496-8bfc-727593f0d426', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'analogRead',
+                            label: 'ADC'
+                        }); 
+                    }
+                },
+                {
+                    guid:'c7f59d46-dca3-4376-b885-0b4ca924a28b', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'serial',
+                            label: 'Serial',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'9327b9b9-21fd-46fd-a406-8c249ade9688', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'spi',
+                            label: 'SPI',
+                            useShortName: true
+                        }); 
+                    }
+                },
+                {
+                    guid:'2ee8f339-68a5-4d9c-b6b9-0f359038d704', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'analogWriteDAC',
+                            label: 'DAC'
+                        }); 
+                    }
+                },
+                {
+                    guid:'aaf618d9-4053-490d-8b3b-2ef6118592d6', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'can',
+                            label: 'CAN'
+                        }); 
+                    }
+                },
+                {
+                    guid:'8d8e7a73-c60c-4b04-8039-c5f8a7072f39', 
+                    generatorFn:function(){
+                        return updater.generatePinInfo({
+                            style: 'p2-port-comparison',
+                            platform: 32,
+                            port: 'i2s',
+                            label: 'I2S',
+                            useShortName: true
+                        }); 
+                    }
+                }                
             ]
         },
         {
