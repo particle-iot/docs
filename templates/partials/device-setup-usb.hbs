@@ -1,0 +1,55 @@
+<div class="apiHelperDeviceSetupUsb">
+    <div class="apiHelper">
+        <div class="apiHelperNotLoggedIn apiHelperBox">
+            <div class="apiHelperCouldSSO apiHelperSmallText" style="display:none">
+                <p>Log in to your Particle account to set up a device</p>
+                <p><button class="apiHelperLoginButton">Login</button></p>
+                <p>Or <a href="https://login.particle.io/signup">create a new account</a> if you don't already have one.</p>
+            </div>
+            <div class="apiHelperFakeAuth apiHelperSmallText" style="display:none">
+                <p>Cannot use Particle Single Sign-On from outside the Particle domain.</p>
+                <p><button class="apiHelperFakeAuthButton">Enter authentication manually</button></p>
+            </div>
+        </div>
+    </div>
+    <div class="apiHelperLoggedIn">
+        <div class="setupProgress">
+        </div>
+        <div class="setupStep">
+            <div class="setupStepSelectDevice" style="display:none">
+                <p>Connect your Particle device to your computer with a USB cable, click the **Select Device** button, 
+                    select your device, and click **Connect**.</p>
+                <p><button class="setupSelectDeviceButton apiHelperButton">Select Device</button></p>            
+                <p>[some sort of animation of connecting your device by USB then selecting by Web USB here...]</p>
+            </div>
+            <div class="setupStepCheckDevice" style="display:none">
+                <p>[check device panel]</p>
+            </div>
+            <div class="setupStepActivateSim" style="display:none">
+            </div>
+            <div class="setupStepFlashDevice" style="display:none">
+            </div>
+            <div class="setupStepConfigureWiFi" style="display:none">
+            </div>
+            <div class="setupStepWaitForOnline" style="display:none">
+            </div>
+            <div class="setupStepDone" style="display:none">
+            </div>
+        </div>
+        <div class="setupStatus">
+        </div>
+        <div class="setupBrowserError" style="display:none">
+            <p>This setup tool can only be used on:</p>
+            <ul>
+                <li>Chrome (Windows, Mac, Linux, Chromebook, or Android, version 61 and later)</li>
+                <li>Edge (version 79 or later</li>
+                <li>Opera (Windows, Mac, Linux, or Android, version 48 or later</li>
+                <li>Samsung Internet (version 8.0 or later)</li>
+            </ul>
+            <p>If you are using an iOS device, Safari, or other unsupported browser (such as Firefox), 
+            you can use the Particle mobile app for iOS or Android, or the Particle CLI for Windows, 
+            Mac, and Linux, instead.</p>
+        </div>
+    </div>
+</div>
+

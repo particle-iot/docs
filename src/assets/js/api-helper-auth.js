@@ -69,6 +69,7 @@ $(document).ready(function() {
     $('.apiHelperFakeAuth').hide();
 
     if (auth) {
+        $('.apiHelperNotLoggedIn').hide();
         $('.apiHelperUser').text(auth.username);
 
         $('.apiHelperLoggedIn').each(function() {
@@ -85,6 +86,7 @@ $(document).ready(function() {
         $('#userMenuLogout > a').on('click', handleLogout);
     }
     else {
+        $('.apiHelperNotLoggedIn').show();
         if (window.location.hostname.endsWith('particle.io')) {
             $('.apiHelperCouldSSO').show();
 
