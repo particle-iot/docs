@@ -26,12 +26,23 @@
                 <p>[check device panel]</p>
             </div>
             <div class="setupStepActivateSim" style="display:none">
+                <div class="setupStepActivateSimWaiting">
+                    <p>Waiting for SIM activation to complete</p>
+                    <p>This can take anywhere from several seconds to several hours. Rarely, it can take a day or more.</p>
+                    <p>You can wait here for activation to complete, or close this web page and come back later to 
+                        see if activation has completed so you can proceed with setup.</p>
+                    <p class="setupStepActivateSimTimer"></p>
+                </div>
             </div>
-            <div class="setupStepFlashDevice" style="display:none">
+            <div class="setupStepFlashDevice" style="display:none">                
+                <p class="setupStepFlashDeviceStatus"></p>
+                <progress value="0" max="100" class="setupStepFlashDeviceProgress"></progress>
             </div>
             <div class="setupStepConfigureWiFi" style="display:none">
             </div>
             <div class="setupStepWaitForOnline" style="display:none">
+            </div>
+            <div class="setupStepClaimAndNameDevice" style="display:none">
             </div>
             <div class="setupStepDone" style="display:none">
             </div>
