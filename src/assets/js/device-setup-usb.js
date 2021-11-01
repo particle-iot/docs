@@ -439,12 +439,78 @@ $(document).ready(function() {
 
             setStatus('Scanning for Wi-Fi networks...');
 
+
             // Start Wi-Fi scan
             let reqObj = {
                 op: 'wifiScan'
             };
 
             await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+            const passwordInputElem = $(thisElem).find('.passwordInput');
+            const setCredentialsElem = $(thisElem).find('.setCredentials');
+            const passwordRowElem = $(thisElem).find('.passwordRow');
+
+            let addedNetworks = {};
+
+            const radioSelectionUpdate = function() {
+                const checkedItems = $('input[name="selectedNetwork"]:checked');
+                if (checkedItems.length > 0) {
+                    const ssid = $(checkedItems).val();
+
+                    if (addedNetworks[ssid].respObj.sec != 0) {
+                        setStatus('Enter Wi-Fi network password and click Select Wi-Fi Network');
+                        $(passwordRowElem).show();
+                    }
+                    else {
+                        setStatus('Click Select Wi-Fi Network');
+                        $(passwordRowElem).hide();
+                    }
+
+                    
+                    $(setCredentialsElem).prop('disabled', false);
+                }
+                else {
+                    $(passwordRowElem).hide();
+                    $(setCredentialsElem).prop('disabled', true);
+                }
+            };
+
+            $(setCredentialsElem).on('click', async function() {
+                $(setCredentialsElem).prop('disabled', true);
+
+                setStatus('Setting Wi-Fi credentials...');
+
+                const ssid = $('input[name="selectedNetwork"]:checked').val();
+
+                let reqObj = {
+                    op: 'wifiSetCredentials',
+                    ssid,
+                    sec: addedNetworks[ssid].respObj.sec,
+                    cip: addedNetworks[ssid].respObj.cip,
+                    pass: $(passwordInputElem).val()
+                };
+    
+                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+                reqObj = {
+                    op: 'wifiConnect',
+                };
+                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+                reqObj = {
+                    op: 'particleConnect',
+                };
+                await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+
+                waitDeviceOnline();
+                return;
+            });
+
+
+
+
+            radioSelectionUpdate();
 
             // Display results
             while(true) {
@@ -469,16 +535,78 @@ $(document).ready(function() {
                     if (respObj.ssid) {
                         console.log('respObj', respObj);
 
-                        // TODO: Dedupe list!
+                        if (!addedNetworks[respObj.ssid]) {
+                            let bars = 0;
+                            if (respObj.rssi >= -60) {
+                                bars = 4;
+                            }
+                            else    
+                            if (respObj.rssi >= -70) {
+                                bars = 3;
+                            }
+                            else
+                            if (respObj.rssi >= -80) {
+                                bars = 2;
+                            }
+                            else {
+                                bars = 1;
+                            }
+    
+                            const rowElem = document.createElement('tr');
+    
+                            let colElem;
+    
+                            // Radio button
+                            colElem = document.createElement('td');
+                            {
+                                const radioElem = document.createElement('input');
+                                $(radioElem).attr('type', 'radio');
+                                $(radioElem).attr('name', 'selectedNetwork');
+                                $(radioElem).attr('value', respObj.ssid);
+                                $(colElem).append(radioElem);
 
-                        const rowElem = document.createElement('tr');
+                                $(radioElem).on('click', radioSelectionUpdate);
+                            }
+                            $(rowElem).append(colElem);
+    
+                            // SSID
+                            colElem = document.createElement('td');
+                            $(colElem).text(respObj.ssid);
+                            $(rowElem).append(colElem);
+    
+                            // Secure
+                            colElem = document.createElement('td');
+                            if (respObj.sec != 0) {
+                                // 56x68
+                                const imgElem = document.createElement('img');
+                                $(imgElem).attr('src', '/assets/images/device-setup/wifi-lock.png');
+                                $(imgElem).attr('width', '15');
+                                $(imgElem).attr('height', '17');
+                                $(colElem).append(imgElem);
+                            }
+                            $(rowElem).append(colElem);
+    
+                            // Strength
+                            colElem = document.createElement('td');
+                            {
+                                // 86x68
+                                const imgElem = document.createElement('img');
+                                $(imgElem).attr('src', '/assets/images/device-setup/signal-bars-' + bars + '.png');
+                                $(imgElem).attr('width', '22');
+                                $(imgElem).attr('height', '17');
+                                $(colElem).append(imgElem);    
+                            }
+                            $(rowElem).append(colElem);
+                            
+                            $(thisElem).find('.networkTable > tbody').append(rowElem);
 
-                        let colElem = document.createElement('td');
-                        $(colElem).text(respObj.ssid);
+                            addedNetworks[respObj.ssid] = {
+                                respObj,
+                                rowElem
+                            };
+                        }
+                        
 
-                        $(rowElem).append(colElem);
-
-                        $(thisElem).find('.networkTable > tbody').append(rowElem);
                     }
                     else {
                         // Wait a bit to try again
@@ -492,6 +620,13 @@ $(document).ready(function() {
 
                 }
 
+                /*
+                  if  (rssi>=-70) str="Excellent";
+    else if(rssi>=-70 && rssi >-85) str=("Good");
+    else if (rssi>-86&& rssi >=-100) str=("Fair");
+    else if (rssi>-100) str=("Poor");
+    else if (rssi>-110) str=("No Signal");
+                */
                 
             }
 
@@ -509,13 +644,23 @@ $(document).ready(function() {
             setStatus('Waiting for device to come online...');   
 
             // Wait for online
-            setInterval(function() {
+            setInterval(async function() {
                 let reqObj = {
-                    op: 'test'
+                    op: 'status'
                 };
 
-                usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-            }, 10000);
+                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                if (res.result == 0 && res.data) {
+                    const respObj = JSON.parse(res.data);
+
+                    console.log('status', respObj);
+
+                    if (respObj.cloudConnected) {
+                        claimAndNameDevice();
+                        return;
+                    }
+                }
+            }, 2000);
             
             
         };
@@ -523,6 +668,7 @@ $(document).ready(function() {
         const claimAndNameDevice = async function() {
             setSetupStep('setupStepClaimAndNameDevice');
 
+            setStatus('Claiming and naming device...');   
             
         };
 
