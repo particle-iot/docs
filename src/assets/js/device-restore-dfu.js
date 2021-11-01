@@ -323,7 +323,26 @@ async function dfuDeviceRestore(usbDevice, options) {
 
     const dfuseDevice = await createDfuseDevice(interface);
 
-
+    const allDfuParts = [
+        { name: 'system-part1', title: 'Device OS System Part 1' },
+        { name: 'system-part2', title: 'Device OS System Part 2' },
+        { name: 'system-part3', title: 'Device OS System Part 3' },
+        { name: 'bootloader', title: 'Device OS Bootloader' },
+        { name: 'softdevice', title: 'nRF52 Soft Device' },
+        { name: 'tinker', reset:true, title: 'User Firmware' },
+        { name: 'tracker-edge', reset:true, title: 'Tracker Edge Firmware' }
+    ];
+    let dfuParts = [];
+    for(const dfuPart of allDfuParts) {
+        const zipEntry = zipFs.find(dfuPart.name + '.bin');
+        if (zipEntry) {
+            dfuParts.push(dfuPart);
+        }
+    }
+    if (options.progressDfuParts) {
+        options.progressDfuParts(dfuParts);
+    }
+        
     let partName;
     let genericPartName;
     let extPart;
@@ -340,9 +359,14 @@ async function dfuDeviceRestore(usbDevice, options) {
             }
             const pct = (total != 0) ? (done * 100 / total) : 0;
 
-            options.progressUpdate(msg, pct);
+            options.progressUpdate(msg, pct, {
+                func,
+                pct,
+                partName
+            });
         }
     }
+
 
     if (options.progressShowHide) {
         options.progressShowHide(true);
@@ -350,16 +374,6 @@ async function dfuDeviceRestore(usbDevice, options) {
 
     let dfuErrors = [];
 
-    // System parts
-    const dfuParts = [
-        { name: 'system-part1' },
-        { name: 'system-part2' },
-        { name: 'system-part3' },
-        { name: 'bootloader' },
-        { name: 'softdevice' },
-        { name: 'tinker', reset:true },
-        { name: 'tracker-edge', reset:true }
-    ];
     for(const dfuPart of dfuParts) {
         partName = dfuPart.name;
 
@@ -396,6 +410,13 @@ async function dfuDeviceRestore(usbDevice, options) {
                     // Gen 2
                     dfuseDevice.startAddress = 0x80C0000;
                     await dfuseDevice.do_download(4096, part, {});
+                }
+                if (options.progressUpdate) {
+                    options.progressUpdate('', 100, {
+                        func: 'program',
+                        pct: 100,
+                        partName
+                    });
                 }
             }
             else

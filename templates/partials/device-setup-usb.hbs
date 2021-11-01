@@ -14,6 +14,10 @@
     </div>
     <div class="apiHelperLoggedIn">
         <div class="setupProgress">
+            <table>
+                <thead></thead>
+                <tbody></tbody>
+            </table>
         </div>
         <div class="setupStep">
             <div class="setupStepSelectDevice" style="display:none">
@@ -35,13 +39,17 @@
                 </div>
             </div>
             <div class="setupStepFlashDevice" style="display:none">                
-                <p class="setupStepFlashDeviceStatus"></p>
-                <progress value="0" max="100" class="setupStepFlashDeviceProgress"></progress>
+                <table class="flashDeviceSteps">
+                    <thead>                        
+                    </thead>
+                    <tbody>                    
+                    </tbody>
+                </table>
             </div>
             <div class="setupStepReconnecting" style="display:none">
             </div>
             <div class="setupStepConfigureWiFi" style="display:none">
-                <table class="networkTable">
+                <table class="networkTable apiHelperTableNoMargin">
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
@@ -57,8 +65,29 @@
                 <p><button class="setCredentials">Select Wi-Fi Network</button></p>
             </div>
             <div class="setupStepWaitForOnline" style="display:none">
+                <table class="waitOnlineSteps apiHelperTableNoMargin">
+                    <thead>                        
+                    </thead>
+                    <tbody> 
+                        <tr class="waitOnlineStepNetwork">
+                            <td><img src="/assets/images/device-setup/ok-48.png" style="width=24px; height=24px; margin:2px; visibility:hidden"></td>
+                            <td>Connecting to network</td>
+                            <td></td>
+                        </tr>            
+                        <tr class="waitOnlineStepCloud">
+                            <td><img src="/assets/images/device-setup/ok-48.png" style="width=24px; height=24px; margin:2px; visibility:hidden"></td>
+                            <td>Connecting to the Particle cloud</td>
+                            <td></td>
+                        </tr>            
+                        <tr class="waitOnlineStepClaim">
+                            <td><img src="/assets/images/device-setup/ok-48.png" style="width=24px; height=24px; margin:2px; visibility:hidden"></td>
+                            <td>Claiming device</td>
+                            <td></td>
+                        </tr>            
+                    </tbody>
+                </table>
             </div>
-            <div class="setupStepClaimAndNameDevice" style="display:none">
+            <div class="setupStepNameDevice" style="display:none">
             </div>
             <div class="setupStepDone" style="display:none">
             </div>

@@ -256,87 +256,6 @@ $(document).ready(function() {
             
         };
 
-                /*
-        const prepareFirmware = async function() {
-            try {
-                setSetupStep('setupStepFlashDevice');
-
-                // Prepare firmware
-                setStatus('Preparing device firmware...');
-
-                projectZip = new zip.fs.FS();
-
-                console.log('getting project source');
-                await projectZip.importHttpContent('/assets/files/projects/usb-setup.zip');
-
-                console.log('projectZip', projectZip);
-
-                let formData = new FormData();
-    
-                formData.append('platform_id', deviceInfo.platformId);
-                formData.append('build_target_version', deviceInfo.targetVersion);
-                let fileNum = 0;
-    
-                const addDir = async function(path, zipDir) {
-                    for(const d of zipDir.children) {
-                        const p = (path ? path + '/' : '') + d.name;
-                        if (d.directory) {
-                            await addDir(p, d);
-                        }
-                        else {
-                            const blob = await d.getBlob('text/plain');
-                            formData.append('file' + (++fileNum), blob, p);
-                        }
-                    }
-                }
-                await addDir('', projectZip.root.children[0]);
-    
-
-                const compileResult = await new Promise(function(resolve, reject) {
-                    const request = {
-                        contentType: false,
-                        data: formData,
-                        dataType: 'json',
-                        error: function (jqXHR) {
-                            ga('send', 'event', gaCategory, 'Setup Compile Error', (jqXHR.responseJSON ? jqXHR.responseJSON.error : ''));
-                            console.log('compile error');
-                            reject(jqXHR);
-                        },
-                        headers: {
-                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
-                            'Accept': 'application/json'
-                        },
-                        method: 'POST',
-                        processData: false,
-                        success: function (resp, textStatus, jqXHR) {
-                            ga('send', 'event', gaCategory, 'Setup Compile Success');
-                            resolve(resp);        
-                        },
-                        url: 'https://api.particle.io/v1/binaries/'
-                    };
-        
-                    $.ajax(request);
-        
-                });
-
-                console.log('compile result', compileResult);
-
-                const resp = await fetch('https://api.particle.io' + compileResult.binary_url);
-
-                console.log('resp', resp);
-
-                userFirmwareBinary = await resp.arrayBuffer();
-
-
-                console.log('binary result', userFirmwareBinary);
-
-                flashDevice();
-            }
-            catch(e) {
-                console.log('exception', e);
-            }
-        };
-                */
 
         const flashDevice = async function() {
             try {
@@ -349,6 +268,7 @@ $(document).ready(function() {
                 const resp = await fetch('/assets/files/docs-usb-setup-firmware/' + deviceInfo.platformVersionInfo.name + '.bin');
                 userFirmwareBinary = await resp.arrayBuffer();
 
+                let dfuPartTableInfo = {};
 
                 let options = {
                     eventCategory: 'USB Device Setup',
@@ -357,9 +277,65 @@ $(document).ready(function() {
                     setStatus,
                     version: deviceInfo.targetVersion, 
                     setupBit: 'done',
-                    progressUpdate: function(msg, pct) {
-                        $(thisElem).find('.setupStepFlashDeviceStatus').text(msg);
-                        $(thisElem).find('.setupStepFlashDeviceProgress').val(pct);
+                    progressUpdate: function(msg, pct, obj) {
+                        // obj.pct
+                        // obj.func == 'erase' else programming
+                        // obj.partName == system-part1, system-part2, system-part3, bootloader, softdevice, tinker
+                        // (obj.partName is tinker even for a custom binary)
+                        
+                        if (obj.func != 'erase') {
+                            pct += 100;
+                        }
+
+                        if (pct >= 200) {
+                            $(dfuPartTableInfo[obj.partName].imgElem).css('visibility', 'visible');
+                        }
+                        $(dfuPartTableInfo[obj.partName].progressElem).val(pct);
+                    },
+                    progressDfuParts: function(dfuParts) {
+                        console.log('dfuParts', dfuParts);
+
+                        const flashDeviceStepsElem = $(thisElem).find('.flashDeviceSteps');
+
+                        for(const dfuPart of dfuParts) {
+                            const rowElem = document.createElement('tr');
+
+                            let colElem;
+                            
+                            // Green check when completed
+                            colElem = document.createElement('td');
+                            const imgElem = document.createElement('img');
+                            $(imgElem).attr('src', '/assets/images/device-setup/checkmark-48.png');
+                            $(imgElem).css('width', '24px');
+                            $(imgElem).css('height', '24px');
+                            $(imgElem).css('margin', '2px');
+                            $(colElem).append(imgElem);
+                            $(rowElem).append(colElem);
+                            $(imgElem).css('visibility', 'hidden');
+
+                            // Title
+                            colElem = document.createElement('td');
+                            $(colElem).text(dfuPart.title);
+                            $(rowElem).append(colElem);
+
+                            // Progress
+                            colElem = document.createElement('td');
+                            const progressElem = document.createElement('progress');
+                            $(progressElem).attr('value', '0');
+                            $(progressElem).attr('max', '200');
+                            $(colElem).append(progressElem);
+                            $(rowElem).append(colElem);
+
+                            $(flashDeviceStepsElem).append(rowElem);
+
+
+                            dfuPartTableInfo[dfuPart.name] = {
+                                dfuPart,
+                                progressElem,
+                                rowElem,
+                                imgElem
+                            };
+                        }
                     }
                 };
 
@@ -369,7 +345,10 @@ $(document).ready(function() {
                 console.log('restoreResult', restoreResult);
             
                 if (restoreResult.ok) {
-                    reconnectToDevice();
+                    await reconnectToDevice();
+
+                    // If this is a cellular device, configureWiFi() jumps immediately into waitDeviceOnline()
+                    configureWiFi();      
                 }
                 else {
                     console.log('do something for dfu error');
@@ -423,9 +402,7 @@ $(document).ready(function() {
             
             usbDevice = await ParticleUsb.openDeviceById(nativeUsbDevice, {});
 
-            // If this is a cellular device, configureWiFi() jumps immediately into waitDeviceOnline()
-            configureWiFi();      
-
+            console.log('reconnectToDevice complete');
         };
 
         const configureWiFi = async function() {
@@ -476,7 +453,7 @@ $(document).ready(function() {
                 }
             };
 
-            $(setCredentialsElem).on('click', async function() {
+            const setCredentials = async function() {
                 $(setCredentialsElem).prop('disabled', true);
 
                 setStatus('Setting Wi-Fi credentials...');
@@ -505,10 +482,11 @@ $(document).ready(function() {
 
                 waitDeviceOnline();
                 return;
-            });
+            };
 
+            // TODO: Make a Return in the password field set credentials
 
-
+            $(setCredentialsElem).on('click', setCredentials);
 
             radioSelectionUpdate();
 
@@ -580,8 +558,9 @@ $(document).ready(function() {
                                 // 56x68
                                 const imgElem = document.createElement('img');
                                 $(imgElem).attr('src', '/assets/images/device-setup/wifi-lock.png');
-                                $(imgElem).attr('width', '15');
-                                $(imgElem).attr('height', '17');
+                                $(imgElem).css('width', '15px');
+                                $(imgElem).css('height', '17px');
+                                $(imgElem).css('margin', '2px');
                                 $(colElem).append(imgElem);
                             }
                             $(rowElem).append(colElem);
@@ -592,8 +571,9 @@ $(document).ready(function() {
                                 // 86x68
                                 const imgElem = document.createElement('img');
                                 $(imgElem).attr('src', '/assets/images/device-setup/signal-bars-' + bars + '.png');
-                                $(imgElem).attr('width', '22');
-                                $(imgElem).attr('height', '17');
+                                $(imgElem).css('width', '22px');
+                                $(imgElem).css('height', '17px');
+                                $(imgElem).css('margin', '2px');
                                 $(colElem).append(imgElem);    
                             }
                             $(rowElem).append(colElem);
@@ -620,14 +600,6 @@ $(document).ready(function() {
 
                 }
 
-                /*
-                  if  (rssi>=-70) str="Excellent";
-    else if(rssi>=-70 && rssi >-85) str=("Good");
-    else if (rssi>-86&& rssi >=-100) str=("Fair");
-    else if (rssi>-100) str=("Poor");
-    else if (rssi>-110) str=("No Signal");
-                */
-                
             }
 
             setStatus('Waiting for you to select one...');
@@ -639,42 +611,104 @@ $(document).ready(function() {
         };
 
         const waitDeviceOnline = async function() {
-            setSetupStep('setupStepWaitForOnline');
+            try {
+                setSetupStep('setupStepWaitForOnline');
 
-            setStatus('Waiting for device to come online...');   
-
-            // Wait for online
-            setInterval(async function() {
-                let reqObj = {
-                    op: 'status'
-                };
-
-                const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
-                if (res.result == 0 && res.data) {
-                    const respObj = JSON.parse(res.data);
-
-                    console.log('status', respObj);
-
-                    if (respObj.cloudConnected) {
-                        claimAndNameDevice();
-                        return;
+                console.log('in waitDeviceOnline');
+                setStatus('Waiting for device to come online...');   
+    
+                const waitOnlineStepsElem = $(thisElem).find('.waitOnlineSteps');
+    
+                // waitOnlineSteps
+    
+                let networkReady = false;
+    
+                // Wait for online
+                await new Promise(function(resolve, reject) {
+                    const timer = setInterval(async function() {
+                        let reqObj = {
+                            op: 'status'
+                        };
+        
+                        const res = await usbDevice.sendControlRequest(10, JSON.stringify(reqObj));
+                        if (res.result == 0 && res.data) {
+                            const respObj = JSON.parse(res.data);
+        
+                            console.log('status', respObj);
+        
+                            if (respObj.cloudConnected) {
+                                clearInterval(timer);
+                                $(thisElem).find('.waitOnlineStepCloud > td > img').css('visibility', 'visible');
+                                resolve();
+                                return;
+                            }
+                            if (respObj.netReady && !networkReady) {
+                                networkReady = true;
+                                $(thisElem).find('.waitOnlineStepNetwork > td > img').css('visibility', 'visible');
+                            }
+                        }
+                    }, 2000);
+                });
+    
+                // Claim device
+                const result = await new Promise(function(resolve, reject) {      
+                    const requestObj = {
+                        id: deviceInfo.deviceId
                     }
+                    
+                    const request = {
+                        contentType: 'application/json',
+                        data: JSON.stringify(requestObj),
+                        dataType: 'json',
+                        error: function (jqXHR) {
+                            console.log('error', jqXHR);
+                            reject(jqXHR.status);
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'POST',
+                        success: function (resp, textStatus, jqXHR) {
+                            resolve(resp);
+                        },
+                        url: 'https://api.particle.io/v1/devices/'
+                    };
+        
+                    $.ajax(request);            
+                });
+
+                console.log('claim result', result);
+
+                if (result.ok) {
+                    // Wait a second so the green check shows up
+                    await new Promise(function(resolve) {
+                        setTimeout(function() {
+                            resolve();
+                        }, 1000);
+                    });
                 }
-            }, 2000);
-            
+    
+                nameDevice();
+            }
+            catch(e) {
+                console.log('exception', e);
+            }
+
             
         };
 
-        const claimAndNameDevice = async function() {
-            setSetupStep('setupStepClaimAndNameDevice');
+        const nameDevice = async function() {
+            setSetupStep('setupStepNameDevice');
 
-            setStatus('Claiming and naming device...');   
+            setStatus('Name device...');   
             
         };
 
         const setupDone = async function() {
             setSetupStep('setupStepDone');
             
+            setStatus('Done!.');   
 
 
         };
