@@ -701,7 +701,67 @@ $(document).ready(function() {
         const nameDevice = async function() {
             setSetupStep('setupStepNameDevice');
 
-            setStatus('Name device...');   
+            const trochees = [
+                'aardvark', 'bacon', 'badger', 'banjo', 'bobcat', 'boomer', 'captain', 'chicken', 'cowboy', 'cracker',
+                'cranky', 'crazy', 'dentist', 'doctor', 'dozen', 'easter', 'ferret', 'gerbil', 'hacker', 'hamster', 'hindu',
+                'hobo', 'hoosier', 'hunter', 'jester', 'jetpack', 'kitty', 'laser', 'lawyer', 'mighty', 'monkey', 'morphing',
+                'mutant', 'narwhal', 'ninja', 'normal', 'penguin', 'pirate', 'pizza', 'plumber', 'power', 'puppy', 'ranger',
+                'raptor', 'robot', 'scraper', 'scrapple', 'station', 'tasty', 'trochee', 'turkey', 'turtle', 'vampire',
+                'wombat', 'zombie'];
+        
+        
+            const getRandomTrochee = function() {
+                const arr = trochees;
+                const parts = [];
+                for (let i = 0; i < 2; i++) {
+                    const a = Math.floor(Math.random() * arr.length);
+                    parts.push(arr[a]);
+                }
+                return parts.join('_');
+            };
+
+            const nameInputElem = $(thisElem).find('.nameInput');
+
+            $(nameInputElem).val(getRandomTrochee());
+            
+            const setName = async function() {
+                const result = await new Promise(function(resolve, reject) {      
+                    const requestObj = {
+                        name: $(nameInputElem).val()
+                    };
+                    
+                    const request = {
+                        contentType: 'application/json',
+                        data: JSON.stringify(requestObj),
+                        dataType: 'json',
+                        error: function (jqXHR) {
+                            console.log('error', jqXHR);
+                            reject(jqXHR.status);
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + apiHelper.auth.access_token,
+                            'Accept': 'application/json'
+                        },
+                        method: 'PUT',
+                        success: function (resp, textStatus, jqXHR) {
+                            resolve(resp);
+                        },
+                        url: 'https://api.particle.io/v1/devices/' + deviceInfo.deviceId
+                    };
+        
+                    $.ajax(request);            
+                });
+
+                console.log('name result', result);
+                setupDone();
+            };
+            $(thisElem).find('.setName').on('click', setName);
+
+            
+            $(thisElem).find('.skipNaming').on('click', function() {
+                setupDone();
+            });
+
             
         };
 
